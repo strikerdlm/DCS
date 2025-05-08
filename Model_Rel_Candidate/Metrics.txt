@@ -1,0 +1,30 @@
+Performing Grid Search...
+Fitting 5 folds for each of 432 candidates, totalling 2160 fits
+
+Best parameters found:
+{'learning_rate': 0.1, 'max_depth': 5, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 200, 'subsample': 1.0}
+
+Best cross-validation score: 0.9387
+
+Training Ensemble Models...
+
+Cross-validation R² scores: [0.94316566 0.93450052 0.94417365 0.93939074 0.94411004]
+Mean CV R² score: 0.9411 (+/- 0.0074)
+
+Making predictions...
+
+Model Performance Metrics:
+------------------------------
+R-squared (Ensemble): 0.9470
+Mean Squared Error: 59.5852
+Root Mean Squared Error: 7.7191
+Mean Absolute Error: 4.2247
+
+Feature Importances:
+------------------------------
+altitude: 0.5888
+time_at_altitude: 0.2633
+prebreathing_time: 0.0574
+exercise_level_Rest: 0.0521
+exercise_level_Heavy: 0.0293
+exercise_level_Mild: 0.0091

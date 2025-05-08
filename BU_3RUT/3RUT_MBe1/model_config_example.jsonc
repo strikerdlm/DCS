@@ -1,0 +1,32 @@
+{
+  // Alveolar Gas Exchange Parameters
+  "alveolar_volume": 3.0,             // Alveolar volume in liters (the lung volume available for gas exchange)
+  "O2_consumption_rate": 250,          // Rate at which O₂ is consumed (units as used in the model, e.g., mL/min)
+  "tau_CO2": 1.0,                     // Time constant (in minutes) for CO₂ adjustment in alveolar exchange
+  
+  // Ventilation Parameters
+  "ventilation_exercise_factor": 0.5,  // Factor by which ventilation increases with exercise intensity
+  "V_E_rest": 5.0,                    // Resting minute ventilation (L/min)
+  
+  // Nucleation Kinetics Parameters
+  "m_beta_ex": 0.6162,                // Coefficient adjusting the nucleation slope factor for exercise 
+  "sigma_c": 19.64,                   // Critical surface tension factor for bubble nucleation (mm-Hg or dyne/cm as defined)
+  "sigma": 30,                        // Surface tension (dyne/cm)
+  "beta0": 4.868e-5,                  // Initial slope parameter for the nuclei size distribution (from experimental calibration)
+  "N_b0": 1.198,                      // Baseline total number of nuclei in the tissue (dimensionless)
+  "N_dot_VGE": 4.758,                 // VGE gas loss rate (mL⁻¹·min⁻¹), representing gas venting from bubbles
+  "g_base": 0.06188,                  // Baseline gain factor influencing bubble formation rates
+  
+  // Gas Moles and Ideal Gas Parameters
+  "R_eff": 62.36367,                  // Effective gas constant used to map moles to bubble volume (or a scaling factor)
+  "k_diff": 0.0001,                   // Diffusivity coefficient for bubble gas (used in Fick’s law calculations)
+  
+  // Bubble Grouping and Advanced Kinetics
+  "num_bubble_groups": 1,             // Number of bubble size groups to simulate (for multi-scale tracking)
+  "advanced_nucleation_full": false,  // Boolean flag to select full (true) or simplified (false) dynamic nucleation kinetics
+  
+  // Tissue Gas Diffusion PDE Parameters
+  "D_t_N2": 0.001414,                 // Diffusivity of nitrogen in tissue (cm²/min)
+  "tissue_thickness": 1.0,            // Thickness (in cm) of the tissue slab for PDE modeling
+  "Nx": 20                          // Number of spatial discretization points in the PDE solver
+}
