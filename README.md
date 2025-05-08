@@ -1,3 +1,9 @@
+**Disclaimer:**
+> This repository and all associated models, scripts, and data are provided strictly for academic and research purposes. The models herein are based on published theory and experimental data, but they are not validated for clinical, operational, or real-world risk prediction.  
+> **These tools do not predict, diagnose, or guarantee the risk of decompression sickness (DCS) for any individual or exposure scenario.**  
+> No part of this project should be used as a substitute for professional medical advice, operational safety protocols, or regulatory guidance.  
+> The authors and contributors accept no liability for any use, misuse, or interpretation of the information or code provided in this repository.
+
 # DCS (Decompression Sickness) Models and Analysis
 
 ## Overview
