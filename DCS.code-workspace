@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true,
+		"terminal.integrated.cwd": "${workspaceFolder}",
+		// --- CURSOR/VS CODE RULES FOR THIS PROJECT ---
+		// 1. Use strict linting and formatting for Python
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.linting.flake8Enabled": true,
+		"python.formatting.provider": "black",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
+		},
+		// 2. Enable Jupyter notebook support for mathematical exploration
+		"jupyter.jupyterServerType": "local",
+		// 3. Enforce best practices for mathematical and model code
+		//    - Use type hints, docstrings, and comments for all model code
+		//    - Write unit tests for all mathematical/model functions
+		//    - Document equations and references in markdown or docstrings
+		// 4. Use notebooks for prototyping, scripts for production
+		// 5. Be careful to replicate models exactly as described in documentation
+		// 6. Use version control for all code and documentation changes
+		// 7. Review all mathematical derivations and code for correctness before merging
+		// 8. Prefer explicit, readable code over cleverness
+		// 9. Use virtual environments for Python dependencies
+		// 10. Keep data and outputs out of version control (see .gitignore)
+	}
+}

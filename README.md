@@ -1,0 +1,72 @@
+# DCS (Decompression Sickness) Models and Analysis
+
+## Overview
+This repository contains a comprehensive suite of models, scripts, and data for the analysis and simulation of decompression sickness (DCS) in various environments. The project integrates legacy code, machine learning models, NASA models, and supporting documentation for research and operational use.
+
+## Directory Structure
+- **3RTU_BU_2025_02_02/**: Documentation and theory for 3RTU models.
+- **3RUT_MBe1/**: Markdown documentation and theory for 3RUT models.
+- **BU_3RUT/**: Contains 3RUT_MBe1 with calibration scripts, risk models, configs, and results.
+- **BU_Model_2025/**: Main Python scripts for DCS simulation, CLI, and outputs (models, predictions).
+- **DCS Python Project_old/**: Legacy code and previous BU projects.
+- **Dive_DCS/libbuhlmann-master/**: Buhlmann decompression model implementation (with its own README).
+- **ML model/**: Machine learning scripts, results, and visualizations.
+- **Model_Rel_Candidate/**: Candidate models and metrics for release.
+- **NASA_model/**: NASA-specific DCS model.
+- **output/**: Model outputs and predictions.
+- **.vscode/**: Editor settings.
+- **__pycache__/**: Python bytecode cache (can be ignored).
+
+## Getting Started
+### Prerequisites
+- Python 3.8+
+- Recommended: Create a virtual environment
+
+### Installation
+```sh
+git clone <repo-url>
+cd DCS
+pip install -r requirements.txt  # (if requirements.txt exists)
+```
+
+### Running Models
+- **BU_Model_2025:**
+  ```sh
+  python BU_Model_2025/dcs_cli.py --help
+  ```
+- **ML model:**
+  ```sh
+  python "ML model/dcs_cli.py" --help
+  ```
+
+### Outputs
+- Model outputs (predictions, parameters, encoders, scalers) are stored in the `output/` directories of respective modules.
+- Example output files: `.xlsx` (predictions), `.joblib` (models, encoders, scalers).
+
+## Directory Details
+### BU_Model_2025/
+- `dcs_cli.py`, `dcs_app.py`, `DCSv10.py`, `DCSv11.py`: Main simulation and CLI scripts.
+- `output/`: Contains `.joblib` model files and `.xlsx` prediction outputs.
+
+### Dive_DCS/libbuhlmann-master/
+- Contains its own documentation and source for the Buhlmann model.
+
+### BU_3RUT/3RUT_MBe1/
+- Calibration, risk analysis, and test scripts for 3RUT models.
+
+### ML model/
+- `dcs_simulation.py`, `dcs_cli.py`, `dcs_app.py`: ML-based DCS simulation and analysis.
+
+## Contributing
+1. Fork the repo and create your branch (`git checkout -b feature/fooBar`)
+2. Commit your changes (`git commit -am 'Add some fooBar'`)
+3. Push to the branch (`git push origin feature/fooBar`)
+4. Create a new Pull Request
+
+## License
+- See `Dive_DCS/libbuhlmann-master/LICENSE` for Buhlmann model.
+- Other code: Specify your license here (e.g., MIT, GPL, etc.).
+
+## Acknowledgments
+- NASA, Buhlmann model authors, and all contributors.
+- Special thanks to all researchers and developers who contributed to the DCS modeling efforts. 

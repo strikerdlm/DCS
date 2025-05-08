@@ -1,0 +1,21 @@
+{
+  "alveolar_volume": 3.0,
+  "O2_consumption_rate": 250,
+  "tau_CO2": 1.0,
+  "ventilation_exercise_factor": 0.5,
+  "V_E_rest": 5.0,
+  "m_beta_ex": 0.6162,
+  "sigma_c": 19.64,
+  "sigma": 30,
+  "beta0": 4.868e-5,
+  "N_b0": 1.198,
+  "N_dot_VGE": 4.758,
+  "g_base": 0.06188,
+  "R_eff": 62.36367,
+  "k_diff": 0.0001,
+  "num_bubble_groups": 1,
+  "advanced_nucleation_full": false,
+  "D_t_N2": 0.001414,
+  "tissue_thickness": 1.0,
+  "Nx": 20
+} 
