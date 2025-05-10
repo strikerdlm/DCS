@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": "C:/Users/User/OneDrive/FAC/Research/Altitude Chamber/DCS FAC/DCS models/DCS"
 		}
 	],
 	"settings": {
@@ -15,7 +15,7 @@
 		"python.formatting.provider": "black",
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
-			"source.organizeImports": true
+			"source.organizeImports": "explicit"
 		},
 		// 2. Enable Jupyter notebook support for mathematical exploration
 		"jupyter.jupyterServerType": "local",
