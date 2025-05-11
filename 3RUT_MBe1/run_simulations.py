@@ -1,5 +1,12 @@
 import time
 from typing import List, Dict, Any
+import csv
+import dataclasses
+import os
+
+# Define the output directory for CSV files
+OUTPUT_DIR = r"C:/Users/User/OneDrive/FAC/Research/Altitude Chamber/DCS FAC/DCS models/DCS/3RUT_MBe1"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Attempt to import from local files; ensure these are in the same directory or PYTHONPATH
 try:
@@ -248,11 +255,16 @@ def main():
 
     # --- Post-simulation analysis example ---
     # Example: Print end-segment states for the 15000ft profile
-    print("\n--- Detailed Analysis Example for profile_15000ft_air_rest ---")
-    example_profile_key = "profile_15000ft_air_rest" # Change this key to inspect other profiles
+    print("\n--- Detailed Analysis Example for profile_35000ft_air_rest ---")
+    example_profile_key = "profile_35000ft_air_rest" # Changed to target 35000ft profile
     if example_profile_key in all_simulation_results and "error" not in all_simulation_results[example_profile_key]:
         print(f"End-segment states for {example_profile_key}:")
-        original_segments = generate_altitude_exposure_profile(target_altitude_ft=15000.0, acclimatization_duration_min=5.0, altitude_exposure_duration_min=60.0) # Regenerate to get segment details
+        # Regenerate to get segment details for printing context
+        original_segments = generate_altitude_exposure_profile(
+            target_altitude_ft=35000.0, # Altitude for the key
+            acclimatization_duration_min=5.0, 
+            altitude_exposure_duration_min=60.0
+        ) 
         
         for i, state in enumerate(all_simulation_results[example_profile_key].get("end_segment_states", [])):
             # Try to get corresponding original segment for context, if lists align
@@ -267,19 +279,18 @@ def main():
             print(f"    n_b={state.n_b:.2e}, r_hat={state.r_hat_dimensionless:.2e}")
             
         # To get the full history for plotting or detailed CSV export for one profile:
-        # specific_history = all_simulation_results[example_profile_key].get("full_history", [])
-        # if specific_history:
-        #     print(f"\nFull history for {example_profile_key} has {len(specific_history)} steps.")
-            # Here you could write specific_history to a CSV file
-            # e.g., import csv
-            # with open(f'{example_profile_key}_history.csv', 'w', newline='') as csvfile:
-            #     if not specific_history: return
-            #     fieldnames = [f.name for f in dataclasses.fields(specific_history[0])]
-            #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            #     writer.writeheader()
-            #     for step_state in specific_history:
-            #         writer.writerow(dataclasses.asdict(step_state))
-            # print(f"Full history for {example_profile_key} saved to {example_profile_key}_history.csv")
+        specific_history = all_simulation_results[example_profile_key].get("full_history", [])
+        if specific_history:
+            print(f"\nFull history for {example_profile_key} has {len(specific_history)} steps.")
+            # Save the full history for the example profile to the specified output directory
+            csv_path = os.path.join(OUTPUT_DIR, f'{example_profile_key}_history.csv')
+            with open(csv_path, 'w', newline='') as csvfile:
+                fieldnames = [f.name for f in dataclasses.fields(specific_history[0])]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+                for step_state in specific_history:
+                    writer.writerow(dataclasses.asdict(step_state))
+            print(f"Full history for {example_profile_key} saved to {csv_path}")
 
     else:
         print(f"No detailed results or error found for {example_profile_key}.")
