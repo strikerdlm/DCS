@@ -63,6 +63,27 @@ pip install -r requirements.txt  # (if requirements.txt exists)
 ### ML model/
 - `dcs_simulation.py`, `dcs_cli.py`, `dcs_app.py`: ML-based DCS simulation and analysis.
 
+## 🖥️ Streamlit Risk Explorer
+
+A modern web interface built with **Streamlit** (see `streamlit_app.py`) allows interactive exploration of any trained DCS model artefacts.
+
+### Quick start
+```bash
+# (inside your virtual-env)
+pip install -r requirements.txt  # ensures Streamlit & Plotly are available
+
+# Launch the UI
+streamlit run streamlit_app.py
+```
+
+### Features
+1. **Single prediction** – enter exposure parameters and instantly obtain the predicted DCS risk.
+2. **Parameter sweep** – vary altitude, time at altitude, or pre-breathing time to visualise how risk evolves.
+3. **Feature importance** – bar-chart of `feature_importances_` when provided by the underlying estimator.
+4. **Model-agnostic loading** – simply point the app to any directory containing matching `scaler_*.joblib`, `onehot_encoder_*.joblib`, and `simple_model_*` (or `trained_model_*`) artefacts; the latest timestamped versions are selected automatically.
+
+> **Note:** These models are experimental and **must not** be used for clinical or operational decisions. See the repository disclaimer.
+
 ## Contributing
 1. Fork the repo and create your branch (`git checkout -b feature/fooBar`)
 2. Commit your changes (`git commit -am 'Add some fooBar'`)
