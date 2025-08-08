@@ -4,7 +4,7 @@ import numpy as np
 import plotly.graph_objects as go
 import os
 import glob
-from typing import Tuple, Optional, Any
+from typing import Tuple, Optional, Any, Dict
 
 # -------------------------------------------------------------
 # Streamlit page configuration
@@ -69,8 +69,8 @@ def discover_artifacts(model_dir: str) -> Tuple[str, str, str]:
     return scaler, encoder, model
 
 
-def load_artifacts(model_dir: str) -> Tuple[Any, Any, Any]:
-    """Load scaler, encoder, and model objects."""
+def load_artifacts(model_dir: str) -> Tuple[Any, Any, Any, Dict[str, Any]]:
+    """Load scaler, encoder, and model objects plus preprocessing metadata."""
     scaler_path, encoder_path, model_path = discover_artifacts(model_dir)
     scaler = joblib.load(scaler_path)
     encoder = joblib.load(encoder_path)
@@ -81,7 +81,13 @@ def load_artifacts(model_dir: str) -> Tuple[Any, Any, Any]:
         model = model_obj.get("base_model") or model_obj.get("model") or model_obj.get("models") or model_obj
     else:
         model = model_obj
-    return scaler, encoder, model
+
+    # Heuristic: presence of model_params_*.joblib indicates v11 training with non-linear preprocessing
+    has_params = bool(glob.glob(os.path.join(model_dir, "model_params_*.joblib")))
+    meta = {
+        "apply_v11_transforms": has_params
+    }
+    return scaler, encoder, model, meta
 
 
 def prepare_features(
@@ -91,13 +97,26 @@ def prepare_features(
     exercise_level: str,
     scaler: Any,
     encoder: Any,
+    apply_v11_transforms: bool = False,
 ) -> np.ndarray:
-    """Return a 2-D numpy array ready to feed into *model.predict(..)*"""
+    """Return a 2-D numpy array ready to feed into *model.predict(..)*
+
+    When ``apply_v11_transforms`` is True, applies the v11 non-linear preprocessing used during training:
+    - prebreathing_time := log1p(prebreathing_time)
+    - time_at_altitude := (time_at_altitude) ** 1.5
+    """
+    # Apply v11 non-linear transforms if requested (to match training distribution)
+    if apply_v11_transforms:
+        prebreathing_time = float(np.log1p(prebreathing_time))
+        time_at_altitude = float(np.power(time_at_altitude, 1.5))
+
     numerical = [altitude, time_at_altitude, prebreathing_time]
+
     # Ensure exercise level string matches the encoderʼs categories
     matched = next((lvl for lvl in encoder.categories_[0] if lvl.lower() == exercise_level.lower()), None)
     if matched is None:
         raise ValueError(f"Exercise level '{exercise_level}' not recognised by encoder: {encoder.categories_[0]}")
+
     categorical = encoder.transform([[matched]]).ravel().tolist()
     full = np.array([numerical + categorical])
     return scaler.transform(full)
@@ -120,21 +139,22 @@ with st.sidebar:
 
     if st.button("🔄 Load model"):
         try:
-            scaler_obj, encoder_obj, model_obj = load_artifacts(model_dir)
+            scaler_obj, encoder_obj, model_obj, meta = load_artifacts(model_dir)
             st.success("Model artefacts loaded successfully! 🎉")
             st.session_state["artefacts"] = {
                 "scaler": scaler_obj,
                 "encoder": encoder_obj,
                 "model": model_obj,
+                "apply_v11_transforms": bool(meta.get("apply_v11_transforms", False)),
             }
         except Exception as ex:
             st.error(f"Failed to load artefacts: {ex}")
 
     # Parameter inputs (sticky even if artefacts not loaded yet)
     st.header("Exposure parameters")
-    altitude = st.number_input("Altitude (feet)", 0.0, 63000.0, 18000.0, step=500.0)
-    time_at_altitude = st.number_input("Time at altitude (minutes)", 0.0, 600.0, 30.0, step=5.0)
-    prebreathing_time = st.number_input("Pre-breathing time (minutes)", 0.0, 180.0, 30.0, step=5.0)
+    altitude = st.number_input("Altitude (feet)", 0.0, 63000.0, 18000.0, step=500.0, help="Cabin altitude in feet.")
+    time_at_altitude = st.number_input("Time at altitude (minutes)", 0.0, 600.0, 30.0, step=5.0, help="Duration of exposure at altitude.")
+    prebreathing_time = st.number_input("Pre-breathing time (minutes)", 0.0, 180.0, 30.0, step=5.0, help="Pre-breathe oxygen time prior to exposure.")
 
     exercise_level = "Rest"
     if "artefacts" in st.session_state:
@@ -158,6 +178,11 @@ if "artefacts" not in st.session_state:
 scaler = st.session_state["artefacts"]["scaler"]
 encoder = st.session_state["artefacts"]["encoder"]
 model = st.session_state["artefacts"]["model"]
+apply_v11_transforms = bool(st.session_state["artefacts"].get("apply_v11_transforms", False))
+
+# Preprocessing indicator for user clarity
+if apply_v11_transforms:
+    st.caption("Using model with non-linear preprocessing: time_at_altitude^1.5 and log1p(pre-breathing time).")
 
 features = prepare_features(
     altitude,
@@ -166,6 +191,7 @@ features = prepare_features(
     exercise_level,
     scaler,
     encoder,
+    apply_v11_transforms,
 )
 
 predicted_risk = predict_risk(model, features)
@@ -187,6 +213,7 @@ with prediction_tab:
         "Time @ Altitude (min)": time_at_altitude,
         "Pre-breathing (min)": prebreathing_time,
         "Exercise level": exercise_level,
+        "Preprocessing": "v11 non-linear" if apply_v11_transforms else "standard",
     })
 
     st.success(f"**Predicted DCS risk**: {predicted_risk:.2f}%")
@@ -210,7 +237,7 @@ with sweep_tab:
         float(sweep_min),
         float(sweep_max),
         (float(sweep_min), float(sweep_max)),
-        step= (sweep_max - sweep_min) / 50,
+        step=(sweep_max - sweep_min) / 50,
     )
     num_points = st.selectbox("Resolution (points)", options=[25, 50, 100, 200], index=1)
 
@@ -227,7 +254,7 @@ with sweep_tab:
                 _time = v
             elif param_to_vary == "Pre-breathing time":
                 _pre = v
-            f_vec = prepare_features(_alt, _time, _pre, exercise_level, scaler, encoder)
+            f_vec = prepare_features(_alt, _time, _pre, exercise_level, scaler, encoder, apply_v11_transforms)
             pred_vals.append(predict_risk(model, f_vec))
 
         fig = go.Figure()
