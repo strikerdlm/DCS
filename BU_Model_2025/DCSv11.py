@@ -159,7 +159,7 @@ def save_results(results_df, models, scaler, onehot_encoder, X_columns, output_d
     # Save model parameters instead of the full model
     model_params = {
         'params': models[0].get_params(),
-        'n_estimators': models[0].n_estimators_,
+        'n_estimators': models[0].n_estimators,
         'feature_importances': models[0].feature_importances_.tolist(),
         'train_score': models[0].train_score_.tolist(),
         'feature_names': feature_names
