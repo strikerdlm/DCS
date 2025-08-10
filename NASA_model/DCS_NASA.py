@@ -5,7 +5,7 @@
 # Key references include NASA_model/Evidence_2024.md and conkin-dcs-exercise_2004.md.
 
 import numpy as np
-from scipy.optimize import minimize # This import is currently unused.
+
 from sklearn.linear_model import LogisticRegression
 
 # Constants
@@ -105,67 +105,68 @@ def logistic_regression_model(etr, age, gender_str, coefficients):
     logit = B0 + (B_etr * etr) + (B_age * age) + (B_gender * gender_encoded)
     return 1 / (1 + np.exp(-logit))  # Sigmoid function
 
-# Example Dataset for Training Logistic Regression
-# NOTE: This is a very small, synthetic dataset for demonstration purposes.
-# A robust model would require a comprehensive dataset from human subject testing,
-# such as those described in conkin-dcs-exercise_2004.md.
-data = np.array([
-    # (ETR, Age, Gender_encoded (0=Male, 1=Female), DCS_outcome (0=No, 1=Yes))
-    (1.5, 30, 0, 0),  # No DCS (Male)
-    (1.8, 40, 1, 1),  # DCS (Female)
-    (1.6, 35, 0, 0),  # No DCS (Male)
-    (1.9, 50, 1, 1),  # DCS (Female)
-    (1.7, 33, 0, 0),  # No DCS (Male)
-    (2.0, 45, 1, 1)   # DCS (Female)
-])
+if __name__ == "__main__":
+    # Example Dataset for Training Logistic Regression
+    # NOTE: This is a very small, synthetic dataset for demonstration purposes.
+    # A robust model would require a comprehensive dataset from human subject testing,
+    # such as those described in conkin-dcs-exercise_2004.md.
+    data = np.array([
+        # (ETR, Age, Gender_encoded (0=Male, 1=Female), DCS_outcome (0=No, 1=Yes))
+        (1.5, 30, 0, 0),  # No DCS (Male)
+        (1.8, 40, 1, 1),  # DCS (Female)
+        (1.6, 35, 0, 0),  # No DCS (Male)
+        (1.9, 50, 1, 1),  # DCS (Female)
+        (1.7, 33, 0, 0),  # No DCS (Male)
+        (2.0, 45, 1, 1)   # DCS (Female)
+    ])
 
-X_train = data[:, :3]  # Features: (ETR, Age, Gender_encoded)
-y_train = data[:, 3]    # Target: DCS (1) or No DCS (0)
+    X_train = data[:, :3]  # Features: (ETR, Age, Gender_encoded)
+    y_train = data[:, 3]    # Target: DCS (1) or No DCS (0)
 
-# Train Logistic Regression Model
-log_reg = LogisticRegression()
-log_reg.fit(X_train, y_train)
+    # Train Logistic Regression Model
+    log_reg = LogisticRegression()
+    log_reg.fit(X_train, y_train)
 
-# Get coefficients from trained model
-B0 = log_reg.intercept_[0]
-# log_reg.coef_[0] will contain coefficients for ETR, Age, Gender in that order
-coefficients_all = (B0, log_reg.coef_[0, 0], log_reg.coef_[0, 1], log_reg.coef_[0, 2])
+    # Get coefficients from trained model
+    B0 = log_reg.intercept_[0]
+    # log_reg.coef_[0] will contain coefficients for ETR, Age, Gender in that order
+    coefficients_all = (B0, log_reg.coef_[0, 0], log_reg.coef_[0, 1], log_reg.coef_[0, 2])
 
-# --- Example Usage ---
-# Define input parameters for a hypothetical scenario
-p0_initial_n2 = 8.0  # Initial tissue nitrogen pressure (psia) - e.g., after equilibration at an 8.2 psia / 34% O2 habitat (approx. 0.66 * (8.2-0.9) = 4.8 psia N2 if starting from sea level N2 partial pressure, or higher if vehicle has more N2)
-                        # For this example, using 8.0 psia as a higher starting N2, assuming different habitat conditions.
-pa_prebreathe_n2 = 0.0  # Ambient nitrogen pressure during 100% O2 prebreathe (psia)
-vo2_ml_kg_min_pb = 45  # Example oxygen uptake during prebreathe (ml/kg/min)
-pb_duration_min = 90  # Example prebreathe time (minutes)
-lambda_parameter = 0.025  # Optimized lambda parameter for the nitrogen washout model (empirical)
+    # --- Example Usage ---
+    # Define input parameters for a hypothetical scenario
+    p0_initial_n2 = 8.0  # Initial tissue nitrogen pressure (psia) - e.g., after equilibration at an 8.2 psia / 34% O2 habitat (approx. 0.66 * (8.2-0.9) = 4.8 psia N2 if starting from sea level N2 partial pressure, or higher if vehicle has more N2)
+    # For this example, using 8.0 psia as a higher starting N2, assuming different habitat conditions.
+    pa_prebreathe_n2 = 0.0  # Ambient nitrogen pressure during 100% O2 prebreathe (psia)
+    vo2_ml_kg_min_pb = 45  # Example oxygen uptake during prebreathe (ml/kg/min)
+    pb_duration_min = 90  # Example prebreathe time (minutes)
+    lambda_parameter = 0.025  # Optimized lambda parameter for the nitrogen washout model (empirical)
 
-# Calculate P1N2 and ETR
-p1n2_final = compute_p1n2(p0_initial_n2, pa_prebreathe_n2, vo2_ml_kg_min_pb, pb_duration_min, lambda_parameter)
-etr_calculated = compute_etr(p1n2_final) # Uses default P2 = 4.3 psia
+    # Calculate P1N2 and ETR
+    p1n2_final = compute_p1n2(p0_initial_n2, pa_prebreathe_n2, vo2_ml_kg_min_pb, pb_duration_min, lambda_parameter)
+    etr_calculated = compute_etr(p1n2_final)  # Uses default P2 = 4.3 psia
 
-# Subject-specific parameters for DCS prediction
-subject_age = 43
-subject_gender = "Male"  # String "Male" or "Female"
+    # Subject-specific parameters for DCS prediction
+    subject_age = 43
+    subject_gender = "Male"  # String "Male" or "Female"
 
-# Predict probability of DCS using the trained model and calculated ETR
-# Note: The predictive accuracy heavily depends on the quality and size of the training dataset.
-# The coefficients_all are derived from the minimal example dataset above.
-predicted_dcs_probability = logistic_regression_model(etr_calculated, subject_age, subject_gender, coefficients_all)
+    # Predict probability of DCS using the trained model and calculated ETR
+    # Note: The predictive accuracy heavily depends on the quality and size of the training dataset.
+    # The coefficients_all are derived from the minimal example dataset above.
+    predicted_dcs_probability = logistic_regression_model(etr_calculated, subject_age, subject_gender, coefficients_all)
 
-print("--- DCS Model Prediction Example ---")
-print(f"Input Parameters:")
-print(f"  Initial P1N2 (p0): {p0_initial_n2} psia")
-print(f"  Ambient N2 during PB (pa): {pa_prebreathe_n2} psia")
-print(f"  VO2 during PB: {vo2_ml_kg_min_pb} ml/kg/min")
-print(f"  Prebreathe Duration: {pb_duration_min} min")
-print(f"  Lambda for k: {lambda_parameter}")
-print(f"  Suit Pressure (P2): {P2} psia")
-print(f"  Subject Age: {subject_age} years")
-print(f"  Subject Gender: {subject_gender}")
-print("\\nCalculated Values:")
-print(f"  Nitrogen elimination rate constant (k): {nitrogen_half_time(vo2_ml_kg_min_pb, lambda_parameter):.6f}")
-print(f"  Computed Final P1N2: {p1n2_final:.4f} psia")
-print(f"  Computed ETR: {etr_calculated:.4f}")
-print("\\nPrediction:")
-print(f"  Predicted DCS Probability: {predicted_dcs_probability:.4%}")
+    print("--- DCS Model Prediction Example ---")
+    print(f"Input Parameters:")
+    print(f"  Initial P1N2 (p0): {p0_initial_n2} psia")
+    print(f"  Ambient N2 during PB (pa): {pa_prebreathe_n2} psia")
+    print(f"  VO2 during PB: {vo2_ml_kg_min_pb} ml/kg/min")
+    print(f"  Prebreathe Duration: {pb_duration_min} min")
+    print(f"  Lambda for k: {lambda_parameter}")
+    print(f"  Suit Pressure (P2): {P2} psia")
+    print(f"  Subject Age: {subject_age} years")
+    print(f"  Subject Gender: {subject_gender}")
+    print("\nCalculated Values:")
+    print(f"  Nitrogen elimination rate constant (k): {nitrogen_half_time(vo2_ml_kg_min_pb, lambda_parameter):.6f}")
+    print(f"  Computed Final P1N2: {p1n2_final:.4f} psia")
+    print(f"  Computed ETR: {etr_calculated:.4f}")
+    print("\nPrediction:")
+    print(f"  Predicted DCS Probability: {predicted_dcs_probability:.4%}")
