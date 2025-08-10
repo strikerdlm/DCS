@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 import plotly.graph_objects as go
+import plotly.express as px
 import os
 import glob
 from typing import Tuple, Optional, Any, Dict
@@ -200,10 +201,12 @@ st.metric(label="Predicted DCS Risk (%)", value=f"{predicted_risk:.2f}")
 
 # Create tabbed interface for more exploration
 
-prediction_tab, sweep_tab, importance_tab = st.tabs([
+prediction_tab, sweep_tab, importance_tab, three_d_tab, math_tab = st.tabs([
     "📈 Single Prediction",
     "🧮 Parameter Sweep",
     "📊 Feature Importance",
+    "🌐 3D Surface",
+    "📐 Model Math",
 ])
 
 with prediction_tab:
@@ -294,3 +297,114 @@ with importance_tab:
         st.plotly_chart(fig_imp, use_container_width=True)
     else:
         st.info("Selected model does not provide native feature-importance information.")
+
+with three_d_tab:
+    st.subheader("3D risk surface")
+    st.caption("Explore predicted risk as a surface varying two inputs while holding the others fixed.")
+
+    var_options = ["Altitude", "Time at altitude", "Pre-breathing time"]
+    col_x, col_y = st.columns(2)
+    with col_x:
+        param_x = st.selectbox("X-axis", var_options, index=0)
+    with col_y:
+        param_y = st.selectbox("Y-axis", var_options, index=1)
+
+    if param_x == param_y:
+        st.warning("Select two different parameters for X and Y.")
+    else:
+        ranges = {
+            "Altitude": (0.0, 63000.0),
+            "Time at altitude": (0.0, 600.0),
+            "Pre-breathing time": (0.0, 180.0),
+        }
+        x_min, x_max = ranges[param_x]
+        y_min, y_max = ranges[param_y]
+
+        grid_res = st.select_slider("Grid resolution", options=[20, 30, 40, 60, 80, 100], value=40)
+        if st.button("Generate 3D surface"):
+            x_vals = np.linspace(x_min, x_max, grid_res)
+            y_vals = np.linspace(y_min, y_max, grid_res)
+            z_matrix = np.zeros((grid_res, grid_res), dtype=float)
+
+            def assign_vars(x_value, y_value):
+                _alt, _time, _pre = altitude, time_at_altitude, prebreathing_time
+                if param_x == "Altitude":
+                    _alt = x_value
+                elif param_x == "Time at altitude":
+                    _time = x_value
+                elif param_x == "Pre-breathing time":
+                    _pre = x_value
+
+                if param_y == "Altitude":
+                    _alt = y_value
+                elif param_y == "Time at altitude":
+                    _time = y_value
+                elif param_y == "Pre-breathing time":
+                    _pre = y_value
+                return _alt, _time, _pre
+
+            for i, xv in enumerate(x_vals):
+                for j, yv in enumerate(y_vals):
+                    _alt, _time, _pre = assign_vars(xv, yv)
+                    f_vec = prepare_features(_alt, _time, _pre, exercise_level, scaler, encoder, apply_v11_transforms)
+                    z_matrix[j, i] = predict_risk(model, f_vec)
+
+            surface_fig = go.Figure(
+                data=[
+                    go.Surface(
+                        x=x_vals, y=y_vals, z=z_matrix,
+                        colorscale="Turbo",
+                        colorbar=dict(title="Risk (%)"),
+                        contours={"z": {"show": True, "usecolormap": True, "project_z": True}}
+                    )
+                ]
+            )
+            surface_fig.update_layout(
+                scene=dict(
+                    xaxis_title=param_x,
+                    yaxis_title=param_y,
+                    zaxis_title="Predicted DCS Risk (%)",
+                ),
+                height=650,
+                template="plotly_dark",
+                margin=dict(l=0, r=0, t=30, b=0)
+            )
+            st.plotly_chart(surface_fig, use_container_width=True)
+
+            st.markdown("—")
+            st.subheader("2D contour heatmap")
+            contour_fig = go.Figure(
+                data=[
+                    go.Contour(
+                        x=x_vals,
+                        y=y_vals,
+                        z=z_matrix,
+                        colorscale="Turbo",
+                        contours_coloring="heatmap",
+                        colorbar=dict(title="Risk (%)")
+                    )
+                ]
+            )
+            contour_fig.update_layout(
+                xaxis_title=param_x,
+                yaxis_title=param_y,
+                height=550,
+                template="plotly_dark",
+                margin=dict(l=0, r=0, t=30, b=0)
+            )
+            st.plotly_chart(contour_fig, use_container_width=True)
+
+with math_tab:
+    st.subheader("Model math and transformations")
+    st.markdown(
+        """
+        - Training v11 preprocessing transforms:
+          - time_at_altitude' = time_at_altitude^{1.5}
+          - prebreathing_time' = log(1 + prebreathing_time)
+        - Streamlit applies these transforms when v11 artefacts are detected so inputs match training.
+        """
+    )
+    st.latex(r"p1n2 = p_0 + (p_a - p_0)\,\left(1 - e^{-k\,t}\right)")
+    st.latex(r"k = \frac{1 - e^{-\lambda\,VO_2}}{51.937} + \frac{\ln 2}{360}")
+    st.latex(r"ETR = \frac{P1N2}{P2}")
+    st.latex(r"Pr(\text{DCS}) = \sigma\!\left(B_0 + B_{etr}\,ETR + B_{age}\,age + B_{gender}\,gender\right)")
