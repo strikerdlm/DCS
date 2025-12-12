@@ -240,6 +240,9 @@ class RutMbe1Model:
 
     def __init__(self, params: Optional[ModelParameters] = None) -> None:
         self.params = params or ModelParameters()
+        # P^o_crush in Appendix C Eq. (C.5): the *initial* crush pressure under
+        # saturation conditions. This must remain constant for the exponential
+        # decay formulation to match the literature.
         self._p_crush_origin_atm: float = 0.0
         self.state: Optional[ModelState] = None
 
@@ -251,6 +254,38 @@ class RutMbe1Model:
         self._lob_eta = 1.58678
         self._lob_p_half_mmhg = 25.0
         self._hb_c_ml_o2_per_ml_blood = 0.20
+
+    @staticmethod
+    def _g_hat_inert(
+        *,
+        alpha_t_k: float,
+        v_hat_t: float,
+        n_b_n: float,
+        n_b_prev: float,
+    ) -> float:
+        """Compute Ĝ_k,n for inert gas (Eq. C.25).
+
+        Appendix C (C.25) for inert gases:
+          Ĝ_k,n = (4π/3) α_tk V̂t (n_b,n / n_b,n-1)
+
+        Notes
+        - This term is undefined at n_b,n-1 = 0; in that edge case we return 0
+          and rely on the ΔĜ term (C.26) during recruitment steps.
+        """
+        if n_b_n <= 0.0 or n_b_prev <= 0.0:
+            return 0.0
+        if alpha_t_k <= 0.0 or v_hat_t <= 0.0:
+            raise ValueError("alpha_t_k and v_hat_t must be > 0")
+        return (4.0 * math.pi / 3.0) * alpha_t_k * v_hat_t * (n_b_n / n_b_prev)
+
+    @staticmethod
+    def _delta_g_hat_inert(*, alpha_t_k: float, v_hat_t: float, delta_n_b: float) -> float:
+        """Compute ΔĜ_k,n for inert gas (Eq. C.26)."""
+        if delta_n_b <= 0.0:
+            return 0.0
+        if alpha_t_k <= 0.0 or v_hat_t <= 0.0:
+            raise ValueError("alpha_t_k and v_hat_t must be > 0")
+        return (4.0 * math.pi / 3.0) * alpha_t_k * v_hat_t * delta_n_b
 
     @staticmethod
     def mmhg_to_atm(p_mmhg: float) -> float:
@@ -508,8 +543,6 @@ class RutMbe1Model:
 
         if p_crush_n <= s.p_crush_atm:
             p_crush_n = self._p_crush_origin_atm + (s.p_crush_atm - self._p_crush_origin_atm) * math.exp(-dt_min / p.tau_pcrush_min)  # (C.5)
-        else:
-            self._p_crush_origin_atm = p_crush_n
 
         log_term = abs(math.log(p.n0_b_total_nuclei) - math.log(p.n_min_b))
         r_hat0_min = max(p.beta0_hat * log_term, 1e-12)
@@ -620,13 +653,11 @@ class RutMbe1Model:
         tau_n2 = max(tau_n2, 1e-12)
         eps_n2 = 1.0 - math.exp(-dt_min / tau_n2)
 
-        g_hat_n2 = 0.0
-        if n_b_n > 1e-12:
-            g_hat_n2 = (4.0 * math.pi / 3.0) * (n_b_n / (alpha_t_n2 * p.v_hat_t))
+        # Ĝ_k,n for inert gas per Appendix C (C.25) and ΔĜ_k,n per (C.26).
+        # NOTE: Ĝ_k,n depends on the ratio n_b,n / n_b,n-1, not the absolute n_b,n.
+        g_hat_n2 = self._g_hat_inert(alpha_t_k=alpha_t_n2, v_hat_t=p.v_hat_t, n_b_n=n_b_n, n_b_prev=s.n_b)
 
-        delta_g_hat_n2 = 0.0
-        if delta_n_b > 0.0:
-            delta_g_hat_n2 = (4.0 * math.pi / 3.0) * (delta_n_b / (alpha_t_n2 * p.v_hat_t))
+        delta_g_hat_n2 = self._delta_g_hat_inert(alpha_t_k=alpha_t_n2, v_hat_t=p.v_hat_t, delta_n_b=delta_n_b)
 
         ups_n2 = (pa_n2_np1 - pa_n2_n) / dt_min
         term_g_x = 0.0
