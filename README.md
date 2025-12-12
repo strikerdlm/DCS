@@ -65,7 +65,10 @@ pip install -r requirements.txt  # (if requirements.txt exists)
 
 ## 🖥️ Streamlit Risk Explorer
 
-A modern web interface built with **Streamlit** (see `streamlit_app.py`) allows interactive exploration of any trained DCS model artefacts.
+A modern web interface built with **Streamlit** (see `streamlit_app.py`) allows interactive exploration of:
+
+1) **ML artefact models** (joblib-trained estimators + preprocessing artefacts), and  
+2) **Mechanistic 3RUT‑MBe1** risk simulation (NEDU TR 18‑01, Appendix C recursion).
 
 ### Quick start
 ```bash
@@ -81,6 +84,7 @@ streamlit run streamlit_app.py
 2. **Parameter sweep** – vary altitude, time at altitude, or pre-breathing time to visualise how risk evolves.
 3. **Feature importance** – bar-chart of `feature_importances_` when provided by the underlying estimator.
 4. **Model-agnostic loading** – simply point the app to any directory containing matching `scaler_*.joblib`, `onehot_encoder_*.joblib`, and `simple_model_*` (or `trained_model_*`) artefacts; the latest timestamped versions are selected automatically.
+5. **Mechanistic 3RUT‑MBe1 mode** – run a time-resolved risk simulation with publication-style plots and export to CSV/HTML.
 
 > **Note:** These models are experimental and **must not** be used for clinical or operational decisions. See the repository disclaimer.
 
