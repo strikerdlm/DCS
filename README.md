@@ -139,43 +139,57 @@ This repository contains multiple model families with different validation style
 
 ## Roadmap: publishable, Q1 journal-grade app (step-by-step)
 
-The path to a publishable scientific application is primarily about **traceability, validation, and reproducibility**. A suggested iteration roadmap:
+The path to a publishable scientific application is primarily about **traceability, verification/validation, uncertainty quantification, and reproducibility**. A suggested iteration roadmap (aligned with best scientific software practices and publishable methods reporting):
 
 1) **Model registry + contracts (v0.1)**
    - Define a single “model interface” in code: required inputs, units, valid ranges, and outputs.
    - Ensure each model declares its supported covariates (age/sex/altitude/exercise/O₂ breathing/etc.).
+   - Require explicit **unit conventions** (atm vs mmHg, ft vs m) and an automated unit/shape validation layer.
 
 2) **Data curation + ground-truth definition (v0.2)**
    - For each model family, define what “ground truth” means (ADRAC-derived risk %, observed DCS outcomes, VGE grades, etc.).
    - Create a versioned dataset manifest: source, inclusion criteria, missingness handling, and licensing constraints.
+   - Pre-specify a **case definition** (binary DCS / ordinal severity / time-to-event), censoring rules, and what constitutes an “exposure”.
 
-3) **Evaluation suite with clinical-style metrics (v0.3)**
+3) **Verification-first evaluation suite (v0.3)**
+   - Add **model verification** tests that check the implementation against the published recursion/identities (e.g., Appendix C/D invariants), not just outcome metrics.
+   - Add **numerical stability** tests (step-size sensitivity, extreme-but-valid inputs, monotonicity where theoretically required).
+   - Ensure deterministic runs (fixed seeds where applicable; avoid non-deterministic ordering).
+
+4) **Validation suite with publishable metrics (v0.4)**
    - Add a standardized evaluation harness that can compute:
      - **Sensitivity, specificity, PPV, NPV**
      - **ROC/AUC** (with confidence intervals)
      - **Calibration** (reliability curves, Brier score, calibration intercept/slope)
      - **Uncertainty** (CI95% / prediction intervals / bootstrap CIs)
    - Make the “decision threshold” explicit and justified (not arbitrary).
+   - Separate **discrimination** from **calibration**; report both.
+   - Report uncertainty with a documented procedure (e.g., bootstrap by study/protocol to respect clustering).
 
-4) **External validation + robustness (v0.4)**
-   - Perform strict train/validation/test separation by study/protocol (avoid leakage).
-   - Validate on out-of-sample profiles (altitudes, PB durations, exercise regimens) where possible.
+5) **External validation + robustness (v0.5)**
+   - Perform strict train/validation/test separation by **study/protocol/group** (avoid leakage).
+   - Validate on out-of-sample profiles (altitudes, prebreathe durations, exercise regimens) where possible.
+   - Include subgroup analyses and prespecified robustness checks.
 
-5) **Mechanistic vs ML reconciliation (v0.5)**
+6) **Mechanistic vs ML reconciliation (v0.6)**
    - Document which covariates are mechanistically modeled vs purely statistical.
    - Add model comparison plots: risk vs time, hazard vs time, subgroup analyses.
+   - Explicitly report the **validity envelope** (input ranges and protocols supported) for each model family.
 
-6) **Reproducible builds + auditability (v0.6)**
+7) **Reproducible builds + auditability (v0.7)**
    - Pin dependencies, log model versions, hash artefacts, and store run metadata.
    - Add deterministic evaluation runs and artifact provenance (dataset version → model version → metrics).
+   - Publish a reproducible “methods run” that regenerates key tables/figures from raw inputs.
 
-7) **Clinical/operational safety framing (v0.7)**
+8) **Scientific & safety framing (v0.8)**
    - Strengthen disclaimers, intended-use statements, and “not for operational use” guardrails.
    - Add clear “validity envelope” constraints in UI (warn/disable extrapolation beyond training range).
+   - Adopt a reporting checklist (e.g., TRIPOD/TRIPOD-AI style) for any predictive claims.
 
-8) **Manuscript-ready outputs (v1.0)**
+9) **Manuscript-ready outputs (v1.0)**
    - Auto-generate publication-quality figures and tables (metrics, subgroup performance, calibration).
    - Provide a transparent methods section mapping each code path to the underlying theory documents.
+   - Produce a “model card” style summary per model family (intended use, limitations, data, metrics, uncertainty).
 
 ## Contributing
 1. Fork the repo and create your branch (`git checkout -b feature/fooBar`)
