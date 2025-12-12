@@ -1,9 +1,12 @@
+from __future__ import annotations
+
 import math
 import os
 import glob
 import re
+from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import joblib
 import numpy as np
@@ -12,8 +15,23 @@ from plotly.subplots import make_subplots
 import streamlit as st
 
 
+@dataclass(frozen=True, slots=True)
+class ModelValidity:
+    """Scientific validity metadata shown in the UI.
+
+    This is strictly a *display* structure. Values are taken from files already
+    present in this repository. When a metric is not available in the repo, it
+    is reported as "Not available" rather than inferred.
+    """
+
+    name: str
+    sources: Tuple[str, ...]
+    notes_md: str
+    metrics: Tuple[Tuple[str, str], ...]
+
+
 # -------------------------------------------------------------
-# Streamlit page configuration
+# Streamlit page configuration + styling
 # -------------------------------------------------------------
 st.set_page_config(
     page_title="DCS Risk Explorer",
@@ -22,23 +40,64 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.title("🩺 Decompression Sickness (DCS) Risk Explorer")
+st.markdown(
+    """
+<style>
+:root {
+  --card-bg: rgba(255,255,255,0.75);
+  --card-border: rgba(0,0,0,0.08);
+}
+
+/* Improve readability + spacing */
+.block-container { padding-top: 2.0rem; padding-bottom: 3rem; }
+
+/* Sidebar polish */
+section[data-testid="stSidebar"] {
+  border-right: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Make metric cards a bit more modern */
+div[data-testid="stMetric"] {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+/* Subheaders */
+h2, h3 { letter-spacing: -0.01em; }
+
+/* Small callout card */
+.dcs-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+st.title("Decompression Sickness (DCS) Risk Explorer")
 
 st.markdown(
     """
-    **Interactive application for exploring DCS risk models.**
-
-    - **ML artefact model**: load a trained estimator + preprocessing artefacts (`.joblib`).
-    - **Mechanistic 3RUT‑MBe1**: published recursion from NEDU TR 18‑01 (Appendix C).
-
-    > *Disclaimer*: research use only; not validated for clinical or operational use.
-    """,
+<div class="dcs-card">
+  <b>Research UI for exploring DCS risk models.</b><br/>
+  This app presents multiple model families that differ in assumptions, inputs, and validation.
+  <br/><br/>
+  <b>Safety & accuracy disclaimer</b>: This software is for academic/research use only.
+  It is <b>not</b> validated for clinical, operational, or personal risk decision-making.
+  Do not use it to plan flights, dives, EVAs, or medical care.
+</div>
+""",
     unsafe_allow_html=True,
 )
 
 
 # -------------------------------------------------------------
-# ML artefact helpers
+# Shared helpers
 # -------------------------------------------------------------
 
 def _locate_latest(pattern: str) -> Optional[str]:
@@ -72,6 +131,174 @@ def _locate_latest(pattern: str) -> Optional[str]:
     files.sort(key=_sort_key, reverse=True)
     return files[0]
 
+
+def _safe_read_text(path: str, *, max_bytes: int = 200_000) -> str:
+    """Read a text file with a hard byte cap."""
+
+    if max_bytes <= 0:
+        raise ValueError("max_bytes must be > 0")
+    with open(path, "rb") as f:
+        data = f.read(max_bytes + 1)
+    if len(data) > max_bytes:
+        data = data[:max_bytes]
+    return data.decode("utf-8", errors="replace")
+
+
+def _parse_key_value_metrics(text: str) -> List[Tuple[str, str]]:
+    """Parse simple `Key: Value` lines.
+
+    Keeps order and ignores separators.
+    """
+
+    out: List[Tuple[str, str]] = []
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if line.startswith("===") or set(line) <= {"-"}:
+            continue
+        if ":" not in line:
+            continue
+        k, v = line.split(":", 1)
+        k = k.strip()
+        v = v.strip()
+        if not k:
+            continue
+        out.append((k, v))
+    return out
+
+
+def _stable_sigmoid(z: float) -> float:
+    """Compute 1/(1+exp(-z)) with overflow safety."""
+
+    if not np.isfinite(z):
+        raise ValueError("z must be finite")
+    if z >= 0.0:
+        ez = math.exp(-z)
+        return 1.0 / (1.0 + ez)
+    ez = math.exp(z)
+    return ez / (1.0 + ez)
+
+
+# -------------------------------------------------------------
+# Model validity (from repo artefacts)
+# -------------------------------------------------------------
+
+def load_validity_cards() -> Dict[str, ModelValidity]:
+    root = os.path.abspath(os.path.dirname(__file__))
+
+    metrics_adrac_path = os.path.join(root, "Model_Rel_Candidate", "Metrics.txt")
+    metrics_asem_path = os.path.join(
+        root,
+        "DCS Python Project_old",
+        "BU_2024",
+        "model_validation_metrics_20250128_1245.txt",
+    )
+
+    adrac_metrics: Tuple[Tuple[str, str], ...] = tuple()
+    if os.path.exists(metrics_adrac_path):
+        adrac_metrics = tuple(_parse_key_value_metrics(_safe_read_text(metrics_adrac_path)))
+
+    asem_metrics: Tuple[Tuple[str, str], ...] = tuple()
+    if os.path.exists(metrics_asem_path):
+        asem_metrics = tuple(_parse_key_value_metrics(_safe_read_text(metrics_asem_path)))
+
+    return {
+        "ml_surrogate": ModelValidity(
+            name="ML surrogate (ADRAC-derived dataset)",
+            sources=(
+                "Model_Rel_Candidate/README.md",
+                "Model_Rel_Candidate/Metrics.txt",
+            ),
+            notes_md=(
+                "- **Model family**: supervised ML regression surrogate trained to reproduce ADRAC outputs (risk %).\n"
+                "- **Applicable metrics**: regression metrics (MAE/RMSE/R²).\n"
+                "- **Not applicable / not provided**: sensitivity/specificity/PPV/NPV/ROC unless a binary case definition and labeled outcomes are supplied.\n"
+                "- **Important**: the surrogate is only valid within the data envelope used to generate `DCS_Risk_DB_2025.csv`/`.xlsx` (avoid extrapolation)."
+            ),
+            metrics=adrac_metrics
+            if adrac_metrics
+            else (("Metrics", "Not available in repo artefacts"),),
+        ),
+        "mechanistic_3rut": ModelValidity(
+            name="Mechanistic 3RUT‑MBe1 (time-dependent covariate survival model)",
+            sources=(
+                "BU_3RUT/3RUT_MBe1/3RUT_Theory.md",
+                "rut_mbe1_model.py",
+            ),
+            notes_md=(
+                "- **Model family**: mechanistic bubble-evolution + survival/hazard recursion (NEDU TR 18‑01 Appendix C/D).\n"
+                "- **Covariates supported in theory**: pressure, inspired O₂ fraction, inspired inert gas fraction(s), and exercise intensity varying over time.\n"
+                "- **Repo includes**: chi-square goodness-of-fit discussions and comparisons vs other models in `3RUT_Theory.md` (e.g., ADRAC/NASA models).\n"
+                "- **Not provided as a single table in repo**: sensitivity/specificity/ROC/PPV/NPV; these require curated labeled datasets + decision thresholds."
+            ),
+            metrics=(
+                ("Training data referenced", "2598 man-exposures (as described in theory doc)"),
+                ("Fit assessment referenced", "Chi-square goodness-of-fit across groups (see theory doc)"),
+                ("Sensitivity/Specificity/ROC", "Not provided in repo"),
+            ),
+        ),
+        "nasa_rm_nm": ModelValidity(
+            name="NASA logistic model (ETR-based; RM with age / NM with sex)",
+            sources=(
+                "NASA_model/conkin-dcs-exercise_2004.md",
+                "NASA_model/DCS_NASA.py",
+                "NASA_model/Evidence_2024.md",
+            ),
+            notes_md=(
+                "- **Model family**: logistic regression of **P(DCS)** from **ETR** (Exercise Tissue Ratio), with either **age** (RM) or **sex** (NM).\n"
+                "- **This UI implements the published equations** from `conkin-dcs-exercise_2004.md` (Eq. 14 and Eq. 15).\n"
+                "- **Limitations**: the full NASA models account for multi-interval PB protocols; this UI provides a simplified single-interval PB calculator."  # noqa: E501
+            ),
+            metrics=(
+                ("Dataset size (RM)", "n = 229 exposures (as described in report)"),
+                ("Dataset size (NM)", "n = 159 exposures (as described in report)"),
+                ("Sensitivity/Specificity/ROC", "Not provided in repo"),
+                ("CI95%", "Not provided in repo (report notes CI limitations for some fits)"),
+            ),
+        ),
+        "asem": ModelValidity(
+            name="ASEM validation snapshot (legacy BU_2024 artefact)",
+            sources=(
+                "DCS Python Project_old/BU_2024/model_validation_metrics_20250128_1245.txt",
+            ),
+            notes_md=(
+                "- **What this is**: a legacy text report of regression-style validation metrics (MAE/RMSE/R²) for an ASEM-labelled run.\n"
+                "- **How we use it**: displayed verbatim; not assumed to correspond to the currently loaded ML artefacts."
+            ),
+            metrics=asem_metrics
+            if asem_metrics
+            else (("Metrics", "Not available in repo artefacts"),),
+        ),
+    }
+
+
+VALIDITY = load_validity_cards()
+
+
+def render_validity(validity: ModelValidity) -> None:
+    st.subheader("Scientific validity & limitations")
+    st.caption("Displayed from repository artefacts; values are not inferred.")
+
+    with st.expander("Show sources, metrics, and limitations", expanded=True):
+        st.markdown("**Sources**")
+        for src in validity.sources:
+            st.write(f"- `{src}`")
+
+        st.markdown("**Notes**")
+        st.markdown(validity.notes_md)
+
+        st.markdown("**Metrics available in this repo**")
+        st.dataframe(
+            [{"Metric": k, "Value": v} for k, v in validity.metrics],
+            use_container_width=True,
+            hide_index=True,
+        )
+
+
+# -------------------------------------------------------------
+# ML surrogate (artefacts) helpers
+# -------------------------------------------------------------
 
 def discover_artifacts(model_dir: str) -> Tuple[str, str, str]:
     """Return paths to (scaler, encoder, model) artefacts located in *model_dir*."""
@@ -108,69 +335,127 @@ def load_artifacts(model_dir: str) -> Tuple[Any, Any, Any, Dict[str, Any]]:
     model_obj = joblib.load(model_path)
 
     if isinstance(model_obj, dict):
-        model = model_obj.get("base_model") or model_obj.get("model") or model_obj.get("models") or model_obj
+        model = (
+            model_obj.get("base_model")
+            or model_obj.get("model")
+            or model_obj.get("models")
+            or model_obj
+        )
     else:
         model = model_obj
 
-    # Heuristic: presence of model_params_*.joblib indicates v11 training with non-linear preprocessing
     has_params = bool(glob.glob(os.path.join(model_dir, "model_params_*.joblib")))
-    meta = {"apply_v11_transforms": has_params}
+    meta = {
+        "apply_v11_transforms": has_params,
+        "scaler_path": scaler_path,
+        "encoder_path": encoder_path,
+        "model_path": model_path,
+    }
     return scaler, encoder, model, meta
 
 
-def prepare_features(
-    altitude: float,
-    time_at_altitude: float,
-    prebreathing_time: float,
+def _infer_expected_feature_names(
+    *, scaler: Any, encoder: Any
+) -> Optional[List[str]]:
+    """Attempt to infer expected feature names for ML artefacts.
+
+    - Prefer `scaler.feature_names_in_` when present.
+    - Else fall back to a best-effort constructed schema.
+
+    Returns None if a safe inference is not possible.
+    """
+
+    names = getattr(scaler, "feature_names_in_", None)
+    if names is not None:
+        try:
+            return [str(x) for x in list(names)]
+        except Exception:
+            return None
+
+    # Best-effort fallback for the most common schema in this repo.
+    if not hasattr(encoder, "categories_"):
+        return None
+
+    try:
+        onehot = list(encoder.get_feature_names_out(["exercise_level"]))
+    except Exception:
+        # Older sklearn encoders
+        cats = list(getattr(encoder, "categories_", [["Rest", "Mild", "Heavy"]])[0])
+        onehot = [f"exercise_level_{c}" for c in cats]
+
+    base = ["altitude", "time_at_altitude", "prebreathing_time"]
+    return base + [str(x) for x in onehot]
+
+
+def _exercise_onehot_from_expected(
+    *, expected_features: Sequence[str], selected_exercise: str
+) -> Dict[str, float]:
+    out: Dict[str, float] = {}
+    selected_norm = selected_exercise.strip().lower()
+
+    # Support both "exercise_level_Rest" and potentially other casing.
+    for feat in expected_features:
+        if not feat.startswith("exercise_level_"):
+            continue
+        cat = feat[len("exercise_level_") :].strip().lower()
+        out[feat] = 1.0 if cat == selected_norm else 0.0
+    return out
+
+
+def prepare_features_dynamic(
+    *,
+    input_values: Dict[str, float],
     exercise_level: str,
     scaler: Any,
     encoder: Any,
-    apply_v11_transforms: bool = False,
-) -> np.ndarray:
-    """Return a 2-D numpy array ready to feed into `model.predict*()`.
+    apply_v11_transforms: bool,
+) -> Tuple[np.ndarray, List[str]]:
+    """Build feature vector compatible with the loaded artefacts.
 
-    When `apply_v11_transforms` is True:
-    - prebreathing_time := log1p(prebreathing_time)
-    - time_at_altitude := time_at_altitude ** 1.5
+    Returns:
+    - scaled 2D array
+    - ordered feature names used
     """
 
-    for name, val in (
-        ("altitude", altitude),
-        ("time_at_altitude", time_at_altitude),
-        ("prebreathing_time", prebreathing_time),
-    ):
-        if not np.isfinite(val):
-            raise ValueError(f"{name} must be finite")
-        if val < 0:
-            raise ValueError(f"{name} must be >= 0")
-
-    if apply_v11_transforms:
-        prebreathing_time = float(np.log1p(prebreathing_time))
-        time_at_altitude = float(np.power(time_at_altitude, 1.5))
-
-    numerical = [float(altitude), float(time_at_altitude), float(prebreathing_time)]
-
-    # Ensure exercise level string matches the encoderʼs categories
-    matched = next(
-        (lvl for lvl in encoder.categories_[0] if lvl.lower() == exercise_level.lower()),
-        None,
-    )
-    if matched is None:
-        raise ValueError(
-            f"Exercise level '{exercise_level}' not recognised by encoder: {encoder.categories_[0]}"
+    expected = _infer_expected_feature_names(scaler=scaler, encoder=encoder)
+    if expected is None:
+        raise RuntimeError(
+            "Unable to infer expected feature schema for the loaded artefacts. "
+            "Provide artefacts produced by the project training scripts (with feature_names_in_) "
+            "or update the artefacts to include that metadata."
         )
 
-    categorical = encoder.transform([[matched]]).ravel().tolist()
-    full = np.array([numerical + categorical])
-    return scaler.transform(full)
+    # Apply training-time transforms when requested.
+    vals = dict(input_values)
+    if apply_v11_transforms:
+        if "prebreathing_time" in vals:
+            vals["prebreathing_time"] = float(np.log1p(vals["prebreathing_time"]))
+        if "time_at_altitude" in vals:
+            vals["time_at_altitude"] = float(np.power(vals["time_at_altitude"], 1.5))
+
+    # Inject one-hot exercise columns when expected.
+    onehot = _exercise_onehot_from_expected(expected_features=expected, selected_exercise=exercise_level)
+    vals.update(onehot)
+
+    # Validate and order.
+    row: List[float] = []
+    for feat in expected:
+        if feat not in vals:
+            raise ValueError(
+                f"Missing required feature '{feat}' for the loaded artefacts. "
+                "Use the sidebar inputs to fill all required model variables."
+            )
+        v = float(vals[feat])
+        if not np.isfinite(v):
+            raise ValueError(f"Feature '{feat}' must be finite")
+        row.append(v)
+
+    X = np.array([row], dtype=float)
+    return scaler.transform(X), list(expected)
 
 
 def predict_risk_percent(model: Any, features: np.ndarray) -> float:
-    """Predict risk as a percentage in [0, 100].
-
-    - Prefer `predict_proba` if available (binary class=1 probability).
-    - Else use `predict`. If output appears in [0, 1], scale to percent.
-    """
+    """Predict risk as a percentage in [0, 100]."""
 
     if hasattr(model, "predict_proba"):
         proba = model.predict_proba(features)
@@ -184,7 +469,7 @@ def predict_risk_percent(model: Any, features: np.ndarray) -> float:
 
 
 # -------------------------------------------------------------
-# Mechanistic 3RUT-MBe1 helpers
+# Mechanistic 3RUT‑MBe1 helpers
 # -------------------------------------------------------------
 
 def _exercise_level_to_i_ex_l_min_wb(exercise_level: str) -> float:
@@ -208,21 +493,35 @@ def _build_mechanistic_profile(
     altitude_ft: float,
     time_at_altitude_min: float,
     prebreathing_time_min: float,
-    exercise_level: str,
+    prebreathing_exercise_level: str,
+    altitude_exercise_level: str,
     dt_min: float,
     breathe_o2_at_altitude: bool,
+    prebreath_fio2: float,
+    ascent_duration_min: float,
 ) -> List[Any]:
-    """Build a simple profile for mechanistic mode.
+    """Build a simplified profile for mechanistic mode.
 
-    - Sea-level O2 prebreathe
-    - 1-minute decompression ramp discretized into dt-sized segments
-    - Constant altitude exposure (exercise applied here)
+    Implements a common structure discussed in the repo literature:
+    - Ground-level O2 prebreathe (FiO2 configurable; default 1.0)
+    - Linear decompression ramp from sea level to target altitude pressure
+    - Constant altitude exposure
+
+    Notes:
+    - The full theory supports arbitrary profile complexity (multiple nodes/stages).
+      This UI builder is intentionally constrained and should be treated as a
+      convenience input method.
     """
 
     from rut_mbe1_model import ProfileSegment
 
     if dt_min <= 0.0:
         raise ValueError("dt_min must be > 0")
+    if ascent_duration_min < 0.0:
+        raise ValueError("ascent_duration_min must be >= 0")
+    if not (0.0 <= prebreath_fio2 <= 1.0):
+        raise ValueError("prebreath_fio2 must be in [0, 1]")
+
     if altitude_ft < 0.0 or time_at_altitude_min < 0.0 or prebreathing_time_min < 0.0:
         raise ValueError("inputs must be >= 0")
 
@@ -230,7 +529,11 @@ def _build_mechanistic_profile(
     if p_final <= 0.0:
         raise ValueError("Altitude results in non-positive ambient pressure")
 
-    i_ex = _exercise_level_to_i_ex_l_min_wb(exercise_level)
+    fio2_alt = 1.0 if breathe_o2_at_altitude else 0.21
+    fin2_alt = 0.0 if breathe_o2_at_altitude else 0.79
+
+    i_ex_pre = _exercise_level_to_i_ex_l_min_wb(prebreathing_exercise_level)
+    i_ex_alt = _exercise_level_to_i_ex_l_min_wb(altitude_exercise_level)
 
     segments: List[Any] = []
 
@@ -239,31 +542,27 @@ def _build_mechanistic_profile(
             ProfileSegment(
                 duration_min=float(prebreathing_time_min),
                 p_amb_atm=1.0,
-                fio2=1.0,
-                fin2=0.0,
-                i_ex_l_min_wb=0.0,
+                fio2=float(prebreath_fio2),
+                fin2=float(max(0.0, 1.0 - prebreath_fio2)),
+                i_ex_l_min_wb=float(i_ex_pre),
             )
         )
 
-    # Decompression ramp: 1 minute
-    ramp_dur = 1.0
-    n_steps = max(1, int(math.ceil(ramp_dur / dt_min)))
-    step_dt = ramp_dur / n_steps
-    fio2_alt = 1.0 if breathe_o2_at_altitude else 0.21
-    fin2_alt = 0.0 if breathe_o2_at_altitude else 0.79
-
-    for i in range(n_steps):
-        frac = (i + 1) / n_steps
-        p_step = 1.0 + (p_final - 1.0) * frac
-        segments.append(
-            ProfileSegment(
-                duration_min=float(step_dt),
-                p_amb_atm=float(p_step),
-                fio2=float(fio2_alt),
-                fin2=float(fin2_alt),
-                i_ex_l_min_wb=0.0,
+    if ascent_duration_min > 0.0:
+        n_steps = max(1, int(math.ceil(ascent_duration_min / dt_min)))
+        step_dt = ascent_duration_min / n_steps
+        for i in range(n_steps):
+            frac = (i + 1) / n_steps
+            p_step = 1.0 + (p_final - 1.0) * frac
+            segments.append(
+                ProfileSegment(
+                    duration_min=float(step_dt),
+                    p_amb_atm=float(p_step),
+                    fio2=float(fio2_alt),
+                    fin2=float(fin2_alt),
+                    i_ex_l_min_wb=0.0,
+                )
             )
-        )
 
     if time_at_altitude_min > 0.0:
         segments.append(
@@ -272,7 +571,7 @@ def _build_mechanistic_profile(
                 p_amb_atm=float(p_final),
                 fio2=float(fio2_alt),
                 fin2=float(fin2_alt),
-                i_ex_l_min_wb=float(i_ex),
+                i_ex_l_min_wb=float(i_ex_alt),
             )
         )
 
@@ -280,193 +579,494 @@ def _build_mechanistic_profile(
 
 
 # -------------------------------------------------------------
-# Sidebar
+# NASA ETR logistic model helpers (Eq. 14 / Eq. 15)
 # -------------------------------------------------------------
+
+LN2 = float(np.log(2.0))
+DEFAULT_T_HALF_MIN = 360.0
+
+
+def nasa_k_from_vo2(*, vo2_ml_kg_min: float, lambda_2: float) -> float:
+    """Nitrogen elimination rate constant k (Conkin et al. 2004 style).
+
+    Implements the functional form in `NASA_model/DCS_NASA.py` and discussed in
+    `NASA_model/conkin-dcs-exercise_2004.md`.
+
+    Units:
+    - vo2_ml_kg_min: mL/kg/min
+    - returns: 1/min
+    """
+
+    if not np.isfinite(vo2_ml_kg_min) or vo2_ml_kg_min < 0.0:
+        raise ValueError("vo2_ml_kg_min must be finite and >= 0")
+    if not np.isfinite(lambda_2) or lambda_2 <= 0.0:
+        raise ValueError("lambda_2 must be finite and > 0")
+
+    return float((1.0 - math.exp(-lambda_2 * vo2_ml_kg_min)) / 51.937 + (LN2 / DEFAULT_T_HALF_MIN))
+
+
+def nasa_p1n2_after_pb(
+    *, p0_psia: float, pa_psia: float, vo2_ml_kg_min: float, pb_time_min: float, lambda_2: float
+) -> float:
+    """Compute tissue nitrogen pressure P1N2 after a single PB interval."""
+
+    for name, val in (
+        ("p0_psia", p0_psia),
+        ("pa_psia", pa_psia),
+        ("pb_time_min", pb_time_min),
+    ):
+        if not np.isfinite(val):
+            raise ValueError(f"{name} must be finite")
+    if pb_time_min < 0.0:
+        raise ValueError("pb_time_min must be >= 0")
+
+    k = nasa_k_from_vo2(vo2_ml_kg_min=vo2_ml_kg_min, lambda_2=lambda_2)
+    return float(p0_psia + (pa_psia - p0_psia) * (1.0 - math.exp(-k * pb_time_min)))
+
+
+def nasa_etr(*, p1n2_psia: float, p2_psia: float) -> float:
+    if not np.isfinite(p1n2_psia) or not np.isfinite(p2_psia):
+        raise ValueError("pressures must be finite")
+    if p2_psia <= 0.0:
+        raise ValueError("p2_psia must be > 0")
+    return float(p1n2_psia / p2_psia)
+
+
+def nasa_p_dcs_nm(*, etr_val: float, sex: str) -> float:
+    """NASA Model (NM): Eq. 14.
+
+    Eq. 14 in `NASA_model/conkin-dcs-exercise_2004.md`:
+      P(DCS) = exp(-25.56 + 12.83*ETR - 1.037*SEX) / (1 + exp(...))
+
+    SEX coding in the report example:
+    - male = 1
+    - female = 0
+    """
+
+    if not np.isfinite(etr_val) or etr_val <= 0.0:
+        raise ValueError("etr_val must be finite and > 0")
+
+    s = sex.strip().lower()
+    if s not in {"male", "female"}:
+        raise ValueError("sex must be 'Male' or 'Female'")
+    sex_code = 1.0 if s == "male" else 0.0
+
+    z = -25.56 + 12.83 * float(etr_val) - 1.037 * sex_code
+    return float(_stable_sigmoid(z))
+
+
+def nasa_p_dcs_rm(*, etr_val: float, age_years: float) -> float:
+    """Research Model (RM): Eq. 15."""
+
+    if not np.isfinite(etr_val) or etr_val <= 0.0:
+        raise ValueError("etr_val must be finite and > 0")
+    if not np.isfinite(age_years) or age_years <= 0.0:
+        raise ValueError("age_years must be finite and > 0")
+
+    z = -31.71 + 14.55 * float(etr_val) + 0.053 * float(age_years)
+    return float(_stable_sigmoid(z))
+
+
+# -------------------------------------------------------------
+# Sidebar: model selection + input controls
+# -------------------------------------------------------------
+
+MODEL_OPTIONS = (
+    "ML surrogate (loaded artefacts)",
+    "Mechanistic 3RUT‑MBe1",
+    "NASA ETR logistic (RM/NM)",
+)
+
 with st.sidebar:
-    st.header("Mode")
-    mode = st.radio(
-        "Select model type",
-        options=["ML artefact model", "Mechanistic 3RUT‑MBe1"],
+    st.header("Model")
+    model_choice = st.radio(
+        "Select model",
+        options=list(MODEL_OPTIONS),
         index=0,
-        help="ML artefacts (.joblib) vs mechanistic 3RUT‑MBe1 recursion (NEDU TR 18‑01, Appendix C).",
+        help="Each model supports a different set of inputs. The UI only shows variables that the chosen model uses.",
     )
 
-    if mode == "ML artefact model":
-        st.header("Model artefacts")
+    st.divider()
+    st.header("Inputs")
+
+    # -------------------------
+    # ML artefact model inputs
+    # -------------------------
+    if model_choice == "ML surrogate (loaded artefacts)":
+        st.caption("Loads joblib artefacts (scaler + encoder + estimator).")
         model_dir = st.text_input("Artefact directory", value="output")
-        if st.button("🔄 Load model"):
+
+        if st.button("Load ML artefacts", type="primary"):
             try:
                 scaler_obj, encoder_obj, model_obj, meta = load_artifacts(model_dir)
-                st.success("Model artefacts loaded successfully")
-                st.session_state["artefacts"] = {
+                st.session_state["ml_artefacts"] = {
                     "scaler": scaler_obj,
                     "encoder": encoder_obj,
                     "model": model_obj,
                     "apply_v11_transforms": bool(meta.get("apply_v11_transforms", False)),
+                    "meta": meta,
                 }
+                st.success("Loaded")
             except Exception as ex:
                 st.error(f"Failed to load artefacts: {ex}")
 
-    st.header("Exposure parameters")
-    altitude = st.number_input(
-        "Altitude (feet)",
-        0.0,
-        63000.0,
-        18000.0,
-        step=500.0,
-        help="Cabin altitude in feet.",
-    )
-    time_at_altitude = st.number_input(
-        "Time at altitude (minutes)",
-        0.0,
-        600.0,
-        30.0,
-        step=5.0,
-        help="Duration of exposure at altitude.",
-    )
-    prebreathing_time = st.number_input(
-        "Pre-breathing time (minutes)",
-        0.0,
-        180.0,
-        30.0,
-        step=5.0,
-        help="O₂ pre-breathe time prior to exposure.",
-    )
+        st.subheader("Exposure parameters")
+        altitude_ft = st.number_input(
+            "Altitude (ft)",
+            min_value=0.0,
+            max_value=63_000.0,
+            value=18_000.0,
+            step=500.0,
+        )
+        time_at_altitude_min = st.number_input(
+            "Time at altitude (min)",
+            min_value=0.0,
+            max_value=600.0,
+            value=30.0,
+            step=5.0,
+        )
+        prebreathing_time_min = st.number_input(
+            "Pre-breathe time (min)",
+            min_value=0.0,
+            max_value=240.0,
+            value=30.0,
+            step=5.0,
+            help="Assumed 100% O₂ prebreathe in the training data described in repo docs.",
+        )
 
-    if mode == "ML artefact model" and "artefacts" in st.session_state:
-        encoder_obj = st.session_state["artefacts"]["encoder"]
-        exercise_level = st.selectbox(
-            "Exercise level",
-            options=list(encoder_obj.categories_[0]),
+        if "ml_artefacts" in st.session_state:
+            enc = st.session_state["ml_artefacts"]["encoder"]
+            try:
+                exercise_options = list(enc.categories_[0])
+            except Exception:
+                exercise_options = ["Rest", "Mild", "Heavy"]
+        else:
+            exercise_options = ["Rest", "Mild", "Heavy"]
+
+        exercise_level = st.selectbox("Exercise level", options=exercise_options, index=0)
+
+        # Additional variables: only when artefacts explicitly request them.
+        extra_numeric: Dict[str, float] = {}
+        if "ml_artefacts" in st.session_state:
+            scaler_obj = st.session_state["ml_artefacts"]["scaler"]
+            encoder_obj = st.session_state["ml_artefacts"]["encoder"]
+            expected = _infer_expected_feature_names(scaler=scaler_obj, encoder=encoder_obj)
+
+            known = {
+                "altitude",
+                "time_at_altitude",
+                "prebreathing_time",
+            }
+            if expected is not None:
+                additional = [
+                    f
+                    for f in expected
+                    if (f not in known) and (not f.startswith("exercise_level_"))
+                ]
+
+                if additional:
+                    with st.expander("Additional model variables (auto-detected)", expanded=False):
+                        st.caption(
+                            "These inputs appear only when the loaded artefacts declare extra expected features. "
+                            "If your model was trained with age/sex/etc., they will show here."
+                        )
+                        for feat in additional:
+                            default_val = 0.0
+                            if feat.lower() in {"age", "age_years"}:
+                                default_val = 35.0
+                            extra_numeric[feat] = float(
+                                st.number_input(
+                                    f"{feat}",
+                                    value=float(default_val),
+                                    step=1.0 if default_val != 0.0 else 0.1,
+                                )
+                            )
+
+        st.session_state["ml_inputs"] = {
+            "altitude": float(altitude_ft),
+            "time_at_altitude": float(time_at_altitude_min),
+            "prebreathing_time": float(prebreathing_time_min),
+            "exercise_level": str(exercise_level),
+            "extra": extra_numeric,
+        }
+
+    # -------------------------
+    # Mechanistic 3RUT‑MBe1
+    # -------------------------
+    elif model_choice == "Mechanistic 3RUT‑MBe1":
+        st.caption("Published recursion (Appendix C/D) with time-varying covariates.")
+
+        altitude_ft = st.number_input(
+            "Altitude (ft)",
+            min_value=0.0,
+            max_value=63_000.0,
+            value=30_000.0,
+            step=500.0,
+        )
+        time_at_altitude_min = st.number_input(
+            "Time at altitude (min)",
+            min_value=0.0,
+            max_value=600.0,
+            value=240.0,
+            step=10.0,
+        )
+        prebreathing_time_min = st.number_input(
+            "Pre-breathe time (min)",
+            min_value=0.0,
+            max_value=240.0,
+            value=75.0,
+            step=5.0,
+        )
+
+        altitude_exercise_level = st.selectbox(
+            "Exercise level at altitude",
+            options=["Rest", "Mild", "Heavy"],
             index=0,
         )
-    else:
-        exercise_level = st.selectbox("Exercise level", ["Rest", "Mild", "Heavy"], index=0)
 
-    if mode == "Mechanistic 3RUT‑MBe1":
-        st.header("Mechanistic options")
-        breathe_o2_at_altitude = st.toggle(
-            "Breathe O₂ during altitude exposure",
-            value=False,
-            help="If enabled, uses FiO₂=1.0 during the altitude segment (and decompression ramp).",
-        )
-        dt_min = st.select_slider(
-            "Simulation time step (minutes)",
-            options=[0.5, 0.25, 0.1, 0.05, 0.02, 0.01],
-            value=0.05,
-            help="Smaller dt improves numerical accuracy at the cost of runtime.",
-        )
-        st.session_state["mechanistic_opts"] = {
+        with st.expander("Advanced profile options", expanded=False):
+            prebreathing_exercise_level = st.selectbox(
+                "Exercise level during prebreathe",
+                options=["Rest", "Mild", "Heavy"],
+                index=0,
+                help="The 3RUT theory supports exercise during prebreathe; ADRAC does not.",
+            )
+            prebreath_fio2 = st.slider(
+                "Prebreathe FiO₂",
+                min_value=0.21,
+                max_value=1.00,
+                value=1.00,
+                step=0.01,
+                help="Default 1.00 (100% O₂).",
+            )
+            breathe_o2_at_altitude = st.toggle(
+                "Breathe O₂ during altitude exposure",
+                value=False,
+                help="If enabled, uses FiO₂=1.0 during ascent and altitude segments.",
+            )
+            ascent_duration_min = st.number_input(
+                "Ascent/decompression duration (min)",
+                min_value=0.0,
+                max_value=60.0,
+                value=30.0,
+                step=1.0,
+                help="Used to discretize a linear pressure ramp.",
+            )
+            dt_min = st.select_slider(
+                "Simulation time step dt (min)",
+                options=[0.5, 0.25, 0.1, 0.05, 0.02, 0.01],
+                value=0.05,
+            )
+
+        st.session_state["mech_inputs"] = {
+            "altitude_ft": float(altitude_ft),
+            "time_at_altitude_min": float(time_at_altitude_min),
+            "prebreathing_time_min": float(prebreathing_time_min),
+            "prebreathing_exercise_level": str(prebreathing_exercise_level),
+            "altitude_exercise_level": str(altitude_exercise_level),
+            "prebreath_fio2": float(prebreath_fio2),
             "breathe_o2_at_altitude": bool(breathe_o2_at_altitude),
+            "ascent_duration_min": float(ascent_duration_min),
             "dt_min": float(dt_min),
+        }
+
+    # -------------------------
+    # NASA ETR logistic
+    # -------------------------
+    else:
+        st.caption("Implements Eq. 14 (NM) and Eq. 15 (RM) from the NASA report.")
+
+        nasa_variant = st.radio(
+            "Variant",
+            options=["NM (ETR + sex)", "RM (ETR + age)"],
+            index=0,
+        )
+
+        # Single-interval PB inputs
+        st.subheader("Prebreathe (single-interval simplified)")
+        p0_psia = st.number_input(
+            "Initial tissue ppN₂ P0 (psia)",
+            min_value=0.0,
+            max_value=20.0,
+            value=8.0,
+            step=0.1,
+            help="Report example uses 8.0 psia.",
+        )
+        pa_psia = st.number_input(
+            "Ambient ppN₂ during PB Pa (psia)",
+            min_value=0.0,
+            max_value=20.0,
+            value=0.0,
+            step=0.1,
+            help="100% O₂ PB implies Pa≈0 psia for N₂.",
+        )
+        pb_time_min = st.number_input(
+            "PB duration (min)",
+            min_value=0.0,
+            max_value=240.0,
+            value=90.0,
+            step=5.0,
+        )
+        vo2_ml_kg_min = st.number_input(
+            "VO₂ during PB (mL/kg/min)",
+            min_value=0.0,
+            max_value=120.0,
+            value=25.0,
+            step=0.5,
+            help="For RM/NM, the report models exercise/rest intervals via VO₂. This UI uses one interval.",
+        )
+
+        st.subheader("Exposure")
+        p2_psia = st.number_input(
+            "Ambient pressure after depressurization P2 (psia)",
+            min_value=1.0,
+            max_value=14.7,
+            value=4.3,
+            step=0.1,
+            help="Report focuses on depressurization to 4.3 psia.",
+        )
+
+        with st.expander("Model parameters", expanded=False):
+            default_lambda = 0.030 if nasa_variant.startswith("NM") else 0.025
+            lambda_2 = st.number_input(
+                "λ₂ (lambda)",
+                min_value=0.0001,
+                max_value=0.2000,
+                value=float(default_lambda),
+                step=0.0005,
+                help="Report examples: NM λ₂=0.030, RM λ₂=0.025.",
+                format="%.4f",
+            )
+
+        sex = st.selectbox("Sex", options=["Male", "Female"], index=0)
+        age_years = st.number_input(
+            "Age (years)",
+            min_value=1.0,
+            max_value=100.0,
+            value=35.0,
+            step=1.0,
+        )
+
+        st.session_state["nasa_inputs"] = {
+            "variant": str(nasa_variant),
+            "p0_psia": float(p0_psia),
+            "pa_psia": float(pa_psia),
+            "pb_time_min": float(pb_time_min),
+            "vo2_ml_kg_min": float(vo2_ml_kg_min),
+            "lambda_2": float(lambda_2),
+            "p2_psia": float(p2_psia),
+            "sex": str(sex),
+            "age_years": float(age_years),
         }
 
 
 # -------------------------------------------------------------
-# Main
+# Main panel: model execution
 # -------------------------------------------------------------
-if mode == "ML artefact model" and "artefacts" not in st.session_state:
-    st.info("Load a trained model from the sidebar to begin.")
-    st.stop()
 
-predicted_risk_ml: Optional[float] = None
+predicted_risk_percent: Optional[float] = None
 
-if mode == "ML artefact model":
-    scaler = st.session_state["artefacts"]["scaler"]
-    encoder = st.session_state["artefacts"]["encoder"]
-    model = st.session_state["artefacts"]["model"]
-    apply_v11_transforms = bool(st.session_state["artefacts"].get("apply_v11_transforms", False))
+if model_choice == "ML surrogate (loaded artefacts)":
+    st.header("ML surrogate prediction")
 
-    if apply_v11_transforms:
-        st.caption(
-            "ML v11 preprocessing enabled: time_at_altitude^1.5 and log1p(pre-breathing time)."
+    if "ml_artefacts" not in st.session_state:
+        st.info("Load ML artefacts from the sidebar to begin.")
+        render_validity(VALIDITY["ml_surrogate"])
+        st.stop()
+
+    art = st.session_state["ml_artefacts"]
+    ml_in = st.session_state.get("ml_inputs", {})
+
+    meta = art.get("meta", {})
+    if bool(art.get("apply_v11_transforms", False)):
+        st.caption("Detected v11 preprocessing: time_at_altitude^1.5 and log1p(pre-breathing time).")
+
+    input_values = {
+        "altitude": float(ml_in.get("altitude", 0.0)),
+        "time_at_altitude": float(ml_in.get("time_at_altitude", 0.0)),
+        "prebreathing_time": float(ml_in.get("prebreathing_time", 0.0)),
+    }
+    extra = ml_in.get("extra", {})
+    if isinstance(extra, dict):
+        for k, v in extra.items():
+            input_values[str(k)] = float(v)
+
+    try:
+        X_scaled, used_features = prepare_features_dynamic(
+            input_values=input_values,
+            exercise_level=str(ml_in.get("exercise_level", "Rest")),
+            scaler=art["scaler"],
+            encoder=art["encoder"],
+            apply_v11_transforms=bool(art.get("apply_v11_transforms", False)),
+        )
+        predicted_risk_percent = predict_risk_percent(art["model"], X_scaled)
+    except Exception as ex:
+        st.error(f"Unable to run prediction: {ex}")
+        render_validity(VALIDITY["ml_surrogate"])
+        st.stop()
+
+    st.metric("Predicted DCS risk (%)", f"{predicted_risk_percent:.2f}")
+
+    with st.expander("Show input vector used", expanded=False):
+        st.write("**Artefacts**")
+        st.write(f"- scaler: `{meta.get('scaler_path', '')}`")
+        st.write(f"- encoder: `{meta.get('encoder_path', '')}`")
+        st.write(f"- model: `{meta.get('model_path', '')}`")
+
+        st.write("**Features (ordered)**")
+        st.dataframe(
+            [{"feature": f, "value": float(input_values.get(f, float('nan')))} for f in used_features],
+            use_container_width=True,
+            hide_index=True,
         )
 
-    features = prepare_features(
-        altitude,
-        time_at_altitude,
-        prebreathing_time,
-        exercise_level,
-        scaler,
-        encoder,
-        apply_v11_transforms,
-    )
-    predicted_risk_ml = predict_risk_percent(model, features)
-    st.metric("Predicted DCS Risk (%)", f"{predicted_risk_ml:.2f}")
-else:
-    st.metric("Predicted DCS Risk (%)", "—", help="Run mechanistic simulation in the tabs.")
+    render_validity(VALIDITY["ml_surrogate"])
 
 
-prediction_tab, sweep_tab, importance_tab, three_d_tab, math_tab = st.tabs(
-    [
-        "📈 Single Prediction",
-        "🧮 Parameter Sweep",
-        "📊 Feature Importance",
-        "🌐 3D Surface",
-        "📐 Model Math",
-    ]
-)
+elif model_choice == "Mechanistic 3RUT‑MBe1":
+    st.header("Mechanistic 3RUT‑MBe1 simulation")
 
-
-with prediction_tab:
-    st.subheader("Input Summary")
-    summary: Dict[str, Any] = {
-        "Mode": mode,
-        "Altitude (ft)": float(altitude),
-        "Time @ Altitude (min)": float(time_at_altitude),
-        "Pre-breathing (min)": float(prebreathing_time),
-        "Exercise level": str(exercise_level),
-    }
-
-    if mode == "ML artefact model":
-        summary["Predicted risk (%)"] = float(predicted_risk_ml) if predicted_risk_ml is not None else None
-    else:
-        opts = st.session_state.get("mechanistic_opts", {})
-        summary["dt (min)"] = opts.get("dt_min")
-        summary["Breathe O2 at altitude"] = opts.get("breathe_o2_at_altitude")
+    mech = st.session_state.get("mech_inputs", {})
+    col_a, col_b, col_c = st.columns(3)
+    with col_a:
+        st.metric("Altitude (ft)", f"{float(mech.get('altitude_ft', 0.0)):.0f}")
+    with col_b:
+        st.metric("Time @ altitude (min)", f"{float(mech.get('time_at_altitude_min', 0.0)):.0f}")
+    with col_c:
         try:
-            summary["Altitude pressure (atm)"] = _altitude_ft_to_p_amb_atm(float(altitude))
+            p_amb = _altitude_ft_to_p_amb_atm(float(mech.get("altitude_ft", 0.0)))
+            st.metric("Target ambient pressure (atm)", f"{p_amb:.4f}")
         except Exception:
-            summary["Altitude pressure (atm)"] = None
+            st.metric("Target ambient pressure (atm)", "—")
 
-    st.json(summary)
+    run_mech = st.button("Run simulation", type="primary")
 
-    if mode == "ML artefact model":
-        st.success(f"**Predicted DCS risk**: {predicted_risk_ml:.2f}%")
-    else:
-        st.info("Run the mechanistic model to compute a time-resolved risk curve.")
-        col_run, col_note = st.columns([1, 3])
-        with col_run:
-            run_mech = st.button("Run mechanistic simulation", type="primary")
-        with col_note:
-            st.caption(
-                "Mechanistic mode implements the published 3RUT‑MBe1 recursion (NEDU TR 18‑01, Appendix C)."
-            )
+    if run_mech:
+        from rut_mbe1_model import RutMbe1Model
 
-        if run_mech:
-            from rut_mbe1_model import RutMbe1Model
-
-            opts = st.session_state.get("mechanistic_opts", {})
-            dt_used = float(opts.get("dt_min", 0.05))
-            breathe_o2 = bool(opts.get("breathe_o2_at_altitude", False))
-
-            mech_segments = _build_mechanistic_profile(
-                altitude_ft=float(altitude),
-                time_at_altitude_min=float(time_at_altitude),
-                prebreathing_time_min=float(prebreathing_time),
-                exercise_level=str(exercise_level),
-                dt_min=dt_used,
-                breathe_o2_at_altitude=breathe_o2,
+        try:
+            segments = _build_mechanistic_profile(
+                altitude_ft=float(mech.get("altitude_ft", 0.0)),
+                time_at_altitude_min=float(mech.get("time_at_altitude_min", 0.0)),
+                prebreathing_time_min=float(mech.get("prebreathing_time_min", 0.0)),
+                prebreathing_exercise_level=str(mech.get("prebreathing_exercise_level", "Rest")),
+                altitude_exercise_level=str(mech.get("altitude_exercise_level", "Rest")),
+                dt_min=float(mech.get("dt_min", 0.05)),
+                breathe_o2_at_altitude=bool(mech.get("breathe_o2_at_altitude", False)),
+                prebreath_fio2=float(mech.get("prebreath_fio2", 1.0)),
+                ascent_duration_min=float(mech.get("ascent_duration_min", 30.0)),
             )
 
             model_mech = RutMbe1Model()
             model_mech.initialize_state(p_amb_atm=1.0, fio2=0.21, fin2=0.79, i_ex_l_min_wb=0.0)
-            hist = model_mech.run_profile(mech_segments, dt_min=dt_used)
+            hist = model_mech.run_profile(segments, dt_min=float(mech.get("dt_min", 0.05)))
+
             st.session_state["mech_history"] = hist
 
             final_p = (hist[-1].p_dcs * 100.0) if hist else float("nan")
             st.metric("Mechanistic P(DCS) at end (%)", f"{final_p:.3f}")
 
+            # Plot
             t = [s.t_min for s in hist]
             p_amb = [s.p_amb_atm for s in hist]
             pt_n2 = [s.pt_n2_atm for s in hist]
@@ -518,7 +1118,7 @@ with prediction_tab:
                 )
 
             st.download_button(
-                label="Download mechanistic results (CSV)",
+                label="Download results (CSV)",
                 data="\n".join(csv_lines),
                 file_name="mechanistic_3rut_mbe1_results.csv",
                 mime="text/csv",
@@ -529,263 +1129,67 @@ with prediction_tab:
                 file_name="mechanistic_3rut_mbe1_plot.html",
                 mime="text/html",
             )
+        except Exception as ex:
+            st.error(f"Mechanistic simulation failed: {ex}")
+
+    render_validity(VALIDITY["mechanistic_3rut"])
 
 
-with sweep_tab:
-    st.subheader("Parameter sweep – explore risk sensitivity")
+else:
+    st.header("NASA ETR logistic calculator")
 
-    param_to_vary = st.selectbox(
-        "Select parameter to sweep",
-        ["Altitude", "Time at altitude", "Pre-breathing time"],
-    )
+    nasa_in = st.session_state.get("nasa_inputs", {})
 
-    sweep_min, sweep_max = {
-        "Altitude": (0.0, 63000.0),
-        "Time at altitude": (0.0, 600.0),
-        "Pre-breathing time": (0.0, 180.0),
-    }[param_to_vary]
+    try:
+        p1n2 = nasa_p1n2_after_pb(
+            p0_psia=float(nasa_in.get("p0_psia", 8.0)),
+            pa_psia=float(nasa_in.get("pa_psia", 0.0)),
+            vo2_ml_kg_min=float(nasa_in.get("vo2_ml_kg_min", 25.0)),
+            pb_time_min=float(nasa_in.get("pb_time_min", 90.0)),
+            lambda_2=float(nasa_in.get("lambda_2", 0.030)),
+        )
+        etr_val = nasa_etr(p1n2_psia=p1n2, p2_psia=float(nasa_in.get("p2_psia", 4.3)))
 
-    sweep_range = st.slider(
-        f"{param_to_vary} range",
-        float(sweep_min),
-        float(sweep_max),
-        (float(sweep_min), float(sweep_max)),
-        step=(sweep_max - sweep_min) / 50,
-    )
-    num_points = st.selectbox("Resolution (points)", options=[25, 50, 100, 200], index=1)
-
-    if mode != "ML artefact model" and int(num_points) > 100:
-        st.warning("Mechanistic sweeps can be slow; consider ≤100 points.")
-
-    if st.button("Run sweep"):
-        var_vals = np.linspace(sweep_range[0], sweep_range[1], int(num_points))
-        pred_vals: List[float] = []
-
-        if mode == "ML artefact model":
-            for v in var_vals:
-                _alt = float(altitude)
-                _time = float(time_at_altitude)
-                _pre = float(prebreathing_time)
-                if param_to_vary == "Altitude":
-                    _alt = float(v)
-                elif param_to_vary == "Time at altitude":
-                    _time = float(v)
-                elif param_to_vary == "Pre-breathing time":
-                    _pre = float(v)
-                f_vec = prepare_features(_alt, _time, _pre, exercise_level, scaler, encoder, apply_v11_transforms)
-                pred_vals.append(predict_risk_percent(model, f_vec))
+        variant = str(nasa_in.get("variant", "NM (ETR + sex)"))
+        if variant.startswith("NM"):
+            p = nasa_p_dcs_nm(etr_val=etr_val, sex=str(nasa_in.get("sex", "Male")))
+            predicted_risk_percent = p * 100.0
         else:
-            from rut_mbe1_model import RutMbe1Model
+            p = nasa_p_dcs_rm(etr_val=etr_val, age_years=float(nasa_in.get("age_years", 35.0)))
+            predicted_risk_percent = p * 100.0
 
-            opts = st.session_state.get("mechanistic_opts", {})
-            dt_used = float(opts.get("dt_min", 0.05))
-            breathe_o2 = bool(opts.get("breathe_o2_at_altitude", False))
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("P1N2 after PB (psia)", f"{p1n2:.3f}")
+        with col2:
+            st.metric("ETR = P1N2 / P2", f"{etr_val:.3f}")
+        with col3:
+            st.metric("Predicted P(DCS) (%)", f"{predicted_risk_percent:.2f}")
 
-            for v in var_vals:
-                _alt = float(altitude)
-                _time = float(time_at_altitude)
-                _pre = float(prebreathing_time)
-                if param_to_vary == "Altitude":
-                    _alt = float(v)
-                elif param_to_vary == "Time at altitude":
-                    _time = float(v)
-                elif param_to_vary == "Pre-breathing time":
-                    _pre = float(v)
+        with st.expander("Show equation used", expanded=False):
+            if variant.startswith("NM"):
+                st.markdown(
+                    r"""
+**NM (Eq. 14)** from `NASA_model/conkin-dcs-exercise_2004.md`:
 
-                mech_segments = _build_mechanistic_profile(
-                    altitude_ft=_alt,
-                    time_at_altitude_min=_time,
-                    prebreathing_time_min=_pre,
-                    exercise_level=str(exercise_level),
-                    dt_min=dt_used,
-                    breathe_o2_at_altitude=breathe_o2,
+\(P(DCS)=\frac{\exp(-25.56 + 12.83\cdot ETR - 1.037\cdot SEX)}{1+\exp(-25.56 + 12.83\cdot ETR - 1.037\cdot SEX)}\)
+
+Where the report uses **SEX = 1 for male, 0 for female**.
+"""
                 )
-                model_mech = RutMbe1Model()
-                model_mech.initialize_state(p_amb_atm=1.0, fio2=0.21, fin2=0.79, i_ex_l_min_wb=0.0)
-                hist_sweep = model_mech.run_profile(mech_segments, dt_min=dt_used)
-                pred_vals.append(hist_sweep[-1].p_dcs * 100.0 if hist_sweep else float("nan"))
-
-        fig = go.Figure()
-        fig.add_trace(go.Scatter(x=var_vals, y=pred_vals, mode="lines", name="Risk (%)"))
-        fig.update_layout(
-            xaxis_title=param_to_vary,
-            yaxis_title="Predicted DCS Risk (%)",
-            template="plotly_white",
-            height=520,
-        )
-        st.plotly_chart(fig, use_container_width=True)
-
-
-with importance_tab:
-    st.subheader("Model-reported feature importance")
-    if mode != "ML artefact model":
-        st.info("Feature importance is only available for ML models in this app.")
-    else:
-        estimator = model[0] if isinstance(model, (list, tuple)) else model
-        if hasattr(estimator, "feature_importances_"):
-            importances = estimator.feature_importances_
-            feature_names = list(encoder.get_feature_names_out(["exercise_level"]))
-            all_features = ["altitude", "time_at_altitude", "prebreathing_time"] + feature_names
-            fig_imp = go.Figure([go.Bar(x=importances, y=all_features, orientation="h")])
-            fig_imp.update_layout(
-                xaxis_title="Importance",
-                template="plotly_white",
-                height=450,
-            )
-            st.plotly_chart(fig_imp, use_container_width=True)
-        else:
-            st.info("Selected model does not provide native feature-importance information.")
-
-
-with three_d_tab:
-    st.subheader("3D risk surface")
-    st.caption("Explore predicted risk varying two inputs while holding the others fixed.")
-
-    var_options = ["Altitude", "Time at altitude", "Pre-breathing time"]
-    col_x, col_y = st.columns(2)
-    with col_x:
-        param_x = st.selectbox("X-axis", var_options, index=0)
-    with col_y:
-        param_y = st.selectbox("Y-axis", var_options, index=1)
-
-    if param_x == param_y:
-        st.warning("Select two different parameters for X and Y.")
-    else:
-        ranges = {
-            "Altitude": (0.0, 63000.0),
-            "Time at altitude": (0.0, 600.0),
-            "Pre-breathing time": (0.0, 180.0),
-        }
-        x_min, x_max = ranges[param_x]
-        y_min, y_max = ranges[param_y]
-
-        grid_res = st.select_slider("Grid resolution", options=[20, 30, 40, 60, 80, 100], value=40)
-        if mode != "ML artefact model" and int(grid_res) > 40:
-            st.warning("Mechanistic 3D surfaces can be expensive; consider ≤40 grid resolution.")
-
-        if st.button("Generate 3D surface"):
-            gx = int(grid_res)
-            x_vals = np.linspace(x_min, x_max, gx)
-            y_vals = np.linspace(y_min, y_max, gx)
-            z_matrix = np.zeros((gx, gx), dtype=float)
-
-            def assign_vars(x_value: float, y_value: float) -> Tuple[float, float, float]:
-                _alt, _time, _pre = float(altitude), float(time_at_altitude), float(prebreathing_time)
-                if param_x == "Altitude":
-                    _alt = float(x_value)
-                elif param_x == "Time at altitude":
-                    _time = float(x_value)
-                elif param_x == "Pre-breathing time":
-                    _pre = float(x_value)
-
-                if param_y == "Altitude":
-                    _alt = float(y_value)
-                elif param_y == "Time at altitude":
-                    _time = float(y_value)
-                elif param_y == "Pre-breathing time":
-                    _pre = float(y_value)
-                return _alt, _time, _pre
-
-            if mode == "ML artefact model":
-                for i, xv in enumerate(x_vals):
-                    for j, yv in enumerate(y_vals):
-                        _alt, _time, _pre = assign_vars(float(xv), float(yv))
-                        f_vec = prepare_features(_alt, _time, _pre, exercise_level, scaler, encoder, apply_v11_transforms)
-                        z_matrix[j, i] = predict_risk_percent(model, f_vec)
             else:
-                from rut_mbe1_model import RutMbe1Model
+                st.markdown(
+                    r"""
+**RM (Eq. 15)** from `NASA_model/conkin-dcs-exercise_2004.md`:
 
-                opts = st.session_state.get("mechanistic_opts", {})
-                dt_used = float(opts.get("dt_min", 0.05))
-                breathe_o2 = bool(opts.get("breathe_o2_at_altitude", False))
+\(P(DCS)=\frac{\exp(-31.71 + 14.55\cdot ETR + 0.053\cdot AGE)}{1+\exp(-31.71 + 14.55\cdot ETR + 0.053\cdot AGE)}\)
+"""
+                )
 
-                for i, xv in enumerate(x_vals):
-                    for j, yv in enumerate(y_vals):
-                        _alt, _time, _pre = assign_vars(float(xv), float(yv))
-                        mech_segments = _build_mechanistic_profile(
-                            altitude_ft=_alt,
-                            time_at_altitude_min=_time,
-                            prebreathing_time_min=_pre,
-                            exercise_level=str(exercise_level),
-                            dt_min=dt_used,
-                            breathe_o2_at_altitude=breathe_o2,
-                        )
-                        model_mech = RutMbe1Model()
-                        model_mech.initialize_state(p_amb_atm=1.0, fio2=0.21, fin2=0.79, i_ex_l_min_wb=0.0)
-                        hist_surf = model_mech.run_profile(mech_segments, dt_min=dt_used)
-                        z_matrix[j, i] = (hist_surf[-1].p_dcs * 100.0) if hist_surf else float("nan")
+    except Exception as ex:
+        st.error(f"NASA calculator failed: {ex}")
 
-            surface_fig = go.Figure(
-                data=[
-                    go.Surface(
-                        x=x_vals,
-                        y=y_vals,
-                        z=z_matrix,
-                        colorscale="Turbo",
-                        colorbar=dict(title="Risk (%)"),
-                        contours={"z": {"show": True, "usecolormap": True, "project_z": True}},
-                    )
-                ]
-            )
-            surface_fig.update_layout(
-                scene=dict(
-                    xaxis_title=param_x,
-                    yaxis_title=param_y,
-                    zaxis_title="Predicted DCS Risk (%)",
-                ),
-                height=650,
-                template="plotly_white",
-                margin=dict(l=0, r=0, t=30, b=0),
-            )
-            st.plotly_chart(surface_fig, use_container_width=True)
+    render_validity(VALIDITY["nasa_rm_nm"])
 
-            st.markdown("—")
-            st.subheader("2D contour heatmap")
-            contour_fig = go.Figure(
-                data=[
-                    go.Contour(
-                        x=x_vals,
-                        y=y_vals,
-                        z=z_matrix,
-                        colorscale="Turbo",
-                        contours_coloring="heatmap",
-                        colorbar=dict(title="Risk (%)"),
-                    )
-                ]
-            )
-            contour_fig.update_layout(
-                xaxis_title=param_x,
-                yaxis_title=param_y,
-                height=550,
-                template="plotly_white",
-                margin=dict(l=0, r=0, t=30, b=0),
-            )
-            st.plotly_chart(contour_fig, use_container_width=True)
-
-
-with math_tab:
-    st.subheader("Model math and transformations")
-    if mode == "ML artefact model":
-        st.markdown(
-            """
-            **ML mode**
-
-            - Loads a trained estimator and preprocessing artefacts from disk.
-            - If v11 artefacts are detected, the app applies the same input transforms used in training:
-              - time_at_altitude′ = time_at_altitude^{1.5}
-              - prebreathing_time′ = log(1 + prebreathing_time)
-            """
-        )
-    else:
-        st.markdown(
-            """
-            **Mechanistic 3RUT‑MBe1 mode (NEDU TR 18‑01)**
-
-            The mechanistic solver uses the published recursion from Appendix C.
-            """
-        )
-        st.latex(r"P_\infty=P_{H_2O}+p_{tCO_2}\quad (C.1)")
-        st.latex(r"P_{ss,n}=\left[\sum_k p_{t_{k,n}}+P_\infty\right]-P_{amb,n}\quad (C.7)")
-        st.latex(
-            r"h(t)=g\,(V_b-V_{r0})\,(N_b)^{\beta_N}\quad (D.3a)"
-        )
+    with st.expander("Legacy validation snapshot (ASEM)", expanded=False):
+        render_validity(VALIDITY["asem"])

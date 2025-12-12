@@ -65,10 +65,15 @@ pip install -r requirements.txt  # (if requirements.txt exists)
 
 ## 🖥️ Streamlit Risk Explorer
 
-A modern web interface built with **Streamlit** (see `streamlit_app.py`) allows interactive exploration of:
+A modern web interface built with **Streamlit** (see `streamlit_app.py`) allows interactive exploration of multiple DCS risk model families. The UI is **model-aware**: it shows **only** the inputs that a selected model actually uses, and it displays **scientific validity + limitations** from artefacts already present in this repository.
 
-1) **ML artefact models** (joblib-trained estimators + preprocessing artefacts), and  
-2) **Mechanistic 3RUT‑MBe1** risk simulation (NEDU TR 18‑01, Appendix C recursion).
+Supported model families in the UI:
+
+1) **ML surrogate (loaded artefacts)**: load a trained estimator + preprocessing artefacts (`.joblib`).  
+2) **Mechanistic 3RUT‑MBe1**: recursion from NEDU TR 18‑01 (Appendix C/D) as implemented in `rut_mbe1_model.py`.  
+3) **NASA ETR logistic (RM/NM)**: implements published equations from `NASA_model/conkin-dcs-exercise_2004.md`:
+   - **NM (Eq. 14)**: \(P(DCS)\) from ETR + **sex**
+   - **RM (Eq. 15)**: \(P(DCS)\) from ETR + **age**
 
 ### Quick start
 ```bash
@@ -80,13 +85,97 @@ streamlit run streamlit_app.py
 ```
 
 ### Features
-1. **Single prediction** – enter exposure parameters and instantly obtain the predicted DCS risk.
-2. **Parameter sweep** – vary altitude, time at altitude, or pre-breathing time to visualise how risk evolves.
-3. **Feature importance** – bar-chart of `feature_importances_` when provided by the underlying estimator.
-4. **Model-agnostic loading** – simply point the app to any directory containing matching `scaler_*.joblib`, `onehot_encoder_*.joblib`, and `simple_model_*` (or `trained_model_*`) artefacts; the latest timestamped versions are selected automatically.
-5. **Mechanistic 3RUT‑MBe1 mode** – run a time-resolved risk simulation with publication-style plots and export to CSV/HTML.
+1. **Model-aware input forms** – the UI only shows variables used by the currently selected model.
+2. **Accuracy & safety disclaimers** – explicit research-use-only language in the UI.
+3. **Scientific validity panel** – per model, shows whatever metrics exist in-repo (and clearly marks missing ones as “not provided”).
+4. **ML artefact loading** – point the app at a directory containing `scaler_*.joblib`, `onehot_encoder_*.joblib` (or `encoder_*.joblib`), and `model_*.joblib` / `simple_model_*.joblib` / `trained_model_*.joblib`.
+5. **Mechanistic 3RUT‑MBe1 simulation** – time-resolved outputs + publication-style plots + CSV/HTML export.
+6. **NASA ETR logistic calculator** – computes \(P1N2\), ETR, and \(P(DCS)\) using Eq. 14/15; exposes age/sex only when relevant.
 
 > **Note:** These models are experimental and **must not** be used for clinical or operational decisions. See the repository disclaimer.
+
+## Model input support matrix (UI)
+
+The UI shows only the variables each model uses.
+
+| Variable | ML surrogate (artefacts) | 3RUT‑MBe1 (mechanistic) | NASA ETR logistic (RM/NM) |
+|---|---:|---:|---:|
+| Altitude (ft) | ✅ | ✅ | ❌ |
+| Time at altitude (min) | ✅ | ✅ | ❌ |
+| Prebreathe time (min) | ✅ | ✅ | ✅ (PB duration) |
+| Exercise level at altitude | ✅ (categorical) | ✅ (mapped to \(I_{ex}\)) | ❌ (assumed by study protocol) |
+| Exercise during prebreathe | ⚠️ only if artefacts expect it | ✅ | ✅ via VO₂ input (simplified single-interval) |
+| Prebreathe FiO₂ | ❌ | ✅ | ❌ (represented via Pa≈0 for 100% O₂ PB) |
+| Breathe O₂ at altitude | ❌ | ✅ | ❌ |
+| Ascent / decompression duration | ❌ | ✅ | ❌ (study profile assumption) |
+| Age | ⚠️ only if artefacts expect it | ❌ | ✅ (RM) |
+| Sex / gender | ⚠️ only if artefacts expect it | ❌ | ✅ (NM) |
+| VO₂ during PB (mL/kg/min) | ❌ | ❌ | ✅ |
+| P0 (initial tissue ppN₂, psia) | ❌ | ❌ | ✅ |
+| Pa (ambient ppN₂ during PB, psia) | ❌ | ❌ | ✅ |
+| P2 (ambient/suit pressure after depressurization, psia) | ❌ | ❌ | ✅ |
+| λ₂ (lambda) | ❌ | ❌ | ✅ |
+
+Legend:
+- ✅ supported as a first-class input in the UI for that model
+- ⚠️ shown only if detected/required by loaded ML artefacts
+- ❌ not used by that model in this repository implementation
+
+## Scientific validity (what is currently available in this repo)
+
+This repository contains multiple model families with different validation styles. Not every model has a complete, publication-ready set of metrics (e.g., sensitivity/specificity/PPV/NPV/ROC/AUC/CI95%) bundled in one place.
+
+- **ML surrogate (ADRAC-derived dataset)**:
+  - Metrics are reported in `Model_Rel_Candidate/Metrics.txt` (e.g., R²/MAE/RMSE for a January 2025 run).
+  - These are regression-style metrics against ADRAC-derived labels (risk %), not clinical outcomes.
+- **Mechanistic 3RUT‑MBe1**:
+  - The theory doc `BU_3RUT/3RUT_MBe1/3RUT_Theory.md` discusses chi-square goodness-of-fit and comparisons versus other models (e.g., ADRAC / NASA-RM2004).
+  - A consolidated ROC/sensitivity/specificity table is **not** currently included in this repo.
+- **NASA ETR logistic (RM/NM)**:
+  - The UI implements Eq. 14/15 from `NASA_model/conkin-dcs-exercise_2004.md` and is intended as a transparent calculator.
+  - The repo does not currently bundle a ready-to-run evaluation set that outputs ROC/AUC/sensitivity/specificity/PPV/NPV for this implementation.
+- **Legacy ASEM metrics snapshot**:
+  - A text metrics snapshot is present at `DCS Python Project_old/BU_2024/model_validation_metrics_20250128_1245.txt`.
+
+## Roadmap: publishable, Q1 journal-grade app (step-by-step)
+
+The path to a publishable scientific application is primarily about **traceability, validation, and reproducibility**. A suggested iteration roadmap:
+
+1) **Model registry + contracts (v0.1)**
+   - Define a single “model interface” in code: required inputs, units, valid ranges, and outputs.
+   - Ensure each model declares its supported covariates (age/sex/altitude/exercise/O₂ breathing/etc.).
+
+2) **Data curation + ground-truth definition (v0.2)**
+   - For each model family, define what “ground truth” means (ADRAC-derived risk %, observed DCS outcomes, VGE grades, etc.).
+   - Create a versioned dataset manifest: source, inclusion criteria, missingness handling, and licensing constraints.
+
+3) **Evaluation suite with clinical-style metrics (v0.3)**
+   - Add a standardized evaluation harness that can compute:
+     - **Sensitivity, specificity, PPV, NPV**
+     - **ROC/AUC** (with confidence intervals)
+     - **Calibration** (reliability curves, Brier score, calibration intercept/slope)
+     - **Uncertainty** (CI95% / prediction intervals / bootstrap CIs)
+   - Make the “decision threshold” explicit and justified (not arbitrary).
+
+4) **External validation + robustness (v0.4)**
+   - Perform strict train/validation/test separation by study/protocol (avoid leakage).
+   - Validate on out-of-sample profiles (altitudes, PB durations, exercise regimens) where possible.
+
+5) **Mechanistic vs ML reconciliation (v0.5)**
+   - Document which covariates are mechanistically modeled vs purely statistical.
+   - Add model comparison plots: risk vs time, hazard vs time, subgroup analyses.
+
+6) **Reproducible builds + auditability (v0.6)**
+   - Pin dependencies, log model versions, hash artefacts, and store run metadata.
+   - Add deterministic evaluation runs and artifact provenance (dataset version → model version → metrics).
+
+7) **Clinical/operational safety framing (v0.7)**
+   - Strengthen disclaimers, intended-use statements, and “not for operational use” guardrails.
+   - Add clear “validity envelope” constraints in UI (warn/disable extrapolation beyond training range).
+
+8) **Manuscript-ready outputs (v1.0)**
+   - Auto-generate publication-quality figures and tables (metrics, subgroup performance, calibration).
+   - Provide a transparent methods section mapping each code path to the underlying theory documents.
 
 ## Contributing
 1. Fork the repo and create your branch (`git checkout -b feature/fooBar`)
