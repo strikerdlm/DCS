@@ -1,6 +1,6 @@
 import unittest
 import gen_dive
-from StringIO import StringIO
+from io import StringIO
 
 
 class TestGenDiveMethod(unittest.TestCase):
