@@ -89,8 +89,9 @@ streamlit run streamlit_app.py
 2. **Accuracy & safety disclaimers** – explicit research-use-only language in the UI.
 3. **Scientific validity panel** – per model, shows whatever metrics exist in-repo (and clearly marks missing ones as “not provided”).
 4. **ML artefact loading** – point the app at a directory containing `scaler_*.joblib`, `onehot_encoder_*.joblib` (or `encoder_*.joblib`), and `model_*.joblib` / `simple_model_*.joblib` / `trained_model_*.joblib`.
-5. **Mechanistic 3RUT‑MBe1 simulation** – time-resolved outputs + publication-style plots + CSV/HTML export.
-6. **NASA ETR logistic calculator** – computes \(P1N2\), ETR, and \(P(DCS)\) using Eq. 14/15; exposes age/sex only when relevant.
+5. **ADRAC validation dashboard (ML surrogate)** – runs an in-app, reproducible validation against `Model_Rel_Candidate/DCS_Risk_DB_2025.csv` (ADRAC-derived risk %) and renders interactive Plotly diagnostics (predicted vs reference, residuals, binned error heatmaps, worst-case table).
+6. **Mechanistic 3RUT‑MBe1 simulation** – time-resolved outputs + publication-style plots + CSV/HTML export.
+7. **NASA ETR logistic calculator** – computes \(P1N2\), ETR, and \(P(DCS)\) using Eq. 14/15; exposes age/sex only when relevant.
 
 > **Note:** These models are experimental and **must not** be used for clinical or operational decisions. See the repository disclaimer.
 
@@ -136,6 +137,15 @@ This repository contains multiple model families with different validation style
   - The repo does not currently bundle a ready-to-run evaluation set that outputs ROC/AUC/sensitivity/specificity/PPV/NPV for this implementation.
 - **Legacy ASEM metrics snapshot**:
   - A text metrics snapshot is present at `DCS Python Project_old/BU_2024/model_validation_metrics_20250128_1245.txt`.
+
+## Validation sources (technical reports / scientific evidence included in this repo)
+
+This repo vendors several primary sources used to justify equations and interpret validation/limitations:
+
+- **NASA exercise-prebreathe probability modeling (NM/RM, Eq. 14/15)**: `NASA_model/conkin-dcs-exercise_2004.md` and `NASA_model/DCS_NASA.py`
+- **NASA DCS risk mitigation / BiP context**: `NASA_model/TP-2024-BiP_Report_v16.md` and `NASA_model/Evidence_2024.md`
+- **ADRAC-derived surrogate validation artefacts**: `Model_Rel_Candidate/DCS_Risk_DB_2025.csv` and `Model_Rel_Candidate/Metrics.txt`
+- **ASEM legacy validation snapshot**: `DCS Python Project_old/BU_2024/model_validation_metrics_20250128_1245.txt`
 
 ## Roadmap: publishable, Q1 journal-grade app (step-by-step)
 
