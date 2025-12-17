@@ -10,9 +10,13 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import joblib
 import numpy as np
+import pandas as pd
 import plotly.graph_objects as go
+import plotly.express as px
 from plotly.subplots import make_subplots
 import streamlit as st
+
+from dcs_validation import load_adrac_dataset, validate_ml_surrogate_against_adrac
 
 
 @dataclass(frozen=True, slots=True)
@@ -178,6 +182,56 @@ def _stable_sigmoid(z: float) -> float:
         return 1.0 / (1.0 + ez)
     ez = math.exp(z)
     return ez / (1.0 + ez)
+
+
+@st.cache_data(show_spinner=False, max_entries=4)
+def _load_adrac_dataset_cached(*, csv_path: str, max_rows: Optional[int]) -> pd.DataFrame:
+    return load_adrac_dataset(csv_path, max_rows=max_rows)
+
+
+@st.cache_data(show_spinner=True, max_entries=4)
+def _run_ml_validation_cached(
+    *,
+    csv_path: str,
+    model_dir: str,
+    max_rows: Optional[int],
+    expected_features: Tuple[str, ...],
+    apply_v11_transforms: bool,
+    exercise_filter: Tuple[str, ...],
+    altitude_range: Tuple[float, float],
+    time_range: Tuple[float, float],
+) -> Dict[str, Any]:
+    df = _load_adrac_dataset_cached(csv_path=csv_path, max_rows=max_rows).copy()
+
+    if exercise_filter:
+        df = df[df["exercise_level"].astype(str).isin(list(exercise_filter))]
+
+    alt_min, alt_max = float(altitude_range[0]), float(altitude_range[1])
+    t_min, t_max = float(time_range[0]), float(time_range[1])
+    df = df[(df["altitude"] >= alt_min) & (df["altitude"] <= alt_max)]
+    df = df[(df["time_at_altitude"] >= t_min) & (df["time_at_altitude"] <= t_max)]
+
+    if df.empty:
+        raise ValueError("No rows remain after applying filters")
+
+    scaler_obj, encoder_obj, model_obj, _meta = load_artifacts(model_dir)
+
+    res = validate_ml_surrogate_against_adrac(
+        df,
+        scaler=scaler_obj,
+        encoder=encoder_obj,
+        model=model_obj,
+        apply_v11_transforms=apply_v11_transforms,
+        expected_features=list(expected_features),
+    )
+
+    # Keep a compact dataframe for plotting.
+    out_df = df.copy()
+    out_df["predicted_risk_percent"] = res.y_pred
+    out_df["residual_percent"] = res.residual
+    out_df["abs_error_percent"] = np.abs(res.residual)
+
+    return {"metrics": res.metrics.as_dict(), "df": out_df}
 
 
 # -------------------------------------------------------------
@@ -1019,6 +1073,219 @@ if model_choice == "ML surrogate (loaded artefacts)":
             use_container_width=True,
             hide_index=True,
         )
+
+    st.subheader("Validation against ADRAC-derived reference dataset")
+    st.caption(
+        "Validates the loaded ML artefacts by comparing predictions against "
+        "`Model_Rel_Candidate/DCS_Risk_DB_2025.csv` (ADRAC-derived risk %)."
+    )
+
+    # Validation is only meaningful when the artefacts match the ADRAC schema.
+    adrac_ok_features = {"altitude", "time_at_altitude", "prebreathing_time"}
+    extra_non_onehot = [
+        f for f in used_features if (f not in adrac_ok_features) and (not f.startswith("exercise_level_"))
+    ]
+
+    if extra_non_onehot:
+        st.info(
+            "Validation is disabled for these artefacts because they require additional features "
+            f"not present in the ADRAC dataset: {extra_non_onehot}"
+        )
+    else:
+        with st.expander("Run validation (interactive plots)", expanded=False):
+            col_v1, col_v2, col_v3 = st.columns(3)
+            with col_v1:
+                max_rows = st.selectbox(
+                    "Rows to load (performance)",
+                    options=[None, 2000, 5000, 12000],
+                    index=0,
+                    help="Use a smaller value for faster plotting; None loads the full CSV.",
+                )
+            with col_v2:
+                exercise_filter = st.multiselect(
+                    "Exercise filter",
+                    options=["Rest", "Mild", "Heavy"],
+                    default=["Rest", "Mild", "Heavy"],
+                )
+            with col_v3:
+                top_n = st.selectbox("Show worst cases", options=[10, 25, 50], index=0)
+
+            alt_min, alt_max = st.slider(
+                "Altitude filter (ft)",
+                min_value=0.0,
+                max_value=63_000.0,
+                value=(0.0, 63_000.0),
+                step=500.0,
+            )
+            t_min, t_max = st.slider(
+                "Time-at-altitude filter (min)",
+                min_value=0.0,
+                max_value=600.0,
+                value=(0.0, 600.0),
+                step=10.0,
+            )
+
+            run_val = st.button("Run ADRAC validation", type="primary")
+            if run_val:
+                try:
+                    expected_tuple = tuple(str(x) for x in used_features)
+                    out = _run_ml_validation_cached(
+                        csv_path=os.path.join(
+                            os.path.abspath(os.path.dirname(__file__)),
+                            "Model_Rel_Candidate",
+                            "DCS_Risk_DB_2025.csv",
+                        ),
+                        model_dir=str(model_dir),
+                        max_rows=max_rows if isinstance(max_rows, int) else None,
+                        expected_features=expected_tuple,
+                        apply_v11_transforms=bool(art.get("apply_v11_transforms", False)),
+                        exercise_filter=tuple(str(x) for x in exercise_filter),
+                        altitude_range=(float(alt_min), float(alt_max)),
+                        time_range=(float(t_min), float(t_max)),
+                    )
+                except Exception as ex:
+                    st.error(f"Validation failed: {ex}")
+                else:
+                    dfv = out["df"]
+                    m = out["metrics"]
+
+                    c1, c2, c3, c4 = st.columns(4)
+                    c1.metric("R²", f"{float(m['r2']):.4f}")
+                    c2.metric("MAE (pp)", f"{float(m['mae']):.3f}")
+                    c3.metric("RMSE (pp)", f"{float(m['rmse']):.3f}")
+                    c4.metric("Rows", f"{int(dfv.shape[0])}")
+
+                    tab1, tab2, tab3, tab4 = st.tabs(
+                        ["Predicted vs reference", "Residuals", "Error heatmap", "Worst cases"]
+                    )
+
+                    with tab1:
+                        fig_sc = px.scatter(
+                            dfv,
+                            x="risk_of_decompression_sickness",
+                            y="predicted_risk_percent",
+                            color="exercise_level",
+                            hover_data=["altitude", "time_at_altitude", "prebreathing_time", "abs_error_percent"],
+                            render_mode="webgl",
+                            opacity=0.65,
+                            labels={
+                                "risk_of_decompression_sickness": "ADRAC reference risk (%)",
+                                "predicted_risk_percent": "ML predicted risk (%)",
+                            },
+                        )
+                        lo = float(np.nanmin(dfv[["risk_of_decompression_sickness", "predicted_risk_percent"]].to_numpy()))
+                        hi = float(np.nanmax(dfv[["risk_of_decompression_sickness", "predicted_risk_percent"]].to_numpy()))
+                        fig_sc.add_trace(
+                            go.Scatter(
+                                x=[lo, hi],
+                                y=[lo, hi],
+                                mode="lines",
+                                name="y=x",
+                                line=dict(color="black", width=2, dash="dash"),
+                            )
+                        )
+                        fig_sc.update_layout(template="plotly_white", height=650, margin=dict(l=20, r=20, t=40, b=20))
+                        st.plotly_chart(fig_sc, use_container_width=True)
+
+                    with tab2:
+                        fig_hist = px.histogram(
+                            dfv,
+                            x="residual_percent",
+                            nbins=60,
+                            color="exercise_level",
+                            opacity=0.7,
+                            barmode="overlay",
+                            labels={"residual_percent": "Residual (pred - reference) percentage-points"},
+                        )
+                        fig_hist.update_layout(template="plotly_white", height=420, margin=dict(l=20, r=20, t=40, b=20))
+                        st.plotly_chart(fig_hist, use_container_width=True)
+
+                        fig_res = px.scatter(
+                            dfv,
+                            x="time_at_altitude",
+                            y="residual_percent",
+                            color="exercise_level",
+                            render_mode="webgl",
+                            opacity=0.6,
+                            hover_data=["altitude", "prebreathing_time", "risk_of_decompression_sickness", "predicted_risk_percent"],
+                            labels={
+                                "time_at_altitude": "Time at altitude (min)",
+                                "residual_percent": "Residual (pp)",
+                            },
+                        )
+                        fig_res.update_layout(template="plotly_white", height=520, margin=dict(l=20, r=20, t=40, b=20))
+                        st.plotly_chart(fig_res, use_container_width=True)
+
+                    with tab3:
+                        # Bin to fixed grids (bounded, deterministic).
+                        alt_min = float(dfv["altitude"].min())
+                        alt_max = float(dfv["altitude"].max())
+                        time_min = float(dfv["time_at_altitude"].min())
+                        time_max = float(dfv["time_at_altitude"].max())
+
+                        # Handle uniform values: ensure bins are monotonically increasing.
+                        # Add small epsilon if range is zero to avoid pd.cut ValueError.
+                        if alt_max <= alt_min:
+                            alt_max = alt_min + 1e-6
+                        if time_max <= time_min:
+                            time_max = time_min + 1e-6
+
+                        alt_bins = np.linspace(alt_min, alt_max, 13)
+                        time_bins = np.linspace(time_min, time_max, 13)
+
+                        binned = dfv.copy()
+                        binned["alt_bin"] = pd.cut(binned["altitude"], bins=alt_bins, include_lowest=True)
+                        binned["time_bin"] = pd.cut(binned["time_at_altitude"], bins=time_bins, include_lowest=True)
+                        pivot = (
+                            binned.groupby(["alt_bin", "time_bin"], observed=True)["abs_error_percent"]
+                            .mean()
+                            .reset_index()
+                            .pivot(index="alt_bin", columns="time_bin", values="abs_error_percent")
+                        )
+                        # Convert Interval labels to short strings for nice axes.
+                        y_labels = [str(i) for i in list(pivot.index)]
+                        x_labels = [str(i) for i in list(pivot.columns)]
+                        z = pivot.to_numpy(dtype=float)
+
+                        fig_hm = go.Figure(
+                            data=go.Heatmap(
+                                z=z,
+                                x=x_labels,
+                                y=y_labels,
+                                colorscale="Viridis",
+                                colorbar=dict(title="Mean |error| (pp)"),
+                                zmin=float(np.nanmin(z)),
+                                zmax=float(np.nanmax(z)),
+                            )
+                        )
+                        fig_hm.update_layout(
+                            template="plotly_white",
+                            height=650,
+                            margin=dict(l=20, r=20, t=40, b=20),
+                            xaxis_title="Time-at-altitude bin (min)",
+                            yaxis_title="Altitude bin (ft)",
+                        )
+                        st.plotly_chart(fig_hm, use_container_width=True)
+
+                    with tab4:
+                        worst = (
+                            dfv.sort_values("abs_error_percent", ascending=False)
+                            .head(int(top_n))
+                            .loc[
+                                :,
+                                [
+                                    "altitude",
+                                    "time_at_altitude",
+                                    "prebreathing_time",
+                                    "exercise_level",
+                                    "risk_of_decompression_sickness",
+                                    "predicted_risk_percent",
+                                    "residual_percent",
+                                    "abs_error_percent",
+                                ],
+                            ]
+                        )
+                        st.dataframe(worst, use_container_width=True, hide_index=True)
 
     render_validity(VALIDITY["ml_surrogate"])
 
