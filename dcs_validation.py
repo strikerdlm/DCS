@@ -168,9 +168,8 @@ def predict_ml_risk_percent_vectorized(*, model: Any, X_scaled: np.ndarray) -> n
             return out
 
     pred = np.asarray(model.predict(X_scaled), dtype=float).reshape(-1)
-    # If model returns [0,1], interpret as probability and map to percent.
-    if float(np.nanmin(pred)) >= 0.0 and float(np.nanmax(pred)) <= 1.0:
-        pred = pred * 100.0
+    # Model is trained on [0, 100] percentage scale, so predictions are already in percent.
+    # No scaling heuristic needed - trust the model output.
     return np.clip(pred, 0.0, 100.0)
 
 

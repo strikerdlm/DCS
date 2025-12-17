@@ -1218,8 +1218,20 @@ if model_choice == "ML surrogate (loaded artefacts)":
 
                     with tab3:
                         # Bin to fixed grids (bounded, deterministic).
-                        alt_bins = np.linspace(float(dfv["altitude"].min()), float(dfv["altitude"].max()), 13)
-                        time_bins = np.linspace(float(dfv["time_at_altitude"].min()), float(dfv["time_at_altitude"].max()), 13)
+                        alt_min = float(dfv["altitude"].min())
+                        alt_max = float(dfv["altitude"].max())
+                        time_min = float(dfv["time_at_altitude"].min())
+                        time_max = float(dfv["time_at_altitude"].max())
+
+                        # Handle uniform values: ensure bins are monotonically increasing.
+                        # Add small epsilon if range is zero to avoid pd.cut ValueError.
+                        if alt_max <= alt_min:
+                            alt_max = alt_min + 1e-6
+                        if time_max <= time_min:
+                            time_max = time_min + 1e-6
+
+                        alt_bins = np.linspace(alt_min, alt_max, 13)
+                        time_bins = np.linspace(time_min, time_max, 13)
 
                         binned = dfv.copy()
                         binned["alt_bin"] = pd.cut(binned["altitude"], bins=alt_bins, include_lowest=True)
