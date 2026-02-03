@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl 
+           border border-white/20 dark:border-gray-700/20 
+           rounded-xl shadow-lg;
+  }
+
+  .metric-card {
+    @apply glass-card p-4 transition-all duration-300 
+           hover:shadow-xl hover:scale-[1.02];
+  }
+
+  .risk-indicator {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .risk-indicator-low {
+    @apply risk-indicator bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300;
+  }
+
+  .risk-indicator-moderate {
+    @apply risk-indicator bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300;
+  }
+
+  .risk-indicator-high {
+    @apply risk-indicator bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700
+           bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+           focus:ring-2 focus:ring-primary/50 focus:border-primary
+           transition-all duration-200 placeholder:text-gray-400;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center px-6 py-2.5 
+           bg-primary text-primary-foreground font-medium rounded-lg
+           hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center px-6 py-2.5 
+           bg-secondary text-secondary-foreground font-medium rounded-lg
+           hover:bg-secondary/80 focus:ring-2 focus:ring-secondary/50 
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg font-medium text-gray-700 dark:text-gray-300;
+  }
+
+  .chart-container {
+    @apply w-full rounded-xl overflow-hidden bg-white dark:bg-gray-900;
+  }
+
+  .validity-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .validity-badge-verified {
+    @apply validity-badge bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300;
+  }
+
+  .validity-badge-caution {
+    @apply validity-badge bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300;
+  }
+
+  .validity-badge-warning {
+    @apply validity-badge bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300;
+  }
+
+  .scientific-callout {
+    @apply p-4 rounded-xl border-l-4 border-primary bg-primary/5 dark:bg-primary/10;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 
+           hover:bg-gray-100 dark:hover:bg-gray-800 
+           transition-colors duration-200 font-medium;
+  }
+
+  .nav-link-active {
+    @apply bg-primary/10 text-primary dark:bg-primary/20;
+  }
+}
+
+/* ECharts tooltip styling */
+.echarts-tooltip {
+  @apply !bg-white/95 dark:!bg-gray-800/95 !backdrop-blur-lg 
+         !border !border-gray-200 dark:!border-gray-700 
+         !rounded-lg !shadow-xl !px-4 !py-3;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* Animation utilities */
+.animate-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Focus visible styles */
+.focus-visible\:ring-2:focus-visible {
+  @apply ring-2 ring-primary/50 ring-offset-2;
+}
