@@ -5,10 +5,36 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 ## [Unreleased]
 
 ### Planned
-- Full simulation campaign (≥ 20,000 profiles) against the fitted `mechanistic.adrac` baseline (not 3RUT-MBe1 until reconciliation completes).
-- `scripts/04_export_onnx.py` — ONNX export + INT8 quantization + TFLite Micro benchmark.
+- ONNX export + INT8 quantization + TFLite Micro benchmark (`scripts/05_export_onnx.py`).
 - Residual-on-physics hybrid variant (LightGBM on ADRAC − Conkin-ETR residual).
 - Paper 1 manuscript draft alongside the code in `docs/`.
+- Conformal-coverage investigation: random split hits 0.95 but LOAO folds drop to ~0.88. Likely fixed by (a) larger calibration fold per LOAO fold, or (b) Mondrian conformal stratified by altitude band.
+
+## [0.2.1] — 2026-04-18 — first real-data ADRAC-surrogate run
+
+### Added
+- `scripts/04_train_adrac_surrogate.py` — primary Paper-1 training pipeline that fits the ADRAC log-logistic baseline and the TinyDCS surrogate on the cleaned 15,908-row grid and benchmarks them head-to-head on both random and leave-one-altitude-out splits.
+
+### First real-data results (`seed=42`, 15,908 rows after cleaning)
+
+Random split (apples-to-apples on the same 2,387-row test fold):
+
+| Model | MAE | R² | Brier |
+|---|---|---|---|
+| ADRAC closed-form (log-logistic AFT fit on the grid) | 0.086 | 0.869 | 0.0150 |
+| **TinyDCS (LightGBM + 13 features + conformal + OOD)** | **0.021** | **0.988** | **0.0014** |
+
+Leave-one-altitude-out (5 bands, 5,000-ft each, mean ± SD):
+
+| Model | MAE |
+|---|---|
+| ADRAC baseline | 0.081 ± 0.037 |
+| **TinyDCS** | **0.059 ± 0.033** |
+
+TinyDCS outperforms the closed-form ADRAC baseline by **4× on MAE** and **10× on Brier** on random splits, and by **~28% on MAE** under strict altitude-band extrapolation. These are the primary Paper-1 headline numbers.
+
+### Known issues
+- Conformal coverage on the random split is **0.878** vs. nominal 0.95. Two non-exclusive suspects: (i) the calibration fold size may be too small relative to the target-scale dynamic range; (ii) the Mahalanobis OOD threshold is separate from conformal and doesn't automatically widen intervals near the envelope edge. Fix candidates: **Mondrian conformal** stratified by altitude band, or a larger (25%) calibration fold. Tracked in "Unreleased".
 
 ## [0.2.0] — 2026-04-18 — repo restructure + ADRAC pivot
 
