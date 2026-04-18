@@ -227,6 +227,8 @@ def _metrics_blob(y_true: np.ndarray, y_pred: np.ndarray, *, tag: str) -> dict:
               default=True, show_default=True)
 @click.option("--cqr/--no-cqr", default=False, show_default=True,
               help="Use Conformalized Quantile Regression (Romano 2019) for calibration")
+@click.option("--zi/--no-zi", default=False, show_default=True,
+              help="Use zero-inflated two-stage surrogate (Lambert 1992 style)")
 def main(
     training: str,
     output_surrogate: str,
@@ -236,6 +238,7 @@ def main(
     seed: int,
     run_leave_one_altitude_out: bool,
     cqr: bool,
+    zi: bool,
 ) -> None:
     training_path = Path(training)
     if training_path.suffix.lower() == ".parquet":
@@ -258,7 +261,20 @@ def main(
     # Mondrian (altitude-band stratified) or CQR (Conformalized Quantile
     # Regression, Romano 2019), which additionally handles the bias-driven
     # shortfall at the boundary-mass low-altitude band.
-    if cqr:
+    if zi:
+        click.echo(
+            "Training TinyDCS surrogate on augmented grid (zero-inflated two-stage) ..."
+        )
+        surrogate, splits = train_surrogate(
+            df_aug,
+            feature_names=FEATURE_COLUMNS,
+            target_col="pdcs_3rut_mbe1",
+            test_fraction=0.15,
+            calibration_fraction=0.20,
+            config=TrainConfig(random_state=seed),
+            use_zero_inflated=True,
+        )
+    elif cqr:
         click.echo(
             "Training TinyDCS surrogate on augmented grid (Mondrian-CQR calibration) ..."
         )
@@ -300,6 +316,7 @@ def main(
     from tinydcs.surrogate import (
         CQRCalibration,
         MondrianConformalCalibration,
+        ZeroInflatedCalibration,
     )
     per_band_cov: dict[str, dict[str, float]] = {}
     alt_vals = test_df["altitude_ft"].to_numpy(dtype=float)
@@ -318,7 +335,8 @@ def main(
         per_band_cov[key] = band_cov
     metrics_surrogate_rand["per_band_coverage"] = per_band_cov
     metrics_surrogate_rand["calibration_mode"] = (
-        "cqr" if isinstance(surrogate.conformal, CQRCalibration)
+        "zero_inflated" if isinstance(surrogate.conformal, ZeroInflatedCalibration)
+        else "cqr" if isinstance(surrogate.conformal, CQRCalibration)
         else ("mondrian" if isinstance(surrogate.conformal, MondrianConformalCalibration)
               else "global")
     )
