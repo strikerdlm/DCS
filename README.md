@@ -1,216 +1,209 @@
-**Disclaimer:**
-> This repository and all associated models, scripts, and data are provided strictly for academic and research purposes. The models herein are based on published theory and experimental data, but they are not validated for clinical, operational, or real-world risk prediction.  
-> **These tools do not predict, diagnose, or guarantee the risk of decompression sickness (DCS) for any individual or exposure scenario.**  
-> No part of this project should be used as a substitute for professional medical advice, operational safety protocols, or regulatory guidance.  
-> The authors and contributors accept no liability for any use, misuse, or interpretation of the information or code provided in this repository.
+<div align="center">
 
-# DCS (Decompression Sickness) Models and Analysis
+# 🫁 TinyDCS
 
-## Overview
-This repository contains a comprehensive suite of models, scripts, and data for the analysis and simulation of decompression sickness (DCS) in various environments. The project integrates legacy code, machine learning models, NASA models, and supporting documentation for research and operational use.
+**A wearable-grade machine-learning stack for altitude-decompression-sickness risk prediction.**
 
-## Directory Structure
-- **3RTU_BU_2025_02_02/**: Documentation and theory for 3RTU models.
-- **3RUT_MBe1/**: Markdown documentation and theory for 3RUT models.
-- **BU_3RUT/**: Contains 3RUT_MBe1 with calibration scripts, risk models, configs, and results.
-- **BU_Model_2025/**: Main Python scripts for DCS simulation, CLI, and outputs (models, predictions).
-- **DCS Python Project_old/**: Legacy code and previous BU projects.
-- **Dive_DCS/libbuhlmann-master/**: Buhlmann decompression model implementation (with its own README).
-- **ML model/**: Machine learning scripts, results, and visualizations.
-- **Model_Rel_Candidate/**: Candidate models and metrics for release.
-- **NASA_model/**: NASA-specific DCS model.
-- **output/**: Model outputs and predictions.
-- **.vscode/**: Editor settings.
-- **__pycache__/**: Python bytecode cache (can be ignored).
+*Hybrid physics + ML. Calibrated uncertainty. Edge-deployable. Operationally honest.*
 
-## Getting Started
-### Prerequisites
-- Python 3.8+
-- Recommended: Create a virtual environment
+<br>
 
-### Installation
-```sh
-git clone <repo-url>
-cd DCS
-pip install -r requirements.txt  # (if requirements.txt exists)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white)
+![Status](https://img.shields.io/badge/status-v0.2--research-orange)
+![License](https://img.shields.io/badge/license-research--use--only-lightgrey)
+![Tests](https://img.shields.io/badge/tests-14%2F14%20passing-brightgreen)
+
+[Scientific background](docs/scientific-background.md) ·
+[Methods](docs/methods.md) ·
+[Architecture](docs/architecture.md) ·
+[Publication roadmap](docs/publication-roadmap.md) ·
+[Changelog](CHANGELOG.md)
+
+</div>
+
+---
+
+> ⚠️ **Research-only.** This repository is an experimental research artifact. It is not a clinical device, not a certified operational tool, and must not be used as the sole basis for any aeromedical decision. See `docs/scientific-background.md` for the published models this work extends and the validation envelope each inherits.
+
+---
+
+## What this is, in one paragraph
+
+Existing altitude-DCS risk models trade off along a sharp axis: **ADRAC** (US Air Force, Pilmanis 2004) is closed-form and trivially portable but uses only three coarse exercise levels; **Conkin NASA-RM/NM** (2004) adds a physiologically-grounded Exercise Tissue Ratio but only during prebreathe; **Gerth 3RUT-MBe1** (NEDU TR 18-01, 2018) accepts arbitrary continuous VO₂(t) trajectories but is an ODE recursion too heavy for a smartwatch. TinyDCS is a *hybrid*: a small machine-learning surrogate trained on a cleaned ADRAC grid, with continuous VO₂ injected via Conkin's variable-half-time mechanism, finished with split-conformal prediction intervals and a principled out-of-envelope abstention mode. The model is designed to compile to INT8 ONNX (< 100 KB) and run in < 1 ms on an ARM Cortex-M4.
+
+---
+
+## Why this exists
+
+Unpressurized general aviation above FL180 has a documented but under-monitored DCS risk (Stepanek et al., Mayo Clinic, 2024). Chamber training and EVA prebreathe protocols use ADRAC as a risk-planning tool on the ground, but there is no continuous on-body risk monitor during the exposure itself. Wearables now routinely stream accelerometer-derived VO₂ proxies, HR/HRV, SpO₂, and barometer altitude at multi-Hz rates — yet none of this telemetry is fed into a model that respects the published mechanistic priors. This repository is one attempt to close that gap, from first principles, with honest reporting of where it works and where it does not.
+
+---
+
+## Repository layout
+
+```
+DCS/
+├── README.md                  ← you are here
+├── CHANGELOG.md               ← versioned change log
+├── LICENSE                    ← see notes
+├── pyproject.toml             ← installable package
+├── requirements.txt           ← pinned dependencies
+│
+├── mechanistic/               ← published physics-informed models (callable)
+│   ├── rut_mbe1.py           ·   Gerth 3RUT-MBe1 (calibration reconciliation in progress)
+│   ├── conkin_nasa.py        ·   Conkin RM/NM logistic (Eq 14/15, TP-2004-213158)
+│   └── adrac.py              ·   closed-form ADRAC log-logistic AFT
+│
+├── tinydcs/                   ← the ML surrogate package
+│   ├── simulator.py          ·   continuous-VO₂(t) wrapper around mechanistic models
+│   ├── features.py           ·   13-feature vector for the surrogate
+│   ├── surrogate.py          ·   LightGBM + split-conformal + Mahalanobis OOD
+│   ├── metrics.py            ·   Brier, reliability, calibration slope/intercept
+│   ├── data_clean.py         ·   cleaner for the shipped ADRAC CSV
+│   └── cli.py                ·   console entry points
+│
+├── apps/                      ← user-facing applications
+│   └── streamlit/app.py      ·   unified three-model explorer (ML / 3RUT / NASA)
+│
+├── scripts/                   ← reproducible pipeline runners
+│   ├── 01_clean_data.py
+│   ├── 02_simulate_training.py
+│   └── 03_train_surrogate.py
+│
+├── tests/                     ← 14 passing tests; run with 'pytest'
+├── docs/                      ← scientific background, methods, roadmap
+├── data/                      ← small reference data products
+├── artifacts/                 ← (git-ignored) model + metrics + figures
+├── frontend/                  ← TypeScript visualization dashboard (existing)
+└── legacy/                    ← historical iterations preserved for provenance
 ```
 
-### Running Models
-- **BU_Model_2025:**
-  ```sh
-  python BU_Model_2025/dcs_cli.py --help
-  ```
-- **ML model:**
-  ```sh
-  python "ML model/dcs_cli.py" --help
-  ```
+---
 
-### Outputs
-- Model outputs (predictions, parameters, encoders, scalers) are stored in the `output/` directories of respective modules.
-- Example output files: `.xlsx` (predictions), `.joblib` (models, encoders, scalers).
+## Quick start
 
-## Directory Details
-### BU_Model_2025/
-- `dcs_cli.py`, `dcs_app.py`, `DCSv10.py`, `DCSv11.py`: Main simulation and CLI scripts.
-- `output/`: Contains `.joblib` model files and `.xlsx` prediction outputs.
-
-### Dive_DCS/libbuhlmann-master/
-- Contains its own documentation and source for the Buhlmann model.
-
-### BU_3RUT/3RUT_MBe1/
-- Calibration, risk analysis, and test scripts for 3RUT models.
-
-### ML model/
-- `dcs_simulation.py`, `dcs_cli.py`, `dcs_app.py`: ML-based DCS simulation and analysis.
-
-## 🖥️ Streamlit Risk Explorer
-
-A modern web interface built with **Streamlit** (see `streamlit_app.py`) allows interactive exploration of multiple DCS risk model families. The UI is **model-aware**: it shows **only** the inputs that a selected model actually uses, and it displays **scientific validity + limitations** from artefacts already present in this repository.
-
-Supported model families in the UI:
-
-1) **ML surrogate (loaded artefacts)**: load a trained estimator + preprocessing artefacts (`.joblib`).  
-2) **Mechanistic 3RUT‑MBe1**: recursion from NEDU TR 18‑01 (Appendix C/D) as implemented in `rut_mbe1_model.py`.  
-3) **NASA ETR logistic (RM/NM)**: implements published equations from `NASA_model/conkin-dcs-exercise_2004.md`:
-   - **NM (Eq. 14)**: \(P(DCS)\) from ETR + **sex**
-   - **RM (Eq. 15)**: \(P(DCS)\) from ETR + **age**
-
-### Quick start
 ```bash
-# (inside your virtual-env)
-pip install -r requirements.txt  # ensures Streamlit & Plotly are available
+git clone https://github.com/strikerdlm/DCS
+cd DCS
+pip install -r requirements.txt          # or: pip install -e .
 
-# Launch the UI
-streamlit run streamlit_app.py
+# Run the full pipeline end-to-end on the pilot configuration
+python scripts/01_clean_data.py \
+       --input legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv \
+       --output artifacts/DCS_Risk_DB_2025_clean.parquet \
+       --report artifacts/data_quality_report.md
+
+python scripts/02_simulate_training.py --n-profiles 200 --seed 42 \
+       --output artifacts/training_pilot.parquet
+
+python scripts/03_train_surrogate.py \
+       --training artifacts/training_pilot.parquet \
+       --test-fraction 0.2 --calibration-fraction 0.2 \
+       --output-model artifacts/tinydcs_pilot.joblib \
+       --output-metrics artifacts/metrics_pilot.json \
+       --output-figures artifacts/figures_pilot
+
+pytest tests/ -q
 ```
 
-### Features
-1. **Model-aware input forms** – the UI only shows variables used by the currently selected model.
-2. **Accuracy & safety disclaimers** – explicit research-use-only language in the UI.
-3. **Scientific validity panel** – per model, shows whatever metrics exist in-repo (and clearly marks missing ones as “not provided”).
-4. **ML artefact loading** – point the app at a directory containing `scaler_*.joblib`, `onehot_encoder_*.joblib` (or `encoder_*.joblib`), and `model_*.joblib` / `simple_model_*.joblib` / `trained_model_*.joblib`.
-5. **ADRAC validation dashboard (ML surrogate)** – runs an in-app, reproducible validation against `Model_Rel_Candidate/DCS_Risk_DB_2025.csv` (ADRAC-derived risk %) and renders interactive Plotly diagnostics (predicted vs reference, residuals, binned error heatmaps, worst-case table).
-6. **Mechanistic 3RUT‑MBe1 simulation** – time-resolved outputs + publication-style plots + CSV/HTML export.
-7. **NASA ETR logistic calculator** – computes \(P1N2\), ETR, and \(P(DCS)\) using Eq. 14/15; exposes age/sex only when relevant.
+For a guided tour, the Streamlit app is available at `apps/streamlit/app.py`:
 
-> **Note:** These models are experimental and **must not** be used for clinical or operational decisions. See the repository disclaimer.
+```bash
+streamlit run apps/streamlit/app.py
+```
 
-## Model input support matrix (UI)
+---
 
-The UI shows only the variables each model uses.
+## The three models, side by side
 
-| Variable | ML surrogate (artefacts) | 3RUT‑MBe1 (mechanistic) | NASA ETR logistic (RM/NM) |
-|---|---:|---:|---:|
-| Altitude (ft) | ✅ | ✅ | ❌ |
-| Time at altitude (min) | ✅ | ✅ | ❌ |
-| Prebreathe time (min) | ✅ | ✅ | ✅ (PB duration) |
-| Exercise level at altitude | ✅ (categorical) | ✅ (mapped to \(I_{ex}\)) | ❌ (assumed by study protocol) |
-| Exercise during prebreathe | ⚠️ only if artefacts expect it | ✅ | ✅ via VO₂ input (simplified single-interval) |
-| Prebreathe FiO₂ | ❌ | ✅ | ❌ (represented via Pa≈0 for 100% O₂ PB) |
-| Breathe O₂ at altitude | ❌ | ✅ | ❌ |
-| Ascent / decompression duration | ❌ | ✅ | ❌ (study profile assumption) |
-| Age | ⚠️ only if artefacts expect it | ❌ | ✅ (RM) |
-| Sex / gender | ⚠️ only if artefacts expect it | ❌ | ✅ (NM) |
-| VO₂ during PB (mL/kg/min) | ❌ | ❌ | ✅ |
-| P0 (initial tissue ppN₂, psia) | ❌ | ❌ | ✅ |
-| Pa (ambient ppN₂ during PB, psia) | ❌ | ❌ | ✅ |
-| P2 (ambient/suit pressure after depressurization, psia) | ❌ | ❌ | ✅ |
-| λ₂ (lambda) | ❌ | ❌ | ✅ |
+| Model | Paradigm | Continuous VO₂? | Edge-deployable? | Status in this repo |
+|---|---|:---:|:---:|---|
+| **ADRAC** (Pilmanis 2004) | Log-logistic AFT survival | ❌ (3-category) | ✅ | `mechanistic/adrac.py` (new, being fitted against the cleaned grid) |
+| **Conkin RM/NM** (NASA 2004) | Logistic on Exercise Tissue Ratio | 🟡 (prebreathe only) | ✅ | `mechanistic/conkin_nasa.py` |
+| **Gerth 3RUT-MBe1** (NEDU 2018) | Bubble-dynamics ODE | ✅ | ❌ | `mechanistic/rut_mbe1.py` ⚠️ [calibration reconciliation in progress](docs/methods.md#3rut-mbe1-reconciliation) |
+| **TinyDCS** (this repo) | ML surrogate + conformal | ✅ | ✅ | `tinydcs/` — primary target pivoted to ADRAC (see docs/methods.md) |
 
-Legend:
-- ✅ supported as a first-class input in the UI for that model
-- ⚠️ shown only if detected/required by loaded ML artefacts
-- ❌ not used by that model in this repository implementation
+---
 
-## Scientific validity (what is currently available in this repo)
+## The plan, as a tree
 
-This repository contains multiple model families with different validation styles. Not every model has a complete, publication-ready set of metrics (e.g., sensitivity/specificity/PPV/NPV/ROC/AUC/CI95%) bundled in one place.
+```mermaid
+graph LR
+  A[Paper 1 — Methods] --> A1[Clean ADRAC grid]
+  A --> A2[Continuous-VO2 simulator]
+  A --> A3[LightGBM surrogate]
+  A --> A4[Conformal + OOD]
+  A --> A5[Edge export ONNX/INT8]
 
-- **ML surrogate (ADRAC-derived dataset)**:
-  - Metrics are reported in `Model_Rel_Candidate/Metrics.txt` (e.g., R²/MAE/RMSE for a January 2025 run).
-  - These are regression-style metrics against ADRAC-derived labels (risk %), not clinical outcomes.
-- **Mechanistic 3RUT‑MBe1**:
-  - The theory doc `BU_3RUT/3RUT_MBe1/3RUT_Theory.md` discusses chi-square goodness-of-fit and comparisons versus other models (e.g., ADRAC / NASA-RM2004).
-  - A consolidated ROC/sensitivity/specificity table is **not** currently included in this repo.
-- **NASA ETR logistic (RM/NM)**:
-  - The UI implements Eq. 14/15 from `NASA_model/conkin-dcs-exercise_2004.md` and is intended as a transparent calculator.
-  - The repo does not currently bundle a ready-to-run evaluation set that outputs ROC/AUC/sensitivity/specificity/PPV/NPV for this implementation.
-- **Legacy ASEM metrics snapshot**:
-  - A text metrics snapshot is present at `DCS Python Project_old/BU_2024/model_validation_metrics_20250128_1245.txt`.
+  B[Paper 2 — Personalization] --> B1[Hierarchical Bayesian priors]
+  B --> B2[Multimodal fusion HRV/SpO2]
+  B --> B3[Online subject calibration]
 
-## Validation sources (technical reports / scientific evidence included in this repo)
+  C[Paper 3 — Clinical] --> C1[IRB Colombia]
+  C --> C2[Chamber cohort]
+  C --> C3[External validation]
 
-This repo vendors several primary sources used to justify equations and interpret validation/limitations:
+  A --> B --> C
+```
 
-- **NASA exercise-prebreathe probability modeling (NM/RM, Eq. 14/15)**: `NASA_model/conkin-dcs-exercise_2004.md` and `NASA_model/DCS_NASA.py`
-- **NASA DCS risk mitigation / BiP context**: `NASA_model/TP-2024-BiP_Report_v16.md` and `NASA_model/Evidence_2024.md`
-- **ADRAC-derived surrogate validation artefacts**: `Model_Rel_Candidate/DCS_Risk_DB_2025.csv` and `Model_Rel_Candidate/Metrics.txt`
-- **ASEM legacy validation snapshot**: `DCS Python Project_old/BU_2024/model_validation_metrics_20250128_1245.txt`
+See [`docs/publication-roadmap.md`](docs/publication-roadmap.md) for the full plan with journal targets, timelines, and dependencies.
 
-## Roadmap: publishable, Q1 journal-grade app (step-by-step)
+---
 
-The path to a publishable scientific application is primarily about **traceability, verification/validation, uncertainty quantification, and reproducibility**. A suggested iteration roadmap (aligned with best scientific software practices and publishable methods reporting):
+## Status
 
-1) **Model registry + contracts (v0.1)**
-   - Define a single “model interface” in code: required inputs, units, valid ranges, and outputs.
-   - Ensure each model declares its supported covariates (age/sex/altitude/exercise/O₂ breathing/etc.).
-   - Require explicit **unit conventions** (atm vs mmHg, ft vs m) and an automated unit/shape validation layer.
+| Milestone | Commit / tag | Status |
+|---|---|---|
+| Repo restructure (this commit series) | `main` @ v0.2.0 | ✅ |
+| ADRAC cleaner (`tinydcs.data_clean`) | v0.1.0 | ✅ 1,221 rows rescaled, 15,908 unique cells |
+| Continuous-VO₂ simulator + features | v0.1.0 | ✅ |
+| LightGBM + conformal + OOD surrogate | v0.1.0 | ✅ end-to-end on 200-profile pilot |
+| `mechanistic/adrac.py` closed-form AFT baseline | — | 🚧 next |
+| Full simulation campaign (≥ 20,000 profiles) | — | 🚧 |
+| 3RUT-MBe1 calibration reconciliation | — | 🚧 [tracking issue](docs/methods.md#3rut-mbe1-reconciliation) |
+| ONNX/INT8 edge export | — | ⏳ Paper 1 scope |
+| Hierarchical Bayesian personalization | — | ⏳ Paper 2 scope |
+| Prospective Colombian chamber validation | — | ⏳ Paper 3 scope |
 
-2) **Data curation + ground-truth definition (v0.2)**
-   - For each model family, define what “ground truth” means (ADRAC-derived risk %, observed DCS outcomes, VGE grades, etc.).
-   - Create a versioned dataset manifest: source, inclusion criteria, missingness handling, and licensing constraints.
-   - Pre-specify a **case definition** (binary DCS / ordinal severity / time-to-event), censoring rules, and what constitutes an “exposure”.
+---
 
-3) **Verification-first evaluation suite (v0.3)**
-   - Add **model verification** tests that check the implementation against the published recursion/identities (e.g., Appendix C/D invariants), not just outcome metrics.
-   - Add **numerical stability** tests (step-size sensitivity, extreme-but-valid inputs, monotonicity where theoretically required).
-   - Ensure deterministic runs (fixed seeds where applicable; avoid non-deterministic ordering).
+## Limitations & honest disclosures
 
-4) **Validation suite with publishable metrics (v0.4)**
-   - Add a standardized evaluation harness that can compute:
-     - **Sensitivity, specificity, PPV, NPV**
-     - **ROC/AUC** (with confidence intervals)
-     - **Calibration** (reliability curves, Brier score, calibration intercept/slope)
-     - **Uncertainty** (CI95% / prediction intervals / bootstrap CIs)
-   - Make the “decision threshold” explicit and justified (not arbitrary).
-   - Separate **discrimination** from **calibration**; report both.
-   - Report uncertainty with a documented procedure (e.g., bootstrap by study/protocol to respect clustering).
+- **Surrogate target ≠ clinical outcome.** The training target is a parametric model's output (ADRAC, optionally 3RUT-MBe1). Any claim beyond "reproduces the parametric model" requires prospective validation against observed DCS/VGE outcomes. That is explicitly Paper 3 scope.
+- **3RUT-MBe1 implementation.** The vendored `mechanistic/rut_mbe1.py` currently under-reports P(DCS) by ~4–5 orders of magnitude relative to Gerth's Figure 16 on the five ADRAC-validation profiles. Reconciliation is ongoing (`docs/methods.md#3rut-mbe1-reconciliation`). Until resolved, TinyDCS primary target is ADRAC, not 3RUT-MBe1.
+- **Dataset quality.** The shipped `DCS_Risk_DB_2025.csv` has documented scale inconsistencies (1,221 rows were mis-entered on the fraction scale instead of percent). `tinydcs.data_clean` repairs these deterministically; see `artifacts/data_quality_report.md` after running the cleaner.
+- **Validity envelope.** All results apply strictly within the training-input envelope: altitude 18,000–40,000 ft; prebreathe 0–180 min; time-at-altitude 10–240 min; FiO₂ ∈ {0.21, 0.95, 1.0}. The surrogate's OOD detector abstains outside this envelope by design.
+- **Individual variability.** None of the published models — or this surrogate — represent inter-subject differences in DCS susceptibility. This is a large known gap and the explicit subject of Paper 2.
 
-5) **External validation + robustness (v0.5)**
-   - Perform strict train/validation/test separation by **study/protocol/group** (avoid leakage).
-   - Validate on out-of-sample profiles (altitudes, prebreathe durations, exercise regimens) where possible.
-   - Include subgroup analyses and prespecified robustness checks.
+---
 
-6) **Mechanistic vs ML reconciliation (v0.6)**
-   - Document which covariates are mechanistically modeled vs purely statistical.
-   - Add model comparison plots: risk vs time, hazard vs time, subgroup analyses.
-   - Explicitly report the **validity envelope** (input ranges and protocols supported) for each model family.
+## Citations (primary sources)
 
-7) **Reproducible builds + auditability (v0.7)**
-   - Pin dependencies, log model versions, hash artefacts, and store run metadata.
-   - Add deterministic evaluation runs and artifact provenance (dataset version → model version → metrics).
-   - Publish a reproducible “methods run” that regenerates key tables/figures from raw inputs.
+See `docs/scientific-background.md` for the full bibliography. The load-bearing citations are:
 
-8) **Scientific & safety framing (v0.8)**
-   - Strengthen disclaimers, intended-use statements, and “not for operational use” guardrails.
-   - Add clear “validity envelope” constraints in UI (warn/disable extrapolation beyond training range).
-   - Adopt a reporting checklist (e.g., TRIPOD/TRIPOD-AI style) for any predictive claims.
+1. Kannan N, Raychaudhuri A, Pilmanis AA. *A loglogistic model for altitude decompression sickness.* **Aviat Space Environ Med** 1998; 69:965–70.
+2. Pilmanis AA, Petropoulos L, Kannan N, Webb JT. *Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures.* **Aviat Space Environ Med** 2004; 75:749–59.
+3. Conkin J, Gernhardt ML. *A probability model of decompression sickness at 4.3 psia after exercise prebreathe.* **NASA TP-2004-213158**.
+4. Webb JT, Krock LP, Gernhardt ML. *Oxygen consumption at altitude as a risk factor for altitude decompression sickness.* **Aviat Space Environ Med** 2010; 81:987–92.
+5. Gerth WA et al. *A Probabilistic Model of Altitude Decompression Sickness Based on the 3RUT-MB Model.* **NEDU TR 18-01** (DTIC AD1101527), 2018.
+6. Collins GS, Moons KGM, et al. *TRIPOD+AI statement.* **BMJ** 2024; 385:e078378.
 
-9) **Manuscript-ready outputs (v1.0)**
-   - Auto-generate publication-quality figures and tables (metrics, subgroup performance, calibration).
-   - Provide a transparent methods section mapping each code path to the underlying theory documents.
-   - Produce a “model card” style summary per model family (intended use, limitations, data, metrics, uncertainty).
-
-## Contributing
-1. Fork the repo and create your branch (`git checkout -b feature/fooBar`)
-2. Commit your changes (`git commit -am 'Add some fooBar'`)
-3. Push to the branch (`git push origin feature/fooBar`)
-4. Create a new Pull Request
+---
 
 ## License
-- See `Dive_DCS/libbuhlmann-master/LICENSE` for Buhlmann model.
-- Other code: Specify your license here (e.g., MIT, GPL, etc.).
 
-## Acknowledgments
-- NASA, Buhlmann model authors, and all contributors.
-- Special thanks to all researchers and developers who contributed to the DCS modeling efforts. 
+Research-use-only. All code is MIT-adjacent for research purposes; the vendored NASA/USAFSAM reference documents retain their original public-domain status.
+
+## Citation for this repository
+
+If you use any part of this work, please cite (format will stabilize at v1.0):
+
+```bibtex
+@software{tinydcs2026,
+  author  = {Malpica, Diego},
+  title   = {TinyDCS: a wearable-grade ML surrogate of altitude-DCS risk models},
+  year    = {2026},
+  url     = {https://github.com/strikerdlm/DCS},
+  version = {0.2.0}
+}
+```
