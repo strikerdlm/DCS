@@ -2,18 +2,18 @@
 title: 'TinyDCS: An edge-deployable machine-learning surrogate of the ADRAC altitude-decompression-sickness risk model with continuous-exposure covariates and calibrated uncertainty'
 
 running-title: 'TinyDCS: edge surrogate of ADRAC'
-running-authors: 'Malpica'
+running-authors: 'Malpica \& Farfán'
 
 article-type: 'Original Research --- Extended Abstract'
 journal-line: '\textit{Aerospace Medicine and Human Performance} (AsMA) --- in preparation'
 
-author-line: 'Diego Malpica, MD\textsuperscript{1*}'
+author-line: 'Diego Malpica, MD\textsuperscript{1*}\enspace·\enspace Marian Farfán, MD\textsuperscript{1}'
 
-affil-1: 'Aerospace Medicine, Colombia Aerospace Force / Universidad del Bosque, Bogotá, Colombia'
+affil-1: 'Subdirectorate of Aerospace Sciences, Direction of Aerospace Medicine, Colombian Aerospace Force, Bogotá DC, Colombia'
 
-correspondence: 'dlmalpica@yahoo.com'
+correspondence: 'diego.malpica@fac.mil.co'
 
-pdf-author: 'Malpica D'
+pdf-author: 'Malpica D, Farfán M'
 
 wordcount: 'approx. 250 (abstract) --- full manuscript in preparation'
 version: '0.5.0 --- 2026-04-18'
@@ -59,4 +59,4 @@ All code, cleaned data, trained model bundles (joblib), ONNX artifacts, metrics 
 
 ## Conflicts of interest and funding
 
-The author declares no conflicts of interest. This work received no external funding. AI coding assistance (Claude Opus 4.7 and Claude Sonnet 4.6) was used during implementation and is declared on every relevant commit; all modelling decisions, validation, and interpretation are the author's.
+The authors declare no conflicts of interest. This work received no external funding. AI coding assistance (Claude Opus 4.7 and Claude Sonnet 4.6) was used during implementation and is declared on every relevant commit; all modelling decisions, validation, and interpretation are the authors'.
