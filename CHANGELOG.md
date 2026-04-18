@@ -5,10 +5,30 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 ## [Unreleased]
 
 ### Planned
-- Cortex-M4/M0 benchmarking of the compact and tiny ONNX variants on real hardware (current numbers are CPU-measured).
-- ONNX export for the zero-inflated model (currently only the single-model path is exported; requires emitting both sub-models side-by-side).
+- Cortex-M4/M0 benchmarking of the compact ONNX variants on real hardware (current numbers are CPU-measured).
 - Manuscript revision: journal-specific reformatting, figure embedding, acknowledgements, declared COIs.
 - Prospective external-validation study (Paper 3 scope; IRB preparation).
+- Paper 2 scoping note: hierarchical Bayesian personalization + multimodal fusion.
+
+## [0.4.1] — 2026-04-18 — zero-inflated ONNX edge export
+
+### Added
+- `AGENTS.md` at repo root — comprehensive continuation guide for future AI agents (TL;DR, methods inventory, ranked open problems P0–P6, speculative research directions, pitfalls, validation checklist, session log).
+- `scripts/07_export_zero_inflated_onnx.py` — exports the two-stage zero-inflated surrogate to two ONNX graphs (classifier + continuous) plus a JSON metadata sidecar with gate constants, feature names, OOD detector parameters, and the host-side runtime algorithm in human-readable form.
+
+### Edge deployment of the zero-inflated model
+
+| Variant | Classifier ONNX | Continuous ONNX | Combined | Per-row p50 | MAE | R² | Cov. |
+|---|---|---|---|---|---|---|---|
+| Full (400 × 31 each) | 896 KB | 891 KB | 1,787 KB | 16.5 μs | 0.020 | 0.986 | 0.960 |
+| **Compact (100 × 7 each)** | **47 KB** | **47 KB** | **95 KB** | **2.4 μs** | **0.028** | **0.981** | **0.953** |
+
+The compact zero-inflated variant hits the Paper-1 headline claim end-to-end: under 100 KB total, under 3 μs per-row inference, R² 0.98, empirical 95% coverage. Parity vs Python reference: max |error| = 6.4e-7 on P(y=0), 4.9e-6 on the continuous logit (well under the 1e-4 target).
+
+### Note on classifier export
+`onnxmltools.convert_lightgbm` on a `LGBMClassifier` requires the package-internal `onnxmltools.convert.common.data_types.FloatTensorType`, not the generic `onnxconverter_common.FloatTensorType` that works for regressors. This subtle type requirement is documented in both `scripts/07_export_zero_inflated_onnx.py` and `AGENTS.md` §9 pitfalls.
+
+## [0.4.0] — 2026-04-18 — zero-inflated calibration closes the low-band shortfall
 
 ## [0.4.0] — 2026-04-18 — zero-inflated calibration closes the low-band shortfall
 
