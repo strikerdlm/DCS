@@ -10,9 +10,9 @@ Keep this file current. When an agent lands a change that alters the methods, re
 
 - **What this is**: a machine-learning surrogate of the USAF ADRAC altitude-DCS risk model, plus three published mechanistic comparators, designed to run on a wearable in under 1 ms.
 - **Current headline**: MAE 0.020, R² 0.986, Brier 0.00156 against the closed-form ADRAC baseline's 0.086 / 0.869 / 0.0150; 47 KB compact ONNX variant; empirical 95% coverage uniform across all 5,000-ft altitude bands after the zero-inflated calibration landed in v0.4.0.
-- **Where to start**: read this file, then `README.md`, then `docs/methods.md`, then the last two `CHANGELOG.md` entries.
-- **Repo on origin**: `github.com/strikerdlm/DCS`, default branch `main`, latest tag `v0.4.0`.
-- **21 / 21 tests pass** at the current HEAD.
+- **Where to start**: read this file, then `docs/runbook.md` (step-by-step reproduction), then `README.md`, then `docs/methods.md`, then the last two `CHANGELOG.md` entries.
+- **Repo on origin**: `github.com/strikerdlm/DCS`, default branch `main`, latest tag `v0.5.0` (v0.6.0 is in progress: runbook, validation-hardware, Appendix-C checklist).
+- **25 / 25 tests pass** at the current HEAD.
 
 ---
 
@@ -59,16 +59,20 @@ If any of the above fails on a clean checkout, **fix that first and document the
 
 The repo has grown; these are the files worth reading in the first hour, in order:
 
-1. `README.md` — the user-facing overview + repo layout + status table.
-2. `docs/scientific-background.md` — ADRAC, Conkin, Webb, Gerth lineages; primary citations.
-3. `docs/methods.md` — TRIPOD+AI-aligned methods (M1–M8). **This is the spec the code implements.**
-4. `docs/architecture.md` — three-layer diagram (mechanistic / ML surrogate / personalization+fusion).
-5. `docs/publication-roadmap.md` — Papers 1, 2, 3 with journals, data sources, timelines.
-6. `docs/papers/paper-1-draft.md` — the draft manuscript. All headline numbers live here.
-7. `CHANGELOG.md` — tagged releases; read v0.3.0 and v0.4.0 at minimum.
-8. `tinydcs/surrogate.py` — the single most important code file. Has four calibration classes, four `fit_*` helpers, one `train_surrogate` orchestrator, one self-contained `TinyDcsSurrogate` bundle.
-9. `mechanistic/adrac.py` — closed-form ADRAC log-logistic baseline (the honest comparator).
-10. `scripts/04_train_adrac_surrogate.py` — the primary training pipeline CLI.
+1. `docs/runbook.md` — **the first file you open**. Command-by-command reproduction from clean checkout. If a session disconnects mid-work, this is how to resume.
+2. `README.md` — user-facing overview, repo layout, status table.
+3. `docs/scientific-background.md` — ADRAC, Conkin, Webb, Gerth lineages; primary citations.
+4. `docs/methods.md` — TRIPOD+AI-aligned methods (M1–M8). **This is the spec the code implements.** §M7 is the open 3RUT-MBe1 reconciliation task with its Appendix-C audit checklist.
+5. `docs/architecture.md` — three-layer diagram (mechanistic / ML surrogate / personalization+fusion).
+6. `docs/validation-hardware.md` — honest device inventory for the planned Paper-1 / Paper-3 validation cohort; also the training-hardware scoping note (CPU sufficient through v0.5.0).
+7. `docs/publication-roadmap.md` — Papers 1, 2, 3 with journals, data sources, timelines.
+8. `docs/papers/paper-1-draft.md` — the draft manuscript. All headline numbers live here.
+9. `CHANGELOG.md` — tagged releases; read v0.4.0 and v0.5.0 at minimum.
+10. `tinydcs/surrogate.py` — the single most important code file. Four calibration classes, four `fit_*` helpers, one `train_surrogate` orchestrator, one self-contained `TinyDcsSurrogate` bundle.
+11. `tinydcs/personalization.py` — Paper-2 prototype: conjugate-Gaussian hierarchical personalization on top of any trained base surrogate.
+12. `mechanistic/adrac.py` — closed-form ADRAC log-logistic baseline (the honest comparator).
+13. `scripts/04_train_adrac_surrogate.py` — the primary training pipeline CLI.
+14. `scripts/08_personalization_demo.py` — the Paper 2 synthetic-cohort demo.
 
 Don't skim `legacy/`. Treat it as frozen history. Nothing there is imported by current code.
 
@@ -271,4 +275,14 @@ A dated record of substantive agent sessions. Each entry is one line: date, git 
 
 - `2026-04-18` · `50a4eaf..f1f80a5` · repo restructure, ADRAC closed-form baseline, LightGBM surrogate with Mondrian / CQR / zero-inflated calibration, ONNX export + compact ladder, Paper 1 manuscript draft; v0.2.0 → v0.4.0.
 - `2026-04-18` · `1c8707a..4447f77` · AGENTS.md continuation guide; zero-inflated ONNX edge export (compact: 95 KB total, 2.4 μs/row, R²=0.98, coverage=0.95); Paper 2 scope doc; conjugate-Gaussian personalization prototype with synthetic-cohort sweep; v0.4.1, v0.5.0.
+- `2026-04-18` · `cf9826f..9d55180` · docs/runbook.md (command-by-command reproduction); docs/validation-hardware.md (honest device inventory + training-hardware scoping); docs/methods.md §M7 replaced scalar-fit reconciliation with NEDU-TR-18-01 Appendix-C audit checklist; AGENTS.md continuity updates (reading order, TL;DR, resume pointer below). v0.6.0 in progress.
 - *(next session: add your entry here before your last push.)*
+
+### If this session disconnects — resume here
+
+1. Open `docs/runbook.md`. Follow §0 → §2 to regenerate `artifacts/DCS_Risk_DB_2025_clean.parquet` and `artifacts/tinydcs_adrac_zi.joblib` from a clean checkout. If the printed headline numbers do not match §2 of the runbook, stop and report the divergence — something has drifted.
+2. Open this file's §7 (Open problems, ranked). P0, P1, P2 are the active Paper 1 / Paper 2 items. P4 (3RUT-MBe1) is the long-tail task whose checklist now lives in `docs/methods.md` §M7; do not start it casually — it requires access to NEDU TR 18-01.
+3. The immediate next deliverable after v0.5.0 is `scripts/09_make_paper_figures.py` — generate the five AMHP IMRAD figures (reliability diagram, per-band coverage, size-vs-accuracy Pareto, info-gain curve, architecture). Read `docs/papers/paper-1-draft.md` first to confirm which figures the manuscript references.
+4. After the figures script, tag `v0.6.0` and push.
+5. Do **not** reformat the manuscript to Nature / *Science* Results-before-Methods style. Primary target journal is *Aerospace Medicine and Human Performance* (AMHP), IMRAD. This is a settled call.
+6. Do **not** apply a scalar-fit patch to `mechanistic/rut_mbe1.py` to make its output match Gerth Fig. 16. That is explicitly rejected in `docs/methods.md` §M7 — the reconciliation must go through the Appendix-C equation audit.
