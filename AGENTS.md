@@ -270,4 +270,5 @@ If you fork or build on this, please include the `AGENTS.md` and preserve the co
 A dated record of substantive agent sessions. Each entry is one line: date, git range, one-phrase summary.
 
 - `2026-04-18` · `50a4eaf..f1f80a5` · repo restructure, ADRAC closed-form baseline, LightGBM surrogate with Mondrian / CQR / zero-inflated calibration, ONNX export + compact ladder, Paper 1 manuscript draft; v0.2.0 → v0.4.0.
+- `2026-04-18` · `1c8707a..4447f77` · AGENTS.md continuation guide; zero-inflated ONNX edge export (compact: 95 KB total, 2.4 μs/row, R²=0.98, coverage=0.95); Paper 2 scope doc; conjugate-Gaussian personalization prototype with synthetic-cohort sweep; v0.4.1, v0.5.0.
 - *(next session: add your entry here before your last push.)*
