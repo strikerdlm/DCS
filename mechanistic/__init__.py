@@ -16,11 +16,15 @@ Only the public classes/functions are re-exported here. Import the submodule
 directly for internal helpers.
 """
 
+from .adrac import AdracModel, altitude_ft_to_mmhg, fit_adrac  # noqa: F401
 from .rut_mbe1 import ModelParameters, ModelState, ProfileSegment, RutMbe1Model  # noqa: F401
 
 __all__ = [
+    "AdracModel",
     "ModelParameters",
     "ModelState",
     "ProfileSegment",
     "RutMbe1Model",
+    "altitude_ft_to_mmhg",
+    "fit_adrac",
 ]
