@@ -251,15 +251,19 @@ def main(
     df_aug = _augment_with_vo2(df_raw, seed=seed)
     df_aug["pdcs_3rut_mbe1"] = df_aug["pdcs_adrac_target"]  # rename so train_surrogate finds it
 
-    # 3. TinyDCS surrogate on random split.
-    click.echo(f"Training TinyDCS surrogate on augmented grid ...")
+    # 3. TinyDCS surrogate on random split, with Mondrian (altitude-band)
+    # conformal so coverage holds uniformly across the 18,000–40,000 ft range.
+    click.echo("Training TinyDCS surrogate on augmented grid (Mondrian conformal) ...")
     surrogate, splits = train_surrogate(
         df_aug,
         feature_names=FEATURE_COLUMNS,
         target_col="pdcs_3rut_mbe1",
         test_fraction=0.15,
-        calibration_fraction=0.15,
+        calibration_fraction=0.20,
         config=TrainConfig(random_state=seed),
+        mondrian_feature="altitude_ft",
+        mondrian_band_width=5000.0,
+        mondrian_band_origin=18000.0,
     )
     test_df = splits["test"]
     y_true_rand = test_df["pdcs_3rut_mbe1"].to_numpy(dtype=float)
@@ -268,7 +272,24 @@ def main(
     metrics_surrogate_rand["conformal_coverage"] = empirical_coverage(
         y_true_rand, pred_rand["lower"], pred_rand["upper"], nominal=surrogate.conformal.confidence
     )
-    metrics_surrogate_rand["conformal_q_logit"] = float(surrogate.conformal.q)
+
+    # Per-altitude-band coverage — the key check that Mondrian restores.
+    from tinydcs.surrogate import MondrianConformalCalibration
+    per_band_cov: dict[str, dict[str, float]] = {}
+    if isinstance(surrogate.conformal, MondrianConformalCalibration):
+        alt_vals = test_df["altitude_ft"].to_numpy(dtype=float)
+        bands = surrogate.conformal.band_of(alt_vals)
+        for b in np.unique(bands):
+            mask = bands == b
+            if int(mask.sum()) < 10:
+                continue
+            band_cov = empirical_coverage(
+                y_true_rand[mask], pred_rand["lower"][mask], pred_rand["upper"][mask],
+                nominal=surrogate.conformal.confidence,
+            )
+            key = f"{int(b) * 5000 + 18000}-{int(b) * 5000 + 23000}_ft"
+            per_band_cov[key] = band_cov
+    metrics_surrogate_rand["per_band_coverage"] = per_band_cov
 
     # Also evaluate the baseline on the same test fold (row-for-row) for apples-to-apples.
     # We need to trace back to the raw df via the index.
