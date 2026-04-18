@@ -104,6 +104,118 @@ def test_brier_score_zero_on_perfect_pred() -> None:
     assert brier_score(y, y) == pytest.approx(0.0)
 
 
+def test_cqr_beats_global_on_biased_low_region() -> None:
+    """Synthesize a dataset with a boundary-mass (zero-target) region at
+    low altitude. Global conformal under-covers there because the interval
+    is symmetric around a biased mean. CQR handles asymmetric / bias-
+    driven intervals natively and should recover closer-to-nominal coverage
+    in that region.
+    """
+    rng = np.random.default_rng(11)
+    n = 2000
+    alt = rng.uniform(18000, 40000, size=n)
+    # Generate target: at low altitude the truth is clumped near zero; at
+    # high altitude it spreads across [0.1, 0.9].
+    p_lin = np.clip((alt - 18000) / (40000 - 18000), 0, 1)
+    p = np.where(
+        alt < 24000,
+        rng.choice([0.0, 0.01, 0.02, 0.05], size=n, p=[0.6, 0.2, 0.1, 0.1]),
+        np.clip(0.1 + 0.8 * p_lin + 0.05 * rng.standard_normal(size=n), 0.02, 0.95),
+    )
+
+    rows = []
+    for i in range(n):
+        rows.append({
+            "altitude_ft": alt[i],
+            "ambient_pressure_atm": (1 - 6.87535e-6 * alt[i]) ** 5.2559,
+            "prebreathe_time_min": 30.0,
+            "prebreathe_fio2": 1.0,
+            "ascent_rate_fpm": 5000.0,
+            "altitude_time_min": 120.0,
+            "altitude_fio2": 0.21,
+            "prebreathe_vo2_mean_lmin": 0.0,
+            "prebreathe_vo2_peak_lmin": 0.0,
+            "altitude_vo2_mean_lmin": 0.2,
+            "altitude_vo2_peak_1min_lmin": 0.3,
+            "altitude_vo2_integral_lmin_min": 24.0,
+            "tissue_n2_ratio_360min": 1.5,
+            "pdcs_3rut_mbe1": float(p[i]),
+        })
+    df = pd.DataFrame(rows)
+
+    from tinydcs.surrogate import CQRCalibration
+
+    s_global, splits_global = train_surrogate(
+        df, feature_names=FEATURE_COLUMNS, test_fraction=0.2, calibration_fraction=0.25,
+        config=TrainConfig(n_estimators=150, learning_rate=0.08, num_leaves=31),
+    )
+    s_cqr, splits_cqr = train_surrogate(
+        df, feature_names=FEATURE_COLUMNS, test_fraction=0.2, calibration_fraction=0.25,
+        config=TrainConfig(n_estimators=150, learning_rate=0.08, num_leaves=31),
+        use_cqr=True,
+    )
+    assert isinstance(s_cqr.conformal, CQRCalibration)
+
+    # Coverage on the low-altitude slice of the test fold.
+    def _low_slice(splits_):
+        test_df = splits_["test"]
+        lo = test_df["altitude_ft"] < 24000
+        y = test_df.loc[lo, "pdcs_3rut_mbe1"].to_numpy(dtype=float)
+        return test_df.loc[lo], y
+
+    test_g, y_g = _low_slice(splits_global)
+    test_c, y_c = _low_slice(splits_cqr)
+    pred_g = s_global.predict(test_g)
+    pred_c = s_cqr.predict(test_c)
+    cov_g = empirical_coverage(y_g, pred_g["lower"], pred_g["upper"], nominal=0.95)["coverage"]
+    cov_c = empirical_coverage(y_c, pred_c["lower"], pred_c["upper"], nominal=0.95)["coverage"]
+
+    # CQR should not be worse than global on the biased region and should
+    # typically close a meaningful fraction of the gap to nominal.
+    assert cov_c >= cov_g - 1e-9, (
+        f"CQR coverage {cov_c:.3f} worse than global {cov_g:.3f} on biased region"
+    )
+
+
+def test_cqr_save_load_roundtrip(tmp_path) -> None:
+    rng = np.random.default_rng(0)
+    n = 400
+    rows = []
+    for _ in range(n):
+        alt = rng.uniform(20000, 40000)
+        rows.append({
+            "altitude_ft": alt,
+            "ambient_pressure_atm": (1 - 6.87535e-6 * alt) ** 5.2559,
+            "prebreathe_time_min": 30.0,
+            "prebreathe_fio2": 1.0,
+            "ascent_rate_fpm": 5000.0,
+            "altitude_time_min": 120.0,
+            "altitude_fio2": 0.21,
+            "prebreathe_vo2_mean_lmin": 0.0,
+            "prebreathe_vo2_peak_lmin": 0.0,
+            "altitude_vo2_mean_lmin": 0.2,
+            "altitude_vo2_peak_1min_lmin": 0.3,
+            "altitude_vo2_integral_lmin_min": 24.0,
+            "tissue_n2_ratio_360min": 1.8,
+            "pdcs_3rut_mbe1": float(np.clip(0.3 + 0.05 * rng.standard_normal(), 1e-4, 1 - 1e-4)),
+        })
+    df = pd.DataFrame(rows)
+    from tinydcs.surrogate import CQRCalibration, TinyDcsSurrogate
+
+    surrogate, splits = train_surrogate(
+        df, feature_names=FEATURE_COLUMNS, test_fraction=0.2, calibration_fraction=0.25,
+        config=TrainConfig(n_estimators=60, learning_rate=0.1, num_leaves=15),
+        use_cqr=True,
+    )
+    path = tmp_path / "cqr.joblib"
+    surrogate.save(str(path))
+    loaded = TinyDcsSurrogate.load(str(path))
+    assert isinstance(loaded.conformal, CQRCalibration)
+    p1 = surrogate.predict(splits["test"])["point"]
+    p2 = loaded.predict(splits["test"])["point"]
+    assert np.allclose(p1, p2)
+
+
 def test_mondrian_conformal_round_trip() -> None:
     """Mondrian calibration fits, predicts with varying half-widths across
     bands, and survives a save/load cycle."""
