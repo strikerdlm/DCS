@@ -5,10 +5,47 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 ## [Unreleased]
 
 ### Planned
-- Conformalized Quantile Regression (CQR, Romano et al. 2019) to repair the low-altitude band coverage shortfall without the zero-inflated complication.
 - Cortex-M4/M0 benchmarking of the compact and tiny ONNX variants on real hardware (current numbers are CPU-measured).
+- ONNX export for the zero-inflated model (currently only the single-model path is exported; requires emitting both sub-models side-by-side).
 - Manuscript revision: journal-specific reformatting, figure embedding, acknowledgements, declared COIs.
 - Prospective external-validation study (Paper 3 scope; IRB preparation).
+
+## [0.4.0] — 2026-04-18 — zero-inflated calibration closes the low-band shortfall
+
+### Added
+- `tinydcs.surrogate.CQRCalibration` + `fit_cqr()` — Conformalized Quantile Regression (Romano, Patterson & Candès 2019) with optional Mondrian (altitude-band) stratification of the conformal correction.
+- `tinydcs.surrogate.ZeroInflatedCalibration` + `fit_zero_inflated()` — two-stage Lambert-style zero-inflated surrogate: binary LightGBM classifier for P(y = 0 | x) + LightGBM regressor for logit(y) on non-zero rows + conformal quantile on non-zero residuals + inference-time gating.
+- `train_surrogate(use_cqr=True, ...)` and `train_surrogate(use_zero_inflated=True, ...)`; both branches survive save/load round-trip.
+- `scripts/04_train_adrac_surrogate.py --cqr` / `--zi` flags for reproducible mode selection.
+- `tests/test_surrogate.py::test_cqr_beats_global_on_biased_low_region` and `::test_cqr_save_load_roundtrip` — 21 tests passing.
+
+### Calibration comparison on the 15,908-row cleaned ADRAC grid (seed=42, random split)
+
+| Calibration | Overall | 18–23K ft | 23–28K ft | 28–33K ft | 33–38K ft | 38–43K ft |
+|---|---|---|---|---|---|---|
+| Global conformal | 0.869 | 0.591 | 0.933 | 0.944 | 0.967 | 0.948 |
+| Mondrian | 0.869 | 0.583 | 0.949 | 0.945 | 0.954 | 0.955 |
+| CQR (global q) | 0.864 | 0.589 | 0.937 | 0.945 | 0.945 | 0.937 |
+| Mondrian-CQR | 0.865 | 0.589 | 0.924 | 0.959 | 0.951 | 0.937 |
+| **Zero-inflated two-stage** | **0.960** | **0.964** | **0.953** | **0.951** | **0.967** | **0.966** |
+
+All four conformal-only methods produce near-nominal coverage (0.92–0.97) in the four upper altitude bands but are invariant at 0.58–0.59 in the lowest band. This invariance was diagnostic of target-distribution pathology (~40% exact-zero rows in the low-altitude band). The two-stage model routes the zero mass through a dedicated classifier and closes the gap to 0.964. **Zero-inflated is now the default calibration for Paper-1 headline numbers.**
+
+### Point accuracy improved slightly under the zero-inflated model
+- MAE: 0.0217 → 0.0200
+- R²: 0.986 → 0.986
+- Brier: 0.0016 → 0.00156
+
+### Documentation
+- `docs/methods.md` §M3.3 / M3.3b / M3.3c rewritten to cover all four calibration modes + the empirical comparison table.
+- `docs/papers/paper-1-draft.md` — abstract, results §3.5, and discussion §4.3 updated with the new numbers. The paper's limitation section no longer carries an un-addressed coverage shortfall.
+
+### Known issues
+- Dynamic INT8 quantization still does not shrink tree-ensemble ONNX files (expected; documented).
+- Zero-inflated ONNX export is not yet wired — needs two ONNX graphs + an inference glue script. Tracked in "Unreleased".
+- Cortex-M hardware benchmarks remain indicative (from CPU proxy).
+
+## [0.3.0] — 2026-04-18 — Mondrian conformal, ONNX export, Paper 1 draft
 
 ## [0.3.0] — 2026-04-18 — Mondrian conformal, ONNX export, Paper 1 draft
 
