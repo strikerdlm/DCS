@@ -6,10 +6,35 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 
 ### Planned
 - Cortex-M4/M0 benchmarking of the compact ONNX variants on real hardware (current numbers are CPU-measured).
-- Manuscript revision: journal-specific reformatting, figure embedding, acknowledgements, declared COIs.
-- Prospective external-validation study (Paper 3 scope; IRB preparation).
+- Manuscript revision: journal-specific reformatting, full figure embedding at submission, acknowledgements, declared COIs.
+- Prospective external-validation study — Colombian CEMAE chamber cohort (Paper 3 scope; IRB/ethical-committee preparation).
 - Paper 2 Implementation B: full PyMC hierarchical posterior with simulation-based calibration (Talts et al. 2018).
 - Multimodal-fusion extension: HR/HRV/SpO₂ as state covariates modulating per-subject log λ.
+- NEDU TR 18-01 Appendix-C equation-by-equation audit of the open 3RUT-MBe1 implementation (requires DTIC scan access).
+
+## [0.6.0] — 2026-04-18 — Manuscript figures, extended abstract PDF, runbook, validation-hardware inventory
+
+### Added
+- `scripts/09_make_paper_figures.py` — click CLI generating five AMHP IMRAD figures as PNG + PDF at 300 DPI:
+  - **Fig 1**: reliability diagram — predicted vs observed on test fold, TinyDCS vs closed-form baseline.
+  - **Fig 2**: per-altitude-band 95% coverage comparison across all five calibration strategies.
+  - **Fig 3**: ONNX size vs MAE Pareto frontier — full / medium / compact / tiny variants + baseline.
+  - **Fig 4**: personalization information-gain curve — Pearson r and Brier parity vs k exposures.
+  - **Fig 5**: TinyDCS architecture block diagram — wearable input / LightGBM core / conformal calibration.
+  - Output: `artifacts/paper_figures/fig[1-5]_{name}.{png,pdf}`
+- `docs/papers/paper-1-abstract.md` — standalone YAML-fronted extended abstract for npj-pdf-export skill. Two authors: Diego Malpica MD and Marian Farfán MD, Subdirectorate of Aerospace Sciences, Direction of Aerospace Medicine, Colombian Aerospace Force.
+- `docs/papers/paper-1-abstract.pdf` — xelatex-compiled 3-page PDF (48 KB, TeX Gyre Termes/Heros, navy abstract box, AMHP journal line).
+- `docs/runbook.md` — command-by-command reproduction guide from clean checkout: setup → cleaning → training → compact variant → ONNX export → personalization demo → parity check. Includes "if disconnected" block and benign-warnings section.
+- `docs/validation-hardware.md` — honest device inventory with advisor caveats: XIAO Sense 3 assessment (hub, no baro), Polar H10 (motion-artefact 5–15%), Garmin Vivosmart 5 (SpO₂ not altitude-validated). Minimum Phase-1 instrumentation list, Colombian CEMAE regulatory note, RTX 5070 training-hardware reality check.
+- `docs/methods.md §M7` — 10-item Appendix-C equation-by-equation audit checklist against NEDU TR 18-01 (Gerth 2018): ambient pressure, tissue N₂ half-times, supersaturation recursion, bubble number density unit-error diagnosis, bubble radius parameters, integrated hazard dimensional check.
+
+### Changed
+- `docs/papers/paper-1-draft.md` — wove inline figure references (Fig 1–5) into Results and Methods sections; added §3.7 Personalization prototype with results text; added Figure captions section before References.
+- `AGENTS.md` — updated TL;DR (25 tests, v0.5.0 tag), expanded reading order (runbook as #1), added session log entry.
+- `README.md` — badges updated (25/25, v0.6.0-in-progress), headline results table, expanded repo layout, end-to-end quick start, full status table, 7-item next-steps section.
+
+### Notes on YAML/LaTeX escaping (learned this release)
+In the npj-pdf-export pandoc pipeline, YAML frontmatter values are treated differently from body text: dollar signs (`$`), tildes (`~`), and brace-comma patterns (`{,}`) that work in LaTeX body text break when embedded in YAML template variables. Safe LaTeX commands for YAML values: `\textsubscript{}`, `\textsuperscript{}`, `\textmu{}`, `\textit{}`, `\texttt{}`, `\textbf{}`. Use plain Unicode (Bogotá, —, –) rather than math-mode syntax.
 
 ## [0.5.0] — 2026-04-18 — Paper 2 scope + personalization prototype
 

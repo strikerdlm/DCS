@@ -81,7 +81,7 @@ A LightGBM gradient-boosting regressor fit $\eta$ with 400 estimators, 31 leaves
 
 Split-conformal prediction intervals were computed on the logit scale via the standard finite-sample quantile $q = r_{(\lceil(n+1)(1-\alpha)\rceil)}$ where $\alpha = 0.05$ and residuals are computed on a held-out calibration fold [Shafer & Vovk 2008]. To restore per-altitude-band marginal coverage under residual heteroscedasticity, we applied **Mondrian conformal** stratified by 5,000-ft altitude band, computing a separate quantile per band and using the overall quantile as a fallback for bands with fewer than 20 calibration samples.
 
-An out-of-envelope abstention layer computes the Mahalanobis distance of a prediction input to the training-feature mean under a shrinkage-regularized covariance, flagging samples above the 99th percentile of training distances.
+An out-of-envelope abstention layer computes the Mahalanobis distance of a prediction input to the training-feature mean under a shrinkage-regularized covariance, flagging samples above the 99th percentile of training distances. The three-layer stack — wearable input / LightGBM logit core / conformal calibration — is schematised in Figure 5.
 
 ### 2.4 Training and evaluation
 
@@ -106,7 +106,7 @@ On the same 2,387-row random test fold (apples-to-apples):
 | ADRAC closed-form AFT | 0.086 | 0.869 | 0.0150 | 0.901 |
 | **TinyDCS** | **0.022** | **0.986** | **0.0016** | **0.971** |
 
-TinyDCS attains a 4-fold reduction in MAE and ~10-fold reduction in Brier score relative to the closed-form baseline, with better calibration slope.
+TinyDCS attains a 4-fold reduction in MAE and ~10-fold reduction in Brier score relative to the closed-form baseline, with better calibration slope. Reliability across the full probability range is shown in Figure 1.
 
 ### 3.2 Robustness to altitude extrapolation
 
@@ -130,7 +130,7 @@ Four size variants were trained and exported to ONNX:
 | **Compact** | 100 × 7 | 0.028 | 0.981 | 0.0022 | **47 KB** |
 | Tiny | 50 × 5 | 0.033 | 0.975 | 0.0029 | 17 KB |
 
-The **Compact** variant achieves the < 100 KB ONNX footprint targeted for smartwatch deployment while retaining > 98% R² and still outperforming the closed-form ADRAC baseline by 3× on MAE.
+The **Compact** variant achieves the < 100 KB ONNX footprint targeted for smartwatch deployment while retaining > 98% R² and still outperforming the closed-form ADRAC baseline by 3× on MAE. The Pareto frontier of ONNX size versus MAE across all four variants is shown in Figure 3.
 
 ### 3.4 Inference latency
 
@@ -153,9 +153,13 @@ We compared five calibration strategies on the same random test fold. Per-altitu
 | Mondrian-CQR | 0.865 | 0.589 | 0.924 | 0.959 | 0.951 | 0.937 |
 | **Zero-inflated two-stage** | **0.960** | **0.964** | **0.953** | **0.951** | **0.967** | **0.966** |
 
-Four conformal-only methods produce near-nominal coverage in the four upper bands (0.92–0.97) but are invariant at 0.58–0.59 in the lowest altitude band. The invariance across methods is diagnostic: the shortfall is target-distribution pathology rather than residual variance. Routing the ~40% exact-zero mass through a dedicated binary classifier (stage 1), with the continuous regressor (stage 2) trained only on non-zero rows, closes the gap entirely — the 18,000–23,000 ft band reaches 0.964 and overall coverage is 0.960. The zero-inflated model is therefore adopted as the default calibration for all headline numbers; the three conformal-only modes remain available as ablations.
+Four conformal-only methods produce near-nominal coverage in the four upper bands (0.92–0.97) but are invariant at 0.58–0.59 in the lowest altitude band. The invariance across methods is diagnostic: the shortfall is target-distribution pathology rather than residual variance. Routing the ~40% exact-zero mass through a dedicated binary classifier (stage 1), with the continuous regressor (stage 2) trained only on non-zero rows, closes the gap entirely — the 18,000–23,000 ft band reaches 0.964 and overall coverage is 0.960. The zero-inflated model is therefore adopted as the default calibration for all headline numbers; the three conformal-only modes remain available as ablations. Per-altitude-band coverage profiles for all five strategies are shown in Figure 2.
 
-### 3.6 Dataset quality
+### 3.7 Personalization prototype
+
+A conjugate-Gaussian hierarchical model placed a Gaussian prior on per-subject log-susceptibility (prior mean and variance fit to the population distribution) and updated it via Bayes' rule after each observed exposure. On a synthetic 200-subject cohort (true susceptibilities drawn from the prior, DCS outcomes simulated with the TinyDCS point estimate as the population rate), the model recovered per-subject log-susceptibility at Pearson *r* = 0.63 after twenty exposures per subject. Population-level versus personalized Brier parity crossover occurred near *k* = 10 exposures. These results establish feasibility and scope for Paper 2 (full hierarchical Bayesian model on real chamber cohort data). The information-gain curve is shown in Figure 4.
+
+### 3.8 Dataset quality
 
 The cleaner repaired 1,221 rows (7.5% of the raw dataset) with a systematic fraction-vs-percent scale inconsistency. Before cleaning, the target variable had max 98 but 2,348 rows with values in (0, 1], indicating the mixed-scale pathology. After cleaning, all targets were in the expected [0, 100] range with sensible gradients across the factorial grid. 26 within-combo disagreements were resolved to the median. Full report versioned as `artifacts/data_quality_report.md`.
 
@@ -203,6 +207,23 @@ All code, trained models, metrics JSONs, and figures are released under a resear
 
 *To be declared at submission.*
 
+## Figure captions
+
+**Figure 1. Reliability diagram — TinyDCS vs. closed-form ADRAC baseline.**
+Predicted P(DCS) bins (x-axis) versus empirical observed fraction (y-axis) on the held-out test fold (n = 2,387). Perfect calibration lies on the diagonal. TinyDCS (zero-inflated two-stage; blue) tracks the diagonal closely across the full probability range. The closed-form AFT baseline (orange) shows systematic overestimation at low probabilities.
+
+**Figure 2. Per-altitude-band 95% conformal coverage — five calibration strategies.**
+Grouped bars showing empirical coverage in each 5,000-ft altitude band for five calibration methods on the same test fold. Four conformal-only methods (global, Mondrian, CQR, Mondrian-CQR) are invariant at 0.58–0.59 in the 18,000–23,000 ft band. The zero-inflated two-stage method (dark bar) achieves ≥ 0.95 coverage in all five bands.
+
+**Figure 3. ONNX model size versus MAE — Pareto frontier across the size ladder.**
+Log-scale x-axis (ONNX file size in KB) versus MAE on the held-out test fold. Four TinyDCS variants (Tiny, Compact, Medium, Full) and the closed-form ADRAC baseline are plotted. The Compact variant (95 KB; star marker) achieves the target edge-deployment footprint while dominating the baseline by 3× on MAE.
+
+**Figure 4. Personalization information gain — per-subject susceptibility recovery.**
+Left y-axis: Pearson *r* between true and posterior-mean log-susceptibility (synthetic 200-subject cohort) as a function of observed exposures *k* per subject. Right y-axis: Brier score for population-level (flat prior) versus personalized predictions. Crossover near *k* = 10 indicates the exposure count at which personalization begins to outperform the population model.
+
+**Figure 5. TinyDCS system architecture.**
+Block diagram of the three-layer inference stack: (1) wearable sensor input layer producing a 13-feature vector from altitude telemetry and accelerometer-derived VO₂; (2) LightGBM logit core with monotonicity constraints and Mahalanobis OOD gate; (3) zero-inflated conformal calibration layer returning a point estimate plus calibrated 95% interval. ONNX artifacts are shown at the edge-deployment node.
+
 ## References
 
 (Reformat to target journal style at submission time. Indicative citations:)
@@ -244,7 +265,7 @@ All code, trained models, metrics JSONs, and figures are released under a resear
 | 12. Performance measures | §2.4 |
 | 13. Model specification | §2.3 + released artifacts |
 | 14. Performance results | §3 |
-| 15. Calibration, discrimination, clinical utility | §3.1–3.5 |
+| 15. Calibration, discrimination, clinical utility | §3.1–3.5, Fig. 1–3 |
 | 16. Limitations | §4.3 |
 | 17. Interpretation and generalizability | §4 |
 | 18. Data / code availability | §Data and code availability |

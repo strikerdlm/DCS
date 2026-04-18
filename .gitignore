@@ -73,6 +73,8 @@ ML model/*.csv
 # Artifact directories (model outputs, figures, metrics)
 artifacts/
 !artifacts/.gitkeep
+!artifacts/paper_figures/
+!artifacts/paper_figures/**
 
 # Core dumps (should never be checked in — see commit 0166ff2)
 core
