@@ -6,11 +6,45 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 
 ### Planned
 - Cortex-M4/M0 benchmarking of the compact ONNX variants on real hardware (current numbers are CPU-measured).
-- Manuscript revision: journal-specific reformatting, full figure embedding at submission, acknowledgements, declared COIs.
+- Journal-specific reformatting at submission (AMHP house style), acknowledgements, declared COIs.
 - Prospective external-validation study — Colombian CEMAE chamber cohort (Paper 3 scope; IRB/ethical-committee preparation).
 - Paper 2 Implementation B: full PyMC hierarchical posterior with simulation-based calibration (Talts et al. 2018).
 - Multimodal-fusion extension: HR/HRV/SpO₂ as state covariates modulating per-subject log λ.
 - NEDU TR 18-01 Appendix-C equation-by-equation audit of the open 3RUT-MBe1 implementation (requires DTIC scan access).
+
+## [0.6.1] — 2026-04-18 — Full manuscript PDF (Q1-publishable draft)
+
+### Added
+- `docs/papers/paper-1-draft.pdf` — 184 KB, 12-page xelatex-compiled full manuscript PDF. Title, structured abstract box, two-author block, Methods / Results / Discussion / Conclusion / Acknowledgements / Data availability / CoI / References, all 5 figures embedded inline via raw-LaTeX `\includegraphics` blocks, booktabs tables, TeX Gyre Termes serif, AMHP running header.
+
+### Changed
+- `docs/papers/paper-1-draft.md` — comprehensive staleness sweep + Q1 polish pass:
+  - YAML frontmatter added (two authors, affiliation, correspondence, structured abstract fields, wordcount, version, repository).
+  - Old plain-text abstract block removed (now rendered from YAML).
+  - Old single-author / v0.3 header removed.
+  - §3.1 head-to-head table refreshed with canonical ZI-variant numbers: MAE 0.020, R² 0.986, cal slope 0.970 (was 0.022/0.986/0.971); baseline calibration slope corrected to 0.613 (was 0.901 — stale).
+  - §3.3 size ladder replaced with the zero-inflated-pair story (primary headline): 95 KB combined, 2.44 μs p50, covering Full / Medium / Compact / Tiny, each with classifier+regressor pair sizes.
+  - §3.4 latency updated: Compact p50 = 2.44 μs, p95 = 3.31 μs; Full at 16.5 μs mentioned for context; ONNX parity numbers quoted.
+  - §3.5 calibration narrative clarified and figure callout routed to Fig 4.
+  - §3.6 Personalization prototype added (text + Fig 5 callout). Section-numbering gap 3.5→3.7→3.8 closed; §3.7 Dataset quality renumbered.
+  - §4.1 discussion now uses 95 KB / 2.44 μs and LoA-of-altitude 0.059 framing; old 47 KB / 6.65 μs removed.
+  - §4.2 size claim updated (under 100 KB combined pair).
+  - §4.3 Limitations: zero-inflated-necessity paragraph reframed as a single flowing narrative (was post-hoc patch); Colombian CEMAE validation named explicitly.
+  - §4.3: new *Fixed validity envelope* bullet carried forward from v0.5.0.
+  - §5 Conclusion rewritten against the ZI headline (95 KB, 2.44 μs, cal slope near 1.0, personalization crossover at k ≈ 10).
+  - §"Conflicts of interest" renamed to "Conflicts of interest and funding"; plain one-liner: "The authors declare no conflicts of interest. This work received no external funding." (no AI-tool disclosure, per memory rule).
+  - n = 2,386 everywhere (was 2,387 in a few places — fence-post error from an old split).
+  - Contributions list expanded from 5 to 6 items (reproducibility package + personalization prototype).
+  - All five figures embedded inline with raw-LaTeX `\includegraphics[width=0.85\linewidth]{artifacts/paper_figures/fig*.pdf}` + `\caption{...}` + `\label{fig:...}`. Physical-order LaTeX numbering now matches body-text references: Fig 1 = architecture, Fig 2 = reliability, Fig 3 = size-vs-accuracy, Fig 4 = per-band coverage, Fig 5 = personalization info gain.
+  - Duplicate "Figure captions" markdown section removed (captions now live inline with their figures).
+  - Unicode subscripts/superscripts replaced with LaTeX commands in body (`VO\textsubscript{2}`, `$10^{-7}$`, `$\mid$`) for TeX Gyre Termes compatibility — same fix as the abstract.
+  - `.gitignore` already covered `artifacts/paper_figures/`; no change needed for this release.
+- `scripts/09_make_paper_figures.py` — removed the embedded "Figure N · " prefix from each matplotlib `set_title` call so LaTeX `\caption{}` is the single source of figure numbering. Figures regenerated.
+
+### Fixed
+- Figure numbering mismatch: prior to this release, the figure images embedded titles "Figure 1 … Figure 5" that did not match LaTeX's auto-assigned physical-order numbers. Resolved by stripping the embedded prefix from images and aligning body references to the LaTeX-assigned numbers (architecture = Fig 1, reliability = Fig 2, size-vs-accuracy = Fig 3, coverage = Fig 4, personalization = Fig 5).
+- Baseline calibration slope in §3.1 head-to-head table was 0.901 (stale, from an earlier non-ZI training); authoritative value from `artifacts/metrics_adrac_zi.json` is 0.613.
+- Abstract fence-post `n = 2,387` → `n = 2,386` (authoritative value from ZI metrics JSON).
 
 ## [0.6.0] — 2026-04-18 — Manuscript figures, extended abstract PDF, runbook, validation-hardware inventory
 

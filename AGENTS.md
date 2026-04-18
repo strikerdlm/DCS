@@ -11,7 +11,7 @@ Keep this file current. When an agent lands a change that alters the methods, re
 - **What this is**: a machine-learning surrogate of the USAF ADRAC altitude-DCS risk model, plus three published mechanistic comparators, designed to run on a wearable in under 1 ms.
 - **Current headline**: MAE 0.020, R² 0.986, Brier 0.00156 against the closed-form ADRAC baseline's 0.086 / 0.869 / 0.0150; 47 KB compact ONNX variant; empirical 95% coverage uniform across all 5,000-ft altitude bands after the zero-inflated calibration landed in v0.4.0.
 - **Where to start**: read this file, then `docs/runbook.md` (step-by-step reproduction), then `README.md`, then `docs/methods.md`, then the last two `CHANGELOG.md` entries.
-- **Repo on origin**: `github.com/strikerdlm/DCS`, default branch `main`, latest tag `v0.5.0` (v0.6.0 is in progress: runbook, validation-hardware, Appendix-C checklist).
+- **Repo on origin**: `github.com/strikerdlm/DCS`, default branch `main`, latest tag `v0.6.0` (v0.6.1 in progress: full Q1 manuscript PDF with embedded figures).
 - **25 / 25 tests pass** at the current HEAD.
 
 ---
@@ -276,13 +276,18 @@ A dated record of substantive agent sessions. Each entry is one line: date, git 
 - `2026-04-18` · `50a4eaf..f1f80a5` · repo restructure, ADRAC closed-form baseline, LightGBM surrogate with Mondrian / CQR / zero-inflated calibration, ONNX export + compact ladder, Paper 1 manuscript draft; v0.2.0 → v0.4.0.
 - `2026-04-18` · `1c8707a..4447f77` · AGENTS.md continuation guide; zero-inflated ONNX edge export (compact: 95 KB total, 2.4 μs/row, R²=0.98, coverage=0.95); Paper 2 scope doc; conjugate-Gaussian personalization prototype with synthetic-cohort sweep; v0.4.1, v0.5.0.
 - `2026-04-18` · `cf9826f..9d55180` · docs/runbook.md (command-by-command reproduction); docs/validation-hardware.md (honest device inventory + training-hardware scoping); docs/methods.md §M7 replaced scalar-fit reconciliation with NEDU-TR-18-01 Appendix-C audit checklist; AGENTS.md continuity updates (reading order, TL;DR, resume pointer below). v0.6.0 in progress.
+- `2026-04-18` · `3df9142..<HEAD>` · scripts/09_make_paper_figures.py + artifacts/paper_figures (5 AMHP IMRAD figures, PNG+PDF 300 DPI); docs/papers/paper-1-abstract.md + .pdf (two-author extended abstract, AI-disclosure removed per user); docs/papers/paper-1-draft.md + .pdf (full Q1-style manuscript: YAML frontmatter, inline `\includegraphics` embeds, stale-number sweep against canonical `artifacts/metrics_adrac_zi.json`, §3.3 rewritten around ZI pair, §3.6 personalization section, §4.3 limitations narrative tightened, AI-disclosure omitted from CoI+funding); CHANGELOG v0.6.0 + v0.6.1 entries; tag `v0.6.0` pushed.
 - *(next session: add your entry here before your last push.)*
 
 ### If this session disconnects — resume here
 
-1. Open `docs/runbook.md`. Follow §0 → §2 to regenerate `artifacts/DCS_Risk_DB_2025_clean.parquet` and `artifacts/tinydcs_adrac_zi.joblib` from a clean checkout. If the printed headline numbers do not match §2 of the runbook, stop and report the divergence — something has drifted.
-2. Open this file's §7 (Open problems, ranked). P0, P1, P2 are the active Paper 1 / Paper 2 items. P4 (3RUT-MBe1) is the long-tail task whose checklist now lives in `docs/methods.md` §M7; do not start it casually — it requires access to NEDU TR 18-01.
-3. The immediate next deliverable after v0.5.0 is `scripts/09_make_paper_figures.py` — generate the five AMHP IMRAD figures (reliability diagram, per-band coverage, size-vs-accuracy Pareto, info-gain curve, architecture). Read `docs/papers/paper-1-draft.md` first to confirm which figures the manuscript references.
-4. After the figures script, tag `v0.6.0` and push.
-5. Do **not** reformat the manuscript to Nature / *Science* Results-before-Methods style. Primary target journal is *Aerospace Medicine and Human Performance* (AMHP), IMRAD. This is a settled call.
-6. Do **not** apply a scalar-fit patch to `mechanistic/rut_mbe1.py` to make its output match Gerth Fig. 16. That is explicitly rejected in `docs/methods.md` §M7 — the reconciliation must go through the Appendix-C equation audit.
+1. Current head-of-line deliverables are all merged: `docs/papers/paper-1-draft.pdf` (full 12-page manuscript), `docs/papers/paper-1-abstract.pdf` (3-page extended abstract), all 5 figures embedded inline. Verify by opening both PDFs before doing new work.
+2. Priority-ordered next deliverables:
+   a. **CEMAE / IRB protocol amendment** for the Colombian chamber-validation cohort (Paper 3 scope; 2–3 month administrative path — see `docs/validation-hardware.md` §3).
+   b. **NEDU TR 18-01 Appendix-C audit** of `mechanistic/rut_mbe1.py` — checklist is in `docs/methods.md` §M7. Requires DTIC scan access; do not start without it.
+   c. **Paper 2 Implementation B** (PyMC hierarchical Bayesian posterior with simulation-based calibration, Talts 2018) — the conjugate-Gaussian prototype is already landed in `tinydcs/personalization.py`.
+   d. **Cortex-M4 on-device benchmarking** — requires real hardware; TFLite Micro port of the ONNX pair.
+3. Do **not** reformat the manuscript to Nature / *Science* Results-before-Methods style. Primary target journal is *Aerospace Medicine and Human Performance* (AMHP), IMRAD. This is a settled call.
+4. Do **not** apply a scalar-fit patch to `mechanistic/rut_mbe1.py` to make its output match Gerth Fig. 16. That is explicitly rejected in `docs/methods.md` §M7 — the reconciliation must go through the Appendix-C equation audit.
+5. Do **not** add AI-tool-usage disclosures to manuscript body, abstract, or CoI/funding sections. User explicitly removed the previous one on 2026-04-18; CoI+funding reads only: "The authors declare no conflicts of interest. This work received no external funding."
+6. Before editing any number in `paper-1-draft.md`, cross-check against `artifacts/metrics_adrac_zi.json` (the single source of truth for headline numbers: MAE 0.020, R² 0.986, Brier 0.0016, cal slope 0.970, coverage 0.960, n = 2,386).

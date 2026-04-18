@@ -181,7 +181,7 @@ def _fig1_reliability(
         ax.annotate(f"n={cnt[i]}", xy=(pm[i], om[i]), xytext=(3, -3), textcoords="offset points", fontsize=6, color="#555")
     ax.set_xlabel("Predicted P(DCS)")
     ax.set_ylabel("Observed P(DCS)")
-    ax.set_title("Figure 1  ·  Reliability diagram (test fold)")
+    ax.set_title("Reliability diagram (test fold)")
     ax.set_xlim(0, 1); ax.set_ylim(0, 1)
     ax.set_aspect("equal", "box")
     ax.legend(loc="upper left", frameon=False)
@@ -229,7 +229,7 @@ def _fig2_per_band_coverage(
     ax.set_xticklabels(band_labels)
     ax.set_xlabel("Altitude band (ft)")
     ax.set_ylabel("Empirical coverage")
-    ax.set_title("Figure 2  ·  Per-band conformal coverage, five calibration modes")
+    ax.set_title("Per-band conformal coverage, five calibration modes")
     ax.set_ylim(0.4, 1.02)
     ax.legend(loc="lower right", ncol=3, frameon=False)
     _save(fig, out_dir, "fig2_per_band_coverage")
@@ -261,7 +261,7 @@ def _fig3_size_vs_accuracy(out_dir: Path, size_ladder: list | None) -> None:
     ax.set_xscale("log")
     ax.set_xlabel("ONNX size (KB, log scale)")
     ax.set_ylabel("MAE on random test fold")
-    ax.set_title("Figure 3  ·  Size-vs-accuracy Pareto")
+    ax.set_title("Size-vs-accuracy Pareto")
     _save(fig, out_dir, "fig3_size_vs_accuracy")
 
 
@@ -288,7 +288,7 @@ def _fig4_personalization(out_dir: Path, personalization: dict | None) -> None:
     ax.set_xticklabels([str(k) for k in ks])
     ax.set_xlabel("Exposures per subject, k")
     ax.set_ylabel("Pearson r")
-    ax.set_title("Figure 4  ·  Personalization information gain")
+    ax.set_title("Personalization information gain")
     ax.set_ylim(0, 1.0)
 
     ax2 = ax.twinx()
@@ -342,7 +342,7 @@ def _fig5_architecture(out_dir: Path) -> None:
     ax.text(3.75, 0.34, "refines", fontsize=7, ha="left")
 
     ax.set_xlim(0, 7.5); ax.set_ylim(0, 1.0)
-    ax.set_title("Figure 5  ·  TinyDCS three-layer architecture")
+    ax.set_title("TinyDCS three-layer architecture")
     _save(fig, out_dir, "fig5_architecture")
 
 
