@@ -59,4 +59,4 @@ All code, cleaned data, trained model bundles (joblib), ONNX artifacts, metrics 
 
 ## Conflicts of interest and funding
 
-The authors declare no conflicts of interest. This work received no external funding. AI coding assistance (Claude Opus 4.7 and Claude Sonnet 4.6) was used during implementation and is declared on every relevant commit; all modelling decisions, validation, and interpretation are the authors'.
+The authors declare no conflicts of interest. This work received no external funding.
