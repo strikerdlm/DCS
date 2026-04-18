@@ -204,11 +204,34 @@ Appendix C of NEDU TR 18-01 defines several scaled parameters whose defaults in 
 
 ### Reconciliation plan
 
-1. **Fit a linear-in-log correction** that maps `rut_mbe1.run_profile(...).p_dcs` to Gerth's Figure-16 points on the five validation profiles. This is a pragmatic patch, not a parameter fix.
-2. **Audit Appendix C** recursion step-by-step against Eq. (C.3)–(C.46), comparing intermediate quantities (supersaturation $P_{ss}$, bubble number $n_b$, radius $\hat{r}$) to the tables in Appendix D.
-3. **Parameter-scan** Λ, $n^0_b$, and the hazard gain on the validation profiles using Bayesian optimization; accept the parameter set that minimizes chi-square on all five Fig. 16 points simultaneously.
+A scalar "fit-the-output-to-Figure-16" patch is explicitly rejected as scientifically invalid — it would conceal the underlying bug rather than locate it, and a Table-3 parameter error will resurface under any profile outside the five validation points Gerth published. The reconciliation is therefore structured as a **line-by-line audit** against NEDU TR 18-01, not a curve fit.
 
-Until reconciliation completes, 3RUT-MBe1 is **not** used as a training target. It is used for monotonicity/shape studies only. The ADRAC surrogate remains the primary deliverable.
+Until that audit completes, 3RUT-MBe1 is **not** a training target. It is used for monotonicity/shape studies only. The ADRAC surrogate remains Paper 1's primary deliverable.
+
+### Appendix-C audit checklist (open task for an agent with NEDU TR 18-01 in hand)
+
+The checklist below is sized so that someone with access to a scanned copy of NEDU TR 18-01 (Gerth, "Three Region Unsteady-state Tissue Multibubble estimator 1", 2018, DTIC AD1101527) can work through it mechanically, equation-by-equation, without guessing.
+
+The goal for each item is: **(a) name the equation, (b) identify which Table-3 constant(s) enter, (c) compute the reference value the report prints in Appendix D, (d) compare to our implementation.** Any mismatch > 1 % on a stepwise quantity is almost certainly the source of the 4–5 OoM output discrepancy.
+
+- [ ] **C.1 — Ambient-pressure scaling.** Verify `altitude_ft_to_mmhg()` matches the U.S. Standard Atmosphere table Gerth references. Our current ADRAC module uses `(1 − 6.87535e-6·h)^5.2559 · 760`. Confirm this is what Gerth's Table 2 altitudes convert to.
+- [ ] **C.2 — Tissue N₂ washout time constants.** Confirm that the four-compartment half-times used internally match Table 3 values (not Workman-Bühlmann generic values). Dump the compartmental N₂ tensions at the end of a 90-min prebreathe and check against Appendix D, if present.
+- [ ] **C.3 → C.7 — Supersaturation $P_{ss}(t)$.** Run one validation profile (Profile A: 90 min PB → 35 kft → 180 min light ex) and log $P_{ss}$ at 1-min intervals. The report prints $P_{ss}$ values for anchor time points; confirm ours match to at least three sig figs.
+- [ ] **C.8 — Bubble number density $n_b$ evolution.** This is the equation that uses `n0_b_total_nuclei` (1.198 in our Table-3 copy). Critical: confirm whether 1.198 is a *count* (integer-adjacent) or a *scaled density* in the dimensionless formulation. A unit error here alone could produce many orders of magnitude in the hazard exponent.
+- [ ] **C.9 — Bubble radius recursion $\hat{r}_{k+1} = f(\hat{r}_k, P_{ss,k}, \Lambda, \sigma)$.** This uses Λ (`lambda_cm_inv`), $\sigma$ (`sigma_surface_tension_dyne_per_cm`), and $\sigma_c$ (`sigma_c_factor`). Compute $\hat{r}$ for Profile A at t = 5, 30, 60, 120, 180 min and compare to Appendix D tables if present. The ratio of our $\hat{r}$ to the reference must be 1.00 ± 0.01 at every step; otherwise every downstream recursion rolls forward the error.
+- [ ] **C.10 → C.20 — Integrated hazard $H(t) = \int g \cdot n_b(\tau) \cdot V_b(\tau) \, d\tau$.** This is the equation where `gain_g_hazard` (6.188e-2) enters. Confirm the dimensions. The report specifies $g$ has units such that $g \cdot n_b \cdot V_b$ has units of min⁻¹. Check by inspection that our numerical $g$ produces that result. A dimensionless-vs-dimensional mix-up in $g$ is the single most plausible source of a 10⁴–10⁵ error.
+- [ ] **C.21 — Final P(DCS) from integrated hazard.** $P(\text{DCS}) = 1 - \exp(-H(T_{\text{end}}))$. Confirm our code does not accidentally use $H(T)$ in dimensional cm·s⁻¹ units when Gerth's is dimensionless.
+- [ ] **Numerical step size.** The report uses a specific `dt`. Our recursion uses `0.5 min` by default. Verify that Gerth's published timestep matches and that stability at `dt = 0.5 min` has been demonstrated for altitude transitions (ascent segments can be < 1 min in real profiles but much longer in validation profiles — the schedule matters).
+- [ ] **Ascent segment handling.** Some 3RUT-MBe1 formulations treat the ascent as a continuous ramp; others as an instantaneous step. Confirm which Gerth used for Fig. 16 and match our behaviour in `mechanistic/rut_mbe1.py::_simulate_profile()`.
+- [ ] **Λ normalization.** Λ = 100.0 cm⁻¹ in our defaults. The report states Λ can be chosen arbitrarily *provided the other scaled parameters are recomputed consistently*. Confirm by dimensional argument that the Table-3 values for $n^0_b$, $g$, $\sigma_c$ in our code are the ones Gerth published *for* Λ = 100 cm⁻¹, and not, for example, the Λ = 1 cm⁻¹ normalisation. A Λ-mismatch between defaults and Table-3 values is exactly the kind of silent error that produces order-of-magnitude offsets.
+
+When the audit concludes, write a one-page addendum in this section listing:
+
+1. Which equation held the bug.
+2. The corrected parameter or code.
+3. Re-run of the five Profile A–E validation points showing the corrected output ± 10 % of Fig. 16 anchors.
+
+Only after that can 3RUT-MBe1 be promoted to (a) training target for a second-generation surrogate, or (b) reference signal alongside ADRAC in a multi-target ensemble.
 
 ---
 
