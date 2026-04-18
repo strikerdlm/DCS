@@ -110,15 +110,16 @@ All three modes apply the final sigmoid so intervals automatically respect $[0, 
 
 Mondrian-CQR matches Mondrian's per-band coverage outside the lowest band while producing intervals roughly half as wide. The 18,000–23,000 ft shortfall is invariant across all three methods because it is driven by **target distribution pathology, not residual variance**: ~40% of rows in that band have target exactly zero, and neither a mean regressor's residuals nor a quantile regressor's output adequately captures the spread of the remaining non-zero rows when trained on the whole grid.
 
-### M3.3c Two-stage zero-inflated extension (planned)
+### M3.3c Two-stage zero-inflated calibration (*implemented*)
 
 The principled fix for the 18,000–23,000 ft shortfall is a **two-stage zero-inflated mixture** in the spirit of Lambert (1992):
 
-1. A binary classifier $P(y = 0 \mid x)$ gates the mass at zero.
-2. A continuous regressor predicts $\eta \mid (y > 0, x)$ on the logit scale over the non-zero fraction.
-3. Calibration and intervals are computed conditional on stage 1's posterior.
+1. A binary LightGBM classifier $P(y = 0 \mid x)$ is trained on the full training fold with `is_zero = (y ≤ 10⁻⁶)` as the target.
+2. A continuous LightGBM regressor of $\eta = \text{logit}(y)$ is trained only on rows with $y > 0$, inheriting the physiological monotonicity constraints of the mean surrogate.
+3. A split-conformal quantile is computed on the non-zero calibration residuals of the continuous regressor.
+4. At inference, a gate threshold (default 0.5) on $P(y=0|x)$ routes each sample to either a zero-anchored interval $[0, \text{zero\_upper\_bound}]$ (default upper = 0.02) or the continuous branch's conformal interval. The mixture point estimate is $(1 - P(y=0|x)) \cdot \sigma(\hat\eta)$.
 
-This is the natural Paper-1 revision path if reviewers object to the low-band shortfall, and is a strictly additive change to the surrogate bundle.
+This is implemented in `tinydcs.surrogate.ZeroInflatedCalibration` and selectable via `train_surrogate(use_zero_inflated=True)` or the `--zi` flag on `scripts/04_train_adrac_surrogate.py`. Empirically it lifts the 18,000–23,000 ft band from 0.583 under every conformal-only method to **0.964**, and overall coverage from 0.869 to **0.960**, with a slight MAE improvement to 0.020 (from 0.022 under Mondrian conformal). This is the **default** calibration for Paper-1 headline numbers.
 
 ### M3.4 Out-of-distribution abstention
 
