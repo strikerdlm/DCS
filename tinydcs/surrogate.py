@@ -162,6 +162,130 @@ class MondrianConformalCalibration:
 
 
 @dataclass(slots=True)
+class ZeroInflatedCalibration:
+    """Two-stage zero-inflated calibration (Lambert 1992 style).
+
+    Handles target distributions with a point mass at zero — here, the
+    low-altitude band of the ADRAC grid where ~40% of rows have exact-zero
+    P(DCS). The stack is:
+
+      stage 1: binary classifier P(y = 0 | x) over the whole training fold;
+      stage 2: continuous regressor of logit(y) conditional on y > 0,
+               trained only on non-zero rows.
+
+    Inference gates on a configurable probability threshold:
+
+      * If P(y = 0 | x) >= ``gate_threshold`` → output point = 0 with a
+        narrow zero-anchored interval ``[0, zero_upper_bound]``. The upper
+        end reflects residual classifier uncertainty.
+      * Otherwise → the continuous regressor's prediction is the point
+        estimate, and the existing split-conformal logic gives the
+        interval.
+    """
+
+    zero_classifier: object
+    continuous_model: object
+    continuous_q: float
+    confidence: float
+    gate_threshold: float = 0.5
+    zero_upper_bound: float = 0.02
+
+
+def fit_zero_inflated(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    X_cal: np.ndarray,
+    y_cal: np.ndarray,
+    *,
+    feature_names: list[str],
+    monotonic_constraints: dict[str, int] | None = None,
+    n_estimators: int = 400,
+    learning_rate: float = 0.05,
+    num_leaves: int = 31,
+    min_data_in_leaf: int = 20,
+    subsample: float = 0.9,
+    subsample_freq: int = 1,
+    colsample_bytree: float = 0.9,
+    random_state: int = 42,
+    confidence: float = 0.95,
+    zero_tol: float = 1e-6,
+    gate_threshold: float = 0.5,
+    zero_upper_bound: float = 0.02,
+) -> ZeroInflatedCalibration:
+    """Fit a two-stage zero-inflated surrogate.
+
+    Stage 1: binary classifier on is_zero = (y <= zero_tol).
+    Stage 2: continuous LightGBM regressor on logit(y) over non-zero rows only.
+    Conformal quantile is fit on the calibration fold's non-zero rows.
+    """
+    X_train_df = pd.DataFrame(X_train, columns=feature_names)
+    X_cal_df = pd.DataFrame(X_cal, columns=feature_names)
+
+    is_zero_train = (y_train <= zero_tol).astype(int)
+
+    # Stage 1 classifier.
+    zero_clf = lgb.LGBMClassifier(
+        n_estimators=n_estimators,
+        learning_rate=learning_rate,
+        num_leaves=num_leaves,
+        min_data_in_leaf=min_data_in_leaf,
+        subsample=subsample,
+        subsample_freq=subsample_freq,
+        colsample_bytree=colsample_bytree,
+        random_state=random_state,
+        verbosity=-1,
+    )
+    zero_clf.fit(X_train_df, is_zero_train)
+
+    # Stage 2 regressor on non-zero rows only.
+    non_zero_train = ~is_zero_train.astype(bool)
+    if int(non_zero_train.sum()) < 100:
+        raise ValueError("Too few non-zero rows to fit the continuous stage.")
+    y_nonzero = np.clip(y_train[non_zero_train], _EPS, 1.0 - _EPS)
+    y_logit_nonzero = np.log(y_nonzero / (1.0 - y_nonzero))
+
+    mono_vec = [int((monotonic_constraints or {}).get(name, 0)) for name in feature_names]
+    cont_model = lgb.LGBMRegressor(
+        n_estimators=n_estimators,
+        learning_rate=learning_rate,
+        num_leaves=num_leaves,
+        min_data_in_leaf=min_data_in_leaf,
+        subsample=subsample,
+        subsample_freq=subsample_freq,
+        colsample_bytree=colsample_bytree,
+        random_state=random_state,
+        monotone_constraints=mono_vec,
+        monotone_constraints_method="advanced",
+        verbosity=-1,
+    )
+    cont_model.fit(X_train_df.loc[non_zero_train], y_logit_nonzero)
+
+    # Conformal quantile on the calibration fold's non-zero rows.
+    is_zero_cal = (y_cal <= zero_tol)
+    non_zero_cal = ~is_zero_cal
+    if int(non_zero_cal.sum()) < 20:
+        raise ValueError("Too few non-zero calibration rows for conformal calibration.")
+    y_cal_nonzero = np.clip(y_cal[non_zero_cal], _EPS, 1.0 - _EPS)
+    y_cal_logit = np.log(y_cal_nonzero / (1.0 - y_cal_nonzero))
+    cont_logit_pred = cont_model.predict(X_cal_df.loc[non_zero_cal])
+    resid = np.abs(y_cal_logit - cont_logit_pred)
+    n = int(resid.size)
+    alpha = 1.0 - float(confidence)
+    k = int(np.ceil((n + 1) * (1.0 - alpha)))
+    k = max(1, min(k, n))
+    q = float(np.partition(resid, k - 1)[k - 1])
+
+    return ZeroInflatedCalibration(
+        zero_classifier=zero_clf,
+        continuous_model=cont_model,
+        continuous_q=q,
+        confidence=float(confidence),
+        gate_threshold=float(gate_threshold),
+        zero_upper_bound=float(zero_upper_bound),
+    )
+
+
+@dataclass(slots=True)
 class CQRCalibration:
     """Conformalized Quantile Regression calibration (Romano, Patterson & Candès 2019).
 
@@ -392,7 +516,9 @@ class TinyDcsSurrogate:
     feature_names: list[str]
     model: object
     ood: OODDetector
-    conformal: ConformalCalibration | MondrianConformalCalibration | CQRCalibration
+    conformal: (
+        ConformalCalibration | MondrianConformalCalibration | CQRCalibration | ZeroInflatedCalibration
+    )
     target_min: float = 0.0
     target_max: float = 1.0
 
@@ -420,6 +546,35 @@ class TinyDcsSurrogate:
         distance = self.ood.distance(X_arr)
         in_env = distance <= self.ood.threshold
         point = _sigmoid(logit_pred)
+
+        if isinstance(self.conformal, ZeroInflatedCalibration):
+            zi = self.conformal
+            p_zero = zi.zero_classifier.predict_proba(X_df)[:, 1]
+            is_gated_zero = p_zero >= zi.gate_threshold
+            cont_logit = np.asarray(zi.continuous_model.predict(X_df), dtype=float).ravel()
+            cont_point = _sigmoid(cont_logit)
+            cont_lower = _sigmoid(cont_logit - zi.continuous_q)
+            cont_upper = _sigmoid(cont_logit + zi.continuous_q)
+            # Mixture point estimate: E[y] = (1 - p_zero) * E[y | y>0]
+            point_mix = (1.0 - p_zero) * cont_point
+            # Intervals: when gated to zero, [0, zero_upper_bound]; otherwise
+            # use the continuous-conditional conformal interval scaled to the
+            # mixture so ground-truth zeros remain inside.
+            lower = np.where(is_gated_zero, 0.0, (1.0 - p_zero) * cont_lower)
+            upper = np.where(is_gated_zero, zi.zero_upper_bound, np.maximum(zi.zero_upper_bound, (1.0 - p_zero) * cont_upper + p_zero * zi.zero_upper_bound))
+            half_width = (_logit(np.clip(upper, _EPS, 1 - _EPS)) - _logit(np.clip(lower + _EPS, _EPS, 1 - _EPS))) / 2.0
+            return {
+                "point": point_mix,
+                "lower": lower,
+                "upper": upper,
+                "logit": logit_pred,
+                "p_zero": p_zero,
+                "is_gated_zero": is_gated_zero,
+                "continuous_point": cont_point,
+                "conformal_half_width_logit": half_width,
+                "ood_distance": distance,
+                "in_envelope": in_env,
+            }
 
         if isinstance(self.conformal, CQRCalibration):
             q_lo_logit = np.asarray(self.conformal.lower_model.predict(X_df), dtype=float).ravel()
@@ -489,6 +644,16 @@ class TinyDcsSurrogate:
                 cqr_band_origin=self.conformal.band_origin,
                 cqr_group_q=dict(self.conformal.group_q),
             )
+        elif isinstance(self.conformal, ZeroInflatedCalibration):
+            blob.update(
+                conformal_kind="zero_inflated",
+                zi_zero_classifier=self.conformal.zero_classifier,
+                zi_continuous_model=self.conformal.continuous_model,
+                zi_continuous_q=self.conformal.continuous_q,
+                zi_confidence=self.conformal.confidence,
+                zi_gate_threshold=self.conformal.gate_threshold,
+                zi_zero_upper_bound=self.conformal.zero_upper_bound,
+            )
         else:
             blob.update(
                 conformal_kind="global",
@@ -527,6 +692,15 @@ class TinyDcsSurrogate:
                 band_width=blob.get("cqr_band_width"),
                 band_origin=float(blob.get("cqr_band_origin", 0.0)),
                 group_q={int(k): float(v) for k, v in group_q_raw.items()},
+            )
+        elif kind == "zero_inflated":
+            conformal = ZeroInflatedCalibration(
+                zero_classifier=blob["zi_zero_classifier"],
+                continuous_model=blob["zi_continuous_model"],
+                continuous_q=float(blob["zi_continuous_q"]),
+                confidence=float(blob["zi_confidence"]),
+                gate_threshold=float(blob["zi_gate_threshold"]),
+                zero_upper_bound=float(blob["zi_zero_upper_bound"]),
             )
         else:
             conformal = ConformalCalibration(
@@ -570,6 +744,9 @@ def train_surrogate(
     cqr_band_feature: str | None = None,
     cqr_band_width: float | None = None,
     cqr_band_origin: float = 0.0,
+    use_zero_inflated: bool = False,
+    zi_gate_threshold: float = 0.5,
+    zi_zero_upper_bound: float = 0.02,
 ) -> tuple[TinyDcsSurrogate, dict[str, pd.DataFrame]]:
     """Train the full TinyDCS surrogate with calibration and OOD detection.
 
@@ -652,7 +829,30 @@ def train_surrogate(
         mondrian_feature is not None and mondrian_band_width is not None and mondrian_band_width > 0
     )
     conformal: ConformalCalibration | MondrianConformalCalibration | CQRCalibration
-    if use_cqr:
+    if use_zero_inflated:
+        # Two-stage zero-inflated surrogate: binary classifier for P(y=0|x)
+        # + continuous regressor for E[logit(y) | y>0, x]. Handles the
+        # exact-zero target mass directly, which CQR/Mondrian cannot reach.
+        conformal = fit_zero_inflated(
+            X_train=X[train_idx],
+            y_train=y[train_idx],
+            X_cal=X[cal_idx],
+            y_cal=y[cal_idx],
+            feature_names=feature_names,
+            monotonic_constraints=dict(cfg.monotonic_constraints),
+            n_estimators=cfg.n_estimators,
+            learning_rate=cfg.learning_rate,
+            num_leaves=cfg.num_leaves,
+            min_data_in_leaf=cfg.min_data_in_leaf,
+            subsample=cfg.subsample,
+            subsample_freq=cfg.subsample_freq,
+            colsample_bytree=cfg.colsample_bytree,
+            random_state=cfg.random_state,
+            confidence=confidence,
+            gate_threshold=zi_gate_threshold,
+            zero_upper_bound=zi_zero_upper_bound,
+        )
+    elif use_cqr:
         # CQR trains two extra quantile regressors plus a conformal
         # correction. If cqr_band_feature is also set, the correction is
         # stratified per altitude band (Mondrian-CQR), which repairs the
