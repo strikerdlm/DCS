@@ -5,10 +5,58 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 ## [Unreleased]
 
 ### Planned
-- ONNX export + INT8 quantization + TFLite Micro benchmark (`scripts/05_export_onnx.py`).
-- Residual-on-physics hybrid variant (LightGBM on ADRAC − Conkin-ETR residual).
-- Paper 1 manuscript draft alongside the code in `docs/`.
-- Conformal-coverage investigation: random split hits 0.95 but LOAO folds drop to ~0.88. Likely fixed by (a) larger calibration fold per LOAO fold, or (b) Mondrian conformal stratified by altitude band.
+- Conformalized Quantile Regression (CQR, Romano et al. 2019) to repair the low-altitude band coverage shortfall without the zero-inflated complication.
+- Cortex-M4/M0 benchmarking of the compact and tiny ONNX variants on real hardware (current numbers are CPU-measured).
+- Manuscript revision: journal-specific reformatting, figure embedding, acknowledgements, declared COIs.
+- Prospective external-validation study (Paper 3 scope; IRB preparation).
+
+## [0.3.0] — 2026-04-18 — Mondrian conformal, ONNX export, Paper 1 draft
+
+### Added
+- `tinydcs.surrogate.MondrianConformalCalibration` + `fit_mondrian_conformal()` — group-stratified (by altitude band) conformal calibration that restores per-band marginal coverage under heteroscedastic residuals. `train_surrogate` accepts `mondrian_feature` / `mondrian_band_width` / `mondrian_band_origin`.
+- Smithson-Verkuilen (2006) boundary shrinkage applied to the target before the logit transform. Handles the ~40% exact-zero rows in the lowest altitude band.
+- Physiological monotonicity constraints on the LightGBM trees (altitude↑, time-at-altitude↑, tissue-ratio↑ ⇒ risk↑; prebreathe↑, ambient pressure↑ ⇒ risk↓).
+- `scripts/05_export_onnx.py` — FP32 ONNX + dynamic-INT8 export with CPU latency benchmarking and ONNX-vs-Python parity verification.
+- `scripts/06_train_compact_surrogate.py` — trains four size variants (full / medium / compact / tiny) and reports accuracy + ONNX footprint side by side.
+- `docs/papers/paper-1-draft.md` — full Paper 1 manuscript draft aligned with TRIPOD+AI reporting (abstract, introduction, methods, results, discussion, conclusion, references, checklist appendix).
+- `tests/test_surrogate.py::test_mondrian_conformal_round_trip` — verifies Mondrian predict/save/load round-trip.
+
+### Model-size ladder (seed=42, 15,908-row cleaned ADRAC grid)
+
+| Variant | Trees × Leaves | MAE | R² | Brier | ONNX size |
+|---|---|---|---|---|---|
+| Full | 400 × 31 | 0.022 | 0.986 | 0.0016 | 894.1 KB |
+| Medium | 200 × 15 | 0.024 | 0.984 | 0.0018 | 210.9 KB |
+| **Compact** | 100 × 7 | **0.028** | **0.981** | **0.0022** | **47.2 KB** |
+| Tiny | 50 × 5 | 0.033 | 0.975 | 0.0029 | 16.7 KB |
+
+The compact variant hits the < 100 KB edge-deployment target while still outperforming the closed-form ADRAC baseline (MAE 0.086, R² 0.869) by 3× on MAE.
+
+### Inference latency
+
+Full variant, FP32 ONNX, CPU single-core, batch of 10,000:
+- per-row p50 = **6.65 μs**
+- per-row p95 = **8.24 μs**
+- ONNX ↔ Python logit parity: max absolute error 8.6e-6 (well below the 1e-4 target).
+
+### Per-altitude-band coverage (Mondrian, random split)
+
+| Band | Coverage | Avg width |
+|---|---|---|
+| 18,000–23,000 ft | 0.583 (bias-driven) | 0.215 |
+| 23,000–28,000 ft | 0.949 | 0.335 |
+| 28,000–33,000 ft | 0.945 | 0.257 |
+| 33,000–38,000 ft | 0.954 | 0.201 |
+| 38,000–43,000 ft | 0.955 | 0.163 |
+
+Four of five altitude bands reach near-nominal coverage. The lowest-band shortfall is localized to bias, not variance — fix candidate is CQR (planned).
+
+### Known issues
+- Low-band coverage 0.583 (vs nominal 0.95) is a bias-driven shortfall, not a variance-driven one; wider Mondrian quantiles alone cannot fix it. Tracked in "Unreleased".
+- Dynamic INT8 quantization does not shrink tree-ensemble ONNX files in the current toolchain (size parity with FP32 is expected). Further shrinkage requires microTVM or explicit tree pruning.
+- Current latency numbers are CPU-measured. Cortex-M4/M0 benchmarks require hardware access and are noted as indicative in the manuscript.
+
+## [0.2.1] — 2026-04-18
 
 ## [0.2.1] — 2026-04-18 — first real-data ADRAC-surrogate run
 
