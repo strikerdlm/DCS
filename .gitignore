@@ -70,6 +70,19 @@ BU_Model_2025/output/
 ML model/*.png
 ML model/*.csv
 
+# Artifact directories (model outputs, figures, metrics)
+artifacts/
+!artifacts/.gitkeep
+
+# Core dumps (should never be checked in — see commit 0166ff2)
+core
+core.*
+
+# Large binary outputs
+*.nc
+*.h5
+*.hdf5
+
 # System files
 .DS_Store
-Thumbs.db 
+Thumbs.db
