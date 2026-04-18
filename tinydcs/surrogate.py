@@ -18,7 +18,7 @@ so it round-trips to disk without accessory artifacts.
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from typing import Iterable
 
 import joblib
@@ -32,6 +32,20 @@ except ImportError as exc:  # pragma: no cover
 
 
 _EPS = 1e-6
+
+
+def _smithson_verkuilen(p: np.ndarray, n: int) -> np.ndarray:
+    """Smithson–Verkuilen (2006) transform that shrinks exact 0 and 1 values
+    away from the boundary so ``logit`` is finite.
+
+        y' = (y * (n - 1) + 0.5) / n
+
+    Essential when the target has mass at exact 0 (a large fraction of the
+    low-altitude ADRAC grid).
+    """
+    p = np.asarray(p, dtype=float)
+    nn = float(max(n, 2))
+    return (p * (nn - 1.0) + 0.5) / nn
 
 
 def _logit(p: np.ndarray) -> np.ndarray:
@@ -96,6 +110,107 @@ def fit_conformal(logit_residuals: np.ndarray, confidence: float = 0.95) -> Conf
 
 
 @dataclass(slots=True)
+class MondrianConformalCalibration:
+    """Group-stratified ("Mondrian") conformal calibration.
+
+    Residuals are partitioned into groups by discretizing one feature. A
+    separate quantile is computed per group; at inference each sample is
+    routed to its group's quantile. This restores per-group marginal
+    coverage when residuals are heteroscedastic along the grouping feature
+    (e.g. larger at high altitudes).
+
+    Parameters
+    ----------
+    group_feature
+        Name of the feature to stratify on (must be in the surrogate's
+        ``feature_names``).
+    band_width
+        Width of each group in the units of ``group_feature``. For altitude
+        in feet, 5000 gives 5 altitude bands across 18,000–40,000 ft.
+    band_origin
+        Zero-point for the band index. A sample's band is
+        ``int((value - band_origin) // band_width)``.
+    group_quantiles
+        Mapping band-index → residual quantile on the logit scale.
+    global_q
+        Fallback quantile for samples whose band is unseen at calibration
+        (e.g. an out-of-envelope altitude). Defaults to the overall 95%
+        quantile across all calibration residuals so callers still get
+        sensible intervals.
+    confidence
+        Nominal coverage level (e.g. 0.95).
+    """
+
+    group_feature: str
+    band_width: float
+    band_origin: float
+    group_quantiles: dict[int, float] = field(default_factory=dict)
+    global_q: float = 0.0
+    confidence: float = 0.95
+
+    def band_of(self, values: np.ndarray) -> np.ndarray:
+        v = np.asarray(values, dtype=float).ravel()
+        return np.floor((v - float(self.band_origin)) / float(self.band_width)).astype(int)
+
+    def q_for(self, values: np.ndarray) -> np.ndarray:
+        """Return the per-sample conformal quantile, routing to the sample's band."""
+        bands = self.band_of(values)
+        out = np.full(bands.shape, float(self.global_q), dtype=float)
+        for b, q in self.group_quantiles.items():
+            out[bands == int(b)] = float(q)
+        return out
+
+
+def fit_mondrian_conformal(
+    logit_residuals: np.ndarray,
+    group_values: np.ndarray,
+    *,
+    group_feature: str,
+    band_width: float,
+    band_origin: float = 0.0,
+    confidence: float = 0.95,
+    min_group_size: int = 20,
+) -> MondrianConformalCalibration:
+    """Fit per-band conformal quantiles with a global fallback.
+
+    Bands containing fewer than ``min_group_size`` residuals fall back to
+    the global quantile.
+    """
+    resid = np.abs(np.asarray(logit_residuals, dtype=float).ravel())
+    values = np.asarray(group_values, dtype=float).ravel()
+    if resid.size != values.size:
+        raise ValueError("logit_residuals and group_values must be the same length")
+    if resid.size < 20:
+        raise ValueError("at least 20 calibration residuals are required")
+
+    alpha = 1.0 - float(confidence)
+
+    def _conformal_q(r: np.ndarray) -> float:
+        n = int(r.size)
+        k = int(np.ceil((n + 1) * (1.0 - alpha)))
+        k = max(1, min(k, n))
+        return float(np.partition(r, k - 1)[k - 1])
+
+    bands = np.floor((values - float(band_origin)) / float(band_width)).astype(int)
+    group_quantiles: dict[int, float] = {}
+    for b in np.unique(bands):
+        mask = bands == b
+        if int(mask.sum()) >= min_group_size:
+            group_quantiles[int(b)] = _conformal_q(resid[mask])
+
+    global_q = _conformal_q(resid)
+
+    return MondrianConformalCalibration(
+        group_feature=str(group_feature),
+        band_width=float(band_width),
+        band_origin=float(band_origin),
+        group_quantiles=group_quantiles,
+        global_q=global_q,
+        confidence=float(confidence),
+    )
+
+
+@dataclass(slots=True)
 class TrainConfig:
     n_estimators: int = 400
     learning_rate: float = 0.05
@@ -108,28 +223,55 @@ class TrainConfig:
     reg_alpha: float = 0.0
     reg_lambda: float = 0.0
     random_state: int = 42
+    # Per-feature monotonicity constraints: +1 = non-decreasing, -1 =
+    # non-increasing, 0 = unconstrained. Keyed by feature name. Only
+    # applied if the feature is present in ``feature_names`` at training.
+    # Physiological defaults: altitude/time/tissue-ratio up ⇒ risk up;
+    # prebreathe up ⇒ risk down.
+    monotonic_constraints: dict[str, int] = field(default_factory=lambda: {
+        "altitude_ft": 1,
+        "ambient_pressure_atm": -1,
+        "altitude_time_min": 1,
+        "prebreathe_time_min": -1,
+        "tissue_n2_ratio_360min": 1,
+    })
 
 
 @dataclass(slots=True)
 class TinyDcsSurrogate:
-    """Self-contained surrogate bundle: model + calibration + OOD + feature list."""
+    """Self-contained surrogate bundle: model + calibration + OOD + feature list.
+
+    Conformal calibration can be either a global ``ConformalCalibration`` or a
+    group-stratified ``MondrianConformalCalibration``. The ``predict`` method
+    dispatches on the type.
+    """
 
     feature_names: list[str]
     model: object
     ood: OODDetector
-    conformal: ConformalCalibration
+    conformal: ConformalCalibration | MondrianConformalCalibration
     target_min: float = 0.0
     target_max: float = 1.0
 
+    def _conformal_q_for(self, X_df: pd.DataFrame) -> np.ndarray:
+        """Return a per-sample conformal half-width on the logit scale."""
+        if isinstance(self.conformal, MondrianConformalCalibration):
+            if self.conformal.group_feature not in X_df.columns:
+                raise ValueError(
+                    f"Mondrian grouping feature '{self.conformal.group_feature}' missing at predict time"
+                )
+            return self.conformal.q_for(X_df[self.conformal.group_feature].to_numpy(dtype=float))
+        # Global conformal: constant half-width for all samples.
+        return np.full(len(X_df), float(self.conformal.q), dtype=float)
+
     def predict(self, X: pd.DataFrame | np.ndarray) -> dict[str, np.ndarray]:
         X_arr = _as_array(X, self.feature_names)
-        # Wrap in a DataFrame with the trained feature names so LightGBM does
-        # not warn about missing names.
         X_df = pd.DataFrame(X_arr, columns=self.feature_names)
         logit_pred = np.asarray(self.model.predict(X_df), dtype=float).ravel()
+        half_width = self._conformal_q_for(X_df)
         point = _sigmoid(logit_pred)
-        lower = _sigmoid(logit_pred - self.conformal.q)
-        upper = _sigmoid(logit_pred + self.conformal.q)
+        lower = _sigmoid(logit_pred - half_width)
+        upper = _sigmoid(logit_pred + half_width)
         distance = self.ood.distance(X_arr)
         in_env = distance <= self.ood.threshold
         return {
@@ -137,26 +279,39 @@ class TinyDcsSurrogate:
             "lower": lower,
             "upper": upper,
             "logit": logit_pred,
+            "conformal_half_width_logit": half_width,
             "ood_distance": distance,
             "in_envelope": in_env,
         }
 
     def save(self, path: str) -> None:
-        joblib.dump(
-            {
-                "feature_names": list(self.feature_names),
-                "model": self.model,
-                "ood_mean": self.ood.mean,
-                "ood_inv_cov": self.ood.inv_cov,
-                "ood_threshold": self.ood.threshold,
-                "conformal_q": self.conformal.q,
-                "conformal_confidence": self.conformal.confidence,
-                "target_min": self.target_min,
-                "target_max": self.target_max,
-                "version": "0.1.0",
-            },
-            path,
-        )
+        blob: dict = {
+            "feature_names": list(self.feature_names),
+            "model": self.model,
+            "ood_mean": self.ood.mean,
+            "ood_inv_cov": self.ood.inv_cov,
+            "ood_threshold": self.ood.threshold,
+            "target_min": self.target_min,
+            "target_max": self.target_max,
+            "version": "0.2.2",
+        }
+        if isinstance(self.conformal, MondrianConformalCalibration):
+            blob.update(
+                conformal_kind="mondrian",
+                mondrian_feature=self.conformal.group_feature,
+                mondrian_band_width=self.conformal.band_width,
+                mondrian_band_origin=self.conformal.band_origin,
+                mondrian_group_quantiles=dict(self.conformal.group_quantiles),
+                mondrian_global_q=self.conformal.global_q,
+                mondrian_confidence=self.conformal.confidence,
+            )
+        else:
+            blob.update(
+                conformal_kind="global",
+                conformal_q=self.conformal.q,
+                conformal_confidence=self.conformal.confidence,
+            )
+        joblib.dump(blob, path)
 
     @classmethod
     def load(cls, path: str) -> "TinyDcsSurrogate":
@@ -166,10 +321,22 @@ class TinyDcsSurrogate:
             inv_cov=blob["ood_inv_cov"],
             threshold=float(blob["ood_threshold"]),
         )
-        conformal = ConformalCalibration(
-            q=float(blob["conformal_q"]),
-            confidence=float(blob["conformal_confidence"]),
-        )
+        kind = blob.get("conformal_kind", "global")
+        conformal: ConformalCalibration | MondrianConformalCalibration
+        if kind == "mondrian":
+            conformal = MondrianConformalCalibration(
+                group_feature=str(blob["mondrian_feature"]),
+                band_width=float(blob["mondrian_band_width"]),
+                band_origin=float(blob["mondrian_band_origin"]),
+                group_quantiles={int(k): float(v) for k, v in blob["mondrian_group_quantiles"].items()},
+                global_q=float(blob["mondrian_global_q"]),
+                confidence=float(blob["mondrian_confidence"]),
+            )
+        else:
+            conformal = ConformalCalibration(
+                q=float(blob["conformal_q"]),
+                confidence=float(blob["conformal_confidence"]),
+            )
         return cls(
             feature_names=list(blob["feature_names"]),
             model=blob["model"],
@@ -200,8 +367,19 @@ def train_surrogate(
     calibration_fraction: float = 0.15,
     config: TrainConfig | None = None,
     confidence: float = 0.95,
+    mondrian_feature: str | None = None,
+    mondrian_band_width: float | None = None,
+    mondrian_band_origin: float = 0.0,
 ) -> tuple[TinyDcsSurrogate, dict[str, pd.DataFrame]]:
     """Train the full TinyDCS surrogate with calibration and OOD detection.
+
+    Parameters
+    ----------
+    mondrian_feature, mondrian_band_width, mondrian_band_origin
+        If all provided, Mondrian (group-stratified) conformal calibration is
+        used instead of the global one. Common choice for altitude-DCS data
+        is ``mondrian_feature="altitude_ft"``, ``band_width=5000.0``,
+        ``band_origin=18000.0``.
 
     Returns
     -------
@@ -235,9 +413,13 @@ def train_surrogate(
     X = df[feature_names].to_numpy(dtype=float)
     y = df[target_col].to_numpy(dtype=float)
 
-    # Target on the logit scale, clipped to avoid infinities.
-    y_logit = _logit(y)
+    # Smithson–Verkuilen transform, then logit. This handles exact 0/1 target
+    # mass cleanly (e.g. the ~40% exact-zero rows at low altitude in the
+    # ADRAC grid) without introducing pathological logit pile-up.
+    y_shrunk = _smithson_verkuilen(y, n=len(y))
+    y_logit = _logit(y_shrunk)
 
+    monotone_vec = [int(cfg.monotonic_constraints.get(name, 0)) for name in feature_names]
     model = lgb.LGBMRegressor(
         n_estimators=cfg.n_estimators,
         learning_rate=cfg.learning_rate,
@@ -250,6 +432,8 @@ def train_surrogate(
         reg_alpha=cfg.reg_alpha,
         reg_lambda=cfg.reg_lambda,
         random_state=cfg.random_state,
+        monotone_constraints=monotone_vec,
+        monotone_constraints_method="advanced",
         verbosity=-1,
     )
     model.fit(X[train_idx], y_logit[train_idx])
@@ -257,7 +441,27 @@ def train_surrogate(
     # Conformal residuals on calibration fold (in logit space).
     cal_logit_pred = model.predict(X[cal_idx])
     cal_residuals = y_logit[cal_idx] - cal_logit_pred
-    conformal = fit_conformal(cal_residuals, confidence=confidence)
+
+    use_mondrian = (
+        mondrian_feature is not None and mondrian_band_width is not None and mondrian_band_width > 0
+    )
+    conformal: ConformalCalibration | MondrianConformalCalibration
+    if use_mondrian:
+        if mondrian_feature not in feature_names:
+            raise ValueError(
+                f"mondrian_feature '{mondrian_feature}' is not in feature_names {feature_names}"
+            )
+        col_idx = feature_names.index(mondrian_feature)
+        conformal = fit_mondrian_conformal(
+            logit_residuals=cal_residuals,
+            group_values=X[cal_idx, col_idx],
+            group_feature=mondrian_feature,
+            band_width=float(mondrian_band_width),
+            band_origin=float(mondrian_band_origin),
+            confidence=confidence,
+        )
+    else:
+        conformal = fit_conformal(cal_residuals, confidence=confidence)
 
     # OOD on training features.
     ood = fit_ood(X[train_idx])
