@@ -81,17 +81,44 @@ Modelling $\eta$ instead of $p$ ensures that (a) the sigmoid inverse map keeps p
 
 `tinydcs.surrogate.TrainConfig` uses a LightGBM regressor with MSE loss on $\eta$. Default hyperparameters: `n_estimators=400`, `learning_rate=0.05`, `num_leaves=31`, `subsample=0.9`, `colsample_bytree=0.9`, `min_data_in_leaf=20`, random state fixed. These are reasonable defaults and are not tuned against the held-out test fold.
 
-### M3.3 Split-conformal prediction intervals
+### M3.3 Calibration — three modes supported
 
-We apply **split conformal** (Shafer & Vovk 2008) on the logit scale:
+`tinydcs.surrogate` supports three interchangeable calibration modes, each returning a valid `TinyDcsSurrogate` bundle:
 
+**(a) Global split-conformal** (Shafer & Vovk 2008). On the logit scale:
 1. Partition the data into train (default 70%), calibration (15%), test (15%).
 2. Fit LightGBM on train; predict $\hat\eta_i$ on calibration.
-3. Compute absolute residuals $r_i = |\eta_i - \hat\eta_i|$.
-4. Take the conformal quantile $q = r_{(\lceil (n+1)(1-\alpha) \rceil)}$ for nominal coverage $1-\alpha = 0.95$.
-5. At inference, emit $\hat p = \sigma(\hat\eta)$, $\hat p_\text{low} = \sigma(\hat\eta - q)$, $\hat p_\text{high} = \sigma(\hat\eta + q)$.
+3. Take the conformal quantile $q = r_{(\lceil (n+1)(1-\alpha) \rceil)}$ of the absolute residuals $r_i = |\eta_i - \hat\eta_i|$, for nominal coverage $1-\alpha = 0.95$.
+4. At inference emit $\hat p = \sigma(\hat\eta)$, $\hat p_\text{low} = \sigma(\hat\eta - q)$, $\hat p_\text{high} = \sigma(\hat\eta + q)$.
 
-This yields finite-sample marginal coverage under the exchangeability assumption, and because intervals are constructed on the logit scale, they automatically respect $[0, 1]$.
+**(b) Mondrian (altitude-band) conformal.** Residuals are partitioned into 5,000-ft altitude bands and a separate $q_g$ is fit per band; samples with unseen bands fall back to the global quantile. This restores per-band coverage when residual scale is heteroscedastic across altitudes.
+
+**(c) Conformalized Quantile Regression (CQR; Romano, Patterson & Candès 2019).** Two additional LightGBM *quantile* regressors are trained at the $\alpha/2$ and $1-\alpha/2$ levels on the logit scale. The nonconformity score
+$$E_i = \max\big(\hat q_{\alpha/2}(x_i) - \eta_i, \ \eta_i - \hat q_{1-\alpha/2}(x_i)\big)$$
+is computed on the calibration fold, and its $\lceil (n+1)(1-\alpha)\rceil$ quantile $q_\text{CQR}$ becomes the correction. The predictive interval on the logit scale is $[\hat q_{\alpha/2}(x) - q_\text{CQR},\ \hat q_{1-\alpha/2}(x) + q_\text{CQR}]$. Because the quantile regressors themselves adapt to feature-dependent spread, CQR produces asymmetric, heteroscedasticity-aware intervals. TinyDCS also supports **Mondrian-CQR**: $q_\text{CQR}$ is computed per altitude band rather than globally.
+
+All three modes apply the final sigmoid so intervals automatically respect $[0, 1]$. LightGBM rejects monotone constraints on the quantile objective, so CQR's two quantile regressors omit monotonicity; the base mean model retains the physiological constraints.
+
+### M3.3b Empirical calibration comparison on the ADRAC grid
+
+| Calibration | Overall cov. | 18–23K ft | 23–28K ft | 28–33K ft | 33–38K ft | 38–43K ft | Mean width |
+|---|---|---|---|---|---|---|---|
+| Global | 0.869 | 0.591 | 0.933 | 0.944 | 0.967 | 0.948 | 0.29 |
+| Mondrian | 0.869 | 0.583 | 0.949 | 0.945 | 0.954 | 0.955 | 0.25 |
+| CQR (global q) | 0.864 | 0.589 | 0.937 | 0.945 | 0.945 | 0.937 | 0.15 |
+| **Mondrian-CQR** | **0.865** | 0.589 | 0.924 | **0.959** | 0.951 | 0.937 | **0.16** |
+
+Mondrian-CQR matches Mondrian's per-band coverage outside the lowest band while producing intervals roughly half as wide. The 18,000–23,000 ft shortfall is invariant across all three methods because it is driven by **target distribution pathology, not residual variance**: ~40% of rows in that band have target exactly zero, and neither a mean regressor's residuals nor a quantile regressor's output adequately captures the spread of the remaining non-zero rows when trained on the whole grid.
+
+### M3.3c Two-stage zero-inflated extension (planned)
+
+The principled fix for the 18,000–23,000 ft shortfall is a **two-stage zero-inflated mixture** in the spirit of Lambert (1992):
+
+1. A binary classifier $P(y = 0 \mid x)$ gates the mass at zero.
+2. A continuous regressor predicts $\eta \mid (y > 0, x)$ on the logit scale over the non-zero fraction.
+3. Calibration and intervals are computed conditional on stage 1's posterior.
+
+This is the natural Paper-1 revision path if reviewers object to the low-band shortfall, and is a strictly additive change to the surrogate bundle.
 
 ### M3.4 Out-of-distribution abstention
 
