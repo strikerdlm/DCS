@@ -161,6 +161,149 @@ class MondrianConformalCalibration:
         return out
 
 
+@dataclass(slots=True)
+class CQRCalibration:
+    """Conformalized Quantile Regression calibration (Romano, Patterson & Candès 2019).
+
+    Attaches a lower- and an upper-quantile regressor to the base surrogate
+    and computes a conformal correction on the nonconformity score
+    ``E_i = max(q_lo(x_i) - eta_i, eta_i - q_hi(x_i))`` over a held-out
+    calibration fold. The correction can be:
+
+    * **Global** (``band_width is None``) — a single scalar ``q`` applied to
+      every test point.
+    * **Mondrian CQR** (``band_width`` and ``band_feature`` set) — a separate
+      ``q_g`` per altitude band, with a global fallback. This is the right
+      tool when quantile-regression spread is itself biased in a specific
+      region (e.g. the zero-target low-altitude band of the ADRAC grid).
+
+    Final predictive interval on the logit scale is ``[q_lo(x) - q(x),
+    q_hi(x) + q(x)]``; in probability space both ends pass through a
+    sigmoid so the interval stays in ``[0, 1]``.
+    """
+
+    lower_model: object
+    upper_model: object
+    q: float
+    confidence: float
+    band_feature: str | None = None
+    band_width: float | None = None
+    band_origin: float = 0.0
+    group_q: dict[int, float] = field(default_factory=dict)
+
+    def correction_for(self, X_df: pd.DataFrame) -> np.ndarray:
+        """Per-sample conformal correction on the logit scale."""
+        n = len(X_df)
+        if self.band_feature is None or self.band_width is None:
+            return np.full(n, float(self.q), dtype=float)
+        if self.band_feature not in X_df.columns:
+            raise ValueError(
+                f"CQR band feature '{self.band_feature}' missing at predict time"
+            )
+        v = X_df[self.band_feature].to_numpy(dtype=float)
+        bands = np.floor((v - float(self.band_origin)) / float(self.band_width)).astype(int)
+        out = np.full(n, float(self.q), dtype=float)
+        for b, q_b in self.group_q.items():
+            out[bands == int(b)] = float(q_b)
+        return out
+
+
+def fit_cqr(
+    X_train: np.ndarray,
+    y_logit_train: np.ndarray,
+    X_cal: np.ndarray,
+    y_logit_cal: np.ndarray,
+    *,
+    feature_names: list[str],
+    monotonic_constraints: dict[str, int] | None = None,
+    n_estimators: int = 400,
+    learning_rate: float = 0.05,
+    num_leaves: int = 31,
+    min_data_in_leaf: int = 20,
+    subsample: float = 0.9,
+    subsample_freq: int = 1,
+    colsample_bytree: float = 0.9,
+    random_state: int = 42,
+    confidence: float = 0.95,
+    band_feature: str | None = None,
+    band_width: float | None = None,
+    band_origin: float = 0.0,
+    min_group_size: int = 20,
+) -> CQRCalibration:
+    """Fit CQR calibration on the logit scale.
+
+    Two LightGBM quantile regressors are trained on ``(X_train, y_logit_train)``
+    at quantile levels ``alpha/2`` and ``1 - alpha/2``. Nonconformity scores
+    are computed on ``(X_cal, y_logit_cal)`` and the ``ceil((n+1)(1-alpha))``
+    quantile is taken as the conformal correction.
+    """
+    alpha = 1.0 - float(confidence)
+    # LightGBM refuses monotone constraints with the quantile objective, so
+    # CQR's two quantile regressors cannot be monotonicity-constrained. The
+    # base model (mean regression on logit) keeps them; the conformal
+    # correction then absorbs any residual non-monotone behaviour of the
+    # quantile outputs within the validated envelope.
+    _ = monotonic_constraints  # kept in the signature for consistency; not used
+    common = dict(
+        n_estimators=n_estimators,
+        learning_rate=learning_rate,
+        num_leaves=num_leaves,
+        min_data_in_leaf=min_data_in_leaf,
+        subsample=subsample,
+        subsample_freq=subsample_freq,
+        colsample_bytree=colsample_bytree,
+        random_state=random_state,
+        verbosity=-1,
+    )
+    lower_model = lgb.LGBMRegressor(objective="quantile", alpha=alpha / 2.0, **common)
+    upper_model = lgb.LGBMRegressor(objective="quantile", alpha=1.0 - alpha / 2.0, **common)
+
+    X_train_df = pd.DataFrame(X_train, columns=feature_names)
+    X_cal_df = pd.DataFrame(X_cal, columns=feature_names)
+    lower_model.fit(X_train_df, y_logit_train)
+    upper_model.fit(X_train_df, y_logit_train)
+
+    q_lo = np.asarray(lower_model.predict(X_cal_df), dtype=float).ravel()
+    q_hi = np.asarray(upper_model.predict(X_cal_df), dtype=float).ravel()
+    nonconformity = np.maximum(q_lo - y_logit_cal, y_logit_cal - q_hi)
+    n = int(nonconformity.size)
+    if n < 20:
+        raise ValueError("at least 20 calibration residuals are required for CQR")
+
+    def _conformal_q(r: np.ndarray) -> float:
+        nn = int(r.size)
+        k = int(np.ceil((nn + 1) * (1.0 - alpha)))
+        k = max(1, min(k, nn))
+        return float(np.partition(r, k - 1)[k - 1])
+
+    q_global = _conformal_q(nonconformity)
+
+    group_q: dict[int, float] = {}
+    if band_feature is not None and band_width is not None and band_width > 0:
+        if band_feature not in feature_names:
+            raise ValueError(
+                f"CQR band_feature '{band_feature}' is not in feature_names"
+            )
+        col = feature_names.index(band_feature)
+        cal_vals = X_cal[:, col]
+        bands = np.floor((cal_vals - float(band_origin)) / float(band_width)).astype(int)
+        for b in np.unique(bands):
+            mask = bands == b
+            if int(mask.sum()) >= min_group_size:
+                group_q[int(b)] = _conformal_q(nonconformity[mask])
+
+    return CQRCalibration(
+        lower_model=lower_model,
+        upper_model=upper_model,
+        q=q_global,
+        confidence=float(confidence),
+        band_feature=band_feature,
+        band_width=band_width,
+        band_origin=float(band_origin),
+        group_q=group_q,
+    )
+
+
 def fit_mondrian_conformal(
     logit_residuals: np.ndarray,
     group_values: np.ndarray,
@@ -249,18 +392,24 @@ class TinyDcsSurrogate:
     feature_names: list[str]
     model: object
     ood: OODDetector
-    conformal: ConformalCalibration | MondrianConformalCalibration
+    conformal: ConformalCalibration | MondrianConformalCalibration | CQRCalibration
     target_min: float = 0.0
     target_max: float = 1.0
 
     def _conformal_q_for(self, X_df: pd.DataFrame) -> np.ndarray:
-        """Return a per-sample conformal half-width on the logit scale."""
+        """Return a per-sample conformal half-width on the logit scale (for
+        non-CQR calibrations). CQR uses a different interval construction;
+        callers should check :meth:`_is_cqr` and use ``predict()`` directly."""
         if isinstance(self.conformal, MondrianConformalCalibration):
             if self.conformal.group_feature not in X_df.columns:
                 raise ValueError(
                     f"Mondrian grouping feature '{self.conformal.group_feature}' missing at predict time"
                 )
             return self.conformal.q_for(X_df[self.conformal.group_feature].to_numpy(dtype=float))
+        if isinstance(self.conformal, CQRCalibration):
+            # CQR does not expose a single half-width; return NaN to signal
+            # that ``predict`` will compute intervals directly.
+            return np.full(len(X_df), np.nan, dtype=float)
         # Global conformal: constant half-width for all samples.
         return np.full(len(X_df), float(self.conformal.q), dtype=float)
 
@@ -268,12 +417,35 @@ class TinyDcsSurrogate:
         X_arr = _as_array(X, self.feature_names)
         X_df = pd.DataFrame(X_arr, columns=self.feature_names)
         logit_pred = np.asarray(self.model.predict(X_df), dtype=float).ravel()
-        half_width = self._conformal_q_for(X_df)
-        point = _sigmoid(logit_pred)
-        lower = _sigmoid(logit_pred - half_width)
-        upper = _sigmoid(logit_pred + half_width)
         distance = self.ood.distance(X_arr)
         in_env = distance <= self.ood.threshold
+        point = _sigmoid(logit_pred)
+
+        if isinstance(self.conformal, CQRCalibration):
+            q_lo_logit = np.asarray(self.conformal.lower_model.predict(X_df), dtype=float).ravel()
+            q_hi_logit = np.asarray(self.conformal.upper_model.predict(X_df), dtype=float).ravel()
+            q_correction = self.conformal.correction_for(X_df)
+            lower_logit = q_lo_logit - q_correction
+            upper_logit = q_hi_logit + q_correction
+            lower = _sigmoid(lower_logit)
+            upper = _sigmoid(upper_logit)
+            half_width = (upper_logit - lower_logit) / 2.0
+            return {
+                "point": point,
+                "lower": lower,
+                "upper": upper,
+                "logit": logit_pred,
+                "logit_lower": lower_logit,
+                "logit_upper": upper_logit,
+                "conformal_half_width_logit": half_width,
+                "cqr_correction_logit": q_correction,
+                "ood_distance": distance,
+                "in_envelope": in_env,
+            }
+
+        half_width = self._conformal_q_for(X_df)
+        lower = _sigmoid(logit_pred - half_width)
+        upper = _sigmoid(logit_pred + half_width)
         return {
             "point": point,
             "lower": lower,
@@ -305,6 +477,18 @@ class TinyDcsSurrogate:
                 mondrian_global_q=self.conformal.global_q,
                 mondrian_confidence=self.conformal.confidence,
             )
+        elif isinstance(self.conformal, CQRCalibration):
+            blob.update(
+                conformal_kind="cqr",
+                cqr_lower_model=self.conformal.lower_model,
+                cqr_upper_model=self.conformal.upper_model,
+                cqr_q=self.conformal.q,
+                cqr_confidence=self.conformal.confidence,
+                cqr_band_feature=self.conformal.band_feature,
+                cqr_band_width=self.conformal.band_width,
+                cqr_band_origin=self.conformal.band_origin,
+                cqr_group_q=dict(self.conformal.group_q),
+            )
         else:
             blob.update(
                 conformal_kind="global",
@@ -322,7 +506,7 @@ class TinyDcsSurrogate:
             threshold=float(blob["ood_threshold"]),
         )
         kind = blob.get("conformal_kind", "global")
-        conformal: ConformalCalibration | MondrianConformalCalibration
+        conformal: ConformalCalibration | MondrianConformalCalibration | CQRCalibration
         if kind == "mondrian":
             conformal = MondrianConformalCalibration(
                 group_feature=str(blob["mondrian_feature"]),
@@ -331,6 +515,18 @@ class TinyDcsSurrogate:
                 group_quantiles={int(k): float(v) for k, v in blob["mondrian_group_quantiles"].items()},
                 global_q=float(blob["mondrian_global_q"]),
                 confidence=float(blob["mondrian_confidence"]),
+            )
+        elif kind == "cqr":
+            group_q_raw = blob.get("cqr_group_q", {}) or {}
+            conformal = CQRCalibration(
+                lower_model=blob["cqr_lower_model"],
+                upper_model=blob["cqr_upper_model"],
+                q=float(blob["cqr_q"]),
+                confidence=float(blob["cqr_confidence"]),
+                band_feature=blob.get("cqr_band_feature"),
+                band_width=blob.get("cqr_band_width"),
+                band_origin=float(blob.get("cqr_band_origin", 0.0)),
+                group_q={int(k): float(v) for k, v in group_q_raw.items()},
             )
         else:
             conformal = ConformalCalibration(
@@ -370,6 +566,10 @@ def train_surrogate(
     mondrian_feature: str | None = None,
     mondrian_band_width: float | None = None,
     mondrian_band_origin: float = 0.0,
+    use_cqr: bool = False,
+    cqr_band_feature: str | None = None,
+    cqr_band_width: float | None = None,
+    cqr_band_origin: float = 0.0,
 ) -> tuple[TinyDcsSurrogate, dict[str, pd.DataFrame]]:
     """Train the full TinyDCS surrogate with calibration and OOD detection.
 
@@ -380,6 +580,12 @@ def train_surrogate(
         used instead of the global one. Common choice for altitude-DCS data
         is ``mondrian_feature="altitude_ft"``, ``band_width=5000.0``,
         ``band_origin=18000.0``.
+    use_cqr
+        If True, use Conformalized Quantile Regression (Romano et al. 2019)
+        — two additional LightGBM quantile regressors + a single conformal
+        correction on their nonconformity score. Handles bias-driven
+        coverage shortfalls that Mondrian alone cannot fix. Supersedes the
+        Mondrian/global options when enabled.
 
     Returns
     -------
@@ -445,8 +651,35 @@ def train_surrogate(
     use_mondrian = (
         mondrian_feature is not None and mondrian_band_width is not None and mondrian_band_width > 0
     )
-    conformal: ConformalCalibration | MondrianConformalCalibration
-    if use_mondrian:
+    conformal: ConformalCalibration | MondrianConformalCalibration | CQRCalibration
+    if use_cqr:
+        # CQR trains two extra quantile regressors plus a conformal
+        # correction. If cqr_band_feature is also set, the correction is
+        # stratified per altitude band (Mondrian-CQR), which repairs the
+        # remaining bias-driven shortfall that global CQR alone cannot fix
+        # when the quantile regressors themselves under-estimate spread in
+        # a zero-target region.
+        conformal = fit_cqr(
+            X_train=X[train_idx],
+            y_logit_train=y_logit[train_idx],
+            X_cal=X[cal_idx],
+            y_logit_cal=y_logit[cal_idx],
+            feature_names=feature_names,
+            monotonic_constraints=dict(cfg.monotonic_constraints),
+            n_estimators=cfg.n_estimators,
+            learning_rate=cfg.learning_rate,
+            num_leaves=cfg.num_leaves,
+            min_data_in_leaf=cfg.min_data_in_leaf,
+            subsample=cfg.subsample,
+            subsample_freq=cfg.subsample_freq,
+            colsample_bytree=cfg.colsample_bytree,
+            random_state=cfg.random_state,
+            confidence=confidence,
+            band_feature=cqr_band_feature,
+            band_width=cqr_band_width,
+            band_origin=cqr_band_origin,
+        )
+    elif use_mondrian:
         if mondrian_feature not in feature_names:
             raise ValueError(
                 f"mondrian_feature '{mondrian_feature}' is not in feature_names {feature_names}"

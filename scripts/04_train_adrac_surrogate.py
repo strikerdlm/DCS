@@ -225,6 +225,8 @@ def _metrics_blob(y_true: np.ndarray, y_pred: np.ndarray, *, tag: str) -> dict:
 @click.option("--seed", type=int, default=42, show_default=True)
 @click.option("--run-leave-one-altitude-out/--no-run-leave-one-altitude-out",
               default=True, show_default=True)
+@click.option("--cqr/--no-cqr", default=False, show_default=True,
+              help="Use Conformalized Quantile Regression (Romano 2019) for calibration")
 def main(
     training: str,
     output_surrogate: str,
@@ -233,6 +235,7 @@ def main(
     output_figures: str,
     seed: int,
     run_leave_one_altitude_out: bool,
+    cqr: bool,
 ) -> None:
     training_path = Path(training)
     if training_path.suffix.lower() == ".parquet":
@@ -251,20 +254,39 @@ def main(
     df_aug = _augment_with_vo2(df_raw, seed=seed)
     df_aug["pdcs_3rut_mbe1"] = df_aug["pdcs_adrac_target"]  # rename so train_surrogate finds it
 
-    # 3. TinyDCS surrogate on random split, with Mondrian (altitude-band)
-    # conformal so coverage holds uniformly across the 18,000–40,000 ft range.
-    click.echo("Training TinyDCS surrogate on augmented grid (Mondrian conformal) ...")
-    surrogate, splits = train_surrogate(
-        df_aug,
-        feature_names=FEATURE_COLUMNS,
-        target_col="pdcs_3rut_mbe1",
-        test_fraction=0.15,
-        calibration_fraction=0.20,
-        config=TrainConfig(random_state=seed),
-        mondrian_feature="altitude_ft",
-        mondrian_band_width=5000.0,
-        mondrian_band_origin=18000.0,
-    )
+    # 3. TinyDCS surrogate on random split. Calibration mode is either
+    # Mondrian (altitude-band stratified) or CQR (Conformalized Quantile
+    # Regression, Romano 2019), which additionally handles the bias-driven
+    # shortfall at the boundary-mass low-altitude band.
+    if cqr:
+        click.echo(
+            "Training TinyDCS surrogate on augmented grid (Mondrian-CQR calibration) ..."
+        )
+        surrogate, splits = train_surrogate(
+            df_aug,
+            feature_names=FEATURE_COLUMNS,
+            target_col="pdcs_3rut_mbe1",
+            test_fraction=0.15,
+            calibration_fraction=0.20,
+            config=TrainConfig(random_state=seed),
+            use_cqr=True,
+            cqr_band_feature="altitude_ft",
+            cqr_band_width=5000.0,
+            cqr_band_origin=18000.0,
+        )
+    else:
+        click.echo("Training TinyDCS surrogate on augmented grid (Mondrian conformal) ...")
+        surrogate, splits = train_surrogate(
+            df_aug,
+            feature_names=FEATURE_COLUMNS,
+            target_col="pdcs_3rut_mbe1",
+            test_fraction=0.15,
+            calibration_fraction=0.20,
+            config=TrainConfig(random_state=seed),
+            mondrian_feature="altitude_ft",
+            mondrian_band_width=5000.0,
+            mondrian_band_origin=18000.0,
+        )
     test_df = splits["test"]
     y_true_rand = test_df["pdcs_3rut_mbe1"].to_numpy(dtype=float)
     pred_rand = surrogate.predict(test_df)
@@ -273,23 +295,33 @@ def main(
         y_true_rand, pred_rand["lower"], pred_rand["upper"], nominal=surrogate.conformal.confidence
     )
 
-    # Per-altitude-band coverage — the key check that Mondrian restores.
-    from tinydcs.surrogate import MondrianConformalCalibration
+    # Per-altitude-band coverage — the key check that Mondrian / CQR restore.
+    # Report per-band for both calibration modes so the comparison is direct.
+    from tinydcs.surrogate import (
+        CQRCalibration,
+        MondrianConformalCalibration,
+    )
     per_band_cov: dict[str, dict[str, float]] = {}
-    if isinstance(surrogate.conformal, MondrianConformalCalibration):
-        alt_vals = test_df["altitude_ft"].to_numpy(dtype=float)
-        bands = surrogate.conformal.band_of(alt_vals)
-        for b in np.unique(bands):
-            mask = bands == b
-            if int(mask.sum()) < 10:
-                continue
-            band_cov = empirical_coverage(
-                y_true_rand[mask], pred_rand["lower"][mask], pred_rand["upper"][mask],
-                nominal=surrogate.conformal.confidence,
-            )
-            key = f"{int(b) * 5000 + 18000}-{int(b) * 5000 + 23000}_ft"
-            per_band_cov[key] = band_cov
+    alt_vals = test_df["altitude_ft"].to_numpy(dtype=float)
+    BAND_WIDTH = 5000.0
+    BAND_ORIGIN = 18000.0
+    bands_test = np.floor((alt_vals - BAND_ORIGIN) / BAND_WIDTH).astype(int)
+    for b in np.unique(bands_test):
+        mask = bands_test == b
+        if int(mask.sum()) < 10:
+            continue
+        band_cov = empirical_coverage(
+            y_true_rand[mask], pred_rand["lower"][mask], pred_rand["upper"][mask],
+            nominal=surrogate.conformal.confidence,
+        )
+        key = f"{int(b) * int(BAND_WIDTH) + int(BAND_ORIGIN)}-{int(b) * int(BAND_WIDTH) + int(BAND_ORIGIN) + int(BAND_WIDTH)}_ft"
+        per_band_cov[key] = band_cov
     metrics_surrogate_rand["per_band_coverage"] = per_band_cov
+    metrics_surrogate_rand["calibration_mode"] = (
+        "cqr" if isinstance(surrogate.conformal, CQRCalibration)
+        else ("mondrian" if isinstance(surrogate.conformal, MondrianConformalCalibration)
+              else "global")
+    )
 
     # Also evaluate the baseline on the same test fold (row-for-row) for apples-to-apples.
     # We need to trace back to the raw df via the index.
