@@ -126,6 +126,8 @@ Trained LightGBM models were exported to ONNX (target opset 13) via `onnxmltools
 
 On the same 2,386-row random test fold (apples-to-apples):
 
+**Table 1.** Head-to-head accuracy and calibration on the random held-out test fold (*n* = 2,386).
+
 | Model | MAE | R² | Brier | Calibration slope |
 |---|---|---|---|---|
 | ADRAC closed-form AFT | 0.086 | 0.869 | 0.0150 | 0.613 |
@@ -146,6 +148,8 @@ TinyDCS attains a 4-fold reduction in MAE and ~10-fold reduction in Brier score 
 
 Under leave-one-altitude-out cross-validation (5 bands of 5,000 ft), TinyDCS retained its advantage but the gap narrowed:
 
+**Table 2.** Leave-one-altitude-out cross-validation MAE (mean ± SD across the five 5,000-ft bands).
+
 | Model | MAE (mean ± SD) |
 |---|---|
 | ADRAC baseline | 0.081 ± 0.037 |
@@ -155,7 +159,9 @@ A 28% reduction in MAE under strict altitude extrapolation suggests the surrogat
 
 ### 3.3 Model-size ladder and edge deployment
 
-Because the zero-inflated surrogate is the production default, each deployable variant consists of a matched pair of LightGBM models (binary classifier + continuous regressor). We trained four size variants of the pair and exported both stages to ONNX:
+Because the zero-inflated surrogate is the production default, each deployable variant consists of a matched pair of LightGBM models (binary classifier + continuous regressor). We trained four size variants of the pair and exported both stages to ONNX.
+
+**Table 3.** TinyDCS size-ladder variants: ONNX size (per stage and combined) and CPU per-row inference latency.
 
 | Variant | Estimators × Leaves | MAE | R² | Coverage | Classifier | Regressor | **Combined** | p50 latency |
 |---|---|---|---|---|---|---|---|---|
@@ -186,7 +192,9 @@ The Full variant measured 16.5 μs p50. ONNX-to-Python parity was verified withi
 
 ### 3.5 Calibration
 
-We compared five calibration strategies on the same random test fold. Per-altitude-band coverage is the diagnostic:
+We compared five calibration strategies on the same random test fold. Per-altitude-band coverage is the diagnostic.
+
+**Table 4.** Per-altitude-band 95 % conformal coverage across five calibration strategies on the held-out test fold.
 
 | Calibration | Overall | 18–23K ft | 23–28K ft | 28–33K ft | 33–38K ft | 38–43K ft |
 |---|---|---|---|---|---|---|
@@ -286,9 +294,9 @@ The authors thank the Jefatura de Educación Aeronáutica y Espacial (Aeronautic
 
 ## References
 
-[1] Pilmanis AA, Petropoulos L, Kannan N, Webb JT. Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures. Aviat Space Environ Med 2004;75:749–59.
+[1] Pilmanis AA, Petropoulos L, Kannan N, Webb JT. Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures. Aviat Space Environ Med 2004;75(9):749–59. PMID: 15460625.
 
-[2] Webb JT, Krock LP, Gernhardt ML. Oxygen consumption at altitude as a risk factor for altitude decompression sickness. Aviat Space Environ Med 2010;81:987–92.
+[2] Webb JT, Krock LP, Gernhardt ML. Oxygen consumption at altitude as a risk factor for altitude decompression sickness. Aviat Space Environ Med 2010;81(11):987–92. https://doi.org/10.3357/ASEM.2787.2010.
 
 [3] Webb JT, Morgan TR, Sarsfield SD. Altitude decompression sickness risk and physical activity during exposure. Aerosp Med Hum Perform 2016;87:516–20. https://doi.org/10.3357/AMHP.4477.2016.
 
@@ -314,7 +322,7 @@ The authors thank the Jefatura de Educación Aeronáutica y Espacial (Aeronautic
 
 [14] Warden P, Situnayake D. TinyML: machine learning with TensorFlow Lite on Arduino and ultra-low-power microcontrollers. Sebastopol (CA): O'Reilly Media; 2019.
 
-[15] Stepanek J, et al. Decompression sickness risk assessment and awareness in general aviation. Aerosp Med Hum Perform 2024.
+[15] Harrison MF, Butler WP, Stepanek J. Decompression sickness risk assessment and awareness in general aviation. Aerosp Med Hum Perform 2021;92(3):138–45.
 
 [16] Collins GS, Moons KGM, Dhiman P, Riley RD, Beam AL, Van Calster B, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. BMJ 2024;385:e078378. https://doi.org/10.1136/bmj-2023-078378.
 
@@ -348,7 +356,7 @@ The authors thank the Jefatura de Educación Aeronáutica y Espacial (Aeronautic
 
 ## Figure captions
 
-**Figure 1. TinyDCS system architecture.** Block diagram of the three-layer inference stack: (1) wearable sensor input layer producing a 13-feature vector from altitude telemetry and accelerometer-derived VO₂; (2) LightGBM logit core with monotonicity constraints and Mahalanobis OOD gate; (3) zero-inflated conformal calibration layer returning a point estimate plus a calibrated 95 % interval. ONNX artefacts are shown at the edge-deployment node.
+**Figure 1. TinyDCS system architecture.** Block diagram of the three-layer inference stack: (1) wearable sensor input layer producing a 13-feature vector from altitude telemetry and accelerometer-derived VO\textsubscript{2}; (2) LightGBM logit core with monotonicity constraints and Mahalanobis OOD gate; (3) zero-inflated conformal calibration layer returning a point estimate plus a calibrated 95 % interval. ONNX artefacts are shown at the edge-deployment node.
 
 **Figure 2. Reliability diagram — TinyDCS vs. closed-form ADRAC baseline.** Predicted P(DCS) bins (x-axis) versus empirical observed fraction (y-axis) on the held-out test fold (*n* = 2,386). Perfect calibration lies on the diagonal. TinyDCS (zero-inflated two-stage) tracks the diagonal closely across the full probability range; the closed-form AFT baseline shows systematic overestimation at low probabilities.
 
