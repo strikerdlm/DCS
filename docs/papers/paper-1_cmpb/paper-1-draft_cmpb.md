@@ -282,7 +282,7 @@ All code, the cleaned ADRAC-derived dataset, trained model bundles (joblib), ONN
 
 ## Acknowledgements
 
-*To be completed at submission.*
+The authors thank the Jefatura de Educación Aeronáutica y Espacial (Aeronautics and Space Education Directorate) and the Jefatura de Salud (Health Directorate) of the Colombian Aerospace Force for their institutional support of this research. We are grateful to CR Julio Blanco, MY Nindre Pico, MY Luis Eduardo Jerez, TS Bernabé Cardona, T1 Ever Buitrago, T1 Angie Alvarado, and T1 Rafael Salamanca for their thoughtful review, technical input, and the team effort that made this work possible.
 
 ## References
 
