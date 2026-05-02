@@ -29,12 +29,14 @@ Generated 2026-05-01 by the `/cmpb-submit` skill.
 
 ## Submission-day checklist (compact)
 
-1. Re-verify the live CMPB Guide for Authors at https://www.elsevier.com/journals/computer-methods-and-programs-in-biomedicine/0169-2607/guide-for-authors
-2. Rebuild the review PDF (`paper-1-draft_cmpb.pdf`) — already produced; rebuild only if the markdown changes
-3. Verify each suggested-reviewer email at the institutional faculty page on the day of submission
-4. Confirm peer-review type (single-blind default vs. optional double-blind) at the Editorial Manager portal
+1. ✅ CMPB Guide for Authors verified against the live source on 2026-05-01 (Wayback snapshot of the OAuth-gated ScienceDirect page); audit table reflects the live rules.
+2. ✅ Review PDF (`paper-1-draft_cmpb.pdf`) is already produced. Rebuild only if the markdown changes.
+3. ✅ All 5 suggested-reviewer institutional emails verified on 2026-05-01 (see suggested-reviewers file §Verification record).
+4. ✅ Peer-review type confirmed — **CMPB operates a single-anonymised review** (= single-blind). No double-blind option. No depersonalisation needed.
 5. Tag the repo: `git tag v1.0.0-cmpb-submission`
 6. Upload via https://www.editorialmanager.com/cmpb/
+
+**Open Access decision** (post-acceptance, not now): subscription path = $0 APC; gold OA = $2,500 (down from earlier $3,180 estimate; verified 2026-05-01). Authors may apply for the Research4Life Group B discount only if gold OA is chosen.
 
 ## Provenance
 

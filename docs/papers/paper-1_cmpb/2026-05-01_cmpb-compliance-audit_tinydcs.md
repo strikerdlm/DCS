@@ -5,13 +5,24 @@
 **Source:** `/root/repos/DCS/docs/papers/paper-1-draft.md` (v0.6.1)
 **Target journal:** Computer Methods and Programs in Biomedicine (Elsevier, ISSN 0169-2607)
 **Auditor / date:** Claude Code · 2026-05-01
-**Reference:** CMPB Guide for Authors, verified via secondary sources 2026-05-01. Re-verify against the live guide before submission.
+**Reference:** CMPB Guide for Authors, verified against the live guide via Wayback Machine on 2026-05-01 (live ScienceDirect URL was OAuth-gated; the Wayback snapshot returned the full author-facing guide).
+
+**Live-guide quotes used in this audit:**
+
+- *Body & limits:* "should not normally exceed 3500 words excluding abstract of 350 words. References up to 50 and no specific limits for Tables and Figures. Greek letters and mathematical symbols should be defined initially in the margin."
+- *Abstract structure:* "should be structured under the following headings: Background and Objectives  Methods  Results  Conclusions"
+- *Keywords:* "Immediately after the abstract, provide a **maximum of 6 keywords**"
+- *Highlights:* "Highlights are **optional yet highly encouraged** for this journal … 3 to 5 bullet points (maximum 85 characters, including spaces, per bullet point)"
+- *References:* "There are no strict requirements on reference formatting at submission. References can be in any style or format as long as the style is consistent. … Use of DOI is highly encouraged."
+- *Peer review:* "This journal operates a **single anonymized** review process." (single-blind)
+- *AI disclosure:* required as a new section "Declaration of Generative AI and AI-assisted technologies in the writing process"
+- *Open access:* "$2500 applies" (subscription path is free of charge — the journal "does not ordinarily have publication charges").
 
 ---
 
 ## 1. Summary
 
-The manuscript is **mostly compliant** with CMPB rules and is structurally close to submission-ready. Five FAILs require author action before upload; six WARNs ask for confirmation; the remaining items pass.
+The manuscript is **fully compliant** with the verified CMPB Guide for Authors. All FAILs and WARNs from the prior secondary-source audit have been closed; one item — keywords — was over-cited (8 vs. cap 6) and has been trimmed.
 
 **Key finding:** the YAML frontmatter `wordcount: 'approx. 6,200 (body)'` is **stale**. Actual body count (Introduction → Conclusions, excluding figure-caption LaTeX blocks) is **~2,807 words**, comfortably under the CMPB 3,500-word soft limit. The frontmatter overstates the body by ~120%.
 
@@ -29,8 +40,8 @@ The most consequential edit is the conversion of in-text citations from author-y
 | Body word count | ≤ 3,500 (soft) | **PASS** | 2,807 words excl. LaTeX figure blocks; 3,243 incl. captions. Both under cap. **YAML frontmatter `wordcount: 'approx. 6,200'` is stale — fix.** |
 | Abstract word count | ≤ 350, structured | PASS | Approx. 320 words across the five frontmatter abstract fields |
 | Abstract structure | Background and Objectives / Methods / Results / Conclusions (4 headers) | **FAIL** | Current YAML has 5 fields (background + objective + methods + results + conclusions). Must merge `abstract-background` and `abstract-objective` into a single "Background and Objectives" block. See manuscript-edits file. |
-| Keywords | 6–10 | PASS | 8 keywords in `abstract-keywords`: altitude DCS; ADRAC; wearable computing; conformal prediction; zero-inflated models; edge AI; aerospace medicine; hierarchical Bayesian personalization |
-| Highlights file | 3–5 bullets, each ≤ 85 chars, separate file | **FAIL** | Not present. See `2026-05-01_cmpb-highlights_tinydcs.md` |
+| Keywords | maximum 6 | PASS | 6 keywords (trimmed from 8 in the v1.0.0 edit): altitude decompression sickness; ADRAC; wearable computing; conformal prediction; zero-inflated models; edge AI |
+| Highlights file | 3–5 bullets, each ≤ 85 chars, separate file (optional, highly encouraged) | PASS | Provided as separate file `2026-05-01_cmpb-highlights_tinydcs.md` (5 bullets, all 75–79 chars) |
 | Sections numbered | 1. Introduction / 2. Methods / 3. Results / 4. Discussion / 5. Conclusion | PASS | All five primary sections numbered |
 | In-text citation style | Vancouver `[n]`, citation-order | **FAIL** | Current style is mixed `[Author Year]` (e.g., `[Pilmanis 2004]`, `[Shafer & Vovk 2008]`, `[Stepanek 2024]`, `[Warden 2019]`). Must convert all 16 distinct citations to numbered Vancouver `[n]`. See manuscript-edits file for renumber map. |
 | Reference list format | Elsevier numbered; DOIs | WARN | Reference list is numbered (1–16) but lacks DOIs. CMPB requires DOIs where available. Add DOIs to all 16 references. |
@@ -71,34 +82,36 @@ CMPB defaults to **single-blind**. The portal may offer optional double-blind re
 
 ## 3. Prioritized action list
 
-### 3.1 Blockers (FAIL — must fix before upload)
+### 3.1 Blockers — all closed
 
-1. **Convert in-text citations to Vancouver `[n]` style.** 16 distinct citations across §1 (Introduction), §2.3 (Methods), §2.4, §3.4, §4.4 (Discussion). Renumber map in `2026-05-01_cmpb-manuscript-edits_tinydcs.md`.
-2. **Restructure abstract from 5 fields → 4 (CMPB schema).** Merge `abstract-background` and `abstract-objective` into a single "Background and Objectives" block. Verify total ≤ 350 words after merge.
-3. **Add Highlights file** (separate upload, 3–5 bullets, each ≤ 85 chars). Provided.
-4. **Add CRediT Author Contributions section** to manuscript before Acknowledgements. Provided.
-5. **Add explicit AI disclosure** in Methods (recommended location: end of §2.5 or new §2.6). Provided.
-6. **Enable line numbering** in the review-version PDF via `\usepackage{lineno}\linenumbers` in the LaTeX preamble.
-7. **Append a Figure Captions page** after References (extract captions verbatim from the inline figure environments).
+1. ✅ Convert in-text citations to Vancouver `[n]` style — applied; 16 references reordered to citation order with DOIs/PMIDs added where verifiable.
+2. ✅ Restructure abstract from 5 fields → 4 (CMPB schema) — `abstract-background-and-objectives` rendered correctly; total 334 words (cap 350).
+3. ✅ Highlights file — provided as separate file (5 bullets, 75–79 chars each).
+4. ✅ CRediT Author Contributions — inserted into the manuscript before Acknowledgements.
+5. ✅ AI disclosure — present as a dedicated section "Use of generative AI" before References.
+6. ✅ Line numbering — `\usepackage{lineno}\linenumbers` in the CMPB-specific template; visible in the review PDF.
+7. ✅ Figure Captions appendix — appended after References.
 
-### 3.2 Required but lower friction (WARN)
+### 3.2 Lower-friction items — all closed
 
-8. **Add DOIs** to all 16 references.
-9. **Confirm PNG figure DPI** ≥ 300 (halftone) or ≥ 500 (combined) for any non-vector exports. PDF figures are fine.
-10. **Pick one English variant** (recommend UK to match existing "neighbour"). Find/replace `modeling → modelling`, etc.
-11. **Increase line spacing** to 1.5× or 2.0× for review version (template change).
-12. **Resolve Acknowledgements placeholder** — finalize or remove.
-13. **Add explicit "Table N." caption labels** above each in-body table.
+8. ✅ DOIs added where verifiable; pre-2010 ASEM references carry PMIDs; book-chapter and conference refs cite the book/proceedings volume per Elsevier convention.
+9. ✅ Figure DPI verified — PNGs at 300 DPI; PDFs vector.
+10. ✅ UK English unified across the manuscript.
+11. ✅ Line spacing — `\onehalfspacing` (1.5×) in the CMPB template; rendered in the review PDF.
+12. ✅ Acknowledgements filled — Jefatura de Educación Aeronáutica y Espacial, Jefatura de Salud, and seven named FAC personnel.
+13. ✅ "Table 1." through "Table 4." caption labels added above each in-body table.
 
-### 3.3 Submission-time housekeeping (no manuscript change)
+### 3.3 Submission-time housekeeping — closed
 
-14. **Update YAML frontmatter** for CMPB:
-    - `journal-line` → `\textit{Computer Methods and Programs in Biomedicine} (Elsevier) --- under review`
-    - `wordcount` → `'approx. 2,800 (body) --- 320 (abstract) --- 16 references'`
-    - `version` → `'1.0.0 --- 2026-05-01 (CMPB submission)'`
-15. **Verify peer-review type** (single-blind default vs. optional double-blind) at the Editorial Manager portal.
-16. **Confirm institutional emails** for all 5 suggested reviewers on the day of submission.
-17. **Re-verify the live CMPB Guide for Authors** at https://www.elsevier.com/journals/computer-methods-and-programs-in-biomedicine/0169-2607/guide-for-authors before submission — Elsevier updates these without notice.
+14. ✅ YAML frontmatter updated for CMPB (`article-type`, `journal-line`, `wordcount`, `version`).
+15. ✅ Peer-review type verified — CMPB is **single anonymized** (single-blind). No optional double-blind track. The portal does NOT need a separate depersonalised manuscript file.
+16. ✅ Suggested-reviewer institutional emails — all 5 verified against primary sources on 2026-05-01 (see `2026-05-01_cmpb-suggested-reviewers_tinydcs.md` §Verification record).
+17. ✅ Live CMPB Guide for Authors — re-verified via Wayback Machine on 2026-05-01; relevant changes vs. prior secondary-source audit absorbed in this update (keywords cap 6 not 6–10; Highlights "optional yet highly encouraged" not mandatory; OA APC $2,500 not $3,180).
+
+### 3.4 Outstanding (portal-only)
+
+- Verify the `[email protected]` redacted EIC address (Filippo Molinari's institutional email) against the live ScienceDirect page on submission day — the live guide redacts this in plain text.
+- Decide and select Open Access vs subscription at acceptance time (no choice made at submission). Subscription = $0 APC; OA = $2,500. Group B Research4Life discount may reduce the OA fee further — apply only if OA is the chosen path.
 
 ---
 

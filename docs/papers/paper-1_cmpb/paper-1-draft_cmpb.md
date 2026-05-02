@@ -28,7 +28,7 @@ abstract-results: 'On the held-out random test fold (\textit{n} = 2,386), TinyDC
 
 abstract-conclusions: 'A continuous-VO\textsubscript{2} ADRAC surrogate with zero-inflated conformal calibration and out-of-envelope abstention outperforms the closed-form model on the same data at an edge-feasible memory and latency budget. External prospective validation on a hypobaric-chamber cohort with Doppler venous-gas-emboli ground truth, and replacement of the conjugate-Gaussian personalisation stub with a full hierarchical Bayesian model on real subjects, are the priority follow-ups.'
 
-abstract-keywords: 'altitude decompression sickness; ADRAC; wearable computing; conformal prediction; zero-inflated models; edge AI; aerospace medicine; hierarchical Bayesian personalisation'
+abstract-keywords: 'altitude decompression sickness; ADRAC; wearable computing; conformal prediction; zero-inflated models; edge AI'
 
 ---
 
