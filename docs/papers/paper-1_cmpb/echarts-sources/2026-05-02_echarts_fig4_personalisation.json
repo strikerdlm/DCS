@@ -1,0 +1,137 @@
+{
+  "aria": { "enabled": true, "decal": { "show": false } },
+  "grid": { "left": 80, "right": 80, "bottom": 84, "top": 32 },
+  "legend": {
+    "data": [
+      "Pearson r (true vs posterior log-λ)",
+      "Brier — population (flat prior)",
+      "Brier — personalised"
+    ],
+    "left": "center",
+    "bottom": 4,
+    "itemGap": 22,
+    "textStyle": { "fontSize": 11 }
+  },
+  "xAxis": {
+    "type": "value",
+    "name": "Exposures per subject (k)",
+    "nameLocation": "middle",
+    "nameGap": 36,
+    "min": 0,
+    "max": 21,
+    "interval": 2,
+    "axisLine": { "lineStyle": { "color": "#222" } },
+    "axisLabel": { "fontSize": 11 },
+    "nameTextStyle": { "fontSize": 13 },
+    "splitLine": { "show": true, "lineStyle": { "color": "#eee" } }
+  },
+  "yAxis": [
+    {
+      "type": "value",
+      "name": "Pearson r",
+      "nameLocation": "middle",
+      "nameGap": 50,
+      "position": "left",
+      "min": 0,
+      "max": 1,
+      "interval": 0.1,
+      "axisLine": { "show": true, "lineStyle": { "color": "#0072B2" } },
+      "axisLabel": { "fontSize": 11, "color": "#0072B2" },
+      "nameTextStyle": { "fontSize": 13, "color": "#0072B2" },
+      "splitLine": { "show": false }
+    },
+    {
+      "type": "value",
+      "name": "Brier score",
+      "nameLocation": "middle",
+      "nameGap": 56,
+      "position": "right",
+      "min": 0,
+      "max": 0.006,
+      "interval": 0.001,
+      "axisLine": { "show": true, "lineStyle": { "color": "#D55E00" } },
+      "axisLabel": {
+        "fontSize": 11,
+        "color": "#D55E00",
+        "formatter": "{value}"
+      },
+      "nameTextStyle": { "fontSize": 13, "color": "#D55E00" },
+      "splitLine": { "show": false }
+    }
+  ],
+  "series": [
+    {
+      "name": "Pearson r (true vs posterior log-λ)",
+      "type": "line",
+      "yAxisIndex": 0,
+      "data": [
+        [1, 0.141], [2, 0.199], [3, 0.244], [4, 0.282], [5, 0.315],
+        [6, 0.345], [7, 0.373], [8, 0.398], [9, 0.422], [10, 0.445],
+        [11, 0.467], [12, 0.488], [13, 0.508], [14, 0.527], [15, 0.546],
+        [16, 0.564], [17, 0.582], [18, 0.598], [19, 0.615], [20, 0.630]
+      ],
+      "symbol": "circle",
+      "symbolSize": 7,
+      "lineStyle": { "color": "#0072B2", "width": 2.5 },
+      "itemStyle": { "color": "#0072B2", "borderColor": "#fff", "borderWidth": 1 },
+      "z": 4,
+      "markPoint": {
+        "symbol": "circle",
+        "symbolSize": 14,
+        "data": [{ "coord": [20, 0.630], "value": "r = 0.63" }],
+        "label": {
+          "position": "top",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#0072B2",
+          "distance": 12,
+          "formatter": "r = 0.63 at k = 20"
+        },
+        "itemStyle": { "color": "#0072B2", "borderColor": "#fff", "borderWidth": 2 }
+      }
+    },
+    {
+      "name": "Brier — population (flat prior)",
+      "type": "line",
+      "yAxisIndex": 1,
+      "data": [
+        [1, 0.0040], [2, 0.0040], [3, 0.0040], [4, 0.0040], [5, 0.0040],
+        [6, 0.0040], [7, 0.0040], [8, 0.0040], [9, 0.0040], [10, 0.0040],
+        [11, 0.0040], [12, 0.0040], [13, 0.0040], [14, 0.0040], [15, 0.0040],
+        [16, 0.0040], [17, 0.0040], [18, 0.0040], [19, 0.0040], [20, 0.0040]
+      ],
+      "symbol": "none",
+      "lineStyle": { "color": "#888", "width": 1.8, "type": "dashed" },
+      "itemStyle": { "color": "#888" },
+      "z": 2
+    },
+    {
+      "name": "Brier — personalised",
+      "type": "line",
+      "yAxisIndex": 1,
+      "data": [
+        [1, 0.0050], [2, 0.0049], [3, 0.0048], [4, 0.0047], [5, 0.0046],
+        [6, 0.0044], [7, 0.0043], [8, 0.0042], [9, 0.0041], [10, 0.0040],
+        [11, 0.0038], [12, 0.0036], [13, 0.0034], [14, 0.0032], [15, 0.0030],
+        [16, 0.0028], [17, 0.0026], [18, 0.0024], [19, 0.0022], [20, 0.0020]
+      ],
+      "symbol": "diamond",
+      "symbolSize": 7,
+      "lineStyle": { "color": "#D55E00", "width": 2.5 },
+      "itemStyle": { "color": "#D55E00", "borderColor": "#fff", "borderWidth": 1 },
+      "z": 3,
+      "markLine": {
+        "symbol": "none",
+        "silent": true,
+        "lineStyle": { "color": "#666", "type": "dotted", "width": 1.5 },
+        "label": {
+          "position": "insideEndTop",
+          "formatter": "Crossover\nk ≈ 10",
+          "fontSize": 11,
+          "color": "#444"
+        },
+        "data": [{ "xAxis": 10 }]
+      }
+    }
+  ]
+}

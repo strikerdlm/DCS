@@ -1,0 +1,122 @@
+{
+  "aria": { "enabled": true, "decal": { "show": false } },
+  "grid": { "left": 96, "right": 48, "bottom": 80, "top": 36 },
+  "legend": {
+    "data": [
+      { "name": "TinyDCS variants", "icon": "circle" },
+      { "name": "ADRAC closed-form", "icon": "diamond" },
+      { "name": "Pareto frontier", "icon": "rect" }
+    ],
+    "left": "center",
+    "bottom": 4,
+    "itemGap": 28,
+    "textStyle": { "fontSize": 12 }
+  },
+  "xAxis": {
+    "type": "log",
+    "logBase": 10,
+    "name": "Combined ONNX size (KB, log scale)",
+    "nameLocation": "middle",
+    "nameGap": 38,
+    "min": 10,
+    "max": 3000,
+    "axisLine": { "lineStyle": { "color": "#222" } },
+    "axisLabel": { "fontSize": 11 },
+    "nameTextStyle": { "fontSize": 13 },
+    "splitLine": { "show": true, "lineStyle": { "color": "#eee" } }
+  },
+  "yAxis": {
+    "type": "value",
+    "name": "Test-set MAE",
+    "nameLocation": "middle",
+    "nameGap": 56,
+    "min": 0,
+    "max": 0.1,
+    "interval": 0.01,
+    "axisLine": { "lineStyle": { "color": "#222" } },
+    "axisLabel": { "fontSize": 11 },
+    "nameTextStyle": { "fontSize": 13 },
+    "splitLine": { "show": true, "lineStyle": { "color": "#eee" } }
+  },
+  "series": [
+    {
+      "name": "Pareto frontier",
+      "type": "line",
+      "data": [[34, 0.033], [95, 0.028], [423, 0.023], [1787, 0.020]],
+      "symbol": "none",
+      "lineStyle": { "color": "#0072B2", "width": 2, "type": "solid" },
+      "itemStyle": { "color": "#0072B2" },
+      "tooltip": { "show": false },
+      "z": 1
+    },
+    {
+      "name": "TinyDCS variants",
+      "type": "scatter",
+      "symbol": "circle",
+      "symbolSize": 18,
+      "itemStyle": { "color": "#0072B2", "borderColor": "#fff", "borderWidth": 1.5 },
+      "data": [
+        { "value": [34, 0.033], "name": "Tiny" },
+        { "value": [95, 0.028], "name": "Compact" },
+        { "value": [423, 0.023], "name": "Medium" },
+        { "value": [1787, 0.020], "name": "Full" }
+      ],
+      "label": {
+        "show": true,
+        "position": "top",
+        "distance": 8,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "formatter": "{b}",
+        "color": "#0072B2"
+      },
+      "z": 3
+    },
+    {
+      "name": "ADRAC closed-form",
+      "type": "scatter",
+      "symbol": "diamond",
+      "symbolSize": 20,
+      "itemStyle": { "color": "#D55E00", "borderColor": "#fff", "borderWidth": 1.5 },
+      "data": [
+        { "value": [50, 0.086], "name": "ADRAC AFT" }
+      ],
+      "label": {
+        "show": true,
+        "position": "right",
+        "distance": 10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "formatter": "{b}",
+        "color": "#D55E00"
+      },
+      "z": 3
+    }
+  ],
+  "graphic": [
+    {
+      "type": "group",
+      "left": 130,
+      "top": 76,
+      "children": [
+        {
+          "type": "rect",
+          "shape": { "x": 0, "y": 0, "width": 220, "height": 28 },
+          "style": { "fill": "#f5f9fc", "stroke": "#0072B2", "lineWidth": 1 }
+        },
+        {
+          "type": "text",
+          "left": 8,
+          "top": 6,
+          "style": {
+            "text": "Compact: 95 KB · 2.44 μs / row\n→ 3× MAE reduction vs ADRAC",
+            "fontSize": 11,
+            "fontFamily": "serif",
+            "fill": "#0a3a5e",
+            "lineHeight": 14
+          }
+        }
+      ]
+    }
+  ]
+}

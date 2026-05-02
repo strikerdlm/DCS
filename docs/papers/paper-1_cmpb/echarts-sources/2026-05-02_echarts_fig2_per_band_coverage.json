@@ -1,0 +1,86 @@
+{
+  "aria": { "enabled": true, "decal": { "show": false } },
+  "grid": { "left": 78, "right": 32, "bottom": 92, "top": 28 },
+  "legend": {
+    "data": [
+      "Global conformal",
+      "Mondrian",
+      "CQR (global q)",
+      "Mondrian–CQR",
+      "Zero-inflated two-stage"
+    ],
+    "left": "center",
+    "bottom": 4,
+    "itemGap": 18,
+    "textStyle": { "fontSize": 11 }
+  },
+  "xAxis": {
+    "type": "category",
+    "name": "Altitude band (kft)",
+    "nameLocation": "middle",
+    "nameGap": 36,
+    "data": ["18–23", "23–28", "28–33", "33–38", "38–43"],
+    "axisLine": { "lineStyle": { "color": "#222" } },
+    "axisLabel": { "fontSize": 12 },
+    "nameTextStyle": { "fontSize": 13 }
+  },
+  "yAxis": {
+    "type": "value",
+    "name": "Empirical 95% coverage",
+    "nameLocation": "middle",
+    "nameGap": 50,
+    "min": 0.5,
+    "max": 1.0,
+    "interval": 0.05,
+    "axisLine": { "lineStyle": { "color": "#222" } },
+    "axisLabel": { "fontSize": 11, "formatter": "{value}" },
+    "nameTextStyle": { "fontSize": 13 },
+    "splitLine": { "show": true, "lineStyle": { "color": "#eee" } }
+  },
+  "series": [
+    {
+      "name": "Global conformal",
+      "type": "bar",
+      "data": [0.591, 0.933, 0.944, 0.967, 0.948],
+      "itemStyle": { "color": "#999999" },
+      "barCategoryGap": "26%",
+      "barGap": "12%"
+    },
+    {
+      "name": "Mondrian",
+      "type": "bar",
+      "data": [0.583, 0.949, 0.945, 0.954, 0.955],
+      "itemStyle": { "color": "#56B4E9" }
+    },
+    {
+      "name": "CQR (global q)",
+      "type": "bar",
+      "data": [0.589, 0.937, 0.945, 0.945, 0.937],
+      "itemStyle": { "color": "#F0E442" }
+    },
+    {
+      "name": "Mondrian–CQR",
+      "type": "bar",
+      "data": [0.589, 0.924, 0.959, 0.951, 0.937],
+      "itemStyle": { "color": "#E69F00" }
+    },
+    {
+      "name": "Zero-inflated two-stage",
+      "type": "bar",
+      "data": [0.964, 0.953, 0.951, 0.967, 0.966],
+      "itemStyle": { "color": "#0072B2" },
+      "markLine": {
+        "symbol": "none",
+        "silent": true,
+        "lineStyle": { "color": "#666", "type": "dashed", "width": 1.5 },
+        "label": {
+          "position": "end",
+          "formatter": "0.95 nominal",
+          "fontSize": 11,
+          "color": "#444"
+        },
+        "data": [{ "yAxis": 0.95 }]
+      }
+    }
+  ]
+}
