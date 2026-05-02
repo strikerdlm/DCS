@@ -8,7 +8,9 @@ Generated 2026-05-01 by the `/cmpb-submit` skill.
 
 | File | Purpose |
 |---|---|
-| [`paper-1-draft_cmpb.md`](paper-1-draft_cmpb.md) | **The CMPB-edited manuscript.** All applied edits: frontmatter (article-type, journal-line, wordcount, version), abstract merged 5→4 fields ≤ 350 words, Vancouver `[n]` citations throughout, reference list reordered to citation order with DOIs, CRediT + AI disclosure + COI + Funding + Data Availability blocks before Acknowledgements, Figure Captions appendix after References, UK English unified. Body: 2,952 words (under 3,500 cap). |
+| [`paper-1-draft_cmpb.md`](paper-1-draft_cmpb.md) | **The CMPB-edited manuscript.** All applied edits: frontmatter (article-type, journal-line, wordcount, version), abstract merged 5→4 fields ≤ 350 words, Vancouver `[n]` citations throughout, reference list reordered to citation order with DOIs/PMIDs added, explicit "Table 1." through "Table 4." caption labels, CRediT + AI disclosure + COI + Funding + Data Availability blocks before Acknowledgements (filled), Figure Captions appendix after References, UK English unified. Body: 2,952 words (under 3,500 cap). |
+| [`paper-1-draft_cmpb.pdf`](paper-1-draft_cmpb.pdf) | **Review-version PDF (16 pages).** Built with the CMPB-specific template — continuous line numbers, 1.5× line spacing, structured abstract box with the four CMPB-required headers. |
+| [`cmpb_template.latex`](cmpb_template.latex) | xelatex template for the review-version build. Adds `\usepackage{lineno}\linenumbers`, `\onehalfspacing`, and renders `abstract-background-and-objectives` as the merged CMPB abstract header. Derived from the npj-pdf-export base template. |
 | [`2026-05-01_cmpb-compliance-audit_tinydcs.md`](2026-05-01_cmpb-compliance-audit_tinydcs.md) | Full PASS/FAIL/WARN audit against the CMPB Guide for Authors. |
 | [`2026-05-01_cmpb-manuscript-edits_tinydcs.md`](2026-05-01_cmpb-manuscript-edits_tinydcs.md) | The edit recipe that was applied to produce `paper-1-draft_cmpb.md`. Retained as a record. |
 | [`2026-05-01_cmpb-cover-letter_tinydcs.md`](2026-05-01_cmpb-cover-letter_tinydcs.md) | 10-element cover letter to Filippo Molinari, PhD, EIC. Methods-and-software framing. |
@@ -16,10 +18,19 @@ Generated 2026-05-01 by the `/cmpb-submit` skill.
 | [`2026-05-01_cmpb-suggested-reviewers_tinydcs.md`](2026-05-01_cmpb-suggested-reviewers_tinydcs.md) | 5 candidates with verification URLs. Two emails directly verified at faculty pages; three best-effort format-derived — verify before portal entry. |
 | [`2026-05-01_cmpb-credit-and-disclosures_tinydcs.md`](2026-05-01_cmpb-credit-and-disclosures_tinydcs.md) | Reference for the CRediT, AI, COI, Funding, Data-availability blocks already pasted into the edited manuscript. |
 
+## Build the review PDF
+
+```bash
+/root/.claude/skills/npj-pdf-export/bin/npj-export \
+  --template docs/papers/paper-1_cmpb/cmpb_template.latex \
+  docs/papers/paper-1_cmpb/paper-1-draft_cmpb.md \
+  docs/papers/paper-1_cmpb/paper-1-draft_cmpb.pdf
+```
+
 ## Submission-day checklist (compact)
 
 1. Re-verify the live CMPB Guide for Authors at https://www.elsevier.com/journals/computer-methods-and-programs-in-biomedicine/0169-2607/guide-for-authors
-2. Re-render the manuscript PDF with line numbers and 1.5–2.0× spacing — the LaTeX template at `npj-pdf-export` needs `\usepackage{lineno}\linenumbers` and `\onehalfspacing` added for the review version
+2. Rebuild the review PDF (`paper-1-draft_cmpb.pdf`) — already produced; rebuild only if the markdown changes
 3. Verify each suggested-reviewer email at the institutional faculty page on the day of submission
 4. Confirm peer-review type (single-blind default vs. optional double-blind) at the Editorial Manager portal
 5. Tag the repo: `git tag v1.0.0-cmpb-submission`
