@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Reject commits whose message contains an AI co-author trailer.
+# Per author policy: LLMs are tools, not coauthors.
+# See CONTRIBUTING.md for context.
+set -euo pipefail
+
+msg_file="${1:?missing commit message file}"
+
+pattern='^\s*Co-Authored-By:.*\b(Claude|Anthropic|Codex|Cursor|Copilot|Gemini|Llama|Grok|ChatGPT|Bard|GPT-?[0-9]|noreply@anthropic\.com|copilot@github\.com)'
+
+if grep -Eqi "$pattern" "$msg_file"; then
+  echo "✘ commit-msg hook: AI co-author trailer detected." >&2
+  echo "  Per CONTRIBUTING.md, LLMs are tools and do not get coauthorship." >&2
+  echo "  Offending lines:" >&2
+  grep -Eni "$pattern" "$msg_file" >&2
+  echo "  Remove them and try again." >&2
+  exit 1
+fi
+
+exit 0

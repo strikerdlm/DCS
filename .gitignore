@@ -90,3 +90,9 @@ core.*
 # System files
 .DS_Store
 Thumbs.db
+
+# Local AI-tooling artifacts (intentionally never tracked)
+# Keep these on disk for local IDE/agent workflows but out of public history.
+.cursor/
+AGENTS.md
+.claude/
