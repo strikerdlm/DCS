@@ -1,20 +1,21 @@
-import React, { useState, useMemo } from "react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../ui/Card";
-import { Button } from "../ui/Button";
-import { MetricCard } from "../ui/MetricCard";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/Tabs";
-import { Slider } from "../ui/Slider";
-import { ScatterPlot } from "../charts/ScatterPlot";
-import { Histogram } from "../charts/Histogram";
-import { Heatmap } from "../charts/Heatmap";
-import { validationData as mockData } from "../../data/mockData";
+import React, { useMemo, useState } from "react";
 import {
-  BarChart3,
-  TrendingUp,
   AlertCircle,
+  BarChart3,
+  Database,
   Download,
   Filter,
+  TrendingUp,
 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card";
+import { Button } from "../ui/Button";
+import { MetricCard } from "../ui/MetricCard";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/Tabs";
+import { Slider } from "../ui/Slider";
+import { Heatmap } from "../charts/Heatmap";
+import { Histogram } from "../charts/Histogram";
+import { ScatterPlot } from "../charts/ScatterPlot";
+import { validationData, validationMetrics } from "../../data/mockData";
 import type { ExerciseLevel, RegressionMetrics } from "../../types";
 
 interface FilterState {
@@ -29,14 +30,12 @@ export function ValidationDashboard(): React.ReactElement {
     altitudeRange: [0, 63000],
     timeRange: [0, 600],
   });
-
   const [showWorstN, setShowWorstN] = useState(10);
 
-  // Filter data
   const filteredData = useMemo(() => {
-    return mockData.filter((d) => {
+    return validationData.filter((d) => {
       const exerciseOk = filters.exerciseLevels.includes(
-        d.exerciseLevel as ExerciseLevel
+        d.exerciseLevel as ExerciseLevel,
       );
       const altOk =
         d.altitude >= filters.altitudeRange[0] &&
@@ -48,56 +47,49 @@ export function ValidationDashboard(): React.ReactElement {
     });
   }, [filters]);
 
-  // Calculate metrics
   const metrics = useMemo((): RegressionMetrics => {
-    if (filteredData.length === 0) {
+    if (filteredData.length === 0)
       return { r2: 0, mae: 0, rmse: 0, mse: 0 };
-    }
-
     const n = filteredData.length;
     const yTrue = filteredData.map((d) => d.riskOfDcs);
     const yPred = filteredData.map((d) => d.predictedRisk ?? d.riskOfDcs);
-
-    const meanTrue = yTrue.reduce((a, b) => a + b, 0) / n;
-
-    let ssRes = 0;
-    let ssTot = 0;
-    let sumAbsError = 0;
-    let sumSqError = 0;
-
+    const mean = yTrue.reduce((a, b) => a + b, 0) / n;
+    let ssRes = 0,
+      ssTot = 0,
+      sumAbs = 0,
+      sumSq = 0;
     for (let i = 0; i < n; i++) {
-      const residual = yPred[i] - yTrue[i];
-      ssRes += residual * residual;
-      ssTot += (yTrue[i] - meanTrue) * (yTrue[i] - meanTrue);
-      sumAbsError += Math.abs(residual);
-      sumSqError += residual * residual;
+      const r = yPred[i] - yTrue[i];
+      ssRes += r * r;
+      ssTot += (yTrue[i] - mean) * (yTrue[i] - mean);
+      sumAbs += Math.abs(r);
+      sumSq += r * r;
     }
-
-    const r2 = ssTot > 0 ? 1 - ssRes / ssTot : 0;
-    const mae = sumAbsError / n;
-    const mse = sumSqError / n;
-    const rmse = Math.sqrt(mse);
-
-    return { r2, mae, rmse, mse };
+    return {
+      r2: ssTot > 0 ? 1 - ssRes / ssTot : 0,
+      mae: sumAbs / n,
+      rmse: Math.sqrt(sumSq / n),
+      mse: sumSq / n,
+    };
   }, [filteredData]);
 
-  // Get worst cases
-  const worstCases = useMemo(() => {
-    return [...filteredData]
-      .sort((a, b) => (b.absError ?? 0) - (a.absError ?? 0))
-      .slice(0, showWorstN);
-  }, [filteredData, showWorstN]);
+  const worstCases = useMemo(
+    () =>
+      [...filteredData]
+        .sort((a, b) => (b.absError ?? 0) - (a.absError ?? 0))
+        .slice(0, showWorstN),
+    [filteredData, showWorstN],
+  );
 
-  const toggleExercise = (level: ExerciseLevel) => {
-    setFilters((prev) => {
-      const levels = prev.exerciseLevels.includes(level)
-        ? prev.exerciseLevels.filter((l) => l !== level)
-        : [...prev.exerciseLevels, level];
-      return { ...prev, exerciseLevels: levels.length > 0 ? levels : [level] };
+  const toggleExercise = (level: ExerciseLevel) =>
+    setFilters((p) => {
+      const next = p.exerciseLevels.includes(level)
+        ? p.exerciseLevels.filter((l) => l !== level)
+        : [...p.exerciseLevels, level];
+      return { ...p, exerciseLevels: next.length > 0 ? next : [level] };
     });
-  };
 
-  const handleExportData = () => {
+  const exportCsv = () => {
     const headers = [
       "altitude",
       "time_at_altitude",
@@ -118,106 +110,116 @@ export function ValidationDashboard(): React.ReactElement {
         d.predictedRisk ?? "",
         d.residual ?? "",
         d.absError ?? "",
-      ].join(",")
+      ].join(","),
     );
-
     const csv = [headers.join(","), ...rows].join("\n");
     const blob = new Blob([csv], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
+    const ts = new Date().toISOString().replace(/[:.]/g, "-").replace(/Z$/, "");
     a.href = url;
-    a.download = "adrac_validation_data.csv";
+    a.download = `adrac_validation_${ts}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };
 
   return (
-    <div className="space-y-6 animate-in">
-      {/* Header */}
-      <div className="space-y-2">
-        <h2 className="text-2xl font-bold tracking-tight">
-          ADRAC Validation Dashboard
-        </h2>
-        <p className="text-muted-foreground">
-          ML surrogate validation against ADRAC-derived reference dataset. Interactive
-          exploration of prediction accuracy across parameter space.
-        </p>
-      </div>
+    <div className="space-y-6">
+      {/* Hero */}
+      <section className="surface-elevated p-6 lg:p-8 relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay opacity-[0.18] pointer-events-none" />
+        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-chart-3/15 blur-3xl pointer-events-none" />
+        <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 items-end">
+          <div>
+            <span className="pill-signal mb-3">
+              <Database className="h-3 w-3" /> ADRAC validation
+            </span>
+            <h2 className="display text-3xl font-bold tracking-tight mt-2">
+              Closed-form fit vs ADRAC reference grid.
+            </h2>
+            <p className="text-muted-foreground mt-2 max-w-3xl text-[14px] leading-relaxed">
+              Stratified sample of {validationMetrics.nSample.toLocaleString()} rows
+              from the cleaned ADRAC grid (n = {validationMetrics.nTrain.toLocaleString()}).
+              The Pilmanis 2004 functional form was refit in <code className="text-num text-[12px]">mechanistic/adrac.py</code> and
+              applied to the full grid; this tab shows residuals against that fit.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 justify-end">
+            <span className="pill-primary">
+              <TrendingUp className="h-3 w-3" /> R² {validationMetrics.r2.toFixed(3)}
+            </span>
+            <span className="pill-accent">MAE {validationMetrics.mae.toFixed(2)} pp</span>
+            <span className="pill-muted">RMSE {validationMetrics.rmse.toFixed(2)} pp</span>
+          </div>
+        </div>
+      </section>
 
-      {/* Metrics Summary */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <MetricCard
-          label="R² Score"
+          label="R² · sample"
           value={metrics.r2.toFixed(4)}
-          description="Coefficient of determination"
+          description="Filtered subset"
           icon={<TrendingUp className="h-4 w-4 text-emerald-500" />}
         />
         <MetricCard
           label="MAE"
-          value={metrics.mae.toFixed(3)}
+          value={metrics.mae.toFixed(2)}
           unit="pp"
           description="Mean absolute error"
-          icon={<BarChart3 className="h-4 w-4 text-blue-500" />}
+          icon={<BarChart3 className="h-4 w-4 text-primary" />}
         />
         <MetricCard
           label="RMSE"
-          value={metrics.rmse.toFixed(3)}
+          value={metrics.rmse.toFixed(2)}
           unit="pp"
           description="Root mean squared error"
-          icon={<BarChart3 className="h-4 w-4 text-purple-500" />}
+          icon={<BarChart3 className="h-4 w-4 text-accent" />}
         />
         <MetricCard
           label="Samples"
           value={filteredData.length.toLocaleString()}
-          description={`of ${mockData.length.toLocaleString()} total`}
-          icon={<Filter className="h-4 w-4 text-gray-500" />}
+          description={`of ${validationData.length.toLocaleString()} (sample) · ${validationMetrics.nTrain.toLocaleString()} (full grid)`}
+          icon={<Filter className="h-4 w-4 text-muted-foreground" />}
         />
       </div>
 
       {/* Filters */}
       <Card>
         <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Filter className="h-5 w-5 text-primary" />
-                Filters
-              </CardTitle>
-              <CardDescription>
-                Filter validation data by exercise level and parameter ranges
-              </CardDescription>
-            </div>
-            <Button variant="outline" size="sm" onClick={handleExportData}>
-              <Download className="h-4 w-4 mr-2" />
-              Export CSV
+          <div className="flex items-center justify-between gap-3">
+            <CardTitle className="flex items-center gap-2 text-[15px]">
+              <Filter className="h-4 w-4 text-primary" /> Filters
+            </CardTitle>
+            <Button variant="outline" size="sm" onClick={exportCsv}>
+              <Download className="h-4 w-4 mr-2" /> Export CSV
             </Button>
           </div>
         </CardHeader>
         <CardContent>
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Exercise Filter */}
             <div className="space-y-3">
-              <label className="text-sm font-medium">Exercise Level</label>
+              <label className="text-[13px] font-medium">Exercise level</label>
               <div className="flex flex-wrap gap-2">
-                {(["Rest", "Mild", "Heavy"] as ExerciseLevel[]).map((level) => (
-                  <button
-                    key={level}
-                    onClick={() => toggleExercise(level)}
-                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-                      filters.exerciseLevels.includes(level)
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
-                    }`}
-                  >
-                    {level}
-                  </button>
-                ))}
+                {(["Rest", "Mild", "Heavy"] as ExerciseLevel[]).map((level) => {
+                  const active = filters.exerciseLevels.includes(level);
+                  return (
+                    <button
+                      key={level}
+                      onClick={() => toggleExercise(level)}
+                      className={`px-3 py-1.5 rounded-full text-[12.5px] font-medium border transition-colors ${
+                        active
+                          ? "bg-primary text-primary-foreground border-primary"
+                          : "bg-muted/40 text-muted-foreground border-border/60 hover:text-foreground"
+                      }`}
+                    >
+                      {level}
+                    </button>
+                  );
+                })}
               </div>
             </div>
-
-            {/* Altitude Filter */}
             <Slider
-              label="Altitude Range"
+              label="Altitude range"
               value={filters.altitudeRange}
               onValueChange={(v) =>
                 setFilters((p) => ({
@@ -231,10 +233,8 @@ export function ValidationDashboard(): React.ReactElement {
               unit="ft"
               formatValue={(v) => v.toLocaleString()}
             />
-
-            {/* Time Filter */}
             <Slider
-              label="Time at Altitude"
+              label="Time at altitude"
               value={filters.timeRange}
               onValueChange={(v) =>
                 setFilters((p) => ({
@@ -252,15 +252,15 @@ export function ValidationDashboard(): React.ReactElement {
         </CardContent>
       </Card>
 
-      {/* Charts Tabs */}
+      {/* Charts */}
       <Card>
         <CardContent className="pt-6">
           <Tabs defaultValue="scatter">
             <TabsList className="mb-4">
-              <TabsTrigger value="scatter">Predicted vs Reference</TabsTrigger>
+              <TabsTrigger value="scatter">Predicted vs reference</TabsTrigger>
               <TabsTrigger value="residuals">Residuals</TabsTrigger>
-              <TabsTrigger value="heatmap">Error Heatmap</TabsTrigger>
-              <TabsTrigger value="worst">Worst Cases</TabsTrigger>
+              <TabsTrigger value="heatmap">Error heatmap</TabsTrigger>
+              <TabsTrigger value="worst">Worst cases</TabsTrigger>
             </TabsList>
 
             <TabsContent value="scatter">
@@ -269,10 +269,10 @@ export function ValidationDashboard(): React.ReactElement {
                 xKey="riskOfDcs"
                 yKey="predictedRisk"
                 colorKey="exerciseLevel"
-                title="ML Prediction vs ADRAC Reference"
-                xLabel="ADRAC Reference Risk (%)"
-                yLabel="ML Predicted Risk (%)"
-                height={550}
+                title="ADRAC closed-form prediction vs reference"
+                xLabel="ADRAC reference risk (%)"
+                yLabel="Closed-form prediction (%)"
+                height={520}
                 showDiagonal
               />
             </TabsContent>
@@ -282,21 +282,20 @@ export function ValidationDashboard(): React.ReactElement {
                 data={filteredData}
                 dataKey="residual"
                 groupKey="exerciseLevel"
-                title="Residual Distribution (Predicted - Reference)"
+                title="Residual distribution (predicted − reference)"
                 xLabel="Residual (percentage points)"
-                height={400}
+                height={380}
                 bins={50}
               />
-
               <ScatterPlot
                 data={filteredData}
                 xKey="timeAtAltitude"
                 yKey="residual"
                 colorKey="exerciseLevel"
-                title="Residuals vs Time at Altitude"
-                xLabel="Time at Altitude (min)"
+                title="Residuals vs time-at-altitude"
+                xLabel="Time at altitude (min)"
                 yLabel="Residual (pp)"
-                height={450}
+                height={420}
               />
             </TabsContent>
 
@@ -306,11 +305,11 @@ export function ValidationDashboard(): React.ReactElement {
                 xKey="timeAtAltitude"
                 yKey="altitude"
                 valueKey="absError"
-                title="Mean Absolute Error by Parameter Region"
-                xLabel="Time at Altitude (min)"
+                title="Mean |error| by parameter region"
+                xLabel="Time at altitude (min)"
                 yLabel="Altitude (ft)"
                 valueLabel="Mean |Error| (pp)"
-                height={550}
+                height={520}
                 bins={12}
               />
             </TabsContent>
@@ -318,16 +317,16 @@ export function ValidationDashboard(): React.ReactElement {
             <TabsContent value="worst">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-medium flex items-center gap-2">
-                    <AlertCircle className="h-5 w-5 text-amber-500" />
-                    Highest Error Cases
+                  <h4 className="font-medium flex items-center gap-2 text-[14px]">
+                    <AlertCircle className="h-4 w-4 text-amber-500" />
+                    Highest absolute error
                   </h4>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-500">Show top</span>
+                  <div className="flex items-center gap-2 text-[12.5px] text-muted-foreground">
+                    Show top
                     <select
                       value={showWorstN}
                       onChange={(e) => setShowWorstN(parseInt(e.target.value))}
-                      className="px-2 py-1 rounded border text-sm"
+                      className="px-2 py-1 rounded border border-input text-[12.5px] bg-background"
                     >
                       <option value={10}>10</option>
                       <option value={25}>25</option>
@@ -335,56 +334,49 @@ export function ValidationDashboard(): React.ReactElement {
                     </select>
                   </div>
                 </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b bg-gray-50 dark:bg-gray-800">
-                        <th className="text-left py-3 px-4">Altitude (ft)</th>
-                        <th className="text-left py-3 px-4">Time (min)</th>
-                        <th className="text-left py-3 px-4">PB Time (min)</th>
-                        <th className="text-left py-3 px-4">Exercise</th>
-                        <th className="text-right py-3 px-4">Reference (%)</th>
-                        <th className="text-right py-3 px-4">Predicted (%)</th>
-                        <th className="text-right py-3 px-4">|Error| (pp)</th>
+                <div className="overflow-x-auto rounded-xl border border-border/60">
+                  <table className="w-full text-[12.5px]">
+                    <thead className="bg-muted/40 text-muted-foreground">
+                      <tr>
+                        <th className="text-left py-2.5 px-4 font-medium">Altitude (ft)</th>
+                        <th className="text-left py-2.5 px-4 font-medium">Time (min)</th>
+                        <th className="text-left py-2.5 px-4 font-medium">PB (min)</th>
+                        <th className="text-left py-2.5 px-4 font-medium">Exercise</th>
+                        <th className="text-right py-2.5 px-4 font-medium">Reference (%)</th>
+                        <th className="text-right py-2.5 px-4 font-medium">Predicted (%)</th>
+                        <th className="text-right py-2.5 px-4 font-medium">|Error| (pp)</th>
                       </tr>
                     </thead>
                     <tbody>
                       {worstCases.map((row, idx) => (
                         <tr
                           key={idx}
-                          className="border-b hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                          className="border-t border-border/60 hover:bg-muted/30 transition-colors"
                         >
-                          <td className="py-2 px-4 font-mono">
-                            {row.altitude.toLocaleString()}
-                          </td>
-                          <td className="py-2 px-4 font-mono">
-                            {row.timeAtAltitude.toFixed(1)}
-                          </td>
-                          <td className="py-2 px-4 font-mono">
-                            {row.prebreathingTime.toFixed(1)}
-                          </td>
+                          <td className="py-2 px-4 text-num">{row.altitude.toLocaleString()}</td>
+                          <td className="py-2 px-4 text-num">{row.timeAtAltitude.toFixed(0)}</td>
+                          <td className="py-2 px-4 text-num">{row.prebreathingTime.toFixed(0)}</td>
                           <td className="py-2 px-4">
                             <span
-                              className={`px-2 py-0.5 rounded text-xs ${
+                              className={
                                 row.exerciseLevel === "Rest"
-                                  ? "bg-blue-100 text-blue-700"
+                                  ? "pill-primary"
                                   : row.exerciseLevel === "Mild"
-                                    ? "bg-amber-100 text-amber-700"
-                                    : "bg-red-100 text-red-700"
-                              }`}
+                                    ? "pill-signal"
+                                    : "pill-high"
+                              }
                             >
                               {row.exerciseLevel}
                             </span>
                           </td>
-                          <td className="py-2 px-4 text-right font-mono">
+                          <td className="py-2 px-4 text-right text-num">
                             {row.riskOfDcs.toFixed(2)}
                           </td>
-                          <td className="py-2 px-4 text-right font-mono">
+                          <td className="py-2 px-4 text-right text-num">
                             {row.predictedRisk?.toFixed(2) ?? "—"}
                           </td>
-                          <td className="py-2 px-4 text-right font-mono text-red-600">
-                            {row.absError?.toFixed(3) ?? "—"}
+                          <td className="py-2 px-4 text-right text-num text-red-600 dark:text-red-400">
+                            {row.absError?.toFixed(2) ?? "—"}
                           </td>
                         </tr>
                       ))}

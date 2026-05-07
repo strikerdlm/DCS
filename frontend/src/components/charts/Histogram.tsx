@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import type { EChartsOption } from "echarts";
 import { getBaseChartOptions, colorPalettes, chartTheme } from "./chartConfig";
+import { safeMax, safeMin } from "../../lib/utils";
 import type { ValidationDataPoint } from "../../types";
 
 interface HistogramProps {
@@ -24,11 +25,12 @@ export function Histogram({
   bins = 40,
 }: HistogramProps): React.ReactElement {
   const { series, groups, binEdges } = useMemo(() => {
-    // Extract values
+    // Extract values (use reduce-backed safeMin/safeMax — spread blows up on large arrays)
     const values = data.map((d) => Number(d[dataKey])).filter(Number.isFinite);
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const binWidth = (max - min) / bins;
+    const min = safeMin(values);
+    const maxRaw = safeMax(values);
+    const max = maxRaw === min ? min + 1 : maxRaw;
+    const binWidth = Math.max((max - min) / bins, 1e-12);
 
     // Create bin edges
     const edges: number[] = [];

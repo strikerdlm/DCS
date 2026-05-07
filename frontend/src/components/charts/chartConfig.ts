@@ -1,377 +1,375 @@
 /**
- * ECharts Configuration for Publication-Quality Scientific Charts
- * 
- * Designed for Q1 science journal publication standards:
- * - Clear axis labels with proper scientific notation
- * - Professional color palette suitable for print
- * - High-contrast text for readability
- * - Proper grid spacing and margins
- * - Export-ready resolution settings
- * 
- * References:
- * - Nature/Science figure guidelines
- * - IEEE Visualization standards
- * - APA Publication Manual (7th edition)
+ * ECharts 6.x configuration for the DCS Safety Dashboard.
+ *
+ * Mirrors the publication-figure style produced by
+ * scripts/09_make_paper_figures.py and artifacts/paper_figures/* so
+ * the in-browser dashboard reads as the same visual language as the
+ * AMHP/CMPB manuscript figures.
+ *
+ * Palette: Okabe-Ito-derived colorblind-safe ramp resolved at runtime
+ * from CSS custom properties so light / dark themes stay in sync with
+ * the rest of the design system. All chart series colors are 8-stop
+ * deterministic; sequential and diverging ramps are listed below.
  */
 
 import type { EChartsOption } from "echarts";
 import type { ChartTheme } from "../../types";
 
-// ============================================================================
-// Publication-Quality Color Palettes
-// ============================================================================
+type SchemeName =
+  | "background"
+  | "foreground"
+  | "muted"
+  | "border"
+  | "grid"
+  | "primary"
+  | "accent"
+  | "card"
+  | "risk-low"
+  | "risk-moderate"
+  | "risk-high"
+  | "risk-very-high";
+
+let cssScheme: Record<SchemeName, string> | null = null;
+let chartSeriesPalette: string[] | null = null;
+
+function readVar(name: string): string {
+  if (typeof window === "undefined") return "0 0% 0%";
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return v || "0 0% 0%";
+}
+
+function hsl(name: string, alpha: number = 1): string {
+  const v = readVar(name);
+  return alpha < 1 ? `hsl(${v} / ${alpha})` : `hsl(${v})`;
+}
+
+export function refreshChartTheme(): void {
+  cssScheme = {
+    background: hsl("--card"),
+    foreground: hsl("--foreground"),
+    muted: hsl("--muted-foreground"),
+    border: hsl("--border"),
+    grid: hsl("--grid"),
+    primary: hsl("--primary"),
+    accent: hsl("--accent"),
+    card: hsl("--card"),
+    "risk-low": hsl("--risk-low"),
+    "risk-moderate": hsl("--risk-moderate"),
+    "risk-high": hsl("--risk-high"),
+    "risk-very-high": hsl("--risk-very-high"),
+  };
+  chartSeriesPalette = [
+    hsl("--chart-1"),
+    hsl("--chart-2"),
+    hsl("--chart-3"),
+    hsl("--chart-4"),
+    hsl("--chart-5"),
+    hsl("--chart-6"),
+    hsl("--chart-7"),
+    hsl("--chart-8"),
+  ];
+}
+
+if (typeof window !== "undefined") {
+  refreshChartTheme();
+  const observer = new MutationObserver(() => refreshChartTheme());
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+}
+
+function ensureScheme(): Record<SchemeName, string> {
+  if (!cssScheme) refreshChartTheme();
+  return cssScheme!;
+}
+
+function ensurePalette(): string[] {
+  if (!chartSeriesPalette) refreshChartTheme();
+  return chartSeriesPalette!;
+}
+
+/**
+ * Apply an alpha to any color string the rest of the chart code might emit.
+ * Handles hsl(H S% L%), hsl(H S% L% / α), #rrggbb, and pass-through.
+ */
+export function withAlpha(color: string, alpha: number): string {
+  if (color.startsWith("hsl(")) {
+    const inner = color.slice(4, -1).split("/")[0].trim();
+    return `hsl(${inner} / ${alpha})`;
+  }
+  if (color.startsWith("#")) {
+    const hex = Math.round(alpha * 255).toString(16).padStart(2, "0");
+    return color.length === 7 ? `${color}${hex}` : color;
+  }
+  if (color.startsWith("rgb(")) {
+    const inner = color.slice(4, -1).trim();
+    return `rgba(${inner}, ${alpha})`;
+  }
+  return color;
+}
+
+// -----------------------------------------------------------------------
+// Public theme accessors
+// -----------------------------------------------------------------------
 
 export const colorPalettes = {
-  // Primary palette for multi-series charts
-  scientific: [
-    "#2563eb", // Blue (primary)
-    "#dc2626", // Red
-    "#059669", // Green
-    "#d97706", // Amber
-    "#7c3aed", // Purple
-    "#0891b2", // Cyan
-    "#be185d", // Pink
-    "#4b5563", // Gray
-  ],
-  
-  // Sequential palette for continuous data
-  sequential: {
-    blue: ["#eff6ff", "#bfdbfe", "#93c5fd", "#60a5fa", "#3b82f6", "#2563eb", "#1d4ed8", "#1e40af"],
-    green: ["#f0fdf4", "#bbf7d0", "#86efac", "#4ade80", "#22c55e", "#16a34a", "#15803d", "#166534"],
-    red: ["#fef2f2", "#fecaca", "#fca5a5", "#f87171", "#ef4444", "#dc2626", "#b91c1c", "#991b1b"],
+  get scientific(): string[] {
+    return ensurePalette();
   },
-  
-  // Diverging palette for bipolar data
-  diverging: ["#1d4ed8", "#3b82f6", "#93c5fd", "#f3f4f6", "#fca5a5", "#ef4444", "#b91c1c"],
-  
-  // Risk-specific palette
-  risk: {
-    low: "#10b981",
-    moderate: "#f59e0b",
-    high: "#ef4444",
-    veryHigh: "#991b1b",
+  get sequential() {
+    return {
+      ocean: ["#eef6ff", "#cfe6ff", "#9bcdff", "#5cabf3", "#2e8be0", "#196dbf", "#0f5499", "#0a3d75"],
+      teal: ["#ecf9f7", "#c2efe7", "#8edcd0", "#52c2b1", "#28a08b", "#177864", "#0f5b4c", "#0a4338"],
+      amber: ["#fef6e7", "#fde6b3", "#fbcd6a", "#f7ae2a", "#e58a09", "#b46b06", "#7f4904", "#502c02"],
+      magma: ["#fff4ec", "#fbd5b1", "#f5a274", "#e9714a", "#c64731", "#8e2c20", "#581b13", "#2e0d09"],
+    };
   },
-  
-  // Grayscale for print compatibility
-  grayscale: ["#1f2937", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb"],
+  get diverging(): string[] {
+    return [
+      "#0a3d75", "#196dbf", "#5cabf3", "#dde8f1", "#f7ae2a", "#c64731", "#8e2c20",
+    ];
+  },
+  get risk() {
+    const s = ensureScheme();
+    return {
+      low: s["risk-low"],
+      moderate: s["risk-moderate"],
+      high: s["risk-high"],
+      veryHigh: s["risk-very-high"],
+    };
+  },
 };
 
-// ============================================================================
-// Chart Theme
-// ============================================================================
+export const chartTheme: ChartTheme = new Proxy({} as ChartTheme, {
+  get(_t, key: string) {
+    const s = ensureScheme();
+    switch (key) {
+      case "backgroundColor":
+        return "transparent";
+      case "textColor":
+        return s.foreground;
+      case "gridColor":
+        return s.grid;
+      case "axisColor":
+        return s.muted;
+      case "tooltipBg":
+        return s.card;
+      case "primaryColor":
+        return s.primary;
+      case "secondaryColor":
+        return s.accent;
+      case "tertiaryColor":
+        return s["risk-low"];
+      case "riskLowColor":
+        return s["risk-low"];
+      case "riskModerateColor":
+        return s["risk-moderate"];
+      case "riskHighColor":
+        return s["risk-high"];
+      default:
+        return "";
+    }
+  },
+});
 
-export const chartTheme: ChartTheme = {
-  backgroundColor: "#ffffff",
-  textColor: "#1f2937",
-  gridColor: "#e5e7eb",
-  axisColor: "#4b5563",
-  tooltipBg: "rgba(255, 255, 255, 0.95)",
-  primaryColor: "#2563eb",
-  secondaryColor: "#7c3aed",
-  tertiaryColor: "#059669",
-  riskLowColor: "#10b981",
-  riskModerateColor: "#f59e0b",
-  riskHighColor: "#ef4444",
-};
-
-// ============================================================================
-// Base Chart Options (Publication-Quality Defaults)
-// ============================================================================
+// -----------------------------------------------------------------------
+// Base options — pasted onto every chart so all charts share line widths,
+// font, axis treatment, tooltip styling, toolbox etc.
+// -----------------------------------------------------------------------
 
 export function getBaseChartOptions(): Partial<EChartsOption> {
+  const s = ensureScheme();
   return {
     backgroundColor: "transparent",
     textStyle: {
       fontFamily: "Inter, system-ui, sans-serif",
       fontSize: 12,
-      color: chartTheme.textColor,
+      color: s.foreground,
     },
+    color: ensurePalette(),
     title: {
       textStyle: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: 600,
-        color: chartTheme.textColor,
+        color: s.foreground,
+        fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",
       },
       subtextStyle: {
-        fontSize: 12,
-        color: "#6b7280",
+        fontSize: 11,
+        color: s.muted,
       },
     },
     tooltip: {
-      backgroundColor: chartTheme.tooltipBg,
-      borderColor: "#e5e7eb",
+      backgroundColor: s.card,
+      borderColor: s.border,
       borderWidth: 1,
       textStyle: {
-        color: chartTheme.textColor,
+        color: s.foreground,
         fontSize: 12,
+        fontFamily: "Inter, system-ui, sans-serif",
       },
-      padding: [12, 16],
-      extraCssText: "box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1); border-radius: 8px;",
+      padding: [10, 14],
+      extraCssText:
+        "box-shadow: 0 16px 48px -16px hsl(220 50% 12% / 0.25); border-radius: 12px; backdrop-filter: blur(10px);",
     },
     legend: {
       textStyle: {
         fontSize: 12,
-        color: chartTheme.textColor,
+        color: s.foreground,
       },
-      itemGap: 16,
-      itemWidth: 16,
+      itemGap: 18,
+      itemWidth: 14,
       itemHeight: 8,
+      icon: "roundRect",
     },
     grid: {
-      left: "10%",
-      right: "5%",
-      top: "15%",
-      bottom: "15%",
+      left: 64,
+      right: 24,
+      top: 56,
+      bottom: 56,
       containLabel: true,
     },
     xAxis: {
       axisLine: {
         lineStyle: {
-          color: chartTheme.axisColor,
+          color: s.border,
           width: 1,
         },
       },
       axisTick: {
-        lineStyle: {
-          color: chartTheme.axisColor,
-        },
+        lineStyle: { color: s.muted },
+        length: 4,
       },
       axisLabel: {
-        color: chartTheme.textColor,
+        color: s.muted,
         fontSize: 11,
+        fontFamily: "JetBrains Mono, monospace",
       },
       splitLine: {
         lineStyle: {
-          color: chartTheme.gridColor,
+          color: s.grid,
           type: "dashed",
         },
       },
       nameTextStyle: {
         fontSize: 12,
         fontWeight: 500,
-        color: chartTheme.textColor,
+        color: s.foreground,
         padding: [10, 0, 0, 0],
       },
     },
     yAxis: {
       axisLine: {
         lineStyle: {
-          color: chartTheme.axisColor,
+          color: s.border,
           width: 1,
         },
       },
-      axisTick: {
-        lineStyle: {
-          color: chartTheme.axisColor,
-        },
-      },
+      axisTick: { lineStyle: { color: s.muted } },
       axisLabel: {
-        color: chartTheme.textColor,
+        color: s.muted,
         fontSize: 11,
+        fontFamily: "JetBrains Mono, monospace",
       },
       splitLine: {
         lineStyle: {
-          color: chartTheme.gridColor,
+          color: s.grid,
           type: "dashed",
         },
       },
       nameTextStyle: {
         fontSize: 12,
         fontWeight: 500,
-        color: chartTheme.textColor,
+        color: s.foreground,
         padding: [0, 0, 10, 0],
       },
     },
     animation: true,
-    animationDuration: 800,
+    animationDuration: 700,
+    animationDurationUpdate: 400,
     animationEasing: "cubicOut",
+    animationEasingUpdate: "cubicOut",
   };
 }
 
-// ============================================================================
-// Specialized Chart Configurations
-// ============================================================================
+// -----------------------------------------------------------------------
+// Chart-specific helpers
+// -----------------------------------------------------------------------
 
 export function getScatterChartOptions(
   title: string,
   xLabel: string,
-  yLabel: string
+  yLabel: string,
 ): Partial<EChartsOption> {
+  const base = getBaseChartOptions();
   return {
-    ...getBaseChartOptions(),
+    ...base,
     title: {
       text: title,
       left: "center",
       top: 10,
     },
     xAxis: {
+      ...(base.xAxis as object),
       type: "value" as const,
       name: xLabel,
       nameLocation: "middle" as const,
-      nameGap: 35,
+      nameGap: 32,
     },
     yAxis: {
+      ...(base.yAxis as object),
       type: "value" as const,
       name: yLabel,
       nameLocation: "middle" as const,
-      nameGap: 45,
+      nameGap: 48,
     },
     toolbox: {
       feature: {
-        dataZoom: { show: true },
-        saveAsImage: { 
-          show: true, 
-          pixelRatio: 3,
-          title: "Save as PNG",
-        },
-        dataView: { show: true },
+        dataZoom: { show: true, title: { zoom: "Zoom", back: "Reset" } },
+        saveAsImage: { show: true, pixelRatio: 3, title: "Save PNG" },
+        dataView: { show: true, title: "Data" },
+        restore: { show: true, title: "Restore" },
       },
-      right: 20,
-      top: 10,
+      iconStyle: { borderColor: ensureScheme().muted },
+      right: 16,
+      top: 8,
     },
   };
 }
 
-export function getTimeSeriesOptions(
-  _title: string,
-  _yLabels: string[]
-): Partial<EChartsOption> {
+export function getTimeSeriesOptions(): Partial<EChartsOption> {
+  const base = getBaseChartOptions();
   return {
-    ...getBaseChartOptions(),
+    ...base,
     dataZoom: [
-      {
-        type: "inside",
-        start: 0,
-        end: 100,
-      },
-      {
-        type: "slider",
-        start: 0,
-        end: 100,
-        bottom: 40,
-      },
+      { type: "inside", start: 0, end: 100 },
+      { type: "slider", start: 0, end: 100, bottom: 28, height: 16 },
     ],
     toolbox: {
       feature: {
-        saveAsImage: { 
-          show: true, 
-          pixelRatio: 3,
-          title: "Save as PNG",
-        },
-        dataZoom: { show: true },
-        restore: { show: true },
+        saveAsImage: { show: true, pixelRatio: 3, title: "Save PNG" },
+        dataZoom: { show: true, title: { zoom: "Zoom", back: "Reset" } },
+        restore: { show: true, title: "Restore" },
       },
-      right: 20,
-      top: 10,
+      iconStyle: { borderColor: ensureScheme().muted },
+      right: 16,
+      top: 8,
     },
   };
 }
 
-export function getHeatmapOptions(
-  _title: string,
-  _xLabel: string,
-  _yLabel: string
-): Partial<EChartsOption> {
-  return {
-    ...getBaseChartOptions(),
-  };
+export function getRiskGradientStops(): [number, string][] {
+  const s = ensureScheme();
+  return [
+    [0.01, s["risk-low"]],
+    [0.05, s["risk-moderate"]],
+    [0.20, s["risk-high"]],
+    [1.00, s["risk-very-high"]],
+  ];
 }
-
-export function getHistogramOptions(
-  _title: string,
-  _xLabel: string
-): Partial<EChartsOption> {
-  return {
-    ...getBaseChartOptions(),
-  };
-}
-
-// ============================================================================
-// Risk Gradient for Gauges
-// ============================================================================
 
 export function getRiskGradientColors(value: number): string[] {
-  if (value < 5) return [chartTheme.riskLowColor, "#34d399"];
-  if (value < 15) return [chartTheme.riskModerateColor, "#fbbf24"];
-  return [chartTheme.riskHighColor, "#f87171"];
-}
-
-export function getGaugeChartOptions(
-  title: string,
-  value: number,
-  maxValue: number = 100
-): Partial<EChartsOption> {
-  const colors = getRiskGradientColors(value);
-  
-  return {
-    ...getBaseChartOptions(),
-    title: {
-      text: title,
-      left: "center",
-      top: 10,
-    },
-    series: [
-      {
-        type: "gauge",
-        startAngle: 200,
-        endAngle: -20,
-        center: ["50%", "60%"],
-        radius: "80%",
-        min: 0,
-        max: maxValue,
-        splitNumber: 10,
-        axisLine: {
-          lineStyle: {
-            width: 20,
-            color: [
-              [0.05, chartTheme.riskLowColor],
-              [0.15, chartTheme.riskModerateColor],
-              [1, chartTheme.riskHighColor],
-            ],
-          },
-        },
-        pointer: {
-          length: "70%",
-          width: 6,
-          itemStyle: {
-            color: "auto",
-          },
-        },
-        axisTick: {
-          length: 8,
-          lineStyle: {
-            color: "auto",
-            width: 1.5,
-          },
-        },
-        splitLine: {
-          length: 15,
-          lineStyle: {
-            color: "auto",
-            width: 2,
-          },
-        },
-        axisLabel: {
-          color: chartTheme.textColor,
-          fontSize: 11,
-          distance: 25,
-        },
-        title: {
-          show: true,
-          offsetCenter: [0, "85%"],
-          fontSize: 14,
-          color: chartTheme.textColor,
-        },
-        detail: {
-          valueAnimation: true,
-          formatter: "{value}%",
-          fontSize: 28,
-          fontWeight: 700,
-          offsetCenter: [0, "40%"],
-          color: colors[0],
-        },
-        data: [{ value, name: "DCS Risk" }],
-      },
-    ],
-  };
+  const s = ensureScheme();
+  if (value < 1) return [s["risk-low"], s["risk-low"]];
+  if (value < 5) return [s["risk-moderate"], s["risk-moderate"]];
+  if (value < 20) return [s["risk-high"], s["risk-high"]];
+  return [s["risk-very-high"], s["risk-very-high"]];
 }

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import type { EChartsOption, SeriesOption } from "echarts";
-import { getBaseChartOptions, colorPalettes, chartTheme } from "./chartConfig";
+import { chartTheme, colorPalettes, getBaseChartOptions, withAlpha } from "./chartConfig";
 import type { ModelState } from "../../types";
 
 interface TimeSeriesChartProps {
@@ -145,8 +145,8 @@ export function TimeSeriesChart({
             x2: 0,
             y2: 1,
             colorStops: [
-              { offset: 0, color: `${subplot.color}33` },
-              { offset: 1, color: `${subplot.color}00` },
+              { offset: 0, color: withAlpha(subplot.color, 0.22) },
+              { offset: 1, color: withAlpha(subplot.color, 0) },
             ],
           },
         },

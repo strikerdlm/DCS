@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import type { EChartsOption } from "echarts";
 import { getBaseChartOptions, chartTheme } from "./chartConfig";
+import { safeMax, safeMin } from "../../lib/utils";
 import type { ValidationDataPoint } from "../../types";
 
 interface HeatmapProps {
@@ -30,17 +31,20 @@ export function Heatmap({
   bins = 12,
 }: HeatmapProps): React.ReactElement {
   const { heatmapData, xBins, yBins, minValue, maxValue } = useMemo(() => {
-    // Calculate bin edges
-    const xValues = data.map((d) => Number(d[xKey])).filter(Number.isFinite);
-    const yValues = data.map((d) => Number(d[yKey])).filter(Number.isFinite);
+    // Calculate bin edges (reduce, not spread, to avoid stack overflow on large arrays)
+    const xValues = data.map((d) => Number(d[xKey]));
+    const yValues = data.map((d) => Number(d[yKey]));
 
-    const xMin = Math.min(...xValues);
-    const xMax = Math.max(...xValues);
-    const yMin = Math.min(...yValues);
-    const yMax = Math.max(...yValues);
+    const xMin = safeMin(xValues);
+    const xMaxRaw = safeMax(xValues);
+    const yMin = safeMin(yValues);
+    const yMaxRaw = safeMax(yValues);
+    // Guard against degenerate (zero-range) axes
+    const xMax = xMaxRaw === xMin ? xMin + 1 : xMaxRaw;
+    const yMax = yMaxRaw === yMin ? yMin + 1 : yMaxRaw;
 
-    const xStep = (xMax - xMin) / bins;
-    const yStep = (yMax - yMin) / bins;
+    const xStep = Math.max((xMax - xMin) / bins, 1e-12);
+    const yStep = Math.max((yMax - yMin) / bins, 1e-12);
 
     const xBinEdges: number[] = [];
     const yBinEdges: number[] = [];

@@ -1,4 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  AlertTriangle,
+  BarChart3,
+  Beaker,
+  Brain,
+  Github,
+  Mountain,
+  Moon,
+  Rocket,
+  Sun,
+  Wind,
+} from "lucide-react";
 import {
   MLSurrogate,
   Mechanistic3RUT,
@@ -6,50 +18,50 @@ import {
   ValidationDashboard,
 } from "./components/models";
 import { cn } from "./lib/utils";
-import {
-  Brain,
-  Beaker,
-  Rocket,
-  BarChart3,
-  Moon,
-  Sun,
-  AlertTriangle,
-  ExternalLink,
-  Github,
-  Menu,
-  X,
-} from "lucide-react";
 
 type ModelTab = "ml" | "mechanistic" | "nasa" | "validation";
 
-function App(): React.ReactElement {
+interface NavItem {
+  id: ModelTab;
+  label: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    id: "ml",
+    label: "ADRAC closed-form",
+    description: "Pilmanis 2004 log-logistic AFT",
+    icon: <Brain className="h-4 w-4" />,
+  },
+  {
+    id: "mechanistic",
+    label: "3RUT‑MBe1",
+    description: "Schematic preview · NEDU TR 18-01",
+    icon: <Beaker className="h-4 w-4" />,
+  },
+  {
+    id: "nasa",
+    label: "NASA Conkin ETR",
+    description: "Logistic · Eq. 14 / 15",
+    icon: <Rocket className="h-4 w-4" />,
+  },
+  {
+    id: "validation",
+    label: "Validation",
+    description: "Closed-form vs ADRAC grid",
+    icon: <BarChart3 className="h-4 w-4" />,
+  },
+];
+
+export default function App(): React.ReactElement {
   const [activeTab, setActiveTab] = useState<ModelTab>("ml");
   const [isDark, setIsDark] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Toggle dark mode
-  React.useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
   }, [isDark]);
-
-  const tabs: { id: ModelTab; label: string; icon: React.ReactNode }[] = [
-    { id: "ml", label: "ML Surrogate", icon: <Brain className="h-4 w-4" /> },
-    {
-      id: "mechanistic",
-      label: "3RUT‑MBe1",
-      icon: <Beaker className="h-4 w-4" />,
-    },
-    { id: "nasa", label: "NASA ETR", icon: <Rocket className="h-4 w-4" /> },
-    {
-      id: "validation",
-      label: "Validation",
-      icon: <BarChart3 className="h-4 w-4" />,
-    },
-  ];
 
   const renderContent = () => {
     switch (activeTab) {
@@ -61,195 +73,226 @@ function App(): React.ReactElement {
         return <NASALogistic />;
       case "validation":
         return <ValidationDashboard />;
-      default:
-        return <MLSurrogate />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl">
-        <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white">
-                <Beaker className="h-5 w-5" />
+    <div className="min-h-screen flex flex-col">
+      {/* Top brand bar */}
+      <header className="sticky top-0 z-40 border-b border-border/60 backdrop-blur-xl bg-background/70">
+        <div className="max-w-[1480px] mx-auto px-6 lg:px-8 h-16 flex items-center gap-6">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary/90 to-accent flex items-center justify-center shadow-lg shadow-primary/30">
+                <Wind className="h-5 w-5 text-white" />
               </div>
-              <div>
-                <h1 className="text-lg font-bold tracking-tight">
-                  DCS Safety Dashboard
-                </h1>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Decompression Sickness Risk Models
-                </p>
-              </div>
+              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-background animate-pulse-soft" />
             </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-1">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all",
-                    activeTab === tab.id
-                      ? "bg-primary/10 text-primary"
-                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  )}
-                >
-                  {tab.icon}
-                  {tab.label}
-                </button>
-              ))}
-            </nav>
-
-            {/* Right side controls */}
-            <div className="flex items-center gap-2">
-              {/* Theme toggle */}
-              <button
-                onClick={() => setIsDark(!isDark)}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                aria-label="Toggle theme"
-              >
-                {isDark ? (
-                  <Sun className="h-5 w-5 text-amber-500" />
-                ) : (
-                  <Moon className="h-5 w-5 text-gray-600" />
-                )}
-              </button>
-
-              {/* GitHub link */}
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                aria-label="GitHub repository"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-
-              {/* Mobile menu button */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                {mobileMenuOpen ? (
-                  <X className="h-5 w-5" />
-                ) : (
-                  <Menu className="h-5 w-5" />
-                )}
-              </button>
+            <div className="hidden sm:block">
+              <h1 className="display text-base font-semibold tracking-tight leading-tight">
+                TinyDCS Explorer
+              </h1>
+              <p className="text-[11px] text-muted-foreground leading-tight">
+                Altitude Decompression-Sickness Risk · Research Console
+              </p>
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <nav className="md:hidden py-4 border-t">
-              <div className="flex flex-col gap-1">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => {
-                      setActiveTab(tab.id);
-                      setMobileMenuOpen(false);
-                    }}
-                    className={cn(
-                      "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all",
-                      activeTab === tab.id
-                        ? "bg-primary/10 text-primary"
-                        : "text-gray-600 dark:text-gray-300"
-                    )}
-                  >
-                    {tab.icon}
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </nav>
-          )}
+          {/* Status chips */}
+          <div className="hidden lg:flex items-center gap-2 ml-2">
+            <span className="pill-primary">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              ADRAC v0.6.0
+            </span>
+            <span className="pill-accent">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              ECharts 6.x
+            </span>
+            <span className="pill-muted">
+              R² 0.864 · n 15 908
+            </span>
+          </div>
+
+          <div className="ml-auto flex items-center gap-1.5">
+            <button
+              onClick={() => setIsDark(!isDark)}
+              aria-label="Toggle theme"
+              className="p-2 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <a
+              href="https://github.com/strikerdlm/DCS"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open repository"
+              className="p-2 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </header>
 
-      {/* Disclaimer Banner */}
-      <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200 dark:border-amber-800">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-            <div className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>Research Use Only:</strong> This dashboard is for academic
-              and research purposes. Models are{" "}
-              <strong>not validated</strong> for clinical, operational, or
-              real-world risk decision-making. Do not use for planning flights,
-              dives, EVAs, or medical care.
-              <a
-                href="#"
-                className="ml-2 inline-flex items-center gap-1 text-amber-700 dark:text-amber-300 underline hover:no-underline"
-              >
-                Learn more <ExternalLink className="h-3 w-3" />
-              </a>
-            </div>
+      {/* Research-use disclosure */}
+      <div className="border-b border-amber-500/30 bg-amber-50/70 dark:bg-amber-950/20">
+        <div className="max-w-[1480px] mx-auto px-6 lg:px-8 py-2.5 flex items-start gap-3 text-[12px]">
+          <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+          <div className="text-amber-800 dark:text-amber-200">
+            <strong>Research Use Only.</strong> Predictions reproduce published mechanistic
+            models on a fixed parameter envelope. Not validated for clinical, operational
+            or aeromedical decisions. Consult <code className="text-num text-[11px] px-1.5 py-0.5 rounded bg-amber-500/10">docs/scientific-background.md</code>.
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        {renderContent()}
-      </main>
+      {/* Main shell with rail */}
+      <div className="flex-1">
+        <div className="max-w-[1480px] mx-auto px-6 lg:px-8 py-6 grid lg:grid-cols-[260px_1fr] gap-6">
+          {/* Left rail */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24">
+              <div className="nav-rail">
+                <div className="px-2 pt-2 pb-1">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Model Families
+                  </p>
+                </div>
+                {NAV_ITEMS.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveTab(item.id)}
+                    className={cn(
+                      "nav-link group",
+                      activeTab === item.id && "nav-link-active",
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        "h-8 w-8 rounded-lg flex items-center justify-center transition-colors",
+                        activeTab === item.id
+                          ? "bg-primary/15 text-primary ring-1 ring-primary/20"
+                          : "bg-muted text-muted-foreground group-hover:text-foreground",
+                      )}
+                    >
+                      {item.icon}
+                    </span>
+                    <div className="flex flex-col items-start min-w-0">
+                      <span className="text-sm leading-tight">{item.label}</span>
+                      <span className="text-[11px] text-muted-foreground/80 leading-tight truncate w-[160px]">
+                        {item.description}
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
 
-      {/* Footer */}
-      <footer className="border-t bg-white/50 dark:bg-gray-900/50 mt-12">
-        <div className="container mx-auto px-4 py-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* About */}
-            <div>
-              <h3 className="font-semibold mb-3">About This Dashboard</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                A comprehensive research UI for exploring multiple DCS risk model
-                families. Built with React, TypeScript, and ECharts for
-                publication-quality visualizations.
-              </p>
+              {/* Rail card — mission ribbon */}
+              <div className="surface-glass mt-4 p-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Validity envelope
+                  </span>
+                  <Mountain className="h-3.5 w-3.5 text-muted-foreground" />
+                </div>
+                <ul className="text-[11px] space-y-1.5 text-muted-foreground">
+                  <li className="flex justify-between gap-2">
+                    <span>Altitude</span>
+                    <span className="text-num text-foreground">18 – 40 kft</span>
+                  </li>
+                  <li className="flex justify-between gap-2">
+                    <span>Prebreathe</span>
+                    <span className="text-num text-foreground">0 – 180 min</span>
+                  </li>
+                  <li className="flex justify-between gap-2">
+                    <span>Time at altitude</span>
+                    <span className="text-num text-foreground">10 – 240 min</span>
+                  </li>
+                  <li className="flex justify-between gap-2">
+                    <span>Exercise</span>
+                    <span className="text-num text-foreground">Rest / Mild / Heavy</span>
+                  </li>
+                </ul>
+                <p className="text-[11px] text-muted-foreground/80 border-t border-border/60 pt-2">
+                  OOD detector abstains outside this envelope.
+                </p>
+              </div>
             </div>
+          </aside>
 
-            {/* Model Families */}
-            <div>
-              <h3 className="font-semibold mb-3">Model Families</h3>
-              <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-                <li>• ML Surrogate (ADRAC-derived)</li>
-                <li>• Mechanistic 3RUT‑MBe1 (NEDU TR 18-01)</li>
-                <li>• NASA ETR Logistic (RM/NM)</li>
-              </ul>
+          {/* Mobile rail */}
+          <nav className="lg:hidden -mx-2 px-2 overflow-x-auto">
+            <div className="flex gap-1.5 pb-2 min-w-max">
+              {NAV_ITEMS.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveTab(item.id)}
+                  className={cn(
+                    "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border transition-colors whitespace-nowrap",
+                    activeTab === item.id
+                      ? "bg-primary/10 text-primary border-primary/20"
+                      : "border-border/50 text-muted-foreground hover:text-foreground hover:bg-muted",
+                  )}
+                >
+                  {item.icon}
+                  {item.label}
+                </button>
+              ))}
             </div>
+          </nav>
 
-            {/* References */}
-            <div>
-              <h3 className="font-semibold mb-3">Key References</h3>
-              <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-                <li>NEDU TR 18-01 (Gerth et al., 2018)</li>
-                <li>NASA/TM-2004-213093 (Conkin, 2004)</li>
-                <li>ASEM Vol. 75, No. 3 (2004)</li>
-              </ul>
+          {/* Main panel */}
+          <main className="min-w-0">
+            <div key={activeTab} className="animate-in">
+              {renderContent()}
             </div>
+          </main>
+        </div>
+      </div>
+
+      <footer className="border-t border-border/60 bg-card/40 backdrop-blur-md mt-12">
+        <div className="max-w-[1480px] mx-auto px-6 lg:px-8 py-8 grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="display text-sm font-semibold mb-2">TinyDCS</h3>
+            <p className="text-[12.5px] text-muted-foreground leading-relaxed">
+              Wearable-grade machine-learning stack for altitude decompression-sickness
+              risk. Hybrid physics + ML, calibrated uncertainty, edge-deployable.
+              Operationally honest.
+            </p>
           </div>
-
-          <div className="mt-8 pt-8 border-t text-center text-sm text-gray-500">
-            <p>
-              © {new Date().getFullYear()} DCS Safety Dashboard. Built for Q1
-              science journal publication quality.
-            </p>
-            <p className="mt-1 text-xs">
-              All citations and references are verifiable through the linked
-              repository documentation.
-            </p>
+          <div>
+            <h3 className="display text-sm font-semibold mb-2">Models in this build</h3>
+            <ul className="text-[12.5px] text-muted-foreground space-y-1">
+              <li>· ADRAC log-logistic AFT (Pilmanis, 2004)</li>
+              <li>· NASA Conkin RM/NM logistic (TM-2004-213093)</li>
+              <li>· 3RUT-MBe1 schematic preview (NEDU TR 18-01)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="display text-sm font-semibold mb-2">Documentation</h3>
+            <ul className="text-[12.5px] text-muted-foreground space-y-1">
+              <li>
+                <code className="text-num text-[11px] text-foreground">docs/methods.md</code> —
+                TRIPOD+AI methods M1–M8
+              </li>
+              <li>
+                <code className="text-num text-[11px] text-foreground">docs/runbook.md</code> —
+                step-by-step reproduction
+              </li>
+              <li>
+                <code className="text-num text-[11px] text-foreground">docs/papers/</code> —
+                AMHP / CMPB submission package
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-border/60 py-4">
+          <div className="max-w-[1480px] mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-muted-foreground">
+            <span>© {new Date().getFullYear()} TinyDCS · research artifact · MIT-adjacent license</span>
+            <span className="text-num">v0.6.0 · build {new Date().toISOString().slice(0, 10)}</span>
           </div>
         </div>
       </footer>
     </div>
   );
 }
-
-export default App;

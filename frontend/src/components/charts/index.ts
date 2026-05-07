@@ -3,4 +3,5 @@ export { ScatterPlot } from "./ScatterPlot";
 export { TimeSeriesChart } from "./TimeSeriesChart";
 export { Heatmap } from "./Heatmap";
 export { Histogram } from "./Histogram";
+export { RiskLandscape } from "./RiskLandscape";
 export * from "./chartConfig";
