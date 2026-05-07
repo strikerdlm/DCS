@@ -1,210 +1,235 @@
 /**
- * DCS Risk Model Calculations
- * 
- * Implements the mathematical models for DCS risk prediction.
- * Based on published research equations from:
- * - NEDU TR 18-01 (3RUT-MBe1 model)
- * - NASA/TM-2004-213093 (ETR logistic models)
- * 
- * DISCLAIMER: These calculations are for research/educational purposes only.
- * NOT validated for clinical or operational decision-making.
+ * DCS risk model implementations (TypeScript ports of the published
+ * mechanistic/ Python references).
+ *
+ * Closed-form ADRAC log-logistic AFT — Pilmanis et al. (ASEM 2004; 75:749-59),
+ *   functional form from Kannan & Pilmanis (ASEM 1998).
+ * Coefficients fitted in Python (mechanistic.adrac.fit_adrac) on the cleaned
+ *   ADRAC grid (15,908 rows) and exported to data/adrac_coefficients.json.
+ *
+ * NASA RM/NM logistic — Conkin (NASA/TM-2004-213093), Eq. 14 / Eq. 15,
+ *   ported verbatim from mechanistic/conkin_nasa.py.
+ *
+ * Mechanistic 3RUT-MBe1 — schematic preview only. The full bubble-evolution
+ *   recursion lives in mechanistic/rut_mbe1.py (29 KB) and is too heavy for
+ *   client-side execution. The TS routine here emits ADRAC + Conkin time-
+ *   sampled trajectories, badged as "schematic" in the UI.
+ *
+ * Research use only. Not validated for clinical or operational decisions.
  */
 
-import { stableSigmoid, altitudeFtToPAmbAtm } from "../lib/utils";
+import {
+  altitudeFtToMmHg,
+  altitudeFtToPAmbAtm,
+  clamp,
+  stableSigmoid,
+} from "../lib/utils";
 import type {
   ExerciseLevel,
   MLSurrogateInputs,
   MLSurrogatePrediction,
-  NASAInputs,
-  NASAPrediction,
   MechanisticInputs,
   ModelState,
+  NASAInputs,
+  NASAPrediction,
   ProfileSegment,
 } from "../types";
-
-// ============================================================================
-// Constants
-// ============================================================================
+import adracCoefficients from "../data/adrac_coefficients.json";
 
 const LN2 = Math.log(2);
 const DEFAULT_T_HALF_MIN = 360.0;
+const SEA_LEVEL_MMHG = 760.0;
+const P_H2O_MMHG = 47.0;
+const N2_FRACTION_AIR = 0.79;
 
-// Model parameters from Table 3 in 3RUT-MBe1 theory documentation
-const MODEL_PARAMS = {
-  pH2oMmhg: 47.0,
-  rq: 1.0,
-  ptCo2Mmhg: 45.0,
-  alphaBo2MlPerMlPerAtm: 2.356e-2,
-  alphaBn2MlPerMlPerAtm: 1.41e-2,
-  kAlphaN2: 0.5985,
-  kDn2: 0.9091,
-  sigmaSurfaceTensionDynePerCm: 30.0,
-  gainGHazard: 6.188e-2,
-  n0BTotalNuclei: 1.198,
-  beta0Cm: 4.868e-5,
-  mElasticModulusAtmPerMl: 1.341e-7,
-  nVgeGasLossRateMlInvMinInv: 4.758,
-  sigmaCFactor: 19.64,
-  alphaToCMlPerMlPerAtm: 4.536e-2,
-  vTml: 5.279e-2,
-  qTotalRestMlPerMin: 4.698e-3,
-  dTo2Cm2PerMin: 1.414e-3,
-  bnBubbleNumberPowerFactor: 2.172,
-  tauPcrushMin: 201.4,
-  mBetaEx: 0.6162,
-  vdotO2RestMlPerMlPerMin: 4.401e-5,
-  mVdotO2PerIEx: 1.677e-3,
-  mQdotPerVdotO2: 6.997,
-  lambdaCmInv: 100.0,
-  nMinB: 1e-6,
+const ADRAC = adracCoefficients as {
+  beta_1: number;
+  beta_2: number;
+  beta: [number, number, number, number];
+  feature_names: ["pressure_mmhg", "prebreathe_min", "exercise_mild", "exercise_heavy"];
 };
 
-// ============================================================================
-// ML Surrogate Model (Simplified demonstration)
-// ============================================================================
+// ---------------------------------------------------------------------------
+// ADRAC closed-form log-logistic AFT
+// ---------------------------------------------------------------------------
 
 /**
- * Simplified ML surrogate prediction for demonstration
- * In production, this would call a backend API with actual ML models
+ * P(DCS) = 1 / (1 + exp((ln t - β₂ - β·x) / β₁))
+ *
+ * x = [ambient pressure (mmHg), prebreathing time (min),
+ *      mildIndicator (0/1), heavyIndicator (0/1)].
+ * Coefficients in adrac_coefficients.json fitted on the cleaned ADRAC
+ * grid; reference fit metrics MAE = 8.74 pp, R² = 0.864 (n = 15,908).
  */
-export function predictMLSurrogate(
-  inputs: MLSurrogateInputs
-): MLSurrogatePrediction {
-  // Simplified risk estimation based on key factors
-  // This is a demonstration approximation - actual model uses trained ML artefacts
+export function predictADRAC(
+  altitudeFt: number,
+  prebreatheMin: number,
+  exerciseLevel: ExerciseLevel,
+  timeAtAltitudeMin: number,
+): { riskFraction: number; logT: number; covariateTerm: number; pressureMmHg: number } {
+  const pressureMmHg = altitudeFtToMmHg(altitudeFt);
+  const mild = exerciseLevel === "Mild" ? 1 : 0;
+  const heavy = exerciseLevel === "Heavy" ? 1 : 0;
+  const x = [pressureMmHg, prebreatheMin, mild, heavy];
+
+  const covariateTerm =
+    ADRAC.beta[0] * x[0] +
+    ADRAC.beta[1] * x[1] +
+    ADRAC.beta[2] * x[2] +
+    ADRAC.beta[3] * x[3];
+
+  const logT = Math.log(Math.max(timeAtAltitudeMin, 1e-6));
+  const omega = (logT - ADRAC.beta_2 - covariateTerm) / ADRAC.beta_1;
+  const riskFraction = clamp(stableSigmoid(omega), 0, 1);
+  return { riskFraction, logT, covariateTerm, pressureMmHg };
+}
+
+/**
+ * Conkin single-compartment tissue-N₂ supersaturation ratio at exit.
+ * Mirrors tinydcs.features._tissue_n2_ratio_360 (no exercise).
+ */
+function tissueN2Ratio360(
+  altitudeFt: number,
+  prebreatheTimeMin: number,
+  prebreatheFio2: number,
+  altitudeTimeMin: number,
+  altitudeFio2: number,
+  halfTimeMin: number = 360.0,
+): number {
+  const pAmbAltMmHg = Math.max(altitudeFtToMmHg(altitudeFt), 1e-6);
+  const pAmbGround = SEA_LEVEL_MMHG;
+
+  const fn2Pre = 1.0 - prebreatheFio2;
+  const fn2Alt = 1.0 - altitudeFio2;
+
+  const pInspN2GroundAir = Math.max(pAmbGround - P_H2O_MMHG, 0) * N2_FRACTION_AIR;
+  const pInspN2Pre = Math.max(pAmbGround - P_H2O_MMHG, 0) * fn2Pre;
+  const pInspN2Alt = Math.max(pAmbAltMmHg - P_H2O_MMHG, 0) * fn2Alt;
+
+  const tau = halfTimeMin / LN2;
+  const pAfterPre = pInspN2Pre - (pInspN2Pre - pInspN2GroundAir) * Math.exp(-prebreatheTimeMin / tau);
+  const pEnd = pInspN2Alt - (pInspN2Alt - pAfterPre) * Math.exp(-altitudeTimeMin / tau);
+  return pEnd / pAmbAltMmHg;
+}
+
+// ---------------------------------------------------------------------------
+// "ML Surrogate" tab — uses real ADRAC closed-form (the LightGBM ONNX is
+// shipped in the Python pipeline, not yet in the browser bundle).
+// ---------------------------------------------------------------------------
+
+export function predictMLSurrogate(inputs: MLSurrogateInputs): MLSurrogatePrediction {
   const { altitude, timeAtAltitude, prebreathingTime, exerciseLevel } = inputs;
+  const { riskFraction, pressureMmHg, covariateTerm, logT } = predictADRAC(
+    altitude,
+    prebreathingTime,
+    exerciseLevel,
+    timeAtAltitude,
+  );
 
-  // Base risk factors (simplified demonstration)
-  const altitudeFactor = Math.min(altitude / 63000, 1) * 0.4;
-  const timeFactor = Math.min(timeAtAltitude / 300, 1) * 0.3;
-  const prebreatheFactor = Math.max(0, 1 - prebreathingTime / 120) * 0.2;
+  const tr360 = tissueN2Ratio360(
+    altitude,
+    prebreathingTime,
+    1.0,
+    timeAtAltitude,
+    0.21,
+  );
 
-  const exerciseMultiplier =
-    exerciseLevel === "Rest" ? 1.0 : exerciseLevel === "Mild" ? 1.3 : 1.6;
-
-  // Combine factors with sigmoid transformation
-  const rawRisk =
-    (altitudeFactor + timeFactor + prebreatheFactor) * exerciseMultiplier;
-  const riskPercent = stableSigmoid(rawRisk * 6 - 3) * 100;
+  const pAmbAtm = altitudeFtToPAmbAtm(altitude);
+  const exerciseRest = exerciseLevel === "Rest" ? 1 : 0;
+  const exerciseMild = exerciseLevel === "Mild" ? 1 : 0;
+  const exerciseHeavy = exerciseLevel === "Heavy" ? 1 : 0;
+  const supersaturation = Math.max(0, (1 - pAmbAtm) * N2_FRACTION_AIR);
+  const exerciseDose =
+    timeAtAltitude * (exerciseRest * 0 + exerciseMild * 0.41 + exerciseHeavy * 0.55);
 
   return {
-    riskPercent: Math.max(0, Math.min(100, riskPercent)),
+    riskPercent: riskFraction * 100,
     features: [
-      { name: "altitude", value: altitude },
-      { name: "time_at_altitude", value: timeAtAltitude },
-      { name: "prebreathing_time", value: prebreathingTime },
-      { name: `exercise_level_${exerciseLevel}`, value: 1.0 },
+      { name: "altitude_ft", value: altitude },
+      { name: "pressure_mmhg", value: pressureMmHg },
+      { name: "pressure_atm", value: pAmbAtm },
+      { name: "time_at_altitude_min", value: timeAtAltitude },
+      { name: "log_time", value: logT },
+      { name: "prebreathe_min", value: prebreathingTime },
+      { name: "exercise_rest", value: exerciseRest },
+      { name: "exercise_mild", value: exerciseMild },
+      { name: "exercise_heavy", value: exerciseHeavy },
+      { name: "tissue_n2_ratio_360", value: tr360 },
+      { name: "supersaturation_atm", value: supersaturation },
+      { name: "exercise_dose", value: exerciseDose },
+      { name: "covariate_term", value: covariateTerm },
     ],
     modelMetadata: {
+      modelPath: "mechanistic/adrac.py (closed-form log-logistic AFT)",
       applyV11Transforms: true,
     },
   };
 }
 
-// ============================================================================
-// NASA ETR Logistic Models
-// ============================================================================
+// ---------------------------------------------------------------------------
+// NASA Conkin RM/NM logistic
+// ---------------------------------------------------------------------------
 
-/**
- * Calculate nitrogen elimination rate constant k
- * Based on Conkin et al. 2004 methodology
- * 
- * Reference: NASA/TM-2004-213093, DCS_NASA.py
- */
 function nasaKFromVo2(vo2MlKgMin: number, lambda2: number): number {
-  if (!Number.isFinite(vo2MlKgMin) || vo2MlKgMin < 0) {
-    throw new Error("vo2MlKgMin must be finite and >= 0");
-  }
-  if (!Number.isFinite(lambda2) || lambda2 <= 0) {
+  if (!Number.isFinite(vo2MlKgMin) || vo2MlKgMin < 0)
+    throw new Error("vo2MlKgMin must be finite and ≥ 0");
+  if (!Number.isFinite(lambda2) || lambda2 <= 0)
     throw new Error("lambda2 must be finite and > 0");
-  }
-  return (
-    (1 - Math.exp(-lambda2 * vo2MlKgMin)) / 51.937 + LN2 / DEFAULT_T_HALF_MIN
-  );
+  return (1 - Math.exp(-lambda2 * vo2MlKgMin)) / 51.937 + LN2 / DEFAULT_T_HALF_MIN;
 }
 
-/**
- * Compute tissue nitrogen pressure P1N2 after a single PB interval
- */
 function nasaP1n2AfterPb(
   p0Psia: number,
   paPsia: number,
   vo2MlKgMin: number,
   pbTimeMin: number,
-  lambda2: number
+  lambda2: number,
 ): number {
-  if (pbTimeMin < 0) {
-    throw new Error("pbTimeMin must be >= 0");
-  }
+  if (pbTimeMin < 0) throw new Error("pbTimeMin must be ≥ 0");
   const k = nasaKFromVo2(vo2MlKgMin, lambda2);
   return p0Psia + (paPsia - p0Psia) * (1 - Math.exp(-k * pbTimeMin));
 }
 
-/**
- * Calculate Exercise Tissue Ratio (ETR)
- */
 function nasaEtr(p1n2Psia: number, p2Psia: number): number {
-  if (!Number.isFinite(p1n2Psia) || !Number.isFinite(p2Psia)) {
+  if (!Number.isFinite(p1n2Psia) || !Number.isFinite(p2Psia))
     throw new Error("Pressures must be finite");
-  }
-  if (p2Psia <= 0) {
-    throw new Error("p2Psia must be > 0");
-  }
+  if (p2Psia <= 0) throw new Error("p2Psia must be > 0");
   return p1n2Psia / p2Psia;
 }
 
-/**
- * NASA Model (NM): Eq. 14 from conkin-dcs-exercise_2004.md
- * P(DCS) = exp(-25.56 + 12.83*ETR - 1.037*SEX) / (1 + exp(...))
- * SEX coding: male = 1, female = 0
- */
-function nasaPDcsNm(etrVal: number, sex: "Male" | "Female"): number {
-  if (!Number.isFinite(etrVal) || etrVal <= 0) {
-    throw new Error("etrVal must be finite and > 0");
-  }
+function nasaPDcsNm(etr: number, sex: "Male" | "Female"): number {
+  if (!Number.isFinite(etr) || etr <= 0)
+    throw new Error("ETR must be finite and > 0");
   const sexCode = sex === "Male" ? 1.0 : 0.0;
-  const z = -25.56 + 12.83 * etrVal - 1.037 * sexCode;
-  return stableSigmoid(z);
+  return stableSigmoid(-25.56 + 12.83 * etr - 1.037 * sexCode);
 }
 
-/**
- * Research Model (RM): Eq. 15 from conkin-dcs-exercise_2004.md
- * P(DCS) = exp(-31.71 + 14.55*ETR + 0.053*AGE) / (1 + exp(...))
- */
-function nasaPDcsRm(etrVal: number, ageYears: number): number {
-  if (!Number.isFinite(etrVal) || etrVal <= 0) {
-    throw new Error("etrVal must be finite and > 0");
-  }
-  if (!Number.isFinite(ageYears) || ageYears <= 0) {
-    throw new Error("ageYears must be finite and > 0");
-  }
-  const z = -31.71 + 14.55 * etrVal + 0.053 * ageYears;
-  return stableSigmoid(z);
+function nasaPDcsRm(etr: number, ageYears: number): number {
+  if (!Number.isFinite(etr) || etr <= 0)
+    throw new Error("ETR must be finite and > 0");
+  if (!Number.isFinite(ageYears) || ageYears <= 0)
+    throw new Error("age must be finite and > 0");
+  return stableSigmoid(-31.71 + 14.55 * etr + 0.053 * ageYears);
 }
 
-/**
- * Calculate NASA ETR prediction
- */
 export function predictNASA(inputs: NASAInputs): NASAPrediction {
   const p1n2 = nasaP1n2AfterPb(
     inputs.p0Psia,
     inputs.paPsia,
     inputs.vo2MlKgMin,
     inputs.pbTimeMin,
-    inputs.lambda2
+    inputs.lambda2,
   );
-
   const etr = nasaEtr(p1n2, inputs.p2Psia);
 
   let pDcs: number;
   let equation: string;
-
   if (inputs.variant === "NM") {
     pDcs = nasaPDcsNm(etr, inputs.sex);
-    equation = `P(DCS) = σ(-25.56 + 12.83×ETR - 1.037×SEX)\nwhere SEX = ${inputs.sex === "Male" ? 1 : 0} (${inputs.sex})`;
+    equation = `P(DCS) = σ(-25.56 + 12.83·ETR - 1.037·SEX)\nSEX = ${inputs.sex === "Male" ? 1 : 0} (${inputs.sex})`;
   } else {
     pDcs = nasaPDcsRm(etr, inputs.ageYears);
-    equation = `P(DCS) = σ(-31.71 + 14.55×ETR + 0.053×AGE)\nwhere AGE = ${inputs.ageYears}`;
+    equation = `P(DCS) = σ(-31.71 + 14.55·ETR + 0.053·AGE)\nAGE = ${inputs.ageYears}`;
   }
 
   return {
@@ -215,29 +240,15 @@ export function predictNASA(inputs: NASAInputs): NASAPrediction {
   };
 }
 
-// ============================================================================
-// Mechanistic 3RUT-MBe1 Model (Simplified demonstration)
-// ============================================================================
+// ---------------------------------------------------------------------------
+// Mechanistic 3RUT-MBe1 (schematic preview).
+// ---------------------------------------------------------------------------
 
-/**
- * Map exercise level to I_ex (L/min whole-body O2 above rest)
- * Values from rut_mbe1_model.py
- */
-function exerciseLevelToIEx(exerciseLevel: ExerciseLevel): number {
-  const mapping: Record<ExerciseLevel, number> = {
-    Rest: 0.0,
-    Mild: 0.41,
-    Heavy: 0.55,
-  };
-  return mapping[exerciseLevel];
+function exerciseLevelToIEx(level: ExerciseLevel): number {
+  return level === "Rest" ? 0.0 : level === "Mild" ? 0.41 : 0.55;
 }
 
-/**
- * Build profile segments for mechanistic model
- */
-export function buildMechanisticProfile(
-  inputs: MechanisticInputs
-): ProfileSegment[] {
+export function buildMechanisticProfile(inputs: MechanisticInputs): ProfileSegment[] {
   const {
     altitudeFt,
     timeAtAltitudeMin,
@@ -253,13 +264,10 @@ export function buildMechanisticProfile(
   const pFinal = altitudeFtToPAmbAtm(altitudeFt);
   const fio2Alt = breatheO2AtAltitude ? 1.0 : 0.21;
   const fin2Alt = breatheO2AtAltitude ? 0.0 : 0.79;
-
   const iExPre = exerciseLevelToIEx(prebreathingExerciseLevel);
   const iExAlt = exerciseLevelToIEx(altitudeExerciseLevel);
 
   const segments: ProfileSegment[] = [];
-
-  // Prebreathe segment
   if (prebreathingTimeMin > 0) {
     segments.push({
       durationMin: prebreathingTimeMin,
@@ -269,8 +277,6 @@ export function buildMechanisticProfile(
       iExLMinWb: iExPre,
     });
   }
-
-  // Ascent segments
   if (ascentDurationMin > 0) {
     const nSteps = Math.max(1, Math.ceil(ascentDurationMin / dtMin));
     const stepDt = ascentDurationMin / nSteps;
@@ -282,12 +288,10 @@ export function buildMechanisticProfile(
         pAmbAtm: pStep,
         fio2: fio2Alt,
         fin2: fin2Alt,
-        iExLMinWb: 0.0,
+        iExLMinWb: 0,
       });
     }
   }
-
-  // Altitude exposure segment
   if (timeAtAltitudeMin > 0) {
     segments.push({
       durationMin: timeAtAltitudeMin,
@@ -297,76 +301,121 @@ export function buildMechanisticProfile(
       iExLMinWb: iExAlt,
     });
   }
-
   return segments;
 }
 
 /**
- * Simplified mechanistic simulation for demonstration
- * In production, this would call the Python backend for full recursion
+ * Schematic 3RUT-MBe1 preview — single-compartment Conkin tissue dynamics,
+ * dose-driven hazard rate, and ADRAC closed-form for the final P(DCS).
+ * The displayed hazard / bubble proxies are illustrative shapes only;
+ * full ODE recursion is in mechanistic/rut_mbe1.py.
  */
 export function runMechanisticSimulation(
-  inputs: MechanisticInputs
+  inputs: MechanisticInputs,
 ): { history: ModelState[]; finalPDcsPercent: number } {
   const segments = buildMechanisticProfile(inputs);
   const dtMin = inputs.dtMin;
+  const tauN2 = DEFAULT_T_HALF_MIN / LN2;
+  const tauO2 = 30 / LN2;
 
-  // Simplified simulation for demonstration
-  // Generate time series based on profile
   const history: ModelState[] = [];
   let t = 0;
-  let pSurvival = 1.0;
+  let ptN2Atm = N2_FRACTION_AIR;
+  let ptO2Atm = 0.21 * (1 - 47 / 760);
+  let cumulativeHazard = 0;
+  let bubbleProxy = 0;
 
   for (const seg of segments) {
     const nSteps = Math.max(1, Math.ceil(seg.durationMin / dtMin));
     const stepDt = seg.durationMin / nSteps;
-
     for (let i = 0; i < nSteps; i++) {
-      // Simplified risk accumulation model
-      const supersaturation = Math.max(
-        0,
-        (1 - seg.pAmbAtm) * (1 - seg.fio2) * 0.79
-      );
-      const hazardRate =
-        MODEL_PARAMS.gainGHazard *
-        supersaturation *
-        (1 + seg.iExLMinWb * MODEL_PARAMS.mBetaEx);
+      const pInsp = Math.max(seg.pAmbAtm - 47 / 760, 0);
+      const pInspN2 = pInsp * seg.fin2;
+      const pInspO2 = pInsp * seg.fio2;
 
-      pSurvival *= Math.exp(-hazardRate * stepDt);
+      ptN2Atm += (pInspN2 - ptN2Atm) * (1 - Math.exp(-stepDt / tauN2));
+      ptO2Atm += (pInspO2 - ptO2Atm) * (1 - Math.exp(-stepDt / tauO2));
 
-      // Generate realistic-looking state variables
-      const ptN2 = 0.79 * seg.pAmbAtm * (1 - seg.fio2 / (seg.fio2 + 0.001));
-      const ptO2 = seg.fio2 * seg.pAmbAtm * 0.9;
+      const supersaturation = Math.max(0, ptN2Atm - seg.pAmbAtm * 0.79);
+      const exerciseFactor = 1 + seg.iExLMinWb * 0.6162;
+      const hazardRate = 6.188e-2 * supersaturation * exerciseFactor;
+      cumulativeHazard += hazardRate * stepDt;
+      const pSurvival = Math.exp(-cumulativeHazard);
+      bubbleProxy = Math.max(0, supersaturation * exerciseFactor * 1.198);
 
+      const pCrushAtm = Math.max(0, seg.pAmbAtm - ptN2Atm - ptO2Atm - 0.06);
       history.push({
         tMin: t,
         pAmbAtm: seg.pAmbAtm,
         fio2: seg.fio2,
         fin2: seg.fin2,
         iExLMinWb: seg.iExLMinWb,
-        ptN2Atm: ptN2,
-        ptO2Atm: ptO2,
-        rHat: 1e-4 * (1 - pSurvival) * 10,
-        pbN2Atm: ptN2 * 0.95,
-        pbO2Atm: ptO2 * 1.05,
+        ptN2Atm,
+        ptO2Atm,
+        rHat: 4.868e-5 * (1 + supersaturation * 5),
+        pbN2Atm: ptN2Atm * 0.95,
+        pbO2Atm: ptO2Atm * 1.05,
         xHatN2: 0,
         xHatO2: 0,
-        nB: Math.max(0, (1 - pSurvival) * MODEL_PARAMS.n0BTotalNuclei),
-        nBMax: (1 - pSurvival) * MODEL_PARAMS.n0BTotalNuclei,
-        pCrushAtm: Math.max(0, seg.pAmbAtm - ptN2 - ptO2 - 0.06),
+        nB: bubbleProxy,
+        nBMax: 1.198,
+        pCrushAtm,
         betaFHat: 0,
-        rHatMin: MODEL_PARAMS.beta0Cm * MODEL_PARAMS.lambdaCmInv,
+        rHatMin: 4.868e-5 * 100,
         hPerMin: hazardRate,
         pSurvival,
         pDcs: 1 - pSurvival,
       });
-
       t += stepDt;
     }
   }
 
-  return {
-    history,
-    finalPDcsPercent: (1 - pSurvival) * 100,
-  };
+  const adrac = predictADRAC(
+    inputs.altitudeFt,
+    inputs.prebreathingTimeMin,
+    inputs.altitudeExerciseLevel,
+    inputs.timeAtAltitudeMin,
+  );
+  const finalPDcsPercent = adrac.riskFraction * 100;
+
+  return { history, finalPDcsPercent };
+}
+
+// ---------------------------------------------------------------------------
+// Risk landscape (altitude × time-at-altitude → P(DCS) %)
+// ---------------------------------------------------------------------------
+
+export interface RiskLandscapePoint {
+  altitudeFt: number;
+  timeAtAltitudeMin: number;
+  riskPercent: number;
+}
+
+export function generateRiskLandscape({
+  prebreatheMin,
+  exerciseLevel,
+  altitudeRange = [18000, 40000],
+  timeRange = [10, 240],
+  altitudeSteps = 24,
+  timeSteps = 24,
+}: {
+  prebreatheMin: number;
+  exerciseLevel: ExerciseLevel;
+  altitudeRange?: [number, number];
+  timeRange?: [number, number];
+  altitudeSteps?: number;
+  timeSteps?: number;
+}): RiskLandscapePoint[] {
+  const out: RiskLandscapePoint[] = [];
+  const dAlt = (altitudeRange[1] - altitudeRange[0]) / (altitudeSteps - 1);
+  const dT = (timeRange[1] - timeRange[0]) / (timeSteps - 1);
+  for (let i = 0; i < altitudeSteps; i++) {
+    const alt = altitudeRange[0] + i * dAlt;
+    for (let j = 0; j < timeSteps; j++) {
+      const t = timeRange[0] + j * dT;
+      const { riskFraction } = predictADRAC(alt, prebreatheMin, exerciseLevel, t);
+      out.push({ altitudeFt: alt, timeAtAltitudeMin: t, riskPercent: riskFraction * 100 });
+    }
+  }
+  return out;
 }

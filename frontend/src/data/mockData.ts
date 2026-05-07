@@ -1,162 +1,110 @@
 /**
- * Mock Data for DCS Safety Dashboard
- * 
- * Simulated datasets for demonstration purposes.
- * In production, this would be fetched from the Python backend.
+ * Real ADRAC validation data + model validity cards.
+ *
+ * `validationData` is loaded from `adrac_validation.json`, which is a 1,500-row
+ * stratified sample of the cleaned ADRAC grid (n = 15,908) with the closed-form
+ * log-logistic AFT prediction included for residual analysis.
+ *
+ * Citations live in `citations` and the per-model validity blurbs in
+ * `modelValidityCards`. The "Validation Dashboard" shows true ADRAC reference
+ * values vs the closed-form fit — no synthetic noise.
  */
 
-import type { ValidationDataPoint, ModelValidity, Citation } from "../types";
+import type {
+  Citation,
+  MLSurrogateInputs,
+  MechanisticInputs,
+  ModelValidity,
+  NASAInputs,
+  ValidationDataPoint,
+} from "../types";
+import adracValidationRaw from "./adrac_validation.json";
 
-// ============================================================================
-// Validation Dataset (simulated ADRAC-derived data)
-// ============================================================================
-
-function generateValidationData(
-  numPoints: number = 500
-): ValidationDataPoint[] {
-  const data: ValidationDataPoint[] = [];
-  const exerciseLevels = ["Rest", "Mild", "Heavy"];
-
-  // Seed for reproducibility
-  let seed = 42;
-  const random = (): number => {
-    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
-    return seed / 0x7fffffff;
-  };
-
-  for (let i = 0; i < numPoints; i++) {
-    const altitude = 18000 + random() * 27000; // 18000-45000 ft
-    const timeAtAltitude = 30 + random() * 270; // 30-300 min
-    const prebreathingTime = random() * 120; // 0-120 min
-    const exerciseLevel =
-      exerciseLevels[Math.floor(random() * exerciseLevels.length)];
-
-    // Generate realistic risk values
-    const altFactor = (altitude / 63000) ** 1.5;
-    const timeFactor = (timeAtAltitude / 300) ** 1.2;
-    const prebFactor = Math.max(0, 1 - prebreathingTime / 120);
-    const exFactor =
-      exerciseLevel === "Rest" ? 1 : exerciseLevel === "Mild" ? 1.3 : 1.6;
-
-    const baseRisk = (altFactor * 0.4 + timeFactor * 0.35 + prebFactor * 0.25) * exFactor;
-    const riskOfDcs = Math.max(
-      0,
-      Math.min(100, baseRisk * 50 + (random() - 0.5) * 5)
-    );
-
-    // Simulated prediction with some error
-    const predictedRisk = Math.max(
-      0,
-      Math.min(100, riskOfDcs + (random() - 0.5) * 8)
-    );
-    const residual = predictedRisk - riskOfDcs;
-    const absError = Math.abs(residual);
-
-    data.push({
-      altitude: Math.round(altitude),
-      timeAtAltitude: Math.round(timeAtAltitude * 10) / 10,
-      prebreathingTime: Math.round(prebreathingTime * 10) / 10,
-      exerciseLevel,
-      riskOfDcs: Math.round(riskOfDcs * 100) / 100,
-      predictedRisk: Math.round(predictedRisk * 100) / 100,
-      residual: Math.round(residual * 100) / 100,
-      absError: Math.round(absError * 100) / 100,
-    });
-  }
-
-  return data;
+interface AdracValidationPayload {
+  metrics: { mae: number; rmse: number; r2: number; n_train: number; n_sample: number };
+  rows: ValidationDataPoint[];
 }
 
-export const validationData: ValidationDataPoint[] = generateValidationData(800);
+const ADRAC_VAL = adracValidationRaw as AdracValidationPayload;
 
-// ============================================================================
-// Model Validity Cards
-// ============================================================================
+export const validationData: ValidationDataPoint[] = ADRAC_VAL.rows;
+export const validationMetrics = {
+  mae: ADRAC_VAL.metrics.mae,
+  rmse: ADRAC_VAL.metrics.rmse,
+  r2: ADRAC_VAL.metrics.r2,
+  nTrain: ADRAC_VAL.metrics.n_train,
+  nSample: ADRAC_VAL.metrics.n_sample,
+};
 
 export const modelValidityCards: Record<string, ModelValidity> = {
   ml_surrogate: {
-    name: "ML Surrogate (ADRAC-derived dataset)",
+    name: "ADRAC closed-form (Pilmanis 2004 functional form)",
     sources: [
-      "Model_Rel_Candidate/README.md",
-      "Model_Rel_Candidate/Metrics.txt",
+      "mechanistic/adrac.py",
+      "legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv (cleaned)",
     ],
-    notesMd: `- **Model family**: supervised ML regression surrogate trained to reproduce ADRAC outputs (risk %).
-- **Applicable metrics**: regression metrics (MAE/RMSE/R²).
-- **Not applicable / not provided**: sensitivity/specificity/PPV/NPV/ROC unless a binary case definition and labeled outcomes are supplied.
-- **Important**: the surrogate is only valid within the data envelope used to generate the training data (avoid extrapolation).`,
+    notesMd: `- **Model family**: log-logistic accelerated-failure-time survival model from Kannan & Pilmanis (1998), fitted to the cleaned ADRAC grid (15,908 rows after \`tinydcs.data_clean.clean_dcs_risk_db\`).
+- **What this is**: the *real* closed-form ADRAC baseline. It is NOT the LightGBM/ONNX surrogate (95 KB ONNX, 2.4 µs/row) advertised in the repo README — that one runs server-side; the browser build uses the ADRAC functional form so it runs everywhere.
+- **Validity envelope**: altitude 18,000 – 40,000 ft, prebreathe 0 – 180 min, time-at-altitude 10 – 240 min, exercise ∈ {Rest, Mild, Heavy}.
+- **Honest disclosures**: predictions outside this envelope are extrapolations. Risk values are upper-bounded at 100 %; below ≈1 % the closed form saturates and should not be over-interpreted.`,
     metrics: [
-      { key: "R²", value: "0.9847" },
-      { key: "MAE (pp)", value: "0.832" },
-      { key: "RMSE (pp)", value: "1.243" },
-      { key: "Training samples", value: "12,480" },
-      { key: "Cross-validation folds", value: "5-fold stratified" },
+      { key: "MAE (pp)", value: ADRAC_VAL.metrics.mae.toFixed(3) },
+      { key: "RMSE (pp)", value: ADRAC_VAL.metrics.rmse.toFixed(3) },
+      { key: "R²", value: ADRAC_VAL.metrics.r2.toFixed(4) },
+      { key: "Training rows", value: ADRAC_VAL.metrics.n_train.toLocaleString() },
+      { key: "Validation sample", value: ADRAC_VAL.metrics.n_sample.toLocaleString() },
     ],
   },
   mechanistic_3rut: {
-    name: "Mechanistic 3RUT‑MBe1 (time-dependent covariate survival model)",
-    sources: ["BU_3RUT/3RUT_MBe1/3RUT_Theory.md", "rut_mbe1_model.py"],
-    notesMd: `- **Model family**: mechanistic bubble-evolution + survival/hazard recursion (NEDU TR 18‑01 Appendix C/D).
-- **Covariates supported**: pressure, inspired O₂ fraction, inspired inert gas fraction(s), and exercise intensity varying over time.
-- **Validation**: chi-square goodness-of-fit discussions and comparisons vs other models (e.g., ADRAC/NASA models).
-- **Not provided as a single table**: sensitivity/specificity/ROC/PPV/NPV; these require curated labeled datasets + decision thresholds.`,
+    name: "Mechanistic 3RUT‑MBe1 (schematic preview)",
+    sources: ["mechanistic/rut_mbe1.py", "docs/methods.md §M7"],
+    notesMd: `- **What this view is**: a *schematic* time-resolved preview computed in TypeScript. Tissue N₂/O₂ follow Conkin single-compartment dynamics (τ₁/₂ = 360 min for N₂, 30 min for O₂); the hazard channel is a supersaturation × exercise dose proxy; the final P(DCS) shown on the gauge is the **real ADRAC closed-form** prediction at the same exposure parameters.
+- **What this view is NOT**: the full bubble-evolution recursion in \`mechanistic/rut_mbe1.py\` (29 KB). That model is too heavy for the browser bundle and is also under calibration reconciliation against NEDU TR 18‑01 Appendix C (\`docs/methods.md\` §M7).
+- **Use for**: shape inspection of tissue / hazard trajectories under different prebreathe + altitude profiles. Do **not** read the absolute hazard or bubble-number values as quantitative.`,
     metrics: [
-      {
-        key: "Training data referenced",
-        value: "2598 man-exposures (as described in theory doc)",
-      },
-      {
-        key: "Fit assessment referenced",
-        value: "Chi-square goodness-of-fit across groups",
-      },
-      { key: "Sensitivity/Specificity/ROC", value: "Not provided in repo" },
+      { key: "Tissue N₂ τ₁/₂", value: "360 min (Conkin default)" },
+      { key: "Final P(DCS) source", value: "ADRAC closed-form" },
+      { key: "Full ODE recursion", value: "Python only (rut_mbe1.py)" },
     ],
   },
   nasa_rm_nm: {
-    name: "NASA logistic model (ETR-based; RM with age / NM with sex)",
+    name: "NASA Conkin logistic (RM with age / NM with sex)",
     sources: [
-      "NASA_model/conkin-dcs-exercise_2004.md",
-      "NASA_model/DCS_NASA.py",
-      "NASA_model/Evidence_2024.md",
+      "mechanistic/conkin_nasa.py",
+      "NASA/TM-2004-213093 (Conkin, 2004)",
     ],
-    notesMd: `- **Model family**: logistic regression of **P(DCS)** from **ETR** (Exercise Tissue Ratio), with either **age** (RM) or **sex** (NM).
-- **Implements published equations** from NASA/TM-2004-213093 (Eq. 14 and Eq. 15).
-- **Limitations**: the full NASA models account for multi-interval PB protocols; this UI provides a simplified single-interval PB calculator.`,
+    notesMd: `- **Model family**: logistic regression of P(DCS) from the Exercise Tissue Ratio (ETR), with either age (RM, Eq. 15) or sex (NM, Eq. 14).
+- **Equations are the published forms verbatim**: NM is σ(-25.56 + 12.83·ETR - 1.037·SEX), RM is σ(-31.71 + 14.55·ETR + 0.053·AGE).
+- **Limitations**: published coefficients were fitted on n = 159 (NM) / n = 229 (RM) chamber exposures. The single-interval prebreathe calculator here does not model multi-interval PB protocols. CIs are not carried.`,
     metrics: [
-      { key: "Dataset size (RM)", value: "n = 229 exposures" },
-      { key: "Dataset size (NM)", value: "n = 159 exposures" },
-      { key: "Sensitivity/Specificity/ROC", value: "Not provided in repo" },
-      { key: "CI95%", value: "Not provided (report notes CI limitations)" },
+      { key: "Dataset size (NM)", value: "n = 159" },
+      { key: "Dataset size (RM)", value: "n = 229" },
+      { key: "ETR formula", value: "P1N₂ / P₂" },
+      { key: "Default τ₁/₂", value: "360 min" },
     ],
   },
 };
 
-// ============================================================================
-// Scientific Citations
-// ============================================================================
-
 export const citations: Citation[] = [
   {
-    id: "gerth2018",
-    authors: "Gerth WA, Gault KA, Natoli MJ",
+    id: "pilmanis2004",
+    authors: "Pilmanis AA, Petropoulos L, Kannan N, Webb JT",
     title:
-      "A Probabilistic Model of Altitude Decompression Sickness Based on the 3RUT‑MB Model of Gas Bubble Evolution in Perfused Tissue",
-    journal: "Navy Experimental Diving Unit Technical Report",
-    year: 2018,
-    type: "report",
-    doi: "NEDU TR 18-01",
-  },
-  {
-    id: "conkin2004",
-    authors: "Conkin J, Powell MR, Foster PP, Waligora JM",
-    title:
-      "Information About Venous Gas Emboli Improves Prediction of Hypobaric Decompression Sickness",
+      "Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures",
     journal: "Aviation, Space, and Environmental Medicine",
     year: 2004,
     type: "article",
-    doi: "10.3357/ASEM.75.3.303",
   },
   {
-    id: "nasa2004",
+    id: "kannan1998",
+    authors: "Kannan N, Raychaudhuri A, Pilmanis AA",
+    title: "A loglogistic model for altitude decompression sickness",
+    journal: "Aviation, Space, and Environmental Medicine",
+    year: 1998,
+    type: "article",
+  },
+  {
+    id: "conkin2004",
     authors: "Conkin J",
     title:
       "Likelihood and Severity of Decompression Sickness with Exercise During EVA",
@@ -166,15 +114,17 @@ export const citations: Citation[] = [
     doi: "NASA/TM-2004-213093",
   },
   {
-    id: "buhlmann1984",
-    authors: "Bühlmann AA",
-    title: "Decompression – Decompression Sickness",
-    journal: "Springer-Verlag",
-    year: 1984,
-    type: "book",
+    id: "gerth2018",
+    authors: "Gerth WA, Gault KA, Natoli MJ",
+    title:
+      "A Probabilistic Model of Altitude Decompression Sickness Based on the 3RUT‑MB Model of Gas Bubble Evolution in Perfused Tissue",
+    journal: "NEDU Technical Report",
+    year: 2018,
+    type: "report",
+    doi: "NEDU TR 18-01",
   },
   {
-    id: "vann2004",
+    id: "vann2011",
     authors: "Vann RD, Butler FK, Mitchell SJ, Moon RE",
     title: "Decompression illness",
     journal: "The Lancet",
@@ -184,37 +134,33 @@ export const citations: Citation[] = [
   },
 ];
 
-// ============================================================================
-// Default Input Values
-// ============================================================================
-
-export const defaultMLInputs = {
-  altitude: 25000,
+export const defaultMLInputs: MLSurrogateInputs = {
+  altitude: 30000,
   timeAtAltitude: 120,
   prebreathingTime: 60,
-  exerciseLevel: "Rest" as const,
+  exerciseLevel: "Rest",
 };
 
-export const defaultMechanisticInputs = {
+export const defaultMechanisticInputs: MechanisticInputs = {
   altitudeFt: 30000,
   timeAtAltitudeMin: 240,
   prebreathingTimeMin: 75,
-  prebreathingExerciseLevel: "Rest" as const,
-  altitudeExerciseLevel: "Rest" as const,
+  prebreathingExerciseLevel: "Rest",
+  altitudeExerciseLevel: "Rest",
   prebreathFio2: 1.0,
   breatheO2AtAltitude: false,
   ascentDurationMin: 30,
-  dtMin: 0.1,
+  dtMin: 0.5,
 };
 
-export const defaultNASAInputs = {
-  variant: "NM" as const,
+export const defaultNASAInputs: NASAInputs = {
+  variant: "NM",
   p0Psia: 8.0,
   paPsia: 0.0,
   pbTimeMin: 90,
   vo2MlKgMin: 25,
   lambda2: 0.03,
   p2Psia: 4.3,
-  sex: "Male" as const,
+  sex: "Male",
   ageYears: 35,
 };
