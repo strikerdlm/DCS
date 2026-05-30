@@ -5,8 +5,11 @@ import {
   Beaker,
   Brain,
   Github,
+  Home,
+  ListOrdered,
   Mountain,
   Moon,
+  Plane,
   Rocket,
   Sun,
   Wind,
@@ -15,11 +18,21 @@ import {
   MLSurrogate,
   Mechanistic3RUT,
   NASALogistic,
+  Overview,
+  StepByStep,
+  UseCases,
   ValidationDashboard,
 } from "./components/models";
 import { cn } from "./lib/utils";
 
-type ModelTab = "ml" | "mechanistic" | "nasa" | "validation";
+type ModelTab =
+  | "overview"
+  | "steps"
+  | "usecases"
+  | "ml"
+  | "mechanistic"
+  | "nasa"
+  | "validation";
 
 interface NavItem {
   id: ModelTab;
@@ -28,35 +41,70 @@ interface NavItem {
   icon: React.ReactNode;
 }
 
-const NAV_ITEMS: NavItem[] = [
+interface NavGroup {
+  heading: string;
+  items: NavItem[];
+}
+
+const NAV_GROUPS: NavGroup[] = [
   {
-    id: "ml",
-    label: "ADRAC closed-form",
-    description: "Pilmanis 2004 log-logistic AFT",
-    icon: <Brain className="h-4 w-4" />,
+    heading: "Understand",
+    items: [
+      {
+        id: "overview",
+        label: "Overview",
+        description: "How TinyDCS works · 3-layer stack",
+        icon: <Home className="h-4 w-4" />,
+      },
+      {
+        id: "steps",
+        label: "Step-by-step",
+        description: "Inference pipeline, end to end",
+        icon: <ListOrdered className="h-4 w-4" />,
+      },
+      {
+        id: "usecases",
+        label: "Use cases",
+        description: "Two worked, live examples",
+        icon: <Plane className="h-4 w-4" />,
+      },
+    ],
   },
   {
-    id: "mechanistic",
-    label: "3RUT‑MBe1",
-    description: "Schematic preview · NEDU TR 18-01",
-    icon: <Beaker className="h-4 w-4" />,
-  },
-  {
-    id: "nasa",
-    label: "NASA Conkin ETR",
-    description: "Logistic · Eq. 14 / 15",
-    icon: <Rocket className="h-4 w-4" />,
-  },
-  {
-    id: "validation",
-    label: "Validation",
-    description: "Closed-form vs ADRAC grid",
-    icon: <BarChart3 className="h-4 w-4" />,
+    heading: "Model Families",
+    items: [
+      {
+        id: "ml",
+        label: "ADRAC closed-form",
+        description: "Pilmanis 2004 log-logistic AFT",
+        icon: <Brain className="h-4 w-4" />,
+      },
+      {
+        id: "mechanistic",
+        label: "3RUT‑MBe1",
+        description: "Schematic preview · NEDU TR 18-01",
+        icon: <Beaker className="h-4 w-4" />,
+      },
+      {
+        id: "nasa",
+        label: "NASA Conkin ETR",
+        description: "Logistic · Eq. 14 / 15",
+        icon: <Rocket className="h-4 w-4" />,
+      },
+      {
+        id: "validation",
+        label: "Validation",
+        description: "Closed-form vs ADRAC grid",
+        icon: <BarChart3 className="h-4 w-4" />,
+      },
+    ],
   },
 ];
 
+const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((g) => g.items);
+
 export default function App(): React.ReactElement {
-  const [activeTab, setActiveTab] = useState<ModelTab>("ml");
+  const [activeTab, setActiveTab] = useState<ModelTab>("overview");
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -65,6 +113,12 @@ export default function App(): React.ReactElement {
 
   const renderContent = () => {
     switch (activeTab) {
+      case "overview":
+        return <Overview />;
+      case "steps":
+        return <StepByStep />;
+      case "usecases":
+        return <UseCases />;
       case "ml":
         return <MLSurrogate />;
       case "mechanistic":
@@ -109,7 +163,7 @@ export default function App(): React.ReactElement {
               ECharts 6.x
             </span>
             <span className="pill-muted">
-              R² 0.864 · n 15 908
+              closed-form R² 0.864 · n 15 908
             </span>
           </div>
 
@@ -153,37 +207,46 @@ export default function App(): React.ReactElement {
           <aside className="hidden lg:block">
             <div className="sticky top-24">
               <div className="nav-rail">
-                <div className="px-2 pt-2 pb-1">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Model Families
-                  </p>
-                </div>
-                {NAV_ITEMS.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveTab(item.id)}
-                    className={cn(
-                      "nav-link group",
-                      activeTab === item.id && "nav-link-active",
-                    )}
-                  >
-                    <span
+                {NAV_GROUPS.map((group, gi) => (
+                  <div key={group.heading}>
+                    <div
                       className={cn(
-                        "h-8 w-8 rounded-lg flex items-center justify-center transition-colors",
-                        activeTab === item.id
-                          ? "bg-primary/15 text-primary ring-1 ring-primary/20"
-                          : "bg-muted text-muted-foreground group-hover:text-foreground",
+                        "px-2 pb-1",
+                        gi === 0 ? "pt-2" : "pt-3 mt-1 border-t border-border/50",
                       )}
                     >
-                      {item.icon}
-                    </span>
-                    <div className="flex flex-col items-start min-w-0">
-                      <span className="text-sm leading-tight">{item.label}</span>
-                      <span className="text-[11px] text-muted-foreground/80 leading-tight truncate w-[160px]">
-                        {item.description}
-                      </span>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                        {group.heading}
+                      </p>
                     </div>
-                  </button>
+                    {group.items.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => setActiveTab(item.id)}
+                        className={cn(
+                          "nav-link group w-full",
+                          activeTab === item.id && "nav-link-active",
+                        )}
+                      >
+                        <span
+                          className={cn(
+                            "h-8 w-8 rounded-lg flex items-center justify-center transition-colors",
+                            activeTab === item.id
+                              ? "bg-primary/15 text-primary ring-1 ring-primary/20"
+                              : "bg-muted text-muted-foreground group-hover:text-foreground",
+                          )}
+                        >
+                          {item.icon}
+                        </span>
+                        <div className="flex flex-col items-start min-w-0">
+                          <span className="text-sm leading-tight">{item.label}</span>
+                          <span className="text-[11px] text-muted-foreground/80 leading-tight truncate w-[160px]">
+                            {item.description}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
                 ))}
               </div>
 

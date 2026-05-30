@@ -50,6 +50,80 @@ const ADRAC = adracCoefficients as {
 };
 
 // ---------------------------------------------------------------------------
+// Validity envelope + out-of-distribution gate (mirrors the OOD layer of the
+// trained TinyDCS stack — the browser bundle reproduces the *envelope check*
+// only; the Mahalanobis gate itself runs server-side).
+// ---------------------------------------------------------------------------
+
+export const VALIDITY_ENVELOPE = {
+  altitudeFt: [18000, 40000] as [number, number],
+  prebreatheMin: [0, 180] as [number, number],
+  timeAtAltitudeMin: [10, 240] as [number, number],
+  exercise: ["Rest", "Mild", "Heavy"] as ExerciseLevel[],
+};
+
+export interface EnvelopeVerdict {
+  inEnvelope: boolean;
+  reasons: string[];
+}
+
+/** Returns whether a scenario sits inside the validated envelope, and why not. */
+export function checkEnvelope(
+  altitudeFt: number,
+  prebreatheMin: number,
+  timeAtAltitudeMin: number,
+  exercise: ExerciseLevel,
+): EnvelopeVerdict {
+  const reasons: string[] = [];
+  const [aLo, aHi] = VALIDITY_ENVELOPE.altitudeFt;
+  const [pLo, pHi] = VALIDITY_ENVELOPE.prebreatheMin;
+  const [tLo, tHi] = VALIDITY_ENVELOPE.timeAtAltitudeMin;
+  if (altitudeFt < aLo || altitudeFt > aHi)
+    reasons.push(
+      `Altitude ${altitudeFt.toLocaleString()} ft is outside ${aLo.toLocaleString()}–${aHi.toLocaleString()} ft`,
+    );
+  if (prebreatheMin < pLo || prebreatheMin > pHi)
+    reasons.push(`Prebreathe ${prebreatheMin} min is outside ${pLo}–${pHi} min`);
+  if (timeAtAltitudeMin < tLo || timeAtAltitudeMin > tHi)
+    reasons.push(`Time-at-altitude ${timeAtAltitudeMin} min is outside ${tLo}–${tHi} min`);
+  if (!VALIDITY_ENVELOPE.exercise.includes(exercise))
+    reasons.push(`Exercise level "${exercise}" is not Rest/Mild/Heavy`);
+  return { inEnvelope: reasons.length === 0, reasons };
+}
+
+/**
+ * ILLUSTRATIVE calibrated 95 % prediction interval.
+ *
+ * The real TinyDCS interval is produced by a zero-inflated two-stage
+ * split-conformal calibrator fitted on a held-out set (≥0.95 band coverage,
+ * 0.960 overall). That calibrator is NOT shipped in the browser bundle. To
+ * demonstrate the *shape* of the contribution, this routine forms a symmetric
+ * band on the logit scale around the ADRAC point estimate — band width grows
+ * in the low-altitude / near-zero region where the published method showed its
+ * coverage gain. It is a teaching device, clearly labelled "illustrative"
+ * everywhere it is rendered, and is NOT the conformal interval from the paper.
+ */
+export function illustrativeInterval(
+  riskFraction: number,
+  altitudeFt: number,
+): { lowPercent: number; highPercent: number; widthPercent: number } {
+  const p = clamp(riskFraction, 1e-6, 1 - 1e-6);
+  const logit = Math.log(p / (1 - p));
+  // Base logit half-width ~ moderate; widened toward the low-altitude band
+  // (18–23 kft) where the zero-inflated stage matters most.
+  const lowBandFactor =
+    altitudeFt <= 23000 ? 1.0 + (23000 - Math.max(altitudeFt, 18000)) / 5000 : 1.0;
+  const halfWidth = 0.9 * lowBandFactor;
+  const low = stableSigmoid(logit - halfWidth);
+  const high = stableSigmoid(logit + halfWidth);
+  return {
+    lowPercent: low * 100,
+    highPercent: high * 100,
+    widthPercent: (high - low) * 100,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // ADRAC closed-form log-logistic AFT
 // ---------------------------------------------------------------------------
 
