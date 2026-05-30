@@ -229,6 +229,7 @@ export function NASALogistic(): React.ReactElement {
                     value={prediction.pDcsPercent}
                     title="P(DCS)"
                     height={300}
+                    max={40}
                   />
                 ) : (
                   <div className="h-[300px] flex flex-col items-center justify-center text-muted-foreground">

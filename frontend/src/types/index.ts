@@ -189,7 +189,6 @@ export interface Citation {
   id: string;
   authors: string;
   title: string;
-  journal?: string;
   year: number;
   doi?: string;
   url?: string;

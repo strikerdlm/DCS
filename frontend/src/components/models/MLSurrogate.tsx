@@ -96,7 +96,7 @@ export function MLSurrogate(): React.ReactElement {
               Pilmanis (2004) functional form, fitted in <code className="text-num text-[12px]">mechanistic/adrac.py</code> on
               the cleaned ADRAC grid (n = 15,908). The browser bundle uses this closed
               form so predictions are deterministic, ~0.1 ms, and reproducible from the
-              same coefficient JSON the manuscript ships.
+              same coefficient JSON the repository ships.
             </p>
             <div className="flex flex-wrap items-center gap-2 mt-4">
               <span className="pill-muted">MAE 8.74 pp</span>
@@ -230,6 +230,7 @@ export function MLSurrogate(): React.ReactElement {
                   value={prediction?.riskPercent ?? 0}
                   title="P(DCS)"
                   height={300}
+                  max={40}
                 />
               </CardContent>
             </Card>

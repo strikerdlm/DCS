@@ -4,7 +4,7 @@
  * Mirrors the publication-figure style produced by
  * scripts/09_make_paper_figures.py and artifacts/paper_figures/* so
  * the in-browser dashboard reads as the same visual language as the
- * AMHP/CMPB manuscript figures.
+ * exported research figures.
  *
  * Palette: Okabe-Ito-derived colorblind-safe ramp resolved at runtime
  * from CSS custom properties so light / dark themes stay in sync with

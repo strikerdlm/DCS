@@ -33,7 +33,7 @@
 
 ## What this is, in one paragraph
 
-Existing altitude-DCS risk models trade off along a sharp axis: **ADRAC** (US Air Force, Pilmanis 2004) is closed-form and trivially portable but uses only three coarse exercise levels; **Conkin NASA-RM/NM** (2004) adds a physiologically-grounded Exercise Tissue Ratio but only during prebreathe; **Gerth 3RUT-MBe1** (NEDU TR 18-01, 2018) accepts arbitrary continuous VO₂(t) trajectories but is an ODE recursion too heavy for a smartwatch. TinyDCS is a *hybrid*: a small machine-learning surrogate of the cleaned ADRAC grid, enriched with continuous VO₂ features via Conkin's variable-half-time mechanism, calibrated with a zero-inflated two-stage conformal stack, and fitted with a Mahalanobis-distance out-of-envelope abstention mode. The full model compiles to **95 KB of ONNX** and runs at **≈ 2.4 μs per inference** on CPU.
+Existing altitude-DCS risk models trade off along a sharp axis: **ADRAC** (the *Decompression sickness risk model* of Pilmanis et al.) is closed-form and trivially portable but uses only three coarse exercise levels; **Conkin NASA-RM/NM** (from *A probability model of decompression sickness at 4.3 psia after exercise prebreathe*) adds a physiologically-grounded Exercise Tissue Ratio but only during prebreathe; **Gerth 3RUT-MBe1** (from *A probabilistic model of altitude decompression sickness based on the 3RUT-MB model*) accepts arbitrary continuous VO₂(t) trajectories but is an ODE recursion too heavy for a smartwatch. TinyDCS is a *hybrid*: a small machine-learning surrogate of the cleaned ADRAC grid, enriched with continuous VO₂ features via Conkin's variable-half-time mechanism, calibrated with a zero-inflated two-stage conformal stack, and fitted with a Mahalanobis-distance out-of-envelope abstention mode. The full model compiles to **95 KB of ONNX** and runs at **≈ 2.4 μs per inference** on CPU.
 
 ---
 
@@ -112,11 +112,31 @@ DCS/
 
 ---
 
-## Quick start
+## Getting started / Run it
 
 ```bash
 git clone https://github.com/strikerdlm/DCS
 cd DCS
+```
+
+### Frontend dashboard (current / active development)
+
+The React + TypeScript dashboard in `frontend/` is the actively developed
+interface. It runs standalone against bundled fixture data — no backend
+service is required to view it.
+
+```bash
+cd frontend
+npm install        # install dependencies
+npm run dev        # dev server at http://localhost:5173
+npm run build      # production build -> frontend/dist/
+npm run preview    # serve the production build locally
+```
+
+### Python pipeline (models, calibration, ONNX export)
+
+```bash
+# From the repository root
 pip install -r requirements.txt          # or: pip install -e .
 pip install onnx onnxruntime onnxmltools skl2onnx onnxconverter_common  # step-4 only
 
@@ -162,9 +182,14 @@ python scripts/09_make_paper_figures.py
 
 Full command-by-command walk-through — with expected outputs and sanity checks — is in [`docs/runbook.md`](docs/runbook.md).
 
-Streamlit exploration:
+### Streamlit app (legacy)
+
+The Streamlit explorer under `apps/streamlit/` is **legacy**. It predates the
+`frontend/` React dashboard and is retained only for reference; the dashboard
+above is the current way to explore the models interactively.
 
 ```bash
+# Legacy — superseded by the frontend dashboard
 streamlit run apps/streamlit/app.py
 ```
 
@@ -251,7 +276,7 @@ If a session disconnects mid-work, follow `AGENTS.md` → *Session log* → *If 
 
 ---
 
-## Limitations and honest disclosures
+## Limitations
 
 - **Surrogate target ≠ clinical outcome.** The training target is a parametric model's output (ADRAC). Any claim beyond "reproduces the parametric model with calibrated uncertainty" requires prospective validation against observed DCS/VGE outcomes, which is explicitly Paper-3 scope.
 - **3RUT-MBe1 implementation.** `mechanistic/rut_mbe1.py` currently under-reports P(DCS) by ~ 4–5 orders of magnitude relative to Gerth Fig 16 on the five ADRAC-validation profiles. Reconciliation is equation-by-equation against NEDU TR 18-01 Appendix C; see `docs/methods.md` §M7. Until resolved, 3RUT-MBe1 is used for shape studies only, not as a training target.
@@ -262,18 +287,26 @@ If a session disconnects mid-work, follow `AGENTS.md` → *Session log* → *If 
 
 ---
 
-## Citations (primary sources)
+## References (primary sources)
 
-See `docs/scientific-background.md` for the full bibliography. The load-bearing citations are:
+See `docs/scientific-background.md` for the full bibliography. The load-bearing
+references, formatted in APA 7th edition, are:
 
-1. Kannan N, Raychaudhuri A, Pilmanis AA. *A loglogistic model for altitude decompression sickness.* **Aviat Space Environ Med** 1998; 69:965–70.
-2. Pilmanis AA, Petropoulos L, Kannan N, Webb JT. *Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures.* **Aviat Space Environ Med** 2004; 75:749–59.
-3. Conkin J, Gernhardt ML. *A probability model of decompression sickness at 4.3 psia after exercise prebreathe.* **NASA TP-2004-213158**.
-4. Webb JT, Krock LP, Gernhardt ML. *Oxygen consumption at altitude as a risk factor for altitude decompression sickness.* **Aviat Space Environ Med** 2010; 81:987–92.
-5. Gerth WA et al. *A Probabilistic Model of Altitude Decompression Sickness Based on the 3RUT-MB Model.* **NEDU TR 18-01** (DTIC AD1101527), 2018.
-6. Collins GS, Moons KGM, et al. *TRIPOD+AI statement.* **BMJ** 2024; 385:e078378.
-7. Romano Y, Patterson E, Candès E. *Conformalized Quantile Regression.* **NeurIPS** 2019.
-8. Van Calster B, McLernon DJ, et al. *Calibration: the Achilles heel of predictive analytics.* **BMC Medicine** 2019; 17:230.
+Collins, G. S., Moons, K. G. M., Dhiman, P., Riley, R. D., Beam, A. L., Van Calster, B., … Logullo, P. (2024). TRIPOD+AI statement: Updated guidance for reporting clinical prediction models that use regression or machine learning methods. *BMJ, 385*, e078378.
+
+Conkin, J., & Gernhardt, M. L. (2004). *A probability model of decompression sickness at 4.3 psia after exercise prebreathe* (NASA TP-2004-213158). National Aeronautics and Space Administration.
+
+Gerth, W. A., Doolette, D. J., & Gault, K. A. (2018). *A probabilistic model of altitude decompression sickness based on the 3RUT-MB model* (NEDU TR 18-01; DTIC AD1101527). U.S. Navy Experimental Diving Unit.
+
+Kannan, N., Raychaudhuri, A., & Pilmanis, A. A. (1998). A loglogistic model for altitude decompression sickness. *Aviation, Space, and Environmental Medicine, 69*(10), 965–970.
+
+Pilmanis, A. A., Petropoulos, L. J., Kannan, N., & Webb, J. T. (2004). Decompression sickness risk model: Development and validation by 150 prospective hypobaric exposures. *Aviation, Space, and Environmental Medicine, 75*(9), 749–759.
+
+Romano, Y., Patterson, E., & Candès, E. (2019). Conformalized quantile regression. In *Advances in Neural Information Processing Systems 32 (NeurIPS 2019)* (pp. 3543–3553). Curran Associates.
+
+Van Calster, B., McLernon, D. J., van Smeden, M., Wynants, L., & Steyerberg, E. W. (2019). Calibration: The Achilles heel of predictive analytics. *BMC Medicine, 17*, 230. https://doi.org/10.1186/s12916-019-1466-7
+
+Webb, J. T., Krock, L. P., & Gernhardt, M. L. (2010). Oxygen consumption at altitude as a risk factor for altitude decompression sickness. *Aviation, Space, and Environmental Medicine, 81*(11), 987–992.
 
 ---
 

@@ -343,8 +343,8 @@ export default function App(): React.ReactElement {
                 step-by-step reproduction
               </li>
               <li>
-                <code className="text-num text-[11px] text-foreground">docs/papers/</code> —
-                AMHP / CMPB submission package
+                <code className="text-num text-[11px] text-foreground">docs/scientific-background.md</code> —
+                model provenance and references
               </li>
             </ul>
           </div>

@@ -326,6 +326,7 @@ export function Mechanistic3RUT(): React.ReactElement {
                         value={result.finalPDcsPercent}
                         title="Final risk · ADRAC anchor"
                         height={220}
+                        max={40}
                       />
                     </div>
                   </div>

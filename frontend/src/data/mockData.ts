@@ -46,7 +46,7 @@ export const modelValidityCards: Record<string, ModelValidity> = {
     notesMd: `- **Model family**: log-logistic accelerated-failure-time survival model from Kannan & Pilmanis (1998), fitted to the cleaned ADRAC grid (15,908 rows after \`tinydcs.data_clean.clean_dcs_risk_db\`).
 - **What this is**: the *real* closed-form ADRAC baseline. It is NOT the LightGBM/ONNX surrogate (95 KB ONNX, 2.4 µs/row) advertised in the repo README — that one runs server-side; the browser build uses the ADRAC functional form so it runs everywhere.
 - **Validity envelope**: altitude 18,000 – 40,000 ft, prebreathe 0 – 180 min, time-at-altitude 10 – 240 min, exercise ∈ {Rest, Mild, Heavy}.
-- **Honest disclosures**: predictions outside this envelope are extrapolations. Risk values are upper-bounded at 100 %; below ≈1 % the closed form saturates and should not be over-interpreted.`,
+- **Limitations**: predictions outside this envelope are extrapolations. Risk values are upper-bounded at 100 %; below ≈1 % the closed form saturates and should not be over-interpreted.`,
     metrics: [
       { key: "MAE (pp)", value: ADRAC_VAL.metrics.mae.toFixed(3) },
       { key: "RMSE (pp)", value: ADRAC_VAL.metrics.rmse.toFixed(3) },
@@ -91,7 +91,6 @@ export const citations: Citation[] = [
     authors: "Pilmanis AA, Petropoulos L, Kannan N, Webb JT",
     title:
       "Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures",
-    journal: "Aviation, Space, and Environmental Medicine",
     year: 2004,
     type: "article",
   },
@@ -99,7 +98,6 @@ export const citations: Citation[] = [
     id: "kannan1998",
     authors: "Kannan N, Raychaudhuri A, Pilmanis AA",
     title: "A loglogistic model for altitude decompression sickness",
-    journal: "Aviation, Space, and Environmental Medicine",
     year: 1998,
     type: "article",
   },
@@ -108,7 +106,6 @@ export const citations: Citation[] = [
     authors: "Conkin J",
     title:
       "Likelihood and Severity of Decompression Sickness with Exercise During EVA",
-    journal: "NASA Technical Memorandum",
     year: 2004,
     type: "report",
     doi: "NASA/TM-2004-213093",
@@ -118,7 +115,6 @@ export const citations: Citation[] = [
     authors: "Gerth WA, Gault KA, Natoli MJ",
     title:
       "A Probabilistic Model of Altitude Decompression Sickness Based on the 3RUT‑MB Model of Gas Bubble Evolution in Perfused Tissue",
-    journal: "NEDU Technical Report",
     year: 2018,
     type: "report",
     doi: "NEDU TR 18-01",
@@ -127,7 +123,6 @@ export const citations: Citation[] = [
     id: "vann2011",
     authors: "Vann RD, Butler FK, Mitchell SJ, Moon RE",
     title: "Decompression illness",
-    journal: "The Lancet",
     year: 2011,
     type: "article",
     doi: "10.1016/S0140-6736(10)61085-9",

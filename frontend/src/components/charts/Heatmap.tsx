@@ -155,11 +155,13 @@ export function Heatmap({
       },
     },
     grid: {
-      left: "15%",
+      left: "12%",
       right: "15%",
       top: "15%",
-      bottom: "15%",
-      containLabel: false,
+      bottom: "12%",
+      // Let ECharts reserve room for the rotated axis labels so they
+      // don't clip against the plot edge.
+      containLabel: true,
     },
     xAxis: {
       type: "category",
@@ -174,8 +176,11 @@ export function Heatmap({
       },
       axisLabel: {
         fontSize: 9,
-        rotate: 45,
+        rotate: 30,
         color: chartTheme.textColor,
+        // Drop labels that would overlap rather than letting the bin-edge
+        // ranges collide into an unreadable smear at small widths.
+        hideOverlap: true,
       },
       splitArea: {
         show: true,

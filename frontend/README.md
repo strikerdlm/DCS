@@ -4,6 +4,10 @@ A modern, publication-quality TypeScript frontend for the Decompression Sickness
 
 ## 🚀 Quick Start
 
+This React + TypeScript dashboard is the **current / active** interface for the
+project. The Streamlit app at the repository root (`apps/streamlit/`) is
+**legacy** and superseded by this frontend.
+
 ```bash
 # Install dependencies
 npm install
@@ -94,23 +98,20 @@ frontend/
 
 ## 📚 Scientific References
 
-### Primary Sources
+The references below are formatted in APA 7th edition. Where source metadata
+(volume, issue, pages, DOI) is not available in this repository, entries are
+formatted as closely as the available information allows.
 
-1. **NEDU TR 18-01** (Gerth et al., 2018)
-   - "A Probabilistic Model of Altitude Decompression Sickness Based on the 3RUT‑MB Model"
-   - Used for Mechanistic 3RUT‑MBe1 implementation
+Conkin, J. (2004). *Likelihood and severity of decompression sickness with exercise during EVA* (NASA/TM-2004-213093). National Aeronautics and Space Administration. *(Source for the ETR logistic models, Eq. 14 and Eq. 15.)*
 
-2. **NASA/TM-2004-213093** (Conkin, 2004)
-   - "Likelihood and Severity of Decompression Sickness with Exercise During EVA"
-   - Source for ETR logistic models (Eq. 14, Eq. 15)
+Gerth, W. A., Doolette, D. J., & Gault, K. A. (2018). *A probabilistic model of altitude decompression sickness based on the 3RUT-MB model* (NEDU TR 18-01). U.S. Navy Experimental Diving Unit. *(Used for the Mechanistic 3RUT-MBe1 implementation.)*
 
-3. **ASEM Vol. 75, No. 3** (2004)
-   - "Information About Venous Gas Emboli Improves Prediction of Hypobaric Decompression Sickness"
-   - Validation methodology references
+Information about venous gas emboli improves prediction of hypobaric decompression sickness. (2004). *Aviation, Space, and Environmental Medicine, 75*(3). *(Validation-methodology reference.)*
 
-### Citation Format
+### Provenance
 
-All equations and model parameters are documented with their original sources. The validity panel for each model shows:
+All equations and model parameters are documented with their original sources.
+The validity panel for each model shows:
 - Repository source files
 - Available validation metrics
 - Known limitations

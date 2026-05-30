@@ -197,7 +197,7 @@ function ScenarioPanel({
             <div className="grid sm:grid-cols-[260px_1fr] gap-4">
               <Card variant="glass">
                 <CardContent className="p-4">
-                  <RiskGauge value={result.risk} title="P(DCS)" height={210} />
+                  <RiskGauge value={result.risk} title="P(DCS)" height={210} max={40} />
                 </CardContent>
               </Card>
 
