@@ -96,3 +96,13 @@ Thumbs.db
 .cursor/
 AGENTS.md
 .claude/
+
+# Research paper drafts and reference PDFs — kept local, not in public history
+docs/papers/
+docs/nasa_model_references/
+
+# Manuscript-source docs — maintained in the manuscripts repo (strikerdlm/manuscripts, dcs/amhp/)
+docs/methods.md
+docs/architecture.md
+docs/scientific-background.md
+docs/publication-roadmap.md
