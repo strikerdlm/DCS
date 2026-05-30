@@ -80,7 +80,11 @@ export function DoseResponseChart({
       } as SeriesOption;
     });
 
-    // Live scenario marker on the active exercise curve.
+    // Live scenario marker on the active exercise curve. Rendered as a single
+    // styled symbol on the active LINE series (showSymbol stays off elsewhere)
+    // rather than a separate scatter series: a 1-point scatter mixed with the
+    // line series tripped an internal ECharts 6 `coord` error in the progressive
+    // render path. Marking the point on the line avoids that path entirely.
     if (inRange) {
       const { riskFraction } = predictADRAC(
         base.altitude,
@@ -88,22 +92,26 @@ export function DoseResponseChart({
         base.exerciseLevel,
         base.timeAtAltitude,
       );
-      series.push({
-        name: "Current",
-        type: "scatter",
-        symbol: "circle",
-        symbolSize: 13,
-        z: 10,
-        itemStyle: {
-          color: chartTheme.primaryColor,
-          borderColor: chartTheme.tooltipBg,
-          borderWidth: 2.5,
-          shadowBlur: 10,
-          shadowColor: withAlpha(chartTheme.primaryColor, 0.5),
-        },
-        tooltip: { show: false },
-        data: [[currentX, +(riskFraction * 100).toFixed(2)]],
-      } as unknown as SeriesOption);
+      const activeIdx = EXERCISE_LEVELS.indexOf(base.exerciseLevel);
+      const active = series[activeIdx] as unknown as {
+        markPoint?: unknown;
+      };
+      if (active) {
+        active.markPoint = {
+          symbol: "circle",
+          symbolSize: 13,
+          silent: true,
+          itemStyle: {
+            color: chartTheme.primaryColor,
+            borderColor: chartTheme.tooltipBg,
+            borderWidth: 2.5,
+            shadowBlur: 10,
+            shadowColor: withAlpha(chartTheme.primaryColor, 0.5),
+          },
+          label: { show: false },
+          data: [{ coord: [currentX, +(riskFraction * 100).toFixed(2)] }],
+        };
+      }
     }
 
     return {
