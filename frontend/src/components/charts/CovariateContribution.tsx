@@ -12,8 +12,12 @@ interface CovariateContributionProps {
 /**
  * Tornado decomposition of the current ADRAC prediction on the LOG-ODDS scale.
  * Each bar is one additive term of ω; warm bars push risk up, cool bars pull it
- * down. Sorted by magnitude (largest on top). Contributions are additive on the
- * logit scale only — the running total ω maps to P(DCS) through the logistic.
+ * down. Largest-magnitude term on top. Contributions are additive on the logit
+ * scale only — the running total ω maps to P(DCS) through the logistic.
+ *
+ * Plain horizontal bar chart — no markLine / markArea / visualMap / progressive
+ * rendering, all of which can trip an internal `coord` error in ECharts 6 on a
+ * small category-axis bar series.
  */
 export function CovariateContribution({
   decomposition,
@@ -24,18 +28,15 @@ export function CovariateContribution({
     const up = colorPalettes.risk.high;
     const down = colorPalettes.scientific[0];
     const { contributions } = decomposition;
-    // Category axis with inverse:true puts the first (largest) item on top.
     const labels = contributions.map((c) => c.label);
     const data = contributions.map((c) => ({
       value: +c.value.toFixed(3),
-      itemStyle: {
-        color: c.value >= 0 ? up : down,
-        borderRadius: 3,
-      },
+      itemStyle: { color: c.value >= 0 ? up : down, borderRadius: 3 },
     }));
 
     return {
       ...base,
+      animation: false,
       grid: { left: 8, right: 56, top: 16, bottom: 48, containLabel: true },
       tooltip: {
         ...base.tooltip,
@@ -43,9 +44,9 @@ export function CovariateContribution({
         formatter: (params: unknown) => {
           const p = params as { name: string; value: number };
           const dir = p.value >= 0 ? "raises" : "lowers";
-          return `<div style="font-weight:500;margin-bottom:2px">${p.name}</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px">${dir} log-odds by <b>${p.value >= 0 ? "+" : ""}${p.value.toFixed(
-            2,
-          )}</b></div>`;
+          return `<div style="font-weight:500;margin-bottom:2px">${p.name}</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px">${dir} log-odds by <b>${
+            p.value >= 0 ? "+" : ""
+          }${p.value.toFixed(2)}</b></div>`;
         },
       },
       xAxis: {
