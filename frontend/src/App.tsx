@@ -75,7 +75,7 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       {
         id: "ml",
-        label: "ADRAC closed-form",
+        label: "ADRAC Risk Predictor",
         description: "Pilmanis 2004 log-logistic AFT",
         icon: <Brain className="h-4 w-4" />,
       },

@@ -4,4 +4,7 @@ export { TimeSeriesChart } from "./TimeSeriesChart";
 export { Heatmap } from "./Heatmap";
 export { Histogram } from "./Histogram";
 export { RiskLandscape } from "./RiskLandscape";
+export { DoseResponseChart } from "./DoseResponseChart";
+export { CovariateContribution } from "./CovariateContribution";
+export { TissueN2Chart } from "./TissueN2Chart";
 export * from "./chartConfig";

@@ -493,3 +493,189 @@ export function generateRiskLandscape({
   }
   return out;
 }
+
+// ---------------------------------------------------------------------------
+// Dose–response sweep (one input varied across its validity range, others held)
+// ---------------------------------------------------------------------------
+
+export type DoseVariable = "time" | "altitude" | "prebreathe";
+
+export interface DoseResponsePoint {
+  x: number;
+  riskPercent: number;
+}
+
+/** Validity-envelope sweep range for each dose-response variable. */
+export const DOSE_RANGE: Record<DoseVariable, [number, number]> = {
+  time: [VALIDITY_ENVELOPE.timeAtAltitudeMin[0], VALIDITY_ENVELOPE.timeAtAltitudeMin[1]],
+  altitude: [VALIDITY_ENVELOPE.altitudeFt[0], VALIDITY_ENVELOPE.altitudeFt[1]],
+  prebreathe: [VALIDITY_ENVELOPE.prebreatheMin[0], VALIDITY_ENVELOPE.prebreatheMin[1]],
+};
+
+/**
+ * Sweeps a single exposure variable across its validity range while holding the
+ * others at the supplied scenario, returning the ADRAC P(DCS) response curve for
+ * one exercise level. Pure closed-form, so a 60-point curve is essentially free.
+ */
+export function generateDoseResponse({
+  base,
+  variable,
+  exerciseLevel,
+  steps = 61,
+}: {
+  base: MLSurrogateInputs;
+  variable: DoseVariable;
+  exerciseLevel: ExerciseLevel;
+  steps?: number;
+}): DoseResponsePoint[] {
+  const [lo, hi] = DOSE_RANGE[variable];
+  const out: DoseResponsePoint[] = [];
+  for (let i = 0; i < steps; i++) {
+    const x = lo + ((hi - lo) * i) / (steps - 1);
+    const alt = variable === "altitude" ? x : base.altitude;
+    const t = variable === "time" ? x : base.timeAtAltitude;
+    const pb = variable === "prebreathe" ? x : base.prebreathingTime;
+    const { riskFraction } = predictADRAC(alt, pb, exerciseLevel, t);
+    out.push({ x, riskPercent: riskFraction * 100 });
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Covariate contribution decomposition (log-odds scale)
+// ---------------------------------------------------------------------------
+
+export interface Contribution {
+  /** Human label for the term. */
+  label: string;
+  /** Signed contribution to the log-odds (logit) ω. Positive raises risk. */
+  value: number;
+}
+
+export interface ADRACDecomposition {
+  /** Additive terms of ω, sorted by descending |value| (tornado order). */
+  contributions: Contribution[];
+  /** ω = Σ contributions (the AFT linear predictor on the logit scale). */
+  omega: number;
+  /** P(DCS) = σ(ω), as a percentage. */
+  riskPercent: number;
+}
+
+/**
+ * Exact additive decomposition of the ADRAC prediction on the LOG-ODDS scale.
+ *
+ *   ω = (ln t − β₂ − β·x) / β₁
+ *     = (ln t)/β₁  −  β₂/β₁  −  β₀·P/β₁  −  β₁ₚ·prebreathe/β₁  −  βₑₓ·1/β₁
+ *
+ * Each bracketed term is one bar. Contributions are additive on the logit
+ * scale only — the sum ω maps to probability through the logistic σ(·), so the
+ * bars do NOT add up in percentage space. This is the linear-model analogue of
+ * a SHAP decomposition; the UI labels the axis as log-odds and shows σ(ω).
+ */
+export function decomposeADRAC(inputs: MLSurrogateInputs): ADRACDecomposition {
+  const { altitude, timeAtAltitude, prebreathingTime, exerciseLevel } = inputs;
+  const pressureMmHg = altitudeFtToMmHg(altitude);
+  const mild = exerciseLevel === "Mild" ? 1 : 0;
+  const heavy = exerciseLevel === "Heavy" ? 1 : 0;
+  const logT = Math.log(Math.max(timeAtAltitude, 1e-6));
+  const invB1 = 1 / ADRAC.beta_1;
+
+  const cTime = logT * invB1;
+  const cBaseline = -ADRAC.beta_2 * invB1;
+  const cPressure = -ADRAC.beta[0] * pressureMmHg * invB1;
+  const cPrebreathe = -ADRAC.beta[1] * prebreathingTime * invB1;
+  const cExercise = -(ADRAC.beta[2] * mild + ADRAC.beta[3] * heavy) * invB1;
+
+  const contributions: Contribution[] = [
+    { label: "Time at altitude", value: cTime },
+    { label: "Baseline (intercept)", value: cBaseline },
+    { label: "Ambient pressure", value: cPressure },
+    { label: "Prebreathe", value: cPrebreathe },
+    { label: `Exercise (${exerciseLevel})`, value: cExercise },
+  ];
+
+  const omega = cTime + cBaseline + cPressure + cPrebreathe + cExercise;
+  const riskPercent = stableSigmoid(omega) * 100;
+  contributions.sort((a, b) => Math.abs(b.value) - Math.abs(a.value));
+  return { contributions, omega, riskPercent };
+}
+
+// ---------------------------------------------------------------------------
+// Tissue N₂ uptake / washout trajectory (single-compartment Conkin, τ½ = 360)
+// ---------------------------------------------------------------------------
+
+export interface TissueN2Point {
+  tMin: number;
+  /** Tissue N₂ tension (mmHg). */
+  tensionMmHg: number;
+  /** Ambient pressure at this instant (mmHg) — ground during prebreathe. */
+  ambientMmHg: number;
+  /** Supersaturation ratio = tissue tension / ambient pressure. */
+  ratio: number;
+  phase: "prebreathe" | "altitude";
+}
+
+/**
+ * Time-resolved tissue N₂ trajectory behind the `tissue_n2_ratio_360` feature.
+ *
+ * Single 360-min compartment (Conkin): the tissue denitrogenates during 100 % O₂
+ * prebreathe at ground, then on-gasses/holds at altitude. Ascent is treated as
+ * instantaneous (matching the feature definition), so the supersaturation ratio
+ * steps up the moment ambient pressure drops. The final point equals the scalar
+ * `tissueN2Ratio360` used in the feature vector.
+ */
+export function tissueN2Trajectory(
+  inputs: MLSurrogateInputs,
+  {
+    prebreatheFio2 = 1.0,
+    altitudeFio2 = 0.21,
+    halfTimeMin = 360.0,
+    steps = 140,
+  }: {
+    prebreatheFio2?: number;
+    altitudeFio2?: number;
+    halfTimeMin?: number;
+    steps?: number;
+  } = {},
+): TissueN2Point[] {
+  const { altitude, timeAtAltitude, prebreathingTime } = inputs;
+  const pAmbGround = SEA_LEVEL_MMHG;
+  const pAmbAlt = Math.max(altitudeFtToMmHg(altitude), 1e-6);
+  const tau = halfTimeMin / LN2;
+
+  const fn2Pre = 1.0 - prebreatheFio2;
+  const fn2Alt = 1.0 - altitudeFio2;
+  const startTension = Math.max(pAmbGround - P_H2O_MMHG, 0) * N2_FRACTION_AIR;
+  const pInspN2Pre = Math.max(pAmbGround - P_H2O_MMHG, 0) * fn2Pre;
+  const pInspN2Alt = Math.max(pAmbAlt - P_H2O_MMHG, 0) * fn2Alt;
+  // Tissue tension at the end of the prebreathe phase (start of altitude phase).
+  const pAfterPre =
+    pInspN2Pre - (pInspN2Pre - startTension) * Math.exp(-Math.max(prebreathingTime, 0) / tau);
+
+  const total = Math.max(prebreathingTime + timeAtAltitude, 1e-6);
+  const out: TissueN2Point[] = [];
+  for (let i = 0; i < steps; i++) {
+    const t = (total * i) / (steps - 1);
+    if (prebreathingTime > 0 && t <= prebreathingTime) {
+      const tension = pInspN2Pre - (pInspN2Pre - startTension) * Math.exp(-t / tau);
+      out.push({
+        tMin: t,
+        tensionMmHg: tension,
+        ambientMmHg: pAmbGround,
+        ratio: tension / pAmbGround,
+        phase: "prebreathe",
+      });
+    } else {
+      const ta = t - prebreathingTime;
+      const tension = pInspN2Alt - (pInspN2Alt - pAfterPre) * Math.exp(-ta / tau);
+      out.push({
+        tMin: t,
+        tensionMmHg: tension,
+        ambientMmHg: pAmbAlt,
+        ratio: tension / pAmbAlt,
+        phase: "altitude",
+      });
+    }
+  }
+  return out;
+}

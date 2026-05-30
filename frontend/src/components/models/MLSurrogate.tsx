@@ -13,6 +13,9 @@ import { Button } from "../ui/Button";
 import { MetricCard } from "../ui/MetricCard";
 import { RiskGauge } from "../charts/RiskGauge";
 import { RiskLandscape } from "../charts/RiskLandscape";
+import { DoseResponseChart } from "../charts/DoseResponseChart";
+import { CovariateContribution } from "../charts/CovariateContribution";
+import { TissueN2Chart } from "../charts/TissueN2Chart";
 import {
   Select,
   SelectContent,
@@ -21,10 +24,12 @@ import {
   SelectValue,
 } from "../ui/Select";
 import {
+  decomposeADRAC,
   generateRiskLandscape,
   predictMLSurrogate,
 } from "../../utils/models";
-import { altitudeFtToMmHg, altitudeFtToPAmbAtm } from "../../lib/utils";
+import type { DoseVariable } from "../../utils/models";
+import { altitudeFtToMmHg, altitudeFtToPAmbAtm, cn } from "../../lib/utils";
 import { defaultMLInputs, modelValidityCards } from "../../data/mockData";
 import { ValidityPanel } from "./ValidityPanel";
 import type {
@@ -32,6 +37,12 @@ import type {
   MLSurrogateInputs,
   MLSurrogatePrediction,
 } from "../../types";
+
+const DOSE_TABS: { value: DoseVariable; label: string }[] = [
+  { value: "time", label: "Time" },
+  { value: "altitude", label: "Altitude" },
+  { value: "prebreathe", label: "Prebreathe" },
+];
 
 const EXERCISE_OPTIONS: { value: ExerciseLevel; label: string; vo2: string }[] = [
   { value: "Rest", label: "Rest", vo2: "≈ 0.0 L·min⁻¹" },
@@ -45,6 +56,9 @@ export function MLSurrogate(): React.ReactElement {
     predictMLSurrogate(defaultMLInputs),
   );
   const [isCalculating, setIsCalculating] = useState(false);
+  const [doseVar, setDoseVar] = useState<DoseVariable>("time");
+
+  const decomposition = useMemo(() => decomposeADRAC(inputs), [inputs]);
 
   const handleInputChange = useCallback(
     (field: keyof MLSurrogateInputs, value: number | string) => {
@@ -87,7 +101,7 @@ export function MLSurrogate(): React.ReactElement {
         <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
           <div>
             <span className="pill-primary mb-3">
-              <Compass className="h-3 w-3" /> ADRAC closed-form
+              <Compass className="h-3 w-3" /> ADRAC Risk Predictor
             </span>
             <h2 className="display text-3xl font-bold tracking-tight mt-2">
               Altitude-DCS risk, calibrated to the published log-logistic.
@@ -290,6 +304,77 @@ export function MLSurrogate(): React.ReactElement {
               />
             </CardContent>
           </Card>
+
+          {/* Dose–response */}
+          <Card>
+            <CardHeader className="pb-2">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <CardTitle className="text-[15px]">Dose–response</CardTitle>
+                  <p className="text-[12.5px] text-muted-foreground mt-0.5">
+                    P(DCS) as one variable sweeps its validity range, the other two held at
+                    the current scenario. The three exercise levels are overlaid; the marker
+                    is the live prediction.
+                  </p>
+                </div>
+                <div className="flex gap-1.5 shrink-0">
+                  {DOSE_TABS.map((tab) => (
+                    <button
+                      key={tab.value}
+                      onClick={() => setDoseVar(tab.value)}
+                      className={cn(
+                        "px-3 py-1.5 rounded-lg text-[12.5px] font-medium border transition-colors whitespace-nowrap",
+                        doseVar === tab.value
+                          ? "bg-primary/10 text-primary border-primary/20"
+                          : "border-border/50 text-muted-foreground hover:text-foreground hover:bg-muted",
+                      )}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-2">
+              <DoseResponseChart base={inputs} variable={doseVar} height={360} />
+            </CardContent>
+          </Card>
+
+          {/* Covariate contribution + tissue N₂ */}
+          <div className="grid xl:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-[15px]">Covariate contribution</CardTitle>
+                <p className="text-[12.5px] text-muted-foreground mt-0.5">
+                  How each term builds the current prediction on the log-odds scale (warm
+                  raises risk, cool lowers it). The total ω = {decomposition.omega.toFixed(2)}{" "}
+                  maps through the logistic to P(DCS) ={" "}
+                  <span className="text-num text-foreground">
+                    {decomposition.riskPercent.toFixed(2)}%
+                  </span>
+                  .
+                </p>
+              </CardHeader>
+              <CardContent className="pt-2">
+                <CovariateContribution decomposition={decomposition} height={300} />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-[15px]">Tissue N₂ uptake &amp; washout</CardTitle>
+                <p className="text-[12.5px] text-muted-foreground mt-0.5">
+                  Single-compartment (τ½ = 360 min) supersaturation ratio over the exposure —
+                  denitrogenation during prebreathe, then supersaturation at altitude. This is
+                  the trajectory behind the{" "}
+                  <code className="text-num text-[11px]">tissue_n2_ratio_360</code> feature.
+                </p>
+              </CardHeader>
+              <CardContent className="pt-2">
+                <TissueN2Chart inputs={inputs} height={300} />
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Feature vector */}
           <Card>

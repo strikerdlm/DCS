@@ -1,0 +1,244 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e9]
+        - generic [ref=e14]:
+          - heading "TinyDCS Explorer" [level=1] [ref=e15]
+          - paragraph [ref=e16]: Altitude Decompression-Sickness Risk · Research Console
+      - generic [ref=e17]:
+        - generic [ref=e18]: ADRAC v0.6.0
+        - generic [ref=e20]: ECharts 6.x
+        - generic [ref=e22]: closed-form R² 0.864 · n 15 908
+      - generic [ref=e23]:
+        - button "Toggle theme" [ref=e24] [cursor=pointer]:
+          - img [ref=e25]
+        - link "Open repository" [ref=e27] [cursor=pointer]:
+          - /url: https://github.com/strikerdlm/DCS
+          - img [ref=e28]
+  - generic [ref=e32]:
+    - img [ref=e33]
+    - generic [ref=e35]:
+      - strong [ref=e36]: Research Use Only.
+      - text: Predictions reproduce published mechanistic models on a fixed parameter envelope. Not validated for clinical, operational or aeromedical decisions. Consult
+      - code [ref=e37]: docs/scientific-background.md
+      - text: .
+  - generic [ref=e39]:
+    - complementary [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - paragraph [ref=e45]: Understand
+            - button "Overview How TinyDCS works · 3-layer stack" [ref=e46] [cursor=pointer]:
+              - img [ref=e48]
+              - generic [ref=e51]:
+                - generic [ref=e52]: Overview
+                - generic [ref=e53]: How TinyDCS works · 3-layer stack
+            - button "Step-by-step Inference pipeline, end to end" [ref=e54] [cursor=pointer]:
+              - img [ref=e56]
+              - generic [ref=e59]:
+                - generic [ref=e60]: Step-by-step
+                - generic [ref=e61]: Inference pipeline, end to end
+            - button "Use cases Two worked, live examples" [ref=e62] [cursor=pointer]:
+              - img [ref=e64]
+              - generic [ref=e66]:
+                - generic [ref=e67]: Use cases
+                - generic [ref=e68]: Two worked, live examples
+          - generic [ref=e69]:
+            - paragraph [ref=e71]: Model Families
+            - button "ADRAC Risk Predictor Pilmanis 2004 log-logistic AFT" [ref=e72] [cursor=pointer]:
+              - img [ref=e74]
+              - generic [ref=e82]:
+                - generic [ref=e83]: ADRAC Risk Predictor
+                - generic [ref=e84]: Pilmanis 2004 log-logistic AFT
+            - button "3RUT‑MBe1 Schematic preview · NEDU TR 18-01" [ref=e85] [cursor=pointer]:
+              - img [ref=e87]
+              - generic [ref=e89]:
+                - generic [ref=e90]: 3RUT‑MBe1
+                - generic [ref=e91]: Schematic preview · NEDU TR 18-01
+            - button "NASA Conkin ETR Logistic · Eq. 14 / 15" [ref=e92] [cursor=pointer]:
+              - img [ref=e94]
+              - generic [ref=e99]:
+                - generic [ref=e100]: NASA Conkin ETR
+                - generic [ref=e101]: Logistic · Eq. 14 / 15
+            - button "Validation Closed-form vs ADRAC grid" [ref=e102] [cursor=pointer]:
+              - img [ref=e104]
+              - generic [ref=e106]:
+                - generic [ref=e107]: Validation
+                - generic [ref=e108]: Closed-form vs ADRAC grid
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: Validity envelope
+            - img [ref=e112]
+          - list [ref=e114]:
+            - listitem [ref=e115]:
+              - generic [ref=e116]: Altitude
+              - generic [ref=e117]: 18 – 40 kft
+            - listitem [ref=e118]:
+              - generic [ref=e119]: Prebreathe
+              - generic [ref=e120]: 0 – 180 min
+            - listitem [ref=e121]:
+              - generic [ref=e122]: Time at altitude
+              - generic [ref=e123]: 10 – 240 min
+            - listitem [ref=e124]:
+              - generic [ref=e125]: Exercise
+              - generic [ref=e126]: Rest / Mild / Heavy
+          - paragraph [ref=e127]: OOD detector abstains outside this envelope.
+    - main [ref=e128]:
+      - generic [ref=e130]:
+        - generic [ref=e132]:
+          - generic [ref=e133]:
+            - img [ref=e134]
+            - text: How TinyDCS works
+          - heading "An edge-deployable surrogate of the USAF ADRAC altitude-DCS risk grid." [level=2] [ref=e137]
+          - paragraph [ref=e138]:
+            - text: TinyDCS reproduces the ADRAC modelled risk surface in a 95 KB model that runs on a wearable, and wraps every prediction in a
+            - strong [ref=e139]: calibrated 95 % interval
+            - text: . Its headline contribution is
+            - strong [ref=e140]: calibration, not better prediction
+            - text: — honest uncertainty where earlier methods quietly under-covered.
+          - generic [ref=e141]:
+            - generic [ref=e142]: 3-layer architecture
+            - generic [ref=e143]: 13-feature vector
+            - generic [ref=e144]: zero-inflated conformal
+            - generic [ref=e145]: OOD abstention
+        - generic [ref=e148]:
+          - img [ref=e151]
+          - generic [ref=e155]:
+            - heading "What the accuracy numbers actually measure" [level=3] [ref=e156]
+            - paragraph [ref=e157]:
+              - text: Ground truth here is
+              - strong [ref=e158]: ADRAC's modelled output, not observed DCS
+              - text: . Every accuracy figure — MAE 0.020, R² 0.986, Brier 0.0016 — measures
+              - strong [ref=e159]: fidelity to the ADRAC grid
+              - text: ", i.e. how faithfully the surrogate reproduces that reference model. They are"
+              - emphasis [ref=e160]: not
+              - text: a claim of real-world DCS-prediction skill. The closed-form ADRAC baseline reaches MAE 0.086; the surrogate reproduces the grid ~4× more faithfully — function-approximation fidelity, not clinical superiority.
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - img [ref=e165]
+              - generic [ref=e175]: ONNX footprint
+            - paragraph [ref=e176]: 95 KB
+            - paragraph [ref=e177]: compact variant
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - img [ref=e181]
+              - generic [ref=e183]: Latency
+            - paragraph [ref=e184]: 2.44 µs
+            - paragraph [ref=e185]: /row, server-CPU p50
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - img [ref=e189]
+              - generic [ref=e193]: Fidelity to ADRAC
+            - paragraph [ref=e194]: MAE 0.020
+            - paragraph [ref=e195]: R² 0.986 · Brier 0.0016
+          - generic [ref=e196]:
+            - generic [ref=e197]:
+              - img [ref=e199]
+              - generic [ref=e202]: Interval coverage
+            - paragraph [ref=e203]: "0.960"
+            - paragraph [ref=e204]: ≥0.95 per 5 kft band
+        - generic [ref=e205]:
+          - generic [ref=e206]:
+            - heading "The 3-layer architecture" [level=3] [ref=e207]:
+              - img [ref=e208]
+              - text: The 3-layer architecture
+            - paragraph [ref=e212]: Telemetry enters on the left and leaves on the right as a point estimate, a calibrated interval, and an in/out-of-envelope verdict.
+          - generic [ref=e214]:
+            - generic [ref=e215]:
+              - generic [ref=e216]:
+                - generic [ref=e217]:
+                  - img [ref=e219]
+                  - generic [ref=e224]: "01"
+                - heading "Wearable input layer" [level=4] [ref=e225]
+                - paragraph [ref=e226]: Telemetry → 13-feature vector
+                - list [ref=e227]:
+                  - listitem [ref=e228]:
+                    - generic [ref=e230]: Altitude, time-at-altitude, prebreathe, exercise category in.
+                  - listitem [ref=e231]:
+                    - generic [ref=e233]: "Derived physiology out: ambient pressure, log-time, 360-min tissue-N₂ ratio, supersaturation, exercise dose."
+                  - listitem [ref=e234]:
+                    - generic [ref=e236]: Continuous-VO₂ channel is wired but future-facing — see note below.
+              - img [ref=e238]
+            - generic [ref=e240]:
+              - generic [ref=e241]:
+                - generic [ref=e242]:
+                  - img [ref=e244]
+                  - generic [ref=e247]: "02"
+                - heading "LightGBM logit core + OOD gate" [level=4] [ref=e248]
+                - paragraph [ref=e249]: Monotone gradient boosting · Mahalanobis envelope check
+                - list [ref=e250]:
+                  - listitem [ref=e251]:
+                    - generic [ref=e253]: Gradient-boosted trees with physiological monotonicity constraints (risk rises with altitude & time, falls with prebreathe).
+                  - listitem [ref=e254]:
+                    - generic [ref=e256]: A Mahalanobis out-of-distribution gate flags inputs that fall outside the training manifold.
+                  - listitem [ref=e257]:
+                    - generic [ref=e259]: Outside the validated envelope the model abstains rather than extrapolating.
+              - img [ref=e261]
+            - generic [ref=e264]:
+              - generic [ref=e265]:
+                - img [ref=e267]
+                - generic [ref=e273]: "03"
+              - heading "Zero-inflated conformal calibration" [level=4] [ref=e274]
+              - paragraph [ref=e275]: Two-stage split-conformal · the headline contribution
+              - list [ref=e276]:
+                - listitem [ref=e277]:
+                  - generic [ref=e279]: Turns the point logit into a point estimate + calibrated 95 % prediction interval.
+                - listitem [ref=e280]:
+                  - generic [ref=e282]: Zero-inflated two-stage design handles bands where ~40 % of targets are exactly zero.
+                - listitem [ref=e283]:
+                  - generic [ref=e285]: Closes a coverage shortfall (~0.58 → ≥0.95 in every 5 000-ft band; 0.960 overall).
+        - generic [ref=e286]:
+          - generic [ref=e287]:
+            - heading "Why calibration is the contribution" [level=3] [ref=e289]:
+              - img [ref=e290]
+              - text: Why calibration is the contribution
+            - generic [ref=e293]:
+              - paragraph [ref=e294]:
+                - text: "A point risk of \"3 %\" is only actionable if you know how much to trust it. On the ADRAC grid, the low-altitude band (18 000–23 000 ft) is dominated by near-zero risk: roughly"
+                - strong [ref=e295]: 40 % of those rows have a target of exactly zero
+                - text: . Four conformal-only methods all under-covered there, with empirical coverage as low as ~0.58 against a nominal 0.95.
+              - paragraph [ref=e296]:
+                - text: The zero-inflated two-stage split-conformal model separates the "is it zero?" decision from the "how large if positive?" decision. That single change lifts coverage to
+                - strong [ref=e297]: ≥0.95 in every 5 000-ft band
+                - text: (0.960 overall) without inflating intervals elsewhere. The intervals you see in the Use Cases tab illustrate that shape.
+          - generic [ref=e298]:
+            - 'heading "Continuous-VO₂: future-facing" [level=3] [ref=e300]':
+              - img [ref=e301]
+              - text: "Continuous-VO₂: future-facing"
+            - generic [ref=e307]:
+              - paragraph [ref=e308]:
+                - text: The input schema carries a continuous oxygen-uptake (VO₂) channel so the model is
+                - strong [ref=e309]: ready to ingest real wearable VO₂
+                - text: when that telemetry is available.
+              - paragraph [ref=e310]:
+                - text: On the current ADRAC grid those VO₂ features are
+                - strong [ref=e311]: synthetic
+                - text: — derived from the 3-level exercise category — and add no accuracy. We do not claim continuous-VO₂ improves prediction today; it is plumbing for tomorrow's sensors.
+  - contentinfo [ref=e312]:
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - heading "TinyDCS" [level=3] [ref=e315]
+        - paragraph [ref=e316]: Wearable-grade machine-learning stack for altitude decompression-sickness risk. Hybrid physics + ML, calibrated uncertainty, edge-deployable. Operationally honest.
+      - generic [ref=e317]:
+        - heading "Models in this build" [level=3] [ref=e318]
+        - list [ref=e319]:
+          - listitem [ref=e320]: · ADRAC log-logistic AFT (Pilmanis, 2004)
+          - listitem [ref=e321]: · NASA Conkin RM/NM logistic (TM-2004-213093)
+          - listitem [ref=e322]: · 3RUT-MBe1 schematic preview (NEDU TR 18-01)
+      - generic [ref=e323]:
+        - heading "Documentation" [level=3] [ref=e324]
+        - list [ref=e325]:
+          - listitem [ref=e326]:
+            - code [ref=e327]: docs/methods.md
+            - text: — TRIPOD+AI methods M1–M8
+          - listitem [ref=e328]:
+            - code [ref=e329]: docs/runbook.md
+            - text: — step-by-step reproduction
+          - listitem [ref=e330]:
+            - code [ref=e331]: docs/scientific-background.md
+            - text: — model provenance and references
+    - generic [ref=e333]:
+      - generic [ref=e334]: © 2026 TinyDCS · research artifact · MIT-adjacent license
+      - generic [ref=e335]: v0.6.0 · build 2026-05-30
