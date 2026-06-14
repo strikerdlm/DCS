@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tinydcs"
-version = "0.1.0"
-description = "Edge-deployable ML surrogate of the 3RUT-MBe1 bubble-dynamics altitude DCS model."
+version = "0.6.1"
+description = "Edge-deployable ML surrogate of the ADRAC altitude-DCS risk model with calibrated uncertainty."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Research-use-only (see README)" }
