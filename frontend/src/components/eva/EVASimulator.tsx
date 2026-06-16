@@ -90,6 +90,25 @@ const DECISION_CLASS: Record<EVADecisionImplication, string> = {
   abstain: "bg-zinc-500/12 text-zinc-700 dark:text-zinc-300 border-zinc-500/25",
 };
 
+const RISK_CELL_TONE: Record<RiskMatrixHazard["posture"], string> = {
+  green:
+    "bg-emerald-100/90 dark:bg-emerald-950/55 border-emerald-500/45 text-emerald-950 dark:text-emerald-100 shadow-[inset_0_0_0_1px_rgba(16,185,129,0.16)]",
+  yellow:
+    "bg-amber-200/95 dark:bg-amber-900/60 border-amber-500/65 text-amber-950 dark:text-amber-50 shadow-[inset_0_0_0_1px_rgba(245,158,11,0.24)]",
+  orange:
+    "bg-orange-200/95 dark:bg-orange-900/65 border-orange-500/70 text-orange-950 dark:text-orange-50 shadow-[inset_0_0_0_1px_rgba(249,115,22,0.28)]",
+  red:
+    "bg-red-200/95 dark:bg-red-950/70 border-red-500/80 text-red-950 dark:text-red-50 shadow-[inset_0_0_0_1px_rgba(239,68,68,0.34)]",
+};
+
+const LIKELIHOOD_BANDS: Record<RiskLikelihoodLevel, string> = {
+  1: "<1%",
+  2: "1-<5%",
+  3: "5-<15%",
+  4: "15-<35%",
+  5: ">=35%",
+};
+
 function updateScenario(
   scenario: EVAScenario,
   mutator: (draft: EVAScenario) => void,
@@ -115,6 +134,18 @@ function postureLabel(posture: RiskMatrixHazard["posture"]): string {
 
 function decisionLabel(decision: EVADecisionImplication): string {
   return decision.charAt(0).toUpperCase() + decision.slice(1);
+}
+
+function hazardCode(name: string): string {
+  const code = name
+    .replace("/", " ")
+    .split(" ")
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
+  return code || name.slice(0, 3).toUpperCase();
 }
 
 function PressureTimelineChart({
@@ -241,38 +272,67 @@ function WorkloadStrip({ scenario }: { scenario: EVAScenario }): React.ReactElem
     1,
     scenario.workload.reduce((sum, block) => sum + block.durationMin, 0),
   );
+  const maxVo2 = Math.max(...scenario.workload.map((block) => block.vo2MlKgMin), scenario.peakVo2MlKgMin, 1);
   return (
-    <div className="space-y-3">
-      <div className="h-14 rounded-lg overflow-hidden border border-border/70 bg-muted flex">
+    <div className="space-y-4">
+      <div className="overflow-x-auto pb-2">
+        <div className="grid min-w-[780px] gap-2" style={{ gridTemplateColumns: scenario.workload.map((block) => `${Math.max(0.7, block.durationMin / total * 7)}fr`).join(" ") }}>
         {scenario.workload.map((block, i) => {
-          const width = `${(block.durationMin / total) * 100}%`;
           const intensity = Math.min(1, block.vo2MlKgMin / Math.max(scenario.peakVo2MlKgMin, 1));
+          const share = Math.round((block.durationMin / total) * 100);
+          const barHeight = `${Math.max(18, (block.vo2MlKgMin / maxVo2) * 94)}%`;
+          const color = colorPalettes.scientific[i % colorPalettes.scientific.length];
           return (
             <div
               key={`${block.name}-${i}`}
-              className="relative min-w-[48px] border-r last:border-r-0 border-background/60"
+              className="relative h-32 rounded-lg border border-border/75 bg-card/70 px-3 py-3 overflow-hidden"
               style={{
-                width,
-                background: `linear-gradient(180deg, ${withAlpha(
-                  colorPalettes.scientific[i % colorPalettes.scientific.length],
-                  0.22 + intensity * 0.42,
-                )}, ${withAlpha(colorPalettes.scientific[i % colorPalettes.scientific.length], 0.08)})`,
+                background: `linear-gradient(180deg, ${withAlpha(color, 0.14 + intensity * 0.26)}, ${withAlpha(color, 0.06)})`,
               }}
             >
-              <div className="absolute inset-x-2 top-2">
-                <p className="text-[10px] font-semibold leading-tight truncate">{block.name}</p>
-                <p className="text-num text-[10px] text-muted-foreground">
-                  {block.durationMin}m / {block.vo2MlKgMin}
-                </p>
+              <div
+                className="absolute bottom-0 left-0 w-full opacity-80"
+                style={{
+                  height: barHeight,
+                  background: `linear-gradient(180deg, ${withAlpha(color, 0.48)}, ${withAlpha(color, 0.2)})`,
+                }}
+              />
+              <div className="relative z-10 flex h-full flex-col justify-between">
+                <div>
+                  <p className="text-[12px] font-semibold leading-tight line-clamp-2">{block.name}</p>
+                  <p className="text-num text-[11px] text-muted-foreground mt-1">
+                    {share}% of EVA
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                  <div className="rounded-md bg-background/65 border border-border/60 px-2 py-1">
+                    <p className="text-muted-foreground">Duration</p>
+                    <p className="text-num font-semibold">{block.durationMin} min</p>
+                  </div>
+                  <div className="rounded-md bg-background/65 border border-border/60 px-2 py-1">
+                    <p className="text-muted-foreground">VO2</p>
+                    <p className="text-num font-semibold">{block.vo2MlKgMin}</p>
+                  </div>
+                </div>
               </div>
             </div>
           );
         })}
+        </div>
       </div>
-      <div className="grid grid-cols-3 gap-2 text-[11px] text-muted-foreground">
-        <span>Mean {scenario.meanVo2MlKgMin.toFixed(0)} mL/kg/min</span>
-        <span className="text-center">Peak {scenario.peakVo2MlKgMin.toFixed(0)} mL/kg/min</span>
-        <span className="text-right">{scenario.evaDurationMin} min EVA</span>
+      <div className="grid grid-cols-3 gap-3 text-[12px]">
+        <div className="rounded-lg border border-border/70 bg-background/55 px-3 py-2">
+          <p className="text-muted-foreground">Mean workload</p>
+          <p className="text-num font-semibold">{scenario.meanVo2MlKgMin.toFixed(0)} mL/kg/min</p>
+        </div>
+        <div className="rounded-lg border border-border/70 bg-background/55 px-3 py-2 text-center">
+          <p className="text-muted-foreground">Peak workload</p>
+          <p className="text-num font-semibold">{scenario.peakVo2MlKgMin.toFixed(0)} mL/kg/min</p>
+        </div>
+        <div className="rounded-lg border border-border/70 bg-background/55 px-3 py-2 text-right">
+          <p className="text-muted-foreground">EVA duration</p>
+          <p className="text-num font-semibold">{scenario.evaDurationMin} min</p>
+        </div>
       </div>
     </div>
   );
@@ -290,58 +350,60 @@ function RiskMatrix({
   const rows: RiskLikelihoodLevel[] = [5, 4, 3, 2, 1];
   const cols: RiskConsequenceLevel[] = [1, 2, 3, 4, 5];
   return (
-    <div className="space-y-3">
-      <div className="grid grid-cols-[78px_repeat(5,minmax(46px,1fr))] gap-1 text-[10px]">
+    <div className="space-y-4">
+      <div className="grid grid-cols-[92px_repeat(5,minmax(58px,1fr))] gap-1.5 text-[10px]">
         <div />
         {cols.map((col) => (
-          <div key={col} className="text-center text-muted-foreground truncate">
-            {CONSEQUENCE_LABELS[col]}
+          <div key={col} className="text-center text-muted-foreground">
+            <span className="block text-num text-[11px] text-foreground">C{col}</span>
+            <span className="block truncate">{CONSEQUENCE_LABELS[col]}</span>
           </div>
         ))}
         {rows.map((row) => (
           <React.Fragment key={row}>
-            <div className="h-16 flex items-center text-muted-foreground">
-              {LIKELIHOOD_LABELS[row]}
+            <div className="h-20 flex flex-col justify-center text-muted-foreground">
+              <span className="text-num text-[11px] text-foreground">L{row}</span>
+              <span>{LIKELIHOOD_LABELS[row]}</span>
+              <span className="text-num text-[10px]">{LIKELIHOOD_BANDS[row]}</span>
             </div>
             {cols.map((col) => {
               const cellHazards = hazards.filter(
                 (hazard) => hazard.likelihood === row && hazard.consequence === col,
               );
               const score = row * col;
-              const tone =
-                score <= 4
-                  ? "bg-emerald-500/10 border-emerald-500/25"
-                  : score <= 9
-                    ? "bg-amber-500/12 border-amber-500/25"
-                    : score <= 15
-                      ? "bg-orange-500/14 border-orange-500/30"
-                      : "bg-red-500/14 border-red-500/35";
+              const cellPosture = score <= 4 ? "green" : score <= 9 ? "yellow" : score <= 15 ? "orange" : "red";
+              const label =
+                cellHazards.length > 0
+                  ? cellHazards.map((hazard) => `${hazard.name}: ${hazard.probabilityPercent.toFixed(1)}%, score ${hazard.score}`).join("; ")
+                  : `L${row} x C${col}, score ${score}`;
               return (
                 <button
                   key={`${row}-${col}`}
                   className={cn(
-                    "h-16 rounded-md border p-1.5 transition-all hover:ring-2 hover:ring-primary/30",
-                    tone,
+                    "relative h-20 rounded-md border p-2 text-left transition-all hover:ring-2 hover:ring-primary/35",
+                    RISK_CELL_TONE[cellPosture],
+                    cellHazards.length === 0 && "opacity-80",
                     cellHazards.some((h) => h.id === selectedId) && "ring-2 ring-primary/60",
                   )}
+                  aria-label={label}
                   onClick={() => cellHazards[0] && onSelect(cellHazards[0].id)}
+                  title={label}
                   type="button"
                 >
-                  <div className="h-full flex flex-wrap content-start gap-1">
+                  <span className="absolute bottom-1.5 right-2 text-num text-[10px] font-semibold opacity-65">
+                    {score}
+                  </span>
+                  <div className="h-full flex flex-wrap content-start gap-1.5 pr-4">
                     {cellHazards.map((hazard) => (
                       <span
                         key={hazard.id}
                         className={cn(
-                          "h-5 min-w-5 px-1 rounded text-[9px] font-semibold flex items-center justify-center border",
+                          "min-h-6 min-w-7 px-1.5 rounded text-[10px] font-bold flex items-center justify-center border bg-background/70 shadow-sm",
                           POSTURE_CLASS[hazard.posture],
                         )}
-                        title={hazard.name}
+                        title={`${hazard.name}: ${hazard.probabilityPercent.toFixed(1)}%, L${hazard.likelihood} x C${hazard.consequence}`}
                       >
-                        {hazard.name
-                          .split(" ")
-                          .map((part) => part[0])
-                          .join("")
-                          .slice(0, 3)}
+                        {hazardCode(hazard.name)}
                       </span>
                     ))}
                   </div>
@@ -351,8 +413,22 @@ function RiskMatrix({
           </React.Fragment>
         ))}
       </div>
-      <div className="grid grid-cols-5 gap-1 pl-[82px] text-[10px] text-muted-foreground">
+      <div className="grid grid-cols-5 gap-1 pl-[98px] text-[10px] text-muted-foreground">
         <span className="col-span-5 text-center">Consequence</span>
+      </div>
+      <div className="grid sm:grid-cols-4 gap-2 text-[11px]">
+        <div className="rounded-md border border-emerald-500/45 bg-emerald-100/80 dark:bg-emerald-950/45 px-2 py-1.5">
+          <span className="font-semibold text-emerald-800 dark:text-emerald-200">Green</span> score 1-4
+        </div>
+        <div className="rounded-md border border-amber-500/60 bg-amber-200/90 dark:bg-amber-900/55 px-2 py-1.5">
+          <span className="font-semibold text-amber-900 dark:text-amber-100">Yellow</span> score 5-9
+        </div>
+        <div className="rounded-md border border-orange-500/65 bg-orange-200/90 dark:bg-orange-900/60 px-2 py-1.5">
+          <span className="font-semibold text-orange-900 dark:text-orange-100">Orange</span> score 10-15
+        </div>
+        <div className="rounded-md border border-red-500/75 bg-red-200/90 dark:bg-red-950/65 px-2 py-1.5">
+          <span className="font-semibold text-red-900 dark:text-red-100">Red</span> score 16-25
+        </div>
       </div>
     </div>
   );
@@ -1149,18 +1225,54 @@ export function EVASimulator(): React.ReactElement {
                   onSelect={setSelectedHazardId}
                 />
                 <div className={cn("rounded-lg border p-4", POSTURE_CLASS[selectedHazard.posture])}>
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="display text-base font-semibold">{selectedHazard.name}</p>
-                      <p className="text-[12px] mt-1">{selectedHazard.driver}</p>
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="display text-base font-semibold">{selectedHazard.name}</p>
+                        <p className="text-[12px] mt-1">{selectedHazard.driver}</p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p className="text-num text-lg font-bold">
+                          {selectedHazard.probabilityPercent.toFixed(1)}%
+                        </p>
+                        <p className="text-[10px] uppercase tracking-[0.14em]">
+                          {hazardCode(selectedHazard.name)}
+                        </p>
+                      </div>
                     </div>
-                    <div className="text-right shrink-0">
-                      <p className="text-num text-lg font-bold">
-                        {selectedHazard.probabilityPercent.toFixed(1)}%
-                      </p>
-                      <p className="text-[10px] uppercase tracking-[0.14em]">
-                        score {selectedHazard.score}
-                      </p>
+                    <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-2 text-[11px]">
+                      <div className="rounded-md border border-current/20 bg-background/55 px-2.5 py-2">
+                        <p className="font-semibold">Probability</p>
+                        <p className="text-muted-foreground">Point estimate used for likelihood band.</p>
+                        <p className="text-num font-semibold mt-1">{selectedHazard.probabilityPercent.toFixed(1)}%</p>
+                      </div>
+                      <div className="rounded-md border border-current/20 bg-background/55 px-2.5 py-2">
+                        <p className="font-semibold">Likelihood</p>
+                        <p className="text-muted-foreground">L{selectedHazard.likelihood}: {LIKELIHOOD_LABELS[selectedHazard.likelihood]}.</p>
+                        <p className="text-num font-semibold mt-1">{LIKELIHOOD_BANDS[selectedHazard.likelihood]}</p>
+                      </div>
+                      <div className="rounded-md border border-current/20 bg-background/55 px-2.5 py-2">
+                        <p className="font-semibold">Consequence</p>
+                        <p className="text-muted-foreground">C{selectedHazard.consequence}: {CONSEQUENCE_LABELS[selectedHazard.consequence]} severity.</p>
+                        <p className="text-num font-semibold mt-1">{selectedHazard.consequence} / 5</p>
+                      </div>
+                      <div className="rounded-md border border-current/20 bg-background/55 px-2.5 py-2">
+                        <p className="font-semibold">LxC Score</p>
+                        <p className="text-muted-foreground">Likelihood multiplied by consequence.</p>
+                        <p className="text-num font-semibold mt-1">
+                          {selectedHazard.likelihood} x {selectedHazard.consequence} = {selectedHazard.score}
+                        </p>
+                      </div>
+                      <div className="rounded-md border border-current/20 bg-background/55 px-2.5 py-2">
+                        <p className="font-semibold">Posture</p>
+                        <p className="text-muted-foreground">Matrix color assigned from score.</p>
+                        <p className="font-semibold mt-1">{postureLabel(selectedHazard.posture)}</p>
+                      </div>
+                      <div className="rounded-md border border-current/20 bg-background/55 px-2.5 py-2">
+                        <p className="font-semibold">Driver</p>
+                        <p className="text-muted-foreground">Dominant input behind this hazard.</p>
+                        <p className="font-semibold mt-1">{selectedHazard.driver}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
