@@ -14,8 +14,6 @@
  *   recursion lives in mechanistic/rut_mbe1.py (29 KB) and is too heavy for
  *   client-side execution. The TS routine here emits ADRAC + Conkin time-
  *   sampled trajectories, badged as "schematic" in the UI.
- *
- * Research use only. Not validated for clinical or operational decisions.
  */
 
 import {

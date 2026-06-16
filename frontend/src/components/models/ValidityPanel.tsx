@@ -137,19 +137,6 @@ export function ValidityPanel({ validity }: ValidityPanelProps): React.ReactElem
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-
-        {/* Disclaimer */}
-        <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
-          <div className="flex items-start gap-2">
-            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-            <div className="text-xs text-amber-700 dark:text-amber-300">
-              <strong>Research Use Only:</strong> This model is for academic and
-              research purposes. It is not validated for clinical, operational, or
-              real-world risk decision-making. Do not use for planning flights,
-              dives, EVAs, or medical care.
-            </div>
-          </div>
-        </div>
       </CardContent>
     </Card>
   );

@@ -11,7 +11,6 @@ import {
   GitCompare,
   Link2,
   Moon,
-  Radio,
   Server,
   ShieldAlert,
   Thermometer,
@@ -1266,25 +1265,6 @@ export function EVASimulator(): React.ReactElement {
 
             <EvidencePanel scenario={scenario} />
           </div>
-
-          <Card variant="glass">
-            <CardContent className="pt-6">
-              <div className="grid md:grid-cols-3 gap-4 text-[12px] text-muted-foreground">
-                <div className="flex items-start gap-2">
-                  <Radio className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span>Commercial EVA service assumptions follow NASA xEVAS public framing.</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
-                  <span>DCS probability is Conkin-style ETR logic, not flight-certified mission software.</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Moon className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span>Lunar dust, thermal, CO2, and radiation rows are decision aids, not validated medical endpoints.</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </main>
       </div>
     </div>

@@ -122,10 +122,9 @@ export function Overview(): React.ReactElement {
                 Ground truth here is <strong className="text-foreground">ADRAC's modelled output,
                 not observed DCS</strong>. Every accuracy figure — MAE 0.020, R² 0.986, Brier 0.0016
                 — measures <strong className="text-foreground">fidelity to the ADRAC grid</strong>,
-                i.e. how faithfully the surrogate reproduces that reference model. They are{" "}
-                <em>not</em> a claim of real-world DCS-prediction skill. The closed-form ADRAC
-                baseline reaches MAE 0.086; the surrogate reproduces the grid ~4× more faithfully —
-                function-approximation fidelity, not clinical superiority.
+                i.e. how faithfully the surrogate reproduces that reference model. The closed-form
+                ADRAC baseline reaches MAE 0.086; the surrogate reproduces the grid ~4× more
+                faithfully as a function-approximation benchmark.
               </p>
             </div>
           </div>

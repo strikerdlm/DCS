@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  AlertTriangle,
   BarChart3,
   Beaker,
   Brain,
@@ -203,18 +202,6 @@ export default function App(): React.ReactElement {
           </div>
         </div>
       </header>
-
-      {/* Research-use disclosure */}
-      <div className="border-b border-amber-500/30 bg-amber-50/70 dark:bg-amber-950/20">
-        <div className="max-w-[1480px] mx-auto px-6 lg:px-8 py-2.5 flex items-start gap-3 text-[12px]">
-          <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-          <div className="text-amber-800 dark:text-amber-200">
-            <strong>Research Use Only.</strong> Predictions reproduce published mechanistic
-            models on a fixed parameter envelope. Not validated for clinical, operational
-            or aeromedical decisions. Consult <code className="text-num text-[11px] px-1.5 py-0.5 rounded bg-amber-500/10">docs/scientific-background.md</code>.
-          </div>
-        </div>
-      </div>
 
       {/* Main shell with rail */}
       <div className="flex-1">

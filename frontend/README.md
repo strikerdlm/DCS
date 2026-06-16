@@ -99,15 +99,6 @@ frontend/
 - NASA AxEMU and xEVAS public technical updates.
 - ESA/DLR LUNA lunar analog facility public technical material.
 
-## Safety Limits
-
-**Research use only.** This dashboard is not certified flight software, not certified EVA software, and not a clinical or operational decision authority.
-
-- Do not use it as the sole basis for planning flights, dives, EVAs, or medical care.
-- Treat out-of-envelope outputs as abstentions.
-- Treat LxC and decision labels as engineering displays, not mission rules.
-- Consult qualified operational and medical authorities for real decisions.
-
 ## Configuration
 
 Optional local environment variables:

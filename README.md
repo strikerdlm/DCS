@@ -25,7 +25,7 @@
 
 ---
 
-> **Research-only.** TinyDCS is an experimental research artifact. It is not a clinical device, not certified flight software, not certified EVA software, and must not be used as the sole basis for any aeromedical or operational decision. It is intended for model exploration, scenario planning, and engineering trade studies inside clearly stated validity envelopes.
+> **Research Use Only.** Predictions reproduce published mechanistic models on a fixed parameter envelope. Not validated for clinical, operational or aeromedical decisions. Consult `docs/scientific-background.md`.
 
 ---
 
