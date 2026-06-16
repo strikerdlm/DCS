@@ -4,9 +4,19 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 
 ## [Unreleased]
 
+### Added
+- FastAPI EVA contract at `tinydcs.api` with `/api/v1/eva/simulate`, `/api/v1/eva/report`, mission-rule, and model-metadata endpoints.
+- Python EVA scenario engine, YAML mission-rule profiles, telemetry adapters, and JSON/HTML/PDF scenario report generation.
+- Frontend API client, Python/API status indicator, mission-rule selector, telemetry replay toggle, and report export buttons.
+- EVA unit tests for scenario calculations, intervals, LxC mapping, decision implication logic, telemetry normalization, report artifacts, API contract, 3RUT guard, and replay-based HIL runtime.
+
+### Changed
+- README now documents the EVA API run path, mission-rule profiles, telemetry adapters, exportable reports, and updated space-ops roadmap status.
+- 3RUT-MBe1 absolute-risk use is explicitly gated until source-equation and benchmark-profile reconciliation passes.
+
 ### Planned
 - Cortex-M4/M0 benchmarking of the compact ONNX variants on real hardware (current numbers are CPU-measured).
-- Journal-specific reformatting at submission (AMHP house style), acknowledgements, declared COIs.
+- Export formatting, acknowledgements, and declared COIs.
 - Prospective external-validation study — Colombian CEMAE chamber cohort (Paper 3 scope; IRB/ethical-committee preparation).
 - Paper 2 Implementation B: full PyMC hierarchical posterior with simulation-based calibration (Talts et al. 2018).
 - Multimodal-fusion extension: HR/HRV/SpO₂ as state covariates modulating per-subject log λ.
@@ -15,7 +25,7 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 ## [0.6.1] — 2026-04-18 — Full manuscript PDF (Q1-publishable draft)
 
 ### Added
-- `docs/papers/paper-1-draft.pdf` — 184 KB, 12-page xelatex-compiled full manuscript PDF. Title, structured abstract box, two-author block, Methods / Results / Discussion / Conclusion / Acknowledgements / Data availability / CoI / References, all 5 figures embedded inline via raw-LaTeX `\includegraphics` blocks, booktabs tables, TeX Gyre Termes serif, AMHP running header.
+- `docs/papers/paper-1-draft.pdf` — 184 KB, 12-page xelatex-compiled full manuscript PDF. Title, structured abstract box, two-author block, Methods / Results / Discussion / Conclusion / Acknowledgements / Data availability / CoI / References, all 5 figures embedded inline via raw-LaTeX `\includegraphics` blocks, booktabs tables, and TeX Gyre Termes serif.
 
 ### Changed
 - `docs/papers/paper-1-draft.md` — comprehensive staleness sweep + Q1 polish pass:
@@ -49,7 +59,7 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 ## [0.6.0] — 2026-04-18 — Manuscript figures, extended abstract PDF, runbook, validation-hardware inventory
 
 ### Added
-- `scripts/09_make_paper_figures.py` — click CLI generating five AMHP IMRAD figures as PNG + PDF at 300 DPI:
+- `scripts/09_make_paper_figures.py` — click CLI generating five figures as PNG + PDF at 300 DPI:
   - **Fig 1**: reliability diagram — predicted vs observed on test fold, TinyDCS vs closed-form baseline.
   - **Fig 2**: per-altitude-band 95% coverage comparison across all five calibration strategies.
   - **Fig 3**: ONNX size vs MAE Pareto frontier — full / medium / compact / tiny variants + baseline.
@@ -57,7 +67,7 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
   - **Fig 5**: TinyDCS architecture block diagram — wearable input / LightGBM core / conformal calibration.
   - Output: `artifacts/paper_figures/fig[1-5]_{name}.{png,pdf}`
 - `docs/papers/paper-1-abstract.md` — standalone YAML-fronted extended abstract for npj-pdf-export skill. Two authors: Diego Malpica MD and Marian Farfán MD, Subdirectorate of Aerospace Sciences, Direction of Aerospace Medicine, Colombian Aerospace Force.
-- `docs/papers/paper-1-abstract.pdf` — xelatex-compiled 3-page PDF (48 KB, TeX Gyre Termes/Heros, navy abstract box, AMHP journal line).
+- `docs/papers/paper-1-abstract.pdf` — xelatex-compiled 3-page PDF (48 KB, TeX Gyre Termes/Heros, navy abstract box).
 - `docs/runbook.md` — command-by-command reproduction guide from clean checkout: setup → cleaning → training → compact variant → ONNX export → personalization demo → parity check. Includes "if disconnected" block and benign-warnings section.
 - `docs/validation-hardware.md` — honest device inventory with advisor caveats: XIAO Sense 3 assessment (hub, no baro), Polar H10 (motion-artefact 5–15%), Garmin Vivosmart 5 (SpO₂ not altitude-validated). Minimum Phase-1 instrumentation list, Colombian CEMAE regulatory note, RTX 5070 training-hardware reality check.
 - `docs/methods.md §M7` — 10-item Appendix-C equation-by-equation audit checklist against NEDU TR 18-01 (Gerth 2018): ambient pressure, tissue N₂ half-times, supersaturation recursion, bubble number density unit-error diagnosis, bubble radius parameters, integrated hazard dimensional check.
@@ -74,7 +84,7 @@ In the npj-pdf-export pandoc pipeline, YAML frontmatter values are treated diffe
 
 ### Added
 - `AGENTS.md` — continuation guide for future AI agents (landed in v0.4.1 but first full session log entry is in this release).
-- `docs/papers/paper-2-scope.md` — scoping note for Paper 2: hierarchical Bayesian personalization. Journal targets (PLOS Comp Bio / Frontiers / AMHP), two-implementation plan (conjugate closed-form for on-device, PyMC for methodological rigor), synthetic-first validation protocol, five core contributions, 12-week timeline, ethical framing.
+- `docs/papers/paper-2-scope.md` — scoping note for hierarchical Bayesian personalization. Two-implementation plan (conjugate closed-form for on-device, PyMC for methodological rigor), synthetic-first validation protocol, five core contributions, 12-week timeline, ethical framing.
 - `tinydcs.personalization` package: conjugate Gaussian per-subject susceptibility layer on top of any `TinyDcsSurrogate`. Closed-form posterior, O(1) per new observation, ~16 bytes per subject. Includes `SubjectPosterior`, `PopulationPrior`, `PersonalizedSurrogate`, `fit_population_prior`, `generate_synthetic_cohort`.
 - `tests/test_personalization.py` (4 tests) — conjugate update convergence, synthetic cohort structure, per-subject λ recovery, personalized prediction shift.
 - `scripts/08_personalization_demo.py` — information-gain sweep at k ∈ {1, 2, 5, 10, 20} with n=100 synthetic subjects and σ_λ=1.0.

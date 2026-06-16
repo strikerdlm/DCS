@@ -69,7 +69,7 @@ Gerth et al. (NEDU TR 18-01, 2018) implement a **three-region unified tissue bub
 
 ### The published gap
 
-Webb et al. (ASEM 2010; AMHP 2016) defined the operationally correct activity metric — **highest 1-min VO₂ per 16-min window at altitude** — but ADRAC has not been refit to use it. 3RUT-MBe1 can use it but cannot run on a watch. No one has published an edge-deployable surrogate of 3RUT-MBe1 with calibrated uncertainty and OOD abstention. That is TinyDCS.
+Webb et al. (ASEM 2010; 2016) defined the operationally correct activity metric — **highest 1-min VO₂ per 16-min window at altitude** — but ADRAC has not been refit to use it. 3RUT-MBe1 can use it but cannot run on a watch. No one has published an edge-deployable surrogate of 3RUT-MBe1 with calibrated uncertainty and OOD abstention. That is TinyDCS.
 
 ---
 
@@ -289,8 +289,6 @@ Verifies that the quantized model matches the floating-point reference within a 
 
 **Title (tentative)**: *"TinyDCS: An edge-deployable surrogate of the 3RUT-MBe1 bubble-dynamics model for real-time altitude decompression-sickness risk monitoring in unpressurized aviation."*
 
-**Journal targets**: primary — *Aerospace Medicine and Human Performance* (AMHP); secondary — *Diving and Hyperbaric Medicine*, *IEEE Journal of Biomedical and Health Informatics*.
-
 **Contents**:
 1. Motivation (unpressurized GA above FL180 post-Stepanek 2024; limitations of ADRAC's categorical activity input).
 2. Methods as summarized in *Methods* above, with the full TRIPOD-AI checklist.
@@ -301,8 +299,6 @@ Verifies that the quantized model matches the floating-point reference within a 
 ### Paper 2 — Clinical validation (12–18 months, requires new data collection)
 
 **Title (tentative)**: *"Prospective evaluation of a wearable continuous DCS risk monitor during hypobaric chamber training: an external-validation study in a Latin American aerospace cohort."*
-
-**Journal targets**: primary — *npj Digital Medicine*, *AMHP*; secondary — *Frontiers in Physiology*.
 
 **Requirements**:
 - IRB protocol (CIAF / Universidad del Bosque).

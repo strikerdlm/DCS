@@ -100,10 +100,33 @@ Run it locally:
 ```bash
 cd frontend
 npm install
-npm run dev        # http://localhost:5173
+npm run dev        # dashboard only; uses browser fallback if API is offline
 npm run build      # production build in frontend/dist/
 npm run preview
 ```
+
+Run it against the Python EVA API:
+
+```bash
+uvicorn tinydcs.api:app --host 127.0.0.1 --port 8180
+cd frontend
+VITE_TINYDCS_API_URL=http://127.0.0.1:8180/api/v1 npm run dev
+```
+
+When the API is available, the EVA screen uses the Python model stack as the authoritative source. If the API is unavailable, the browser-side simulator remains active and the screen shows a fallback status.
+
+### EVA API, Mission Rules, and Reports
+
+The Python service exposes the stable space-operations contract:
+
+- `POST /api/v1/eva/simulate` - scenario, mission-rule profile, and optional telemetry in; risk trajectory, 95% interval, envelope flag, LxC, and decision implication out.
+- `POST /api/v1/eva/report` - returns exportable JSON, HTML, and PDF report artifacts for planning reviews.
+- `GET /api/v1/eva/mission-rules/{profile}` - returns operator-tunable thresholds and envelope limits.
+- `GET /api/v1/eva/model-metadata` - returns model version, supported scenario classes, and 3RUT-MBe1 reconciliation status.
+
+Mission-rule profiles live in `tinydcs/mission_rules/` and currently include `default`, `commercial_standup`, and `artemis_lunar`. Operators can tune LxC thresholds, decision thresholds, planning envelopes, uncertainty width, hazard settings, and telemetry acceptance thresholds without changing source code.
+
+Telemetry adapters are available for pressure, accelerometer-derived workload, HR/HRV, SpO2, and skin temperature. The frontend includes a telemetry replay switch for exercising the API contract before live device bridges are connected.
 
 ---
 
@@ -116,6 +139,10 @@ Core packages:
 - `mechanistic/adrac.py` - closed-form ADRAC log-logistic accelerated-failure-time model.
 - `mechanistic/conkin_nasa.py` - NASA Conkin RM/NM logistic model using Exercise Tissue Ratio.
 - `mechanistic/rut_mbe1.py` - Gerth 3RUT-MBe1 bubble-dynamics implementation; currently used only for shape studies until calibration reconciliation is complete.
+- `tinydcs/api.py` - FastAPI contract for EVA simulation, mission rules, metadata, and exportable reports.
+- `tinydcs/eva.py` - Python EVA scenario engine mirroring the frontend contract.
+- `tinydcs/eva_telemetry.py` - pressure, workload, HR/HRV, SpO2, and skin-temperature telemetry adapters.
+- `tinydcs/eva_reports.py` - JSON, HTML, and PDF EVA planning report generation.
 - `tinydcs/simulator.py` - continuous-VO2 exposure wrapper.
 - `tinydcs/features.py` - feature extraction, including pressure/workload and Conkin-style tissue-ratio features.
 - `tinydcs/surrogate.py` - LightGBM surrogate, conformal interval logic, and out-of-distribution handling.
@@ -176,7 +203,8 @@ DCS/
 │   └── src/utils/               # browser-side calculation utilities
 │
 ├── mechanistic/                 # physics-informed model implementations
-├── tinydcs/                     # surrogate-model package
+├── tinydcs/                     # surrogate-model package and EVA API
+│   └── mission_rules/           # operator-tunable EVA decision profiles
 ├── scripts/                     # reproducible training/export runners
 ├── tests/                       # Python test suite
 ├── docs/                        # technical documentation and source notes
@@ -221,12 +249,17 @@ TinyDCS is useful only when its inputs and assumptions are visible. Current limi
 | Compact ONNX export path | Done |
 | React dashboard for model exploration | Done |
 | EVA scenario simulator A/B/C | Done |
+| EVA Python API contract | Done |
+| Mission-rule configuration profiles | Done |
+| Exportable EVA planning reports | Done |
+| Telemetry adapters and replay HIL smoke test | Done |
 | 5x5 LxC and decision implication logic | Done |
 | Habitat pressure-management comparison | Done |
 | Subject-level personalization prototype | Done |
-| 3RUT-MBe1 calibration reconciliation | Open |
+| 3RUT-MBe1 absolute-risk reconciliation gate | Done |
+| 3RUT-MBe1 source-equation reconciliation | Open |
 | Prospective chamber or analog validation | Open |
-| Wearable hardware integration | Open |
+| Live wearable hardware integration | Open |
 
 ---
 
@@ -234,13 +267,11 @@ TinyDCS is useful only when its inputs and assumptions are visible. Current limi
 
 Near-term engineering priorities:
 
-1. Connect the EVA frontend to the Python model stack through a stable API contract.
-2. Add exportable scenario reports for EVA planning reviews.
-3. Add unit tests for EVA scenario calculations, interval generation, LxC mapping, and decision implication logic.
-4. Add telemetry adapters for pressure, accelerometer-derived workload, HR/HRV, SpO2, and skin temperature.
-5. Reconcile 3RUT-MBe1 against its source equations before using it for absolute risk.
-6. Add hardware-in-the-loop tests for a small wearable or tablet-class runtime.
-7. Add mission-rule configuration files so operators can tune thresholds without changing source code.
+1. Reconcile 3RUT-MBe1 against source equations and benchmark profiles before enabling absolute-risk use.
+2. Add live BLE/WebSerial bridges for pressure, IMU/workload, HR/HRV, SpO2, and skin-temperature telemetry.
+3. Expand hardware-in-the-loop testing from replay smoke tests to physical tablet and wearable runs.
+4. Add operator-authored mission-rule review fixtures for commercial EVA analog and Artemis-style mission planning.
+5. Add prospective chamber or analog validation datasets once measured telemetry and outcomes are available.
 
 ---
 

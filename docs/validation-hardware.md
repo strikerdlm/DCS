@@ -57,7 +57,7 @@ The conclusion is not that these devices are bad. It is that they were built to 
 
 ## 2. Minimum instrumentation for a Phase-1 validation cohort
 
-"Phase 1" here means: a small study (n ≈ 20–40 subjects, 3–5 altitude exposures each) sufficient to (a) demonstrate TinyDCS point-prediction parity with its synthetic benchmarks on real chamber data, and (b) satisfy a methods-paper reviewer that the input features were measured, not estimated. It is the study that would support an AMHP original-research submission.
+"Phase 1" here means: a small study (n ≈ 20–40 subjects, 3–5 altitude exposures each) sufficient to (a) demonstrate TinyDCS point-prediction parity with its synthetic benchmarks on real chamber data, and (b) show that the input features were measured, not estimated.
 
 ### 2.1 Required signals and references
 
@@ -176,8 +176,9 @@ pip install numpyro
 - **The first upgrade that matters is a baro on the XIAO (US$15) and a validated pulse oximeter on the subject (US$700).**
 - **The single highest-impact scientific upgrade is a sonographer-graded VGE time-series.** It converts the study from "self-reported symptoms vs model prediction" to "pathophysiological gold standard vs model prediction."
 - **The current server is sufficient for every task in this repo through v0.5.0.** The RTX 5070 becomes justified when the personalization cohort grows or when a Bayesian MCMC replaces the conjugate Gaussian prototype — not before.
+- **The new EVA HIL test is replay-based.** `tests/test_eva_hil_runtime.py` exercises the same tablet/wearable telemetry contract used by the API, but it does not claim physical-device validation. Live BLE/WebSerial bridges should reuse that contract and then add device-specific accuracy, dropout, latency, and clock-sync tests.
 
-Next sections of this project that depend on this document: the AMHP manuscript's Methods §"Planned validation study"; AGENTS.md §7 "Open problems" P6; and any IRB submission.
+Next sections of this project that depend on this document: validation-study planning notes, continuity notes, and any IRB preparation.
 
 ---
 

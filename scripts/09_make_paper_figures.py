@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate the manuscript figure set for the AMHP Paper 1 submission.
+"""Generate the TinyDCS figure set.
 
 Reads the artifacts produced by scripts/01, /04, /06, /08 and emits a
 self-contained figure bundle at publication resolution (PNG at 300 DPI + PDF
-for vector inclusion). Figures are AMHP-compliant (single-column ~3.3 in,
-double-column ~6.8 in, sans-serif readable at 8-point body text).
+for vector inclusion). Figures use compact single-column and double-column
+layouts with sans-serif text readable at 8-point body text.
 
 Figures produced
 ----------------
@@ -71,7 +71,7 @@ if str(_ROOT) not in sys.path:
 # ---------------------------------------------------------------- style
 
 def _apply_style() -> None:
-    """AMHP-readable style: readable at 8-point, sans-serif, tight grid."""
+    """Readable 8-point, sans-serif, tight-grid figure style."""
     plt.rcParams.update({
         "font.family": "DejaVu Sans",
         "font.size": 9,

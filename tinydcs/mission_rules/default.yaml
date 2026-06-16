@@ -1,0 +1,55 @@
+profile_id: default
+name: Default EVA planning rules
+
+lxc_probability_thresholds_percent:
+  level_2_min: 1.0
+  level_3_min: 5.0
+  level_4_min: 15.0
+  level_5_min: 35.0
+
+posture_score_max:
+  green: 4
+  yellow: 9
+  orange: 15
+
+decision_thresholds:
+  delay_lxc_score_min: 16
+  delay_risk_percent_min: 20.0
+  modify_lxc_score_min: 10
+  modify_risk_percent_min: 10.0
+  modify_integrated_risk_percent_hours_min: 30.0
+  monitor_lxc_score_min: 5
+  monitor_risk_percent_min: 1.0
+  monitor_integrated_risk_percent_hours_min: 5.0
+
+envelope:
+  suit_pressure_psia_min: 3.7
+  suit_pressure_psia_max: 8.2
+  habitat_pressure_psia_min: 5.0
+  habitat_pressure_psia_max: 14.7
+  habitat_oxygen_fraction_min: 0.20
+  habitat_oxygen_fraction_max: 0.40
+  prebreathe_oxygen_fraction_min: 0.21
+  prebreathe_oxygen_fraction_max: 1.0
+  prebreathe_min_min: 0.0
+  prebreathe_min_max: 300.0
+  eva_duration_min_min: 30.0
+  eva_duration_min_max: 540.0
+  short_prebreathe_high_pressure_min: 15.0
+  short_prebreathe_high_pressure_psia: 8.2
+
+uncertainty:
+  base_logit_half_width: 0.72
+  novel_profile_logit_add: 0.32
+  workload_logit_add: 0.22
+
+hazards:
+  dcs_base_consequence: 3
+  dcs_etr_consequence_trigger: 1.4
+  dcs_shelter_return_consequence_trigger_min: 20.0
+
+telemetry:
+  max_sample_age_sec: 120.0
+  min_confidence: 0.5
+  pressure_source: suit
+  workload_blend: 0.65

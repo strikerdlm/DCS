@@ -279,6 +279,33 @@ export interface EVAScenario {
   evidence: string[];
 }
 
+export type EVATelemetryKind =
+  | "pressure"
+  | "suit_pressure"
+  | "habitat_pressure"
+  | "accelerometer"
+  | "activity"
+  | "workload"
+  | "heart_rate"
+  | "hr"
+  | "hrv"
+  | "spo2"
+  | "skin_temperature"
+  | "skin_temp"
+  | "temperature";
+
+export interface EVATelemetrySample {
+  kind: EVATelemetryKind;
+  value?: number;
+  unit?: string;
+  source?: string;
+  confidence?: number;
+  timestampSec?: number;
+  x?: number;
+  y?: number;
+  z?: number;
+}
+
 export type RiskLikelihoodLevel = 1 | 2 | 3 | 4 | 5;
 export type RiskConsequenceLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -330,4 +357,50 @@ export interface EVASimulationResult {
   decisionRationale: string;
   timeline: EVATimelinePoint[];
   hazards: RiskMatrixHazard[];
+  telemetryStatus?: {
+    accepted: number;
+    rejected: number;
+    warnings: string[];
+    suitPressurePsia?: number | null;
+    meanVo2MlKgMin?: number | null;
+    peakVo2MlKgMin?: number | null;
+    spo2Percent?: number | null;
+    heartRateBpm?: number | null;
+    hrvRmssdMs?: number | null;
+    skinTempC?: number | null;
+  };
+}
+
+export interface EVASimulationApiResponse {
+  scenarioId: string;
+  missionRuleProfile: string;
+  generatedAt: string;
+  modelMetadata: {
+    modelVersion: string;
+    absoluteRiskSource: string;
+    researchUseOnly: boolean;
+    rutReconciliation: {
+      model: string;
+      absoluteRiskEnabled: boolean;
+      status: string;
+      reason: string;
+    };
+  };
+  missionRules: Record<string, unknown>;
+  result: EVASimulationResult;
+}
+
+export type EVAReportFormat = "json" | "html" | "pdf";
+
+export interface EVAReportArtifact {
+  filename: string;
+  mimeType: string;
+  content?: string;
+  contentBase64?: string;
+}
+
+export interface EVAReportResponse {
+  reportId: string;
+  generatedAt: string;
+  artifacts: Record<EVAReportFormat, EVAReportArtifact>;
 }

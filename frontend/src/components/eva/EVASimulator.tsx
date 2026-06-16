@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import type { EChartsOption } from "echarts";
 import {
@@ -6,11 +6,13 @@ import {
   AlertTriangle,
   BatteryCharging,
   Clock,
+  Download,
   Gauge,
   GitCompare,
   Link2,
   Moon,
   Radio,
+  Server,
   ShieldAlert,
   Thermometer,
   UserRound,
@@ -36,9 +38,20 @@ import {
   psiaToKpa,
   simulateEVA,
 } from "../../utils/eva";
+import {
+  createEVAReport,
+  downloadLocalScenarioJson,
+  downloadReportArtifact,
+  EVA_API_BASE_URL,
+  simulateEVAApi,
+} from "../../utils/evaApi";
 import type {
   EVADecisionImplication,
+  EVAReportFormat,
   EVAScenario,
+  EVASimulationApiResponse,
+  EVASimulationResult,
+  EVATelemetrySample,
   EVATimelinePoint,
   RadiationWeather,
   RiskConsequenceLevel,
@@ -504,7 +517,7 @@ function NumberTile({
 function DecisionPanel({
   result,
 }: {
-  result: ReturnType<typeof simulateEVA>;
+  result: EVASimulationResult;
 }): React.ReactElement {
   return (
     <div className={cn("rounded-xl border p-4", DECISION_CLASS[result.decision])}>
@@ -549,10 +562,94 @@ function DecisionPanel({
 
 export function EVASimulator(): React.ReactElement {
   const [scenario, setScenario] = useState<EVAScenario>(() => cloneScenario(EVA_SCENARIOS[1]));
-  const result = useMemo(() => simulateEVA(scenario), [scenario]);
+  const [missionRuleProfile, setMissionRuleProfile] = useState("artemis_lunar");
+  const [telemetryReplay, setTelemetryReplay] = useState(false);
+  const telemetrySamples = useMemo<EVATelemetrySample[]>(
+    () =>
+      telemetryReplay
+        ? [
+            {
+              kind: "pressure",
+              value: scenario.suit.pressurePsia,
+              unit: "psia",
+              source: "tablet-replay-pressure",
+              confidence: 0.96,
+            },
+            {
+              kind: "workload",
+              value: scenario.peakVo2MlKgMin,
+              unit: "vo2_ml_kg_min",
+              source: "tablet-replay-accelerometer",
+              confidence: 0.88,
+            },
+            {
+              kind: "heart_rate",
+              value: Math.round(72 + scenario.meanVo2MlKgMin * 2.1),
+              unit: "bpm",
+              source: "tablet-replay-hr",
+              confidence: 0.86,
+            },
+            {
+              kind: "hrv",
+              value: Math.max(18, 62 - scenario.meanVo2MlKgMin),
+              unit: "rmssd_ms",
+              source: "tablet-replay-hrv",
+              confidence: 0.82,
+            },
+            {
+              kind: "spo2",
+              value: scenario.crew.spo2Percent,
+              unit: "%",
+              source: "tablet-replay-spo2",
+              confidence: 0.92,
+            },
+            {
+              kind: "skin_temperature",
+              value: 33.5 + scenario.environment.sunExposure * 2,
+              unit: "c",
+              source: "tablet-replay-skin-temp",
+              confidence: 0.84,
+            },
+          ]
+        : [],
+    [scenario, telemetryReplay],
+  );
+  const localResult = useMemo(() => simulateEVA(scenario), [scenario]);
+  const [apiResponse, setApiResponse] = useState<EVASimulationApiResponse | null>(null);
+  const [apiStatus, setApiStatus] = useState<"idle" | "loading" | "online" | "fallback">("idle");
+  const [apiError, setApiError] = useState<string | null>(null);
+  const [reportFormat, setReportFormat] = useState<EVAReportFormat | null>(null);
+  const result = apiResponse?.result ?? localResult;
   const [selectedHazardId, setSelectedHazardId] = useState("dcs");
   const selectedHazard =
     result.hazards.find((hazard) => hazard.id === selectedHazardId) ?? result.hazards[0];
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const handle = window.setTimeout(() => {
+      setApiStatus("loading");
+      simulateEVAApi(scenario, {
+        missionRuleProfile,
+        telemetry: telemetrySamples,
+        signal: controller.signal,
+      })
+        .then((response) => {
+          setApiResponse(response);
+          setApiStatus("online");
+          setApiError(null);
+        })
+        .catch((error: unknown) => {
+          if (controller.signal.aborted) return;
+          setApiResponse(null);
+          setApiStatus("fallback");
+          setApiError(error instanceof Error ? error.message : "TinyDCS API unavailable");
+        });
+    }, 250);
+    return () => {
+      controller.abort();
+      window.clearTimeout(handle);
+    };
+  }, [missionRuleProfile, scenario, telemetrySamples]);
 
   const setPreset = (id: string) => {
     const preset = EVA_SCENARIOS.find((item) => item.id === id);
@@ -563,6 +660,25 @@ export function EVASimulator(): React.ReactElement {
 
   const patch = (mutator: (draft: EVAScenario) => void) => {
     setScenario((current) => updateScenario(current, mutator));
+  };
+
+  const exportReport = async (format: EVAReportFormat) => {
+    setReportFormat(format);
+    try {
+      const report = await createEVAReport(scenario, result, {
+        missionRuleProfile,
+        telemetry: telemetrySamples,
+      });
+      downloadReportArtifact(report, format);
+    } catch (error) {
+      if (format === "json") {
+        downloadLocalScenarioJson(scenario, result, missionRuleProfile);
+      } else {
+        setApiError(error instanceof Error ? error.message : "Report export requires the TinyDCS API");
+      }
+    } finally {
+      setReportFormat(null);
+    }
   };
 
   return (
@@ -582,6 +698,20 @@ export function EVASimulator(): React.ReactElement {
                 DCS LxC {postureLabel(result.lxcCategory)}
               </span>
               <span className="pill-muted">{scenario.shortName}</span>
+              <span
+                className={cn(
+                  "pill border",
+                  apiStatus === "online"
+                    ? "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 border-emerald-500/25"
+                    : apiStatus === "loading"
+                      ? "bg-sky-500/12 text-sky-700 dark:text-sky-300 border-sky-500/25"
+                      : "bg-amber-500/12 text-amber-700 dark:text-amber-300 border-amber-500/25",
+                )}
+                title={apiError ?? EVA_API_BASE_URL}
+              >
+                <Server className="h-3.5 w-3.5" />
+                {apiStatus === "online" ? "Python API" : apiStatus === "loading" ? "Syncing" : "Browser fallback"}
+              </span>
             </div>
             <div className="max-w-3xl">
               <h2 className="display text-3xl lg:text-4xl font-bold tracking-tight">
@@ -618,6 +748,39 @@ export function EVASimulator(): React.ReactElement {
                 value={`${result.integratedRiskPercentHours.toFixed(2)} %-h`}
                 detail="Area under the point-risk trajectory"
               />
+            </div>
+            <div className="flex flex-wrap items-center gap-2 mt-5">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => void exportReport("pdf")}
+                disabled={reportFormat !== null}
+              >
+                <Download className="h-4 w-4" />
+                PDF
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => void exportReport("html")}
+                disabled={reportFormat !== null}
+              >
+                <Download className="h-4 w-4" />
+                HTML
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => void exportReport("json")}
+                disabled={reportFormat !== null}
+              >
+                <Download className="h-4 w-4" />
+                JSON
+              </Button>
+              <span className="text-[11px] text-muted-foreground">
+                {apiResponse?.modelMetadata.modelVersion ?? "local browser model"}
+                {result.telemetryStatus ? ` · telemetry ${result.telemetryStatus.accepted}/${telemetrySamples.length}` : ""}
+              </span>
             </div>
           </div>
           <div className="p-5 lg:p-6 bg-background/35">
@@ -703,6 +866,21 @@ export function EVASimulator(): React.ReactElement {
                     {preset.shortName}
                   </Button>
                 ))}
+              </div>
+              <div className="space-y-1.5 border-t border-border/60 pt-4">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Mission-rule profile
+                </label>
+                <Select value={missionRuleProfile} onValueChange={setMissionRuleProfile}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="default">default</SelectItem>
+                    <SelectItem value="commercial_standup">commercial_standup</SelectItem>
+                    <SelectItem value="artemis_lunar">artemis_lunar</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </CardContent>
           </Card>
@@ -1074,6 +1252,13 @@ export function EVASimulator(): React.ReactElement {
                       patch((d) => void (d.crew.symptomFlag = checked))
                     }
                     label="Symptom flag"
+                  />
+                </div>
+                <div className="flex items-end pb-2">
+                  <Switch
+                    checked={telemetryReplay}
+                    onCheckedChange={setTelemetryReplay}
+                    label="Telemetry replay"
                   />
                 </div>
               </CardContent>
