@@ -109,6 +109,21 @@ const LIKELIHOOD_BANDS: Record<RiskLikelihoodLevel, string> = {
   5: ">=35%",
 };
 
+type PressureUnit = "psi" | "mmHg" | "inHg" | "bar" | "hPa";
+
+const PRESSURE_UNITS: PressureUnit[] = ["psi", "mmHg", "inHg", "bar", "hPa"];
+
+const PRESSURE_UNIT_META: Record<
+  PressureUnit,
+  { label: string; factorFromPsia: number; digits: number }
+> = {
+  psi: { label: "psi", factorFromPsia: 1, digits: 2 },
+  mmHg: { label: "mmHg", factorFromPsia: 760 / 14.695948775513449, digits: 0 },
+  inHg: { label: "inHg", factorFromPsia: 29.921259842519685 / 14.695948775513449, digits: 2 },
+  bar: { label: "bar", factorFromPsia: 0.06894757293168, digits: 3 },
+  hPa: { label: "hPa", factorFromPsia: 68.94757293168, digits: 0 },
+};
+
 function updateScenario(
   scenario: EVAScenario,
   mutator: (draft: EVAScenario) => void,
@@ -136,6 +151,44 @@ function decisionLabel(decision: EVADecisionImplication): string {
   return decision.charAt(0).toUpperCase() + decision.slice(1);
 }
 
+function pressureValue(psia: number, unit: PressureUnit): number {
+  return psia * PRESSURE_UNIT_META[unit].factorFromPsia;
+}
+
+function formatPressure(psia: number, unit: PressureUnit): string {
+  const meta = PRESSURE_UNIT_META[unit];
+  return `${pressureValue(psia, unit).toFixed(meta.digits)} ${meta.label}`;
+}
+
+function PressureUnitSelector({
+  value,
+  onChange,
+}: {
+  value: PressureUnit;
+  onChange: (unit: PressureUnit) => void;
+}): React.ReactElement {
+  return (
+    <div className="flex items-center gap-1 rounded-lg border border-border/70 bg-background/55 p-1">
+      {PRESSURE_UNITS.map((unit) => (
+        <button
+          key={unit}
+          type="button"
+          onClick={() => onChange(unit)}
+          className={cn(
+            "text-num rounded-md px-2.5 py-1.5 text-[11px] font-semibold transition-colors",
+            value === unit
+              ? "bg-primary text-primary-foreground shadow-sm"
+              : "text-muted-foreground hover:bg-muted hover:text-foreground",
+          )}
+          aria-pressed={value === unit}
+        >
+          {unit}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 function hazardCode(name: string): string {
   const code = name
     .replace("/", " ")
@@ -150,13 +203,16 @@ function hazardCode(name: string): string {
 
 function PressureTimelineChart({
   data,
+  pressureUnit,
 }: {
   data: EVATimelinePoint[];
+  pressureUnit: PressureUnit;
 }): React.ReactElement {
+  const pressureLabel = `Pressure (${PRESSURE_UNIT_META[pressureUnit].label})`;
   const option: EChartsOption = useMemo(
     () => ({
       ...getBaseChartOptions(),
-      grid: { left: 54, right: 48, top: 36, bottom: 46, containLabel: true },
+      grid: { left: 78, right: 72, top: 34, bottom: 48, containLabel: true },
       tooltip: {
         ...getBaseChartOptions().tooltip,
         trigger: "axis",
@@ -168,7 +224,7 @@ function PressureTimelineChart({
             `<strong>${t.toFixed(0)} min</strong>`,
             ...rows.map(
               (row) =>
-                `${row.marker}${row.seriesName}: <span class="font-mono">${formatNumber(row.value[1], 2)}</span>`,
+                `${row.marker}${row.seriesName}: <span class="font-mono">${formatNumber(row.value[1], row.seriesName.includes("P(DCS)") || row.seriesName.includes("95%") ? 2 : PRESSURE_UNIT_META[pressureUnit].digits)}</span>`,
             ),
           ].join("<br/>");
         },
@@ -187,13 +243,21 @@ function PressureTimelineChart({
       yAxis: [
         {
           type: "value",
-          name: "Pressure (psia)",
+          name: pressureLabel,
+          nameLocation: "middle",
+          nameGap: 48,
+          nameRotate: 90,
+          nameTextStyle: { color: chartTheme.textColor, fontSize: 12, fontWeight: 600 },
           axisLabel: { color: chartTheme.axisColor, fontSize: 11 },
           splitLine: { lineStyle: { color: chartTheme.gridColor, type: "dashed" } },
         },
         {
           type: "value",
           name: "P(DCS) %",
+          nameLocation: "middle",
+          nameGap: 48,
+          nameRotate: -90,
+          nameTextStyle: { color: chartTheme.textColor, fontSize: 12, fontWeight: 600 },
           axisLabel: { color: chartTheme.axisColor, fontSize: 11 },
           splitLine: { show: false },
         },
@@ -204,7 +268,7 @@ function PressureTimelineChart({
           type: "line",
           step: "end",
           symbol: "none",
-          data: data.map((p) => [p.timeMin, p.ambientPressurePsia]),
+          data: data.map((p) => [p.timeMin, pressureValue(p.ambientPressurePsia, pressureUnit)]),
           lineStyle: { width: 3, color: chartTheme.primaryColor },
           areaStyle: { color: withAlpha(chartTheme.primaryColor, 0.1) },
         },
@@ -213,7 +277,7 @@ function PressureTimelineChart({
           type: "line",
           smooth: 0.25,
           symbol: "none",
-          data: data.map((p) => [p.timeMin, p.tissueN2Psia]),
+          data: data.map((p) => [p.timeMin, pressureValue(p.tissueN2Psia, pressureUnit)]),
           lineStyle: { width: 2, color: colorPalettes.scientific[2] },
         },
         {
@@ -254,7 +318,7 @@ function PressureTimelineChart({
         },
       ],
     }),
-    [data],
+    [data, pressureLabel, pressureUnit],
   );
 
   return (
@@ -274,37 +338,57 @@ function WorkloadStrip({ scenario }: { scenario: EVAScenario }): React.ReactElem
   );
   const maxVo2 = Math.max(...scenario.workload.map((block) => block.vo2MlKgMin), scenario.peakVo2MlKgMin, 1);
   return (
-    <div className="space-y-4">
-      <div className="overflow-x-auto pb-2">
-        <div className="grid min-w-[780px] gap-2" style={{ gridTemplateColumns: scenario.workload.map((block) => `${Math.max(0.7, block.durationMin / total * 7)}fr`).join(" ") }}>
+    <div className="space-y-5">
+      <div className="space-y-3">
         {scenario.workload.map((block, i) => {
           const intensity = Math.min(1, block.vo2MlKgMin / Math.max(scenario.peakVo2MlKgMin, 1));
           const share = Math.round((block.durationMin / total) * 100);
-          const barHeight = `${Math.max(18, (block.vo2MlKgMin / maxVo2) * 94)}%`;
+          const barWidth = `${Math.max(12, (block.vo2MlKgMin / maxVo2) * 100)}%`;
           const color = colorPalettes.scientific[i % colorPalettes.scientific.length];
           return (
             <div
               key={`${block.name}-${i}`}
-              className="relative h-32 rounded-lg border border-border/75 bg-card/70 px-3 py-3 overflow-hidden"
+              className="relative overflow-hidden rounded-lg border border-border/75 bg-card/70 p-4"
               style={{
-                background: `linear-gradient(180deg, ${withAlpha(color, 0.14 + intensity * 0.26)}, ${withAlpha(color, 0.06)})`,
+                background: `linear-gradient(135deg, ${withAlpha(color, 0.12 + intensity * 0.22)}, ${withAlpha(color, 0.05)})`,
               }}
             >
               <div
-                className="absolute bottom-0 left-0 w-full opacity-80"
+                className="absolute inset-y-0 left-0 opacity-35"
                 style={{
-                  height: barHeight,
-                  background: `linear-gradient(180deg, ${withAlpha(color, 0.48)}, ${withAlpha(color, 0.2)})`,
+                  width: barWidth,
+                  background: `linear-gradient(90deg, ${withAlpha(color, 0.72)}, ${withAlpha(color, 0.08)})`,
                 }}
               />
-              <div className="relative z-10 flex h-full flex-col justify-between">
-                <div>
-                  <p className="text-[12px] font-semibold leading-tight line-clamp-2">{block.name}</p>
-                  <p className="text-num text-[11px] text-muted-foreground mt-1">
-                    {share}% of EVA
+              <div className="relative z-10 grid gap-4 lg:grid-cols-[minmax(180px,0.9fr)_minmax(260px,1.4fr)_210px] lg:items-center">
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-num flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-border/70 bg-background/70 text-[11px] font-bold">
+                      {i + 1}
+                    </span>
+                    <p className="text-[14px] font-semibold leading-snug">{block.name}</p>
+                  </div>
+                  <p className="mt-2 text-[12px] text-muted-foreground">
+                    {share}% of the planned EVA timeline
                   </p>
                 </div>
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                <div className="space-y-2">
+                  <div className="h-4 overflow-hidden rounded-full border border-border/70 bg-background/70">
+                    <div
+                      className="h-full rounded-full"
+                      style={{
+                        width: barWidth,
+                        background: `linear-gradient(90deg, ${withAlpha(color, 0.95)}, ${withAlpha(color, 0.44)})`,
+                      }}
+                    />
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-[11px] text-muted-foreground">
+                    <span>Rest</span>
+                    <span className="text-center">Working</span>
+                    <span className="text-right">Peak</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-[11px]">
                   <div className="rounded-md bg-background/65 border border-border/60 px-2 py-1">
                     <p className="text-muted-foreground">Duration</p>
                     <p className="text-num font-semibold">{block.durationMin} min</p>
@@ -313,12 +397,15 @@ function WorkloadStrip({ scenario }: { scenario: EVAScenario }): React.ReactElem
                     <p className="text-muted-foreground">VO2</p>
                     <p className="text-num font-semibold">{block.vo2MlKgMin}</p>
                   </div>
+                  <div className="rounded-md bg-background/65 border border-border/60 px-2 py-1">
+                    <p className="text-muted-foreground">Share</p>
+                    <p className="text-num font-semibold">{share}%</p>
+                  </div>
                 </div>
               </div>
             </div>
           );
         })}
-        </div>
       </div>
       <div className="grid grid-cols-3 gap-3 text-[12px]">
         <div className="rounded-lg border border-border/70 bg-background/55 px-3 py-2">
@@ -638,6 +725,7 @@ function DecisionPanel({
 export function EVASimulator(): React.ReactElement {
   const [scenario, setScenario] = useState<EVAScenario>(() => cloneScenario(EVA_SCENARIOS[1]));
   const [missionRuleProfile, setMissionRuleProfile] = useState("artemis_lunar");
+  const [pressureUnit, setPressureUnit] = useState<PressureUnit>("psi");
   const [telemetryReplay, setTelemetryReplay] = useState(false);
   const telemetrySamples = useMemo<EVATelemetrySample[]>(
     () =>
@@ -759,72 +847,72 @@ export function EVASimulator(): React.ReactElement {
   return (
     <div className="space-y-6">
       <section className="surface-elevated overflow-hidden">
-        <div className="grid xl:grid-cols-[1.25fr_0.75fr] gap-0">
-          <div className="p-6 lg:p-7 border-b xl:border-b-0 xl:border-r border-border/70">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="pill-primary">
-                <Moon className="h-3.5 w-3.5" />
-                EVA Mission Simulator
-              </span>
-              <span className={cn("pill border", DECISION_CLASS[result.decision])}>
-                {decisionLabel(result.decision)}
-              </span>
-              <span className={cn("pill border", POSTURE_CLASS[result.lxcCategory])}>
-                DCS LxC {postureLabel(result.lxcCategory)}
-              </span>
-              <span className="pill-muted">{scenario.shortName}</span>
-              <span
-                className={cn(
-                  "pill border",
-                  apiStatus === "online"
-                    ? "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 border-emerald-500/25"
-                    : apiStatus === "loading"
-                      ? "bg-sky-500/12 text-sky-700 dark:text-sky-300 border-sky-500/25"
-                      : "bg-amber-500/12 text-amber-700 dark:text-amber-300 border-amber-500/25",
-                )}
-                title={apiError ?? EVA_API_BASE_URL}
-              >
-                <Server className="h-3.5 w-3.5" />
-                {apiStatus === "online" ? "Python API" : apiStatus === "loading" ? "Syncing" : "Browser fallback"}
-              </span>
-            </div>
-            <div className="max-w-3xl">
-              <h2 className="display text-3xl lg:text-4xl font-bold tracking-tight">
-                DCS-informed EVA risk planning
-              </h2>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                {scenario.summary}
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 2xl:grid-cols-4 gap-3 mt-6">
-              <NumberTile
-                icon={<Gauge className="h-4 w-4" />}
-                label="ETR"
-                value={result.etr.toFixed(2)}
-                detail={`${result.p1n2Psia.toFixed(2)} psia tissue N2 after prebreathe`}
-                tone={result.etr > 1.4 ? "red" : result.etr > 1.1 ? "amber" : "green"}
-              />
-              <NumberTile
-                icon={<Wind className="h-4 w-4" />}
-                label="95% CI"
-                value={`${result.intervalLowPercent.toFixed(2)}-${result.intervalHighPercent.toFixed(2)}%`}
-                detail="Final timepoint interval around DCS point estimate"
-              />
-              <NumberTile
-                icon={<BatteryCharging className="h-4 w-4" />}
-                label="Max risk"
-                value={`${result.maxRiskPercent.toFixed(2)}%`}
-                detail={`Peak point risk at T+${result.maxRiskTimeMin.toFixed(0)} min`}
-                tone={result.maxRiskPercent >= 10 ? "red" : result.maxRiskPercent >= 1 ? "amber" : "green"}
-              />
-              <NumberTile
-                icon={<Activity className="h-4 w-4" />}
-                label="Risk integral"
-                value={`${result.integratedRiskPercentHours.toFixed(2)} %-h`}
-                detail="Area under the point-risk trajectory"
-              />
-            </div>
-            <div className="flex flex-wrap items-center gap-2 mt-5">
+        <div className="p-6 lg:p-7 border-b border-border/70">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span className="pill-primary">
+              <Moon className="h-3.5 w-3.5" />
+              EVA Mission Simulator
+            </span>
+            <span className={cn("pill border", DECISION_CLASS[result.decision])}>
+              {decisionLabel(result.decision)}
+            </span>
+            <span className={cn("pill border", POSTURE_CLASS[result.lxcCategory])}>
+              DCS LxC {postureLabel(result.lxcCategory)}
+            </span>
+            <span className="pill-muted">{scenario.shortName}</span>
+            <span
+              className={cn(
+                "pill border",
+                apiStatus === "online"
+                  ? "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 border-emerald-500/25"
+                  : apiStatus === "loading"
+                    ? "bg-sky-500/12 text-sky-700 dark:text-sky-300 border-sky-500/25"
+                    : "bg-amber-500/12 text-amber-700 dark:text-amber-300 border-amber-500/25",
+              )}
+              title={apiError ?? EVA_API_BASE_URL}
+            >
+              <Server className="h-3.5 w-3.5" />
+              {apiStatus === "online" ? "Python API" : apiStatus === "loading" ? "Syncing" : "Browser fallback"}
+            </span>
+          </div>
+          <div className="max-w-5xl">
+            <h2 className="display text-3xl lg:text-4xl font-bold tracking-tight">
+              DCS-informed EVA risk planning
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+              {scenario.summary}
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 2xl:grid-cols-4 gap-3 mt-6">
+            <NumberTile
+              icon={<Gauge className="h-4 w-4" />}
+              label="ETR"
+              value={result.etr.toFixed(2)}
+              detail={`${formatPressure(result.p1n2Psia, pressureUnit)} tissue N2 after prebreathe`}
+              tone={result.etr > 1.4 ? "red" : result.etr > 1.1 ? "amber" : "green"}
+            />
+            <NumberTile
+              icon={<Wind className="h-4 w-4" />}
+              label="95% CI"
+              value={`${result.intervalLowPercent.toFixed(2)}-${result.intervalHighPercent.toFixed(2)}%`}
+              detail="Final timepoint interval around DCS point estimate"
+            />
+            <NumberTile
+              icon={<BatteryCharging className="h-4 w-4" />}
+              label="Max risk"
+              value={`${result.maxRiskPercent.toFixed(2)}%`}
+              detail={`Peak point risk at T+${result.maxRiskTimeMin.toFixed(0)} min`}
+              tone={result.maxRiskPercent >= 10 ? "red" : result.maxRiskPercent >= 1 ? "amber" : "green"}
+            />
+            <NumberTile
+              icon={<Activity className="h-4 w-4" />}
+              label="Risk integral"
+              value={`${result.integratedRiskPercentHours.toFixed(2)} %-h`}
+              detail="Area under the point-risk trajectory"
+            />
+          </div>
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2">
               <Button
                 size="sm"
                 variant="outline"
@@ -857,16 +945,19 @@ export function EVASimulator(): React.ReactElement {
                 {result.telemetryStatus ? ` · telemetry ${result.telemetryStatus.accepted}/${telemetrySamples.length}` : ""}
               </span>
             </div>
+            <PressureUnitSelector value={pressureUnit} onChange={setPressureUnit} />
           </div>
-          <div className="p-5 lg:p-6 bg-background/35">
+        </div>
+        <div className="p-5 lg:p-6 bg-background/35">
+          <div className="grid gap-5 xl:grid-cols-[320px_minmax(0,1fr)] xl:items-center">
             <RiskGauge value={result.pDcsPercent} title="Conkin-style P(DCS)" height={250} max={40} />
-            <div className="grid grid-cols-2 gap-2 mt-3 text-[11px]">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-3 text-[11px]">
               <div className="rounded-lg border border-border/70 bg-card/70 p-3">
                 <p className="text-muted-foreground">Suit pressure</p>
                 <p className="text-num font-semibold">
-                  {scenario.suit.pressurePsia.toFixed(1)} psia
+                  {formatPressure(scenario.suit.pressurePsia, pressureUnit)}
                 </p>
-                <p className="text-muted-foreground">{psiaToKpa(scenario.suit.pressurePsia).toFixed(0)} kPa</p>
+                <p className="text-muted-foreground">{psiaToKpa(scenario.suit.pressurePsia).toFixed(0)} kPa reference</p>
               </div>
               <div className="rounded-lg border border-border/70 bg-card/70 p-3">
                 <p className="text-muted-foreground">Pressure altitude</p>
@@ -881,7 +972,7 @@ export function EVASimulator(): React.ReactElement {
                   {Math.round(result.habitatInspiredO2MmHg)} mmHg
                 </p>
                 <p className="text-muted-foreground">
-                  {scenario.habitat.pressurePsia.toFixed(1)} psia /{" "}
+                  {formatPressure(scenario.habitat.pressurePsia, pressureUnit)} /{" "}
                   {Math.round(scenario.habitat.oxygenFraction * 100)}%
                 </p>
               </div>
@@ -1092,14 +1183,15 @@ export function EVASimulator(): React.ReactElement {
         <main className="space-y-6 min-w-0">
           <div className="grid 2xl:grid-cols-[minmax(0,1fr)_360px] gap-6">
             <Card>
-              <CardHeader>
+              <CardHeader className="flex-row items-center justify-between gap-3 space-y-0">
                 <CardTitle className="flex items-center gap-2">
                   <Gauge className="h-4 w-4 text-primary" />
                   Pressure and Tissue N2 Timeline
                 </CardTitle>
+                <PressureUnitSelector value={pressureUnit} onChange={setPressureUnit} />
               </CardHeader>
               <CardContent>
-                <PressureTimelineChart data={result.timeline} />
+                <PressureTimelineChart data={result.timeline} pressureUnit={pressureUnit} />
               </CardContent>
             </Card>
 

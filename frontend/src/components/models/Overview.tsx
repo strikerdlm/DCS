@@ -54,7 +54,7 @@ const LAYERS: LayerSpec[] = [
     icon: <Ruler className="h-5 w-5" />,
     tint: "hsl(var(--signal))",
     title: "Zero-inflated conformal calibration",
-    subtitle: "Two-stage split-conformal · the headline contribution",
+    subtitle: "Two-stage split-conformal · interval engine",
     points: [
       "Turns the point logit into a point estimate + calibrated 95 % prediction interval.",
       "Zero-inflated two-stage design handles bands where ~40 % of targets are exactly zero.",
@@ -83,21 +83,20 @@ export function Overview(): React.ReactElement {
             <Sparkles className="h-3 w-3" /> How TinyDCS works
           </span>
           <h2 className="display text-3xl lg:text-[2.6rem] font-bold tracking-tight leading-[1.08]">
-            An edge-deployable surrogate of the USAF{" "}
-            <span className="text-primary">ADRAC</span> altitude-DCS risk grid.
+            EVA-ready DCS risk planning for{" "}
+            <span className="text-primary">commercial and lunar space operations</span>.
           </h2>
           <p className="text-muted-foreground mt-4 text-[15px] leading-relaxed">
-            TinyDCS reproduces the ADRAC modelled risk surface in a 95 KB model that runs on a
-            wearable, and wraps every prediction in a{" "}
-            <strong className="text-foreground">calibrated 95 % interval</strong>. Its headline
-            contribution is <strong className="text-foreground">calibration, not better
-            prediction</strong> — honest uncertainty where earlier methods quietly under-covered.
+            TinyDCS now centers the EVA workflow: habitat atmosphere, prebreathe, suit pressure,
+            workload, telemetry, mission-rule thresholds, and exportable planning reports. The
+            frontend connects to a Python model API and keeps the original compact surrogate as
+            the edge-runtime path for tablet and wearable-class operations.
           </p>
           <div className="flex flex-wrap items-center gap-2 mt-5">
-            <span className="pill-accent">3-layer architecture</span>
-            <span className="pill-muted">13-feature vector</span>
-            <span className="pill-muted">zero-inflated conformal</span>
-            <span className="pill-signal">OOD abstention</span>
+            <span className="pill-accent">EVA scenario API</span>
+            <span className="pill-muted">5x5 LxC decisions</span>
+            <span className="pill-muted">mission-rule profiles</span>
+            <span className="pill-signal">telemetry adapters</span>
           </div>
         </div>
       </section>
