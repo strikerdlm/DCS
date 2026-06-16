@@ -194,3 +194,140 @@ export interface Citation {
   url?: string;
   type: "article" | "report" | "book" | "software";
 }
+
+// ============================================================================
+// Exploration EVA Scenario Simulator Types
+// ============================================================================
+
+export type EVAScenarioKind =
+  | "scenario_a_commercial_standup"
+  | "scenario_b_artemis_lunar_day"
+  | "scenario_c_habitat_pressure_decision";
+
+export type PrebreatheProtocol =
+  | "iss_four_hour"
+  | "campout"
+  | "exploration_atmosphere"
+  | "custom";
+
+export type RadiationWeather = "quiet" | "elevated" | "storm";
+export type EVADecisionImplication =
+  | "proceed"
+  | "monitor"
+  | "modify"
+  | "delay"
+  | "abort"
+  | "abstain";
+
+export interface HabitatAtmosphere {
+  pressurePsia: number;
+  oxygenFraction: number;
+  equilibrationHours: number;
+}
+
+export interface SuitProfile {
+  pressurePsia: number;
+  oxygenFraction: number;
+  variablePressure: boolean;
+  plssDurationMin: number;
+  oxygenReserveMin: number;
+  co2ScrubberMargin: number;
+  coolingMargin: number;
+  suitPort: boolean;
+}
+
+export interface EVAWorkloadBlock {
+  name: string;
+  durationMin: number;
+  vo2MlKgMin: number;
+}
+
+export interface EVAEnvironment {
+  dustLevel: number;
+  sunExposure: number;
+  commDelaySec: number;
+  radiationWeather: RadiationWeather;
+  shelterReturnMin: number;
+}
+
+export interface EVACrewState {
+  ageYears: number;
+  sex: "Male" | "Female";
+  massKg: number;
+  spo2Percent: number;
+  hydration: number;
+  symptomFlag: boolean;
+}
+
+export interface EVAScenario {
+  id: string;
+  kind: EVAScenarioKind;
+  name: string;
+  shortName: string;
+  summary: string;
+  habitat: HabitatAtmosphere;
+  prebreatheProtocol: PrebreatheProtocol;
+  prebreatheMin: number;
+  prebreatheOxygenFraction: number;
+  suit: SuitProfile;
+  evaDurationMin: number;
+  meanVo2MlKgMin: number;
+  peakVo2MlKgMin: number;
+  workload: EVAWorkloadBlock[];
+  environment: EVAEnvironment;
+  crew: EVACrewState;
+  evidence: string[];
+}
+
+export type RiskLikelihoodLevel = 1 | 2 | 3 | 4 | 5;
+export type RiskConsequenceLevel = 1 | 2 | 3 | 4 | 5;
+
+export interface RiskMatrixHazard {
+  id: string;
+  name: string;
+  probabilityPercent: number;
+  likelihood: RiskLikelihoodLevel;
+  consequence: RiskConsequenceLevel;
+  score: number;
+  posture: "green" | "yellow" | "orange" | "red";
+  driver: string;
+}
+
+export interface EVATimelinePoint {
+  timeMin: number;
+  phase: "habitat" | "prebreathe" | "eva" | "repress";
+  ambientPressurePsia: number;
+  inspiredN2Psia: number;
+  tissueN2Psia: number;
+  vo2MlKgMin: number;
+  cumulativePDcsPercent: number;
+  intervalLowPercent: number;
+  intervalHighPercent: number;
+}
+
+export interface EVASimulationResult {
+  pDcsPercent: number;
+  intervalLowPercent: number;
+  intervalHighPercent: number;
+  p1n2Psia: number;
+  etr: number;
+  tissueN2StartPsia: number;
+  tissueN2AfterPrebreathePsia: number;
+  suitInspiredO2MmHg: number;
+  habitatInspiredO2MmHg: number;
+  consumablesMarginMin: number;
+  inEnvelope: boolean;
+  abstain: boolean;
+  envelopeWarnings: string[];
+  maxRiskPercent: number;
+  maxRiskTimeMin: number;
+  integratedRiskPercentHours: number;
+  lxcLikelihood: RiskLikelihoodLevel;
+  lxcConsequence: RiskConsequenceLevel;
+  lxcScore: number;
+  lxcCategory: RiskMatrixHazard["posture"];
+  decision: EVADecisionImplication;
+  decisionRationale: string;
+  timeline: EVATimelinePoint[];
+  hazards: RiskMatrixHazard[];
+}

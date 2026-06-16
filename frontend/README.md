@@ -1,179 +1,129 @@
 # DCS Safety Dashboard - TypeScript Frontend
 
-A modern, publication-quality TypeScript frontend for the Decompression Sickness (DCS) Risk Explorer. Built with React, ECharts, and TailwindCSS for Q1 science journal-ready visualizations.
+React + TypeScript interface for TinyDCS model exploration and space-operations scenario planning. The dashboard runs standalone against bundled data and browser-side calculation utilities; no backend is required for local exploration.
 
-## 🚀 Quick Start
-
-This React + TypeScript dashboard is the **current / active** interface for the
-project. The Streamlit app at the repository root (`apps/streamlit/`) is
-**legacy** and superseded by this frontend.
+## Quick Start
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
+npm run dev        # http://localhost:5173
+npm run build      # production build in dist/
 npm run preview
 ```
 
-## 📊 Features
+## Main Capabilities
 
-### Model Families
+### EVA Mission Simulator
 
-1. **ML Surrogate (ADRAC-derived dataset)**
-   - Supervised ML regression surrogate
-   - Real-time risk prediction
-   - Interactive parameter inputs
-   - Feature vector visualization
+Mission-planning screen for DCS-informed EVA trade studies. It includes three primary scenarios:
 
-2. **Mechanistic 3RUT‑MBe1**
-   - Time-dependent bubble-evolution model
-   - Based on NEDU TR 18‑01 (Appendix C/D)
-   - Multi-panel time-series charts
-   - CSV export functionality
+1. **Scenario A: Commercial stand-up EVA analog**
+   - Short vehicle depressurization
+   - Suit oxygen
+   - Limited workload
+   - Return and repressurization
 
-3. **NASA ETR Logistic (RM/NM)**
-   - Implements published equations from NASA/TM-2004-213093
-   - NM (Eq. 14): ETR + sex covariate
-   - RM (Eq. 15): ETR + age covariate
-   - Real-time calculation with equation display
+2. **Scenario B: Artemis-relevant lunar EVA day**
+   - Prebreathe and suit-pressure controls
+   - 4-6 h lunar surface activity
+   - Changing workload blocks
+   - Dust, thermal, radiation, communications, and shelter-return controls
 
-4. **ADRAC Validation Dashboard**
-   - Predicted vs reference scatter plots
-   - Residual distribution analysis
-   - Error heatmaps by parameter region
-   - Worst-case identification table
+3. **Scenario C: Habitat pressure-management decision**
+   - Compare scheduled EVA now against delayed EVA
+   - Extended prebreathe option
+   - Altered habitat oxygen/pressure profile
+   - Risk trajectory and LxC decision category
 
-### Visualization Features
+For each scenario, the screen reports:
 
-- **Publication-Quality Charts**: ECharts configurations optimized for Q1 science journals
-- **Professional Color Palettes**: Print-compatible, colorblind-friendly schemes
-- **Interactive Exploration**: Zoom, pan, filter, and export capabilities
-- **Dark Mode Support**: Full dark/light theme support
-- **Responsive Design**: Works on desktop and tablet
+- point-risk trajectory over time;
+- 95% interval trajectory over time;
+- in-envelope or abstain flag;
+- maximum risk and time of maximum risk;
+- time-integrated risk;
+- 5x5 likelihood x consequence category;
+- decision implication: `proceed`, `monitor`, `modify`, `delay`, `abort`, or `abstain`;
+- decision alternatives for prebreathe, suit pressure, habitat atmosphere, EVA duration, and workload.
 
-## 🛠 Tech Stack
+The EVA screen also includes a multi-hazard matrix for DCS, hypoxia, CO2 retention, thermal strain, dust contamination, fatigue/injury, radiation event, and consumables margin.
 
-- **Framework**: React 18 + TypeScript
-- **Build Tool**: Vite
-- **Charts**: ECharts / echarts-for-react
-- **Styling**: TailwindCSS + custom design tokens
-- **UI Components**: Radix UI primitives
-- **Icons**: Lucide React
+### Model Explorer
 
-## 📁 Project Structure
+The dashboard also includes model-focused views:
 
-```
+- **ADRAC-derived risk predictor** - interactive exposure inputs and feature-vector display.
+- **Mechanistic 3RUT-MBe1 preview** - schematic time-series view for tissue gas and hazard-shape exploration.
+- **NASA ETR logistic model** - Conkin RM/NM equations with age/sex covariates.
+- **Validation dashboard** - closed-form ADRAC fit diagnostics, residuals, heatmaps, and worst-case cells.
+
+### Visual Analytics
+
+- ECharts-based risk gauges, heatmaps, scatter plots, timelines, histograms, and dose-response plots.
+- Shared design tokens for light and dark mode.
+- Responsive layout for desktop, tablet, and narrow mobile screens.
+- Export-ready chart rendering through ECharts toolbox controls where enabled.
+
+## Tech Stack
+
+- React + TypeScript
+- Vite
+- ECharts / echarts-for-react
+- TailwindCSS
+- Radix UI primitives
+- Lucide React icons
+
+## Project Structure
+
+```text
 frontend/
 ├── src/
 │   ├── components/
+│   │   ├── eva/             # EVA scenario simulator
 │   │   ├── charts/          # ECharts visualization components
-│   │   │   ├── RiskGauge.tsx
-│   │   │   ├── ScatterPlot.tsx
-│   │   │   ├── TimeSeriesChart.tsx
-│   │   │   ├── Heatmap.tsx
-│   │   │   ├── Histogram.tsx
-│   │   │   └── chartConfig.ts
-│   │   ├── models/          # Model-specific components
-│   │   │   ├── MLSurrogate.tsx
-│   │   │   ├── Mechanistic3RUT.tsx
-│   │   │   ├── NASALogistic.tsx
-│   │   │   ├── ValidationDashboard.tsx
-│   │   │   └── ValidityPanel.tsx
-│   │   └── ui/              # Reusable UI components
-│   ├── data/                # Mock data and constants
-│   ├── hooks/               # Custom React hooks
-│   ├── lib/                 # Utility functions
-│   ├── types/               # TypeScript type definitions
-│   └── utils/               # Model calculation utilities
+│   │   ├── models/          # model-specific views
+│   │   └── ui/              # reusable UI primitives
+│   ├── data/                # presets, validation payloads, constants
+│   ├── lib/                 # formatting and generic utilities
+│   ├── types/               # TypeScript contracts
+│   └── utils/               # model and EVA calculation utilities
 ├── public/
 └── index.html
 ```
 
-## 📚 Scientific References
+## Scientific and Technical Anchors
 
-The references below are formatted in APA 7th edition. Where source metadata
-(volume, issue, pages, DOI) is not available in this repository, entries are
-formatted as closely as the available information allows.
+- Conkin, J. (2004). *Likelihood and severity of decompression sickness with exercise during EVA* (NASA/TM-2004-213093).
+- Gerth, W. A., Doolette, D. J., & Gault, K. A. (2018). *A probabilistic model of altitude decompression sickness based on the 3RUT-MB model* (NEDU TR 18-01).
+- NASA Life Support Baseline Values and Assumptions Document.
+- NASA AxEMU and xEVAS public technical updates.
+- ESA/DLR LUNA lunar analog facility public technical material.
 
-Conkin, J. (2004). *Likelihood and severity of decompression sickness with exercise during EVA* (NASA/TM-2004-213093). National Aeronautics and Space Administration. *(Source for the ETR logistic models, Eq. 14 and Eq. 15.)*
+## Safety Limits
 
-Gerth, W. A., Doolette, D. J., & Gault, K. A. (2018). *A probabilistic model of altitude decompression sickness based on the 3RUT-MB model* (NEDU TR 18-01). U.S. Navy Experimental Diving Unit. *(Used for the Mechanistic 3RUT-MBe1 implementation.)*
+**Research use only.** This dashboard is not certified flight software, not certified EVA software, and not a clinical or operational decision authority.
 
-Information about venous gas emboli improves prediction of hypobaric decompression sickness. (2004). *Aviation, Space, and Environmental Medicine, 75*(3). *(Validation-methodology reference.)*
+- Do not use it as the sole basis for planning flights, dives, EVAs, or medical care.
+- Treat out-of-envelope outputs as abstentions.
+- Treat LxC and decision labels as engineering displays, not mission rules.
+- Consult qualified operational and medical authorities for real decisions.
 
-### Provenance
+## Configuration
 
-All equations and model parameters are documented with their original sources.
-The validity panel for each model shows:
-- Repository source files
-- Available validation metrics
-- Known limitations
-- Applicable input ranges
-
-## ⚠️ Disclaimer
-
-**Research Use Only**: This dashboard is for academic and research purposes. Models are **NOT validated** for clinical, operational, or real-world risk decision-making.
-
-- Do NOT use for planning flights, dives, EVAs, or medical care
-- Do NOT use for personal risk assessment
-- Consult qualified professionals for operational decisions
-
-## 🎨 Design Principles
-
-### For Publication-Quality Output
-
-1. **Typography**: Inter font family for clarity
-2. **Colors**: High-contrast schemes for print
-3. **Axis Labels**: Scientific notation where appropriate
-4. **Export**: High-DPI PNG export (3x pixel ratio)
-5. **Legends**: Clear, non-overlapping legends
-
-### Accessibility
-
-- WCAG 2.1 AA compliant contrast ratios
-- Keyboard navigation support
-- Screen reader-friendly structure
-- Colorblind-safe palettes available
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env.local` file for local configuration:
+Optional local environment variables:
 
 ```env
-# API endpoint for backend (optional - uses mock data by default)
 VITE_API_URL=http://localhost:8000
-
-# Enable debug mode
 VITE_DEBUG=false
 ```
 
-### Customization
+Customization points:
 
-- **Theme colors**: Edit `tailwind.config.js`
-- **Chart themes**: Edit `src/components/charts/chartConfig.ts`
-- **Model defaults**: Edit `src/data/mockData.ts`
+- Theme colors: `tailwind.config.js`
+- Chart theme: `src/components/charts/chartConfig.ts`
+- EVA scenarios: `src/data/evaScenarios.ts`
+- Model defaults and validation data: `src/data/`
 
-## 📄 License
+## License
 
-This frontend is part of the DCS research project. See the main repository LICENSE file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-Built with ❤️ for the scientific community
+This frontend is part of the TinyDCS repository. See the root `LICENSE` file for terms.

@@ -4,6 +4,7 @@ import {
   BarChart3,
   Beaker,
   Brain,
+  ClipboardCheck,
   Github,
   Home,
   ListOrdered,
@@ -14,6 +15,7 @@ import {
   Sun,
   Wind,
 } from "lucide-react";
+import { EVASimulator } from "./components/eva";
 import {
   MLSurrogate,
   Mechanistic3RUT,
@@ -29,6 +31,7 @@ type ModelTab =
   | "overview"
   | "steps"
   | "usecases"
+  | "eva"
   | "ml"
   | "mechanistic"
   | "nasa"
@@ -67,6 +70,17 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Use cases",
         description: "Two worked, live examples",
         icon: <Plane className="h-4 w-4" />,
+      },
+    ],
+  },
+  {
+    heading: "Mission Planning",
+    items: [
+      {
+        id: "eva",
+        label: "EVA Simulator",
+        description: "Habitat, suit, prebreathe, 5x5 risk",
+        icon: <ClipboardCheck className="h-4 w-4" />,
       },
     ],
   },
@@ -119,6 +133,8 @@ export default function App(): React.ReactElement {
         return <StepByStep />;
       case "usecases":
         return <UseCases />;
+      case "eva":
+        return <EVASimulator />;
       case "ml":
         return <MLSurrogate />;
       case "mechanistic":
@@ -329,6 +345,7 @@ export default function App(): React.ReactElement {
               <li>· ADRAC log-logistic AFT (Pilmanis, 2004)</li>
               <li>· NASA Conkin RM/NM logistic (TM-2004-213093)</li>
               <li>· 3RUT-MBe1 schematic preview (NEDU TR 18-01)</li>
+              <li>· EVA scenario simulator (NASA/ESA public assumptions)</li>
             </ul>
           </div>
           <div>
