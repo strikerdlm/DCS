@@ -139,7 +139,7 @@ export function RiskGauge({
             fontWeight: 700,
             offsetCenter: [0, showLabel ? "4%" : "10%"],
             color: chartTheme.textColor,
-            fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",
+            fontFamily: "Archivo, Inter, system-ui, sans-serif",
           },
           data: [{ value: clamped, name: title }],
         },

@@ -17,6 +17,23 @@
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Apply the theme class before first paint to avoid a light->dark
+         flash on dark-first load. Mirrors the App.tsx default: dark unless
+         the OS explicitly prefers light. -->
+    <script>
+      (function () {
+        try {
+          var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+          document.documentElement.classList.toggle("dark", !prefersLight);
+          // Paint the base background immediately so the stratosphere bg
+          // shows before the CSS bundle finishes loading.
+          document.documentElement.style.backgroundColor = prefersLight
+            ? "#f6f8fc"
+            : "#0a0f1a";
+        } catch (_e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

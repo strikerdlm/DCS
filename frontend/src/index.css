@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,9 +20,9 @@
     --surface-2: 220 30% 96%;
     --surface-3: 220 25% 92%;
 
-    --primary: 215 90% 38%;            /* deep ocean */
+    --primary: 219 88% 40%;            /* stratospheric indigo */
     --primary-foreground: 210 40% 99%;
-    --primary-soft: 213 95% 92%;
+    --primary-soft: 217 92% 92%;
 
     --accent: 184 70% 38%;             /* mineral teal */
     --accent-foreground: 200 50% 99%;
@@ -45,14 +45,18 @@
     --risk-low: 158 65% 38%;
     --risk-moderate: 36 95% 50%;
     --risk-high: 0 75% 52%;
-    --risk-very-high: 350 80% 45%;
+    --risk-very-high: 352 82% 44%;
 
     --grid: 220 22% 90%;
 
     --radius: 0.875rem;
 
+    /* Decorative altitude-stratification gradient for hero panels —
+       pale "thin air" at the top, denser "troposphere" at the bottom. */
+    --pressure-gradient: linear-gradient(180deg, hsl(220 35% 97%) 0%, hsl(220 25% 94%) 100%);
+
     /* Chart palette — Okabe-Ito-derived, colorblind-safe */
-    --chart-1: 213 90% 40%;            /* ocean   */
+    --chart-1: 219 88% 42%;            /* stratospheric indigo */
     --chart-2: 184 70% 38%;            /* teal    */
     --chart-3: 36 95% 50%;             /* amber   */
     --chart-4: 16 90% 55%;             /* vermillion */
@@ -74,9 +78,9 @@
     --surface-2: 222 28% 12%;
     --surface-3: 222 22% 16%;
 
-    --primary: 213 92% 60%;
+    --primary: 220 90% 62%;
     --primary-foreground: 222 50% 6%;
-    --primary-soft: 215 65% 16%;
+    --primary-soft: 220 60% 16%;
 
     --accent: 184 75% 55%;
     --accent-foreground: 200 50% 6%;
@@ -99,11 +103,15 @@
     --risk-low: 158 65% 50%;
     --risk-moderate: 36 95% 60%;
     --risk-high: 0 75% 62%;
-    --risk-very-high: 350 80% 60%;
+    --risk-very-high: 352 82% 60%;
 
     --grid: 222 22% 20%;
 
-    --chart-1: 213 92% 60%;
+    /* Near-black "stratosphere" at the top deepening to a denser navy
+       "troposphere" at the bottom — looking up through the atmosphere. */
+    --pressure-gradient: linear-gradient(180deg, hsl(222 50% 4%) 0%, hsl(222 44% 10%) 100%);
+
+    --chart-1: 220 90% 62%;
     --chart-2: 184 75% 55%;
     --chart-3: 36 95% 60%;
     --chart-4: 16 90% 65%;
@@ -121,15 +129,31 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1, "tnum" 1;
+    background-color: hsl(var(--background));
+    /* Light theme: faint pressure-isobar contour texture + the existing
+       primary/accent glows over a near-white vertical wash. */
     background-image:
-      radial-gradient(at 5% 0%, hsl(var(--primary-soft) / 0.40), transparent 50%),
-      radial-gradient(at 100% 0%, hsl(var(--accent-soft) / 0.30), transparent 50%);
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cg fill='none' stroke='%237a9bcd' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M-40 80 Q200 30 440 80 T720 80'/%3E%3Cpath d='M-40 180 Q200 130 440 180 T720 180'/%3E%3Cpath d='M-40 280 Q200 230 440 280 T720 280'/%3E%3Cpath d='M-40 380 Q200 330 440 380 T720 380'/%3E%3Cpath d='M-40 480 Q200 430 440 480 T720 480'/%3E%3Cpath d='M-40 580 Q200 530 440 580 T720 580'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(at 6% 8%, hsl(var(--primary-soft) / 0.42), transparent 55%),
+      radial-gradient(at 96% 4%, hsl(var(--accent-soft) / 0.32), transparent 55%),
+      linear-gradient(180deg, hsl(220 30% 99%) 0%, hsl(220 24% 96%) 100%);
     background-attachment: fixed;
   }
   .dark body {
+    background-color: hsl(222 48% 5%);
+    /* Dark theme hero: a faint stratospheric starfield (thin air near space) +
+       isobar contour texture + a tropopause horizon band at ~40% height +
+       indigo/teal glows + the stratosphere->troposphere vertical stratification
+       (near-black at the top, denser navy below). Looking up through the
+       atmosphere — the column the model reasons along. */
     background-image:
-      radial-gradient(at 5% 0%, hsl(var(--primary-soft) / 0.30), transparent 60%),
-      radial-gradient(at 100% 100%, hsl(var(--accent-soft) / 0.20), transparent 60%);
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='720'%3E%3Cg fill='%23cfe0ff' fill-opacity='0.45'%3E%3Ccircle cx='60' cy='40' r='0.7'/%3E%3Ccircle cx='150' cy='70' r='1'/%3E%3Ccircle cx='230' cy='20' r='0.6'/%3E%3Ccircle cx='320' cy='85' r='0.9'/%3E%3Ccircle cx='410' cy='45' r='0.7'/%3E%3Ccircle cx='500' cy='95' r='1.1'/%3E%3Ccircle cx='590' cy='30' r='0.6'/%3E%3Ccircle cx='680' cy='60' r='0.8'/%3E%3Ccircle cx='770' cy='18' r='0.7'/%3E%3Ccircle cx='860' cy='72' r='1'/%3E%3Ccircle cx='950' cy='40' r='0.6'/%3E%3Ccircle cx='1040' cy='90' r='0.9'/%3E%3Ccircle cx='1130' cy='28' r='0.7'/%3E%3Ccircle cx='1220' cy='65' r='1'/%3E%3Ccircle cx='1310' cy='22' r='0.6'/%3E%3Ccircle cx='1400' cy='80' r='0.8'/%3E%3Ccircle cx='1490' cy='48' r='0.7'/%3E%3Ccircle cx='1580' cy='95' r='1'/%3E%3Ccircle cx='100' cy='130' r='0.6'/%3E%3Ccircle cx='380' cy='140' r='0.7'/%3E%3Ccircle cx='620' cy='125' r='0.6'/%3E%3Ccircle cx='880' cy='138' r='0.8'/%3E%3Ccircle cx='1150' cy='128' r='0.7'/%3E%3Ccircle cx='1420' cy='135' r='0.6'/%3E%3C/g%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cg fill='none' stroke='%23bcd4ff' stroke-opacity='0.045' stroke-width='1'%3E%3Cpath d='M-40 80 Q200 30 440 80 T720 80'/%3E%3Cpath d='M-40 180 Q200 130 440 180 T720 180'/%3E%3Cpath d='M-40 280 Q200 230 440 280 T720 280'/%3E%3Cpath d='M-40 380 Q200 330 440 380 T720 380'/%3E%3Cpath d='M-40 480 Q200 430 440 480 T720 480'/%3E%3Cpath d='M-40 580 Q200 530 440 580 T720 580'/%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, transparent 39%, hsl(213 90% 62% / 0.07) 40.5%, transparent 42.5%),
+      radial-gradient(at 8% 14%, hsl(var(--primary-soft) / 0.24), transparent 58%),
+      radial-gradient(at 94% 8%, hsl(var(--accent-soft) / 0.16), transparent 58%),
+      linear-gradient(180deg, hsl(222 50% 4%) 0%, hsl(222 44% 10%) 100%);
+    background-attachment: fixed;
   }
   html {
     scroll-behavior: smooth;
@@ -182,13 +206,20 @@
   }
 
   .text-num {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
     font-feature-settings: "tnum" 1, "zero" 1;
   }
 
   .display {
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Archivo', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.018em;
+  }
+
+  /* Editorial serif — used sparingly on hero risk numerals and scientific
+     pull-quotes for journal-grade gravitas. */
+  .editorial {
+    font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+    font-feature-settings: "liga" 1, "calt" 1;
   }
 
   .pill {
@@ -240,6 +271,85 @@
     @apply rounded-xl border-l-2 pl-4 pr-3 py-3 bg-primary/5 border-primary text-sm;
   }
 
+  /* Typeset displayed equation — journal-grade centered math for the model
+     forms. Spectral italic for variables, upright operators, a hairline rule
+     and a faint isobar-tick gutter so it reads as part of the atmospheric
+     language rather than a code block. */
+  .equation-block {
+    @apply relative rounded-xl border border-border/60 px-5 py-4 my-4 overflow-hidden;
+    background:
+      linear-gradient(180deg, hsl(var(--surface-1) / 0.6) 0%, hsl(var(--surface-2) / 0.4) 100%);
+  }
+  .dark .equation-block {
+    background:
+      linear-gradient(180deg, hsl(var(--surface-2) / 0.5) 0%, hsl(var(--surface-3) / 0.3) 100%);
+  }
+  .equation-block::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.6), hsl(var(--accent) / 0.6));
+  }
+  .eq {
+    @apply text-center text-[15px] leading-relaxed;
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    color: hsl(var(--foreground));
+    font-feature-settings: "liga" 1, "calt" 1, "tnum" 1;
+  }
+  .eq-var {
+    font-style: italic;
+    color: hsl(var(--primary));
+  }
+  .eq-sub {
+    font-size: 0.72em;
+    vertical-align: sub;
+    font-style: italic;
+  }
+  .eq-op {
+    font-style: normal;
+    color: hsl(var(--muted-foreground));
+    padding: 0 0.18em;
+  }
+  .eq-fn {
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
+    font-size: 0.92em;
+    color: hsl(var(--foreground));
+  }
+  .eq-num {
+    @apply text-[11px] text-muted-foreground float-right text-num;
+    margin-left: 0.5rem;
+  }
+  .eq-caption {
+    @apply text-[11.5px] text-muted-foreground mt-2 text-center italic;
+    font-family: "Spectral", Georgia, serif;
+  }
+
+  /* Grain overlay — a near-invisible film grain that stops flat color blocks
+     reading as plastic. Apply as a pointer-events-none absolute layer. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+  }
+
+  /* Isobar tick rule — a thin labeled gauge gutter used by the atmosphere
+     column and frontier charts to echo the contour-line motif. */
+  .isobar-rule {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      hsl(var(--border) / 0.5) 0,
+      hsl(var(--border) / 0.5) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+  }
+
   .input-wrap {
     @apply relative;
   }
@@ -262,6 +372,30 @@
   .animate-pulse-soft {
     animation: pulse-soft 2.4s ease-in-out infinite;
   }
+  /* Staggered hero reveal — pair with .animate-in (fill-mode `both` holds
+     the initial state through the delay). One orchestrated cascade on tab
+     switch beats scattered micro-interactions. */
+  .stagger-1 { animation-delay: 0.06s; }
+  .stagger-2 { animation-delay: 0.12s; }
+  .stagger-3 { animation-delay: 0.18s; }
+  .stagger-4 { animation-delay: 0.24s; }
+  .stagger-5 { animation-delay: 0.30s; }
+
+  /* Altitude-stratification gradient for hero panels. */
+  .pressure-gradient {
+    background-image: var(--pressure-gradient);
+  }
+
+  /* Glow for the live-scenario marker on the atmospheric column. */
+  .text-glow {
+    text-shadow: 0 0 18px hsl(var(--primary) / 0.55), 0 0 4px hsl(var(--primary) / 0.4);
+  }
+  .animate-breathe {
+    animation: breathe 3.6s ease-in-out infinite;
+  }
+  .animate-drift {
+    animation: drift 9s ease-in-out infinite;
+  }
 }
 
 @keyframes fade-up {
@@ -272,6 +406,37 @@
 @keyframes pulse-soft {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.6; }
+}
+
+/* Slow breathing halo for the live-scenario marker — reads as a living
+   reading, not a static dot. Paired with prefers-reduced-motion below. */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.35); opacity: 0.15; }
+}
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-in-fast,
+  .animate-pulse-soft,
+  .animate-breathe,
+  .animate-drift {
+    animation: none !important;
+  }
+  .stagger-1,
+  .stagger-2,
+  .stagger-3,
+  .stagger-4,
+  .stagger-5 {
+    animation-delay: 0s !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 ::-webkit-scrollbar {

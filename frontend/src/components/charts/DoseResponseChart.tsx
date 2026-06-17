@@ -134,7 +134,7 @@ export function DoseResponseChart({
           const x = pts[0].value[0];
           let html = `<div style="font-weight:500;margin-bottom:4px">${axis.name} ${axis.fmt(
             x,
-          )} ${axis.unit}</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.6">`;
+          )} ${axis.unit}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6">`;
           pts.forEach((p) => {
             html += `<div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color};margin-right:6px"></span>${p.seriesName}: <b>${p.value[1].toFixed(
               2,
@@ -154,7 +154,7 @@ export function DoseResponseChart({
         axisLabel: {
           color: chartTheme.axisColor,
           fontSize: 11,
-          fontFamily: "JetBrains Mono, monospace",
+          fontFamily: "IBM Plex Mono, monospace",
           formatter: (v: number) => axis.fmt(v),
         },
       },
@@ -168,7 +168,7 @@ export function DoseResponseChart({
         axisLabel: {
           color: chartTheme.axisColor,
           fontSize: 11,
-          fontFamily: "JetBrains Mono, monospace",
+          fontFamily: "IBM Plex Mono, monospace",
         },
       },
       series,

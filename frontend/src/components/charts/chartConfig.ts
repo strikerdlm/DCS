@@ -106,6 +106,25 @@ export function withAlpha(color: string, alpha: number): string {
   return color;
 }
 
+/**
+ * Convert a modern space-separated `hsl(H S% L%)` / `hsl(H S% L% / α)` string to
+ * the classic comma-separated `hsl(H, S%, L%)` / `hsla(H, S%, L%, α)` form.
+ * ECharts' `visualMap.inRange.color` parser rejects the space-separated syntax
+ * (falling back to black with a console warning) while accepting the classic
+ * form, so any hsl color handed to a visualMap ramp should pass through here.
+ * Hex / rgb / already-classic strings pass through unchanged.
+ */
+export function classicHsl(color: string): string {
+  const m = color.match(/^hsla?\(([^)]+)\)$/);
+  if (!m) return color;
+  const parts = m[1].split("/").map((s) => s.trim());
+  const tokens = parts[0].split(/\s+/).filter(Boolean);
+  if (tokens.length < 3) return color;
+  const [h, s, l] = tokens;
+  const a = parts[1];
+  return a !== undefined ? `hsla(${h}, ${s}, ${l}, ${a})` : `hsl(${h}, ${s}, ${l})`;
+}
+
 // -----------------------------------------------------------------------
 // Public theme accessors
 // -----------------------------------------------------------------------
@@ -190,7 +209,7 @@ export function getBaseChartOptions(): Partial<EChartsOption> {
         fontSize: 14,
         fontWeight: 600,
         color: s.foreground,
-        fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",
+        fontFamily: "Archivo, Inter, system-ui, sans-serif",
       },
       subtextStyle: {
         fontSize: 11,
@@ -241,7 +260,7 @@ export function getBaseChartOptions(): Partial<EChartsOption> {
       axisLabel: {
         color: s.muted,
         fontSize: 11,
-        fontFamily: "JetBrains Mono, monospace",
+        fontFamily: "IBM Plex Mono, monospace",
       },
       splitLine: {
         lineStyle: {
@@ -267,7 +286,7 @@ export function getBaseChartOptions(): Partial<EChartsOption> {
       axisLabel: {
         color: s.muted,
         fontSize: 11,
-        fontFamily: "JetBrains Mono, monospace",
+        fontFamily: "IBM Plex Mono, monospace",
       },
       splitLine: {
         lineStyle: {

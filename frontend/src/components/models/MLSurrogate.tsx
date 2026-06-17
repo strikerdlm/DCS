@@ -14,6 +14,7 @@ import { MetricCard } from "../ui/MetricCard";
 import { RiskGauge } from "../charts/RiskGauge";
 import { RiskLandscape } from "../charts/RiskLandscape";
 import { DoseResponseChart } from "../charts/DoseResponseChart";
+import { PrebreatheFrontier } from "../charts/PrebreatheFrontier";
 import { CovariateContribution } from "../charts/CovariateContribution";
 import { TissueN2Chart } from "../charts/TissueN2Chart";
 import {
@@ -337,6 +338,22 @@ export function MLSurrogate(): React.ReactElement {
             </CardHeader>
             <CardContent className="pt-2">
               <DoseResponseChart base={inputs} variable={doseVar} height={360} />
+            </CardContent>
+          </Card>
+
+          {/* Prebreathe frontier — cost-benefit */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-[15px]">Prebreathe frontier</CardTitle>
+              <p className="text-[12.5px] text-muted-foreground mt-0.5">
+                Diminishing returns on 100 % O₂ prebreathe, holding altitude
+                ({inputs.altitude.toLocaleString()} ft), time ({inputs.timeAtAltitude} min) and
+                exercise ({inputs.exerciseLevel}) fixed. The 5 % operational gate and the marginal
+                benefit of the next 30 min frame the planning decision.
+              </p>
+            </CardHeader>
+            <CardContent className="pt-2">
+              <PrebreatheFrontier inputs={inputs} height={320} />
             </CardContent>
           </Card>
 

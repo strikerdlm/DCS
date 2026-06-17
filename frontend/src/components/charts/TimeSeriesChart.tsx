@@ -18,20 +18,20 @@ interface SubplotConfig {
   yAxisIndex: number;
 }
 
+const SUBPLOTS: SubplotConfig[] = [
+  { key: "pAmbAtm", name: "Ambient Pressure", unit: "atm", color: colorPalettes.scientific[0], yAxisIndex: 0 },
+  { key: "pDcs", name: "P(DCS)", unit: "%", color: colorPalettes.scientific[1], yAxisIndex: 1 },
+  { key: "ptN2Atm", name: "Tissue N₂", unit: "atm", color: colorPalettes.scientific[2], yAxisIndex: 2 },
+  { key: "ptO2Atm", name: "Tissue O₂", unit: "atm", color: colorPalettes.scientific[3], yAxisIndex: 3 },
+  { key: "nB", name: "Bubble Number", unit: "", color: colorPalettes.scientific[4], yAxisIndex: 4 },
+  { key: "hPerMin", name: "Hazard Rate", unit: "1/min", color: colorPalettes.scientific[5], yAxisIndex: 5 },
+];
+
 export function TimeSeriesChart({
   data,
   height = 800,
   title = "Mechanistic 3RUT-MBe1 Simulation Results",
 }: TimeSeriesChartProps): React.ReactElement {
-  const subplots: SubplotConfig[] = [
-    { key: "pAmbAtm", name: "Ambient Pressure", unit: "atm", color: colorPalettes.scientific[0], yAxisIndex: 0 },
-    { key: "pDcs", name: "P(DCS)", unit: "%", color: colorPalettes.scientific[1], yAxisIndex: 1 },
-    { key: "ptN2Atm", name: "Tissue N₂", unit: "atm", color: colorPalettes.scientific[2], yAxisIndex: 2 },
-    { key: "ptO2Atm", name: "Tissue O₂", unit: "atm", color: colorPalettes.scientific[3], yAxisIndex: 3 },
-    { key: "nB", name: "Bubble Number", unit: "", color: colorPalettes.scientific[4], yAxisIndex: 4 },
-    { key: "hPerMin", name: "Hazard Rate", unit: "1/min", color: colorPalettes.scientific[5], yAxisIndex: 5 },
-  ];
-
   const { series, gridConfigs, yAxisConfigs, xAxisConfigs } = useMemo(() => {
     const series: SeriesOption[] = [];
     const gridConfigs: EChartsOption["grid"] = [];
@@ -43,7 +43,7 @@ export function TimeSeriesChart({
     const rows = 3;
     const cols = 2;
 
-    subplots.forEach((subplot, index) => {
+    SUBPLOTS.forEach((subplot, index) => {
       const row = Math.floor(index / cols);
       const col = index % cols;
 
@@ -199,7 +199,7 @@ export function TimeSeriesChart({
       },
     },
     legend: {
-      data: subplots.map((s) => s.name),
+      data: SUBPLOTS.map((s) => s.name),
       bottom: 5,
       type: "scroll",
       textStyle: {

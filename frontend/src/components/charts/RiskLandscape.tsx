@@ -64,7 +64,7 @@ export function RiskLandscape({
           fontSize: 13,
           fontWeight: 600,
           color: chartTheme.textColor,
-          fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",
+          fontFamily: "Archivo, Inter, system-ui, sans-serif",
         },
       },
       tooltip: {
@@ -80,7 +80,7 @@ export function RiskLandscape({
           const level = v < 1 ? "Low" : v < 5 ? "Moderate" : v < 20 ? "Elevated" : "High";
           return `
             <div style="font-weight:500;margin-bottom:4px">${level} risk</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5">
               <div>Altitude: <b>${y.toLocaleString()} ft</b></div>
               <div>Time at altitude: <b>${x} min</b></div>
               <div>P(DCS): <b>${v.toFixed(2)}%</b></div>
@@ -107,7 +107,7 @@ export function RiskLandscape({
           color: chartTheme.axisColor,
           fontSize: 10,
           interval: Math.max(0, Math.floor(times.length / 8) - 1),
-          fontFamily: "JetBrains Mono, monospace",
+          fontFamily: "IBM Plex Mono, monospace",
         },
       },
       yAxis: {
@@ -123,7 +123,7 @@ export function RiskLandscape({
           color: chartTheme.axisColor,
           fontSize: 10,
           interval: Math.max(0, Math.floor(altitudes.length / 8) - 1),
-          fontFamily: "JetBrains Mono, monospace",
+          fontFamily: "IBM Plex Mono, monospace",
         },
       },
       visualMap: {

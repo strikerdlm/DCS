@@ -121,7 +121,7 @@ export function TissueN2Chart({
           if (arr.length === 0) return "";
           const [t, r] = arr[0].value;
           const stateText = r >= 1 ? "supersaturated" : "undersaturated";
-          return `<div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.6"><div>t = <b>${t.toFixed(
+          return `<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6"><div>t = <b>${t.toFixed(
             0,
           )} min</b></div><div>ratio = <b>${r.toFixed(2)}</b> (${stateText})</div></div>`;
         },
@@ -136,7 +136,7 @@ export function TissueN2Chart({
         axisLabel: {
           color: chartTheme.axisColor,
           fontSize: 11,
-          fontFamily: "JetBrains Mono, monospace",
+          fontFamily: "IBM Plex Mono, monospace",
         },
       },
       yAxis: {
@@ -150,7 +150,7 @@ export function TissueN2Chart({
         axisLabel: {
           color: chartTheme.axisColor,
           fontSize: 11,
-          fontFamily: "JetBrains Mono, monospace",
+          fontFamily: "IBM Plex Mono, monospace",
         },
       },
       series,

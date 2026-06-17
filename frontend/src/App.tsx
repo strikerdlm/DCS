@@ -6,6 +6,7 @@ import {
   ClipboardCheck,
   Github,
   Home,
+  Layers,
   ListOrdered,
   Mountain,
   Moon,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 import { EVASimulator } from "./components/eva";
 import {
+  Anatomy,
   MLSurrogate,
   Mechanistic3RUT,
   NASALogistic,
@@ -28,6 +30,7 @@ import { cn } from "./lib/utils";
 
 type ModelTab =
   | "overview"
+  | "anatomy"
   | "steps"
   | "usecases"
   | "eva"
@@ -57,6 +60,12 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Overview",
         description: "How TinyDCS works · 3-layer stack",
         icon: <Home className="h-4 w-4" />,
+      },
+      {
+        id: "anatomy",
+        label: "Anatomy",
+        description: "Physics · math · map · visual explainer",
+        icon: <Layers className="h-4 w-4" />,
       },
       {
         id: "steps",
@@ -118,7 +127,11 @@ const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((g) => g.items);
 
 export default function App(): React.ReactElement {
   const [activeTab, setActiveTab] = useState<ModelTab>("overview");
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() =>
+    typeof window === "undefined"
+      ? true
+      : !window.matchMedia?.("(prefers-color-scheme: light)").matches,
+  );
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
@@ -128,6 +141,8 @@ export default function App(): React.ReactElement {
     switch (activeTab) {
       case "overview":
         return <Overview />;
+      case "anatomy":
+        return <Anatomy />;
       case "steps":
         return <StepByStep />;
       case "usecases":

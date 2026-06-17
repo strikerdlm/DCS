@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Activity, BookOpen, Calculator, Settings, User } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card";
 import { Input } from "../ui/Input";
@@ -24,16 +24,18 @@ import type { NASAInputs, NASAPrediction, NASAVariant } from "../../types";
 
 export function NASALogistic(): React.ReactElement {
   const [inputs, setInputs] = useState<NASAInputs>(defaultNASAInputs);
-  const [prediction, setPrediction] = useState<NASAPrediction | null>(null);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const { prediction, error } = useMemo<{
+    prediction: NASAPrediction | null;
+    error: string | null;
+  }>(() => {
     try {
-      setPrediction(predictNASA(inputs));
-      setError(null);
+      return { prediction: predictNASA(inputs), error: null };
     } catch (e) {
-      setPrediction(null);
-      setError(e instanceof Error ? e.message : "Computation error");
+      return {
+        prediction: null,
+        error: e instanceof Error ? e.message : "Computation error",
+      };
     }
   }, [inputs]);
 

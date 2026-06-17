@@ -44,7 +44,7 @@ export function CovariateContribution({
         formatter: (params: unknown) => {
           const p = params as { name: string; value: number };
           const dir = p.value >= 0 ? "raises" : "lowers";
-          return `<div style="font-weight:500;margin-bottom:2px">${p.name}</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px">${dir} log-odds by <b>${
+          return `<div style="font-weight:500;margin-bottom:2px">${p.name}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px">${dir} log-odds by <b>${
             p.value >= 0 ? "+" : ""
           }${p.value.toFixed(2)}</b></div>`;
         },
@@ -58,7 +58,7 @@ export function CovariateContribution({
         axisLabel: {
           color: chartTheme.axisColor,
           fontSize: 11,
-          fontFamily: "JetBrains Mono, monospace",
+          fontFamily: "IBM Plex Mono, monospace",
         },
       },
       yAxis: {
@@ -82,7 +82,7 @@ export function CovariateContribution({
             formatter: (p: { value: number }) =>
               `${p.value >= 0 ? "+" : ""}${p.value.toFixed(2)}`,
             fontSize: 10.5,
-            fontFamily: "JetBrains Mono, monospace",
+            fontFamily: "IBM Plex Mono, monospace",
             color: chartTheme.axisColor,
           },
         } as unknown as SeriesOption,

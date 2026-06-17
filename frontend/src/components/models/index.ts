@@ -1,4 +1,5 @@
 export { Overview } from "./Overview";
+export { Anatomy } from "./Anatomy";
 export { StepByStep } from "./StepByStep";
 export { UseCases } from "./UseCases";
 export { MLSurrogate } from "./MLSurrogate";

@@ -677,3 +677,153 @@ export function tissueN2Trajectory(
   }
   return out;
 }
+
+// ---------------------------------------------------------------------------
+// Altitude × prebreathe risk grid (mission-planning trade-space for isobars)
+// ---------------------------------------------------------------------------
+
+export interface RiskGridPoint {
+  altitudeFt: number;
+  prebreatheMin: number;
+  riskPercent: number;
+}
+
+/**
+ * P(DCS) over the two mission-planning levers — altitude and prebreathe — with
+ * time-at-altitude and exercise held at the current scenario. The 1 / 5 / 20 %
+ * contours of this field are the "isobars of equal risk" rendered by RiskIsobars;
+ * together with the validity envelope they bound the safe operating space.
+ *
+ * Pure closed-form ADRAC, so a 24 × 24 grid (576 evaluations) is essentially free.
+ */
+export function generateAltitudePrebreatheGrid({
+  timeAtAltitudeMin,
+  exerciseLevel,
+  altitudeRange = VALIDITY_ENVELOPE.altitudeFt,
+  prebreatheRange = VALIDITY_ENVELOPE.prebreatheMin,
+  altitudeSteps = 24,
+  prebreatheSteps = 24,
+}: {
+  timeAtAltitudeMin: number;
+  exerciseLevel: ExerciseLevel;
+  altitudeRange?: [number, number];
+  prebreatheRange?: [number, number];
+  altitudeSteps?: number;
+  prebreatheSteps?: number;
+}): RiskGridPoint[] {
+  const out: RiskGridPoint[] = [];
+  const dAlt = (altitudeRange[1] - altitudeRange[0]) / (altitudeSteps - 1);
+  const dPb = (prebreatheRange[1] - prebreatheRange[0]) / (prebreatheSteps - 1);
+  for (let i = 0; i < altitudeSteps; i++) {
+    const alt = altitudeRange[0] + i * dAlt;
+    for (let j = 0; j < prebreatheSteps; j++) {
+      const pb = prebreatheRange[0] + j * dPb;
+      const { riskFraction } = predictADRAC(alt, pb, exerciseLevel, timeAtAltitudeMin);
+      out.push({ altitudeFt: alt, prebreatheMin: pb, riskPercent: riskFraction * 100 });
+    }
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Mission pressure profile (ambient pressure vs tissue N₂ over the exposure)
+// ---------------------------------------------------------------------------
+
+export interface MissionProfilePoint {
+  tMin: number;
+  /** Ambient total pressure (mmHg). */
+  pAmbMmHg: number;
+  /** Tissue N₂ tension (mmHg), single 360-min compartment. */
+  tissueN2MmHg: number;
+  /** Supersaturation gap = max(0, tissue N₂ − ambient total pressure). When the
+   *  tissue line rides above the ambient line, dissolved gas can come out of
+   *  solution — this is the physical DCS hazard, shaded on the chart. */
+  gapMmHg: number;
+  phase: "prebreathe" | "ascent" | "altitude";
+}
+
+/**
+ * Ambient-pressure "valley" with tissue-N₂ tension overlaid across the mission.
+ *
+ * Three segments, integrated with a single 360-min N₂ compartment (Conkin):
+ *   1. Prebreathe — 100 % O₂ at ground (760 mmHg); tissue denitrogenates toward
+ *      an inspired N₂ of ~0 but can only fall so far in the prebreathe window.
+ *   2. Ascent — ambient pressure ramps from ground to the target altitude over
+ *      `ascentDurationMin`; the crew stays on O₂ so the tissue keeps washing out
+ *      while the ambient line drops away beneath it.
+ *   3. Altitude — ambient holds at the (low) altitude pressure on air; the
+ *      tissue on-gasses back toward the altitude inspired N₂. The gap between
+ *      the tissue line and the ambient line is the supersaturation that drives
+ *   DCS.
+ *
+ * The final tissue tension matches `tissueN2Trajectory` up to integration step
+ * tolerance. Ascent here is a finite ramp (the trajectory feature treats it as
+ * instantaneous); the ramp is a teaching device so the pressure drop is visible.
+ */
+export function missionPressureProfile(
+  inputs: MLSurrogateInputs,
+  {
+    prebreatheFio2 = 1.0,
+    altitudeFio2 = 0.21,
+    halfTimeMin = 360.0,
+    ascentDurationMin = 6,
+    dtMin = 2,
+  }: {
+    prebreatheFio2?: number;
+    altitudeFio2?: number;
+    halfTimeMin?: number;
+    ascentDurationMin?: number;
+    dtMin?: number;
+  } = {},
+): MissionProfilePoint[] {
+  const { altitude, timeAtAltitude, prebreathingTime } = inputs;
+  const pAmbGround = SEA_LEVEL_MMHG;
+  const pAmbAlt = Math.max(altitudeFtToMmHg(altitude), 1e-6);
+  const tau = halfTimeMin / LN2;
+
+  // Inspired N₂ (mmHg) for a given ambient + inspired O₂ fraction.
+  const pInspN2 = (pAmbMmHg: number, fio2: number) =>
+    Math.max(pAmbMmHg - P_H2O_MMHG, 0) * (1 - fio2);
+
+  const startTension = pInspN2(pAmbGround, 1 - N2_FRACTION_AIR); // ground air
+
+  // Segment definitions: [duration, pAmb start, pAmb end, fio2].
+  const segs: Array<{
+    dur: number;
+    p0: number;
+    p1: number;
+    fio2: number;
+    phase: MissionProfilePoint["phase"];
+  }> = [];
+  if (prebreathingTime > 0)
+    segs.push({ dur: prebreathingTime, p0: pAmbGround, p1: pAmbGround, fio2: prebreatheFio2, phase: "prebreathe" });
+  if (ascentDurationMin > 0)
+    segs.push({ dur: ascentDurationMin, p0: pAmbGround, p1: pAmbAlt, fio2: prebreatheFio2, phase: "ascent" });
+  if (timeAtAltitude > 0)
+    segs.push({ dur: timeAtAltitude, p0: pAmbAlt, p1: pAmbAlt, fio2: altitudeFio2, phase: "altitude" });
+
+  const out: MissionProfilePoint[] = [];
+  let t = 0;
+  let tension = startTension;
+  for (const seg of segs) {
+    const nSteps = Math.max(1, Math.ceil(seg.dur / dtMin));
+    const stepDt = seg.dur / nSteps;
+    for (let i = 0; i < nSteps; i++) {
+      const frac = nSteps === 1 ? 1 : i / (nSteps - 1);
+      const pAmb = seg.p0 + (seg.p1 - seg.p0) * frac;
+      const pInsp = pInspN2(pAmb, seg.fio2);
+      // Single-compartment exponential update over this step.
+      tension = pInsp - (pInsp - tension) * Math.exp(-stepDt / tau);
+      const gap = Math.max(0, tension - pAmb);
+      out.push({
+        tMin: +t.toFixed(3),
+        pAmbMmHg: +pAmb.toFixed(3),
+        tissueN2MmHg: +tension.toFixed(3),
+        gapMmHg: +gap.toFixed(3),
+        phase: seg.phase,
+      });
+      t += stepDt;
+    }
+  }
+  return out;
+}
