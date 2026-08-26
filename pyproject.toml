@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tinydcs"
-version = "0.1.0"
-description = "Edge-deployable ML surrogate of the 3RUT-MBe1 bubble-dynamics altitude DCS model."
+version = "0.3.0"
+description = "Calibrated ML surrogate of an ADRAC-derived altitude-DCS planning grid."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Research-use-only (see README)" }
@@ -40,6 +40,8 @@ edge = [
     "onnx>=1.15",
     "onnxruntime>=1.17",
     "skl2onnx>=1.16",
+    "onnxmltools>=1.13",
+    "onnxconverter-common>=1.14",
 ]
 
 [project.scripts]

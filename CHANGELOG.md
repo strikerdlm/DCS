@@ -10,6 +10,25 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 - Residual-on-physics hybrid variant (LightGBM on ADRAC − Conkin-ETR residual).
 - Paper 1 manuscript draft alongside the code in `docs/`.
 
+## [0.3.0] — 2026-08-26 — KJAsEM major-revision evidence release
+
+### Added
+- `scripts/04_kjasem_revision_analysis.py` and `configs/kjasem_26_0013.toml`, a deterministic reviewer-analysis pipeline for manuscript KJAsEM-26-0013.
+- Prespecified contiguous holdouts for five altitude bands, five prebreathe levels, four duration ranges, three exercise categories, and 20 altitude-by-duration regions, repeated with seeds 17, 42, 73, 101, and 2026.
+- Probability-scale interval efficiency (mean, median, 90th percentile, and maximum width), exact subgroup counts, and 10,000-replicate cluster-bootstrap confidence intervals for post hoc altitude coverage.
+- Source-risk strata (exact zero plus non-zero quartiles), boundary-shell metrics, and safety-relevant underprediction summaries.
+- Cell-level random-test predictions and machine-readable provenance under `artifacts/repro/kjasem_26_0013/`.
+
+### Results and interpretation
+- On the locked random 70/15/15 split, the zero-inflated variant achieved MAE 0.019744, R² 0.98658, coverage 0.95767, and mean interval width 0.18109 on the probability scale (n=2,386 test cells).
+- Descriptive zero-inflated coverage was at least 0.95098 in each of the five altitude bands; mean width ranged from 0.05031 at 18–<23 kft to 0.23587 at 28–<33 kft. These are post hoc subgroup estimates, not simultaneous group-conditional guarantees.
+- Four non-zero-inflated variants had overall coverage from 0.86756 to 0.88223; their 18–<23-kft coverage ranged from 0.53962 to 0.59623.
+- Structured-region holdouts were materially worse than the random split. Across fold means, altitude-band MAE ranged from 0.03315 to 0.12467 and exercise-category MAE from 0.08969 to 0.12846. Minimum empirical coverage across seeds was 0.16523 for an altitude-band fold and 0.36194 for an exercise-category fold.
+- These findings constrain the intended use to interpolation inside represented regions. They do not support clinical DCS prediction or unguided extrapolation into an unseen exposure region.
+
+### Fixed
+- Ordered independently fitted CQR lower/upper predictions before calibration and inference, preventing quantile crossing from producing invalid negative-width intervals.
+
 ## [0.2.0] — 2026-04-18 — repo restructure + ADRAC pivot
 
 ### Repo-level changes

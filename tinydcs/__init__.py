@@ -1,6 +1,6 @@
-"""TinyDCS — edge-deployable surrogate of the 3RUT-MBe1 altitude DCS model.
+"""TinyDCS — calibrated surrogate of an ADRAC-derived altitude-DCS planning grid.
 
 Research-use-only. See README.md for the scientific scope and limitations.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.3.0"

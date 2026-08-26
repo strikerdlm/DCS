@@ -2,16 +2,16 @@
 
 # 🫁 TinyDCS
 
-**A wearable-grade machine-learning stack for altitude-decompression-sickness risk prediction.**
+**A calibrated machine-learning surrogate of an altitude-DCS planning model.**
 
 *Hybrid physics + ML. Calibrated uncertainty. Edge-deployable. Operationally honest.*
 
 <br>
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white)
-![Status](https://img.shields.io/badge/status-v0.2--research-orange)
+![Status](https://img.shields.io/badge/status-v0.3--research-orange)
 ![License](https://img.shields.io/badge/license-research--use--only-lightgrey)
-![Tests](https://img.shields.io/badge/tests-14%2F14%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-32%2F32%20passing-brightgreen)
 
 [Scientific background](docs/scientific-background.md) ·
 [Methods](docs/methods.md) ·
@@ -29,7 +29,7 @@
 
 ## What this is, in one paragraph
 
-Existing altitude-DCS risk models trade off along a sharp axis: **ADRAC** (US Air Force, Pilmanis 2004) is closed-form and trivially portable but uses only three coarse exercise levels; **Conkin NASA-RM/NM** (2004) adds a physiologically-grounded Exercise Tissue Ratio but only during prebreathe; **Gerth 3RUT-MBe1** (NEDU TR 18-01, 2018) accepts arbitrary continuous VO₂(t) trajectories but is an ODE recursion too heavy for a smartwatch. TinyDCS is a *hybrid*: a small machine-learning surrogate trained on a cleaned ADRAC grid, with continuous VO₂ injected via Conkin's variable-half-time mechanism, finished with split-conformal prediction intervals and a principled out-of-envelope abstention mode. The model is designed to compile to INT8 ONNX (< 100 KB) and run in < 1 ms on an ARM Cortex-M4.
+Existing altitude-DCS risk models serve different planning roles: **ADRAC** (US Air Force, Pilmanis 2004) is closed-form and already trivially portable but uses only three coarse exercise levels; **Conkin NASA-RM/NM** (2004) adds a physiologically grounded Exercise Tissue Ratio but only during prebreathe; **Gerth 3RUT-MBe1** (NEDU TR 18-01, 2018) accepts arbitrary continuous VO₂(t) trajectories but requires numerical integration. TinyDCS is a research surrogate trained on a cleaned ADRAC-derived grid, with synthetic continuous-VO₂ features, calibrated prediction intervals, and out-of-envelope abstention. It is **not** justified as a faster replacement for ADRAC. Its candidate operational value is packaging uncertainty, abstention, and a versioned local runtime; when the authoritative source model is available and practical, it remains preferred.
 
 ---
 
@@ -121,7 +121,7 @@ streamlit run apps/streamlit/app.py
 | **ADRAC** (Pilmanis 2004) | Log-logistic AFT survival | ❌ (3-category) | ✅ | `mechanistic/adrac.py` (new, being fitted against the cleaned grid) |
 | **Conkin RM/NM** (NASA 2004) | Logistic on Exercise Tissue Ratio | 🟡 (prebreathe only) | ✅ | `mechanistic/conkin_nasa.py` |
 | **Gerth 3RUT-MBe1** (NEDU 2018) | Bubble-dynamics ODE | ✅ | ❌ | `mechanistic/rut_mbe1.py` ⚠️ [calibration reconciliation in progress](docs/methods.md#3rut-mbe1-reconciliation) |
-| **TinyDCS** (this repo) | ML surrogate + conformal | ✅ | ✅ | `tinydcs/` — primary target pivoted to ADRAC (see docs/methods.md) |
+| **TinyDCS** (this repo) | ML surrogate + conformal | 🟡 synthetic channel only | ✅ candidate runtime | `tinydcs/` — ADRAC-grid fidelity only (see docs/methods.md) |
 
 ---
 
@@ -158,6 +158,7 @@ See [`docs/publication-roadmap.md`](docs/publication-roadmap.md) for the full pl
 | ADRAC cleaner (`tinydcs.data_clean`) | v0.1.0 | ✅ 1,221 rows rescaled, 15,908 unique cells |
 | Continuous-VO₂ simulator + features | v0.1.0 | ✅ |
 | LightGBM + conformal + OOD surrogate | v0.1.0 | ✅ end-to-end on 200-profile pilot |
+| KJAsEM structured-region validation | v0.3.0 | ✅ 37 regions × 5 seeds; material extrapolation failures documented |
 | `mechanistic/adrac.py` closed-form AFT baseline | — | 🚧 next |
 | Full simulation campaign (≥ 20,000 profiles) | — | 🚧 |
 | 3RUT-MBe1 calibration reconciliation | — | 🚧 [tracking issue](docs/methods.md#3rut-mbe1-reconciliation) |
@@ -174,6 +175,7 @@ See [`docs/publication-roadmap.md`](docs/publication-roadmap.md) for the full pl
 - **Dataset quality.** The shipped `DCS_Risk_DB_2025.csv` has documented scale inconsistencies (1,221 rows were mis-entered on the fraction scale instead of percent). `tinydcs.data_clean` repairs these deterministically; see `artifacts/data_quality_report.md` after running the cleaner.
 - **Validity envelope.** All results apply strictly within the training-input envelope: altitude 18,000–40,000 ft; prebreathe 0–180 min; time-at-altitude 10–240 min; FiO₂ ∈ {0.21, 0.95, 1.0}. The surrogate's OOD detector abstains outside this envelope by design.
 - **Individual variability.** None of the published models — or this surrogate — represent inter-subject differences in DCS susceptibility. This is a large known gap and the explicit subject of Paper 2.
+- **Structured-region generalization.** The strong random-split metrics primarily describe interpolation among neighboring grid cells. Prespecified contiguous holdouts show substantially worse performance for unseen altitude bands, duration ranges, and exercise categories. See `docs/kjasem-26-0013-revision-analysis.md`; the model must abstain rather than extrapolate into an unseen region.
 
 ---
 
@@ -204,6 +206,6 @@ If you use any part of this work, please cite (format will stabilize at v1.0):
   title   = {TinyDCS: a wearable-grade ML surrogate of altitude-DCS risk models},
   year    = {2026},
   url     = {https://github.com/strikerdlm/DCS},
-  version = {0.2.0}
+  version = {0.3.0}
 }
 ```
