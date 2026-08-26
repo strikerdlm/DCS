@@ -7,7 +7,7 @@ import pandas as pd
 import pytest
 
 from tinydcs.features import FEATURE_COLUMNS
-from tinydcs.metrics import brier_score, point_errors, empirical_coverage
+from tinydcs.metrics import brier_score, empirical_coverage, point_errors
 from tinydcs.surrogate import TrainConfig, train_surrogate
 
 
@@ -277,3 +277,31 @@ def test_mondrian_conformal_round_trip() -> None:
         p1 = surrogate.predict(splits["test"])["point"]
         p2 = loaded.predict(splits["test"])["point"]
         assert np.allclose(p1, p2)
+
+
+def test_cqr_prediction_repairs_crossed_quantile_models() -> None:
+    """Independently fitted quantile regressors can cross at inference."""
+    from tinydcs.surrogate import CQRCalibration, OODDetector, TinyDcsSurrogate
+
+    class ConstantModel:
+        def __init__(self, value: float) -> None:
+            self.value = value
+
+        def predict(self, X) -> np.ndarray:
+            return np.full(len(X), self.value, dtype=float)
+
+    surrogate = TinyDcsSurrogate(
+        feature_names=["x", "z"],
+        model=ConstantModel(0.0),
+        ood=OODDetector(mean=np.zeros(2), inv_cov=np.eye(2), threshold=10.0),
+        conformal=CQRCalibration(
+            lower_model=ConstantModel(0.5),
+            upper_model=ConstantModel(-0.5),
+            q=0.05,
+            confidence=0.95,
+        ),
+    )
+
+    prediction = surrogate.predict(pd.DataFrame({"x": [0.0, 1.0], "z": [0.0, 1.0]}))
+    assert np.all(prediction["logit_lower"] <= prediction["logit_upper"])
+    assert np.all(prediction["lower"] <= prediction["upper"])

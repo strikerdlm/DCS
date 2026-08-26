@@ -18,8 +18,8 @@ so it round-trips to disk without accessory artifacts.
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field
-from typing import Iterable
+from collections.abc import Iterable
+from dataclasses import dataclass, field
 
 import joblib
 import numpy as np
@@ -55,6 +55,18 @@ def _logit(p: np.ndarray) -> np.ndarray:
 
 def _sigmoid(z: np.ndarray) -> np.ndarray:
     return 1.0 / (1.0 + np.exp(-z))
+
+
+def _ordered_quantile_pair(
+    lower: np.ndarray, upper: np.ndarray
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Order independently fitted quantiles and flag crossing predictions."""
+    lower_raw = np.asarray(lower, dtype=float).ravel()
+    upper_raw = np.asarray(upper, dtype=float).ravel()
+    if lower_raw.size != upper_raw.size:
+        raise ValueError("lower and upper quantile predictions must have equal lengths")
+    crossed = lower_raw > upper_raw
+    return np.minimum(lower_raw, upper_raw), np.maximum(lower_raw, upper_raw), crossed
 
 
 @dataclass(slots=True)
@@ -368,17 +380,17 @@ def fit_cqr(
     # correction then absorbs any residual non-monotone behaviour of the
     # quantile outputs within the validated envelope.
     _ = monotonic_constraints  # kept in the signature for consistency; not used
-    common = dict(
-        n_estimators=n_estimators,
-        learning_rate=learning_rate,
-        num_leaves=num_leaves,
-        min_data_in_leaf=min_data_in_leaf,
-        subsample=subsample,
-        subsample_freq=subsample_freq,
-        colsample_bytree=colsample_bytree,
-        random_state=random_state,
-        verbosity=-1,
-    )
+    common = {
+        "n_estimators": n_estimators,
+        "learning_rate": learning_rate,
+        "num_leaves": num_leaves,
+        "min_data_in_leaf": min_data_in_leaf,
+        "subsample": subsample,
+        "subsample_freq": subsample_freq,
+        "colsample_bytree": colsample_bytree,
+        "random_state": random_state,
+        "verbosity": -1,
+    }
     lower_model = lgb.LGBMRegressor(objective="quantile", alpha=alpha / 2.0, **common)
     upper_model = lgb.LGBMRegressor(objective="quantile", alpha=1.0 - alpha / 2.0, **common)
 
@@ -387,8 +399,9 @@ def fit_cqr(
     lower_model.fit(X_train_df, y_logit_train)
     upper_model.fit(X_train_df, y_logit_train)
 
-    q_lo = np.asarray(lower_model.predict(X_cal_df), dtype=float).ravel()
-    q_hi = np.asarray(upper_model.predict(X_cal_df), dtype=float).ravel()
+    q_lo, q_hi, _ = _ordered_quantile_pair(
+        lower_model.predict(X_cal_df), upper_model.predict(X_cal_df)
+    )
     nonconformity = np.maximum(q_lo - y_logit_cal, y_logit_cal - q_hi)
     n = int(nonconformity.size)
     if n < 20:
@@ -577,8 +590,10 @@ class TinyDcsSurrogate:
             }
 
         if isinstance(self.conformal, CQRCalibration):
-            q_lo_logit = np.asarray(self.conformal.lower_model.predict(X_df), dtype=float).ravel()
-            q_hi_logit = np.asarray(self.conformal.upper_model.predict(X_df), dtype=float).ravel()
+            q_lo_logit, q_hi_logit, quantiles_crossed = _ordered_quantile_pair(
+                self.conformal.lower_model.predict(X_df),
+                self.conformal.upper_model.predict(X_df),
+            )
             q_correction = self.conformal.correction_for(X_df)
             lower_logit = q_lo_logit - q_correction
             upper_logit = q_hi_logit + q_correction
@@ -594,6 +609,7 @@ class TinyDcsSurrogate:
                 "logit_upper": upper_logit,
                 "conformal_half_width_logit": half_width,
                 "cqr_correction_logit": q_correction,
+                "cqr_quantiles_crossed": quantiles_crossed,
                 "ood_distance": distance,
                 "in_envelope": in_env,
             }
@@ -663,7 +679,7 @@ class TinyDcsSurrogate:
         joblib.dump(blob, path)
 
     @classmethod
-    def load(cls, path: str) -> "TinyDcsSurrogate":
+    def load(cls, path: str) -> TinyDcsSurrogate:
         blob = joblib.load(path)
         ood = OODDetector(
             mean=blob["ood_mean"],
@@ -786,8 +802,8 @@ def train_surrogate(
     rng = np.random.default_rng(cfg.random_state)
     idx = rng.permutation(len(df))
     n = len(df)
-    n_test = int(round(n * test_fraction))
-    n_cal = int(round(n * calibration_fraction))
+    n_test = round(n * test_fraction)
+    n_cal = round(n * calibration_fraction)
     n_train = n - n_test - n_cal
     train_idx = idx[:n_train]
     cal_idx = idx[n_train:n_train + n_cal]
