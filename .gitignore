@@ -9,6 +9,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+.venv/
 build/
 develop-eggs/
 dist/
@@ -70,9 +71,20 @@ BU_Model_2025/output/
 ML model/*.png
 ML model/*.csv
 
-# Artifact directories (model outputs, figures, metrics)
-artifacts/
+# Artifact directories (model outputs, figures, metrics).  The compact,
+# reviewer-facing reproducibility tables are versioned evidence; model binaries
+# and general exploratory artifacts remain ignored.
+artifacts/*
 !artifacts/.gitkeep
+!artifacts/repro/
+artifacts/repro/*
+!artifacts/repro/metrics_zi.json
+!artifacts/repro/kjasem_26_0013/
+artifacts/repro/kjasem_26_0013/*
+!artifacts/repro/kjasem_26_0013/*.json
+!artifacts/repro/kjasem_26_0013/*.csv
+!artifacts/repro/kjasem_26_0013/*.csv.gz
+!artifacts/repro/kjasem_26_0013/*.md
 
 # Core dumps (should never be checked in — see commit 0166ff2)
 core

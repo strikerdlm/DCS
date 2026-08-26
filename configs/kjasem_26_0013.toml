@@ -1,0 +1,32 @@
+[input]
+raw_csv = "legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv"
+
+[analysis]
+baseline_seed = 42
+augmentation_seed = 42
+structured_seeds = [17, 42, 73, 101, 2026]
+structured_families = [
+  "altitude_band",
+  "prebreathe_level",
+  "duration_band",
+  "exercise_level",
+  "altitude_x_duration",
+]
+confidence = 0.95
+bootstrap_replicates = 10000
+bootstrap_seed = 2026
+
+[model]
+n_estimators = 400
+learning_rate = 0.05
+num_leaves = 31
+max_depth = -1
+min_data_in_leaf = 20
+subsample = 0.9
+subsample_freq = 1
+colsample_bytree = 0.9
+reg_alpha = 0.0
+reg_lambda = 0.0
+
+[output]
+compatibility_metrics = "artifacts/repro/metrics_zi.json"
