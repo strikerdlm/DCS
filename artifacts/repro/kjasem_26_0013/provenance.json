@@ -1,0 +1,65 @@
+{
+  "analysis_code_commit": "3692fd8fe95bb7d436349426688b4ff4720dc43a",
+  "analysis_worktree_status": "?? artifacts/",
+  "augmented_grid_sha256": "9bdb8c0fbecdf06598b25846c94fe2a71266602553d2639c6f87a5fa8bf9244f",
+  "cleaned_grid_sha256": "4cee0b88ea837fc63041deeba2add87a30b1316801161d5ea28f0f0cb4b4dc78",
+  "cleaning_report": {
+    "n_rows_deduped": 387,
+    "n_rows_in": 16295,
+    "n_rows_out": 15908,
+    "n_scale_fixed": 1221,
+    "n_target_nan_in": 0,
+    "n_within_combo_disagreements": 26
+  },
+  "config": {
+    "analysis": {
+      "augmentation_seed": 42,
+      "baseline_seed": 42,
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 2026,
+      "confidence": 0.95,
+      "structured_families": [
+        "altitude_band",
+        "prebreathe_level",
+        "duration_band",
+        "exercise_level",
+        "altitude_x_duration"
+      ],
+      "structured_seeds": [
+        17,
+        42,
+        73,
+        101,
+        2026
+      ]
+    },
+    "input": {
+      "raw_csv": "legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv"
+    },
+    "model": {
+      "colsample_bytree": 0.9,
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_data_in_leaf": 20,
+      "n_estimators": 400,
+      "num_leaves": 31,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 0.9,
+      "subsample_freq": 1
+    },
+    "output": {
+      "compatibility_metrics": "artifacts/repro/metrics_zi.json"
+    }
+  },
+  "generated_at_utc": "2026-08-26T11:49:35.857032+00:00",
+  "lightgbm": "4.7.0",
+  "manuscript_id": "KJAsEM-26-0013",
+  "numpy": "2.5.2",
+  "pandas": "2.3.3",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "raw_source_path": "/tmp/tinydcs-kjasem-26-0013/legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv",
+  "raw_source_sha256": "88a5a48a3441856eb3417d4aff3c396c710d25be8676c0fbda7a59451a3d6cdd",
+  "scikit_learn": "1.9.0"
+}
