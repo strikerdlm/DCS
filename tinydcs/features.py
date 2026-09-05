@@ -16,7 +16,7 @@ from typing import Iterable
 
 import numpy as np
 
-from .simulator import ExposureProfile, ProfileRecord, altitude_ft_to_atm
+from .simulator import ExposureProfile, ProfileRecord, altitude_ft_to_atm, _expand_trajectory
 
 
 _SEA_LEVEL_PRESSURE_MMHG = 760.0
@@ -37,7 +37,7 @@ def _tissue_n2_ratio_360(
     altitude_fio2: float,
     half_time_min: float = 360.0,
 ) -> float:
-    """Conkin-style single-compartment tissue N2 supersaturation ratio at exit.
+    """Fixed-half-time, humidified single-compartment tissue N2 supersaturation ratio at exit.
 
     Starts at sea-level air equilibrium, applies prebreathe with given FiO2,
     assumes instantaneous ascent, then altitude exposure with given FiO2.
@@ -61,31 +61,40 @@ def _tissue_n2_ratio_360(
     return float(p_end / p_amb_alt_mmhg)
 
 
-def _peak_1min(traj: np.ndarray, dt_min: float) -> float:
-    """Maximum 1-minute-window running mean of a trajectory (Webb 2010 metric)."""
+def _peak_1min(traj: np.ndarray, dt_min: float, duration_min: float | None = None) -> float:
+    """Exact maximum up-to-one-minute mean of a piecewise-constant signal.
+
+    Coarse samples imply a constant within-sample assumption, not measured
+    one-minute resolution. Partial final intervals retain their true duration.
+    """
     arr = np.asarray(traj, dtype=float).ravel()
-    if arr.size == 0:
+    if not np.isfinite(dt_min) or dt_min <= 0 or not np.isfinite(arr).all() or np.any(arr < 0):
+        raise ValueError("finite nonnegative trajectory and positive sampling interval required")
+    duration = arr.size*dt_min if duration_min is None else duration_min
+    if duration <= 0 or arr.size == 0:
         return 0.0
-    if dt_min >= 1.0 - 1e-9:
-        return float(arr.max(initial=0.0))
-    window = max(1, int(round(1.0 / dt_min)))
-    if arr.size <= window:
-        return float(arr.mean())
-    kernel = np.ones(window, dtype=float) / window
-    roll = np.convolve(arr, kernel, mode="valid")
-    return float(roll.max())
+    edges = np.append(np.arange(arr.size)*dt_min, duration)
+    if np.any(np.diff(edges) <= 0):
+        raise ValueError("trajectory does not match duration")
+    cumulative = np.append(0., np.cumsum(arr*np.diff(edges)))
+    width = min(1., duration)
+    starts = np.unique(np.clip(np.concatenate([edges, edges-width]), 0, duration-width))
+    values = (np.interp(starts+width, edges, cumulative)-np.interp(starts, edges, cumulative))/width
+    return float(values.max())
 
 
 def extract_features(profile: ExposureProfile) -> ProfileRecord:
     """Derive the TinyDCS feature vector from a profile."""
-    pre_traj = np.atleast_1d(np.asarray(profile.prebreathe_i_ex_trajectory, dtype=float)).ravel()
-    alt_traj = np.atleast_1d(np.asarray(profile.altitude_i_ex_trajectory, dtype=float)).ravel()
-
-    pre_mean = float(pre_traj.mean()) if pre_traj.size > 0 else 0.0
-    pre_peak = float(pre_traj.max()) if pre_traj.size > 0 else 0.0
-    alt_mean = float(alt_traj.mean()) if alt_traj.size > 0 else 0.0
-    alt_peak_1 = _peak_1min(alt_traj, profile.vo2_dt_min)
-    alt_integral = alt_mean * float(profile.altitude_duration_min)
+    pre_traj = _expand_trajectory(profile.prebreathe_i_ex_trajectory, profile.prebreathe_duration_min, profile.vo2_dt_min)
+    alt_traj = _expand_trajectory(profile.altitude_i_ex_trajectory, profile.altitude_duration_min, profile.vo2_dt_min)
+    def integral(arr, duration):
+        widths = np.minimum(profile.vo2_dt_min, duration-np.arange(len(arr))*profile.vo2_dt_min)
+        return float(np.dot(arr, widths))
+    pre_mean = integral(pre_traj, profile.prebreathe_duration_min)/profile.prebreathe_duration_min if profile.prebreathe_duration_min else 0.
+    pre_peak = float(pre_traj.max()) if pre_traj.size else 0.
+    alt_integral = integral(alt_traj, profile.altitude_duration_min)
+    alt_mean = alt_integral/profile.altitude_duration_min if profile.altitude_duration_min else 0.
+    alt_peak_1 = _peak_1min(alt_traj, profile.vo2_dt_min, profile.altitude_duration_min)
 
     tr360 = _tissue_n2_ratio_360(
         altitude_ft=profile.target_altitude_ft,

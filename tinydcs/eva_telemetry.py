@@ -1,16 +1,11 @@
-"""Telemetry adapters for EVA scenario inputs.
-
-Adapters normalize device-specific pressure, activity, and physiology samples
-into small scenario adjustments. They are deliberately conservative: low
-confidence or malformed samples are reported but ignored.
-"""
+"""Unit-checked, timestamped telemetry; unvalidated proxies remain indicators."""
 
 from __future__ import annotations
-
-import copy
 import math
+import time
 from dataclasses import dataclass, field
 from typing import Any, Mapping
+from mechanistic.atmosphere import KPA_PER_PSIA, MMHG_PER_PSIA, PSIA_PER_ATM
 
 
 @dataclass(frozen=True)
@@ -19,8 +14,8 @@ class NormalizedTelemetrySample:
     value: float
     unit: str
     source: str
-    confidence: float = 1.0
-    timestamp_sec: float | None = None
+    confidence: float
+    timestamp_sec: float | None
 
 
 @dataclass
@@ -29,249 +24,198 @@ class TelemetryAdjustment:
     rejected: int = 0
     warnings: list[str] = field(default_factory=list)
     suit_pressure_psia: float | None = None
+    habitat_pressure_psia: float | None = None
     mean_vo2_ml_kg_min: float | None = None
     peak_vo2_ml_kg_min: float | None = None
     spo2_percent: float | None = None
     heart_rate_bpm: float | None = None
     hrv_rmssd_ms: float | None = None
     skin_temp_c: float | None = None
+    raw_indicators: list[dict] = field(default_factory=list)
 
     @classmethod
-    def empty(cls) -> "TelemetryAdjustment":
+    def empty(cls):
         return cls()
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self):
         return {
             "accepted": self.accepted,
             "rejected": self.rejected,
             "warnings": self.warnings,
             "suitPressurePsia": self.suit_pressure_psia,
+            "habitatPressurePsia": self.habitat_pressure_psia,
             "meanVo2MlKgMin": self.mean_vo2_ml_kg_min,
             "peakVo2MlKgMin": self.peak_vo2_ml_kg_min,
             "spo2Percent": self.spo2_percent,
             "heartRateBpm": self.heart_rate_bpm,
             "hrvRmssdMs": self.hrv_rmssd_ms,
             "skinTempC": self.skin_temp_c,
+            "rawIndicators": self.raw_indicators,
         }
 
 
-def _number(value: Any) -> float | None:
-    try:
-        result = float(value)
-    except (TypeError, ValueError):
+def _number(value):
+    if isinstance(value, bool):
         return None
-    return result if math.isfinite(result) else None
+    try:
+        value = float(value)
+    except (ValueError, TypeError):
+        return None
+    return value if math.isfinite(value) else None
 
 
-def _confidence(sample: Mapping[str, Any]) -> float:
-    value = _number(sample.get("confidence", 1.0))
-    return 1.0 if value is None else max(0.0, min(1.0, value))
-
-
-def _timestamp_sec(sample: Mapping[str, Any]) -> float | None:
-    return _number(sample.get("timestampSec", sample.get("timestamp_sec")))
-
-
-class PressureTelemetryAdapter:
-    """Normalize pressure samples to psia."""
-
-    supported_kinds = {"pressure", "suit_pressure", "habitat_pressure"}
-
-    def normalize(self, sample: Mapping[str, Any]) -> NormalizedTelemetrySample | None:
-        kind = str(sample.get("kind", "")).lower()
-        if kind not in self.supported_kinds:
+def normalize_sample(sample: Mapping[str, Any]):
+    kind, unit = str(sample.get("kind", "")).lower(), str(sample.get("unit", "")).lower()
+    value = _number(sample.get("value"))
+    confidence = _number(sample.get("confidence", 1))
+    timestamp = _number(sample.get("timestampSec"))
+    if confidence is None or not 0 <= confidence <= 1:
+        return None
+    if kind in {"pressure", "suit_pressure", "habitat_pressure"}:
+        factors = {
+            "psia": 1,
+            "kpa": 1 / KPA_PER_PSIA,
+            "mmhg": 1 / MMHG_PER_PSIA,
+            "torr": 1 / MMHG_PER_PSIA,
+            "atm": PSIA_PER_ATM,
+        }
+        if value is None or unit not in factors:
             return None
-        value = _number(sample.get("value"))
-        if value is None:
+        value, unit = value * factors[unit], "psia"
+        if not 0 < value <= 30:
             return None
-        unit = str(sample.get("unit", "psia")).lower()
-        if unit == "psia":
-            psia = value
-        elif unit == "kpa":
-            psia = value / 6.894757
-        elif unit in {"mmhg", "torr"}:
-            psia = value / 51.7149
-        elif unit == "atm":
-            psia = value * 14.6959
-        else:
+    elif kind == "workload":
+        if (
+            value is None
+            or unit not in {"vo2_ml_kg_min", "ml/kg/min", "vo2"}
+            or not 0 <= value <= 120
+        ):
             return None
-        return NormalizedTelemetrySample(
-            kind="pressure",
-            value=psia,
-            unit="psia",
-            source=str(sample.get("source", "pressure_adapter")),
-            confidence=_confidence(sample),
-            timestamp_sec=_timestamp_sec(sample),
-        )
-
-
-class AccelerometerWorkloadAdapter:
-    """Estimate workload from acceleration magnitude or activity counts."""
-
-    supported_kinds = {"accelerometer", "activity", "workload"}
-
-    def normalize(self, sample: Mapping[str, Any]) -> NormalizedTelemetrySample | None:
-        kind = str(sample.get("kind", "")).lower()
-        if kind not in self.supported_kinds:
-            return None
-        unit = str(sample.get("unit", "")).lower()
-        value = _number(sample.get("value"))
-        if kind == "workload" and value is not None and unit in {"vo2_ml_kg_min", "ml/kg/min", "vo2"}:
-            vo2 = value
-        elif unit in {"counts_per_min", "cpm"} and value is not None:
-            vo2 = 3.5 + min(42.0, max(0.0, value) / 135.0)
-        else:
-            x = _number(sample.get("x"))
-            y = _number(sample.get("y"))
-            z = _number(sample.get("z"))
-            if x is None or y is None or z is None:
+        unit = "mL/kg/min"
+    elif kind in {"activity", "accelerometer"}:
+        if unit in {"cpm", "counts_per_min"} and value is not None and value >= 0:
+            kind, unit = "activity_counts", "counts/min"
+        elif unit in {"g", "mg", "milli-g", "millig"}:
+            xyz = [_number(sample.get(axis)) for axis in ("x", "y", "z")]
+            if any(v is None for v in xyz):
                 return None
-            magnitude_g = math.sqrt(x * x + y * y + z * z)
-            if unit in {"mg", "milli-g", "millig"}:
-                magnitude_g /= 1000.0
-            dynamic_g = max(0.0, magnitude_g - 1.0)
-            vo2 = 3.5 + min(46.0, dynamic_g * 28.0)
-        return NormalizedTelemetrySample(
-            kind="workload",
-            value=max(3.5, vo2),
-            unit="vo2_ml_kg_min",
-            source=str(sample.get("source", "accelerometer_adapter")),
-            confidence=_confidence(sample),
-            timestamp_sec=_timestamp_sec(sample),
-        )
-
-
-class PhysiologyTelemetryAdapter:
-    """Normalize HR, HRV, and SpO2 samples."""
-
-    supported_kinds = {"heart_rate", "hr", "hrv", "spo2"}
-
-    def normalize(self, sample: Mapping[str, Any]) -> NormalizedTelemetrySample | None:
-        kind = str(sample.get("kind", "")).lower()
-        if kind not in self.supported_kinds:
-            return None
-        value = _number(sample.get("value"))
-        if value is None:
-            return None
-        if kind in {"heart_rate", "hr"}:
-            normalized_kind = "heart_rate"
-            unit = "bpm"
-        elif kind == "hrv":
-            normalized_kind = "hrv"
-            unit = "rmssd_ms"
-        else:
-            normalized_kind = "spo2"
-            unit = "percent"
-        return NormalizedTelemetrySample(
-            kind=normalized_kind,
-            value=value,
-            unit=unit,
-            source=str(sample.get("source", "physiology_adapter")),
-            confidence=_confidence(sample),
-            timestamp_sec=_timestamp_sec(sample),
-        )
-
-
-class SkinTemperatureTelemetryAdapter:
-    """Normalize skin temperature samples to Celsius."""
-
-    supported_kinds = {"skin_temperature", "skin_temp", "temperature"}
-
-    def normalize(self, sample: Mapping[str, Any]) -> NormalizedTelemetrySample | None:
-        kind = str(sample.get("kind", "")).lower()
-        if kind not in self.supported_kinds:
-            return None
-        value = _number(sample.get("value"))
-        if value is None:
-            return None
-        unit = str(sample.get("unit", "c")).lower()
-        if unit in {"c", "celsius", "degc"}:
-            celsius = value
-        elif unit in {"f", "fahrenheit", "degf"}:
-            celsius = (value - 32.0) * 5.0 / 9.0
+            value = math.hypot(*xyz) / (1 if unit == "g" else 1000)
+            kind, unit = "acceleration_magnitude", "g"
         else:
             return None
-        return NormalizedTelemetrySample(
-            kind="skin_temperature",
-            value=celsius,
-            unit="celsius",
-            source=str(sample.get("source", "skin_temperature_adapter")),
-            confidence=_confidence(sample),
-            timestamp_sec=_timestamp_sec(sample),
-        )
+    elif kind in {"hr", "heart_rate"}:
+        if value is None or unit != "bpm" or not 0 < value <= 300:
+            return None
+        kind = "heart_rate"
+    elif kind == "hrv":
+        if value is None or unit not in {"rmssd_ms", "ms"} or not 0 <= value <= 1000:
+            return None
+        unit = "rmssd_ms"
+    elif kind == "spo2":
+        if value is None or unit not in {"%", "percent", "fraction"}:
+            return None
+        value = value * 100 if unit == "fraction" else value
+        if not 0 <= value <= 100:
+            return None
+        unit = "percent"
+    elif kind in {"skin_temperature", "skin_temp", "temperature"}:
+        if value is None:
+            return None
+        if unit in {"f", "fahrenheit", "degf"}:
+            value = (value - 32) * 5 / 9
+        elif unit not in {"c", "celsius", "degc"}:
+            return None
+        if not 0 <= value <= 60:
+            return None
+        kind, unit = "skin_temperature", "celsius"
+    else:
+        return None
+    return NormalizedTelemetrySample(
+        kind, value, unit, str(sample.get("source") or "unspecified"), confidence, timestamp
+    )
 
 
-ADAPTERS = (
-    PressureTelemetryAdapter(),
-    AccelerometerWorkloadAdapter(),
-    PhysiologyTelemetryAdapter(),
-    SkinTemperatureTelemetryAdapter(),
-)
+def apply_telemetry_adjustment(scenario, samples, mission_rules, *, now_sec=None):
+    """Apply fresh pressure/SpO2 measurements only; retain other raw indicators.
 
-
-def normalize_sample(sample: Mapping[str, Any]) -> NormalizedTelemetrySample | None:
-    for adapter in ADAPTERS:
-        normalized = adapter.normalize(sample)
-        if normalized is not None:
-            return normalized
-    return None
-
-
-def apply_telemetry_adjustment(
-    scenario: dict[str, Any],
-    samples: list[Mapping[str, Any]],
-    mission_rules: Mapping[str, Any],
-) -> TelemetryAdjustment:
-    """Mutate ``scenario`` with valid telemetry-derived adjustments."""
-
-    adjustment = TelemetryAdjustment.empty()
-    min_confidence = float(mission_rules.get("telemetry", {}).get("min_confidence", 0.5))
-    workload_values: list[float] = []
-
-    for raw_sample in samples:
-        normalized = normalize_sample(raw_sample)
+    No acceleration-to-VO2 or skin-temperature-to-cooling calibration is assumed.
+    Timestamp-less, future, stale and low-confidence samples cannot update state.
+    """
+    adjustment = TelemetryAdjustment()
+    now = time.time() if now_sec is None else now_sec
+    if not math.isfinite(now):
+        raise ValueError("finite telemetry reference time required")
+    settings = mission_rules.get("telemetry", {})
+    latest, workloads = {}, []
+    for raw in samples:
+        normalized = normalize_sample(raw)
         if normalized is None:
             adjustment.rejected += 1
-            adjustment.warnings.append(f"Unsupported or malformed telemetry sample: {raw_sample.get('kind', 'unknown')}")
+            adjustment.warnings.append(
+                f"Unsupported or malformed telemetry sample: {raw.get('kind', 'unknown')}"
+            )
             continue
-        if normalized.confidence < min_confidence:
+        if normalized.confidence < settings.get("min_confidence", 0.5):
             adjustment.rejected += 1
-            adjustment.warnings.append(f"Low-confidence telemetry sample ignored: {normalized.kind}")
+            adjustment.warnings.append(
+                f"Low-confidence telemetry sample ignored: {normalized.kind}"
+            )
+            continue
+        if (
+            normalized.timestamp_sec is None
+            or not 0 <= now - normalized.timestamp_sec <= settings.get("max_sample_age_sec", 120)
+        ):
+            adjustment.rejected += 1
+            adjustment.warnings.append(
+                f"Unverified timestamp, stale or future telemetry ignored: {normalized.kind}"
+            )
             continue
         adjustment.accepted += 1
-        if normalized.kind == "pressure":
-            adjustment.suit_pressure_psia = normalized.value
-        elif normalized.kind == "workload":
-            workload_values.append(normalized.value)
-        elif normalized.kind == "spo2":
-            adjustment.spo2_percent = normalized.value
-        elif normalized.kind == "heart_rate":
-            adjustment.heart_rate_bpm = normalized.value
-        elif normalized.kind == "hrv":
-            adjustment.hrv_rmssd_ms = normalized.value
-        elif normalized.kind == "skin_temperature":
-            adjustment.skin_temp_c = normalized.value
-
-    if adjustment.suit_pressure_psia is not None:
-        scenario["suit"]["pressurePsia"] = adjustment.suit_pressure_psia
-    if workload_values:
-        blend = float(mission_rules.get("telemetry", {}).get("workload_blend", 0.65))
-        measured_mean = sum(workload_values) / len(workload_values)
-        measured_peak = max(workload_values)
-        scenario["meanVo2MlKgMin"] = (1.0 - blend) * scenario["meanVo2MlKgMin"] + blend * measured_mean
-        scenario["peakVo2MlKgMin"] = max(
-            scenario["meanVo2MlKgMin"],
-            (1.0 - blend) * scenario["peakVo2MlKgMin"] + blend * measured_peak,
+        kind = normalized.kind
+        if kind == "pressure":
+            kind = settings.get("pressure_source", "suit") + "_pressure"
+        if kind not in latest or normalized.timestamp_sec >= latest[kind].timestamp_sec:
+            latest[kind] = normalized
+        adjustment.raw_indicators.append(
+            {
+                "kind": kind,
+                "value": normalized.value,
+                "unit": normalized.unit,
+                "source": normalized.source,
+                "timestampSec": normalized.timestamp_sec,
+            }
         )
-        adjustment.mean_vo2_ml_kg_min = scenario["meanVo2MlKgMin"]
-        adjustment.peak_vo2_ml_kg_min = scenario["peakVo2MlKgMin"]
+        if kind == "workload":
+            workloads.append(normalized.value)
+    for kind, attribute in [
+        ("suit_pressure", "suit_pressure_psia"),
+        ("habitat_pressure", "habitat_pressure_psia"),
+        ("spo2", "spo2_percent"),
+        ("heart_rate", "heart_rate_bpm"),
+        ("hrv", "hrv_rmssd_ms"),
+        ("skin_temperature", "skin_temp_c"),
+    ]:
+        if kind in latest:
+            setattr(adjustment, attribute, latest[kind].value)
+    if adjustment.suit_pressure_psia is not None:
+        if scenario.get("pressureSegments"):
+            adjustment.warnings.append(
+                "Pressure snapshot displayed; explicit mission pressure schedule retained."
+            )
+        else:
+            scenario["suit"]["pressurePsia"] = adjustment.suit_pressure_psia
+    if adjustment.habitat_pressure_psia is not None:
+        scenario["habitat"]["pressurePsia"] = adjustment.habitat_pressure_psia
     if adjustment.spo2_percent is not None:
         scenario["crew"]["spo2Percent"] = adjustment.spo2_percent
-    if adjustment.skin_temp_c is not None:
-        if adjustment.skin_temp_c >= 37.0:
-            scenario["suit"]["coolingMargin"] = max(0.4, scenario["suit"]["coolingMargin"] - 0.08)
-        elif adjustment.skin_temp_c <= 29.0:
-            scenario["suit"]["coolingMargin"] = max(0.4, scenario["suit"]["coolingMargin"] - 0.04)
-
-    # Return an isolated copy so callers cannot mutate stored status by accident.
-    return copy.deepcopy(adjustment)
+    if workloads:
+        adjustment.mean_vo2_ml_kg_min = sum(workloads) / len(workloads)
+        adjustment.peak_vo2_ml_kg_min = max(workloads)
+        adjustment.warnings.append(
+            "Measured VO2 samples displayed; a snapshot does not replace the mission workload schedule."
+        )
+    if "acceleration_magnitude" in latest or "activity_counts" in latest:
+        adjustment.warnings.append(
+            "Acceleration/activity remains a raw indicator; no validated VO2 conversion supplied."
+        )
+    return adjustment

@@ -1,16 +1,99 @@
 {
-  "beta_1": 0.449305203377084,
-  "beta_2": 0.8288146191378907,
+  "beta_1": 0.4493019708244797,
+  "beta_2": 0.6857796138784676,
   "beta": [
-    0.01975761396891409,
-    0.013848219846776895,
-    -0.6914079452865248,
-    -1.2190120022207913
+    0.020136977161580718,
+    0.015598694556012373,
+    -0.6970897701884766,
+    -1.2291092644862835
   ],
   "feature_names": [
     "pressure_mmhg",
     "prebreathe_min",
     "exercise_mild",
     "exercise_heavy"
-  ]
+  ],
+  "metadata": {
+    "schema_version": "accuracy-v3",
+    "model_id": "adrac-train-only-afe8edd8d8bb",
+    "dataset_id": "bd0af1b2722408c1cb4eaa681bb190bc01658953f00e2aa7fb48617ddf024425",
+    "split_id": "afe8edd8d8bb7dcd81021d129257da92196d7dd01d052d2f9f6d40b203958ec4",
+    "split": "held-out test",
+    "split_seed": 42,
+    "split_fractions": {
+      "train": 0.65,
+      "calibration": 0.2,
+      "test": 0.15
+    },
+    "n_total": 14683,
+    "n_train": 9544,
+    "n_calibration": 2937,
+    "n_test": 2202,
+    "partition_cell_id_sha256": {
+      "train": "5410b02fbb1ff56f35c0baad14e418421fbcafa85261af113777ac9fd2f6073d",
+      "cal": "c092b1acba34dd1b32d84a2f890e8c1078d4ab44c1772b6a669e1c9c20183ae6",
+      "test": "eccd22bd28b845aed0449eaa7949e64a9e9ee4e38f8246b093f4272ccf2d9051"
+    },
+    "target_kind": "model_probability",
+    "clinical_validation": false,
+    "target_provenance": "primary cleaned ADRAC model-generated grid; disputed scaling cells excluded",
+    "model_kind": "ADRAC log-logistic AFT functional form fitted on training cells only",
+    "training_config": {
+      "fit": "bounded least squares on logit targets",
+      "probability_epsilon": 1e-06,
+      "feature_names": [
+        "pressure_mmhg",
+        "prebreathe_min",
+        "exercise_mild",
+        "exercise_heavy"
+      ]
+    },
+    "validation_unit": "percentage_points",
+    "row_risk_unit": "percent",
+    "residual_definition": "predictedRisk - riskOfDcs; percentage points",
+    "intervals": "none exported for the standalone closed-form baseline",
+    "baseline_artifact": "artifacts/accuracy-v3/adrac.joblib",
+    "baseline_artifact_sha256": "6864df9ba48ca7a95d22cb8933f9ecafd205cadecf76b83a117ac4580e62bb86",
+    "reference_metrics": "artifacts/accuracy-v3/metrics.json",
+    "reference_metrics_sha256": "5488a5e1e7dfeca07f93da0678aa270a132cd69060e67816349b32594ba43576",
+    "partition_file": "artifacts/accuracy-v3/metrics.splits.json",
+    "partition_file_sha256": "d9032c6f9f48bbf4782b709e9374dd2f64aeec858fdedef797d22bf0d216410e",
+    "environment": {
+      "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+      "packages": {
+        "numpy": "2.5.2",
+        "pandas": "2.3.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.0",
+        "lightgbm": "4.7.0",
+        "joblib": "1.6.0",
+        "pyarrow": "25.0.1",
+        "onnx": "1.22.0",
+        "onnxruntime": "1.29.0",
+        "onnxmltools": "1.16.0",
+        "onnxconverter-common": "1.16.0"
+      },
+      "threads": {
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2"
+      },
+      "onnxruntime_threads": 2,
+      "lightgbm_threads": 2
+    },
+    "command": [
+      "/root/repos/DCS/.venv/bin/python3.12",
+      "scripts/12_export_frontend_evidence.py",
+      "--training",
+      "artifacts/accuracy-v3/clean.parquet",
+      "--reference-metrics",
+      "artifacts/accuracy-v3/metrics.json",
+      "--baseline",
+      "artifacts/accuracy-v3/adrac.joblib",
+      "--output-dir",
+      "frontend/src/data",
+      "--refresh-baseline-metadata"
+    ]
+  }
 }

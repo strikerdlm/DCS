@@ -1292,6 +1292,8 @@ if model_choice == "ML surrogate (loaded artefacts)":
 
 elif model_choice == "Mechanistic 3RUT‑MBe1":
     st.header("Mechanistic 3RUT‑MBe1 simulation")
+    st.warning("Quantitative 3RUT output is disabled pending source-equation, numerical and benchmark reconciliation.")
+    st.stop()
 
     mech = st.session_state.get("mech_inputs", {})
     col_a, col_b, col_c = st.columns(3)

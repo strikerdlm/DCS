@@ -1,455 +1,166 @@
-import { clamp, stableSigmoid } from "../lib/utils";
-import type {
-  EVADecisionImplication,
-  EVAScenario,
-  EVASimulationResult,
-  EVATimelinePoint,
-  RiskConsequenceLevel,
-  RiskLikelihoodLevel,
-  RiskMatrixHazard,
-} from "../types";
+/** Offline reference calculation. Kept in numerical parity with tinydcs/eva.py. */
+import { stableSigmoid } from "../lib/utils";
+import { missionRules, validateScenario } from "./evaContract";
+import type { EVAOptions, MissionRules } from "./evaContract";
+import { applyTelemetry } from "./evaTelemetry";
+import type { EVADecisionImplication, EVAScenario, EVASimulationResult, EVATimelinePoint, RiskConsequenceLevel, RiskLikelihoodLevel, RiskMatrixHazard } from "../types";
 
-const LN2 = Math.log(2);
-const SEA_LEVEL_PSIA = 14.7;
-const WATER_VAPOR_PSIA = 0.91;
-const N2_AIR_FRACTION = 0.79;
-const TISSUE_HALF_TIME_MIN = 360;
-const TISSUE_TAU_MIN = TISSUE_HALF_TIME_MIN / LN2;
+export { missionRules } from "./evaContract";
+export type { EVAOptions, MissionRules } from "./evaContract";
+export const EVA_MODEL_VERSION = "eva-reference-v2";
+export const NASA_SOURCE = "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf";
+const MMHG_PER_PSIA = 760 / 14.695948775513449;
+export const psiaToKpa = (psia: number): number => psia * 6.894757293168;
+export const psiaToMmHg = (psia: number): number => psia * MMHG_PER_PSIA;
+export const inspiredGasPsia = (p: number, fraction: number): number => Math.max(p - 47 / MMHG_PER_PSIA, 0) * fraction;
+const tissueToward = (initial: number, target: number, duration: number): number => target + (initial - target) * Math.exp(-duration * Math.LN2 / 360);
+const tissueExercise = (initial: number, target: number, duration: number, vo2: number): number => target + (initial - target) * Math.exp(-duration * Math.exp(.025 * vo2) / 519.37);
 
-export function psiaToKpa(psia: number): number {
-  return psia * 6.894757;
-}
-
-export function psiaToMmHg(psia: number): number {
-  return psia * 51.7149;
-}
-
-export function inspiredGasPsia(totalPressurePsia: number, fraction: number): number {
-  return Math.max(totalPressurePsia - WATER_VAPOR_PSIA, 0) * clamp(fraction, 0, 1);
-}
-
-function tissueToward(initialPsia: number, targetPsia: number, durationMin: number): number {
-  if (durationMin <= 0) return initialPsia;
-  return targetPsia + (initialPsia - targetPsia) * Math.exp(-durationMin / TISSUE_TAU_MIN);
-}
-
-function exerciseAdjustedK(vo2MlKgMin: number): number {
-  const lambda = 0.03;
-  return (1 - Math.exp(-lambda * Math.max(vo2MlKgMin, 0))) / 51.937 + LN2 / TISSUE_HALF_TIME_MIN;
-}
-
-function tissueTowardWithExercise(
-  initialPsia: number,
-  targetPsia: number,
-  durationMin: number,
-  vo2MlKgMin: number,
-): number {
-  if (durationMin <= 0) return initialPsia;
-  const k = exerciseAdjustedK(vo2MlKgMin);
-  return targetPsia + (initialPsia - targetPsia) * Math.exp(-k * durationMin);
-}
-
-function conkinResearchPDcs(etr: number, ageYears: number): number {
-  return stableSigmoid(-31.71 + 14.55 * etr + 0.053 * ageYears) * 100;
-}
-
-function intervalForRiskPercent(
-  riskPercent: number,
-  scenario: EVAScenario,
-): { low: number; high: number } {
-  const p = clamp(riskPercent / 100, 1e-6, 1 - 1e-6);
-  const logit = Math.log(p / (1 - p));
-  const novelProfile =
-    scenario.kind === "scenario_c_habitat_pressure_decision" ||
-    scenario.habitat.pressurePsia < 11 ||
-    scenario.suit.variablePressure;
-  const workloadWidth = clamp((scenario.peakVo2MlKgMin - 20) / 30, 0, 1);
-  const halfWidth = 0.72 + (novelProfile ? 0.32 : 0) + workloadWidth * 0.22;
-  return {
-    low: stableSigmoid(logit - halfWidth) * 100,
-    high: stableSigmoid(logit + halfWidth) * 100,
-  };
-}
-
-function likelihoodFromProbability(percent: number): RiskLikelihoodLevel {
-  if (percent < 1) return 1;
-  if (percent < 5) return 2;
-  if (percent < 15) return 3;
-  if (percent < 35) return 4;
+export function likelihoodFromProbability(p: number | null, rules: MissionRules): RiskLikelihoodLevel | null {
+  if (p === null) return null;
+  if (!Number.isFinite(p) || p < 0 || p > 100) throw new Error("risk must be a finite percentage");
+  const t = rules.lxc_probability_thresholds_percent;
+  if (p < t.level_2_min) return 1;
+  if (p < t.level_3_min) return 2;
+  if (p < t.level_4_min) return 3;
+  if (p < t.level_5_min) return 4;
   return 5;
 }
 
-function posture(score: number): RiskMatrixHazard["posture"] {
-  if (score <= 4) return "green";
-  if (score <= 9) return "yellow";
-  if (score <= 15) return "orange";
+export function posture(score: number | null, rules: MissionRules): RiskMatrixHazard["posture"] {
+  if (score === null) return "unavailable";
+  for (const color of ["green", "yellow", "orange"] as const) if (score <= rules.posture_score_max[color]) return color;
   return "red";
 }
 
-function hazard(
-  id: string,
-  name: string,
-  probabilityPercent: number,
-  consequence: RiskConsequenceLevel,
-  driver: string,
-): RiskMatrixHazard {
-  const likelihood = likelihoodFromProbability(probabilityPercent);
-  const score = likelihood * consequence;
-  return {
-    id,
-    name,
-    probabilityPercent: clamp(probabilityPercent, 0, 100),
-    likelihood,
-    consequence,
-    score,
-    posture: posture(score),
-    driver,
-  };
+function hazard(id: string, name: string, p: number | null, consequence: RiskConsequenceLevel, driver: string, rules: MissionRules, indicator: RiskMatrixHazard["indicator"] = null): RiskMatrixHazard {
+  const likelihood = likelihoodFromProbability(p, rules), score = likelihood === null ? null : likelihood * consequence;
+  return { id, name, probabilityPercent: p, likelihood, consequence, score, posture: posture(score, rules), driver, indicator,
+    evidenceStatus: p === null ? "indicator_only" : "reference_endpoint" };
 }
 
-function buildTimeline(
-  scenario: EVAScenario,
-  tissueN2StartPsia: number,
-  tissueN2AfterPrebreathePsia: number,
-  pDcsPercent: number,
-): EVATimelinePoint[] {
-  const timeline: EVATimelinePoint[] = [];
-  const habitatN2Psia = inspiredGasPsia(
-    scenario.habitat.pressurePsia,
-    1 - scenario.habitat.oxygenFraction,
-  );
-  const prebreatheN2Psia = inspiredGasPsia(
-    scenario.habitat.pressurePsia,
-    1 - scenario.prebreatheOxygenFraction,
-  );
-  const suitN2Psia = inspiredGasPsia(scenario.suit.pressurePsia, 1 - scenario.suit.oxygenFraction);
-  const duration = Math.max(scenario.evaDurationMin, 1);
-  const step = Math.max(5, Math.round(duration / 48));
+function planningWarnings(s: EVAScenario, rules: MissionRules): string[] {
+  const e = rules.envelope, out: string[] = [];
+  if (s.suit.pressurePsia < e.suit_pressure_psia_min || s.suit.pressurePsia > e.suit_pressure_psia_max)
+    out.push(`Suit pressure is outside the ${e.suit_pressure_psia_min.toFixed(1)}-${e.suit_pressure_psia_max.toFixed(1)} psia exploration comparison range.`);
+  if (s.habitat.pressurePsia < e.habitat_pressure_psia_min || s.habitat.pressurePsia > e.habitat_pressure_psia_max)
+    out.push(`Habitat pressure is outside the ${e.habitat_pressure_psia_min.toFixed(1)}-${e.habitat_pressure_psia_max.toFixed(1)} psia planning range.`);
+  if (s.habitat.oxygenFraction < e.habitat_oxygen_fraction_min || s.habitat.oxygenFraction > e.habitat_oxygen_fraction_max) out.push("Habitat oxygen fraction is outside the configured planning range.");
+  if (s.prebreatheOxygenFraction < e.prebreathe_oxygen_fraction_min || s.prebreatheOxygenFraction > e.prebreathe_oxygen_fraction_max) out.push("Prebreathe oxygen fraction is outside the configured planning range.");
+  if (s.prebreatheMin < e.prebreathe_min_min || s.prebreatheMin > e.prebreathe_min_max) out.push("Prebreathe duration is outside the configured planning range.");
+  if (s.evaDurationMin < e.eva_duration_min_min || s.evaDurationMin > e.eva_duration_min_max) out.push("EVA duration is outside the configured planning range.");
+  if (s.prebreatheMin < e.short_prebreathe_high_pressure_min && s.habitat.pressurePsia > e.short_prebreathe_high_pressure_psia) out.push("Short prebreathe from a high-pressure habitat is an unsupported extrapolation.");
+  return out;
+}
 
-  timeline.push({
-    timeMin: -scenario.prebreatheMin,
-    phase: "habitat",
-    ambientPressurePsia: scenario.habitat.pressurePsia,
-    inspiredN2Psia: habitatN2Psia,
-    tissueN2Psia: tissueN2StartPsia,
-    vo2MlKgMin: 3.5,
-    cumulativePDcsPercent: 0,
-    intervalLowPercent: 0,
-    intervalHighPercent: 0,
-  });
-  timeline.push({
-    timeMin: 0,
-    phase: "prebreathe",
-    ambientPressurePsia: scenario.habitat.pressurePsia,
-    inspiredN2Psia: prebreatheN2Psia,
-    tissueN2Psia: tissueN2AfterPrebreathePsia,
-    vo2MlKgMin: scenario.meanVo2MlKgMin,
-    cumulativePDcsPercent: 0,
-    intervalLowPercent: 0,
-    intervalHighPercent: 0,
-  });
+function modelApplicability(s: Required<EVAScenario>): EVASimulationResult["modelApplicability"] {
+  const reasons: string[] = [];
+  if (Math.abs(s.evaDurationMin - 240) > 1e-8) reasons.push("The NASA endpoint is four hours; no duration scaling is validated.");
+  if (s.suit.variablePressure || s.pressureSegments.length > 1) reasons.push("Variable-pressure EVA is outside the NASA reference endpoint.");
+  const pressures = s.pressureSegments.length ? s.pressureSegments : [s.suit];
+  if (pressures.some(p => Math.abs(p.pressurePsia - 4.3) > 1e-8 || Math.abs(p.oxygenFraction - 1) > 1e-8)) reasons.push("Reference exposure requires constant 4.3 psia and oxygen breathing.");
+  if (!s.nasaAdynamicReference) reasons.push("Adynamic source-reference assumptions have not been declared.");
+  return { applicable: reasons.length === 0, reasons, modelId: "conkin-RM-equation-14", horizonMin: 240, referencePressurePsia: 4.3, source: NASA_SOURCE, intervalKind: "unavailable", clinicalValidation: false,
+    evidenceStatus: reasons.length ? "outside_reference" : "reference_calculation",
+    assumptions: ["Source-cohort transportability is not established.", "NASA dry ambient nitrogen convention; lambda=0.025.", "Exercise-dependent kinetics outside prebreathe are an exploratory compartment extension."] };
+}
 
-  for (let t = step; t <= duration; t += step) {
-    const frac = clamp(t / duration, 0, 1);
-    const workloadPulse =
-      scenario.meanVo2MlKgMin +
-      Math.sin(frac * Math.PI * 2) * Math.max(0, scenario.peakVo2MlKgMin - scenario.meanVo2MlKgMin) * 0.35;
-    const tissueN2 = tissueTowardWithExercise(
-      tissueN2AfterPrebreathePsia,
-      suitN2Psia,
-      t,
-      workloadPulse,
-    );
-    const cumulativePDcsPercent = pDcsPercent * Math.pow(frac, 1.22);
-    const interval = intervalForRiskPercent(cumulativePDcsPercent, scenario);
-    timeline.push({
-      timeMin: t,
-      phase: "eva",
-      ambientPressurePsia: scenario.suit.pressurePsia,
-      inspiredN2Psia: suitN2Psia,
-      tissueN2Psia: tissueN2,
-      vo2MlKgMin: workloadPulse,
-      cumulativePDcsPercent,
-      intervalLowPercent: interval.low,
-      intervalHighPercent: interval.high,
-    });
+function pbSegments(s: Required<EVAScenario>) {
+  return s.prebreatheSegments.length ? s.prebreatheSegments : s.prebreatheMin ? [{ durationMin: s.prebreatheMin, pressurePsia: s.habitat.pressurePsia, oxygenFraction: s.prebreatheOxygenFraction, vo2MlKgMin: s.prebreatheVo2MlKgMin }] : [];
+}
+
+function point(timeMin: number, phase: EVATimelinePoint["phase"], pressure: number, oxygen: number, tissue: number, vo2: number): EVATimelinePoint {
+  return { timeMin, phase, ambientPressurePsia: pressure, ambientN2Psia: pressure * (1 - oxygen), inspiredN2Psia: pressure * (1 - oxygen), tissueN2Psia: tissue, vo2MlKgMin: vo2, cumulativePDcsPercent: null, intervalLowPercent: null, intervalHighPercent: null };
+}
+
+function buildTimeline(s: Required<EVAScenario>, initial: number): EVATimelinePoint[] {
+  let tissue = initial, time = -s.prebreatheMin;
+  const timeline = [point(time, "habitat", s.habitat.pressurePsia, s.habitat.oxygenFraction, tissue, 0)];
+  for (const segment of pbSegments(s)) {
+    const count = Math.max(1, Math.ceil(segment.durationMin / 5)), duration = segment.durationMin / count;
+    for (let i = 0; i < count; i++) {
+      tissue = tissueExercise(tissue, segment.pressurePsia * (1 - segment.oxygenFraction), duration, segment.vo2MlKgMin);
+      time += duration;
+      timeline.push(point(Math.min(time, 0), "prebreathe", segment.pressurePsia, segment.oxygenFraction, tissue, segment.vo2MlKgMin));
+    }
   }
-
+  timeline[timeline.length - 1].timeMin = 0;
+  const duration = s.evaDurationMin;
+  if (!duration) return timeline;
+  const workload = s.workload.length ? s.workload : [{ durationMin: duration, vo2MlKgMin: s.meanVo2MlKgMin }];
+  const pressure = s.pressureSegments.length ? s.pressureSegments : [{ durationMin: duration, ...s.suit }];
+  const endpoints = (blocks: {durationMin: number}[]) => { let t = 0; return blocks.map(b => t += b.durationMin); };
+  const workEnds = endpoints(workload), pressureEnds = endpoints(pressure), step = Math.max(1, Math.ceil(duration / 48));
+  workEnds[workEnds.length - 1] = pressureEnds[pressureEnds.length - 1] = duration;
+  const allCuts = [0, duration, ...workEnds, ...pressureEnds];
+  for (let t = step; t < Math.ceil(duration); t += step) allCuts.push(t);
+  const cuts = [...new Set(allCuts)].sort((a, b) => a - b);
+  for (let i = 1; i < cuts.length; i++) {
+    const start = cuts[i - 1], end = cuts[i], middle = (start + end) / 2;
+    if (end - start <= 1e-10) continue;
+    const work = workload[workEnds.findIndex(t => middle < t)], gas = pressure[pressureEnds.findIndex(t => middle < t)];
+    tissue = tissueExercise(tissue, gas.pressurePsia * (1 - gas.oxygenFraction), end - start, work.vo2MlKgMin);
+    timeline.push(point(end, "eva", gas.pressurePsia, gas.oxygenFraction, tissue, work.vo2MlKgMin));
+  }
   return timeline;
 }
 
-function integrateRiskPercentHours(timeline: EVATimelinePoint[]): number {
-  let areaPercentMin = 0;
-  const evaPoints = timeline.filter((point) => point.timeMin >= 0);
-  for (let i = 1; i < evaPoints.length; i++) {
-    const a = evaPoints[i - 1];
-    const b = evaPoints[i];
-    const dt = Math.max(0, b.timeMin - a.timeMin);
-    areaPercentMin += ((a.cumulativePDcsPercent + b.cumulativePDcsPercent) / 2) * dt;
-  }
-  return areaPercentMin / 60;
+function chooseDecision(abstain: boolean, score: number | null, p: number | null, stops: string[], rules: MissionRules): { decision: EVADecisionImplication; rationale: string } {
+  if (stops.length) return { decision: "abort", rationale: "A configured stop condition is present, independently of model availability." };
+  if (abstain || p === null || score === null) return { decision: "abstain", rationale: "No applicable DCS endpoint estimate; indicators do not establish a safe operating decision." };
+  const t = rules.decision_thresholds;
+  for (const action of ["delay", "modify", "monitor"] as const)
+    if (score >= t[`${action}_lxc_score_min`] || p >= t[`${action}_risk_percent_min`])
+      return { decision: action, rationale: `Reference endpoint meets the configured ${action} threshold; this is a planning classification.` };
+  return { decision: "proceed", rationale: "Below configured reference-model thresholds; this is not operational clearance." };
 }
 
-function maxRisk(timeline: EVATimelinePoint[]): { percent: number; timeMin: number } {
-  return timeline.reduce(
-    (best, point) =>
-      point.cumulativePDcsPercent > best.percent
-        ? { percent: point.cumulativePDcsPercent, timeMin: point.timeMin }
-        : best,
-    { percent: 0, timeMin: 0 },
-  );
-}
-
-function scenarioEnvelopeWarnings(scenario: EVAScenario): string[] {
-  const warnings: string[] = [];
-  if (scenario.suit.pressurePsia < 3.7 || scenario.suit.pressurePsia > 8.2) {
-    warnings.push("Suit pressure is outside the 3.7-8.2 psia exploration comparison range.");
-  }
-  if (scenario.habitat.pressurePsia < 5 || scenario.habitat.pressurePsia > 14.7) {
-    warnings.push("Habitat pressure is outside the 5.0-14.7 psia planning range.");
-  }
-  if (scenario.habitat.oxygenFraction < 0.2 || scenario.habitat.oxygenFraction > 0.4) {
-    warnings.push("Habitat oxygen fraction is outside the 20-40% planning range.");
-  }
-  if (scenario.prebreatheOxygenFraction < 0.21 || scenario.prebreatheOxygenFraction > 1) {
-    warnings.push("Prebreathe oxygen fraction is outside the 21-100% range.");
-  }
-  if (scenario.prebreatheMin < 0 || scenario.prebreatheMin > 300) {
-    warnings.push("Prebreathe duration is outside the 0-300 min planning range.");
-  }
-  if (scenario.evaDurationMin < 30 || scenario.evaDurationMin > 540) {
-    warnings.push("EVA duration is outside the 30-540 min planning range.");
-  }
-  if (scenario.prebreatheMin < 15 && scenario.habitat.pressurePsia > 8.2) {
-    warnings.push("Short prebreathe from a high-pressure habitat is an unsupported extrapolation.");
-  }
-  return warnings;
-}
-
-function chooseDecision({
-  abstain,
-  lxcScore,
-  maxRiskPercent,
-  integratedRiskPercentHours,
-  consumablesMarginMin,
-  radiationWeather,
-  symptomFlag,
-}: {
-  abstain: boolean;
-  lxcScore: number;
-  maxRiskPercent: number;
-  integratedRiskPercentHours: number;
-  consumablesMarginMin: number;
-  radiationWeather: EVAScenario["environment"]["radiationWeather"];
-  symptomFlag: boolean;
-}): { decision: EVADecisionImplication; rationale: string } {
-  if (abstain) {
-    return {
-      decision: "abstain",
-      rationale: "Model inputs are outside the supported planning envelope.",
-    };
-  }
-  if (radiationWeather === "storm" || consumablesMarginMin < 0 || symptomFlag) {
-    return {
-      decision: "abort",
-      rationale: "A hard operational stop is present: radiation storm, negative consumables margin, or active symptoms.",
-    };
-  }
-  if (lxcScore >= 16 || maxRiskPercent >= 20) {
-    return {
-      decision: "delay",
-      rationale: "LxC is red or DCS point risk exceeds the high-risk planning threshold.",
-    };
-  }
-  if (lxcScore >= 10 || maxRiskPercent >= 10 || integratedRiskPercentHours >= 30) {
-    return {
-      decision: "modify",
-      rationale: "Risk is elevated; modify prebreathe, suit pressure, workload, or EVA duration.",
-    };
-  }
-  if (lxcScore >= 5 || maxRiskPercent >= 1 || integratedRiskPercentHours >= 5) {
-    return {
-      decision: "monitor",
-      rationale: "Risk remains manageable but requires telemetry and symptom surveillance.",
-    };
-  }
-  return {
-    decision: "proceed",
-    rationale: "Risk is low and inside the model envelope with positive operational margins.",
-  };
-}
-
-function buildHazards(
-  scenario: EVAScenario,
-  pDcsPercent: number,
-  etr: number,
-  suitInspiredO2MmHg: number,
-  habitatInspiredO2MmHg: number,
-  consumablesMarginMin: number,
-): RiskMatrixHazard[] {
-  const durationFactor = clamp(scenario.evaDurationMin / 480, 0, 1.5);
-  const workloadFactor = clamp((scenario.peakVo2MlKgMin - 15) / 25, 0, 1.5);
-  const lowO2Factor = clamp((120 - Math.min(suitInspiredO2MmHg, habitatInspiredO2MmHg)) / 60, 0, 2);
-  const co2Probability = clamp(
-    (1 - scenario.suit.co2ScrubberMargin) * 34 + workloadFactor * 18 + durationFactor * 8,
-    0,
-    80,
-  );
-  const thermalProbability = clamp(
-    (1 - scenario.suit.coolingMargin) * 32 +
-      scenario.environment.sunExposure * 17 +
-      workloadFactor * 20,
-    0,
-    85,
-  );
-  const dustProbability = clamp(
-    scenario.environment.dustLevel * 42 +
-      (scenario.suit.suitPort ? -10 : 10) +
-      durationFactor * 8,
-    0,
-    90,
-  );
-  const fatigueProbability = clamp(
-    durationFactor * 24 +
-      workloadFactor * 26 +
-      (scenario.suit.pressurePsia > 5.5 ? 10 : 0) +
-      (scenario.crew.hydration < 0.65 ? 12 : 0),
-    0,
-    90,
-  );
-  const radiationBase =
-    scenario.environment.radiationWeather === "quiet"
-      ? 0.8
-      : scenario.environment.radiationWeather === "elevated"
-        ? 8
-        : 45;
-  const radiationProbability = clamp(
-    radiationBase + durationFactor * 3 + Math.max(0, scenario.environment.shelterReturnMin - 20) * 0.7,
-    0,
-    95,
-  );
-  const consumablesProbability = clamp(
-    consumablesMarginMin < 0 ? 55 + Math.abs(consumablesMarginMin) * 0.5 : Math.max(0, 12 - consumablesMarginMin) * 2,
-    0,
-    95,
-  );
-
-  const dcsConsequence = clamp(
-    3 + (etr > 1.4 ? 1 : 0) + (scenario.environment.shelterReturnMin > 20 ? 1 : 0),
-    1,
-    5,
-  ) as RiskConsequenceLevel;
-
-  return [
-    hazard("dcs", "DCS", pDcsPercent, dcsConsequence, `ETR ${etr.toFixed(2)} with ${scenario.prebreatheMin} min prebreathe`),
-    hazard("hypoxia", "Hypoxia", lowO2Factor * 18, 4, `${Math.round(Math.min(suitInspiredO2MmHg, habitatInspiredO2MmHg))} mmHg lowest inspired O2`),
-    hazard("co2", "CO2 retention", co2Probability, 4, `${Math.round(scenario.suit.co2ScrubberMargin * 100)}% scrubber margin`),
-    hazard("thermal", "Thermal strain", thermalProbability, 3, `${Math.round(scenario.suit.coolingMargin * 100)}% cooling margin`),
-    hazard("dust", "Dust contamination", dustProbability, 3, `${Math.round(scenario.environment.dustLevel * 100)}% dust load`),
-    hazard("fatigue", "Fatigue / injury", fatigueProbability, 3, `${scenario.peakVo2MlKgMin.toFixed(0)} mL/kg/min peak VO2`),
-    hazard("radiation", "Radiation event", radiationProbability, 5, scenario.environment.radiationWeather),
-    hazard("consumables", "Consumables margin", consumablesProbability, 4, `${Math.round(consumablesMarginMin)} min remaining`),
+export function simulateEVA(input: EVAScenario, options: EVAOptions = {}): EVASimulationResult {
+  const rules = missionRules(options.missionRuleProfile), s = validateScenario(input);
+  const telemetryStatus = applyTelemetry(s, options.telemetry ?? [], rules, options.telemetryNowSec);
+  validateScenario(s);
+  const initial = tissueToward(11.6, s.habitat.pressurePsia * (1 - s.habitat.oxygenFraction), s.habitat.equilibrationHours * 60);
+  let p1 = initial;
+  for (const segment of pbSegments(s)) p1 = tissueExercise(p1, segment.pressurePsia * (1 - segment.oxygenFraction), segment.durationMin, segment.vo2MlKgMin);
+  const etr = p1 / (s.pressureSegments[0]?.pressurePsia ?? s.suit.pressurePsia);
+  const applicability = modelApplicability(s), probability = applicability.applicable ? stableSigmoid(-31.71 + 14.55 * etr + .053 * s.crew.ageYears) * 100 : null;
+  const suitO2 = Math.min(...(s.pressureSegments.length ? s.pressureSegments : [s.suit]).map(p => psiaToMmHg(inspiredGasPsia(p.pressurePsia, p.oxygenFraction))));
+  const habitatO2 = psiaToMmHg(inspiredGasPsia(s.habitat.pressurePsia, s.habitat.oxygenFraction));
+  const margin = s.suit.plssDurationMin - s.evaDurationMin, warnings = planningWarnings(s, rules);
+  const abstain = !applicability.applicable || warnings.length > 0;
+  const consequence = Math.min(5, Math.max(1, rules.hazards.dcs_base_consequence + Number(etr > rules.hazards.dcs_etr_consequence_trigger) + Number(s.environment.shelterReturnMin > rules.hazards.dcs_shelter_return_consequence_trigger_min))) as RiskConsequenceLevel;
+  const dcs = hazard("dcs", "DCS", probability, consequence, `ETR ${etr.toFixed(2)}; source applicability required`, rules);
+  const hazards = [dcs];
+  const indicators: Array<[string, string, number | string, string, RiskConsequenceLevel, string]> = [
+    ["hypoxia", "Inspired oxygen", Math.min(suitO2, habitatO2), "mmHg", 4, "Lowest humidified inspired O2; not an event probability"],
+    ["co2", "CO2 scrubber", s.suit.co2ScrubberMargin, "fraction", 4, "Entered scrubber margin"],
+    ["thermal", "Cooling", s.suit.coolingMargin, "fraction", 3, "Entered cooling margin"],
+    ["dust", "Dust exposure", s.environment.dustLevel, "index 0–1", 3, "User-entered dust indicator"],
+    ["fatigue", "Workload", s.peakVo2MlKgMin, "mL/kg/min", 3, "Declared peak VO2; no fatigue probability model"],
+    ["radiation", "Radiation weather", s.environment.radiationWeather, "category", 5, "Declared weather state"],
+    ["consumables", "PLSS margin", margin, "min", 4, "PLSS duration minus EVA duration; reserve is separate"],
   ];
-}
-
-export function simulateEVA(scenario: EVAScenario): EVASimulationResult {
-  const seaLevelN2Psia = inspiredGasPsia(SEA_LEVEL_PSIA, N2_AIR_FRACTION);
-  const habitatN2Psia = inspiredGasPsia(
-    scenario.habitat.pressurePsia,
-    1 - scenario.habitat.oxygenFraction,
-  );
-  const tissueN2StartPsia = tissueToward(
-    seaLevelN2Psia,
-    habitatN2Psia,
-    scenario.habitat.equilibrationHours * 60,
-  );
-  const prebreatheN2Psia = inspiredGasPsia(
-    scenario.habitat.pressurePsia,
-    1 - scenario.prebreatheOxygenFraction,
-  );
-  const tissueN2AfterPrebreathePsia = tissueTowardWithExercise(
-    tissueN2StartPsia,
-    prebreatheN2Psia,
-    scenario.prebreatheMin,
-    scenario.meanVo2MlKgMin,
-  );
-  const p1n2Psia = tissueN2AfterPrebreathePsia;
-  const etr = p1n2Psia / Math.max(scenario.suit.pressurePsia, 0.1);
-  const rawPDcs = conkinResearchPDcs(etr, scenario.crew.ageYears);
-  const workloadPenalty = Math.max(0, scenario.peakVo2MlKgMin - 30) * 0.35;
-  const hydrationPenalty = scenario.crew.hydration < 0.65 ? 2.5 : 0;
-  const symptomPenalty = scenario.crew.symptomFlag ? 6 : 0;
-  const pDcsPercent = clamp(rawPDcs + workloadPenalty + hydrationPenalty + symptomPenalty, 0, 100);
-  const interval = intervalForRiskPercent(pDcsPercent, scenario);
-  const suitInspiredO2MmHg = psiaToMmHg(inspiredGasPsia(scenario.suit.pressurePsia, scenario.suit.oxygenFraction));
-  const habitatInspiredO2MmHg = psiaToMmHg(
-    inspiredGasPsia(scenario.habitat.pressurePsia, scenario.habitat.oxygenFraction),
-  );
-  const consumablesMarginMin =
-    scenario.suit.plssDurationMin + scenario.suit.oxygenReserveMin - scenario.evaDurationMin;
-  const envelopeWarnings = scenarioEnvelopeWarnings(scenario);
-  const inEnvelope = envelopeWarnings.length === 0;
-  const abstain = !inEnvelope;
-
-  const timeline = buildTimeline(scenario, tissueN2StartPsia, tissueN2AfterPrebreathePsia, pDcsPercent);
-  const hazards = buildHazards(
-    scenario,
-    pDcsPercent,
-    etr,
-    suitInspiredO2MmHg,
-    habitatInspiredO2MmHg,
-    consumablesMarginMin,
-  );
-  const dcsHazard = hazards.find((item) => item.id === "dcs") ?? hazards[0];
-  const max = maxRisk(timeline);
-  const integratedRiskPercentHours = integrateRiskPercentHours(timeline);
-  const lxcLikelihood = dcsHazard.likelihood;
-  const lxcConsequence = dcsHazard.consequence;
-  const lxcScore = dcsHazard.score;
-  const lxcCategory = dcsHazard.posture;
-  const decision = chooseDecision({
-    abstain,
-    lxcScore,
-    maxRiskPercent: max.percent,
-    integratedRiskPercentHours,
-    consumablesMarginMin,
-    radiationWeather: scenario.environment.radiationWeather,
-    symptomFlag: scenario.crew.symptomFlag,
-  });
-
+  for (const [id, name, value, unit, severity, driver] of indicators) hazards.push(hazard(id, name, null, severity, driver, rules, { value, unit, source: "scenario_or_arithmetic" }));
+  const stopReasons = [];
+  if (s.crew.symptomFlag) stopReasons.push("active_symptoms");
+  if (s.environment.radiationWeather === "storm") stopReasons.push("radiation_storm");
+  if (margin < 0) stopReasons.push("negative_plss_margin");
+  const decision = chooseDecision(abstain, dcs.score, probability, stopReasons, rules);
+  const totalWork = s.workload.length ? s.workload.reduce((sum, b) => sum + b.durationMin * b.vo2MlKgMin, 0) : s.evaDurationMin * s.meanVo2MlKgMin;
   return {
-    pDcsPercent,
-    intervalLowPercent: interval.low,
-    intervalHighPercent: interval.high,
-    p1n2Psia,
-    etr,
-    tissueN2StartPsia,
-    tissueN2AfterPrebreathePsia,
-    suitInspiredO2MmHg,
-    habitatInspiredO2MmHg,
-    consumablesMarginMin,
-    inEnvelope,
-    abstain,
-    envelopeWarnings,
-    maxRiskPercent: max.percent,
-    maxRiskTimeMin: max.timeMin,
-    integratedRiskPercentHours,
-    lxcLikelihood,
-    lxcConsequence,
-    lxcScore,
-    lxcCategory,
-    decision: decision.decision,
-    decisionRationale: decision.rationale,
-    timeline,
-    hazards,
+    schemaVersion: 2, pDcsPercent: probability, intervalLowPercent: null, intervalHighPercent: null,
+    modelApplicability: applicability, p1n2Psia: p1, etr, tissueN2StartPsia: initial, tissueN2AfterPrebreathePsia: p1,
+    suitInspiredO2MmHg: suitO2, habitatInspiredO2MmHg: habitatO2, consumablesMarginMin: margin, oxygenReserveMin: s.suit.oxygenReserveMin,
+    workloadMeanVo2MlKgMin: s.evaDurationMin ? totalWork / s.evaDurationMin : 0, workloadTotalO2Litres: totalWork * s.crew.massKg / 1000,
+    inEnvelope: !abstain, planningEnvelope: !warnings.length, abstain, envelopeWarnings: [...applicability.reasons, ...warnings],
+    maxRiskPercent: null, maxRiskTimeMin: null, integratedRiskPercentHours: null,
+    lxcLikelihood: dcs.likelihood, lxcConsequence: dcs.consequence, lxcScore: dcs.score, lxcCategory: dcs.posture,
+    decision: decision.decision, decisionRationale: decision.rationale, stopReasons, timeline: buildTimeline(s, initial), hazards, telemetryStatus,
   };
 }
 
-export function cloneScenario(scenario: EVAScenario): EVAScenario {
-  return JSON.parse(JSON.stringify(scenario)) as EVAScenario;
-}
-
+export const cloneScenario = (scenario: EVAScenario): EVAScenario => structuredClone(scenario);
 export function summarizePosture(hazards: RiskMatrixHazard[]): RiskMatrixHazard["posture"] {
-  const maxScore = Math.max(...hazards.map((h) => h.score));
-  return posture(maxScore);
+  if (!hazards.length || hazards.some(h => h.score === null)) return "unavailable";
+  return posture(Math.max(...hazards.map(h => h.score!)), missionRules());
 }

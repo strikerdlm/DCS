@@ -6,10 +6,8 @@ decision_thresholds:
   delay_risk_percent_min: 20.0
   modify_lxc_score_min: 10
   modify_risk_percent_min: 10.0
-  modify_integrated_risk_percent_hours_min: 28.0
   monitor_lxc_score_min: 5
   monitor_risk_percent_min: 1.0
-  monitor_integrated_risk_percent_hours_min: 5.0
 
 envelope:
   habitat_pressure_psia_min: 7.5
@@ -21,4 +19,3 @@ hazards:
 
 telemetry:
   max_sample_age_sec: 90.0
-  workload_blend: 0.65

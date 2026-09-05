@@ -350,3 +350,6 @@ ADS-B altitude stream + wearable VO₂ + TinyDCS inference + in-cockpit advisory
 ## License
 
 See the parent repository. Code is research-use-only; see the top-of-file disclaimer on every module.
+# Historical snapshot — not current evidence
+
+The accuracy-v3 audit supersedes the numerical, calibration, validation and device-performance claims in this snapshot. See [the current accuracy record](accuracy-audit.md).

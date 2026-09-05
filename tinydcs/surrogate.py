@@ -18,12 +18,13 @@ so it round-trips to disk without accessory artifacts.
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 from typing import Iterable
 
 import joblib
 import numpy as np
 import pandas as pd
+from scipy.special import expit
 
 try:
     import lightgbm as lgb
@@ -48,45 +49,76 @@ def _smithson_verkuilen(p: np.ndarray, n: int) -> np.ndarray:
     return (p * (nn - 1.0) + 0.5) / nn
 
 
+def _inverse_smithson_verkuilen(p: np.ndarray, n: int | None) -> np.ndarray:
+    """Undo the training transform, including exact endpoint targets."""
+    if n is None:
+        return np.asarray(p, dtype=float)
+    nn = float(max(n, 2))
+    return np.clip((np.asarray(p) * nn - 0.5) / (nn - 1.0), 0.0, 1.0)
+
+
 def _logit(p: np.ndarray) -> np.ndarray:
     q = np.clip(p.astype(float), _EPS, 1.0 - _EPS)
     return np.log(q / (1.0 - q))
 
 
 def _sigmoid(z: np.ndarray) -> np.ndarray:
-    return 1.0 / (1.0 + np.exp(-z))
+    return expit(z)
 
 
 @dataclass(slots=True)
 class OODDetector:
-    """Mahalanobis distance in feature space; abstain above ``threshold``."""
+    """Standardized Mahalanobis distance AND observed feature bounds.
 
+    This is a training-support check, not evidence of clinical applicability.
+    Constant training features must remain constant at inference.
+    """
     mean: np.ndarray
     inv_cov: np.ndarray
     threshold: float
+    scale: np.ndarray | None = None
+    minimum: np.ndarray | None = None
+    maximum: np.ndarray | None = None
 
     def distance(self, X: np.ndarray) -> np.ndarray:
-        d = X - self.mean
-        return np.sqrt(np.einsum("ij,jk,ik->i", d, self.inv_cov, d))
+        X = np.asarray(X, dtype=float)
+        if X.ndim != 2 or X.shape[1] != self.mean.size or not np.isfinite(X).all():
+            raise ValueError("features must be a finite matrix of the trained width")
+        d = (X - self.mean) / (self.scale if self.scale is not None else 1.0)
+        squared = np.einsum("ij,jk,ik->i", d, self.inv_cov, d)
+        return np.sqrt(np.maximum(squared, 0.0))
 
     def is_in_envelope(self, X: np.ndarray) -> np.ndarray:
-        return self.distance(X) <= self.threshold
+        accepted = self.distance(X) <= self.threshold
+        if self.minimum is not None and self.maximum is not None:
+            tolerance = 1e-8 * np.maximum(self.maximum - self.minimum, 1e-8)
+            accepted &= np.all((X >= self.minimum - tolerance) & (X <= self.maximum + tolerance), axis=1)
+        return accepted
 
 
 def fit_ood(X: np.ndarray, q: float = 0.99) -> OODDetector:
-    """Fit an OOD detector that abstains on the top-(1-q) training fraction.
-
-    Uses a Ledoit–Wolf-style 1e-3 shrinkage for numerical stability when
-    features are collinear.
-    """
+    """Fit unit-invariant covariance with a small standardized ridge."""
+    X = np.asarray(X, dtype=float)
+    if X.ndim != 2 or len(X) < 2 or not np.isfinite(X).all() or not 0 < q <= 1:
+        raise ValueError("OOD fitting needs finite features, >=2 rows and q in (0,1]")
     mean = X.mean(axis=0)
-    cov = np.cov(X, rowvar=False)
-    cov = cov + 1e-3 * np.trace(cov) / max(cov.shape[0], 1) * np.eye(cov.shape[0])
-    inv_cov = np.linalg.pinv(cov)
-    # Training distances
-    d = np.sqrt(np.einsum("ij,jk,ik->i", X - mean, inv_cov, X - mean))
-    threshold = float(np.quantile(d, q))
-    return OODDetector(mean=mean, inv_cov=inv_cov, threshold=threshold)
+    scale = X.std(axis=0, ddof=1)
+    scale = np.where(scale > 0, scale, 1.0)
+    centered = (X - mean) / scale
+    cov = np.atleast_2d(np.cov(centered, rowvar=False))
+    inv_cov = np.linalg.pinv(cov + 1e-3 * np.eye(X.shape[1]))
+    detector = OODDetector(mean, inv_cov, 0.0, scale, X.min(axis=0), X.max(axis=0))
+    detector.threshold = float(np.quantile(detector.distance(X), q))
+    return detector
+
+
+def conformal_quantile(scores: np.ndarray, confidence: float) -> float:
+    """Finite-sample order statistic, with the required +infinity atom."""
+    scores = np.asarray(scores, dtype=float).ravel()
+    if not 0 < confidence < 1 or not np.isfinite(scores).all() or len(scores) == 0:
+        raise ValueError("finite scores and confidence in (0,1) are required")
+    rank = int(np.ceil((len(scores) + 1) * confidence))
+    return float("inf") if rank > len(scores) else float(np.partition(scores, rank - 1)[rank - 1])
 
 
 @dataclass(slots=True)
@@ -102,11 +134,7 @@ def fit_conformal(logit_residuals: np.ndarray, confidence: float = 0.95) -> Conf
     n = int(resid.size)
     if n < 20:
         raise ValueError("at least 20 calibration residuals are required")
-    alpha = 1.0 - float(confidence)
-    k = int(np.ceil((n + 1) * (1.0 - alpha)))
-    k = max(1, min(k, n))
-    q = float(np.partition(resid, k - 1)[k - 1])
-    return ConformalCalibration(q=q, confidence=float(confidence))
+    return ConformalCalibration(q=conformal_quantile(resid, confidence), confidence=float(confidence))
 
 
 @dataclass(slots=True)
@@ -163,32 +191,15 @@ class MondrianConformalCalibration:
 
 @dataclass(slots=True)
 class ZeroInflatedCalibration:
-    """Two-stage zero-inflated calibration (Lambert 1992 style).
+    """Two-stage point predictor, calibrated on FINAL mixture residuals.
 
-    Handles target distributions with a point mass at zero — here, the
-    low-altitude band of the ADRAC grid where ~40% of rows have exact-zero
-    P(DCS). The stack is:
-
-      stage 1: binary classifier P(y = 0 | x) over the whole training fold;
-      stage 2: continuous regressor of logit(y) conditional on y > 0,
-               trained only on non-zero rows.
-
-    Inference gates on a configurable probability threshold:
-
-      * If P(y = 0 | x) >= ``gate_threshold`` → output point = 0 with a
-        narrow zero-anchored interval ``[0, zero_upper_bound]``. The upper
-        end reflects residual classifier uncertainty.
-      * Otherwise → the continuous regressor's prediction is the point
-        estimate, and the existing split-conformal logic gives the
-        interval.
+    The probability-scale interval covers a model-emulation target under
+    exchangeability, not a binary outcome or an individual's clinical risk.
     """
-
     zero_classifier: object
     continuous_model: object
-    continuous_q: float
+    probability_q: float
     confidence: float
-    gate_threshold: float = 0.5
-    zero_upper_bound: float = 0.02
 
 
 def fit_zero_inflated(
@@ -209,15 +220,18 @@ def fit_zero_inflated(
     random_state: int = 42,
     confidence: float = 0.95,
     zero_tol: float = 1e-6,
-    gate_threshold: float = 0.5,
-    zero_upper_bound: float = 0.02,
 ) -> ZeroInflatedCalibration:
     """Fit a two-stage zero-inflated surrogate.
 
     Stage 1: binary classifier on is_zero = (y <= zero_tol).
     Stage 2: continuous LightGBM regressor on logit(y) over non-zero rows only.
-    Conformal quantile is fit on the calibration fold's non-zero rows.
+    Conformal quantile uses ALL calibration rows and the final mixture predictor.
     """
+    y_train, y_cal = np.asarray(y_train, dtype=float), np.asarray(y_cal, dtype=float)
+    if not np.isfinite(y_train).all() or not np.isfinite(y_cal).all() or np.any((y_train < 0) | (y_train > 1)) or np.any((y_cal < 0) | (y_cal > 1)):
+        raise ValueError("targets must be finite probabilities")
+    if len(np.unique(y_train <= zero_tol)) != 2:
+        raise ValueError("zero-inflated training requires zero and positive targets")
     X_train_df = pd.DataFrame(X_train, columns=feature_names)
     X_cal_df = pd.DataFrame(X_cal, columns=feature_names)
 
@@ -233,7 +247,10 @@ def fit_zero_inflated(
         subsample_freq=subsample_freq,
         colsample_bytree=colsample_bytree,
         random_state=random_state,
+        monotone_constraints=[-int((monotonic_constraints or {}).get(name, 0)) for name in feature_names],
+        monotone_constraints_method="advanced",
         verbosity=-1,
+        n_jobs=2,
     )
     zero_clf.fit(X_train_df, is_zero_train)
 
@@ -257,32 +274,14 @@ def fit_zero_inflated(
         monotone_constraints=mono_vec,
         monotone_constraints_method="advanced",
         verbosity=-1,
+        n_jobs=2,
     )
     cont_model.fit(X_train_df.loc[non_zero_train], y_logit_nonzero)
 
-    # Conformal quantile on the calibration fold's non-zero rows.
-    is_zero_cal = (y_cal <= zero_tol)
-    non_zero_cal = ~is_zero_cal
-    if int(non_zero_cal.sum()) < 20:
-        raise ValueError("Too few non-zero calibration rows for conformal calibration.")
-    y_cal_nonzero = np.clip(y_cal[non_zero_cal], _EPS, 1.0 - _EPS)
-    y_cal_logit = np.log(y_cal_nonzero / (1.0 - y_cal_nonzero))
-    cont_logit_pred = cont_model.predict(X_cal_df.loc[non_zero_cal])
-    resid = np.abs(y_cal_logit - cont_logit_pred)
-    n = int(resid.size)
-    alpha = 1.0 - float(confidence)
-    k = int(np.ceil((n + 1) * (1.0 - alpha)))
-    k = max(1, min(k, n))
-    q = float(np.partition(resid, k - 1)[k - 1])
-
-    return ZeroInflatedCalibration(
-        zero_classifier=zero_clf,
-        continuous_model=cont_model,
-        continuous_q=q,
-        confidence=float(confidence),
-        gate_threshold=float(gate_threshold),
-        zero_upper_bound=float(zero_upper_bound),
-    )
+    p_zero = zero_clf.predict_proba(X_cal_df)[:, 1]
+    point = (1.0 - p_zero) * _sigmoid(cont_model.predict(X_cal_df))
+    q = fit_conformal(y_cal - point, confidence).q
+    return ZeroInflatedCalibration(zero_clf, cont_model, q, float(confidence))
 
 
 @dataclass(slots=True)
@@ -378,6 +377,7 @@ def fit_cqr(
         colsample_bytree=colsample_bytree,
         random_state=random_state,
         verbosity=-1,
+        n_jobs=2,
     )
     lower_model = lgb.LGBMRegressor(objective="quantile", alpha=alpha / 2.0, **common)
     upper_model = lgb.LGBMRegressor(objective="quantile", alpha=1.0 - alpha / 2.0, **common)
@@ -389,16 +389,14 @@ def fit_cqr(
 
     q_lo = np.asarray(lower_model.predict(X_cal_df), dtype=float).ravel()
     q_hi = np.asarray(upper_model.predict(X_cal_df), dtype=float).ravel()
-    nonconformity = np.maximum(q_lo - y_logit_cal, y_logit_cal - q_hi)
+    q_lo, q_hi = np.minimum(q_lo, q_hi), np.maximum(q_lo, q_hi)
+    nonconformity = np.maximum(0.0, np.maximum(q_lo - y_logit_cal, y_logit_cal - q_hi))
     n = int(nonconformity.size)
     if n < 20:
         raise ValueError("at least 20 calibration residuals are required for CQR")
 
     def _conformal_q(r: np.ndarray) -> float:
-        nn = int(r.size)
-        k = int(np.ceil((nn + 1) * (1.0 - alpha)))
-        k = max(1, min(k, nn))
-        return float(np.partition(r, k - 1)[k - 1])
+        return conformal_quantile(r, confidence)
 
     q_global = _conformal_q(nonconformity)
 
@@ -450,13 +448,11 @@ def fit_mondrian_conformal(
     if resid.size < 20:
         raise ValueError("at least 20 calibration residuals are required")
 
-    alpha = 1.0 - float(confidence)
+    if not np.isfinite(values).all() or not np.isfinite(band_width) or band_width <= 0:
+        raise ValueError("finite groups and positive band width required")
 
     def _conformal_q(r: np.ndarray) -> float:
-        n = int(r.size)
-        k = int(np.ceil((n + 1) * (1.0 - alpha)))
-        k = max(1, min(k, n))
-        return float(np.partition(r, k - 1)[k - 1])
+        return conformal_quantile(r, confidence)
 
     bands = np.floor((values - float(band_origin)) / float(band_width)).astype(int)
     group_quantiles: dict[int, float] = {}
@@ -490,6 +486,11 @@ class TrainConfig:
     reg_alpha: float = 0.0
     reg_lambda: float = 0.0
     random_state: int = 42
+    # These outputs change with duration in conflicting directions. Excluding
+    # them preserves monotonicity along a constant-workload physical profile.
+    excluded_features: tuple[str, ...] = (
+        "tissue_n2_ratio_360min", "altitude_vo2_integral_lmin_min",
+    )
     # Per-feature monotonicity constraints: +1 = non-decreasing, -1 =
     # non-increasing, 0 = unconstrained. Keyed by feature name. Only
     # applied if the feature is present in ``feature_names`` at training.
@@ -521,6 +522,8 @@ class TinyDcsSurrogate:
     )
     target_min: float = 0.0
     target_max: float = 1.0
+    target_transform_n: int | None = None
+    metadata: dict = field(default_factory=dict)
 
     def _conformal_q_for(self, X_df: pd.DataFrame) -> np.ndarray:
         """Return a per-sample conformal half-width on the logit scale (for
@@ -540,75 +543,72 @@ class TinyDcsSurrogate:
         return np.full(len(X_df), float(self.conformal.q), dtype=float)
 
     def predict(self, X: pd.DataFrame | np.ndarray) -> dict[str, np.ndarray]:
+        """Return diagnostic estimates and an explicit evidence-and-support release mask.
+
+        Raw estimates remain available for candidate evaluation. Consumers must
+        use ``quantitative_output_enabled`` before displaying them as supported.
+        Missing release metadata is not permission for quantitative use.
+        """
         X_arr = _as_array(X, self.feature_names)
         X_df = pd.DataFrame(X_arr, columns=self.feature_names)
         logit_pred = np.asarray(self.model.predict(X_df), dtype=float).ravel()
         distance = self.ood.distance(X_arr)
-        in_env = distance <= self.ood.threshold
-        point = _sigmoid(logit_pred)
+        in_env = self.ood.is_in_envelope(X_arr)
+        quantitative = in_env & (self.metadata.get("quantitative_enabled") is True)
+        inverse = lambda z: _inverse_smithson_verkuilen(_sigmoid(z), self.target_transform_n)
+        point = inverse(logit_pred)
 
         if isinstance(self.conformal, ZeroInflatedCalibration):
             zi = self.conformal
             p_zero = zi.zero_classifier.predict_proba(X_df)[:, 1]
-            is_gated_zero = p_zero >= zi.gate_threshold
-            cont_logit = np.asarray(zi.continuous_model.predict(X_df), dtype=float).ravel()
-            cont_point = _sigmoid(cont_logit)
-            cont_lower = _sigmoid(cont_logit - zi.continuous_q)
-            cont_upper = _sigmoid(cont_logit + zi.continuous_q)
-            # Mixture point estimate: E[y] = (1 - p_zero) * E[y | y>0]
+            cont_point = _sigmoid(zi.continuous_model.predict(X_df))
             point_mix = (1.0 - p_zero) * cont_point
-            # Intervals: when gated to zero, [0, zero_upper_bound]; otherwise
-            # use the continuous-conditional conformal interval scaled to the
-            # mixture so ground-truth zeros remain inside.
-            lower = np.where(is_gated_zero, 0.0, (1.0 - p_zero) * cont_lower)
-            upper = np.where(is_gated_zero, zi.zero_upper_bound, np.maximum(zi.zero_upper_bound, (1.0 - p_zero) * cont_upper + p_zero * zi.zero_upper_bound))
-            half_width = (_logit(np.clip(upper, _EPS, 1 - _EPS)) - _logit(np.clip(lower + _EPS, _EPS, 1 - _EPS))) / 2.0
+            lower = np.maximum(0.0, point_mix - zi.probability_q)
+            upper = np.minimum(1.0, point_mix + zi.probability_q)
             return {
-                "point": point_mix,
-                "lower": lower,
-                "upper": upper,
-                "logit": logit_pred,
-                "p_zero": p_zero,
-                "is_gated_zero": is_gated_zero,
+                "point": point_mix, "lower": lower, "upper": upper,
+                "logit": _logit(point_mix), "p_zero": p_zero,
                 "continuous_point": cont_point,
-                "conformal_half_width_logit": half_width,
-                "ood_distance": distance,
-                "in_envelope": in_env,
+                "conformal_half_width_probability": np.full(len(X_df), zi.probability_q),
+                "ood_distance": distance, "in_envelope": in_env,
+                "quantitative_output_enabled": quantitative,
             }
 
         if isinstance(self.conformal, CQRCalibration):
             q_lo_logit = np.asarray(self.conformal.lower_model.predict(X_df), dtype=float).ravel()
             q_hi_logit = np.asarray(self.conformal.upper_model.predict(X_df), dtype=float).ravel()
             q_correction = self.conformal.correction_for(X_df)
-            lower_logit = q_lo_logit - q_correction
-            upper_logit = q_hi_logit + q_correction
-            lower = _sigmoid(lower_logit)
-            upper = _sigmoid(upper_logit)
+            lower_logit = np.minimum(q_lo_logit, q_hi_logit) - np.maximum(q_correction, 0)
+            upper_logit = np.maximum(q_lo_logit, q_hi_logit) + np.maximum(q_correction, 0)
+            lower = inverse(lower_logit)
+            upper = inverse(upper_logit)
             half_width = (upper_logit - lower_logit) / 2.0
             return {
                 "point": point,
                 "lower": lower,
                 "upper": upper,
-                "logit": logit_pred,
+                "logit": _logit(point),
                 "logit_lower": lower_logit,
                 "logit_upper": upper_logit,
                 "conformal_half_width_logit": half_width,
                 "cqr_correction_logit": q_correction,
                 "ood_distance": distance,
                 "in_envelope": in_env,
+                "quantitative_output_enabled": quantitative,
             }
 
         half_width = self._conformal_q_for(X_df)
-        lower = _sigmoid(logit_pred - half_width)
-        upper = _sigmoid(logit_pred + half_width)
+        lower = inverse(logit_pred - half_width)
+        upper = inverse(logit_pred + half_width)
         return {
             "point": point,
             "lower": lower,
             "upper": upper,
-            "logit": logit_pred,
+            "logit": _logit(point),
             "conformal_half_width_logit": half_width,
             "ood_distance": distance,
             "in_envelope": in_env,
+            "quantitative_output_enabled": quantitative,
         }
 
     def save(self, path: str) -> None:
@@ -620,7 +620,12 @@ class TinyDcsSurrogate:
             "ood_threshold": self.ood.threshold,
             "target_min": self.target_min,
             "target_max": self.target_max,
-            "version": "0.2.2",
+            "version": "accuracy-v3",
+            "target_transform_n": self.target_transform_n,
+            "metadata": self.metadata,
+            "ood_scale": self.ood.scale,
+            "ood_minimum": self.ood.minimum,
+            "ood_maximum": self.ood.maximum,
         }
         if isinstance(self.conformal, MondrianConformalCalibration):
             blob.update(
@@ -649,10 +654,8 @@ class TinyDcsSurrogate:
                 conformal_kind="zero_inflated",
                 zi_zero_classifier=self.conformal.zero_classifier,
                 zi_continuous_model=self.conformal.continuous_model,
-                zi_continuous_q=self.conformal.continuous_q,
+                zi_probability_q=self.conformal.probability_q,
                 zi_confidence=self.conformal.confidence,
-                zi_gate_threshold=self.conformal.gate_threshold,
-                zi_zero_upper_bound=self.conformal.zero_upper_bound,
             )
         else:
             blob.update(
@@ -665,10 +668,15 @@ class TinyDcsSurrogate:
     @classmethod
     def load(cls, path: str) -> "TinyDcsSurrogate":
         blob = joblib.load(path)
+        if blob.get("version") != "accuracy-v3":
+            raise ValueError("Legacy surrogate has obsolete calibration; retrain with accuracy-v3")
         ood = OODDetector(
             mean=blob["ood_mean"],
             inv_cov=blob["ood_inv_cov"],
             threshold=float(blob["ood_threshold"]),
+            scale=blob["ood_scale"],
+            minimum=blob["ood_minimum"],
+            maximum=blob["ood_maximum"],
         )
         kind = blob.get("conformal_kind", "global")
         conformal: ConformalCalibration | MondrianConformalCalibration | CQRCalibration
@@ -697,10 +705,8 @@ class TinyDcsSurrogate:
             conformal = ZeroInflatedCalibration(
                 zero_classifier=blob["zi_zero_classifier"],
                 continuous_model=blob["zi_continuous_model"],
-                continuous_q=float(blob["zi_continuous_q"]),
+                probability_q=float(blob["zi_probability_q"]),
                 confidence=float(blob["zi_confidence"]),
-                gate_threshold=float(blob["zi_gate_threshold"]),
-                zero_upper_bound=float(blob["zi_zero_upper_bound"]),
             )
         else:
             conformal = ConformalCalibration(
@@ -714,15 +720,17 @@ class TinyDcsSurrogate:
             conformal=conformal,
             target_min=float(blob.get("target_min", 0.0)),
             target_max=float(blob.get("target_max", 1.0)),
+            target_transform_n=blob["target_transform_n"],
+            metadata=blob["metadata"],
         )
 
 
 def _as_array(X: pd.DataFrame | np.ndarray, feature_names: list[str]) -> np.ndarray:
-    if isinstance(X, pd.DataFrame):
-        return X[feature_names].to_numpy(dtype=float)
-    arr = np.asarray(X, dtype=float)
+    arr = X[feature_names].to_numpy(dtype=float) if isinstance(X, pd.DataFrame) else np.asarray(X, dtype=float)
     if arr.ndim == 1:
         arr = arr.reshape(1, -1)
+    if arr.ndim != 2 or not np.isfinite(arr).all():
+        raise ValueError("features must be a finite matrix")
     if arr.shape[1] != len(feature_names):
         raise ValueError(f"expected {len(feature_names)} features, got {arr.shape[1]}")
     return arr
@@ -734,7 +742,7 @@ def train_surrogate(
     target_col: str = "pdcs_3rut_mbe1",
     *,
     test_fraction: float = 0.15,
-    calibration_fraction: float = 0.15,
+    calibration_fraction: float = 0.20,
     config: TrainConfig | None = None,
     confidence: float = 0.95,
     mondrian_feature: str | None = None,
@@ -745,8 +753,7 @@ def train_surrogate(
     cqr_band_width: float | None = None,
     cqr_band_origin: float = 0.0,
     use_zero_inflated: bool = False,
-    zi_gate_threshold: float = 0.5,
-    zi_zero_upper_bound: float = 0.02,
+    partition: dict[str, np.ndarray] | None = None,
 ) -> tuple[TinyDcsSurrogate, dict[str, pd.DataFrame]]:
     """Train the full TinyDCS surrogate with calibration and OOD detection.
 
@@ -773,7 +780,9 @@ def train_surrogate(
         evaluation by the caller).
     """
     cfg = config or TrainConfig()
-    feature_names = list(feature_names)
+    feature_names = [name for name in feature_names if name not in cfg.excluded_features]
+    if not feature_names:
+        raise ValueError("no independent input features remain")
     if target_col not in df.columns:
         raise ValueError(f"target column '{target_col}' not in dataframe")
     if not (0.0 < test_fraction < 1.0):
@@ -783,15 +792,14 @@ def train_surrogate(
     if test_fraction + calibration_fraction >= 0.9:
         raise ValueError("test + calibration fraction must leave room for training")
 
-    rng = np.random.default_rng(cfg.random_state)
-    idx = rng.permutation(len(df))
-    n = len(df)
-    n_test = int(round(n * test_fraction))
-    n_cal = int(round(n * calibration_fraction))
-    n_train = n - n_test - n_cal
-    train_idx = idx[:n_train]
-    cal_idx = idx[n_train:n_train + n_cal]
-    test_idx = idx[n_train + n_cal:]
+    split = partition if partition is not None else partition_indices(
+        len(df), test_fraction=test_fraction, calibration_fraction=calibration_fraction,
+        seed=cfg.random_state,
+    )
+    train_idx, cal_idx, test_idx = (np.asarray(split[k], dtype=int) for k in ("train", "cal", "test"))
+    combined = np.concatenate([train_idx, cal_idx, test_idx])
+    if len(combined) != len(df) or not np.array_equal(np.sort(combined), np.arange(len(df))):
+        raise ValueError("partitions must cover each row exactly once")
 
     X = df[feature_names].to_numpy(dtype=float)
     y = df[target_col].to_numpy(dtype=float)
@@ -799,7 +807,9 @@ def train_surrogate(
     # Smithson–Verkuilen transform, then logit. This handles exact 0/1 target
     # mass cleanly (e.g. the ~40% exact-zero rows at low altitude in the
     # ADRAC grid) without introducing pathological logit pile-up.
-    y_shrunk = _smithson_verkuilen(y, n=len(y))
+    if not np.isfinite(X).all() or not np.isfinite(y).all() or np.any((y < 0) | (y > 1)):
+        raise ValueError("features must be finite and targets in [0,1]")
+    y_shrunk = _smithson_verkuilen(y, n=len(train_idx))
     y_logit = _logit(y_shrunk)
 
     monotone_vec = [int(cfg.monotonic_constraints.get(name, 0)) for name in feature_names]
@@ -818,6 +828,7 @@ def train_surrogate(
         monotone_constraints=monotone_vec,
         monotone_constraints_method="advanced",
         verbosity=-1,
+        n_jobs=2,
     )
     model.fit(X[train_idx], y_logit[train_idx])
 
@@ -849,8 +860,6 @@ def train_surrogate(
             colsample_bytree=cfg.colsample_bytree,
             random_state=cfg.random_state,
             confidence=confidence,
-            gate_threshold=zi_gate_threshold,
-            zero_upper_bound=zi_zero_upper_bound,
         )
     elif use_cqr:
         # CQR trains two extra quantile regressors plus a conformal
@@ -904,10 +913,21 @@ def train_surrogate(
         model=model,
         ood=ood,
         conformal=conformal,
+        target_transform_n=len(train_idx),
     )
     splits = {
-        "train": df.iloc[train_idx].reset_index(drop=True),
-        "cal": df.iloc[cal_idx].reset_index(drop=True),
-        "test": df.iloc[test_idx].reset_index(drop=True),
+        "train": df.iloc[train_idx],
+        "cal": df.iloc[cal_idx],
+        "test": df.iloc[test_idx],
     }
     return surrogate, splits
+
+
+def partition_indices(n: int, *, test_fraction: float = 0.15, calibration_fraction: float = 0.20, seed: int = 42) -> dict[str, np.ndarray]:
+    """One deterministic partition, created BEFORE fitting any candidate."""
+    if n < 3 or not (0 < test_fraction < 1 and 0 < calibration_fraction < 1 and test_fraction + calibration_fraction < 1):
+        raise ValueError("invalid split size or fractions")
+    idx = np.random.default_rng(seed).permutation(n)
+    n_test, n_cal = round(n * test_fraction), round(n * calibration_fraction)
+    n_train = n - n_test - n_cal
+    return {"train": idx[:n_train], "cal": idx[n_train:n_train+n_cal], "test": idx[n_train+n_cal:]}

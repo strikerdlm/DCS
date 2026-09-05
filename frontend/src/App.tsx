@@ -27,6 +27,7 @@ import {
   ValidationDashboard,
 } from "./components/models";
 import { cn } from "./lib/utils";
+import { validationMetrics } from "./data/mockData";
 
 type ModelTab =
   | "overview"
@@ -87,7 +88,7 @@ const NAV_GROUPS: NavGroup[] = [
       {
         id: "eva",
         label: "EVA Simulator",
-        description: "Habitat, suit, prebreathe, 5x5 risk",
+        description: "Nitrogen dose, applicability, indicators",
         icon: <ClipboardCheck className="h-4 w-4" />,
       },
     ],
@@ -97,14 +98,14 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       {
         id: "ml",
-        label: "ADRAC Risk Predictor",
-        description: "Pilmanis 2004 log-logistic AFT",
+        label: "ADRAC Baseline",
+        description: "Train-only grid fit, not a deployed ML model",
         icon: <Brain className="h-4 w-4" />,
       },
       {
         id: "mechanistic",
         label: "3RUT‑MBe1",
-        description: "Schematic preview · NEDU TR 18-01",
+        description: "Quantitative output disabled · reconciliation",
         icon: <Beaker className="h-4 w-4" />,
       },
       {
@@ -186,14 +187,14 @@ export default function App(): React.ReactElement {
           <div className="hidden lg:flex items-center gap-2 ml-2">
             <span className="pill-primary">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              ADRAC v0.6.0
+              accuracy-v3 · v0.7.0
             </span>
             <span className="pill-accent">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               ECharts 6.x
             </span>
             <span className="pill-muted">
-              closed-form R² 0.864 · n 15 908
+              baseline R² {validationMetrics.r2?.toFixed(3) ?? "unavailable"} · held-out n {validationMetrics.nSample.toLocaleString()}
             </span>
           </div>
 
@@ -272,7 +273,7 @@ export default function App(): React.ReactElement {
               <div className="surface-glass mt-4 p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Validity envelope
+                    ADRAC grid support
                   </span>
                   <Mountain className="h-3.5 w-3.5 text-muted-foreground" />
                 </div>
@@ -283,7 +284,7 @@ export default function App(): React.ReactElement {
                   </li>
                   <li className="flex justify-between gap-2">
                     <span>Prebreathe</span>
-                    <span className="text-num text-foreground">0 – 180 min</span>
+                    <span className="text-num text-foreground">0 – 60 min</span>
                   </li>
                   <li className="flex justify-between gap-2">
                     <span>Time at altitude</span>
@@ -295,7 +296,7 @@ export default function App(): React.ReactElement {
                   </li>
                 </ul>
                 <p className="text-[11px] text-muted-foreground/80 border-t border-border/60 pt-2">
-                  OOD detector abstains outside this envelope.
+                  Browser range check only. NASA and EVA have separate source-applicability conditions.
                 </p>
               </div>
             </div>
@@ -336,18 +337,17 @@ export default function App(): React.ReactElement {
           <div>
             <h3 className="display text-sm font-semibold mb-2">TinyDCS</h3>
             <p className="text-[12.5px] text-muted-foreground leading-relaxed">
-              Wearable-grade machine-learning stack for altitude decompression-sickness
-              risk. Hybrid physics + ML, calibrated uncertainty, edge-deployable.
-              Operationally honest.
+              Research calculations and model-grid emulation for altitude decompression
+              sickness. Unsupported estimates are unavailable. No clinical or operational clearance.
             </p>
           </div>
           <div>
             <h3 className="display text-sm font-semibold mb-2">Models in this build</h3>
             <ul className="text-[12.5px] text-muted-foreground space-y-1">
-              <li>· ADRAC log-logistic AFT (Pilmanis, 2004)</li>
-              <li>· NASA Conkin RM/NM logistic (TM-2004-213093)</li>
-              <li>· 3RUT-MBe1 schematic preview (NEDU TR 18-01)</li>
-              <li>· EVA scenario simulator (NASA/ESA public assumptions)</li>
+              <li>· ADRAC-form log-logistic AFT, re-fitted to the training grid</li>
+              <li>· NASA Conkin RM/NM reference (TP-2004-213158)</li>
+              <li>· 3RUT-MBe1 pressure profiles only; risk disabled</li>
+              <li>· EVA compartment calculations and planning indicators</li>
             </ul>
           </div>
           <div>
@@ -355,7 +355,7 @@ export default function App(): React.ReactElement {
             <ul className="text-[12.5px] text-muted-foreground space-y-1">
               <li>
                 <code className="text-num text-[11px] text-foreground">docs/methods.md</code> —
-                TRIPOD+AI methods M1–M8
+                accuracy-v3 calculation and evaluation methods
               </li>
               <li>
                 <code className="text-num text-[11px] text-foreground">docs/runbook.md</code> —
@@ -370,8 +370,8 @@ export default function App(): React.ReactElement {
         </div>
         <div className="border-t border-border/60 py-4">
           <div className="max-w-[1480px] mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-muted-foreground">
-            <span>© {new Date().getFullYear()} TinyDCS · research artifact · MIT-adjacent license</span>
-            <span className="text-num">v0.6.0 · build {new Date().toISOString().slice(0, 10)}</span>
+            <span>© {new Date().getFullYear()} TinyDCS · research artifact · see LICENSE</span>
+            <span className="text-num">v0.7.0 · accuracy-v3</span>
           </div>
         </div>
       </footer>

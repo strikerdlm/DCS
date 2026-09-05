@@ -1,4 +1,6 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
+import ReactECharts from "echarts-for-react";
+import type { EChartsOption } from "echarts";
 import {
   Activity,
   Clock,
@@ -27,60 +29,43 @@ import {
   AccordionTrigger,
 } from "../ui/Accordion";
 import { MetricCard } from "../ui/MetricCard";
-import { TimeSeriesChart } from "../charts/TimeSeriesChart";
+import { chartTheme, getBaseChartOptions } from "../charts/chartConfig";
 import { RiskGauge } from "../charts/RiskGauge";
-import { runMechanisticSimulation } from "../../utils/models";
-import { altitudeFtToPAmbAtm } from "../../lib/utils";
+import { RUT_UNAVAILABLE_REASON, runMechanisticSimulation } from "../../utils/models";
+import { altitudeFtToPAmbAtm, formatNumber } from "../../lib/utils";
 import { defaultMechanisticInputs, modelValidityCards } from "../../data/mockData";
 import { ValidityPanel } from "./ValidityPanel";
-import type { ExerciseLevel, MechanisticInputs, ModelState } from "../../types";
+import type { ExerciseLevel, MechanisticInputs, MechanisticSimulationResult } from "../../types";
 
 export function Mechanistic3RUT(): React.ReactElement {
   const [inputs, setInputs] = useState<MechanisticInputs>(defaultMechanisticInputs);
-  const [result, setResult] = useState<{
-    history: ModelState[];
-    finalPDcsPercent: number;
-  } | null>(null);
-  const [isSimulating, setIsSimulating] = useState(false);
+  const [result, setResult] = useState<MechanisticSimulationResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = useCallback(
     (field: keyof MechanisticInputs, value: number | string | boolean) => {
       setInputs((prev) => ({ ...prev, [field]: value }));
+      setResult(null);
+      setError(null);
     },
     [],
   );
 
   const handleRunSimulation = useCallback(() => {
-    setIsSimulating(true);
-    setTimeout(() => {
+    try {
       setResult(runMechanisticSimulation(inputs));
-      setIsSimulating(false);
-    }, 350);
+      setError(null);
+    } catch (caught) {
+      setResult(null);
+      setError(caught instanceof Error ? caught.message : "Invalid pressure profile");
+    }
   }, [inputs]);
 
   const handleExportCSV = useCallback(() => {
     if (!result) return;
-    const headers = [
-      "t_min",
-      "p_amb_atm",
-      "pt_n2_atm",
-      "pt_o2_atm",
-      "n_b",
-      "r_hat",
-      "h_per_min",
-      "p_dcs_percent",
-    ];
-    const rows = result.history.map((s) =>
-      [
-        s.tMin.toFixed(6),
-        s.pAmbAtm.toFixed(9),
-        s.ptN2Atm.toFixed(9),
-        s.ptO2Atm.toFixed(9),
-        s.nB.toExponential(9),
-        s.rHat.toExponential(9),
-        s.hPerMin.toExponential(9),
-        (s.pDcs * 100).toFixed(9),
-      ].join(","),
+    const headers = ["duration_min", "p_amb_atm", "fio2", "fin2", "exercise_l_min_above_rest"];
+    const rows = result.segments.map((s) =>
+      [s.durationMin, s.pAmbAtm, s.fio2, s.fin2, s.iExLMinWb].join(","),
     );
     const csv = [headers.join(","), ...rows].join("\n");
     const blob = new Blob([csv], { type: "text/csv" });
@@ -88,12 +73,31 @@ export function Mechanistic3RUT(): React.ReactElement {
     const a = document.createElement("a");
     const ts = new Date().toISOString().replace(/[:.]/g, "-").replace(/Z$/, "");
     a.href = url;
-    a.download = `tinydcs_3rut_preview_${ts}.csv`;
+    a.download = `tinydcs_pressure_profile_${ts}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   }, [result]);
 
-  const targetPressure = altitudeFtToPAmbAtm(inputs.altitudeFt);
+  const targetPressure = useMemo(() => {
+    try { return altitudeFtToPAmbAtm(inputs.altitudeFt); } catch { return null; }
+  }, [inputs.altitudeFt]);
+  const pressureOption = useMemo<EChartsOption>(() => {
+    let t = 0;
+    const data: number[][] = [[0, 1]];
+    for (const segment of result?.segments ?? []) {
+      data.push([t, segment.pAmbAtm]);
+      t += segment.durationMin;
+      data.push([t, segment.pAmbAtm]);
+    }
+    const base = getBaseChartOptions();
+    return {
+      ...base,
+      xAxis: { ...(base.xAxis as object), type: "value", name: "Profile time (min)", min: 0 },
+      yAxis: { ...(base.yAxis as object), type: "value", name: "Ambient pressure (atm)", min: 0 },
+      series: [{ type: "line", name: "Ambient pressure", showSymbol: false,
+        data, lineStyle: { color: chartTheme.primaryColor, width: 2 } }],
+    };
+  }, [result]);
 
   return (
     <div className="space-y-6">
@@ -103,21 +107,19 @@ export function Mechanistic3RUT(): React.ReactElement {
         <div className="absolute -top-32 -left-20 w-96 h-96 rounded-full bg-accent/15 blur-3xl pointer-events-none" />
         <div className="relative">
           <span className="pill-accent mb-3">
-            <Settings className="h-3 w-3" /> 3RUT-MBe1 schematic preview
+            <Settings className="h-3 w-3" /> 3RUT-MBe1 · reconciliation open
           </span>
           <h2 className="display text-3xl font-bold tracking-tight mt-2">
-            Time-resolved tissue dynamics & hazard channel.
+            Exposure profile & model availability.
           </h2>
           <p className="text-muted-foreground mt-2 max-w-3xl text-[14px] leading-relaxed">
-            Browser preview of the NEDU TR 18-01 / Gerth 3RUT-MBe1 model: Conkin single-
-            compartment N₂ uptake/washout, supersaturation × exercise hazard proxy, and
-            the published ADRAC closed-form anchor for the final P(DCS). The full bubble-
-            evolution recursion is in <code className="text-num text-[12px]">mechanistic/rut_mbe1.py</code>.
+            {RUT_UNAVAILABLE_REASON} The profile below retains pressure, gas fractions,
+            and exercise inputs for inspection and export.
           </p>
           <div className="flex flex-wrap items-center gap-2 mt-4">
-            <span className="pill-accent">Conkin τ½ = 360 min</span>
-            <span className="pill-muted">Hazard proxy</span>
-            <span className="pill-signal">Bubble channel illustrative only</span>
+            <span className="pill-accent">Pressure profile available</span>
+            <span className="pill-muted">Absolute risk unavailable</span>
+            <span className="pill-signal">Source reconciliation required</span>
           </div>
         </div>
       </section>
@@ -133,9 +135,9 @@ export function Mechanistic3RUT(): React.ReactElement {
             <Input
               label="Altitude"
               type="number"
-              value={inputs.altitudeFt}
+              value={Number.isFinite(inputs.altitudeFt) ? inputs.altitudeFt : ""}
               onChange={(e) =>
-                handleInputChange("altitudeFt", parseFloat(e.target.value) || 0)
+                handleInputChange("altitudeFt", e.target.valueAsNumber)
               }
               unit="ft"
               min={0}
@@ -145,9 +147,9 @@ export function Mechanistic3RUT(): React.ReactElement {
             <Input
               label="Time at altitude"
               type="number"
-              value={inputs.timeAtAltitudeMin}
+              value={Number.isFinite(inputs.timeAtAltitudeMin) ? inputs.timeAtAltitudeMin : ""}
               onChange={(e) =>
-                handleInputChange("timeAtAltitudeMin", parseFloat(e.target.value) || 0)
+                handleInputChange("timeAtAltitudeMin", e.target.valueAsNumber)
               }
               unit="min"
               min={0}
@@ -157,9 +159,9 @@ export function Mechanistic3RUT(): React.ReactElement {
             <Input
               label="Pre-breathe time"
               type="number"
-              value={inputs.prebreathingTimeMin}
+              value={Number.isFinite(inputs.prebreathingTimeMin) ? inputs.prebreathingTimeMin : ""}
               onChange={(e) =>
-                handleInputChange("prebreathingTimeMin", parseFloat(e.target.value) || 0)
+                handleInputChange("prebreathingTimeMin", e.target.valueAsNumber)
               }
               unit="min"
               min={0}
@@ -234,11 +236,11 @@ export function Mechanistic3RUT(): React.ReactElement {
                   <Input
                     label="Ascent duration"
                     type="number"
-                    value={inputs.ascentDurationMin}
+                    value={Number.isFinite(inputs.ascentDurationMin) ? inputs.ascentDurationMin : ""}
                     onChange={(e) =>
                       handleInputChange(
                         "ascentDurationMin",
-                        parseFloat(e.target.value) || 0,
+                        e.target.valueAsNumber,
                       )
                     }
                     unit="min"
@@ -263,9 +265,8 @@ export function Mechanistic3RUT(): React.ReactElement {
               onClick={handleRunSimulation}
               className="w-full"
               size="lg"
-              isLoading={isSimulating}
             >
-              <Play className="h-4 w-4 mr-2" /> Run simulation
+              <Play className="h-4 w-4 mr-2" /> Build pressure profile
             </Button>
           </CardContent>
         </Card>
@@ -274,40 +275,38 @@ export function Mechanistic3RUT(): React.ReactElement {
           <div className="grid sm:grid-cols-4 gap-3">
             <MetricCard
               label="Altitude"
-              value={inputs.altitudeFt.toLocaleString()}
+              value={Number.isFinite(inputs.altitudeFt) ? inputs.altitudeFt.toLocaleString() : "—"}
               unit="ft"
               icon={<Mountain className="h-4 w-4 text-primary" />}
             />
             <MetricCard
               label="Exposure"
-              value={inputs.timeAtAltitudeMin}
+              value={formatNumber(inputs.timeAtAltitudeMin, 0)}
               unit="min"
               icon={<Clock className="h-4 w-4 text-accent" />}
             />
             <MetricCard
               label="Pressure target"
-              value={targetPressure.toFixed(3)}
+              value={formatNumber(targetPressure, 3)}
               unit="atm"
               icon={<Gauge className="h-4 w-4 text-chart-2" />}
             />
             <MetricCard
               label="Final P(DCS)"
-              value={result ? result.finalPDcsPercent.toFixed(2) : "—"}
+              value="Unavailable"
               unit="%"
               isRisk
-              riskValue={result?.finalPDcsPercent ?? 0}
               icon={<Activity className="h-4 w-4" />}
-              description="Anchored to ADRAC closed-form"
+              description="3RUT reconciliation incomplete"
             />
           </div>
 
           <Card>
             <CardHeader className="pb-2 flex-row items-center justify-between">
               <div>
-                <CardTitle className="text-[15px]">Time-resolved trajectories</CardTitle>
+                <CardTitle className="text-[15px]">Pressure profile</CardTitle>
                 <p className="text-[12.5px] text-muted-foreground mt-0.5">
-                  Tissue gas, hazard rate, bubble proxy, and survival probability
-                  across the prebreathe → ascent → exposure profile.
+                  Ambient pressure across prebreathe → ascent → exposure.
                 </p>
               </div>
               {result && (
@@ -323,24 +322,21 @@ export function Mechanistic3RUT(): React.ReactElement {
                   <div className="flex justify-center">
                     <div className="w-72">
                       <RiskGauge
-                        value={result.finalPDcsPercent}
-                        title="Final risk · ADRAC anchor"
+                        value={null}
+                        title="3RUT-MBe1 absolute risk"
                         height={220}
                         max={40}
                       />
                     </div>
                   </div>
-                  <TimeSeriesChart
-                    data={result.history}
-                    height={620}
-                    title="Mechanistic 3RUT-MBe1 — schematic preview"
-                  />
+                  <ReactECharts option={pressureOption} notMerge style={{ height: "400px" }} />
+                  <p className="text-[12px] text-muted-foreground">{result.reason}</p>
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center h-72 text-muted-foreground gap-2">
                   <Play className="h-10 w-10 opacity-40" />
-                  <p className="text-[14px]">Configure profile and run the simulation.</p>
-                  <p className="text-[12.5px]">Trajectories will animate in.</p>
+                  <p className="text-[14px]">{error ?? "Configure and build the pressure profile."}</p>
+                  <p className="text-[12.5px]">Absolute risk remains unavailable.</p>
                 </div>
               )}
             </CardContent>

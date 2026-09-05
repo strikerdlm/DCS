@@ -1,57 +1,25 @@
-"""Cleaner for DCS_Risk_DB_2025.csv.
+"""Auditable ADRAC-grid cleaning; heuristic guesses are never primary labels.
 
-The shipped CSV has a known issue: the ``risk_of_decompression_sickness`` column is
-documented as a percentage in [0, 100], but a subset of rows were accidentally stored
-on the fraction scale [0, 1] instead. In addition, some grid cells
-(altitude, prebreathe_time, exercise_level, time_at_altitude) have two rows that
-disagree in value.
-
-This module audits both issues and produces:
-
-* a repaired dataframe where suspected-fraction rows have been rescaled to the
-  percent scale;
-* a human-readable markdown report describing what was changed and why.
-
-Detection heuristic for the scale bug
--------------------------------------
-For each row we compare its target to the *combo-median* target across all rows
-sharing its (altitude, prebreathe_time, exercise_level, time_at_altitude)
-signature. If the row's value is consistent with ``100 × median`` (within a
-tolerance) *and* inconsistent with ``median`` itself, we flag it as a fraction
-entry and rescale it by ``× 100``. When no in-combo reference exists, we fall
-back to a global neighbourhood regression over the four covariates.
-
-This heuristic is intentionally conservative: it never flags rows that are
-consistent with their neighbours on the percent scale, and it documents every
-change in the report.
+The raw source is retained. Suspected scale errors and disagreeing duplicate
+cells are excluded from the primary analysis, and available only in explicitly
+labelled sensitivity datasets. No clinical outcomes are present in this grid.
 """
-
 from __future__ import annotations
-
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterable
-
+import hashlib
 import numpy as np
 import pandas as pd
 
-
-_EXPECTED_COLUMNS = (
-    "altitude",
-    "prebreathing_time",
-    "exercise_level",
-    "time_at_altitude",
-    "risk_of_decompression_sickness",
-)
 _COMBO_KEYS = ("altitude", "prebreathing_time", "exercise_level", "time_at_altitude")
-_FRACTION_ABS_THRESHOLD = 1.0 - 1e-9  # values <= this look like fractions
+_TARGET = "risk_of_decompression_sickness"
+_EXPECTED_COLUMNS = (*_COMBO_KEYS, _TARGET)
+_FRACTION_ABS_THRESHOLD = 1.0 - 1e-9
 _FRACTION_RESCALE = 100.0
 
 
 @dataclass(slots=True)
 class CleanReport:
-    """Human-readable summary of what ``clean_dcs_risk_db`` changed."""
-
     n_rows_in: int
     n_rows_out: int
     n_target_nan_in: int
@@ -60,52 +28,27 @@ class CleanReport:
     n_rows_deduped: int
     examples_scale_fixed: pd.DataFrame = field(default_factory=pd.DataFrame)
     examples_disagreements: pd.DataFrame = field(default_factory=pd.DataFrame)
+    ledger: pd.DataFrame = field(default_factory=pd.DataFrame)
+    policy: str = "primary"
 
-    def to_markdown(self) -> str:
-        lines: list[str] = [
-            "# DCS_Risk_DB_2025.csv — data-quality report",
-            "",
-            f"- **Rows in**: {self.n_rows_in:,}",
-            f"- **Rows out**: {self.n_rows_out:,}",
-            f"- **Target NaNs on input**: {self.n_target_nan_in:,}",
-            f"- **Rows rescaled from fraction→percent**: {self.n_scale_fixed:,}",
-            f"- **Grid cells with within-combo disagreement**: {self.n_within_combo_disagreements:,}",
-            f"- **Rows removed by dedup-to-median**: {self.n_rows_deduped:,}",
-            "",
-            "## Rescaling logic",
-            "",
-            "For each grid cell defined by "
-            "`(altitude, prebreathing_time, exercise_level, time_at_altitude)`, "
-            "we compare each row's target to the combo-median. A row is flagged "
-            "as a fraction-scale mistake if its value is ≤ 1.0 and is "
-            "consistent (within 10%) with `median / 100`, while the combo median "
-            "itself exceeds 1.0. Flagged rows are multiplied by 100.",
-            "",
-        ]
-        if len(self.examples_scale_fixed) > 0:
-            lines += [
-                "### Examples of rescaled rows (up to 20)",
-                "",
-                self.examples_scale_fixed.head(20).to_markdown(index=False),
-                "",
-            ]
-        if len(self.examples_disagreements) > 0:
-            lines += [
-                "### Examples of within-combo disagreements (up to 20)",
-                "",
-                "After rescaling, these cells still contained multiple distinct "
-                "target values. Dedup keeps the median.",
-                "",
-                self.examples_disagreements.head(20).to_markdown(index=False),
-                "",
-            ]
-        return "\n".join(lines)
-
-
-def _validate_input(df: pd.DataFrame) -> None:
-    missing = [c for c in _EXPECTED_COLUMNS if c not in df.columns]
-    if missing:
-        raise ValueError(f"Input is missing required columns: {missing}")
+    def to_markdown(self):
+        return "\n".join([
+            "# ADRAC grid data-quality record", "",
+            f"- Policy: {self.policy}",
+            f"- Raw rows: {self.n_rows_in}; output cells: {self.n_rows_out}",
+            f"- Missing targets: {self.n_target_nan_in}",
+            f"- Unresolved scale flags: {int(self.ledger['scale_suspected'].sum())}",
+            f"- Disagreeing cells (full count): {self.n_within_combo_disagreements}",
+            f"- Sensitivity-only rescalings: {self.n_scale_fixed}",
+            f"- Identical/median duplicate rows collapsed: {self.n_rows_deduped}", "",
+            "Primary labels exclude scale-flagged rows and every disagreeing cell.",
+            "The scale flag compares 100 × a value in (0,1) with the same-exercise",
+            "neighbour median (>1), within 30%; altitude ±1000 ft, PB ±15 min,",
+            "time ±20 min. This is a heuristic, not verified correction evidence.",
+            "The complete row-level ledger is saved beside the output as .ledger.csv.",
+            "Sensitivity datasets retain raw medians or use heuristic-rescaled medians.",
+            "These are model-generated probabilities, not observed clinical outcomes.", "",
+        ])
 
 
 _ALT_WINDOW = 1000  # ft; ±1000 matches the dataset's 500-ft spacing
@@ -123,7 +66,6 @@ def _neighbour_median(df: pd.DataFrame, percent_mask: np.ndarray) -> np.ndarray:
     lookup keyed on (exercise, rounded-altitude-band, rounded-time-band) for
     speed; an exact O(N) neighbour scan is documented below as the reference.
     """
-    t = df["risk_of_decompression_sickness"].to_numpy(dtype=float)
     alt = df["altitude"].to_numpy(dtype=float)
     pb = df["prebreathing_time"].to_numpy(dtype=float)
     time_ = df["time_at_altitude"].to_numpy(dtype=float)
@@ -194,109 +136,70 @@ def _flag_scale_rows(df: pd.DataFrame) -> pd.Series:
     return pd.Series(flagged, index=df.index)
 
 
-def _dedup_to_median(df: pd.DataFrame) -> tuple[pd.DataFrame, int, pd.DataFrame]:
-    """Collapse duplicate grid cells, keeping the median. Also returns a
-    small sample of disagreement cases for the report.
-    """
-    grouped = df.groupby(list(_COMBO_KEYS), as_index=False, sort=False)
-    agg = grouped["risk_of_decompression_sickness"].agg(["median", "nunique", "count"])
-    disagreements = agg.loc[agg["nunique"] > 1].copy()
-    disagreements.rename(columns={"nunique": "n_unique_values", "count": "n_rows"}, inplace=True)
-    disagreements = disagreements.head(50)
-
-    out = (
-        grouped["risk_of_decompression_sickness"]
-        .median()
-        .rename(columns={"risk_of_decompression_sickness": "risk_of_decompression_sickness"})
-    )
-    n_removed = int(len(df) - len(out))
-    return out, n_removed, disagreements
-
-
-def clean_dcs_risk_db(
-    df: pd.DataFrame,
-    *,
-    drop_nan_target: bool = True,
-    clip_target: bool = True,
-) -> tuple[pd.DataFrame, CleanReport]:
-    """Audit and repair the shipped DCS_Risk_DB_2025.csv.
-
-    Parameters
-    ----------
-    df
-        Input dataframe matching the shipped schema.
-    drop_nan_target
-        If True (default), drop rows where the target is NaN after repair.
-    clip_target
-        If True (default), clip the repaired target to [0, 100].
-
-    Returns
-    -------
-    repaired
-        Cleaned dataframe with the target consistently on the percent scale,
-        deduplicated to one row per grid cell.
-    report
-        :class:`CleanReport` summarising the changes.
-    """
-    _validate_input(df)
-    n_rows_in = int(len(df))
-    n_target_nan_in = int(df["risk_of_decompression_sickness"].isna().sum())
-
-    work = df.copy()
-    work["risk_of_decompression_sickness"] = work["risk_of_decompression_sickness"].astype(float)
-
-    # Step 1: rescale fraction-scale rows.
-    flagged = _flag_scale_rows(work)
-    n_scale_fixed = int(flagged.sum())
-    examples_scale_fixed = pd.DataFrame()
-    if n_scale_fixed > 0:
-        examples_scale_fixed = (
-            work.loc[flagged, list(_COMBO_KEYS) + ["risk_of_decompression_sickness"]]
-            .assign(repaired_value=work.loc[flagged, "risk_of_decompression_sickness"] * _FRACTION_RESCALE)
-            .head(20)
-            .reset_index(drop=True)
-        )
-        work.loc[flagged, "risk_of_decompression_sickness"] *= _FRACTION_RESCALE
-
-    # Step 2: optional NaN drop + clipping.
-    if drop_nan_target:
-        work = work.dropna(subset=["risk_of_decompression_sickness"])
+def clean_dcs_risk_db(df, *, drop_nan_target=True, clip_target=False, policy="primary"):
+    """Return one row per cell and a complete, untruncated source-row ledger."""
+    missing = [c for c in _EXPECTED_COLUMNS if c not in df]
+    if missing:
+        raise ValueError(f"Input is missing required columns: {missing}")
+    if policy not in ("primary", "sensitivity_raw", "sensitivity_rescaled"):
+        raise ValueError("unknown cleaning policy")
     if clip_target:
-        work["risk_of_decompression_sickness"] = work["risk_of_decompression_sickness"].clip(lower=0.0, upper=100.0)
-
-    # Step 3: deduplicate by grid cell, keeping the median.
-    deduped, n_rows_deduped, disagreements = _dedup_to_median(work)
-
-    n_disagreements = int(len(disagreements))
+        raise ValueError("Clipping invalid labels is not supported; inspect the ledger")
+    work = df[list(_EXPECTED_COLUMNS)].copy().reset_index(drop=True)
+    for col in ("altitude", "prebreathing_time", "time_at_altitude", _TARGET):
+        work[col] = pd.to_numeric(work[col], errors="coerce")
+    target = work[_TARGET]
+    valid = np.isfinite(work[["altitude", "prebreathing_time", "time_at_altitude", _TARGET]]).all(axis=1)
+    valid &= target.between(0, 100) & work.altitude.between(0, 20000/0.3048)
+    valid &= (work.prebreathing_time >= 0) & (work.time_at_altitude >= 0)
+    valid &= work.exercise_level.isin(["Rest", "Mild", "Heavy"])
+    if not drop_nan_target and not valid.all():
+        raise ValueError("invalid records require exclusion; see source data")
+    flagged = pd.Series(False, index=work.index)
+    flagged.loc[valid] = _flag_scale_rows(work.loc[valid])
+    counts = work.loc[valid].groupby(list(_COMBO_KEYS))[_TARGET].nunique()
+    disagreements = counts[counts > 1].reset_index(name="n_unique_values")
+    cell_keys = work[list(_COMBO_KEYS)].apply(lambda r: "|".join(map(str, r)), axis=1)
+    ambiguous = work[list(_COMBO_KEYS)].merge(disagreements.assign(disagreement=True), how="left", on=list(_COMBO_KEYS))["disagreement"].eq(True)
+    primary = valid & ~flagged & ~ambiguous
+    ledger = work.copy()
+    ledger.insert(0, "source_row", np.arange(len(work)) + 2)
+    ledger["cell_id"] = cell_keys.map(lambda key: hashlib.sha256(key.encode()).hexdigest()[:20])
+    ledger["raw_target_percent"] = df[_TARGET].to_numpy()
+    ledger["suggested_target_percent"] = np.where(flagged, target * 100, target)
+    ledger["scale_suspected"] = flagged
+    ledger["duplicate_disagreement"] = ambiguous
+    ledger["valid_input"] = valid
+    ledger["included_primary"] = primary
+    ledger["correction_status"] = np.select([~valid, flagged, ambiguous], ["invalid_excluded", "heuristic_unresolved", "disagreement_unresolved"], default="unchanged")
+    selected = work.loc[primary if policy == "primary" else valid].copy()
+    if policy == "sensitivity_rescaled":
+        selected.loc[flagged.loc[selected.index], _TARGET] *= 100
+    grouped = selected.groupby(list(_COMBO_KEYS), as_index=False, sort=True)[_TARGET].median()
+    grouped["cell_id"] = grouped[list(_COMBO_KEYS)].apply(lambda r: hashlib.sha256("|".join(map(str, r)).encode()).hexdigest()[:20], axis=1)
+    grouped["target_provenance"] = policy
     report = CleanReport(
-        n_rows_in=n_rows_in,
-        n_rows_out=int(len(deduped)),
-        n_target_nan_in=n_target_nan_in,
-        n_scale_fixed=n_scale_fixed,
-        n_within_combo_disagreements=n_disagreements,
-        n_rows_deduped=n_rows_deduped,
-        examples_scale_fixed=examples_scale_fixed,
-        examples_disagreements=disagreements,
+        len(df), len(grouped), int(target.isna().sum()),
+        int(flagged.sum()) if policy == "sensitivity_rescaled" else 0,
+        len(disagreements), len(selected)-len(grouped),
+        ledger.loc[flagged].copy(), disagreements, ledger, policy,
     )
-    return deduped, report
+    return grouped, report
 
 
 def run_file(input_path: Path, output_path: Path, report_path: Path) -> CleanReport:
-    """Convenience entry point: read CSV, clean, write parquet + report."""
-    input_path = Path(input_path)
-    output_path = Path(output_path)
-    report_path = Path(report_path)
-
     df = pd.read_csv(input_path)
-    repaired, report = clean_dcs_risk_db(df)
-
+    primary, report = clean_dcs_risk_db(df)
+    output_path, report_path = Path(output_path), Path(report_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.parent.mkdir(parents=True, exist_ok=True)
-
     if output_path.suffix.lower() == ".parquet":
-        repaired.to_parquet(output_path, index=False)
+        primary.to_parquet(output_path, index=False)
     else:
-        repaired.to_csv(output_path, index=False)
-
+        primary.to_csv(output_path, index=False)
+    report.ledger.to_csv(output_path.with_suffix(".ledger.csv"), index=False)
+    for policy in ("sensitivity_raw", "sensitivity_rescaled"):
+        sensitivity, _ = clean_dcs_risk_db(df, policy=policy)
+        sensitivity.to_parquet(output_path.with_name(output_path.stem + "_" + policy + ".parquet"), index=False)
     report_path.write_text(report.to_markdown(), encoding="utf-8")
     return report

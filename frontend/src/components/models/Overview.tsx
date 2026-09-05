@@ -14,6 +14,8 @@ import {
   Zap,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card";
+import { validationMetrics } from "../../data/mockData";
+import { formatNumber } from "../../lib/utils";
 
 interface LayerSpec {
   index: string;
@@ -29,45 +31,45 @@ const LAYERS: LayerSpec[] = [
     index: "01",
     icon: <Watch className="h-5 w-5" />,
     tint: "hsl(var(--primary))",
-    title: "Wearable input layer",
-    subtitle: "Telemetry → 13-feature vector",
+    title: "Exposure inputs",
+    subtitle: "Entered parameters → model covariates",
     points: [
       "Altitude, time-at-altitude, prebreathe, exercise category in.",
-      "Derived physiology out: ambient pressure, log-time, 360-min tissue-N₂ ratio, supersaturation, exercise dose.",
-      "Continuous-VO₂ channel is wired but future-facing — see note below.",
+      "Layered standard-atmosphere pressure, log-time, and exercise indicators enter the baseline.",
+      "The separate tissue-N₂ panel illustrates a 360-min compartment. It is not a fitted ADRAC covariate.",
     ],
   },
   {
     index: "02",
     icon: <Cpu className="h-5 w-5" />,
     tint: "hsl(var(--accent))",
-    title: "LightGBM logit core + OOD gate",
-    subtitle: "Monotone gradient boosting · Mahalanobis envelope check",
+    title: "Browser ADRAC baseline",
+    subtitle: "Closed-form calculation · explicit input range",
     points: [
-      "Gradient-boosted trees with physiological monotonicity constraints (risk rises with altitude & time, falls with prebreathe).",
-      "A Mahalanobis out-of-distribution gate flags inputs that fall outside the training manifold.",
-      "Outside the validated envelope the model abstains rather than extrapolating.",
+      "The log-logistic AFT form uses coefficients fitted on the frozen training partition.",
+      "Browser calculations run offline from the bundled coefficients. A trained ML surrogate is a separate artifact.",
+      "A range check identifies unsupported inputs; it is not a learned Mahalanobis gate.",
     ],
   },
   {
     index: "03",
     icon: <Ruler className="h-5 w-5" />,
     tint: "hsl(var(--signal))",
-    title: "Zero-inflated conformal calibration",
-    subtitle: "Two-stage split-conformal · interval engine",
+    title: "Evidence and availability",
+    subtitle: "Held-out comparisons · explicit unavailable outputs",
     points: [
-      "Turns the point logit into a point estimate + calibrated 95 % prediction interval.",
-      "Zero-inflated two-stage design handles bands where ~40 % of targets are exactly zero.",
-      "Closes a coverage shortfall (~0.58 → ≥0.95 in every 5 000-ft band; 0.960 overall).",
+      "Held-out grid cells quantify agreement with ADRAC model targets, not observed DCS outcomes.",
+      "No validated prediction-interval artifact is bundled for the baseline.",
+      "NASA endpoints retain their 240-min, 4.3-psia reference conditions; 3RUT absolute risk remains disabled.",
     ],
   },
 ];
 
 const SPEC_TILES = [
-  { icon: <Boxes className="h-4 w-4" />, label: "ONNX footprint", value: "95 KB", note: "compact variant" },
-  { icon: <Zap className="h-4 w-4" />, label: "Latency", value: "2.44 µs", note: "/row, server-CPU p50" },
-  { icon: <Target className="h-4 w-4" />, label: "Fidelity to ADRAC", value: "MAE 0.020", note: "R² 0.986 · Brier 0.0016" },
-  { icon: <ShieldCheck className="h-4 w-4" />, label: "Interval coverage", value: "0.960", note: "≥0.95 per 5 kft band" },
+  { icon: <Boxes className="h-4 w-4" />, label: "Browser model", value: "ADRAC", note: "closed-form baseline" },
+  { icon: <Zap className="h-4 w-4" />, label: "Held-out grid cells", value: validationMetrics.nSample.toLocaleString(), note: "separate from training" },
+  { icon: <Target className="h-4 w-4" />, label: "Baseline MAE", value: `${formatNumber(validationMetrics.mae)} pp`, note: `Held-out R² ${formatNumber(validationMetrics.r2, 3)}` },
+  { icon: <ShieldCheck className="h-4 w-4" />, label: "Baseline interval", value: "Unavailable", note: "no calibrated artifact bundled" },
 ];
 
 export function Overview(): React.ReactElement {
@@ -83,14 +85,13 @@ export function Overview(): React.ReactElement {
             <Sparkles className="h-3 w-3" /> How TinyDCS works
           </span>
           <h2 className="display text-3xl lg:text-[2.6rem] font-bold tracking-tight leading-[1.08]">
-            EVA-ready DCS risk planning for{" "}
-            <span className="text-primary">commercial and lunar space operations</span>.
+            DCS model exploration for{" "}
+            <span className="text-primary">altitude and space research</span>.
           </h2>
           <p className="text-muted-foreground mt-4 text-[15px] leading-relaxed">
-            TinyDCS now centers the EVA workflow: habitat atmosphere, prebreathe, suit pressure,
-            workload, telemetry, mission-rule thresholds, and exportable planning reports. The
-            frontend connects to a Python model API and keeps the original compact surrogate as
-            the edge-runtime path for tablet and wearable-class operations.
+            Explore atmosphere, prebreathe, suit pressure, workload, and model applicability.
+            Supported browser calculations work offline; the EVA interface can also use the
+            Python API. Model-specific limits determine which outputs are available.
           </p>
           <div className="flex flex-wrap items-center gap-2 mt-5">
             <span className="pill-accent">EVA scenario API</span>
@@ -118,12 +119,11 @@ export function Overview(): React.ReactElement {
                 What the accuracy numbers actually measure
               </h3>
               <p className="text-[13.5px] text-muted-foreground leading-relaxed">
-                Ground truth here is <strong className="text-foreground">ADRAC's modelled output,
-                not observed DCS</strong>. Every accuracy figure — MAE 0.020, R² 0.986, Brier 0.0016
-                — measures <strong className="text-foreground">fidelity to the ADRAC grid</strong>,
-                i.e. how faithfully the surrogate reproduces that reference model. The closed-form
-                ADRAC baseline reaches MAE 0.086; the surrogate reproduces the grid ~4× more
-                faithfully as a function-approximation benchmark.
+                Reference targets are <strong className="text-foreground">ADRAC model outputs</strong>.
+                The baseline was fitted on {validationMetrics.nTrain.toLocaleString()} training cells
+                and evaluated on {validationMetrics.nSample.toLocaleString()} separate held-out cells.
+                MAE and RMSE use percentage points; R² is dimensionless. These statistics measure
+                function approximation and cannot establish clinical prediction accuracy.
               </p>
             </div>
           </div>
@@ -152,8 +152,7 @@ export function Overview(): React.ReactElement {
             The 3-layer architecture
           </CardTitle>
           <p className="text-[12.5px] text-muted-foreground mt-1">
-            Telemetry enters on the left and leaves on the right as a point estimate, a calibrated
-            interval, and an in/out-of-envelope verdict.
+            Exposure inputs lead to a supported model calculation and explicit availability status.
           </p>
         </CardHeader>
         <CardContent className="pt-1">
@@ -202,24 +201,19 @@ export function Overview(): React.ReactElement {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2 text-[15px]">
-              <Gauge className="h-4 w-4 text-primary" /> Why calibration is the contribution
+              <Gauge className="h-4 w-4 text-primary" /> What uncertainty requires
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-[13px] text-muted-foreground leading-relaxed">
             <p>
-              A point risk of "3 %" is only actionable if you know how much to trust it. On the ADRAC
-              grid, the low-altitude band (18 000–23 000 ft) is dominated by near-zero risk: roughly{" "}
-              <strong className="text-foreground">40 % of those rows have a target of exactly
-              zero</strong>. Four conformal-only methods all under-covered there, with empirical
-              coverage as low as <span className="text-num text-foreground">~0.58</span> against a
-              nominal 0.95.
+              A point estimate alone does not establish its uncertainty. A prediction interval needs
+              a calibration artifact fitted separately from training and evaluated on untouched data.
+              Coverage and interval width must use the same target, units, and evaluation population.
             </p>
             <p>
-              The zero-inflated two-stage split-conformal model separates the "is it zero?" decision
-              from the "how large if positive?" decision. That single change lifts coverage to{" "}
-              <strong className="text-foreground">≥0.95 in every 5 000-ft band</strong> (0.960
-              overall) without inflating intervals elsewhere. The intervals you see in the Use Cases
-              tab illustrate that shape.
+              The Python pipeline supports separate surrogate and calibration artifacts. Their
+              coverage cannot be transferred to the browser ADRAC baseline or to unsupported EVA
+              profiles. Baseline intervals therefore remain unavailable in these views.
             </p>
           </CardContent>
         </Card>
@@ -233,14 +227,14 @@ export function Overview(): React.ReactElement {
           <CardContent className="space-y-3 text-[12.5px] text-muted-foreground leading-relaxed">
             <p>
               The input schema carries a continuous oxygen-uptake (VO₂) channel so the model is{" "}
-              <strong className="text-foreground">ready to ingest real wearable VO₂</strong> when
-              that telemetry is available.
+              <strong className="text-foreground">able to represent VO₂ inputs</strong>.
+              Mapping wearable measurements to this quantity requires separate validation.
             </p>
             <p>
               On the current ADRAC grid those VO₂ features are{" "}
               <strong className="text-foreground">synthetic</strong> — derived from the 3-level
-              exercise category — and add no accuracy. We do not claim continuous-VO₂ improves
-              prediction today; it is plumbing for tomorrow's sensors.
+              exercise category. These proxies do not demonstrate performance with measured
+              continuous-VO₂ data.
             </p>
           </CardContent>
         </Card>

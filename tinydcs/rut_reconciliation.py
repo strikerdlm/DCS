@@ -9,15 +9,13 @@ from dataclasses import dataclass
 class RutBenchmarkProfile:
     profile_id: str
     description: str
-    expected_risk_percent_range: tuple[float, float]
+    expected_risk_percent_range: tuple[float, float] | None = None
+    evidence_status: str = "full_source_profile_not_reconstructed"
 
 
 BENCHMARK_PROFILES: tuple[RutBenchmarkProfile, ...] = (
-    RutBenchmarkProfile("A", "90 min O2 prebreathe, 35 kft, light exercise, 180 min exposure", (20.0, 30.0)),
-    RutBenchmarkProfile("B", "30 min O2 prebreathe, 25 kft, heavy exercise, 240 min exposure", (40.0, 60.0)),
-    RutBenchmarkProfile("C", "15 min O2 prebreathe, 22.5 kft, heavy exercise, 240 min exposure", (50.0, 70.0)),
-    RutBenchmarkProfile("D", "0 min prebreathe, 18 kft, heavy exercise, 360 min exposure", (30.0, 50.0)),
-    RutBenchmarkProfile("E", "75 min O2 prebreathe, 30 kft, rest, 240 min exposure", (10.0, 20.0)),
+    *(RutBenchmarkProfile(key, f"Source MV-{key}: exact schedules and endpoint require reconstruction")
+      for key in "ABCDE"),
 )
 
 SOURCE_EQUATION_CHECKLIST: tuple[str, ...] = (

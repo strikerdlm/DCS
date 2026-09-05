@@ -41,6 +41,7 @@ from tinydcs.metrics import (  # noqa: E402
     reliability_bins,
 )
 from tinydcs.surrogate import TrainConfig, train_surrogate  # noqa: E402
+from tinydcs.rut_reconciliation import assert_rut_absolute_risk_enabled
 
 
 def _plot_reliability(rbin, path: Path) -> None:
@@ -93,6 +94,7 @@ def main(
     output_metrics: str,
     output_figures: str | None,
 ) -> None:
+    assert_rut_absolute_risk_enabled()
     training_path = Path(training)
     if training_path.suffix.lower() == ".parquet":
         df = pd.read_parquet(training_path)

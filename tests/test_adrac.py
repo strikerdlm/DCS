@@ -71,3 +71,11 @@ def test_adrac_predict_in_unit_interval() -> None:
     )
     assert p.shape == (2,)
     assert (p >= 0).all() and (p <= 1).all()
+
+
+@pytest.mark.parametrize("field,value", [("risk_of_decompression_sickness", -1), ("risk_of_decompression_sickness", 101), ("time_at_altitude", -1), ("exercise_level", "Unknown")])
+def test_fit_rejects_invalid_training_rows(field, value):
+    rows = pd.DataFrame({"altitude": [25000]*24, "prebreathing_time": [0]*24, "exercise_level": ["Rest"]*24, "time_at_altitude": list(range(1,25)), "risk_of_decompression_sickness": list(range(1,25))})
+    rows.loc[0, field] = value
+    with pytest.raises(ValueError):
+        fit_adrac(rows)

@@ -59,7 +59,7 @@ def test_build_segments_covers_all_phases() -> None:
     assert len(segs) == 1 + 6 + 1 + 12
 
 
-def test_simulate_final_pdcs_in_unit_interval() -> None:
+def test_simulate_final_pdcs_requires_reconciled_source() -> None:
     profile = ExposureProfile(
         target_altitude_ft=30_000.0,
         prebreathe_duration_min=30.0,
@@ -72,8 +72,8 @@ def test_simulate_final_pdcs_in_unit_interval() -> None:
         altitude_i_ex_trajectory=0.3,
         vo2_dt_min=5.0,
     )
-    p = simulate_final_pdcs(profile, dt_min=0.5)
-    assert 0.0 <= p <= 1.0
+    with pytest.raises(RuntimeError, match="disabled"):
+        simulate_final_pdcs(profile, dt_min=0.5)
 
 
 def test_feature_extraction_schema() -> None:

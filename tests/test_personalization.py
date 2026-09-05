@@ -121,3 +121,28 @@ def test_personalized_predict_shifts_and_widens(tiny_base) -> None:
     # (unless pred_pop is already near 1, in which case the shift saturates).
     if pred_pop < 0.99:
         assert pred_personal >= pred_pop - 1e-9
+
+
+def test_binary_update_is_independent_of_batch_size(tiny_base):
+    base, df = tiny_base
+    X = df[list(FEATURE_COLUMNS)].iloc[:12]
+    y = np.array([0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0])
+    batch, sequential = PersonalizedSurrogate(base), PersonalizedSurrogate(base)
+    a = batch.observe("a", X, y)
+    for i in range(len(y)):
+        b = sequential.observe("a", X.iloc[i:i+1], y[i:i+1])
+    assert a.mean == pytest.approx(b.mean, abs=1e-10)
+    assert a.variance == pytest.approx(b.variance, abs=1e-10)
+
+
+def test_personalization_rejects_fractional_outcomes(tiny_base):
+    base, df = tiny_base
+    with pytest.raises(ValueError, match="binary"):
+        PersonalizedSurrogate(base).observe("a", df.iloc[:1], [0.4])
+
+
+def test_personalized_intervals_are_posterior_not_conformal(tiny_base):
+    base, df = tiny_base
+    result = PersonalizedSurrogate(base).predict("a", df.iloc[:2])
+    assert result["interval_kind"] == "posterior_credible"
+    assert result["nominal_coverage"] is None

@@ -34,7 +34,6 @@ from __future__ import annotations
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterable, Sequence
 
 import numpy as np
 
@@ -45,6 +44,8 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from mechanistic.rut_mbe1 import ModelState, ProfileSegment, RutMbe1Model  # noqa: E402
+from mechanistic.atmosphere import altitude_ft_to_atm as _standard_atmosphere
+from .rut_reconciliation import assert_rut_absolute_risk_enabled
 
 
 _AIR_FIO2 = 0.21
@@ -57,10 +58,7 @@ _O2_L_PER_ML = 1.0 / 1000.0
 
 def altitude_ft_to_atm(altitude_ft: float) -> float:
     """Convert altitude (ft) to ambient pressure (atm) via ISA approximation."""
-    if altitude_ft < 0.0:
-        altitude_ft = 0.0
-    p = (1.0 - 6.87535e-6 * float(altitude_ft)) ** 5.2559
-    return float(max(p, 0.001))
+    return float(_standard_atmosphere(altitude_ft))
 
 
 def vo2_ml_per_kg_per_min_to_i_ex_l_per_min(
@@ -74,9 +72,11 @@ def vo2_ml_per_kg_per_min_to_i_ex_l_per_min(
     rest are clipped to zero. Negative outputs would violate the 3RUT-MBe1 input
     validator.
     """
-    if subject_mass_kg <= 0.0:
+    if not np.isfinite([subject_mass_kg, rest_vo2_ml_per_kg_per_min]).all() or subject_mass_kg <= 0.0 or rest_vo2_ml_per_kg_per_min < 0:
         raise ValueError("subject_mass_kg must be > 0")
     vo2 = np.asarray(vo2_ml_per_kg_per_min, dtype=float)
+    if not np.isfinite(vo2).all() or np.any(vo2 < 0):
+        raise ValueError("VO2 must be finite and nonnegative")
     delta_ml_per_kg = np.clip(vo2 - float(rest_vo2_ml_per_kg_per_min), 0.0, None)
     i_ex_l_per_min = delta_ml_per_kg * float(subject_mass_kg) * _O2_L_PER_ML
     return i_ex_l_per_min
@@ -107,6 +107,13 @@ class ExposureProfile:
     vo2_dt_min: float = 1.0  # grid for VO2 trajectories (prebreathe + altitude)
 
     def __post_init__(self) -> None:
+        numbers = [self.target_altitude_ft, self.prebreathe_duration_min, self.altitude_duration_min,
+                   self.vo2_dt_min, self.ascent_rate_fpm, self.acclimatization_min,
+                   self.prebreathe_fio2, self.prebreathe_fin2, self.ascent_fio2,
+                   self.ascent_fin2, self.altitude_fio2, self.altitude_fin2]
+        if not np.isfinite(numbers).all() or self.acclimatization_min < 0:
+            raise ValueError("profile values must be finite and acclimatization nonnegative")
+        altitude_ft_to_atm(self.target_altitude_ft)
         if self.target_altitude_ft <= 0.0:
             raise ValueError("target_altitude_ft must be > 0")
         if self.prebreathe_duration_min < 0.0:
@@ -126,24 +133,23 @@ class ExposureProfile:
                 raise ValueError(f"{name}_fio2 must be in [0, 1]")
             if fin2 < 0.0 or fin2 > 1.0:
                 raise ValueError(f"{name}_fin2 must be in [0, 1]")
-            if fio2 + fin2 > 1.0 + 1e-9:
-                raise ValueError(f"{name}_fio2 + {name}_fin2 must be <= 1")
+            if abs(fio2 + fin2 - 1.0) > 1e-9:
+                raise ValueError(f"{name}_fio2 + {name}_fin2 must equal 1 for the O2/N2 model")
 
 
 def _expand_trajectory(traj: np.ndarray | float, duration_min: float, dt_min: float) -> np.ndarray:
-    """Expand a scalar or length-mismatched array to ``ceil(duration/dt)`` samples."""
+    """Expand a scalar or validate an explicitly sampled trajectory."""
+    arr = np.atleast_1d(np.asarray(traj, dtype=float)).ravel()
+    if not np.isfinite(arr).all() or np.any(arr < 0) or (not arr.size and duration_min > 0):
+        raise ValueError("trajectory must contain finite nonnegative values")
     if duration_min <= 0.0:
         return np.empty(0, dtype=float)
     n = max(1, int(np.ceil(duration_min / dt_min)))
-    arr = np.atleast_1d(np.asarray(traj, dtype=float)).ravel()
     if arr.size == 1:
         return np.full(n, float(arr[0]), dtype=float)
     if arr.size == n:
         return arr.astype(float, copy=False)
-    # Resample linearly to the target length.
-    xp = np.linspace(0.0, 1.0, arr.size)
-    x = np.linspace(0.0, 1.0, n)
-    return np.clip(np.interp(x, xp, arr), 0.0, None)
+    raise ValueError(f"trajectory needs {n} samples at the declared interval, got {arr.size}")
 
 
 def build_segments(profile: ExposureProfile) -> list[ProfileSegment]:
@@ -164,8 +170,8 @@ def build_segments(profile: ExposureProfile) -> list[ProfileSegment]:
 
     # Prebreathe with per-dt VO2 trajectory.
     pre_traj = _expand_trajectory(profile.prebreathe_i_ex_trajectory, profile.prebreathe_duration_min, profile.vo2_dt_min)
-    pre_dt = profile.prebreathe_duration_min / len(pre_traj) if len(pre_traj) > 0 else 0.0
-    for i_ex in pre_traj:
+    for index, i_ex in enumerate(pre_traj):
+        pre_dt = min(profile.vo2_dt_min, profile.prebreathe_duration_min-index*profile.vo2_dt_min)
         segments.append(
             ProfileSegment(
                 duration_min=pre_dt,
@@ -183,6 +189,7 @@ def build_segments(profile: ExposureProfile) -> list[ProfileSegment]:
         segments.append(
             ProfileSegment(
                 duration_min=ascent_duration,
+                start_p_amb_atm=_SEA_LEVEL_ATM,
                 p_amb_atm=target_atm,
                 fio2=profile.ascent_fio2,
                 fin2=profile.ascent_fin2,
@@ -192,8 +199,8 @@ def build_segments(profile: ExposureProfile) -> list[ProfileSegment]:
 
     # Altitude exposure with per-dt VO2 trajectory.
     alt_traj = _expand_trajectory(profile.altitude_i_ex_trajectory, profile.altitude_duration_min, profile.vo2_dt_min)
-    alt_dt = profile.altitude_duration_min / len(alt_traj) if len(alt_traj) > 0 else 0.0
-    for i_ex in alt_traj:
+    for index, i_ex in enumerate(alt_traj):
+        alt_dt = min(profile.vo2_dt_min, profile.altitude_duration_min-index*profile.vo2_dt_min)
         segments.append(
             ProfileSegment(
                 duration_min=alt_dt,
@@ -209,6 +216,7 @@ def build_segments(profile: ExposureProfile) -> list[ProfileSegment]:
 
 def simulate_final_pdcs(profile: ExposureProfile, *, dt_min: float = 0.5) -> float:
     """Run 3RUT-MBe1 on ``profile`` and return the final P(DCS)."""
+    assert_rut_absolute_risk_enabled()
     model = RutMbe1Model()
     model.initialize_state(
         p_amb_atm=_SEA_LEVEL_ATM,
@@ -225,6 +233,7 @@ def simulate_final_pdcs(profile: ExposureProfile, *, dt_min: float = 0.5) -> flo
 
 def simulate_trajectory(profile: ExposureProfile, *, dt_min: float = 0.5) -> list[ModelState]:
     """Run 3RUT-MBe1 on ``profile`` and return the full state history."""
+    assert_rut_absolute_risk_enabled()
     model = RutMbe1Model()
     model.initialize_state(
         p_amb_atm=_SEA_LEVEL_ATM,

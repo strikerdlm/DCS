@@ -1,227 +1,66 @@
-# Runbook — step-by-step reproduction of TinyDCS
+# Reproduction runbook — accuracy-v3
 
-This is the **command-by-command** guide to reproduce every headline number in the current release from a clean checkout. It is written so that if a development session is interrupted mid-work, the next session (human or agent) can resume cleanly by running the steps below in order.
+All commands run from the repository root unless noted. Tested with Python 3.12, Node 22, CPU execution. Model artifacts are ignored by git; do not load legacy joblib files as accuracy-v3 bundles.
 
-Tested on Python 3.13 on Linux x86_64. All commands are relative to the repo root.
-
----
-
-## 0. Setup
+## Setup and checks
 
 ```bash
-git clone https://github.com/strikerdlm/DCS
-cd DCS
-pip install -r requirements.txt
-pytest tests/ -q
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -e '.[dev,edge]'
+.venv/bin/pytest -q
+cd frontend
+npm ci
+npm test
+npm run build
+npm run lint
 ```
 
-**Expected output**: `25 passed` in ~3 seconds, a handful of benign LightGBM feature-name warnings. If a test fails, stop and fix before going further — every downstream step depends on correct calibration / OOD / personalization behaviour.
+Return to the repository root for the following commands.
 
-ONNX tooling is only needed for Step 4:
+## Primary data and model
 
 ```bash
-pip install onnx onnxruntime onnxmltools skl2onnx onnxconverter_common
+.venv/bin/python scripts/01_clean_data.py --input legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv --output artifacts/accuracy-v3/clean.parquet --report artifacts/accuracy-v3/data_quality.md
+
+env MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python scripts/04_train_adrac_surrogate.py --training artifacts/accuracy-v3/clean.parquet --output-surrogate artifacts/accuracy-v3/surrogate.joblib --output-baseline artifacts/accuracy-v3/adrac.joblib --output-metrics artifacts/accuracy-v3/metrics.json --output-figures artifacts/accuracy-v3/figures --zi
 ```
 
----
+Default primary cleaning excludes unresolved scaling/duplicate disagreements. It also writes the raw-row ledger and raw/rescaled sensitivity datasets. Expect 14,683 primary cells; 9,544/2,937/2,202 train/calibration/test cells. The training command records frozen cell IDs, dataset SHA, configuration and model ID. Use its default altitude holdouts for the robustness evidence; do not suppress them in a full reproduction.
 
-## 1. Clean the ADRAC grid
+Expected primary MAE is approximately 0.021932 probability units and coverage 2095/2202. A release check requires MAE ≤0.03 and empirical coverage ≥0.94 at nominal 0.95. This is model-grid emulation only.
+
+## Comparisons and export
 
 ```bash
-mkdir -p artifacts
-python scripts/01_clean_data.py \
-    --input legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv \
-    --output artifacts/DCS_Risk_DB_2025_clean.parquet \
-    --report artifacts/data_quality_report.md
+.venv/bin/python scripts/06_train_compact_surrogate.py --help
+.venv/bin/python scripts/10_fair_baseline_and_ablation.py --help
+.venv/bin/python scripts/11_grouped_cleaning_validation.py --help
+.venv/bin/python scripts/07_export_zero_inflated_onnx.py --input-model artifacts/accuracy-v3/surrogate.joblib --output-dir artifacts/accuracy-v3/onnx --benchmark-n 10000 --tolerance 1e-4
+.venv/bin/python scripts/12_export_frontend_evidence.py --help
+.venv/bin/python scripts/13_build_evidence_manifest.py --help
 ```
 
-**Expected output**:
+The [evidence manifest](evidence/accuracy-v3.json) records exact commands and environment for compact/fair/profile-grouped/cleaning-sensitivity reproduction. It also inventories source and artifact hashes. Do not choose a different architecture based on its test-set result.
 
-```
-Cleaned 16295 → 15908 rows. Rescaled fraction→percent: 1221. Cells with disagreement: 26. Rows removed by dedup: 387.
-```
+Use script 07 for the primary zero-inflated model: both classifier and continuous graphs plus probability-mixture/conformal/OOD sidecar are required. Generic script 05 accepts supported non-ZI bundles and explicitly rejects unsupported interval export. ONNX parity checks final probabilities, bounds and support on feasible recomputed profiles. CPU batch/per-row timings are not wearable or hardware-in-the-loop benchmarks.
 
-**Artifacts produced**:
-- `artifacts/DCS_Risk_DB_2025_clean.parquet` (≈ 14 KB) — 15,908 unique grid cells on the percent scale.
-- `artifacts/data_quality_report.md` — markdown audit describing what was changed.
-
-**Sanity check**: the cleaned parquet target should be in `[0, 100]` with the same altitude / PB / exercise / time grid as the raw CSV minus duplicates and NaNs.
-
----
-
-## 2. Fit the ADRAC baseline + train the zero-inflated surrogate
-
-This is the Paper-1 primary training pipeline.
+## Browser contract and API
 
 ```bash
-python scripts/04_train_adrac_surrogate.py \
-    --training artifacts/DCS_Risk_DB_2025_clean.parquet \
-    --output-surrogate artifacts/tinydcs_adrac_zi.joblib \
-    --output-baseline artifacts/adrac_baseline_zi.joblib \
-    --output-metrics artifacts/metrics_adrac_zi.json \
-    --output-figures artifacts/figures_adrac_zi \
-    --no-run-leave-one-altitude-out --zi
+.venv/bin/python scripts/12_export_eva_browser_contract.py
+.venv/bin/uvicorn tinydcs.api:app --host 127.0.0.1 --port 8180
 ```
 
-**Expected headline output**:
+The generator exports Pydantic's scenario schema, all merged mission rules, and synthetic Python golden cases. Run browser tests again after any equation/schema/rule change. Its fixtures are software-parity checks, not observed clinical data.
 
-```
-Random split results (apples-to-apples on the same test fold):
-  ADRAC baseline: MAE=0.0860, R²=0.8693, Brier=0.0150
-  TinyDCS:        MAE=0.0200, R²=0.9864, Brier=0.0016, coverage=0.960
-```
+The browser compares the server's full mission-rule snapshot and model version with its bundle, including report exports. A mismatch is an explicit error, not an offline fallback. Regenerate the bundle after customizing server rules.
 
-**Artifacts produced**:
-- `artifacts/tinydcs_adrac_zi.joblib` — trained zero-inflated surrogate bundle (base + classifier + continuous sub-models + conformal + OOD + feature names).
-- `artifacts/adrac_baseline_zi.joblib` — closed-form ADRAC coefficients.
-- `artifacts/metrics_adrac_zi.json` — all metrics (point, Brier, per-altitude-band coverage, calibration mode).
-- `artifacts/figures_adrac_zi/*.png` — reliability and Bland–Altman diagnostic plots.
+With the frontend running on 127.0.0.1:5173, check all EVA presets, PB exercise, schedule edits, rule profiles, unavailable quantities, stop conditions, synthetic replay, online/offline JSON and API PDF/HTML export. Test rapid input changes while a delayed response is outstanding. API validation errors must not show an older result or offline success.
 
-**Sanity check**:
+Desktop and mobile screenshots belong outside the repository. Record console issues, route identity and export input provenance before claiming UI success.
 
-```bash
-python -c "
-import json
-m = json.load(open('artifacts/metrics_adrac_zi.json'))
-td = m['tinydcs_random_test']
-print(f'Mode: {td[\"calibration_mode\"]}')
-print(f'Overall coverage: {td[\"conformal_coverage\"][\"coverage\"]:.3f} (nominal 0.95)')
-for k, v in sorted(td['per_band_coverage'].items()):
-    print(f'  {k}: {v[\"coverage\"]:.3f}')
-"
-```
+## Notes
 
-All five altitude bands should report coverage ≥ 0.95.
+Numerical support checks are not evidence of clinical applicability. Outside-support surrogate results and unresolved 3RUT computations must not be used quantitatively. The zero-inflated model's intervals are calibrated on the final mixture point; personalization instead returns posterior credible intervals.
 
----
-
-## 3. Train the compact edge-deployable variant
-
-```bash
-python scripts/06_train_compact_surrogate.py \
-    --training artifacts/DCS_Risk_DB_2025_clean.parquet \
-    --output-metrics artifacts/compact_vs_full.json
-```
-
-**Expected output**: a four-row table showing `full / medium / compact / tiny` with MAE, R², Brier, ONNX size. The **compact** row should show ≈ 47 KB with MAE ≈ 0.028.
-
----
-
-## 4. Export the zero-inflated surrogate to ONNX
-
-### 4.1 Full (1.8 MB) variant
-
-```bash
-python scripts/07_export_zero_inflated_onnx.py \
-    --input-model artifacts/tinydcs_adrac_zi.joblib \
-    --output-dir artifacts/zi_onnx \
-    --benchmark-n 10000 --tolerance 1e-4
-```
-
-**Expected tail**:
-
-```
-Combined:   1786.8 KB, per-row p50 = 16.52 us
-```
-
-### 4.2 Compact (95 KB) variant
-
-Train a compact zero-inflated surrogate first (inline one-liner; see `scripts/06_train_compact_surrogate.py` for the full pattern):
-
-```bash
-python -c "
-import sys; sys.path.insert(0, '.')
-import pandas as pd, numpy as np
-from dataclasses import asdict
-from tinydcs.features import FEATURE_COLUMNS, extract_features
-from tinydcs.simulator import ExposureProfile, ornstein_uhlenbeck_vo2
-from tinydcs.surrogate import TrainConfig, train_surrogate
-
-VO2 = {'Rest':{'mean':0.10,'sd':0.05},'Mild':{'mean':0.45,'sd':0.10},'Heavy':{'mean':1.10,'sd':0.15}}
-df = pd.read_parquet('artifacts/DCS_Risk_DB_2025_clean.parquet')
-rng = np.random.default_rng(42); rows = []
-for _, row in df.iterrows():
-    vp = VO2.get(row['exercise_level'], VO2['Rest'])
-    m = max(0.0, rng.normal(vp['mean'], vp['sd']))
-    t = float(row['time_at_altitude'])
-    traj = ornstein_uhlenbeck_vo2(duration_min=t, dt_min=5.0, mean_i_ex=m, rng=rng)
-    p = ExposureProfile(target_altitude_ft=float(row['altitude']),
-        prebreathe_duration_min=float(row['prebreathing_time']),
-        prebreathe_fio2=1.0, prebreathe_fin2=0.0,
-        prebreathe_i_ex_trajectory=0.0, ascent_rate_fpm=5000.0,
-        altitude_duration_min=t, altitude_fio2=0.21, altitude_fin2=0.79,
-        altitude_i_ex_trajectory=traj, vo2_dt_min=5.0)
-    r = asdict(extract_features(p))
-    r['pdcs_3rut_mbe1'] = float(row['risk_of_decompression_sickness']) / 100.0
-    rows.append(r)
-s, _ = train_surrogate(pd.DataFrame(rows), feature_names=FEATURE_COLUMNS,
-    target_col='pdcs_3rut_mbe1', test_fraction=0.15, calibration_fraction=0.20,
-    config=TrainConfig(n_estimators=100, learning_rate=0.10, num_leaves=7, random_state=42),
-    use_zero_inflated=True)
-s.save('artifacts/tinydcs_adrac_zi_compact.joblib')
-print('Saved compact ZI surrogate.')
-"
-```
-
-Then export:
-
-```bash
-python scripts/07_export_zero_inflated_onnx.py \
-    --input-model artifacts/tinydcs_adrac_zi_compact.joblib \
-    --output-dir artifacts/zi_onnx_compact \
-    --benchmark-n 10000 --tolerance 1e-4
-```
-
-**Expected tail**:
-
-```
-Combined:   94.6 KB, per-row p50 = 2.44 us
-```
-
----
-
-## 5. Personalization demo (Paper 2 prototype)
-
-```bash
-python scripts/08_personalization_demo.py \
-    --base-surrogate artifacts/tinydcs_adrac_zi.joblib \
-    --exposure-template artifacts/DCS_Risk_DB_2025_clean.parquet \
-    --output-metrics artifacts/personalization_demo.json \
-    --n-subjects 100 --sigma-lambda 1.0 --seed 42
-```
-
-**Expected output**: Pearson r on log(λ) recovery grows from ~0.10 at k=1 to ~0.63 at k=20. Personalized vs population Brier score is approximately at parity at k ≈ 10–20.
-
----
-
-## 6. Quick parity check (optional but recommended before any PR)
-
-```bash
-pytest tests/ -q
-python -c "
-from tinydcs.surrogate import TinyDcsSurrogate
-s = TinyDcsSurrogate.load('artifacts/tinydcs_adrac_zi.joblib')
-print(f'Loaded surrogate with {len(s.feature_names)} features, calibration: {type(s.conformal).__name__}')
-"
-```
-
----
-
-## If the session disconnects mid-work
-
-1. Read the last `## Session log` entry in `AGENTS.md`. It names the git range and the last substantive state.
-2. Run steps 0–2 above to regenerate the core artifacts from a clean checkout. These artifacts are git-ignored and always reproducible.
-3. If steps 0–2 differ from the published metrics numbers (§2 above), report the divergence before going further — something has drifted.
-4. Continue from the first incomplete task listed in AGENTS.md §7 "Open problems, ranked."
-
-The runbook is the first file new agents should open. Keep it current whenever a step changes.
-
----
-
-## Known benign warnings that can be ignored
-
-- `UserWarning: X does not have valid feature names, but LGBMRegressor was fitted with feature names` — fires in some edge cases around `predict()`; numeric outputs are correct.
-- `[W:onnxruntime:...] Expected shape from model of {1} does not match actual shape of {N} for output label` — legacy LightGBM-classifier-ONNX artifact; the probability tensor has correct shape and is what we consume.
-- `InconsistentVersionWarning` from any pre-1.1 joblib files — indicates the file is from the `legacy/` directory and is not load-bearing.
-
-All other warnings deserve investigation before release.
+The primary grid's uncertain raw cells remain unresolved; sensitivity rescaling is a hypothesis, not a verified correction. Legacy metrics, old README snapshots and manuscripts do not supersede accuracy-v3 evidence.

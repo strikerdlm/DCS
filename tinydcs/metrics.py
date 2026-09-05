@@ -1,37 +1,24 @@
-"""Evaluation metrics for TinyDCS.
+"""Probability-scale model agreement and separately labelled binary-outcome metrics.
 
-Everything here operates on probability-scale predictions y_pred ∈ [0, 1] and
-references y_true ∈ [0, 1] (either the 3RUT-MBe1 surrogate target or observed
-binary outcomes). Metrics split cleanly into:
-
-* point accuracy (MAE, RMSE, R²),
-* discrimination (Brier score; AUROC if ``binarize`` is provided),
-* calibration (slope/intercept of a logistic recalibration, reliability bins),
-* conformal coverage at a nominal level.
-
-All functions are deterministic and side-effect-free. They are designed to be
-called from the training script to produce a JSON metrics blob.
+Model-generated probabilities are not observed clinical outcomes. Undefined
+summaries use None so strict JSON serializes them as null, never NaN or zero.
 """
 
 from __future__ import annotations
-
 from dataclasses import dataclass
-from typing import Optional
-
 import numpy as np
-
-try:
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, roc_auc_score
-except ImportError as exc:  # pragma: no cover
-    raise ImportError("scikit-learn is required for tinydcs.metrics") from exc
+from scipy.optimize import minimize
+from scipy.special import expit
+from sklearn.metrics import roc_auc_score
 
 
-_EPS = 1e-6
-
-
-def _clip(x: np.ndarray) -> np.ndarray:
-    return np.clip(x.astype(float), _EPS, 1.0 - _EPS)
+def _pairs(*arrays):
+    values = [np.asarray(a, dtype=float).ravel() for a in arrays]
+    if len({a.size for a in values}) != 1:
+        raise ValueError("metric inputs must have equal lengths")
+    if any(not np.isfinite(a).all() or np.any((a < 0) | (a > 1)) for a in values):
+        raise ValueError("metric inputs must be finite probabilities in [0,1]")
+    return values
 
 
 @dataclass(slots=True)
@@ -42,97 +29,126 @@ class ReliabilityBins:
     bin_count: np.ndarray
 
 
-def reliability_bins(y_true: np.ndarray, y_pred: np.ndarray, n_bins: int = 10) -> ReliabilityBins:
-    """Binning for a reliability diagram.
-
-    Bins are equally spaced on [0, 1]. Empty bins are returned with NaN means.
-    """
-    y_true = np.asarray(y_true, dtype=float).ravel()
-    y_pred = np.asarray(y_pred, dtype=float).ravel()
-    edges = np.linspace(0.0, 1.0, n_bins + 1)
-    idx = np.clip(np.digitize(y_pred, edges, right=True) - 1, 0, n_bins - 1)
-    mean_pred = np.full(n_bins, np.nan)
-    mean_true = np.full(n_bins, np.nan)
-    count = np.zeros(n_bins, dtype=int)
+def reliability_bins(y_true, y_pred, n_bins: int = 10) -> ReliabilityBins:
+    y_true, y_pred = _pairs(y_true, y_pred)
+    if not isinstance(n_bins, int) or n_bins < 1:
+        raise ValueError("n_bins must be a positive integer")
+    edges = np.linspace(0, 1, n_bins + 1)
+    idx = np.clip(np.searchsorted(edges, y_pred, side="right") - 1, 0, n_bins - 1)
+    pred, true = np.full(n_bins, None, dtype=object), np.full(n_bins, None, dtype=object)
+    counts = np.bincount(idx, minlength=n_bins)
     for b in range(n_bins):
-        mask = idx == b
-        count[b] = int(mask.sum())
-        if mask.any():
-            mean_pred[b] = float(y_pred[mask].mean())
-            mean_true[b] = float(y_true[mask].mean())
-    return ReliabilityBins(bin_edges=edges, bin_mean_pred=mean_pred, bin_mean_true=mean_true, bin_count=count)
+        if counts[b]:
+            pred[b], true[b] = float(y_pred[idx == b].mean()), float(y_true[idx == b].mean())
+    return ReliabilityBins(edges, pred, true, counts)
 
 
-def calibration_slope_intercept(y_true: np.ndarray, y_pred: np.ndarray) -> tuple[float, float]:
-    """Logistic recalibration slope/intercept (Van Calster et al. 2019).
+def calibration_slope_intercept(y_true, y_pred):
+    """Fractional-logistic agreement for soft targets; not clinical calibration.
 
-    Fits `logit(y_true) ~ a + b * logit(y_pred)` as a 1-feature logistic
-    regression where the response is the Bernoulli draw from y_true. For
-    continuous y_true in (0, 1) we use the probabilistic-target trick: weight
-    each sample by y_true (positive) and 1-y_true (negative).
+    A finite optimum is required. Degenerate/fully separated samples have no
+    finite slope/intercept and return (None, None).
     """
-    y_true = _clip(np.asarray(y_true, dtype=float).ravel())
-    y_pred = _clip(np.asarray(y_pred, dtype=float).ravel())
-    logit_pred = np.log(y_pred / (1.0 - y_pred)).reshape(-1, 1)
+    y, p = _pairs(y_true, y_pred)
+    if len(y) < 3 or np.ptp(y) == 0 or np.ptp(p) == 0:
+        return None, None
+    p = np.clip(p, 1e-10, 1 - 1e-10)
+    x = np.log(p) - np.log1p(-p)
+    if np.isin(y, [0, 1]).all():
+        positive, negative = x[y == 1], x[y == 0]
+        if positive.min() >= negative.max() or negative.min() >= positive.max():
+            return None, None  # complete or quasi separation; no finite MLE
+    design = np.column_stack([np.ones(len(x)), x])
 
-    # Duplicate each sample with (pos, 1-pos) weighting.
-    X = np.concatenate([logit_pred, logit_pred], axis=0)
-    y = np.concatenate([np.ones_like(y_true, dtype=int), np.zeros_like(y_true, dtype=int)])
-    w = np.concatenate([y_true, 1.0 - y_true])
-    if w.sum() < 1e-9:
-        return (float("nan"), float("nan"))
-    lr = LogisticRegression(C=1e6, solver="lbfgs", max_iter=1000)
-    lr.fit(X, y, sample_weight=w)
-    return float(lr.coef_[0, 0]), float(lr.intercept_[0])
+    def loss(theta):
+        z = design @ theta
+        return np.mean(np.logaddexp(0, z) - y * z), design.T @ (expit(z) - y) / len(y)
 
-
-def brier_score(y_true: np.ndarray, y_pred: np.ndarray) -> float:
-    """Mean squared error between probabilistic targets and predictions."""
-    y_true = np.asarray(y_true, dtype=float).ravel()
-    y_pred = np.asarray(y_pred, dtype=float).ravel()
-    return float(np.mean((y_true - y_pred) ** 2))
-
-
-def binarized_roc_auc(y_true: np.ndarray, y_pred: np.ndarray, threshold: float) -> Optional[float]:
-    """ROC-AUC with a binary positive label defined as ``y_true > threshold``.
-
-    Returns ``None`` if the label is degenerate.
-    """
-    y_true = np.asarray(y_true, dtype=float).ravel()
-    y_pred = np.asarray(y_pred, dtype=float).ravel()
-    y_bin = (y_true > threshold).astype(int)
-    if y_bin.sum() == 0 or y_bin.sum() == y_bin.size:
-        return None
-    return float(roc_auc_score(y_bin, y_pred))
+    result = minimize(loss, [0.0, 1.0], jac=True, method="BFGS", options={"gtol": 1e-8})
+    if not result.success or not np.isfinite(result.x).all() or np.max(np.abs(result.x)) > 100:
+        return None, None
+    return float(result.x[1]), float(result.x[0])
 
 
-def bland_altman(y_ref: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
-    """Bland–Altman summary: bias + 95% limits of agreement."""
-    y_ref = np.asarray(y_ref, dtype=float).ravel()
-    y_pred = np.asarray(y_pred, dtype=float).ravel()
-    diff = y_pred - y_ref
-    bias = float(diff.mean())
-    sd = float(diff.std(ddof=1)) if diff.size > 1 else 0.0
-    return {"bias": bias, "sd": sd, "loa_lower": bias - 1.96 * sd, "loa_upper": bias + 1.96 * sd}
+def probability_mse(y_true, y_pred):
+    y, p = _pairs(y_true, y_pred)
+    return float(np.mean((y - p) ** 2)) if len(y) else None
 
 
-def point_errors(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
-    y_true = np.asarray(y_true, dtype=float).ravel()
-    y_pred = np.asarray(y_pred, dtype=float).ravel()
+def brier_score(y_true, y_pred):
+    """Brier score for observed binary outcomes only."""
+    y, p = _pairs(y_true, y_pred)
+    if not np.isin(y, [0, 1]).all():
+        raise ValueError("Brier score requires observed binary outcomes")
+    return probability_mse(y, p)
+
+
+def binary_roc_auc(y_true, y_pred):
+    y, p = _pairs(y_true, y_pred)
+    if not np.isin(y, [0, 1]).all():
+        raise ValueError("AUROC requires observed binary outcomes")
+    return float(roc_auc_score(y, p)) if len(np.unique(y)) == 2 else None
+
+
+def binarized_roc_auc(y_true, y_pred, threshold):
+    """Diagnostic threshold discrimination of model targets, NOT clinical AUROC."""
+    y, p = _pairs(y_true, y_pred)
+    if not 0 <= threshold <= 1:
+        raise ValueError("threshold must be in [0,1]")
+    return binary_roc_auc((y > threshold).astype(float), p)
+
+
+def bland_altman(y_ref, y_pred):
+    y, p = _pairs(y_ref, y_pred)
+    bias = float((p - y).mean()) if len(y) else None
+    sd = float((p - y).std(ddof=1)) if len(y) > 1 else None
     return {
-        "mae": float(mean_absolute_error(y_true, y_pred)),
-        "rmse": float(np.sqrt(mean_squared_error(y_true, y_pred))),
-        "r2": float(r2_score(y_true, y_pred)) if y_true.var() > 0 else float("nan"),
+        "n": len(y),
+        "unit": "probability",
+        "bias": bias,
+        "sd": sd,
+        "loa_lower": bias - 1.96 * sd if sd is not None else None,
+        "loa_upper": bias + 1.96 * sd if sd is not None else None,
     }
 
 
-def empirical_coverage(
-    y_true: np.ndarray, y_lower: np.ndarray, y_upper: np.ndarray, nominal: float = 0.95
-) -> dict[str, float]:
-    y_true = np.asarray(y_true, dtype=float).ravel()
-    y_lower = np.asarray(y_lower, dtype=float).ravel()
-    y_upper = np.asarray(y_upper, dtype=float).ravel()
-    inside = (y_true >= y_lower) & (y_true <= y_upper)
-    coverage = float(inside.mean())
-    avg_width = float(np.mean(y_upper - y_lower))
-    return {"coverage": coverage, "nominal": float(nominal), "avg_width": avg_width}
+def point_errors(y_true, y_pred):
+    y, p = _pairs(y_true, y_pred)
+    mse = probability_mse(y, p)
+    return {
+        "n": len(y),
+        "unit": "probability",
+        "mae": float(np.mean(np.abs(y - p))) if len(y) else None,
+        "mse": mse,
+        "rmse": float(np.sqrt(mse)) if mse is not None else None,
+        "r2": float(1 - np.sum((y - p) ** 2) / np.sum((y - y.mean()) ** 2))
+        if len(y) > 1 and np.ptp(y) > 0
+        else None,
+    }
+
+
+def empirical_coverage(y_true, y_lower, y_upper, nominal=0.95):
+    y, lo, hi = _pairs(y_true, y_lower, y_upper)
+    if np.any(lo > hi) or not 0 < nominal < 1:
+        raise ValueError("ordered intervals and nominal coverage in (0,1) required")
+    n = len(y)
+    hits = int(((y >= lo) & (y <= hi)).sum())
+    coverage = hits / n if n else None
+    # Wilson 95% descriptive binomial interval; dependent grid rows are not IID.
+    if n:
+        z = 1.959963984540054
+        denominator = 1 + z * z / n
+        center = (coverage + z * z / (2 * n)) / denominator
+        half = z * np.sqrt(coverage * (1 - coverage) / n + z * z / (4 * n * n)) / denominator
+        bounds = [float(center - half), float(center + half)]
+    else:
+        bounds = [None, None]
+    return {
+        "n": n,
+        "covered_n": hits,
+        "coverage": coverage,
+        "nominal": float(nominal),
+        "avg_width": float((hi - lo).mean()) if n else None,
+        "coverage_wilson_95": bounds,
+        "unit": "probability",
+    }

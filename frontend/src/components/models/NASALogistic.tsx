@@ -17,7 +17,8 @@ import {
 } from "../ui/Accordion";
 import { MetricCard } from "../ui/MetricCard";
 import { RiskGauge } from "../charts/RiskGauge";
-import { predictNASA } from "../../utils/models";
+import { NASA_VARIANT_LAMBDA, predictNASA } from "../../utils/models";
+import { formatNumber } from "../../lib/utils";
 import { defaultNASAInputs, modelValidityCards } from "../../data/mockData";
 import { ValidityPanel } from "./ValidityPanel";
 import type { NASAInputs, NASAPrediction, NASAVariant } from "../../types";
@@ -53,15 +54,15 @@ export function NASALogistic(): React.ReactElement {
         <div className="absolute -top-32 -right-20 w-96 h-96 rounded-full bg-chart-2/15 blur-3xl pointer-events-none" />
         <div className="relative">
           <span className="pill-primary mb-3">
-            <Calculator className="h-3 w-3" /> NASA/TM-2004-213093 · Conkin
+            <Calculator className="h-3 w-3" /> NASA/TP-2004-213158 · Conkin et al.
           </span>
           <h2 className="display text-3xl font-bold tracking-tight mt-2">
             Exercise Tissue Ratio logistic — single-interval prebreathe.
           </h2>
           <p className="text-muted-foreground mt-2 max-w-3xl text-[14px] leading-relaxed">
-            Verbatim port of <code className="text-num text-[12px]">mechanistic/conkin_nasa.py</code>.
-            NM (Eq. 14) uses ETR + sex on n = 159; RM (Eq. 15) uses ETR + age on
-            n = 229. The variable τ½ depends on VO₂ during prebreathe via λ.
+            NM (Eq. 15) uses ETR + sex on n = 159; RM (Eq. 14) uses ETR + age on
+            n = 229. The Eq. 6 washout rate depends on VO₂ and the fitted variant.
+            The probability endpoint is for 240 min at 4.3 psia with adynamic light exercise.
           </p>
         </div>
       </section>
@@ -84,8 +85,8 @@ export function NASALogistic(): React.ReactElement {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="NM">NM · Eq. 14 · ETR + sex</SelectItem>
-                  <SelectItem value="RM">RM · Eq. 15 · ETR + age</SelectItem>
+                  <SelectItem value="NM">NM · Eq. 15 · ETR + sex</SelectItem>
+                  <SelectItem value="RM">RM · Eq. 14 · ETR + age</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-[11.5px] text-muted-foreground">
@@ -116,8 +117,8 @@ export function NASALogistic(): React.ReactElement {
               <Input
                 label="Age"
                 type="number"
-                value={inputs.ageYears}
-                onChange={(e) => handle("ageYears", parseFloat(e.target.value) || 0)}
+                value={Number.isFinite(inputs.ageYears) ? inputs.ageYears : ""}
+                onChange={(e) => handle("ageYears", e.target.valueAsNumber)}
                 unit="years"
                 min={1}
                 max={100}
@@ -133,8 +134,8 @@ export function NASALogistic(): React.ReactElement {
                 <Input
                   label="Initial tissue ppN₂ · P0"
                   type="number"
-                  value={inputs.p0Psia}
-                  onChange={(e) => handle("p0Psia", parseFloat(e.target.value) || 0)}
+                  value={Number.isFinite(inputs.p0Psia) ? inputs.p0Psia : ""}
+                  onChange={(e) => handle("p0Psia", e.target.valueAsNumber)}
                   unit="psia"
                   min={0}
                   max={20}
@@ -142,10 +143,10 @@ export function NASALogistic(): React.ReactElement {
                   description="Report example: 8.0 psia"
                 />
                 <Input
-                  label="Ambient ppN₂ during PB · Pa"
+                  label="Dry ambient ppN₂ during PB · Pa"
                   type="number"
-                  value={inputs.paPsia}
-                  onChange={(e) => handle("paPsia", parseFloat(e.target.value) || 0)}
+                  value={Number.isFinite(inputs.paPsia) ? inputs.paPsia : ""}
+                  onChange={(e) => handle("paPsia", e.target.valueAsNumber)}
                   unit="psia"
                   min={0}
                   max={20}
@@ -155,8 +156,8 @@ export function NASALogistic(): React.ReactElement {
                 <Input
                   label="PB duration"
                   type="number"
-                  value={inputs.pbTimeMin}
-                  onChange={(e) => handle("pbTimeMin", parseFloat(e.target.value) || 0)}
+                  value={Number.isFinite(inputs.pbTimeMin) ? inputs.pbTimeMin : ""}
+                  onChange={(e) => handle("pbTimeMin", e.target.valueAsNumber)}
                   unit="min"
                   min={0}
                   max={240}
@@ -165,9 +166,9 @@ export function NASALogistic(): React.ReactElement {
                 <Input
                   label="VO₂ during PB"
                   type="number"
-                  value={inputs.vo2MlKgMin}
+                  value={Number.isFinite(inputs.vo2MlKgMin) ? inputs.vo2MlKgMin : ""}
                   onChange={(e) =>
-                    handle("vo2MlKgMin", parseFloat(e.target.value) || 0)
+                    handle("vo2MlKgMin", e.target.valueAsNumber)
                   }
                   unit="mL·kg⁻¹·min⁻¹"
                   min={0}
@@ -185,8 +186,8 @@ export function NASALogistic(): React.ReactElement {
               <Input
                 label="Ambient pressure · P2"
                 type="number"
-                value={inputs.p2Psia}
-                onChange={(e) => handle("p2Psia", parseFloat(e.target.value) || 0)}
+                value={Number.isFinite(inputs.p2Psia) ? inputs.p2Psia : ""}
+                onChange={(e) => handle("p2Psia", e.target.valueAsNumber)}
                 unit="psia"
                 min={1}
                 max={14.7}
@@ -206,14 +207,9 @@ export function NASALogistic(): React.ReactElement {
                   <Input
                     label="λ₂"
                     type="number"
-                    value={inputs.lambda2}
-                    onChange={(e) =>
-                      handle("lambda2", parseFloat(e.target.value) || 0)
-                    }
-                    min={0.0001}
-                    max={0.2}
-                    step={0.0005}
-                    description="NM example λ₂ = 0.030, RM example λ₂ = 0.025"
+                    value={NASA_VARIANT_LAMBDA[inputs.variant]}
+                    readOnly
+                    description="Fitted coefficient locked to variant: NM 0.030, RM 0.025"
                   />
                 </AccordionContent>
               </AccordionItem>
@@ -229,7 +225,7 @@ export function NASALogistic(): React.ReactElement {
                 {prediction ? (
                   <RiskGauge
                     value={prediction.pDcsPercent}
-                    title="P(DCS)"
+                    title="P(DCS) · 240 min at 4.3 psia"
                     height={300}
                     max={40}
                   />
@@ -238,6 +234,11 @@ export function NASALogistic(): React.ReactElement {
                     <Activity className="h-10 w-10 opacity-40 mb-2" />
                     <p className="text-[14px]">{error ?? "Adjust parameters"}</p>
                   </div>
+                )}
+                {prediction?.unavailableReason && (
+                  <p className="text-[12px] text-muted-foreground" role="status">
+                    {prediction.unavailableReason}
+                  </p>
                 )}
               </CardContent>
             </Card>
@@ -261,11 +262,12 @@ export function NASALogistic(): React.ReactElement {
                 icon={<User className="h-4 w-4 text-accent" />}
               />
               <MetricCard
-                label="Predicted P(DCS)"
-                value={prediction ? prediction.pDcsPercent.toFixed(2) : "—"}
+                label="Reference endpoint P(DCS)"
+                value={formatNumber(prediction?.pDcsPercent)}
                 unit="%"
                 isRisk
-                riskValue={prediction?.pDcsPercent ?? 0}
+                riskValue={prediction?.pDcsPercent ?? undefined}
+                description="240 min · 4.3 psia · adynamic light exercise"
                 icon={<Activity className="h-4 w-4" />}
               />
             </div>
@@ -283,7 +285,9 @@ export function NASALogistic(): React.ReactElement {
                 {prediction?.equation ?? "—"}
               </pre>
               <p className="text-[11.5px] text-muted-foreground mt-2">
-                Source: NASA/TM-2004-213093 · Conkin (2004) · ported in <code className="text-num text-[11px]">mechanistic/conkin_nasa.py</code>.
+                <a href="https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf" target="_blank" rel="noreferrer" className="underline">
+                  Source: NASA/TP-2004-213158 · Conkin et al. (2004)
+                </a>. Eq. 6: k = exp(λ · VO₂) / 519.37 min⁻¹. Intervals are unavailable.
               </p>
             </CardContent>
           </Card>
@@ -297,7 +301,7 @@ export function NASALogistic(): React.ReactElement {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <h4 className="text-[12px] font-semibold uppercase tracking-wider text-muted-foreground">
-                    NM · Eq. 14
+                    NM · Eq. 15
                   </h4>
                   <pre className="text-num text-[12px] bg-muted/50 dark:bg-muted/30 p-4 rounded-lg whitespace-pre-wrap leading-relaxed">
 {`P(DCS) = σ(z)
@@ -308,7 +312,7 @@ n = 159 exposures`}
                 </div>
                 <div className="space-y-2">
                   <h4 className="text-[12px] font-semibold uppercase tracking-wider text-muted-foreground">
-                    RM · Eq. 15
+                    RM · Eq. 14
                   </h4>
                   <pre className="text-num text-[12px] bg-muted/50 dark:bg-muted/30 p-4 rounded-lg whitespace-pre-wrap leading-relaxed">
 {`P(DCS) = σ(z)

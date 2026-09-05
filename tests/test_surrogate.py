@@ -100,7 +100,7 @@ def test_surrogate_save_load_roundtrip(toy_dataset: pd.DataFrame, tmp_path) -> N
 
 
 def test_brier_score_zero_on_perfect_pred() -> None:
-    y = np.array([0.1, 0.5, 0.9, 0.3])
+    y = np.array([0, 1, 1, 0])
     assert brier_score(y, y) == pytest.approx(0.0)
 
 

@@ -4,6 +4,17 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 
 ## [Unreleased]
 
+## [0.7.0] — 2026-09-05 — Scientific accuracy corrections
+
+- Correct NASA Eq. 6 kinetics and variant coefficients, layered atmosphere, ADRAC boundaries and fitting constraints.
+- Quarantine unresolved source-grid cells, freeze train/calibration/test IDs, correct final-predictor conformal calibration and uncertainty labels, and replace binary personalization with a Bernoulli posterior.
+- Reconcile identified 3RUT unit errors; retain the quantitative gate pending unresolved source and benchmark checks.
+- Introduce the version-2 nullable EVA contract, independent PB workload, sequential pressure/workload schedules, strict input/telemetry checks and recomputed report provenance.
+- Preserve the dashboard layout while removing invented percentages/intervals, fixing stale API result selection and verifying browser/Python parity.
+- Regenerate model-agreement evidence, stronger baselines, grouped/cleaning sensitivity checks and complete ONNX parity. Older numerical and wearable/HIL claims below are historical, not current validation.
+
+## Previous unreleased work (superseded by 0.7.0)
+
 ### Added
 - FastAPI EVA contract at `tinydcs.api` with `/api/v1/eva/simulate`, `/api/v1/eva/report`, mission-rule, and model-metadata endpoints.
 - Python EVA scenario engine, YAML mission-rule profiles, telemetry adapters, and JSON/HTML/PDF scenario report generation.

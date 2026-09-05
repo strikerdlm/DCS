@@ -1,280 +1,193 @@
-"""Per-subject hierarchical Bayesian personalization on top of TinyDCS.
+"""Bernoulli log-odds susceptibility with deterministic 1D quadrature.
 
-This module implements Paper 2's "Implementation A" — a conjugate Gaussian
-per-subject susceptibility update that adds a personalized log-odds shift
-above the base :class:`tinydcs.surrogate.TinyDcsSurrogate` prediction.
-
-Model
------
-
-For subject ``i`` with exposures ``j = 1..n_i``:
-
-    logit( P(DCS_{ij} | x_{ij}, lambda_i) ) = eta_base(x_{ij}) + log lambda_i
-
-with the hierarchical prior
-
-    log lambda_i ~ N(mu_lambda, sigma_lambda^2)
-
-and the likelihood approximated as Gaussian around the base logit prediction:
-
-    observed logit residual r_{ij} = logit(y_{ij}) - eta_base(x_{ij}) | log lambda_i
-        ~ N(log lambda_i, sigma_lik^2)
-
-Under this Gaussian-Gaussian conjugate setup, the posterior over
-``log lambda_i`` is
-
-    mu_post = (sigma_lik^2 * mu_lambda + sigma_lambda^2 * n_i * mean_residual)
-              / (sigma_lik^2 + n_i * sigma_lambda^2)
-    sigma_post^2 = (sigma_lik^2 * sigma_lambda^2)
-                   / (sigma_lik^2 + n_i * sigma_lambda^2)
-
-which is closed-form, O(1) per new observation, no MCMC. Suitable for
-on-device personalization with memory footprint ~16 bytes per subject
-(posterior mean + variance).
-
-Caveats
--------
-
-* The Gaussian likelihood approximation is valid when base predictions are
-  not pinned near 0 or 1; in that regime the full Bayesian hierarchical
-  model (Paper 2 Implementation B, PyMC-based, not in this module) should
-  be preferred for methodological reporting. The conjugate update is the
-  practical deployment path.
-
-* Binary outcomes ``y in {0, 1}`` are Smithson-Verkuilen-shrunk before the
-  logit, consistent with the base surrogate's training pipeline.
-
-* The ``sigma_lik^2`` hyper-parameter controls how quickly subject posteriors
-  move away from the population prior in response to new observations.
-  Reasonable defaults are derived from Paper 1's held-out residuals; users
-  with their own calibration cohorts should override.
+y_ij ~ Bernoulli(expit(logit(base_point(x_ij)) + delta_i)),
+delta_i ~ Normal(mu, variance). All observations are retained; batching has no
+statistical effect. Intervals are posterior credible intervals for probability
+conditional on this assumed model, NOT conformal coverage or clinical validation.
 """
 
 from __future__ import annotations
-
 from dataclasses import dataclass, field
-from typing import Iterable, Mapping
-
+from typing import Mapping
 import numpy as np
 import pandas as pd
-
+from scipy.integrate import quad, quad_vec
+from scipy.optimize import minimize_scalar, brentq
+from scipy.special import expit
 from .surrogate import TinyDcsSurrogate
 
 
-_EPS = 1e-6
-
-
-def _sigmoid(z: np.ndarray) -> np.ndarray:
-    return 1.0 / (1.0 + np.exp(-z))
-
-
-def _smithson_verkuilen(p: np.ndarray, n: int) -> np.ndarray:
-    nn = float(max(n, 2))
-    p = np.asarray(p, dtype=float)
-    return (p * (nn - 1.0) + 0.5) / nn
-
-
-def _logit(p: np.ndarray) -> np.ndarray:
-    q = np.clip(np.asarray(p, dtype=float), _EPS, 1.0 - _EPS)
-    return np.log(q / (1.0 - q))
+def _logit(p):
+    # A modelling floor keeps even an exact-zero emulator open to observed events.
+    q = np.clip(np.asarray(p, dtype=float), 1e-10, 1 - 1e-10)
+    return np.log(q) - np.log1p(-q)
 
 
 @dataclass(slots=True)
 class SubjectPosterior:
-    """Gaussian posterior over a subject's ``log lambda``.
-
-    Attributes
-    ----------
-    mean
-        Posterior mean of ``log lambda_i``.
-    variance
-        Posterior variance.
-    n_observations
-        Number of exposures incorporated.
-    """
-
     mean: float = 0.0
     variance: float = 1.0
     n_observations: int = 0
+    lower: float | None = None
+    upper: float | None = None
 
-    def update(self, residual: float, sigma_lik_sq: float, prior_mean: float, prior_var: float) -> "SubjectPosterior":
-        """Return a new posterior after one observation (conjugate Gaussian).
-
-        ``residual`` is the observed logit residual
-        ``logit(y) - eta_base(x)`` for a new exposure.
-        """
-        # Combine the current posterior with the new data point as if the
-        # current posterior were the prior.
-        new_var = (self.variance * sigma_lik_sq) / (self.variance + sigma_lik_sq)
-        new_mean = new_var * (self.mean / self.variance + residual / sigma_lik_sq)
+    def update(self, residual, sigma_lik_sq, prior_mean, prior_var):
+        """Legacy continuous-Gaussian residual helper; NEVER used for binary y."""
+        if (
+            not np.isfinite([residual, sigma_lik_sq, self.mean, self.variance]).all()
+            or sigma_lik_sq <= 0
+            or self.variance <= 0
+        ):
+            raise ValueError("finite residual and positive Gaussian variances required")
+        variance = 1 / (1 / self.variance + 1 / sigma_lik_sq)
         return SubjectPosterior(
-            mean=float(new_mean),
-            variance=float(new_var),
-            n_observations=int(self.n_observations) + 1,
+            variance * (self.mean / self.variance + residual / sigma_lik_sq),
+            variance,
+            self.n_observations + 1,
         )
 
 
 @dataclass(slots=True)
 class PopulationPrior:
-    """Hyperparameters for the hierarchical prior on ``log lambda_i``."""
-
     mu_lambda: float = 0.0
     sigma_lambda_sq: float = 0.5
-    sigma_lik_sq: float = 1.0  # likelihood noise on the logit scale
+    sigma_lik_sq: float = 1.0  # retained for continuous-residual EB only
+
+    def __post_init__(self):
+        if (
+            not np.isfinite([self.mu_lambda, self.sigma_lambda_sq, self.sigma_lik_sq]).all()
+            or self.sigma_lambda_sq <= 0
+            or self.sigma_lik_sq <= 0
+        ):
+            raise ValueError("prior mean must be finite and variances positive")
 
 
-def _logit_binary_target(y: np.ndarray) -> np.ndarray:
-    """Smithson-Verkuilen-shrink binary or probabilistic y and take logit."""
-    y_arr = np.asarray(y, dtype=float).ravel()
-    return _logit(_smithson_verkuilen(y_arr, n=len(y_arr)))
+def fit_population_prior(subject_residuals: Mapping[object, np.ndarray], *, min_observations=3):
+    """Moment estimate from CONTINUOUS logit residuals, not shrunk binary y.
 
-
-def fit_population_prior(
-    subject_residuals: Mapping[object, np.ndarray],
-    *,
-    min_observations: int = 3,
-) -> PopulationPrior:
-    """Empirical-Bayes estimate of ``(mu_lambda, sigma_lambda^2, sigma_lik^2)``.
-
-    Parameters
-    ----------
-    subject_residuals
-        Mapping of ``subject_id -> array of logit residuals from the base surrogate``.
-    min_observations
-        Subjects with fewer residuals than this are skipped for the prior
-        estimate (but can still be personalized later with the full prior).
+    The between-subject correction averages within-subject variance/n_i,
+    respecting unequal sample sizes; excluded subjects contribute nothing.
     """
-    means = []
-    variances = []
-    all_resid = []
-    for sid, resid in subject_residuals.items():
-        arr = np.asarray(resid, dtype=float).ravel()
-        all_resid.append(arr)
-        if arr.size < min_observations:
-            continue
-        means.append(float(arr.mean()))
-        variances.append(float(arr.var(ddof=1))) if arr.size > 1 else None
-
-    if not means:
-        # Fall back to a weak default prior if nobody has enough data.
-        return PopulationPrior(mu_lambda=0.0, sigma_lambda_sq=1.0, sigma_lik_sq=1.0)
-
-    # Method-of-moments decomposition: Var(subject_mean) = sigma_lambda^2 + sigma_lik^2 / n_avg
-    # With residual variance within-subject ~ sigma_lik^2.
-    mu_hat = float(np.mean(means))
-    within = float(np.mean(variances)) if variances else 1.0
-    total_between = float(np.var(means, ddof=1)) if len(means) > 1 else 0.5
-    sigma_lambda_sq = max(total_between - within / max(1, int(np.mean([len(v) for v in subject_residuals.values()]))), 1e-3)
-    sigma_lik_sq = max(within, 1e-3)
+    eligible = [
+        np.asarray(r, dtype=float).ravel()
+        for r in subject_residuals.values()
+        if len(r) >= min_observations
+    ]
+    if any(not np.isfinite(r).all() for r in eligible) or min_observations < 2:
+        raise ValueError("finite residuals and min_observations >=2 required")
+    if len(eligible) < 2:
+        return PopulationPrior()
+    means = np.array([r.mean() for r in eligible])
+    variances = np.array([r.var(ddof=1) for r in eligible])
+    sizes = np.array([len(r) for r in eligible])
     return PopulationPrior(
-        mu_lambda=mu_hat,
-        sigma_lambda_sq=sigma_lambda_sq,
-        sigma_lik_sq=sigma_lik_sq,
+        float(means.mean()),
+        float(max(means.var(ddof=1) - np.mean(variances / sizes), 1e-3)),
+        float(max(np.sum((sizes - 1) * variances) / np.sum(sizes - 1), 1e-3)),
     )
+
+
+def _distribution(offsets, outcomes, prior):
+    """Mode-centered adaptive integration; stable even after repeated outcomes."""
+    eta, y = np.asarray(offsets), np.asarray(outcomes)
+
+    def log_density(delta):
+        z = eta + delta
+        return -((delta - prior.mu_lambda) ** 2) / (2 * prior.sigma_lambda_sq) + np.sum(
+            y * z - np.logaddexp(0, z)
+        )
+
+    mode = float(
+        minimize_scalar(
+            lambda d: -log_density(d), bracket=(prior.mu_lambda - 1, prior.mu_lambda + 1)
+        ).x
+    )
+    p = expit(eta + mode)
+    scale = float(1 / np.sqrt(1 / prior.sigma_lambda_sq + np.sum(p * (1 - p))))
+    peak = log_density(mode)
+
+    def density(z):
+        return float(np.exp(log_density(mode + scale * z) - peak))
+
+    moments, _ = quad_vec(
+        lambda z: density(z) * np.array([1.0, z, z * z]),
+        -np.inf,
+        np.inf,
+        epsabs=1e-10,
+        epsrel=1e-10,
+    )
+    norm = float(moments[0])
+    mean = float(mode + scale * moments[1] / norm)
+    variance = float(max(0, scale**2 * (moments[2] / norm - (moments[1] / norm) ** 2)))
+    radius = (abs(mode - prior.mu_lambda) + 12 * np.sqrt(prior.sigma_lambda_sq)) / scale
+
+    def quantile(q):
+        z = brentq(
+            lambda z: quad(density, -np.inf, z, epsabs=1e-10)[0] / norm - q,
+            -radius,
+            radius,
+            xtol=1e-10,
+        )
+        return float(mode + scale * z)
+
+    summary = SubjectPosterior(mean, variance, len(y), quantile(0.025), quantile(0.975))
+    return summary, density, norm, mode, scale
 
 
 @dataclass
 class PersonalizedSurrogate:
-    """TinyDCS base surrogate + per-subject hierarchical Bayesian adjustment.
-
-    Keeps a :class:`SubjectPosterior` per subject; predictions apply the
-    subject's posterior mean as a log-odds shift and optionally inflate the
-    interval by the posterior standard deviation.
-    """
-
     base: TinyDcsSurrogate
     prior: PopulationPrior = field(default_factory=PopulationPrior)
     subjects: dict[object, SubjectPosterior] = field(default_factory=dict)
+    observations: dict[object, tuple[list[float], list[float]]] = field(default_factory=dict)
 
-    def _ensure_subject(self, subject_id: object) -> SubjectPosterior:
-        if subject_id not in self.subjects:
-            self.subjects[subject_id] = SubjectPosterior(
-                mean=float(self.prior.mu_lambda),
-                variance=float(self.prior.sigma_lambda_sq),
-                n_observations=0,
-            )
-        return self.subjects[subject_id]
-
-    def observe(self, subject_id: object, X: pd.DataFrame, y: np.ndarray | float) -> SubjectPosterior:
-        """Incorporate new (X, y) observations for a subject into their posterior.
-
-        ``y`` may be binary {0, 1} or a probability in [0, 1]. Residuals are
-        computed on the logit scale against the base surrogate.
-        """
-        y_arr = np.atleast_1d(np.asarray(y, dtype=float)).ravel()
-        X_df = X if isinstance(X, pd.DataFrame) else pd.DataFrame(X)
-        base_pred = self.base.predict(X_df)
-        base_logit = base_pred["logit"]  # logit on the mean surrogate
-        y_logit = _logit_binary_target(y_arr)
-        residuals = y_logit - base_logit
-
-        posterior = self._ensure_subject(subject_id)
-        for r in residuals:
-            posterior = posterior.update(
-                residual=float(r),
-                sigma_lik_sq=float(self.prior.sigma_lik_sq),
-                prior_mean=float(self.prior.mu_lambda),
-                prior_var=float(self.prior.sigma_lambda_sq),
-            )
+    def observe(self, subject_id, X, y):
+        y = np.atleast_1d(np.asarray(y, dtype=float)).ravel()
+        if not np.isin(y, [0, 1]).all() or len(y) != len(X) or not len(y):
+            raise ValueError("one observed binary outcome per exposure is required")
+        eta = _logit(self.base.predict(X)["point"])
+        offsets, outcomes = self.observations.get(subject_id, ([], []))
+        offsets, outcomes = offsets + eta.tolist(), outcomes + y.tolist()
+        posterior, *_ = _distribution(offsets, outcomes, self.prior)
+        self.observations[subject_id] = (offsets, outcomes)
         self.subjects[subject_id] = posterior
         return posterior
 
-    def predict(
-        self,
-        subject_id: object,
-        X: pd.DataFrame,
-        *,
-        inflate_interval_with_posterior_sd: bool = True,
-    ) -> dict[str, np.ndarray]:
-        """Personalized prediction.
+    def predict(self, subject_id, X, *, inflate_interval_with_posterior_sd=True):
+        """Posterior mean probability and equal-tailed 95% credible interval.
 
-        Shifts the base logit by the subject's posterior mean ``log lambda_i``
-        and optionally widens the conformal interval by the posterior
-        standard deviation to reflect personalization uncertainty.
+        The old inflation flag is accepted for call compatibility; no conformal
+        bound is combined with posterior variance.
         """
-        posterior = self._ensure_subject(subject_id)
-        X_df = X if isinstance(X, pd.DataFrame) else pd.DataFrame(X)
-        base_pred = self.base.predict(X_df)
-        shift = float(posterior.mean)
-        personalized_logit = base_pred["logit"] + shift
-        point = _sigmoid(personalized_logit)
-
-        # Interval: start from base conformal interval (already on probability
-        # scale), shift both ends by the same log-odds amount, and optionally
-        # add the posterior SD in quadrature with the conformal half-width on
-        # the logit scale.
-        half_width_logit = base_pred.get("conformal_half_width_logit")
-        if half_width_logit is None or not np.isfinite(np.asarray(half_width_logit, dtype=float)).all():
-            # ZI mode returns NaN half-width because it composes sub-intervals
-            # directly. Fall back to propagating the base [lower, upper].
-            lower_logit = _logit(np.clip(base_pred["lower"], _EPS, 1 - _EPS)) + shift
-            upper_logit = _logit(np.clip(base_pred["upper"], _EPS, 1 - _EPS)) + shift
-        else:
-            hw = np.asarray(half_width_logit, dtype=float)
-            if inflate_interval_with_posterior_sd:
-                hw = np.sqrt(hw**2 + float(posterior.variance))
-            lower_logit = personalized_logit - hw
-            upper_logit = personalized_logit + hw
-        lower = _sigmoid(lower_logit)
-        upper = _sigmoid(upper_logit)
-
+        offsets, outcomes = self.observations.get(subject_id, ([], []))
+        posterior, density, norm, mode, scale = _distribution(offsets, outcomes, self.prior)
+        self.subjects[subject_id] = posterior
+        base = self.base.predict(X)
+        eta = _logit(base["point"])
+        expected, _ = quad_vec(
+            lambda z: density(z) * expit(eta + mode + scale * z),
+            -np.inf,
+            np.inf,
+            epsabs=1e-10,
+            epsrel=1e-10,
+        )
+        point = expected / norm
         return {
             "point": point,
-            "lower": lower,
-            "upper": upper,
-            "base_logit": base_pred["logit"],
-            "personal_logit": personalized_logit,
-            "subject_mean_log_lambda": shift,
+            "lower": expit(eta + posterior.lower),
+            "upper": expit(eta + posterior.upper),
+            "base_logit": eta,
+            "personal_logit": _logit(point),
+            "subject_mean_log_lambda": posterior.mean,
             "subject_sd_log_lambda": float(np.sqrt(posterior.variance)),
             "subject_n_observations": posterior.n_observations,
-            "ood_distance": base_pred["ood_distance"],
-            "in_envelope": base_pred["in_envelope"],
+            "ood_distance": base["ood_distance"],
+            "in_envelope": base["in_envelope"],
+            "interval_kind": "posterior_credible",
+            "credible_mass": 0.95,
+            "nominal_coverage": None,
+            "base_probability_floor": 1e-10,
         }
-
-
-# ---------------------------------------------------------------------------
-# Synthetic-cohort generator for Paper 2 validation
-# ---------------------------------------------------------------------------
 
 
 def generate_synthetic_cohort(
@@ -311,10 +224,10 @@ def generate_synthetic_cohort(
         idx = rng.integers(0, len(exposure_template), size=exposures_per_subject)
         template = exposure_template.iloc[idx].reset_index(drop=True)
         base_pred = base_surrogate.predict(template)
-        eta_base = base_pred["logit"]
+        eta_base = _logit(base_pred["point"])
         log_lam = float(log_lambdas[subject_id])
         eta_personal = eta_base + log_lam
-        p_personal = 1.0 / (1.0 + np.exp(-eta_personal))
+        p_personal = expit(eta_personal)
         y = rng.binomial(1, np.clip(p_personal, 0.0, 1.0))
 
         rows = template.copy()
