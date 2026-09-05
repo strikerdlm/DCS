@@ -23,33 +23,27 @@ ablated model lands on the identical test fold.
 """
 from __future__ import annotations
 
-import importlib.util
-import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import click
 import numpy as np
 import pandas as pd
 
 from mechanistic.adrac import AdracModel, fit_adrac
+from scripts.evidence_common import evidence_metadata, prepare_data, sha256, write_json
+from tinydcs.features import FEATURE_COLUMNS
 from tinydcs.metrics import (
-    brier_score,
     calibration_slope_intercept,
     empirical_coverage,
     point_errors,
+    probability_mse,
 )
-from tinydcs.surrogate import TrainConfig, train_surrogate
-
-ROOT = Path(__file__).resolve().parent.parent
-
-# Import _augment_with_vo2 + FEATURE_COLUMNS from script 04 (same augmentation).
-_spec = importlib.util.spec_from_file_location(
-    "_train04", ROOT / "scripts" / "04_train_adrac_surrogate.py"
-)
-_train04 = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_train04)
-_augment_with_vo2 = _train04._augment_with_vo2
-FEATURE_COLUMNS = list(_train04.FEATURE_COLUMNS)
+from tinydcs.surrogate import TrainConfig, conformal_quantile, partition_indices, train_surrogate
 
 VO2_FEATURES = [
     "prebreathe_vo2_mean_lmin",
@@ -73,29 +67,20 @@ def _band_index(alt_ft: np.ndarray) -> np.ndarray:
 
 def _replicate_split(n: int) -> dict[str, np.ndarray]:
     """Reproduce the train_surrogate permutation split exactly."""
-    rng = np.random.default_rng(SEED)
-    idx = rng.permutation(n)
-    n_test = int(round(n * TEST_FRAC))
-    n_cal = int(round(n * CAL_FRAC))
-    n_train = n - n_test - n_cal
-    return {
-        "train": idx[:n_train],
-        "cal": idx[n_train:n_train + n_cal],
-        "test": idx[n_train + n_cal:],
-    }
+    return partition_indices(n, seed=SEED)
 
 
 def _metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
     pe = point_errors(y_true, y_pred)
     slope, intercept = calibration_slope_intercept(y_true, y_pred)
     return {
-        "n": int(len(y_true)),
+        "n": len(y_true),
         "mae": float(pe["mae"]),
         "rmse": float(pe["rmse"]),
-        "r2": float(pe["r2"]),
-        "brier": float(brier_score(y_true, y_pred)),
-        "calibration_slope": float(slope),
-        "calibration_intercept": float(intercept),
+        "r2": pe["r2"],
+        "probability_mse": float(probability_mse(y_true, y_pred)),
+        "calibration_slope": slope,
+        "calibration_intercept": intercept,
     }
 
 
@@ -138,8 +123,8 @@ def _predict_grouped(models: dict, group: np.ndarray, global_model: AdracModel, 
     return out
 
 
-def run_fair_baseline(df_raw: pd.DataFrame, test_idx: np.ndarray) -> dict:
-    """Try three parametric baselines, all fit in-bag (every advantage given):
+def run_fair_baseline(df_raw: pd.DataFrame, split: dict[str, np.ndarray]) -> dict:
+    """Three training-only candidates; choose on calibration, report test once:
       - global AFT (the manuscript's current baseline)
       - AFT stratified by EXERCISE level (3 strata, full altitude range each —
         the faithful reading of 'ADRAC is stratified', preserves the pressure
@@ -150,28 +135,40 @@ def run_fair_baseline(df_raw: pd.DataFrame, test_idx: np.ndarray) -> dict:
     df_raw = df_raw.reset_index(drop=True)
     y_true = df_raw["risk_of_decompression_sickness"].to_numpy(dtype=float) / 100.0
 
-    global_model = fit_adrac(df_raw)
+    train = df_raw.iloc[split["train"]]
+    test_idx, cal_idx = split["test"], split["cal"]
+    global_model = fit_adrac(train)
     ex_group = df_raw["exercise_level"].to_numpy()
     alt_group = _band_index(df_raw["altitude"].to_numpy(dtype=float))
 
-    ex_models = fit_stratified_by(df_raw, ex_group, global_model)
-    alt_models = fit_stratified_by(df_raw, alt_group, global_model)
+    ex_models = fit_stratified_by(train, ex_group[split['train']], global_model)
+    alt_models = fit_stratified_by(train, alt_group[split['train']], global_model)
 
     y_global = _predict_aft(global_model, df_raw)
     y_ex = _predict_grouped(ex_models, ex_group, global_model, df_raw)
     y_alt = _predict_grouped(alt_models, alt_group, global_model, df_raw)
 
+    predictions = {"global": y_global, "exercise": y_ex, "altitude": y_alt}
+    selected = min(predictions, key=lambda key: point_errors(y_true[cal_idx], predictions[key][cal_idx])["mae"])
+    calibrated = {}
+    for key, prediction in predictions.items():
+        q = conformal_quantile(np.abs(y_true[cal_idx]-prediction[cal_idx]), .95)
+        calibrated[key] = {"probability_q": float(q), "point": _metrics(y_true[test_idx], prediction[test_idx]),
+                           "coverage": empirical_coverage(y_true[test_idx],
+                               np.maximum(0, prediction[test_idx]-q), np.minimum(1, prediction[test_idx]+q)),
+                           "calibration_mae": point_errors(y_true[cal_idx], prediction[cal_idx])["mae"]}
     return {
+        "selection_partition": "calibration",
+        "selected_baseline": selected,
+        "training_n": len(train),
         "n_exercise_strata": len(ex_models),
         "n_altitude_strata": len(alt_models),
         "global_aft_test": _metrics(y_true[test_idx], y_global[test_idx]),
         "exercise_stratified_aft_test": _metrics(y_true[test_idx], y_ex[test_idx]),
         "altitude_stratified_aft_test": _metrics(y_true[test_idx], y_alt[test_idx]),
-        "best_aft_mae": min(
-            _metrics(y_true[test_idx], y_global[test_idx])["mae"],
-            _metrics(y_true[test_idx], y_ex[test_idx])["mae"],
-            _metrics(y_true[test_idx], y_alt[test_idx])["mae"],
-        ),
+        "best_aft_mae": _metrics(y_true[test_idx], predictions[selected][test_idx])["mae"],
+        "prespecified_candidates": calibrated,
+        "selection_caveat": "Calibration-selected comparison is exploratory; selection reuses calibration cells, so selected interval coverage has no unqualified split-conformal guarantee.",
     }
 
 
@@ -180,23 +177,26 @@ def run_fair_baseline(df_raw: pd.DataFrame, test_idx: np.ndarray) -> dict:
 # --------------------------------------------------------------------------- #
 def _eval_surrogate_on_test(surrogate, test_df) -> dict:
     pred = surrogate.predict(test_df)
-    y = test_df["pdcs_3rut_mbe1"].to_numpy(dtype=float)
+    y = test_df["pdcs_adrac_target"].to_numpy(dtype=float)
     out = _metrics(y, pred["point"])
     cov = empirical_coverage(y, pred["lower"], pred["upper"], nominal=surrogate.conformal.confidence)
     out["coverage"] = float(cov["coverage"])
+    out["conformal_coverage"] = cov
+    out["accepted_subset_coverage"] = empirical_coverage(y[pred["in_envelope"]],
+        pred["lower"][pred["in_envelope"]], pred["upper"][pred["in_envelope"]])
     return out
 
 
-def run_ablation(df_aug: pd.DataFrame) -> dict:
+def run_ablation(df_aug, *, partition, training, ids, split_path) -> dict:
     """Test the circularity claim correctly.
 
     The model has NO direct exercise feature; the 3-level exercise category
-    enters ONLY through the 5 synthesised VO2 features. So 'drop VO2' also
+    enters through synthesised VO2 features. So 'drop VO2' also
     drops all exercise information and is uninformative about circularity.
     The right comparison is:
-      - full:       8 non-VO2 features + 5 synthesised VO2 features
-      - ordinal-ex: 8 non-VO2 features + 1 ordinal exercise feature (0/1/2)
-      - no-exercise: 8 non-VO2 features only (exercise removed entirely)
+      - full: synthetic VO2 summaries after the common feature exclusions
+      - ordinal-ex: non-VO2 features plus ordinal exercise (0/1/2)
+      - no-exercise: non-VO2 features only (exercise removed entirely)
     If full ~= ordinal-ex, the continuous VO2 synthesis adds nothing beyond the
     category it was generated from (circular). no-exercise shows how much the
     category is worth at all.
@@ -206,31 +206,35 @@ def run_ablation(df_aug: pd.DataFrame) -> dict:
     df_aug["exercise_ordinal"] = df_aug["exercise_level"].map(ex_map).astype(float)
     features_ordinal = FEATURES_NO_VO2 + ["exercise_ordinal"]
 
-    common = dict(
-        target_col="pdcs_3rut_mbe1",
-        test_fraction=TEST_FRAC,
-        calibration_fraction=CAL_FRAC,
-        config=TrainConfig(random_state=SEED),
-        use_zero_inflated=True,
-    )
+    common = {"target_col": "pdcs_adrac_target", "test_fraction": TEST_FRAC,
+              "calibration_fraction": CAL_FRAC, "config": TrainConfig(random_state=SEED),
+              "use_zero_inflated": True, "partition": partition}
     full_surr, full_splits = train_surrogate(df_aug, feature_names=FEATURE_COLUMNS, **common)
     ord_surr, ord_splits = train_surrogate(df_aug, feature_names=features_ordinal, **common)
     novo_surr, novo_splits = train_surrogate(df_aug, feature_names=FEATURES_NO_VO2, **common)
 
-    same = (
-        np.array_equal(full_splits["test"].index.to_numpy(), ord_splits["test"].index.to_numpy())
-        and np.array_equal(full_splits["test"].index.to_numpy(), novo_splits["test"].index.to_numpy())
-    )
+    same = all(np.array_equal(full_splits[k].index, candidate[k].index)
+               for candidate in (ord_splits, novo_splits) for k in ("train", "cal", "test"))
+    if not same:
+        raise ValueError("ablation partitions differ")
 
     res = {
         "identical_test_fold": bool(same),
-        "n_features_full": len(FEATURE_COLUMNS),
-        "vo2_features": VO2_FEATURES,
-        "note": "exercise enters the full model ONLY via the 5 synthesised VO2 features",
+        "n_features_full": len(full_surr.feature_names),
+        "vo2_features": [name for name in VO2_FEATURES if name in full_surr.feature_names],
+        "note": "Exercise is represented by synthetic category-conditioned VO2, not independently measured workload; fixed prebreathe VO2 adds no exercise information.",
         "full_vo2_test": _eval_surrogate_on_test(full_surr, full_splits["test"]),
         "ordinal_exercise_test": _eval_surrogate_on_test(ord_surr, ord_splits["test"]),
         "no_exercise_test": _eval_surrogate_on_test(novo_surr, novo_splits["test"]),
     }
+    for key, model in (("full_vo2_test", full_surr), ("ordinal_exercise_test", ord_surr),
+                       ("no_exercise_test", novo_surr)):
+        metadata = evidence_metadata(training, ids, TrainConfig(random_state=SEED),
+            model.feature_names, "zero_inflated", metrics={"point": res[key],
+            "coverage": res[key]["conformal_coverage"]})
+        metadata.update(partition_ids_path=str(split_path), partition_ids_file_sha256=sha256(split_path),
+                        evidence_role="prespecified exploratory feature ablation")
+        res[key]["metadata"] = metadata
 
     # Gain importances from the full ZI continuous regressor + zero classifier.
     zi = full_surr.conformal
@@ -241,13 +245,13 @@ def run_ablation(df_aug: pd.DataFrame) -> dict:
             booster = mdl.booster_
             gain = np.asarray(booster.feature_importance(importance_type="gain"), dtype=float)
             total = float(gain.sum()) or 1.0
-            share = {f: float(g) / total for f, g in zip(FEATURE_COLUMNS, gain)}
-            vo2_share = float(sum(share[f] for f in VO2_FEATURES))
+            share = {f: float(g) / total for f, g in zip(full_surr.feature_names, gain)}
+            vo2_share = float(sum(share.get(f, 0.0) for f in VO2_FEATURES))
             importances[name] = {
                 "per_feature_gain_share": dict(sorted(share.items(), key=lambda kv: -kv[1])),
                 "vo2_block_gain_share": vo2_share,
             }
-        except Exception as exc:  # pragma: no cover
+        except (AttributeError, ValueError, RuntimeError) as exc:  # pragma: no cover
             importances[name] = {"error": str(exc)}
     res["gain_importance"] = importances
     return res
@@ -256,17 +260,14 @@ def run_ablation(df_aug: pd.DataFrame) -> dict:
 @click.command()
 @click.option("--training", required=True, type=click.Path(exists=True, dir_okay=False))
 @click.option("--output", required=True, type=click.Path(dir_okay=False))
-def main(training: str, output: str) -> None:
-    df_raw = pd.read_parquet(training) if training.endswith(".parquet") else pd.read_csv(training)
-    df_raw = df_raw.reset_index(drop=True)
-
-    df_aug = _augment_with_vo2(df_raw, seed=SEED)
-    df_aug["pdcs_3rut_mbe1"] = df_aug["pdcs_adrac_target"]
-
-    split = _replicate_split(len(df_raw))
+@click.option("--reference-metrics", type=click.Path(exists=True, dir_okay=False), default=None)
+def main(training: str, output: str, reference_metrics: str | None) -> None:
+    df_raw, df_aug, split, ids = prepare_data(training, SEED, reference_metrics)
+    split_path = Path(output).with_suffix(".splits.json")
+    write_json(split_path, ids)
 
     click.echo("== A-M1: fair parametric baselines (global vs stratified AFT) ==")
-    fair = run_fair_baseline(df_raw, split["test"])
+    fair = run_fair_baseline(df_raw, split)
     for key, label in (("global_aft_test", "global AFT          "),
                        ("exercise_stratified_aft_test", "exercise-stratified "),
                        ("altitude_stratified_aft_test", "altitude-stratified ")):
@@ -274,8 +275,8 @@ def main(training: str, output: str) -> None:
         click.echo(f"  {label} MAE = {m['mae']:.4f}  R2 = {m['r2']:.4f}  slope = {m['calibration_slope']:.3f}")
 
     click.echo("== A-M3: circularity test (VO2 block vs ordinal exercise) ==")
-    abl = run_ablation(df_aug)
-    for key, label in (("full_vo2_test", "full + 5 VO2 feats   "),
+    abl = run_ablation(df_aug, partition=split, training=training, ids=ids, split_path=split_path)
+    for key, label in (("full_vo2_test", "full synthetic VO2  "),
                        ("ordinal_exercise_test", "+ 1 ordinal exercise "),
                        ("no_exercise_test", "no exercise feature  ")):
         m = abl[key]
@@ -285,6 +286,9 @@ def main(training: str, output: str) -> None:
     tinydcs_mae = abl["full_vo2_test"]["mae"]
     best_aft = fair["best_aft_mae"]
     blob = {
+        "metadata": evidence_metadata(training, ids,
+            {"baseline_fit": "bounded least squares on logit target", "candidate_strata": ["global", "exercise", "altitude"]},
+            ["pressure_mmhg", "prebreathe_min", "exercise_mild", "exercise_heavy"], "exploratory_fair_baseline"),
         "seed": SEED,
         "tinydcs_full_mae": tinydcs_mae,
         "fair_baseline": fair,
@@ -300,8 +304,10 @@ def main(training: str, output: str) -> None:
             "interpretation": "if delta ~ 0 or positive, the synthesised continuous-VO2 features add nothing beyond the 3-level category they were generated from",
         },
     }
+    blob["metadata"].update(partition_ids_path=str(split_path), partition_ids_file_sha256=sha256(split_path),
+                            evidence_role="exploratory comparison; no threshold tuning or clinical outcome validation")
     Path(output).parent.mkdir(parents=True, exist_ok=True)
-    Path(output).write_text(json.dumps(blob, indent=2), encoding="utf-8")
+    write_json(output, blob)
     click.echo(f"\nHonest multipliers: vs global AFT = {blob['honest_multipliers']['vs_global_aft']:.2f}x, "
                f"vs BEST AFT = {blob['honest_multipliers']['vs_best_aft']:.2f}x")
     cv = blob["circularity_verdict"]

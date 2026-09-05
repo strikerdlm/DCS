@@ -3,4 +3,4 @@
 Research-use-only. See README.md for the scientific scope and limitations.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.7.0"

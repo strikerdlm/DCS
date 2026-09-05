@@ -1,0 +1,438 @@
+{
+  "$defs": {
+    "EVACrewState": {
+      "additionalProperties": false,
+      "properties": {
+        "ageYears": {
+          "exclusiveMinimum": 0,
+          "maximum": 120,
+          "title": "Ageyears",
+          "type": "number"
+        },
+        "sex": {
+          "enum": [
+            "Male",
+            "Female"
+          ],
+          "title": "Sex",
+          "type": "string"
+        },
+        "massKg": {
+          "exclusiveMinimum": 0,
+          "maximum": 500,
+          "title": "Masskg",
+          "type": "number"
+        },
+        "spo2Percent": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Spo2Percent",
+          "type": "number"
+        },
+        "hydration": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Hydration",
+          "type": "number"
+        },
+        "symptomFlag": {
+          "title": "Symptomflag",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ageYears",
+        "sex",
+        "massKg",
+        "spo2Percent",
+        "hydration",
+        "symptomFlag"
+      ],
+      "title": "EVACrewState",
+      "type": "object"
+    },
+    "EVAEnvironment": {
+      "additionalProperties": false,
+      "properties": {
+        "dustLevel": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Dustlevel",
+          "type": "number"
+        },
+        "sunExposure": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Sunexposure",
+          "type": "number"
+        },
+        "commDelaySec": {
+          "maximum": 86400,
+          "minimum": 0,
+          "title": "Commdelaysec",
+          "type": "number"
+        },
+        "radiationWeather": {
+          "enum": [
+            "quiet",
+            "elevated",
+            "storm"
+          ],
+          "title": "Radiationweather",
+          "type": "string"
+        },
+        "shelterReturnMin": {
+          "maximum": 1440,
+          "minimum": 0,
+          "title": "Shelterreturnmin",
+          "type": "number"
+        }
+      },
+      "required": [
+        "dustLevel",
+        "sunExposure",
+        "commDelaySec",
+        "radiationWeather",
+        "shelterReturnMin"
+      ],
+      "title": "EVAEnvironment",
+      "type": "object"
+    },
+    "EVAWorkloadBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 200,
+          "title": "Name",
+          "type": "string"
+        },
+        "durationMin": {
+          "exclusiveMinimum": 0,
+          "maximum": 1440,
+          "title": "Durationmin",
+          "type": "number"
+        },
+        "vo2MlKgMin": {
+          "maximum": 120,
+          "minimum": 0,
+          "title": "Vo2Mlkgmin",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "durationMin",
+        "vo2MlKgMin"
+      ],
+      "title": "EVAWorkloadBlock",
+      "type": "object"
+    },
+    "HabitatAtmosphere": {
+      "additionalProperties": false,
+      "properties": {
+        "pressurePsia": {
+          "exclusiveMinimum": 0,
+          "maximum": 30,
+          "title": "Pressurepsia",
+          "type": "number"
+        },
+        "oxygenFraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Oxygenfraction",
+          "type": "number"
+        },
+        "equilibrationHours": {
+          "maximum": 8760,
+          "minimum": 0,
+          "title": "Equilibrationhours",
+          "type": "number"
+        }
+      },
+      "required": [
+        "pressurePsia",
+        "oxygenFraction",
+        "equilibrationHours"
+      ],
+      "title": "HabitatAtmosphere",
+      "type": "object"
+    },
+    "PrebreatheSegment": {
+      "additionalProperties": false,
+      "properties": {
+        "durationMin": {
+          "exclusiveMinimum": 0,
+          "maximum": 1440,
+          "title": "Durationmin",
+          "type": "number"
+        },
+        "pressurePsia": {
+          "exclusiveMinimum": 0,
+          "maximum": 30,
+          "title": "Pressurepsia",
+          "type": "number"
+        },
+        "oxygenFraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Oxygenfraction",
+          "type": "number"
+        },
+        "vo2MlKgMin": {
+          "maximum": 120,
+          "minimum": 0,
+          "title": "Vo2Mlkgmin",
+          "type": "number"
+        }
+      },
+      "required": [
+        "durationMin",
+        "pressurePsia",
+        "oxygenFraction",
+        "vo2MlKgMin"
+      ],
+      "title": "PrebreatheSegment",
+      "type": "object"
+    },
+    "PressureSegment": {
+      "additionalProperties": false,
+      "properties": {
+        "durationMin": {
+          "exclusiveMinimum": 0,
+          "maximum": 1440,
+          "title": "Durationmin",
+          "type": "number"
+        },
+        "pressurePsia": {
+          "exclusiveMinimum": 0,
+          "maximum": 30,
+          "title": "Pressurepsia",
+          "type": "number"
+        },
+        "oxygenFraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Oxygenfraction",
+          "type": "number"
+        }
+      },
+      "required": [
+        "durationMin",
+        "pressurePsia",
+        "oxygenFraction"
+      ],
+      "title": "PressureSegment",
+      "type": "object"
+    },
+    "SuitProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "pressurePsia": {
+          "exclusiveMinimum": 0,
+          "maximum": 30,
+          "title": "Pressurepsia",
+          "type": "number"
+        },
+        "oxygenFraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Oxygenfraction",
+          "type": "number"
+        },
+        "variablePressure": {
+          "title": "Variablepressure",
+          "type": "boolean"
+        },
+        "plssDurationMin": {
+          "maximum": 10080,
+          "minimum": 0,
+          "title": "Plssdurationmin",
+          "type": "number"
+        },
+        "oxygenReserveMin": {
+          "maximum": 10080,
+          "minimum": 0,
+          "title": "Oxygenreservemin",
+          "type": "number"
+        },
+        "co2ScrubberMargin": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Co2Scrubbermargin",
+          "type": "number"
+        },
+        "coolingMargin": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Coolingmargin",
+          "type": "number"
+        },
+        "suitPort": {
+          "title": "Suitport",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pressurePsia",
+        "oxygenFraction",
+        "variablePressure",
+        "plssDurationMin",
+        "oxygenReserveMin",
+        "co2ScrubberMargin",
+        "coolingMargin",
+        "suitPort"
+      ],
+      "title": "SuitProfile",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "scenario_a_commercial_standup",
+        "scenario_b_artemis_lunar_day",
+        "scenario_c_habitat_pressure_decision"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "name": {
+      "maxLength": 300,
+      "title": "Name",
+      "type": "string"
+    },
+    "shortName": {
+      "maxLength": 200,
+      "title": "Shortname",
+      "type": "string"
+    },
+    "summary": {
+      "maxLength": 5000,
+      "title": "Summary",
+      "type": "string"
+    },
+    "habitat": {
+      "$ref": "#/$defs/HabitatAtmosphere"
+    },
+    "prebreatheProtocol": {
+      "enum": [
+        "iss_four_hour",
+        "campout",
+        "exploration_atmosphere",
+        "custom"
+      ],
+      "title": "Prebreatheprotocol",
+      "type": "string"
+    },
+    "prebreatheMin": {
+      "maximum": 1440,
+      "minimum": 0,
+      "title": "Prebreathemin",
+      "type": "number"
+    },
+    "prebreatheOxygenFraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Prebreatheoxygenfraction",
+      "type": "number"
+    },
+    "prebreatheVo2MlKgMin": {
+      "default": 3.5,
+      "maximum": 120,
+      "minimum": 0,
+      "title": "Prebreathevo2Mlkgmin",
+      "type": "number"
+    },
+    "prebreatheSegments": {
+      "items": {
+        "$ref": "#/$defs/PrebreatheSegment"
+      },
+      "maxItems": 100,
+      "title": "Prebreathesegments",
+      "type": "array"
+    },
+    "suit": {
+      "$ref": "#/$defs/SuitProfile"
+    },
+    "evaDurationMin": {
+      "maximum": 1440,
+      "minimum": 0,
+      "title": "Evadurationmin",
+      "type": "number"
+    },
+    "meanVo2MlKgMin": {
+      "maximum": 120,
+      "minimum": 0,
+      "title": "Meanvo2Mlkgmin",
+      "type": "number"
+    },
+    "peakVo2MlKgMin": {
+      "maximum": 120,
+      "minimum": 0,
+      "title": "Peakvo2Mlkgmin",
+      "type": "number"
+    },
+    "workload": {
+      "items": {
+        "$ref": "#/$defs/EVAWorkloadBlock"
+      },
+      "maxItems": 100,
+      "title": "Workload",
+      "type": "array"
+    },
+    "pressureSegments": {
+      "items": {
+        "$ref": "#/$defs/PressureSegment"
+      },
+      "maxItems": 100,
+      "title": "Pressuresegments",
+      "type": "array"
+    },
+    "nasaAdynamicReference": {
+      "default": false,
+      "title": "Nasaadynamicreference",
+      "type": "boolean"
+    },
+    "environment": {
+      "$ref": "#/$defs/EVAEnvironment"
+    },
+    "crew": {
+      "$ref": "#/$defs/EVACrewState"
+    },
+    "evidence": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100,
+      "title": "Evidence",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "kind",
+    "name",
+    "shortName",
+    "summary",
+    "habitat",
+    "prebreatheProtocol",
+    "prebreatheMin",
+    "prebreatheOxygenFraction",
+    "suit",
+    "evaDurationMin",
+    "meanVo2MlKgMin",
+    "peakVo2MlKgMin",
+    "workload",
+    "environment",
+    "crew"
+  ],
+  "title": "EVAScenario",
+  "type": "object"
+}

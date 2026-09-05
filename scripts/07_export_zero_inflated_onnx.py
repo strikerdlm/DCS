@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Export a zero-inflated TinyDCS surrogate to two ONNX graphs + a sidecar.
 
 The zero-inflated model is a two-stage stack:
@@ -6,12 +5,10 @@ The zero-inflated model is a two-stage stack:
   * stage 1 — LightGBM classifier predicting P(y = 0 | x);
   * stage 2 — LightGBM regressor predicting logit(y) conditional on y > 0.
 
-At inference, a gate threshold routes each sample to either a zero-anchored
-interval or the continuous branch's conformal interval. ONNX has no native
-``if`` routing that survives ONNX Runtime Mobile cleanly, so we ship the
-two graphs side-by-side plus a JSON sidecar with the gate constants and
-feature names. A host-side runtime (``tinydcs.runtime.ZeroInflatedRuntime``
-or any C translation) then performs the gate + mixture aggregation.
+The host computes (1-P(zero))*sigmoid(continuous_logit), then applies the
+probability-scale conformal quantile calibrated on that final mixture.
+Both graphs and their exact postprocessing/support metadata are exported.
+The benchmark runs on this host CPU; it is not a wearable hardware result.
 
 This keeps each ONNX graph small (tree ensembles quantize cleanly) and
 makes the two sub-models independently benchmarkable.
@@ -29,20 +26,28 @@ Produces ``zi_onnx/classifier.onnx``, ``zi_onnx/continuous.onnx``,
 
 from __future__ import annotations
 
-import json
 import sys
 import time
 from pathlib import Path
 
 import click
 import numpy as np
+from scipy.special import expit
 
 _THIS = Path(__file__).resolve()
 _ROOT = _THIS.parent.parent
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from tinydcs.surrogate import TinyDcsSurrogate, ZeroInflatedCalibration  # noqa: E402
+from scripts.evidence_common import (
+    export_metadata,
+    feasible_feature_matrix,
+    host_ood,
+    onnx_session,
+    sha256,
+    write_json,
+)
+from tinydcs.surrogate import TinyDcsSurrogate, ZeroInflatedCalibration
 
 
 def _convert_regressor(model, n_features: int):
@@ -60,8 +65,8 @@ def _convert_regressor(model, n_features: int):
 def _convert_classifier(model, n_features: int):
     # The LightGBM classifier shape calculator in onnxmltools demands its
     # own FloatTensorType variant (not the generic onnxconverter_common one).
-    from onnxmltools.convert.common.data_types import FloatTensorType
     from onnxmltools import convert_lightgbm
+    from onnxmltools.convert.common.data_types import FloatTensorType
 
     # zipmap=False gives a tensor (batch, n_classes) of probabilities
     # alongside the predicted label; we want the tensor.
@@ -74,27 +79,37 @@ def _convert_classifier(model, n_features: int):
 
 
 def _random_feature_matrix(feature_names: list[str], n: int, seed: int = 1) -> np.ndarray:
-    rng = np.random.default_rng(seed)
-    specs = {
-        "altitude_ft": (18000, 40000),
-        "ambient_pressure_atm": (0.18, 0.52),
-        "prebreathe_time_min": (0, 180),
-        "prebreathe_fio2": (0.85, 1.0),
-        "ascent_rate_fpm": (500, 5000),
-        "altitude_time_min": (10, 240),
-        "altitude_fio2": (0.21, 1.0),
-        "prebreathe_vo2_mean_lmin": (0, 0.5),
-        "prebreathe_vo2_peak_lmin": (0, 1.0),
-        "altitude_vo2_mean_lmin": (0, 1.0),
-        "altitude_vo2_peak_1min_lmin": (0, 1.5),
-        "altitude_vo2_integral_lmin_min": (0, 250),
-        "tissue_n2_ratio_360min": (1.0, 4.0),
-    }
-    cols = []
-    for name in feature_names:
-        lo, hi = specs.get(name, (0.0, 1.0))
-        cols.append(rng.uniform(lo, hi, size=n).astype(np.float32))
-    return np.stack(cols, axis=1)
+    """Feasible constant-workload profiles, with dependent features recomputed."""
+    return feasible_feature_matrix(feature_names, n, seed)
+
+
+def _host_predict(clf_session, cont_session, X, metadata):
+    query = X.astype(np.float32)
+    outputs = clf_session.run(None, {clf_session.get_inputs()[0].name: query})
+    probability = next((np.asarray(out) for out in outputs
+                        if np.asarray(out).ndim == 2 and np.asarray(out).shape[1] == 2), None)
+    if probability is None:
+        raise ValueError("classifier did not return the two-class probability tensor")
+    p_zero = probability[:, 1].astype(float)
+    continuous = np.asarray(cont_session.run(None, {cont_session.get_inputs()[0].name: query})[0], dtype=float).ravel()
+    point = (1-p_zero)*expit(continuous)
+    q = metadata["probability_q"]
+    return {"point": point, "lower": np.maximum(0, point-q), "upper": np.minimum(1, point+q),
+            "p_zero": p_zero, "continuous_logit": continuous} | host_ood(X, metadata)
+
+
+def _benchmark_host(clf, cont, X, metadata, trials=20):
+    for _ in range(5):
+        _host_predict(clf, cont, X, metadata)
+    elapsed = []
+    for _ in range(trials):
+        start = time.perf_counter()
+        _host_predict(clf, cont, X, metadata)
+        elapsed.append((time.perf_counter()-start)*1e3)
+    return {"batch_size": len(X), "trials": trials,
+            "latency_ms_p50": float(np.percentile(elapsed, 50)),
+            "latency_ms_p95": float(np.percentile(elapsed, 95)),
+            "scope": "both ONNX graphs, float32 conversion, mixture, interval, support gate; features already extracted"}
 
 
 def _benchmark(sess, input_name: str, X: np.ndarray, n_warmup: int = 50, n_trials: int = 20) -> dict:
@@ -108,7 +123,7 @@ def _benchmark(sess, input_name: str, X: np.ndarray, n_warmup: int = 50, n_trial
     times = np.asarray(times, dtype=float)
     per_row_us = times / max(len(X), 1) * 1e6
     return {
-        "batch_size": int(len(X)),
+        "batch_size": len(X),
         "trials": int(n_trials),
         "batch_latency_ms_p50": float(np.percentile(times, 50) * 1e3),
         "batch_latency_ms_p95": float(np.percentile(times, 95) * 1e3),
@@ -123,6 +138,8 @@ def _benchmark(sess, input_name: str, X: np.ndarray, n_warmup: int = 50, n_trial
 @click.option("--benchmark-n", type=int, default=10_000, show_default=True)
 @click.option("--tolerance", type=float, default=1e-4, show_default=True)
 def main(input_model: str, output_dir: str, benchmark_n: int, tolerance: float) -> None:
+    if benchmark_n < 1 or tolerance <= 0:
+        raise click.ClickException("positive benchmark size and tolerance required")
     surrogate = TinyDcsSurrogate.load(input_model)
     if not isinstance(surrogate.conformal, ZeroInflatedCalibration):
         raise click.ClickException(
@@ -139,6 +156,12 @@ def main(input_model: str, output_dir: str, benchmark_n: int, tolerance: float) 
 
     # 1. Export stage 1 (classifier).
     onnx_clf = _convert_classifier(surrogate.conformal.zero_classifier, n_features=len(feat))
+    # onnxmltools currently hard-codes label batch size 1; both outputs accept
+    # arbitrary batches. Declare the symbolic batch dimension truthfully.
+    for output in onnx_clf.graph.output:
+        dimension = output.type.tensor_type.shape.dim[0]
+        dimension.ClearField("dim_value")
+        dimension.dim_param = "batch"
     clf_path = out_dir / "classifier.onnx"
     with open(clf_path, "wb") as f:
         f.write(onnx_clf.SerializeToString())
@@ -154,41 +177,42 @@ def main(input_model: str, output_dir: str, benchmark_n: int, tolerance: float) 
     click.echo(f"Wrote continuous ONNX → {cont_path} ({cont_size_kb:.1f} KB).")
 
     # 3. Metadata sidecar — everything the host runtime needs.
-    metadata = {
-        "version": "0.4.0",
+    metadata = export_metadata(surrogate, input_model) | {
+        "version": "accuracy-v3",
+        "evidence": surrogate.metadata,
         "kind": "zero_inflated",
         "feature_names": feat,
-        "gate_threshold": float(surrogate.conformal.gate_threshold),
-        "zero_upper_bound": float(surrogate.conformal.zero_upper_bound),
-        "continuous_q": float(surrogate.conformal.continuous_q),
+        "probability_q": float(surrogate.conformal.probability_q),
         "confidence": float(surrogate.conformal.confidence),
         "ood_mean": surrogate.ood.mean.tolist(),
         "ood_inv_cov": surrogate.ood.inv_cov.tolist(),
         "ood_threshold": float(surrogate.ood.threshold),
+        "ood_scale": surrogate.ood.scale.tolist(),
+        "ood_minimum": surrogate.ood.minimum.tolist(),
+        "ood_maximum": surrogate.ood.maximum.tolist(),
+        "interval_kind": "split_conformal_model_agreement",
+        "input_validation": "finite features, declared units, complete profile; reject malformed inputs",
+        "output_gate": "quantitative output only if evidence.quantitative_enabled and training-support distance AND feature bounds pass",
+        "ood_algorithm": "d=(x-ood_mean)/ood_scale; sqrt(max(d.T @ ood_inv_cov @ d,0)) <= ood_threshold AND ood_minimum-tolerance <= x <= ood_maximum+tolerance",
         "runtime_algorithm": (
             "p_zero = classifier(x)[:, 1]; "
             "cont_logit = continuous(x); "
-            "is_gated_zero = p_zero >= gate_threshold; "
             "point = (1 - p_zero) * sigmoid(cont_logit); "
-            "lower = 0 if is_gated_zero else (1 - p_zero) * sigmoid(cont_logit - continuous_q); "
-            "upper = zero_upper_bound if is_gated_zero "
-            "        else max(zero_upper_bound, (1 - p_zero) * sigmoid(cont_logit + continuous_q) + p_zero * zero_upper_bound)"
+            "lower = max(0, point - probability_q); "
+            "upper = min(1, point + probability_q)"
+
         ),
     }
-    meta_path = out_dir / "metadata.json"
-    meta_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
-    click.echo(f"Wrote metadata → {meta_path}")
+    metadata["graph_sha256"] = {"classifier.onnx": sha256(clf_path), "continuous.onnx": sha256(cont_path)}
 
-    # 4. Parity check: host runtime reproduces Python ``surrogate.predict()`` bit-exact.
-    import onnxruntime as ort
-
-    clf_sess = ort.InferenceSession(str(clf_path), providers=["CPUExecutionProvider"])
-    cont_sess = ort.InferenceSession(str(cont_path), providers=["CPUExecutionProvider"])
+    # 4. Check numerical parity of stages, final intervals, and support gating.
+    clf_sess = onnx_session(clf_path)
+    cont_sess = onnx_session(cont_path)
     clf_input = clf_sess.get_inputs()[0].name
     cont_input = cont_sess.get_inputs()[0].name
 
     X = _random_feature_matrix(feat, n=benchmark_n, seed=1)
-    clf_outputs = clf_sess.run(None, {clf_input: X})
+    clf_outputs = clf_sess.run(None, {clf_input: X.astype(np.float32)})
     # onnxmltools emits two outputs for a binary classifier: labels and probabilities.
     probs = None
     for out in clf_outputs:
@@ -200,7 +224,7 @@ def main(input_model: str, output_dir: str, benchmark_n: int, tolerance: float) 
         raise click.ClickException("Could not locate probability tensor in classifier ONNX outputs")
     p_zero_onnx = probs[:, 1].astype(float).ravel()
 
-    cont_onnx = np.asarray(cont_sess.run(None, {cont_input: X})[0], dtype=float).ravel()
+    cont_onnx = np.asarray(cont_sess.run(None, {cont_input: X.astype(np.float32)})[0], dtype=float).ravel()
 
     # Python reference from the joblib.
     import pandas as pd
@@ -220,36 +244,60 @@ def main(input_model: str, output_dir: str, benchmark_n: int, tolerance: float) 
             f"continuous max-abs {max_abs_cont:.3e}, tol {tolerance:.0e}"
         )
 
-    # 5. Benchmark each ONNX graph separately; host aggregation cost is negligible.
-    bench_clf = _benchmark(clf_sess, clf_input, X)
+    point_onnx = (1-p_zero_onnx)*expit(cont_onnx)
+    q = surrogate.conformal.probability_q
+    max_abs_probability = max(float(np.max(np.abs(py_pred[key]-actual))) for key, actual in
+                              [("point", point_onnx), ("lower", np.maximum(0, point_onnx-q)),
+                               ("upper", np.minimum(1, point_onnx+q))])
+    if max_abs_probability > tolerance:
+        raise click.ClickException("Final mixture/interval probability parity failed")
+    actual = _host_predict(clf_sess, cont_sess, X, metadata)
+    errors = {key: float(np.max(np.abs(py_pred[key]-actual[key])))
+              for key in ("point", "lower", "upper", "ood_distance")}
+    if max(errors.values()) > tolerance or not np.array_equal(actual["in_envelope"], py_pred["in_envelope"]):
+        raise click.ClickException(f"Host probability/bounds/support gate parity failed: {errors}")
+    write_json(out_dir / "metadata.json", metadata)
+
+    # 5. Measure components and the complete host path separately.
+    bench_clf = _benchmark(clf_sess, clf_input, X.astype(np.float32))
     bench_clf["model_size_kb"] = clf_size_kb
-    bench_cont = _benchmark(cont_sess, cont_input, X)
+    bench_cont = _benchmark(cont_sess, cont_input, X.astype(np.float32))
     bench_cont["model_size_kb"] = cont_size_kb
 
     combined = {
         "total_size_kb": clf_size_kb + cont_size_kb,
-        "per_row_latency_us_p50": (
+        "sum_amortized_component_us_p50": (
             bench_clf["per_row_latency_us_p50"] + bench_cont["per_row_latency_us_p50"]
         ),
-        "per_row_latency_us_p95": (
+        "sum_amortized_component_us_p95_not_end_to_end": (
             bench_clf["per_row_latency_us_p95"] + bench_cont["per_row_latency_us_p95"]
         ),
     }
 
     summary = {
+        "metadata": metadata,
         "input_model": input_model,
         "n_features": len(feat),
         "parity": {
             "max_abs_p_zero": max_abs_p_zero,
+            "max_abs_probability_and_interval": max_abs_probability,
+            "fixture_kind": "feasible constant-workload profiles",
             "max_abs_continuous_logit": max_abs_cont,
             "tolerance": tolerance,
+            "n": len(X), "final_output_max_abs_error": errors,
+            "support_gate_identical": True,
+            "supported_n": int(actual["in_envelope"].sum()),
+            "quantitative_output_n": int(actual["quantitative_output_enabled"].sum()),
         },
         "classifier_benchmark": bench_clf,
         "continuous_benchmark": bench_cont,
         "combined_inference": combined,
+        "end_to_end_batch": _benchmark_host(clf_sess, cont_sess, X, metadata),
+        "end_to_end_single_row": _benchmark_host(clf_sess, cont_sess, X[:1], metadata, trials=100),
+        "latency_interpretation": "CPU only; component per-row numbers amortize a batch; single-row timings include both graphs and host postprocessing",
     }
     bench_path = out_dir / "benchmark.json"
-    bench_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    write_json(bench_path, summary)
     click.echo(f"Summary → {bench_path}")
 
     click.echo(
@@ -259,7 +307,7 @@ def main(input_model: str, output_dir: str, benchmark_n: int, tolerance: float) 
         f"  Continuous: {cont_size_kb:.1f} KB, "
         f"per-row p50 = {bench_cont['per_row_latency_us_p50']:.2f} us\n"
         f"  Combined:   {combined['total_size_kb']:.1f} KB, "
-        f"per-row p50 = {combined['per_row_latency_us_p50']:.2f} us"
+        f"per-row p50 = {combined['sum_amortized_component_us_p50']:.2f} us"
     )
 
 

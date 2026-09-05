@@ -26,8 +26,12 @@ Scope & scientific validity
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, field
-from typing import Iterable, List, Optional, Sequence, Tuple
+from dataclasses import dataclass, field, fields, replace
+from typing import List, Optional, Sequence
+
+
+class NumericalReconciliationError(RuntimeError):
+    """The exploratory recursion failed physical/numerical checks."""
 
 
 _ATM_PER_MMHG: float = 1.0 / 760.0
@@ -55,8 +59,14 @@ class ProfileSegment:
     fio2: float
     fin2: float
     i_ex_l_min_wb: float
+    start_p_amb_atm: float | None = None
 
     def __post_init__(self) -> None:
+        values = [self.duration_min, self.p_amb_atm, self.fio2, self.fin2, self.i_ex_l_min_wb]
+        if not all(math.isfinite(value) for value in values):
+            raise ValueError("all profile values must be finite")
+        if self.start_p_amb_atm is not None and (not math.isfinite(self.start_p_amb_atm) or self.start_p_amb_atm <= 0):
+            raise ValueError("ramp start pressure must be finite and positive")
         if not isinstance(self.duration_min, (int, float)):
             raise TypeError("duration_min must be a number")
         if self.duration_min < 0:
@@ -73,8 +83,8 @@ class ProfileSegment:
             if val < 0.0 or val > 1.0:
                 raise ValueError(f"{name} must be in [0, 1]")
 
-        if (self.fio2 + self.fin2) > 1.0 + 1e-12:
-            raise ValueError("fio2 + fin2 must be <= 1")
+        if abs(self.fio2 + self.fin2 - 1.0) > 1e-12:
+            raise ValueError("fio2 + fin2 must equal 1 in the O2/N2 model")
 
         if not isinstance(self.i_ex_l_min_wb, (int, float)):
             raise TypeError("i_ex_l_min_wb must be a number")
@@ -99,6 +109,7 @@ class ModelParameters:
     p_h2o_mmhg: float = 47.0
     rq: float = 1.0
     pt_co2_mmhg: float = 45.0
+    pa_co2_mmhg: float = 35.0  # A.6: alveolar, distinct from tissue CO2
 
     alpha_b_o2_ml_per_ml_per_atm: float = 2.356e-2
     alpha_b_n2_ml_per_ml_per_atm: float = 1.410e-2
@@ -121,7 +132,7 @@ class ModelParameters:
     alpha_t_o2_ml_per_ml_per_atm: float = 4.536e-2
 
     v_t_ml: float = 5.279e-2
-    q_total_rest_ml_per_min: float = 4.698e-3
+    q_total_rest_ml_per_min: float = 4.698e-3  # legacy name; mL/(mL tissue min), already normalized
 
     d_t_o2_cm2_per_min: float = 1.414e-3
 
@@ -154,6 +165,8 @@ class ModelParameters:
 
     def __post_init__(self) -> None:
         # Basic validation
+        if not all(math.isfinite(getattr(self, item.name)) for item in fields(self) if item.init):
+            raise ValueError("model parameters must be finite")
         if self.rq <= 0:
             raise ValueError("rq must be > 0")
         if self.lambda_cm_inv <= 0:
@@ -263,20 +276,14 @@ class RutMbe1Model:
         n_b_n: float,
         n_b_prev: float,
     ) -> float:
-        """Compute Ĝ_k,n for inert gas (Eq. C.25).
+        """A.44 / B.47: Ĝ=(4π/3)n_b/(α_t V̂_t), including first recruitment.
 
-        Appendix C (C.25) for inert gases:
-          Ĝ_k,n = (4π/3) α_tk V̂t (n_b,n / n_b,n-1)
-
-        Notes
-        - This term is undefined at n_b,n-1 = 0; in that edge case we return 0
-          and rely on the ΔĜ term (C.26) during recruitment steps.
+        n_b_prev is retained for call compatibility; the coefficient depends
+        on the current count, not its ratio to the previous count.
         """
-        if n_b_n <= 0.0 or n_b_prev <= 0.0:
-            return 0.0
         if alpha_t_k <= 0.0 or v_hat_t <= 0.0:
             raise ValueError("alpha_t_k and v_hat_t must be > 0")
-        return (4.0 * math.pi / 3.0) * alpha_t_k * v_hat_t * (n_b_n / n_b_prev)
+        return (4.0 * math.pi / 3.0) * max(n_b_n, 0.0) / (alpha_t_k * v_hat_t)
 
     @staticmethod
     def _delta_g_hat_inert(*, alpha_t_k: float, v_hat_t: float, delta_n_b: float) -> float:
@@ -285,7 +292,7 @@ class RutMbe1Model:
             return 0.0
         if alpha_t_k <= 0.0 or v_hat_t <= 0.0:
             raise ValueError("alpha_t_k and v_hat_t must be > 0")
-        return (4.0 * math.pi / 3.0) * alpha_t_k * v_hat_t * delta_n_b
+        return (4.0 * math.pi / 3.0) * delta_n_b / (alpha_t_k * v_hat_t)
 
     @staticmethod
     def mmhg_to_atm(p_mmhg: float) -> float:
@@ -298,7 +305,7 @@ class RutMbe1Model:
     def _pa_inert_atm(self, p_amb_atm: float, fi_k: float) -> float:
         """Arterial inert gas partial pressure (Eq. C.28)."""
         p_a_h2o = self.params.p_h2o_mmhg * _ATM_PER_MMHG
-        p_a_co2 = self.params.pt_co2_mmhg * _ATM_PER_MMHG
+        p_a_co2 = self.params.pa_co2_mmhg * _ATM_PER_MMHG
         term1 = p_amb_atm - p_a_h2o
         term2 = p_a_co2 * (1.0 - (1.0 / self.params.rq))
         return fi_k * (term1 - term2)
@@ -306,7 +313,7 @@ class RutMbe1Model:
     def _pa_o2_atm(self, p_amb_atm: float, sum_pa_inert_atm: float) -> float:
         """Arterial O2 partial pressure (Eq. C.37)."""
         p_a_h2o = self.params.p_h2o_mmhg * _ATM_PER_MMHG
-        p_a_co2 = self.params.pt_co2_mmhg * _ATM_PER_MMHG
+        p_a_co2 = self.params.pa_co2_mmhg * _ATM_PER_MMHG
         return p_amb_atm - p_a_h2o - p_a_co2 - sum_pa_inert_atm
 
     def _so2(self, p_o2_mmhg: float) -> float:
@@ -424,7 +431,7 @@ class RutMbe1Model:
 
         # Exercise-dependent V̇O₂ and Q̇ (C.19, C.21)
         vdot_o2 = self.params.m_vdot_o2_per_i_ex * seg.i_ex_l_min_wb + self.params.vdot_o2_rest_ml_per_ml_per_min
-        q_dot_rest = self.params.q_total_rest_ml_per_min / self.params.v_t_ml
+        q_dot_rest = self.params.q_total_rest_ml_per_min
         q_dot = self.params.m_qdot_per_vdot_o2 * (vdot_o2 - self.params.vdot_o2_rest_ml_per_ml_per_min) + q_dot_rest
         q_dot = max(q_dot, 1e-12)
 
@@ -474,34 +481,60 @@ class RutMbe1Model:
         return state
 
     def run_profile(self, segments: Sequence[ProfileSegment], *, dt_min: float) -> List[ModelState]:
-        """Run a profile with fixed step size dt_min.
+        """Exploratory recursion with exact boundaries and explicit pressure ramps.
 
-        dt_min is bounded and used to discretize each segment into an integer number
-        of steps (so each segment ends exactly on its boundary).
-
+        Cap at source Table 2 dtmax=.01 min; retry the entire stage after a
+        rejected step (A.52 discussion). Failure at dtmin=.0005 is surfaced,
+        never converted into a clipped physiological state or risk estimate.
+        This is numerical checking, NOT completed source reconciliation.
         """
-        if dt_min <= 0.0:
-            raise ValueError("dt_min must be > 0")
-        if not segments:
-            return []
+        if not math.isfinite(dt_min) or dt_min <= 0:
+            raise ValueError("dt_min must be finite and >0")
         if self.state is None:
-            raise ValueError("Model not initialized; call initialize_state(...) first")
-
-        history: List[ModelState] = [self.state]
+            raise ValueError("Model not initialized")
+        history = [self.state]
         for seg in segments:
-            if seg.duration_min <= 0.0:
+            if seg.duration_min == 0:
                 continue
-            n_steps = max(1, int(math.ceil(seg.duration_min / dt_min)))
-            step_dt = seg.duration_min / n_steps
-            for _ in range(n_steps):
-                self.state = self._advance_one_step(
-                    dt_min=step_dt,
-                    next_p_amb_atm=seg.p_amb_atm,
-                    next_fio2=seg.fio2,
-                    next_fin2=seg.fin2,
-                    next_i_ex=seg.i_ex_l_min_wb,
-                )
-                history.append(self.state)
+            checkpoint = self.state
+            step_limit = min(dt_min, .01)
+            while True:
+                # Gas switches occur at the stage boundary. A pressure ramp
+                # starts at its explicit start node; a constant stage switches
+                # immediately, as specified by the caller.
+                start_pressure = seg.p_amb_atm if seg.start_p_amb_atm is None else seg.start_p_amb_atm
+                self.state = replace(checkpoint, p_amb_atm=start_pressure, fio2=seg.fio2, fin2=seg.fin2,
+                                     i_ex_l_min_wb=seg.i_ex_l_min_wb)
+                stage_history = []
+                n_steps = max(1, math.ceil(seg.duration_min/step_limit))
+                step_dt = seg.duration_min/n_steps
+                try:
+                    for index in range(n_steps):
+                        pressure = start_pressure + (seg.p_amb_atm-start_pressure)*(index+1)/n_steps
+                        candidate = self._advance_one_step(dt_min=step_dt, next_p_amb_atm=pressure,
+                                                          next_fio2=seg.fio2, next_fin2=seg.fin2,
+                                                          next_i_ex=seg.i_ex_l_min_wb)
+                        state_numbers = [getattr(candidate, item.name) for item in fields(candidate)]
+                        if not all(math.isfinite(value) for value in state_numbers):
+                            raise NumericalReconciliationError("nonfinite state")
+                        if candidate.n_b > 0:
+                            gas = candidate.pb_n2_atm + candidate.pb_o2_atm
+                            mechanical = pressure-self.params.p_infty_atm + 2*self.params.sigma_hat_atm/candidate.r_hat + self.params.m_bar_atm*candidate.r_hat**3
+                            if abs(gas-mechanical) > 1e-4*max(abs(mechanical), .01):
+                                raise NumericalReconciliationError("bubble pressure closure failed")
+                            if start_pressure == seg.p_amb_atm and candidate.r_hat > self.state.r_hat and gas > candidate.pt_n2_atm+candidate.pt_o2_atm+1e-5:
+                                raise NumericalReconciliationError("bubble growth opposes gas gradient")
+                        self.state = candidate
+                        stage_history.append(candidate)
+                    history.extend(stage_history)
+                    break
+                except (NumericalReconciliationError, OverflowError) as exc:
+                    self.state = checkpoint
+                    if step_limit <= .0005:
+                        raise NumericalReconciliationError(
+                            "3RUT recursion failed at the source minimum step; quantitative output remains disabled"
+                        ) from exc
+                    step_limit = max(.0005, step_limit/10)
         return history
 
     def _advance_one_step(
@@ -529,7 +562,7 @@ class RutMbe1Model:
 
         # 0) Physiological parameters for this interval (C.19, C.21)
         vdot_o2_n = p.m_vdot_o2_per_i_ex * next_i_ex + p.vdot_o2_rest_ml_per_ml_per_min
-        q_dot_rest = p.q_total_rest_ml_per_min / p.v_t_ml
+        q_dot_rest = p.q_total_rest_ml_per_min
         q_dot_n = p.m_qdot_per_vdot_o2 * (vdot_o2_n - p.vdot_o2_rest_ml_per_ml_per_min) + q_dot_rest
         q_dot_n = max(q_dot_n, 1e-12)
 
@@ -604,10 +637,12 @@ class RutMbe1Model:
         if n_b_n > 1e-12 and r_hat_n > 1e-12:
             b_n2 = p.k_hat_n2_per_min * dt_min / (r_hat_n**2)  # (C.12)
             a_n2 = (1.0 + r_hat_n) * b_n2  # (C.13)
-            a_n2 = min(max(a_n2, 0.0), 1e6)
+            if a_n2 > 2:
+                raise NumericalReconciliationError("nitrogen diffusion step too large")
 
             a_o2 = (1.0 + r_hat_n) * (p.k_hat_o2_per_min * dt_min / (r_hat_n**2))
-            a_o2 = min(max(a_o2, 0.0), 1e6)
+            if a_o2 > 2:
+                raise NumericalReconciliationError("oxygen diffusion step too large")
 
             # C.14/C.15
             A_n2 = pb_n2_n + a_n2 * (1.0 - a_n2 / 2.0) * (s.pt_n2_atm - pb_n2_n)
@@ -629,13 +664,15 @@ class RutMbe1Model:
             else:
                 delta_r = 0.0
 
-            # Stability cap: limit fractional change per step.
-            delta_r = max(min(delta_r, 0.10), -0.10)
+            if abs(delta_r) > .10:
+                raise NumericalReconciliationError("radius change requires a smaller step")
 
             r_hat_np1 = max(r_hat_n * (1.0 + delta_r), 1e-12)  # (C.17)
 
-            pb_n2_np1 = max(A_n2 - (3.0 * A_n2 - B_n2) * delta_r, 0.0)  # (C.18)
-            pb_o2_np1 = max(A_o2 - (3.0 * A_o2 - B_o2) * delta_r, 0.0)
+            pb_n2_np1 = A_n2 - (3.0 * A_n2 - B_n2) * delta_r  # (C.18)
+            pb_o2_np1 = A_o2 - (3.0 * A_o2 - B_o2) * delta_r
+            if min(pb_n2_np1, pb_o2_np1) < 0:
+                raise NumericalReconciliationError("negative bubble gas pressure")
 
         x_hat_n2_np1 = pb_n2_np1 * (r_hat_np1**3)  # (C.27)
         x_hat_o2_np1 = pb_o2_np1 * (r_hat_np1**3)  # (C.36)
@@ -654,7 +691,7 @@ class RutMbe1Model:
         eps_n2 = 1.0 - math.exp(-dt_min / tau_n2)
 
         # Ĝ_k,n for inert gas per Appendix C (C.25) and ΔĜ_k,n per (C.26).
-        # NOTE: Ĝ_k,n depends on the ratio n_b,n / n_b,n-1, not the absolute n_b,n.
+        # A.44 fixes the contradictory Appendix C transcription.
         g_hat_n2 = self._g_hat_inert(alpha_t_k=alpha_t_n2, v_hat_t=p.v_hat_t, n_b_n=n_b_n, n_b_prev=s.n_b)
 
         delta_g_hat_n2 = self._delta_g_hat_inert(alpha_t_k=alpha_t_n2, v_hat_t=p.v_hat_t, delta_n_b=delta_n_b)
@@ -670,7 +707,8 @@ class RutMbe1Model:
             + (pa_n2_n - tau_n2 * (ups_n2 + term_g_x)) * eps_n2
             - delta_g_hat_n2 * (s.x_hat_n2 - x_hat_o_n2)
         )
-        pt_n2_np1 = max(pt_n2_np1, 0.0)
+        if pt_n2_np1 < 0:
+            raise NumericalReconciliationError("negative tissue nitrogen")
 
         # Oxygen (C.31–C.44)
         alpha_prime = self._alpha_prime_o2(s.pt_o2_atm)
@@ -706,7 +744,8 @@ class RutMbe1Model:
             + (p_o_prime_n - tau_o2 * (ups_o2 + rho_dot + term_g_x_o2)) * eps_o2
             - delta_g_hat_o2 * (s.x_hat_o2 - x_hat_o_o2)
         )
-        pt_o2_np1 = max(pt_o2_np1, 0.0)
+        if pt_o2_np1 < 0:
+            raise NumericalReconciliationError("negative tissue oxygen")
 
         # 4) VGE (C.45–C.46)
         # Unscaled bubble volumes: Vb = (4π/3) r^3 where r = r_hat/Λ.
@@ -765,17 +804,6 @@ class RutMbe1Model:
 
 
 def altitude_ft_to_p_amb_atm(altitude_ft: float) -> float:
-    """Standard barometric model used in the project theory (altitude in feet).
-
-    Matches the form cited in the project theory for converting altitude to pressure.
-
-    P(atm) = (1 - 6.875e-6 * altitude_ft)^(5.25588)
-
-    """
-    if not isinstance(altitude_ft, (int, float)):
-        raise TypeError("altitude_ft must be a number")
-    if altitude_ft < 0.0:
-        altitude_ft = 0.0
-    factor = 1.0 - 6.875e-6 * float(altitude_ft)
-    factor = max(factor, 0.0)
-    return factor**5.25588
+    """Shared layered standard atmosphere (geopotential altitude in feet)."""
+    from .atmosphere import altitude_ft_to_atm
+    return float(altitude_ft_to_atm(altitude_ft))

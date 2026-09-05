@@ -131,7 +131,7 @@ export function ScatterPlot({
             <div>${xLabel}: <span class="font-mono">${p.value[0].toFixed(2)}</span></div>
             <div>${yLabel}: <span class="font-mono">${p.value[1].toFixed(2)}</span></div>
             ${point.altitude !== undefined ? `<div>Altitude: <span class="font-mono">${point.altitude.toLocaleString()} ft</span></div>` : ""}
-            ${point.absError !== undefined ? `<div>Abs Error: <span class="font-mono">${point.absError.toFixed(3)} pp</span></div>` : ""}
+            ${typeof point.absError === "number" && Number.isFinite(point.absError) ? `<div>Abs Error: <span class="font-mono">${point.absError.toFixed(3)} pp</span></div>` : ""}
           </div>
         `;
       },

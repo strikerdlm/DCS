@@ -11,13 +11,13 @@
 
 export type ExerciseLevel = "Rest" | "Mild" | "Heavy";
 
-export type RiskLevel = "low" | "moderate" | "high";
+export type RiskLevel = "low" | "moderate" | "high" | "unavailable";
 
 export interface RegressionMetrics {
-  r2: number;
-  mae: number;
-  rmse: number;
-  mse: number;
+  r2: number | null;
+  mae: number | null;
+  rmse: number | null;
+  mse: number | null;
 }
 
 export interface ModelValidity {
@@ -99,8 +99,10 @@ export interface ModelState {
 
 export interface MechanisticSimulationResult {
   history: ModelState[];
-  finalPDcsPercent: number;
+  finalPDcsPercent: null;
   segments: ProfileSegment[];
+  absoluteRiskEnabled: false;
+  reason: string;
 }
 
 // ============================================================================
@@ -115,7 +117,7 @@ export interface NASAInputs {
   paPsia: number; // Ambient ppN2 during PB
   pbTimeMin: number; // Prebreathe duration
   vo2MlKgMin: number; // VO2 during PB
-  lambda2: number; // λ2 parameter
+  lambda2?: number; // Legacy input; fitted lambda is always selected by variant.
   p2Psia: number; // Ambient pressure after depressurization
   sex: "Male" | "Female";
   ageYears: number;
@@ -124,8 +126,12 @@ export interface NASAInputs {
 export interface NASAPrediction {
   p1n2Psia: number; // Tissue N2 after prebreathe
   etr: number; // Exercise Tissue Ratio
-  pDcsPercent: number;
+  pDcsPercent: number | null;
   equation: string;
+  lambda2: number;
+  predictionHorizonMin: 240;
+  referencePressurePsia: 4.3;
+  unavailableReason: string | null;
 }
 
 // ============================================================================
@@ -133,14 +139,15 @@ export interface NASAPrediction {
 // ============================================================================
 
 export interface ValidationDataPoint {
+  cellId?: string;
   altitude: number;
   timeAtAltitude: number;
   prebreathingTime: number;
   exerciseLevel: string;
   riskOfDcs: number; // Reference risk %
-  predictedRisk?: number;
-  residual?: number;
-  absError?: number;
+  predictedRisk?: number | null;
+  residual?: number | null;
+  absError?: number | null;
 }
 
 export interface ValidationResult {
@@ -269,6 +276,10 @@ export interface EVAScenario {
   prebreatheProtocol: PrebreatheProtocol;
   prebreatheMin: number;
   prebreatheOxygenFraction: number;
+  prebreatheVo2MlKgMin?: number;
+  prebreatheSegments?: Array<{ durationMin: number; pressurePsia: number; oxygenFraction: number; vo2MlKgMin: number }>;
+  pressureSegments?: Array<{ durationMin: number; pressurePsia: number; oxygenFraction: number }>;
+  nasaAdynamicReference?: boolean;
   suit: SuitProfile;
   evaDurationMin: number;
   meanVo2MlKgMin: number;
@@ -312,30 +323,39 @@ export type RiskConsequenceLevel = 1 | 2 | 3 | 4 | 5;
 export interface RiskMatrixHazard {
   id: string;
   name: string;
-  probabilityPercent: number;
-  likelihood: RiskLikelihoodLevel;
+  probabilityPercent: number | null;
+  likelihood: RiskLikelihoodLevel | null;
   consequence: RiskConsequenceLevel;
-  score: number;
-  posture: "green" | "yellow" | "orange" | "red";
+  score: number | null;
+  posture: "green" | "yellow" | "orange" | "red" | "unavailable";
   driver: string;
+  indicator: { value: number | string; unit: string; source: string } | null;
+  evidenceStatus: string;
 }
 
 export interface EVATimelinePoint {
   timeMin: number;
   phase: "habitat" | "prebreathe" | "eva" | "repress";
   ambientPressurePsia: number;
+  ambientN2Psia: number;
   inspiredN2Psia: number;
   tissueN2Psia: number;
   vo2MlKgMin: number;
-  cumulativePDcsPercent: number;
-  intervalLowPercent: number;
-  intervalHighPercent: number;
+  cumulativePDcsPercent: number | null;
+  intervalLowPercent: number | null;
+  intervalHighPercent: number | null;
 }
 
 export interface EVASimulationResult {
-  pDcsPercent: number;
-  intervalLowPercent: number;
-  intervalHighPercent: number;
+  schemaVersion: 2;
+  pDcsPercent: number | null;
+  intervalLowPercent: number | null;
+  intervalHighPercent: number | null;
+  modelApplicability: {
+    applicable: boolean; reasons: string[]; modelId: string; horizonMin: number;
+    referencePressurePsia: number; source: string; intervalKind: string;
+    clinicalValidation: boolean; evidenceStatus: string; assumptions: string[];
+  };
   p1n2Psia: number;
   etr: number;
   tissueN2StartPsia: number;
@@ -343,18 +363,23 @@ export interface EVASimulationResult {
   suitInspiredO2MmHg: number;
   habitatInspiredO2MmHg: number;
   consumablesMarginMin: number;
+  oxygenReserveMin: number;
+  workloadMeanVo2MlKgMin: number;
+  workloadTotalO2Litres: number;
+  planningEnvelope: boolean;
   inEnvelope: boolean;
   abstain: boolean;
   envelopeWarnings: string[];
-  maxRiskPercent: number;
-  maxRiskTimeMin: number;
-  integratedRiskPercentHours: number;
-  lxcLikelihood: RiskLikelihoodLevel;
+  maxRiskPercent: number | null;
+  maxRiskTimeMin: number | null;
+  integratedRiskPercentHours: number | null;
+  lxcLikelihood: RiskLikelihoodLevel | null;
   lxcConsequence: RiskConsequenceLevel;
-  lxcScore: number;
+  lxcScore: number | null;
   lxcCategory: RiskMatrixHazard["posture"];
   decision: EVADecisionImplication;
   decisionRationale: string;
+  stopReasons: string[];
   timeline: EVATimelinePoint[];
   hazards: RiskMatrixHazard[];
   telemetryStatus?: {
@@ -362,16 +387,21 @@ export interface EVASimulationResult {
     rejected: number;
     warnings: string[];
     suitPressurePsia?: number | null;
+    habitatPressurePsia?: number | null;
     meanVo2MlKgMin?: number | null;
     peakVo2MlKgMin?: number | null;
     spo2Percent?: number | null;
     heartRateBpm?: number | null;
     hrvRmssdMs?: number | null;
     skinTempC?: number | null;
+    rawIndicators?: Array<{ kind: string; value: number; unit: string; source: string; timestampSec: number }>;
   };
 }
 
 export interface EVASimulationApiResponse {
+  schemaVersion: 2;
+  scenario: EVAScenario;
+  inputFingerprint: string;
   scenarioId: string;
   missionRuleProfile: string;
   generatedAt: string;

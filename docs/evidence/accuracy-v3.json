@@ -1,0 +1,1917 @@
+{
+  "schema_version": "accuracy-v3",
+  "scope": "model-generated grid emulation; research only",
+  "clinical_validation": false,
+  "interpretation": "Probability-valued model targets are not binary outcomes. Coverage and Wilson95 bounds are descriptive for dependent grid cells. No clinical Brier score, clinical AUROC, clinical calibration, or prospective validation is claimed.",
+  "primary_metadata": {
+    "schema_version": "accuracy-v3",
+    "dataset_id": "bd0af1b2722408c1cb4eaa681bb190bc01658953f00e2aa7fb48617ddf024425",
+    "split_id": "afe8edd8d8bb7dcd81021d129257da92196d7dd01d052d2f9f6d40b203958ec4",
+    "model_id": "80998610508becd61fba",
+    "training_config": {
+      "n_estimators": 400,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "max_depth": -1,
+      "min_data_in_leaf": 20,
+      "subsample": 0.9,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.9,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "random_state": 42,
+      "excluded_features": [
+        "tissue_n2_ratio_360min",
+        "altitude_vo2_integral_lmin_min"
+      ],
+      "monotonic_constraints": {
+        "altitude_ft": 1,
+        "ambient_pressure_atm": -1,
+        "altitude_time_min": 1,
+        "prebreathe_time_min": -1,
+        "tissue_n2_ratio_360min": 1
+      }
+    },
+    "feature_names": [
+      "altitude_ft",
+      "ambient_pressure_atm",
+      "prebreathe_time_min",
+      "prebreathe_fio2",
+      "ascent_rate_fpm",
+      "altitude_time_min",
+      "altitude_fio2",
+      "prebreathe_vo2_mean_lmin",
+      "prebreathe_vo2_peak_lmin",
+      "altitude_vo2_mean_lmin",
+      "altitude_vo2_peak_1min_lmin"
+    ],
+    "target_kind": "model_probability",
+    "target_unit": "probability",
+    "clinical_validation": false,
+    "vo2_provenance": "synthetic from Rest/Mild/Heavy labels; no independently measured continuous-VO2 evidence",
+    "interval_kind": "split_conformal_model_agreement",
+    "split": {
+      "seed": 42,
+      "train": 0.65,
+      "cal": 0.2,
+      "test": 0.15
+    },
+    "quantitative_enabled": true,
+    "release_criteria": {
+      "max_mae": 0.03,
+      "min_coverage": 0.94,
+      "nominal": 0.95
+    }
+  },
+  "primary_partition_counts": {
+    "train": 9544,
+    "cal": 2937,
+    "test": 2202
+  },
+  "random_heldout": {
+    "surrogate": {
+      "tag": "tinydcs_random_test",
+      "n": 2202,
+      "point": {
+        "n": 2202,
+        "unit": "probability",
+        "mae": 0.021931931798648236,
+        "mse": 0.0019892912471195508,
+        "rmse": 0.044601471355993974,
+        "r2": 0.9824080833376966
+      },
+      "probability_mse": 0.0019892912471195508,
+      "clinical_roc_auc": null,
+      "calibration": {
+        "slope": 0.9499122371826826,
+        "intercept": 0.01654025890537268
+      },
+      "bland_altman": {
+        "n": 2202,
+        "unit": "probability",
+        "bias": -0.0027783172035210375,
+        "sd": 0.044524964975203425,
+        "loa_lower": -0.09004724855491975,
+        "loa_upper": 0.08449061414787767
+      },
+      "conformal_coverage": {
+        "n": 2202,
+        "covered_n": 2095,
+        "coverage": 0.9514078110808356,
+        "nominal": 0.95,
+        "avg_width": 0.1402296683209201,
+        "coverage_wilson_95": [
+          0.9416145255897311,
+          0.9596288489285997
+        ],
+        "unit": "probability"
+      },
+      "per_band_coverage": {
+        "18000-23000_ft": {
+          "n": 529,
+          "covered_n": 517,
+          "coverage": 0.9773156899810964,
+          "nominal": 0.95,
+          "avg_width": 0.1019691690687718,
+          "coverage_wilson_95": [
+            0.9607721850747946,
+            0.9869768904526353
+          ],
+          "unit": "probability"
+        },
+        "23000-28000_ft": {
+          "n": 477,
+          "covered_n": 448,
+          "coverage": 0.939203354297694,
+          "nominal": 0.95,
+          "avg_width": 0.149334116735266,
+          "coverage_wilson_95": [
+            0.9140499392138871,
+            0.9573391482155419
+          ],
+          "unit": "probability"
+        },
+        "28000-33000_ft": {
+          "n": 483,
+          "covered_n": 447,
+          "coverage": 0.9254658385093167,
+          "nominal": 0.95,
+          "avg_width": 0.1547690987436824,
+          "coverage_wilson_95": [
+            0.8985384943731094,
+            0.9456788428183254
+          ],
+          "unit": "probability"
+        },
+        "33000-38000_ft": {
+          "n": 488,
+          "covered_n": 469,
+          "coverage": 0.9610655737704918,
+          "nominal": 0.95,
+          "avg_width": 0.15492932103156537,
+          "coverage_wilson_95": [
+            0.9399939369046018,
+            0.9749350344736574
+          ],
+          "unit": "probability"
+        },
+        "38000-43000_ft": {
+          "n": 225,
+          "covered_n": 214,
+          "coverage": 0.9511111111111111,
+          "nominal": 0.95,
+          "avg_width": 0.14778969851538415,
+          "coverage_wilson_95": [
+            0.9145920407786103,
+            0.9724849820918746
+          ],
+          "unit": "probability"
+        }
+      },
+      "calibration_mode": "zero_inflated",
+      "accepted_subset_coverage": {
+        "n": 2177,
+        "covered_n": 2071,
+        "coverage": 0.951309141019752,
+        "nominal": 0.95,
+        "avg_width": 0.14043163113288315,
+        "coverage_wilson_95": [
+          0.9414465023899381,
+          0.9595818562063756
+        ],
+        "unit": "probability"
+      },
+      "accepted_n": 2177
+    },
+    "baseline": {
+      "tag": "adrac_baseline_random_test",
+      "n": 2202,
+      "point": {
+        "n": 2202,
+        "unit": "probability",
+        "mae": 0.0849716157826017,
+        "mse": 0.01479489399923675,
+        "rmse": 0.12163426326178307,
+        "r2": 0.8691641846617219
+      },
+      "probability_mse": 0.01479489399923675,
+      "clinical_roc_auc": null,
+      "calibration": {
+        "slope": 0.5978080491517463,
+        "intercept": 0.14998920182306208
+      },
+      "bland_altman": {
+        "n": 2202,
+        "unit": "probability",
+        "bias": -0.02966706314790086,
+        "sd": 0.11798763231962436,
+        "loa_lower": -0.2609228224943646,
+        "loa_upper": 0.2015886961985629
+      }
+    }
+  },
+  "leave_one_altitude_out": {
+    "surrogate": [
+      {
+        "tag": "tinydcs_LOAO_15000_20000",
+        "n": 1346,
+        "point": {
+          "n": 1346,
+          "unit": "probability",
+          "mae": 0.008593387967345958,
+          "mse": 0.0002337345657196261,
+          "rmse": 0.015288380088146229,
+          "r2": 0.584352254941083
+        },
+        "probability_mse": 0.0002337345657196261,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 1.2689381828042599,
+          "intercept": 0.1623242521912088
+        },
+        "bland_altman": {
+          "n": 1346,
+          "unit": "probability",
+          "bias": 0.008367826085988267,
+          "sd": 0.012799834873906478,
+          "loa_lower": -0.016719850266868428,
+          "loa_upper": 0.03345550243884496
+        },
+        "band_lo_ft": 15000,
+        "band_hi_ft": 20000
+      },
+      {
+        "tag": "tinydcs_LOAO_20000_25000",
+        "n": 3508,
+        "point": {
+          "n": 3508,
+          "unit": "probability",
+          "mae": 0.05721702527183577,
+          "mse": 0.009113572508001369,
+          "rmse": 0.09546503290734974,
+          "r2": 0.6028851477328807
+        },
+        "probability_mse": 0.009113572508001369,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.6339727082012929,
+          "intercept": -0.6510756336669685
+        },
+        "bland_altman": {
+          "n": 3508,
+          "unit": "probability",
+          "bias": 0.02293908494623114,
+          "sd": 0.09268127926985245,
+          "loa_lower": -0.15871622242267966,
+          "loa_upper": 0.20459439231514195
+        },
+        "band_lo_ft": 20000,
+        "band_hi_ft": 25000
+      },
+      {
+        "tag": "tinydcs_LOAO_25000_30000",
+        "n": 3265,
+        "point": {
+          "n": 3265,
+          "unit": "probability",
+          "mae": 0.0803341202112134,
+          "mse": 0.012431579562187257,
+          "rmse": 0.11149699351187572,
+          "r2": 0.7946666262155329
+        },
+        "probability_mse": 0.012431579562187257,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.7789700841439781,
+          "intercept": -0.21441541262640892
+        },
+        "bland_altman": {
+          "n": 3265,
+          "unit": "probability",
+          "bias": 0.02220447358083098,
+          "sd": 0.10928036674717556,
+          "loa_lower": -0.19198504524363313,
+          "loa_upper": 0.23639399240529507
+        },
+        "band_lo_ft": 25000,
+        "band_hi_ft": 30000
+      },
+      {
+        "tag": "tinydcs_LOAO_30000_35000",
+        "n": 3228,
+        "point": {
+          "n": 3228,
+          "unit": "probability",
+          "mae": 0.10223460599218716,
+          "mse": 0.017048580074043192,
+          "rmse": 0.1305702112812995,
+          "r2": 0.7910321616104645
+        },
+        "probability_mse": 0.017048580074043192,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.7340690796113619,
+          "intercept": 0.008328043566066005
+        },
+        "bland_altman": {
+          "n": 3228,
+          "unit": "probability",
+          "bias": 0.004823263512988155,
+          "sd": 0.13050131071781976,
+          "loa_lower": -0.2509593054939385,
+          "loa_upper": 0.26060583251991487
+        },
+        "band_lo_ft": 30000,
+        "band_hi_ft": 35000
+      },
+      {
+        "tag": "tinydcs_LOAO_35000_40000",
+        "n": 3182,
+        "point": {
+          "n": 3182,
+          "unit": "probability",
+          "mae": 0.06910565787396096,
+          "mse": 0.009220234438523003,
+          "rmse": 0.09602205183458122,
+          "r2": 0.8869553559444527
+        },
+        "probability_mse": 0.009220234438523003,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.8583444408033364,
+          "intercept": 0.3998154090480069
+        },
+        "bland_altman": {
+          "n": 3182,
+          "unit": "probability",
+          "bias": -0.048067678397661795,
+          "sd": 0.08313786694901429,
+          "loa_lower": -0.2110178976177298,
+          "loa_upper": 0.1148825408224062
+        },
+        "band_lo_ft": 35000,
+        "band_hi_ft": 40000
+      },
+      {
+        "tag": "tinydcs_LOAO_40000_45000",
+        "n": 154,
+        "point": {
+          "n": 154,
+          "unit": "probability",
+          "mae": 0.023179502166368944,
+          "mse": 0.001471135355104191,
+          "rmse": 0.038355382348559515,
+          "r2": 0.9853039048773706
+        },
+        "probability_mse": 0.001471135355104191,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 1.0380004824169227,
+          "intercept": 0.05835751753612798
+        },
+        "bland_altman": {
+          "n": 154,
+          "unit": "probability",
+          "bias": -0.010049736689587719,
+          "sd": 0.03713614544975662,
+          "loa_lower": -0.08283658177111071,
+          "loa_upper": 0.06273710839193526
+        },
+        "band_lo_ft": 40000,
+        "band_hi_ft": 45000
+      }
+    ],
+    "baseline": [
+      {
+        "tag": "adrac_baseline_LOAO_15000_20000",
+        "n": 1346,
+        "point": {
+          "n": 1346,
+          "unit": "probability",
+          "mae": 0.005510232727524294,
+          "mse": 0.00010469718708227844,
+          "rmse": 0.010232164340073827,
+          "r2": 0.8138180821018952
+        },
+        "probability_mse": 0.00010469718708227844,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 1.1543574115799788,
+          "intercept": 0.6010190856352244
+        },
+        "bland_altman": {
+          "n": 1346,
+          "unit": "probability",
+          "bias": -0.0005337326212980737,
+          "sd": 0.010222032407813362,
+          "loa_lower": -0.020568916140612264,
+          "loa_upper": 0.019501450898016116
+        },
+        "band_lo_ft": 15000,
+        "band_hi_ft": 20000
+      },
+      {
+        "tag": "adrac_baseline_LOAO_20000_25000",
+        "n": 3508,
+        "point": {
+          "n": 3508,
+          "unit": "probability",
+          "mae": 0.0969576753070202,
+          "mse": 0.02377220143884,
+          "rmse": 0.1541823642276898,
+          "r2": -0.035850019754704476
+        },
+        "probability_mse": 0.02377220143884,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.877518128668848,
+          "intercept": 1.8620086592708622
+        },
+        "bland_altman": {
+          "n": 3508,
+          "unit": "probability",
+          "bias": -0.09681556172158601,
+          "sd": 0.12001272524652125,
+          "loa_lower": -0.33204050320476763,
+          "loa_upper": 0.13840937976159565
+        },
+        "band_lo_ft": 20000,
+        "band_hi_ft": 25000
+      },
+      {
+        "tag": "adrac_baseline_LOAO_25000_30000",
+        "n": 3265,
+        "point": {
+          "n": 3265,
+          "unit": "probability",
+          "mae": 0.15139352315298388,
+          "mse": 0.035235972837284045,
+          "rmse": 0.18771247384573048,
+          "r2": 0.41800467550686693
+        },
+        "probability_mse": 0.035235972837284045,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.5702527851643693,
+          "intercept": 0.5230539544693765
+        },
+        "bland_altman": {
+          "n": 3265,
+          "unit": "probability",
+          "bias": -0.1397944403654015,
+          "sd": 0.12529283831851398,
+          "loa_lower": -0.3853684034696889,
+          "loa_upper": 0.10577952273888588
+        },
+        "band_lo_ft": 25000,
+        "band_hi_ft": 30000
+      },
+      {
+        "tag": "adrac_baseline_LOAO_30000_35000",
+        "n": 3228,
+        "point": {
+          "n": 3228,
+          "unit": "probability",
+          "mae": 0.10585368498835666,
+          "mse": 0.018963816149392056,
+          "rmse": 0.13770917235025434,
+          "r2": 0.767556731930508
+        },
+        "probability_mse": 0.018963816149392056,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.5849625668211901,
+          "intercept": 0.10510756580109054
+        },
+        "bland_altman": {
+          "n": 3228,
+          "unit": "probability",
+          "bias": -0.010561941369052261,
+          "sd": 0.13732481051664605,
+          "loa_lower": -0.2797185699816785,
+          "loa_upper": 0.258594687243574
+        },
+        "band_lo_ft": 30000,
+        "band_hi_ft": 35000
+      },
+      {
+        "tag": "adrac_baseline_LOAO_35000_40000",
+        "n": 3182,
+        "point": {
+          "n": 3182,
+          "unit": "probability",
+          "mae": 0.14322828374644211,
+          "mse": 0.03471048834795055,
+          "rmse": 0.18630751017592004,
+          "r2": 0.5744322092403482
+        },
+        "probability_mse": 0.03471048834795055,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.6518326760207397,
+          "intercept": -0.7896084669792413
+        },
+        "bland_altman": {
+          "n": 3182,
+          "unit": "probability",
+          "bias": 0.14140585243562045,
+          "sd": 0.12132394285079247,
+          "loa_lower": -0.09638907555193277,
+          "loa_upper": 0.3792007804231737
+        },
+        "band_lo_ft": 35000,
+        "band_hi_ft": 40000
+      },
+      {
+        "tag": "adrac_baseline_LOAO_40000_45000",
+        "n": 154,
+        "point": {
+          "n": 154,
+          "unit": "probability",
+          "mae": 0.11285620037767277,
+          "mse": 0.021172749211530513,
+          "rmse": 0.14550858810231962,
+          "r2": 0.7884921089411301
+        },
+        "probability_mse": 0.021172749211530513,
+        "clinical_roc_auc": null,
+        "calibration": {
+          "slope": 0.8300075968358722,
+          "intercept": -0.9298109742554097
+        },
+        "bland_altman": {
+          "n": 154,
+          "unit": "probability",
+          "bias": 0.11275243440456062,
+          "sd": 0.09227637561889077,
+          "loa_lower": -0.06810926180846527,
+          "loa_upper": 0.2936141306175865
+        },
+        "band_lo_ft": 40000,
+        "band_hi_ft": 45000
+      }
+    ]
+  },
+  "profile_grouped_holdout": {
+    "baseline": {
+      "point": {
+        "n": 2185,
+        "unit": "probability",
+        "mae": 0.08033890651693937,
+        "mse": 0.013679193594420472,
+        "rmse": 0.11695808477578826,
+        "r2": 0.8805118491429682
+      },
+      "coverage": {
+        "n": 2185,
+        "covered_n": 2113,
+        "coverage": 0.9670480549199084,
+        "nominal": 0.95,
+        "avg_width": 0.3828546485342991,
+        "coverage_wilson_95": [
+          0.9587052445726982,
+          0.9737515086448927
+        ],
+        "unit": "probability"
+      }
+    },
+    "surrogate": {
+      "point": {
+        "n": 2185,
+        "unit": "probability",
+        "mae": 0.026344407776812233,
+        "mse": 0.0031264234290362476,
+        "rmse": 0.055914429524374545,
+        "r2": 0.9726906011123334
+      },
+      "coverage": {
+        "n": 2185,
+        "covered_n": 2124,
+        "coverage": 0.9720823798627002,
+        "nominal": 0.95,
+        "avg_width": 0.2243633697085189,
+        "coverage_wilson_95": [
+          0.9643029997885038,
+          0.9782047326406438
+        ],
+        "unit": "probability"
+      },
+      "accepted_n": 2162,
+      "accepted_subset_coverage": {
+        "n": 2162,
+        "covered_n": 2101,
+        "coverage": 0.9717853839037928,
+        "nominal": 0.95,
+        "avg_width": 0.224687674628436,
+        "coverage_wilson_95": [
+          0.9639249741086336,
+          0.9779722232563041
+        ],
+        "unit": "probability"
+      }
+    },
+    "baseline_probability_q": 0.2809646967110276,
+    "partition_counts": {
+      "train": 9460,
+      "cal": 3038,
+      "test": 2185
+    },
+    "profile_group_counts": {
+      "train": 431,
+      "cal": 133,
+      "test": 99
+    },
+    "group_definition": [
+      "altitude",
+      "prebreathing_time",
+      "exercise_level"
+    ],
+    "group_ids_sha256": "ea600a9ae934b76f62855e593a82986ce27745d299060cd2fcf24cd6d32cd8e8",
+    "time_rows_never_cross_partitions": true,
+    "dataset_id": "bd0af1b2722408c1cb4eaa681bb190bc01658953f00e2aa7fb48617ddf024425",
+    "split_id": "7e0b80bec6188c214631809974c3e8868912da617fc959b907c0bf9e38b17f29",
+    "model_id": "223ba07a92d92f3f4f4d",
+    "quantitative_enabled": false
+  },
+  "cleaning_sensitivity": {
+    "common_partition_id": "5b571d6e21d962c3bb9bd15be377b250de238c20fcb8d788aae38167ddb4b66e",
+    "shared_test_cells_n": 2202,
+    "shared_feature_vectors_identical": true,
+    "method": "Frozen primary cells retain membership and synthetic features; extra cells are seeded once. Each policy refits baseline and surrogate using training only, then recalibrates on calibration cells.",
+    "policies": {
+      "primary": {
+        "baseline": {
+          "point": {
+            "n": 2202,
+            "unit": "probability",
+            "mae": 0.0849716157826017,
+            "mse": 0.01479489399923675,
+            "rmse": 0.12163426326178307,
+            "r2": 0.8691641846617219
+          },
+          "coverage": {
+            "n": 2202,
+            "covered_n": 2129,
+            "coverage": 0.9668483197093551,
+            "nominal": 0.95,
+            "avg_width": 0.37685467357948016,
+            "coverage_wilson_95": [
+              0.9585199573914612,
+              0.9735506552894683
+            ],
+            "unit": "probability"
+          }
+        },
+        "surrogate": {
+          "point": {
+            "n": 2202,
+            "unit": "probability",
+            "mae": 0.021931931798648236,
+            "mse": 0.0019892912471195508,
+            "rmse": 0.044601471355993974,
+            "r2": 0.9824080833376966
+          },
+          "coverage": {
+            "n": 2202,
+            "covered_n": 2095,
+            "coverage": 0.9514078110808356,
+            "nominal": 0.95,
+            "avg_width": 0.1402296683209201,
+            "coverage_wilson_95": [
+              0.9416145255897311,
+              0.9596288489285997
+            ],
+            "unit": "probability"
+          },
+          "accepted_n": 2177,
+          "accepted_subset_coverage": {
+            "n": 2177,
+            "covered_n": 2071,
+            "coverage": 0.951309141019752,
+            "nominal": 0.95,
+            "avg_width": 0.14043163113288315,
+            "coverage_wilson_95": [
+              0.9414465023899381,
+              0.9595818562063756
+            ],
+            "unit": "probability"
+          }
+        },
+        "baseline_probability_q": 0.27937515948966246,
+        "partition_counts": {
+          "train": 9544,
+          "cal": 2937,
+          "test": 2202
+        },
+        "shared_test_cells": {
+          "point": {
+            "n": 2202,
+            "unit": "probability",
+            "mae": 0.021931931798648236,
+            "mse": 0.0019892912471195508,
+            "rmse": 0.044601471355993974,
+            "r2": 0.9824080833376966
+          },
+          "coverage": {
+            "n": 2202,
+            "covered_n": 2095,
+            "coverage": 0.9514078110808356,
+            "nominal": 0.95,
+            "avg_width": 0.1402296683209201,
+            "coverage_wilson_95": [
+              0.9416145255897311,
+              0.9596288489285997
+            ],
+            "unit": "probability"
+          }
+        },
+        "dataset_id": "bd0af1b2722408c1cb4eaa681bb190bc01658953f00e2aa7fb48617ddf024425",
+        "split_id": "afe8edd8d8bb7dcd81021d129257da92196d7dd01d052d2f9f6d40b203958ec4",
+        "model_id": "ea19ae57e21144e0ec93",
+        "quantitative_enabled": false
+      },
+      "raw": {
+        "baseline": {
+          "point": {
+            "n": 2386,
+            "unit": "probability",
+            "mae": 0.12650789197190648,
+            "mse": 0.04585291979713768,
+            "rmse": 0.21413294888255213,
+            "r2": 0.5980275019977167
+          },
+          "coverage": {
+            "n": 2386,
+            "covered_n": 2271,
+            "coverage": 0.951802179379715,
+            "nominal": 0.95,
+            "avg_width": 0.5440377909191699,
+            "coverage_wilson_95": [
+              0.9424581121858802,
+              0.9596937824690537
+            ],
+            "unit": "probability"
+          }
+        },
+        "surrogate": {
+          "point": {
+            "n": 2386,
+            "unit": "probability",
+            "mae": 0.10476736510037776,
+            "mse": 0.03340157428020292,
+            "rmse": 0.18276097581322692,
+            "r2": 0.7071830036119069
+          },
+          "coverage": {
+            "n": 2386,
+            "covered_n": 2267,
+            "coverage": 0.9501257334450964,
+            "nominal": 0.95,
+            "avg_width": 0.5250207579306149,
+            "coverage_wilson_95": [
+              0.940644705866668,
+              0.9581596863962254
+            ],
+            "unit": "probability"
+          },
+          "accepted_n": 2356,
+          "accepted_subset_coverage": {
+            "n": 2356,
+            "covered_n": 2238,
+            "coverage": 0.9499151103565365,
+            "nominal": 0.95,
+            "avg_width": 0.526392691286773,
+            "coverage_wilson_95": [
+              0.9403518940584564,
+              0.9580135414990018
+            ],
+            "unit": "probability"
+          }
+        },
+        "baseline_probability_q": 0.42116121312187216,
+        "partition_counts": {
+          "train": 10340,
+          "cal": 3182,
+          "test": 2386
+        },
+        "shared_test_cells": {
+          "point": {
+            "n": 2202,
+            "unit": "probability",
+            "mae": 0.07901620969483553,
+            "mse": 0.014502242992258016,
+            "rmse": 0.12042525894619457,
+            "r2": 0.8717521878680716
+          },
+          "coverage": {
+            "n": 2202,
+            "covered_n": 2174,
+            "coverage": 0.9872842870118075,
+            "nominal": 0.95,
+            "avg_width": 0.5216867290284617,
+            "coverage_wilson_95": [
+              0.9816835399484952,
+              0.9911878291241093
+            ],
+            "unit": "probability"
+          }
+        },
+        "dataset_id": "c43a9602b1fe1526de762912d0ae12ba039c316c2facc98b5d54269039595454",
+        "split_id": "5b571d6e21d962c3bb9bd15be377b250de238c20fcb8d788aae38167ddb4b66e",
+        "model_id": "a52652947fce44d193f6",
+        "quantitative_enabled": false
+      },
+      "rescaled": {
+        "baseline": {
+          "point": {
+            "n": 2386,
+            "unit": "probability",
+            "mae": 0.08435512983070782,
+            "mse": 0.014354185686217564,
+            "rmse": 0.11980895495002686,
+            "r2": 0.8744047119503714
+          },
+          "coverage": {
+            "n": 2386,
+            "covered_n": 2308,
+            "coverage": 0.9673093042749371,
+            "nominal": 0.95,
+            "avg_width": 0.37792347140061366,
+            "coverage_wilson_95": [
+              0.959389196843978,
+              0.9737270949373311
+            ],
+            "unit": "probability"
+          }
+        },
+        "surrogate": {
+          "point": {
+            "n": 2386,
+            "unit": "probability",
+            "mae": 0.021331831218087616,
+            "mse": 0.0018799119277359672,
+            "rmse": 0.043357951147811026,
+            "r2": 0.9835512731106276
+          },
+          "coverage": {
+            "n": 2386,
+            "covered_n": 2279,
+            "coverage": 0.9551550712489523,
+            "nominal": 0.95,
+            "avg_width": 0.14156002783570423,
+            "coverage_wilson_95": [
+              0.9460935689175028,
+              0.9627533305215122
+            ],
+            "unit": "probability"
+          },
+          "accepted_n": 2356,
+          "accepted_subset_coverage": {
+            "n": 2356,
+            "covered_n": 2250,
+            "coverage": 0.9550084889643463,
+            "nominal": 0.95,
+            "avg_width": 0.14186297853642943,
+            "coverage_wilson_95": [
+              0.9458718105440947,
+              0.9626637997555231
+            ],
+            "unit": "probability"
+          }
+        },
+        "baseline_probability_q": 0.27741122979542454,
+        "partition_counts": {
+          "train": 10340,
+          "cal": 3182,
+          "test": 2386
+        },
+        "shared_test_cells": {
+          "point": {
+            "n": 2202,
+            "unit": "probability",
+            "mae": 0.02106211366815637,
+            "mse": 0.001904870813001358,
+            "rmse": 0.04364482572999184,
+            "r2": 0.9831546393001546
+          },
+          "coverage": {
+            "n": 2202,
+            "covered_n": 2105,
+            "coverage": 0.9559491371480472,
+            "nominal": 0.95,
+            "avg_width": 0.1406078441228644,
+            "coverage_wilson_95": [
+              0.9465547875977927,
+              0.9637554216742434
+            ],
+            "unit": "probability"
+          }
+        },
+        "dataset_id": "a02b49d8f034c2042da9eff2dbeabd271e2cd74c1a99466f4260ebb780ff4a11",
+        "split_id": "5b571d6e21d962c3bb9bd15be377b250de238c20fcb8d788aae38167ddb4b66e",
+        "model_id": "b823633235d0c5b7ec47",
+        "quantitative_enabled": false
+      }
+    }
+  },
+  "fair_baseline": {
+    "selection_partition": "calibration",
+    "selected_baseline": "altitude",
+    "training_n": 9544,
+    "n_exercise_strata": 3,
+    "n_altitude_strata": 5,
+    "global_aft_test": {
+      "n": 2202,
+      "mae": 0.0849716157826017,
+      "rmse": 0.12163426326178307,
+      "r2": 0.8691641846617219,
+      "probability_mse": 0.01479489399923675,
+      "calibration_slope": 0.5978080491517463,
+      "calibration_intercept": 0.14998920182306208
+    },
+    "exercise_stratified_aft_test": {
+      "n": 2202,
+      "mae": 0.08552647276593704,
+      "rmse": 0.12327084874958309,
+      "r2": 0.865619714428222,
+      "probability_mse": 0.015195702151442591,
+      "calibration_slope": 0.6007961921624262,
+      "calibration_intercept": 0.11644988520257661
+    },
+    "altitude_stratified_aft_test": {
+      "n": 2202,
+      "mae": 0.03381044057906619,
+      "rmse": 0.06579007391020246,
+      "r2": 0.9617232076759916,
+      "probability_mse": 0.0043283338251099025,
+      "calibration_slope": 0.868461445085023,
+      "calibration_intercept": -0.014682673074079798
+    },
+    "best_aft_mae": 0.03381044057906619,
+    "prespecified_candidates": {
+      "global": {
+        "probability_q": 0.27937515948966246,
+        "point": {
+          "n": 2202,
+          "mae": 0.0849716157826017,
+          "rmse": 0.12163426326178307,
+          "r2": 0.8691641846617219,
+          "probability_mse": 0.01479489399923675,
+          "calibration_slope": 0.5978080491517463,
+          "calibration_intercept": 0.14998920182306208
+        },
+        "coverage": {
+          "n": 2202,
+          "covered_n": 2129,
+          "coverage": 0.9668483197093551,
+          "nominal": 0.95,
+          "avg_width": 0.37685467357948016,
+          "coverage_wilson_95": [
+            0.9585199573914612,
+            0.9735506552894683
+          ],
+          "unit": "probability"
+        },
+        "calibration_mae": 0.09008673190733174
+      },
+      "exercise": {
+        "probability_q": 0.27751237266708056,
+        "point": {
+          "n": 2202,
+          "mae": 0.08552647276593704,
+          "rmse": 0.12327084874958309,
+          "r2": 0.865619714428222,
+          "probability_mse": 0.015195702151442591,
+          "calibration_slope": 0.6007961921624262,
+          "calibration_intercept": 0.11644988520257661
+        },
+        "coverage": {
+          "n": 2202,
+          "covered_n": 2111,
+          "coverage": 0.9586739327883742,
+          "nominal": 0.95,
+          "avg_width": 0.3776843164829878,
+          "coverage_wilson_95": [
+            0.9495305203193349,
+            0.9662197898049247
+          ],
+          "unit": "probability"
+        },
+        "calibration_mae": 0.08970261137210556
+      },
+      "altitude": {
+        "probability_q": 0.11220457041534837,
+        "point": {
+          "n": 2202,
+          "mae": 0.03381044057906619,
+          "rmse": 0.06579007391020246,
+          "r2": 0.9617232076759916,
+          "probability_mse": 0.0043283338251099025,
+          "calibration_slope": 0.868461445085023,
+          "calibration_intercept": -0.014682673074079798
+        },
+        "coverage": {
+          "n": 2202,
+          "covered_n": 2086,
+          "coverage": 0.9473206176203451,
+          "nominal": 0.95,
+          "avg_width": 0.18638749169665153,
+          "coverage_wilson_95": [
+            0.9371866765909196,
+            0.9558965466490761
+          ],
+          "unit": "probability"
+        },
+        "calibration_mae": 0.03545332590253882
+      }
+    },
+    "selection_caveat": "Calibration-selected comparison is exploratory; selection reuses calibration cells, so selected interval coverage has no unqualified split-conformal guarantee."
+  },
+  "ablation": {
+    "identical_test_fold": true,
+    "n_features_full": 11,
+    "vo2_features": [
+      "prebreathe_vo2_mean_lmin",
+      "prebreathe_vo2_peak_lmin",
+      "altitude_vo2_mean_lmin",
+      "altitude_vo2_peak_1min_lmin"
+    ],
+    "note": "Exercise is represented by synthetic category-conditioned VO2, not independently measured workload; fixed prebreathe VO2 adds no exercise information.",
+    "full_vo2_test": {
+      "n": 2202,
+      "mae": 0.021931931798648236,
+      "rmse": 0.044601471355993974,
+      "r2": 0.9824080833376966,
+      "probability_mse": 0.0019892912471195508,
+      "calibration_slope": 0.9499122371826826,
+      "calibration_intercept": 0.01654025890537268,
+      "coverage": 0.9514078110808356,
+      "conformal_coverage": {
+        "n": 2202,
+        "covered_n": 2095,
+        "coverage": 0.9514078110808356,
+        "nominal": 0.95,
+        "avg_width": 0.1402296683209201,
+        "coverage_wilson_95": [
+          0.9416145255897311,
+          0.9596288489285997
+        ],
+        "unit": "probability"
+      },
+      "accepted_subset_coverage": {
+        "n": 2177,
+        "covered_n": 2071,
+        "coverage": 0.951309141019752,
+        "nominal": 0.95,
+        "avg_width": 0.14043163113288315,
+        "coverage_wilson_95": [
+          0.9414465023899381,
+          0.9595818562063756
+        ],
+        "unit": "probability"
+      }
+    },
+    "ordinal_exercise_test": {
+      "n": 2202,
+      "mae": 0.016662669253288277,
+      "rmse": 0.037004769784119006,
+      "r2": 0.9878903887706163,
+      "probability_mse": 0.001369352986775647,
+      "calibration_slope": 0.9547295900427921,
+      "calibration_intercept": 0.014330619639788808,
+      "coverage": 0.9536784741144414,
+      "conformal_coverage": {
+        "n": 2202,
+        "covered_n": 2100,
+        "coverage": 0.9536784741144414,
+        "nominal": 0.95,
+        "avg_width": 0.11062681211885965,
+        "coverage_wilson_95": [
+          0.9440817978190728,
+          0.9616949940761106
+        ],
+        "unit": "probability"
+      },
+      "accepted_subset_coverage": {
+        "n": 2176,
+        "covered_n": 2075,
+        "coverage": 0.9535845588235294,
+        "nominal": 0.95,
+        "avg_width": 0.11094639336251925,
+        "coverage_wilson_95": [
+          0.9439173792314081,
+          0.9616530658173547
+        ],
+        "unit": "probability"
+      }
+    },
+    "no_exercise_test": {
+      "n": 2202,
+      "mae": 0.0906996231712743,
+      "rmse": 0.12503621082071778,
+      "r2": 0.8617432335517718,
+      "probability_mse": 0.015634054016402985,
+      "calibration_slope": 0.883752062855821,
+      "calibration_intercept": 0.02095393680172016,
+      "coverage": 0.9600363306085377,
+      "conformal_coverage": {
+        "n": 2202,
+        "covered_n": 2114,
+        "coverage": 0.9600363306085377,
+        "nominal": 0.95,
+        "avg_width": 0.3972389935634651,
+        "coverage_wilson_95": [
+          0.9510219600485916,
+          0.9674484005017796
+        ],
+        "unit": "probability"
+      },
+      "accepted_subset_coverage": {
+        "n": 2175,
+        "covered_n": 2087,
+        "coverage": 0.9595402298850575,
+        "nominal": 0.95,
+        "avg_width": 0.398686183590572,
+        "coverage_wilson_95": [
+          0.9504171532687166,
+          0.9670428995989969
+        ],
+        "unit": "probability"
+      }
+    },
+    "gain_importance": {
+      "continuous_regressor": {
+        "per_feature_gain_share": {
+          "altitude_time_min": 0.3719238434863692,
+          "altitude_ft": 0.3666577811774109,
+          "ambient_pressure_atm": 0.11219033632271765,
+          "altitude_vo2_peak_1min_lmin": 0.06609962462246487,
+          "altitude_vo2_mean_lmin": 0.06598899866662136,
+          "prebreathe_time_min": 0.017139415724416015,
+          "prebreathe_fio2": 0.0,
+          "ascent_rate_fpm": 0.0,
+          "altitude_fio2": 0.0,
+          "prebreathe_vo2_mean_lmin": 0.0,
+          "prebreathe_vo2_peak_lmin": 0.0
+        },
+        "vo2_block_gain_share": 0.13208862328908622
+      },
+      "zero_classifier": {
+        "per_feature_gain_share": {
+          "altitude_ft": 0.4138016701453243,
+          "altitude_time_min": 0.16533258550916646,
+          "ambient_pressure_atm": 0.13901155826400363,
+          "prebreathe_time_min": 0.10958359192709073,
+          "altitude_vo2_peak_1min_lmin": 0.09569836248565498,
+          "altitude_vo2_mean_lmin": 0.0765722316687598,
+          "prebreathe_fio2": 0.0,
+          "ascent_rate_fpm": 0.0,
+          "altitude_fio2": 0.0,
+          "prebreathe_vo2_mean_lmin": 0.0,
+          "prebreathe_vo2_peak_lmin": 0.0
+        },
+        "vo2_block_gain_share": 0.17227059415441479
+      }
+    }
+  },
+  "honest_multipliers": {
+    "vs_global_aft": 3.874333394919589,
+    "vs_best_aft": 1.541607957268501
+  },
+  "circularity_verdict": {
+    "full_vo2_mae": 0.021931931798648236,
+    "ordinal_exercise_mae": 0.016662669253288277,
+    "vo2_minus_ordinal_mae_delta": 0.005269262545359959,
+    "interpretation": "if delta ~ 0 or positive, the synthesised continuous-VO2 features add nothing beyond the 3-level category they were generated from"
+  },
+  "compact_variants": [
+    {
+      "coverage": {
+        "n": 2202,
+        "covered_n": 2095,
+        "coverage": 0.9514078110808356,
+        "nominal": 0.95,
+        "avg_width": 0.1402296683209201,
+        "coverage_wilson_95": [
+          0.9416145255897311,
+          0.9596288489285997
+        ],
+        "unit": "probability"
+      },
+      "tag": "full",
+      "config": {
+        "n_estimators": 400,
+        "learning_rate": 0.05,
+        "num_leaves": 31,
+        "max_depth": -1,
+        "min_data_in_leaf": 20,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0,
+        "random_state": 42,
+        "excluded_features": [
+          "tissue_n2_ratio_360min",
+          "altitude_vo2_integral_lmin_min"
+        ],
+        "monotonic_constraints": {
+          "altitude_ft": 1,
+          "ambient_pressure_atm": -1,
+          "altitude_time_min": 1,
+          "prebreathe_time_min": -1,
+          "tissue_n2_ratio_360min": 1
+        }
+      },
+      "point": {
+        "n": 2202,
+        "unit": "probability",
+        "mae": 0.021931931798648236,
+        "mse": 0.0019892912471195508,
+        "rmse": 0.044601471355993974,
+        "r2": 0.9824080833376966
+      },
+      "probability_mse": 0.0019892912471195508,
+      "calibration_slope": 0.9499122371826826,
+      "calibration_intercept": 0.01654025890537268,
+      "onnx_size_kb": 1780.111328125,
+      "size_scope": "classifier plus continuous regressor; host metadata additional",
+      "accepted_subset_coverage": {
+        "n": 2177,
+        "covered_n": 2071,
+        "coverage": 0.951309141019752,
+        "nominal": 0.95,
+        "avg_width": 0.14043163113288315,
+        "coverage_wilson_95": [
+          0.9414465023899381,
+          0.9595818562063756
+        ],
+        "unit": "probability"
+      },
+      "model_id": "ea19ae57e21144e0ec93",
+      "quantitative_enabled": true
+    },
+    {
+      "coverage": {
+        "n": 2202,
+        "covered_n": 2097,
+        "coverage": 0.952316076294278,
+        "nominal": 0.95,
+        "avg_width": 0.13779481478365344,
+        "coverage_wilson_95": [
+          0.9426007732835894,
+          0.9604559681854824
+        ],
+        "unit": "probability"
+      },
+      "tag": "medium",
+      "config": {
+        "n_estimators": 200,
+        "learning_rate": 0.07,
+        "num_leaves": 15,
+        "max_depth": -1,
+        "min_data_in_leaf": 20,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0,
+        "random_state": 42,
+        "excluded_features": [
+          "tissue_n2_ratio_360min",
+          "altitude_vo2_integral_lmin_min"
+        ],
+        "monotonic_constraints": {
+          "altitude_ft": 1,
+          "ambient_pressure_atm": -1,
+          "altitude_time_min": 1,
+          "prebreathe_time_min": -1,
+          "tissue_n2_ratio_360min": 1
+        }
+      },
+      "point": {
+        "n": 2202,
+        "unit": "probability",
+        "mae": 0.02129152534363324,
+        "mse": 0.001834941002576407,
+        "rmse": 0.04283621134713488,
+        "r2": 0.9837730502035292
+      },
+      "probability_mse": 0.001834941002576407,
+      "calibration_slope": 0.956284913433607,
+      "calibration_intercept": 0.0205495025841204,
+      "onnx_size_kb": 422.0478515625,
+      "size_scope": "classifier plus continuous regressor; host metadata additional",
+      "accepted_subset_coverage": {
+        "n": 2177,
+        "covered_n": 2073,
+        "coverage": 0.9522278364722094,
+        "nominal": 0.95,
+        "avg_width": 0.1379752160147359,
+        "coverage_wilson_95": [
+          0.9424444218091367,
+          0.9604180912067114
+        ],
+        "unit": "probability"
+      },
+      "model_id": "8573e6ad008c11ffda16",
+      "quantitative_enabled": true
+    },
+    {
+      "coverage": {
+        "n": 2202,
+        "covered_n": 2114,
+        "coverage": 0.9600363306085377,
+        "nominal": 0.95,
+        "avg_width": 0.16111531109912391,
+        "coverage_wilson_95": [
+          0.9510219600485916,
+          0.9674484005017796
+        ],
+        "unit": "probability"
+      },
+      "tag": "compact",
+      "config": {
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "num_leaves": 7,
+        "max_depth": -1,
+        "min_data_in_leaf": 20,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0,
+        "random_state": 42,
+        "excluded_features": [
+          "tissue_n2_ratio_360min",
+          "altitude_vo2_integral_lmin_min"
+        ],
+        "monotonic_constraints": {
+          "altitude_ft": 1,
+          "ambient_pressure_atm": -1,
+          "altitude_time_min": 1,
+          "prebreathe_time_min": -1,
+          "tissue_n2_ratio_360min": 1
+        }
+      },
+      "point": {
+        "n": 2202,
+        "unit": "probability",
+        "mae": 0.024925736771070916,
+        "mse": 0.002223266177450362,
+        "rmse": 0.04715152359627801,
+        "r2": 0.9803389707925084
+      },
+      "probability_mse": 0.002223266177450362,
+      "calibration_slope": 0.9540452209204751,
+      "calibration_intercept": 0.028521987788994164,
+      "onnx_size_kb": 94.5654296875,
+      "size_scope": "classifier plus continuous regressor; host metadata additional",
+      "accepted_subset_coverage": {
+        "n": 2177,
+        "covered_n": 2089,
+        "coverage": 0.9595774000918695,
+        "nominal": 0.95,
+        "avg_width": 0.1613823690704563,
+        "coverage_wilson_95": [
+          0.9504624655155725,
+          0.9670732828565516
+        ],
+        "unit": "probability"
+      },
+      "model_id": "52528fa674d0225a89bd",
+      "quantitative_enabled": true
+    },
+    {
+      "coverage": {
+        "n": 2202,
+        "covered_n": 2087,
+        "coverage": 0.9477747502270663,
+        "nominal": 0.95,
+        "avg_width": 0.17942784818024587,
+        "coverage_wilson_95": [
+          0.9376778648104704,
+          0.9563120419048958
+        ],
+        "unit": "probability"
+      },
+      "tag": "tiny",
+      "config": {
+        "n_estimators": 50,
+        "learning_rate": 0.15,
+        "num_leaves": 5,
+        "max_depth": -1,
+        "min_data_in_leaf": 20,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0,
+        "random_state": 42,
+        "excluded_features": [
+          "tissue_n2_ratio_360min",
+          "altitude_vo2_integral_lmin_min"
+        ],
+        "monotonic_constraints": {
+          "altitude_ft": 1,
+          "ambient_pressure_atm": -1,
+          "altitude_time_min": 1,
+          "prebreathe_time_min": -1,
+          "tissue_n2_ratio_360min": 1
+        }
+      },
+      "point": {
+        "n": 2202,
+        "unit": "probability",
+        "mae": 0.029642696835638804,
+        "mse": 0.0028016497208584,
+        "rmse": 0.05293061232272304,
+        "r2": 0.975224146550852
+      },
+      "probability_mse": 0.0028016497208584,
+      "calibration_slope": 0.9642418373653363,
+      "calibration_intercept": 0.06556196206919394,
+      "onnx_size_kb": 33.7255859375,
+      "size_scope": "classifier plus continuous regressor; host metadata additional",
+      "accepted_subset_coverage": {
+        "n": 2177,
+        "covered_n": 2063,
+        "coverage": 0.9476343592099219,
+        "nominal": 0.95,
+        "avg_width": 0.17977245650990023,
+        "coverage_wilson_95": [
+          0.9374633681342236,
+          0.9562283727839521
+        ],
+        "unit": "probability"
+      },
+      "model_id": "e6f5b70cb0db01663840",
+      "quantitative_enabled": true
+    }
+  ],
+  "onnx": {
+    "input_model": "artifacts/accuracy-v3/surrogate.joblib",
+    "n_features": 11,
+    "parity": {
+      "max_abs_p_zero": 2.8674693797192674e-07,
+      "max_abs_probability_and_interval": 3.215886022200909e-07,
+      "fixture_kind": "feasible constant-workload profiles",
+      "max_abs_continuous_logit": 6.44632973845205e-06,
+      "tolerance": 0.0001,
+      "n": 10000,
+      "final_output_max_abs_error": {
+        "point": 3.215886022200909e-07,
+        "lower": 3.215886022200909e-07,
+        "upper": 3.215886021923353e-07,
+        "ood_distance": 0.0
+      },
+      "support_gate_identical": true,
+      "supported_n": 1211,
+      "quantitative_output_n": 1211
+    },
+    "classifier_benchmark": {
+      "batch_size": 10000,
+      "trials": 20,
+      "batch_latency_ms_p50": 72.80172299942933,
+      "batch_latency_ms_p95": 78.58330846647732,
+      "per_row_latency_us_p50": 7.280172299942933,
+      "per_row_latency_us_p95": 7.858330846647732,
+      "model_size_kb": 892.5859375
+    },
+    "continuous_benchmark": {
+      "batch_size": 10000,
+      "trials": 20,
+      "batch_latency_ms_p50": 72.22009700490162,
+      "batch_latency_ms_p95": 136.83073496358702,
+      "per_row_latency_us_p50": 7.222009700490162,
+      "per_row_latency_us_p95": 13.683073496358702,
+      "model_size_kb": 887.537109375
+    },
+    "combined_inference": {
+      "total_size_kb": 1780.123046875,
+      "sum_amortized_component_us_p50": 14.502182000433095,
+      "sum_amortized_component_us_p95_not_end_to_end": 21.541404343006434
+    },
+    "end_to_end_batch": {
+      "batch_size": 10000,
+      "trials": 20,
+      "latency_ms_p50": 221.2288515002001,
+      "latency_ms_p95": 235.80315906292526,
+      "scope": "both ONNX graphs, float32 conversion, mixture, interval, support gate; features already extracted"
+    },
+    "end_to_end_single_row": {
+      "batch_size": 1,
+      "trials": 100,
+      "latency_ms_p50": 0.08643450564704835,
+      "latency_ms_p95": 0.1074236977729015,
+      "scope": "both ONNX graphs, float32 conversion, mixture, interval, support gate; features already extracted"
+    },
+    "latency_interpretation": "CPU only; component per-row numbers amortize a batch; single-row timings include both graphs and host postprocessing"
+  },
+  "duration_monotonicity": {
+    "model_id": "80998610508becd61fba",
+    "feature_names": [
+      "altitude_ft",
+      "ambient_pressure_atm",
+      "prebreathe_time_min",
+      "prebreathe_fio2",
+      "ascent_rate_fpm",
+      "altitude_time_min",
+      "altitude_fio2",
+      "prebreathe_vo2_mean_lmin",
+      "prebreathe_vo2_peak_lmin",
+      "altitude_vo2_mean_lmin",
+      "altitude_vo2_peak_1min_lmin"
+    ],
+    "fixture_kind": "complete constant physical profiles; dependent features recomputed at every duration",
+    "altitude_ft": [
+      18000,
+      18500,
+      19000,
+      19500,
+      20000,
+      20500,
+      21000,
+      21500,
+      22000,
+      22500,
+      23000,
+      23500,
+      24000,
+      24500,
+      25000,
+      25500,
+      26000,
+      26500,
+      27000,
+      27500,
+      28000,
+      28500,
+      29000,
+      29500,
+      30000,
+      30500,
+      31000,
+      31500,
+      32000,
+      32500,
+      33000,
+      33500,
+      34000,
+      34500,
+      35000,
+      35500,
+      36000,
+      36500,
+      37000,
+      37500,
+      38000,
+      38500,
+      39000,
+      39500,
+      40000
+    ],
+    "prebreathe_min": [
+      0,
+      15,
+      30,
+      45,
+      60
+    ],
+    "constant_i_ex_lmin": [
+      0.0,
+      0.1,
+      0.45,
+      1.1,
+      1.5
+    ],
+    "duration_min": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      110,
+      120,
+      130,
+      140,
+      150,
+      160,
+      170,
+      180,
+      190,
+      200,
+      210,
+      220,
+      230,
+      240
+    ],
+    "profiles_n": 1125,
+    "rows_n": 27000,
+    "adjacent_comparisons_n": 25875,
+    "violations_n": 0,
+    "minimum_probability_change": 5.04394548041883e-14,
+    "support_accepted_n": 1144,
+    "tolerance": 1e-10,
+    "passed": true,
+    "examples": [],
+    "interpretation": "finite grid check of duration monotonicity under constant workload, not a proof for arbitrary changing trajectories"
+  },
+  "environment": {
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.5.2",
+      "pandas": "2.3.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.0",
+      "lightgbm": "4.7.0",
+      "joblib": "1.6.0",
+      "pyarrow": "25.0.1",
+      "onnx": "1.22.0",
+      "onnxruntime": "1.29.0",
+      "onnxmltools": "1.16.0",
+      "onnxconverter-common": "1.16.0"
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2"
+    },
+    "onnxruntime_threads": 2,
+    "lightgbm_threads": 2
+  },
+  "requirements_lock_sha256": "a38d9097f8d9b8604f33597261a653a8d49a8bae1f78f57a8132fa4d0363da31",
+  "commands": [
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/01_clean_data.py --input legacy/Model_Rel_Candidate/DCS_Risk_DB_2025.csv --output artifacts/accuracy-v3/clean.parquet --report artifacts/accuracy-v3/data_quality.md",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/04_train_adrac_surrogate.py --training artifacts/accuracy-v3/clean.parquet --output-surrogate artifacts/accuracy-v3/surrogate.joblib --output-baseline artifacts/accuracy-v3/adrac.joblib --output-metrics artifacts/accuracy-v3/metrics.json --output-figures artifacts/accuracy-v3/figures --run-leave-one-altitude-out --zi",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/06_train_compact_surrogate.py --training artifacts/accuracy-v3/clean.parquet --reference-metrics artifacts/accuracy-v3/metrics.json --output-metrics artifacts/accuracy-v3/compact_comparison.json",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/07_export_zero_inflated_onnx.py --input-model artifacts/accuracy-v3/surrogate.joblib --output-dir artifacts/accuracy-v3/onnx --benchmark-n 10000 --tolerance 1e-4",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/10_fair_baseline_and_ablation.py --training artifacts/accuracy-v3/clean.parquet --reference-metrics artifacts/accuracy-v3/metrics.json --output artifacts/accuracy-v3/fair_baseline_ablation.json",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/11_grouped_cleaning_validation.py --training artifacts/accuracy-v3/clean.parquet --raw-policy artifacts/accuracy-v3/clean_sensitivity_raw.parquet --rescaled-policy artifacts/accuracy-v3/clean_sensitivity_rescaled.parquet --reference-metrics artifacts/accuracy-v3/metrics.json --input-model artifacts/accuracy-v3/surrogate.joblib --output-dir artifacts/accuracy-v3/robustness",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/12_export_frontend_evidence.py --training artifacts/accuracy-v3/clean.parquet --reference-metrics artifacts/accuracy-v3/metrics.json --baseline artifacts/accuracy-v3/adrac.joblib --output-dir frontend/src/data",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 -m pytest tests/test_evidence_pipeline.py tests/test_statistical_accuracy.py -q",
+    "env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 MPLCONFIGDIR=/tmp/dcs-matplotlib .venv/bin/python3.12 scripts/13_build_evidence_manifest.py --artifact-dir artifacts/accuracy-v3 --frontend-data-dir frontend/src/data"
+  ],
+  "raw_source_sha256": "88a5a48a3441856eb3417d4aff3c396c710d25be8676c0fbda7a59451a3d6cdd",
+  "artifact_sha256": {
+    "artifacts/accuracy-v3/EVIDENCE.md": {
+      "sha256": "9a899b5c8479896c70bcbb6042b458d23be9bfbad8bbf409461c16d59bfd426f",
+      "bytes": 2115
+    },
+    "artifacts/accuracy-v3/adrac.joblib": {
+      "sha256": "6864df9ba48ca7a95d22cb8933f9ecafd205cadecf76b83a117ac4580e62bb86",
+      "bytes": 1015
+    },
+    "artifacts/accuracy-v3/clean.ledger.csv": {
+      "sha256": "3dbe218847362a8f48a76cbbe37ffda0744e5a6d8ff70b816da28cc45a2c64ee",
+      "bytes": 1485098
+    },
+    "artifacts/accuracy-v3/clean.parquet": {
+      "sha256": "bd0af1b2722408c1cb4eaa681bb190bc01658953f00e2aa7fb48617ddf024425",
+      "bytes": 344757
+    },
+    "artifacts/accuracy-v3/clean_sensitivity_raw.parquet": {
+      "sha256": "c43a9602b1fe1526de762912d0ae12ba039c316c2facc98b5d54269039595454",
+      "bytes": 372978
+    },
+    "artifacts/accuracy-v3/clean_sensitivity_rescaled.parquet": {
+      "sha256": "a02b49d8f034c2042da9eff2dbeabd271e2cd74c1a99466f4260ebb780ff4a11",
+      "bytes": 372519
+    },
+    "artifacts/accuracy-v3/compact.joblib": {
+      "sha256": "523ef6635450bdf9239b59b76c15ccfe9b28879c3b7a71e7995fbda80c7ed75b",
+      "bytes": 260939
+    },
+    "artifacts/accuracy-v3/compact_comparison.json": {
+      "sha256": "2d1a93e98f2e93bacdc9fb653044408adbd8cfaaad9c39e3a069725da5b3a6c0",
+      "bytes": 21886
+    },
+    "artifacts/accuracy-v3/compact_comparison.splits.json": {
+      "sha256": "26d78637cf449f192b523b7d14220455b7c675f73b31a2776a6ab44f9a39e522",
+      "bytes": 411175
+    },
+    "artifacts/accuracy-v3/data_quality.md": {
+      "sha256": "9650f9ba70cf97ad55cf6445ff86733f57f65cda3ca8e33f7c351b09562dea2d",
+      "bytes": 763
+    },
+    "artifacts/accuracy-v3/environment.json": {
+      "sha256": "0ed5c821f936f3720a0fa9321b0ac9ee5c2cfa166ff1dcbf40143ecdc078ed24",
+      "bytes": 2163
+    },
+    "artifacts/accuracy-v3/fair_baseline_ablation.json": {
+      "sha256": "e929effe6d149a63e5f28c120ceb6bfc1dc1e0d612071568fe2c3dcab41e4ba4",
+      "bytes": 23637
+    },
+    "artifacts/accuracy-v3/fair_baseline_ablation.splits.json": {
+      "sha256": "26d78637cf449f192b523b7d14220455b7c675f73b31a2776a6ab44f9a39e522",
+      "bytes": 411175
+    },
+    "artifacts/accuracy-v3/figures/bland_altman_adrac_random.png": {
+      "sha256": "e163c66f94ca70f84d11f5da485306777554b6f2e9d4d7ed2ee3892bfac35431",
+      "bytes": 88884
+    },
+    "artifacts/accuracy-v3/figures/bland_altman_tinydcs_random.png": {
+      "sha256": "5b568f82254eb5dc2413b16289343df46950e659485450364c4c63087dee4d67",
+      "bytes": 81006
+    },
+    "artifacts/accuracy-v3/figures/reliability_adrac_random.png": {
+      "sha256": "8c51031dc583084801f1e5ba063aab2435899655fb2243d3b75f748f9f169d52",
+      "bytes": 56663
+    },
+    "artifacts/accuracy-v3/figures/reliability_tinydcs_random.png": {
+      "sha256": "67d801792c97efbefbe27ef0c1df5f933db8edeba9f3ca371aef006b588ecfc6",
+      "bytes": 52289
+    },
+    "artifacts/accuracy-v3/full.joblib": {
+      "sha256": "9d3ec2eac67fdf830241fbaa9c2bb5a0ef64c547e759a5d2c142c04e00852f9e",
+      "bytes": 3687909
+    },
+    "artifacts/accuracy-v3/medium.joblib": {
+      "sha256": "c819c966b0442ad16e0824c2370e161dbbff852573659eb8de2a5e181426f82a",
+      "bytes": 952718
+    },
+    "artifacts/accuracy-v3/metrics.features.parquet": {
+      "sha256": "1f3b188e3d43396315302cf0f0afe2231377b812914d416a61ba62bc59956dac",
+      "bytes": 559773
+    },
+    "artifacts/accuracy-v3/metrics.json": {
+      "sha256": "5488a5e1e7dfeca07f93da0678aa270a132cd69060e67816349b32594ba43576",
+      "bytes": 15194
+    },
+    "artifacts/accuracy-v3/metrics.splits.json": {
+      "sha256": "d9032c6f9f48bbf4782b709e9374dd2f64aeec858fdedef797d22bf0d216410e",
+      "bytes": 411174
+    },
+    "artifacts/accuracy-v3/onnx/benchmark.json": {
+      "sha256": "20fc7b072dd54e7eadfe0b48fd420eaec23daf0740995fe57e4ac2fd4a443b98",
+      "bytes": 11248
+    },
+    "artifacts/accuracy-v3/onnx/classifier.onnx": {
+      "sha256": "5caad3a49a3c0281a0bca85eab7b6a80eed67b76d0f2835ea3e7b1bd56e4b7db",
+      "bytes": 914008
+    },
+    "artifacts/accuracy-v3/onnx/continuous.onnx": {
+      "sha256": "f201137766146d4856c2e952cd43e28f15bb8ab6b9d1506011b7c4838a316869",
+      "bytes": 908838
+    },
+    "artifacts/accuracy-v3/onnx/metadata.json": {
+      "sha256": "11eed7ff39477a5d97a1af5efa27c92d94851ae01e9e26fa3f3dce7db38e4d6c",
+      "bytes": 8473
+    },
+    "artifacts/accuracy-v3/reproduce_commands.json": {
+      "sha256": "6a0a6c583fd7399cd5059694c50f82c6688cff67fd734d85d7c6711ab1c4a5e3",
+      "bytes": 3179
+    },
+    "artifacts/accuracy-v3/requirements.lock.txt": {
+      "sha256": "a38d9097f8d9b8604f33597261a653a8d49a8bae1f78f57a8132fa4d0363da31",
+      "bytes": 1007
+    },
+    "artifacts/accuracy-v3/robustness/duration_monotonicity.json": {
+      "sha256": "8368eaedd6486f150099b850b3b48503c60859797a8a249b8fde931d3a475806",
+      "bytes": 1735
+    },
+    "artifacts/accuracy-v3/robustness/grouped/baseline.joblib": {
+      "sha256": "62dc8e3e07fd9ee14dfc2cde0b3fb4cc8c0b44642a146e8be18c9a3fa599ae43",
+      "bytes": 2489
+    },
+    "artifacts/accuracy-v3/robustness/grouped/profile_groups.json": {
+      "sha256": "f801004b6d2fd26c5512520ba04af9c05741d032d34f67b140580938d16fe0d9",
+      "bytes": 22018
+    },
+    "artifacts/accuracy-v3/robustness/grouped/splits.json": {
+      "sha256": "8dc1b231a832fe982c8886ad73bb65f56e0484b6596028222ec49a3c7d6f87bc",
+      "bytes": 411175
+    },
+    "artifacts/accuracy-v3/robustness/grouped/surrogate.joblib": {
+      "sha256": "f4b35bd87cc5a4b279257986935a9c50b5682f44e34fcc693bccab3b8de39385",
+      "bytes": 3687771
+    },
+    "artifacts/accuracy-v3/robustness/grouped/test_predictions.parquet": {
+      "sha256": "74c11865648467fa23abf54af1254cde56314be9de3588e505850dcfdefc914b",
+      "bytes": 135534
+    },
+    "artifacts/accuracy-v3/robustness/robustness.json": {
+      "sha256": "9ddcd4b8f624f553c075e1f091ba04807f2705718ad3dfd087041c5b61144f43",
+      "bytes": 47356
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/primary/baseline.joblib": {
+      "sha256": "aeadc1a0e336b40caa8de01190726e36e26428265a7693f5f321821eea4b57c7",
+      "bytes": 2498
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/primary/splits.json": {
+      "sha256": "26d78637cf449f192b523b7d14220455b7c675f73b31a2776a6ab44f9a39e522",
+      "bytes": 411175
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/primary/surrogate.joblib": {
+      "sha256": "641d0cb24b3595698ebefdb3b6b843de8ad618f1e3e85eb2ef9973b083917037",
+      "bytes": 3688213
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/primary/test_predictions.parquet": {
+      "sha256": "21cb8a54284d83d4ad0487ac830a2e3cdd0d7b3bb21c2906c7b8134b8bf49656",
+      "bytes": 144352
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/raw/baseline.joblib": {
+      "sha256": "294257b58ad2c2c0a6e1f352fc05afca8422195525180ef1610d5a44a771cf19",
+      "bytes": 2498
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/raw/splits.json": {
+      "sha256": "d30adf2c01ff28ad09e5f5f354d9ff522eabaf4a6279183f886774e10e1ea81f",
+      "bytes": 445475
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/raw/surrogate.joblib": {
+      "sha256": "cdd9776718f3971f95e0eaaf263abc86ba70bdd66b2861bd165f007839f5b183",
+      "bytes": 3669642
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/raw/test_predictions.parquet": {
+      "sha256": "7dbf4b6e2ac8a3f4a8dd4dcfdd731f7e65e8763762215cbe99c0880f2212078e",
+      "bytes": 147675
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/rescaled/baseline.joblib": {
+      "sha256": "026ab5f23c11887afc67b65cbceb745c2dd0f97183b6c474ed181301a56d418a",
+      "bytes": 2498
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/rescaled/splits.json": {
+      "sha256": "d30adf2c01ff28ad09e5f5f354d9ff522eabaf4a6279183f886774e10e1ea81f",
+      "bytes": 445475
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/rescaled/surrogate.joblib": {
+      "sha256": "01d1dbc06e66faf1f31d89cf6b58434f6a1b65f9da5df23b39aead30c4c6e7b5",
+      "bytes": 3695632
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity/rescaled/test_predictions.parquet": {
+      "sha256": "67afdf10e4e31ebc8d55b7de74b124a77b73636232bfecf31b15b87ffa098666",
+      "bytes": 155717
+    },
+    "artifacts/accuracy-v3/robustness/sensitivity_common_splits.json": {
+      "sha256": "d30adf2c01ff28ad09e5f5f354d9ff522eabaf4a6279183f886774e10e1ea81f",
+      "bytes": 445475
+    },
+    "artifacts/accuracy-v3/surrogate.joblib": {
+      "sha256": "b5cda65e677d60ba16e9ff3421b7c1f019c9de2527186b9b89d78593cc7bcb2b",
+      "bytes": 3686517
+    },
+    "artifacts/accuracy-v3/tiny.joblib": {
+      "sha256": "5fb99582bcfd4fd8a5efbb2a61885f2b0309289cd2c64d3f39b4d62b5c2274f2",
+      "bytes": 111615
+    },
+    "frontend/src/data/adrac_coefficients.json": {
+      "sha256": "37189ea31796058c54a91697dd5b064c61595415a94d691d9790ef28b3767fd2",
+      "bytes": 3455
+    },
+    "frontend/src/data/adrac_validation.json": {
+      "sha256": "63a3f5265e90b6bc9c2fb07659f7771ffc3e975b74831ef7a6339d1e88a78ab3",
+      "bytes": 704611
+    }
+  },
+  "source_sha256": {
+    "mechanistic/__init__.py": "8d29a571dc5de6afde0ca514373d12fd38193832a376e2054d26054c5b7d2d73",
+    "mechanistic/adrac.py": "d4249b47a9e301f025d810f29794b22f2528ef7113d2470ab9e97e35ab643d6f",
+    "mechanistic/atmosphere.py": "383c236ffa20738cb7d46e4dc7fe00914254cc5ec523832cbf64e7e233e8e971",
+    "mechanistic/conkin_nasa.py": "e79f5bf765a565a6fd6c9189e3c4a47d349fa98c5583551b4a92320e5fae0668",
+    "mechanistic/rut_mbe1.py": "e7d33e921d43e44f73b1997fe6b1e66d6d91376dcf064c8950767537193bb096",
+    "pyproject.toml": "01352437e4348a7bc3037760021dbfc86dd8f8b7d530eff226c2dd8220d4df7b",
+    "scripts/01_clean_data.py": "5a3a1df7c90669da0bb4b1a780c77db0fa114899220f146dc9275cbc38ca1e77",
+    "scripts/02_simulate_training.py": "e03c076b9e6bab8d76608ae6beed48410c3fc3a581ac9d8fa68a34d17f02f5f5",
+    "scripts/03_train_surrogate.py": "f210aaa844c9a466e6ace549eb53b093e31d9d00aa221e7c97f263245b6b58fc",
+    "scripts/04_train_adrac_surrogate.py": "e49ccf8208c4eb72599120b1f2055d5a60bc1ac4f59f09e8f85f1f4a53b1dbac",
+    "scripts/05_export_onnx.py": "7b1ac8cd5a71a4d7350e338c1d0858f3cecb25e107f288ae959c4c4b31b5465f",
+    "scripts/06_train_compact_surrogate.py": "d73e53e49e4d6e33d6a3e8b3dfa6766b6892a053c871ce3033a856769a9f4fb6",
+    "scripts/07_export_zero_inflated_onnx.py": "72e439ba7ddc2febea1c4488a26a56f8fcb30db0fbf5ab2ddea10ddf9126d6a8",
+    "scripts/08_personalization_demo.py": "85a282c515dde5e74c86f204ae8a85db14c41239029be0a8310ab40a3eed009d",
+    "scripts/09_make_paper_figures.py": "b1aa2944b15e4d89479a4ef896e28fe00155ec4daf7a6be30b475263d2cec2c3",
+    "scripts/10_fair_baseline_and_ablation.py": "9102aa7352841c71cc83711fb0b4ad7865cf74d610db106710c9190a2006e73b",
+    "scripts/11_grouped_cleaning_validation.py": "b2cd7027d32c127e0d20c99fb771b6fcf9639a2360ac74379a4111276a5d8a20",
+    "scripts/12_export_eva_browser_contract.py": "eb0908629826be169cd4df8b010bfb29fae2e7b2804be4b970fd884873b3bd18",
+    "scripts/12_export_frontend_evidence.py": "48e746ef632bca5fa0687437c686741fdb0d9e3ff75eae3f9107b1a79b4734e3",
+    "scripts/13_build_evidence_manifest.py": "6154525f1c3ee30062e075baaa803331bf4b953221b86769439e5ce7a370ba4e",
+    "scripts/evidence_common.py": "549c7db61bc3136f2c9a5bd811df5e778ca78c4ebbb730099bc36447e459d5fe",
+    "tests/test_evidence_pipeline.py": "88f28732b9b4b240caf6d72d987aefefdc8e1f7c018065091bb4a50355718e84",
+    "tinydcs/__init__.py": "5f6d87a36d2ee55c9b8611afadb59a3c691a176b568f04c440f9ce3f08de6671",
+    "tinydcs/api.py": "fb746b15554d0aef18ac4ac304b01de51cab717039ffc1eba4bc574488eb5e64",
+    "tinydcs/cli.py": "ca95ee9170eb17b6e293e8631d2d9307ebc20ee5d413a1ee686c70907cf54820",
+    "tinydcs/data_clean.py": "e77365d0a56bf0c22d4ffb48cbefb22b9b33df3ce5be487626d3439977d14c0b",
+    "tinydcs/eva.py": "195488fb14e467270606ad4a48cb558cbf4a420746a8f60132204193e68174ae",
+    "tinydcs/eva_contract.py": "e6f341e260779a6472950656dc800eb34b7d88f2bb03023ad5b96587116f0d28",
+    "tinydcs/eva_reports.py": "8c173a03f430ce53d0df2dd374f87ab7d752b5456f51fa6d17a07b1148e63105",
+    "tinydcs/eva_telemetry.py": "a00d1efef4eebed577226902bf82be7489211c382d3c448fcfb9669b56055fd3",
+    "tinydcs/features.py": "23816414a77b2d8eeb7e7f20769e69ffe0d027b4e12ba7988d7693980c4b0a8c",
+    "tinydcs/metrics.py": "fd01979d1eee3bb7746888ad9fcea50c061f9443e0e4726d839d744f46c6bb24",
+    "tinydcs/personalization.py": "20f63ced5064987f994affa27ff8fdb14dbd26042526f67c7e0d2cc1a27a0739",
+    "tinydcs/rut_reconciliation.py": "98b3072133825ee6acdbb5be4747ae8affb421b6b99ab42346b7553015f344c1",
+    "tinydcs/simulator.py": "4ae9decc29513ab82c62adc2fd88b38f9cfcfd643b47c7d0ad1ff82484c18576",
+    "tinydcs/surrogate.py": "4f89e6b7d3fdf27cef1bfa35f6fa133458cd8c7b9ad1d585c0f664fe059f24c2"
+  },
+  "manifest_sha256": "b023ddcac98eb8155dfbaf11f0b85476e8dcfb5e1f12f5148f4f4cc76e9ba989",
+  "superseded_artifact_locations": [
+    "artifacts/repro",
+    "artifacts/paper_figures"
+  ],
+  "legacy_policy": "preserved for provenance; not authoritative for current model or validation claims"
+}

@@ -4,16 +4,14 @@
  *
  * Closed-form ADRAC log-logistic AFT — Pilmanis et al. (ASEM 2004; 75:749-59),
  *   functional form from Kannan & Pilmanis (ASEM 1998).
- * Coefficients fitted in Python (mechanistic.adrac.fit_adrac) on the cleaned
- *   ADRAC grid (15,908 rows) and exported to data/adrac_coefficients.json.
+ * Coefficients fitted on the frozen training partition in Python and exported
+ *   to data/adrac_coefficients.json; validation rows are kept separate.
  *
- * NASA RM/NM logistic — Conkin (NASA/TM-2004-213093), Eq. 14 / Eq. 15,
- *   ported verbatim from mechanistic/conkin_nasa.py.
+ * NASA RM/NM logistic — NASA/TP-2004-213158, Eq. 6, 14 (RM), 15 (NM).
  *
- * Mechanistic 3RUT-MBe1 — schematic preview only. The full bubble-evolution
- *   recursion lives in mechanistic/rut_mbe1.py (29 KB) and is too heavy for
- *   client-side execution. The TS routine here emits ADRAC + Conkin time-
- *   sampled trajectories, badged as "schematic" in the UI.
+ * Mechanistic 3RUT-MBe1 — absolute risk and bubble history are unavailable
+ *   while source-equation reconciliation remains open. Pressure profiles work
+ *   independently of the disabled risk model.
  */
 
 import {
@@ -27,35 +25,32 @@ import type {
   MLSurrogateInputs,
   MLSurrogatePrediction,
   MechanisticInputs,
-  ModelState,
+  MechanisticSimulationResult,
   NASAInputs,
   NASAPrediction,
   ProfileSegment,
+  RegressionMetrics,
+  ValidationDataPoint,
 } from "../types";
 import adracCoefficients from "../data/adrac_coefficients.json";
 
 const LN2 = Math.log(2);
-const DEFAULT_T_HALF_MIN = 360.0;
 const SEA_LEVEL_MMHG = 760.0;
 const P_H2O_MMHG = 47.0;
 const N2_FRACTION_AIR = 0.79;
 
-const ADRAC = adracCoefficients as {
-  beta_1: number;
-  beta_2: number;
-  beta: [number, number, number, number];
-  feature_names: ["pressure_mmhg", "prebreathe_min", "exercise_mild", "exercise_heavy"];
-};
+const ADRAC = adracCoefficients;
 
 // ---------------------------------------------------------------------------
-// Validity envelope + out-of-distribution gate (mirrors the OOD layer of the
-// trained TinyDCS stack — the browser bundle reproduces the *envelope check*
-// only; the Mahalanobis gate itself runs server-side).
+// Audited primary-grid support. The coefficient metadata currently exports no
+// training bounds, so these explicit bounds come from the cleaned-grid audit;
+// held-out rows must not be used to infer training support. This rectangular
+// check is not the deployed surrogate's server-side Mahalanobis gate.
 // ---------------------------------------------------------------------------
 
 export const VALIDITY_ENVELOPE = {
   altitudeFt: [18000, 40000] as [number, number],
-  prebreatheMin: [0, 180] as [number, number],
+  prebreatheMin: [0, 60] as [number, number],
   timeAtAltitudeMin: [10, 240] as [number, number],
   exercise: ["Rest", "Mild", "Heavy"] as ExerciseLevel[],
 };
@@ -65,7 +60,7 @@ export interface EnvelopeVerdict {
   reasons: string[];
 }
 
-/** Returns whether a scenario sits inside the validated envelope, and why not. */
+/** Returns whether a scenario sits inside the audited grid support, and why not. */
 export function checkEnvelope(
   altitudeFt: number,
   prebreatheMin: number,
@@ -76,48 +71,61 @@ export function checkEnvelope(
   const [aLo, aHi] = VALIDITY_ENVELOPE.altitudeFt;
   const [pLo, pHi] = VALIDITY_ENVELOPE.prebreatheMin;
   const [tLo, tHi] = VALIDITY_ENVELOPE.timeAtAltitudeMin;
-  if (altitudeFt < aLo || altitudeFt > aHi)
+  if (!Number.isFinite(altitudeFt) || altitudeFt < aLo || altitudeFt > aHi)
     reasons.push(
       `Altitude ${altitudeFt.toLocaleString()} ft is outside ${aLo.toLocaleString()}–${aHi.toLocaleString()} ft`,
     );
-  if (prebreatheMin < pLo || prebreatheMin > pHi)
+  if (!Number.isFinite(prebreatheMin) || prebreatheMin < pLo || prebreatheMin > pHi)
     reasons.push(`Prebreathe ${prebreatheMin} min is outside ${pLo}–${pHi} min`);
-  if (timeAtAltitudeMin < tLo || timeAtAltitudeMin > tHi)
+  if (!Number.isFinite(timeAtAltitudeMin) || timeAtAltitudeMin < tLo || timeAtAltitudeMin > tHi)
     reasons.push(`Time-at-altitude ${timeAtAltitudeMin} min is outside ${tLo}–${tHi} min`);
   if (!VALIDITY_ENVELOPE.exercise.includes(exercise))
     reasons.push(`Exercise level "${exercise}" is not Rest/Mild/Heavy`);
   return { inEnvelope: reasons.length === 0, reasons };
 }
 
-/**
- * ILLUSTRATIVE calibrated 95 % prediction interval.
- *
- * The real TinyDCS interval is produced by a zero-inflated two-stage
- * split-conformal calibrator fitted on a held-out set (≥0.95 band coverage,
- * 0.960 overall). That calibrator is NOT shipped in the browser bundle. To
- * demonstrate the *shape* of the contribution, this routine forms a symmetric
- * band on the logit scale around the ADRAC point estimate — band width grows
- * in the low-altitude / near-zero region where the published method showed its
- * coverage gain. It is a teaching device, clearly labelled "illustrative"
- * everywhere it is rendered, and is NOT the conformal interval from the paper.
- */
+/** No calibrated interval is available for the bundled ADRAC baseline. */
 export function illustrativeInterval(
-  riskFraction: number,
-  altitudeFt: number,
-): { lowPercent: number; highPercent: number; widthPercent: number } {
-  const p = clamp(riskFraction, 1e-6, 1 - 1e-6);
-  const logit = Math.log(p / (1 - p));
-  // Base logit half-width ~ moderate; widened toward the low-altitude band
-  // (18–23 kft) where the zero-inflated stage matters most.
-  const lowBandFactor =
-    altitudeFt <= 23000 ? 1.0 + (23000 - Math.max(altitudeFt, 18000)) / 5000 : 1.0;
-  const halfWidth = 0.9 * lowBandFactor;
-  const low = stableSigmoid(logit - halfWidth);
-  const high = stableSigmoid(logit + halfWidth);
+  _riskFraction: number,
+  _altitudeFt: number,
+): null {
+  void _riskFraction;
+  void _altitudeFt;
+  return null;
+}
+
+function requireNonnegative(value: number, name: string): void {
+  if (!Number.isFinite(value) || value < 0)
+    throw new Error(`${name} must be finite and ≥ 0`);
+}
+
+/** Percent inputs produce percentage-point MAE/RMSE and squared-pp MSE. */
+export function summarizeValidation(data: ValidationDataPoint[]): {
+  metrics: RegressionMetrics;
+  rows: Array<ValidationDataPoint & { predictedRisk: number; residual: number; absError: number }>;
+  excludedCount: number;
+} {
+  const rows = data.flatMap((row) => {
+    if (!Number.isFinite(row.riskOfDcs) || row.riskOfDcs < 0 || row.riskOfDcs > 100 ||
+      typeof row.predictedRisk !== "number" || !Number.isFinite(row.predictedRisk) ||
+      row.predictedRisk < 0 || row.predictedRisk > 100) return [];
+    const residual = row.predictedRisk - row.riskOfDcs;
+    return [{ ...row, predictedRisk: row.predictedRisk, residual, absError: Math.abs(residual) }];
+  });
+  const excludedCount = data.length - rows.length;
+  if (rows.length === 0)
+    return { rows, excludedCount, metrics: { r2: null, mae: null, rmse: null, mse: null } };
+  const mean = rows.reduce((sum, row) => sum + row.riskOfDcs, 0) / rows.length;
+  const ssRes = rows.reduce((sum, row) => sum + row.residual ** 2, 0);
+  const ssTot = rows.reduce((sum, row) => sum + (row.riskOfDcs - mean) ** 2, 0);
+  const mse = ssRes / rows.length;
   return {
-    lowPercent: low * 100,
-    highPercent: high * 100,
-    widthPercent: (high - low) * 100,
+    rows, excludedCount,
+    metrics: {
+      r2: rows.length >= 2 && ssTot > 0 ? 1 - ssRes / ssTot : null,
+      mae: rows.reduce((sum, row) => sum + row.absError, 0) / rows.length,
+      rmse: Math.sqrt(mse), mse,
+    },
   };
 }
 
@@ -126,12 +134,11 @@ export function illustrativeInterval(
 // ---------------------------------------------------------------------------
 
 /**
- * P(DCS) = 1 / (1 + exp((ln t - β₂ - β·x) / β₁))
+ * P(DCS) = σ((ln t - β₂ - β·x) / β₁), with P(0) = 0.
  *
  * x = [ambient pressure (mmHg), prebreathing time (min),
  *      mildIndicator (0/1), heavyIndicator (0/1)].
- * Coefficients in adrac_coefficients.json fitted on the cleaned ADRAC
- * grid; reference fit metrics MAE = 8.74 pp, R² = 0.864 (n = 15,908).
+ * Coefficients in adrac_coefficients.json are fitted on the training partition.
  */
 export function predictADRAC(
   altitudeFt: number,
@@ -139,6 +146,10 @@ export function predictADRAC(
   exerciseLevel: ExerciseLevel,
   timeAtAltitudeMin: number,
 ): { riskFraction: number; logT: number; covariateTerm: number; pressureMmHg: number } {
+  requireNonnegative(prebreatheMin, "Prebreathe duration");
+  requireNonnegative(timeAtAltitudeMin, "Exposure duration");
+  if (!VALIDITY_ENVELOPE.exercise.includes(exerciseLevel))
+    throw new Error("Exercise level must be Rest, Mild, or Heavy");
   const pressureMmHg = altitudeFtToMmHg(altitudeFt);
   const mild = exerciseLevel === "Mild" ? 1 : 0;
   const heavy = exerciseLevel === "Heavy" ? 1 : 0;
@@ -150,7 +161,7 @@ export function predictADRAC(
     ADRAC.beta[2] * x[2] +
     ADRAC.beta[3] * x[3];
 
-  const logT = Math.log(Math.max(timeAtAltitudeMin, 1e-6));
+  const logT = Math.log(timeAtAltitudeMin);
   const omega = (logT - ADRAC.beta_2 - covariateTerm) / ADRAC.beta_1;
   const riskFraction = clamp(stableSigmoid(omega), 0, 1);
   return { riskFraction, logT, covariateTerm, pressureMmHg };
@@ -227,13 +238,13 @@ export function predictMLSurrogate(inputs: MLSurrogateInputs): MLSurrogatePredic
       { name: "exercise_mild", value: exerciseMild },
       { name: "exercise_heavy", value: exerciseHeavy },
       { name: "tissue_n2_ratio_360", value: tr360 },
-      { name: "supersaturation_atm", value: supersaturation },
-      { name: "exercise_dose", value: exerciseDose },
+      { name: "dry_ambient_n2_pressure_drop_atm", value: supersaturation },
+      { name: "category_exercise_proxy_l", value: exerciseDose },
       { name: "covariate_term", value: covariateTerm },
     ],
     modelMetadata: {
       modelPath: "mechanistic/adrac.py (closed-form log-logistic AFT)",
-      applyV11Transforms: true,
+      applyV11Transforms: false,
     },
   };
 }
@@ -242,12 +253,15 @@ export function predictMLSurrogate(inputs: MLSurrogateInputs): MLSurrogatePredic
 // NASA Conkin RM/NM logistic
 // ---------------------------------------------------------------------------
 
+export const NASA_VARIANT_LAMBDA = { RM: 0.025, NM: 0.030 } as const;
+
 function nasaKFromVo2(vo2MlKgMin: number, lambda2: number): number {
   if (!Number.isFinite(vo2MlKgMin) || vo2MlKgMin < 0)
     throw new Error("vo2MlKgMin must be finite and ≥ 0");
   if (!Number.isFinite(lambda2) || lambda2 <= 0)
     throw new Error("lambda2 must be finite and > 0");
-  return (1 - Math.exp(-lambda2 * vo2MlKgMin)) / 51.937 + LN2 / DEFAULT_T_HALF_MIN;
+  if (lambda2 * vo2MlKgMin > 700) throw new Error("lambda × VO2 exceeds the numerical range");
+  return Math.exp(lambda2 * vo2MlKgMin) / 519.37;
 }
 
 function nasaP1n2AfterPb(
@@ -257,9 +271,11 @@ function nasaP1n2AfterPb(
   pbTimeMin: number,
   lambda2: number,
 ): number {
-  if (pbTimeMin < 0) throw new Error("pbTimeMin must be ≥ 0");
+  requireNonnegative(p0Psia, "Initial nitrogen pressure");
+  requireNonnegative(paPsia, "Ambient nitrogen pressure");
+  requireNonnegative(pbTimeMin, "Prebreathe duration");
   const k = nasaKFromVo2(vo2MlKgMin, lambda2);
-  return p0Psia + (paPsia - p0Psia) * (1 - Math.exp(-k * pbTimeMin));
+  return paPsia + (p0Psia - paPsia) * Math.exp(-k * pbTimeMin);
 }
 
 function nasaEtr(p1n2Psia: number, p2Psia: number): number {
@@ -270,27 +286,28 @@ function nasaEtr(p1n2Psia: number, p2Psia: number): number {
 }
 
 function nasaPDcsNm(etr: number, sex: "Male" | "Female"): number {
-  if (!Number.isFinite(etr) || etr <= 0)
-    throw new Error("ETR must be finite and > 0");
+  requireNonnegative(etr, "ETR");
+  if (sex !== "Male" && sex !== "Female") throw new Error("Sex must be Male or Female");
   const sexCode = sex === "Male" ? 1.0 : 0.0;
   return stableSigmoid(-25.56 + 12.83 * etr - 1.037 * sexCode);
 }
 
 function nasaPDcsRm(etr: number, ageYears: number): number {
-  if (!Number.isFinite(etr) || etr <= 0)
-    throw new Error("ETR must be finite and > 0");
+  requireNonnegative(etr, "ETR");
   if (!Number.isFinite(ageYears) || ageYears <= 0)
     throw new Error("age must be finite and > 0");
   return stableSigmoid(-31.71 + 14.55 * etr + 0.053 * ageYears);
 }
 
 export function predictNASA(inputs: NASAInputs): NASAPrediction {
+  if (inputs.variant !== "RM" && inputs.variant !== "NM") throw new Error("Variant must be RM or NM");
+  const lambda2 = NASA_VARIANT_LAMBDA[inputs.variant];
   const p1n2 = nasaP1n2AfterPb(
     inputs.p0Psia,
     inputs.paPsia,
     inputs.vo2MlKgMin,
     inputs.pbTimeMin,
-    inputs.lambda2,
+    lambda2,
   );
   const etr = nasaEtr(p1n2, inputs.p2Psia);
 
@@ -304,16 +321,23 @@ export function predictNASA(inputs: NASAInputs): NASAPrediction {
     equation = `P(DCS) = σ(-31.71 + 14.55·ETR + 0.053·AGE)\nAGE = ${inputs.ageYears}`;
   }
 
+  const unavailableReason = Math.abs(inputs.p2Psia - 4.3) > 1e-9
+    ? "The published endpoint applies to 240 min at 4.3 psia with adynamic light exercise. Other exposure pressures have no supported probability endpoint."
+    : null;
   return {
     p1n2Psia: p1n2,
     etr,
-    pDcsPercent: pDcs * 100,
+    pDcsPercent: unavailableReason === null ? pDcs * 100 : null,
     equation,
+    lambda2,
+    predictionHorizonMin: 240,
+    referencePressurePsia: 4.3,
+    unavailableReason,
   };
 }
 
 // ---------------------------------------------------------------------------
-// Mechanistic 3RUT-MBe1 (schematic preview).
+// Mechanistic 3RUT-MBe1 availability and configured exposure profile.
 // ---------------------------------------------------------------------------
 
 function exerciseLevelToIEx(level: ExerciseLevel): number {
@@ -332,6 +356,13 @@ export function buildMechanisticProfile(inputs: MechanisticInputs): ProfileSegme
     ascentDurationMin,
     dtMin,
   } = inputs;
+
+  requireNonnegative(timeAtAltitudeMin, "Exposure duration");
+  requireNonnegative(prebreathingTimeMin, "Prebreathe duration");
+  requireNonnegative(ascentDurationMin, "Ascent duration");
+  if (!Number.isFinite(dtMin) || dtMin <= 0) throw new Error("Time step must be finite and > 0");
+  if (!Number.isFinite(prebreathFio2) || prebreathFio2 < 0 || prebreathFio2 > 1)
+    throw new Error("Prebreathe oxygen fraction must lie between 0 and 1");
 
   const pFinal = altitudeFtToPAmbAtm(altitudeFt);
   const fio2Alt = breatheO2AtAltitude ? 1.0 : 0.21;
@@ -376,81 +407,20 @@ export function buildMechanisticProfile(inputs: MechanisticInputs): ProfileSegme
   return segments;
 }
 
-/**
- * Schematic 3RUT-MBe1 preview — single-compartment Conkin tissue dynamics,
- * dose-driven hazard rate, and ADRAC closed-form for the final P(DCS).
- * The displayed hazard / bubble proxies are illustrative shapes only;
- * full ODE recursion is in mechanistic/rut_mbe1.py.
- */
+export const RUT_UNAVAILABLE_REASON =
+  "3RUT-MBe1 source-equation and benchmark reconciliation is incomplete. Absolute DCS risk, bubble trajectories, and hazard histories are unavailable.";
+
+/** Returns the supported exposure profile and the explicit 3RUT availability gate. */
 export function runMechanisticSimulation(
   inputs: MechanisticInputs,
-): { history: ModelState[]; finalPDcsPercent: number } {
-  const segments = buildMechanisticProfile(inputs);
-  const dtMin = inputs.dtMin;
-  const tauN2 = DEFAULT_T_HALF_MIN / LN2;
-  const tauO2 = 30 / LN2;
-
-  const history: ModelState[] = [];
-  let t = 0;
-  let ptN2Atm = N2_FRACTION_AIR;
-  let ptO2Atm = 0.21 * (1 - 47 / 760);
-  let cumulativeHazard = 0;
-  let bubbleProxy = 0;
-
-  for (const seg of segments) {
-    const nSteps = Math.max(1, Math.ceil(seg.durationMin / dtMin));
-    const stepDt = seg.durationMin / nSteps;
-    for (let i = 0; i < nSteps; i++) {
-      const pInsp = Math.max(seg.pAmbAtm - 47 / 760, 0);
-      const pInspN2 = pInsp * seg.fin2;
-      const pInspO2 = pInsp * seg.fio2;
-
-      ptN2Atm += (pInspN2 - ptN2Atm) * (1 - Math.exp(-stepDt / tauN2));
-      ptO2Atm += (pInspO2 - ptO2Atm) * (1 - Math.exp(-stepDt / tauO2));
-
-      const supersaturation = Math.max(0, ptN2Atm - seg.pAmbAtm * 0.79);
-      const exerciseFactor = 1 + seg.iExLMinWb * 0.6162;
-      const hazardRate = 6.188e-2 * supersaturation * exerciseFactor;
-      cumulativeHazard += hazardRate * stepDt;
-      const pSurvival = Math.exp(-cumulativeHazard);
-      bubbleProxy = Math.max(0, supersaturation * exerciseFactor * 1.198);
-
-      const pCrushAtm = Math.max(0, seg.pAmbAtm - ptN2Atm - ptO2Atm - 0.06);
-      history.push({
-        tMin: t,
-        pAmbAtm: seg.pAmbAtm,
-        fio2: seg.fio2,
-        fin2: seg.fin2,
-        iExLMinWb: seg.iExLMinWb,
-        ptN2Atm,
-        ptO2Atm,
-        rHat: 4.868e-5 * (1 + supersaturation * 5),
-        pbN2Atm: ptN2Atm * 0.95,
-        pbO2Atm: ptO2Atm * 1.05,
-        xHatN2: 0,
-        xHatO2: 0,
-        nB: bubbleProxy,
-        nBMax: 1.198,
-        pCrushAtm,
-        betaFHat: 0,
-        rHatMin: 4.868e-5 * 100,
-        hPerMin: hazardRate,
-        pSurvival,
-        pDcs: 1 - pSurvival,
-      });
-      t += stepDt;
-    }
-  }
-
-  const adrac = predictADRAC(
-    inputs.altitudeFt,
-    inputs.prebreathingTimeMin,
-    inputs.altitudeExerciseLevel,
-    inputs.timeAtAltitudeMin,
-  );
-  const finalPDcsPercent = adrac.riskFraction * 100;
-
-  return { history, finalPDcsPercent };
+): MechanisticSimulationResult {
+  return {
+    history: [],
+    finalPDcsPercent: null,
+    segments: buildMechanisticProfile(inputs),
+    absoluteRiskEnabled: false,
+    reason: RUT_UNAVAILABLE_REASON,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -466,8 +436,8 @@ export interface RiskLandscapePoint {
 export function generateRiskLandscape({
   prebreatheMin,
   exerciseLevel,
-  altitudeRange = [18000, 40000],
-  timeRange = [10, 240],
+  altitudeRange = VALIDITY_ENVELOPE.altitudeFt,
+  timeRange = VALIDITY_ENVELOPE.timeAtAltitudeMin,
   altitudeSteps = 24,
   timeSteps = 24,
 }: {
@@ -485,6 +455,7 @@ export function generateRiskLandscape({
     const alt = altitudeRange[0] + i * dAlt;
     for (let j = 0; j < timeSteps; j++) {
       const t = timeRange[0] + j * dT;
+      if (!checkEnvelope(alt, prebreatheMin, t, exerciseLevel).inEnvelope) continue;
       const { riskFraction } = predictADRAC(alt, prebreatheMin, exerciseLevel, t);
       out.push({ altitudeFt: alt, timeAtAltitudeMin: t, riskPercent: riskFraction * 100 });
     }
@@ -533,6 +504,7 @@ export function generateDoseResponse({
     const alt = variable === "altitude" ? x : base.altitude;
     const t = variable === "time" ? x : base.timeAtAltitude;
     const pb = variable === "prebreathe" ? x : base.prebreathingTime;
+    if (!checkEnvelope(alt, pb, t, exerciseLevel).inEnvelope) continue;
     const { riskFraction } = predictADRAC(alt, pb, exerciseLevel, t);
     out.push({ x, riskPercent: riskFraction * 100 });
   }
@@ -572,10 +544,9 @@ export interface ADRACDecomposition {
  */
 export function decomposeADRAC(inputs: MLSurrogateInputs): ADRACDecomposition {
   const { altitude, timeAtAltitude, prebreathingTime, exerciseLevel } = inputs;
-  const pressureMmHg = altitudeFtToMmHg(altitude);
+  const { pressureMmHg, logT } = predictADRAC(altitude, prebreathingTime, exerciseLevel, timeAtAltitude);
   const mild = exerciseLevel === "Mild" ? 1 : 0;
   const heavy = exerciseLevel === "Heavy" ? 1 : 0;
-  const logT = Math.log(Math.max(timeAtAltitude, 1e-6));
   const invB1 = 1 / ADRAC.beta_1;
 
   const cTime = logT * invB1;
@@ -692,7 +663,7 @@ export interface RiskGridPoint {
  * P(DCS) over the two mission-planning levers — altitude and prebreathe — with
  * time-at-altitude and exercise held at the current scenario. The 1 / 5 / 20 %
  * contours of this field are the "isobars of equal risk" rendered by RiskIsobars;
- * together with the validity envelope they bound the safe operating space.
+ * together with the supported input range they describe the model response.
  *
  * Pure closed-form ADRAC, so a 24 × 24 grid (576 evaluations) is essentially free.
  */
@@ -718,6 +689,7 @@ export function generateAltitudePrebreatheGrid({
     const alt = altitudeRange[0] + i * dAlt;
     for (let j = 0; j < prebreatheSteps; j++) {
       const pb = prebreatheRange[0] + j * dPb;
+      if (!checkEnvelope(alt, pb, timeAtAltitudeMin, exerciseLevel).inEnvelope) continue;
       const { riskFraction } = predictADRAC(alt, pb, exerciseLevel, timeAtAltitudeMin);
       out.push({ altitudeFt: alt, prebreatheMin: pb, riskPercent: riskFraction * 100 });
     }
@@ -735,9 +707,8 @@ export interface MissionProfilePoint {
   pAmbMmHg: number;
   /** Tissue N₂ tension (mmHg), single 360-min compartment. */
   tissueN2MmHg: number;
-  /** Supersaturation gap = max(0, tissue N₂ − ambient total pressure). When the
-   *  tissue line rides above the ambient line, dissolved gas can come out of
-   *  solution — this is the physical DCS hazard, shaded on the chart. */
+  /** Nitrogen excess = max(0, tissue N₂ − ambient total pressure).
+   *  This one-gas diagnostic is not a full gas-tension sum or a hazard rate. */
   gapMmHg: number;
   phase: "prebreathe" | "ascent" | "altitude";
 }
@@ -756,9 +727,8 @@ export interface MissionProfilePoint {
  *      the tissue line and the ambient line is the supersaturation that drives
  *   DCS.
  *
- * The final tissue tension matches `tissueN2Trajectory` up to integration step
- * tolerance. Ascent here is a finite ramp (the trajectory feature treats it as
- * instantaneous); the ramp is a teaching device so the pressure drop is visible.
+ * A finite ascent changes total washout time relative to tissueN2Trajectory,
+ * whose ascent is instantaneous. Its endpoint is therefore a distinct profile.
  */
 export function missionPressureProfile(
   inputs: MLSurrogateInputs,
@@ -777,6 +747,10 @@ export function missionPressureProfile(
   } = {},
 ): MissionProfilePoint[] {
   const { altitude, timeAtAltitude, prebreathingTime } = inputs;
+  requireNonnegative(prebreathingTime, "Prebreathe duration");
+  requireNonnegative(timeAtAltitude, "Exposure duration");
+  requireNonnegative(ascentDurationMin, "Ascent duration");
+  if (!Number.isFinite(dtMin) || dtMin <= 0) throw new Error("Time step must be finite and > 0");
   const pAmbGround = SEA_LEVEL_MMHG;
   const pAmbAlt = Math.max(altitudeFtToMmHg(altitude), 1e-6);
   const tau = halfTimeMin / LN2;
@@ -802,19 +776,25 @@ export function missionPressureProfile(
   if (timeAtAltitude > 0)
     segs.push({ dur: timeAtAltitude, p0: pAmbAlt, p1: pAmbAlt, fio2: altitudeFio2, phase: "altitude" });
 
-  const out: MissionProfilePoint[] = [];
+  const out: MissionProfilePoint[] = [{
+    tMin: 0, pAmbMmHg: pAmbGround, tissueN2MmHg: startTension,
+    gapMmHg: Math.max(0, startTension - pAmbGround),
+    phase: segs[0]?.phase ?? "altitude",
+  }];
   let t = 0;
   let tension = startTension;
   for (const seg of segs) {
     const nSteps = Math.max(1, Math.ceil(seg.dur / dtMin));
     const stepDt = seg.dur / nSteps;
     for (let i = 0; i < nSteps; i++) {
-      const frac = nSteps === 1 ? 1 : i / (nSteps - 1);
+      const frac = (i + 1) / nSteps;
       const pAmb = seg.p0 + (seg.p1 - seg.p0) * frac;
-      const pInsp = pInspN2(pAmb, seg.fio2);
+      const midPressure = seg.p0 + (seg.p1 - seg.p0) * (i + 0.5) / nSteps;
+      const pInsp = pInspN2(midPressure, seg.fio2);
       // Single-compartment exponential update over this step.
       tension = pInsp - (pInsp - tension) * Math.exp(-stepDt / tau);
       const gap = Math.max(0, tension - pAmb);
+      t += stepDt;
       out.push({
         tMin: +t.toFixed(3),
         pAmbMmHg: +pAmb.toFixed(3),
@@ -822,7 +802,6 @@ export function missionPressureProfile(
         gapMmHg: +gap.toFixed(3),
         phase: seg.phase,
       });
-      t += stepDt;
     }
   }
   return out;

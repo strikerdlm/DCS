@@ -36,6 +36,7 @@ Usage
 from __future__ import annotations
 
 import json
+import hashlib
 import sys
 from dataclasses import asdict
 from pathlib import Path
@@ -57,20 +58,18 @@ if str(_ROOT) not in sys.path:
 from mechanistic.adrac import AdracModel, fit_adrac  # noqa: E402
 from tinydcs.features import FEATURE_COLUMNS, extract_features  # noqa: E402
 from tinydcs.metrics import (  # noqa: E402
-    binarized_roc_auc,
     bland_altman,
-    brier_score,
+    probability_mse,
     calibration_slope_intercept,
     empirical_coverage,
     point_errors,
     reliability_bins,
 )
 from tinydcs.simulator import ExposureProfile, ornstein_uhlenbeck_vo2  # noqa: E402
-from tinydcs.surrogate import TrainConfig, train_surrogate  # noqa: E402
+from tinydcs.surrogate import TrainConfig, train_surrogate, partition_indices  # noqa: E402
 
 
-# Published VO2 ranges by activity level, from Webb 2010 (ASEM 81:987-92)
-# and the ICASM 2017 slide deck summary.
+# Synthetic exercise-category augmentation assumptions, NOT measured VO2 data.
 _EXERCISE_VO2_LOOKUP = {
     "Rest":  {"mean": 0.10, "sd": 0.05},   # L/min whole-body (I_ex above rest)
     "Mild":  {"mean": 0.45, "sd": 0.10},
@@ -84,7 +83,7 @@ def _augment_with_vo2(df: pd.DataFrame, *, seed: int = 42) -> pd.DataFrame:
 
     This is necessary because the shipped ADRAC grid only has a 3-level
     exercise indicator; the TinyDCS feature vector requires continuous
-    VO2 summaries. We sample a plausible mean (per Webb 2010 ranges)
+    VO2 summaries. We sample a plausible mean (from the declared synthetic category assumptions)
     and generate an Ornstein-Uhlenbeck trajectory to populate the
     altitude_vo2_* features. Prebreathe VO2 is assumed resting.
 
@@ -101,7 +100,7 @@ def _augment_with_vo2(df: pd.DataFrame, *, seed: int = 42) -> pd.DataFrame:
         alt_time = float(row["time_at_altitude"])
         alt_traj = ornstein_uhlenbeck_vo2(
             duration_min=alt_time,
-            dt_min=5.0,
+            dt_min=1.0,
             mean_i_ex=mean_i_ex,
             rng=rng,
         )
@@ -117,7 +116,7 @@ def _augment_with_vo2(df: pd.DataFrame, *, seed: int = 42) -> pd.DataFrame:
             altitude_fio2=0.21,
             altitude_fin2=0.79,
             altitude_i_ex_trajectory=alt_traj,
-            vo2_dt_min=5.0,
+            vo2_dt_min=1.0,
         )
         feats = extract_features(profile)
         rec = asdict(feats)
@@ -125,7 +124,7 @@ def _augment_with_vo2(df: pd.DataFrame, *, seed: int = 42) -> pd.DataFrame:
         rec["exercise_level"] = level
         rec["pdcs_adrac_target"] = float(row["risk_of_decompression_sickness"]) / 100.0
         records.append(rec)
-    return pd.DataFrame(records)
+    return pd.DataFrame(records, index=df.index)
 
 
 def _leave_one_altitude_out_splits(df: pd.DataFrame, band_ft: int = 5000) -> list[dict]:
@@ -143,8 +142,8 @@ def _leave_one_altitude_out_splits(df: pd.DataFrame, band_ft: int = 5000) -> lis
         splits.append({
             "band_lo_ft": int(b * band_ft),
             "band_hi_ft": int(b * band_ft + band_ft),
-            "train": df.loc[~mask].reset_index(drop=True),
-            "test": df.loc[mask].reset_index(drop=True),
+            "train": df.loc[~mask],
+            "test": df.loc[mask],
         })
     return splits
 
@@ -168,10 +167,10 @@ def _evaluate_baseline(
 def _plot_reliability(rbin, path: Path, title: str) -> None:
     fig, ax = plt.subplots(figsize=(4.2, 4.2))
     ax.plot([0, 1], [0, 1], "k--", alpha=0.6, label="perfect")
-    mask = np.isfinite(rbin.bin_mean_pred)
+    mask = rbin.bin_count > 0
     ax.plot(rbin.bin_mean_pred[mask], rbin.bin_mean_true[mask], "o-", label=title)
     ax.set_xlabel("Predicted P(DCS)")
-    ax.set_ylabel("Observed P(DCS) (ADRAC grid)")
+    ax.set_ylabel("Reference model probability (ADRAC grid)")
     ax.set_title("Reliability diagram — " + title)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -208,8 +207,8 @@ def _metrics_blob(y_true: np.ndarray, y_pred: np.ndarray, *, tag: str) -> dict:
         "tag": tag,
         "n": int(len(y_true)),
         "point": pe,
-        "brier": brier_score(y_true, y_pred),
-        "roc_auc_at_0.10": binarized_roc_auc(y_true, y_pred, threshold=0.10),
+        "probability_mse": probability_mse(y_true, y_pred),
+        "clinical_roc_auc": None,
         "calibration": {"slope": slope, "intercept": intercept},
         "bland_altman": bland_altman(y_true, y_pred),
     }
@@ -246,16 +245,14 @@ def main(
     else:
         df_raw = pd.read_csv(training_path)
 
-    # 1. ADRAC baseline.
-    click.echo(f"Fitting ADRAC baseline on {len(df_raw)} rows ...")
-    baseline = fit_adrac(df_raw)
-    y_true_all, y_pred_baseline_all = _evaluate_baseline(baseline, df_raw)
-    metrics_baseline_all = _metrics_blob(y_true_all, y_pred_baseline_all, tag="adrac_baseline_inbag")
+    df_raw = df_raw.reset_index(drop=True)
+    partition = partition_indices(len(df_raw), seed=seed)
+    click.echo(f"Fitting ADRAC baseline on {len(partition['train'])} training-only rows ...")
+    baseline = fit_adrac(df_raw.iloc[partition["train"]])
 
     # 2. Augment with synthesized VO2 and extract features.
-    click.echo(f"Augmenting with VO2 features ...")
+    click.echo("Augmenting with VO2 features ...")
     df_aug = _augment_with_vo2(df_raw, seed=seed)
-    df_aug["pdcs_3rut_mbe1"] = df_aug["pdcs_adrac_target"]  # rename so train_surrogate finds it
 
     # 3. TinyDCS surrogate on random split. Calibration mode is either
     # Mondrian (altitude-band stratified) or CQR (Conformalized Quantile
@@ -268,10 +265,11 @@ def main(
         surrogate, splits = train_surrogate(
             df_aug,
             feature_names=FEATURE_COLUMNS,
-            target_col="pdcs_3rut_mbe1",
+            target_col="pdcs_adrac_target",
             test_fraction=0.15,
             calibration_fraction=0.20,
             config=TrainConfig(random_state=seed),
+            partition=partition,
             use_zero_inflated=True,
         )
     elif cqr:
@@ -281,10 +279,11 @@ def main(
         surrogate, splits = train_surrogate(
             df_aug,
             feature_names=FEATURE_COLUMNS,
-            target_col="pdcs_3rut_mbe1",
+            target_col="pdcs_adrac_target",
             test_fraction=0.15,
             calibration_fraction=0.20,
             config=TrainConfig(random_state=seed),
+            partition=partition,
             use_cqr=True,
             cqr_band_feature="altitude_ft",
             cqr_band_width=5000.0,
@@ -295,16 +294,17 @@ def main(
         surrogate, splits = train_surrogate(
             df_aug,
             feature_names=FEATURE_COLUMNS,
-            target_col="pdcs_3rut_mbe1",
+            target_col="pdcs_adrac_target",
             test_fraction=0.15,
             calibration_fraction=0.20,
             config=TrainConfig(random_state=seed),
+            partition=partition,
             mondrian_feature="altitude_ft",
             mondrian_band_width=5000.0,
             mondrian_band_origin=18000.0,
         )
     test_df = splits["test"]
-    y_true_rand = test_df["pdcs_3rut_mbe1"].to_numpy(dtype=float)
+    y_true_rand = test_df["pdcs_adrac_target"].to_numpy(dtype=float)
     pred_rand = surrogate.predict(test_df)
     metrics_surrogate_rand = _metrics_blob(y_true_rand, pred_rand["point"], tag="tinydcs_random_test")
     metrics_surrogate_rand["conformal_coverage"] = empirical_coverage(
@@ -341,29 +341,10 @@ def main(
               else "global")
     )
 
-    # Also evaluate the baseline on the same test fold (row-for-row) for apples-to-apples.
-    # We need to trace back to the raw df via the index.
-    # The augmented df preserves row order (iterrows() is ordered), so splits index back to raw.
-    # For simplicity we rebuild the raw-aligned test fold by index.
-    idx_test = test_df.index.to_numpy()  # these are 0..N-1 reset indices in the augmented df
-    # Since df_aug was built in the same row order as df_raw, we can align using positional index:
-    df_raw_reset = df_raw.reset_index(drop=True)
-    df_aug_reset = df_aug.reset_index(drop=True)
-    # Map aug-test rows back to raw via shared positional index before the shuffle.
-    # Reconstruct by matching on altitude/PB/ex/time.
-    df_raw_test = df_raw_reset.merge(
-        test_df[["altitude_ft", "prebreathe_time_min", "exercise_level", "altitude_time_min"]]
-        .rename(columns={
-            "altitude_ft": "altitude", "prebreathe_time_min": "prebreathing_time",
-            "altitude_time_min": "time_at_altitude",
-        }),
-        on=["altitude", "prebreathing_time", "exercise_level", "time_at_altitude"],
-        how="inner",
-    )
+    df_raw_reset, df_aug_reset = df_raw, df_aug
+    df_raw_test = df_raw.loc[test_df.index]
     y_true_rand_raw, y_pred_baseline_rand = _evaluate_baseline(baseline, df_raw_test)
-    metrics_baseline_rand = _metrics_blob(
-        y_true_rand_raw, y_pred_baseline_rand, tag="adrac_baseline_random_test"
-    )
+    metrics_baseline_rand = _metrics_blob(y_true_rand_raw, y_pred_baseline_rand, tag="adrac_baseline_random_test")
 
     # 4. Leave-one-altitude-out (optional; slower).
     metrics_loao_surrogate = []
@@ -379,13 +360,14 @@ def main(
             fold_surrogate, fold_splits = train_surrogate(
                 train_fold,
                 feature_names=FEATURE_COLUMNS,
-                target_col="pdcs_3rut_mbe1",
+                target_col="pdcs_adrac_target",
                 test_fraction=0.10,  # tiny in-train test to size train/cal
-                calibration_fraction=0.15,
+                calibration_fraction=0.20,
                 config=TrainConfig(random_state=seed),
+                use_zero_inflated=zi, use_cqr=cqr,
             )
             fold_pred = fold_surrogate.predict(test_fold)
-            y_fold = test_fold["pdcs_3rut_mbe1"].to_numpy(dtype=float)
+            y_fold = test_fold["pdcs_adrac_target"].to_numpy(dtype=float)
             fold_metrics = _metrics_blob(
                 y_fold, fold_pred["point"],
                 tag=f"tinydcs_LOAO_{s['band_lo_ft']}_{s['band_hi_ft']}",
@@ -401,7 +383,8 @@ def main(
             ]
             if len(df_raw_band) < 20:
                 continue
-            y_b, y_bp = _evaluate_baseline(baseline, df_raw_band)
+            fold_baseline = fit_adrac(df_raw.loc[fold_splits["train"].index])
+            y_b, y_bp = _evaluate_baseline(fold_baseline, df_raw_band)
             base_metrics = _metrics_blob(
                 y_b, y_bp, tag=f"adrac_baseline_LOAO_{s['band_lo_ft']}_{s['band_hi_ft']}"
             )
@@ -414,14 +397,44 @@ def main(
     Path(output_baseline).parent.mkdir(parents=True, exist_ok=True)
     Path(output_metrics).parent.mkdir(parents=True, exist_ok=True)
     Path(output_figures).mkdir(parents=True, exist_ok=True)
+    dataset_id = hashlib.sha256(training_path.read_bytes()).hexdigest()
+    split_ids = {key: df_raw.iloc[idx]["cell_id"].tolist() if "cell_id" in df_raw else idx.tolist()
+                 for key, idx in partition.items()}
+    split_id = hashlib.sha256(json.dumps(split_ids, sort_keys=True).encode()).hexdigest()
+    accepted = pred_rand["in_envelope"]
+    metrics_surrogate_rand["accepted_subset_coverage"] = empirical_coverage(
+        y_true_rand[accepted], pred_rand["lower"][accepted], pred_rand["upper"][accepted])
+    metrics_surrogate_rand["accepted_n"] = int(accepted.sum())
+    metadata = {
+        "schema_version": "accuracy-v3", "dataset_id": dataset_id, "split_id": split_id,
+        "model_id": hashlib.sha256((dataset_id+split_id+str(zi)+str(cqr)+json.dumps(asdict(TrainConfig(random_state=seed)), sort_keys=True)).encode()).hexdigest()[:20],
+        "training_config": asdict(TrainConfig(random_state=seed)),
+        "feature_names": surrogate.feature_names,
+        "target_kind": "model_probability", "target_unit": "probability", "clinical_validation": False,
+        "vo2_provenance": "synthetic from Rest/Mild/Heavy labels; no independently measured continuous-VO2 evidence",
+        "interval_kind": "split_conformal_model_agreement",
+        "split": {"seed": seed, "train": 0.65, "cal": 0.20, "test": 0.15},
+        "quantitative_enabled": bool(metrics_surrogate_rand["point"]["mae"] <= 0.03 and metrics_surrogate_rand["conformal_coverage"]["coverage"] >= 0.94),
+        "release_criteria": {"max_mae": 0.03, "min_coverage": 0.94, "nominal": 0.95},
+    }
+    surrogate.metadata = metadata
     surrogate.save(output_surrogate)
+    Path(output_metrics).with_suffix(".splits.json").write_text(json.dumps(split_ids, indent=2))
+    df_aug.to_parquet(Path(output_metrics).with_suffix(".features.parquet"), index=True)
     joblib.dump(
         {
             "beta_1": baseline.beta_1,
             "beta_2": baseline.beta_2,
             "beta": baseline.beta.tolist(),
             "feature_names": list(baseline.feature_names),
-            "version": "0.2.0",
+            "version": "accuracy-v3",
+            "metadata": {key: value for key, value in metadata.items() if key not in {"release_criteria", "vo2_provenance"}} | {
+                "model_id": "adrac-train-only-"+split_id[:12],
+                "training_config": {"estimator": "bounded_linear_least_squares", "fit_rows": len(partition["train"])},
+                "feature_names": list(baseline.feature_names),
+                "interval_kind": "unavailable", "quantitative_enabled": True,
+                "limitations": "Re-fitted model-grid baseline, not original published ADRAC coefficients or clinical validation. No uncertainty interval.",
+            },
         },
         output_baseline,
     )
@@ -429,14 +442,14 @@ def main(
     metrics_blob = {
         "n_raw_rows": int(len(df_raw)),
         "n_augmented_rows": int(len(df_aug)),
-        "features_used": list(FEATURE_COLUMNS),
-        "adrac_baseline_full_inbag": metrics_baseline_all,
+        "features_used": list(surrogate.feature_names),
+        "metadata": metadata,
         "adrac_baseline_random_test": metrics_baseline_rand,
         "tinydcs_random_test": metrics_surrogate_rand,
         "leave_one_altitude_out_surrogate": metrics_loao_surrogate,
         "leave_one_altitude_out_baseline": metrics_loao_baseline,
     }
-    Path(output_metrics).write_text(json.dumps(metrics_blob, indent=2), encoding="utf-8")
+    Path(output_metrics).write_text(json.dumps(metrics_blob, indent=2, allow_nan=False), encoding="utf-8")
 
     fig_dir = Path(output_figures)
     _plot_reliability(
@@ -462,15 +475,15 @@ def main(
 
     click.echo(
         "\nRandom split results (apples-to-apples on the same test fold):\n"
-        "  ADRAC baseline: MAE={adrac_mae:.4f}, R²={adrac_r2:.4f}, Brier={adrac_br:.4f}\n"
-        "  TinyDCS:        MAE={td_mae:.4f}, R²={td_r2:.4f}, Brier={td_br:.4f}, "
+        "  ADRAC baseline: MAE={adrac_mae:.4f}, R²={adrac_r2:.4f}, MSE={adrac_br:.4f}\n"
+        "  TinyDCS:        MAE={td_mae:.4f}, R²={td_r2:.4f}, MSE={td_br:.4f}, "
         "coverage={td_cov:.3f}\n".format(
             adrac_mae=metrics_baseline_rand["point"]["mae"],
             adrac_r2=metrics_baseline_rand["point"]["r2"],
-            adrac_br=metrics_baseline_rand["brier"],
+            adrac_br=metrics_baseline_rand["probability_mse"],
             td_mae=metrics_surrogate_rand["point"]["mae"],
             td_r2=metrics_surrogate_rand["point"]["r2"],
-            td_br=metrics_surrogate_rand["brier"],
+            td_br=metrics_surrogate_rand["probability_mse"],
             td_cov=metrics_surrogate_rand["conformal_coverage"]["coverage"],
         )
     )

@@ -22,8 +22,8 @@ import { AtmosphereColumn } from "../charts/AtmosphereColumn";
 import { MissionPressureProfile } from "../charts/MissionPressureProfile";
 import { LogitProbabilityBridge } from "../charts/LogitProbabilityBridge";
 import { RiskIsobars } from "../charts/RiskIsobars";
-import { decomposeADRAC, predictADRAC } from "../../utils/models";
-import { altitudeFtToMmHg, altitudeFtToPAmbAtm, getRiskLevel } from "../../lib/utils";
+import { checkEnvelope, decomposeADRAC, VALIDITY_ENVELOPE } from "../../utils/models";
+import { altitudeFtToMmHg, altitudeFtToPAmbAtm, formatNumber, getRiskLevel } from "../../lib/utils";
 import { defaultMLInputs } from "../../data/mockData";
 import type { ExerciseLevel, MLSurrogateInputs } from "../../types";
 
@@ -44,24 +44,26 @@ export function Anatomy(): React.ReactElement {
     setInputs((s) => ({ ...s, ...patch }));
 
   const read = useMemo(() => {
-    const { riskFraction } = predictADRAC(
+    const envelope = checkEnvelope(
       inputs.altitude,
       inputs.prebreathingTime,
-      inputs.exerciseLevel,
       inputs.timeAtAltitude,
+      inputs.exerciseLevel,
     );
-    const decomp = decomposeADRAC(inputs);
+    const decomp = envelope.inEnvelope ? decomposeADRAC(inputs) : null;
+    const risk = decomp?.riskPercent ?? null;
     return {
-      risk: riskFraction * 100,
-      omega: decomp.omega,
-      level: getRiskLevel(riskFraction * 100),
+      envelope,
+      risk,
+      omega: decomp?.omega ?? null,
+      level: getRiskLevel(risk),
       pAtm: altitudeFtToPAmbAtm(inputs.altitude),
       pMmHg: altitudeFtToMmHg(inputs.altitude),
     };
   }, [inputs]);
 
   const levelPill =
-    read.level === "low" ? "pill-low" : read.level === "moderate" ? "pill-signal" : "pill-high";
+    read.level === "unavailable" ? "pill-muted" : read.level === "low" ? "pill-low" : read.level === "moderate" ? "pill-signal" : "pill-high";
 
   return (
     <div className="space-y-6">
@@ -79,9 +81,9 @@ export function Anatomy(): React.ReactElement {
             <span className="text-primary">physics, math, geography, and position</span>.
           </h2>
           <p className="text-muted-foreground mt-4 text-[15px] leading-relaxed">
-            TinyDCS turns four flight-schedule numbers into a calibrated risk. This page follows that
-            single transformation end to end — the pressure differential that causes bubbles, the
-            log-logistic that turns it into a probability, the altitude × prebreathe map you plan
+            TinyDCS turns four exposure inputs into an ADRAC baseline estimate. This page shows
+            related pressure and tissue diagnostics, the
+            log-logistic probability calculation, the altitude × prebreathe map you inspect
             against, and the column of air you are sitting in. Move the levers once; every panel
             recomputes from the same closed-form core.
           </p>
@@ -101,8 +103,8 @@ export function Anatomy(): React.ReactElement {
               label="Altitude"
               value={[inputs.altitude]}
               onValueChange={([v]) => set({ altitude: v })}
-              min={18000}
-              max={40000}
+              min={VALIDITY_ENVELOPE.altitudeFt[0]}
+              max={VALIDITY_ENVELOPE.altitudeFt[1]}
               step={500}
               unit="ft"
               formatValue={(v) => v.toLocaleString()}
@@ -111,8 +113,8 @@ export function Anatomy(): React.ReactElement {
               label="Time at altitude"
               value={[inputs.timeAtAltitude]}
               onValueChange={([v]) => set({ timeAtAltitude: v })}
-              min={10}
-              max={240}
+              min={VALIDITY_ENVELOPE.timeAtAltitudeMin[0]}
+              max={VALIDITY_ENVELOPE.timeAtAltitudeMin[1]}
               step={5}
               unit="min"
             />
@@ -120,8 +122,8 @@ export function Anatomy(): React.ReactElement {
               label="100% O₂ prebreathe"
               value={[inputs.prebreathingTime]}
               onValueChange={([v]) => set({ prebreathingTime: v })}
-              min={0}
-              max={180}
+              min={VALIDITY_ENVELOPE.prebreatheMin[0]}
+              max={VALIDITY_ENVELOPE.prebreatheMin[1]}
               step={5}
               unit="min"
             />
@@ -147,10 +149,10 @@ export function Anatomy(): React.ReactElement {
           <div className="flex flex-wrap items-center gap-2 mt-5 pt-4 border-t border-border/60">
             <span className={levelPill}>
               <Activity className="h-3 w-3" />
-              P(DCS) {read.risk.toFixed(2)}% · {read.level}
+              P(DCS) {read.risk === null ? "unavailable" : `${formatNumber(read.risk)}% · ${read.level}`}
             </span>
             <span className="pill-muted text-num">
-              ω = {read.omega.toFixed(2)}
+              ω = {formatNumber(read.omega)}
             </span>
             <span className="pill-muted text-num">
               {inputs.altitude.toLocaleString()} ft · {read.pMmHg.toFixed(0)} mmHg ({read.pAtm.toFixed(2)} atm)
@@ -159,6 +161,11 @@ export function Anatomy(): React.ReactElement {
               {inputs.timeAtAltitude} min @ alt · {inputs.prebreathingTime} min PB · {inputs.exerciseLevel}
             </span>
           </div>
+          {!read.envelope.inEnvelope && (
+            <p role="status" className="scientific-callout mt-4 text-[13px]">
+              Prediction unavailable: {read.envelope.reasons.join(". ")}. Pressure and tissue diagnostics remain available.
+            </p>
+          )}
         </CardContent>
       </Card>
 
@@ -170,7 +177,7 @@ export function Anatomy(): React.ReactElement {
           </CardTitle>
           <p className="text-[12.5px] text-muted-foreground mt-1 max-w-3xl">
             Altitude sets ambient pressure, and ambient pressure sets how much dissolved nitrogen
-            tissue can hold. The validated 18–40 kft envelope is the operational band; the glowing
+            tissue can hold at equilibrium. The 18–40 kft region is the supported model range; the glowing
             marker is the live scenario riding that column.
           </p>
         </CardHeader>
@@ -186,10 +193,9 @@ export function Anatomy(): React.ReactElement {
             <Wind className="h-4 w-4 text-accent" /> 02 · Physics — the pressure differential
           </CardTitle>
           <p className="text-[12.5px] text-muted-foreground mt-1 max-w-3xl">
-            DCS is a race between ambient pressure dropping and tissue nitrogen washing out. The
-            indigo line is the air; the amber line is the tissue. Where the tissue rides above the
-            air — the vermillion gap — gas can come out of solution. That gap is the entire reason
-            this model exists.
+            The indigo line is total ambient pressure; the amber line is the nitrogen tension in a
+            fixed 360-min tissue compartment. The shaded positive difference is a simplified
+            supersaturation diagnostic, not a bubble calculation or a quantified DCS hazard.
           </p>
         </CardHeader>
         <CardContent className="space-y-2">
@@ -201,7 +207,7 @@ export function Anatomy(): React.ReactElement {
               <span className="eq-var">τ</span> = <span className="eq-var">t</span><sub>½</sub> / ln 2
             </div>
             <div className="eq-caption">
-              single 360-min compartment (Conkin). Supersaturation ratio <em>R</em> = <em>P</em><sub>tN₂</sub> / <em>P</em><sub>amb</sub>; <em>R</em> &gt; 1 is the hazard.
+              single 360-min compartment. Ratio <em>R</em> = <em>P</em><sub>tN₂</sub> / <em>P</em><sub>amb</sub>; <em>R</em> &gt; 1 means nitrogen tension exceeds ambient pressure.
             </div>
           </div>
         </CardContent>
@@ -221,7 +227,9 @@ export function Anatomy(): React.ReactElement {
           </p>
         </CardHeader>
         <CardContent className="space-y-2">
-          <LogitProbabilityBridge inputs={inputs} height={320} />
+          {read.envelope.inEnvelope ? <LogitProbabilityBridge inputs={inputs} height={320} /> : (
+            <p className="text-sm text-muted-foreground">Probability plot unavailable outside the supported input range.</p>
+          )}
           <div className="equation-block">
             <div className="eq">
               <span className="eq-var">ω</span> = (ln <span className="eq-var">t</span> − <span className="eq-var">β</span><sub>2</sub> − <span className="eq-var">β</span>·<span className="eq-var">x</span>) / <span className="eq-var">β</span><sub>1</sub>
@@ -243,13 +251,14 @@ export function Anatomy(): React.ReactElement {
           </CardTitle>
           <p className="text-[12.5px] text-muted-foreground mt-1 max-w-3xl">
             The two mission-planning levers — altitude and prebreathe — against each other, with the
-            1 / 5 / 20 % risk thresholds drawn as contour isobars. Stay below the 5 % isobar and the
-            profile is operationally safe; the dashed frame is the validity envelope, beyond which
-            the model abstains rather than extrapolate.
+            1 / 5 / 20 % contours drawn as model comparisons. These illustrative thresholds do not
+            certify operational safety; the dashed frame marks the supported input range.
           </p>
         </CardHeader>
         <CardContent>
-          <RiskIsobars inputs={inputs} height={420} />
+          {read.envelope.inEnvelope ? <RiskIsobars inputs={inputs} height={420} /> : (
+            <p className="text-sm text-muted-foreground">Probability map unavailable outside the supported input range.</p>
+          )}
         </CardContent>
       </Card>
 
@@ -269,13 +278,11 @@ export function Anatomy(): React.ReactElement {
               <h3 className="display text-[15px] font-semibold">What these panels compute</h3>
               <p className="text-[13px] text-muted-foreground leading-relaxed">
                 Every figure on this page is the <strong className="text-foreground">closed-form ADRAC
-                core</strong> evaluated in your browser — deterministic and ~0.1 ms. The trained
-                TinyDCS stack (monotone LightGBM logit, Mahalanobis out-of-distribution gate, and the
-                zero-inflated two-stage conformal calibrator that produces the real 95 % intervals)
-                runs server-side and ships as a 95 KB ONNX for the edge; the browser build uses the
-                ADRAC functional form so the explainer is reproducible from the coefficient JSON the
-                repo ships. The pressure-profile integration is a single 360-min compartment
-                schematic consistent with the <code className="text-num text-[11px]">tissue_n2_ratio_360</code> feature, not the full 3RUT bubble-evolution recursion.
+                core</strong> or a separately labelled physical diagnostic. The browser baseline
+                uses bundled coefficients and has no validated prediction interval. The pressure
+                profile follows a single 360-min nitrogen compartment with a finite ascent; its
+                longer washout differs from the instantaneous-ascent tissue feature. No 3RUT
+                bubble or hazard model is executed here.
               </p>
             </div>
           </div>

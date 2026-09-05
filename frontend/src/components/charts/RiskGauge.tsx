@@ -5,7 +5,7 @@ import { chartTheme, colorPalettes, withAlpha } from "./chartConfig";
 import { formatNumber, getRiskLevel } from "../../lib/utils";
 
 interface RiskGaugeProps {
-  value: number;
+  value: number | null | undefined;
   title?: string;
   height?: number;
   showLabel?: boolean;
@@ -52,13 +52,14 @@ export function RiskGauge({
   showLabel = true,
   max = 100,
 }: RiskGaugeProps): React.ReactElement {
-  const safe = Math.max(0, value);
+  const riskLevel = getRiskLevel(value);
+  const available = riskLevel !== "unavailable";
+  const safe = available ? value as number : 0;
   // Auto-expand the dial so a reading above the preferred window is shown in
   // full (arc + number agree) instead of pinning the arc at the rim. Snaps to
   // a clean 10-% step and never exceeds 100 %.
   const dialMax = Math.min(100, Math.max(max, Math.ceil(safe / 10) * 10));
   const clamped = Math.min(dialMax, safe);
-  const riskLevel = getRiskLevel(value);
   // Caption-dot color drawn from the same deep-ocean risk tokens as the band
   // track, so the dot, the band, and the pill never diverge in hue.
   const risk = colorPalettes.risk;
@@ -148,6 +149,17 @@ export function RiskGauge({
     // `risk.*` are resolved strings (not the fresh getter object) so the memo
     // is stable across renders and only recomputes when an input truly changes.
   }, [clamped, dialMax, showLabel, title, risk.low, risk.moderate, risk.high, risk.veryHigh]);
+
+  if (!available) {
+    return (
+      <div className="flex flex-col items-center justify-center text-muted-foreground gap-3"
+        style={{ height: `${height}px` }} role="status">
+        <span className="display text-3xl">—</span>
+        <span className="pill-muted">Risk unavailable</span>
+        {showLabel && <span className="text-[12px]">{title}</span>}
+      </div>
+    );
+  }
 
   return (
     <div className="relative">

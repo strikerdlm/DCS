@@ -11,7 +11,7 @@ Model
 .. math::
 
     P(\\mathrm{DCS}\\ \\mathrm{by\\ time}\\ t) = 1 - S(t)
-      = \\frac{1}{1 + \\exp\\!\\big((\\ln t - \\beta_2 - \\boldsymbol{\\beta} \\cdot \\mathbf{x})/\\beta_1\\big)}
+      = \\frac{1}{1 + \\exp\\!\\big(-(\\ln t - \\beta_2 - \\boldsymbol{\\beta} \\cdot \\mathbf{x})/\\beta_1\\big)}
 
 where ``t`` is time-at-altitude (min), ``x`` is a covariate vector
 (ambient pressure, prebreathing time, exercise indicator), ``beta_1``
@@ -37,7 +37,7 @@ Scope
   USAFSAM chamber data with individual failure times).
 - Exercise enters as a Rest/Mild/Heavy categorical variable, exactly as
   in the shipped grid. Continuous-VO2 extension lives in ``tinydcs``.
-- Uses SciPy's ``optimize.minimize`` with L-BFGS-B on the sum of
+- Uses a bounded linear least-squares reparameterization on the sum of
   squared logit residuals as a pragmatic loss; the original USAFSAM
   work used maximum likelihood on censored failure-time data, which we
   cannot reproduce without the individual-level dataset.
@@ -45,14 +45,16 @@ Scope
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from typing import Iterable, Sequence
+from dataclasses import dataclass
+from typing import Sequence
 
 import numpy as np
 import pandas as pd
+from scipy.special import expit
+from .atmosphere import altitude_ft_to_atm
 
 try:
-    from scipy.optimize import minimize
+    from scipy.optimize import lsq_linear
 except ImportError as exc:  # pragma: no cover
     raise ImportError("scipy is required for mechanistic.adrac") from exc
 
@@ -63,9 +65,7 @@ _SEA_LEVEL_MMHG = 760.0
 
 def altitude_ft_to_mmhg(altitude_ft: np.ndarray) -> np.ndarray:
     """Convert altitude (ft) to ambient pressure (mmHg) via ISA approximation."""
-    alt = np.asarray(altitude_ft, dtype=float)
-    p_atm = (1.0 - 6.87535e-6 * np.maximum(alt, 0.0)) ** 5.2559
-    return p_atm * _SEA_LEVEL_MMHG
+    return altitude_ft_to_atm(altitude_ft) * _SEA_LEVEL_MMHG
 
 
 def _logit(p: np.ndarray) -> np.ndarray:
@@ -74,7 +74,7 @@ def _logit(p: np.ndarray) -> np.ndarray:
 
 
 def _sigmoid(z: np.ndarray) -> np.ndarray:
-    return 1.0 / (1.0 + np.exp(-z))
+    return expit(z)
 
 
 @dataclass(slots=True)
@@ -105,6 +105,13 @@ class AdracModel:
         "exercise_heavy",
     )
 
+    def __post_init__(self):
+        self.beta = np.asarray(self.beta, dtype=float)
+        if self.beta.shape != (4,) or not np.isfinite(self.beta).all():
+            raise ValueError("beta must contain four finite coefficients")
+        if not np.isfinite([self.beta_1, self.beta_2]).all() or self.beta_1 <= 0:
+            raise ValueError("AFT scale must be positive and parameters finite")
+
     def predict(
         self,
         altitude_ft: np.ndarray | float,
@@ -118,8 +125,11 @@ class AdracModel:
         t = np.atleast_1d(np.asarray(time_at_altitude_min, dtype=float))
         ex = np.atleast_1d(np.asarray(exercise_level))
 
-        if not (alt.shape == pb.shape == t.shape == ex.shape):
-            raise ValueError("all inputs must share a common shape")
+        alt, pb, t, ex = np.broadcast_arrays(alt, pb, t, ex)
+        if not np.isfinite(pb).all() or not np.isfinite(t).all() or np.any(pb < 0) or np.any(t < 0):
+            raise ValueError("durations must be finite and nonnegative")
+        if not np.isin(ex, ["Rest", "Mild", "Heavy"]).all():
+            raise ValueError("exercise must be Rest, Mild or Heavy")
 
         pressure = altitude_ft_to_mmhg(alt)
         mild = (ex == "Mild").astype(float)
@@ -129,35 +139,7 @@ class AdracModel:
         log_t = np.log(np.maximum(t, _EPS))
         covariate_term = X @ self.beta
         omega = (log_t - self.beta_2 - covariate_term) / self.beta_1
-        p_dcs_fraction = 1.0 / (1.0 + np.exp(-omega))
-        return np.clip(p_dcs_fraction, 0.0, 1.0)
-
-
-def _pack(beta_1: float, beta_2: float, beta: np.ndarray) -> np.ndarray:
-    return np.concatenate([[beta_1, beta_2], beta])
-
-
-def _unpack(theta: np.ndarray) -> tuple[float, float, np.ndarray]:
-    return float(theta[0]), float(theta[1]), np.asarray(theta[2:], dtype=float)
-
-
-def _negative_log_likelihood_like(
-    theta: np.ndarray,
-    log_t: np.ndarray,
-    X: np.ndarray,
-    target_logit: np.ndarray,
-) -> float:
-    """Pragmatic loss: MSE between predicted logit(P) and target logit(P_grid).
-
-    This is not the strict Kannan-1998 MLE (which requires censored failure
-    times), but recovers the same functional form on an ADRAC-output grid.
-    """
-    beta_1, beta_2, beta = _unpack(theta)
-    if beta_1 <= _EPS:
-        return 1e12
-    omega = (log_t - beta_2 - X @ beta) / beta_1
-    resid = omega - target_logit
-    return float(np.mean(resid * resid))
+        return np.where(t == 0, 0.0, expit(omega))
 
 
 def fit_adrac(
@@ -188,34 +170,28 @@ def fit_adrac(
     pb = df[prebreathe_col].to_numpy(dtype=float)
     ex = df[exercise_col].to_numpy()
     t = df[time_col].to_numpy(dtype=float)
-    t = np.maximum(t, _EPS)
-    log_t = np.log(t)
-
-    mild = (ex == "Mild").astype(float)
-    heavy = (ex == "Heavy").astype(float)
-    X = np.stack([pressure, pb, mild, heavy], axis=-1)
-
-    y = df[target_col].to_numpy(dtype=float)
-    if target_in_percent:
-        y = y / 100.0
-    target_logit = _logit(y)
-
-    # Initial guess: small positive beta_1, large negative beta_2 (so that
-    # low t → low P(DCS)), roughly physiological signs on covariates
-    # (increasing pressure → lower risk; increasing PB → lower risk;
-    # exercise → higher risk).
-    theta0 = np.array([1.0, 0.0, -1.0e-3, -1.0e-2, 1.0, 2.0])
-
-    result = minimize(
-        _negative_log_likelihood_like,
-        theta0,
-        args=(log_t, X, target_logit),
-        method="L-BFGS-B",
-        bounds=[(_EPS, None), (-100.0, 100.0)] + [(-100.0, 100.0)] * X.shape[1],
-        options={"maxiter": 5000, "ftol": 1e-10, "gtol": 1e-8},
-    )
+    y = df[target_col].to_numpy(dtype=float) / (100.0 if target_in_percent else 1.0)
+    if not np.isfinite([*pb, *t, *y]).all() or np.any(pb < 0) or np.any(t < 0) or np.any((y < 0) | (y > 1)):
+        raise ValueError("training covariates and probability targets must be finite and in range")
+    if not np.isin(ex, ["Rest", "Mild", "Heavy"]).all():
+        raise ValueError("exercise must be Rest, Mild or Heavy")
+    if np.any((t == 0) & (y != 0)):
+        raise ValueError("zero-duration exposure must have zero cumulative risk")
+    positive = t > 0
+    if positive.sum() < 6:
+        raise ValueError("at least six positive-duration training rows required")
+    # logit(p) = a*log(t) + b + c.x, a=1/beta_1 >0.
+    # Signs in this reparameterization: pressure/PB <=0, exercise >=0.
+    design = np.column_stack([np.log(t[positive]), np.ones(positive.sum()),
+                              pressure[positive], pb[positive],
+                              (ex[positive] == "Mild"), (ex[positive] == "Heavy")])
+    scale = np.maximum(np.linalg.norm(design, axis=0), 1.0)
+    result = lsq_linear(design/scale, _logit(y[positive]),
+                        bounds=([1e-8*scale[0], -np.inf, -np.inf, -np.inf, 0, 0],
+                                [np.inf, np.inf, 0, 0, np.inf, np.inf]),
+                        tol=1e-12, max_iter=5000)
     if not result.success:
         raise RuntimeError(f"ADRAC fit did not converge: {result.message}")
-
-    beta_1, beta_2, beta = _unpack(result.x)
-    return AdracModel(beta_1=beta_1, beta_2=beta_2, beta=beta)
+    coefficients = result.x/scale
+    a = coefficients[0]
+    return AdracModel(beta_1=1/a, beta_2=-coefficients[1]/a, beta=-coefficients[2:]/a)

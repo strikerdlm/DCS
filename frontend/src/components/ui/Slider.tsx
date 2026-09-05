@@ -29,15 +29,15 @@ const Slider = React.forwardRef<
     },
     ref
   ) => {
-    const currentValue = value?.[0] ?? defaultValue?.[0] ?? 0;
-    const displayValue = formatValue
-      ? formatValue(currentValue)
-      : currentValue.toString();
+    const currentValues = value ?? defaultValue ?? [0];
+    const displayValue = currentValues
+      .map(current => formatValue ? formatValue(current) : current.toString())
+      .join(" – ");
 
     return (
       <div className="space-y-3">
         {(label || showValue) && (
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
               {label && (
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -71,7 +71,13 @@ const Slider = React.forwardRef<
           <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
             <SliderPrimitive.Range className="absolute h-full bg-primary" />
           </SliderPrimitive.Track>
-          <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent" />
+          {currentValues.map((_, index) => (
+            <SliderPrimitive.Thumb
+              key={index}
+              aria-label={currentValues.length === 1 ? label : `${label ?? "Range"} ${index === 0 ? "minimum" : index === currentValues.length - 1 ? "maximum" : index + 1}`}
+              className="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent"
+            />
+          ))}
         </SliderPrimitive.Root>
       </div>
     );

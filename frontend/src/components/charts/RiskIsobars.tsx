@@ -78,7 +78,7 @@ function isolineSegments(
  *
  * The two mission-planning levers on the axes; P(DCS) as a faint ocean field
  * behind crisp marching-squares contour "isobars" at the 1 / 5 / 20 % four-zone
- * thresholds. The area below the 5 % isobar is the safe operating space for the
+ * thresholds. The area below the 5 % isobar is the illustrative low-model-output region for the
  * current time-at-altitude and workload; the dashed frame is the validity
  * envelope (the model abstains beyond it); the marker is the live scenario.
  *
@@ -331,8 +331,7 @@ export function RiskIsobars({
         Field and isobars hold time-at-altitude at{" "}
         <span className="text-num text-foreground">{inputs.timeAtAltitude} min</span> and workload at{" "}
         <span className="text-num text-foreground">{inputs.exerciseLevel}</span>. Stay below the{" "}
-        <span style={{ color: colorPalettes.risk.moderate }}>5 % isobar</span> for an operationally
-        safe profile; the dashed frame is the validity envelope — the model abstains beyond it. Current
+        <span style={{ color: colorPalettes.risk.moderate }}>5 % isobar</span> as an illustrative reference, not a safety threshold; the dashed frame is the model-grid range. Current
         point at <span className="text-num text-foreground">{inputs.altitude.toLocaleString()} ft</span> /{" "}
         <span className="text-num text-foreground">{pMmHg.toFixed(0)} mmHg</span>.
       </p>

@@ -31,7 +31,7 @@ def mixed_scale_df() -> pd.DataFrame:
 
 
 def test_scale_fix_flags_and_rescales(mixed_scale_df: pd.DataFrame) -> None:
-    cleaned, report = clean_dcs_risk_db(mixed_scale_df)
+    cleaned, report = clean_dcs_risk_db(mixed_scale_df, policy="sensitivity_rescaled")
 
     assert report.n_scale_fixed == 2, "expected exactly the two seeded fraction rows to be flagged"
     # After cleaning, every cell should have values on the percent scale.
@@ -47,7 +47,7 @@ def test_scale_fix_flags_and_rescales(mixed_scale_df: pd.DataFrame) -> None:
 
 
 def test_dedup_collapses_cells(mixed_scale_df: pd.DataFrame) -> None:
-    cleaned, _ = clean_dcs_risk_db(mixed_scale_df)
+    cleaned, _ = clean_dcs_risk_db(mixed_scale_df, policy="sensitivity_raw")
     # Three input cells → three output rows.
     assert len(cleaned) == 3
 
@@ -76,3 +76,19 @@ def test_consistent_percent_untouched() -> None:
     })
     cleaned, report = clean_dcs_risk_db(df)
     assert report.n_scale_fixed == 0
+
+
+def test_heuristic_repairs_are_not_primary_ground_truth(mixed_scale_df):
+    cleaned, report = clean_dcs_risk_db(mixed_scale_df)
+    assert len(cleaned) == 0  # every input cell has unresolved disagreement
+    assert report.n_scale_fixed == 0
+    assert len(report.ledger) == len(mixed_scale_df)
+    assert report.ledger["raw_target_percent"].tolist() == mixed_scale_df["risk_of_decompression_sickness"].tolist()
+    assert not report.ledger["included_primary"].any()
+
+
+def test_disagreement_count_is_not_truncated_to_report_examples():
+    rows = [(20000+i*100, 0, "Rest", 60, risk) for i in range(70) for risk in [5, 6]]
+    df = pd.DataFrame(rows, columns=["altitude", "prebreathing_time", "exercise_level", "time_at_altitude", "risk_of_decompression_sickness"])
+    _, report = clean_dcs_risk_db(df)
+    assert report.n_within_combo_disagreements == 70

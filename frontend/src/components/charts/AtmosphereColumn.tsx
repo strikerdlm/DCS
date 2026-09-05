@@ -6,7 +6,7 @@ import {
   formatNumber,
   getRiskLevel,
 } from "../../lib/utils";
-import { predictMLSurrogate } from "../../utils/models";
+import { checkEnvelope, predictMLSurrogate } from "../../utils/models";
 import type { MLSurrogateInputs } from "../../types";
 
 interface AtmosphereColumnProps {
@@ -18,7 +18,7 @@ interface AtmosphereColumnProps {
  *
  * A vertical pressure column from sea level (bottom) to ~45 kft (top),
  * stratified into troposphere / tropopause / stratosphere, with an ambient
- * pressure scale on the left, the validated 18–40 kft operational envelope
+ * pressure scale on the left, the 18–40 kft model-grid range
  * marked, faint isobar ticks, and the current scenario as a glowing marker on
  * the column. To its right, an avionics "flight strip" of derived readouts.
  *
@@ -51,7 +51,8 @@ export function AtmosphereColumn({ inputs }: AtmosphereColumnProps): React.React
   const ratio =
     pred.features.find((f) => f.name === "tissue_n2_ratio_360")?.value ?? 0;
   const gapMmHg = Math.max(0, (ratio - 1) * pMmHg);
-  const risk = pred.riskPercent;
+  const support = checkEnvelope(inputs.altitude, inputs.prebreathingTime, inputs.timeAtAltitude, inputs.exerciseLevel);
+  const risk = support.inEnvelope ? pred.riskPercent : null;
   const level = getRiskLevel(risk);
   const read = { pAtm, pMmHg, ratio, gapMmHg, risk, level };
 
@@ -71,7 +72,8 @@ export function AtmosphereColumn({ inputs }: AtmosphereColumnProps): React.React
 
   const ratioColor =
     read.level === "low" ? "hsl(var(--risk-low))" :
-    read.level === "moderate" ? "hsl(var(--signal))" : "hsl(var(--risk-high))";
+    read.level === "moderate" ? "hsl(var(--signal))" :
+    read.level === "high" ? "hsl(var(--risk-high))" : "hsl(var(--muted-foreground))";
 
   // Flight-strip readouts.
   const strips = [
@@ -100,8 +102,8 @@ export function AtmosphereColumn({ inputs }: AtmosphereColumnProps): React.React
     {
       icon: <Activity className="h-3.5 w-3.5" />,
       label: "P(DCS)",
-      value: read.risk.toFixed(2),
-      unit: "%",
+      value: read.risk === null ? "Unavailable" : read.risk.toFixed(2),
+      unit: read.risk === null ? "outside grid support" : "%",
       edge: ratioColor,
       valueColor: ratioColor,
     },
@@ -180,7 +182,7 @@ export function AtmosphereColumn({ inputs }: AtmosphereColumnProps): React.React
             />
           </g>
 
-          {/* Validity envelope 18–40 kft */}
+          {/* Audited grid range 18–40 kft, not clinical validity */}
           <rect
             x={COL_L - 1}
             y={altToY(40_000)}
@@ -208,7 +210,7 @@ export function AtmosphereColumn({ inputs }: AtmosphereColumnProps): React.React
               letterSpacing: "0.08em",
             }}
           >
-            VALIDITY 18–40 KFT
+            GRID 18–40 KFT
           </text>
 
           {/* Phase labels (inside column) */}

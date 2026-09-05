@@ -44,7 +44,7 @@ def eva_scenario() -> dict:
         "suit": {
             "pressurePsia": 5.8,
             "oxygenFraction": 1,
-            "variablePressure": True,
+            "variablePressure": False,
             "plssDurationMin": 480,
             "oxygenReserveMin": 35,
             "co2ScrubberMargin": 0.82,
@@ -82,18 +82,17 @@ def eva_scenario() -> dict:
 def test_eva_simulation_contract_and_intervals() -> None:
     scenario = eva_scenario()
     result = simulate_eva(scenario, mission_rules=load_mission_rules("artemis_lunar"))
-    assert result["pDcsPercent"] >= 0
-    assert result["intervalLowPercent"] <= result["pDcsPercent"] <= result["intervalHighPercent"]
-    assert result["maxRiskPercent"] == pytest.approx(result["pDcsPercent"], rel=1e-6)
-    assert result["maxRiskTimeMin"] == pytest.approx(scenario["evaDurationMin"], abs=8)
-    assert result["integratedRiskPercentHours"] > 0
-    assert result["lxcLikelihood"] in {1, 2, 3, 4, 5}
-    assert result["lxcCategory"] in {"green", "yellow", "orange", "red"}
+    assert result["pDcsPercent"] is None
+    assert result["intervalLowPercent"] is result["intervalHighPercent"] is None
+    assert result["maxRiskPercent"] is result["maxRiskTimeMin"] is None
+    assert result["integratedRiskPercentHours"] is None
+    assert result["lxcLikelihood"] is None
+    assert result["lxcCategory"] == "unavailable"
     assert result["decision"] in {"proceed", "monitor", "modify", "delay", "abort", "abstain"}
     assert len(result["timeline"]) >= 10
 
 
-def test_interval_width_expands_for_novel_profiles() -> None:
+def test_no_heuristic_intervals_for_any_eva_profile() -> None:
     rules = load_mission_rules("default")
     baseline = eva_scenario()
     baseline["kind"] = "scenario_a_commercial_standup"
@@ -102,7 +101,7 @@ def test_interval_width_expands_for_novel_profiles() -> None:
     novel = eva_scenario()
     base_interval = interval_for_risk_percent(5.0, baseline, rules)
     novel_interval = interval_for_risk_percent(5.0, novel, rules)
-    assert novel_interval["high"] - novel_interval["low"] > base_interval["high"] - base_interval["low"]
+    assert novel_interval == base_interval == {"low": None, "high": None}
 
 
 def test_lxc_threshold_mapping() -> None:
@@ -173,7 +172,8 @@ def test_telemetry_adapters_update_scenario_inputs() -> None:
     result = simulate_eva(
         scenario,
         mission_rules=load_mission_rules("default"),
-        telemetry=[
+        telemetry_now_sec=1000,
+        telemetry=[dict(sample, timestampSec=995) for sample in [
             {"kind": "pressure", "value": 40.0, "unit": "kpa", "source": "bench"},
             {"kind": "workload", "value": 38.0, "unit": "vo2_ml_kg_min", "source": "bench"},
             {"kind": "spo2", "value": 94, "unit": "%", "source": "bench"},
@@ -181,7 +181,7 @@ def test_telemetry_adapters_update_scenario_inputs() -> None:
             {"kind": "hrv", "value": 41, "unit": "rmssd_ms", "source": "bench"},
             {"kind": "heart_rate", "value": 132, "unit": "bpm", "source": "bench"},
             {"kind": "pressure", "value": 1, "unit": "unknown", "source": "bad"},
-        ],
+        ]],
     )
     status = result["telemetryStatus"]
     assert status["accepted"] == 6

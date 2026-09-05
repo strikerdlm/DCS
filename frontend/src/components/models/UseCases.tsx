@@ -21,7 +21,6 @@ import {
 } from "../ui/Select";
 import {
   checkEnvelope,
-  illustrativeInterval,
   predictADRAC,
 } from "../../utils/models";
 import { altitudeFtToMmHg, altitudeFtToPAmbAtm, getRiskColor } from "../../lib/utils";
@@ -52,8 +51,6 @@ function ScenarioPanel({
   alertThresholdPct: number;
   interpret: (ctx: {
     risk: number;
-    low: number;
-    high: number;
     inEnvelope: boolean;
     state: ScenarioState;
     overThreshold: boolean;
@@ -75,8 +72,7 @@ function ScenarioPanel({
       state.timeAtAltitude,
     );
     const risk = riskFraction * 100;
-    const interval = illustrativeInterval(riskFraction, state.altitude);
-    return { env, risk, interval };
+    return { env, risk };
   }, [state]);
 
   const abstains = !result.env.inEnvelope;
@@ -158,7 +154,7 @@ function ScenarioPanel({
               ≥ {alertThresholdPct}
               <span className="text-[11px] text-muted-foreground"> %</span>
             </p>
-            <p className="text-num text-[11px] text-muted-foreground">operational gate</p>
+            <p className="text-num text-[11px] text-muted-foreground">illustrative comparison threshold</p>
           </div>
         </div>
       </div>
@@ -179,8 +175,7 @@ function ScenarioPanel({
             <div>
               <h4 className="display text-lg font-bold">Model abstains — out of envelope</h4>
               <p className="text-[13px] text-muted-foreground mt-1 max-w-md">
-                The OOD gate refuses to predict outside the validated envelope. Returning a number
-                here would be an unsupported extrapolation.
+                This browser view withholds its ADRAC estimate outside the supported input range.
               </p>
             </div>
             <ul className="text-[12.5px] text-amber-700 dark:text-amber-300 space-y-1 mt-1">
@@ -205,7 +200,7 @@ function ScenarioPanel({
                 {/* Point + interval */}
                 <div className="surface p-4">
                   <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
-                    Calibrated estimate
+                    ADRAC baseline estimate
                   </p>
                   <div className="flex items-baseline gap-2 mt-1">
                     <span
@@ -218,17 +213,11 @@ function ScenarioPanel({
                   </div>
                   <div className="mt-3">
                     <div className="flex items-center justify-between text-[11px] text-muted-foreground mb-1">
-                      <span>95 % interval</span>
-                      <span className="pill-muted">illustrative</span>
+                      <span>Prediction interval</span>
+                      <span className="pill-muted">unavailable</span>
                     </div>
-                    <IntervalBar
-                      low={result.interval.lowPercent}
-                      point={result.risk}
-                      high={result.interval.highPercent}
-                    />
-                    <p className="text-num text-[12px] mt-1.5">
-                      [{result.interval.lowPercent.toFixed(2)} —{" "}
-                      {result.interval.highPercent.toFixed(2)}] %
+                    <p className="text-[12px] text-muted-foreground mt-1.5">
+                      No validated calibration artifact is bundled for this baseline.
                     </p>
                   </div>
                 </div>
@@ -241,7 +230,7 @@ function ScenarioPanel({
                   <div>
                     <p className="text-[13px] font-semibold">In-envelope</p>
                     <p className="text-[11.5px] text-muted-foreground">
-                      Inside the validated grid — prediction is supported.
+                      Inside the model input range; clinical validation is separate.
                     </p>
                   </div>
                 </div>
@@ -254,8 +243,8 @@ function ScenarioPanel({
                 <AlertTriangle className="h-4 w-4 text-red-500 shrink-0 mt-0.5 animate-pulse-soft" />
                 <p className="text-[12.5px] text-red-700 dark:text-red-300">
                   <strong>Threshold alert.</strong> Estimated P(DCS) is at or above the{" "}
-                  {alertThresholdPct}% operational gate for this scenario. Mitigation (more
-                  prebreathe, lower altitude, shorter exposure) is indicated.
+                  {alertThresholdPct}% illustrative comparison threshold. This research display
+                  does not establish an operational acceptance limit.
                 </p>
               </div>
             )}
@@ -264,8 +253,6 @@ function ScenarioPanel({
             <div className="scientific-callout">
               {interpret({
                 risk: result.risk,
-                low: result.interval.lowPercent,
-                high: result.interval.highPercent,
                 inEnvelope: result.env.inEnvelope,
                 state,
                 overThreshold,
@@ -274,36 +261,6 @@ function ScenarioPanel({
           </>
         )}
       </div>
-    </div>
-  );
-}
-
-function IntervalBar({
-  low,
-  point,
-  high,
-}: {
-  low: number;
-  point: number;
-  high: number;
-}): React.ReactElement {
-  // Scale to a fixed 0–40 % visual window (typical training/flight band).
-  const scaleMax = Math.max(40, high * 1.15);
-  const pct = (v: number) => `${Math.min(100, (v / scaleMax) * 100)}%`;
-  return (
-    <div className="relative h-2.5 rounded-full bg-muted overflow-hidden">
-      <div
-        className="absolute top-0 bottom-0 rounded-full"
-        style={{
-          left: pct(low),
-          width: `calc(${pct(high)} - ${pct(low)})`,
-          background: "hsl(var(--primary) / 0.30)",
-        }}
-      />
-      <div
-        className="absolute top-1/2 -translate-y-1/2 h-3.5 w-1 rounded-full"
-        style={{ left: pct(point), background: getRiskColor(point) }}
-      />
     </div>
   );
 }
@@ -320,13 +277,12 @@ export function UseCases(): React.ReactElement {
             <Plane className="h-3 w-3" /> Worked examples
           </span>
           <h2 className="display text-3xl font-bold tracking-tight mt-1">
-            Two real scenarios, computed live.
+            Two research examples, computed live.
           </h2>
           <p className="text-muted-foreground mt-3 text-[14px] leading-relaxed max-w-xl">
             Each panel computes the point P(DCS) from the closed-form ADRAC core in your browser as
-            you move the sliders. The 95 % interval and the abstention behaviour illustrate the
-            TinyDCS calibration layer. Point estimates are exact; intervals are marked{" "}
-            <span className="pill-muted">illustrative</span>.
+            you move the sliders. The browser applies the supported input range; prediction
+            intervals are unavailable because no validated calibration artifact is bundled.
           </p>
         </div>
       </section>
@@ -356,26 +312,23 @@ export function UseCases(): React.ReactElement {
             prebreatheRange={[0, 60]}
             timeRange={[10, 240]}
             alertThresholdPct={5}
-            interpret={({ risk, low, high, state, overThreshold }) => (
+            interpret={({ risk, state, overThreshold }) => (
               <>
                 <p className="font-semibold text-foreground mb-1 flex items-center gap-2">
-                  <Mountain className="h-3.5 w-3.5" /> Operational read
+                  <Mountain className="h-3.5 w-3.5" /> Model interpretation
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  At {state.altitude.toLocaleString()} ft for {state.timeAtAltitude} min with no
-                  prebreathe ({state.exercise.toLowerCase()} activity), the calibrated estimate is{" "}
-                  <strong className="text-foreground text-num">{risk.toFixed(2)}%</strong> P(DCS),
-                  95 % interval{" "}
-                  <span className="text-num">
-                    [{low.toFixed(2)}–{high.toFixed(2)}]%
-                  </span>{" "}
-                  (illustrative). The in-envelope flag confirms this is a supported prediction.{" "}
+                  At {state.altitude.toLocaleString()} ft for {state.timeAtAltitude} min with{" "}
+                  {state.prebreathe} min prebreathe ({state.exercise.toLowerCase()} activity),
+                  the ADRAC baseline estimate is{" "}
+                  <strong className="text-foreground text-num">{risk.toFixed(2)}%</strong> P(DCS).
+                  Its prediction interval is unavailable.{" "}
                   {overThreshold
-                    ? "It has crossed the 5% gate — the tool alerts before the airman commits to the profile."
-                    : "It sits under the 5% alert gate, but climbs steeply with altitude and exposure time — push the altitude slider up to watch the alert fire."}{" "}
+                    ? "It is above the illustrative 5% comparison threshold."
+                    : "It is below the illustrative 5% comparison threshold."}{" "}
                   Drag altitude past <strong className="text-foreground">40,000 ft</strong> and the
                   tool <strong className="text-foreground">refuses to predict</strong> — an
-                  unpressurised excursion there is outside anything the model was validated on.
+                  that input is outside the supported model range.
                 </p>
               </>
             )}
@@ -405,28 +358,21 @@ export function UseCases(): React.ReactElement {
             prebreatheRange={[0, 120]}
             timeRange={[10, 120]}
             alertThresholdPct={5}
-            interpret={({ risk, low, high, state, overThreshold }) => (
+            interpret={({ risk, state, overThreshold }) => (
               <>
                 <p className="font-semibold text-foreground mb-1 flex items-center gap-2">
                   <Wind className="h-3.5 w-3.5" /> Prebreathe planning
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   At {state.altitude.toLocaleString()} ft for {state.timeAtAltitude} min with a{" "}
-                  {state.prebreathe}-min 100 % O₂ prebreathe (resting), the calibrated estimate is{" "}
-                  <strong className="text-foreground text-num">{risk.toFixed(2)}%</strong> P(DCS),
-                  95 % interval{" "}
-                  <span className="text-num">
-                    [{low.toFixed(2)}–{high.toFixed(2)}]%
-                  </span>{" "}
-                  (illustrative).{" "}
-                  {state.prebreathe === 0
-                    ? "With zero prebreathe the risk is markedly higher — slide prebreathe up and watch the estimate and its interval contract."
-                    : "Pulling prebreathe to 0 min roughly doubles the point risk, which is exactly the trade the instructor needs to see before signing the profile."}{" "}
+                  {state.prebreathe}-min 100 % O₂ prebreathe ({state.exercise.toLowerCase()} activity),
+                  the ADRAC baseline estimate is{" "}
+                  <strong className="text-foreground text-num">{risk.toFixed(2)}%</strong> P(DCS).
+                  Its prediction interval is unavailable.{" "}
                   {overThreshold
-                    ? "The current profile is over the 5% gate; either add prebreathe or trim exposure."
-                    : "The current profile sits under the 5% gate — prebreathe is doing its job."}{" "}
-                  The narrowing interval as prebreathe increases is the calibration layer rewarding a
-                  better-characterised, lower-risk exposure.
+                    ? "The profile is above the illustrative 5% comparison threshold."
+                    : "The profile is below the illustrative 5% comparison threshold."}{" "}
+                  Vary prebreathe to inspect the model response; this comparison does not certify a profile.
                 </p>
               </>
             )}

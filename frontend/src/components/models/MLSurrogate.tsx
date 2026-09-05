@@ -26,17 +26,18 @@ import {
 } from "../ui/Select";
 import {
   decomposeADRAC,
+  checkEnvelope,
   generateRiskLandscape,
   predictMLSurrogate,
+  VALIDITY_ENVELOPE,
 } from "../../utils/models";
 import type { DoseVariable } from "../../utils/models";
-import { altitudeFtToMmHg, altitudeFtToPAmbAtm, cn } from "../../lib/utils";
-import { defaultMLInputs, modelValidityCards } from "../../data/mockData";
+import { altitudeFtToMmHg, altitudeFtToPAmbAtm, cn, formatNumber } from "../../lib/utils";
+import { defaultMLInputs, modelValidityCards, validationMetrics } from "../../data/mockData";
 import { ValidityPanel } from "./ValidityPanel";
 import type {
   ExerciseLevel,
   MLSurrogateInputs,
-  MLSurrogatePrediction,
 } from "../../types";
 
 const DOSE_TABS: { value: DoseVariable; label: string }[] = [
@@ -46,20 +47,31 @@ const DOSE_TABS: { value: DoseVariable; label: string }[] = [
 ];
 
 const EXERCISE_OPTIONS: { value: ExerciseLevel; label: string; vo2: string }[] = [
-  { value: "Rest", label: "Rest", vo2: "≈ 0.0 L·min⁻¹" },
-  { value: "Mild", label: "Mild", vo2: "≈ 0.41 L·min⁻¹" },
-  { value: "Heavy", label: "Heavy", vo2: "≈ 0.55 L·min⁻¹" },
+  { value: "Rest", label: "Rest", vo2: "reference category" },
+  { value: "Mild", label: "Mild", vo2: "mild indicator" },
+  { value: "Heavy", label: "Heavy", vo2: "heavy indicator" },
 ];
 
 export function MLSurrogate(): React.ReactElement {
   const [inputs, setInputs] = useState<MLSurrogateInputs>(defaultMLInputs);
-  const [prediction, setPrediction] = useState<MLSurrogatePrediction | null>(() =>
-    predictMLSurrogate(defaultMLInputs),
-  );
-  const [isCalculating, setIsCalculating] = useState(false);
   const [doseVar, setDoseVar] = useState<DoseVariable>("time");
-
-  const decomposition = useMemo(() => decomposeADRAC(inputs), [inputs]);
+  const { prediction, decomposition, pAtm, pMmHg, error } = useMemo(() => {
+    try {
+      return {
+        prediction: predictMLSurrogate(inputs),
+        decomposition: inputs.timeAtAltitude > 0 ? decomposeADRAC(inputs) : null,
+        pAtm: altitudeFtToPAmbAtm(inputs.altitude),
+        pMmHg: altitudeFtToMmHg(inputs.altitude), error: null,
+      };
+    } catch (caught) {
+      return { prediction: null, decomposition: null, pAtm: null, pMmHg: null,
+        error: caught instanceof Error ? caught.message : "Invalid model inputs" };
+    }
+  }, [inputs]);
+  const envelope = checkEnvelope(inputs.altitude, inputs.prebreathingTime,
+    inputs.timeAtAltitude, inputs.exerciseLevel);
+  const risk = envelope.inEnvelope || inputs.timeAtAltitude === 0
+    ? prediction?.riskPercent ?? null : null;
 
   const handleInputChange = useCallback(
     (field: keyof MLSurrogateInputs, value: number | string) => {
@@ -69,28 +81,21 @@ export function MLSurrogate(): React.ReactElement {
   );
 
   const handleCalculate = useCallback(() => {
-    setIsCalculating(true);
-    setTimeout(() => {
-      setPrediction(predictMLSurrogate(inputs));
-      setIsCalculating(false);
-    }, 280);
-  }, [inputs]);
+    setInputs((previous) => ({ ...previous }));
+  }, []);
 
   const liveLandscape = useMemo(
     () =>
-      generateRiskLandscape({
+      envelope.inEnvelope ? generateRiskLandscape({
         prebreatheMin: inputs.prebreathingTime,
         exerciseLevel: inputs.exerciseLevel,
         altitudeRange: [18000, 40000],
         timeRange: [10, 240],
         altitudeSteps: 23,
         timeSteps: 24,
-      }),
-    [inputs.prebreathingTime, inputs.exerciseLevel],
+      }) : [],
+    [inputs.prebreathingTime, inputs.exerciseLevel, envelope.inEnvelope],
   );
-
-  const pAtm = altitudeFtToPAmbAtm(inputs.altitude);
-  const pMmHg = altitudeFtToMmHg(inputs.altitude);
 
   return (
     <div className="space-y-6">
@@ -102,22 +107,22 @@ export function MLSurrogate(): React.ReactElement {
         <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
           <div>
             <span className="pill-primary mb-3">
-              <Compass className="h-3 w-3" /> ADRAC Risk Predictor
+              <Compass className="h-3 w-3" /> ADRAC baseline predictor
             </span>
             <h2 className="display text-3xl font-bold tracking-tight mt-2">
-              Altitude-DCS risk, calibrated to the published log-logistic.
+              Altitude-DCS estimates from the log-logistic baseline.
             </h2>
             <p className="text-muted-foreground mt-2 max-w-2xl text-[14px] leading-relaxed">
-              Pilmanis (2004) functional form, fitted in <code className="text-num text-[12px]">mechanistic/adrac.py</code> on
-              the cleaned ADRAC grid (n = 15,908). The browser bundle uses this closed
-              form so predictions are deterministic, ~0.1 ms, and reproducible from the
-              same coefficient JSON the repository ships.
+              The ADRAC functional form is fitted on {validationMetrics.nTrain.toLocaleString()}
+              {" "}training cells. Bundled coefficients support deterministic offline calculation.
+              The metrics below use {validationMetrics.nSample.toLocaleString()} separate held-out cells;
+              this panel does not execute a trained ML surrogate or supply prediction intervals.
             </p>
             <div className="flex flex-wrap items-center gap-2 mt-4">
-              <span className="pill-muted">MAE 8.74 pp</span>
-              <span className="pill-muted">RMSE 12.34 pp</span>
-              <span className="pill-muted">R² 0.864</span>
-              <span className="pill-accent">13-feature vector</span>
+              <span className="pill-muted">MAE {formatNumber(validationMetrics.mae)} pp</span>
+              <span className="pill-muted">RMSE {formatNumber(validationMetrics.rmse)} pp</span>
+              <span className="pill-muted">R² {formatNumber(validationMetrics.r2, 3)}</span>
+              <span className="pill-accent">Closed-form baseline</span>
             </div>
           </div>
         </div>
@@ -136,9 +141,9 @@ export function MLSurrogate(): React.ReactElement {
             <Input
               label="Altitude"
               type="number"
-              value={inputs.altitude}
+              value={Number.isFinite(inputs.altitude) ? inputs.altitude : ""}
               onChange={(e) =>
-                handleInputChange("altitude", parseFloat(e.target.value) || 0)
+                handleInputChange("altitude", e.target.valueAsNumber)
               }
               unit="ft"
               min={0}
@@ -149,9 +154,9 @@ export function MLSurrogate(): React.ReactElement {
             <Input
               label="Time at altitude"
               type="number"
-              value={inputs.timeAtAltitude}
+              value={Number.isFinite(inputs.timeAtAltitude) ? inputs.timeAtAltitude : ""}
               onChange={(e) =>
-                handleInputChange("timeAtAltitude", parseFloat(e.target.value) || 0)
+                handleInputChange("timeAtAltitude", e.target.valueAsNumber)
               }
               unit="min"
               min={0}
@@ -162,15 +167,15 @@ export function MLSurrogate(): React.ReactElement {
             <Input
               label="Pre-breathe time"
               type="number"
-              value={inputs.prebreathingTime}
+              value={Number.isFinite(inputs.prebreathingTime) ? inputs.prebreathingTime : ""}
               onChange={(e) =>
-                handleInputChange("prebreathingTime", parseFloat(e.target.value) || 0)
+                handleInputChange("prebreathingTime", e.target.valueAsNumber)
               }
               unit="min"
               min={0}
               max={240}
               step={5}
-              description="100 % O₂ prebreathe before ascent"
+              description={`100 % O₂ prebreathe before ascent (supported ${VALIDITY_ENVELOPE.prebreatheMin.join("–")} min)`}
             />
             <div className="space-y-2">
               <label className="block text-[13px] font-medium text-foreground">
@@ -199,7 +204,7 @@ export function MLSurrogate(): React.ReactElement {
                 </SelectContent>
               </Select>
               <p className="text-[11.5px] text-muted-foreground">
-                Whole-body O₂ consumption above rest (Webb 2010 metric).
+                ADRAC uses categorical exercise indicators, not measured continuous VO₂.
               </p>
             </div>
 
@@ -207,19 +212,19 @@ export function MLSurrogate(): React.ReactElement {
               <div>
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Pressure</p>
                 <p className="text-num text-[15px] font-semibold">
-                  {pAtm.toFixed(3)} <span className="text-[11px] text-muted-foreground">atm</span>
+                  {formatNumber(pAtm, 3)} <span className="text-[11px] text-muted-foreground">atm</span>
                 </p>
                 <p className="text-num text-[11px] text-muted-foreground">
-                  {pMmHg.toFixed(0)} mmHg
+                  {formatNumber(pMmHg, 0)} mmHg
                 </p>
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Bench</p>
                 <p className="text-num text-[15px] font-semibold">
-                  {prediction ? prediction.riskPercent.toFixed(2) : "—"}<span className="text-[11px] text-muted-foreground"> %</span>
+                  {formatNumber(risk)}<span className="text-[11px] text-muted-foreground"> %</span>
                 </p>
                 <p className="text-num text-[11px] text-muted-foreground">
-                  P(DCS) instant
+                  Cumulative endpoint P(DCS)
                 </p>
               </div>
             </div>
@@ -228,7 +233,6 @@ export function MLSurrogate(): React.ReactElement {
               onClick={handleCalculate}
               className="w-full"
               size="lg"
-              isLoading={isCalculating}
             >
               Recompute prediction
             </Button>
@@ -242,7 +246,7 @@ export function MLSurrogate(): React.ReactElement {
             <Card variant="glass">
               <CardContent className="p-6">
                 <RiskGauge
-                  value={prediction?.riskPercent ?? 0}
+                  value={risk}
                   title="P(DCS)"
                   height={300}
                   max={40}
@@ -253,36 +257,46 @@ export function MLSurrogate(): React.ReactElement {
             <div className="grid sm:grid-cols-2 gap-3">
               <MetricCard
                 label="Altitude"
-                value={inputs.altitude.toLocaleString()}
+                value={Number.isFinite(inputs.altitude) ? inputs.altitude.toLocaleString() : "—"}
                 unit="ft"
                 icon={<Mountain className="h-4 w-4 text-primary" />}
                 description="Target exposure altitude"
               />
               <MetricCard
                 label="Time at altitude"
-                value={inputs.timeAtAltitude}
+                value={formatNumber(inputs.timeAtAltitude, 0)}
                 unit="min"
                 icon={<Clock className="h-4 w-4 text-accent" />}
                 description="Exposure duration"
               />
               <MetricCard
                 label="Prebreathe"
-                value={inputs.prebreathingTime}
+                value={formatNumber(inputs.prebreathingTime, 0)}
                 unit="min"
                 icon={<Wind className="h-4 w-4 text-chart-2" />}
                 description="100 % O₂ window before ascent"
               />
               <MetricCard
                 label="Predicted P(DCS)"
-                value={prediction ? prediction.riskPercent.toFixed(2) : "—"}
+                value={formatNumber(risk)}
                 unit="%"
                 isRisk
-                riskValue={prediction?.riskPercent ?? 0}
+                riskValue={risk ?? undefined}
                 icon={<Activity className="h-4 w-4" />}
                 description={prediction ? `Exercise ≈ ${inputs.exerciseLevel}` : ""}
               />
             </div>
           </div>
+
+          {(error || !envelope.inEnvelope) && (
+            <div role="status" className="scientific-callout text-[13px]">
+              {error ?? (inputs.timeAtAltitude === 0
+                ? "At zero exposure duration the mathematical cumulative probability is exactly zero. Positive-duration validation starts at 10 min."
+                : `Prediction unavailable: ${envelope.reasons.join(". ")}`)}
+            </div>
+          )}
+
+          {envelope.inEnvelope && decomposition && (<>
 
           {/* Risk landscape */}
           <Card>
@@ -348,8 +362,8 @@ export function MLSurrogate(): React.ReactElement {
               <p className="text-[12.5px] text-muted-foreground mt-0.5">
                 Diminishing returns on 100 % O₂ prebreathe, holding altitude
                 ({inputs.altitude.toLocaleString()} ft), time ({inputs.timeAtAltitude} min) and
-                exercise ({inputs.exerciseLevel}) fixed. The 5 % operational gate and the marginal
-                benefit of the next 30 min frame the planning decision.
+                exercise ({inputs.exerciseLevel}) fixed. The 5 % line is an illustrative comparison
+                threshold; it does not establish operational acceptability.
               </p>
             </CardHeader>
             <CardContent className="pt-2">
@@ -392,15 +406,16 @@ export function MLSurrogate(): React.ReactElement {
               </CardContent>
             </Card>
           </div>
+          </>)}
 
           {/* Feature vector */}
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-[15px]">Feature vector</CardTitle>
+              <CardTitle className="text-[15px]">Inputs and derived diagnostics</CardTitle>
               <p className="text-[12.5px] text-muted-foreground mt-0.5">
-                The 13-element feature vector that feeds the closed-form predictor —
-                identical structure to the LightGBM/ONNX surrogate's input tensor
-                (<code className="text-num text-[11px]">tinydcs/features.py</code>).
+                The baseline uses pressure, prebreathe, and mild/heavy indicators with log-time.
+                The additional tissue and exercise quantities are separate diagnostics;
+                they are not a deployed ML input tensor or additional fitted covariates.
               </p>
             </CardHeader>
             <CardContent>

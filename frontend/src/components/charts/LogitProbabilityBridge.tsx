@@ -18,7 +18,7 @@ interface LogitProbabilityBridgeProps {
  * CovariateContribution tornado shows the additive terms that build ω; this
  * chart shows the non-linear step that turns that sum into a probability. The
  * S-curve is painted with the four-zone risk ramp (low → very-high) so the
- * colour itself reads as severity, the 1 / 5 / 20 % operational thresholds are
+ * colour itself reads as severity, the 1 / 5 / 20 % illustrative thresholds are
  * drawn as horizontal isobars, and the live scenario is dropped from its ω on
  * the x-axis up onto the curve — the same number the gauge then displays.
  *

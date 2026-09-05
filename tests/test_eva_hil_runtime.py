@@ -1,4 +1,4 @@
-"""Replay-based hardware-in-the-loop smoke tests for tablet/wearable runtime."""
+"""Desktop synthetic replay smoke test; not a hardware-in-the-loop benchmark."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from tinydcs.eva import simulation_response
 from tests.test_eva import eva_scenario
 
 
-def test_tablet_class_replay_runtime_and_payload_size() -> None:
+def test_desktop_replay_runtime_and_payload_size() -> None:
     scenario = eva_scenario()
     telemetry = [
         {"kind": "pressure", "value": 5.8, "unit": "psia", "source": "tablet-pressure", "confidence": 0.96},
@@ -20,7 +20,8 @@ def test_tablet_class_replay_runtime_and_payload_size() -> None:
         {"kind": "skin_temperature", "value": 34.8, "unit": "c", "source": "wearable-temp", "confidence": 0.85},
     ]
     started = time.perf_counter()
-    response = simulation_response(scenario, mission_rule_profile="artemis_lunar", telemetry=telemetry)
+    telemetry = [dict(sample, timestampSec=995) for sample in telemetry]
+    response = simulation_response(scenario, mission_rule_profile="artemis_lunar", telemetry=telemetry, telemetry_now_sec=1000)
     elapsed_ms = (time.perf_counter() - started) * 1000
     encoded = json.dumps(response).encode("utf-8")
 

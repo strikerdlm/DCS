@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import type { EChartsOption, SeriesOption } from "echarts";
 import { chartTheme, colorPalettes, getBaseChartOptions, withAlpha } from "./chartConfig";
-import { generateDoseResponse, predictADRAC } from "../../utils/models";
+import { generateDoseResponse, predictADRAC, VALIDITY_ENVELOPE } from "../../utils/models";
 import type { MLSurrogateInputs } from "../../types";
 
 interface PrebreatheFrontierProps {
@@ -10,16 +10,9 @@ interface PrebreatheFrontierProps {
   height?: number;
 }
 
-/**
- * The prebreathe cost–benefit frontier.
- *
- * P(DCS) vs 100 % O₂ prebreathe (0–180 min), holding altitude, time-at-altitude
- * and exercise at the current scenario. The curve is steep then flattens —
- * classic diminishing returns: the first 30 min buy the most safety, the last
- * 30 min buy almost none. The 5 % operational gate, the live point, 30-min tick
- * annotations, and a marginal-benefit callout make the trade legible to a
- * mission planner deciding how long to prebreathe.
- */
+/** Model-agreement dose curve inside the audited grid support; not a safety rule. */
+const MAX_PREBREATHE = VALIDITY_ENVELOPE.prebreatheMin[1];
+
 export function PrebreatheFrontier({
   inputs,
   height = 320,
@@ -29,14 +22,14 @@ export function PrebreatheFrontier({
       base: inputs,
       variable: "prebreathe",
       exerciseLevel: inputs.exerciseLevel,
-      steps: 181,
+      steps: MAX_PREBREATHE + 1,
     });
     const curve: [number, number][] = pts.map((p) => [p.x, +p.riskPercent.toFixed(3)]);
     const maxRisk = Math.max(40, ...pts.map((p) => p.riskPercent));
 
     // Ticks every 30 min with their risk value as a label.
     const ticks: { x: number; y: number }[] = [];
-    for (let x = 0; x <= 180; x += 30) {
+    for (let x = 0; x <= MAX_PREBREATHE; x += 30) {
       const pt = pts.find((p) => Math.abs(p.x - x) < 0.5);
       if (pt) ticks.push({ x, y: +pt.riskPercent.toFixed(2) });
     }
@@ -48,7 +41,7 @@ export function PrebreatheFrontier({
       inputs.timeAtAltitude,
     );
     const currentRisk = riskFraction * 100;
-    const nextPb = Math.min(180, inputs.prebreathingTime + 30);
+    const nextPb = Math.min(MAX_PREBREATHE, inputs.prebreathingTime + 30);
     const { riskFraction: nextFrac } = predictADRAC(
       inputs.altitude,
       nextPb,
@@ -65,9 +58,9 @@ export function PrebreatheFrontier({
     const cGate = colorPalettes.risk.moderate;
     const cTick = colorPalettes.scientific[6]; // sky
 
-    // 5 % operational gate.
+    // Illustrative 5% reference line, not an operational limit.
     const gate: SeriesOption = {
-      name: "5% gate",
+      name: "5% reference",
       type: "line",
       showSymbol: false,
       silent: true,
@@ -75,7 +68,7 @@ export function PrebreatheFrontier({
       tooltip: { show: false },
       endLabel: {
         show: true,
-        formatter: "5% gate",
+        formatter: "5% reference",
         color: withAlpha(cGate, 0.9),
         fontSize: 10,
         fontFamily: "IBM Plex Mono, monospace",
@@ -83,7 +76,7 @@ export function PrebreatheFrontier({
       },
       data: [
         [0, 5],
-        [180, 5],
+        [MAX_PREBREATHE, 5],
       ],
     } as unknown as SeriesOption;
 
@@ -156,7 +149,7 @@ export function PrebreatheFrontier({
         ...(base.xAxis as object),
         type: "value" as const,
         min: 0,
-        max: 180,
+        max: MAX_PREBREATHE,
         name: "100% O₂ prebreathe (min)",
         nameLocation: "middle" as const,
         nameGap: 34,
@@ -213,11 +206,11 @@ export function PrebreatheFrontier({
   // Marginal-benefit callout (React-rendered, keeps the chart clean).
   const delta = nextRisk - currentRisk; // negative = reduction
   const reduction = Math.max(0, -delta);
-  const nextPb = Math.min(180, inputs.prebreathingTime + 30);
+  const nextPb = Math.min(MAX_PREBREATHE, inputs.prebreathingTime + 30);
   const marginal =
-    inputs.prebreathingTime >= 180
-      ? "Already at the 180 min ceiling — no further prebreathe to give."
-      : `+30 min prebreathe (to ${nextPb} min) buys −${reduction.toFixed(2)} % P(DCS).`;
+    inputs.prebreathingTime >= MAX_PREBREATHE
+      ? "At the audited grid boundary; longer prebreathe is unsupported by this fit."
+      : `Extending prebreathe to ${nextPb} min changes the model output by −${reduction.toFixed(2)} percentage points.`;
 
   return (
     <div>
@@ -232,8 +225,7 @@ export function PrebreatheFrontier({
         <span className="text-muted-foreground">
           At <span className="text-num text-foreground">{inputs.prebreathingTime} min</span> the
           point risk is{" "}
-          <span className="text-num text-foreground">{currentRisk.toFixed(2)}%</span>. {marginal} The
-          curve flattens with every increment — the first 30 min are worth far more than the last.
+          <span className="text-num text-foreground">{currentRisk.toFixed(2)}%</span>. {marginal} This model-grid comparison does not establish operational safety or a recommended protocol.
         </span>
       </div>
     </div>

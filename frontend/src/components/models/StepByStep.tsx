@@ -11,6 +11,7 @@ import {
   Watch,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card";
+import { VALIDITY_ENVELOPE } from "../../utils/models";
 
 interface Step {
   n: number;
@@ -25,38 +26,38 @@ const PIPELINE: Step[] = [
   {
     n: 1,
     icon: <Watch className="h-5 w-5" />,
-    title: "Wearable telemetry",
+    title: "Exposure inputs",
     lede: "Capture the exposure profile.",
     detail:
-      "Altitude, time-at-altitude, prebreathe duration and exercise category are read from the device (or entered by an instructor). This is the raw exposure the airman will fly.",
+      "Enter pressure altitude, time at altitude, prebreathe duration, and exercise category. These define the altitude model example; wearable measurements require their own validated mapping.",
     io: { in: "raw exposure profile", out: "4 primary inputs" },
   },
   {
     n: 2,
     icon: <Binary className="h-5 w-5" />,
-    title: "13-feature vector",
+    title: "Model covariates",
     lede: "Engineer the physiology.",
     detail:
-      "The primary inputs expand into a fixed 13-element vector: ambient pressure (mmHg & atm), log-time, one-hot exercise, 360-min tissue-N₂ ratio, supersaturation and exercise dose. Identical structure to the trained surrogate's input tensor.",
-    io: { in: "4 inputs", out: "13-feature vector" },
+      "The baseline uses standard-atmosphere pressure, prebreathe duration, mild/heavy exercise indicators, and log exposure time. Tissue nitrogen and exercise-dose displays are separate diagnostics, not additional fitted ADRAC predictors.",
+    io: { in: "4 inputs", out: "baseline covariates + diagnostics" },
   },
   {
     n: 3,
     icon: <GitBranch className="h-5 w-5" />,
-    title: "LightGBM logit core + OOD gate",
-    lede: "Score, with guardrails.",
+    title: "ADRAC baseline and input range",
+    lede: "Evaluate the supported equation.",
     detail:
-      "Monotone gradient-boosted trees emit a risk logit. In parallel, a Mahalanobis out-of-distribution gate checks whether the feature vector sits inside the training manifold and the validated envelope.",
-    io: { in: "13-feature vector", out: "risk logit + OOD flag" },
+      "The browser evaluates the log-logistic AFT form with bundled coefficients fitted on training cells. A deterministic range check identifies unsupported inputs. It does not execute the separately trained LightGBM surrogate or its Mahalanobis gate.",
+    io: { in: "model covariates", out: "baseline estimate + range status" },
   },
   {
     n: 4,
     icon: <Ruler className="h-5 w-5" />,
-    title: "Zero-inflated conformal calibration",
-    lede: "Turn a score into an interval.",
+    title: "Interval availability",
+    lede: "Check the available evidence.",
     detail:
-      "A two-stage split-conformal calibrator maps the logit to a point estimate and a calibrated 95 % prediction interval. The zero-inflated stage keeps coverage ≥0.95 even in near-zero low-altitude bands.",
-    io: { in: "risk logit", out: "point + 95 % interval" },
+      "No validated calibration artifact is bundled for this baseline, so the prediction interval is unavailable. A separately trained surrogate's empirical coverage does not establish coverage for this model or an unsupported EVA profile.",
+    io: { in: "baseline artifact", out: "interval unavailable" },
   },
   {
     n: 5,
@@ -64,18 +65,18 @@ const PIPELINE: Step[] = [
     title: "Verdict",
     lede: "Deliver an honest answer.",
     detail:
-      "The output is a point P(DCS), a 95 % interval, and an in/out-of-envelope verdict. If the OOD gate fired, the model abstains instead of returning a number it cannot stand behind.",
-    io: { in: "point + interval + flag", out: "point · interval · verdict" },
+      "A supported ADRAC estimate is shown with its input-range status and unavailable interval. Outside the supported range, the example withholds risk. The exact zero-duration limit is labelled separately from positive-duration validation.",
+    io: { in: "estimate + availability", out: "research model result" },
   },
 ];
 
 const REPRODUCE: { label: string; cmd: string; note: string }[] = [
-  { label: "Clean the grid", cmd: "tinydcs.data_clean.clean_dcs_risk_db", note: "ADRAC DB → 15,908 rows" },
-  { label: "Build features", cmd: "tinydcs/features.py", note: "13-feature vector" },
-  { label: "Fit the core", cmd: "train LightGBM (monotone)", note: "logit core" },
-  { label: "Calibrate", cmd: "zero-inflated two-stage conformal", note: "95 % intervals" },
-  { label: "Export", cmd: "ONNX (compact 95 KB)", note: "edge target" },
-  { label: "Validate", cmd: "scripts/…_validate", note: "fidelity + coverage" },
+  { label: "Clean the grid", cmd: "tinydcs.data_clean.clean_dcs_risk_db", note: "deduplicate and validate cells" },
+  { label: "Freeze partitions", cmd: "training / calibration / test", note: "disjoint grid cells" },
+  { label: "Fit the baseline", cmd: "mechanistic.adrac.fit_adrac", note: "training cells only" },
+  { label: "Evaluate", cmd: "untouched held-out test cells", note: "MAE/RMSE in percentage points" },
+  { label: "Export", cmd: "adrac_coefficients.json", note: "offline baseline coefficients" },
+  { label: "Audit", cmd: "adrac_validation.json metadata", note: "partition IDs, hashes, and provenance" },
 ];
 
 export function StepByStep(): React.ReactElement {
@@ -90,12 +91,11 @@ export function StepByStep(): React.ReactElement {
             <Activity className="h-3 w-3" /> Inference pipeline
           </span>
           <h2 className="display text-3xl font-bold tracking-tight mt-1">
-            From wearable telemetry to a calibrated verdict.
+            From exposure inputs to an auditable model result.
           </h2>
           <p className="text-muted-foreground mt-3 text-[14px] leading-relaxed max-w-xl">
-            The same five stages run on every prediction. The browser build executes the closed-form
-            ADRAC core; the trained LightGBM + conformal stack runs in the Python pipeline and ships
-            as a 95 KB ONNX model for the edge.
+            These stages describe the standalone browser ADRAC baseline. The trained LightGBM and
+            calibration pipeline is a separate implementation with its own artifacts and evaluation.
           </p>
         </div>
       </section>
@@ -152,17 +152,17 @@ export function StepByStep(): React.ReactElement {
           </CardHeader>
           <CardContent className="space-y-3 text-[12.5px] text-muted-foreground leading-relaxed">
             <p>
-              At step 3 the OOD gate can halt the pipeline. If the exposure falls outside the
-              validated envelope — altitude{" "}
-              <span className="text-num text-foreground">18 000–40 000 ft</span>, prebreathe{" "}
-              <span className="text-num text-foreground">0–180 min</span>, time-at-altitude{" "}
-              <span className="text-num text-foreground">10–240 min</span>, exercise Rest/Mild/Heavy —
+              At step 3 the browser checks the supported range. If the exposure falls outside
+              that range — altitude{" "}
+              <span className="text-num text-foreground">{VALIDITY_ENVELOPE.altitudeFt.map((value) => value.toLocaleString()).join("–")} ft</span>, prebreathe{" "}
+              <span className="text-num text-foreground">{VALIDITY_ENVELOPE.prebreatheMin.join("–")} min</span>, time-at-altitude{" "}
+              <span className="text-num text-foreground">{VALIDITY_ENVELOPE.timeAtAltitudeMin.join("–")} min</span>, exercise Rest/Mild/Heavy —
               the model returns <strong className="text-foreground">no prediction</strong>.
             </p>
             <p>
-              Abstention is a feature, not a failure: it is the honest response when the airman's
-              profile is one the model was never validated on (e.g. an unpressurised excursion above
-              40 000 ft).
+              The displayed range describes model applicability, not permission to use a profile
+              in flight or a chamber. An out-of-range example retains its inputs and a reason for
+              withholding the estimate.
             </p>
           </CardContent>
         </Card>

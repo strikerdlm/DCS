@@ -16,7 +16,9 @@ import { Heatmap } from "../charts/Heatmap";
 import { Histogram } from "../charts/Histogram";
 import { ScatterPlot } from "../charts/ScatterPlot";
 import { validationData, validationMetrics } from "../../data/mockData";
-import type { ExerciseLevel, RegressionMetrics } from "../../types";
+import { summarizeValidation } from "../../utils/models";
+import { formatNumber } from "../../lib/utils";
+import type { ExerciseLevel } from "../../types";
 
 interface FilterState {
   exerciseLevels: ExerciseLevel[];
@@ -47,38 +49,16 @@ export function ValidationDashboard(): React.ReactElement {
     });
   }, [filters]);
 
-  const metrics = useMemo((): RegressionMetrics => {
-    if (filteredData.length === 0)
-      return { r2: 0, mae: 0, rmse: 0, mse: 0 };
-    const n = filteredData.length;
-    const yTrue = filteredData.map((d) => d.riskOfDcs);
-    const yPred = filteredData.map((d) => d.predictedRisk ?? d.riskOfDcs);
-    const mean = yTrue.reduce((a, b) => a + b, 0) / n;
-    let ssRes = 0,
-      ssTot = 0,
-      sumAbs = 0,
-      sumSq = 0;
-    for (let i = 0; i < n; i++) {
-      const r = yPred[i] - yTrue[i];
-      ssRes += r * r;
-      ssTot += (yTrue[i] - mean) * (yTrue[i] - mean);
-      sumAbs += Math.abs(r);
-      sumSq += r * r;
-    }
-    return {
-      r2: ssTot > 0 ? 1 - ssRes / ssTot : 0,
-      mae: sumAbs / n,
-      rmse: Math.sqrt(sumSq / n),
-      mse: sumSq / n,
-    };
-  }, [filteredData]);
+  const { metrics, rows: pairedData, excludedCount } = useMemo(
+    () => summarizeValidation(filteredData), [filteredData],
+  );
 
   const worstCases = useMemo(
     () =>
-      [...filteredData]
-        .sort((a, b) => (b.absError ?? 0) - (a.absError ?? 0))
+      [...pairedData]
+        .sort((a, b) => b.absError - a.absError)
         .slice(0, showWorstN),
-    [filteredData, showWorstN],
+    [pairedData, showWorstN],
   );
 
   const toggleExercise = (level: ExerciseLevel) =>
@@ -100,7 +80,7 @@ export function ValidationDashboard(): React.ReactElement {
       "residual",
       "abs_error",
     ];
-    const rows = filteredData.map((d) =>
+    const rows = pairedData.map((d) =>
       [
         d.altitude,
         d.timeAtAltitude,
@@ -135,50 +115,50 @@ export function ValidationDashboard(): React.ReactElement {
               <Database className="h-3 w-3" /> ADRAC validation
             </span>
             <h2 className="display text-3xl font-bold tracking-tight mt-2">
-              Closed-form fit vs ADRAC reference grid.
+              Held-out ADRAC baseline validation.
             </h2>
             <p className="text-muted-foreground mt-2 max-w-3xl text-[14px] leading-relaxed">
-              Stratified sample of {validationMetrics.nSample.toLocaleString()} rows
-              from the cleaned ADRAC grid (n = {validationMetrics.nTrain.toLocaleString()}).
-              The Pilmanis 2004 functional form was refit in <code className="text-num text-[12px]">mechanistic/adrac.py</code> and
-              applied to the full grid; this tab shows residuals against that fit.
+              {validationMetrics.nSample.toLocaleString()} held-out grid cells, evaluated using
+              coefficients fitted on {validationMetrics.nTrain.toLocaleString()} separate training cells.
+              These targets are ADRAC model outputs. The errors measure model agreement and do
+              not establish accuracy against observed DCS events.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 justify-end">
             <span className="pill-primary">
-              <TrendingUp className="h-3 w-3" /> R² {validationMetrics.r2.toFixed(3)}
+              <TrendingUp className="h-3 w-3" /> R² {formatNumber(validationMetrics.r2, 3)}
             </span>
-            <span className="pill-accent">MAE {validationMetrics.mae.toFixed(2)} pp</span>
-            <span className="pill-muted">RMSE {validationMetrics.rmse.toFixed(2)} pp</span>
+            <span className="pill-accent">MAE {formatNumber(validationMetrics.mae)} pp</span>
+            <span className="pill-muted">RMSE {formatNumber(validationMetrics.rmse)} pp</span>
           </div>
         </div>
       </section>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <MetricCard
-          label="R² · sample"
-          value={metrics.r2.toFixed(4)}
-          description="Filtered subset"
+          label="R² · held-out subset"
+          value={formatNumber(metrics.r2, 4)}
+          description={metrics.r2 === null ? "Unavailable for fewer than 2 pairs or constant targets" : "Dimensionless · paired subset"}
           icon={<TrendingUp className="h-4 w-4 text-emerald-500" />}
         />
         <MetricCard
           label="MAE"
-          value={metrics.mae.toFixed(2)}
+          value={formatNumber(metrics.mae)}
           unit="pp"
           description="Mean absolute error"
           icon={<BarChart3 className="h-4 w-4 text-primary" />}
         />
         <MetricCard
           label="RMSE"
-          value={metrics.rmse.toFixed(2)}
+          value={formatNumber(metrics.rmse)}
           unit="pp"
           description="Root mean squared error"
           icon={<BarChart3 className="h-4 w-4 text-accent" />}
         />
         <MetricCard
-          label="Samples"
-          value={filteredData.length.toLocaleString()}
-          description={`of ${validationData.length.toLocaleString()} (sample) · ${validationMetrics.nTrain.toLocaleString()} (full grid)`}
+          label="Evaluated pairs"
+          value={pairedData.length.toLocaleString()}
+          description={`${filteredData.length.toLocaleString()} matched · ${excludedCount} missing/invalid pairs excluded · ${validationData.length.toLocaleString()} held-out cells`}
           icon={<Filter className="h-4 w-4 text-muted-foreground" />}
         />
       </div>
@@ -190,7 +170,7 @@ export function ValidationDashboard(): React.ReactElement {
             <CardTitle className="flex items-center gap-2 text-[15px]">
               <Filter className="h-4 w-4 text-primary" /> Filters
             </CardTitle>
-            <Button variant="outline" size="sm" onClick={exportCsv}>
+            <Button variant="outline" size="sm" onClick={exportCsv} disabled={pairedData.length === 0}>
               <Download className="h-4 w-4 mr-2" /> Export CSV
             </Button>
           </div>
@@ -255,7 +235,12 @@ export function ValidationDashboard(): React.ReactElement {
       {/* Charts */}
       <Card>
         <CardContent className="pt-6">
-          <Tabs defaultValue="scatter">
+          {pairedData.length === 0 && (
+            <p role="status" className="text-[13px] text-muted-foreground mb-4">
+              No valid prediction/reference pairs match these filters. Statistics and plots are unavailable.
+            </p>
+          )}
+          {pairedData.length > 0 && (<Tabs defaultValue="scatter">
             <TabsList className="mb-4">
               <TabsTrigger value="scatter">Predicted vs reference</TabsTrigger>
               <TabsTrigger value="residuals">Residuals</TabsTrigger>
@@ -265,7 +250,7 @@ export function ValidationDashboard(): React.ReactElement {
 
             <TabsContent value="scatter">
               <ScatterPlot
-                data={filteredData}
+                data={pairedData}
                 xKey="riskOfDcs"
                 yKey="predictedRisk"
                 colorKey="exerciseLevel"
@@ -279,7 +264,7 @@ export function ValidationDashboard(): React.ReactElement {
 
             <TabsContent value="residuals" className="space-y-6">
               <Histogram
-                data={filteredData}
+                data={pairedData}
                 dataKey="residual"
                 groupKey="exerciseLevel"
                 title="Residual distribution (predicted − reference)"
@@ -288,7 +273,7 @@ export function ValidationDashboard(): React.ReactElement {
                 bins={50}
               />
               <ScatterPlot
-                data={filteredData}
+                data={pairedData}
                 xKey="timeAtAltitude"
                 yKey="residual"
                 colorKey="exerciseLevel"
@@ -301,7 +286,7 @@ export function ValidationDashboard(): React.ReactElement {
 
             <TabsContent value="heatmap">
               <Heatmap
-                data={filteredData}
+                data={pairedData}
                 xKey="timeAtAltitude"
                 yKey="altitude"
                 valueKey="absError"
@@ -385,7 +370,7 @@ export function ValidationDashboard(): React.ReactElement {
                 </div>
               </div>
             </TabsContent>
-          </Tabs>
+          </Tabs>)}
         </CardContent>
       </Card>
     </div>
