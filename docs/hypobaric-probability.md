@@ -2,7 +2,7 @@
 
 Open **Hypobaric DCS** under **Model Families**, or send a scenario to `POST /api/v2/hypobaric/probability`. The response names the selected regression, the elapsed time and its group probability in percent. A valid request outside the supported profiles returns a null probability and a reason. Malformed values return HTTP 422.
 
-This tool implements the follow-up guidance in NASA/TP-2020-220529, section 4 and Table 5. It uses regression coefficients estimated from symptomatic events and censored human chamber exposures. The ADRAC grid explorer, 4.3-psia exercise-prebreathe demo, and EVA telemetry simulator have separate input and endpoint definitions. [NASA full report](https://ntrs.nasa.gov/api/citations/20200004317/downloads/20200004317.pdf)
+This tool implements the follow-up guidance in NASA/TP-2020-220529, section 5.1 and Table 5. It uses regression coefficients estimated from symptomatic events and censored human chamber exposures. The ADRAC grid explorer, 4.3-psia exercise-prebreathe demo, and EVA telemetry simulator have separate input and endpoint definitions. [NASA full report](https://ntrs.nasa.gov/api/citations/20200004317/downloads/20200004317.pdf)
 
 | Pressure | Source and endpoint | Implemented subset |
 |---|---|---|
