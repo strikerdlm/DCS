@@ -20,6 +20,7 @@ from tinydcs.eva import (
     simulation_response,
 )
 from tinydcs.eva_reports import report_artifacts
+from tinydcs.hypobaric import HypobaricResult, HypobaricScenario, probability
 
 
 class EVASimulationRequest(ScientificInput):
@@ -125,6 +126,11 @@ def report_eva_endpoint(request: EVAReportRequest) -> dict[str, Any]:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+
+@app.post("/api/v2/hypobaric/probability", response_model=HypobaricResult)
+def hypobaric_probability(scenario: HypobaricScenario) -> HypobaricResult:
+    return probability(scenario)
 
 
 @app.get("/api/v2/eva/mission-rules/{profile}")
