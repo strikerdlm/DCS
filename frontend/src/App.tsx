@@ -16,6 +16,7 @@ import {
   Wind,
 } from "lucide-react";
 import { EVASimulator } from "./components/eva";
+import Hypobaric from "./components/models/Hypobaric";
 import {
   Anatomy,
   MLSurrogate,
@@ -38,6 +39,7 @@ type ModelTab =
   | "ml"
   | "mechanistic"
   | "nasa"
+  | "hypobaric"
   | "validation";
 
 interface NavItem {
@@ -109,6 +111,12 @@ const NAV_GROUPS: NavGroup[] = [
         icon: <Beaker className="h-4 w-4" />,
       },
       {
+        id: "hypobaric",
+        label: "Hypobaric DCS",
+        description: "Symptomatic DCS by time at plateau",
+        icon: <Mountain className="h-4 w-4" />,
+      },
+      {
         id: "nasa",
         label: "NASA Conkin ETR",
         description: "Logistic · Eq. 14 / 15",
@@ -154,6 +162,8 @@ export default function App(): React.ReactElement {
         return <MLSurrogate />;
       case "mechanistic":
         return <Mechanistic3RUT />;
+      case "hypobaric":
+        return <Hypobaric />;
       case "nasa":
         return <NASALogistic />;
       case "validation":

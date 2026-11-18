@@ -8,6 +8,8 @@ Not clinically validated, flight-certified, or suitable for operational clearanc
 
 ## What is available
 
+The **Hypobaric DCS** model-explorer page and API calculate a time-specific group probability from published human chamber regressions. Pressure, exposure duration and the source population determine eligibility. [Inputs, worked example and scope](docs/hypobaric-probability.md)
+
 | Surface | Supported calculation | Important limit |
 |---|---|---|
 | Browser ADRAC baseline | Train-only re-fit of a log-logistic model to the audited grid | Not original ADRAC coefficients, not the trained ML surrogate; no interval |

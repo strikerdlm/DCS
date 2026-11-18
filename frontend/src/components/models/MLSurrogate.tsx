@@ -204,7 +204,9 @@ export function MLSurrogate(): React.ReactElement {
                 </SelectContent>
               </Select>
               <p className="text-[11.5px] text-muted-foreground">
-                ADRAC uses categorical exercise indicators, not measured continuous VO₂.
+                The chamber study averaged workload over the exposure. Rest was about 5% of peak oxygen uptake,
+                Mild was 8–20%, and Heavy was above 20%. The study used 100% oxygen at altitude.
+                {" "}<a className="underline" href="https://pubmed.ncbi.nlm.nih.gov/15460625/">Pilmanis et al.</a>
               </p>
             </div>
 
