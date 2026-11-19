@@ -138,7 +138,7 @@ def _info_gain_sweep(
         for _, row in test_df.iterrows():
             sid = int(row["subject_id"])
             feats = pd.DataFrame([row[list(FEATURE_COLUMNS)]])
-            p_personal = float(ps.predict(sid, feats)["point"][0])
+            p_personal = float(ps.predict(sid, feats)["diagnostic_point"][0])
             p_pop = float(base.predict(feats)["point"][0])
             per_preds.append(p_personal)
             pop_preds.append(p_pop)
