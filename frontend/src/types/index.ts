@@ -124,6 +124,7 @@ export interface NASAInputs {
 }
 
 export interface NASAPrediction {
+  equationProjectionPercent: number; // Algebra only. Exposure eligibility requires the Python service.
   p1n2Psia: number; // Tissue N2 after prebreathe
   etr: number; // Exercise Tissue Ratio
   pDcsPercent: number | null;

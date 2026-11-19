@@ -18,12 +18,11 @@ import {
 import { MetricCard } from "../ui/MetricCard";
 import { RiskGauge } from "../charts/RiskGauge";
 import { NASA_VARIANT_LAMBDA, predictNASA } from "../../utils/models";
-import { formatNumber } from "../../lib/utils";
 import { defaultNASAInputs, modelValidityCards } from "../../data/mockData";
 import { ValidityPanel } from "./ValidityPanel";
 import type { NASAInputs, NASAPrediction, NASAVariant } from "../../types";
 
-export function NASALogistic(): React.ReactElement {
+export function NASALogistic({ openProfile }: { openProfile: (variant: NASAVariant) => void }): React.ReactElement {
   const [inputs, setInputs] = useState<NASAInputs>(defaultNASAInputs);
 
   const { prediction, error } = useMemo<{
@@ -57,13 +56,14 @@ export function NASALogistic(): React.ReactElement {
             <Calculator className="h-3 w-3" /> NASA/TP-2004-213158 · Conkin et al.
           </span>
           <h2 className="display text-3xl font-bold tracking-tight mt-2">
-            Exercise Tissue Ratio reference calculator
+            NASA equation arithmetic
           </h2>
           <p className="text-muted-foreground mt-2 max-w-3xl text-[14px] leading-relaxed">
-            This browser reproduction assumes 240 minutes at 4.3 psia with adynamic light exercise.
+            This single-interval exercise evaluates the published equation algebra. A complete profile is required for a source-eligible probability.
             NM (Eq. 14) used sex and ETR in 159 exposures and counted two post-test cases.
             RM (Eq. 15) used age and ETR in 229 exposures and counted symptoms during exposure.
           </p>
+          <button className="mt-4 rounded border px-4 py-2 text-sm" onClick={() => openProfile(inputs.variant)}>Load the full Phase I reference profile</button>
         </div>
       </section>
 
@@ -224,8 +224,8 @@ export function NASALogistic(): React.ReactElement {
               <CardContent className="p-6">
                 {prediction ? (
                   <RiskGauge
-                    value={prediction.pDcsPercent}
-                    title="P(DCS) · 240 min at 4.3 psia"
+                    value={prediction.equationProjectionPercent}
+                    title="Equation projection · mathematics only"
                     height={300}
                     max={40}
                   />
@@ -262,12 +262,9 @@ export function NASALogistic(): React.ReactElement {
                 icon={<User className="h-4 w-4 text-accent" />}
               />
               <MetricCard
-                label="Reference endpoint P(DCS)"
-                value={formatNumber(prediction?.pDcsPercent)}
-                unit="%"
-                isRisk
-                riskValue={prediction?.pDcsPercent ?? undefined}
-                description="240 min · 4.3 psia · adynamic light exercise"
+                label="Source-eligible probability"
+                value="Unavailable"
+                description="Requires a complete source-compatible protocol in the Python service"
                 icon={<Activity className="h-4 w-4" />}
               />
             </div>

@@ -13,7 +13,7 @@ interface CovariateContributionProps {
  * Tornado decomposition of the current ADRAC prediction on the LOG-ODDS scale.
  * Each bar is one additive term of ω; warm bars push risk up, cool bars pull it
  * down. Largest-magnitude term on top. Contributions are additive on the logit
- * scale only — the running total ω maps to P(DCS) through the logistic.
+ * scale only — the running total ω maps to Grid projection through the logistic.
  *
  * Plain horizontal bar chart — no markLine / markArea / visualMap / progressive
  * rendering, all of which can trip an internal `coord` error in ECharts 6 on a
@@ -52,7 +52,7 @@ export function CovariateContribution({
       xAxis: {
         ...(base.xAxis as object),
         type: "value" as const,
-        name: "Contribution to log-odds of P(DCS)",
+        name: "Contribution to log-odds of Grid projection",
         nameLocation: "middle" as const,
         nameGap: 30,
         axisLabel: {

@@ -140,9 +140,9 @@ export function PrebreatheFrontier({
         axisPointer: { type: "line", lineStyle: { color: chartTheme.axisColor, type: "dashed" } },
         formatter: (params: unknown) => {
           const arr = params as Array<{ value: [number, number]; seriesName: string }>;
-          const pt = arr.find((a) => a.seriesName === "P(DCS)");
+          const pt = arr.find((a) => a.seriesName === "Grid projection");
           if (!pt) return "";
-          return `<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6"><div>Prebreathe: <b>${Math.round(pt.value[0])} min</b></div><div>P(DCS): <b>${pt.value[1].toFixed(2)}%</b></div></div>`;
+          return `<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6"><div>Prebreathe: <b>${Math.round(pt.value[0])} min</b></div><div>Grid projection: <b>${pt.value[1].toFixed(2)}%</b></div></div>`;
         },
       },
       xAxis: {
@@ -165,7 +165,7 @@ export function PrebreatheFrontier({
         type: "value" as const,
         min: 0,
         max: maxRisk,
-        name: "P(DCS) (%)",
+        name: "Grid projection (%)",
         nameLocation: "middle" as const,
         nameGap: 40,
         axisLabel: {
@@ -176,7 +176,7 @@ export function PrebreatheFrontier({
       },
       series: [
         {
-          name: "P(DCS)",
+          name: "Grid projection",
           type: "line",
           showSymbol: false,
           smooth: 0.2,
@@ -224,7 +224,7 @@ export function PrebreatheFrontier({
         <span className="font-medium">Marginal benefit. </span>
         <span className="text-muted-foreground">
           At <span className="text-num text-foreground">{inputs.prebreathingTime} min</span> the
-          point risk is{" "}
+          point on the grid curve is{" "}
           <span className="text-num text-foreground">{currentRisk.toFixed(2)}%</span>. {marginal} This model-grid comparison does not establish operational safety or a recommended protocol.
         </span>
       </div>

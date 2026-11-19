@@ -65,7 +65,7 @@ const PIPELINE: Step[] = [
     title: "Verdict",
     lede: "Deliver an honest answer.",
     detail:
-      "A supported ADRAC estimate is shown with its input-range status and unavailable interval. Outside the supported range, the example withholds risk. The exact zero-duration limit is labelled separately from positive-duration validation.",
+      "The historical grid equation displays a mathematical projection within the fitted range. An uncertainty interval is unavailable. The exact zero-duration limit is labelled separately from positive-duration validation.",
     io: { in: "estimate + availability", out: "research model result" },
   },
 ];

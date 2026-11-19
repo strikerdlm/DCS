@@ -30,7 +30,9 @@ class HypobaricResult(ScientificInput):
     pDcsPercent: float | None = None
     elapsedPlateauHours: float
     reason: str | None = None
-    endpoint: str = "Cumulative symptomatic DCS in a reference group"
+    endpoint: str = "Symptomatic DCS equation projection using supplied arrival nitrogen"
+    evidenceClass: Literal["equation_projection"] = "equation_projection"
+    protocolEligibilityChecked: Literal[False] = False
     researchUseOnly: bool = True
 
 

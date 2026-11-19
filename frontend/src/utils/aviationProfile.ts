@@ -119,7 +119,7 @@ export function buildProfile(form: Form) {
       model_id: form.question === "physiology" ? "physiology" : "auto",
       endpoint: source ? "symptomatic_dcs" : form.question === "physiology" ? "physiology" : "clinically_adjudicated_dcs",
       prediction_origin: source ? "plateau_arrival" : "profile_start", horizon_minutes: horizon,
-      window: source ? "during_plateau" : isFollowup ? "post_return" : "complete_exposure",
+      window: source ? "during_plateau" : isFollowup ? "through_follow_up" : "complete_exposure",
       reference_population: source ? (form.question === "male_reference" ? "male_hypobaric_chamber" : "nasa_hypobaric_chamber") : "aviation",
       ...(source ? { source_protocol: "nasa_2020_table5" } : {}),
     },

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from typing import Any
 import os
-from functools import lru_cache
 
 from fastapi import FastAPI, HTTPException
 from fastapi.exceptions import RequestValidationError
@@ -22,9 +21,9 @@ from tinydcs.eva import (
 )
 from tinydcs.eva_reports import report_artifacts
 from tinydcs.hypobaric import HypobaricResult, HypobaricScenario, probability
-from tinydcs.aviation_models import evaluate, model_registry
-from tinydcs.exposure import ExposureProfile
-from tinydcs.label_bundle import BundleError, LabelBundle, LabelInput, load_bundle
+from tinydcs import research_api
+from tinydcs import __version__
+from tinydcs.label_bundle import LabelInput
 
 
 class EVASimulationRequest(ScientificInput):
@@ -78,8 +77,8 @@ class EVAReportResponse(BaseModel):
 
 app = FastAPI(
     title="TinyDCS research API",
-    version=MODEL_VERSION,
-    description="Research-use EVA DCS scenario simulation API for frontend and planning-report integration.",
+    version=__version__,
+    description="Pressure histories, chamber DCS and VGE research outcomes, workbook labels and EVA simulations.",
 )
 
 
@@ -137,48 +136,19 @@ def hypobaric_probability(scenario: HypobaricScenario) -> HypobaricResult:
     return probability(scenario)
 
 
-@app.post("/api/v3/aviation/evaluate")
-def evaluate_aviation(profile: ExposureProfile) -> dict[str, Any]:
-    return evaluate(profile)
+app.include_router(research_api.router)
+
+evaluate_aviation = research_api.evaluate_aviation
+aviation_models = research_api.aviation_models
 
 
-@app.get("/api/v3/aviation/models")
-def aviation_models() -> list[dict[str, Any]]:
-    return model_registry()
-
-
-@lru_cache(maxsize=1)
-def _cached_bundle(path: str, digest: str) -> LabelBundle:
-    return load_bundle(path, digest)
-
-
-def _configured_bundle() -> LabelBundle:
-    path = os.getenv("TINYDCS_LABEL_BUNDLE")
-    digest = os.getenv("TINYDCS_LABEL_BUNDLE_SHA256")
-    if not path or not digest:
-        raise HTTPException(503, "Configure a trusted workbook bundle and its SHA-256 digest.")
-    try:
-        return _cached_bundle(path, digest)
-    except (OSError, BundleError) as exc:
-        raise HTTPException(503, "The configured workbook bundle failed verification.") from exc
-
-
-@app.post("/api/v3/workbook/predict")
+# Preserve the direct Python entry points used by earlier clients.
 def workbook_prediction(inputs: LabelInput) -> dict[str, Any]:
-    try:
-        return _configured_bundle().predict(inputs)
-    except BundleError as exc:
-        raise HTTPException(503, "The fitted workbook predictor returned an invalid value.") from exc
+    return research_api.workbook_prediction(inputs, research_api.configured_bundle())
 
 
-@app.get("/api/v3/workbook/evaluation")
 def workbook_evaluation() -> dict[str, Any]:
-    bundle = _configured_bundle()
-    return {
-        "model_id": bundle.manifest["model_id"], "model_version": bundle.manifest["model_version"],
-        "artifact_hash": bundle.artifact_hash, "target_type": bundle.manifest["target_type"],
-        "report": bundle.report,
-    }
+    return research_api.workbook_evaluation(research_api.configured_bundle())
 
 
 @app.get("/api/v2/eva/mission-rules/{profile}")

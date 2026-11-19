@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { buildProfile, exampleForm, PHASE_LABELS } from "../../utils/aviationProfile";
 import type { ActivityChoice, Form, Phase, PhaseInput, PressureUnit, Question } from "../../utils/aviationProfile";
+import { nasaPhaseI } from "../../utils/nasaPhaseI";
+import type { NASAVariant } from "../../types";
 import { EVA_API_BASE_URL } from "../../utils/evaApi";
 
 const api = import.meta.env.VITE_TINYDCS_V3_API_URL ?? EVA_API_BASE_URL.replace(/\/v2\/?$/, "/v3");
@@ -12,7 +14,7 @@ type Result = {
   input_fingerprint: string; profile_id: string; probability_fraction: number | null;
   quantitative_output_enabled: boolean; evidence_class: string; model_id: string | null;
   model_version: string | null; core_version: string; endpoint: string; horizon_minutes: number;
-  source: string; outcome_ascertainment: string; reference_population: string;
+  source: string; outcome_ascertainment: string; reference_population: string; inherited_vetoes: string[];
   outcome_window: string; applicability: { status: string; reasons: string[] };
   uncertainty: { status: string }; assumptions: string[]; included_factors: string[]; unused_factors: string[];
   physiology: { status: string; arrival_nitrogen_pa: number | null; plateau_exit_nitrogen_pa: number | null;
@@ -100,8 +102,11 @@ function ResultPanel({ result, body }: { result: Result; body: string }) {
       <button className={button} onClick={download}>Download profile and result</button></div>
     <p className="text-sm">{human(result.evidence_class)} · {result.model_id ?? "No eligible model"} · {human(result.endpoint)} · {result.horizon_minutes} min</p>
     {result.endpoint === "physiology" ? <p className="text-sm">Physiological calculation · {human(p.status)}</p>
-      : <p className="display text-3xl font-semibold">{result.quantitative_output_enabled && result.probability_fraction != null
-        ? numeric(result.probability_fraction * 100) + "%" : "Probability unavailable"}</p>}
+      : <p className="display text-3xl font-semibold">{result.evidence_class === "published_reference" &&
+        result.quantitative_output_enabled === true && result.applicability.status === "supported" &&
+        result.applicability.reasons.length === 0 && result.inherited_vetoes?.length === 0 &&
+        typeof result.probability_fraction === "number" && result.probability_fraction >= 0 && result.probability_fraction <= 1
+        ? "Published reference probability · " + numeric(result.probability_fraction * 100) + "%" : "Probability unavailable"}</p>}
     {!!result.applicability.reasons.length && <ul className="list-disc pl-5 text-sm">{result.applicability.reasons.map(x => <li key={x}>{human(x)}</li>)}</ul>}
     <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{[
       ["Arrival tissue N₂ (kPa)", numeric(p.arrival_nitrogen_pa, 1000)], ["Plateau-exit tissue N₂ (kPa)", numeric(p.plateau_exit_nitrogen_pa, 1000)],
@@ -121,10 +126,10 @@ function ResultPanel({ result, body }: { result: Result; body: string }) {
   </section>;
 }
 
-export default function Hypobaric() {
+export default function Hypobaric({ initialPhaseI = null }: { initialPhaseI?: NASAVariant | null }) {
   const [form, setForm] = useState(() => exampleForm());
-  const [advanced, setAdvanced] = useState(false);
-  const [editor, setEditor] = useState("");
+  const [advanced, setAdvanced] = useState(initialPhaseI !== null);
+  const [editor, setEditor] = useState(() => initialPhaseI ? JSON.stringify(nasaPhaseI(initialPhaseI), null, 2) : "");
   const [editorBase, setEditorBase] = useState("");
   const [reply, setReply] = useState<{ body: string; result?: Result; error?: string } | null>(null);
   const controller = useRef<AbortController | null>(null);
@@ -150,7 +155,10 @@ export default function Hypobaric() {
         throw Error("The DCS calculation service is unavailable.");
       }
       const result: Result = await response.json();
-      if (result.profile_id !== JSON.parse(body)?.profile_id || !/^[a-f0-9]{64}$/.test(result.input_fingerprint)
+      const sent = JSON.parse(body);
+      if (result.profile_id !== sent?.profile_id || result.endpoint !== sent.prediction_request.endpoint ||
+          result.horizon_minutes !== sent.prediction_request.horizon_minutes || result.outcome_window !== sent.prediction_request.window ||
+          !/^[a-f0-9]{64}$/.test(result.input_fingerprint)
           || !result.physiology || !result.applicability) throw Error("The server returned an incompatible calculation record.");
       if (!current.signal.aborted) setReply({ body, result });
     } catch (error) {
@@ -161,10 +169,10 @@ export default function Hypobaric() {
   return <section className="space-y-5">
     <header className="surface-elevated space-y-3 p-6">
       <h2 className="display text-3xl font-semibold">Aviation pressure history</h2>
-      <p className="text-sm text-muted-foreground">Follow nitrogen through preoxygenation, ascent, altitude exposure and return. The reference equations change at 5 psia. Eligibility depends on the breathing gas, population and observation window.</p>
+      <p className="text-sm text-muted-foreground">Follow nitrogen through preoxygenation, ascent, altitude exposure and return. Table 5 uses pressure-specific reference equations. Eligibility depends on the breathing gas, population and observation window.</p>
       <div className="flex flex-wrap gap-2">
         <button className={button} onClick={() => { setForm(exampleForm()); setAdvanced(false); }}>Load ten-minute example</button>
-        <button className={button} onClick={() => { setForm(exampleForm(true)); setAdvanced(false); }}>Load NASA chamber example</button>
+        <button className={button} onClick={() => { setForm(exampleForm(true)); setAdvanced(false); }}>Load NASA Table 5 example</button>
         <button className={button} disabled={!advanced && !body} onClick={() => {
           if (!advanced && body !== editorBase) {
             setEditor(JSON.stringify(JSON.parse(body), null, 2));
@@ -174,6 +182,7 @@ export default function Hypobaric() {
         }}>{advanced ? "Return to simple form" : "Edit advanced timeline"}</button>
       </div>
     </header>
+    {advanced && initialPhaseI && <p className="text-sm">The Phase I preset uses the published exercise, mixed-gas and plateau stages with a reference male participant aged 43 and measured peak VO₂ of 50 mL/kg/min. Edits trigger a fresh applicability assessment.</p>}
     {advanced ? <label className="surface-elevated block p-5">Versioned exposure profile (JSON)
       <textarea className={control + " font-mono text-xs"} rows={20} value={editor} spellCheck={false} onChange={e => setEditor(e.target.value)} /></label>
       : <ProfileForm form={form} setForm={setForm} />}

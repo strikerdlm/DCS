@@ -62,15 +62,19 @@ def test_operational_stop_is_not_hidden_by_abstention():
     assert "active_symptoms" in result["stopReasons"]
 
 
-def test_reference_endpoint_is_not_a_time_dependent_risk_curve():
+def test_adynamic_declaration_does_not_establish_the_complete_nasa_source_protocol():
     s = scenario()
     s["evaDurationMin"] = 240
     s["suit"]["pressurePsia"] = 4.3
     s["nasaAdynamicReference"] = True
     s["workload"] = [{"name": "reference", "durationMin": 240, "vo2MlKgMin": 3.5}]
     result = simulate_eva(s)
-    expected = 100/(1+math.exp(-(-31.71+14.55*result["etr"]+.053*s["crew"]["ageYears"])))
-    assert result["pDcsPercent"] == pytest.approx(expected)
+    assert result["pDcsPercent"] is None
+    assert result["modelApplicability"]["applicable"] is False
+    assert "complete NASA Phase I" in result["modelApplicability"]["reasons"][0]
+    assert result["decision"] == "abstain"
+    assert result["lxcScore"] is None
+    assert result["p1n2Psia"] > 0 and result["etr"] > 0
     assert result["intervalLowPercent"] is None
     assert result["modelApplicability"]["horizonMin"] == 240
     assert all(row["cumulativePDcsPercent"] is None for row in result["timeline"])

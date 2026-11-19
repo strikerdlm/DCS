@@ -23,7 +23,7 @@ import { MissionPressureProfile } from "../charts/MissionPressureProfile";
 import { LogitProbabilityBridge } from "../charts/LogitProbabilityBridge";
 import { RiskIsobars } from "../charts/RiskIsobars";
 import { checkEnvelope, decomposeADRAC, VALIDITY_ENVELOPE } from "../../utils/models";
-import { altitudeFtToMmHg, altitudeFtToPAmbAtm, formatNumber, getRiskLevel } from "../../lib/utils";
+import { altitudeFtToMmHg, altitudeFtToPAmbAtm, formatNumber } from "../../lib/utils";
 import { defaultMLInputs } from "../../data/mockData";
 import type { ExerciseLevel, MLSurrogateInputs } from "../../types";
 
@@ -56,14 +56,11 @@ export function Anatomy(): React.ReactElement {
       envelope,
       risk,
       omega: decomp?.omega ?? null,
-      level: getRiskLevel(risk),
       pAtm: altitudeFtToPAmbAtm(inputs.altitude),
       pMmHg: altitudeFtToMmHg(inputs.altitude),
     };
   }, [inputs]);
 
-  const levelPill =
-    read.level === "unavailable" ? "pill-muted" : read.level === "low" ? "pill-low" : read.level === "moderate" ? "pill-signal" : "pill-high";
 
   return (
     <div className="space-y-6">
@@ -81,7 +78,7 @@ export function Anatomy(): React.ReactElement {
             <span className="text-primary">physics, math, geography, and position</span>.
           </h2>
           <p className="text-muted-foreground mt-4 text-[15px] leading-relaxed">
-            TinyDCS turns four exposure inputs into an ADRAC baseline estimate. This page shows
+            These charts explore the mathematics of a refitted grid equation. Its projections do not establish a clinical DCS probability. This page shows
             related pressure and tissue diagnostics, the
             log-logistic probability calculation, the altitude × prebreathe map you inspect
             against, and the column of air you are sitting in. Move the levers once; every panel
@@ -147,9 +144,9 @@ export function Anatomy(): React.ReactElement {
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2 mt-5 pt-4 border-t border-border/60">
-            <span className={levelPill}>
+            <span className="pill-muted">
               <Activity className="h-3 w-3" />
-              P(DCS) {read.risk === null ? "unavailable" : `${formatNumber(read.risk)}% · ${read.level}`}
+              Grid equation projection {read.risk === null ? "unavailable" : `${formatNumber(read.risk)}%`}
             </span>
             <span className="pill-muted text-num">
               ω = {formatNumber(read.omega)}
@@ -223,7 +220,7 @@ export function Anatomy(): React.ReactElement {
             The exposure becomes a single log-odds ω, then the logistic curve bends it into a
             probability. The covariate tornado builds ω term by term; this curve is the non-linear
             step that turns that sum into the number on the gauge. It is painted with the four-zone
-            risk ramp so colour itself reads as severity.
+            color scale to show changes in the mathematical projection.
           </p>
         </CardHeader>
         <CardContent className="space-y-2">

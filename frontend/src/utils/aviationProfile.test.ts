@@ -42,6 +42,6 @@ describe("simple aviation timeline sent to the API", () => {
     expect(complete.segments).toEqual(followup.segments);
     expect(complete.prediction_request.horizon_minutes).toBe(60);
     expect(followup.prediction_request.horizon_minutes).toBe(120);
-    expect(followup.prediction_request.window).toBe("post_return");
+    expect(followup.prediction_request).toMatchObject({ window: "through_follow_up", prediction_origin: "profile_start" });
   });
 });

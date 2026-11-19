@@ -41,6 +41,10 @@ The response identifies the fitted artifact, quantitative-release status and the
 
 ## Migration
 
+For NASA 2004 Phase I, record `activity.posture` as `recumbent` in baseline conditioning and `semi_recumbent` for each preparation and plateau interval. To reproduce the NM cohort estimate, select the `source_post_test` window and explicitly set `prediction_request.post_test_course` to `published_source_ascertainment` on the matching source timeline. Earlier requests that omit these inputs receive named applicability reasons. The source schedule ends at plateau exit. The return gas and timing for a custom post-test history lack a published reference match. RM and the during-plateau survival estimates use their own requested endpoint horizons. [NASA source decisions](source-discrepancies.md)
+
+Gas mixtures can now include `carbon_dioxide_fraction`. Ordinary air can use the original 21% oxygen/79% nitrogen convention or explicit atmospheric nitrogen, oxygen, argon and traces. A reported incompatible mixture and an unreported mixture have distinct diagnostics. Existing profiles with zero carbon dioxide and no post-test convention retain their original v1 input fingerprint.
+
 Existing clients of `/api/v2/hypobaric/probability` can continue supplying their own source-compatible arrival nitrogen and receiving a percentage. Version 3 derives arrival nitrogen from segments and returns a fraction. The older surrogate feature `tissue_n2_ratio_360min` retains its humidified, sea-level, instantaneous-ascent, plateau-exit definition for artifact compatibility. Subject-specific projections carry the base release mask and a veto inherited from every observation used for that subject. In the Python array interface, withheld point and interval entries are NaN and the separately named diagnostic point remains available for research comparisons.
 
 The aviation browser uses the same server as the EVA page by default. Set `VITE_TINYDCS_V3_API_URL` to override the version 3 API root. **Download profile and result** exports the entered timeline and the exact calculation record shown.

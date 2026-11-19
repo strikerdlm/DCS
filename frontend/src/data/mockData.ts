@@ -81,7 +81,7 @@ export const modelValidityCards: Record<string, ModelValidity> = {
     ],
     notesMd: `- **Model family**: NASA/TP-2004-213158 logistic regression using Exercise Tissue Ratio, with age (RM, Eq. 15) or sex (NM, Eq. 14).
 - **Washout**: Eq. 6 uses k = exp(λ·VO₂)/519.37 min⁻¹, with λ = 0.025 (RM) or 0.030 (NM). Eq. 4 equilibrates toward dry ambient nitrogen partial pressure.
-- **Endpoint**: 240 min at 4.3 psia with adynamic light exercise. Other pressures retain nitrogen tension and ETR calculations but have no supported probability endpoint.
+- **Endpoint**: 240 min at 4.3 psia with adynamic light exercise. The single-interval view displays nitrogen tension, ETR and equation arithmetic. Source eligibility is assessed from a complete exposure history.
 - **Limitations**: fits used n = 159 (NM) / n = 229 (RM) chamber exposures. This view uses a single prebreathe interval; actual source protocols comprise multiple intervals. Prediction intervals are unavailable.`,
     metrics: [
       { key: "Dataset size (NM)", value: "n = 159" },

@@ -4,7 +4,7 @@ import fixtures from "../data/eva-golden.json";
 import type { EVAScenario } from "../types";
 import { missionRules } from "./eva";
 const scenario = fixtures[2].scenario as EVAScenario;
-const validResponse = () => ({schemaVersion:2,result:{schemaVersion:2},modelMetadata:{modelVersion:"eva-reference-v2"},missionRules:missionRules()});
+const validResponse = () => ({schemaVersion:2,result:structuredClone(fixtures[2].expected),modelMetadata:{modelVersion:"eva-reference-v2"},missionRules:missionRules()});
 afterEach(() => vi.unstubAllGlobals());
 it("never exposes a previous input's response during debounce or out-of-order completion", () => {
   const state = { key: "old", response: { pDcsPercent: 25 } };
@@ -49,4 +49,16 @@ it("rejects report artifacts with different rules or an incompatible model", asy
   payload.missionRules = missionRules();
   payload.modelMetadata.modelVersion = "obsolete";
   await expect(createEVAReport(scenario)).rejects.toThrow(/contract/i);
+});
+
+it("rejects an obsolete EVA probability in a simulation or a report even if the API version matches", async () => {
+  const original = validResponse();
+  const obsolete = { ...original, result: { ...original.result, pDcsPercent: 0.1, decision: "proceed" } };
+  for (const payload of [obsolete, { ...original, result: { ...original.result, lxcCategory: "green" } },
+    { ...original, result: { ...original.result, integratedRiskPercentHours: 1 } }]) {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ok:true,json:async () => payload}));
+    await expect(simulateEVAApi(scenario)).rejects.toThrow(/source eligibility/);
+  }
+  vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ok:true,json:async () => ({artifacts:{json:{content:JSON.stringify(obsolete)}}})}));
+  await expect(createEVAReport(scenario)).rejects.toThrow(/source eligibility/);
 });

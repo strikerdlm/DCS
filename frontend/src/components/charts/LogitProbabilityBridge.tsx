@@ -14,7 +14,7 @@ interface LogitProbabilityBridgeProps {
 /**
  * The bridge from log-odds to probability.
  *
- * The ADRAC predictor is ω = (ln t − β₂ − β·x) / β₁, then P(DCS) = σ(ω). The
+ * The ADRAC predictor is ω = (ln t − β₂ − β·x) / β₁, then Grid projection = σ(ω). The
  * CovariateContribution tornado shows the additive terms that build ω; this
  * chart shows the non-linear step that turns that sum into a probability. The
  * S-curve is painted with the four-zone risk ramp (low → very-high) so the
@@ -112,11 +112,11 @@ export function LogitProbabilityBridge({
         axisPointer: { type: "line", lineStyle: { color: chartTheme.axisColor, type: "dashed" } },
         formatter: (params: unknown) => {
           const arr = params as Array<{ value: [number, number]; seriesName: string; color: string }>;
-          const pt = arr.find((a) => a.seriesName === "P(DCS) = σ(ω)");
+          const pt = arr.find((a) => a.seriesName === "Grid projection = σ(ω)");
           if (!pt) return "";
           const w = pt.value[0];
           const p = pt.value[1];
-          return `<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6"><div>ω = <b>${w.toFixed(2)}</b></div><div>P(DCS) = <b>${p.toFixed(2)}%</b></div></div>`;
+          return `<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6"><div>ω = <b>${w.toFixed(2)}</b></div><div>Grid projection = <b>${p.toFixed(2)}%</b></div></div>`;
         },
       },
       visualMap: {
@@ -132,7 +132,7 @@ export function LogitProbabilityBridge({
         type: "value" as const,
         min: X_LO,
         max: X_HI,
-        name: "ω  (log-odds of DCS)",
+        name: "ω  (grid logit)",
         nameLocation: "middle" as const,
         nameGap: 34,
         axisLabel: {
@@ -148,7 +148,7 @@ export function LogitProbabilityBridge({
         type: "value" as const,
         min: 0,
         max: yMax,
-        name: "P(DCS) (%)",
+        name: "Grid projection (%)",
         nameLocation: "middle" as const,
         nameGap: 40,
         axisLabel: {
@@ -159,7 +159,7 @@ export function LogitProbabilityBridge({
       },
       series: [
         {
-          name: "P(DCS) = σ(ω)",
+          name: "Grid projection = σ(ω)",
           type: "line",
           showSymbol: false,
           smooth: true,

@@ -106,21 +106,34 @@ def _nitrogen_fraction(gas: Gas | None, kinetics: str) -> float | None:
         return None
     if kinetics == "fixed_360":
         return gas.nitrogen_fraction
-    if gas.basis != "dry" or gas.other_inert_fraction:
+    if gas.basis != "dry":
         return None
-    if kinetics == "nasa_2020":
+    if is_source_air(gas):
         return gas.nitrogen_fraction + gas.argon_fraction
-    # TP-2004-213158 defines a dry N2 target without a separate argon model.
-    # Explicit argon in an inspired gas outside ordinary surface air has no fitted rule.
-    if gas.argon_fraction and not is_source_air(gas):
+    # Only ordinary atmospheric Ar was pooled into N2 by TP-2020-220529 p. 4.
+    # Neither reviewed preparation model fits an explicit alternative inert gas.
+    if gas.argon_fraction or gas.other_inert_fraction or gas.carbon_dioxide_fraction:
         return None
-    return gas.nitrogen_fraction + gas.argon_fraction
+    return gas.nitrogen_fraction
 
 
 def is_source_air(gas: Gas | None) -> bool:
-    return (gas is not None and gas.basis == "dry" and gas.other_inert_fraction == 0
-            and math.isclose(gas.oxygen_fraction, 0.21, abs_tol=0.0001)
-            and math.isclose(gas.nitrogen_fraction + gas.argon_fraction, 0.79, abs_tol=0.0001))
+    """Recognize source-rounded air and the individual constituents of ordinary air.
+
+    NOAA lists dry N2, O2 and Ar as 78.084%, 20.947% and 0.934%. The
+    second encoding allows rounding these major constituents to 78/21/1%.
+    These are input transcription tolerances, not a study of alternative gases.
+    """
+    if gas is None or gas.basis != "dry":
+        return False
+    if not gas.argon_fraction:
+        return (gas.other_inert_fraction == gas.carbon_dioxide_fraction == 0
+                and math.isclose(gas.oxygen_fraction, .21, abs_tol=1e-6)
+                and math.isclose(gas.nitrogen_fraction, .79, abs_tol=1e-6))
+    return (abs(gas.oxygen_fraction-.20947) <= .00075 and
+            abs(gas.nitrogen_fraction-.78084) <= .0011 and
+            abs(gas.argon_fraction-.00934) <= .00075 and
+            gas.other_inert_fraction <= .00005 and gas.carbon_dioxide_fraction <= .00055)
 
 
 def is_sea_level(pressure_pa: float) -> bool:
@@ -128,12 +141,12 @@ def is_sea_level(pressure_pa: float) -> bool:
     return abs(pressure_pa / PA_PER_PSIA - 14.7) < 0.005
 
 
-def _initial_tissue(profile, kinetics, assumptions, missing):
+def _initial_tissue(profile, kinetics, assumptions, missing, incompatible):
     state = profile.initial_state
     if state.method == "assumed_equilibrium":
         fraction = _nitrogen_fraction(state.gas, kinetics)
         if fraction is None:
-            missing.append("initial_state.gas")
+            (missing if state.gas is None else incompatible).append("initial_state.gas")
             return None
         start = state.body_pressure.pascals()
         if kinetics != "fixed_360" and is_source_air(state.gas) and is_sea_level(start):
@@ -145,7 +158,7 @@ def _initial_tissue(profile, kinetics, assumptions, missing):
         convention = "declared_nitrogen" if kinetics == "fixed_360" else "source_dry_nitrogen"
         if state.tissue_convention == convention:
             return state.tissue_nitrogen_pa
-        missing.append("initial_state.tissue_convention")
+        incompatible.append("initial_state.tissue_convention")
         return None
     missing.append("initial_state.tissue_nitrogen_pa")
     return None
@@ -223,8 +236,8 @@ def derive_physiology(profile: ExposureProfile, kinetics: str = "fixed_360") -> 
     assumptions = ["Equilibrium at the declared starting pressure and gas."] if (
         profile.initial_state.method == "assumed_equilibrium"
     ) else []
-    missing = []
-    tissue = _initial_tissue(profile, kinetics, assumptions, missing)
+    missing, incompatible = [], []
+    tissue = _initial_tissue(profile, kinetics, assumptions, missing, incompatible)
     nitrogen_start = tissue
     max_ratio, dose = 0.0, 0.0
     trajectory, plateaus = [], []
@@ -240,7 +253,7 @@ def derive_physiology(profile: ExposureProfile, kinetics: str = "fixed_360") -> 
         end_fraction = _nitrogen_fraction(s.end_gas or s.gas, kinetics)
         blocks = rates.get(s.id, [(secs / 60.0, FIXED_RATE, None)])
         if fraction is None or end_fraction is None:
-            missing.append(f"segments.{s.id}.gas")
+            (missing if s.gas is None else incompatible).append(f"segments.{s.id}.gas")
         if blocks is None:
             missing.append(f"segments.{s.id}.activity")
         point_peak, point_dose, elapsed = 0.0, 0.0, 0.0
@@ -294,7 +307,8 @@ def derive_physiology(profile: ExposureProfile, kinetics: str = "fixed_360") -> 
         "gas_convention": ("declared-basis N2 only" if kinetics == "fixed_360"
                            else "source dry ambient N2 equivalent"),
         "post_arrival_kinetics": "fixed_360", "metric_window": "profile_start_to_profile_end",
-        "assumptions": assumptions, "missing_inputs": missing, "initial_nitrogen_pa": nitrogen_start,
+        "assumptions": assumptions, "missing_inputs": missing, "incompatible_inputs": incompatible,
+        "initial_nitrogen_pa": nitrogen_start,
         "arrival_nitrogen_pa": plateau.get("arrival_nitrogen_pa"),
         "arrival_pressure_pa": plateau.get("arrival_pressure_pa"),
         "plateau_exit_nitrogen_pa": plateau.get("exit_nitrogen_pa"),

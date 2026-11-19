@@ -1,0 +1,17 @@
+.paired-outcomes { color: inherit; }
+.paired-outcomes h2 { font-size:clamp(1.8rem,4vw,2.7rem); font-weight:680; line-height:1.1; letter-spacing:-.035em; margin:0 0 .8rem; }
+.paired-outcomes h3 { font-weight:650; font-size:1.2rem; margin:0; }
+.paired-outcomes .outcome-lede { max-width:74ch; line-height:1.55; margin:0 0 1.4rem; }
+.outcome-panel,.outcome-card { border:1px solid #97acb366; border-radius:9px; padding:clamp(14px,2.2vw,26px); background:color-mix(in srgb, Canvas 94%, currentColor 6%); color:CanvasText; }
+.paired-outcomes label { display:grid; gap:.35rem; font-weight:550; font-size:.9rem;}
+.paired-outcomes select,.paired-outcomes input:not([type=checkbox]) { min-width:0; width:100%; color:CanvasText; background:Canvas; border:1px solid #84969d; border-radius:5px; min-height:2.6rem; padding:.4rem .55rem; font:inherit; }
+.outcome-fields,.outcome-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:1rem; margin:1.1rem 0; }
+.paired-outcomes .outcome-check { display:flex;align-items:center;gap:.6rem; } .outcome-check input { width:1.1rem; height:1.1rem; }
+.paired-outcomes .outcome-button { background:#135e68;color:white;padding:.6rem 1rem;border-radius:5px;margin-top:1rem; font-weight:650; cursor:pointer; }
+.outcome-card { background:Canvas; min-width:0; } .outcome-card dt,.outcome-record dt { font-weight:600;font-size:.82rem;margin-top:.6rem; }
+.outcome-card dd,.outcome-record dd { margin:0 0 .3rem; overflow-wrap:anywhere; }
+.outcome-value { display:block;font-size:1.8rem; font-weight:680; margin-top:.4rem; }
+.paired-outcomes details { margin-top:1rem; } .paired-outcomes summary { cursor:pointer; }
+.paired-outcomes .outcome-card a { text-decoration:underline;color:inherit; } .paired-outcomes p { margin:.7rem 0; }
+.paired-outcomes ul { margin:.7rem 0 .7rem 1.2rem; list-style:disc; }
+.dark .paired-outcomes { color-scheme:dark; }

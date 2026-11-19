@@ -60,11 +60,12 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -91,6 +92,7 @@
       "planningEnvelope": false,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
         "Adynamic source-reference assumptions have not been declared.",
@@ -418,12 +420,13 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Variable-pressure EVA is outside the NASA reference endpoint.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -450,6 +453,7 @@
       "planningEnvelope": true,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Variable-pressure EVA is outside the NASA reference endpoint.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
@@ -1253,19 +1257,21 @@
     },
     "expected": {
       "schemaVersion": 2,
-      "pDcsPercent": 0.0006118210763127533,
+      "pDcsPercent": null,
       "intervalLowPercent": null,
       "intervalHighPercent": null,
       "modelApplicability": {
-        "applicable": true,
-        "reasons": [],
-        "modelId": "conkin-RM-equation-14",
+        "applicable": false,
+        "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate."
+        ],
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
         "intervalKind": "unavailable",
         "clinicalValidation": false,
-        "evidenceStatus": "reference_calculation",
+        "evidenceStatus": "outside_reference",
         "assumptions": [
           "Source-cohort transportability is not established.",
           "NASA dry ambient nitrogen convention; lambda=0.025.",
@@ -1282,19 +1288,21 @@
       "oxygenReserveMin": 35.0,
       "workloadMeanVo2MlKgMin": 19.0,
       "workloadTotalO2Litres": 355.68,
-      "inEnvelope": true,
+      "inEnvelope": false,
       "planningEnvelope": true,
-      "abstain": false,
-      "envelopeWarnings": [],
+      "abstain": true,
+      "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate."
+      ],
       "maxRiskPercent": null,
       "maxRiskTimeMin": null,
       "integratedRiskPercentHours": null,
-      "lxcLikelihood": 1,
+      "lxcLikelihood": null,
       "lxcConsequence": 4,
-      "lxcScore": 4,
-      "lxcCategory": "green",
-      "decision": "proceed",
-      "decisionRationale": "Below configured reference-model thresholds; this is not operational clearance.",
+      "lxcScore": null,
+      "lxcCategory": "unavailable",
+      "decision": "abstain",
+      "decisionRationale": "No applicable DCS endpoint estimate; indicators do not establish a safe operating decision.",
       "stopReasons": [],
       "timeline": [
         {
@@ -1962,14 +1970,14 @@
         {
           "id": "dcs",
           "name": "DCS",
-          "probabilityPercent": 0.0006118210763127533,
-          "likelihood": 1,
+          "probabilityPercent": null,
+          "likelihood": null,
           "consequence": 4,
-          "score": 4,
-          "posture": "green",
+          "score": null,
+          "posture": "unavailable",
           "driver": "ETR 1.21; source applicability required",
           "indicator": null,
-          "evidenceStatus": "reference_endpoint"
+          "evidenceStatus": "indicator_only"
         },
         {
           "id": "hypoxia",
@@ -2161,11 +2169,12 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -2192,6 +2201,7 @@
       "planningEnvelope": true,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
         "Adynamic source-reference assumptions have not been declared."
@@ -3035,11 +3045,12 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -3066,6 +3077,7 @@
       "planningEnvelope": false,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
         "Adynamic source-reference assumptions have not been declared.",
@@ -3393,12 +3405,13 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Variable-pressure EVA is outside the NASA reference endpoint.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -3425,6 +3438,7 @@
       "planningEnvelope": true,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Variable-pressure EVA is outside the NASA reference endpoint.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
@@ -4228,19 +4242,21 @@
     },
     "expected": {
       "schemaVersion": 2,
-      "pDcsPercent": 0.0006118210763127533,
+      "pDcsPercent": null,
       "intervalLowPercent": null,
       "intervalHighPercent": null,
       "modelApplicability": {
-        "applicable": true,
-        "reasons": [],
-        "modelId": "conkin-RM-equation-14",
+        "applicable": false,
+        "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate."
+        ],
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
         "intervalKind": "unavailable",
         "clinicalValidation": false,
-        "evidenceStatus": "reference_calculation",
+        "evidenceStatus": "outside_reference",
         "assumptions": [
           "Source-cohort transportability is not established.",
           "NASA dry ambient nitrogen convention; lambda=0.025.",
@@ -4261,15 +4277,16 @@
       "planningEnvelope": false,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "EVA duration is outside the configured planning range."
       ],
       "maxRiskPercent": null,
       "maxRiskTimeMin": null,
       "integratedRiskPercentHours": null,
-      "lxcLikelihood": 1,
+      "lxcLikelihood": null,
       "lxcConsequence": 4,
-      "lxcScore": 4,
-      "lxcCategory": "green",
+      "lxcScore": null,
+      "lxcCategory": "unavailable",
       "decision": "abstain",
       "decisionRationale": "No applicable DCS endpoint estimate; indicators do not establish a safe operating decision.",
       "stopReasons": [],
@@ -4939,14 +4956,14 @@
         {
           "id": "dcs",
           "name": "DCS",
-          "probabilityPercent": 0.0006118210763127533,
-          "likelihood": 1,
+          "probabilityPercent": null,
+          "likelihood": null,
           "consequence": 4,
-          "score": 4,
-          "posture": "green",
+          "score": null,
+          "posture": "unavailable",
           "driver": "ETR 1.21; source applicability required",
           "indicator": null,
-          "evidenceStatus": "reference_endpoint"
+          "evidenceStatus": "indicator_only"
         },
         {
           "id": "hypoxia",
@@ -5138,11 +5155,12 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -5169,6 +5187,7 @@
       "planningEnvelope": false,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
         "Adynamic source-reference assumptions have not been declared.",
@@ -6013,11 +6032,12 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -6044,6 +6064,7 @@
       "planningEnvelope": false,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
         "Adynamic source-reference assumptions have not been declared.",
@@ -6371,12 +6392,13 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Variable-pressure EVA is outside the NASA reference endpoint.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -6403,6 +6425,7 @@
       "planningEnvelope": true,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Variable-pressure EVA is outside the NASA reference endpoint.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
@@ -7206,19 +7229,21 @@
     },
     "expected": {
       "schemaVersion": 2,
-      "pDcsPercent": 0.0006118210763127533,
+      "pDcsPercent": null,
       "intervalLowPercent": null,
       "intervalHighPercent": null,
       "modelApplicability": {
-        "applicable": true,
-        "reasons": [],
-        "modelId": "conkin-RM-equation-14",
+        "applicable": false,
+        "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate."
+        ],
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
         "intervalKind": "unavailable",
         "clinicalValidation": false,
-        "evidenceStatus": "reference_calculation",
+        "evidenceStatus": "outside_reference",
         "assumptions": [
           "Source-cohort transportability is not established.",
           "NASA dry ambient nitrogen convention; lambda=0.025.",
@@ -7235,19 +7260,21 @@
       "oxygenReserveMin": 35.0,
       "workloadMeanVo2MlKgMin": 19.0,
       "workloadTotalO2Litres": 355.68,
-      "inEnvelope": true,
+      "inEnvelope": false,
       "planningEnvelope": true,
-      "abstain": false,
-      "envelopeWarnings": [],
+      "abstain": true,
+      "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate."
+      ],
       "maxRiskPercent": null,
       "maxRiskTimeMin": null,
       "integratedRiskPercentHours": null,
-      "lxcLikelihood": 1,
+      "lxcLikelihood": null,
       "lxcConsequence": 4,
-      "lxcScore": 4,
-      "lxcCategory": "green",
-      "decision": "proceed",
-      "decisionRationale": "Below configured reference-model thresholds; this is not operational clearance.",
+      "lxcScore": null,
+      "lxcCategory": "unavailable",
+      "decision": "abstain",
+      "decisionRationale": "No applicable DCS endpoint estimate; indicators do not establish a safe operating decision.",
       "stopReasons": [],
       "timeline": [
         {
@@ -7915,14 +7942,14 @@
         {
           "id": "dcs",
           "name": "DCS",
-          "probabilityPercent": 0.0006118210763127533,
-          "likelihood": 1,
+          "probabilityPercent": null,
+          "likelihood": null,
           "consequence": 4,
-          "score": 4,
-          "posture": "green",
+          "score": null,
+          "posture": "unavailable",
           "driver": "ETR 1.21; source applicability required",
           "indicator": null,
-          "evidenceStatus": "reference_endpoint"
+          "evidenceStatus": "indicator_only"
         },
         {
           "id": "hypoxia",
@@ -8114,11 +8141,12 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -8145,6 +8173,7 @@
       "planningEnvelope": true,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
         "Adynamic source-reference assumptions have not been declared."
@@ -9036,11 +9065,12 @@
       "modelApplicability": {
         "applicable": false,
         "reasons": [
+          "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
           "The NASA endpoint is four hours; no duration scaling is validated.",
           "Reference exposure requires constant 4.3 psia and oxygen breathing.",
           "Adynamic source-reference assumptions have not been declared."
         ],
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf",
@@ -9067,6 +9097,7 @@
       "planningEnvelope": false,
       "abstain": true,
       "envelopeWarnings": [
+        "The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate.",
         "The NASA endpoint is four hours; no duration scaling is validated.",
         "Reference exposure requires constant 4.3 psia and oxygen breathing.",
         "Adynamic source-reference assumptions have not been declared.",

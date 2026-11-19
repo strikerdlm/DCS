@@ -68,9 +68,13 @@ def phase_i(model="nasa_2004_rm"):
     ]
     d["person_covariates"] = {"source_sex":"male", "age_years":43., "vo2_peak_ml_kg_min":50.,
                                "vo2_peak_method":"measured", "bmi_kg_m2":24.}
+    for s in d["segments"]:
+        s["activity"]["posture"] = "semi_recumbent"
     d["prediction_request"].update(model_id=model, source_protocol="nasa_2004_phase_i",
                                     reference_population="nasa_2004_adynamic_chamber",
                                     window="source_post_test" if model.endswith("nm") else "during_plateau")
+    if model.endswith("nm"):
+        d["prediction_request"]["post_test_course"] = "published_source_ascertainment"
     return d
 
 

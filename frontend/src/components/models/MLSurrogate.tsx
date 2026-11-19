@@ -107,7 +107,7 @@ export function MLSurrogate(): React.ReactElement {
         <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
           <div>
             <span className="pill-primary mb-3">
-              <Compass className="h-3 w-3" /> ADRAC baseline predictor
+              <Compass className="h-3 w-3" /> ADRAC-form grid mathematics
             </span>
             <h2 className="display text-3xl font-bold tracking-tight mt-2">
               Altitude-DCS estimates from the log-logistic baseline.
@@ -226,7 +226,7 @@ export function MLSurrogate(): React.ReactElement {
                   {formatNumber(risk)}<span className="text-[11px] text-muted-foreground"> %</span>
                 </p>
                 <p className="text-num text-[11px] text-muted-foreground">
-                  Cumulative endpoint P(DCS)
+                  Grid equation projection
                 </p>
               </div>
             </div>
@@ -249,7 +249,7 @@ export function MLSurrogate(): React.ReactElement {
               <CardContent className="p-6">
                 <RiskGauge
                   value={risk}
-                  title="P(DCS)"
+                  title="Grid equation projection"
                   height={300}
                   max={40}
                 />
@@ -279,11 +279,9 @@ export function MLSurrogate(): React.ReactElement {
                 description="100 % O₂ window before ascent"
               />
               <MetricCard
-                label="Predicted P(DCS)"
+                label="Mathematical projection"
                 value={formatNumber(risk)}
                 unit="%"
-                isRisk
-                riskValue={risk ?? undefined}
                 icon={<Activity className="h-4 w-4" />}
                 description={prediction ? `Exercise ≈ ${inputs.exerciseLevel}` : ""}
               />
@@ -303,9 +301,9 @@ export function MLSurrogate(): React.ReactElement {
           {/* Risk landscape */}
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-[15px]">Risk landscape</CardTitle>
+              <CardTitle className="text-[15px]">Grid equation surface</CardTitle>
               <p className="text-[12.5px] text-muted-foreground mt-0.5">
-                Predicted P(DCS) over altitude × time-at-altitude with the current
+                Grid equation value over altitude × time-at-altitude with the current
                 prebreathe ({inputs.prebreathingTime} min) and exercise ({inputs.exerciseLevel}).
                 The marker shows the current scenario.
               </p>
@@ -329,7 +327,7 @@ export function MLSurrogate(): React.ReactElement {
                 <div>
                   <CardTitle className="text-[15px]">Dose–response</CardTitle>
                   <p className="text-[12.5px] text-muted-foreground mt-0.5">
-                    P(DCS) as one variable sweeps its validity range, the other two held at
+                    Grid equation value as one variable sweeps its validity range, the other two held at
                     the current scenario. The three exercise levels are overlaid; the marker
                     is the live prediction.
                   </p>
@@ -380,8 +378,8 @@ export function MLSurrogate(): React.ReactElement {
                 <CardTitle className="text-[15px]">Covariate contribution</CardTitle>
                 <p className="text-[12.5px] text-muted-foreground mt-0.5">
                   How each term builds the current prediction on the log-odds scale (warm
-                  raises risk, cool lowers it). The total ω = {decomposition.omega.toFixed(2)}{" "}
-                  maps through the logistic to P(DCS) ={" "}
+                  raises the grid projection, cool lowers it). The total ω = {decomposition.omega.toFixed(2)}{" "}
+                  maps through the logistic to the grid projection of{" "}
                   <span className="text-num text-foreground">
                     {decomposition.riskPercent.toFixed(2)}%
                   </span>

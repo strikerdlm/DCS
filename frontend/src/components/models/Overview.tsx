@@ -60,7 +60,7 @@ const LAYERS: LayerSpec[] = [
     points: [
       "Held-out grid cells quantify agreement with ADRAC model targets, not observed DCS outcomes.",
       "No validated prediction-interval artifact is bundled for the baseline.",
-      "NASA endpoints retain their 240-min, 4.3-psia reference conditions; 3RUT absolute risk remains disabled.",
+      "The 2004 NASA RM/NM model evaluates a matched four-hour chamber protocol at 4.3 psia. Other chamber endpoints have their own pressure and time domains.",
     ],
   },
 ];
@@ -90,8 +90,7 @@ export function Overview(): React.ReactElement {
           </h2>
           <p className="text-muted-foreground mt-4 text-[15px] leading-relaxed">
             Explore atmosphere, prebreathe, suit pressure, workload, and model applicability.
-            Supported browser calculations work offline; the EVA interface can also use the
-            Python API. Model-specific limits determine which outputs are available.
+            Offline browser calculations illustrate grid equations. The chamber outcomes and aviation pressure-history screens request source-eligible estimates from the Python service.
           </p>
           <div className="flex flex-wrap items-center gap-2 mt-5">
             <span className="pill-accent">EVA scenario API</span>

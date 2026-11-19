@@ -908,7 +908,7 @@ export function EVASimulator(): React.ReactElement {
         </div>
         <div className="p-5 lg:p-6 bg-background/35">
           <div className="grid gap-5 xl:grid-cols-[320px_minmax(0,1fr)] xl:items-center">
-            <RiskGauge value={result.pDcsPercent} title="NASA reference endpoint (4 h)" height={250} max={40} />
+            <RiskGauge value={result.pDcsPercent} title="Source-qualified DCS estimate" height={250} max={40} />
             <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-3 text-[11px]">
               <div className="rounded-lg border border-border/70 bg-card/70 p-3">
                 <p className="text-muted-foreground">Suit pressure</p>
@@ -947,7 +947,7 @@ export function EVASimulator(): React.ReactElement {
       </section>
 
       {reportError && <p role="alert" className="text-sm text-red-600">{reportError}</p>}
-      <p className="text-sm text-muted-foreground">Research software, not operational clearance. The NASA endpoint requires declared adynamic, 240-minute, constant 4.3 psia oxygen exposure. Source-cohort transportability and clinical validation are not established.</p>
+      <p className="text-sm text-muted-foreground">Research software, not operational clearance. The compact EVA scenario supplies physiological indicators and mission-rule stop conditions. A full aviation pressure history is required for a source-qualified DCS estimate.</p>
       <DecisionPanel result={result} />
 
       {result.envelopeWarnings.length > 0 && (
@@ -1146,7 +1146,7 @@ export function EVASimulator(): React.ReactElement {
                   <p className="text-xs text-muted-foreground">Two equal-duration stages ({formatNumber(scenario.evaDurationMin / 2, 1)} min each). The suit-pressure control sets stage 1; stage 2 is specified below.</p>
                   <Slider label="Second-stage pressure" value={[scenario.pressureSegments[1].pressurePsia]} onValueChange={([v]) => patch(d => { d.pressureSegments![1].pressurePsia = v; })} min={3.7} max={8.2} step={0.1} unit="psia" />
                 </div>}
-                <Switch checked={scenario.nasaAdynamicReference ?? false} onCheckedChange={checked => patch(d => { d.nasaAdynamicReference = checked; })} label="Declare adynamic source-reference assumptions" />
+                <Switch checked={scenario.nasaAdynamicReference ?? false} onCheckedChange={checked => patch(d => { d.nasaAdynamicReference = checked; })} label="Record an adynamic exposure" />
                 <p className="text-xs text-muted-foreground">This declaration does not validate a moving EVA or a novel protocol.</p>
                 <Switch
                   checked={scenario.suit.suitPort}

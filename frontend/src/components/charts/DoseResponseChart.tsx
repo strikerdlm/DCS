@@ -39,7 +39,7 @@ const AXIS: Record<
 };
 
 /**
- * ADRAC dose–response: P(DCS) vs one swept exposure variable, with the three
+ * ADRAC dose–response: Grid projection vs one swept exposure variable, with the three
  * exercise levels overlaid. The currently-selected exercise is emphasised; the
  * live scenario is marked. Pure closed-form, recomputed on every input change.
  */
@@ -162,7 +162,7 @@ export function DoseResponseChart({
         ...(base0.yAxis as object),
         type: "value" as const,
         min: 0,
-        name: "P(DCS) (%)",
+        name: "Grid projection (%)",
         nameLocation: "middle" as const,
         nameGap: 44,
         axisLabel: {

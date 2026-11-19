@@ -1,0 +1,2306 @@
+{
+  "schema_version": "1.0.0",
+  "model_id": "nasa-chamber-dcs-group-v1",
+  "target_type": "observed_group_dcs_incidence",
+  "features": [
+    "mean_tr360",
+    "pressure_psia",
+    "duration_hours",
+    "ambulatory"
+  ],
+  "source": {
+    "primary": {
+      "report": "NASA/TP-2019-220343",
+      "table": "Appendix F, Table F1, printed pp. 47–48",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/abercromby-suited-chamber-testing-tp220343-2019.pdf",
+      "pdf_sha256": "30e6fb1b8976d47188e9af255d01d50bd9878deb281cbf95dcacc2c8fccef542"
+    },
+    "corroboration": {
+      "report": "NASA/TP-2020-220529",
+      "table": "Table 2, printed pp. 9–10; Table 1B, printed pp. 32–33",
+      "url": "https://ntrs.nasa.gov/citations/20200004317",
+      "pdf_sha256": "a6efabcecabeace70ebb85c38bf26e64e9a43b4c335cf58ce0333f8e5629a1ca",
+      "relationship": "Same 49 chamber tests and case counts. The later publication contributes no additional independent outcomes."
+    },
+    "transcription": "Exposure counts by sex, DCS cases, mean TR360, plateau pressure and duration, ambulation marks and separate VGE counts transcribed from Table F1. Table 2 verifies predictors, sex counts and displayed DCS percentages. Table 1B independently prints the same case counts from the same database. Nuc-1 has a denominator of 20 for DCS, 21 exposed. One participant left early for left ventricular gas emboli.",
+    "discrepancy": "Test 10 has no nonambulation checkmark in Table F1. Table 2 explicitly codes AMB=0. Both source entries are retained. The primary analysis excludes test 10.",
+    "public_data": "data/nasa_chamber_dcs_f1.csv",
+    "csv_sha256_utf8_lf": "6f3a1c33d33d68582d01a5edc42825445e82c4f825fcae8caf1ff4f84de6f4e0",
+    "endpoint": "Signs or symptoms classified as Type I or II DCS by an independent medical officer, usually during plateau exposure, with a few first reported after the test. Follow-up after return is not uniformly defined in these aggregates.",
+    "origin": "A planned NASA chamber test with a specified plateau duration and the published group mean TR360 and ambulation assignment.",
+    "population": "NASA-funded hypobaric chamber research tests, 1983–2016."
+  },
+  "source_totals": {
+    "tests": 49,
+    "families": 13,
+    "male_exposures": 834,
+    "female_exposures": 197,
+    "total_exposures": 1031,
+    "dcs_evaluable": 1030,
+    "dcs_cases": 125
+  },
+  "training_totals": {
+    "tests": 41,
+    "families": 12,
+    "male_exposures": 708,
+    "female_exposures": 178,
+    "total_exposures": 886,
+    "dcs_evaluable": 885,
+    "dcs_cases": 124
+  },
+  "selection": {
+    "duration_hours_inclusive": [
+      2,
+      6
+    ],
+    "source_ambulation_agreement_required": true,
+    "longer_stage_test_ids": [
+      "1b10.2",
+      "1c10.2",
+      "1d10.2",
+      "2b10.2",
+      "3b10.2",
+      "4a10.2",
+      "610.2"
+    ],
+    "discordant_ambulation_test_ids": [
+      "10"
+    ]
+  },
+  "analysis_plan": {
+    "family": "Numbered series are indivisible. Phase I–IV and all V arms form one family. Both Nuc arms form one family. Longer preceding stages lie outside the primary 2–6 hour plateau duration.",
+    "model": "Standardize all four covariates using training DCS denominators. Minimize summed grouped binomial negative log likelihood plus one-half the sum of squared standardized coefficients. The intercept is unpenalized.",
+    "comparator": "Pooled training cases divided by training DCS denominators in each fold.",
+    "model_selection": "Fixed predictors and ridge penalty 1. No tuning, holdout calibration or outcome-dependent selection.",
+    "scoring": "Exposure-weighted Bernoulli Brier and log losses computed from grouped case/noncase counts. O:E divides the total observed case count by the sum of denominator times predicted fraction.",
+    "applicability": "Only the joint four-feature tuples appearing in the primary training source are supported. The published group mean of computed TR360 and the protocol AMB indicator are required at source precision."
+  },
+  "model": {
+    "intercept": -1.9820973143255052,
+    "coefficients": [
+      0.9171364903071147,
+      -0.16124256731743583,
+      0.16114952203735947,
+      0.730170194247416
+    ],
+    "center": [
+      1.6856497175141243,
+      4.738531073446327,
+      4.045197740112994,
+      0.5480225988700564
+    ],
+    "scale": [
+      0.24603006433445768,
+      0.8629054130432254,
+      1.0459456783355392,
+      0.4976884869049772
+    ],
+    "ridge_penalty": 1.0,
+    "training_intercept_only_fraction": 0.1401129943502825
+  },
+  "support": [
+    {
+      "mean_tr360": 0.92,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "4f"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 0.94,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "4d"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 1.04,
+      "pressure_psia": 4.3,
+      "duration_hours": 6.0,
+      "ambulatory": true,
+      "test_ids": [
+        "5b"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 11
+    },
+    {
+      "mean_tr360": 1.1,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "4b"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 1.22,
+      "pressure_psia": 6.0,
+      "duration_hours": 6.0,
+      "ambulatory": true,
+      "test_ids": [
+        "6"
+      ],
+      "observed_cases": 1,
+      "dcs_denominator": 29
+    },
+    {
+      "mean_tr360": 1.31,
+      "pressure_psia": 4.3,
+      "duration_hours": 6.0,
+      "ambulatory": true,
+      "test_ids": [
+        "5a"
+      ],
+      "observed_cases": 4,
+      "dcs_denominator": 38
+    },
+    {
+      "mean_tr360": 1.34,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "4e"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 1.35,
+      "pressure_psia": 4.3,
+      "duration_hours": 6.0,
+      "ambulatory": true,
+      "test_ids": [
+        "3c"
+      ],
+      "observed_cases": 3,
+      "dcs_denominator": 14
+    },
+    {
+      "mean_tr360": 1.36,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "4c"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 1.4,
+      "pressure_psia": 4.3,
+      "duration_hours": 6.0,
+      "ambulatory": true,
+      "test_ids": [
+        "3d"
+      ],
+      "observed_cases": 2,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 1.46,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": false,
+      "test_ids": [
+        "9e"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 7
+    },
+    {
+      "mean_tr360": 1.6,
+      "pressure_psia": 4.3,
+      "duration_hours": 6.0,
+      "ambulatory": true,
+      "test_ids": [
+        "3a"
+      ],
+      "observed_cases": 6,
+      "dcs_denominator": 28
+    },
+    {
+      "mean_tr360": 1.64,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "1c"
+      ],
+      "observed_cases": 4,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 1.66,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": false,
+      "test_ids": [
+        "9d"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 7
+    },
+    {
+      "mean_tr360": 1.66,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "9c"
+      ],
+      "observed_cases": 3,
+      "dcs_denominator": 11
+    },
+    {
+      "mean_tr360": 1.67,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "4a"
+      ],
+      "observed_cases": 1,
+      "dcs_denominator": 12
+    },
+    {
+      "mean_tr360": 1.67,
+      "pressure_psia": 4.3,
+      "duration_hours": 6.0,
+      "ambulatory": true,
+      "test_ids": [
+        "3b"
+      ],
+      "observed_cases": 8,
+      "dcs_denominator": 35
+    },
+    {
+      "mean_tr360": 1.69,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": true,
+      "test_ids": [
+        "2a"
+      ],
+      "observed_cases": 7,
+      "dcs_denominator": 23
+    },
+    {
+      "mean_tr360": 1.7,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "1d"
+      ],
+      "observed_cases": 2,
+      "dcs_denominator": 3
+    },
+    {
+      "mean_tr360": 1.73,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "V-5"
+      ],
+      "observed_cases": 2,
+      "dcs_denominator": 49
+    },
+    {
+      "mean_tr360": 1.74,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": true,
+      "test_ids": [
+        "2b"
+      ],
+      "observed_cases": 6,
+      "dcs_denominator": 22
+    },
+    {
+      "mean_tr360": 1.75,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "1a"
+      ],
+      "observed_cases": 4,
+      "dcs_denominator": 11
+    },
+    {
+      "mean_tr360": 1.75,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "V-4"
+      ],
+      "observed_cases": 3,
+      "dcs_denominator": 7
+    },
+    {
+      "mean_tr360": 1.75,
+      "pressure_psia": 6.5,
+      "duration_hours": 2.0,
+      "ambulatory": true,
+      "test_ids": [
+        "11b"
+      ],
+      "observed_cases": 0,
+      "dcs_denominator": 4
+    },
+    {
+      "mean_tr360": 1.78,
+      "pressure_psia": 6.5,
+      "duration_hours": 3.0,
+      "ambulatory": false,
+      "test_ids": [
+        "9b"
+      ],
+      "observed_cases": 2,
+      "dcs_denominator": 23
+    },
+    {
+      "mean_tr360": 1.78,
+      "pressure_psia": 6.5,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "7a",
+        "7b",
+        "8a",
+        "8b",
+        "9a"
+      ],
+      "observed_cases": 24,
+      "dcs_denominator": 127
+    },
+    {
+      "mean_tr360": 1.81,
+      "pressure_psia": 4.3,
+      "duration_hours": 3.0,
+      "ambulatory": true,
+      "test_ids": [
+        "1b"
+      ],
+      "observed_cases": 3,
+      "dcs_denominator": 13
+    },
+    {
+      "mean_tr360": 1.85,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "11a",
+        "P II",
+        "Nuc-3"
+      ],
+      "observed_cases": 5,
+      "dcs_denominator": 119
+    },
+    {
+      "mean_tr360": 1.85,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": true,
+      "test_ids": [
+        "Nuc-1"
+      ],
+      "observed_cases": 4,
+      "dcs_denominator": 20
+    },
+    {
+      "mean_tr360": 1.86,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "V-3"
+      ],
+      "observed_cases": 7,
+      "dcs_denominator": 50
+    },
+    {
+      "mean_tr360": 1.87,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "P I"
+      ],
+      "observed_cases": 9,
+      "dcs_denominator": 49
+    },
+    {
+      "mean_tr360": 1.9,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "P IV"
+      ],
+      "observed_cases": 8,
+      "dcs_denominator": 65
+    },
+    {
+      "mean_tr360": 1.92,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "P III"
+      ],
+      "observed_cases": 2,
+      "dcs_denominator": 10
+    },
+    {
+      "mean_tr360": 1.99,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "V-1"
+      ],
+      "observed_cases": 3,
+      "dcs_denominator": 10
+    },
+    {
+      "mean_tr360": 2.02,
+      "pressure_psia": 4.3,
+      "duration_hours": 4.0,
+      "ambulatory": false,
+      "test_ids": [
+        "V-2"
+      ],
+      "observed_cases": 1,
+      "dcs_denominator": 4
+    }
+  ],
+  "evaluation": {
+    "design": "Leave one entire designated protocol family or component out. Count-weighted standardization, the model and intercept-only comparison are fitted exclusively on each complement.",
+    "totals": {
+      "tests": 41,
+      "families": 12,
+      "male_exposures": 708,
+      "female_exposures": 178,
+      "total_exposures": 886,
+      "dcs_evaluable": 885,
+      "dcs_cases": 124
+    },
+    "n_holdout_blocks": 12,
+    "overall": {
+      "grouped_ridge": {
+        "evaluable_exposures": 885,
+        "observed_cases": 124,
+        "expected_cases": 116.81732916472153,
+        "observed_to_expected": 1.061486346988385,
+        "brier": 0.11803751183416054,
+        "log_loss": 0.3915700258728696,
+        "observed_fraction": 0.1401129943502825,
+        "predicted_fraction": 0.13199698210702998
+      },
+      "intercept_only": {
+        "evaluable_exposures": 885,
+        "observed_cases": 124,
+        "expected_cases": 126.68390563427127,
+        "observed_to_expected": 0.9788141546407675,
+        "brier": 0.12154886249783448,
+        "log_loss": 0.4095911588679625,
+        "observed_fraction": 0.1401129943502825,
+        "predicted_fraction": 0.14314565608392235
+      }
+    },
+    "exact_support_in_held_out_data": {
+      "supported_tests": 8,
+      "all_tests": 41,
+      "supported_exposures": 246,
+      "scores": {
+        "grouped_ridge": {
+          "evaluable_exposures": 246,
+          "observed_cases": 29,
+          "expected_cases": 33.99092276436861,
+          "observed_to_expected": 0.8531689534006883,
+          "brier": 0.10166829020175344,
+          "log_loss": 0.34979760585210445,
+          "observed_fraction": 0.11788617886178862,
+          "predicted_fraction": 0.13817448278198624
+        },
+        "intercept_only": {
+          "evaluable_exposures": 246,
+          "observed_cases": 29,
+          "expected_cases": 34.644190881860794,
+          "observed_to_expected": 0.8370811747023362,
+          "brier": 0.10573076182303956,
+          "log_loss": 0.36996645444477,
+          "observed_fraction": 0.11788617886178862,
+          "predicted_fraction": 0.14083004423520648
+        }
+      }
+    },
+    "paired_family_bootstrap": {
+      "metrics": {
+        "brier": {
+          "ridge_minus_intercept_only": -0.0035113506636738905,
+          "percentile_95": [
+            -0.007717629200380598,
+            -0.0009552974915576299
+          ]
+        },
+        "log_loss": {
+          "ridge_minus_intercept_only": -0.0180211329950929,
+          "percentile_95": [
+            -0.03643669734299036,
+            -0.008374099141431014
+          ]
+        }
+      },
+      "replicates": 5000,
+      "seed": 20261119,
+      "method": "Paired nonparametric resampling of held-out families with fixed cross-fitted predictions. Participant and refitting uncertainty are not identified by these intervals."
+    },
+    "folds": [
+      {
+        "held_out_block": "1",
+        "training_test_ids": [
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d"
+        ],
+        "training_model": {
+          "intercept": -2.0706928751147555,
+          "coefficients": [
+            0.9836440390234422,
+            -0.04014315339130808,
+            0.3018433859991773,
+            0.6446881651727753
+          ],
+          "center": [
+            1.683498817966903,
+            4.758747044917257,
+            4.09338061465721,
+            0.5271867612293144
+          ],
+          "scale": [
+            0.2509877496441132,
+            0.8773012776454889,
+            1.044869788081277,
+            0.499260332906451
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.13120567375886524
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 39,
+            "observed_cases": 13,
+            "expected_cases": 6.884410100316544,
+            "observed_to_expected": 1.888324462164487,
+            "brier": 0.25226645710775847,
+            "log_loss": 0.7295989822691501,
+            "observed_fraction": 0.3333333333333333,
+            "predicted_fraction": 0.17652333590555241
+          },
+          "intercept_only": {
+            "evaluable_exposures": 39,
+            "observed_cases": 13,
+            "expected_cases": 5.117021276595744,
+            "observed_to_expected": 2.540540540540541,
+            "brier": 0.26307781298727423,
+            "log_loss": 0.7707622930268874,
+            "observed_fraction": 0.3333333333333333,
+            "predicted_fraction": 0.13120567375886522
+          }
+        }
+      },
+      {
+        "held_out_block": "11",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "11a",
+          "11b"
+        ],
+        "training_model": {
+          "intercept": -1.971684976858495,
+          "coefficients": [
+            0.920458361252863,
+            -0.1557020021098913,
+            0.15175889793614472,
+            0.727339067304636
+          ],
+          "center": [
+            1.6799531066822977,
+            4.744665885111371,
+            4.056271981242673,
+            0.5638921453692849
+          ],
+          "scale": [
+            0.24872287653797798,
+            0.866971274512103,
+            1.0560488110523816,
+            0.49590099189264597
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.141852286049238
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 32,
+            "observed_cases": 3,
+            "expected_cases": 3.6875414431507254,
+            "observed_to_expected": 0.8135501786894432,
+            "brier": 0.08677592274894673,
+            "log_loss": 0.31925167035581997,
+            "observed_fraction": 0.09375,
+            "predicted_fraction": 0.11523567009846017
+          },
+          "intercept_only": {
+            "evaluable_exposures": 32,
+            "observed_cases": 3,
+            "expected_cases": 4.539273153575616,
+            "observed_to_expected": 0.6608987603305785,
+            "brier": 0.08727476742316273,
+            "log_loss": 0.32172809306454603,
+            "observed_fraction": 0.09375,
+            "predicted_fraction": 0.141852286049238
+          }
+        }
+      },
+      {
+        "held_out_block": "2",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "2a",
+          "2b"
+        ],
+        "training_model": {
+          "intercept": -2.0427215061683364,
+          "coefficients": [
+            0.9263200059349027,
+            -0.1312310835102842,
+            0.18003669133899172,
+            0.6937527287967782
+          ],
+          "center": [
+            1.6841071428571428,
+            4.762023809523809,
+            4.0476190476190474,
+            0.5238095238095238
+          ],
+          "scale": [
+            0.2523752175336756,
+            0.8795687251660611,
+            1.0735428873900472,
+            0.4994327848429293
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.13214285714285715
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 45,
+            "observed_cases": 13,
+            "expected_cases": 10.362953744251946,
+            "observed_to_expected": 1.2544685927224901,
+            "brier": 0.20964442951911078,
+            "log_loss": 0.6126659734618389,
+            "observed_fraction": 0.28888888888888886,
+            "predicted_fraction": 0.23028786098337659
+          },
+          "intercept_only": {
+            "evaluable_exposures": 45,
+            "observed_cases": 13,
+            "expected_cases": 5.946428571428571,
+            "observed_to_expected": 2.186186186186186,
+            "brier": 0.23000141723356013,
+            "log_loss": 0.6854585131409725,
+            "observed_fraction": 0.28888888888888886,
+            "predicted_fraction": 0.13214285714285715
+          }
+        }
+      },
+      {
+        "held_out_block": "3",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "3a",
+          "3b",
+          "3c",
+          "3d"
+        ],
+        "training_model": {
+          "intercept": -2.081312453916805,
+          "coefficients": [
+            1.0399662956618163,
+            -0.17058409141559272,
+            0.14485138832894703,
+            0.7647931394556825
+          ],
+          "center": [
+            1.6995603015075376,
+            4.787562814070351,
+            3.8266331658291457,
+            0.49748743718592964
+          ],
+          "scale": [
+            0.25223958187650825,
+            0.8966344609745692,
+            0.8609882256623336,
+            0.4999936869882512
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.13190954773869346
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 89,
+            "observed_cases": 19,
+            "expected_cases": 18.345116265090365,
+            "observed_to_expected": 1.035697987706725,
+            "brier": 0.17113549908757394,
+            "log_loss": 0.5321312854117644,
+            "observed_fraction": 0.21348314606741572,
+            "predicted_fraction": 0.20612490185494792
+          },
+          "intercept_only": {
+            "evaluable_exposures": 89,
+            "observed_cases": 19,
+            "expected_cases": 11.739949748743717,
+            "observed_to_expected": 1.6184055644729805,
+            "brier": 0.17456234435686988,
+            "log_loss": 0.5436999238586545,
+            "observed_fraction": 0.21348314606741572,
+            "predicted_fraction": 0.13190954773869346
+          }
+        }
+      },
+      {
+        "held_out_block": "4",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f"
+        ],
+        "training_model": {
+          "intercept": -1.8280505203312198,
+          "coefficients": [
+            0.4931017689321553,
+            -0.26900494011431236,
+            -0.03883717965602789,
+            0.7128483499017839
+          ],
+          "center": [
+            1.726740467404674,
+            4.777367773677736,
+            4.137761377613776,
+            0.5079950799507995
+          ],
+          "scale": [
+            0.1973547770959344,
+            0.8899490477251776,
+            1.0419082725213433,
+            0.49993607461012485
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.15129151291512916
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 72,
+            "observed_cases": 1,
+            "expected_cases": 8.335167802054771,
+            "observed_to_expected": 0.11997358946432748,
+            "brier": 0.02518264446097643,
+            "log_loss": 0.1413956001015042,
+            "observed_fraction": 0.013888888888888888,
+            "predicted_fraction": 0.11576621947298293
+          },
+          "intercept_only": {
+            "evaluable_exposures": 72,
+            "observed_cases": 1,
+            "expected_cases": 10.892988929889299,
+            "observed_to_expected": 0.09180216802168022,
+            "brier": 0.032575468743617324,
+            "log_loss": 0.18799100143176783,
+            "observed_fraction": 0.013888888888888888,
+            "predicted_fraction": 0.15129151291512916
+          }
+        }
+      },
+      {
+        "held_out_block": "5",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "5a",
+          "5b"
+        ],
+        "training_model": {
+          "intercept": -1.9507240996536002,
+          "coefficients": [
+            0.8478481352152257,
+            -0.16484065724578245,
+            0.14295194879164855,
+            0.7313053658998758
+          ],
+          "center": [
+            1.7112200956937798,
+            4.764234449760765,
+            3.930622009569378,
+            0.5215311004784688
+          ],
+          "scale": [
+            0.2269923894303969,
+            0.8810882584599509,
+            0.959699960934651,
+            0.49953619659859094
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.14354066985645933
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 49,
+            "observed_cases": 4,
+            "expected_cases": 3.665562786295921,
+            "observed_to_expected": 1.0912376170323441,
+            "brier": 0.07355694951819133,
+            "log_loss": 0.2701811116792123,
+            "observed_fraction": 0.08163265306122448,
+            "predicted_fraction": 0.07480740380195756
+          },
+          "intercept_only": {
+            "evaluable_exposures": 49,
+            "observed_cases": 4,
+            "expected_cases": 7.033492822966506,
+            "observed_to_expected": 0.5687074829931974,
+            "brier": 0.07880136555892933,
+            "log_loss": 0.30075974605700295,
+            "observed_fraction": 0.08163265306122448,
+            "predicted_fraction": 0.1435406698564593
+          }
+        }
+      },
+      {
+        "held_out_block": "6",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "6"
+        ],
+        "training_model": {
+          "intercept": -1.9399504020877825,
+          "coefficients": [
+            0.8540727168268588,
+            -0.14338192016234969,
+            0.16378248507359688,
+            0.7216527679949276
+          ],
+          "center": [
+            1.7014252336448596,
+            4.695794392523364,
+            3.9789719626168223,
+            0.5327102803738317
+          ],
+          "scale": [
+            0.23449254520301174,
+            0.8450411010113429,
+            0.9986097200837175,
+            0.498928890281837
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.14369158878504673
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 29,
+            "observed_cases": 1,
+            "expected_cases": 1.5019705678240913,
+            "observed_to_expected": 0.6657920077946019,
+            "brier": 0.033593310881048326,
+            "log_loss": 0.1534344637644892,
+            "observed_fraction": 0.034482758620689655,
+            "predicted_fraction": 0.051792088545658324
+          },
+          "intercept_only": {
+            "evaluable_exposures": 29,
+            "observed_cases": 1,
+            "expected_cases": 4.167056074766355,
+            "observed_to_expected": 0.239977572189515,
+            "brier": 0.0452202665644643,
+            "log_loss": 0.21667506551420213,
+            "observed_fraction": 0.034482758620689655,
+            "predicted_fraction": 0.14369158878504673
+          }
+        }
+      },
+      {
+        "held_out_block": "7",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "7a",
+          "7b"
+        ],
+        "training_model": {
+          "intercept": -2.0104745304102476,
+          "coefficients": [
+            0.9170976900523772,
+            -0.19014526790338612,
+            0.16218060778886642,
+            0.7245023128284963
+          ],
+          "center": [
+            1.68324449594438,
+            4.693626882966396,
+            4.071842410196988,
+            0.5365005793742758
+          ],
+          "scale": [
+            0.2486788158075928,
+            0.8261197659759575,
+            1.045625312901354,
+            0.4986659279571266
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.13673232908458866
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 22,
+            "observed_cases": 6,
+            "expected_cases": 3.8131089784006997,
+            "observed_to_expected": 1.5735191503801524,
+            "brier": 0.2082282899594042,
+            "log_loss": 0.6164112650098725,
+            "observed_fraction": 0.2727272727272727,
+            "predicted_fraction": 0.17332313538184999
+          },
+          "intercept_only": {
+            "evaluable_exposures": 22,
+            "observed_cases": 6,
+            "expected_cases": 3.00811123986095,
+            "observed_to_expected": 1.994607087827427,
+            "brier": 0.21684173213439337,
+            "log_loss": 0.6495849074076578,
+            "observed_fraction": 0.2727272727272727,
+            "predicted_fraction": 0.13673232908458866
+          }
+        }
+      },
+      {
+        "held_out_block": "8",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "8a",
+          "8b"
+        ],
+        "training_model": {
+          "intercept": -2.05070302924998,
+          "coefficients": [
+            0.934744459950632,
+            -0.18634548445336604,
+            0.16170676904503897,
+            0.720118010654002
+          ],
+          "center": [
+            1.6761442786069651,
+            4.561069651741293,
+            4.150497512437811,
+            0.5024875621890548
+          ],
+          "scale": [
+            0.25620665453974795,
+            0.6895916667060488,
+            1.0407073996973677,
+            0.49999381199606424
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.13308457711442787
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 81,
+            "observed_cases": 17,
+            "expected_cases": 12.962844862602477,
+            "observed_to_expected": 1.3114405194375678,
+            "brier": 0.1683125471122413,
+            "log_loss": 0.5223635355931843,
+            "observed_fraction": 0.20987654320987653,
+            "predicted_fraction": 0.1600351217605244
+          },
+          "intercept_only": {
+            "evaluable_exposures": 81,
+            "observed_cases": 17,
+            "expected_cases": 10.779850746268657,
+            "observed_to_expected": 1.5770162686050535,
+            "brier": 0.1717253858769539,
+            "log_loss": 0.5361133867774117,
+            "observed_fraction": 0.20987654320987653,
+            "predicted_fraction": 0.13308457711442787
+          }
+        }
+      },
+      {
+        "held_out_block": "9",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e"
+        ],
+        "training_model": {
+          "intercept": -1.9405452046314349,
+          "coefficients": [
+            0.9677997898438602,
+            -0.09126749318936259,
+            0.1679420701164573,
+            0.7378135184466703
+          ],
+          "center": [
+            1.6827060270602705,
+            4.650184501845017,
+            4.137761377613776,
+            0.5535055350553506
+          ],
+          "scale": [
+            0.25478458870709064,
+            0.7857842678041888,
+            1.0419082725213433,
+            0.4971289145869918
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.14514145141451415
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 72,
+            "observed_cases": 6,
+            "expected_cases": 8.934632893773037,
+            "observed_to_expected": 0.6715440993867449,
+            "brier": 0.08058671363838246,
+            "log_loss": 0.29495462391474203,
+            "observed_fraction": 0.08333333333333333,
+            "predicted_fraction": 0.12409212352462551
+          },
+          "intercept_only": {
+            "evaluable_exposures": 72,
+            "observed_cases": 6,
+            "expected_cases": 10.450184501845019,
+            "observed_to_expected": 0.5741525423728814,
+            "brier": 0.08020913234962607,
+            "log_loss": 0.3045881990746124,
+            "observed_fraction": 0.08333333333333333,
+            "predicted_fraction": 0.14514145141451415
+          }
+        }
+      },
+      {
+        "held_out_block": "nuc",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5"
+        ],
+        "held_out_test_ids": [
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "training_model": {
+          "intercept": -1.978903281924535,
+          "coefficients": [
+            1.0334328524168672,
+            -0.21566161437380355,
+            0.16828853676231084,
+            0.7741893614460276
+          ],
+          "center": [
+            1.6734830097087379,
+            4.770995145631067,
+            4.048543689320389,
+            0.5643203883495146
+          ],
+          "scale": [
+            0.25072734911617667,
+            0.8856849578922683,
+            1.0838948178889791,
+            0.4958456288428563
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.14320388349514562
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 61,
+            "observed_cases": 6,
+            "expected_cases": 12.500447427072057,
+            "observed_to_expected": 0.4799828194153977,
+            "brier": 0.09808445601145338,
+            "log_loss": 0.3400817107045734,
+            "observed_fraction": 0.09836065573770492,
+            "predicted_fraction": 0.20492536765691896
+          },
+          "intercept_only": {
+            "evaluable_exposures": 61,
+            "observed_cases": 6,
+            "expected_cases": 8.735436893203882,
+            "observed_to_expected": 0.6868574604056683,
+            "brier": 0.09069675221625932,
+            "log_loss": 0.33051568058287656,
+            "observed_fraction": 0.09836065573770492,
+            "predicted_fraction": 0.14320388349514562
+          }
+        }
+      },
+      {
+        "held_out_block": "phase",
+        "training_test_ids": [
+          "1a",
+          "1b",
+          "1c",
+          "1d",
+          "2a",
+          "2b",
+          "3a",
+          "3b",
+          "3c",
+          "3d",
+          "4a",
+          "4b",
+          "4c",
+          "4d",
+          "4e",
+          "4f",
+          "5a",
+          "5b",
+          "6",
+          "7a",
+          "7b",
+          "8a",
+          "8b",
+          "9a",
+          "9b",
+          "9c",
+          "9d",
+          "9e",
+          "11a",
+          "11b",
+          "Nuc-1",
+          "Nuc-3"
+        ],
+        "held_out_test_ids": [
+          "P I",
+          "P II",
+          "P III",
+          "P IV",
+          "V-1",
+          "V-2",
+          "V-3",
+          "V-4",
+          "V-5"
+        ],
+        "training_model": {
+          "intercept": -1.9553210125975125,
+          "coefficients": [
+            0.9097776118015534,
+            -0.1750876437289607,
+            0.17674852404041858,
+            0.6510934002542319
+          ],
+          "center": [
+            1.6023181049069375,
+            4.95668358714044,
+            4.067681895093062,
+            0.8206429780033841
+          ],
+          "scale": [
+            0.2598174687802571,
+            0.9857796864605359,
+            1.2793377650500979,
+            0.38365098808307707
+          ],
+          "ridge_penalty": 1.0,
+          "training_intercept_only_fraction": 0.1505922165820643
+        },
+        "scores": {
+          "grouped_ridge": {
+            "evaluable_exposures": 294,
+            "observed_cases": 35,
+            "expected_cases": 25.8235722938889,
+            "observed_to_expected": 1.3553508244977663,
+            "brier": 0.10473311916298116,
+            "log_loss": 0.3646810792969774,
+            "observed_fraction": 0.11904761904761904,
+            "predicted_fraction": 0.08783527991118674
+          },
+          "intercept_only": {
+            "evaluable_exposures": 294,
+            "observed_cases": 35,
+            "expected_cases": 44.274111675126896,
+            "observed_to_expected": 0.7905296950240772,
+            "brier": 0.10587034508032216,
+            "log_loss": 0.3691639631857486,
+            "observed_fraction": 0.11904761904761904,
+            "predicted_fraction": 0.15059221658206426
+          }
+        }
+      }
+    ],
+    "held_out_predictions": [
+      {
+        "test_id": "1a",
+        "family": "1",
+        "denominator": 11,
+        "observed_cases": 4,
+        "grouped_ridge": 0.1832626237000152,
+        "intercept_only": 0.13120567375886524,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "1b",
+        "family": "1",
+        "denominator": 13,
+        "observed_cases": 3,
+        "grouped_ridge": 0.22110270753129016,
+        "intercept_only": 0.13120567375886524,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "1c",
+        "family": "1",
+        "denominator": 12,
+        "observed_cases": 4,
+        "grouped_ridge": 0.1272497802370347,
+        "intercept_only": 0.13120567375886524,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "1d",
+        "family": "1",
+        "denominator": 3,
+        "observed_cases": 2,
+        "grouped_ridge": 0.1557295596217294,
+        "intercept_only": 0.13120567375886524,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "11a",
+        "family": "11",
+        "denominator": 28,
+        "observed_cases": 3,
+        "grouped_ridge": 0.1093229707261963,
+        "intercept_only": 0.141852286049238,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "11b",
+        "family": "11",
+        "denominator": 4,
+        "observed_cases": 0,
+        "grouped_ridge": 0.1566245657043073,
+        "intercept_only": 0.141852286049238,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "2a",
+        "family": "2",
+        "denominator": 23,
+        "observed_cases": 7,
+        "grouped_ridge": 0.21438771572351759,
+        "intercept_only": 0.13214285714285715,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "2b",
+        "family": "2",
+        "denominator": 22,
+        "observed_cases": 6,
+        "grouped_ridge": 0.24691074011868377,
+        "intercept_only": 0.13214285714285715,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "3a",
+        "family": "3",
+        "denominator": 28,
+        "observed_cases": 6,
+        "grouped_ridge": 0.22015829885181792,
+        "intercept_only": 0.13190954773869346,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "3b",
+        "family": "3",
+        "denominator": 35,
+        "observed_cases": 8,
+        "grouped_ridge": 0.27365856571583713,
+        "intercept_only": 0.13190954773869346,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "3c",
+        "family": "3",
+        "denominator": 14,
+        "observed_cases": 3,
+        "grouped_ridge": 0.09149826568637486,
+        "intercept_only": 0.13190954773869346,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "3d",
+        "family": "3",
+        "denominator": 12,
+        "observed_cases": 2,
+        "grouped_ridge": 0.11013819813132616,
+        "intercept_only": 0.13190954773869346,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "4a",
+        "family": "4",
+        "denominator": 12,
+        "observed_cases": 1,
+        "grouped_ridge": 0.25320786478167145,
+        "intercept_only": 0.15129151291512916,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "4b",
+        "family": "4",
+        "denominator": 12,
+        "observed_cases": 0,
+        "grouped_ridge": 0.07545589172823142,
+        "intercept_only": 0.15129151291512916,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "4c",
+        "family": "4",
+        "denominator": 12,
+        "observed_cases": 0,
+        "grouped_ridge": 0.1351549821323586,
+        "intercept_only": 0.15129151291512916,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "4d",
+        "family": "4",
+        "denominator": 12,
+        "observed_cases": 0,
+        "grouped_ridge": 0.05188129976525016,
+        "intercept_only": 0.15129151291512916,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "4e",
+        "family": "4",
+        "denominator": 12,
+        "observed_cases": 0,
+        "grouped_ridge": 0.12941971169420752,
+        "intercept_only": 0.15129151291512916,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "4f",
+        "family": "4",
+        "denominator": 12,
+        "observed_cases": 0,
+        "grouped_ridge": 0.04947756673617837,
+        "intercept_only": 0.15129151291512916,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "5a",
+        "family": "5",
+        "denominator": 38,
+        "observed_cases": 4,
+        "grouped_ridge": 0.08676601700742166,
+        "intercept_only": 0.14354066985645933,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "5b",
+        "family": "5",
+        "denominator": 11,
+        "observed_cases": 0,
+        "grouped_ridge": 0.03349583091035433,
+        "intercept_only": 0.14354066985645933,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "6",
+        "family": "6",
+        "denominator": 29,
+        "observed_cases": 1,
+        "grouped_ridge": 0.051792088545658324,
+        "intercept_only": 0.14369158878504673,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "7a",
+        "family": "7",
+        "denominator": 11,
+        "observed_cases": 4,
+        "grouped_ridge": 0.17332313538184999,
+        "intercept_only": 0.13673232908458866,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "7b",
+        "family": "7",
+        "denominator": 11,
+        "observed_cases": 2,
+        "grouped_ridge": 0.17332313538184999,
+        "intercept_only": 0.13673232908458866,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "8a",
+        "family": "8",
+        "denominator": 40,
+        "observed_cases": 7,
+        "grouped_ridge": 0.1600351217605244,
+        "intercept_only": 0.13308457711442787,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "8b",
+        "family": "8",
+        "denominator": 41,
+        "observed_cases": 10,
+        "grouped_ridge": 0.1600351217605244,
+        "intercept_only": 0.13308457711442787,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "9a",
+        "family": "9",
+        "denominator": 24,
+        "observed_cases": 1,
+        "grouped_ridge": 0.21306394738430376,
+        "intercept_only": 0.14514145141451415,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "9b",
+        "family": "9",
+        "denominator": 23,
+        "observed_cases": 2,
+        "grouped_ridge": 0.0578285904857558,
+        "intercept_only": 0.14514145141451415,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "9c",
+        "family": "9",
+        "denominator": 11,
+        "observed_cases": 3,
+        "grouped_ridge": 0.181406288990205,
+        "intercept_only": 0.14514145141451415,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "9d",
+        "family": "9",
+        "denominator": 7,
+        "observed_cases": 0,
+        "grouped_ridge": 0.047834216567182106,
+        "intercept_only": 0.14514145141451415,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "9e",
+        "family": "9",
+        "denominator": 7,
+        "observed_cases": 0,
+        "grouped_ridge": 0.022961697216404703,
+        "intercept_only": 0.14514145141451415,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "Nuc-1",
+        "family": "nuc",
+        "denominator": 20,
+        "observed_cases": 4,
+        "grouped_ridge": 0.3860496000630772,
+        "intercept_only": 0.14320388349514562,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "Nuc-3",
+        "family": "nuc",
+        "denominator": 41,
+        "observed_cases": 2,
+        "grouped_ridge": 0.116572083556354,
+        "intercept_only": 0.14320388349514562,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "P I",
+        "family": "phase",
+        "denominator": 49,
+        "observed_cases": 9,
+        "grouped_ridge": 0.0908391294924656,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "P II",
+        "family": "phase",
+        "denominator": 50,
+        "observed_cases": 0,
+        "grouped_ridge": 0.08521871159996279,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": true
+      },
+      {
+        "test_id": "P III",
+        "family": "phase",
+        "denominator": 10,
+        "observed_cases": 2,
+        "grouped_ridge": 0.10637156504098891,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "P IV",
+        "family": "phase",
+        "denominator": 65,
+        "observed_cases": 8,
+        "grouped_ridge": 0.0998957155086562,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "V-1",
+        "family": "phase",
+        "denominator": 10,
+        "observed_cases": 3,
+        "grouped_ridge": 0.13201721314049616,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "V-2",
+        "family": "phase",
+        "denominator": 4,
+        "observed_cases": 1,
+        "grouped_ridge": 0.14452659349490393,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "V-3",
+        "family": "phase",
+        "denominator": 50,
+        "observed_cases": 7,
+        "grouped_ridge": 0.08798838177308442,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "V-4",
+        "family": "phase",
+        "denominator": 7,
+        "observed_cases": 3,
+        "grouped_ridge": 0.06159365066104735,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      },
+      {
+        "test_id": "V-5",
+        "family": "phase",
+        "denominator": 49,
+        "observed_cases": 2,
+        "grouped_ridge": 0.057667940033087214,
+        "intercept_only": 0.1505922165820643,
+        "exact_input_in_training": false
+      }
+    ]
+  },
+  "sensitivity": {
+    "link_families_with_identical_joint_configuration": {
+      "reason": "Hold out connected components of protocol families sharing at least one identical predictor vector.",
+      "design": "Leave one entire designated protocol family or component out. Count-weighted standardization, the model and intercept-only comparison are fitted exclusively on each complement.",
+      "totals": {
+        "tests": 41,
+        "families": 12,
+        "male_exposures": 708,
+        "female_exposures": 178,
+        "total_exposures": 886,
+        "dcs_evaluable": 885,
+        "dcs_cases": 124
+      },
+      "n_holdout_blocks": 8,
+      "overall": {
+        "grouped_ridge": {
+          "evaluable_exposures": 885,
+          "observed_cases": 124,
+          "expected_cases": 125.50236885222031,
+          "observed_to_expected": 0.9880291594018488,
+          "brier": 0.11971374126329852,
+          "log_loss": 0.4018323325093981,
+          "observed_fraction": 0.1401129943502825,
+          "predicted_fraction": 0.14181058627369528
+        },
+        "intercept_only": {
+          "evaluable_exposures": 885,
+          "observed_cases": 124,
+          "expected_cases": 130.48110508093188,
+          "observed_to_expected": 0.9503291677602521,
+          "brier": 0.12190635092488054,
+          "log_loss": 0.41093313856443425,
+          "observed_fraction": 0.1401129943502825,
+          "predicted_fraction": 0.14743627692760664
+        }
+      },
+      "exact_support_in_held_out_data": {
+        "supported_tests": 0,
+        "all_tests": 41,
+        "supported_exposures": 0,
+        "scores": null
+      },
+      "paired_family_bootstrap": {
+        "metrics": {
+          "brier": {
+            "ridge_minus_intercept_only": -0.0021926096615820165,
+            "percentile_95": [
+              -0.009914386768470212,
+              0.001100730779000477
+            ]
+          },
+          "log_loss": {
+            "ridge_minus_intercept_only": -0.009100806055036081,
+            "percentile_95": [
+              -0.04524958430420776,
+              0.00961359655052297
+            ]
+          }
+        },
+        "replicates": 5000,
+        "seed": 20261119,
+        "method": "Paired nonparametric resampling of held-out families with fixed cross-fitted predictions. Participant and refitting uncertainty are not identified by these intervals."
+      }
+    },
+    "include_test10": {
+      "f1_implied_ambulatory": {
+        "design": "Leave one entire designated protocol family or component out. Count-weighted standardization, the model and intercept-only comparison are fitted exclusively on each complement.",
+        "totals": {
+          "tests": 42,
+          "families": 13,
+          "male_exposures": 722,
+          "female_exposures": 183,
+          "total_exposures": 905,
+          "dcs_evaluable": 904,
+          "dcs_cases": 125
+        },
+        "n_holdout_blocks": 13,
+        "overall": {
+          "grouped_ridge": {
+            "evaluable_exposures": 904,
+            "observed_cases": 125,
+            "expected_cases": 118.50279829250162,
+            "observed_to_expected": 1.0548274116823915,
+            "brier": 0.11654484978114846,
+            "log_loss": 0.38858994482240106,
+            "observed_fraction": 0.13827433628318583,
+            "predicted_fraction": 0.13108716625276728
+          },
+          "intercept_only": {
+            "evaluable_exposures": 904,
+            "observed_cases": 125,
+            "expected_cases": 127.29035429573317,
+            "observed_to_expected": 0.9820068511207691,
+            "brier": 0.1201542423863469,
+            "log_loss": 0.4060163892845116,
+            "observed_fraction": 0.13827433628318583,
+            "predicted_fraction": 0.14080791404395263
+          }
+        },
+        "exact_support_in_held_out_data": {
+          "supported_tests": 8,
+          "all_tests": 42,
+          "supported_exposures": 246,
+          "scores": {
+            "grouped_ridge": {
+              "evaluable_exposures": 246,
+              "observed_cases": 29,
+              "expected_cases": 36.495257215471035,
+              "observed_to_expected": 0.7946238008073648,
+              "brier": 0.10110215809817878,
+              "log_loss": 0.34744475891043436,
+              "observed_fraction": 0.11788617886178862,
+              "predicted_fraction": 0.14835470412793103
+            },
+            "intercept_only": {
+              "evaluable_exposures": 246,
+              "observed_cases": 29,
+              "expected_cases": 34.112494374136446,
+              "observed_to_expected": 0.8501283923109223,
+              "brier": 0.10556458843815496,
+              "log_loss": 0.3693476776085733,
+              "observed_fraction": 0.11788617886178862,
+              "predicted_fraction": 0.13866867631762783
+            }
+          }
+        },
+        "paired_family_bootstrap": {
+          "metrics": {
+            "brier": {
+              "ridge_minus_intercept_only": -0.003609392605198425,
+              "percentile_95": [
+                -0.0077445686482562935,
+                -0.0013092660856288706
+              ]
+            },
+            "log_loss": {
+              "ridge_minus_intercept_only": -0.017426444462110603,
+              "percentile_95": [
+                -0.03383720055268878,
+                -0.00810033120657298
+              ]
+            }
+          },
+          "replicates": 5000,
+          "seed": 20261119,
+          "method": "Paired nonparametric resampling of held-out families with fixed cross-fitted predictions. Participant and refitting uncertainty are not identified by these intervals."
+        }
+      },
+      "table2_explicit_nonambulatory": {
+        "design": "Leave one entire designated protocol family or component out. Count-weighted standardization, the model and intercept-only comparison are fitted exclusively on each complement.",
+        "totals": {
+          "tests": 42,
+          "families": 13,
+          "male_exposures": 722,
+          "female_exposures": 183,
+          "total_exposures": 905,
+          "dcs_evaluable": 904,
+          "dcs_cases": 125
+        },
+        "n_holdout_blocks": 13,
+        "overall": {
+          "grouped_ridge": {
+            "evaluable_exposures": 904,
+            "observed_cases": 125,
+            "expected_cases": 120.37886166847072,
+            "observed_to_expected": 1.0383882873411456,
+            "brier": 0.11658742416121,
+            "log_loss": 0.3902412803825049,
+            "observed_fraction": 0.13827433628318583,
+            "predicted_fraction": 0.13316245759786585
+          },
+          "intercept_only": {
+            "evaluable_exposures": 904,
+            "observed_cases": 125,
+            "expected_cases": 127.29035429573317,
+            "observed_to_expected": 0.9820068511207691,
+            "brier": 0.1201542423863469,
+            "log_loss": 0.4060163892845116,
+            "observed_fraction": 0.13827433628318583,
+            "predicted_fraction": 0.14080791404395263
+          }
+        },
+        "exact_support_in_held_out_data": {
+          "supported_tests": 8,
+          "all_tests": 42,
+          "supported_exposures": 246,
+          "scores": {
+            "grouped_ridge": {
+              "evaluable_exposures": 246,
+              "observed_cases": 29,
+              "expected_cases": 37.763834925456635,
+              "observed_to_expected": 0.767930483152575,
+              "brier": 0.10156917535433276,
+              "log_loss": 0.3498629093923195,
+              "observed_fraction": 0.11788617886178862,
+              "predicted_fraction": 0.1535115240872221
+            },
+            "intercept_only": {
+              "evaluable_exposures": 246,
+              "observed_cases": 29,
+              "expected_cases": 34.112494374136446,
+              "observed_to_expected": 0.8501283923109223,
+              "brier": 0.10556458843815496,
+              "log_loss": 0.3693476776085733,
+              "observed_fraction": 0.11788617886178862,
+              "predicted_fraction": 0.13866867631762783
+            }
+          }
+        },
+        "paired_family_bootstrap": {
+          "metrics": {
+            "brier": {
+              "ridge_minus_intercept_only": -0.0035668182251369224,
+              "percentile_95": [
+                -0.007231470350980395,
+                -0.001430280353340888
+              ]
+            },
+            "log_loss": {
+              "ridge_minus_intercept_only": -0.015775108902006646,
+              "percentile_95": [
+                -0.0298717741517875,
+                -0.007357585140397542
+              ]
+            }
+          },
+          "replicates": 5000,
+          "seed": 20261119,
+          "method": "Paired nonparametric resampling of held-out families with fixed cross-fitted predictions. Participant and refitting uncertainty are not identified by these intervals."
+        }
+      }
+    }
+  },
+  "release": {
+    "exploratory_group_incidence_enabled": true,
+    "individual_clinical_release_enabled": false,
+    "operational_use_enabled": false,
+    "independent_participant_validation": false,
+    "uncertainty": "Individual risk, person-cluster uncertainty and a calibrated predictive interval for new groups are unavailable."
+  }
+}

@@ -291,7 +291,8 @@ def scenario_envelope_warnings(scenario: Mapping[str, Any], rules: MissionRules)
 
 
 def model_applicability(scenario):
-    reasons = []
+    # The compact EVA v2 input has no source-stage posture, verified VO2 peak or prior washout history.
+    reasons = ["The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate."]
     if abs(scenario["evaDurationMin"] - 240) > 1e-8:
         reasons.append("The NASA endpoint is four hours; no duration scaling is validated.")
     pressure = scenario["pressureSegments"]
@@ -306,15 +307,15 @@ def model_applicability(scenario):
     if not scenario["nasaAdynamicReference"]:
         reasons.append("Adynamic source-reference assumptions have not been declared.")
     return {
-        "applicable": not reasons,
+        "applicable": False,
         "reasons": reasons,
-        "modelId": "conkin-RM-equation-14",
+        "modelId": "nasa_2004_rm",
         "horizonMin": 240,
         "referencePressurePsia": 4.3,
         "source": SOURCE_URL,
         "intervalKind": "unavailable",
         "clinicalValidation": False,
-        "evidenceStatus": "reference_calculation" if not reasons else "outside_reference",
+        "evidenceStatus": "outside_reference",
         "assumptions": [
             "Source-cohort transportability is not established.",
             "NASA dry ambient nitrogen convention; lambda=0.025.",
@@ -605,9 +606,7 @@ def simulate_eva(scenario, *, mission_rules=None, telemetry=None, telemetry_now_
     )
     etr = p1 / exposure_pressure
     applicability = model_applicability(s)
-    probability = (
-        conkin_research_pdcs(etr, s["crew"]["ageYears"]) if applicability["applicable"] else None
-    )
+    probability = None
     suit_o2 = min(
         psia_to_mmhg(inspired_gas_psia(p["pressurePsia"], p["oxygenFraction"]))
         for p in (s["pressureSegments"] or [s["suit"]])
