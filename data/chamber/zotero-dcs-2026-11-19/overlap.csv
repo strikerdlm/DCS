@@ -1,0 +1,34 @@
+source_id,scope,related_key,relationship,disposition
+G8XFMZ92,PDF and extracted content,attachments/brandt09_attachment,exact_file,Reuse previous parser output and database rows.
+3P2KJRNH,PDF and extracted content,attachments/nasa_dcs_evidence_2013,exact_file,Reuse previous parser output and database rows.
+LL4DKYUQ,PDF and extracted content,attachments/webb_u2_2010,exact_file,Reuse previous parser output and database rows.
+KEXLPNKU,PDF and extracted content,attachments/kluis21,exact_file,Reuse previous parser output and database rows.
+MEEXDEYK,PDF and extracted content,attachments/valdez77_attachment,exact_file,Reuse previous parser output and database rows.
+R3ZAU4XC,PDF and extracted content,attachments/smart04_attachment,exact_file,Reuse previous parser output and database rows.
+QHWTAB3X,Primary tables,v1.1/ohrui02,same_work,Same journal article with different PDF bytes. Load the existing published outcomes once.
+FNKSM8YJ,Primary tables,v1.1/bason91,same_work,Same journal article with different PDF bytes. Load the existing published outcomes once.
+RVTDQAEY,Primary tables,v1.1/piwinski86,same_work,Same journal article with different PDF bytes. Load the existing published outcomes once.
+8GR6W4CG,DCS outcomes and published groups,v1/rice03,same_work,Zotero cover copy of 2003 work. All published Tables I–III are already stored in the benchmark.
+V2DNFVQ3,Tables 14–16,sharepoint/nasa04_exercise,exact_file,"Reuse existing clinical, time to VGE and Doppler data."
+IWH4E7C6,"Tables 9, 11, 13–16",zotero/V2DNFVQ3,same_work,"Alternate pagination. Do not duplicate risk sets, tables or subjects."
+V2DNFVQ3,Table 9 seven phases,attachments/attachment_nasa_test,reprint,The seven hypothesis-study counts recur in the 2013 report. Reuse all three endpoints.
+V2DNFVQ3,Table 6 phase rows,v1/nasa_test,overlapping_cohort,Store only five unrepresented observed count pairs plus alternate cohort summaries. Shares exposures with benchmark.
+4YSE5Y62,Threshold and joint DCS/VGE,sharepoint/nasa11_eva,exact_file,Reuse both outcome tables. No second cohort.
+4YSE5Y62,Table 2 chamber trials,attachments/attachment_nasa_test,reprint,Same historical test series as the 2013 and 2016 reports. Use the verified crosswalk.
+AMD9QU8N,Tables VII and IX,sharepoint/nasa_treatment,exact_file,Existing aggregate model-fit outcomes retained. New outcome rows come from Tables III and XIII.
+AMD9QU8N,Table XV USAF treatment series,v1.7/muehlberger04,overlapping_cohort,Same USAF register of 1699 symptoms with recoded margins. Do not pool or replicate those symptoms.
+AMD9QU8N,Table XIII exposure incidence,sharepoint/nasa_treatment,overlapping_cohort,Subgroups sum to 119 cases and 969 exposures. The separate report fit cites 968. Scope differs or source discrepancy; keep both versions.
+QSIMR77P,AC-130 primary narrative,sharepoint/butler02,exact_file,Prior source record was a timeline lead only. The database now contains the primary case details.
+QSIMR77P,Table I historical HALO cluster,"Piwinski et al. 1986, A Blitz of Bends",reference_only,Earlier report is cited in Butler. The four selected historical literature episodes are excluded from new evidence.
+QDLMRKVG,T-38 example,sharepoint/robinson99,exact_file,No enumerated exposed roster. Modeled and inferred risk does not enter the observed database.
+DJXIVZDZ,Abstract 036,intake/jsc18,same_work,Published complete JSC training study is already staged. Do not ingest the conference summary as a second cohort.
+DJXIVZDZ,Abstract 038,v1/cheok21,same_work,Same Singapore comparison of 2/1530 and 2/1729. Use the final paper counts.
+8P5SJNQY,Tables 1–2,sharepoint/hancock20,exact_file,Existing rows and the denominator-conflict record remain the source of truth.
+N4C7X768,Table 1 flight exposures,attachments/nasa_dcs_evidence_2013,updated_snapshot,"2016 cumulative follow-up extends the same four protocols. Store only increments 2, 1, 4 and 24."
+N4C7X768,"Tables 3, 5 and 7 historical counts",attachments/nasa_dcs_evidence_2013,reprint,Historical outcomes and diagnostic metrics already loaded. Only Nuc risk-set detail is additional.
+N4C7X768,Nuc-1 and Nuc-3,v1/nasa_test,overlapping_cohort,Nuc-1 has one LVGE termination excluded from the DCS denominator. Nuc-3 interim data are a subset of the final record.
+CW5ZKLL4,BIG292 and PSI,NMRI BIG292 diving reports,reference_only,Hyperbaric diving cohort and symptom severity recoding. Keep out of hypobaric outcome counts.
+PJR4Q7HP,Table III A–E,v1/a1309_profile MV-A through MV-E,overlapping_cohort,"Same five prospective validation profiles. Preserve original model and Kaplan–Meier percentages, without independent event counts."
+EECSBBYD,Appendix E,v1/gerth18,same_work,Canonical NEDU profile counts already loaded from the other acquisition provenance.
+LQ5EXNSS,Ground chamber test arms,v1/bip24,exact_file,Ground trial counts already loaded; new timeline data come from the selected spaceflight records.
+LQ5EXNSS,Spaceflight DCS outcome context,attachments/nasa_dcs_evidence_2013,overlapping_cohort,EVA interruptions overlap the operational era; no additional independent DCS denominator is assigned.

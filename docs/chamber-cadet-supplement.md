@@ -1,0 +1,20 @@
+# Historical cadet chamber outcomes
+
+Release 1.11 adds 147 source-reported percentages and seven observations with explicitly stated integer counts. The 59 records in the search log cover 11 Tavily, Firecrawl and source verification operations. The CSVs retain the printed precision, observation unit, endpoint, protocol, source locator and overlap status. [Published rates](../data/chamber/v1.11/reported_rates.csv) · [Observed counts](../data/chamber/v1.11/observations.csv) · [Sources](../data/chamber/v1.11/sources.csv) · [Search runs](../data/chamber/v1.11/search_runs.csv) · [Search hits](../data/chamber/v1.11/search_hits.csv)
+
+| Primary source | Added evidence | Cohort and endpoint scope |
+| --- | --- | --- |
+| Motley, Chinn and Odell 1945 | Four Maxwell Field protocols account for 68,422 trainee records. Any-grade bends were reported in 27.4% of 7,664, 13.4% of 46,683, 10.6% of 4,337 and 7.3% of 9,738. Separate rows retain severity grades and selected rechecks. | The rates cover entire profiles, including altitude staging and regulator settings. Some trainee groups also appear in NASA’s serious-outcome compilation. Rechecks are selected by the original symptoms. [Tables I and XVI](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/4/article-p210.pdf) · [NASA compilation](https://ntrs.nasa.gov/citations/20010020946) |
+| Gray and Masland 1946 | At 23,000 ft, the paper gives 7.7% bends in 117 one-hour cadet flights and 12.8% in 195 two-hour flights. Also added the separate exercise and symptom strata up to 38,000 ft. | These two lower-altitude groups match the wartime Gray report as quoted in a later review. Table II also reuses two profiles from Table I. The intake takes repeated cells from the original tables once. [Tables I–II](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf) |
+| Gray, Mahady and Masland 1946 | Original ground-level and staged oxygen contrasts at 38,000 ft. At 45,000 ft, 5/62 had bends that did not require descent and 0/62 had bends requiring descent. | The 180-flight comparison in Table II combines two 90-exposure arms kept from Table I. The 45,000-ft target dwell is reported as 30 minutes in Methods and 60 minutes in Results. The exact counts retain that discrepancy. [Tables I–III](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p606.pdf) |
+| Smedal, Brown and Hoffman 1946 | At 26,000–30,000 ft, the room-temperature and cold groups total 1,731 reported flights. The original warm 30,000-ft rows report severe bends in 11.5% of 122 exercise flights and 0% of 92 rest flights. | The 1948 review misaligns those warm denominators. The original paper excludes removals for other reasons, including gas pain and nausea. [Table I](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p67.pdf) |
+| Smedal 1948 | In the report’s own Pensacola cold-chamber study, 93 of 753 people reported severe joint distress. Of the 93, 69 had exercised. | The original gives approximate arm allocation only, so exercise-specific risk is unavailable. Its earlier comparison quotes the 1946 study. [Original report, pp. 6–7](https://apps.dtic.mil/sti/tr/pdf/AD0622158.pdf) |
+| Rodbard 1946 | Six selected cases of first chokes during descent and eight neurologic presentations during or after descent. | The case series provides no number of exposed trainees or chamber crew. [Tables I–II](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p89.pdf) |
+
+The 68,422 Maxwell Field records and other historical denominators describe source-specific cohorts. Apply the cohort holds and endpoint definitions when considering pooling or external validation. The original Canadian C-2683 report and Mackenzie and Riesen’s original JAMA outcome tables remain retrieval leads. [Overlap register](../data/chamber/v1.11/overlap.csv)
+
+```powershell
+python -m scripts.build_chamber_database --cadet-supplement
+```
+
+The command writes `artifacts/chamber-v1.11/observed.sqlite`. Adding `--fac-official` includes the official Colombian Air Force aggregates. [Input digests](../data/chamber/v1.11/manifest.json)
