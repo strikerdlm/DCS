@@ -10,6 +10,10 @@ Not clinically validated, flight-certified, or suitable for operational clearanc
 
 The SQLite database links each published observation to its source, table or page, population, counting unit and eligibility for analysis. A trainee exposure, a diagnosed case and one limb Doppler reading can each contribute a row with a different scientific meaning. The SharePoint library review adds 208 aggregate observations and 26 published VGE-positive subject records. Its source register also identifies textbook definitions, reprinted cohorts and conflicting denominators. [Database dictionary](docs/chamber-benchmark.md) · [SharePoint extractions and reconciliation notes](docs/chamber-sharepoint-review.md)
 
+For the Colombian Air Force chamber program, the official FAC registers are the primary sources for 2010–2020. They record **54 DCS events**, with **35 student events and 19 instructor events** identified under `POSICION`. The training workbook records **5,030 hypoxia and 1,715 rapid-decompression activities**. The annual view includes each role's case count. Estimating risk by role requires a roster covering all occupants and follow-up for each exposure. The workbooks contain no VGE scans. [FAC source reconciliation and annual counts](docs/chamber-fac-official.md)
+
+The FAC flight-date analysis places the case series under the historical Bogotá schedule. In 2022 the program changed to one combined RD and 25,000-ft session per week with a one-flight-per-person limit. The protocol tables preserve both schedules and the altitude profile. [Instructor flight dates and the 2022 schedule change](docs/chamber-fac-official.md#instructor-flight-dates-and-the-2022-schedule-change)
+
 | Prediction target | Evidence available today | What the next fit needs |
 | --- | --- | --- |
 | Symptomatic DCS by a specified time | The current group fit uses 124 cases in 885 evaluable exposures from 41 NASA tests. A separate AFRL table contains 340 cases in 708 exposures. | For a grouped binomial fit, use exact events and evaluable exposures with comparable clinical definitions and windows. Individual time-to-DCS modeling also needs symptom onset or last documented event-free time for each exposure. |
@@ -30,15 +34,15 @@ Four operational aviation cohorts are reserved for external evaluation. Their fi
 
 ### Build and inspect the data
 
-Run from the repository root. The combined build includes the chamber benchmark, releases v1.1–v1.5, the SharePoint intake and the deduplicated views. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
+Run from the repository root. The current combined build includes the chamber benchmark, releases v1.1–v1.5, the SharePoint intake, the deduplicated views and the official Colombian aggregates. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
 
 ```sh
-python -m scripts.build_chamber_database --sharepoint-supplement
+python -m scripts.build_chamber_database --fac-official
 python -m scripts.build_chamber_database
 python -m scripts.evaluate_chamber_benchmark
 ```
 
-Open `artifacts/chamber-deduplicated/observed.sqlite` and query the observation unit and locator alongside the values. A blank numerator on a percentage row preserves the source’s reporting precision. [Deduplication rules and queries](docs/chamber-sharepoint-review.md#deduplicated-database)
+Open `artifacts/chamber-fac-official/observed.sqlite`. Use `fac_official_chamber_year` for FAC case and activity counts and `fac_celis_annual_reconciliation` to compare the thesis. The original workbooks also support a local build with one row per case. For literature observations, query the unit and locator alongside the values. [FAC build and queries](docs/chamber-fac-official.md#build-and-query) · [Literature deduplication rules](docs/chamber-sharepoint-review.md#deduplicated-database)
 
 ```sql
 SELECT stratum, endpoint, events, denominator, denominator_unit,

@@ -18,6 +18,8 @@ The search covered all 15 files in **Books 2026 → Aerospace MedOps → DCS Pap
 
 ## Colombian training records
 
+The official FAC workbooks subsequently supplied for 2010–2020 take precedence for registered events, recorded role and training activity counts. The table below preserves what the publications reported. The register marks 35 students and 19 instructors. The training workbook explains the 6,745 total as the sum of two activity columns. [Official records and comparison](chamber-fac-official.md)
+
 The Celis working thesis, the conference abstract and the Olaya chapter report related DIMAE training data. Calendar years overlap from 2013 through 2020. The seven annual denominators for 2013–2019 match between the thesis figure and Olaya Table 2. For 2020 the thesis lists 120 trained and Olaya lists 117 exposures. Individual linkage and a common neurological case definition are unavailable. [Olaya chapter, Tables 2–3](https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1)
 
 | Source location | Overall result as printed | Severity and role as printed |
