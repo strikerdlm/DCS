@@ -1,0 +1,11 @@
+source_id,related_source,relationship,evidence
+faa90,intake/valdez77,likely_overlap,The same FAA CAMI program and a partly shared calendar window. The earlier evolved-gas outcome uses different ascertainment language. Preserve both source definitions.
+nasa03,intake/conkin03,same_cohort,The 103/731 summary repeats the staged intake. The technician count and six Type II timelines add detail.
+nasa03,"v1/nasa08,nasa19,nasa20 and gerth18",likely_overlap,Common NASA historical profiles and partial period overlap. The printed cases are outcome selected and are held out of benchmark joins.
+webb05,v1/afrl13 and gerth18,unresolved,Same USAF Brooks research program. Four-hour outcomes are nested in eight-hour sessions. Verify exposure-level linkage to archived profiles before any pooled fit.
+webb02,v1/gerth18 PE2,likely_overlap,NEDU lists matching rest prebreathe durations for PE2 with smaller group sizes. The included subsets and dose coding need reconciliation.
+webb00,v1/gerth18 DNT,likely_overlap,Staged protocol sequence and target match NEDU's DNT family with differing arm sizes. Source percentages retain their original denominators.
+waligora87,nasa03 and v1/nasa08,unresolved,Historical NASA chamber studies in the covered eras. Verify source cohort linkage before using counts as independent.
+gottschalk23,v1.2 Swedish KTH protocols,unresolved,Same research center and partly shared authors with different experimental conditions. Participant linkage unavailable.
+molenat02,v1.2/malconian87,distinct_protocol,Comex'97 was a different expedition experiment from Operation Everest II. Subjects repeat within each experiment.
+anell22,v1.2/anell19 and anell21,subset,Secondary reanalysis draws on previous chamber studies and excludes DCS exposures. Do not count as a stand-alone cohort.

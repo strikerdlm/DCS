@@ -1,0 +1,10 @@
+source_id,related_source,relationship,evidence
+conkin18,intake/jsc18,same_cohort,The previously staged three student profile counts and observer margin are promoted into SQLite with source-specific periods and protocol provenance.
+conkin18,v1.3/nasa03,distinct_protocol,The 2018 paper analyzes aerospace physiological training. The 2003 report analyzes research participants through 1999 and describes Doppler technicians. Participants are unlinked.
+pollock03,v1.4/vann04,distinct_protocol,The Duke studies use different target altitudes and experimental entry criteria. Participant reuse across studies is unresolved.
+vann04,v1/gerth18 NASA Test 10,distinct_protocol,Different sampled profiles and laboratory settings. Vann’s 52-session 17-h result is an internal subset of the 802 completed flights.
+webb98,v1/afrl13 and gerth18,unresolved,USAF Brooks study family. The paper also reprints two earlier threshold studies. Evaluate profile and participant linkage before fitting or counting independently.
+pilmanis03,v1/gerth18 40K-A,likely_overlap,"A resting 40,000-ft 90-min group of 40 with 90 min prebreathe matches the slow-arm profile. NEDU lists 18 weighted events versus the source percentage of 47.5. The faster profile and paired analysis remain source-specific."
+rush90,intake/weien90 and baumgartner92,likely_overlap,USAF treatment archives cover intersecting periods. Rush conditions on HBO-treated trainee cases and uses a different outcome window.
+mcloughlin00,RAF 1983–1987 series,unresolved,The symposium cites earlier RAF incidence without publishing an exact denominator. A secondary estimate should not be promoted to an exact count.
+baumgartner92,intake/weien90,likely_overlap,USAF reporting periods intersect in 1985–1986. Conkin 2018 explicitly notes possible repeat counting.
