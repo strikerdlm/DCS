@@ -1,0 +1,137 @@
+[
+  {
+    "doi": "10.3357/amhp.5135.2018",
+    "checked_on": "2026-11-19",
+    "provider": "Scite",
+    "query": "verify_papers {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"]}; search_literature {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"],\"limit\":10}",
+    "status": "quota_exhausted",
+    "detail": "Scite returned an account-level monthly limit of 250 calls, with reset on 2026-11-27 UTC. No article-level result, Smart Citation context, or editorial-notice assessment was returned.",
+    "evidence_url": "https://doi.org/10.3357/amhp.5135.2018"
+  },
+  {
+    "doi": "10.3357/amhp.5135.2018",
+    "checked_on": "2026-11-19",
+    "provider": "Europe PMC (MED)",
+    "query": "GET /europepmc/webservices/rest/search; query=SRC:MED AND (DOI:\"10.3357/AMHP.5135.2018\" OR DOI:\"10.22462/04.06.2020.5\" OR DOI:\"10.3357/AMHP.6048.2022\" OR DOI:\"10.25062/9786287818279.12\" OR DOI:\"10.3357/AMHP.5709.2021\" OR DOI:\"10.3357/ASEM.2438.2009\" OR DOI:\"10.3357/ASEM.2625.2010\"); resultType=core; format=json",
+    "status": "notice_field_unreported",
+    "detail": "Matched PMID 30352646. Indexed publication types: Meta-Analysis, Systematic Review, Journal Article. The core record omitted commentCorrectionList. This field alone cannot establish the absence of an editorial notice.",
+    "evidence_url": "https://europepmc.org/article/MED/30352646"
+  },
+  {
+    "doi": "10.22462/04.06.2020.5",
+    "checked_on": "2026-11-19",
+    "provider": "Scite",
+    "query": "verify_papers {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"]}; search_literature {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"],\"limit\":10}",
+    "status": "quota_exhausted",
+    "detail": "Scite returned an account-level monthly limit of 250 calls, with reset on 2026-11-27 UTC. No article-level result, Smart Citation context, or editorial-notice assessment was returned.",
+    "evidence_url": "https://doi.org/10.22462/04.06.2020.5"
+  },
+  {
+    "doi": "10.22462/04.06.2020.5",
+    "checked_on": "2026-11-19",
+    "provider": "Europe PMC (MED)",
+    "query": "GET /europepmc/webservices/rest/search; query=SRC:MED AND (DOI:\"10.3357/AMHP.5135.2018\" OR DOI:\"10.22462/04.06.2020.5\" OR DOI:\"10.3357/AMHP.6048.2022\" OR DOI:\"10.25062/9786287818279.12\" OR DOI:\"10.3357/AMHP.5709.2021\" OR DOI:\"10.3357/ASEM.2438.2009\" OR DOI:\"10.3357/ASEM.2625.2010\"); resultType=core; format=json",
+    "status": "notice_field_unreported",
+    "detail": "Matched PMID 32574436. Indexed publication types: Journal Article. The core record omitted commentCorrectionList. This field alone cannot establish the absence of an editorial notice.",
+    "evidence_url": "https://europepmc.org/article/MED/32574436"
+  },
+  {
+    "doi": "10.3357/amhp.6048.2022",
+    "checked_on": "2026-11-19",
+    "provider": "Scite",
+    "query": "verify_papers {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"]}; search_literature {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"],\"limit\":10}",
+    "status": "quota_exhausted",
+    "detail": "Scite returned an account-level monthly limit of 250 calls, with reset on 2026-11-27 UTC. No article-level result, Smart Citation context, or editorial-notice assessment was returned.",
+    "evidence_url": "https://doi.org/10.3357/amhp.6048.2022"
+  },
+  {
+    "doi": "10.3357/amhp.6048.2022",
+    "checked_on": "2026-11-19",
+    "provider": "Europe PMC (MED)",
+    "query": "GET /europepmc/webservices/rest/search; query=SRC:MED AND (DOI:\"10.3357/AMHP.5135.2018\" OR DOI:\"10.22462/04.06.2020.5\" OR DOI:\"10.3357/AMHP.6048.2022\" OR DOI:\"10.25062/9786287818279.12\" OR DOI:\"10.3357/AMHP.5709.2021\" OR DOI:\"10.3357/ASEM.2438.2009\" OR DOI:\"10.3357/ASEM.2625.2010\"); resultType=core; format=json",
+    "status": "notice_field_unreported",
+    "detail": "Matched PMID 36309795. Indexed publication types: Review, Journal Article. The core record omitted commentCorrectionList. This field alone cannot establish the absence of an editorial notice.",
+    "evidence_url": "https://europepmc.org/article/MED/36309795"
+  },
+  {
+    "doi": "10.25062/9786287818279.12",
+    "checked_on": "2026-11-19",
+    "provider": "Scite",
+    "query": "verify_papers {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"]}; search_literature {\"dois\":[\"10.3357/AMHP.5135.2018\",\"10.22462/04.06.2020.5\",\"10.3357/AMHP.6048.2022\",\"10.25062/9786287818279.12\"],\"limit\":10}",
+    "status": "quota_exhausted",
+    "detail": "Scite returned an account-level monthly limit of 250 calls, with reset on 2026-11-27 UTC. No article-level result, Smart Citation context, or editorial-notice assessment was returned.",
+    "evidence_url": "https://doi.org/10.25062/9786287818279.12"
+  },
+  {
+    "doi": "10.25062/9786287818279.12",
+    "checked_on": "2026-11-19",
+    "provider": "Europe PMC (MED)",
+    "query": "GET /europepmc/webservices/rest/search; query=SRC:MED AND (DOI:\"10.3357/AMHP.5135.2018\" OR DOI:\"10.22462/04.06.2020.5\" OR DOI:\"10.3357/AMHP.6048.2022\" OR DOI:\"10.25062/9786287818279.12\" OR DOI:\"10.3357/AMHP.5709.2021\" OR DOI:\"10.3357/ASEM.2438.2009\" OR DOI:\"10.3357/ASEM.2625.2010\"); resultType=core; format=json",
+    "status": "no_matching_record",
+    "detail": "No MED hit for this DOI in the seven-DOI query.",
+    "evidence_url": "https://europepmc.org/search?query=DOI%3A%2210.25062%2F9786287818279.12%22"
+  },
+  {
+    "doi": "10.25062/9786287818279.12",
+    "checked_on": "2026-11-19",
+    "provider": "Crossref",
+    "query": "GET https://api.crossref.org/works/10.25062/9786287818279.12",
+    "status": "update_fields_unreported",
+    "detail": "Matched the 2025 Spanish-language book chapter by César Arnaldo Olaya Santamaria. The relation field linked the parent book. The response omitted update-to and updated-by.",
+    "evidence_url": "https://api.crossref.org/works/10.25062/9786287818279.12"
+  },
+  {
+    "doi": "10.3357/amhp.5709.2021",
+    "checked_on": "2026-11-19",
+    "provider": "Scite",
+    "query": "search_literature {\"titles\":[\"Decompression Illness Incidence and Hypoxia Symptoms After Prebreathing in Hypobaric Hypoxia Training\",\"Decompression Sickness Rates for Chamber Personnel: Case Series from One Facility\",\"Altitude Chamber Related Adverse Effects Among 1241 Airmen\",\"Decompression sickness incidence over 63 months of hypobaric chamber operation\",\"Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe\"],\"limit\":10}",
+    "status": "quota_exhausted",
+    "detail": "Scite returned an account-level monthly limit of 250 calls, with reset on 2026-11-27 UTC. No article-level result, Smart Citation context, or editorial-notice assessment was returned.",
+    "evidence_url": "https://doi.org/10.3357/amhp.5709.2021"
+  },
+  {
+    "doi": "10.3357/amhp.5709.2021",
+    "checked_on": "2026-11-19",
+    "provider": "Europe PMC (MED)",
+    "query": "GET /europepmc/webservices/rest/search; query=SRC:MED AND (DOI:\"10.3357/AMHP.5135.2018\" OR DOI:\"10.22462/04.06.2020.5\" OR DOI:\"10.3357/AMHP.6048.2022\" OR DOI:\"10.25062/9786287818279.12\" OR DOI:\"10.3357/AMHP.5709.2021\" OR DOI:\"10.3357/ASEM.2438.2009\" OR DOI:\"10.3357/ASEM.2625.2010\"); resultType=core; format=json",
+    "status": "linked_comments",
+    "detail": "Matched PMID 33875060. Indexed publication types: Journal Article. Two Comment in links point to MED 34642007 and 34642008. Both carry DOI 10.3357/amhp.5963.2021. Europe PMC labels them Letter and Comment; its titles distinguish Response and Letters. The two records concern this study and provide no independent cohort.",
+    "evidence_url": "https://europepmc.org/article/MED/33875060"
+  },
+  {
+    "doi": "10.3357/asem.2438.2009",
+    "checked_on": "2026-11-19",
+    "provider": "Scite",
+    "query": "search_literature {\"titles\":[\"Decompression Illness Incidence and Hypoxia Symptoms After Prebreathing in Hypobaric Hypoxia Training\",\"Decompression Sickness Rates for Chamber Personnel: Case Series from One Facility\",\"Altitude Chamber Related Adverse Effects Among 1241 Airmen\",\"Decompression sickness incidence over 63 months of hypobaric chamber operation\",\"Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe\"],\"limit\":10}",
+    "status": "quota_exhausted",
+    "detail": "Scite returned an account-level monthly limit of 250 calls, with reset on 2026-11-27 UTC. No article-level result, Smart Citation context, or editorial-notice assessment was returned.",
+    "evidence_url": "https://doi.org/10.3357/asem.2438.2009"
+  },
+  {
+    "doi": "10.3357/asem.2438.2009",
+    "checked_on": "2026-11-19",
+    "provider": "Europe PMC (MED)",
+    "query": "GET /europepmc/webservices/rest/search; query=SRC:MED AND (DOI:\"10.3357/AMHP.5135.2018\" OR DOI:\"10.22462/04.06.2020.5\" OR DOI:\"10.3357/AMHP.6048.2022\" OR DOI:\"10.25062/9786287818279.12\" OR DOI:\"10.3357/AMHP.5709.2021\" OR DOI:\"10.3357/ASEM.2438.2009\" OR DOI:\"10.3357/ASEM.2625.2010\"); resultType=core; format=json",
+    "status": "notice_field_unreported",
+    "detail": "Matched PMID 19522370. Indexed publication types: Journal Article. The core record omitted commentCorrectionList. This field alone cannot establish the absence of an editorial notice.",
+    "evidence_url": "https://europepmc.org/article/MED/19522370"
+  },
+  {
+    "doi": "10.3357/asem.2625.2010",
+    "checked_on": "2026-11-19",
+    "provider": "Scite",
+    "query": "search_literature {\"titles\":[\"Decompression Illness Incidence and Hypoxia Symptoms After Prebreathing in Hypobaric Hypoxia Training\",\"Decompression Sickness Rates for Chamber Personnel: Case Series from One Facility\",\"Altitude Chamber Related Adverse Effects Among 1241 Airmen\",\"Decompression sickness incidence over 63 months of hypobaric chamber operation\",\"Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe\"],\"limit\":10}",
+    "status": "quota_exhausted",
+    "detail": "Scite returned an account-level monthly limit of 250 calls, with reset on 2026-11-27 UTC. No article-level result, Smart Citation context, or editorial-notice assessment was returned.",
+    "evidence_url": "https://doi.org/10.3357/asem.2625.2010"
+  },
+  {
+    "doi": "10.3357/asem.2625.2010",
+    "checked_on": "2026-11-19",
+    "provider": "Europe PMC (MED)",
+    "query": "GET /europepmc/webservices/rest/search; query=SRC:MED AND (DOI:\"10.3357/AMHP.5135.2018\" OR DOI:\"10.22462/04.06.2020.5\" OR DOI:\"10.3357/AMHP.6048.2022\" OR DOI:\"10.25062/9786287818279.12\" OR DOI:\"10.3357/AMHP.5709.2021\" OR DOI:\"10.3357/ASEM.2438.2009\" OR DOI:\"10.3357/ASEM.2625.2010\"); resultType=core; format=json",
+    "status": "notice_field_unreported",
+    "detail": "Matched PMID 20824995. Indexed publication types: Journal Article. The core record omitted commentCorrectionList. This field alone cannot establish the absence of an editorial notice.",
+    "evidence_url": "https://europepmc.org/article/MED/20824995"
+  }
+]

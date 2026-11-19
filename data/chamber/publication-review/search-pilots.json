@@ -1,0 +1,208 @@
+{
+  "pilot_date_utc": "2026-11-19",
+  "purpose": "Search development only. No formal review export or screening.",
+  "seed_publications": [
+    {
+      "pmid": "971183",
+      "year": "1976",
+      "first_author": "Bason R",
+      "title": "Incidence of decompression sickness in Navy low-pressure chambers."
+    },
+    {
+      "pmid": "3790029",
+      "year": "1986",
+      "first_author": "Piwinski S",
+      "title": "Decompression sickness incidence over 63 months of hypobaric chamber operation."
+    },
+    {
+      "pmid": "1755801",
+      "year": "1991",
+      "first_author": "Bason R",
+      "title": "Decompression sickness: U.S. Navy altitude chamber experience 1 October 1981 to 30 September 1988."
+    },
+    {
+      "pmid": "12546299",
+      "year": "2003",
+      "first_author": "Rice GM",
+      "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe."
+    },
+    {
+      "pmid": "30352646",
+      "year": "2018",
+      "first_author": "Conkin J",
+      "title": "A Systematic Review and Meta-Analysis of Decompression Sickness in Altitude Physiological Training."
+    },
+    {
+      "pmid": "32574436",
+      "year": "2020",
+      "first_author": "Ercan E",
+      "title": "Incidence of decompression sickness in hypobaric hypoxia training."
+    }
+  ],
+  "seed_intersection_method": "Intersect the unrestricted search query with the six MED identifiers in a separate request. The test is not limited to the first page of the production query.",
+  "pilots": [
+    {
+      "database": "PubMed",
+      "platform": "NCBI E-utilities ESearch",
+      "query": "(\"Decompression Sickness\"[Mesh] OR \"decompression sickness\"[tiab] OR \"decompression illness\"[tiab] OR bends[tiab] OR (enfermedad[tiab] AND (descompresiva[tiab] OR descompresion[tiab]))) AND (hypobar*[tiab] OR altitude[tiab] OR chamber*[tiab] OR hipobar*[tiab] OR (camara[tiab] AND altura[tiab]))",
+      "api": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+      "parameters": {
+        "db": "pubmed",
+        "retmode": "json",
+        "retmax": 0
+      },
+      "reported_match_count": 869,
+      "returned_ids_in_count_request": 0,
+      "seed_only_query": "((\"Decompression Sickness\"[Mesh] OR \"decompression sickness\"[tiab] OR \"decompression illness\"[tiab] OR bends[tiab] OR (enfermedad[tiab] AND (descompresiva[tiab] OR descompresion[tiab]))) AND (hypobar*[tiab] OR altitude[tiab] OR chamber*[tiab] OR hipobar*[tiab] OR (camara[tiab] AND altura[tiab]))) AND (971183[uid] OR 1755801[uid] OR 12546299[uid] OR 3790029[uid] OR 32574436[uid] OR 30352646[uid])",
+      "matched_pmids": [
+        "32574436",
+        "30352646",
+        "12546299",
+        "1755801",
+        "3790029",
+        "971183"
+      ]
+    },
+    {
+      "database": "Europe PMC",
+      "platform": "Europe PMC REST",
+      "query": "(TITLE_ABS:\"decompression sickness\" OR TITLE_ABS:\"decompression illness\" OR TITLE_ABS:bends OR TITLE_ABS:\"enfermedad descompresiva\" OR TITLE_ABS:\"enfermedad por descompresión\") AND (TITLE_ABS:hypobar* OR TITLE_ABS:altitude OR TITLE_ABS:chamber* OR TITLE_ABS:hipobár* OR TITLE_ABS:hipobar* OR TITLE_ABS:\"cámara de altura\")",
+      "api": "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
+      "parameters": {
+        "format": "json",
+        "resultType": "idlist",
+        "pageSize": 1
+      },
+      "reported_match_count": 718,
+      "returned_ids_in_count_request": 1,
+      "seed_only_query": "((TITLE_ABS:\"decompression sickness\" OR TITLE_ABS:\"decompression illness\" OR TITLE_ABS:bends OR TITLE_ABS:\"enfermedad descompresiva\" OR TITLE_ABS:\"enfermedad por descompresión\") AND (TITLE_ABS:hypobar* OR TITLE_ABS:altitude OR TITLE_ABS:chamber* OR TITLE_ABS:hipobár* OR TITLE_ABS:hipobar* OR TITLE_ABS:\"cámara de altura\")) AND SRC:MED AND (EXT_ID:971183 OR EXT_ID:1755801 OR EXT_ID:12546299 OR EXT_ID:3790029 OR EXT_ID:32574436 OR EXT_ID:30352646)",
+      "matched_pmids": [
+        "32574436",
+        "30352646",
+        "12546299",
+        "1755801",
+        "3790029",
+        "971183"
+      ]
+    },
+    {
+      "database": "OpenAlex",
+      "platform": "OpenAlex Works API; unfiltered count cross-checked in OpenAlex MCP",
+      "query": "(\"decompression sickness\" OR \"decompression illness\" OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") AND (hypobaric OR altitude OR \"low pressure chamber\" OR \"low-pressure chamber\" OR \"cámara hipobárica\" OR \"cámara de altura\")",
+      "api": "https://api.openalex.org/works",
+      "parameters": {
+        "select": "id",
+        "per_page": 1
+      },
+      "reported_match_count": 2154,
+      "returned_ids_in_count_request": 1,
+      "seed_only_filter": "pmid:971183|1755801|12546299|3790029|32574436|30352646",
+      "matched_works": [
+        {
+          "pmid": "971183",
+          "openalex": "W2259139680"
+        },
+        {
+          "pmid": "32574436",
+          "openalex": "W3037746215"
+        },
+        {
+          "pmid": "12546299",
+          "openalex": "W87009015"
+        },
+        {
+          "pmid": "30352646",
+          "openalex": "W2898199902"
+        },
+        {
+          "pmid": "3790029",
+          "openalex": "W2398316864"
+        },
+        {
+          "pmid": "1755801",
+          "openalex": "W2405623098"
+        }
+      ]
+    },
+    {
+      "database": "NASA NTRS",
+      "platform": "NASA citation search API",
+      "query": "\"decompression sickness\" AND (hypobaric OR altitude OR chamber)",
+      "api": "https://ntrs.nasa.gov/api/citations/search",
+      "parameters": {
+        "page.size": 1
+      },
+      "reported_match_count": 6,
+      "returned_ids_in_count_request": 1,
+      "seed_check": "Not evaluated. Different source coverage."
+    },
+    {
+      "database": "NASA NTRS",
+      "platform": "NASA citation search API",
+      "query": "\"altitude chamber\"",
+      "api": "https://ntrs.nasa.gov/api/citations/search",
+      "parameters": {
+        "page.size": 1
+      },
+      "reported_match_count": 65,
+      "returned_ids_in_count_request": 1,
+      "seed_check": "Not evaluated. Overlap with other NASA query unknown."
+    }
+  ],
+  "development_queries": [
+    {
+      "database": "PubMed",
+      "query": "(\"Decompression Sickness\"[Mesh] OR \"decompression sickness\"[tiab] OR \"decompression illness\"[tiab] OR bends[tiab] OR \"enfermedad descompresiva\"[tiab] OR \"enfermedad por descompresión\"[tiab]) AND (hypobar*[tiab] OR altitude[tiab] OR chamber*[tiab] OR hipobár*[tiab] OR hipobar*[tiab] OR \"cámara de altura\"[tiab])",
+      "hit_count": 869,
+      "seed_recovery": "6/6",
+      "decision": "Revised quoted Spanish phrases after PubMed issued phrase-index warnings."
+    },
+    {
+      "database": "Europe PMC",
+      "query": "(MESH:\"Decompression Sickness\" OR TITLE_ABS:\"decompression sickness\" OR TITLE_ABS:\"decompression illness\" OR TITLE_ABS:bends OR TITLE_ABS:\"enfermedad descompresiva\" OR TITLE_ABS:\"enfermedad por descompresión\") AND (TITLE_ABS:hypobar* OR TITLE_ABS:altitude OR TITLE_ABS:chamber* OR TITLE_ABS:hipobár* OR TITLE_ABS:hipobar* OR TITLE_ABS:\"cámara de altura\")",
+      "seed_recovery": "0/6",
+      "decision": "Removed unsupported MESH field after checking API search fields. Initial count request with pageSize=0 returned a parameter error."
+    },
+    {
+      "database": "Europe PMC",
+      "query": "(\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") AND (hypobar* OR altitude OR chamber* OR hipobar* OR \"cámara de altura\")",
+      "hit_count": 7842,
+      "seed_recovery": "6/6",
+      "decision": "Retained as broader calibration alternative. Final title/abstract version reduced volume."
+    }
+  ],
+  "access_checks": [
+    {
+      "database": "Cochrane Library",
+      "requested_url": "https://www.cochranelibrary.com/advanced-search",
+      "request_type": "public search interface access check",
+      "http_status": 403
+    },
+    {
+      "database": "LILACS via BVS",
+      "requested_url": "https://pesquisa.bvsalud.org/portal/?output=site&lang=en&count=1&q=tw%3A(%22decompression%20sickness%22%20OR%20%22enfermedad%20descompresiva%22%20OR%20%22doen%C3%A7a%20descompressiva%22)%20AND%20tw%3A(hypobaric%20OR%20hipobarica%20OR%20altitude)%20AND%20db%3A(%22LILACS%22)",
+      "request_type": "initial multilingual pilot",
+      "http_status": 403
+    },
+    {
+      "database": "SciELO Search",
+      "requested_url": "https://search.scielo.org/?lang=en&count=1&q=(%22decompression%20sickness%22%20OR%20%22enfermedad%20descompresiva%22%20OR%20%22doen%C3%A7a%20descompressiva%22)%20AND%20(hypobaric%20OR%20hipob%C3%A1rica%20OR%20altitude)",
+      "request_type": "initial multilingual pilot",
+      "http_status": 403
+    },
+    {
+      "database": "ROSA P",
+      "requested_url": "https://rosap.ntl.bts.gov/gsearch?terms=%22altitude%20chamber%22",
+      "request_type": "setting-phrase pilot",
+      "http_status": 403
+    },
+    {
+      "database": "ROSA P",
+      "requested_url": "https://rosap.ntl.bts.gov/view/dot/55970",
+      "request_type": "single known FAA report landing page, FAA-AM-77-4",
+      "http_status": 200
+    }
+  ],
+  "formal_exported_records": 0,
+  "formal_screening_decisions": 0
+}
