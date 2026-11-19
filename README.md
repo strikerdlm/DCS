@@ -1,10 +1,52 @@
 # TinyDCS
 
-Research software for hypobaric DCS and Doppler VGE, aviation pressure histories, model-grid emulation and EVA scenario exploration. Version 0.9.0.
+TinyDCS is a research database and modeling toolkit for hypobaric decompression sickness (DCS) and venous gas emboli (VGE). Its aim is to estimate how often symptoms or ultrasound-detected bubbles occur, and when they first appear, under a specified pressure, breathing-gas and activity history. It also supports aviation and extravehicular activity (EVA) scenario analysis and emulation of historical calculator outputs. Software version 0.9.0.
 
 Not clinically validated, flight-certified, or suitable for operational clearance. Software agreement with a published equation or a model-derived grid is not evidence of accuracy in people.
 
 [Reproduction runbook](docs/runbook.md) · [Accuracy audit](docs/accuracy-audit.md) · [Methods](docs/accuracy-methods.md) · [Scientific sources](docs/accuracy-sources.md) · [Architecture](docs/accuracy-architecture.md)
+
+## The observed-outcome database
+
+The SQLite database links each published observation to its source, table or page, population, counting unit and eligibility for analysis. A trainee exposure, a diagnosed case and one limb Doppler reading can each contribute a row with a different scientific meaning. The SharePoint library review adds 208 aggregate observations and 26 published VGE-positive subject records. Its source register also identifies textbook definitions, reprinted cohorts and conflicting denominators. [Database dictionary](docs/chamber-benchmark.md) · [SharePoint extractions and reconciliation notes](docs/chamber-sharepoint-review.md)
+
+| Prediction target | Evidence available today | What the next fit needs |
+| --- | --- | --- |
+| Symptomatic DCS by a specified time | The current group fit uses 124 cases in 885 evaluable exposures from 41 NASA tests. A separate AFRL table contains 340 cases in 708 exposures. | For a grouped binomial fit, use exact events and evaluable exposures with comparable clinical definitions and windows. Individual time-to-DCS modeling also needs symptom onset or last documented event-free time for each exposure. |
+| First detection of any VGE | Published NASA reference equations, monitored group counts and selected first-detection times are available. The exercise-order report gives 13 detections among 27 subjects in each group. | Obtain the last negative and first positive scan, or the last negative scan at end of monitoring. Record ultrasound method, scale, observation schedule, posture and provocation. |
+| First Grade IV VGE | The interval-censored study used 178 records for fitting and 60 for held-out evaluation. Across all 238 records, 69 contain a detection interval and 169 are right-censored. | Preserve the original grading scale and the first qualifying grade interval. A maximum grade and a time to the first bubble identify different observations. |
+| Clinical subtype, severity and joint DCS/VGE outcomes | Some reports supply subtype counts, case timelines or joint clinical and ultrasound outcomes. One NASA series enumerates all four DCS/VGE combinations. | For subtype incidence, collect a consistent case definition and all eligible exposures. For joint models, both endpoints need ascertainment in the same exposures. Case-only series can describe presentation and timing. |
+
+The released fits and their supported profiles are documented in the chamber outcomes guide. The calculator grids and workbook labels have their own emulation evaluation. [Fitted chamber studies](docs/hypobaric-outcomes.md) · [Observed benchmark and held-out cohorts](docs/chamber-benchmark.md) · [ADRAC and workbook provenance](docs/chamber-source-search-2026-11-19.md)
+
+### From source tables to a fitted model
+
+1. **Capture the exposure.** Link study, site, protocol and revision. Preserve cohort, person and session identifiers where the source supplies them. Record starting pressure, prior diving or altitude, oxygen and air breaks, ascent, body-experienced pressure, time at plateau, workload, posture and return. Retain the measured or assigned basis and the time each predictor became available.
+2. **Capture each endpoint on its own clock.** Record adjudication, onset bounds, follow-up after return and event-free coverage for DCS. Link timestamped Doppler scans to that exposure and retain the original grades. Store unmonitored, indeterminate and lost-to-follow-up observations explicitly. The FAC/CEMAE registry supports planned and actual histories and revisioned follow-up. [Registry schema and commands](docs/chamber-benchmark.md#prospective-faccemae-registry)
+3. **Freeze the eligible cohorts before fitting.** Reconcile duplicate publications, repeat subjects, overlapping totals, incompatible grading scales and conflicting counts. Select one risk set per endpoint and horizon. Keep connected people, protocols and publications together across splits. Reserve independent sites or cohorts for external evaluation. [Frozen design](data/chamber/v1/design.json) · [Library overlap register](data/chamber/sharepoint-2026-11-19/overlap.csv)
+4. **Fit and evaluate at the available level of detail.** Compare grouped incidence with a training-prevalence baseline. Fit time-to-event models where onset and censoring are observed, using interval likelihoods for intermittently sampled VGE. Limit pre-exposure predictors to information available when the prediction is made. Evaluate held-out calibration, observed versus expected counts, Brier score and log loss at supported horizons, or interval likelihood for censored records. Publish the data cut, coefficients, uncertainty and supported range with each fit.
+
+Four operational aviation cohorts are reserved for external evaluation. Their five locked strata lack matched joint pressure histories and group mean arrival tissue ratios. External calibration of the current group DCS model therefore remains open. The immediate data need for short aviation profiles is linked exposure history, adjudicated surveillance through a stated post-return window and serial Doppler observations where VGE is a target. [External cohort assessment](docs/chamber-benchmark.md)
+
+### Build and inspect the data
+
+Run from the repository root. The combined build includes the chamber benchmark, releases v1.1–v1.5, the SharePoint intake and the deduplicated views. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
+
+```sh
+python -m scripts.build_chamber_database --sharepoint-supplement
+python -m scripts.build_chamber_database
+python -m scripts.evaluate_chamber_benchmark
+```
+
+Open `artifacts/chamber-deduplicated/observed.sqlite` and query the observation unit and locator alongside the values. A blank numerator on a percentage row preserves the source’s reporting precision. [Deduplication rules and queries](docs/chamber-sharepoint-review.md#deduplicated-database)
+
+```sql
+SELECT stratum, endpoint, events, denominator, denominator_unit,
+       reported_percent, analysis_role, locator
+FROM sharepoint_deduplicated_observation
+WHERE source_id = 'balldin04' AND stratum = 'cns_subset'
+ORDER BY endpoint;
+```
 
 ## What is available
 

@@ -23,6 +23,10 @@ LITERATURE_DATA = ROOT / "data" / "chamber" / "v1.3"
 LITERATURE_OUTPUT = ROOT / "artifacts" / "chamber-v1.3" / "observed.sqlite"
 COHORT_DATA = ROOT / "data" / "chamber" / "v1.4"
 COHORT_OUTPUT = ROOT / "artifacts" / "chamber-v1.4" / "observed.sqlite"
+SHAREPOINT_DATA = ROOT / "data" / "chamber" / "sharepoint-2026-11-19"
+SHAREPOINT_OUTPUT = ROOT / "artifacts" / "chamber-deduplicated" / "observed.sqlite"
+CITATION_DATA = ROOT / "data" / "chamber" / "v1.5"
+CITATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.5" / "observed.sqlite"
 
 # Names are internal constants. Values from the publications are always SQL parameters.
 TABLE_FILES = {
@@ -275,8 +279,12 @@ def build(
     web_supplement=False,
     literature_supplement=False,
     cohort_supplement=False,
+    citation_supplement=False,
+    sharepoint_supplement=False,
 ):
-    include_literature = literature_supplement or cohort_supplement
+    include_citation = citation_supplement or sharepoint_supplement
+    include_cohort = cohort_supplement or include_citation
+    include_literature = literature_supplement or include_cohort
     include_web = web_supplement or include_literature
     include_zotero = zotero_supplement or include_web
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -293,8 +301,27 @@ def build(
                 load_supplement(
                     db, LITERATURE_DATA, "literature", extra_tables={"literature_case": "cases.csv"}
                 )
-            if cohort_supplement:
+            if include_cohort:
                 load_supplement(db, COHORT_DATA, "cohort")
+            if include_citation:
+                load_supplement(
+                    db,
+                    CITATION_DATA,
+                    "citation",
+                    extra_tables={
+                        "citation_reference": "references.csv",
+                        "citation_citer": "citers.csv",
+                        "citation_paired_dcs": "paired_dcs.csv",
+                        "citation_participant_cell": "participant_cells.csv",
+                    },
+                )
+            if sharepoint_supplement:
+                load_supplement(
+                    db,
+                    SHAREPOINT_DATA,
+                    "sharepoint",
+                    extra_tables={"sharepoint_vge_positive_record": "vge_positive_records.csv"},
+                )
         finally:
             db.close()
         publish(path, output)
@@ -325,6 +352,16 @@ if __name__ == "__main__":
         action="store_true",
         help="Build v1.4 with the expanded primary cohort tables and all prior supplements.",
     )
+    release.add_argument(
+        "--citation-supplement",
+        action="store_true",
+        help="Build v1.5 with the Mahon citation network and primary outcome extractions.",
+    )
+    release.add_argument(
+        "--sharepoint-supplement",
+        action="store_true",
+        help="Build the combined database with the SharePoint intake and deduplicated views.",
+    )
     parser.add_argument(
         "--verify-cache", type=Path, help="Also verify all original local source snapshots."
     )
@@ -340,6 +377,10 @@ if __name__ == "__main__":
         default_output = LITERATURE_OUTPUT
     if args.cohort_supplement:
         default_output = COHORT_OUTPUT
+    if args.citation_supplement:
+        default_output = CITATION_OUTPUT
+    if args.sharepoint_supplement:
+        default_output = SHAREPOINT_OUTPUT
     output = args.output or default_output
     digest = build(
         output,
@@ -347,5 +388,7 @@ if __name__ == "__main__":
         web_supplement=args.web_supplement,
         literature_supplement=args.literature_supplement,
         cohort_supplement=args.cohort_supplement,
+        sharepoint_supplement=args.sharepoint_supplement,
+        citation_supplement=args.citation_supplement,
     )
     print(json.dumps({"sha256": digest, "database": str(output)}))

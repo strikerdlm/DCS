@@ -1,0 +1,21 @@
+source_id,related_source,relationship,evidence
+bassett_survey,citation/butler_usaf,likely_overlap,USAF hyperbaric-treated cases during 1966–1977 fall within the longer USAF treatment archive. Training incidence uses a different sampling frame.
+bassett_survey,within-source/USAFSAM and Academy,nested,Pararescue students attend USAFSAM. Academy sex-specific strata partition the Academy margin. Other-unit count explicitly excludes both schools.
+butler_usaf,v1.4/rush90,likely_overlap,USAF chamber hyperbaric treatment records overlap in calendar time. Older periods reprint Davis and Weien series.
+dervay02,within-source/crossover,repeated_participants,Each participant was assigned alternating exercise/rest timing. Participant prevalence across the study is retained.
+krause00,v1/afrl13,likely_overlap,The 2001 Brooks research exposures summarize multiple AFRL experiments. No participant or protocol linkage supports independent pooling.
+pilmanis99,v1/afrl13,unresolved,Arms are repeated within the same 32 men. Historical AFRL program may also appear in later archives.
+webb96_preoxygenation,v1/gerth18 PE1-A and PE1-B,matching_profile,PE1-A matches the 10/50 profile and 11/26 exactly. PE1-B lists 21/28 whereas the primary resting control has 20/26.
+webb96_preoxygenation,v1.3/webb02,historical_comparator,Exercise-duration paper reports historical prebreathe comparators. Link the 1996 original and the later comparison.
+webb03_sex,v1/gerth18 35K-A and 35K-C,matching_profile,Table I profile 20 has the same 37 male and 36 female resting exposures under the same schedule.
+webb03_sex,v1.4/webb98,shared_profiles,Table I references the threshold studies. The sex comparison and the curve-fitting analyses select different profile subsets.
+webb03_sex,citation/webb01_35000,shared_profiles,"Table I profile 20 cites the 35,000-ft paper. The original has 30 per sex in the paired resting group."
+webb01_35000,v1/gerth18 35K-A through 35K-D,likely_overlap,"The rest and strenuous schedules recur in Appendix E, with different denominators in some rows. The separate mild-exercise group used 90 min prebreathe."
+webb05_susceptibility,v1/afrl13,likely_overlap,Summary spans 70 selected AFRL protocols. The 1879 repeat-volunteer exposures are part of the 2210.
+webb05_susceptibility,citation/krause00,unresolved,Same Brooks research archive at different cutoffs. Linkage unavailable.
+webb03_sex,sharepoint-2026-11-19/webb03_sex,same_publication,"The parallel intake contains the same six sex-specific DCS, any-VGE and Grade IV VGE percentages, at denominators 550 and 309. Count each once across builds."
+webb05_susceptibility,sharepoint-2026-11-19/webb05_susceptibility,same_publication,The parallel intake also contains the 46.5 percent margin for 1879 exposures.
+webb02_postexercise,v1/afrl13,unresolved,Brooks chamber research. Shared volunteers or controls cannot be excluded. Figure 1 and Table III describe selected subsets of the original 67.
+webb10_activity,v1/webb10,same_publication,Historical DCS groups and ground-level activity measurements already have provenance in the base release.
+webb98_threshold,v1.4/webb98,same_publication,Same paper and primary observed values.
+sulaiman97_age,v1.3/sulaiman97,same_publication,Same 1299-exposure archive and same source PDF.

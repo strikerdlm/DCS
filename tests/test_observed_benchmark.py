@@ -187,6 +187,44 @@ def test_eligibility_precedes_scoring(evidence):
     assert assess_external({**context, "endpoint": "grade_iv_vge"}, model)["brier"] is None
 
 
+def test_citation_release_preserves_reference_direction_and_paired_outcomes(tmp_path):
+    target = tmp_path / "citation.sqlite"
+    build(target, citation_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT min(ref_no), max(ref_no), count(*) FROM citation_reference "
+            "WHERE citing_source_id='mahon2014'"
+        ).fetchone() == (1, 243, 243)
+        assert db.execute(
+            "SELECT count(*) FROM citation_citer WHERE cited_source_id='mahon2014'"
+        ).fetchone() == (50,)
+        assert db.execute(
+            "SELECT count(*), count(symptom_listed), count(DISTINCT study_participant) "
+            "FROM citation_participant_cell"
+        ).fetchone() == (78, 74, 26)
+        for arm_a, arm_b, *printed in db.execute(
+            "SELECT arm_a, arm_b, participants, both_dcs, a_only, b_only, neither "
+            "FROM citation_paired_dcs WHERE source_id='webb96_preoxygenation'"
+        ):
+            calculated = db.execute(
+                "SELECT count(*), sum(a.symptom_listed AND b.symptom_listed), "
+                "sum(a.symptom_listed AND NOT b.symptom_listed), "
+                "sum(NOT a.symptom_listed AND b.symptom_listed), "
+                "sum(NOT a.symptom_listed AND NOT b.symptom_listed) "
+                "FROM citation_participant_cell a JOIN citation_participant_cell b "
+                "USING(source_id, study_participant) WHERE a.source_id='webb96_preoxygenation' "
+                "AND a.arm=? AND b.arm=? AND a.accomplished AND b.accomplished",
+                (arm_a, arm_b),
+            ).fetchone()
+            assert list(calculated) == printed
+        assert db.execute(
+            "SELECT numerator, denominator FROM citation_observation "
+            "WHERE source_id='webb02_postexercise' AND endpoint='dcs' "
+            "AND stratum IN ('All exposed','Eligible for randomization') ORDER BY stratum"
+        ).fetchall() == [(36, 67), (29, 60)]
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
 def test_database_build_is_idempotent_and_preserves_other_files(tmp_path):
     target = tmp_path / "out.sqlite"
     assert build(target) == build(target)

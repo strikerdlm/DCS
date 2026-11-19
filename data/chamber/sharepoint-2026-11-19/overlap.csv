@@ -1,0 +1,26 @@
+source_id,related_source,relationship,evidence
+celis23_thesis,celis23_abstract,same_cohort,"Same center, years and narrative total. Working thesis has 38/16 Type I/II and the abstract 45/9. The thesis counts 20 instructors while the abstract groups 34 instructors or inside observers."
+celis23_thesis,olaya25,likely_overlap,Same DIMAE chamber and intersecting years 2013–2020. Seven annual trained totals for 2013–2019 match. In 2020 the thesis gives 120 and Olaya gives 117. Olaya has a narrower neurological endpoint.
+celis23_abstract,olaya25,likely_overlap,Same center and overlapping years. Case-level linkage and equivalent endpoint adjudication are unavailable.
+nasa04_exercise,nasa19,subset,Tables 14–15 are an exercise-order subset of PRP phases I and II. The NASA Table F1 labels are P I and P II. Do not add the individual observations and the phase totals.
+nasa04_exercise,nasa_treatment,subset,Exercise-order analysis belongs to the PRP phase I/II protocols tabulated in Tables VII/IX.
+nasa04_exercise,nasa11_eva,same_protocol,NASA 2011 Table 2 includes the PRP phase series. The historical joint-series record linkage is unavailable.
+nasa_treatment,nasa19,same_protocol,"Tables VII/IX use named tests 3a, 3b, 8a and PRP phases. A shared test ID can have different analytic completion rules across editions."
+nasa_treatment,nasa20,likely_overlap,Later NASA endpoint models analyze the same historical program with endpoint-specific exclusions.
+nasa11_eva,nasa19,same_protocol,2011 Table 2 and 2019 Table F1 contain shared named NASA tests. The source does not enumerate every historical joint-series member.
+nasa11_eva,webb98,possible_overlap,"Table 3 cites USAF threshold experiments, including those summarized by Webb. Profile and participant identities require review."
+balldin04,afrl13,likely_overlap,Balldin uses the Brooks AFRL database over 1983–2003. The development compilation also uses Brooks research exposures.
+balldin04,webb03_sex,likely_overlap,"Shared AFRL program, authors and era. The neuro/VGE table selects on DCS and uses different risk sets."
+webb03_sex,webb02,same_protocol,"Table I cites the 30,000-ft exercise-prebreathe study for profiles 16–18."
+webb03_sex,webb98,same_protocol,Table I includes zero-preoxygenation threshold profiles that appeared in earlier publications.
+webb05_susceptibility,balldin04,likely_overlap,Overlapping historical AFRL source database. The repeat-participant analysis has a different selection rule.
+webb05_susceptibility,afrl13,likely_overlap,Both use Brooks research profiles. Individual exposure identifiers are unavailable.
+ernsting4,ernsting5,edition_reprint,Comparative symptom table and Doppler grading recur as Tables 7.1/7.2 and 34.1/34.2. One numerical transcription retained.
+fundamentals4,adrac04,model_reference,Figure 3-5 shows calculator output. The source observation and model prediction retain distinct roles.
+fundamentals4,webb98,secondary_reference,Figure 3-6 presents the zero-preoxygenation threshold curves. Follow the primary source for observed cases.
+asma18,conkin18,conference_precursor,JSC review presented in the meeting abstracts. Later publication accounts for the training cohort.
+asma18,cheok21,conference_precursor,Singapore training abstract contains overlapping pre-change trainee data.
+hancock20,ercan20,secondary_reference,Historical Table 3 summarizes other national programs including Türkiye. Only Hancock’s own USAF records were newly tabulated.
+webb03_sex,v1.5/webb03_sex,same_cohort,"Same paper, separate digital copy. The six sex-specific endpoint margins already in the citation supplement are omitted here. The 72 within-sex third-specific values are additional margins of those exposures."
+webb05_susceptibility,v1.5/webb05_susceptibility,same_cohort,"Same paper and repeat-volunteer subset, already extracted. The SharePoint file adds source provenance."
+hancock20,v1.5/butler_usaf,possible_overlap,"The USAF hyperbaric treatment archive spans calendar years through 1999. Some treated trainees could appear in both reports, but the treatment series does not enumerate all training exposures."
