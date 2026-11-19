@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-19",
+  "platform": "EBSCO Discovery Service",
+  "portal": "Universidad Nacional de Colombia",
+  "search_url": "https://researchs.unalproxy.elogim.com/c/ernpho/search",
+  "access": "Authenticated institutional session",
+  "phase": "search_strategy_pilot",
+  "counts_toward_formal_identification": false,
+  "confirmed_scope": "Institutional multidisciplinary EDS profile ernpho. Content-provider facet available. Individual CINAHL and SPORTDiscus database scopes were not established.",
+  "mode": "Basic Search, Search mode: Clave Booleana",
+  "filter_state": "All dates. No optional filter was applied by the operator. The interface showed one default active filter; its identity was not verified.",
+  "runs": [
+    {
+      "purpose": "Bilingual strategy diagnostic",
+      "query": "(TI (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") OR AB (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\")) AND (TI (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\") OR AB (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\"))",
+      "reported_total": 2429,
+      "displayed_count_label": "1-10 of 2.429 total results",
+      "results_page": 1,
+      "titles_observed": [
+        "Operation Everest III (Comex'97): Altitude-Induced Decompression Sickness During a Hypobaric Chamber Experiment: Necessity for Circulating Venous Gas Emboli Monitoring for the Investigators",
+        "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor.",
+        "Circulating Bubbles in Decompression Sickness: Pathophysiology and Experimental Models.",
+        "NASA Prebreathe Study (NASA Prebreath)",
+        "Music on the 3rd brings Amo Brass to South Bend",
+        "Development of a Novel Decompression Profile and Physiological Response to Polaris Dawn's EVA",
+        "Decompression strain in parachute jumpmasters during simulated high-altitude missions: a special reference to preoxygenation strategies",
+        "Machine Learning Methods to Predict Incidence Risk of Altitude Decompression Sickness",
+        "The effect of a body shape index on physical fitness index is more pronounced in boys than in girls: Evidence from a cross-sectional survey based on Tibetan adolescents aged 13–18 years in high-altitude areas of China.",
+        "Human Tolerance of Frequent Altitude Decompression."
+      ],
+      "note": "The ten ordinary first-page headings follow a featured result, which is omitted here. EDS displayed result-deduplication information. These ranks are not eligibility decisions."
+    },
+    {
+      "purpose": "Exact-title control",
+      "query": "TI \"Incidence of decompression sickness in hypobaric hypoxia training\"",
+      "reported_total": 5,
+      "displayed_count_label": "1-5 of 5 total results",
+      "observed_seed_title": "Incidence of decompression sickness in hypobaric hypoxia training"
+    }
+  ],
+  "known_item_probes": [
+    {
+      "pmid": "971183",
+      "query": "((TI (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") OR AB (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\")) AND (TI (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\") OR AB (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\"))) AND TI \"Incidence of decompression sickness in Navy low-pressure chambers\"",
+      "reported_total": null,
+      "observed_seed_title": null,
+      "status": "title_unconfirmed",
+      "note": "The settled search-results view supplied no matching result title or numeric total in the captured headings. Database coverage and true zero counts remain unconfirmed."
+    },
+    {
+      "pmid": "1755801",
+      "query": "((TI (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") OR AB (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\")) AND (TI (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\") OR AB (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\"))) AND TI \"Decompression sickness: U.S. Navy altitude chamber experience 1 October 1981 to 30 September 1988\"",
+      "reported_total": null,
+      "observed_seed_title": null,
+      "status": "title_unconfirmed",
+      "note": "The settled search-results view supplied no matching result title or numeric total in the captured headings. Database coverage and true zero counts remain unconfirmed."
+    },
+    {
+      "pmid": "3790029",
+      "query": "((TI (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") OR AB (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\")) AND (TI (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\") OR AB (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\"))) AND TI \"Decompression sickness incidence over 63 months of hypobaric chamber operation\"",
+      "reported_total": null,
+      "observed_seed_title": null,
+      "status": "title_unconfirmed",
+      "note": "The settled search-results view supplied no matching result title or numeric total in the captured headings. Database coverage and true zero counts remain unconfirmed."
+    },
+    {
+      "pmid": "12546299",
+      "query": "((TI (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") OR AB (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\")) AND (TI (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\") OR AB (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\"))) AND TI \"Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe\"",
+      "reported_total": null,
+      "observed_seed_title": null,
+      "status": "title_unconfirmed",
+      "note": "The settled search-results view supplied no matching result title or numeric total in the captured headings. Database coverage and true zero counts remain unconfirmed."
+    },
+    {
+      "pmid": "30352646",
+      "query": "((TI (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") OR AB (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\")) AND (TI (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\") OR AB (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\"))) AND TI \"A systematic review and meta-analysis of decompression sickness in altitude physiological training\"",
+      "reported_total": 5,
+      "observed_seed_title": "A Systematic Review and Meta-Analysis of Decompression Sickness in Altitude Physiological Training",
+      "status": "title_confirmed",
+      "note": "One displayed title matched the seed, with five total results shown by EDS."
+    },
+    {
+      "pmid": "32574436",
+      "query": "((TI (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\") OR AB (\"decompression sickness\" OR \"decompression illness\" OR bends OR \"enfermedad descompresiva\" OR \"enfermedad por descompresión\")) AND (TI (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\") OR AB (hypobar* OR altitude OR chamber* OR hipobar* OR hipobár* OR \"cámara de altura\"))) AND TI \"Incidence of decompression sickness in hypobaric hypoxia training\"",
+      "reported_total": 5,
+      "observed_seed_title": "Incidence of decompression sickness in hypobaric hypoxia training",
+      "status": "title_confirmed",
+      "note": "One displayed title matched the seed, with five total results shown by EDS."
+    }
+  ],
+  "interpretation": "Two of six preselected report titles were directly observed in the conjunctive known-item tests. Exact title restrictions and institutional coverage can affect retrieval. This pilot yield is not a sensitivity estimate for CINAHL or SPORTDiscus."
+}

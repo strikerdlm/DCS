@@ -52,6 +52,7 @@ PUBLICATION_SEARCH_TABLES = {
 FAC_DATA = ROOT / "data" / "chamber" / "fac-official"
 FAC_OUTPUT = ROOT / "artifacts" / "chamber-fac-official" / "observed.sqlite"
 FAC_PRIVATE_OUTPUT = FAC_OUTPUT.with_name("case-records.local.sqlite")
+REVIEW_OUTPUT = ROOT / "artifacts" / "chamber-publication-review" / "observed.sqlite"
 
 # Names are internal constants. Values from the publications are always SQL parameters.
 TABLE_FILES = {
@@ -362,8 +363,12 @@ def build(
     cadet_supplement=False,
     fac_official=False,
     fac_workbooks=None,
+    publication_review=False,
 ):
-    include_fac = fac_official or fac_workbooks is not None
+    include_fac = fac_official or fac_workbooks is not None or publication_review
+    cadet_supplement = cadet_supplement or publication_review
+    rojas_supplement = rojas_supplement or publication_review
+    zotero_dcs_supplement = zotero_dcs_supplement or publication_review
     include_attachments = attachment_supplement or zotero_dcs_supplement
     include_expedition = expedition_supplement or cadet_supplement
     include_protocols = protocol_supplement or include_expedition
@@ -504,6 +509,11 @@ def build(
                 ingest_workbooks(db, *fac_workbooks)
                 verify(db)
                 db.commit()
+            if publication_review:
+                from scripts.publication_review import load_register
+
+                load_register(db, ROOT)
+                db.commit()
         finally:
             db.close()
         publish(path, output)
@@ -578,6 +588,11 @@ if __name__ == "__main__":
         "--fac-official",
         action="store_true",
         help="Build the combined database with the official Colombian aggregates.",
+    )
+    release.add_argument(
+        "--publication-review",
+        action="store_true",
+        help="Build the combined public chamber database and the bibliographic review register.",
     )
     release.add_argument(
         "--fac-workbooks",
@@ -674,6 +689,8 @@ if __name__ == "__main__":
             default_output = default_output.with_name(f"{default_output.stem}-zotero-dcs.sqlite")
         else:
             default_output = DCS_COLLECTION_OUTPUT
+    if args.publication_review:
+        default_output = REVIEW_OUTPUT
     output = args.output or default_output
     digest = build(
         output,
@@ -694,5 +711,6 @@ if __name__ == "__main__":
         citation_supplement=args.citation_supplement,
         fac_official=args.fac_official,
         fac_workbooks=args.fac_workbooks,
+        publication_review=args.publication_review,
     )
     print(json.dumps({"sha256": digest, "database": str(output)}))

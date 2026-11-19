@@ -8,6 +8,8 @@ Not clinically validated, flight-certified, or suitable for operational clearanc
 
 ## The observed-outcome database
 
+The publication register links the original source inventories, bibliographies and new retrieval records to report identities and study cohorts. It records search provenance, unresolved identity matches, overlapping cohorts, editorial checks and reviewer decisions. The current review addresses symptomatic DCS per exposure in inside staff and trainees. [Publication register and review protocol](docs/chamber-publication-review.md) · [Search strategies and pilot results](docs/chamber-review-search.md)
+
 The SQLite database links each published observation to its source, table or page, population, counting unit and eligibility for analysis. A trainee exposure, a diagnosed case and one limb Doppler reading can each contribute a row with a different scientific meaning. The SharePoint library review adds 208 aggregate observations and 26 published VGE-positive subject records. Its source register also identifies textbook definitions, reprinted cohorts and conflicting denominators. [Database dictionary](docs/chamber-benchmark.md) · [SharePoint extractions and reconciliation notes](docs/chamber-sharepoint-review.md)
 
 For the Colombian Air Force chamber program, the official FAC registers are the primary sources for 2010–2020. They record **54 DCS events**, with **35 student events and 19 instructor events** identified under `POSICION`. The training workbook records **5,030 hypoxia and 1,715 rapid-decompression activities**. The annual view includes each role's case count. Estimating risk by role requires a roster covering all occupants and follow-up for each exposure. The workbooks contain no VGE scans. [FAC source reconciliation and annual counts](docs/chamber-fac-official.md)
@@ -40,15 +42,16 @@ Four operational aviation cohorts are reserved for external evaluation. Their fi
 
 ### Build and inspect the data
 
-Run from the repository root. The current combined build includes the chamber benchmark, releases v1.1–v1.5, the SharePoint intake, the deduplicated views and the official Colombian aggregates. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
+Run from the repository root. The publication-review build includes the benchmark, releases through v1.11, the SharePoint intake, the official Colombian aggregates and the Rojas, six-PDF and Zotero DCS supplements. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
 
 ```sh
 python -m scripts.build_chamber_database --fac-official
+python -m scripts.build_chamber_database --publication-review
 python -m scripts.build_chamber_database
 python -m scripts.evaluate_chamber_benchmark
 ```
 
-Open `artifacts/chamber-fac-official/observed.sqlite`. Use `fac_official_chamber_year` for FAC case and activity counts and `fac_celis_annual_reconciliation` to compare the thesis. The original workbooks also support a local build with one row per case. For literature observations, query the unit and locator alongside the values. [FAC build and queries](docs/chamber-fac-official.md#build-and-query) · [Literature deduplication rules](docs/chamber-sharepoint-review.md#deduplicated-database)
+Open `artifacts/chamber-publication-review/observed.sqlite` for the publication register and combined public outcome tables. The aggregate-only FAC build remains available at `artifacts/chamber-fac-official/observed.sqlite`. Use `fac_official_chamber_year` for FAC case and activity counts and `fac_celis_annual_reconciliation` to compare the thesis. The original workbooks also support a local build with one row per case. For literature observations, query the unit and locator alongside the values. [FAC build and queries](docs/chamber-fac-official.md#build-and-query) · [Literature deduplication rules](docs/chamber-sharepoint-review.md#deduplicated-database)
 
 ```sql
 SELECT stratum, endpoint, events, denominator, denominator_unit,
