@@ -1,6 +1,3 @@
-"""TinyDCS — edge-deployable surrogate of the 3RUT-MBe1 altitude DCS model.
+"""TinyDCS research software for hypobaric exposure histories and reference models."""
 
-Research-use-only. See README.md for the scientific scope and limitations.
-"""
-
-__version__ = "0.7.0"
+__version__ = "0.8.0"

@@ -112,8 +112,8 @@ const NAV_GROUPS: NavGroup[] = [
       },
       {
         id: "hypobaric",
-        label: "Hypobaric DCS",
-        description: "Symptomatic DCS by time at plateau",
+        label: "Aviation pressure history",
+        description: "Phase timeline and chamber reference estimates",
         icon: <Mountain className="h-4 w-4" />,
       },
       {

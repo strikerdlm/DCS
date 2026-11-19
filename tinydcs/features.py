@@ -28,7 +28,7 @@ def _atm_to_mmhg(p_atm: float) -> float:
     return float(p_atm) * _SEA_LEVEL_PRESSURE_MMHG
 
 
-def _tissue_n2_ratio_360(
+def _humidified_plateau_exit_ratio(
     *,
     altitude_ft: float,
     prebreathe_time_min: float,
@@ -59,6 +59,10 @@ def _tissue_n2_ratio_360(
     p_after_pre = p_insp_n2_pre - (p_insp_n2_pre - p_insp_n2_ground_air) * np.exp(-prebreathe_time_min / tau)
     p_end = p_insp_n2_alt - (p_insp_n2_alt - p_after_pre) * np.exp(-altitude_time_min / tau)
     return float(p_end / p_amb_alt_mmhg)
+
+
+# Historical Python name and stored feature column retained for trained bundles.
+_tissue_n2_ratio_360 = _humidified_plateau_exit_ratio
 
 
 def _peak_1min(traj: np.ndarray, dt_min: float, duration_min: float | None = None) -> float:
@@ -96,7 +100,7 @@ def extract_features(profile: ExposureProfile) -> ProfileRecord:
     alt_mean = alt_integral/profile.altitude_duration_min if profile.altitude_duration_min else 0.
     alt_peak_1 = _peak_1min(alt_traj, profile.vo2_dt_min, profile.altitude_duration_min)
 
-    tr360 = _tissue_n2_ratio_360(
+    tr360 = _humidified_plateau_exit_ratio(
         altitude_ft=profile.target_altitude_ft,
         prebreathe_time_min=profile.prebreathe_duration_min,
         prebreathe_fio2=profile.prebreathe_fio2,

@@ -1,6 +1,6 @@
 # Cumulative symptomatic DCS at a constant pressure plateau
 
-Open **Hypobaric DCS** under **Model Families**, or send a scenario to `POST /api/v2/hypobaric/probability`. The response names the selected regression, the elapsed time and its group probability in percent. A valid request outside the supported profiles returns a null probability and a reason. Malformed values return HTTP 422.
+This page documents the compatibility endpoint `POST /api/v2/hypobaric/probability` for existing callers with a source-compatible arrival nitrogen and protocol declaration. Its response uses percentages. The **Aviation pressure history** page uses the version 3 API, which derives arrival nitrogen from the entered phases and reports the probability as a fraction with its source and outcome window. [Version 3 contract](aviation-profile.md)
 
 This tool implements the follow-up guidance in NASA/TP-2020-220529, section 5.1 and Table 5. It uses regression coefficients estimated from symptomatic events and censored human chamber exposures. The ADRAC grid explorer, 4.3-psia exercise-prebreathe demo, and EVA telemetry simulator have separate input and endpoint definitions. [NASA full report](https://ntrs.nasa.gov/api/citations/20200004317/downloads/20200004317.pdf)
 

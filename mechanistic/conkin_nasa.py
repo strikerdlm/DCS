@@ -18,6 +18,11 @@ P2 = 4.3
 DEFAULT_T_HALF = 360
 MODEL_VERSION = "conkin-reference-v2"
 LAMBDAS = {"RM": 0.025, "NM": 0.030}
+EQUATION_IDS = {"RM": 15, "NM": 14}
+ASCERTAINMENT = {
+    "RM": "DCS reported during the four-hour hypobaric exposure",
+    "NM": "Total DCS reported during the exposure or after the test (Table 6)",
+}
 SOURCE_URL = "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf"
 
 
@@ -28,13 +33,18 @@ def _nonnegative(value: float, name: str) -> float:
     return result
 
 
-def nitrogen_half_time(vo2_ml_kg_min: float, lambda_param: float) -> float:
-    """Return the Eq. 6 rate constant k, despite the historical function name."""
+def nitrogen_rate_constant(vo2_ml_kg_min: float, lambda_param: float) -> float:
+    """Eq. 6 rate constant k in reciprocal minutes for mass-normalized VO2."""
     vo2 = _nonnegative(vo2_ml_kg_min, "VO2")
     lam = _nonnegative(lambda_param, "lambda")
     if lam <= 0 or lam * vo2 > 700:
         raise ValueError("lambda must be positive and lambda * VO2 <= 700")
     return math.exp(lam * vo2) / 519.37
+
+
+def nitrogen_half_time(vo2_ml_kg_min: float, lambda_param: float) -> float:
+    """Compatibility alias returning the historical rate. Half-time is ln(2)/k."""
+    return nitrogen_rate_constant(vo2_ml_kg_min, lambda_param)
 
 
 def compute_p1n2(p0: float, pa: float, vo2_ml_kg_min: float,
@@ -43,7 +53,7 @@ def compute_p1n2(p0: float, pa: float, vo2_ml_kg_min: float,
     initial = _nonnegative(p0, "initial nitrogen")
     target = _nonnegative(pa, "ambient nitrogen")
     duration = _nonnegative(pb_time_min, "prebreathe duration")
-    k = nitrogen_half_time(vo2_ml_kg_min, lambda_param)
+    k = nitrogen_rate_constant(vo2_ml_kg_min, lambda_param)
     return target + (initial - target) * math.exp(-k * duration)
 
 
@@ -104,5 +114,6 @@ def predict_prebreathe(initial_n2_psia: float, segments: Iterable[Mapping[str, f
         "p1n2Psia": tissue, "etr": etr,
         "pDcsPercent": 100 * predict_endpoint(etr, variant=variant, age_years=age_years, sex=sex),
         "variant": variant, "lambda": LAMBDAS[variant], "predictionHorizonMin": 240,
+        "equation": EQUATION_IDS[variant], "outcomeAscertainment": ASCERTAINMENT[variant],
         "referencePressurePsia": 4.3, "modelVersion": MODEL_VERSION, "source": SOURCE_URL,
     }

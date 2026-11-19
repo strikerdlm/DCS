@@ -116,7 +116,7 @@ def test_personalized_predict_shifts_and_widens(tiny_base) -> None:
     exposures = df[list(FEATURE_COLUMNS)].iloc[:20]
     ps.observe("subject_hi", exposures, forced_y)
     pred_pop = base.predict(sample_feats)["point"][0]
-    pred_personal = ps.predict("subject_hi", sample_feats)["point"][0]
+    pred_personal = ps.predict("subject_hi", sample_feats)["diagnostic_point"][0]
     # Positive-susceptibility subject should see upshifted personalized risk
     # (unless pred_pop is already near 1, in which case the shift saturates).
     if pred_pop < 0.99:
@@ -146,3 +146,24 @@ def test_personalized_intervals_are_posterior_not_conformal(tiny_base):
     result = PersonalizedSurrogate(base).predict("a", df.iloc[:2])
     assert result["interval_kind"] == "posterior_credible"
     assert result["nominal_coverage"] is None
+
+
+def test_observation_veto_is_inherited_by_subsequent_supported_predictions(tiny_base):
+    base, df = tiny_base
+    X = df[list(FEATURE_COLUMNS)].iloc[:20]
+    base.metadata["quantitative_enabled"] = True
+    X = X[base.predict(X)["quantitative_output_enabled"]].iloc[:1]
+    assert len(X) == 1
+    ps = PersonalizedSurrogate(base)
+    assert ps.predict("case", X)["quantitative_output_enabled"].all()
+    base.metadata["quantitative_enabled"] = False
+    post = ps.observe("case", X, [1])
+    assert post.quantitative_output_enabled is False
+    assert post.update(0.1, 1.0, 0.0, 1.0).quantitative_output_enabled is False
+    base.metadata["quantitative_enabled"] = True
+    assert ps.observe("case", X, [0]).quantitative_output_enabled is False
+    result = ps.predict("case", X)
+    assert not result["quantitative_output_enabled"].any()
+    assert np.isnan([result[k][0] for k in ("point", "lower", "upper")]).all()
+    assert np.isfinite(result["diagnostic_point"]).all()
+    assert ps.predict("another case", X)["quantitative_output_enabled"].all()

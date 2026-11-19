@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "aviation-plan",
+  "purpose": "research",
+  "provenance": "user-entered plan",
+  "time_unit": "min",
+  "initial_state": {
+    "method": "assumed_equilibrium",
+    "body_pressure": {
+      "kind": "absolute",
+      "value": 14.7,
+      "unit": "psia"
+    },
+    "gas": {
+      "oxygen_fraction": 0.21,
+      "nitrogen_fraction": 0.79,
+      "basis": "dry",
+      "delivery_method": "ambient"
+    },
+    "provenance": "declared equilibrium at starting pressure"
+  },
+  "history": {
+    "recent_diving": false,
+    "previous_altitude_exposure": false
+  },
+  "person_covariates": {},
+  "segments": [
+    {
+      "id": "prebreathe",
+      "phase": "prebreathe",
+      "start": 0,
+      "end": 115,
+      "start_pressure": {
+        "kind": "absolute",
+        "value": 14.7,
+        "unit": "psia"
+      },
+      "end_pressure": {
+        "kind": "absolute",
+        "value": 14.7,
+        "unit": "psia"
+      },
+      "interpolation": "constant",
+      "gas": {
+        "oxygen_fraction": 1,
+        "nitrogen_fraction": 0,
+        "basis": "dry",
+        "delivery_method": "mask"
+      },
+      "activity": {
+        "type": "rest",
+        "ambulation": false
+      },
+      "provenance": "user-entered plan"
+    },
+    {
+      "id": "ascent",
+      "phase": "ascent",
+      "start": 115,
+      "end": 145,
+      "start_pressure": {
+        "kind": "absolute",
+        "value": 14.7,
+        "unit": "psia"
+      },
+      "end_pressure": {
+        "kind": "absolute",
+        "value": 6.5,
+        "unit": "psia"
+      },
+      "interpolation": "linear_pressure",
+      "gas": {
+        "oxygen_fraction": 1,
+        "nitrogen_fraction": 0,
+        "basis": "dry",
+        "delivery_method": "mask"
+      },
+      "activity": {
+        "type": "rest",
+        "ambulation": false
+      },
+      "provenance": "user-entered plan"
+    },
+    {
+      "id": "plateau",
+      "phase": "plateau",
+      "start": 145,
+      "end": 385,
+      "start_pressure": {
+        "kind": "absolute",
+        "value": 6.5,
+        "unit": "psia"
+      },
+      "end_pressure": {
+        "kind": "absolute",
+        "value": 6.5,
+        "unit": "psia"
+      },
+      "interpolation": "constant",
+      "gas": {
+        "oxygen_fraction": 1,
+        "nitrogen_fraction": 0,
+        "basis": "dry",
+        "delivery_method": "mask"
+      },
+      "activity": {
+        "type": "exercise",
+        "ambulation": true
+      },
+      "provenance": "user-entered plan"
+    }
+  ],
+  "prediction_request": {
+    "model_id": "auto",
+    "endpoint": "symptomatic_dcs",
+    "prediction_origin": "plateau_arrival",
+    "horizon_minutes": 240,
+    "window": "during_plateau",
+    "reference_population": "male_hypobaric_chamber",
+    "source_protocol": "nasa_2020_table5"
+  }
+}

@@ -709,7 +709,7 @@ def simulation_response(
         "modelMetadata": {
             "modelVersion": MODEL_VERSION,
             "schemaVersion": 2,
-            "absoluteRiskSource": "NASA TP-2004-213158 Eq.14 at declared reference conditions only",
+            "absoluteRiskSource": "NASA TP-2004-213158, RM Eq. 15; symptomatic DCS during four hours at 4.3 psia",
             "intervalKind": "unavailable",
             "researchUseOnly": True,
             "rutReconciliation": RutReconciliationStatus().to_dict(),

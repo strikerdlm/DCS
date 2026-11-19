@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tinydcs"
-version = "0.7.0"
-description = "Edge-deployable ML surrogate of the ADRAC altitude-DCS risk model with calibrated uncertainty."
+version = "0.8.0"
+description = "Pressure-history physiology, published hypobaric DCS reference models and research model emulation."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Research-use-only (see README)" }
@@ -36,6 +36,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+app = ["streamlit>=1.36,<2"]
 dev = [
     "pytest>=8",
     "pytest-cov>=5",

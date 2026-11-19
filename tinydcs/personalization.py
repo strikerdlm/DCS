@@ -30,6 +30,7 @@ class SubjectPosterior:
     n_observations: int = 0
     lower: float | None = None
     upper: float | None = None
+    quantitative_output_enabled: bool = False
 
     def update(self, residual, sigma_lik_sq, prior_mean, prior_var):
         """Legacy continuous-Gaussian residual helper; NEVER used for binary y."""
@@ -44,6 +45,7 @@ class SubjectPosterior:
             variance * (self.mean / self.variance + residual / sigma_lik_sq),
             variance,
             self.n_observations + 1,
+            quantitative_output_enabled=self.quantitative_output_enabled,
         )
 
 
@@ -141,14 +143,32 @@ class PersonalizedSurrogate:
     subjects: dict[object, SubjectPosterior] = field(default_factory=dict)
     observations: dict[object, tuple[list[float], list[float]]] = field(default_factory=dict)
 
+    def _history_enabled(self, subject_id):
+        if subject_id not in self.observations:
+            return True
+        return getattr(self.subjects.get(subject_id), "quantitative_output_enabled", False)
+
+    @staticmethod
+    def _release_mask(base):
+        mask = np.asarray(base.get("quantitative_output_enabled"))
+        if mask.dtype != np.bool_ or mask.shape != np.shape(base["point"]):
+            return np.zeros(np.shape(base["point"]), dtype=bool)
+        return mask
+
     def observe(self, subject_id, X, y):
         y = np.atleast_1d(np.asarray(y, dtype=float)).ravel()
         if not np.isin(y, [0, 1]).all() or len(y) != len(X) or not len(y):
             raise ValueError("one observed binary outcome per exposure is required")
-        eta = _logit(self.base.predict(X)["point"])
+        base = self.base.predict(X)
+        eta = _logit(base["point"])
         offsets, outcomes = self.observations.get(subject_id, ([], []))
         offsets, outcomes = offsets + eta.tolist(), outcomes + y.tolist()
         posterior, *_ = _distribution(offsets, outcomes, self.prior)
+        # Retain every observation for diagnostic research. A base veto on any
+        # observation follows this subject's posterior through all future updates.
+        posterior.quantitative_output_enabled = bool(
+            self._history_enabled(subject_id) and self._release_mask(base).all()
+        )
         self.observations[subject_id] = (offsets, outcomes)
         self.subjects[subject_id] = posterior
         return posterior
@@ -161,8 +181,10 @@ class PersonalizedSurrogate:
         """
         offsets, outcomes = self.observations.get(subject_id, ([], []))
         posterior, density, norm, mode, scale = _distribution(offsets, outcomes, self.prior)
+        posterior.quantitative_output_enabled = self._history_enabled(subject_id)
         self.subjects[subject_id] = posterior
         base = self.base.predict(X)
+        released = self._release_mask(base) & posterior.quantitative_output_enabled
         eta = _logit(base["point"])
         expected, _ = quad_vec(
             lambda z: density(z) * expit(eta + mode + scale * z),
@@ -173,9 +195,11 @@ class PersonalizedSurrogate:
         )
         point = expected / norm
         return {
-            "point": point,
-            "lower": expit(eta + posterior.lower),
-            "upper": expit(eta + posterior.upper),
+            "point": np.where(released, point, np.nan),
+            "lower": np.where(released, expit(eta + posterior.lower), np.nan),
+            "upper": np.where(released, expit(eta + posterior.upper), np.nan),
+            "diagnostic_point": point,
+            "quantitative_output_enabled": released,
             "base_logit": eta,
             "personal_logit": _logit(point),
             "subject_mean_log_lambda": posterior.mean,

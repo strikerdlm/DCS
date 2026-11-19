@@ -1,0 +1,34 @@
+# Aviation source register and review decisions
+
+## Model cards
+
+| Source model | Target, population and scope | Reproduction and release |
+|---|---|---|
+| NASA 2004 NM, Eq. 14 | 159 chamber exposures with measured peak oxygen consumption. The source counted 22 DCS events including two post-test cases. Four-hour oxygen exposure at 4.3 psia under adynamic activity. | Dry arrival nitrogen, λ = 0.030, ETR and source sex coding. Source reproduction only. |
+| NASA 2004 RM, Eq. 15 | 229 exposures with measured (164) or estimated (65) peak oxygen consumption. The source counted 28 DCS events during exposure. | Dry arrival nitrogen, λ = 0.025, ETR and age. The samples overlap with NM. Fitted covariates are specific to RM. |
+| NASA 2020, Eq. 4 | Cumulative symptomatic DCS during a compatible plateau, with a specified tissue ratio at arrival, BMI, ambulation and source-coded REP. | Log-logistic chamber reference, evaluated in its lower-pressure range. REP represents the staged preoxygenation pressure cycle. |
+| Modified Conkin 1996, Eq. 7 in the 2020 report | Male chamber reference group at pressures above 5 psia, observed during an eligible constant-pressure exposure. | Pressure-specific recommendation and time, gas, population and tissue-ratio checks apply. The two independently fitted equations may disagree at 5 psia. |
+| Original ADRAC and 3RUT-MBe1 | Aviation source comparators with different model structures, fitted populations and time definitions. | Full ADRAC requires the original bubble/survival procedure. The browser refit has its own identity. The 3RUT absolute-risk gate remains active pending independent numerical reconciliation. |
+| Workbook-label experiment | Agreement with unverified probability-valued labels in the source grid, measured on held-out curves. | The evaluated pipeline, release status, split design, interval and evaluation travel together. Participant-level clinical efficacy, calibration and timing are unestablished. |
+
+## Discrepancy decisions
+
+These entries record this revision's implementation review. An original page or table is named where it was checked. Items awaiting review stay outside quantitative release. No independent human sign-off is recorded here.
+
+| Source locator | Printed or transcribed discrepancy | Decision and effect on identity |
+|---|---|---|
+| NASA 2004, Tables 3 and 6, Eqs. 14–15 (pp. 69–70) | RM/NM labels were reversed in the browser. The event windows also differ. | Correct display labels and ascertainment. Retain fitted coefficients and variant-specific kinetics. |
+| NASA 2004, Eqs. 2–3 | Units of anthropometric inputs for VO₂peak imputation are ambiguous in the transcription. | Omit imputation. Record measured, estimated or source-assigned values with their units. |
+| NASA 2004, Table 10 and Eq. 15 | RM intercept appears as −31.717 in the table and −31.71 in the displayed equation. | Use −31.71 and identify the displayed-equation precision. |
+| NASA 2004, Eq. 6 and Fig. 7 | At q = 50, the RM half-time described as 99 min differs from the equation result of about 103.14 min. | Use Eq. 6. Rate has units min⁻¹ and half-time equals ln(2)/rate. |
+| NASA 2004, Table 3 (p. 22), Appendix C and Table 17 | Fitted phase intervals and the physical warm-up prescription differ. Table 17 rounds quiet workload to 4.7 versus 4.75 at 9.5% of 50. | Use the prescribed feature encoding for the fitted model. Preserve the six printed intervals and the oxygen break in the extrapolative arithmetic fixture. |
+| NASA 2020, p. 4, Eq. 4 (p. 11), Table 5 and Eq. 7 (pp. 24–25), worked appendix | Rounded nitrogen and selected worked risk values differ from equation arithmetic. The Table 5 3% contour gives 2.958%, 3.101% and 3.313% using the printed resting histories at 5.3, 6.5 and 7.5 psia. | Preserve Eq. 7 and its source-specific dry nitrogen convention. Test the integrated histories at equation precision and identify separately the source table's rounding. |
+| NEDU TR 18-01, Appendix C.18, C.25/C.26, b₂ and Table 7 | Ambiguous powers, gas-volume/solubility placement and parameter transcription. Listed stages total 520 min and the printed total is 530 min. | Independent transcription of original page images, dimensional checks and profile/timestep benchmarks are pending. Keep the risk block, including the documented early-time and difficult-profile failures. Plot approximations cannot reconcile the model. |
+| NASA 2024 BiP report, §§6.1–6.2 | The narrative and final table disagree at 10 min. The previous marked-up table is also present. The short-training policy bins share a 15-min boundary. | Capture actual gas and breaks. The late interruption case and expert-derived policy provide no universal payback or clinical coefficient. Executable rules need authoritative current boundaries, phases, gas and authority. |
+| Historical 2013 balloon brief and 2014/2024 evidence compilations | Body/suit/ambient pressure labels, converted values and historical policy language differ by source and date. | Use body absolute pressure and preserve input provenance. These documents supply neither a validated probability preset nor an adopted operating rule. |
+
+The 2004 and 2020 reports supply the published equations. The October 2024 interruption report documents the late three-minute break and the revised protocol-specific rule. The 2018 model report documents the early-time fitting limitations. [NASA 2004 full report](https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf) · [NASA 2020 full report](https://ntrs.nasa.gov/api/citations/20200004317/downloads/20200004317.pdf) · [NASA 2024 interruption report](https://ntrs.nasa.gov/citations/20240016139) · [NEDU TR 18-01](https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf)
+
+## Short exposures and clinical follow-up
+
+Cheok et al. reported two diagnosed DCI events in 1,530 training exposures before the prebreathing policy and two in 1,729 after its introduction. The duty aviation medicine specialist assessed posttraining symptoms and recorded signs. The study used a ten-minute 25,000-ft plateau, with mask removal staggered by group. These aggregate counts and clinical case descriptions do not identify a calibrated prediction for a particular participant, delayed window, or high-altitude residence. The companion registry preserves planned and actual exposure histories, reasons for termination, ascertainment, repeat exposures and separate VGE observations for future evaluation. [Cheok et al., 2021](https://pubmed.ncbi.nlm.nih.gov/33875060/)
