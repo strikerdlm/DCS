@@ -7,7 +7,7 @@
  * Coefficients fitted on the frozen training partition in Python and exported
  *   to data/adrac_coefficients.json; validation rows are kept separate.
  *
- * NASA RM/NM logistic — NASA/TP-2004-213158, Eq. 6, 14 (RM), 15 (NM).
+ * NASA RM/NM logistic — NASA/TP-2004-213158, Eq. 6, 14 (NM), 15 (RM).
  *
  * Mechanistic 3RUT-MBe1 — absolute risk and bubble history are unavailable
  *   while source-equation reconciliation remains open. Pressure profiles work
@@ -321,13 +321,12 @@ export function predictNASA(inputs: NASAInputs): NASAPrediction {
     equation = `P(DCS) = σ(-31.71 + 14.55·ETR + 0.053·AGE)\nAGE = ${inputs.ageYears}`;
   }
 
-  const unavailableReason = Math.abs(inputs.p2Psia - 4.3) > 1e-9
-    ? "The published endpoint applies to 240 min at 4.3 psia with adynamic light exercise. Other exposure pressures have no supported probability endpoint."
-    : null;
+  const unavailableReason = "A single prep interval cannot establish source eligibility. Submit the full phase history to the aviation service for a published reference probability.";
   return {
     p1n2Psia: p1n2,
     etr,
-    pDcsPercent: unavailableReason === null ? pDcs * 100 : null,
+    pDcsPercent: null,
+    equationProjectionPercent: pDcs * 100,
     equation,
     lambda2,
     predictionHorizonMin: 240,

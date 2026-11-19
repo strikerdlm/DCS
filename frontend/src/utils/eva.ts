@@ -1,5 +1,4 @@
 /** Offline reference calculation. Kept in numerical parity with tinydcs/eva.py. */
-import { stableSigmoid } from "../lib/utils";
 import { missionRules, validateScenario } from "./evaContract";
 import type { EVAOptions, MissionRules } from "./evaContract";
 import { applyTelemetry } from "./evaTelemetry";
@@ -54,14 +53,14 @@ function planningWarnings(s: EVAScenario, rules: MissionRules): string[] {
 }
 
 function modelApplicability(s: Required<EVAScenario>): EVASimulationResult["modelApplicability"] {
-  const reasons: string[] = [];
+  const reasons = ["The compact EVA scenario cannot establish the complete NASA Phase I exposure. Use the full aviation profile for a source estimate."];
   if (Math.abs(s.evaDurationMin - 240) > 1e-8) reasons.push("The NASA endpoint is four hours; no duration scaling is validated.");
   if (s.suit.variablePressure || s.pressureSegments.length > 1) reasons.push("Variable-pressure EVA is outside the NASA reference endpoint.");
   const pressures = s.pressureSegments.length ? s.pressureSegments : [s.suit];
   if (pressures.some(p => Math.abs(p.pressurePsia - 4.3) > 1e-8 || Math.abs(p.oxygenFraction - 1) > 1e-8)) reasons.push("Reference exposure requires constant 4.3 psia and oxygen breathing.");
   if (!s.nasaAdynamicReference) reasons.push("Adynamic source-reference assumptions have not been declared.");
-  return { applicable: reasons.length === 0, reasons, modelId: "conkin-RM-equation-14", horizonMin: 240, referencePressurePsia: 4.3, source: NASA_SOURCE, intervalKind: "unavailable", clinicalValidation: false,
-    evidenceStatus: reasons.length ? "outside_reference" : "reference_calculation",
+  return { applicable: false, reasons, modelId: "nasa_2004_rm", horizonMin: 240, referencePressurePsia: 4.3, source: NASA_SOURCE, intervalKind: "unavailable", clinicalValidation: false,
+    evidenceStatus: "outside_reference",
     assumptions: ["Source-cohort transportability is not established.", "NASA dry ambient nitrogen convention; lambda=0.025.", "Exercise-dependent kinetics outside prebreathe are an exploratory compartment extension."] };
 }
 
@@ -123,7 +122,7 @@ export function simulateEVA(input: EVAScenario, options: EVAOptions = {}): EVASi
   let p1 = initial;
   for (const segment of pbSegments(s)) p1 = tissueExercise(p1, segment.pressurePsia * (1 - segment.oxygenFraction), segment.durationMin, segment.vo2MlKgMin);
   const etr = p1 / (s.pressureSegments[0]?.pressurePsia ?? s.suit.pressurePsia);
-  const applicability = modelApplicability(s), probability = applicability.applicable ? stableSigmoid(-31.71 + 14.55 * etr + .053 * s.crew.ageYears) * 100 : null;
+  const applicability = modelApplicability(s), probability = null;
   const suitO2 = Math.min(...(s.pressureSegments.length ? s.pressureSegments : [s.suit]).map(p => psiaToMmHg(inspiredGasPsia(p.pressurePsia, p.oxygenFraction))));
   const habitatO2 = psiaToMmHg(inspiredGasPsia(s.habitat.pressurePsia, s.habitat.oxygenFraction));
   const margin = s.suit.plssDurationMin - s.evaDurationMin, warnings = planningWarnings(s, rules);

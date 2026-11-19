@@ -77,13 +77,12 @@ export function RiskLandscape({
           const x = times[p.value[0]];
           const y = altitudes[p.value[1]];
           const v = p.value[2];
-          const level = v < 1 ? "Low" : v < 5 ? "Moderate" : v < 20 ? "Elevated" : "High";
           return `
-            <div style="font-weight:500;margin-bottom:4px">${level} risk</div>
+            <div style="font-weight:500;margin-bottom:4px">Grid equation</div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5">
               <div>Altitude: <b>${y.toLocaleString()} ft</b></div>
               <div>Time at altitude: <b>${x} min</b></div>
-              <div>P(DCS): <b>${v.toFixed(2)}%</b></div>
+              <div>Grid projection: <b>${v.toFixed(2)}%</b></div>
             </div>
           `;
         },
@@ -141,7 +140,7 @@ export function RiskLandscape({
       },
       series: [
         {
-          name: "P(DCS)",
+          name: "Grid projection",
           type: "heatmap",
           data: matrix,
           progressive: 800,

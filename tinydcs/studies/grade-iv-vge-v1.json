@@ -1,0 +1,358 @@
+{
+  "endpoint": "grade_iv_vge",
+  "evaluation": {
+    "descriptive_groups": {
+      "ambulatory": {
+        "0": {
+          "four_hour": {
+            "definite_detections": 0,
+            "horizon_hours": 4.0,
+            "known_event_free": 6,
+            "mean_predicted_fraction": {
+              "intercept_only": 0.30038804439011135,
+              "predictor": 0.21640624647763818
+            },
+            "observed_fraction_bounds": [
+              0.0,
+              0.4
+            ],
+            "unknown": 4,
+            "unknown_early_right_censoring": 4,
+            "unknown_finite_interval": 0
+          },
+          "held_out_nll_per_observation": {
+            "intercept_only": 0.3251494083756192,
+            "predictor": 0.23035610052445815
+          },
+          "observations": 10,
+          "unique_released_ids": 10
+        },
+        "1": {
+          "four_hour": {
+            "definite_detections": 18,
+            "horizon_hours": 4.0,
+            "known_event_free": 16,
+            "mean_predicted_fraction": {
+              "intercept_only": 0.30038804439011135,
+              "predictor": 0.31895975205964605
+            },
+            "observed_fraction_bounds": [
+              0.36,
+              0.68
+            ],
+            "unknown": 16,
+            "unknown_early_right_censoring": 16,
+            "unknown_finite_interval": 0
+          },
+          "held_out_nll_per_observation": {
+            "intercept_only": 1.5719789125139465,
+            "predictor": 1.3834156532392137
+          },
+          "observations": 50,
+          "unique_released_ids": 50
+        }
+      },
+      "source_male": {
+        "0": {
+          "four_hour": {
+            "definite_detections": 2,
+            "horizon_hours": 4.0,
+            "known_event_free": 10,
+            "mean_predicted_fraction": {
+              "intercept_only": 0.3003880443901113,
+              "predictor": 0.17852072015413825
+            },
+            "observed_fraction_bounds": [
+              0.09523809523809523,
+              0.5238095238095238
+            ],
+            "unknown": 9,
+            "unknown_early_right_censoring": 9,
+            "unknown_finite_interval": 0
+          },
+          "held_out_nll_per_observation": {
+            "intercept_only": 0.6894413859792581,
+            "predictor": 0.5271223924973634
+          },
+          "observations": 21,
+          "unique_released_ids": 21
+        },
+        "1": {
+          "four_hour": {
+            "definite_detections": 16,
+            "horizon_hours": 4.0,
+            "known_event_free": 12,
+            "mean_predicted_fraction": {
+              "intercept_only": 0.3003880443901113,
+              "predictor": 0.3682849985774816
+            },
+            "observed_fraction_bounds": [
+              0.41025641025641024,
+              0.6923076923076923
+            ],
+            "unknown": 11,
+            "unknown_early_right_censoring": 11,
+            "unknown_finite_interval": 0
+          },
+          "held_out_nll_per_observation": {
+            "intercept_only": 1.7274915539458742,
+            "predictor": 1.548840344224632
+          },
+          "observations": 39,
+          "unique_released_ids": 39
+        }
+      }
+    },
+    "four_hour": {
+      "definite_detections": 18,
+      "horizon_hours": 4.0,
+      "known_event_free": 22,
+      "mean_predicted_fraction": {
+        "intercept_only": 0.30038804439011135,
+        "predictor": 0.3018675011293114
+      },
+      "observed_fraction_bounds": [
+        0.3,
+        0.6333333333333333
+      ],
+      "unknown": 20,
+      "unknown_early_right_censoring": 20,
+      "unknown_finite_interval": 0
+    },
+    "held_out_nll_per_observation": {
+      "intercept_only": 1.3641739951575584,
+      "predictor": 1.1912390611200878
+    },
+    "marginal_training_coverage": {
+      "all_four_features_within_training_margins": 59,
+      "within_by_feature": {
+        "age_years": 59,
+        "ambulatory": 60,
+        "arrival_tr360": 60,
+        "source_male": 60
+      }
+    },
+    "observations": 60,
+    "paired_difference": {
+      "bootstrap_95_percentile_interval": [
+        -0.2386622577854386,
+        -0.10746729376277366
+      ],
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20261119,
+      "predictor_minus_intercept": -0.17293493403747023,
+      "resampling_unit": "held-out released subject ID; fitted training coefficients held fixed"
+    },
+    "unique_released_ids": 60
+  },
+  "evidence_scope": "retrospective_internal_holdout",
+  "excluded_rows": 0,
+  "exclusion_reason_counts": {
+    "invalid_age": 0,
+    "invalid_ambulation": 0,
+    "invalid_interval": 0,
+    "invalid_source_sex": 0,
+    "invalid_subject_id": 0,
+    "invalid_tr360": 0
+  },
+  "individual_clinical_prediction_released": false,
+  "model_id": "hdsd_grade_iv_aft_v1",
+  "models": {
+    "intercept_only": {
+      "coefficients": [
+        2.3177513261935645
+      ],
+      "converged": true,
+      "feature_order": [
+        "intercept"
+      ],
+      "iterations": 13,
+      "max_absolute_gradient": 6.629935072853922e-09,
+      "optimizer": "BFGS with analytic gradient of mean interval-censored NLL",
+      "scale": 1.101728287372776,
+      "training_nll_per_observation": 1.3469488745324905
+    },
+    "predictor": {
+      "coefficients": [
+        4.0053875027081745,
+        -0.3384812715368285,
+        -0.7639787604349586,
+        -2.9821062286793816,
+        -1.002952635953252
+      ],
+      "converged": true,
+      "feature_order": [
+        "intercept",
+        "age_per_10_centered_35",
+        "source_male",
+        "tr360_centered_1_5",
+        "ambulatory"
+      ],
+      "iterations": 35,
+      "max_absolute_gradient": 1.7241082397430875e-08,
+      "optimizer": "BFGS with analytic gradient of mean interval-censored NLL",
+      "scale": 0.969344481514195,
+      "training_nll_per_observation": 1.2897515823619723
+    }
+  },
+  "plan": {
+    "cdf": "expit((ln(hours)-X*coefficients)/scale)",
+    "feature_transformation": "X = [1, (age_years-35)/10, source_male, TR360-1.5, ambulatory]",
+    "model": "log-logistic accelerated failure time; maximum likelihood without regularization",
+    "path": "docs/grade-iv-validation.md",
+    "sha256_lf": "74130fe0f8000248dae094c88891317d7a90fc18eeda15a0a23d52f1472b3f32",
+    "split": "ascending SHA-256 of ASCII prefix plus original integer ID; first ceiling(n/4) held out",
+    "split_prefix": "hdsd-grade-iv-v1/"
+  },
+  "received_rows": 238,
+  "reproduction_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "rdata": "1.0.0",
+    "scipy": "1.16.3"
+  },
+  "schema_version": "1.0.0",
+  "source": {
+    "dataset": "thregI::hdsd",
+    "dictionary": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/man/hdsd.Rd",
+    "historical_study": "https://ntrs.nasa.gov/citations/20020044431",
+    "linkage": "one record per released subject ID; source-session selection, cross-study and protocol linkage unavailable",
+    "package_version": "1.0.4",
+    "published_extract_aggregates": "https://www3.stat.sinica.edu.tw/statistica/oldpdf/A20n310.pdf",
+    "revision": "11919e13da5be6412dde3184c814ffd3fb4f1873",
+    "sha256": "b2c686da357ff7e94b217f09f160f5a598a5a5ba83b83a2f369315d71463d6f0",
+    "time_conversion": "source numeric hours used unchanged; four hours equals 240 minutes",
+    "time_origin": "start of the hypobaric exposure; first Grade IV detection in (left,right]",
+    "url": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/data/hdsd.RData"
+  },
+  "splits": {
+    "all": {
+      "features": {
+        "age_years": {
+          "max": 54.0,
+          "median": 30.0,
+          "min": 20.0
+        },
+        "ambulatory": {
+          "0": 43,
+          "1": 195
+        },
+        "arrival_tr360": {
+          "max": 1.89,
+          "median": 1.770926616,
+          "min": 1.040306182
+        },
+        "source_male": {
+          "0": 61,
+          "1": 177
+        }
+      },
+      "finite_detection_upper_time_hours": {
+        "max": 4.133333333,
+        "median": 1.333333333,
+        "min": 0.066666667
+      },
+      "finite_intervals": 69,
+      "finite_intervals_starting_at_zero": 2,
+      "last_free_time_hours": {
+        "max": 6.0,
+        "median": 3.0,
+        "min": 0.0
+      },
+      "observations": 238,
+      "right_censor_time_hours": {
+        "max": 6.0,
+        "median": 3.0,
+        "min": 1.266666667
+      },
+      "right_censored": 169,
+      "unique_released_ids": 238
+    },
+    "held_out": {
+      "features": {
+        "age_years": {
+          "max": 50.0,
+          "median": 31.0,
+          "min": 20.0
+        },
+        "ambulatory": {
+          "0": 10,
+          "1": 50
+        },
+        "arrival_tr360": {
+          "max": 1.89,
+          "median": 1.777757825,
+          "min": 1.22
+        },
+        "source_male": {
+          "0": 21,
+          "1": 39
+        }
+      },
+      "finite_detection_upper_time_hours": {
+        "max": 3.666666667,
+        "median": 1.2999999999999998,
+        "min": 0.6
+      },
+      "finite_intervals": 18,
+      "finite_intervals_starting_at_zero": 0,
+      "last_free_time_hours": {
+        "max": 6.0,
+        "median": 3.0,
+        "min": 0.3
+      },
+      "observations": 60,
+      "right_censor_time_hours": {
+        "max": 6.0,
+        "median": 4.0,
+        "min": 2.0
+      },
+      "right_censored": 42,
+      "unique_released_ids": 60
+    },
+    "training": {
+      "features": {
+        "age_years": {
+          "max": 54.0,
+          "median": 30.0,
+          "min": 21.0
+        },
+        "ambulatory": {
+          "0": 33,
+          "1": 145
+        },
+        "arrival_tr360": {
+          "max": 1.89,
+          "median": 1.770926616,
+          "min": 1.040306182
+        },
+        "source_male": {
+          "0": 40,
+          "1": 138
+        }
+      },
+      "finite_detection_upper_time_hours": {
+        "max": 4.133333333,
+        "median": 1.333333333,
+        "min": 0.066666667
+      },
+      "finite_intervals": 51,
+      "finite_intervals_starting_at_zero": 2,
+      "last_free_time_hours": {
+        "max": 6.0,
+        "median": 3.0,
+        "min": 0.0
+      },
+      "observations": 178,
+      "right_censor_time_hours": {
+        "max": 6.0,
+        "median": 3.0,
+        "min": 1.266666667
+      },
+      "right_censored": 127,
+      "unique_released_ids": 178
+    }
+  },
+  "time_unit": "h",
+  "used_rows": 238
+}

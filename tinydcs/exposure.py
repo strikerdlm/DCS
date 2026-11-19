@@ -63,6 +63,7 @@ class Gas(ScientificInput):
     nitrogen_fraction: Fraction
     argon_fraction: Fraction = 0
     other_inert_fraction: Fraction = 0
+    carbon_dioxide_fraction: Fraction = 0
     water_fraction: Fraction = 0
     basis: Literal["dry", "wet"]
     delivery_method: Text | None = None
@@ -71,7 +72,7 @@ class Gas(ScientificInput):
     @model_validator(mode="after")
     def check_fractions(self):
         total = math.fsum((self.oxygen_fraction, self.nitrogen_fraction, self.argon_fraction,
-                           self.other_inert_fraction, self.water_fraction))
+                           self.other_inert_fraction, self.carbon_dioxide_fraction, self.water_fraction))
         if not math.isclose(total, 1.0, rel_tol=0, abs_tol=1e-8):
             raise ValueError("declared gas fractions must sum to one")
         if self.basis == "dry" and self.water_fraction:
@@ -198,6 +199,7 @@ class PredictionRequest(ScientificInput):
     horizon_minutes: Positive
     reference_population: Text
     source_protocol: Text | None = None
+    post_test_course: Literal["published_source_ascertainment"] | None = None
 
 
 def same_pressure(a: float, b: float) -> bool:
@@ -241,7 +243,18 @@ class ExposureTimeline(ScientificInput):
         return self
 
     def fingerprint(self) -> str:
-        payload = json.dumps(self.model_dump(mode="json"), sort_keys=True,
+        document = self.model_dump(mode="json")
+        # Preserve the original v1 digest when optional later additions have no value.
+        request = document.get("prediction_request")
+        if request is not None and request["post_test_course"] is None:
+            del request["post_test_course"]
+        gases = [document["initial_state"]["gas"]]
+        for segment in document["history"]["segments"] + document["segments"]:
+            gases.extend((segment["gas"], segment["end_gas"]))
+        for gas in gases:
+            if gas is not None and gas["carbon_dioxide_fraction"] == 0:
+                del gas["carbon_dioxide_fraction"]
+        payload = json.dumps(document, sort_keys=True,
                              ensure_ascii=False, separators=(",", ":"), allow_nan=False)
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 

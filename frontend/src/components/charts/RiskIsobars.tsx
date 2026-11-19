@@ -15,7 +15,7 @@ interface RiskIsobarsProps {
 type Edge = "bottom" | "right" | "top" | "left";
 
 /**
- * Marching-squares isoline extractor. Given a regular grid of P(DCS) over
+ * Marching-squares isoline extractor. Given a regular grid of Grid projection over
  * altitude (rows, ascending) × prebreathe (cols, ascending), returns the set
  * of crossing segments where the field passes through `threshold`. Each
  * segment is a pair of [prebreathe, altitude] points; adjacent cells share
@@ -76,7 +76,7 @@ function isolineSegments(
 /**
  * The altitude × prebreathe trade-space with risk isobars.
  *
- * The two mission-planning levers on the axes; P(DCS) as a faint ocean field
+ * The two mission-planning levers on the axes; Grid projection as a faint ocean field
  * behind crisp marching-squares contour "isobars" at the 1 / 5 / 20 % four-zone
  * thresholds. The area below the 5 % isobar is the illustrative low-model-output region for the
  * current time-at-altitude and workload; the dashed frame is the validity
@@ -243,8 +243,7 @@ export function RiskIsobars({
             const [xi, yi, v] = p.value;
             const pb = prebreathe[Math.round(xi)] ?? xi;
             const alt = altitude[Math.round(yi)] ?? yi;
-            const level = v < 1 ? "Low" : v < 5 ? "Moderate" : v < 20 ? "Elevated" : "High";
-            return `<div style="font-weight:500;margin-bottom:3px">${level} risk</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6"><div>Altitude: <b>${alt.toLocaleString()} ft</b></div><div>Prebreathe: <b>${pb} min</b></div><div>P(DCS): <b>${v.toFixed(2)}%</b></div></div>`;
+            return `<div style="font-weight:500;margin-bottom:3px">Grid equation</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6"><div>Altitude: <b>${alt.toLocaleString()} ft</b></div><div>Prebreathe: <b>${pb} min</b></div><div>Grid projection: <b>${v.toFixed(2)}%</b></div></div>`;
           }
           return "";
         },
@@ -301,7 +300,7 @@ export function RiskIsobars({
       },
       series: [
         {
-          name: "P(DCS) field",
+          name: "Grid projection field",
           type: "heatmap",
           data: fieldData,
           progressive: 800,

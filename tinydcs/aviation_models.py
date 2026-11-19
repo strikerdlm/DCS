@@ -8,8 +8,9 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 
 from mechanistic.conkin_nasa import ASCERTAINMENT, LAMBDAS, SOURCE_URL, predict_endpoint
+from tinydcs.chamber_equations import SIMPLE_OXYGEN, VGE_MODELS, vge_fraction
 from tinydcs.aviation_policy import interruption_record
-from tinydcs.exposure import CORE_VERSION, PA_PER_PSIA, SCHEMA_VERSION, ExposureProfile
+from tinydcs.exposure import CORE_VERSION, PA_PER_PSIA, SCHEMA_VERSION, SECONDS_PER_UNIT, ExposureProfile
 from tinydcs.exposure_physics import derive_physiology, is_sea_level, is_source_air
 from tinydcs.hypobaric import HypobaricScenario, probability as hypobaric_probability
 
@@ -45,18 +46,29 @@ def _specs():
         "nasa_2020_eq4": dict(source=NASA_2020, coefficient_version="TP-2020-220529-Eq4",
             population="nasa_hypobaric_chamber", endpoint="symptomatic_dcs", horizon="120–360 plateau minutes",
             gas="Dry nitrogen including argon in air; resting or mixed-exercise source kinetics",
-            protocols=[TABLE5, PHASE_I], coefficients={"intercept": -9.177, "TR": 4.418,
+            protocols=[TABLE5, PHASE_I, SIMPLE_OXYGEN], coefficients={"intercept": -9.177, "TR": 4.418,
                 "AMB": 0.911, "BMI": -0.0647, "REP": -0.593, "scale": 0.750, "lambda": 0.030},
             ascertainment="Medical officer diagnosis during exposure, with a few first reports after testing; noncases censored at plateau exit.",
             validation_status="Published reference equation; selected source protocols reproduced"),
         "conkin_1996_eq7": dict(source=NASA_2020, coefficient_version="TP-2020-220529-Eq7",
             population="male_hypobaric_chamber", endpoint="symptomatic_dcs", horizon="120–240 plateau minutes",
             gas="Dry nitrogen including argon in air; resting oxygen preparation",
-            protocols=[TABLE5, APPENDIX_A], coefficients={"pressure_offset_psia": 1.563,
+            protocols=[TABLE5, APPENDIX_A, SIMPLE_OXYGEN], coefficients={"pressure_offset_psia": 1.563,
                 "stress_power": 4.366, "AMB": 1.578, "time_scale_per_h": 0.063, "time_power": 1.521},
             ascertainment="Cumulative symptomatic DCS from arrival at test pressure, as reproduced in the 2020 report.",
             validation_status="1996 equation reproduced from NASA 2020; selected reference scenarios"),
     }
+    for model_id, definition in VGE_MODELS.items():
+        grade = "Grade IV" if definition["endpoint"] == "grade_iv_vge" else "any grade"
+        specs[model_id] = dict(
+            source=NASA_2020, coefficient_version=f"TP-2020-220529-Eq{definition['equation']}",
+            population="nasa_hypobaric_chamber", endpoint=definition["endpoint"],
+            horizon="120–360 plateau minutes", gas="Source dry nitrogen equivalent at plateau arrival",
+            protocols=[SIMPLE_OXYGEN, PHASE_I, TABLE5, APPENDIX_A],
+            coefficients=dict(definition["coefficients"]),
+            ascertainment=f"First precordial Doppler detection of {grade} pulmonary artery VGE during the plateau; approximately 15-minute interval monitoring.",
+            validation_status=f"Published chamber reference; {definition['cases']} detections in 903 monitored exposures across 42 tests.",
+        )
     for variant, equation, coefficients in [
         ("NM", 14, {"intercept": -25.56, "ETR": 12.83, "male": -1.037}),
         ("RM", 15, {"intercept": -31.71, "ETR": 14.55, "age_years": 0.053}),
@@ -71,6 +83,7 @@ def _specs():
         )
     for model_id, spec in specs.items():
         spec.update(model_id=model_id, model_version=CORE_VERSION, core_version=CORE_VERSION,
+                    applicability_version="2",
                     evidence_class="physiology_only" if model_id == "physiology" else "published_reference",
                     uncertainty_status="unavailable", source_pdf_sha256=PDF_HASHES[spec["source"]])
         manifest = json.dumps(spec, sort_keys=True, separators=(",", ":")).encode()
@@ -99,7 +112,8 @@ def _p(s, end=False):
 def _source_gas(s, oxygen):
     return s.breathing_overpressure_pa == 0 and all(
         g is not None and g.basis == "dry" and _close(g.oxygen_fraction, oxygen)
-        and _close(g.nitrogen_fraction+g.argon_fraction, 1-oxygen) and not g.other_inert_fraction
+        and _close(g.nitrogen_fraction, 1-oxygen)
+        and not (g.argon_fraction or g.other_inert_fraction or g.carbon_dioxide_fraction)
         and not g.delivery_uncertainty and g.delivery_method != "unknown"
         for g in (s.gas, s.end_gas or s.gas))
 
@@ -114,6 +128,21 @@ def _split(profile):
 
 def _duration(profile, segments):
     return sum(profile.minutes(s) for s in segments)
+
+
+def _required_segments(profile, pre, plateau, after):
+    """Data on or before the requested endpoint, including the initialization history."""
+    r = profile.prediction_request
+    if r.window == "source_post_test":
+        return profile.history.segments + profile.segments
+    origin = 0.
+    if r.prediction_origin == "plateau_arrival" and plateau:
+        origin = plateau[0].start
+    if r.prediction_origin == "return_to_baseline":
+        origin = next((s.end for s in profile.segments if s.phase == "return"), 0.)
+    cutoff = origin + r.horizon_minutes * 60 / SECONDS_PER_UNIT[profile.time_unit]
+    eligible = pre + plateau if r.window == "during_plateau" else pre + plateau + after
+    return profile.history.segments + [s for s in eligible if s.start < cutoff]
 
 
 def _matching_stages(profile, prep, stages, require_workload=False):
@@ -218,6 +247,10 @@ def _choose_model(profile, p2):
     request = profile.prediction_request
     if request.model_id != "auto":
         return request.model_id
+    if request.reference_population == "nasa_hypobaric_chamber":
+        for model_id, definition in VGE_MODELS.items():
+            if request.endpoint == definition["endpoint"]:
+                return model_id
     if request.endpoint != "symptomatic_dcs" or request.reference_population == "aviation":
         return "physiology"
     if request.reference_population == "nasa_2004_adynamic_chamber":
@@ -236,7 +269,8 @@ def _reference_checks(profile, model, pre, plateau, after, checks):
     checks.require(r.source_protocol in model["protocols"], "SOURCE_PROTOCOL_UNVERIFIED",
                    "prediction_request.source_protocol" if r.source_protocol is None else None)
     checks.require(bool(plateau), "MISSING_PLATEAU", "segments.plateau")
-    checks.require(not any(s.phase == "plateau" for s in after), "MULTIPLE_PLATEAUS_UNSUPPORTED")
+    if r.window == "source_post_test":
+        checks.require(not any(s.phase == "plateau" for s in after), "MULTIPLE_PLATEAUS_UNSUPPORTED")
     if not plateau:
         return
     p2 = _p(plateau[0])
@@ -252,6 +286,9 @@ def _reference_checks(profile, model, pre, plateau, after, checks):
     checks.require(state.method == "assumed_equilibrium", "INITIAL_STATE_OUTSIDE_SOURCE")
     checks.require(is_sea_level(state.body_pressure.pascals()), "STARTING_RESIDENCE_OUTSIDE_SOURCE")
     checks.require(is_source_air(state.gas), "INITIAL_GAS_OUTSIDE_SOURCE")
+    checks.require(state.gas is None or (
+        not state.gas.delivery_uncertainty and state.gas.delivery_method != "unknown"),
+        "SOURCE_GAS_DELIVERY_MISMATCH")
     conditioning = profile.history.segments + [s for s in pre if s.phase == "residence"]
     first_preparation = next((i for i,s in enumerate(pre) if s.phase != "residence"), len(pre))
     checks.require(not any(s.phase == "residence" for s in pre[first_preparation:]),
@@ -261,22 +298,30 @@ def _reference_checks(profile, model, pre, plateau, after, checks):
                        and s.breathing_overpressure_pa == 0 for s in conditioning),
                    "RESIDENCE_HISTORY_OUTSIDE_SOURCE")
     checks.require(all(s.gas is not None for s in pre+plateau), "GAS_HISTORY_INCOMPLETE")
-    checks.require(all(s.gas is None or (
-        s.gas.basis == "dry" and s.gas.other_inert_fraction == 0 and not s.gas.delivery_uncertainty
-        and s.gas.delivery_method != "unknown" and not s.breathing_overpressure_pa
-    ) for s in pre+plateau), "SOURCE_GAS_DELIVERY_MISMATCH")
-    checks.require(all(_source_gas(s, 1) for s in plateau), "PLATEAU_GAS_OUTSIDE_SOURCE")
-    checks.require(all(s.activity and s.activity.ambulation is not None for s in plateau),
-                   "AMBULATION_UNKNOWN", "segments.plateau.activity.ambulation")
+    checks.require(all(
+        not s.breathing_overpressure_pa and all(g is None or (
+            g.basis == "dry" and not g.delivery_uncertainty and g.delivery_method != "unknown"
+        ) for g in (s.gas, s.end_gas)) for s in conditioning+pre+plateau
+    ), "SOURCE_GAS_DELIVERY_MISMATCH")
+    checks.require(all(s.gas is None or _source_gas(s, 1) for s in plateau), "PLATEAU_GAS_OUTSIDE_SOURCE")
+    for s in plateau:
+        checks.require(s.activity and s.activity.ambulation is not None, "AMBULATION_UNKNOWN",
+                       f"segments.{s.id}.activity.ambulation")
 
 
-def _exercise_protocol(profile, pre, plateau, checks):
+def _exercise_protocol(profile, pre, plateau, plateau_minutes, checks):
     """TP-2004 Phase I, including the differentiated exercise and gas histories."""
     conditioning = profile.history.segments + [s for s in pre if s.phase == "residence"]
     checks.require(_close(_duration(profile, conditioning), 100) and all(
-        s.activity and s.activity.ambulation is False and s.activity.posture in {"recumbent", "semi_recumbent"}
+        s.activity and s.activity.ambulation is False and s.activity.posture == "recumbent"
         for s in conditioning), "PRETEST_ADYNAMIA_NOT_MATCHED")
     prep = [s for s in pre if s.phase != "residence"]
+    # The calibration test in Appendix A has a seated fixture. Figures 8–9
+    # specify semi-recumbent posture for the PB undertaken by chamber subjects.
+    for s in prep:
+        unknown = s.activity is None or s.activity.posture in {None, "unknown"}
+        checks.require(not unknown, "PREBREATHE_POSTURE_UNKNOWN", f"segments.{s.id}.activity.posture")
+        checks.require(unknown or s.activity.posture == "semi_recumbent", "PREBREATHE_POSTURE_OUTSIDE_SOURCE")
     checks.require(all(s.phase in {"prebreathe", "recovery", "ascent"} for s in prep),
                    "SOURCE_PRESSURE_SEQUENCE_MISMATCH")
     checks.require(_matching_stages(profile, prep, PHASE_I_INTERVALS, require_workload=True),
@@ -285,7 +330,7 @@ def _exercise_protocol(profile, pre, plateau, checks):
                        and s.activity.exercise_mode == "crank_and_yank" and s.activity.ambulation is False
                        and s.activity.posture == "semi_recumbent" for s in plateau),
                    "ALTITUDE_ACTIVITY_OUTSIDE_SOURCE")
-    checks.require(_close(_duration(profile, plateau), 240), "SOURCE_HORIZON_MISMATCH")
+    checks.require(_close(plateau_minutes, 240), "SOURCE_HORIZON_MISMATCH")
     person = profile.person_covariates
     nm = profile.prediction_request.model_id == "nasa_2004_nm" or profile.prediction_request.window == "source_post_test"
     upper = 61.9 if nm else 62.1
@@ -295,7 +340,7 @@ def _exercise_protocol(profile, pre, plateau, checks):
     checks.require(person.vo2_peak_method == "measured", "MEASURED_SOURCE_FITNESS_REQUIRED")
 
 
-def _rest_protocol(profile, pre, plateau, p2, checks):
+def _rest_protocol(profile, pre, plateau, p2, plateau_minutes, checks):
     r = profile.prediction_request
     rest, ascent = _split_final_ascent(pre)
     basic = (bool(ascent) and all(s.phase == "prebreathe" for s in rest)
@@ -320,13 +365,63 @@ def _rest_protocol(profile, pre, plateau, p2, checks):
     stages = ((pb, 14.7, 14.7, 1., 0., ""), (pb+slope, 14.7, target, 1., 0., ""))
     checks.require(_matching_stages(profile, pre, stages), "SOURCE_PRESSURE_TIME_PAIR_UNVERIFIED")
     checks.require(_close(_duration(profile, ascent), slope), "DEPRESSURIZATION_OUTSIDE_SOURCE")
-    checks.require(_close(_duration(profile, plateau), 240) or (
-        r.source_protocol == TABLE5 and _close(target, 4.3) and _close(_duration(profile, plateau), 360)
+    checks.require(_close(plateau_minutes, 240) or (
+        r.source_protocol == TABLE5 and _close(target, 4.3) and _close(plateau_minutes, 360)
     ), "SOURCE_PLATEAU_DURATION_MISMATCH")
+
+
+def _simple_rest_protocol(profile, prep, plateau, plateau_minutes, p2, checks):
+    rest, ascent = _split_final_ascent(prep)
+    slope = _duration(profile, ascent)
+    checks.require(all(g and g.delivery_method and g.delivery_method != "unknown"
+                       for s in prep+plateau for g in (s.gas, s.end_gas or s.gas)),
+                   "SOURCE_GAS_DELIVERY_MISMATCH")
+    checks.require(bool(rest) and all(s.phase == "prebreathe" and
+                   is_sea_level(s.start_pressure.pascals()) and is_sea_level(s.end_pressure.pascals())
+                   for s in rest), "RESTING_PREBREATHE_REQUIRED")
+    checks.require(5 <= slope <= 30 and _matching_stages(profile, ascent, [(slope, 14.7, p2, 1, 0, "")]),
+                   "DEPRESSURIZATION_OUTSIDE_SOURCE")
+    checks.require(all(_source_gas(s, 1) and s.activity and s.activity.type == "rest"
+                   and s.activity.ambulation is False and s.activity.posture in {"semi_recumbent", "recumbent"}
+                   and s.activity.vo2_ml_kg_min is None and s.activity.vo2_l_min is None
+                   and s.activity.percent_vo2_peak is None for s in prep), "RESTING_OXYGEN_PREPARATION_REQUIRED")
+    activities = [s.activity for s in plateau]
+    checks.require(all(a and a.ambulation is not None and a.type in {"simulated_eva", "exercise", "ambulatory"}
+                   and a.exercise_mode == "source_simulated_eva" and a.vo2_ml_kg_min is None
+                   and a.vo2_l_min is None and a.percent_vo2_peak is None
+                   and (a.posture == "standing" if a.ambulation else a.posture in {"recumbent", "semi_recumbent"})
+                   for a in activities)
+                   and len({a.ambulation for a in activities if a}) == 1, "ALTITUDE_WORKLOAD_UNVERIFIED")
+    checks.require(120 <= plateau_minutes <= 360, "SOURCE_PLATEAU_DURATION_MISMATCH")
+
+
+def _post_test_course(profile, after, checks):
+    """NM includes post-test diagnoses. Appendix D ends at minute 420."""
+    if not after:
+        reference = profile.prediction_request.post_test_course == "published_source_ascertainment"
+        checks.require(reference, "POST_TEST_COURSE_UNSPECIFIED", "prediction_request.post_test_course")
+        return "published_source_ascertainment" if reference else "unspecified"
+    # The source does not specify a return gas/rate or fixed surveillance interval
+    # to validate user-entered post-test schedules. Distinguish missing gas and
+    # a physiologically contradictory return from an unverified, complete schedule.
+    returning = [s for s in after if s.phase == "return"]
+    checks.require(bool(returning), "POST_TEST_RETURN_MISSING", "segments.return")
+    if returning:
+        checks.require(after[:len(returning)] == returning and
+                       all(_p(s, True) > _p(s) for s in returning) and
+                       is_sea_level(returning[-1].end_pressure.pascals()) and
+                       all(s.phase == "post_exposure" and is_sea_level(s.start_pressure.pascals())
+                           and is_sea_level(s.end_pressure.pascals()) for s in after[len(returning):]),
+                       "RETURN_PRESSURE_SEQUENCE_MISMATCH")
+    checks.require(False, "POST_TEST_COURSE_UNVERIFIED")
+    return "submitted_post_test_course"
 
 
 def _reference(profile, model, pre, plateau, after, phys, checks):
     r, person = profile.prediction_request, profile.person_covariates
+    plateau_minutes = _duration(profile, plateau)
+    required = {s.id for s in _required_segments(profile, pre, plateau, after)}
+    plateau = [s for s in plateau if s.id in required]
     _reference_checks(profile, model, pre, plateau, after, checks)
     if not plateau:
         return None, {}
@@ -346,14 +441,35 @@ def _reference(profile, model, pre, plateau, after, phys, checks):
     if any(s.break_kind == "exercise_only" for s in pre+plateau):
         checks.require(False, "EXERCISE_INTERRUPTION_OUTSIDE_PROTOCOL")
     if r.source_protocol == PHASE_I:
-        _exercise_protocol(profile, pre, plateau, checks)
+        _exercise_protocol(profile, pre, plateau, plateau_minutes, checks)
     elif r.source_protocol in {TABLE5, APPENDIX_A}:
-        _rest_protocol(profile, prep, plateau, p2, checks)
+        _rest_protocol(profile, prep, plateau, p2, plateau_minutes, checks)
+    elif r.source_protocol == SIMPLE_OXYGEN:
+        _simple_rest_protocol(profile, prep, plateau, plateau_minutes, p2, checks)
+    if model["model_id"] in VGE_MODELS:
+        # Concentration of the monitored data near 4.3 psia; the 6.0-psia
+        # worked protocol is explicitly reproduced in Appendix A, example 1.
+        pressure_supported = abs(p2 - 4.3) <= 0.005 or (
+            r.source_protocol == APPENDIX_A and _close(p2, 6) and _close(r.horizon_minutes, 240))
+        checks.require(pressure_supported, "VGE_PRESSURE_PROTOCOL_OUTSIDE_SUPPORT")
+        checks.require(120 <= r.horizon_minutes <= 360, "SOURCE_HORIZON_MISMATCH")
+        checks.require(tr is not None and .92 <= tr <= 2.02, "TISSUE_RATIO_OUTSIDE_SOURCE")
+        checks.require(rep is not None, "SOURCE_REPRESSURIZATION_UNVERIFIED")
+        checks.require(person.age_years is not None and 20 <= person.age_years <= 54,
+                       "VGE_AGE_OUTSIDE_SUPPORT", "person_covariates.age_years" if person.age_years is None else None)
+        checks.require(person.source_sex in {"male", "female"}, "SOURCE_SEX_REQUIRED", "person_covariates.source_sex")
+        if checks.reasons:
+            return None, features
+        return vge_fraction(model["model_id"], hours=r.horizon_minutes/60, tissue_ratio=tr,
+                            age=person.age_years, male=person.source_sex == "male",
+                            ambulatory=plateau[0].activity.ambulation, staged=rep), features
     if model["model_id"] in {"nasa_2004_rm", "nasa_2004_nm"}:
         nm = model["model_id"] == "nasa_2004_nm"
         checks.require(_close(p2, 4.3) and rep is True, "SOURCE_PRESSURE_SEQUENCE_MISMATCH")
         checks.require(_close(r.horizon_minutes, 240), "SOURCE_HORIZON_MISMATCH")
         if nm:
+            if r.window == "source_post_test":
+                features["post_test_course"] = _post_test_course(profile, after, checks)
             checks.require(person.source_sex in {"male", "female"}, "SOURCE_SEX_REQUIRED",
                            "person_covariates.source_sex")
         else:
@@ -405,7 +521,7 @@ def evaluate(profile: ExposureProfile) -> dict:
     r = profile.prediction_request
     chosen = _choose_model(profile, p2)
     model = _MODELS.get(chosen, _MODELS["physiology"])
-    kinetics = ("nasa_2020" if chosen in {"nasa_2020_eq4", "conkin_1996_eq7"} else
+    kinetics = ("nasa_2020" if chosen in {"nasa_2020_eq4", "conkin_1996_eq7", *VGE_MODELS} else
                 chosen if chosen in {"nasa_2004_nm", "nasa_2004_rm"} else "fixed_360")
     # Model-specific physiological features may be unavailable while a declared-gas
     # trajectory remains computable (e.g. a missing workload for a 2004 reference).
@@ -414,9 +530,17 @@ def evaluate(profile: ExposureProfile) -> dict:
     if kinetics != "fixed_360" and source_physics["arrival_nitrogen_pa"] is None:
         phys = derive_physiology(profile)
     checks = Checks()
+    required = _required_segments(profile, pre, plateau, after)
+    relevant_fields = {f"segments.{s.id}.{name}" for s in required for name in ("gas", "activity")}
+    for path in source_physics["missing_inputs"]:
+        if path.startswith("initial_state.") or path in relevant_fields:
+            checks.require(False, "DECISIVE_INPUT_MISSING", path)
+    if any(path.startswith("initial_state.") or path in relevant_fields
+           for path in source_physics["incompatible_inputs"]):
+        checks.require(False, "SOURCE_INPUT_INCOMPATIBLE")
     if profile.initial_state.method == "unknown":
         checks.require(False, "INITIAL_STATE_UNKNOWN", "initial_state")
-    if any(s.gas is None for s in pre+plateau):
+    if any(s.gas is None for s in required):
         checks.require(False, "GAS_HISTORY_INCOMPLETE")
     if r.endpoint != "physiology" and r.window in {"complete_exposure", "post_return", "through_follow_up"} and (
         not plateau or _duration(profile, plateau) < 120
@@ -428,7 +552,7 @@ def evaluate(profile: ExposureProfile) -> dict:
         if r.endpoint != "physiology":
             checks.require(False, "CLINICAL_OUTCOME_MODEL_UNAVAILABLE" if r.endpoint ==
                            "clinically_adjudicated_dcs" else "NO_ELIGIBLE_ENDPOINT_MODEL")
-        elif phys["status"] != "available_under_declared_assumptions":
+        elif checks.missing:
             checks.require(False, "INCOMPLETE_EXPOSURE_HISTORY")
         value, source_features = None, {}
     else:
@@ -437,6 +561,8 @@ def evaluate(profile: ExposureProfile) -> dict:
     personal = {k for k, v in profile.person_covariates.model_dump().items() if v is not None}
     source_person = {"nasa_2020_eq4": {"bmi_kg_m2"}, "conkin_1996_eq7": set(),
                      "nasa_2004_rm": {"age_years"}, "nasa_2004_nm": {"source_sex"}}.get(chosen, set())
+    if chosen in VGE_MODELS:
+        source_person = {"age_years", "source_sex"}
     if kinetics.startswith("nasa_2004") or r.source_protocol == PHASE_I:
         source_person = source_person | {"vo2_peak_ml_kg_min", "vo2_peak_method"}
     if any(s.activity and s.activity.vo2_l_min is not None for s in pre) and kinetics != "fixed_360":
@@ -452,10 +578,13 @@ def evaluate(profile: ExposureProfile) -> dict:
     assumptions = list(phys["assumptions"])
     if model["evidence_class"] == "published_reference":
         assumptions.append("The reference protocol and population are checked against the submitted timeline.")
+    if source_features.get("post_test_course") == "published_source_ascertainment":
+        assumptions.append("NM reproduces the Phase I group's published post-test ascertainment (Table 6). "
+                           "The submitted plan ends at plateau exit; no return gas, rate or follow-up duration is assumed.")
     return {"schema_version": SCHEMA_VERSION, "core_version": CORE_VERSION,
             "profile_id": profile.profile_id, "input_fingerprint": profile.fingerprint(),
             **{k: model[k] for k in ("model_id", "model_version", "coefficient_version", "source",
-                                     "artifact_hash", "artifact_hash_kind", "evidence_class")},
+                                     "artifact_hash", "artifact_hash_kind", "evidence_class", "applicability_version")},
             "requested_model_id": r.model_id, "probability_fraction": value if probability_enabled else None,
             "endpoint": r.endpoint, "prediction_origin": r.prediction_origin, "horizon_minutes": r.horizon_minutes,
             "outcome_window": r.window, "outcome_ascertainment": model["ascertainment"],
@@ -472,9 +601,6 @@ def evaluate(profile: ExposureProfile) -> dict:
                                        "The deterministic exposure calculation has no fitted probability interval.")},
             "assumptions": assumptions, "included_factors": included+sorted(source_person & personal),
             "unused_factors": unused,
-            "missing_decisive_inputs": list(dict.fromkeys(checks.missing + [
-                path for path in source_physics["missing_inputs"] if not any(
-                    path.startswith("segments."+s.id+".") for s in after
-                ) or r.window != "during_plateau"])),
+            "missing_decisive_inputs": checks.missing,
             "physiology": phys, "pressure_routing_boundary_psia": 5.0,
             "policy_conformance": interruption_record(profile)}

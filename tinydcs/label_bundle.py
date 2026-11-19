@@ -65,13 +65,14 @@ def _sha256(content: bytes) -> str:
 
 
 class LabelBundle:
-    def __init__(self, manifest, report, pipeline, digest, support, interval):
+    def __init__(self, manifest, report, pipeline, digest, support, interval, coverage):
         self.manifest = manifest
         self.report = report
         self.artifact_hash = digest
         self._pipeline = pipeline
         self._support = support
         self._interval = interval
+        self.coverage = coverage
 
     def predict(self, inputs: LabelInput) -> dict:
         raw = inputs.model_dump()
@@ -110,6 +111,8 @@ class LabelBundle:
 
 def load_bundle(path: str | Path, expected_sha256: str) -> LabelBundle:
     """Verify the expected SHA-256 *before* reading any persisted estimator."""
+    from tinydcs.workbook_coverage import final_coverage
+
     if not re.fullmatch(r"[0-9a-fA-F]{64}", expected_sha256 or ""):
         raise BundleError("A trusted SHA-256 digest is required.")
     content = Path(path).read_bytes()
@@ -160,6 +163,7 @@ def load_bundle(path: str | Path, expected_sha256: str) -> LabelBundle:
                 or json.loads(payload["dependency-lock.json"]) != manifest["dependencies"]
                 or manifest["probability_calibration"] is not None):
             raise BundleError("Workbook evaluation or calibration disagrees with its manifest.")
+        coverage = final_coverage(json.loads(payload["final-predictions.json"]))
         pipeline = joblib.load(io.BytesIO(payload["pipeline.joblib"]))
         if (not isinstance(pipeline, Pipeline)
                 or list(getattr(pipeline, "feature_names_in_", [])) != manifest["feature_names"]):
@@ -169,4 +173,4 @@ def load_bundle(path: str | Path, expected_sha256: str) -> LabelBundle:
     except (OSError, EOFError, KeyError, ValueError, TypeError, AttributeError,
             ImportError, UnpicklingError, zipfile.BadZipFile) as exc:
         raise BundleError("Invalid or incompatible workbook bundle.") from exc
-    return LabelBundle(manifest, report, pipeline, digest, frozenset(support), interval)
+    return LabelBundle(manifest, report, pipeline, digest, frozenset(support), interval, coverage)

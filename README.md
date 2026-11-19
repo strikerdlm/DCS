@@ -1,12 +1,14 @@
 # TinyDCS
 
-Research software for aviation pressure-history calculations, model-grid emulation and EVA scenario exploration. Version 0.8.0.
+Research software for hypobaric DCS and Doppler VGE, aviation pressure histories, model-grid emulation and EVA scenario exploration. Version 0.9.0.
 
 Not clinically validated, flight-certified, or suitable for operational clearance. Software agreement with a published equation or a model-derived grid is not evidence of accuracy in people.
 
 [Reproduction runbook](docs/runbook.md) · [Accuracy audit](docs/accuracy-audit.md) · [Methods](docs/accuracy-methods.md) · [Scientific sources](docs/accuracy-sources.md) · [Architecture](docs/accuracy-architecture.md)
 
 ## What is available
+
+**Chamber research outcomes** evaluates symptomatic DCS, any VGE and Grade IV VGE from one pressure and oxygen history. It also compares an eligible scenario with a group DCS model fitted to 124 cases in 885 evaluable chamber exposures and a Grade IV VGE model fitted to monitored onset intervals. The browser and both repositories' Python services use the same reviewed coefficients and data digests. [Run a worked example and read the study results](docs/hypobaric-outcomes.md)
 
 **Aviation pressure history** accepts starting pressure, preoxygenation, changes of breathing gas, activity, ascent, time at altitude and return. The backend derives tissue nitrogen at arrival and checks the protocol, population and outcome window before displaying a published reference probability. The clinical outcome field for complete short aviation profiles is unavailable. [API, examples and migration](docs/aviation-profile.md)
 
@@ -20,7 +22,7 @@ Not clinically validated, flight-certified, or suitable for operational clearanc
 | EVA dashboard / API | Sequential PB and EVA compartment calculations; exact pressure/workload schedules; raw indicators and consumables arithmetic | EVA kinetics are an exploratory extension, not a validated risk-time curve |
 | 3RUT-MBe1 | Experimental source-equation implementation and pressure-profile exploration | Quantitative output disabled pending gain/volume and benchmark reconciliation |
 
-The EVA dashboard preserves the model explorer layout. It shows unsupported probabilities, risk integrals, time-risk curves, confidence bands and non-DCS event probabilities as unavailable, never zero or a green risk category. A source-reference endpoint appears only when its assumptions are explicitly declared and its pressure/gas/duration conditions match.
+The EVA dashboard displays the compartment trajectory, workload, consumables and configured mission conditions. Its compact scenario lacks the phase-specific data required to qualify a NASA reference probability. The full aviation editor checks those inputs and gives the applicable reference endpoint.
 
 PB exercise is separate from EVA workload. Duration edits in the UI explicitly rescale schedule durations; the calculation API instead rejects inconsistent schedules. Oxygen reserve is separate from the PLSS duration margin.
 

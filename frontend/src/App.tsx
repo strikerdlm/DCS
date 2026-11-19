@@ -16,7 +16,10 @@ import {
   Wind,
 } from "lucide-react";
 import { EVASimulator } from "./components/eva";
+import type { NASAVariant } from "./types";
 import Hypobaric from "./components/models/Hypobaric";
+import { ResearchOutcomes } from "./components/ResearchOutcomes";
+import { EVA_API_BASE_URL } from "./utils/evaApi";
 import {
   Anatomy,
   MLSurrogate,
@@ -28,9 +31,9 @@ import {
   ValidationDashboard,
 } from "./components/models";
 import { cn } from "./lib/utils";
-import { validationMetrics } from "./data/mockData";
 
 type ModelTab =
+  | "outcomes"
   | "overview"
   | "anatomy"
   | "steps"
@@ -55,13 +58,14 @@ interface NavGroup {
 }
 
 const NAV_GROUPS: NavGroup[] = [
+  { heading: "Research estimates", items: [{id:"outcomes",label:"Chamber outcomes",description:"DCS and VGE by protocol and cohort",icon:<BarChart3 className="h-4 w-4"/>}] },
   {
     heading: "Understand",
     items: [
       {
         id: "overview",
         label: "Overview",
-        description: "How TinyDCS works · 3-layer stack",
+        description: "Models, inputs and source populations",
         icon: <Home className="h-4 w-4" />,
       },
       {
@@ -78,7 +82,7 @@ const NAV_GROUPS: NavGroup[] = [
       },
       {
         id: "usecases",
-        label: "Use cases",
+        label: "Worked examples",
         description: "Two worked, live examples",
         icon: <Plane className="h-4 w-4" />,
       },
@@ -101,7 +105,7 @@ const NAV_GROUPS: NavGroup[] = [
       {
         id: "ml",
         label: "ADRAC Baseline",
-        description: "Train-only grid fit, not a deployed ML model",
+        description: "Mathematical projection of fitted grid labels",
         icon: <Brain className="h-4 w-4" />,
       },
       {
@@ -118,8 +122,8 @@ const NAV_GROUPS: NavGroup[] = [
       },
       {
         id: "nasa",
-        label: "NASA Conkin ETR",
-        description: "Logistic · Eq. 14 / 15",
+        label: "NASA equation arithmetic",
+        description: "Single-interval ETR mathematics",
         icon: <Rocket className="h-4 w-4" />,
       },
       {
@@ -135,7 +139,8 @@ const NAV_GROUPS: NavGroup[] = [
 const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((g) => g.items);
 
 export default function App(): React.ReactElement {
-  const [activeTab, setActiveTab] = useState<ModelTab>("overview");
+  const [activeTab, setActiveTab] = useState<ModelTab>("outcomes");
+  const [sourceVariant, setSourceVariant] = useState<NASAVariant | null>(null);
   const [isDark, setIsDark] = useState(() =>
     typeof window === "undefined"
       ? true
@@ -148,6 +153,8 @@ export default function App(): React.ReactElement {
 
   const renderContent = () => {
     switch (activeTab) {
+      case "outcomes":
+        return <ResearchOutcomes base={import.meta.env.VITE_TINYDCS_V3_API_URL ?? EVA_API_BASE_URL.replace(/\/v2\/?$/, "/v3")}/>;
       case "overview":
         return <Overview />;
       case "anatomy":
@@ -163,9 +170,9 @@ export default function App(): React.ReactElement {
       case "mechanistic":
         return <Mechanistic3RUT />;
       case "hypobaric":
-        return <Hypobaric />;
+        return <Hypobaric initialPhaseI={sourceVariant} />;
       case "nasa":
-        return <NASALogistic />;
+        return <NASALogistic openProfile={variant => { setSourceVariant(variant); setActiveTab("hypobaric"); }} />;
       case "validation":
         return <ValidationDashboard />;
     }
@@ -191,21 +198,6 @@ export default function App(): React.ReactElement {
                 Altitude Decompression-Sickness Risk · Research Console
               </p>
             </div>
-          </div>
-
-          {/* Status chips */}
-          <div className="hidden lg:flex items-center gap-2 ml-2">
-            <span className="pill-primary">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              accuracy-v3 · v0.7.0
-            </span>
-            <span className="pill-accent">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              ECharts 6.x
-            </span>
-            <span className="pill-muted">
-              baseline R² {validationMetrics.r2?.toFixed(3) ?? "unavailable"} · held-out n {validationMetrics.nSample.toLocaleString()}
-            </span>
           </div>
 
           <div className="ml-auto flex items-center gap-1.5">
@@ -381,7 +373,7 @@ export default function App(): React.ReactElement {
         <div className="border-t border-border/60 py-4">
           <div className="max-w-[1480px] mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-muted-foreground">
             <span>© {new Date().getFullYear()} TinyDCS · research artifact · see LICENSE</span>
-            <span className="text-num">v0.7.0 · accuracy-v3</span>
+            <span className="text-num">Research console</span>
           </div>
         </div>
       </footer>

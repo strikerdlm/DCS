@@ -4,6 +4,13 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 
 ## [Unreleased]
 
+## [0.9.0] — 2026-11-19
+
+- Compute symptomatic DCS, any Doppler VGE and Grade IV VGE from a common hypobaric exposure and show each endpoint's source cohort, window and eligibility.
+- Add reproducible DCS protocol-group and interval-censored Grade IV VGE study comparisons. The two Python services can verify the same numerical exports by SHA-256.
+- Correct NASA posture, air composition, NM post-test ascertainment and aviation follow-up semantics. Mark the compact browser equations as projections and route qualified results through the full profile check.
+- Report workbook interval widths, counts and simultaneous coverage by activity, altitude and prebreathing. Add automated scientific-core and browser tests.
+
 ## [0.8.0] — 2026-11-19
 
 - Add versioned aviation pressure histories, a phase editor, source-specific outcomes and a downloadable calculation record.

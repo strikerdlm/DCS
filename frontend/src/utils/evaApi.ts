@@ -37,6 +37,17 @@ function validateServerContext(response: EVASimulationApiResponse, profile?: str
     throw new EVAApiError(502, "Incompatible scientific contract; update the API.");
   if (canonical(response.missionRules) !== canonical(missionRules(profile)))
     throw new EVAApiError(409, "Server mission rules differ from the browser bundle. Regenerate the browser rules before comparing results.");
+  const r = response.result;
+  if (r.pDcsPercent !== null || r.intervalLowPercent !== null || r.intervalHighPercent !== null ||
+      r.modelApplicability?.applicable !== false || r.modelApplicability.modelId !== "nasa_2004_rm" ||
+      r.modelApplicability.clinicalValidation !== false || r.lxcScore !== null || r.lxcLikelihood !== null ||
+      r.lxcCategory !== "unavailable" || r.maxRiskPercent !== null || r.maxRiskTimeMin !== null ||
+      r.integratedRiskPercentHours !== null || r.abstain !== true ||
+      !["abstain", "abort"].includes(r.decision) || !Array.isArray(r.hazards) ||
+      r.hazards.some(h => h.probabilityPercent !== null || h.likelihood !== null || h.score !== null || h.posture !== "unavailable") ||
+      !Array.isArray(r.timeline) || r.timeline.some(point => point.cumulativePDcsPercent !== null)) {
+    throw new EVAApiError(502, "Incompatible EVA source eligibility. The compact scenario supports physiological indicators only.");
+  }
 }
 
 async function postJson<T>(path: string, payload: unknown, signal?: AbortSignal): Promise<T> {

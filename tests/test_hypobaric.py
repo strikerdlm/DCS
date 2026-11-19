@@ -17,7 +17,10 @@ def calculate(**changes):
 
 
 def test_published_exploration_atmosphere():
-    assert calculate()["pDcsPercent"] == pytest.approx(3.1, abs=.05)
+    projection = calculate()
+    assert projection["pDcsPercent"] == pytest.approx(3.1, abs=.05)
+    assert projection["evidenceClass"] == "equation_projection"
+    assert projection["protocolEligibilityChecked"] is False
     assert calculate(elapsedPlateauHours=4)["pDcsPercent"] == pytest.approx(1.8, abs=.06)
 
 

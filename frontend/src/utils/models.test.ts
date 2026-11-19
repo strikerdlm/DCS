@@ -70,7 +70,8 @@ describe("NASA TP-2004-213158 reference equations", () => {
   it.each([["RM", 31.9732803301], ["NM", 28.1506726725],] as const)(
     "evaluates the %s endpoint with its published covariate", (variant, expected) => {
       const result = predictNASA({ ...nasaInputs, variant, p0Psia: 8.6, pbTimeMin: 0 });
-      expect(result.pDcsPercent).toBeCloseTo(expected, 2);
+      expect(result.equationProjectionPercent).toBeCloseTo(expected, 2);
+      expect(result.pDcsPercent).toBeNull();
     },
   );
 
