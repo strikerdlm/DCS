@@ -1,0 +1,15 @@
+cohort_id,partition,population,ascertainment,window
+nasa49,development,NASA chamber research,"Medical officer assessed symptomatic Type I/II DCS. Most symptoms occurred at plateau, some after test. Monitoring-specific denominators apply to VGE.","Scheduled multi-hour exposures, variable post-return surveillance."
+nasa_historical,overlap_hold,NASA historical chamber research,Database description of symptomatic DCS and VGE.,"120–360 minutes at altitude, heterogeneous tests."
+afrl_extreme,separate_study,USAF Brooks chamber research,"Medical monitors diagnosed DCS, terminating exposures at diagnosis.",Four hours at altitude. Subject links across tests unavailable.
+a1309,overlap_hold,USAF and NASA research compilation,"Source-coded DCS positives, negatives and marginals weighted 0.1.",Multiple schedules and event/termination conventions.
+air_break,descriptive,USAF interruption research,Medical-monitor DCS and Doppler VGE. Separate Kaplan–Meier estimates.,"One, two and four hours, with pooled historical controls through hour two."
+usn_training,locked_external,US Navy aviation training,"Confirmed symptomatic DCS during exposure or within 48 hours, retrospective records and medical officer review.",Case-definition window extends 48 hours after exposure. Complete active surveillance per exposure unavailable.
+rsaf_training,locked_external,Singapore aviation training,Duty aviation medicine specialist diagnosed DCI from posttraining symptoms and signs.,"10 minutes at 25,000 ft. Standardized post-return ascertainment duration unavailable."
+adf_training,locked_external,Australian aviation training,Definite or probable DCI from retrospective AVMED records.,1989–2001 denominator series. Protocols and clinical reporting varied.
+iaf_training,locked_external,Israeli aviation training,Clinical altitude DCS from the reported retrospective case review.,2015–2022 chamber training. Individual follow-up and repeat-exposure denominator unavailable.
+hdsd_vge,endpoint_only,Historical hypobaric research,"First Doppler Grade IV VGE, interval or right censored.",Hours since hypobaric exposure origin. Clinical outcome unavailable.
+activity_studies,overlap_hold,USAF exercise and reconstruction experiments,"Highest 1-minute and mean VO2, with a separate observed nonambulatory group.",Current and historical exposures must retain their origin.
+constructed,methods_only,Curve construction,Regression from constructed incidence levels.,No clinical observation window.
+bip_case,methods_only,NASA case review,Neurological DCS with late interruption reviewed as a credible contributing cause.,Case report.
+physiology,methods_only,Adaptive gas exchange study,Nitrogen washout and VGE observations.,Physiology methods only.

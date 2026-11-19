@@ -8,6 +8,8 @@ Not clinically validated, flight-certified, or suitable for operational clearanc
 
 ## What is available
 
+**Observed chamber benchmark** provides a reproducible SQLite database of published hypobaric outcomes, a source and cohort-overlap register, two grouped model comparisons, and a locked evaluation of four operational aviation cohorts. A separate empty FAC/CEMAE registry accepts prospective exposure histories and adjudicated follow-up. [Database, findings and reproduction](docs/chamber-benchmark.md)
+
 **Chamber research outcomes** evaluates symptomatic DCS, any VGE and Grade IV VGE from one pressure and oxygen history. It also compares an eligible scenario with a group DCS model fitted to 124 cases in 885 evaluable chamber exposures and a Grade IV VGE model fitted to monitored onset intervals. The browser and both repositories' Python services use the same reviewed coefficients and data digests. [Run a worked example and read the study results](docs/hypobaric-outcomes.md)
 
 **Aviation pressure history** accepts starting pressure, preoxygenation, changes of breathing gas, activity, ascent, time at altitude and return. The backend derives tissue nitrogen at arrival and checks the protocol, population and outcome window before displaying a published reference probability. The clinical outcome field for complete short aviation profiles is unavailable. [API, examples and migration](docs/aviation-profile.md)

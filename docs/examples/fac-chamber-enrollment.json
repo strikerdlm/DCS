@@ -1,0 +1,18 @@
+{
+  "schema_version": "fac-chamber/1",
+  "participant_id": "SYNTHETIC-P1",
+  "exposure_id": "SYNTHETIC-E1",
+  "chamber_session_id": "SYNTHETIC-S1",
+  "protocol_id": "example-training",
+  "protocol_version": "draft-1",
+  "revision": 1,
+  "revision_reason": "Synthetic enrollment before actual history or follow-up is available",
+  "start_utc": "2026-01-01T12:00:00Z",
+  "recorded_at_utc": "2026-01-01T12:00:00Z",
+  "source_reference": "Synthetic fixture",
+  "source_version": "v1",
+  "source_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+  "extraction_method": "Synthetic example",
+  "clinical": [],
+  "doppler": []
+}

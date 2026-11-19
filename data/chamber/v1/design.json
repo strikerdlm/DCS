@@ -1,0 +1,26 @@
+{
+  "release": "chamber-observations/1.0",
+  "source_retrieval_date": "2026-11-19",
+  "repository_baseline": "93eab8ae728d2d18e9a3de0a196bff264d1f1b08",
+  "baseline_tree": "f7dec4cb5a004c846ea2322e923a0ae6e472d507",
+  "development": "Only NASA Table F1 groups admitted by the frozen 2–6 hour and ambulation concordance rules. Hold out connected protocol families sharing identical joint covariates.",
+  "group_baseline": "Exchangeable family event rates with a beta prior and grouped binomial likelihood. Estimate the two hyperparameters by marginal likelihood within each training fold. Predict an unseen protocol family using the fitted population mean. Compare with pooled training incidence.",
+  "activity_challenger": "Separate four-hour AFRL study. Hold out all groups at each nominal pressure, keeping the 281 and 282 mmHg versions of 25000 ft together. Compare grouped ridge logistic models with pressure, prebreathe including ascent, source sex and gas-mixture indicator, then add only retrospectively assigned task VO2. Standardize on training denominators, ridge penalty 1 on slopes. Cross-test participant linkage unavailable.",
+  "external_model": "nasa-chamber-dcs-group-v1",
+  "external_estimand": "Symptomatic DCS at the frozen NASA group model's supported joint duration, pressure, mean TR360 and ambulation in the source-compatible population and ascertainment window.",
+  "external_rule": "A population, endpoint, time origin/window, or denominator mismatch, or missing source covariates, withholds expected counts and probability-based metrics. Do not select or recalibrate on external outcomes. No post-exposure VGE predictor.",
+  "recalibration_cohort": null,
+  "survival_dcs": "Requires individual clinical onset or censoring and compatible linkage. hdsd is Grade IV VGE only.",
+  "external_columns": ["source_id", "stratum", "population_scope", "window_code", "single_protocol", "body_pressure_psia", "mean_tr360", "ambulatory"],
+  "external": [
+    ["rice03", "I-Total-all", "aviation_training", "during_or_48h_after", false, null, null, null],
+    ["cheok21", "before", "aviation_training", "posttraining_symptom_reporting", true, null, null, null],
+    ["cheok21", "after", "aviation_training", "posttraining_symptom_reporting", true, null, null, null],
+    ["smart04", "all", "aviation_training", "retrospective_variable", false, null, null, null],
+    ["benari26", "chamber", "aviation_training", "retrospective_variable", true, null, null, null]
+  ],
+  "frozen_models": {
+    "tinydcs/studies/nasa-chamber-dcs-v1.json": "27ed89287df63a8069282fd0528597136e95a6c98d642093af2916c669398ef3",
+    "tinydcs/studies/grade-iv-vge-v1.json": "311861bb1c66211e432940db6b52b4ace9ca75d5260df6e3bfac22f3fe8c5ca2"
+  }
+}

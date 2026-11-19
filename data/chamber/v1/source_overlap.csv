@@ -1,0 +1,14 @@
+source_a,source_b,relationship,evidence
+nasa19,nasa20,same_tests,Same 49 NASA experiments. Reconcile endpoint version and evaluability separately.
+nasa08,nasa19,overlapping_series,Shared historical NASA tests from the 1982–1998 snapshot. Individual links unavailable.
+nasa19,gerth18,named_protocols,35 named NASA protocol entries in Appendix E. Per-protocol crosswalk preserves differing PRP IV counts.
+nasa08,gerth18,overlapping_series,A1309 includes historical JSC protocols.
+nasa19,hdsd,possible,Historic hypobaric research. Released hdsd IDs cannot be linked to F1.
+afrl13,gerth18,possible,Both draw on USAF source experiments. Participant-level identity and study equivalence are incomplete.
+afrl13,pilmanis10,possible,Brooks historical control data and repeat volunteers. No crosswalk of original records.
+gerth18,pilmanis10,possible,Historical USAF controls and shared family of protocols.
+afrl13,webb10,shared_workload_reference,Table I assigns activity estimates derived from Webb's task reconstructions.
+afrl13,webb16,possible,The 2016 comparisons include earlier Brooks chamber exposures.
+webb10,webb16,shared_measurements,The 2016 table reuses 2010 workload data in historical comparisons.
+webb10,webb24,derived,Preprint Table II cites the workload study.
+webb16,webb24,derived,Preprint Table II cites the nonambulatory and earlier activity profiles.

@@ -1,0 +1,23 @@
+source_id,locator,quantity,value,unit,interpretation
+nasa08,Poster abstract,total_exposures,548,exposures,31 tests
+nasa08,Poster abstract,participants,237,people,Alternate value printed in poster body
+nasa08,Poster body,participants,238,people,Unresolved discrepancy with abstract
+nasa08,Poster abstract,dcs_cases,84,cases,Historical clinical events
+nasa08,Poster abstract,vge_detections,226,detections,Monitoring denominator unspecified
+nasa20,Table 1,participants,577,people,Repeat volunteers
+nasa20,Table 3,exposed,1031,exposures,DCS source nominal exposure count
+nasa20,Table 3,dcs_cases,125,cases,Same experiments as F1
+nasa20,Table 3,vge_monitored,903,exposures,42 tests with Doppler monitoring
+nasa20,Table 3,any_vge,368,detections,2020 analysis version
+nasa20,Table 3,grade_iv_vge,166,detections,2020 analysis version
+gerth18,Table 2,exposures,2598,exposures,Full training collection
+gerth18,Table 2,dcs_positive,862,cases,Positive outcomes excl. three marginal outcomes
+gerth18,Table 2,dcs_marginal,3,marginal observations,Each contributes 0.1 to the likelihood coding
+gerth18,Appendix E total,listed_exposures,2594,exposures,Excludes four unassigned man-flights
+gerth18,Appendix E total,weighted_dcs,858.3,weighted events,Keep distinct from binary outcomes
+gerth18,Appendix E footnote,unlisted_dcs_positive,4,cases,"88073, 91097, 93022, 93033. All four excluded from Appendix E"
+benari26,Results p. 353,training_sessions,272,sessions,Separate from the 2279 denominator
+webb16,Table I and Results,nonambulatory_exposures,20,exposures,Current 4-hour group only
+webb16,Table I and Results,nonambulatory_dcs,0,cases,Explicit observed zero
+webb16,Table I and Results,nonambulatory_vge,0,detections,Explicit observed zero
+bip24,Case review,late_break,3,"minutes, approximate",Case-based context only
