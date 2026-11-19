@@ -1,0 +1,9 @@
+source_id,related_source,relationship,evidence
+olaya25,olaya25:annual-and-PSI,same_cohort,"The annual rows, overall rate and PSI subclass margins describe the same 10,280 person-exposures."
+eiken23,"anell21_excursion, anell21_hyperoxic",unresolved,Linked Swedish research group with materially different protocols. A participant crosswalk was unavailable.
+anell21_hyperoxic,"anell21_excursion, anell19",unresolved,"Same Swedish research group, distinct reported protocols. Verify participant cross-publication reuse before joint inference."
+pilmanis02,"afrl13, nedu18, pilmanis10",unresolved,Same USAF research program. The tested sequences are distinct from the published air-break experiments. Participant or historical control linkage is unavailable.
+connolly10,intake-2026-11-19/connolly10,same_cohort,The 5/20 total duplicates the prior intake. The paired arms resolve this total into constituent groups.
+connolly26,intake-2026-11-19/connolly23,unresolved,"Same research group. Abstract reports different timing, protocol and sample size. Participant identifiers unavailable."
+davenport97,v1/rice03,suspected_overlap,"1993–1994 NAOMI Pensacola falls within Rice's 1993 to April 2002 surveillance period, with confirmed case criteria and observation windows requiring reconciliation before any pooling."
+degroot03,malconian87,same_cohort,DeGroot explicitly attributes the 28 excluded DCS cases to the Everest II ALTITUDE DCS report.

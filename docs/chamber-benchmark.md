@@ -2,6 +2,14 @@
 
 [Public source search update and ADRAC validation crosswalk, 19 November 2026](chamber-source-search-2026-11-19.md)
 
+[Release 1.1 Zotero supplement and build instructions](chamber-zotero-supplement.md)
+
+[Release 1.2 public web sources and build instructions](chamber-web-supplement.md)
+
+[Release 1.3 literature supplement and build instructions](chamber-literature-supplement.md)
+
+[Release 1.4 chamber cohorts and prior pressure exposure](chamber-cohort-supplement.md)
+
 The SQLite database contains 16 source records, the observed NASA and AFRL protocol groups, the NEDU compilation, published aviation training counts and the public Grade IV VGE onset intervals. The external benchmark reserves four operational cohorts. Their observed outcomes can be queried today. All five primary strata fall outside the estimand of the frozen NASA group model, so expected events and external calibration are unavailable. The baseline is the repository tree at `93eab8ae728d2d18e9a3de0a196bff264d1f1b08`. [Source inventory](../data/chamber/v1/sources.csv) · [Frozen study design](../data/chamber/v1/design.json) · [Cohort overlap](../data/chamber/v1/source_overlap.csv)
 
 ## Build and query

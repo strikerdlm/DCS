@@ -1,0 +1,104 @@
+source_id,stratum,period,endpoint,analysis_role,cases,denominator,denominator_unit,reported_rate,rate_unit,nominal_altitude_ft,nominal_prebreathe_min,onset_window,locator,note
+ercan20,trainees_male,2011-01-01 to 2018-10-01,dcs,descriptive_stratum,6,6578,exposures,0.09,percent,25000,30,During or after training; standardized follow-up horizon unstated,Methods pp. 204–205; Results and Table 1 p. 206,
+ercan20,trainees_female,2011-01-01 to 2018-10-01,dcs,descriptive_stratum,0,79,exposures,,,25000,30,During or after training; standardized follow-up horizon unstated,Methods pp. 204–205; Results and Table 1 p. 206,
+ercan20,inside_observer,2011-01-01 to 2018-10-01,dcs,descriptive_stratum,2,615,exposures,0.33,percent,25000,30,During or after training; standardized follow-up horizon unstated,Methods pp. 204–205; Results and Table 1 p. 206,Ten observers staffed 615 sessions. Five trainee records were excluded for missing demographics.
+ercan20,trainees_all,2011-01-01 to 2018-10-01,dcs,overlapping_margin,6,6657,exposures,0.09,percent,25000,30,During or after training; standardized follow-up horizon unstated,Methods pp. 204–205; Results and Table 1 p. 206,
+ercan20,male_trainees_and_observers,2011-01-01 to 2018-10-01,dcs,overlapping_margin,8,7193,exposures,0.11,percent,25000,30,During or after training; standardized follow-up horizon unstated,Methods pp. 204–205; Results and Table 1 p. 206,
+piwinski86,student_25000_ft,1980-01 to 1985-03,dcs,descriptive_stratum,7,10754,exposures,0.65,per_1000,25000,,,Methods p. 1098; Table I p. 1099,Standard training profiles. HALO cases and exposure profiles excluded.
+piwinski86,technician_25000_ft,1980-01 to 1985-03,dcs,descriptive_stratum,5,1654,exposures,3.02,per_1000,25000,,,Methods p. 1098; Table I p. 1099,Standard training profiles. HALO cases and exposure profiles excluded.
+piwinski86,student_35000_ft,1980-01 to 1985-03,dcs,descriptive_stratum,1,1200,exposures,0.83,per_1000,35000,,,Methods p. 1098; Table I p. 1099,Standard training profiles. HALO cases and exposure profiles excluded.
+piwinski86,technician_35000_ft,1980-01 to 1985-03,dcs,descriptive_stratum,4,180,exposures,22.2,per_1000,35000,,,Methods p. 1098; Table I p. 1099,Standard training profiles. HALO cases and exposure profiles excluded.
+piwinski86,student_13106_m,1980-01 to 1985-03,dcs,descriptive_stratum,0,642,exposures,,,,,,Methods p. 1098; Table I p. 1099,"Standard training profiles. HALO cases and exposure profiles excluded. Table I prints 13,106 m. Methods pairs that value with 45,000 ft, so nominal altitude in feet is withheld."
+piwinski86,technician_13106_m,1980-01 to 1985-03,dcs,descriptive_stratum,3,115,exposures,26.1,per_1000,,,,Methods p. 1098; Table I p. 1099,"Standard training profiles. HALO cases and exposure profiles excluded. Table I prints 13,106 m. Methods pairs that value with 45,000 ft, so nominal altitude in feet is withheld."
+piwinski86,all_table_i,1980-01 to 1985-03,dcs,overlapping_margin,20,14545,exposures,1.38,per_1000,,,,Table I p. 1099,"Table I tallies by role and altitude reconcile to this total. Table II prints a discrepant 25,000-ft non-event count."
+piwinski86,rapid_decompression_yes,1980-01 to 1985-03,dcs,overlapping_margin,2,2427,exposures,0.82,per_1000,25000,,,Table VI p. 1100,"Denominator is the sum of the printed yes and no DCS counts. Same 25,000-ft exposures as Table I."
+piwinski86,rapid_decompression_no,1980-01 to 1985-03,dcs,overlapping_margin,10,9981,exposures,1.00,per_1000,25000,,,Table VI p. 1100,"Denominator is the sum of the printed yes and no DCS counts. Same 25,000-ft exposures as Table I."
+morgagni10,clinical_selection,2003–2009,dcs,descriptive_stratum,1,918,evaluable_trainees,0.1,percent,,,,Results and Tables I–II p. 875,"The only DCS case was Type I at 40,000 ft during ascent. The abstract uses pre-screen enrollment counts. The table uses subjects actually exposed."
+morgagni10,control,2003–2009,dcs,descriptive_stratum,0,323,evaluable_trainees,0.0,percent,,,,Results and Tables I–II p. 875,"The only DCS case was Type I at 40,000 ft during ascent. The abstract uses pre-screen enrollment counts. The table uses subjects actually exposed."
+morgagni10,all_evaluable_trainees,2003–2009,dcs,overlapping_margin,1,1241,evaluable_trainees,0.08,percent,,,,Results and Tables I–II p. 875,"The only DCS case was Type I at 40,000 ft during ascent. The abstract uses pre-screen enrollment counts. The table uses subjects actually exposed."
+morgagni10,type_2a_before_altitude_limit,2003–2009,dcs,overlapping_margin,0,3,evaluable_trainees,,,,,,Results and Tables I–II p. 875,"The only DCS case was Type I at 40,000 ft during ascent. The abstract uses pre-screen enrollment counts. The table uses subjects actually exposed."
+morgagni10,type_2a_after_altitude_limit,2003–2009,dcs,overlapping_margin,1,8,evaluable_trainees,,,,,,Results and Tables I–II p. 875,"The only DCS case was Type I at 40,000 ft during ascent. The abstract uses pre-screen enrollment counts. The table uses subjects actually exposed."
+brandt09,flights_per_month_0,2000-10 to 2004-08,dcs,observer_months,0,214,observer_months,,,,,,Table II p. 572 (including zero-load footnote),Repeated inside observer months. Source omitted zero-flight months from regression.
+brandt09,flights_per_month_1,2000-10 to 2004-08,dcs,observer_months,1,269,observer_months,0.4,percent,,,,Table II p. 572 (including zero-load footnote),Repeated inside observer months.
+brandt09,flights_per_month_2,2000-10 to 2004-08,dcs,observer_months,2,165,observer_months,1.2,percent,,,,Table II p. 572 (including zero-load footnote),Repeated inside observer months.
+brandt09,flights_per_month_3,2000-10 to 2004-08,dcs,observer_months,0,108,observer_months,,,,,,Table II p. 572 (including zero-load footnote),Repeated inside observer months.
+brandt09,flights_per_month_4,2000-10 to 2004-08,dcs,observer_months,1,38,observer_months,2.6,percent,,,,Table II p. 572 (including zero-load footnote),Repeated inside observer months.
+brandt09,flights_per_month_5,2000-10 to 2004-08,dcs,observer_months,2,13,observer_months,15.4,percent,,,,Table II p. 572 (including zero-load footnote),Repeated inside observer months.
+brandt09,flights_per_month_gt_5,2000-10 to 2004-08,dcs,observer_months,0,3,observer_months,,,,,,Table II p. 572 (including zero-load footnote),Repeated inside observer months.
+bason91,trainees,1981-10-01 to 1988-09-30,dcs,descriptive_stratum,78,111674,exposures,0.07,percent,,,"At altitude or reported after return. Observation at site required for at least one hour after 25,000-ft exposure.",Results p. 1181,
+bason91,observers,1981-10-01 to 1988-09-30,dcs,descriptive_stratum,62,25022,exposures,0.25,percent,,,"At altitude or reported after return. Observation at site required for at least one hour after 25,000-ft exposure.",Results p. 1181,
+bason91,at_altitude,1981-10-01 to 1988-09-30,dcs,case_timing,65,140,dcs_cases,,,,,at_altitude,Methods and Results p. 1181,
+bason91,post_return,1981-10-01 to 1988-09-30,dcs,case_timing,75,140,dcs_cases,,,,,post_return,Methods and Results p. 1181,
+bason91,post_return_bin_01,1981-10-01 to 1988-09-30,dcs,case_timing,34,75,dcs_cases,,,,,<0.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_02,1981-10-01 to 1988-09-30,dcs,case_timing,12,75,dcs_cases,,,,,0.5–1.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_03,1981-10-01 to 1988-09-30,dcs,case_timing,2,75,dcs_cases,,,,,1.1–1.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_04,1981-10-01 to 1988-09-30,dcs,case_timing,2,75,dcs_cases,,,,,1.6–2.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_05,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,2.1–2.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_06,1981-10-01 to 1988-09-30,dcs,case_timing,5,75,dcs_cases,,,,,2.6–3.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_07,1981-10-01 to 1988-09-30,dcs,case_timing,2,75,dcs_cases,,,,,3.1–3.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_08,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,3.6–4.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_09,1981-10-01 to 1988-09-30,dcs,case_timing,2,75,dcs_cases,,,,,4.1–4.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_10,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,4.6–5.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_11,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,5.1–5.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_12,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,5.6–6.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_13,1981-10-01 to 1988-09-30,dcs,case_timing,2,75,dcs_cases,,,,,7.1–7.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_14,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,7.6–8.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_15,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,10.1–10.5 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_16,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,16.6–17.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_17,1981-10-01 to 1988-09-30,dcs,case_timing,1,75,dcs_cases,,,,,17.6–18.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_18,1981-10-01 to 1988-09-30,dcs,case_timing,2,75,dcs_cases,,,,,19.6–20.0 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,post_return_bin_19,1981-10-01 to 1988-09-30,dcs,case_timing,3,75,dcs_cases,,,,,>20 hours from return,Table III p. 1182,Among the 75 cases first noticed at ground level.
+bason91,reprint_1959_trainee,1959–1968,dcs,historical_reprint,266,252564,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+bason91,reprint_1959_observer,1959–1968,dcs,historical_reprint,35,60000,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+bason91,reprint_1972_trainee,1972–1975,dcs,historical_reprint,22,73561,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+bason91,reprint_1972_observer,1972–1975,dcs,historical_reprint,57,14959,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+bason91,reprint_1976_trainee,1976–1977,dcs,historical_reprint,10,31645,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+bason91,reprint_1976_observer,1976–1977,dcs,historical_reprint,20,6470,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+bason91,reprint_1978_trainee,1978-10 to 1981-09,dcs,historical_reprint,39,47380,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+bason91,reprint_1978_observer,1978-10 to 1981-09,dcs,historical_reprint,48,10020,exposures,,,,,,Table IV p. 1183,Earlier Navy cohort reprinted in Bason 1991 and also referenced in later summaries. Check overlap before aggregation.
+ohrui02,fiscal_1960,1960–1975,joint_pain_type_i_dcs,rate_only,,15236,exposures,0.04,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1976,1976–1985,joint_pain_type_i_dcs,rate_only,,17142,exposures,0.04,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1986,1986,joint_pain_type_i_dcs,rate_only,,1959,exposures,0.10,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1987,1987,joint_pain_type_i_dcs,rate_only,,2072,exposures,0.10,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1988,1988,joint_pain_type_i_dcs,rate_only,,1979,exposures,0,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1989,1989,joint_pain_type_i_dcs,rate_only,,1876,exposures,0.11,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1990,1990,joint_pain_type_i_dcs,rate_only,,1650,exposures,0.06,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1991,1991,joint_pain_type_i_dcs,rate_only,,1935,exposures,0.05,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1992,1992,joint_pain_type_i_dcs,rate_only,,1964,exposures,0.25,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1993,1993,joint_pain_type_i_dcs,rate_only,,1996,exposures,0.05,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1994,1994,joint_pain_type_i_dcs,rate_only,,1956,exposures,0,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1995,1995,joint_pain_type_i_dcs,rate_only,,1996,exposures,0.05,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1996,1996,joint_pain_type_i_dcs,rate_only,,2175,exposures,0.05,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1997,1997,joint_pain_type_i_dcs,rate_only,,2245,exposures,0.04,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,fiscal_1998,1998,joint_pain_type_i_dcs,rate_only,,2273,exposures,0,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+ohrui02,all,1960–1998,joint_pain_type_i_dcs,rate_only,,58454,exposures,0.05,percent,,,,Results and Table I p. 396,Published rate. Exact event counts unavailable.
+nakdimon22,all,2015–2019,dcs,overlap_hold,,1627,individuals_as_reported,0.55,percent,25000,,,Results and Table I p. 813,Nested calendar window within Ben-Ari 2026 at the same Israeli center. Unique-person versus exposure denominator unresolved.
+nakdimon22,trainees,2015–2019,dcs,overlap_hold,,1263,individuals_as_reported,0.55,percent,25000,,,Results and Table I p. 813,Nested calendar window within Ben-Ari 2026 at the same Israeli center. Unique-person versus exposure denominator unresolved.
+nakdimon22,physiology_instructors,2015–2019,dcs,overlap_hold,,364,individuals_as_reported,0.55,percent,25000,,,Results and Table I p. 813,Nested calendar window within Ben-Ari 2026 at the same Israeli center. Unique-person versus exposure denominator unresolved.
+conkin96,dcs_at_plateau,approximately 1975–1990,dcs,overlap_hold,211,1075,exposures,,,,,From arrival at test pressure to first report or end of test,Abstract and Data and Isoprobability Isopleths pp. 176–177,66 NASA and USAF studies reused for model development. Male exposures only. Record linkage unavailable.
+conkin96,any_vge,approximately 1975–1990,any_vge,overlap_hold,405,1026,vge_monitored_exposures,,,,,,Fig. 1 and text p. 177,Distinct monitored-exposure denominator in the same studies.
+crowell83,trenton_1977,1977,dcs,overlap_hold,2,1250,exposures,0.16,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,trenton_1978,1978,dcs,overlap_hold,1,1355,exposures,0.07,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,trenton_1979,1979,dcs,overlap_hold,2,1461,exposures,0.14,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,trenton_1980,1980,dcs,overlap_hold,3,1515,exposures,0.10,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,trenton_1981,1981,dcs,overlap_hold,2,1433,exposures,0.10,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,toronto_1977,1977,dcs,overlap_hold,1,638,exposures,0.16,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,toronto_1978,1978,dcs,overlap_hold,1,692,exposures,0.14,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,toronto_1979,1979,dcs,overlap_hold,1,680,exposures,0.14,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,toronto_1980,1980,dcs,overlap_hold,3,748,exposures,0.40,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,toronto_1981,1981,dcs,overlap_hold,1,724,exposures,0.14,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,winnipeg_edmonton_1977,1977,dcs,overlap_hold,1,1372,exposures,0.07,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,winnipeg_edmonton_1978,1978,dcs,overlap_hold,2,1615,exposures,0.12,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,winnipeg_edmonton_1979,1979,dcs,overlap_hold,10,1626,exposures,0.62,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,winnipeg_edmonton_1980,1980,dcs,overlap_hold,21,1749,exposures,1.20,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,winnipeg_edmonton_1981,1981,dcs,overlap_hold,15,1326,exposures,1.13,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,lahr_1977,1977,dcs,overlap_hold,1,318,exposures,0.31,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,lahr_1978,1978,dcs,overlap_hold,0,309,exposures,0.0,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,lahr_1979,1979,dcs,overlap_hold,1,382,exposures,0.26,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,lahr_1980,1980,dcs,overlap_hold,1,298,exposures,0.34,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,lahr_1981,1981,dcs,overlap_hold,0,82,exposures,0.00,percent,,,,Table II p. 1035,As printed. Site-year and narrative denominators disagree. Do not pool the versions.
+crowell83,results_trenton,1977–1981,dcs,overlap_hold,10,7024,exposures,,,,,,Results p. 1035,"Narrative denominator. The 20 Table II cells sum to 19,573 exposures with the same 69 events."
+crowell83,results_toronto,1977–1981,dcs,overlap_hold,7,3482,exposures,,,,,,Results p. 1035,"Narrative denominator. The 20 Table II cells sum to 19,573 exposures with the same 69 events."
+crowell83,results_winnipeg_edmonton,1977–1981,dcs,overlap_hold,49,9528,exposures,,,,,,Results p. 1035,"Narrative denominator. The 20 Table II cells sum to 19,573 exposures with the same 69 events."
+crowell83,results_lahr,1977–1981,dcs,overlap_hold,3,1389,exposures,,,,,,Results p. 1035,"Narrative denominator. The 20 Table II cells sum to 19,573 exposures with the same 69 events."
+crowell83,results_all,1977–1981,dcs,overlap_hold,69,21423,exposures,,,,,,Results p. 1035,"Narrative denominator. The 20 Table II cells sum to 19,573 exposures with the same 69 events."

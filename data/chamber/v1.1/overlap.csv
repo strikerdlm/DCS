@@ -1,0 +1,14 @@
+source_id,related_source,relationship,evidence
+ercan20,intake:ercan20,same_cohort,Full text supersedes abstract-only denominator interpretation.
+ercan20,intake:ata21,possible,Same Eskişehir center. Match actual dates and session IDs before pooling.
+piwinski86,intake:piwinski86,same_cohort,Primary Table I confirms the previously staged student strata and adds technicians.
+piwinski86,Piwinski et al. PMID 3718386,same_institution,The reported HALO cluster prompted the review. Standard-flight Table I excludes HALO.
+bason91,intake:bason91,same_cohort,Primary paper confirms the previously staged Navy exposure counts.
+bason91,intake:bason76,historical_reprint,Table IV repeats the 1972–1975 cohort.
+bason91,v1:rice03,shared_historical_tables,Older Navy strata also occur in later comparison tables.
+ohrui02,intake:ohrui02,same_cohort,Full text confirms the rate and supplies fiscal-period denominators.
+nakdimon22,v1:benari26,likely_nested,Same center and nested 2015–2019 years. Exposure linkage unavailable.
+conkin96,v1:nasa19,possible,NASA chamber research dates overlap and no participant crosswalk is public.
+conkin96,v1:gerth18,possible,Both draw on older NASA and USAF chamber experiments.
+conkin96,v1:afrl13,possible,Historical USAF research reuse cannot be resolved at the publication level.
+crowell83,intake:crowell83,same_cohort_different_denominators,"Site-year table yields 19,573 exposures. The paper's narrative gives 21,423 and the same 69 cases."

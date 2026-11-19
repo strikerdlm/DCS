@@ -15,6 +15,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "chamber" / "v1"
 DEFAULT_OUTPUT = ROOT / "artifacts" / "chamber-v1" / "observed.sqlite"
+ZOTERO_DATA = ROOT / "data" / "chamber" / "v1.1"
+ZOTERO_OUTPUT = ROOT / "artifacts" / "chamber-v1.1" / "observed.sqlite"
+WEB_DATA = ROOT / "data" / "chamber" / "v1.2"
+WEB_OUTPUT = ROOT / "artifacts" / "chamber-v1.2" / "observed.sqlite"
+LITERATURE_DATA = ROOT / "data" / "chamber" / "v1.3"
+LITERATURE_OUTPUT = ROOT / "artifacts" / "chamber-v1.3" / "observed.sqlite"
+COHORT_DATA = ROOT / "data" / "chamber" / "v1.4"
+COHORT_OUTPUT = ROOT / "artifacts" / "chamber-v1.4" / "observed.sqlite"
 
 # Names are internal constants. Values from the publications are always SQL parameters.
 TABLE_FILES = {
@@ -47,13 +55,13 @@ def sha256(path: Path) -> str:
         return digest.hexdigest()
 
 
-def read_csv(name):
-    with (DATA / name).open(encoding="utf-8", newline="") as stream:
+def read_csv(name, *, directory=DATA):
+    with (directory / name).open(encoding="utf-8", newline="") as stream:
         yield from csv.DictReader(stream)
 
 
-def load_table(db, table, filename):
-    records = read_csv(filename)
+def load_table(db, table, filename, *, directory=DATA):
+    records = read_csv(filename, directory=directory)
     first = next(records)
     columns = list(first)
     if columns != [r[1] for r in db.execute(f"PRAGMA table_info({table})")][: len(columns)]:
@@ -235,13 +243,58 @@ def publish(path, output, *, allow_identical=True):
             raise FileExistsError(f"A file exists at {output}. Choose a new path.") from None
 
 
-def build(output):
+def load_supplement(db, directory, prefix, *, extra_tables=None):
+    tables = {
+        f"{prefix}_source": "sources.csv",
+        f"{prefix}_observation": "observations.csv",
+        f"{prefix}_overlap": "overlap.csv",
+        **(extra_tables or {}),
+    }
+    manifest = json.loads((directory / "manifest.json").read_bytes())
+    if set(manifest) != {"schema.sql", *tables.values()}:
+        raise ValueError(f"Unexpected {prefix} supplement manifest entries")
+    for name, expected in manifest.items():
+        if sha256(directory / name) != expected:
+            raise ValueError(f"{prefix} supplement input digest mismatch: {name}")
+    db.executescript((directory / "schema.sql").read_text(encoding="utf-8"))
+    for table, filename in tables.items():
+        load_table(db, table, filename, directory=directory)
+    relative_directory = directory.relative_to(ROOT).as_posix()
+    db.executemany(
+        "INSERT INTO frozen_input VALUES (?,?)",
+        [(f"{relative_directory}/{name}", digest) for name, digest in sorted(manifest.items())],
+    )
+    verify(db)
+    db.commit()
+
+
+def build(
+    output,
+    *,
+    zotero_supplement=False,
+    web_supplement=False,
+    literature_supplement=False,
+    cohort_supplement=False,
+):
+    include_literature = literature_supplement or cohort_supplement
+    include_web = web_supplement or include_literature
+    include_zotero = zotero_supplement or include_web
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=output.parent) as folder:
         path = Path(folder) / "build.sqlite"
         db = sqlite3.connect(path)
         try:
             populate(db)
+            if include_zotero:
+                load_supplement(db, ZOTERO_DATA, "zotero")
+            if include_web:
+                load_supplement(db, WEB_DATA, "web")
+            if include_literature:
+                load_supplement(
+                    db, LITERATURE_DATA, "literature", extra_tables={"literature_case": "cases.csv"}
+                )
+            if cohort_supplement:
+                load_supplement(db, COHORT_DATA, "cohort")
         finally:
             db.close()
         publish(path, output)
@@ -250,11 +303,49 @@ def build(output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--output", type=Path)
+    release = parser.add_mutually_exclusive_group()
+    release.add_argument(
+        "--zotero-supplement",
+        action="store_true",
+        help="Build v1.1 with the verified Zotero supplement tables.",
+    )
+    release.add_argument(
+        "--web-supplement",
+        action="store_true",
+        help="Build v1.2 with the Zotero and public web source supplements.",
+    )
+    release.add_argument(
+        "--literature-supplement",
+        action="store_true",
+        help="Build v1.3 with the additional public literature and all prior supplements.",
+    )
+    release.add_argument(
+        "--cohort-supplement",
+        action="store_true",
+        help="Build v1.4 with the expanded primary cohort tables and all prior supplements.",
+    )
     parser.add_argument(
         "--verify-cache", type=Path, help="Also verify all original local source snapshots."
     )
     args = parser.parse_args()
     if args.verify_cache:
         verify_cache(args.verify_cache)
-    print(json.dumps({"sha256": build(args.output), "database": str(args.output)}))
+    default_output = DEFAULT_OUTPUT
+    if args.zotero_supplement:
+        default_output = ZOTERO_OUTPUT
+    if args.web_supplement:
+        default_output = WEB_OUTPUT
+    if args.literature_supplement:
+        default_output = LITERATURE_OUTPUT
+    if args.cohort_supplement:
+        default_output = COHORT_OUTPUT
+    output = args.output or default_output
+    digest = build(
+        output,
+        zotero_supplement=args.zotero_supplement,
+        web_supplement=args.web_supplement,
+        literature_supplement=args.literature_supplement,
+        cohort_supplement=args.cohort_supplement,
+    )
+    print(json.dumps({"sha256": digest, "database": str(output)}))
