@@ -4,6 +4,12 @@ All notable changes to TinyDCS are documented here. Format follows [Keep a Chang
 
 ## [Unreleased]
 
+## [0.8.0] — 2026-11-19
+
+- Add versioned aviation pressure histories, a phase editor, source-specific outcomes and a downloadable calculation record.
+- Import the companion workbook experiment with its fitted preprocessing, group-calibrated interval, evaluation and input-support checks.
+- Carry evidence vetoes through subject updates and correct the NASA exercise-model equation and outcome labels.
+
 ## [0.7.0] — 2026-09-05 — Scientific accuracy corrections
 
 - Correct NASA Eq. 6 kinetics and variant coefficients, layered atmosphere, ADRAC boundaries and fitting constraints.

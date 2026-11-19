@@ -57,12 +57,12 @@ export function NASALogistic(): React.ReactElement {
             <Calculator className="h-3 w-3" /> NASA/TP-2004-213158 · Conkin et al.
           </span>
           <h2 className="display text-3xl font-bold tracking-tight mt-2">
-            Exercise Tissue Ratio logistic — single-interval prebreathe.
+            Exercise Tissue Ratio reference calculator
           </h2>
           <p className="text-muted-foreground mt-2 max-w-3xl text-[14px] leading-relaxed">
-            NM (Eq. 15) uses ETR + sex on n = 159; RM (Eq. 14) uses ETR + age on
-            n = 229. The Eq. 6 washout rate depends on VO₂ and the fitted variant.
-            The probability endpoint is for 240 min at 4.3 psia with adynamic light exercise.
+            This browser reproduction assumes 240 minutes at 4.3 psia with adynamic light exercise.
+            NM (Eq. 14) used sex and ETR in 159 exposures and counted two post-test cases.
+            RM (Eq. 15) used age and ETR in 229 exposures and counted symptoms during exposure.
           </p>
         </div>
       </section>
@@ -85,8 +85,8 @@ export function NASALogistic(): React.ReactElement {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="NM">NM · Eq. 15 · ETR + sex</SelectItem>
-                  <SelectItem value="RM">RM · Eq. 14 · ETR + age</SelectItem>
+                  <SelectItem value="NM">NM · Eq. 14 · ETR + sex</SelectItem>
+                  <SelectItem value="RM">RM · Eq. 15 · ETR + age</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-[11.5px] text-muted-foreground">
@@ -301,7 +301,7 @@ export function NASALogistic(): React.ReactElement {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <h4 className="text-[12px] font-semibold uppercase tracking-wider text-muted-foreground">
-                    NM · Eq. 15
+                    NM · Eq. 14
                   </h4>
                   <pre className="text-num text-[12px] bg-muted/50 dark:bg-muted/30 p-4 rounded-lg whitespace-pre-wrap leading-relaxed">
 {`P(DCS) = σ(z)
@@ -312,7 +312,7 @@ n = 159 exposures`}
                 </div>
                 <div className="space-y-2">
                   <h4 className="text-[12px] font-semibold uppercase tracking-wider text-muted-foreground">
-                    RM · Eq. 14
+                    RM · Eq. 15
                   </h4>
                   <pre className="text-num text-[12px] bg-muted/50 dark:bg-muted/30 p-4 rounded-lg whitespace-pre-wrap leading-relaxed">
 {`P(DCS) = σ(z)

@@ -1,6 +1,6 @@
 # TinyDCS
 
-Research software for decompression-model calculations, model-grid emulation and EVA scenario exploration. Version 0.7.0.
+Research software for aviation pressure-history calculations, model-grid emulation and EVA scenario exploration. Version 0.8.0.
 
 Not clinically validated, flight-certified, or suitable for operational clearance. Software agreement with a published equation or a model-derived grid is not evidence of accuracy in people.
 
@@ -8,10 +8,12 @@ Not clinically validated, flight-certified, or suitable for operational clearanc
 
 ## What is available
 
-The **Hypobaric DCS** model-explorer page and API calculate a time-specific group probability from published human chamber regressions. Pressure, exposure duration and the source population determine eligibility. [Inputs, worked example and scope](docs/hypobaric-probability.md)
+**Aviation pressure history** accepts starting pressure, preoxygenation, changes of breathing gas, activity, ascent, time at altitude and return. The backend derives tissue nitrogen at arrival and checks the protocol, population and outcome window before displaying a published reference probability. The clinical outcome field for complete short aviation profiles is unavailable. [API, examples and migration](docs/aviation-profile.md)
 
 | Surface | Supported calculation | Important limit |
 |---|---|---|
+| Aviation history | Dry nitrogen trajectory, arrival and exit state, maximum tissue ratio, integrated supersaturation and applicable chamber reference equations | An identified initial state, gas history and source protocol govern each output |
+| Workbook experiment API | Fitted pipeline, calibration and evaluation from the companion ML repository, loaded by SHA-256 | Agreement with workbook labels of unverified lineage |
 | Browser ADRAC baseline | Train-only re-fit of a log-logistic model to the audited grid | Not original ADRAC coefficients, not the trained ML surrogate; no interval |
 | Python LightGBM surrogate | Eleven-feature emulation of model-valued grid targets, calibrated mixture intervals and input-support flags | Synthetic exercise augmentation; no clinical outcomes or independently measured continuous VO2 |
 | NASA RM / NM | Source Eq. 6 nitrogen kinetics and Eq. 14 / 15 reference endpoint | Four-hour, 4.3-psia oxygen, adynamic source conditions; cohort transportability unestablished |
