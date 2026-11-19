@@ -1,0 +1,19 @@
+source_id,related_source,relationship,evidence
+baumgartner92,v1.4/baumgartner92,publication_version,Original workshop scan resolves the lead-only bibliographic entry.
+baumgartner92,v1.4/rush90,likely_overlap,Same USAF era and chamber surveillance source. Rush selects treated trainees.
+baumgartner92,intake-2026-11-19/weien90,likely_overlap,USAF archives intersect in 1985–1986. Verify person or exposure identifiers.
+mcloughlin00,v1.6/harding92,partial_overlap,McLoughlin also repeats Thornton's five historical RAF cases for 1983–1987. Only the later RAF Henlow observation is extracted here.
+garbino_ea12,NTRS/20230015380,publication_version,Same named Tests 1–2 with 2/50 Type I DCS. Abstract mentions 34 kPa. Measured chamber profiles in the presentation support the 4.3 psia target.
+garbino_ea12,NASA reports on exploration-atmosphere DCS cases,likely_overlap,Named test series may be republished in clinical reports. No linkage by person was attempted.
+webb04_meep,v1/a1309_profile/USAF/MV-B,same_cohort,The historical 30-min resting-prebreathe comparison explicitly cites the ADRAC prospective validation as reference 8. The 31-exposure comparison matches the NEDU MV-B version. The new MEEP arms are separate from this reference.
+webb04_meep,v1/afrl_test,unresolved,Potential AFRL archive reuse. No confirmed mapping of new arms.
+rice05,v1/rice03,partial_overlap,Jan 1993 to Apr 2004 includes the earlier surveillance period. No subtraction-derived cohort.
+demir22,v1.1/ercan20,unresolved,Same center. The cluster report does not provide a dated exposure crosswalk to the surveillance study.
+demir22,PMC/PMC8313775,unresolved,"Same center, different documented session structure and onset pattern. No exposure linkage available."
+connolly23,intake-2026-11-19/connolly23,same_cohort,Same staged five ascent-level observations promoted to SQLite.
+connolly23,v1.2/connolly26,unresolved,"Different published protocol and calendar, same research group. Participant overlap unavailable."
+conkin17,v1/nasa_test/Nuc-1,same_cohort,"Clinical DCS 4/20. NASA F1 has 21 VGE-evaluable exposures, including the stopped left-ventricular VGE case."
+conkin17,v1/nasa_test/Nuc-3,same_cohort,Clinical DCS 2/41. Table II confirms 11/41 any VGE and 6/41 for combined Spencer grades III or IV. F1 gives 11/41 for any VGE and 4/41 for Grade IV.
+conkin17,v1/nasa_test/P II,partial_overlap,PRP-II supplies 45 selected controls from the broader 50-exposure NASA F1 group.
+kumar93,v1/nasa_test,likely_overlap,Historical 1982–1990 JSC experiments. Published marginal counts do not identify exposure-level joins.
+garbino_ea12,DOI/10.3389/fphys.2025.1637834,partial_overlap,The physiological substudy describes the first two 8.2 psi missions and corroborates the 4.3 psi simulated EVA pressure in its Methods. Immunology results are outside the DCS extraction.

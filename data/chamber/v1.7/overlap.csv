@@ -1,0 +1,17 @@
+source_id,related_source,relationship,evidence
+furry73,v1.6/furry73,same_cohort,Original primary full text resolves the prior lead.
+furry73,v1.7/bason76/Table V,same_cohort,Bason republishes both Furry strata. Only Furry Tables I–II supply this release's cohort counts.
+furry73,v1.1/bason91/Table IV,same_cohort,The earlier Navy source reproduces both 1959–1968 strata. The reconstructed observer denominator is identified in the original paper.
+bason76,intake-2026-11-19/bason76,same_cohort,Original Tables I–II verify the 1972–1975 staged cohort.
+bason76,v1.1/bason91/Table IV,same_cohort,Bason 1991 reproduces the 1972–1975 data alongside newer surveillance. Count the historic stratum once.
+balldin02,v1/afrl13,likely_overlap,Same Brooks research archive. Protocol and exposure identifiers required to establish shared records.
+balldin02,v1.7/muehlberger04,likely_overlap,Same archive and substantially nested periods. Pulmonary outcome counts and symptom resolution have different units.
+balldin02,sharepoint-2026-11-19/balldin04,likely_overlap,"Same archive, different selected clinical syndrome. Mixed pulmonary and neurological cases require linkage."
+muehlberger04,v1.5/krause00,likely_overlap,Both derive treatment observations from the Brooks research archive. Do not pool outcome-selected observations.
+ata21,intake-2026-11-19/ata21,same_cohort,Exact same outcome-selected flight from staged intake.
+ata21,v1.1/ercan20,unresolved,Same Eskişehir training center. Flight date and exposure identifiers are needed to assess surveillance overlap.
+ata21,v1.6/demir22,unresolved,Same center; differing session structure and timing. Case report submitted in 2019 and lacks exposure linkage.
+kumar93,v1.6/kumar93,same_cohort,"Exact same historical NASA paper, formerly represented as an overlap pointer."
+kumar93,v1/nasa_test,likely_overlap,NASA JSC 1982–1990. No exposure identifiers available in the publication abstract.
+kumar93,v1.3/nasa03,likely_overlap,NASA case narrative series begins in 1982. Cross-cohort linkage needed before counting.
+olaya25,v1.2/olaya25,same_cohort,Already-curated primary Colombian chapter. No new observations extracted in this search.

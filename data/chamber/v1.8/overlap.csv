@@ -1,0 +1,8 @@
+source_id,related_source,relationship,evidence
+maio69,v1.8/maio70,partial_overlap,"Tables I identify several matching participant codes and anthropometrics. The 1970 study used new measured-rowing exposures and also cites the older study's results, which are omitted from that source's extraction."
+maio69,NASA/TP-2001-210196/Appendix C/ref 45,same_cohort,Conkin's legacy severe-outcome compilation cites Maio 1969 as reference 45. The broader source-reported bends count has a different endpoint. Do not pool underlying flights.
+maio70,NASA/TP-2001-210196/Appendix C/ref 46,same_cohort,Conkin's legacy severe-outcome compilation cites the 1970 follow-up. Preserve the different outcome definitions and the original flight counts.
+beard67,v1.8/doebbler70,same_cohort,The 1970 contractor report references Beard's human flights in its introduction. Its new experiments involve animals.
+maio69,v1.8/doebbler70,same_cohort,The contractor report cites the historical human results. Only the original human study supplies these rows.
+skinner89,v1/smart04,likely_overlap,The Point Cook case period overlaps the ADF surveillance series beginning in 1984. The early cases are crosswalk evidence.
+kumar89_ascent,NASA/TP-2001-210196/Appendix C,likely_overlap,Historical synthetic analyses cite some of the same source experiments. Exposure-level mapping unavailable.

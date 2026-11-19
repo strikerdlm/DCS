@@ -1,0 +1,8 @@
+source_id,eva_key,date_label,protocol,break_type,measured_or_reported_seconds,assumed_break_seconds,payback_seconds,time_to_depress_min,time_to_depress_qualifier,locator,note
+LQ5EXNSS,INC-14 EVA 8,2007/039:10:00,Campout,Mask,90,,240,,Reported as long before depress,Table 3 p. 30 (PDF 32),Prebreathe mask equipment interruption.
+LQ5EXNSS,STS-124 EVA 1,2008/155:14:23,Campout,Helmet removed,185,,370,48,,Table 3 p. 30 (PDF 32),Duration column retained despite clocks not reproducing 185 seconds exactly.
+LQ5EXNSS,STS-128 EVA 2,2009/246:20:25,Campout,Helmet removed,210,,420,76,,Table 3 p. 30 (PDF 32),The adjacent Other row describes a purge issue at the same EVA. It is linked detail rather than an additional break record.
+LQ5EXNSS,STS-129 EVA 2,2009/325:02:52,Campout,Control zone,420,,,,Over ten hours; changed protocol,Table 3 p. 30 (PDF 32),Campout aborted; EVA subsequently used CEVIS.
+LQ5EXNSS,STS-129 EVA 3,2009/327:11:37,Campout,Helmet removed,360,,,71,,Table 3 p. 30 (PDF 32),Actual payback duration is unavailable in the table.
+LQ5EXNSS,INC-50 EVA 38,2017/006:10:50,ISLE,Other,13,240,480,59,approximate,Table 3 p. 30 (PDF 32),The table distinguishes the 13-second observed interval from a four-minute assumed effective interruption.
+LQ5EXNSS,INC-64 EVA 73,2021/072:11:21,ISLE,Helmet removed,360,,720,81,,Table 3 p. 30 (PDF 32),Duration and payback in source table.
