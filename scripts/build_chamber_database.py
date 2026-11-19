@@ -27,6 +27,9 @@ SHAREPOINT_DATA = ROOT / "data" / "chamber" / "sharepoint-2026-11-19"
 SHAREPOINT_OUTPUT = ROOT / "artifacts" / "chamber-deduplicated" / "observed.sqlite"
 CITATION_DATA = ROOT / "data" / "chamber" / "v1.5"
 CITATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.5" / "observed.sqlite"
+FAC_DATA = ROOT / "data" / "chamber" / "fac-official"
+FAC_OUTPUT = ROOT / "artifacts" / "chamber-fac-official" / "observed.sqlite"
+FAC_PRIVATE_OUTPUT = FAC_OUTPUT.with_name("case-records.local.sqlite")
 
 # Names are internal constants. Values from the publications are always SQL parameters.
 TABLE_FILES = {
@@ -281,8 +284,12 @@ def build(
     cohort_supplement=False,
     citation_supplement=False,
     sharepoint_supplement=False,
+    fac_official=False,
+    fac_workbooks=None,
 ):
-    include_citation = citation_supplement or sharepoint_supplement
+    include_fac = fac_official or fac_workbooks is not None
+    include_sharepoint = sharepoint_supplement or include_fac
+    include_citation = citation_supplement or include_sharepoint
     include_cohort = cohort_supplement or include_citation
     include_literature = literature_supplement or include_cohort
     include_web = web_supplement or include_literature
@@ -315,13 +322,23 @@ def build(
                         "citation_participant_cell": "participant_cells.csv",
                     },
                 )
-            if sharepoint_supplement:
+            if include_sharepoint:
                 load_supplement(
                     db,
                     SHAREPOINT_DATA,
                     "sharepoint",
                     extra_tables={"sharepoint_vge_positive_record": "vge_positive_records.csv"},
                 )
+            if include_fac:
+                load_supplement(
+                    db, FAC_DATA, "fac_official", extra_tables={"fac_official_annual": "annual.csv"}
+                )
+            if fac_workbooks is not None:
+                from scripts.fac_official import ingest_workbooks
+
+                ingest_workbooks(db, *fac_workbooks)
+                verify(db)
+                db.commit()
         finally:
             db.close()
         publish(path, output)
@@ -362,6 +379,18 @@ if __name__ == "__main__":
         action="store_true",
         help="Build the combined database with the SharePoint intake and deduplicated views.",
     )
+    release.add_argument(
+        "--fac-official",
+        action="store_true",
+        help="Build the combined database with the official Colombian aggregates.",
+    )
+    release.add_argument(
+        "--fac-workbooks",
+        type=Path,
+        nargs=2,
+        metavar=("CASE_XLS", "TRAINING_XLSX"),
+        help="Verify the official originals and include local case-level records.",
+    )
     parser.add_argument(
         "--verify-cache", type=Path, help="Also verify all original local source snapshots."
     )
@@ -381,6 +410,10 @@ if __name__ == "__main__":
         default_output = CITATION_OUTPUT
     if args.sharepoint_supplement:
         default_output = SHAREPOINT_OUTPUT
+    if args.fac_official:
+        default_output = FAC_OUTPUT
+    if args.fac_workbooks:
+        default_output = FAC_PRIVATE_OUTPUT
     output = args.output or default_output
     digest = build(
         output,
@@ -390,5 +423,7 @@ if __name__ == "__main__":
         cohort_supplement=args.cohort_supplement,
         sharepoint_supplement=args.sharepoint_supplement,
         citation_supplement=args.citation_supplement,
+        fac_official=args.fac_official,
+        fac_workbooks=args.fac_workbooks,
     )
     print(json.dumps({"sha256": digest, "database": str(output)}))
