@@ -16,7 +16,7 @@ def test_publication_register_build(tmp_path):
             "SELECT sum(registered_dcs_events) FROM fac_official_chamber_year"
         ).fetchone() == (54,)
         assert db.execute("SELECT count(*) FROM review_record WHERE run_id IS NULL").fetchone() == (
-            434,
+            993,
         )
         assert db.execute(
             "SELECT count(*) FROM review_record WHERE run_id IS NOT NULL"
@@ -31,6 +31,11 @@ def test_publication_register_build(tmp_path):
         assert len(groups) == 12
         assert ("pmid:971183", "staff", 57, 14959) in groups
         assert ("pmid:3790029", "trainee", 8, 12596) in groups
+        assert db.execute("SELECT count(*) FROM review_supplementary_role_cell").fetchone() == (6,)
+        assert db.execute("SELECT count(*) FROM review_historical_search_record").fetchone() == (
+            473,
+        )
+        assert db.execute("SELECT count(*) FROM publication_search_run").fetchone() == (72,)
         comments = db.execute(
             "SELECT left_report FROM review_report_relation "
             "WHERE right_report='pmid:33875060' AND relationship='comment_on'"

@@ -104,3 +104,48 @@ def test_legacy_release_links_preserve_distinct_reports_and_intake_strata():
     refs = "v1.5/references.csv"
     assert by_file[refs, "mahon2014:53"] == by_file[refs, "mahon2014:84"]
     assert by_file[refs, "mahon2014:8"] == by_file["v1.5/sources.csv", "bassett_survey"]
+
+
+def test_recent_source_and_historical_hit_import_preserves_archived_rows():
+    rows = list(legacy_records(ROOT))
+    assert len(rows) == len({r["record_key"] for r in rows})
+    hits = [r for r in rows if r["stream"].endswith("/search_hits.csv")]
+    assert len(hits) == 473
+    assert len({r["stream"] for r in hits}) == 5
+    by_source = {(r["stream"], r["source_key"]): r for r in rows}
+    oa = by_source["data/chamber/v1.7/search_hits.csv", "openalex_fallback:1"]
+    assert oa["raw"]["identifier"] == "W2807139063; DOI:10.5772/intechopen.74231"
+    assert oa["openalex_id"] == "W2807139063"
+    assert oa["doi"] == "10.5772/intechopen.74231"
+    assert oa["raw"]["disposition"] == "excluded"
+    assert by_source["data/chamber/v1.9/sources.csv", "krutz87"]["pmid"] == "3675514"
+
+
+def test_recent_crosswalks_and_compound_documents():
+    rows = list(legacy_records(ROOT))
+    mapping, _ = resolve(rows, {})
+    assigned = {
+        (r["stream"].removeprefix("data/chamber/"), r["source_key"]): mapping[r["record_key"]]
+        for r in rows
+    }
+
+    def report(release, source, table="sources.csv"):
+        return assigned[release + "/" + table, source]
+
+    assert report("v1.6", "kumar93") == report("v1.7", "kumar93")
+    assert report("v1.6", "harding92") != report("v1.6", "baumgartner92")
+    assert report("zotero-dcs-2026-11-19", "IWH4E7C6") == report(
+        "sharepoint-2026-11-19", "nasa04_exercise"
+    )
+    assert report("zotero-dcs-2026-11-19", "DJXIVZDZ") == report("sharepoint-2026-11-19", "asma18")
+    assert report("v1", "cheok21") != report("zotero-dcs-2026-11-19", "DJXIVZDZ")
+    assert report("rojas-2015", "rojas15_attachment") == report("sharepoint-2026-11-19", "rojas15")
+    assert report("v1.7", "tavily_general:2", "search_hits.csv") == report("v1.7", "balldin02")
+    assert report("v1.7", "public_regional:4", "search_hits.csv") != report("v1.7", "ata21")
+    assert report("v1.7", "tex17:6", "search_hits.csv") != report("v1.7", "lapostol24")
+    assert report("v1.11", "cadet_tavily_primary:4", "search_hits.csv") != report(
+        "v1.11", "motley45"
+    )
+    assert report("v1.10", "expedition_full_source_verification:5", "search_hits.csv") != report(
+        "v1.10", "molenat02_fulltext"
+    )

@@ -13,9 +13,19 @@ SOURCE_REGISTERS = (
     "v1.3",
     "v1.4",
     "v1.5",
+    "v1.6",
+    "v1.7",
+    "v1.8",
+    "v1.9",
+    "v1.10",
+    "v1.11",
     "sharepoint-2026-11-19",
     "fac-official",
+    "rojas-2015",
+    "attachments-2026-11-19",
+    "zotero-dcs-2026-11-19",
 )
+HISTORICAL_SEARCH_RELEASES = ("v1.7", "v1.8", "v1.9", "v1.10", "v1.11")
 
 
 def _only(candidates: list[str]) -> str | None:
@@ -30,9 +40,13 @@ def _record(stream: str, row: dict[str, str], key_fields: tuple[str, ...]) -> di
     if not url:
         url = row.get("europe_pmc_fulltext_url") or None
     citation = row.get("citation", "")
+    identifier = row.get("identifier", "")
     doi_values = [row.get(key, "") for key in ("doi", "crossref_doi", "openalex_doi")]
+    doi_values.extend(re.findall(r"(?:^|\bDOI\s*:\s*)(10\.\d{4,9}/\S+)", identifier, re.IGNORECASE))
     doi_values.extend(re.findall(r"\bDOI\s*:?\s*(10\.\d{4,9}/\S+)", citation, re.IGNORECASE))
     pmids = [row.get("pmid", ""), *re.findall(r"\bPMID\s*:?\s*(\d+)\b", citation, re.IGNORECASE)]
+    pmids.extend(re.findall(r"\bPMID\s*:?\s*(\d+)\b", identifier, re.IGNORECASE))
+    openalex = [row.get("openalex_id", ""), *re.findall(r"\bW[1-9]\d*\b", identifier)]
     # OA copies and secondary-table links can point to a different publication.
     if url and "indexed_oa_url" not in row and row.get("source_level") != "secondary_table":
         parts = urlsplit(url)
@@ -44,6 +58,8 @@ def _record(stream: str, row: dict[str, str], key_fields: tuple[str, ...]) -> di
             pmids.append(path)
         if parts.hostname in {"doi.org", "dx.doi.org"} and path.startswith("10."):
             doi_values.append(path)
+        if parts.hostname == "openalex.org" and re.fullmatch(r"W[1-9]\d*", path):
+            openalex.append(path)
     doi = _only([v.strip().lower().rstrip(".,") for v in doi_values])
 
     # Explicit citation years only. Study periods and numbers in local aliases
@@ -52,6 +68,9 @@ def _record(stream: str, row: dict[str, str], key_fields: tuple[str, ...]) -> di
     if not year:
         years = re.findall(r"\(((?:18|19|20)\d{2})\)", citation or row.get("edition", ""))
         years.extend(re.findall(r", ((?:18|19|20)\d{2})\.?$", row.get("printed_reference", "")))
+        years.extend(
+            re.findall(r"(?:^|[.,] )((?:18|19|20)\d{2})(?:;\d+|\.(?:$| PMID | DOI ))", citation)
+        )
         year = _only(years)
 
     title = (
@@ -69,7 +88,7 @@ def _record(stream: str, row: dict[str, str], key_fields: tuple[str, ...]) -> di
         "title": title,
         "doi": doi,
         "pmid": _only(pmids),
-        "openalex_id": row.get("openalex_id") or None,
+        "openalex_id": _only(openalex),
         "year": int(year) if year else None,
         "url": url,
         "raw": row,
@@ -84,6 +103,10 @@ def legacy_records(root: Path) -> Iterator[dict]:
     edition, locators and historical screening decisions, remain in raw.
     """
     inputs = [(f"{release}/sources.csv", ("source_id",)) for release in SOURCE_REGISTERS]
+    inputs.extend(
+        (f"{release}/search_hits.csv", ("search_id", "rank"))
+        for release in HISTORICAL_SEARCH_RELEASES
+    )
     inputs.extend(
         (
             ("v1.5/references.csv", ("citing_source_id", "ref_no")),

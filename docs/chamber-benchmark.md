@@ -12,6 +12,18 @@
 
 [Release 1.5 Mahon citation database and linked chamber outcomes](chamber-mahon-citations.md)
 
+[Release 1.6 public chamber outcome search and SQLite build](chamber-discovery-supplement.md)
+
+[Release 1.7 EBSCO UNAL workflow, public literature intake and search log](2026-11-19_ebsco_altitude-dcs.md)
+
+[Release 1.8 historical human chamber studies and cohort checks](chamber-historical-supplement.md)
+
+[Release 1.9 pressure-suit and crossover studies](chamber-protocol-supplement.md)
+
+[Release 1.10 COMEX expedition flights and historical aviation archives](chamber-expedition-supplement.md)
+
+[Release 1.11 cadet chamber protocols and published outcome rates](chamber-cadet-supplement.md)
+
 [SharePoint books and papers, linked DCS/VGE observations and denominator reconciliation](chamber-sharepoint-review.md)
 
 [Official Colombian Air Force case register, annual training activity and role counts](chamber-fac-official.md)

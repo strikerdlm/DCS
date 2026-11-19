@@ -106,6 +106,16 @@ CREATE VIEW review_run_counts AS
     SELECT q.run_id,q.provider,q.reported_total,q.retrieved,count(DISTINCT r.report_id) AS report_groups
     FROM review_retrieval q LEFT JOIN review_record r USING(run_id) GROUP BY q.run_id;
 
+CREATE VIEW review_historical_search_record AS
+    SELECT r.record_key,r.report_id,r.stream,h.search_id,h.rank,q.searched_on,q.tool,q.database,
+           q.query,q.status,h.disposition AS original_disposition
+    FROM review_record r
+    JOIN publication_search_hit h
+      ON h.search_id=json_extract(r.metadata_json,'$.search_id')
+     AND h.rank=CAST(json_extract(r.metadata_json,'$.rank') AS INTEGER)
+    JOIN publication_search_run q USING(search_id)
+    WHERE r.stream LIKE 'data/chamber/%/search_hits.csv';
+
 -- Pilot eligibility examples. Keep the published cells and their locators.
 -- Piwinski contributes three disjoint altitude strata per role.
 CREATE VIEW review_seed_role_cell AS
@@ -136,3 +146,20 @@ WITH cells(report_id, source_table, source_cell, chamber_role, cases, exposures,
     FROM cohort_observation WHERE source_id='conkin18' AND stratum IN ('students-all-profiles','inside-observers-all')
 )
 SELECT l.study_id,c.* FROM cells c JOIN review_study_report l USING(report_id) WHERE l.role='primary';
+
+CREATE VIEW review_supplementary_role_cell AS
+WITH cells(study_id,source_table,source_id,stratum,cases,exposures,denominator_basis,locator,note) AS (
+    SELECT 'usn-1959-1968','publication_observation',source_id,stratum,numerator,denominator,
+           denominator_basis,locator,note FROM publication_observation
+    WHERE source_id='furry73' AND endpoint='dcs' AND stratum IN ('trainees','inside-observers')
+    UNION ALL
+    SELECT 'usaf-1985-1987','discovery_observation',source_id,stratum,numerator,denominator,
+           'role subtotals differ from overall total',locator,note FROM discovery_observation
+    WHERE source_id='baumgartner92' AND endpoint='dcs' AND stratum IN ('students','inside-observers')
+    UNION ALL
+    SELECT 'usaf-shaw-fy2004','attachment_observation',source_id,stratum,events,denominator,
+           'source_reported',locator,note FROM attachment_observation
+    WHERE source_id='brandt09_attachment' AND endpoint='dcs' AND stratum IN ('fy04_students','fy04_observers')
+)
+SELECT c.*,l.report_id FROM cells c JOIN review_study_report l USING(study_id)
+WHERE l.role='supplementary_candidate';

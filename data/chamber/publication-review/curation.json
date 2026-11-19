@@ -7,6 +7,12 @@
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/36309795/"
     },
     {
+      "record_key": "2026-11-19-consensus#w:11701d4c-e88c-4279-afa7-3b2c157ab173",
+      "report_id": "adf:smart-cable-2004",
+      "basis": "The title, year and program years match the ADF Health article. The primary title page identifies Smart and Cable.",
+      "evidence_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+    },
+    {
       "record_key": "2026-11-19-consensus#w:11b6f9f2-b22c-4d28-81e2-cfa6eaab98a7",
       "report_id": "pmid:16173680",
       "basis": "Title, year and listed authors or source details match the primary bibliographic record.",
@@ -71,6 +77,12 @@
       "report_id": "doi:10.1097/00006534-197708000-00114",
       "basis": "Distinct 1977 record in Plastic and Reconstructive Surgery; the original article appeared in Aviation, Space, and Environmental Medicine in 1976.",
       "evidence_url": "https://doi.org/10.1097/00006534-197708000-00114"
+    },
+    {
+      "record_key": "2026-11-19-consensus#w:d4922c3a-9c98-4fd5-8d5e-313474ed3264",
+      "report_id": "openalex:W2344433097",
+      "basis": "Title, year, author and institutional repository identify Rojas’s MPH project.",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/"
     },
     {
       "record_key": "2026-11-19-epmc-seeds#11952064",
@@ -181,6 +193,12 @@
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/30352646/"
     },
     {
+      "record_key": "2026-11-19-scispace#decompression-illness-in-united-states-air-force-high-risk-2g7oep3hgz",
+      "report_id": "openalex:W2344433097",
+      "basis": "Title, year, author and institutional repository identify Rojas’s MPH project.",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/"
+    },
+    {
       "record_key": "2026-11-19-scispace#decompression-sickness-incidence-over-63-months-of-hypobaric-12o43hc7q2",
       "report_id": "pmid:3790029",
       "basis": "Title, year and listed authors or source details match the primary bibliographic record.",
@@ -233,6 +251,30 @@
       "report_id": "pmid:16173680",
       "basis": "Title, year and listed authors or source details match the primary bibliographic record.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/16173680/"
+    },
+    {
+      "record_key": "legacy:data/chamber/attachments-2026-11-19/sources.csv#brandt09_attachment",
+      "report_id": "pmid:19522370",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "legacy:data/chamber/attachments-2026-11-19/sources.csv#kluis21",
+      "report_id": "doi:10.1038/s41526-021-00175-3",
+      "basis": "Publisher article DOI and linked attachment identify the same SmartSuit simulation. Its outputs are modeled.",
+      "evidence_url": "https://doi.org/10.1038/s41526-021-00175-3"
+    },
+    {
+      "record_key": "legacy:data/chamber/attachments-2026-11-19/sources.csv#smart04_attachment",
+      "report_id": "adf:smart-cable-2004",
+      "basis": "The original article and supplied copies share the frozen PDF hash. Boxes 4 and 6 report the AVMED subset. The broader all-centre case margins have overlapping coverage.",
+      "evidence_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#ata21:selected_cluster:dcs_type_i",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "Both the intake and v1.7 identify this report by its PMC accession.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
     },
     {
       "record_key": "legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#bason76:inside_observers:dcs",
@@ -325,6 +367,12 @@
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3790029/"
     },
     {
+      "record_key": "legacy:data/chamber/rojas-2015/sources.csv#rojas15_attachment",
+      "report_id": "openalex:W2344433097",
+      "basis": "Same 2015 Wright State MPH project, title and author. The two PDF hashes differ. This matched case-control study has occupational counts and no enumerated chamber person-exposure denominator.",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/"
+    },
+    {
       "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#bason91",
       "report_id": "pmid:1755801",
       "basis": "Title or citation, author and publication details identify the same report as the MED record.",
@@ -373,6 +421,12 @@
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546299/"
     },
     {
+      "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#rojas15",
+      "report_id": "openalex:W2344433097",
+      "basis": "Same 2015 Wright State MPH project, title and author. The two PDF hashes differ. This matched case-control study has occupational counts and no enumerated chamber person-exposure denominator.",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.1/sources.csv#bason91",
       "report_id": "pmid:1755801",
       "basis": "Title or citation, author and publication details identify the same report as the MED record.",
@@ -415,16 +469,154 @@
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3790029/"
     },
     {
+      "record_key": "legacy:data/chamber/v1.10/sources.csv#molenat02_fulltext",
+      "report_id": "pmid:11796447",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11796447/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.10/sources.csv#smedal48_review",
+      "report_id": "report:ad0622158",
+      "basis": "Named 1948 report and DTIC accession AD0622158.",
+      "evidence_url": "https://apps.dtic.mil/sti/tr/pdf/AD0622158.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/sources.csv#smedal46",
+      "report_id": "pmid:21018675",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21018675/"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.2/sources.csv#davenport97",
       "report_id": "pmid:9006885",
       "basis": "Title or citation, author and publication details identify the same report as the MED record.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9006885/"
     },
     {
+      "record_key": "legacy:data/chamber/v1.2/sources.csv#olaya25",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "The DOI and Colombian chapter title match.",
+      "evidence_url": "https://doi.org/10.25062/9786287818279.12"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.3/sources.csv#molenat02",
+      "report_id": "pmid:11796447",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11796447/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.4/sources.csv#baumgartner92",
+      "report_id": "workshop:ada257612-baumgartner-weien",
+      "basis": "The earlier catalog entry and the acquired workshop chapter cite Baumgartner and Weien, USAF surveillance 1985–1987, in AL-SR-1992-0005. The parent proceedings also contain other authors and studies.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=375"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.4/sources.csv#conkin18",
       "report_id": "pmid:30352646",
       "basis": "Title or citation, author and publication details identify the same report as the MED record.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/30352646/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.4/sources.csv#mcloughlin00",
+      "report_id": "report:adp011069",
+      "basis": "Both registers identify the same RAF report in NATO RTO MP-062, paper 12, October 2000.",
+      "evidence_url": "https://citeseerx.ist.psu.edu/document?doi=42f5ea06ef915db7d858019fe6003fd0b1fda564&repid=rep1&type=pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.4/sources.csv#rush90",
+      "report_id": "pmid:2256877",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2256877/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/citers.csv#mahon2014:W2344433097",
+      "report_id": "openalex:W2344433097",
+      "basis": "OpenAlex work, title, year, and Wright State archive match the supplied study.",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#baumgartner92",
+      "report_id": "workshop:ada257612-baumgartner-weien",
+      "basis": "The earlier catalog entry and the acquired workshop chapter cite Baumgartner and Weien, USAF surveillance 1985–1987, in AL-SR-1992-0005. The parent proceedings also contain other authors and studies.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=375"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#demir22",
+      "report_id": "pmid:36243908",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/36243908/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#furry73",
+      "report_id": "pmid:4694857",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/4694857/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#harding92",
+      "report_id": "workshop:ada257612-harding",
+      "basis": "Named chapter and author in AL-SR-1992-0005, printed pp. 467–471.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=479"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#kumar93",
+      "report_id": "pmid:8280036",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8280036/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#mcloughlin00",
+      "report_id": "report:adp011069",
+      "basis": "Both registers identify the same RAF report in NATO RTO MP-062, paper 12, October 2000.",
+      "evidence_url": "https://citeseerx.ist.psu.edu/document?doi=42f5ea06ef915db7d858019fe6003fd0b1fda564&repid=rep1&type=pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#rice05",
+      "report_id": "pmid:16173680",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/16173680/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#ata21",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "DOI, authors and original article on PMC agree.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#bason76",
+      "report_id": "pmid:971183",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/971183/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#furry73",
+      "report_id": "pmid:4694857",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/4694857/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#kumar93",
+      "report_id": "pmid:8280036",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8280036/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#muehlberger04",
+      "report_id": "pmid:15198274",
+      "basis": "The cited title, authors, journal and source locator identify the publication under this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/15198274/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#olaya25",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "The DOI and Colombian chapter title match.",
+      "evidence_url": "https://doi.org/10.25062/9786287818279.12"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.8/sources.csv#skinner89",
+      "report_id": "journal:skinner-spums-1989-19-66",
+      "basis": "Author, journal, volume, issue and initial page match the Point Cook series.",
+      "evidence_url": "https://www.dhmjournal.com/images/IndividArticles/19June/Skinner_SPUMSJ.19.2.66-73.pdf"
     },
     {
       "record_key": "legacy:data/chamber/v1/sources.csv#benari26",
@@ -443,6 +635,54 @@
       "report_id": "pmid:12546299",
       "basis": "Title or citation, author and publication details identify the same report as the MED record.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546299/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1/sources.csv#smart04",
+      "report_id": "adf:smart-cable-2004",
+      "basis": "The original article and supplied copies share the frozen PDF hash. Boxes 4 and 6 report the AVMED subset. The broader all-centre case margins have overlapping coverage.",
+      "evidence_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#8GR6W4CG",
+      "report_id": "pmid:12546299",
+      "basis": "The frozen Zotero source and overlap registers cross-reference the prior article by author, title and publication details.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546299/"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#FNKSM8YJ",
+      "report_id": "pmid:1755801",
+      "basis": "The frozen Zotero source and overlap registers cross-reference the prior article by author, title and publication details.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/1755801/"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#G8XFMZ92",
+      "report_id": "pmid:19522370",
+      "basis": "The frozen Zotero source and overlap registers cross-reference the prior article by author, title and publication details.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#KEXLPNKU",
+      "report_id": "doi:10.1038/s41526-021-00175-3",
+      "basis": "Publisher article DOI and linked attachment identify the same SmartSuit simulation. Its outputs are modeled.",
+      "evidence_url": "https://doi.org/10.1038/s41526-021-00175-3"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#QHWTAB3X",
+      "report_id": "pmid:11952064",
+      "basis": "The frozen Zotero source and overlap registers cross-reference the prior article by author, title and publication details.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11952064/"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#R3ZAU4XC",
+      "report_id": "adf:smart-cable-2004",
+      "basis": "The original article and supplied copies share the frozen PDF hash. Boxes 4 and 6 report the AVMED subset. The broader all-centre case margins have overlapping coverage.",
+      "evidence_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#RVTDQAEY",
+      "report_id": "pmid:3790029",
+      "basis": "The frozen Zotero source and overlap registers cross-reference the prior article by author, title and publication details.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3790029/"
     }
   ],
   "studies": [
@@ -481,6 +721,24 @@
       "label": "Eskişehir hypobaric hypoxia training, 2011–2018",
       "period": "2011-01-01 to 2018-10-01",
       "setting": "Turkish aviation physiology training center"
+    },
+    {
+      "study_id": "usn-1959-1968",
+      "label": "U.S. Navy trainee and corpsman exposures, 1959–1968",
+      "period": "1959–1968",
+      "setting": "U.S. Navy altitude chambers"
+    },
+    {
+      "study_id": "usaf-shaw-fy2004",
+      "label": "Shaw AFB FY04 chamber DCS outbreak",
+      "period": "FY2004",
+      "setting": "Shaw AFB, U.S. Air Force"
+    },
+    {
+      "study_id": "usaf-1985-1987",
+      "label": "U.S. Air Force altitude chamber surveillance, 1985–1987",
+      "period": "1985–1987",
+      "setting": "U.S. Air Force altitude chambers"
     }
   ],
   "study_reports": [
@@ -549,6 +807,36 @@
       "report_id": "pmid:16173680",
       "role": "overlapping_surveillance",
       "locator": "Methods, quarterly Naval Operational Medicine Institute reports, January 1993 to April 2004. Exact participant linkage unavailable."
+    },
+    {
+      "study_id": "usn-1959-1968",
+      "report_id": "pmid:4694857",
+      "role": "supplementary_candidate",
+      "locator": "Results and Table I, p. 451. Trainees: 266/252,564 reported exposures. Observers: 35/~60,000 exposures reconstructed by Furry from altitude exposure points. The role contrast depends on this approximate denominator."
+    },
+    {
+      "study_id": "usaf-shaw-fy2004",
+      "report_id": "pmid:19522370",
+      "role": "supplementary_candidate",
+      "locator": "Person and sensitivity analyses, pp. 571–572. The outbreak year supplied 6/323 observer and 4/780 student exposures. Two student diagnoses were later questioned. The same four-year review also reports observer-months; those denominators measure workload."
+    },
+    {
+      "study_id": "usaf-1985-1987",
+      "report_id": "workshop:ada257612-baumgartner-weien",
+      "role": "supplementary_candidate",
+      "locator": "Table 3, p. 364. Observers 54/46,261 and students 228/192,623. The role denominators sum to 238,884, leaving 459 of the reported 239,343 exposures unassigned. The register flags overlap with the historical USAF treatment archives."
+    },
+    {
+      "study_id": "usn-1959-1968",
+      "report_id": "pmid:971183",
+      "role": "secondary_summary",
+      "locator": "Table V reproduces both Furry role strata. Use the 1973 primary source for their counting rules."
+    },
+    {
+      "study_id": "usn-1959-1968",
+      "report_id": "pmid:1755801",
+      "role": "secondary_summary",
+      "locator": "Table IV historical comparison reprints the Furry strata separately from the 1981–1988 survey."
     }
   ],
   "relations": [
@@ -621,6 +909,69 @@
       "relationship": "unresolved_identity",
       "evidence": "The shared DOI and abstract point to Demir and Ata; an author list is absent and the provider-generated summary refers to Demir et al. in the third person. No independent evidence is assigned.",
       "evidence_url": "https://scispace.com/papers/hysteria-as-a-trigger-for-epidemic-decompression-sickness-2xontoab"
+    },
+    {
+      "left_report": "pmid:971183",
+      "right_report": "pmid:4694857",
+      "relationship": "historical_reprint",
+      "evidence": "Table V repeats the trainee and observer strata for 1959–1968. The Furry primary report documents how it reconstructed the observer exposure count.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/47/9/article-p995.pdf"
+    },
+    {
+      "left_report": "pmid:1755801",
+      "right_report": "pmid:4694857",
+      "relationship": "historical_reprint",
+      "evidence": "The historical Table IV repeats both 1959–1968 Navy role strata.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/12/article-p1180.pdf"
+    },
+    {
+      "left_report": "pmid:36243908",
+      "right_report": "pmid:32574436",
+      "relationship": "unresolved_overlap",
+      "evidence": "The two-session epidemic cluster and Turkish surveillance series came from the same center. A shared exposure date or participant crosswalk has not been established.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/36243908/"
+    },
+    {
+      "left_report": "doi:10.28920/dhm51.1.82-85",
+      "right_report": "pmid:32574436",
+      "relationship": "unresolved_overlap",
+      "evidence": "The selected single-flight case cluster came from the Eskişehir center; the surveillance series lacks a dated exposure crosswalk for that session.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "left_report": "pmid:36243908",
+      "right_report": "doi:10.28920/dhm51.1.82-85",
+      "relationship": "unresolved_overlap",
+      "evidence": "The two papers describe different session patterns and timing. Both use the same center. Individual-level linkage is unavailable.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/36243908/"
+    },
+    {
+      "left_report": "workshop:ada257612-baumgartner-weien",
+      "right_report": "pmid:2256877",
+      "relationship": "likely_overlap",
+      "evidence": "USAF surveillance in 1985–1987 intersects with the period studied by Rush and Wirjosemito in their selected treated-trainee sample. The sampling frames and counting units differ.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=375"
+    },
+    {
+      "left_report": "report:adp011069",
+      "right_report": "workshop:ada257612-harding",
+      "relationship": "historical_reprint",
+      "evidence": "McLoughlin also quotes the five historical 1983–1987 RAF cases reported by Harding. Its later one-year observation supplies a separate case and an approximate reported rate.",
+      "evidence_url": "https://citeseerx.ist.psu.edu/document?doi=42f5ea06ef915db7d858019fe6003fd0b1fda564&repid=rep1&type=pdf"
+    },
+    {
+      "left_report": "journal:skinner-spums-1989-19-66",
+      "right_report": "adf:smart-cable-2004",
+      "relationship": "likely_overlap",
+      "evidence": "The Point Cook case period intersects the ADF training series beginning in 1984. Exposure-level linkage is unavailable.",
+      "evidence_url": "https://www.dhmjournal.com/images/IndividArticles/19June/Skinner_SPUMSJ.19.2.66-73.pdf"
+    },
+    {
+      "left_report": "report:ad0622158",
+      "right_report": "pmid:21018675",
+      "relationship": "historical_reprint",
+      "evidence": "The 1948 review quotes the 1946 cold-chamber study and misaligns the warm-group denominators. The 1946 original gives 122 exercise and 92 rest flights at 30,000 ft. The 1948 report also describes its own Pensacola series.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p67.pdf"
     }
   ]
 }

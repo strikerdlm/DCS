@@ -1,0 +1,31 @@
+# Altitude decompression sickness literature intake
+
+The 19 November 2026 search added 40 observation rows from nine primary publications. The release retains 14 source records and 16 cohort links. The search log preserves 19 operations and 166 screened retrieval records, including repeat hits across indexes and publisher copies. [Search operations](../data/chamber/v1.7/search_runs.csv) · [Screened results](../data/chamber/v1.7/search_hits.csv) · [Source registry](../data/chamber/v1.7/sources.csv)
+
+The EBSCO UNAL skill's authentication step was blocked by the missing local `.env`. The UNAL query is recorded as unrun. Open-access searches covered SciELO, BVS/LILACS, Dialnet, Redalyc, the UNAL repository, PubMed and aerospace publishers. Firecrawl queried the regional indexes and attempted source retrieval. Tavily retrieved the Polish full text and other source passages. The publisher PDFs and author reports supplied the final counts. [Search operations](../data/chamber/v1.7/search_runs.csv)
+
+Consensus returned 20 records. Its new threshold-altitude lead supplied model estimates and no verified underlying counts. The OpenAlex local CLI fallback matched 24 results, screened the first 10 and selected zero. The public-source search ended after the targeted queries supplied extractable cohorts and the remaining material consisted of duplicate sources, adjacent endpoints or unresolved leads. [Screened results](../data/chamber/v1.7/search_hits.csv)
+
+## Observations added
+
+| Primary source | Outcome and scope |
+| --- | --- |
+| Jarosz et al., Poland | Zero clinical DCS in 64 exposures across 45 men. Post-exposure echocardiography detected VGE in 0/19 after rapid decompression to 7,000 m, 4/30 after the 7,500 m profile and 5/15 after the 10,000 m peak profile. The latter descended to 7,500 m for hypoxia demonstration. Nineteen men contributed both rapid-decompression and 7,500 m exposures. Figures 1–3 specify planned 30-minute denitrogenation. [Original Methods, Figures 1–3 and Results](https://journals.indexcopernicus.com/api/file/viewByFileId/66897.pdf) |
+| Olea González et al., Spain | Table 4 classifies two of three chamber-related treatment referrals as decompression sickness and one as pulmonary overexpansion. The separate HALO–HAHO referral is outside the chamber subset. Total chamber exposure denominator unavailable. The abstract and body report 392 and 391 for the entire treatment series. [Original Table 4](https://scielo.isciii.es/pdf/sm/v74n3/1887-8571-sm-74-03-00179.pdf) |
+| Furry, U.S. Navy 1959–1968 | The original Table I verifies 266 DCS reports in 252,564 trainee exposures and 35 in 60,000 observer exposures. The author reconstructed the observer denominator from exposure points. This resolves the v1.6 bibliographic lead and links both reprints to the primary record. [Original Methods and Table I](https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf) |
+| Bason et al., U.S. Navy 1972–1975 | Table I verifies 79 DCS cases in 88,520 exposures, with 22/73,561 for trainees and 57/14,959 for observers. The profile table supplies case counts and omits exposure denominators for each profile. The 82 symptom-status entries in Table IV cannot be reconciled to 79 cases from the paper. [Original Tables I, II and IV](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/47/9/article-p995.pdf) |
+| Balldin et al., AFRL | The abstract and Methods report 1,030 symptomatic exposures out of 2,525. The Results cite 2,584 in describing the same 29 pulmonary-symptom cases. Both pulmonary denominators are held with the conflict recorded. Three of the 29 satisfy the full chokes symptom triad. Severe VGE is defined as Spencer Grade III or IV. [Original Methods and Results](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/10/article-p996.pdf) |
+| Muehlberger et al., AFRL | The 1,699 symptom records include 1,433 that resolved during descent, 66 at altitude, 117 at ground level and 83 with resolution pressure undocumented. The unit is symptom report. Cohort reuse with the other AFRL archive analyses remains possible. [Original Results](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/75/6/article-p496.pdf) |
+| Ata and Karaca, Türkiye | Three Type I cases among 11 people on one outcome-selected training flight. Onset was during descent. The case report is explicitly linked to the prior staged record and the shared Eskişehir center. [Original Cases and Investigation](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) |
+| Allan and Kenny, Canada | Three DCI cases after a chamber course and subsequent commercial flight. Seventeen people attended the chamber course. A linked denominator for the combined exposure and outcome window is unavailable. [Original case series](https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/) |
+| Kumar et al., NASA | The authors report 74 symptomatic and 179 VGE-positive exposures out of 426. These aggregate margins are held for historical NASA cohort linkage. [Author abstract](https://pubmed.ncbi.nlm.nih.gov/8280036/) |
+
+The Chilean thesis identifies SIMBIO as a candidate aeromedical registry. Its accessible abstract covers hypoxia symptoms and supplies no clinical DCS count. The Brazilian IMAE study concerns autonomic responses to hypoxia. The Colombian ESDEG chapter returns to the existing v1.2 cohort. [Chilean thesis](https://hdl.handle.net/11447/9961) · [Brazilian study](https://pmc.ncbi.nlm.nih.gov/articles/PMC9669981/) · [Colombian chapter](https://doi.org/10.25062/9786287818279.12)
+
+## Reproduce the SQLite build
+
+```powershell
+python -m scripts.build_chamber_database --publication-supplement
+```
+
+The command writes `artifacts/chamber-v1.7/observed.sqlite`. Add `--fac-official` to generate the version with Colombian aggregate tables. The schema keeps original altitude units and identifies reconstructed denominators. The new observations use their source-defined units and observation windows. Their analytical roles record cohort reuse, selected case series, conditional outcomes and denominator conflicts. [Extraction table](../data/chamber/v1.7/observations.csv) · [Cohort links](../data/chamber/v1.7/overlap.csv) · [Input hashes](../data/chamber/v1.7/manifest.json)

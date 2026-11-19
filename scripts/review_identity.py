@@ -12,6 +12,8 @@ from urllib.parse import unquote
 _BASE = "data/chamber/"
 _LIBRARY = "sharepoint-2026-11-19"
 _INTAKE = "intake-2026-11-19"
+_ATTACHMENTS = "attachments-2026-11-19"
+_ZOTERO = "zotero-dcs-2026-11-19"
 _LIBRARY_COPIES = {
     "v1": ("gerth18", "rice03", "cheok21"),
     "v1.1": ("ercan20", "piwinski86", "morgagni10", "brandt09", "bason91", "ohrui02"),
@@ -27,6 +29,19 @@ _SOURCE_PAIRS = (
         (("v1.4", "conkin18"), (_INTAKE, "jsc18")),
         (("v1.3", "nasa03"), (_INTAKE, "conkin03")),
         (("v1.2", "connolly10"), (_INTAKE, "connolly10")),
+        (("v1.6", "mcloughlin00"), ("v1.4", "mcloughlin00")),
+        (("v1.6", "baumgartner92"), ("v1.4", "baumgartner92")),
+        (("v1.6", "connolly23"), (_INTAKE, "connolly23")),
+        (("v1.7", "furry73"), ("v1.6", "furry73")),
+        (("v1.7", "kumar93"), ("v1.6", "kumar93")),
+        (("v1.7", "olaya25"), ("v1.2", "olaya25")),
+        (("v1.7", "bason76"), (_INTAKE, "bason76")),
+        (("v1.7", "ata21"), (_INTAKE, "ata21")),
+        (("v1.10", "molenat02_fulltext"), ("v1.3", "molenat02")),
+        (("rojas-2015", "rojas15_attachment"), (_LIBRARY, "rojas15")),
+        ((_ATTACHMENTS, "valdez77_attachment"), (_INTAKE, "valdez77")),
+        ((_ATTACHMENTS, "smart04_attachment"), ("v1", "smart04")),
+        ((_ATTACHMENTS, "brandt09_attachment"), (_LIBRARY, "brandt09")),
     ]
     + [
         (("v1.1", key), (_INTAKE, key))
@@ -34,10 +49,74 @@ _SOURCE_PAIRS = (
     ]
 )
 
+# Report-level matches verified in the attachment inventories, including
+# alternate scans. A digest can cover a whole workshop or meeting issue.
+_ZOTERO_COPIES = {
+    _ATTACHMENTS: {
+        "G8XFMZ92": "brandt09_attachment",
+        "3P2KJRNH": "nasa_dcs_evidence_2013",
+        "LL4DKYUQ": "webb_u2_2010",
+        "KEXLPNKU": "kluis21",
+        "MEEXDEYK": "valdez77_attachment",
+        "R3ZAU4XC": "smart04_attachment",
+    },
+    _LIBRARY: {
+        "V2DNFVQ3": "nasa04_exercise",
+        "IWH4E7C6": "nasa04_exercise",
+        "4YSE5Y62": "nasa11_eva",
+        "AMD9QU8N": "nasa_treatment",
+        "8P5SJNQY": "hancock20",
+        "QSIMR77P": "butler02",
+        "QDLMRKVG": "robinson99",
+        "DJXIVZDZ": "asma18",
+        "PJR4Q7HP": "adrac04",
+        "N4C7X768": "nasa16_review",
+        "8GR6W4CG": "rice03",
+        "QHWTAB3X": "ohrui02",
+        "FNKSM8YJ": "bason91",
+        "RVTDQAEY": "piwinski86",
+        "EECSBBYD": "gerth18",
+    },
+    "v1": {"LQ5EXNSS": "bip24"},
+}
+_SOURCE_PAIRS.extend(
+    ((_ZOTERO, item), (release, source))
+    for release, copies in _ZOTERO_COPIES.items()
+    for item, source in copies.items()
+)
+
+
+def _hit_matches_source(hit, source):
+    """A source_id on an archived hit may describe a lead cited on that page."""
+    if source["raw"].get("access") == "metadata":
+        return False
+    hit_ids, source_ids = _identifier_values(hit), _identifier_values(source)
+    if any(hit_ids[k] != source_ids[k] for k in hit_ids.keys() & source_ids.keys()):
+        return False
+    url = hit.get("url") or ""
+    if url and url.rstrip("/") == (source.get("url") or "").rstrip("/"):
+        return True
+    citation = _text(source["title"])
+    title = _text(hit["title"])
+    if title == citation:
+        return True
+    # These release citations begin with the author list followed by the
+    # article title. Match the title, not words from the surrounding journal
+    # citation. Catalog records can append a subtitle or the repository name.
+    parts = source["title"].split(". ")
+    if len(parts) > 1:
+        article = _text(parts[1].rstrip("."))
+        if len(article.split()) >= 4 and (title == article or title.startswith(article + " ")):
+            return True
+    if hit.get("pmid") and hit["pmid"] == source.get("pmid"):
+        return True
+    return bool(hit.get("doi") and hit["doi"] == source.get("doi"))
+
 
 def _legacy_links(rows):
     sources = defaultdict(list)
     links = []
+    hits = []
     for key, row in rows.items():
         stream = row["stream"]
         if not stream.startswith(_BASE):
@@ -48,6 +127,8 @@ def _legacy_links(rows):
             sources[release, raw["source_id"]].append(key)
         elif stream == _BASE + "v1.5/references.csv" and raw.get("source_id"):
             links.append((key, ("v1.5", raw["source_id"])))
+        elif file == "search_hits.csv" and raw.get("source_id"):
+            hits.append((key, (release, raw["source_id"])))
     yield from sources.values()
     for first, second in _SOURCE_PAIRS:
         if first in sources and second in sources:
@@ -55,6 +136,15 @@ def _legacy_links(rows):
     for key, source in links:
         if source in sources:
             yield [key, *sources[source]]
+    for key, source in hits:
+        # The last two historical releases also retrieved items from a prior
+        # source register. The hit keeps its own rank and historical disposition.
+        if source == ("v1.11", "smedal48_review"):
+            source = ("v1.10", "smedal48_review")
+        if source in sources:
+            for other in sources[source]:
+                if _hit_matches_source(rows[key], rows[other]):
+                    yield [key, other]
 
 
 def _identifier_values(row):

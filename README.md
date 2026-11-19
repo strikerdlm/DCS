@@ -16,6 +16,12 @@ For the Colombian Air Force chamber program, the official FAC registers are the 
 
 The FAC flight-date analysis places the case series under the historical Bogotá schedule. In 2022 the program changed to one combined RD and 25,000-ft session per week with a one-flight-per-person limit. The protocol tables preserve both schedules and the altitude profile. [Instructor flight dates and the 2022 schedule change](docs/chamber-fac-official.md#instructor-flight-dates-and-the-2022-schedule-change)
 
+The Rojas USAF case-control supplement adds occupation, tobacco and alcohol counts from the original tables. Its denominators are sampled cases and controls. [Rojas extraction and database build](docs/chamber-rojas-2015.md)
+
+The six-PDF intake adds a self-reported U-2 flight history, new ADF and Shaw AFB case detail, NASA ground versus operational EVA summaries, and an FAA profile comparison. The source crosswalk records matching and alternate versions of observations. [Six-PDF extraction and database build](docs/chamber-six-pdfs.md)
+
+The Zotero DCS collection adds NASA EVA follow-up, symptom-resolution data, prospective chamber validation estimates, and AC-130 case timelines. Its attachment register links exact copies, alternate PDFs, and repeated cohorts to their prior database sources. [Zotero DCS collection and build](docs/chamber-zotero-dcs.md)
+
 | Prediction target | Evidence available today | What the next fit needs |
 | --- | --- | --- |
 | Symptomatic DCS by a specified time | The current group fit uses 124 cases in 885 evaluable exposures from 41 NASA tests. A separate AFRL table contains 340 cases in 708 exposures. | For a grouped binomial fit, use exact events and evaluable exposures with comparable clinical definitions and windows. Individual time-to-DCS modeling also needs symptom onset or last documented event-free time for each exposure. |
@@ -36,7 +42,7 @@ Four operational aviation cohorts are reserved for external evaluation. Their fi
 
 ### Build and inspect the data
 
-Run from the repository root. The current combined build includes the chamber benchmark, releases v1.1–v1.5, the SharePoint intake, the deduplicated views and the official Colombian aggregates. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
+Run from the repository root. The publication-review build includes the benchmark, releases through v1.11, the SharePoint intake, the official Colombian aggregates and the Rojas, six-PDF and Zotero DCS supplements. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
 
 ```sh
 python -m scripts.build_chamber_database --fac-official

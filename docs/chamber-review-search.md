@@ -30,6 +30,8 @@ The count request queried the entire index and returned at most one record or id
 
 ## Exact candidate strategies
 
+The earlier v1.7 technical intake recorded a proposed UNAL query as blocked before login and carried out public-source searches. The authenticated UNAL multidisciplinary pilot in the table above used a different bilingual strategy. Both occurred on 19 November 2026. The earlier entries provide retrieval leads, including Furry's historical Navy report, while the later run measures known-paper recovery for the approved role question. Counts from either exercise retain their original purpose and platform. [Earlier query and execution status](../data/chamber/v1.7/search_runs.csv) · [Authenticated pilot](../data/chamber/publication-review/ebsco-pilot.json)
+
 **PubMed**, ESearch `db=pubmed`, final warning-free query. An earlier version with three Spanish phrases in quotation marks still recovered 6/6 but PubMed omitted those phrases from its translation. The final version uses separate fielded words.
 
 ```text

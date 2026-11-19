@@ -25,8 +25,30 @@ COHORT_DATA = ROOT / "data" / "chamber" / "v1.4"
 COHORT_OUTPUT = ROOT / "artifacts" / "chamber-v1.4" / "observed.sqlite"
 SHAREPOINT_DATA = ROOT / "data" / "chamber" / "sharepoint-2026-11-19"
 SHAREPOINT_OUTPUT = ROOT / "artifacts" / "chamber-deduplicated" / "observed.sqlite"
+ROJAS_DATA = ROOT / "data" / "chamber" / "rojas-2015"
+ROJAS_OUTPUT = ROOT / "artifacts" / "chamber-rojas-2015" / "observed.sqlite"
+ATTACHMENT_DATA = ROOT / "data" / "chamber" / "attachments-2026-11-19"
+ATTACHMENT_OUTPUT = ROOT / "artifacts" / "chamber-six-pdfs" / "observed.sqlite"
+DCS_COLLECTION_DATA = ROOT / "data" / "chamber" / "zotero-dcs-2026-11-19"
+DCS_COLLECTION_OUTPUT = ROOT / "artifacts" / "chamber-zotero-dcs" / "observed.sqlite"
 CITATION_DATA = ROOT / "data" / "chamber" / "v1.5"
 CITATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.5" / "observed.sqlite"
+DISCOVERY_DATA = ROOT / "data" / "chamber" / "v1.6"
+DISCOVERY_OUTPUT = ROOT / "artifacts" / "chamber-v1.6" / "observed.sqlite"
+PUBLICATION_DATA = ROOT / "data" / "chamber" / "v1.7"
+PUBLICATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.7" / "observed.sqlite"
+HISTORICAL_DATA = ROOT / "data" / "chamber" / "v1.8"
+HISTORICAL_OUTPUT = ROOT / "artifacts" / "chamber-v1.8" / "observed.sqlite"
+PROTOCOL_DATA = ROOT / "data" / "chamber" / "v1.9"
+PROTOCOL_OUTPUT = ROOT / "artifacts" / "chamber-v1.9" / "observed.sqlite"
+EXPEDITION_DATA = ROOT / "data" / "chamber" / "v1.10"
+EXPEDITION_OUTPUT = ROOT / "artifacts" / "chamber-v1.10" / "observed.sqlite"
+CADET_DATA = ROOT / "data" / "chamber" / "v1.11"
+CADET_OUTPUT = ROOT / "artifacts" / "chamber-v1.11" / "observed.sqlite"
+PUBLICATION_SEARCH_TABLES = {
+    "publication_search_run": "search_runs.csv",
+    "publication_search_hit": "search_hits.csv",
+}
 FAC_DATA = ROOT / "data" / "chamber" / "fac-official"
 FAC_OUTPUT = ROOT / "artifacts" / "chamber-fac-official" / "observed.sqlite"
 FAC_PRIVATE_OUTPUT = FAC_OUTPUT.with_name("case-records.local.sqlite")
@@ -251,7 +273,7 @@ def publish(path, output, *, allow_identical=True):
             raise FileExistsError(f"A file exists at {output}. Choose a new path.") from None
 
 
-def load_supplement(db, directory, prefix, *, extra_tables=None):
+def load_supplement(db, directory, prefix, *, extra_tables=None, create_schema=True):
     tables = {
         f"{prefix}_source": "sources.csv",
         f"{prefix}_observation": "observations.csv",
@@ -259,12 +281,16 @@ def load_supplement(db, directory, prefix, *, extra_tables=None):
         **(extra_tables or {}),
     }
     manifest = json.loads((directory / "manifest.json").read_bytes())
-    if set(manifest) != {"schema.sql", *tables.values()}:
-        raise ValueError(f"Unexpected {prefix} supplement manifest entries")
+    required = set(tables.values())
+    if create_schema:
+        required.add("schema.sql")
+    if set(manifest) != required:
+        raise ValueError(f"Unexpected {directory.name} supplement manifest entries")
     for name, expected in manifest.items():
         if sha256(directory / name) != expected:
             raise ValueError(f"{prefix} supplement input digest mismatch: {name}")
-    db.executescript((directory / "schema.sql").read_text(encoding="utf-8"))
+    if create_schema:
+        db.executescript((directory / "schema.sql").read_text(encoding="utf-8"))
     for table, filename in tables.items():
         load_table(db, table, filename, directory=directory)
     relative_directory = directory.relative_to(ROOT).as_posix()
@@ -276,6 +302,47 @@ def load_supplement(db, directory, prefix, *, extra_tables=None):
     db.commit()
 
 
+def promote_comex_counts(db):
+    margins = {
+        "all-investigator-flights": 0,
+        "flights-above-8000m": 8000,
+    }
+    for stratum, minimum_altitude in margins.items():
+        cases, denominator = db.execute(
+            "SELECT sum(dcs_symptoms), count(*) FROM publication_chamber_flight "
+            "WHERE source_id='molenat02_fulltext' AND altitude_m >= ?",
+            (minimum_altitude,),
+        ).fetchone()
+        update = db.execute(
+            "UPDATE literature_observation SET observation_kind='exact_count', "
+            "cases=?, reported_percent=NULL, locator='Full article, Table 1 and Results', "
+            "outcome_window='During the recorded chamber flight. Fixed follow-up unavailable.', "
+            "note=? WHERE source_id='molenat02' AND stratum=? AND endpoint='dcs_symptoms' "
+            "AND observation_kind='reported_percent' AND denominator=? "
+            "AND round(100.0 * ? / ?, 1)=reported_percent",
+            (
+                cases,
+                "Reconciled using v1.10 primary flight table. The high-altitude margin "
+                "includes flights at 8,000 and 8,848 m.",
+                stratum,
+                denominator,
+                cases,
+                denominator,
+            ),
+        )
+        if update.rowcount != 1:
+            raise ValueError(f"COMEX full-text counts do not reconcile with {stratum}")
+    db.execute(
+        "UPDATE literature_source SET access='full_text', extraction=?, note=? "
+        "WHERE source_id='molenat02'",
+        (
+            "Publisher article verified via author-posted full text, v1.10/molenat02_fulltext",
+            "Original published percentages retained in v1.3. This release uses the "
+            "exact reported outcome counts and flight table.",
+        ),
+    )
+
+
 def build(
     output,
     *,
@@ -285,12 +352,36 @@ def build(
     cohort_supplement=False,
     citation_supplement=False,
     sharepoint_supplement=False,
+    rojas_supplement=False,
+    attachment_supplement=False,
+    zotero_dcs_supplement=False,
+    discovery_supplement=False,
+    publication_supplement=False,
+    historical_supplement=False,
+    protocol_supplement=False,
+    expedition_supplement=False,
+    cadet_supplement=False,
     fac_official=False,
     fac_workbooks=None,
     publication_review=False,
 ):
     include_fac = fac_official or fac_workbooks is not None or publication_review
-    include_sharepoint = sharepoint_supplement or include_fac
+    cadet_supplement = cadet_supplement or publication_review
+    rojas_supplement = rojas_supplement or publication_review
+    zotero_dcs_supplement = zotero_dcs_supplement or publication_review
+    include_attachments = attachment_supplement or zotero_dcs_supplement
+    include_expedition = expedition_supplement or cadet_supplement
+    include_protocols = protocol_supplement or include_expedition
+    include_historical = historical_supplement or include_protocols
+    include_publications = publication_supplement or include_historical
+    include_discovery = discovery_supplement or include_publications
+    include_sharepoint = (
+        sharepoint_supplement
+        or rojas_supplement
+        or include_attachments
+        or include_discovery
+        or include_fac
+    )
     include_citation = citation_supplement or include_sharepoint
     include_cohort = cohort_supplement or include_citation
     include_literature = literature_supplement or include_cohort
@@ -334,6 +425,83 @@ def build(
             if include_fac:
                 load_supplement(
                     db, FAC_DATA, "fac_official", extra_tables={"fac_official_annual": "annual.csv"}
+                )
+            if include_discovery:
+                load_supplement(
+                    db,
+                    DISCOVERY_DATA,
+                    "discovery",
+                    extra_tables={"discovery_adjudication": "adjudications.csv"},
+                )
+            if include_publications:
+                load_supplement(
+                    db,
+                    PUBLICATION_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                )
+            if include_historical:
+                load_supplement(
+                    db,
+                    HISTORICAL_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_protocols:
+                load_supplement(
+                    db,
+                    PROTOCOL_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_expedition:
+                load_supplement(
+                    db,
+                    EXPEDITION_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_chamber_flight": "flights.csv",
+                    },
+                )
+                promote_comex_counts(db)
+                verify(db)
+                db.commit()
+            if cadet_supplement:
+                load_supplement(
+                    db,
+                    CADET_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                )
+            if rojas_supplement:
+                load_supplement(
+                    db, ROJAS_DATA, "rojas", extra_tables={"rojas_result": "results.csv"}
+                )
+            if include_attachments:
+                load_supplement(
+                    db,
+                    ATTACHMENT_DATA,
+                    "attachment",
+                    extra_tables={
+                        "attachment_nasa_test": "nasa_tests.csv",
+                        "attachment_u2_flight": "u2_flights.csv",
+                    },
+                )
+            if zotero_dcs_supplement:
+                load_supplement(
+                    db,
+                    DCS_COLLECTION_DATA,
+                    "zotero_dcs",
+                    extra_tables={
+                        "zotero_dcs_case": "cases.csv",
+                        "zotero_dcs_eva_break": "eva_breaks.csv",
+                    },
                 )
             if fac_workbooks is not None:
                 from scripts.fac_official import ingest_workbooks
@@ -386,6 +554,36 @@ if __name__ == "__main__":
         action="store_true",
         help="Build the combined database with the SharePoint intake and deduplicated views.",
     )
+    parser.add_argument(
+        "--discovery-supplement",
+        action="store_true",
+        help="Build v1.6 with the public chamber discovery and earlier deduplicated evidence.",
+    )
+    parser.add_argument(
+        "--publication-supplement",
+        action="store_true",
+        help="Build v1.7 with screened chamber publications, search provenance and prior releases.",
+    )
+    parser.add_argument(
+        "--historical-supplement",
+        action="store_true",
+        help="Build v1.8 with verified historical chamber studies and the v1.7 evidence.",
+    )
+    parser.add_argument(
+        "--protocol-supplement",
+        action="store_true",
+        help="Build v1.9 with pressure-suit and crossover outcomes and the v1.8 evidence.",
+    )
+    parser.add_argument(
+        "--expedition-supplement",
+        action="store_true",
+        help="Build v1.10 with original chamber flight tables and the v1.9 evidence.",
+    )
+    parser.add_argument(
+        "--cadet-supplement",
+        action="store_true",
+        help="Build v1.11 with historical cadet chamber results and the v1.10 evidence.",
+    )
     release.add_argument(
         "--fac-official",
         action="store_true",
@@ -402,6 +600,21 @@ if __name__ == "__main__":
         nargs=2,
         metavar=("CASE_XLS", "TRAINING_XLSX"),
         help="Verify the official originals and include local case-level records.",
+    )
+    parser.add_argument(
+        "--rojas-supplement",
+        action="store_true",
+        help="Include the Rojas USAF case-control data and table reconciliation.",
+    )
+    parser.add_argument(
+        "--attachment-supplement",
+        action="store_true",
+        help="Include the six-PDF chamber evidence intake and source crosswalk.",
+    )
+    parser.add_argument(
+        "--zotero-dcs-supplement",
+        action="store_true",
+        help="Include the Zotero DCS collection review and earlier six-PDF intake.",
     )
     parser.add_argument(
         "--verify-cache", type=Path, help="Also verify all original local source snapshots."
@@ -422,10 +635,60 @@ if __name__ == "__main__":
         default_output = CITATION_OUTPUT
     if args.sharepoint_supplement:
         default_output = SHAREPOINT_OUTPUT
+    if args.discovery_supplement:
+        default_output = DISCOVERY_OUTPUT
+    if args.publication_supplement:
+        default_output = PUBLICATION_OUTPUT
+    if args.historical_supplement:
+        default_output = HISTORICAL_OUTPUT
+    if args.protocol_supplement:
+        default_output = PROTOCOL_OUTPUT
+    if args.expedition_supplement:
+        default_output = EXPEDITION_OUTPUT
+    if args.cadet_supplement:
+        default_output = CADET_OUTPUT
+    supplement_version = (
+        CADET_DATA.name
+        if args.cadet_supplement
+        else EXPEDITION_DATA.name
+        if args.expedition_supplement
+        else PROTOCOL_DATA.name
+        if args.protocol_supplement
+        else HISTORICAL_DATA.name
+        if args.historical_supplement
+        else PUBLICATION_DATA.name
+        if args.publication_supplement
+        else DISCOVERY_DATA.name
+        if args.discovery_supplement
+        else None
+    )
     if args.fac_official:
-        default_output = FAC_OUTPUT
+        default_output = (
+            FAC_OUTPUT.with_name(f"observed-{supplement_version}.sqlite")
+            if supplement_version
+            else FAC_OUTPUT
+        )
     if args.fac_workbooks:
-        default_output = FAC_PRIVATE_OUTPUT
+        default_output = (
+            FAC_PRIVATE_OUTPUT.with_name(f"case-records-{supplement_version}.local.sqlite")
+            if supplement_version
+            else FAC_PRIVATE_OUTPUT
+        )
+    if args.rojas_supplement:
+        if supplement_version or args.fac_official or args.fac_workbooks:
+            default_output = default_output.with_name(f"{default_output.stem}-rojas.sqlite")
+        else:
+            default_output = ROJAS_OUTPUT
+    if args.attachment_supplement:
+        if supplement_version or args.fac_official or args.fac_workbooks or args.rojas_supplement:
+            default_output = default_output.with_name(f"{default_output.stem}-attachments.sqlite")
+        else:
+            default_output = ATTACHMENT_OUTPUT
+    if args.zotero_dcs_supplement:
+        if supplement_version or args.fac_official or args.fac_workbooks or args.rojas_supplement:
+            default_output = default_output.with_name(f"{default_output.stem}-zotero-dcs.sqlite")
+        else:
+            default_output = DCS_COLLECTION_OUTPUT
     if args.publication_review:
         default_output = REVIEW_OUTPUT
     output = args.output or default_output
@@ -436,6 +699,15 @@ if __name__ == "__main__":
         literature_supplement=args.literature_supplement,
         cohort_supplement=args.cohort_supplement,
         sharepoint_supplement=args.sharepoint_supplement,
+        rojas_supplement=args.rojas_supplement,
+        attachment_supplement=args.attachment_supplement,
+        zotero_dcs_supplement=args.zotero_dcs_supplement,
+        discovery_supplement=args.discovery_supplement,
+        publication_supplement=args.publication_supplement,
+        historical_supplement=args.historical_supplement,
+        protocol_supplement=args.protocol_supplement,
+        expedition_supplement=args.expedition_supplement,
+        cadet_supplement=args.cadet_supplement,
         citation_supplement=args.citation_supplement,
         fac_official=args.fac_official,
         fac_workbooks=args.fac_workbooks,

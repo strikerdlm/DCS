@@ -1,0 +1,19 @@
+source_id,scope,prior_source,relationship,disposition
+smart04_attachment,Boxes 4 and 6,v1/smart04,exact_file,AVMED outcomes and exposure margins already recorded; no new rows for 42 in 10851.
+smart04_attachment,"Boxes 2, 3 and 5 all-centre cases",v1/smart04,overlapping_cohort,"Includes the AVMED denominator subset, other sites and earlier years. Keep case margins descriptive."
+webb_u2_2010,Flights 26–61,Webb 1999; Hankins 2000,reprinted_rows,The report identifies these flights as previously published. Use the single Table 3 flight history for this pilot.
+webb_u2_2010,Flights 19 and 25 and pilot follow-up,Hankins 2000,overlapping_cohort,Source describes the pre-intervention history and extended follow-up of one person. Avoid combining the reported segment totals and Table 3.
+nasa_dcs_evidence_2013,Table 3 tests 1a–11b,v1/nasa_test,reprinted_rows,Thirty-one rows agree on all exposure and outcome counts. Reuse benchmark counts and add age and condition metadata only.
+nasa_dcs_evidence_2013,Table 3 Phases I–V-5,v1/nasa_test,alternate_counts,Nine versions have the same DCS numerator and different cohort totals. Retain published alternate counts outside the benchmark.
+nasa_dcs_evidence_2013,Table 5 threshold studies,sharepoint/nasa11_eva,reprinted_rows,All 14 DCS/VGE numerator and denominator pairs already represented.
+nasa_dcs_evidence_2013,Figure 8 and paired outcome text,sharepoint/nasa11_eva,reprinted_rows,The joint case cells and cohort described around Figure 8 are already represented.
+nasa_dcs_evidence_2013,Table 7 VGE prediction metrics,Conkin et al. 1996a Undersea Hyperb Med 23:141–149,secondary_reference,Retain the published diagnostic fractions once. The two restricted grades sampling sets overlap.
+nasa_dcs_evidence_2013,Table 1 ground trials,v1/nasa_test,overlapping_cohort,Hold as a published summary. Subject-level linkage and identities with individual chamber tests are unavailable.
+nasa_dcs_evidence_2013,Document version,sharepoint/nasa16_review,same_study,2013 evidence report and June 2016 update are related evidence-report versions; compare by table and protocol.
+brandt09_attachment,PDF copy,sharepoint/brandt09,exact_file,Same attachment SHA-256.
+brandt09_attachment,Table II observer-months,v1.1/brandt09,same_study,Seven workload bins already represented. Do not add Table II cases to FY04 role counts.
+brandt09_attachment,FY04 cases and four-year review,v1.1/brandt09,overlapping_cohort,"FY04 is nested within the four-year review. Role exposure, case, and observer-month counts retain distinct units."
+kluis21,Tissue-ratio model calibration,Conkin et al. NASA-TM-100456 (1987),calibration_reference,Use modeled tissue ratios and conditions as references only. Calibration cohort counts are cited rather than ingested as new observations.
+valdez77_attachment,Profiles A and B,intake/valdez77,candidate_already_logged,"The 3034/1725 denominator split is already staged from Conkin 2018. The primary report total is a cross-check of that cohort, not additional trainees."
+valdez77_attachment,FAA CAMI 1965–1975,v1.3/faa90,overlapping_cohort,Same program and contained calendar years. Endpoint terminology and suspected diagnoses differ.
+valdez77_attachment,Table 2 1955 USAF data,Berry 1958,secondary_reference,Symptom rates per 100000 flights for a different program. Retain the original citation and do not misclassify as the FAA outcome.
