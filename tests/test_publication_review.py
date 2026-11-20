@@ -418,7 +418,11 @@ def test_publication_register_build(tmp_path):
         assert db.execute(
             "SELECT left_report FROM review_report_relation "
             "WHERE right_report='dissertation:thornton-1988-fom' ORDER BY left_report"
-        ).fetchall() == [("report:adp011069",), ("workshop:ada257612-harding",)]
+        ).fetchall() == [
+            ("chapter:rto-mp-21-morris",),
+            ("report:adp011069",),
+            ("workshop:ada257612-harding",),
+        ]
         assert db.execute(
             "SELECT DISTINCT report_id FROM review_record "
             "WHERE record_key IN ('2026-11-20-openalex-training#W2435088829', "
@@ -587,6 +591,17 @@ def test_publication_register_build(tmp_path):
             "FROM review_search_observation JOIN review_record USING(record_key) "
             "WHERE observation_id='weien-baumgartner-1979-1986-reported-role-rr'"
         ).fetchone() == (1.0024, 0.0956, 0.78714824, 10.50214196)
+        assert db.execute(
+            "SELECT report_id, endpoint, cases, denominator FROM review_search_observation "
+            "WHERE observation_id IN ('los-1998-soesterberg-hypobaric-dcs', "
+            "'morris-1997-am-raf-trainee-dcs', 'valentiner-since-1995-rule-out-dcs', "
+            "'taubman-24h-reported-post-training-symptoms') ORDER BY observation_id"
+        ).fetchall() == [
+            ("chapter:rto-mp-21-los", "reported_known_dcs_after_operational_chamber_training", 0, 699),
+            ("chapter:rto-mp-21-morris", "reported_dcs_after_operational_chamber_training", 0, 1559),
+            ("journal:taubman-unifa-2006-18-21", "self_reported_post_training_symptoms_through_24_hours", 0, None),
+            ("chapter:rto-mp-21-valentiner", "rule_out_dcs_diagnoses", 3, 5300),
+        ]
         assert db.execute("SELECT count(*) FROM review_historical_search_record").fetchone() == (
             473,
         )
