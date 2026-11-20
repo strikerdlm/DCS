@@ -10073,6 +10073,66 @@
       "report_id": "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4",
       "basis": "The archived hit points directly to the same institutional dissertation accession.",
       "evidence_url": "https://digitalcommons.library.tmc.edu/dissertations/AAI9981807"
+    },
+    {
+      "record_key": "2026-11-20-soar-chamber-primary-crosswalk#19940007070",
+      "report_id": "openalex:W808314617",
+      "basis": "Matches the original article title, printed locator and report accession or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=110"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W808314617",
+      "report_id": "openalex:W808314617",
+      "basis": "The existing OpenAlex occurrence matches workshop title and publication year.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940007070"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.74/sources.csv#powell93_soar_joint",
+      "report_id": "openalex:W808314617",
+      "basis": "The paired extraction identifies the same workshop article and exact page.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=110"
+    },
+    {
+      "record_key": "2026-11-20-soar-chamber-primary-crosswalk#19940007071",
+      "report_id": "ntrs:19940007071",
+      "basis": "Matches the original article title, printed locator and report accession or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=111"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.74/sources.csv#pilmanis93_soar_age",
+      "report_id": "ntrs:19940007071",
+      "basis": "The paired extraction identifies the same workshop article and exact page.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=111"
+    },
+    {
+      "record_key": "2026-11-20-soar-chamber-primary-crosswalk#19940007072",
+      "report_id": "openalex:W650078426",
+      "basis": "Matches the original article title, printed locator and report accession or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=118"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W650078426",
+      "report_id": "openalex:W650078426",
+      "basis": "The existing OpenAlex occurrence matches workshop title and publication year.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940007072"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.74/sources.csv#norfleet93_soar_tcd",
+      "report_id": "openalex:W650078426",
+      "basis": "The paired extraction identifies the same workshop article and exact page.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=118"
+    },
+    {
+      "record_key": "2026-11-20-soar-chamber-primary-crosswalk#8908349-full-table",
+      "report_id": "pmid:8908349",
+      "basis": "Matches the original article title, printed locator and report accession or PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/11/article-p1092.pdf#page=4"
+    },
+    {
+      "record_key": "2026-11-20-soar-chamber-primary-crosswalk#19940007069",
+      "report_id": "ntrs:19940007069",
+      "basis": "Matches the original article title, printed locator and report accession or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=108"
     }
   ],
   "studies": [
@@ -10801,6 +10861,18 @@
       "label": "Duke Pro00120426 Exercise Prebreathe Study in Healthy Adult Volunteers to Evaluate Risk of Decompression Sickness During Simulated Spacewalk Conditions",
       "period": "2026-08-13 to 2027-02-27 (estimated completion)",
       "setting": "Duke University hypobaric chamber research"
+    },
+    {
+      "study_id": "armstrong-hypobaric-left-heart-gas-1991-1994",
+      "label": "Armstrong Laboratory left ventricular gas detections",
+      "period": "1991–1994",
+      "setting": "Experimental hypobaric chambers, Brooks AFB, Texas"
+    },
+    {
+      "study_id": "jsc-soar-hypobaric-doppler-analyses",
+      "label": "NASA/JSC historical hypobaric Doppler analyses",
+      "period": "Reported at SOAR 1992",
+      "setting": "Historical experimental hypobaric simulated EVA studies at JSC, with subset membership unresolved"
     }
   ],
   "study_reports": [
@@ -11937,6 +12009,36 @@
       "report_id": "nct:NCT07702539",
       "role": "registration_without_posted_results",
       "locator": "Identification, Status, Study Design and Outcome Measures sections"
+    },
+    {
+      "study_id": "armstrong-hypobaric-left-heart-gas-1991-1994",
+      "report_id": "ntrs:19940007071",
+      "role": "early_subset_detection_report",
+      "locator": "Workshop printed p. 547"
+    },
+    {
+      "study_id": "armstrong-hypobaric-left-heart-gas-1991-1994",
+      "report_id": "pmid:8908349",
+      "role": "later_case_tables",
+      "locator": "Printed pp. 1094–1095, Results and Tables I–II"
+    },
+    {
+      "study_id": "armstrong-hypobaric-left-heart-gas-1991-1994",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_ntrs_archives:2",
+      "role": "related_six_case_review",
+      "locator": "Printed pp. 54–55"
+    },
+    {
+      "study_id": "jsc-soar-hypobaric-doppler-analyses",
+      "report_id": "openalex:W808314617",
+      "role": "case_conditional_symptom_sites",
+      "locator": "Workshop printed p. 546"
+    },
+    {
+      "study_id": "jsc-soar-hypobaric-doppler-analyses",
+      "report_id": "openalex:W650078426",
+      "role": "selected_doppler_subgroup",
+      "locator": "Workshop printed pp. 553–554"
     }
   ],
   "relations": [
@@ -14158,6 +14260,48 @@
       "relationship": "shared_named_prp_phase_denominator_discrepancy",
       "evidence": "NASA Table 6 reports 65 Phase IV exposures. NEDU Appendix E PRP IV reports 69 exposures and 8.3 weighted DCS. The Appendix E attribution and denominators are preserved as published.",
       "evidence_url": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf"
+    },
+    {
+      "left_report": "ntrs:19940007071",
+      "right_report": "pmid:8908349",
+      "relationship": "likely_early_subset_of_later_case_series",
+      "evidence": "Same Armstrong laboratory, two shared authors, detection method and case order. Three of five early profiles match altitude and time exactly. Cases 1 and 2 retain unresolved discrepancies. Journal case 6 has no early row.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/11/article-p1092.pdf#page=4"
+    },
+    {
+      "left_report": "ntrs:19940007071",
+      "right_report": "ntrs:19940029137",
+      "relationship": "possible_shared_armstrong_archive",
+      "evidence": "The journal identifies its left ventricular cases in the AL Hypobaric DCS Research Database. Demboski reports the same lab during an overlapping calendar period. Exact protocol and person linkage is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/11/article-p1092.pdf#page=2"
+    },
+    {
+      "left_report": "openalex:W808314617",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa_treatment",
+      "relationship": "possible_shared_historical_jsc_cases",
+      "evidence": "Powell reports symptom location among 88 historical NASA/JSC DCS cases. The clinical case archive has a different scope and lacks a public exact overlap key.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=110"
+    },
+    {
+      "left_report": "openalex:W650078426",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa_treatment",
+      "relationship": "possible_shared_historical_jsc_cases",
+      "evidence": "The Norfleet report selects subjects by Doppler findings and describes two symptomatic PFO participants in a historical JSC chamber archive. Exact episode identity is unverified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=118"
+    },
+    {
+      "left_report": "ntrs:19940007069",
+      "right_report": "pmid:8216141",
+      "relationship": "repeats_zero_prebreathe_arm",
+      "evidence": "The same authors report ten subjects, no DCS, 6.8 psia and zero prebreathe during 100% oxygen breathing. The journal provides the source cohort and duration.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=108"
+    },
+    {
+      "left_report": "ntrs:19940007069",
+      "right_report": "pmid:3964151",
+      "relationship": "reuses_historical_mixed_gas_comparison",
+      "evidence": "The workshop cites the earlier 7.8 psia 50:50 male series and reports one DCS case and 56% severe VGE for the mixed gas comparison.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=108"
     }
   ],
   "report_titles": {
@@ -14231,6 +14375,11 @@
     "nct:NCT06740305": "NASA Prebreathe Study",
     "nct:NCT07702539": "Exercise Prebreathe Study in Healthy Adult Volunteers to Evaluate Risk of Decompression Sickness During Simulated Spacewalk Conditions",
     "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise": "A Probability Model of Decompression Sickness at 4.3 Psia After Exercise Prebreathe",
-    "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4": "Effects of exercise with oxygen prebreathe for decompression risk reduction"
+    "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4": "Effects of exercise with oxygen prebreathe for decompression risk reduction",
+    "openalex:W808314617": "Joint pain and Doppler-detectable bubbles in altitude (hypobaric) decompression",
+    "ntrs:19940007071": "Arterial gas emboli in altitude-induced decompression sickness",
+    "openalex:W650078426": "Transcranial Doppler ultrasound and the etiology of neurologic decompression sickness during altitude decompression",
+    "pmid:8908349": "Left ventricular gas emboli in six cases of altitude-induced decompression sickness",
+    "ntrs:19940007069": "Hypobaric decompression prebreathe requirements and breathing environment"
   }
 }
