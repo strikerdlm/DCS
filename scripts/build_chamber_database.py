@@ -143,6 +143,7 @@ CHAMBER_ARGO = ROOT / "data" / "chamber" / "v1.75"
 CHAMBER_LBA_COMPARISONS = ROOT / "data" / "chamber" / "v1.76"
 CHAMBER_POSTDIVE_CASES = ROOT / "data" / "chamber" / "v1.77"
 CHAMBER_IAF_CASES = ROOT / "data" / "chamber" / "v1.78"
+CHAMBER_U2_CASES = ROOT / "data" / "chamber" / "v1.79"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1244,6 +1245,16 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_case_milestone": "case_milestones.csv",
                         "publication_iaf_adcs_case": "iaf_cases.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_U2_CASES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_u2_episode": "episodes.csv",
                     },
                 )
             if rojas_supplement:

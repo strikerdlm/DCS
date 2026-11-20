@@ -1,0 +1,5 @@
+source_id,stratum,endpoint,report_pilot_key,episode_sequence,reported_year,approximate_interval_from_prior_episode_months,first_symptom_phase,approximate_onset_min_low,approximate_onset_min_high,onset_reference,locator
+rhodes97_u2_pfo,first-flight-episode,source_reported_type_i_dcs,index-pilot,1,,,in_flight,,,,"AsMA 1997, abstract 141, printed p. 637"
+rhodes97_u2_pfo,second-flight-episode,source_reported_type_ii_dcs,index-pilot,2,,6,in_flight,,,,"AsMA 1997, abstract 141, printed p. 637"
+pickard03_u2_case,index-flight-episode,source_reported_flight_dcs,index-pilot,1,2002,,in_flight,240,300,from_flight_start,"Printed pp. 357–358, Case Report"
+jersey10_u2_case,index-flight-episode,source_reported_neurological_dcs,index-pilot,1,2006,,in_flight,150,150,from_flight_start,"Printed pp. 64–67, Case Report and Figures 1–2"

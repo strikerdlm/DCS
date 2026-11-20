@@ -776,6 +776,51 @@ def test_old_vestibular_episode_is_counted_once_and_keeps_conflicting_gain(relea
         """).fetchone() == (1, 1, 0)
 
 
+def test_u2_flight_episodes_preserve_pilot_linkage_and_symptom_time_origin(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,report_pilot_key,episode_sequence,reported_year,
+                   approximate_interval_from_prior_episode_months,first_symptom_phase,
+                   approximate_onset_min_low,approximate_onset_min_high,onset_reference
+            FROM publication_u2_episode ORDER BY source_id,episode_sequence
+        """).fetchall() == [
+            ("jersey10_u2_case", "index-pilot", 1, 2006, None, "in_flight", 150, 150, "from_flight_start"),
+            ("pickard03_u2_case", "index-pilot", 1, 2002, None, "in_flight", 240, 300, "from_flight_start"),
+            ("rhodes97_u2_pfo", "index-pilot", 1, None, None, "in_flight", None, None, None),
+            ("rhodes97_u2_pfo", "index-pilot", 2, None, 6, "in_flight", None, None, None),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),count(denominator),count(source_time_min)
+            FROM publication_u2_episode u
+            JOIN publication_observation p USING(source_id,stratum,endpoint)
+            JOIN historical_case_catalog c ON c.case_id=u.source_id || ':' || u.stratum
+            WHERE p.analysis_role='selected_cluster'
+        """).fetchone() == (4, 4, 0, 0)
+        assert db.execute("""
+            SELECT elapsed,elapsed_unit,elapsed_reference
+            FROM publication_case_milestone
+            WHERE source_id='pickard03_u2_case' AND milestone='clinical_notification'
+        """).fetchone() == (18, "hours", "after_landing")
+        assert db.execute("""
+            SELECT count(*),min(report_id),count(DISTINCT report_id) FROM review.review_record
+            WHERE lower(title) LIKE '%severe neurological decompression sickness in a u-2 pilot%'
+        """).fetchone() == (9, "pmid:20058739", 1)
+        assert db.execute("""
+            SELECT left_report,relationship FROM review.review_report_relation
+            WHERE right_report='pmid:23066619'
+            AND relationship IN ('possible_cohort_overlap','cited_case_in_surveillance')
+            ORDER BY left_report
+        """).fetchall() == [
+            ("abstract:asma-1997-rhodes-141", "possible_cohort_overlap"),
+            ("pmid:12688456", "cited_case_in_surveillance"),
+            ("pmid:20058739", "cited_case_in_surveillance"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='dtic:ada526033'
+        """).fetchone() == (0,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
@@ -789,7 +834,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (112, 112, 112)
+        """).fetchone() == (116, 116, 116)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
