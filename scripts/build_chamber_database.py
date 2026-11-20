@@ -142,6 +142,7 @@ CHAMBER_SOAR_GAS = ROOT / "data" / "chamber" / "v1.74"
 CHAMBER_ARGO = ROOT / "data" / "chamber" / "v1.75"
 CHAMBER_LBA_COMPARISONS = ROOT / "data" / "chamber" / "v1.76"
 CHAMBER_POSTDIVE_CASES = ROOT / "data" / "chamber" / "v1.77"
+CHAMBER_IAF_CASES = ROOT / "data" / "chamber" / "v1.78"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1233,6 +1234,16 @@ def build(
                         "publication_vann04_dive_profile": "dive_profiles.csv",
                         "publication_vann04_flight_group": "flight_groups.csv",
                         "publication_vann04_case": "case_profiles.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_IAF_CASES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_iaf_adcs_case": "iaf_cases.csv",
                     },
                 )
             if rojas_supplement:
