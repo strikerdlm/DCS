@@ -1,16 +1,29 @@
 # TinyDCS
 
-TinyDCS is a research database and modeling toolkit for hypobaric decompression sickness (DCS) and venous gas emboli (VGE). Its aim is to estimate how often symptoms or ultrasound-detected bubbles occur, and when they first appear, under a specified pressure, breathing-gas and activity history. It also supports aviation and extravehicular activity (EVA) scenario analysis and emulation of historical calculator outputs. Software version 0.9.0.
+TinyDCS is an aerospace medicine research project on altitude decompression sickness (DCS). It began with equations and software to estimate DCS probability from pressure, breathing-gas and activity histories. The project now also conducts a systematic review of symptomatic DCS in hypobaric chamber training.
 
-Not clinically validated, flight-certified, or suitable for operational clearance. Software agreement with a published equation or a model-derived grid is not evidence of accuracy in people.
+| Research area | Question | Start here |
+| --- | --- | --- |
+| Systematic review and planned meta-analysis | How often does symptomatic DCS occur among staff and trainees during hypobaric chamber training, and how does risk compare within the same program? | [Review protocol](docs/chamber-publication-review.md) · [Search strategies and pilot results](docs/chamber-review-search.md) |
+| Probability models and scenario software | Under a defined exposure history, how likely is symptomatic DCS or the Doppler detection of venous gas emboli (VGE) within a stated observation window? | [Equations and assumptions](docs/hypobaric-probability.md) · [Worked chamber examples](docs/hypobaric-outcomes.md) · [Accuracy audit](docs/accuracy-audit.md) |
 
-[Reproduction runbook](docs/runbook.md) · [Accuracy audit](docs/accuracy-audit.md) · [Methods](docs/accuracy-methods.md) · [Scientific sources](docs/accuracy-sources.md) · [Architecture](docs/accuracy-architecture.md)
+The evidence database supports both lines of research. It links publications to their study populations, reported outcomes and denominators so researchers can verify each estimate and identify overlapping cohorts. The software is for research use only. Independent clinical validation remains a research objective.
 
-## The observed-outcome database
+## Systematic review of hypobaric chamber training
 
-The publication register links the original source inventories, bibliographies and new retrieval records to report identities and study cohorts. It records search provenance, unresolved identity matches, overlapping cohorts, editorial checks and reviewer decisions. The current review addresses symptomatic DCS per exposure in inside staff and trainees. [Publication register and review protocol](docs/chamber-publication-review.md) · [Search strategies and pilot results](docs/chamber-review-search.md)
+**Working title** · *Risk of Altitude Decompression Sickness Among Staff and Trainees in Hypobaric Chamber Training: A Systematic Review and Meta-analysis*
 
-The SQLite database links each published observation to its source, table or page, population, counting unit and eligibility for analysis. A trainee exposure, a diagnosed case and one limb Doppler reading can each contribute a row with a different scientific meaning. The SharePoint library review adds 208 aggregate observations and 26 published VGE-positive subject records. Its source register also identifies textbook definitions, reprinted cohorts and conflicting denominators. [Database dictionary](docs/chamber-benchmark.md) · [SharePoint extractions and reconciliation notes](docs/chamber-sharepoint-review.md)
+The review compares staff working inside the chamber with trainees in the same operational training program. The primary outcome is clinically diagnosed symptomatic DCS per person-exposure, including cases detected during training and within the source's post-return follow-up window. The review will report cases, evaluable exposures and risk per 1,000 person-exposures for each role, with within-program risk ratios where the denominators are compatible. Secondary outcomes include neurological or serious DCS as defined by each study and DCS first presenting after return. [Eligibility criteria](docs/chamber-publication-review.md#eligibility-for-the-role-comparison) · [Analysis plan](docs/chamber-publication-review.md#analysis-and-appraisal)
+
+The workflow records database queries, retrieval dates and source locations for extracted counts. Two reviewers will screen reports independently and record their decisions. The decision to pool will account for differences in diagnostic definitions and surveillance windows, repeated attendance and cohort overlap across reports. [Review and appraisal methods](docs/chamber-publication-review.md#identification-and-review-decisions)
+
+**The protocol is approved and the search strategies have been pilot tested.** The initial source audit documents six study periods across four programs with role-specific cases and exposure counts, plus three periods for further eligibility assessment. Formal retrieval awaits search-strategy approval. [Publication inventory](docs/chamber-publication-review.md#publication-inventory) · [Search strategies and pilot results](docs/chamber-review-search.md) · [Review status record](data/chamber/publication-review/prisma-flow.json)
+
+## Evidence database
+
+The SQLite build includes the publication register and the observed-outcome benchmark. The register connects search records to reports and study cohorts, and tracks editorial checks, unresolved identity matches and reviewer decisions. The benchmark preserves each observation's population, counting unit and source locator. A person-exposure, a diagnosed case and a limb Doppler reading are distinct units. [Publication database schema](data/chamber/publication-review/schema.sql) · [Observed-outcome database dictionary](docs/chamber-benchmark.md)
+
+The SharePoint library review adds 208 aggregate observations and 26 published VGE-positive subject records. Its source register also identifies textbook definitions, reprinted cohorts and conflicting denominators. [SharePoint extractions and reconciliation notes](docs/chamber-sharepoint-review.md)
 
 For the Colombian Air Force chamber program, the official FAC registers are the primary sources for 2010–2020. They record **54 DCS events**, with **35 student events and 19 instructor events** identified under `POSICION`. The training workbook records **5,030 hypoxia and 1,715 rapid-decompression activities**. The annual view includes each role's case count. Estimating risk by role requires a roster covering all occupants and follow-up for each exposure. The workbooks contain no VGE scans. [FAC source reconciliation and annual counts](docs/chamber-fac-official.md)
 
@@ -20,33 +33,15 @@ The Rojas USAF case-control supplement adds occupation, tobacco and alcohol coun
 
 The six-PDF intake adds a self-reported U-2 flight history, new ADF and Shaw AFB case detail, NASA ground versus operational EVA summaries, and an FAA profile comparison. The source crosswalk records matching and alternate versions of observations. [Six-PDF extraction and database build](docs/chamber-six-pdfs.md)
 
-The Zotero DCS collection adds NASA EVA follow-up, symptom-resolution data, prospective chamber validation estimates, and AC-130 case timelines. Its attachment register links exact copies, alternate PDFs, and repeated cohorts to their prior database sources. [Zotero DCS collection and build](docs/chamber-zotero-dcs.md)
-
-| Prediction target | Evidence available today | What the next fit needs |
-| --- | --- | --- |
-| Symptomatic DCS by a specified time | The current group fit uses 124 cases in 885 evaluable exposures from 41 NASA tests. A separate AFRL table contains 340 cases in 708 exposures. | For a grouped binomial fit, use exact events and evaluable exposures with comparable clinical definitions and windows. Individual time-to-DCS modeling also needs symptom onset or last documented event-free time for each exposure. |
-| First detection of any VGE | Published NASA reference equations, monitored group counts and selected first-detection times are available. The exercise-order report gives 13 detections among 27 subjects in each group. | Obtain the last negative and first positive scan, or the last negative scan at end of monitoring. Record ultrasound method, scale, observation schedule, posture and provocation. |
-| First Grade IV VGE | The interval-censored study used 178 records for fitting and 60 for held-out evaluation. Across all 238 records, 69 contain a detection interval and 169 are right-censored. | Preserve the original grading scale and the first qualifying grade interval. A maximum grade and a time to the first bubble identify different observations. |
-| Clinical subtype, severity and joint DCS/VGE outcomes | Some reports supply subtype counts, case timelines or joint clinical and ultrasound outcomes. One NASA series enumerates all four DCS/VGE combinations. | For subtype incidence, collect a consistent case definition and all eligible exposures. For joint models, both endpoints need ascertainment in the same exposures. Case-only series can describe presentation and timing. |
-
-The released fits and their supported profiles are documented in the chamber outcomes guide. The calculator grids and workbook labels have their own emulation evaluation. [Fitted chamber studies](docs/hypobaric-outcomes.md) · [Observed benchmark and held-out cohorts](docs/chamber-benchmark.md) · [ADRAC and workbook provenance](docs/chamber-source-search-2026-11-19.md)
-
-### From source tables to a fitted model
-
-1. **Capture the exposure.** Link study, site, protocol and revision. Preserve cohort, person and session identifiers where the source supplies them. Record starting pressure, prior diving or altitude, oxygen and air breaks, ascent, body-experienced pressure, time at plateau, workload, posture and return. Retain the measured or assigned basis and the time each predictor became available.
-2. **Capture each endpoint on its own clock.** Record adjudication, onset bounds, follow-up after return and event-free coverage for DCS. Link timestamped Doppler scans to that exposure and retain the original grades. Store unmonitored, indeterminate and lost-to-follow-up observations explicitly. The FAC/CEMAE registry supports planned and actual histories and revisioned follow-up. [Registry schema and commands](docs/chamber-benchmark.md#prospective-faccemae-registry)
-3. **Freeze the eligible cohorts before fitting.** Reconcile duplicate publications, repeat subjects, overlapping totals, incompatible grading scales and conflicting counts. Select one risk set per endpoint and horizon. Keep connected people, protocols and publications together across splits. Reserve independent sites or cohorts for external evaluation. [Frozen design](data/chamber/v1/design.json) · [Library overlap register](data/chamber/sharepoint-2026-11-19/overlap.csv)
-4. **Fit and evaluate at the available level of detail.** Compare grouped incidence with a training-prevalence baseline. Fit time-to-event models where onset and censoring are observed, using interval likelihoods for intermittently sampled VGE. Limit pre-exposure predictors to information available when the prediction is made. Evaluate held-out calibration, observed versus expected counts, Brier score and log loss at supported horizons, or interval likelihood for censored records. Publish the data cut, coefficients, uncertainty and supported range with each fit.
-
-Four operational aviation cohorts are reserved for external evaluation. Their five locked strata lack matched joint pressure histories and group mean arrival tissue ratios. External calibration of the current group DCS model therefore remains open. The immediate data need for short aviation profiles is linked exposure history, adjudicated surveillance through a stated post-return window and serial Doppler observations where VGE is a target. [External cohort assessment](docs/chamber-benchmark.md)
+The Zotero DCS collection adds NASA extravehicular activity (EVA) follow-up, symptom-resolution data, prospective chamber validation estimates, and AC-130 case timelines. Its attachment register links exact copies, alternate PDFs, and repeated cohorts to their prior database sources. [Zotero DCS collection and build](docs/chamber-zotero-dcs.md)
 
 ### Build and inspect the data
 
 Run from the repository root. The publication-review build includes the benchmark, releases through v1.11, the SharePoint intake, the official Colombian aggregates and the Rojas, six-PDF and Zotero DCS supplements. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
 
 ```sh
-python -m scripts.build_chamber_database --fac-official
 python -m scripts.build_chamber_database --publication-review
+python -m scripts.build_chamber_database --fac-official
 python -m scripts.build_chamber_database
 python -m scripts.evaluate_chamber_benchmark
 ```
@@ -54,6 +49,12 @@ python -m scripts.evaluate_chamber_benchmark
 Open `artifacts/chamber-publication-review/observed.sqlite` for the publication register and combined public outcome tables. The aggregate-only FAC build remains available at `artifacts/chamber-fac-official/observed.sqlite`. Use `fac_official_chamber_year` for FAC case and activity counts and `fac_celis_annual_reconciliation` to compare the thesis. The original workbooks also support a local build with one row per case. For literature observations, query the unit and locator alongside the values. [FAC build and queries](docs/chamber-fac-official.md#build-and-query) · [Literature deduplication rules](docs/chamber-sharepoint-review.md#deduplicated-database)
 
 ```sql
+-- Inspect the original role-specific counts used to develop the review.
+SELECT study_id, chamber_role, cases, exposures, locator
+FROM review_seed_role_cell
+ORDER BY study_id, chamber_role, source_cell;
+
+-- Verify the counting unit and source locator for an extracted outcome.
 SELECT stratum, endpoint, events, denominator, denominator_unit,
        reported_percent, analysis_role, locator
 FROM sharepoint_deduplicated_observation
@@ -61,9 +62,27 @@ WHERE source_id = 'balldin04' AND stratum = 'cns_subset'
 ORDER BY endpoint;
 ```
 
-## What is available
+## Probability models and validation
 
-**Observed chamber benchmark** provides a reproducible SQLite database of published hypobaric outcomes, a source and cohort-overlap register, two grouped model comparisons, and a locked evaluation of four operational aviation cohorts. A separate empty FAC/CEMAE registry accepts prospective exposure histories and adjudicated follow-up. [Database, findings and reproduction](docs/chamber-benchmark.md)
+TinyDCS implements published reference equations, fits models to observed chamber outcomes and evaluates surrogates of historical calculator outputs. Each probability has a defined endpoint, observation window and supported exposure range. The software also supports analysis of aviation and EVA scenarios. [Modeling methods](docs/accuracy-methods.md) · [Scientific sources](docs/accuracy-sources.md) · [Architecture](docs/accuracy-architecture.md)
+
+### Fitting and evaluation with observed outcomes
+
+| Prediction target | Available evidence | Data needed for further fitting |
+| --- | --- | --- |
+| Symptomatic DCS by a specified time | The current group fit uses 124 cases in 885 evaluable exposures from 41 NASA tests. A separate AFRL table contains 340 cases in 708 exposures. | For a grouped binomial fit, use exact events and evaluable exposures with comparable clinical definitions and windows. Individual time-to-DCS modeling also needs symptom onset or last documented event-free time for each exposure. |
+| First detection of any VGE | Published NASA reference equations, monitored group counts and selected first-detection times are available. The exercise-order report gives 13 detections among 27 subjects in each group. | Obtain the last negative and first positive scan, or the last negative scan at end of monitoring. Record ultrasound method, scale, observation schedule, posture and provocation. |
+| First Grade IV VGE | The interval-censored study used 178 records for fitting and 60 for held-out evaluation. Across all 238 records, 69 contain a detection interval and 169 are right-censored. | Preserve the original grading scale and the first qualifying grade interval. A maximum grade and a time to the first bubble identify different observations. |
+| Clinical subtype, severity and joint DCS/VGE outcomes | Some reports supply subtype counts, case timelines or joint clinical and ultrasound outcomes. One NASA series enumerates all four DCS/VGE combinations. | For subtype incidence, collect a consistent case definition and all eligible exposures. For joint models, both endpoints need ascertainment in the same exposures. Case-only series can describe presentation and timing. |
+
+1. **Capture the exposure.** Link study, site, protocol and revision. Preserve cohort, person and session identifiers where the source supplies them. Record starting pressure, prior diving or altitude, oxygen and air breaks, ascent, body-experienced pressure, time at plateau, workload, posture and return. Retain the measured or assigned basis and the time each predictor became available.
+2. **Capture onset and follow-up.** Record adjudication, onset bounds, follow-up after return and event-free coverage for DCS. Link timestamped Doppler scans to that exposure and retain the original grades. Store unmonitored, indeterminate and lost-to-follow-up observations explicitly. The FAC/CEMAE registry supports prospective exposure histories and adjudicated follow-up. [Registry schema and commands](docs/chamber-benchmark.md#prospective-faccemae-registry)
+3. **Freeze the eligible cohorts before fitting.** Reconcile duplicate publications, repeat subjects, overlapping totals, incompatible grading scales and conflicting counts. Select one risk set per endpoint and horizon. Keep connected people, protocols and publications together across splits. Reserve independent sites or cohorts for external evaluation. [Frozen design](data/chamber/v1/design.json) · [Library overlap register](data/chamber/sharepoint-2026-11-19/overlap.csv)
+4. **Fit and evaluate at the available level of detail.** Compare grouped incidence with a training-prevalence baseline. Fit time-to-event models where onset and censoring are observed, using interval likelihoods for intermittently sampled VGE. Limit pre-exposure predictors to information available when the prediction is made. Evaluate held-out calibration, observed versus expected counts, Brier score and log loss at supported horizons, or interval likelihood for censored records. Publish the data cut, coefficients, uncertainty and supported range with each fit.
+
+The benchmark includes two grouped model comparisons and a locked set of four operational aviation cohorts for external evaluation. Their five strata lack matched pressure histories and group mean arrival tissue ratios. External calibration of the current group DCS model remains open. Short aviation profiles need linked exposure histories, adjudicated post-return surveillance and serial Doppler observations where VGE is a target. [Fitted chamber studies](docs/hypobaric-outcomes.md) · [Benchmark and external cohort assessment](docs/chamber-benchmark.md)
+
+### Scenario software
 
 **Chamber research outcomes** evaluates symptomatic DCS, any VGE and Grade IV VGE from one pressure and oxygen history. It also compares an eligible scenario with a group DCS model fitted to 124 cases in 885 evaluable chamber exposures and a Grade IV VGE model fitted to monitored onset intervals. The browser and both repositories' Python services use the same reviewed coefficients and data digests. [Run a worked example and read the study results](docs/hypobaric-outcomes.md)
 
@@ -85,9 +104,9 @@ PB exercise is separate from EVA workload. Duration edits in the UI explicitly r
 
 Mission-rule classifications are configurable planning conventions, not measured likelihoods. Configured stop conditions (symptoms, radiation storm or negative PLSS margin) remain visible even when the DCS model abstains.
 
-## Current model-agreement evidence
+### Agreement with the ADRAC-derived model grid
 
-Primary cleaning retains 14,683 unambiguous cells from 16,295 raw rows. Suspected scaling errors and all disagreeing duplicate cells are excluded from the primary analysis; their raw values and alternative policies are retained for sensitivity analysis.
+Primary cleaning retains 14,683 unambiguous cells from 16,295 raw rows. The project preserves suspected scaling errors and disagreeing duplicate cells in a raw ledger for sensitivity analysis. [ADRAC and workbook provenance](docs/chamber-source-search-2026-11-19.md)
 
 The frozen split has 9,544 training, 2,937 calibration and 2,202 test cells (seed 42). No baseline is fitted on calibration or test rows.
 
@@ -96,7 +115,7 @@ The frozen split has 9,544 training, 2,937 calibration and 2,202 test cells (see
 | Primary random holdout | 0.021932 (2.1932 percentage points) | 2095/2202 = 95.14% |
 | Profile-grouped holdout | 0.026344 | 97.21% |
 
-Nominal coverage is 95%. These are model-agreement intervals, not clinical confidence intervals. Neighboring grid cells are dependent; Wilson intervals are descriptive, and finite-sample conformal guarantees require exchangeability.
+Nominal coverage is 95%. These intervals quantify agreement with the model-derived targets. Neighboring grid cells are dependent, Wilson intervals are descriptive, and finite-sample conformal guarantees require exchangeability.
 
 The global ADRAC-form baseline MAE is 0.084972; the stronger altitude-stratified baseline is 0.033773. An ordinal-exercise ablation outperforms synthetic-VO2 augmentation, so the grid does not establish added predictive value from continuously measured exercise.
 
@@ -104,7 +123,7 @@ See [tracked evidence](docs/evidence/accuracy-v3.json) for exact values, stronge
 
 ## Run locally
 
-Python 3.12 and Node 22 were used for the correction checks.
+The software is at version 0.9.0. Verification used Python 3.12 and Node 22.
 
 ```bash
 python3.12 -m venv .venv
@@ -142,4 +161,4 @@ Follow [the runbook](docs/runbook.md). Generated models, ONNX graphs, figures, l
 
 Personalization uses a Bernoulli likelihood for actual binary outcomes and a Normal susceptibility prior. Its uncertainty is a posterior credible interval, not a preserved conformal coverage guarantee.
 
-Remaining research work: reconcile 3RUT, collect independent outcome/telemetry validation, test hardware deployment and review mission rules with responsible authorities. See [LICENSE](LICENSE) for repository terms.
+Ongoing modeling work includes reconciling 3RUT, collecting independent outcomes and telemetry for validation, testing hardware deployment and reviewing mission rules with responsible authorities. [Repository terms](LICENSE)
