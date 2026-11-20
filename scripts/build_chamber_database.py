@@ -147,6 +147,7 @@ CHAMBER_U2_CASES = ROOT / "data" / "chamber" / "v1.79"
 CHAMBER_U2_CASE_SERIES = ROOT / "data" / "chamber" / "v1.80"
 CHAMBER_TRAINING_HISTORIES = ROOT / "data" / "chamber" / "v1.81"
 CHAMBER_HALO_AND_USAF_ONSET = ROOT / "data" / "chamber" / "v1.82"
+CHAMBER_PFO_AND_HEADACHE = ROOT / "data" / "chamber" / "v1.83"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1287,6 +1288,16 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_case_milestone": "case_milestones.csv",
                         "publication_piwinski_halo_case": "halo_case_details.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_PFO_AND_HEADACHE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_bryce_headache_sequence": "headache_histories.csv",
+                        "publication_case_milestone": "case_milestones.csv",
                     },
                 )
             if rojas_supplement:
