@@ -1,6 +1,18 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-russian-nlm-abstracts#11385985",
+      "report_id": "pmid:11385985",
+      "basis": "NLM identifies the 2001 Katuntsev 12-hour repeated-exit study by this PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/sources.csv#katuntsev01_repeat12h",
+      "report_id": "pmid:11385985",
+      "basis": "The authors, year, 12-hour repeated-exit protocol and PMID match the NLM record.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
       "record_key": "2026-11-19-consensus#w:0e080ce0-b1ab-44c7-8e80-ebbc0a609270",
       "report_id": "pmid:36309795",
       "basis": "Title, year and listed authors or source details match the primary bibliographic record.",
@@ -6227,6 +6239,96 @@
       "report_id": "report:usaf-medical-service-digest-matos-1982",
       "evidence_url": "https://books.google.com/books?id=27NQslLSZ2YC&pg=RA4-PA1",
       "basis": "The primary source locator, report number or exact citation verifies the report identity."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_ncbi_union:2",
+      "report_id": "pmid:11385985",
+      "basis": "The indexed 2001 Katuntsev study and its 12-hour repeated-exit protocol match this occurrence.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
+      "record_key": "2026-11-20-russian-oa-related#W2249444934",
+      "report_id": "pmid:11385985",
+      "basis": "The indexed 2001 Katuntsev study and its 12-hour repeated-exit protocol match this occurrence.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
+      "record_key": "2026-11-20-russian-und-search#Vp01",
+      "report_id": "pmid:11385985",
+      "basis": "The indexed 2001 Katuntsev study and its 12-hour repeated-exit protocol match this occurrence.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
+      "record_key": "2026-11-20-russian-und-search#Kat01",
+      "report_id": "pmid:11385985",
+      "basis": "The indexed 2001 Katuntsev study and its 12-hour repeated-exit protocol match this occurrence.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
+      "record_key": "2026-11-20-russian-und-metadata#Vp01",
+      "report_id": "pmid:11385985",
+      "basis": "The indexed 2001 Katuntsev study and its 12-hour repeated-exit protocol match this occurrence.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
+      "record_key": "2026-11-20-russian-und-metadata#Kat01",
+      "report_id": "pmid:11385985",
+      "basis": "The indexed 2001 Katuntsev study and its 12-hour repeated-exit protocol match this occurrence.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11385985/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.25/sources.csv#case17_delayed",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.18/search_hits.csv#intl_v18_twlee_dcs:3",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.25/search_hits.csv#case_v25_euro:4",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.25/search_hits.csv#case_v25_gentry_publisher:1",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_v27_q_ch:6",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.29/search_hits.csv#case_series_v29_case:8",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.29/search_hits.csv#case_series_v29_fortt:4",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.33/search_hits.csv#nasa_cases_v33_civil:6",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.37/search_hits.csv#detail_v37_old:6",
+      "report_id": "pmid:28518008",
+      "basis": "The cited Gentry article, delayed presentation after chamber training, matches the publisher report and its PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
     }
   ],
   "studies": [

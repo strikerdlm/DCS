@@ -1,0 +1,8 @@
+source_id,related_source,relationship,evidence
+fryer69_raf,v1.12/fryer65_selection,same_cohort,"The monograph names the earlier 28,000-ft RAF survey as the source of the data used for the symptom-onset plots. Treat the proceedings as an alternate publication for cohort linkage."
+fryer69_raf,v1.12/fryer69_raf/Chapter 6 and Appendix,same_cohort,"Chapter 6 analyses the 28,000-ft series in the Appendix. Age tables report 146 symptomatic analytical subjects among 2,635 versus 141 unique people among 2,606 in the Appendix. Keep each analysis in scope without pooling."
+fryer69_raf,v1.12/fryer69_raf/Table 12-1 and 1953 trials,unresolved,"Rapid-decompression training, routine 28,000-ft selection and 1953 V-bomber trials use different profiles. Person-level links across the programme records are unavailable."
+cotes52_fprc,v1.12/morant52_fprc,likely_overlap,The consecutive FPRC reports name 610 flying personnel. Cotes and Gronow describes further analysis of cases from Morant's chamber programme.
+cutler62_aircent,v1.12/fryer69_raf/p. 265 US comparison,same_cohort,"The monograph explicitly attributes the 20,000-exposure US report to Cutler. Only the RAF primary records are curated."
+ferris44_cam363,NASA/TP-2001-210196/Appendix C ref. 29,likely_overlap,The NASA report cites this source among its legacy serious-DCS data. Participant and run-level linkage remains unavailable.
+ferris44_cam363,v1.10/smedal48_review/Ferris comparisons,partial_overlap,"The review specifically identifies its 25,000- and 30,000-ft comparisons as coming from this CAM report."

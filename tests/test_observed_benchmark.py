@@ -158,6 +158,302 @@ def test_cohort_supplement_preserves_exposure_history_and_case_denominators(tmp_
         ).fetchone() == (None, 40, 47.5)
 
 
+def test_nasa_case_supplement_preserves_distinct_cases_and_timing(tmp_path):
+    target = tmp_path / "cases.sqlite"
+    build(target, chamber_nasa_cases_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        cases = db.execute(
+            "SELECT published_case_number, endpoint FROM literature_case_index "
+            "WHERE source_id='nasa03' ORDER BY published_case_number"
+        ).fetchall()
+        type_ii_cases = {26, 52, 53, 65, 77, 95}
+        assert cases == [
+            (
+                number,
+                "dcs_type_ii_historical" if number in type_ii_cases else "dcs_type_i_historical",
+            )
+            for number in range(1, 104)
+        ]
+        assert db.execute(
+            "SELECT published_case_number, dcs_time_as_published, dcs_time_min, dcs_time_basis "
+            "FROM literature_case_table_i WHERE published_case_number IN (11, 19, 22, 76) "
+            "ORDER BY published_case_number"
+        ).fetchall() == [
+            (11, "166+", 166, "recalled_at_debrief"),
+            (19, "---", None, "onset_unavailable"),
+            (22, "206#", 206, "noticed_before_in_test_report"),
+            (76, "---", None, "onset_unavailable"),
+        ]
+        assert db.execute(
+            "SELECT published_case_number, endpoint, narrative_time_min, interpretation "
+            "FROM literature_case_timing_review ORDER BY published_case_number"
+        ).fetchall() == [
+            (30, "dcs", 68, "narrative_preferred"),
+            (34, "dcs", 180, "different_symptom"),
+            (37, "vge", 133, "narrative_preferred"),
+            (90, "dcs", 110, "narrative_preferred"),
+        ]
+        assert db.execute(
+            "SELECT endpoint, numerator, denominator, analysis_role FROM publication_observation "
+            "WHERE source_id='balldin77_negative_pressure' AND stratum='negative-pressure-oxygen' "
+            "ORDER BY endpoint"
+        ).fetchall() == [
+            ("dcs_bends_source", 3, 5, "overlap_hold"),
+            ("questionable_bends_source", 1, 5, "overlap_hold"),
+            ("vge_any", 3, 5, "overlap_hold"),
+        ]
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_paired_chamber_exposures_reproduce_source_counts(tmp_path):
+    target = tmp_path / "paired.sqlite"
+    build(target, chamber_paired_exposures_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        for horizon, expected in (
+            (15, [(None, 5, 0, 0, 0), (12, 10, 3, 6, 3), (18, 10, 1, 4, 0), (24, 10, 0, 0, 0)]),
+            (60, [(None, 5, 0, 2, 0), (12, 10, 4, 7, 4), (18, 10, 5, 8, 5), (24, 10, 2, 7, 4)]),
+        ):
+            assert (
+                db.execute(
+                    "SELECT surface_interval_h, count(*), "
+                    "sum(clinical_status='confirmed' AND symptom_onset_upper_min <= ?), "
+                    "sum(coalesce(grade1_min <= ?,0)), sum(coalesce(grade4_min <= ?,0)) "
+                    "FROM publication_postdive_exposure WHERE source_id='balldin78_postdive' "
+                    "GROUP BY surface_interval_h ORDER BY surface_interval_h",
+                    (horizon, horizon, horizon),
+                ).fetchall()
+                == expected
+            )
+        assert db.execute(
+            "SELECT altitude_m, count(*), count(grade1_min), count(grade2_min), count(grade3_min), "
+            "sum(clinical_status='questionable') FROM publication_postdive_exposure "
+            "WHERE source_id='balldin80_postdive' GROUP BY altitude_m ORDER BY altitude_m"
+        ).fetchall() == [(1000, 4, 2, 2, 0, 1), (2000, 7, 6, 4, 2, 1), (3000, 20, 12, 7, 2, 0)]
+        assert db.execute(
+            "SELECT protocol, count(*), "
+            "sum(max(peak_eb_grade_rest,peak_eb_grade_knee_flex,peak_eb_grade_arm_flex)>0) "
+            "FROM publication_vge_peak WHERE source_id='gottschalk24_region' "
+            "GROUP BY protocol ORDER BY protocol"
+        ).fetchall() == [("ECCu", 11, 8), ("ECCw", 11, 7), ("control", 11, 4)]
+        assert db.execute(
+            "SELECT count(*) FROM publication_postdive_exposure "
+            "WHERE source_id='balldin78_chokes' OR source_id='gottschalk24_region'"
+        ).fetchone() == (0,)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_staged_exposures_keep_source_conflicts_and_stage_risk_sets(tmp_path):
+    target = tmp_path / "stages.sqlite"
+    build(target, chamber_staged_exposures_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT printed_table,count(*) FROM publication_staged_symptom "
+            "WHERE source_id='edel69_interval' GROUP BY printed_table ORDER BY printed_table"
+        ).fetchall() == [("III", 9), ("IV", 24), ("V", 8), ("VI", 6)]
+        assert db.execute(
+            "SELECT count(*),sum(later_phase_pain_grade) FROM publication_staged_symptom "
+            "WHERE source_id='edel69_interval' AND printed_table='III' AND surface_interval_min=5"
+        ).fetchone() == (5, 0)
+        assert db.execute(
+            "SELECT stratum,numerator,denominator,analysis_role FROM publication_observation "
+            "WHERE source_id='edel69_interval' "
+            "AND stratum IN ('work-40-5','working-deep-5-later') ORDER BY stratum"
+        ).fetchall() == [
+            ("work-40-5", 1, 6, "denominator_conflict"),
+            ("working-deep-5-later", 1, 5, "overlap_hold"),
+        ]
+        assert db.execute(
+            "SELECT count(*),sum(numerator),sum(denominator) FROM publication_observation "
+            "WHERE source_id='edel70_nasa' AND endpoint='dcs_bends_source'"
+        ).fetchone() == (11, 5, 48)
+        assert db.execute(
+            "SELECT stratum,numerator,denominator,altitude FROM publication_observation "
+            "WHERE source_id='edel70_nasa' AND endpoint='dcs_bends_later_reported' ORDER BY stratum"
+        ).fetchall() == [
+            ("C-2-later", 2, None, None),
+            ("C-3-later", 1, None, None),
+            ("C-4-later", 1, None, None),
+            ("C-5-later", 1, None, None),
+        ]
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_treated_case_supplement_preserves_printed_scopes(tmp_path):
+    target = tmp_path / "treated.sqlite"
+    build(target, chamber_treated_case_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        for groups, total in (
+            (("male", "female"), (429, 740505)),
+            (("student", "physiology-trainer"), (429, 740710)),
+        ):
+            assert (
+                db.execute(
+                    "SELECT sum(numerator),sum(denominator) FROM publication_observation "
+                    "WHERE source_id='weien90' AND endpoint='hbo_treated_chamber_dcs' "
+                    "AND analysis_role='overlap_hold' AND stratum IN (?,?)",
+                    groups,
+                ).fetchone()
+                == total
+            )
+        assert db.execute(
+            "SELECT sum(numerator),min(denominator),max(denominator) "
+            "FROM publication_observation WHERE source_id='weien90' "
+            "AND endpoint='symptom_onset_among_hbo_treated_dcs'"
+        ).fetchone() == (526, 526, 526)
+        assert db.execute(
+            "SELECT stratum,numerator,denominator FROM publication_observation "
+            "WHERE source_id='wirjosemito89_typeii' AND stratum IN "
+            "('extremity-numbness','extremity-weakness') ORDER BY stratum"
+        ).fetchall() == [("extremity-numbness", 6, 133), ("extremity-weakness", 22, 133)]
+        assert db.execute(
+            "SELECT count(*) FROM publication_observation WHERE source_id='cialoni14_flight'"
+        ).fetchone() == (0,)
+        assert db.execute(
+            "SELECT numerator,denominator FROM publication_observation "
+            "WHERE source_id='cialoni15_flight' AND stratum='return-aircraft' "
+            "AND endpoint='vge_any'"
+        ).fetchone() == (8, 56)
+        assert db.execute(
+            "SELECT reported_percent,denominator FROM publication_reported_rate "
+            "WHERE source_id='duffner60'"
+        ).fetchone() == ("55", 18)
+        assert db.execute(
+            "SELECT count(*) FROM publication_observation WHERE source_id='duffner60'"
+        ).fetchone() == (0,)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_case_detail_supplement_keeps_missing_cells_and_paired_scopes(tmp_path):
+    target = tmp_path / "details.sqlite"
+    build(target, chamber_case_detail_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT count(*),sum(type_i_bcp),sum(type_i_no_bcp),sum(type_ii_bcp), "
+            "sum(type_ii_no_bcp),count(type_i_no_bcp) FROM publication_menstrual_case_margin "
+            "WHERE source_id='rudge90_menstrual'"
+        ).fetchone() == (30, 17, 44, 5, 13, 29)
+        assert db.execute(
+            "SELECT sum(type_i_bcp)+sum(type_i_no_bcp),sum(type_ii_bcp)+sum(type_ii_no_bcp) "
+            "FROM publication_menstrual_case_margin WHERE days_since_lmp_start BETWEEN 5 AND 9"
+        ).fetchone() == (12, 4)
+        assert db.execute(
+            "SELECT days_since_lmp_start FROM publication_menstrual_case_margin "
+            "WHERE type_i_no_bcp IS NULL"
+        ).fetchall() == [(8,)]
+        assert db.execute(
+            "SELECT endpoint,sum(numerator) FROM publication_observation "
+            "WHERE source_id='rudge90_menstrual' AND stratum LIKE 'lmp-%' "
+            "GROUP BY endpoint ORDER BY endpoint"
+        ).fetchall() == [
+            ("type_i_case_day_distribution", 62),
+            ("type_ii_case_day_distribution", 19),
+        ]
+        assert db.execute(
+            "SELECT condition,count(*),count(post_exercise_peak_grade) "
+            "FROM web_vge_exercise_peak WHERE source_id='eiken23' "
+            "GROUP BY condition ORDER BY condition"
+        ).fetchall() == [("H", 10, 9), ("N", 10, 10)]
+        assert db.execute(
+            "SELECT participant_number,condition,pre_exercise_peak_grade "
+            "FROM web_vge_exercise_peak WHERE post_exercise_peak_grade IS NULL"
+        ).fetchall() == [(10, "H", 4)]
+        assert db.execute(
+            "SELECT count(*) FROM citation_observation WHERE source_id='krause00'"
+        ).fetchone() == (14,)
+        assert db.execute(
+            "SELECT access FROM citation_source WHERE source_id='krause00'"
+        ).fetchone() == ("full_text",)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_threshold_supplement_preserves_source_grain(tmp_path):
+    target = tmp_path / "threshold.sqlite"
+    build(target, chamber_threshold_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT printed_row FROM publication_threshold_profile ORDER BY printed_row"
+        ).fetchall() == [(i,) for i in range(1, 37)]
+        assert db.execute(
+            "SELECT exposure_count,symptom_count,reconciliation_status "
+            "FROM publication_threshold_profile WHERE printed_row IN (1,5,17,33) "
+            "ORDER BY printed_row"
+        ).fetchall() == [
+            (7, 0, "scope_discrepancy"),
+            (31, 1, "counts_concordant"),
+            (71, 12, "scope_discrepancy"),
+            (65, 8, "scope_discrepancy"),
+        ]
+        assert db.execute(
+            "SELECT source_id,numerator,denominator,denominator_unit,analysis_role "
+            "FROM publication_observation WHERE source_id IN "
+            "('kumar90','conkin87_tm100456','polaris_program_chamber',"
+            "'kumar88_treadmill','polaris26_eva') ORDER BY source_id"
+        ).fetchall() == [
+            ("kumar88_treadmill", 1, None, None, "selected_cluster"),
+            ("polaris26_eva", 0, 8, "person", "descriptive"),
+        ]
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_bubble_outcomes_supplement_keeps_subset_and_case_scopes(tmp_path):
+    target = tmp_path / "bubble-outcomes.sqlite"
+    build(target, chamber_bubble_outcomes_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT source_id,stratum,endpoint,numerator,denominator,analysis_role "
+            "FROM publication_observation WHERE source_id IN "
+            "('smead86_suit83','webb88_blood_vge','studer15_chamber') ORDER BY source_id,stratum"
+        ).fetchall() == [
+            (
+                "studer15_chamber",
+                "rapid-decompression-training",
+                "dcs_type_ii_presumptive_source",
+                1,
+                None,
+                "selected_cluster",
+            ),
+            ("webb88_blood_vge", "blood-subset-men", "vge_grade_3_or_4", 5, 20, "overlap_hold"),
+            ("webb88_blood_vge", "blood-subset-women", "vge_grade_3_or_4", 3, 10, "overlap_hold"),
+        ]
+        assert db.execute(
+            "SELECT endpoint,reported_percent,denominator,analysis_role "
+            "FROM publication_reported_rate WHERE source_id='smead86_suit83'"
+        ).fetchall() == [("significant_intravascular_bubbling", "25.8", 31, "overlapping_margin")]
+        assert db.execute(
+            "SELECT relationship FROM publication_overlap "
+            "WHERE source_id='webb88_blood_vge' AND related_source='smead86_suit83'"
+        ).fetchone() == ("partial_overlap",)
+
+
+def test_diagnosis_supplement_keeps_report_and_rating_denominators(tmp_path):
+    target = tmp_path / "diagnosis.sqlite"
+    build(target, chamber_diagnosis_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT count(*),sum(reports),sum(original_dcs_labels),"
+            "sum(outside_ratings),sum(outside_dcs_ratings) "
+            "FROM publication_diagnostic_stratum WHERE source_id='conkin06_diagnostic'"
+        ).fetchone() == (6, 135, 103, 675, 406)
+        assert db.execute(
+            "SELECT count(*),count(DISTINCT published_exposure_code),sum(peak_vge_grade=4) "
+            "FROM literature_symptomatic_noncase WHERE source_id='nasa03'"
+        ).fetchone() == (32, 32, 11)
+        assert db.execute(
+            "SELECT narrative_number,first_report_min,first_report_basis "
+            "FROM literature_symptomatic_noncase WHERE first_report_basis<>'test_elapsed' "
+            "ORDER BY narrative_number"
+        ).fetchall() == [
+            (1, None, "after_test"),
+            (7, 30, "after_test"),
+            (24, 350, "after_test"),
+            (27, None, "before_target_ascent"),
+        ]
+        assert db.execute(
+            "SELECT stratum,numerator,denominator,analysis_role FROM publication_observation "
+            "WHERE source_id='conkin06_diagnostic'"
+        ).fetchall() == [("trial-n", 7, 48, "overlap_hold")]
+
+
 def test_eligibility_precedes_scoring(evidence):
     model = read_study(GROUP)
     external = evidence.execute("SELECT * FROM locked_external").fetchall()
@@ -468,6 +764,351 @@ def test_cadet_release_preserves_printed_rates_and_disjoint_source_groups(tmp_pa
             SELECT disposition FROM publication_source WHERE source_id='smedal48_review'
         """).fetchone() == ("extracted",)
         assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_raf_release_preserves_distinct_analyses_and_staged_arm_denominators(tmp_path):
+    target = tmp_path / "raf.sqlite"
+    assert build(target, raf_supplement=True) == build(target, raf_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit
+            FROM publication_observation WHERE source_id='fryer69_raf'
+            AND endpoint='dcs_symptoms_source_defined'
+            AND stratum IN ('selection_exposures','selection_people') ORDER BY stratum
+        """).fetchall() == [
+            ("selection_exposures", 165, 4956, "person_exposure"),
+            ("selection_people", 141, 2606, "person"),
+        ]
+        assert db.execute("""
+            SELECT sum(numerator),sum(denominator),count(*)
+            FROM publication_observation WHERE source_id='fryer69_raf'
+            AND stratum LIKE 'selection_age_%_first_runs' AND analysis_role='denominator_conflict'
+        """).fetchone() == (96, 2635, 6)
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='fryer69_raf' AND stratum='selection_cluster_analysis'
+        """).fetchone() == (164, None)
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,altitude FROM publication_observation
+            WHERE source_id='fryer69_raf' AND stratum='rapid_decompression_training'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("bends", 1, 7685, None),
+            ("formication", 1, 7685, None),
+            ("unspecified_pain_pressure_breathing", 2, 7685, None),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='fryer69_raf' AND endpoint='dcs_forced_descent' ORDER BY stratum
+        """).fetchall() == [(9, 30), (6, 10), (3, 40), (10, 39)]
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_clinical_series_release_holds_overlaps_and_uncertain_denominators(tmp_path):
+    target = tmp_path / "clinical-series.sqlite"
+    assert build(target, clinical_series_supplement=True) == build(
+        target, clinical_series_supplement=True
+    )
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='nasa_pfo24' AND stratum='altitude_refresher_since_2015'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("dcs_all_types", 12, 1650, "overlapping_margin"),
+            ("dcs_type_i_source", 6, 1650, "overlap_hold"),
+            ("dcs_type_ii_source", 6, 1650, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='nasa_pfo24' AND stratum='research_and_hardware_development'
+            ORDER BY numerator
+        """).fetchall() == [(1, None, None), (3, None, None)]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='balldin02_posture' ORDER BY endpoint
+        """).fetchall() == [
+            ("prospective_adynamia", 20, 39),
+            ("prospective_adynamia", 17, 39),
+            ("prospective_adynamia", 13, 39),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='skedina97' AND stratum='pooled_simulated_eva' ORDER BY numerator
+        """).fetchall() == [(7, 32, "denominator_conflict"), (27, 32, "denominator_conflict")]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='nasa_pfo26'
+        """).fetchone() == (0,)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_crossover_release_retains_paired_counts_and_denominator_conflict(tmp_path):
+    target = tmp_path / "crossover.sqlite"
+    assert build(target, crossover_supplement=True) == build(target, crossover_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT altitude,numerator,denominator FROM publication_observation
+            WHERE source_id='lupa05' AND endpoint='dcs_signs_or_symptoms_source'
+            ORDER BY altitude
+        """).fetchall() == [(17500, 0, 10), (35000, 0, 10)]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='balldin73_immersion' AND stratum LIKE 'dry_%' ORDER BY stratum
+        """).fetchall() == [
+            ("dry_nitrogen_loaded", 3, 3, "selected_cluster"),
+            ("dry_published_total", 9, 10, "overlapping_margin"),
+            ("dry_standard", 6, 7, "descriptive"),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='lee_hay01' AND analysis_role='denominator_conflict'
+        """).fetchall() == [(6, 115)]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),sum(denominator) FROM publication_observation
+            WHERE source_id='lee_hay01' AND endpoint='dci_symptoms_recompression'
+        """).fetchone() == (7, 33, 105)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_historical_chamber_release_keeps_courses_distinct_from_experiments(tmp_path):
+    target = tmp_path / "historical-chamber.sqlite"
+    assert build(target, historic_chamber_supplement=True) == build(
+        target, historic_chamber_supplement=True
+    )
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT grouping,sum(course_count),sum(category_a),sum(category_b),sum(category_c)
+            FROM publication_selection_course WHERE source_id='kenyon72_hast'
+            GROUP BY grouping ORDER BY grouping
+        """).fetchall() == [(group, 2565, 1667, 764, 134) for group in ("role", "total", "year")]
+        assert db.execute("""
+            SELECT course_count,category_b+category_c FROM publication_selection_course
+            WHERE source_id='kenyon72_hast' AND stratum='year_1957'
+        """).fetchone() == (174, 70)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='kenyon72_hast'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='genin80' AND endpoint='hds_source'
+                AND stratum IN ('suited_03','suited_09','unsuited_7') ORDER BY stratum
+        """).fetchall() == [
+            ("suited_03", 0, 10, "denominator_conflict"),
+            ("suited_09", 0, 60, "overlap_hold"),
+            ("unsuited_7", 14, None, "denominator_conflict"),
+        ]
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_spaceflight_release_reconciles_original_denominator_and_air_breaks(tmp_path):
+    target = tmp_path / "spaceflight.sqlite"
+    assert build(target, spaceflight_supplement=True) == build(target, spaceflight_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='cooke74' AND stratum='oxygen-30-min' AND endpoint='dcs_symptoms'
+        """).fetchall() == [(6, 22)]
+        assert db.execute("""
+            SELECT previous_denominator,denominator,evidence_source_id
+            FROM publication_observation_revision WHERE stratum='oxygen-30-min'
+        """).fetchone() == (20, 22, "cooke74_primary")
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='cooke76_airbreak' AND analysis_role='descriptive' ORDER BY stratum
+        """).fetchall() == [
+            ("flight_type_1", 0, 17),
+            ("flight_type_2", 2, 10),
+            ("flight_type_3", 1, 11),
+            ("flight_type_4", 1, 10),
+            ("flight_type_5", 1, 13),
+            ("flight_type_6", 1, 12),
+            ("flight_type_7", 1, 15),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('cooke75_air_tech','damato63_journal')
+        """).fetchone() == (0,)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_denitrogenation_release_keeps_source_rates_and_conflicting_counts(tmp_path):
+    target = tmp_path / "denitrogenation.sqlite"
+    build(target, denitrogenation_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT count(*),sum(denominator) FROM publication_reported_rate
+            WHERE source_id='allen71_body_fat' AND analysis_role='overlap_hold'
+        """).fetchone() == (26, 883)
+        assert db.execute("""
+            SELECT reported_percent,denominator FROM publication_reported_rate
+            WHERE source_id='allen71_body_fat' AND stratum='27k-o2-0-lt12'
+        """).fetchone() == ("8.4", 12)
+        assert db.execute("""
+            SELECT numerator,denominator,prebreathe_min FROM publication_observation
+            WHERE source_id='allen71_body_fat' AND analysis_role='denominator_conflict'
+            ORDER BY denominator
+        """).fetchall() == [(1, 130, None), (5, 383, None)]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='waligora84_shuttle' AND endpoint='dcs_symptoms'
+        """).fetchall() == [("series2-oxygen-210", 7, 22)]
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='waligora84_shuttle' AND related_source='gerth18'
+        """).fetchone() == ("same_cohort",)
+        assert db.execute("""
+            SELECT dcs_cases,dcs_denominator FROM nasa_test WHERE test_id='2a'
+        """).fetchone() == (7, 23)
+        assert db.execute("""
+            SELECT exact_cases,exposures FROM a1309_profile WHERE profile LIKE 'Test 2a; %'
+        """).fetchone() == (7, 23)
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='waligora84_shuttle' AND endpoint='any_vge_source'
+        """).fetchall() == [("series2-oxygen-210", 14, 22, "denominator_conflict")]
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='cherniakov76_repeat' AND analysis_role='overlap_hold'
+        """).fetchone() == (0, 6, "person")
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role
+            FROM publication_observation
+            WHERE source_id='taubman06_fab' AND stratum IN ('all-flight-profiles','helicopter')
+                AND endpoint='any_self_reported_chamber_symptom'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("all-flight-profiles", 223, 848, "descriptive"),
+            ("helicopter", 23, 106, "denominator_conflict"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id='taubman06_fab' AND endpoint NOT LIKE '%self_reported%'
+        """).fetchone() == (0,)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_international_release_preserves_outcome_units_and_links_existing_case(tmp_path):
+    target = tmp_path / "international.sqlite"
+    build(target, international_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,altitude,altitude_unit
+            FROM publication_observation WHERE source_id='peng16_eva_chamber'
+        """).fetchall() == [(0, 17, "person", 7200.0, "m")]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='lee21_taiwan_training'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("training_interruption_any_cause", 572, None, None, "denominator_conflict"),
+            ("training_noncompletion_any_cause", 57, 18487, "trainee_exposure", "descriptive"),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='kutz23_chamber_referral'
+        """).fetchall() == [(1, None, "selected_cluster")]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id IN ('gibbons03_rapid_ascent','ho88_taiwan_survey','tong19_taiwan_training')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("pilmanis03", "partial_overlap"),
+            ("wen88_taiwan_survey", "likely_overlap"),
+            ("lee21_taiwan_training", "same_cohort"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN (
+                'gibbons03_rapid_ascent','ho88_taiwan_survey','wen88_taiwan_survey',
+                'tong19_taiwan_training'
+            )
+        """).fetchone() == (0,)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_archival_release_keeps_distinct_followup_and_stage_risk_sets(tmp_path):
+    target = tmp_path / "archival.sqlite"
+    build(target, archival_trial_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='bridge44_38000'
+                AND endpoint='postflight_symptoms_in_joints_affected_at_altitude'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("postflight-respondents", 19, 120),
+            ("respondents-with-altitude-joint-pain", 19, 74),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='cheetham47_lyttelton'
+                AND endpoint IN ('joint_symptoms_source','people_with_joint_symptoms_source')
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("joint_symptoms_source", 16, 83, "person_exposure"),
+            ("people_with_joint_symptoms_source", 11, 28, "person"),
+        ]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='allen_beard69_2h' AND stratum LIKE '293-mixed-%' ORDER BY stratum
+        """).fetchall() == [("293-mixed-cabin", 18, 36), ("293-mixed-suit", 10, 22)]
+        assert db.execute("""
+            SELECT source_id,access,disposition FROM publication_source
+            WHERE source_id IN ('allen_beard69_2h','meade67') ORDER BY source_id
+        """).fetchall() == [
+            ("allen_beard69_2h", "full_text", "extracted"),
+            ("meade67", "full_text", "extracted"),
+        ]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='allen71_body_fat'
+                AND related_source IN ('allen_beard69_2h','mciver67_eva')
+            ORDER BY related_source
+        """).fetchall() == [
+            ("allen_beard69_2h", "partial_overlap"),
+            ("mciver67_eva", "partial_overlap"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='mciver66_case_series'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='meade67'
+        """).fetchall() == [(36, 958, "selected_cluster")]
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
+def test_reconciliation_release_keeps_one_houston_cohort(tmp_path):
+    output = tmp_path / "reconciled.sqlite"
+    build(output, chamber_reconciliation_supplement=True)
+
+    with closing(sqlite3.connect(output)) as db:
+        assert db.execute("""
+            SELECT source_id, endpoint, numerator, denominator
+            FROM publication_observation
+            WHERE source_id IN ('houston46_navy', 'houston47_low_altitude')
+            ORDER BY source_id, endpoint
+        """).fetchall() == [
+            ("houston46_navy", "aeroembolism_symptomatic_person_source", 6, 20),
+            ("houston46_navy", "persistent_unilateral_temporal_blindness_source", 2, 20),
+            ("houston46_navy", "scotoma_person_source", 3, 20),
+            ("houston47_low_altitude", "incapacitating_bends_source", 2, 20),
+        ]
+        assert db.execute("""
+            SELECT numerator, denominator, retained_source_id
+            FROM publication_observation_superseded
+            WHERE source_id = 'houston47_low_altitude'
+            ORDER BY stratum
+        """).fetchall() == [
+            (6, 20, "houston46_navy"),
+            (3, 20, "houston46_navy"),
+            (2, 3, "houston46_navy"),
+        ]
+        assert db.execute("""
+            SELECT relationship
+            FROM publication_overlap
+            WHERE source_id = 'houston46_navy' AND related_source = 'houston47_low_altitude'
+        """).fetchone() == ("same_cohort",)
 
 
 def test_database_build_is_idempotent_and_preserves_other_files(tmp_path):

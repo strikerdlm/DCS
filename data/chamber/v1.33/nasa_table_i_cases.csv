@@ -1,0 +1,98 @@
+source_id,published_case_number,endpoint,published_subject_code,published_test_code,test_site,test_date,vge_detection_status,first_vge_detection_min,dcs_time_as_published,dcs_time_basis,dcs_time_min,symptom_site,locator
+nasa03,1,dcs_type_i_historical,21-01,1a,JSC,1982-08-03,detected,46,44,first_report,44,lower,Table I p. 9 record 1
+nasa03,2,dcs_type_i_historical,25-01,1a,JSC,1982-08-05,detected,27,49,first_report,49,lower,Table I p. 9 record 2
+nasa03,3,dcs_type_i_historical,26-01,1a,JSC,1982-08-06,detected,59,75,first_report,75,lower,Table I p. 9 record 3
+nasa03,4,dcs_type_i_historical,27-01,1a,JSC,1982-08-06,detected,47,76,first_report,76,lower,Table I p. 9 record 4
+nasa03,5,dcs_type_i_historical,12-01,1b,JSC,1982-07-26,detected,62,77,first_report,77,lower,Table I p. 9 record 5
+nasa03,6,dcs_type_i_historical,11-01,1b,JSC,1982-07-26,detected,6,28,first_report,28,lower,Table I p. 9 record 6
+nasa03,7,dcs_type_i_historical,2-01,1b,JSC,1982-07-22,detected,57,64,first_report,64,lower,Table I p. 9 record 7
+nasa03,8,dcs_type_i_historical,20-01,1c,JSC,1982-08-02,detected,19,76,first_report,76,lower,Table I p. 9 record 8
+nasa03,9,dcs_type_i_historical,19-01,1c,JSC,1982-07-31,detected,25,78,first_report,78,lower,Table I p. 9 record 9
+nasa03,10,dcs_type_i_historical,18-01,1c,JSC,1982-07-31,detected,69,104,first_report,104,lower,Table I p. 9 record 10
+nasa03,11,dcs_type_i_historical,15-01,1c,JSC,1982-07-30,detected,37,166+,recalled_at_debrief,166,lower,Table I p. 9 record 11
+nasa03,12,dcs_type_i_historical,11-02,1d,JSC,1982-07-28,detected,34,50+,recalled_at_debrief,50,lower,Table I p. 9 record 12
+nasa03,13,dcs_type_i_historical,10-02,1d,JSC,1982-07-28,detected,62,60+,recalled_at_debrief,60,lower,Table I p. 9 record 13
+nasa03,14,dcs_type_i_historical,37-02,2a,JSC,1982-11-24,detected,55,59,first_report,59,other,Table I p. 9 record 14
+nasa03,15,dcs_type_i_historical,35-02,2a,JSC,1982-11-30,detected,116,116,first_report,116,lower,Table I p. 9 record 15
+nasa03,16,dcs_type_i_historical,21-02,2a,JSC,1982-11-24,detected,105,76,first_report,76,lower,Table I p. 9 record 16
+nasa03,17,dcs_type_i_historical,34-01,2a,JSC,1982-11-22,detected,77,42+,recalled_at_debrief,42,lower,Table I p. 9 record 17
+nasa03,18,dcs_type_i_historical,5-02,2a,JSC,1982-11-29,detected,104,160,first_report,160,lower,Table I p. 9 record 18
+nasa03,19,dcs_type_i_historical,32-01,2a,JSC,1982-11-29,detected,18,---,onset_unavailable,,lower,Table I p. 9 record 19
+nasa03,20,dcs_type_i_historical,38-03,2a,JSC,1982-11-30,detected,216,221,first_report,221,lower,Table I p. 9 record 20
+nasa03,21,dcs_type_i_historical,35-03,2b,JSC,1982-12-05,detected,34,17,first_report,17,lower,Table I p. 9 record 21
+nasa03,22,dcs_type_i_historical,34-02,2b,JSC,1982-12-10,detected,69,206#,noticed_before_in_test_report,206,lower,Table I p. 9 record 22
+nasa03,23,dcs_type_i_historical,31-03,2b,JSC,1982-12-10,detected,144,180,first_report,180,upper,Table I p. 9 record 23
+nasa03,24,dcs_type_i_historical,3-03,2b,JSC,1982-12-03,detected,76,175,first_report,175,lower,Table I p. 9 record 24
+nasa03,25,dcs_type_i_historical,21-03,2b,JSC,1982-12-08,detected,37,160,first_report,160,both,Table I p. 9 record 25
+nasa03,27,dcs_type_i_historical,42-02,3a,JSC,1983-05-26,detected,34,294#,noticed_before_in_test_report,294,lower,Table I p. 9 record 27
+nasa03,28,dcs_type_i_historical,47-01,3a,JSC,1983-06-09,detected,4,50#,noticed_before_in_test_report,50,lower,Table I p. 9 record 28
+nasa03,29,dcs_type_i_historical,46-01,3a,JSC,1983-06-07,detected,76,120#,noticed_before_in_test_report,120,lower,Table I p. 9 record 29
+nasa03,30,dcs_type_i_historical,44-02,3a,JSC,1983-05-26,detected,42,86,first_report,86,lower,Table I p. 9 record 30
+nasa03,31,dcs_type_i_historical,61-03,3a,JSC,1983-07-05,detected,41,78#,noticed_before_in_test_report,78,lower,Table I p. 9 record 31
+nasa03,32,dcs_type_i_historical,13-04,3a,JSC,1983-06-07,detected,88,180#,noticed_before_in_test_report,180,lower,Table I p. 9 record 32
+nasa03,33,dcs_type_i_historical,63-01,3b,JSC,1983-06-28,detected,24,90#,noticed_before_in_test_report,90,lower,Table I p. 9 record 33
+nasa03,34,dcs_type_i_historical,60-01,3b,JSC,1983-06-27,detected,134,300,first_report,300,lower,Table I p. 9 record 34
+nasa03,35,dcs_type_i_historical,51-01,3b,JSC,1983-05-18,not_detected,,240,first_report,240,upper,Table I p. 9 record 35
+nasa03,36,dcs_type_i_historical,47-02,3b,JSC,1983-06-27,detected,39,113#,noticed_before_in_test_report,113,lower,Table I p. 9 record 36
+nasa03,37,dcs_type_i_historical,8-04,3b,JSC,1983-07-10,detected,113,164#,noticed_before_in_test_report,164,lower,Table I p. 9 record 37
+nasa03,38,dcs_type_i_historical,27-05,3b,JSC,1983-07-10,detected,256,324#,noticed_before_in_test_report,324,lower,Table I p. 9 record 38
+nasa03,39,dcs_type_i_historical,44-01,3b,JSC,1983-05-19,detected,107,221#,noticed_before_in_test_report,221,both,Table I p. 10 record 39
+nasa03,40,dcs_type_i_historical,62-02,3b,JSC,1983-07-10,detected,103,105#,noticed_before_in_test_report,105,lower,Table I p. 10 record 40
+nasa03,41,dcs_type_i_historical,44-03,3c,JSC,1983-05-27,detected,77,105,first_report,105,lower,Table I p. 10 record 41
+nasa03,42,dcs_type_i_historical,48-03,3c,JSC,1983-06-11,detected,172,296#,noticed_before_in_test_report,296,lower,Table I p. 10 record 42
+nasa03,43,dcs_type_i_historical,10-07,3c,JSC,1983-05-24,detected,221,201#,noticed_before_in_test_report,201,lower,Table I p. 10 record 43
+nasa03,44,dcs_type_i_historical,60-03,3d,JSC,1983-07-13,detected,105,239,first_report,239,lower,Table I p. 10 record 44
+nasa03,45,dcs_type_i_historical,42-05,3d,JSC,1983-07-15,detected,149,216#,noticed_before_in_test_report,216,lower,Table I p. 10 record 45
+nasa03,46,dcs_type_i_historical,64-01,4a,JSC,1984-06-12,detected,16,24#,noticed_before_in_test_report,24,both,Table I p. 10 record 46
+nasa03,47,dcs_type_i_historical,91-01,5a,JSC,1985-04-11,detected,128,165#,noticed_before_in_test_report,165,lower,Table I p. 10 record 47
+nasa03,48,dcs_type_i_historical,92-01,5a,JSC,1985-04-11,detected,277,292#,noticed_before_in_test_report,292,upper,Table I p. 10 record 48
+nasa03,49,dcs_type_i_historical,96-01,5a,JSC,1985-04-25,detected,39,60,first_report,60,lower,Table I p. 10 record 49
+nasa03,50,dcs_type_i_historical,97-01,5a,JSC,1985-05-02,detected,91,104#,noticed_before_in_test_report,104,lower,Table I p. 10 record 50
+nasa03,51,dcs_type_i_historical,109-01,6,JSC,1985-08-14,detected,98,152#,noticed_before_in_test_report,152,both,Table I p. 10 record 51
+nasa03,54,dcs_type_i_historical,120-01,7 High Exer,JSC,1988-11-09,detected,81,78,first_report,78,both,Table I p. 10 record 54
+nasa03,55,dcs_type_i_historical,117-01,7 High Exer,JSC,1988-09-27,detected,49,169,first_report,169,lower,Table I p. 10 record 55
+nasa03,56,dcs_type_i_historical,121-02,7 Low Exer,JSC,1988-12-12,detected,65,109#,noticed_before_in_test_report,109,both,Table I p. 10 record 56
+nasa03,57,dcs_type_i_historical,122-02,7 Low Exer,JSC,1989-01-13,detected,25,84,first_report,84,upper,Table I p. 10 record 57
+nasa03,58,dcs_type_i_historical,146-02,8a,JSC,1990-02-08,detected,37,42#,noticed_before_in_test_report,42,lower,Table I p. 10 record 58
+nasa03,59,dcs_type_i_historical,139-02,8a,JSC,1989-11-21,not_detected,,80,first_report,80,lower,Table I p. 10 record 59
+nasa03,60,dcs_type_i_historical,147-01,8a,JSC,1990-01-25,detected,64,104,first_report,104,lower,Table I p. 10 record 60
+nasa03,61,dcs_type_i_historical,138-01,8a,JSC,1989-11-08,detected,29,60,first_report,60,both,Table I p. 10 record 61
+nasa03,62,dcs_type_i_historical,133-02,8a,JSC,1989-09-28,detected,41,105,first_report,105,lower,Table I p. 10 record 62
+nasa03,63,dcs_type_i_historical,127-01,8a,JSC,1989-08-17,detected,63,129,first_report,129,lower,Table I p. 10 record 63
+nasa03,64,dcs_type_i_historical,140-02,8a,JSC,1989-11-21,detected,40,60,first_report,60,both,Table I p. 10 record 64
+nasa03,66,dcs_type_i_historical,157-01,8b,JSC,1990-03-29,not_detected,,117#,noticed_before_in_test_report,117,upper,Table I p. 10 record 66
+nasa03,67,dcs_type_i_historical,158-01,8b,JSC,1990-03-29,detected,56,111,first_report,111,lower,Table I p. 10 record 67
+nasa03,68,dcs_type_i_historical,164-01,8b,JSC,1990-05-31,detected,44,79,first_report,79,lower,Table I p. 10 record 68
+nasa03,69,dcs_type_i_historical,140-01,8b,JSC,1989-11-08,detected,20,97,first_report,97,both,Table I p. 10 record 69
+nasa03,70,dcs_type_i_historical,139-01,8b,JSC,1989-11-08,detected,42,60,first_report,60,upper,Table I p. 10 record 70
+nasa03,71,dcs_type_i_historical,137-02,8b,JSC,1989-11-16,detected,59,110#,noticed_before_in_test_report,110,lower,Table I p. 10 record 71
+nasa03,72,dcs_type_i_historical,136-01,8b,JSC,1989-10-26,detected,37,40#,noticed_before_in_test_report,40,both,Table I p. 10 record 72
+nasa03,73,dcs_type_i_historical,133-01,8b,JSC,1989-09-14,detected,25,137,first_report,137,lower,Table I p. 10 record 73
+nasa03,74,dcs_type_i_historical,31-06,8b,JSC,1990-06-07,detected,76,144,first_report,144,lower,Table I p. 10 record 74
+nasa03,75,dcs_type_i_historical,172-01,9a,JSC,1991-09-19,detected,173,179,first_report,179,lower,Table I p. 10 record 75
+nasa03,76,dcs_type_i_historical,130-03,9b,JSC,1991-11-07,detected,52,---,onset_unavailable,,lower,Table I p. 10 record 76
+nasa03,78,dcs_type_i_historical,202-01,9c,JSC,1994-03-17,detected,38,94#,noticed_before_in_test_report,94,lower,Table I p. 11 record 78
+nasa03,79,dcs_type_i_historical,204-01,9c,JSC,1994-03-24,detected,47,80#,noticed_before_in_test_report,80,lower,Table I p. 11 record 79
+nasa03,80,dcs_type_i_historical,207-01,9c,JSC,1994-06-17,detected,62,165,first_report,165,lower,Table I p. 11 record 80
+nasa03,81,dcs_type_i_historical,192-01,10,JSC,1992-10-07,detected,20,158,first_report,158,upper,Table I p. 11 record 81
+nasa03,82,dcs_type_i_historical,215-01,11,JSC,1996-12-12,detected,96,144#,noticed_before_in_test_report,144,lower,Table I p. 11 record 82
+nasa03,83,dcs_type_i_historical,228-01,11,JSC,1997-09-11,detected,101,153,first_report,153,lower,Table I p. 11 record 83
+nasa03,84,dcs_type_i_historical,234-01,11,JSC,1998-02-19,detected,32,48,first_report,48,upper,Table I p. 11 record 84
+nasa03,85,dcs_type_i_historical,D9801 13C,Phase I,Duke,1998-01-13,detected,75,76,first_report,76,lower,Table I p. 11 record 85
+nasa03,86,dcs_type_i_historical,D9801 20B,Phase I,Duke,1998-01-20,detected,16,113,first_report,113,lower,Table I p. 11 record 86
+nasa03,87,dcs_type_i_historical,D9802 03B,Phase I,Duke,1998-02-03,detected,74,111,first_report,111,both,Table I p. 11 record 87
+nasa03,88,dcs_type_i_historical,D9802 10A,Phase I,Duke,1998-02-10,not_detected,,164,first_report,164,other,Table I p. 11 record 88
+nasa03,89,dcs_type_i_historical,D9803 03B,Phase I,Duke,1998-03-03,detected,60,134,first_report,134,upper,Table I p. 11 record 89
+nasa03,90,dcs_type_i_historical,H9802 19A,Phase I,Hermann,1998-02-19,detected,108,108,first_report,108,lower,Table I p. 11 record 90
+nasa03,91,dcs_type_i_historical,H9802 26A,Phase I,Hermann,1998-02-26,detected,76,144,first_report,144,lower,Table I p. 11 record 91
+nasa03,92,dcs_type_i_historical,H9803 10A,Phase I,Hermann,1998-03-10,detected,76,76,first_report,76,lower,Table I p. 11 record 92
+nasa03,93,dcs_type_i_historical,H9803 24B,Phase I,Hermann,1998-03-24,detected,76,76,first_report,76,other,Table I p. 11 record 93
+nasa03,94,dcs_type_i_historical,D9806 30B,Phase III,Duke,1998-06-30,not_detected,,52,first_report,52,lower,Table I p. 11 record 94
+nasa03,96,dcs_type_i_historical,H9905 11A,Phase IV,Hermann,1999-05-11,not_detected,,92,first_report,92,lower,Table I p. 11 record 96
+nasa03,97,dcs_type_i_historical,H9905 27B,Phase IV,Hermann,1999-05-27,detected,64,84,first_report,84,lower,Table I p. 11 record 97
+nasa03,98,dcs_type_i_historical,H9906 10A,Phase IV,Hermann,1999-06-10,detected,45,45,first_report,45,lower,Table I p. 11 record 98
+nasa03,99,dcs_type_i_historical,H9906 15B,Phase IV,Hermann,1999-06-15,detected,169,183,first_report,183,lower,Table I p. 11 record 99
+nasa03,100,dcs_type_i_historical,C9903 11B,Phase IV,DCIEM,1999-03-11,detected,31,31,first_report,31,lower,Table I p. 11 record 100
+nasa03,101,dcs_type_i_historical,C9903 15D,Phase IV,DCIEM,1999-03-15,detected,40,56,first_report,56,lower,Table I p. 11 record 101
+nasa03,102,dcs_type_i_historical,C9903 17D,Phase IV,DCIEM,1999-03-17,detected,93,118,first_report,118,lower,Table I p. 11 record 102
+nasa03,103,dcs_type_i_historical,C9903 24C,Phase IV,DCIEM,1999-03-24,detected,40,92,first_report,92,lower,Table I p. 11 record 103

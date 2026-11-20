@@ -8,24 +8,14 @@ from urllib.parse import unquote, urlsplit
 
 SOURCE_REGISTERS = (
     "v1",
-    "v1.1",
-    "v1.2",
-    "v1.3",
-    "v1.4",
-    "v1.5",
-    "v1.6",
-    "v1.7",
-    "v1.8",
-    "v1.9",
-    "v1.10",
-    "v1.11",
+    *(f"v1.{i}" for i in range(1, 41)),
     "sharepoint-2026-11-19",
     "fac-official",
     "rojas-2015",
     "attachments-2026-11-19",
     "zotero-dcs-2026-11-19",
 )
-HISTORICAL_SEARCH_RELEASES = ("v1.7", "v1.8", "v1.9", "v1.10", "v1.11")
+HISTORICAL_SEARCH_RELEASES = tuple(f"v1.{i}" for i in range(7, 41))
 
 
 def _only(candidates: list[str]) -> str | None:
@@ -60,7 +50,8 @@ def _record(stream: str, row: dict[str, str], key_fields: tuple[str, ...]) -> di
             doi_values.append(path)
         if parts.hostname == "openalex.org" and re.fullmatch(r"W[1-9]\d*", path):
             openalex.append(path)
-    doi = _only([v.strip().lower().rstrip(".,") for v in doi_values])
+    # In mixed identifier fields a semicolon introduces the next accession.
+    doi = _only([v.strip().lower().rstrip(".,;") for v in doi_values])
 
     # Explicit citation years only. Study periods and numbers in local aliases
     # (e.g. sulaiman97) are not reliable sources for publication year.

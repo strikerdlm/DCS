@@ -1,0 +1,25 @@
+# Age-stratified chamber outcomes and archival crosswalks
+
+Release 1.31 verified that Houston's 1946 Navy report and 1947 article describe the same cohort. It supersedes three v1.30 Houston rows and keeps the incapacitating-bends observation. [Correction and evidence](chamber-reconciliation-supplement.md)
+
+Release 1.30 adds 46 count rows, 98 published percentages, seven source records and six links for cohort overlap. The existing Houston citation is updated in place with the original paper and four of the count rows. The 98 percentages use the existing Motley source ID. [Sources](../data/chamber/v1.30/sources.csv) · [Counts](../data/chamber/v1.30/observations.csv) · [Published percentages](../data/chamber/v1.30/reported_rates.csv) · [Cohort links](../data/chamber/v1.30/overlap.csv)
+
+| Source | Data added and scope |
+| --- | --- |
+| Sulaiman et al., Armstrong Laboratory technical report, 1995 | **445/1,299** records with source-defined symptomatic DCS in the overall age table. The companion paper identifies these records as person-exposures. Table 7 gives **68/111** in a nested subset at 29,500–30,000 ft. Tables 5 and 6 separately print **8/420** below 20,000 ft and **441/880** above 20,000 ft. Their sum, **449/1,300**, differs from the overall table. The journal companion uses a 25,000-ft split. Keep the original counts and flags because the source provides no way to reconcile the rows. [Technical report, pp. 5–9](https://archive.org/download/DTIC_ADA297023/DTIC_ADA297023.pdf#page=10) · [Journal companion](https://pubmed.ncbi.nlm.nih.gov/9262810/) |
+| Thompson et al., 1944 Report C 2064, as tabulated by Sulaiman | **788/1,347 people** with source-defined symptoms on at least one of one to three chamber runs. The age counts come from a secondary exact table. Exposure protocols, per-ascent counts, and the relationship to other Canadian series remain unverified. [Secondary exact table and report reference](https://archive.org/download/DTIC_ADA297023/DTIC_ADA297023.pdf#page=7) |
+| Motley et al., Maxwell Field, 1945 | Original Table VI reports 14 age groups that sum to **44,172 trainee records**. Seven percentage columns per age group describe historical bends grades and their totals. All 98 percentages retain the printed precision. The age table is nested in the 68,422-person training series already recorded in v1.11. The source does not identify the protocol separately in each age group. Gray's review repeats the 44,172-record Maxwell margin, so it contributes no additional outcome rows. [Motley original Table VI](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/4/article-p210.pdf#page=6) |
+| Houston, Pensacola, 1947 | **6/20 staff** had symptoms attributed by the author to aeroembolism during a repeated-exposure acclimatization program. Three developed temporal scotomata and two of the three had unilateral temporal blindness. The Methods reports 387 program lock ascents and says the 20 staff made almost all of them. The summary assigns all 387 to those staff and estimates about 15 episodes. The exposure denominator and episode count therefore remain descriptive context. [Original report and summary](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/2/article-p165.pdf) |
+
+The main Armstrong table, altitude subtables and narrower protocol subset share archive records. They remain held from independent pooling. The oldest age category is recorded as “>42” as printed. The Thompson count describes people with at least one event across varying numbers of runs. The Houston outcome retains the author's clinical attribution. These data add historical descriptions while preserving the locked external evaluation.
+
+The search ledger records 47 operations and 256 ranked hits or targeted checks. It includes the Fulton wartime archives, the two competing citations for the Miami Navy report, and the rediscovered 1985–1987 USAF workshop source. The existing v1.6 workshop extraction already contains the verified all-role denominator. The two different Type V student denominators in the secondary report remain unresolved. [Search operations](../data/chamber/v1.30/search_runs.csv) · [Search results](../data/chamber/v1.30/search_hits.csv) · [Original workshop chapter](https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=375) · [v1.6 adjudication](../data/chamber/v1.6/adjudications.csv)
+
+```sh
+python -m scripts.build_chamber_database --chamber-age-strata-supplement
+python -m scripts.build_chamber_database --chamber-age-strata-supplement --fac-official
+```
+
+The public build writes `artifacts/chamber-v1.30/observed.sqlite`. The FAC aggregate build writes `artifacts/chamber-fac-official/observed-v1.30.sqlite`. [Input checksums](../data/chamber/v1.30/manifest.json)
+
+Both builds passed integrity and foreign-key checks. A row-by-row comparison found only the expected additions and the Houston citation update, with the earlier outcome rows and locked benchmark preserved. The public rebuild was byte-identical. All 23 benchmark tests passed.
