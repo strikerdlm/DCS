@@ -1,0 +1,461 @@
+[
+  {
+    "id": "2026-11-20-argo-phase-i-primary-crossover",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and NASA primary PDF verification",
+    "operation": "supplementary_original_participant_table_extraction",
+    "params": {
+      "queries": [
+        "Project ARGO gas phase formation bed rest hypobaric Doppler Powell",
+        "NASA ARGO Table II lower body adynamia 9a 9b"
+      ],
+      "verified_printed_pages": [
+        5,
+        25,
+        26,
+        27,
+        30,
+        55,
+        56
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Tavily and Firecrawl located the NASA technical memorandum and workshop material. Rendered original tables verified the ordinal grades, status and transcranial and contrast results. The NASA Tiger Team and NEDU retain the aggregate counts under the existing named tests.",
+    "records": [
+      {
+        "id": "19940006763",
+        "title": "Project ARGO—Gas Phase Formation in Simulated Microgravity",
+        "year": 1993,
+        "url": "https://ntrs.nasa.gov/citations/19940006763",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf",
+        "sha256": "279f3fafb612260b97e21c477464fd30d5a5dd4f31e97ff4c56ebe86fea26957",
+        "ntrs_document_id": "19940006763",
+        "source_id": "powell93_argo",
+        "locator": "Printed pp. 5, 25–27, 30, 55–56, and Tables 1-I, 2-I, and 3-I",
+        "study_id": "nasa-jsc-argo-phase-i-crossover",
+        "phases_in_scope": [
+          "Phase I"
+        ],
+        "protocol": {
+          "target_psia": 6.5,
+          "planned_duration_min": 180,
+          "prebreathe_min": 0,
+          "target_oxygen_percent": 100,
+          "head_down_tilt_degrees": 6,
+          "bed_rest_days": 3,
+          "minimum_washout_weeks": 2
+        },
+        "roster_note": "Rows 1–26 are in the paired Doppler table. Row 27 is a withdrawn entry reported only in the contrast table. Ordinals are report-specific. Published initials and parenthetical run labels are excluded.",
+        "interpretation": "Doppler grades are maximum precordial Spencer grades. TCD records +, 0 or unavailable. Saline contrast testing is a separate method. A clinical finding's missing row does not imply an unaffected exposure.",
+        "phase_i_arms": [
+          {
+            "source_id": "powell93_argo",
+            "arm": "ambulatory",
+            "nasa_test_id": "9a",
+            "reported_doppler_n": 24,
+            "reported_any_vge": 12,
+            "reported_grade_iv": 7,
+            "locator": "Table 2-I, printed p. 30",
+            "note": "The ordinal-grade and later Table F1 margins agree for this arm."
+          },
+          {
+            "source_id": "powell93_argo",
+            "arm": "bed_rest",
+            "nasa_test_id": "9b",
+            "reported_doppler_n": 22,
+            "reported_any_vge": 5,
+            "reported_grade_iv": 1,
+            "locator": "Table 2-I, printed p. 30 and footnote",
+            "note": "The printed zero tally includes one atypical signal that cannot receive a Spencer grade. Later Table F1 has 23 exposures and six with any VGE. The source scopes remain separate."
+          }
+        ],
+        "doppler_roster": [
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 1,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 2,
+            "ambulatory_grade": 3,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "lost"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 3,
+            "ambulatory_grade": 3,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 4,
+            "ambulatory_grade": 4,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 4,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": 0,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 5,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 6,
+            "ambulatory_grade": 3,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 2,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": 0,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 7,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 8,
+            "ambulatory_grade": 4,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": null,
+            "bed_rest_status": "withdrawn",
+            "ambulatory_tcd_bubbles": 1,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "resting_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 9,
+            "ambulatory_grade": 4,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 10,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": null,
+            "bed_rest_status": "lost",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 11,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 12,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": null,
+            "bed_rest_status": "lost",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 13,
+            "ambulatory_grade": 3,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 2,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": 0,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 14,
+            "ambulatory_grade": 4,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 15,
+            "ambulatory_grade": null,
+            "ambulatory_status": "lost",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 16,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 17,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 18,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 19,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": null,
+            "bed_rest_status": "lost",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 20,
+            "ambulatory_grade": 3,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 3,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": 0,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 21,
+            "ambulatory_grade": null,
+            "ambulatory_status": "withdrawn",
+            "bed_rest_grade": null,
+            "bed_rest_status": "atypical_signal",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "resting_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 22,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 23,
+            "ambulatory_grade": 4,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 24,
+            "ambulatory_grade": 4,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "resting_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 25,
+            "ambulatory_grade": 4,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 2,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": 0,
+            "bed_rest_tcd_bubbles": 0,
+            "saline_contrast_status": "no_arterialization"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 26,
+            "ambulatory_grade": 0,
+            "ambulatory_status": "graded",
+            "bed_rest_grade": 0,
+            "bed_rest_status": "graded",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "not_tested"
+          },
+          {
+            "source_id": "powell93_argo",
+            "roster_row": 27,
+            "ambulatory_grade": null,
+            "ambulatory_status": "outside_grade_roster",
+            "bed_rest_grade": null,
+            "bed_rest_status": "outside_grade_roster",
+            "ambulatory_tcd_bubbles": null,
+            "bed_rest_tcd_bubbles": null,
+            "saline_contrast_status": "resting_arterialization"
+          }
+        ],
+        "clinical_findings": [
+          {
+            "source_id": "powell93_argo",
+            "arm": "ambulatory",
+            "finding": "source_type_ii_dcs",
+            "roster_row": 8,
+            "locator": "Printed pp. 27, 55–56, Results and Table 3-I",
+            "note": "Left leg paresthesia resolved on repressurization to site level. The matching roster row shows transcranial arterial bubbles and resting arterialization. Exact onset time is unavailable."
+          },
+          {
+            "source_id": "powell93_argo",
+            "arm": "bed_rest",
+            "finding": "mild_joint_pain_dcs",
+            "roster_row": null,
+            "locator": "Printed p. 27, Results A.1(a)",
+            "note": "Mild joint pain resolved on repressurization at the end of the three-hour exposure. The original report does not identify a roster row or exact onset time."
+          },
+          {
+            "source_id": "powell93_argo",
+            "arm": "bed_rest",
+            "finding": "rash_and_orthostatic_instability",
+            "roster_row": 21,
+            "locator": "Printed pp. 27, 55–56, Results and Table 3-I",
+            "note": "Abdominal rash and orthostatic instability accompanied a brightened Doppler spectrum without a discrete Spencer grade. Resting arterialization appeared on saline contrast. No transcranial measurement was made."
+          }
+        ],
+        "phase_i_complete_pairs": 20,
+        "source_versus_later_bed_rest": {
+          "project_doppler_n": 22,
+          "project_ordinarily_graded_n": 21,
+          "project_any_graded_vge": 5,
+          "project_atypical_signal_count": 1,
+          "later_nasa_f1_test": "9b",
+          "later_f1_person_exposures": 23,
+          "later_f1_any_vge": 6,
+          "later_nedu_person_exposures": 23,
+          "linkage": "same_protocol_exact_record_eligibility_unresolved"
+        },
+        "historical_joint_site_table": {
+          "locator": "Printed p. 5, results and Table 1-I",
+          "overlap_report": "openalex:W808314617",
+          "first_ankle_knee_hip": [
+            73,
+            88
+          ],
+          "printed_side_and_joint_counts": {
+            "left": {
+              "shoulder": 1,
+              "elbow": 3,
+              "wrist": 1,
+              "hip": 0,
+              "knee": 18,
+              "ankle": 7
+            },
+            "right": {
+              "shoulder": 1,
+              "elbow": 0,
+              "wrist": 3,
+              "hip": 0,
+              "knee": 29,
+              "ankle": 16
+            }
+          },
+          "note": "The text repeats the same 73/88 as Powell's workshop abstract. The twelve side-by-joint counts total 79 with 70 lower-limb counts. The table and first-presentation result are preserved as printed with unresolved cell scope."
+        },
+        "earlier_tcd_report": {
+          "report_id": "openalex:W650078426",
+          "locator": "Part III, printed pp. 55–56, Table 3-I",
+          "note": "The same PFO and clinical cases and 1 of 13 high-grade participant margin appear in the workshop report. Reuse the earlier margins."
+        }
+      },
+      {
+        "id": "19940007073",
+        "title": "A Mechanism for the Reduction in Risk of Decompression Sickness in Microgravity Environment",
+        "year": 1993,
+        "url": "https://ntrs.nasa.gov/citations/19940007073",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=126",
+        "locator": "SOAR 1992 proceedings, printed p. 562",
+        "study_id": "nasa-jsc-argo-phase-i-crossover",
+        "ntrs_document_id": "19940007073",
+        "analysis_role": "same_study_summary",
+        "note": "Twenty people are reported in the crossover description, matching the count of complete paired Doppler records in the full NASA report. Preserve the workshop's approximate target of 0.43 ATA and the full report's 6.5 psia as stated. The 175-minute equivalence derives from a gas-load model, with no added clinical observations.",
+        "reported_crossover_people": 20,
+        "reported_target_ata": 0.43,
+        "reported_bubble_comparison_p": 0.02
+      }
+    ]
+  }
+]

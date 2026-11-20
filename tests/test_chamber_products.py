@@ -558,6 +558,59 @@ def test_soar_counts_preserve_distinct_endpoints_and_overlapping_denominators(re
         """).fetchone() == (0,)
 
 
+def test_argo_doppler_pairs_link_to_existing_arms_and_preserve_missingness(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT a.arm,a.reported_doppler_n,a.reported_any_vge,a.reported_grade_iv,
+                   n.test_id,n.dcs_cases,n.dcs_denominator,n.any_grade_vge_cases,n.grade_iv_vge_cases
+            FROM publication_argo_phase_i_arm a JOIN nasa_test n ON n.test_id=a.nasa_test_id
+            ORDER BY a.arm
+        """).fetchall() == [
+            ("ambulatory", 24, 12, 7, "9a", 1, 24, 12, 7),
+            ("bed_rest", 22, 5, 1, "9b", 2, 23, 6, 1),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(ambulatory_grade>0),sum(bed_rest_grade>0),
+                   sum(ambulatory_grade>0 AND bed_rest_grade=0)
+            FROM publication_argo_phase_i_doppler
+            WHERE ambulatory_grade IS NOT NULL AND bed_rest_grade IS NOT NULL
+        """).fetchone() == (20, 11, 5, 6)
+        assert db.execute("""
+            SELECT count(*),count(ambulatory_grade),count(bed_rest_grade),
+                   count(ambulatory_tcd_bubbles),sum(ambulatory_tcd_bubbles),count(bed_rest_tcd_bubbles),
+                   sum(bed_rest_tcd_bubbles),sum(saline_contrast_status='resting_arterialization'),
+                   sum(saline_contrast_status IN ('resting_arterialization','no_arterialization'))
+            FROM publication_argo_phase_i_doppler
+        """).fetchone() == (27, 24, 21, 10, 1, 5, 0, 4, 14)
+        assert db.execute("""
+            SELECT c.finding,a.nasa_test_id,c.roster_row,d.ambulatory_tcd_bubbles,d.bed_rest_status,d.bed_rest_grade
+            FROM publication_argo_phase_i_clinical c JOIN publication_argo_phase_i_arm a USING (source_id,arm)
+            LEFT JOIN publication_argo_phase_i_doppler d USING (source_id,roster_row)
+            ORDER BY c.finding
+        """).fetchall() == [
+            ("mild_joint_pain_dcs", "9b", None, None, None, None),
+            ("rash_and_orthostatic_instability", "9b", 21, None, "atypical_signal", None),
+            ("source_type_ii_dcs", "9a", 8, 1, "withdrawn", None),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE endpoint IN ('dcs_first_ankle_knee_or_hip','arterial_bubbles_detected','spencer_grade_iv_venous_bubbles')
+              AND report_id IN ('openalex:W808314617','openalex:W650078426','ntrs:19940006763')
+        """).fetchone() == (3,)
+        db.row_factory = sqlite3.Row
+        raw, = db.execute("""
+            SELECT r.metadata_json FROM review.review_record r JOIN model_report_link m USING (report_id)
+            WHERE r.source_key='19940006763' AND m.source_id='powell93_argo'
+        """).fetchone()
+        for table, field, key in (
+            ("publication_argo_phase_i_arm", "phase_i_arms", "arm"),
+            ("publication_argo_phase_i_doppler", "doppler_roster", "roster_row"),
+            ("publication_argo_phase_i_clinical", "clinical_findings", "finding"),
+        ):
+            rows = [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY {key}")]
+            assert rows == sorted(json.loads(raw)[field], key=lambda row: row[key])
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
