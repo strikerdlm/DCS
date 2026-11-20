@@ -34,8 +34,8 @@
         "source_locator": "Published article pp968-974, PDF pp1-7",
         "observation_review_status": "source_verified",
         "eligibility_status": "pending",
-        "role_review": "Operational flight evidence; separate from operational chamber staff-to-trainee comparison.",
-        "overlap_status": "possible overlap with 2011 meeting report by Hundemer and colleagues; analysis period and report authors differ.",
+        "role_review": "U-2 flight surveillance with rates over all sorties. Operational and training sorties contribute to the reported risk set. Keep separate from chamber evidence and individual model predictions.",
+        "overlap_status": "Possible overlap with the 2011 meeting report by Hundemer and colleagues. Probable overlap with Jersey et al. 2011, PMID 21748904, a retrospective CNS case series from 2002–2009 within this study's U-2 population and time window. Case-level linkage is unknown. Do not pool the series as independent.",
         "observations": [
           {
             "id": "u2-cases-1994-2010",
@@ -44,39 +44,101 @@
             "group": "1994-2010",
             "cases": 73,
             "denominator": null,
-            "denominator_unit": "flights",
+            "denominator_unit": "sorties",
             "locator": "Printed p968, Results, PDF p1",
-            "note": "Count is for documented cases. Raw period denominators are not extracted here. Operational-only exposure totals were unavailable to the study."
+            "note": "Overall documented case count. This total includes both period rows and must not be added to them. The 76% reported after operational sorties is a case distribution, not a risk estimate.",
+            "denominator_basis": "all sorties; exact count unverified"
           },
           {
             "id": "u2-reported-flight-rate-1994-2005",
             "study_id": "u2-flight-hundemer-1994-2010",
             "endpoint": "clinical_dcs",
             "group": "1994-2005",
-            "cases": null,
+            "cases": 33,
             "denominator": null,
-            "denominator_unit": "flights",
+            "denominator_unit": "sorties",
             "reported_rate": 0.076,
-            "reported_rate_unit": "percent of flights",
+            "reported_rate_unit": "percent of all sorties",
             "reported_rate_percent": 0.076,
-            "locator": "Printed p968, Results, PDF p1",
-            "note": "Rounded source rate."
+            "locator": "Figure 4, printed p972 (PDF p5); Results, printed pp969 and 971 (PDF pp2 and 4)",
+            "note": "Case count derived by summing the annual counts in Figure 4. Also verified by subtracting 40 later-period cases from 73 overall. The reported rate is rounded. The exact all-sortie denominator remains unknown.",
+            "denominator_basis": "all sorties; exact count unverified",
+            "case_count_basis": "sum of annual DCS counts tabulated in Figure 4"
           },
           {
             "id": "u2-reported-flight-rate-2006-2010",
             "study_id": "u2-flight-hundemer-1994-2010",
             "endpoint": "clinical_dcs",
             "group": "2006-2010",
-            "cases": null,
+            "cases": 40,
             "denominator": null,
-            "denominator_unit": "flights",
+            "denominator_unit": "sorties",
             "reported_rate": 0.23,
-            "reported_rate_unit": "percent of flights",
+            "reported_rate_unit": "percent of all sorties",
             "reported_rate_percent": 0.23,
-            "locator": "Printed p968, Results, PDF p1",
-            "note": "Rounded source rate."
+            "locator": "Figure 4, printed p972 (PDF p5); Results, printed pp969 and 971 (PDF pp2 and 4)",
+            "note": "Case count derived by summing the annual counts in Figure 4. Also verified in the Results as 22 severe plus 18 nonsevere cases. The reported rate is rounded. The exact all-sortie denominator remains unknown.",
+            "denominator_basis": "all sorties; exact count unverified",
+            "case_count_basis": "sum of annual DCS counts tabulated in Figure 4"
+          }
+        ],
+        "source_quality_notes": [
+          {
+            "locator": "Figure 4, printed p972 (PDF p5); Figure 1A, printed p970 (PDF p3); Results, printed p969 (PDF p2)",
+            "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p968.pdf#page=5",
+            "detail": "Visual verification of both figures shows six cases in 1998, eleven in 2006 and three in 2008. These values fall outside the narrative annual ranges (generally 0–5 in 1994–2005 and 6–10 in 2006–2010). Use period totals supported by both the plotted/tabulated annual counts and the Results. Year-specific series is withheld pending reconciliation with source records."
+          },
+          {
+            "locator": "Results, printed p971 (PDF p4); limitations, printed pp972–973 (PDF pp5–6)",
+            "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p968.pdf#page=6",
+            "detail": "The paper reports that 76% of cases followed operational sorties. Operational-only sortie counts were classified and unavailable to the study; the published rates use overall sortie data. Exact period sortie counts were not verified. Do not derive counts from rounded rates."
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-u2-jersey-overlap-check",
+    "date": "2026-11-20",
+    "provider": "PubMed",
+    "operation": "targeted check of published abstract for cohort overlap",
+    "params": {
+      "pmid": "21748904"
+    },
+    "reported_total": 1,
+    "status": "completed",
+    "note": "The published abstract supports overlap tracking and qualitative CNS case counts.",
+    "records": [
+      {
+        "id": "pmid:21748904",
+        "title": "Neurological altitude decompression sickness among U-2 pilots: 2002-2009",
+        "year": 2011,
+        "authors": [
+          "Sean L. Jersey",
+          "Gregory L. Hundemer",
+          "Rory P. Stuart",
+          "Kelly N. West",
+          "Robert S. Michaelson",
+          "Andrew A. Pilmanis"
+        ],
+        "journal": "Aviation, Space, and Environmental Medicine",
+        "volume": "82",
+        "issue": "7",
+        "pages": "673-682",
+        "doi": "10.3357/ASEM.2851.2011",
+        "pmid": "21748904",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21748904/",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/21748904/",
+        "source_locator": "Published abstract, Methods and Results",
+        "source_counts": {
+          "confirmed_cns_dcs_incidents": 16,
+          "pilots_with_confirmed_incidents": 13,
+          "possible_cns_dcs_incidents": 4,
+          "pilots_with_possible_incidents_as_reported": 4
+        },
+        "source_count_note": "Incident and pilot counts have different units. The abstract does not establish whether pilots with possible incidents overlap the confirmed pilot set. There is no sortie denominator for this case series.",
+        "role_review": "U-2 CNS case series; probable overlap with Hundemer 2012. Qualitative companion only.",
+        "overlap_status": "Probable overlap, with unknown case-level linkage. Not separately poolable."
       }
     ]
   }
