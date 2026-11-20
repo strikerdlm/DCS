@@ -671,6 +671,51 @@ def test_cam_paired_outcomes_reuse_cohort_and_canonical_reports(release):
         ]
 
 
+def test_gray_age_and_density_keep_conflicts_and_prevent_maxwell_duplication(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(reprint_subject_count) FILTER(WHERE age_range_years='all')
+            FROM publication_gray_age_comparison
+        """).fetchone() == (29, 52313)
+        assert db.execute("""
+            SELECT age_range_years,primary_subject_count,primary_severe_count,
+                   reprint_subject_count,reprint_severe_count,primary_rate_pct,reprint_rate_pct
+            FROM publication_gray_age_comparison
+            WHERE site='Pensacola' AND age_range_years IN ('25–26','all')
+            ORDER BY age_range_years
+        """).fetchall() == [("25–26", 179, 38, 179, 38, 15.5, 15.5), ("all", 946, 78, 946, 88, 8.25, 8.25)]
+        assert db.execute("""
+            SELECT primary_rate_pct,reprint_rate_pct FROM publication_gray_age_comparison
+            WHERE site='RCAF' AND age_range_years='24–26'
+        """).fetchone() == (None, 32.6)
+        assert db.execute("""
+            SELECT site,severe_symptom_count,subject_count
+            FROM publication_gray_density WHERE density_range='total' ORDER BY site
+        """).fetchall() == [
+            ("Kingman Field", 99, 2217), ("Las Vegas Field", 575, 2312),
+            ("Maxwell Field", 1400, 44197),
+        ]
+        assert db.execute("""
+            SELECT g.density_range,sum(m.subject_count),g.subject_count
+            FROM publication_gray_density g JOIN publication_motley_density m
+              ON (m.reanalysis_source_id,m.reanalysis_site,m.reanalysis_density_range)
+                 = (g.source_id,g.site,g.density_range)
+            GROUP BY g.density_range,g.subject_count ORDER BY g.density_range
+        """).fetchall() == [
+            ("1.8–2.0", 2054, 2054), ("2.0–2.2", 12695, 12695), ("2.2–2.4", 16514, 16514),
+            ("2.4–2.6", 10417, 10417), ("2.6+", 2517, 2517),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT report_id) FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1.61/sources.csv#gray51_constitutional_book',
+                'legacy:data/chamber/v1.30/sources.csv#gray51_constitutional',
+                '2026-11-20-gray-motley-strata-primary#fulton1951-gray-chapter7'
+            )
+            HAVING count(*)=3
+        """).fetchone() == (1,)
+
+
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
     with connect_pair(release) as db:
         assert db.execute("""
