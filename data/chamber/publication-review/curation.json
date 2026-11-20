@@ -9671,6 +9671,24 @@
       "report_id": "abstract:asma-1994-glass-brooks-93",
       "basis": "Verified the same authors, abstract number, dates, sites and reported rates as the existing original abstract.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/5/article-p439-s.pdf#page=16"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.67/sources.csv#liske67_focal",
+      "report_id": "aeme:38:3:304",
+      "basis": "Same title, authors, journal page and NASA index citation A67-23827.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf"
+    },
+    {
+      "record_key": "2026-11-20-neurological-archive-liske-pdf#liske-1967",
+      "report_id": "aeme:38:3:304",
+      "basis": "Same title, authors, journal page and NASA index citation A67-23827.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf"
+    },
+    {
+      "record_key": "2026-11-20-neurological-archive-verified#liske-1967",
+      "report_id": "aeme:38:3:304",
+      "basis": "Same title, authors, journal page and NASA index citation A67-23827.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf"
     }
   ],
   "studies": [
@@ -10321,6 +10339,24 @@
       "label": "Meader WU-2 case-selected squadron records",
       "period": "September 1959 to December 1964",
       "setting": "High-altitude WU-2 weather reconnaissance records held at Davis-Monthan AFB"
+    },
+    {
+      "study_id": "liske-usafsam-focal-dysbarism",
+      "label": "Liske USAFSAM archival focal dysbarism series",
+      "period": "Archive interval unavailable; published 1967",
+      "setting": "USAFSAM neurological survivor records with chamber and actual aircraft exposures"
+    },
+    {
+      "study_id": "hook-swedish-1954-chamber-case",
+      "label": "Royal Swedish Air Force chamber spinal dysbarism case",
+      "period": "1954-10-13 with follow-up in September 1957",
+      "setting": "Royal Swedish Air Force hypobaric chamber"
+    },
+    {
+      "study_id": "rudolph-t33-1960-pressure-loss",
+      "label": "Rudolph 1960 T-33 case",
+      "period": "1960-01-21",
+      "setting": "Actual military T-33 flight without cabin pressurization"
     }
   ],
   "study_reports": [
@@ -11319,6 +11355,30 @@
       "report_id": "report:ad0658348",
       "role": "primary_flight_report",
       "locator": "Printed pp. 301–303"
+    },
+    {
+      "study_id": "liske-usafsam-focal-dysbarism",
+      "report_id": "aeme:38:3:304",
+      "role": "primary_selected_case_series",
+      "locator": "Printed pp. 304–306"
+    },
+    {
+      "study_id": "hook-swedish-1954-chamber-case",
+      "report_id": "pmid:13234873",
+      "role": "original_case_citation",
+      "locator": "Medd Flyg Navalmed Namnd, issue 4, pp. 14–16"
+    },
+    {
+      "study_id": "hook-swedish-1954-chamber-case",
+      "report_id": "pmid:13563380",
+      "role": "primary_followup",
+      "locator": "Printed pp. 540–543"
+    },
+    {
+      "study_id": "rudolph-t33-1960-pressure-loss",
+      "report_id": "pmid:14495081",
+      "role": "primary_aircraft_case_report",
+      "locator": "Printed pp. 1023–1025"
     }
   ],
   "relations": [
@@ -13393,6 +13453,34 @@
       "relationship": "possible_operational_flight_overlap",
       "evidence": "The selected WU-2 data cover 1959–1964 and the USAF incident reporting covers 1960 through September 1961. No flight or crew crosswalk is available.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p301.pdf#page=2"
+    },
+    {
+      "left_report": "pmid:13563380",
+      "right_report": "pmid:13234873",
+      "relationship": "same_published_case",
+      "evidence": "Höök describes the same October 1954 Royal Swedish Air Force chamber case in the first-page introduction and explicitly identifies the earlier von Döbeln and Höök article in reference 2.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf#page=1"
+    },
+    {
+      "left_report": "aeme:38:3:304",
+      "right_report": "aeme:31:12:1004",
+      "relationship": "possible_overlap_of_selected_cases",
+      "evidence": "Patient 1 shares the 43,000-ft chamber altitude and about one minute at peak, but age and neurological detail differ. Exact archive linkage is unavailable. Cases remain unlinked.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf#page=2"
+    },
+    {
+      "left_report": "aeme:38:3:304",
+      "right_report": "pmid:14468878",
+      "relationship": "cites_earlier_series_possible_overlap",
+      "evidence": "Liske cites the earlier Malette and colleagues series without a case crosswalk. Archive reuse is unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf#page=3"
+    },
+    {
+      "left_report": "aeme:38:3:304",
+      "right_report": "pmid:14495081",
+      "relationship": "cites_aircraft_case_archive_membership_unresolved",
+      "evidence": "Liske cites Rudolph. Case 12 shares a patient age and aircraft type. Focal findings and altitude reports differ and the record sets cannot be linked.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf#page=3"
     }
   ],
   "report_titles": {

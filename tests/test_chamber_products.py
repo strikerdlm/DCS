@@ -119,6 +119,53 @@ def test_historical_u2_counts_and_case_selected_flights(release):
         """).fetchone() == (0,)
 
 
+def test_neurological_archive_preserves_case_selection_and_report_links(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT setting,count(*) FROM publication_liske_case_profile GROUP BY setting ORDER BY setting
+        """).fetchall() == [("aircraft", 7), ("chamber", 6)]
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id='liske67_focal' AND endpoint='focal_neurological_subset'
+        """).fetchone() == (13, 37, "dcs_case", "case_conditional")
+        assert db.execute("""
+            SELECT patient_number,max_cabin_altitude_ft,time_at_max_altitude_min_low,time_at_max_altitude_min_high
+            FROM publication_liske_case_profile WHERE patient_number IN (3,6,9) ORDER BY patient_number
+        """).fetchall() == [(3, 29000, None, None), (6, None, 30, 30), (9, 19000, 13, 30)]
+        assert db.execute("""
+            SELECT patient_number,postconvalescent_eeg FROM publication_liske_case_profile
+            WHERE persistent_eeg_abnormality_reported='yes' ORDER BY patient_number
+        """).fetchall() == [
+            (2, "normal"), (7, "diffuse slowing more prominent on the right"), (8, "normal"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report WHERE study_id='hook-swedish-1954-chamber-case'
+            ORDER BY report_id
+        """).fetchall() == [("pmid:13234873",), ("pmid:13563380",)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:13563380' AND right_report='pmid:13234873'
+        """).fetchone() == ("same_published_case",)
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min FROM historical_case_catalog WHERE source_id GLOB 'hook*'
+        """).fetchall() == [("hook58_swedish_chamber:swedish-1954-chamber-index", "pmid:13563380", None)]
+        assert db.execute("""
+            SELECT elapsed,elapsed_unit,elapsed_reference FROM publication_case_milestone
+            WHERE source_id='hook58_swedish_chamber' AND milestone='paralysis_by_ten_minutes'
+        """).fetchone() == (10.0, "minutes", "return_to_ground")
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft FROM publication_case_milestone
+            WHERE source_id='hook58_swedish_chamber'
+                AND milestone IN ('hand_paresthesias_near_peak','reported_chamber_apex')
+            ORDER BY milestone
+        """).fetchall() == [("hand_paresthesias_near_peak", None), ("reported_chamber_apex", 40000)]
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence
+            WHERE report_id IN ('pmid:13234873','pmid:13563380','pmid:14495081','aeme:38:3:304')
+        """).fetchone() == (0,)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""
@@ -167,7 +214,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (108, 108, 108)
+        """).fetchone() == (109, 109, 109)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence

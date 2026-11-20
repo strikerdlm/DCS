@@ -131,6 +131,7 @@ CHAMBER_OPERATION_EVEREST = ROOT / "data" / "chamber" / "v1.63"
 CHAMBER_ASMA_CASE = ROOT / "data" / "chamber" / "v1.64"
 AVIATION_DEPRESSURIZATION = ROOT / "data" / "chamber" / "v1.65"
 AVIATION_U2_HISTORY = ROOT / "data" / "chamber" / "v1.66"
+CHAMBER_NEUROLOGICAL_ARCHIVE = ROOT / "data" / "chamber" / "v1.67"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1147,6 +1148,15 @@ def build(
                         "publication_overlap": "overlap.csv",
                         "publication_aviation_group": "flight_groups.csv",
                         "publication_meader_reported_flight": "meader_flights.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_NEUROLOGICAL_ARCHIVE,
+                    "publication",
+                    extra_tables={
+                        "publication_liske_case_profile": "liske_cases.csv",
+                        "publication_case_milestone": "case_milestones.csv",
                     },
                 )
             if rojas_supplement:
