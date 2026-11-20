@@ -398,6 +398,12 @@ def test_katuntsev_program_total_reuses_source_and_retains_nested_endpoints(rele
             WHERE report_id=? AND denominator=1778
         """, (report_id,)).fetchone() == (1,)
         assert db.execute("""
+            SELECT json_extract(metadata_json,'$.issue_as_reported_by_dissertation'),
+                   json_extract(metadata_json,'$.issue_as_reported_by_grigorev_2015')
+            FROM review.review_record
+            WHERE report_id='cited:katuntsev-shcherbakova-1994-pulmonary-dcs'
+        """).fetchall() == [("5", "3")]
+        assert db.execute("""
             SELECT count(*) FROM chamber_group_evidence WHERE report_id=?
         """, (report_id,)).fetchone() == (0,)
 

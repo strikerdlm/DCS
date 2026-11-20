@@ -9965,6 +9965,12 @@
       "report_id": "cited:katuntsev-shcherbakova-1994-pulmonary-dcs",
       "basis": "The author cites this as publication 23 from the dissertation work. Journal issue and pages are printed in the bibliography.",
       "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-20-katuntsev-grigorev-reference-verification#grigorev-2015-reference-9",
+      "report_id": "doi:10.1134/s1019331615020094",
+      "basis": "Publisher DOI and title match the existing OpenAlex record.",
+      "evidence_url": "https://link.springer.com/article/10.1134/S1019331615020094"
     }
   ],
   "studies": [
@@ -13930,6 +13936,13 @@
       "relationship": "likely_same_selected_respiratory_case_analysis",
       "evidence": "Results section 3 describes 29 selected pulmonary observations. Reference 23 describes the same count, endpoint and chamber setting in the author’s listed publication. No extra event count is taken from the citation.",
       "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "doi:10.1134/s1019331615020094",
+      "right_report": "cited:katuntsev-shcherbakova-1994-pulmonary-dcs",
+      "relationship": "cites_selected_case_series_with_conflicting_issue",
+      "evidence": "Katuntsev’s own publication list gives volume 28 issue 5, pages 28–33. Both editions of the 2015 Grigor’ev article cite volume 28 issue 3. Matching authors, title and 29 cases support one provisional citation. The original 1994 issue was unavailable.",
+      "evidence_url": "https://link.springer.com/article/10.1134/S1019331615020094"
     }
   ],
   "report_titles": {

@@ -253,7 +253,37 @@
         "pages": "28–33",
         "access": "cited only",
         "citation_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki",
-        "locator": "Bibliography, reference 23"
+        "locator": "Bibliography, reference 23",
+        "issue_as_reported_by_dissertation": "5",
+        "issue_as_reported_by_grigorev_2015": "3",
+        "locator_conflict": "Katuntsev’s own publication list gives volume 28 issue 5, pages 28–33. Both editions of the 2015 Grigor’ev article cite volume 28 issue 3. Matching authors, title and 29 cases support one provisional citation. The original 1994 issue was unavailable.",
+        "alternate_citation": "https://link.springer.com/article/10.1134/S1019331615020094"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-katuntsev-grigorev-reference-verification",
+    "date": "2026-11-20",
+    "provider": "Tavily and publisher reference verification",
+    "operation": "supplementary_citation_locator_reconciliation",
+    "params": {
+      "url": "https://link.springer.com/article/10.1134/S1019331615020094",
+      "russian_edition_reference_page": "https://epizodsspace.airbase.ru/bibl/vestnik-an/2015/4/291-298.pdf#page=8",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Katuntsev’s own publication list gives volume 28 issue 5, pages 28–33. Both editions of the 2015 Grigor’ev article cite volume 28 issue 3. Matching authors, title and 29 cases support one provisional citation. The original 1994 issue was unavailable.",
+    "records": [
+      {
+        "id": "grigorev-2015-reference-9",
+        "title": "Medical support of cosmonauts’ extravehicular activity",
+        "year": 2015,
+        "doi": "10.1134/s1019331615020094",
+        "url": "https://link.springer.com/article/10.1134/S1019331615020094",
+        "locator": "Reference 9",
+        "access": "publisher abstract and references",
+        "note": "The bibliography provides the alternate issue. No outcomes extracted from this occurrence."
       }
     ]
   }
