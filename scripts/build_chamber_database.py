@@ -125,6 +125,7 @@ CHAMBER_CAM_MEETING = ROOT / "data" / "chamber" / "v1.57"
 CHAMBER_CAM_BULLETIN = ROOT / "data" / "chamber" / "v1.58"
 CHAMBER_CAM_MULTICENTER = ROOT / "data" / "chamber" / "v1.59"
 CHAMBER_CAM_PAIRED = ROOT / "data" / "chamber" / "v1.60"
+CHAMBER_GRAY_STRATA = ROOT / "data" / "chamber" / "v1.61"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1089,6 +1090,17 @@ def build(
                         "publication_paired_chamber_arm": "paired_arms.csv",
                         "publication_paired_chamber_count": "paired_counts.csv",
                         "publication_narrative_chamber_rate": "narrative_rates.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_GRAY_STRATA,
+                    "publication",
+                    include_observations=False,
+                    extra_tables={
+                        "publication_gray_age_comparison": "age_comparison.csv",
+                        "publication_gray_density": "gray_density.csv",
+                        "publication_motley_density": "motley_density.csv",
                     },
                 )
             if rojas_supplement:

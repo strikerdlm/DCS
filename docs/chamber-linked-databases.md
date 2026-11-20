@@ -83,4 +83,6 @@ The multicenter supplement adds the preliminary Randolph Field interval counts a
 
 The paired-chamber supplement adds the Ferris time tables, Ivy's narrative rates and the Canadian pilot retest. A report crosswalk locates the existing RAF 610-person series at Kew. [Paired chamber outcomes and archive references](chamber-cam-paired-supplement.md)
 
+The Gray and Motley supplement links historical age and weight-to-height strata to the original sources. It traces the Maxwell denominators to one underlying cohort and preserves conflicting Pensacola counts from two editions. [Historical age and weight-to-height strata](chamber-gray-motley-strata-supplement.md)
+
 One example of deduplication is the Ata and Karaca chamber report. All 125 full- or truncated-title search occurrences in v1.48 resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)
