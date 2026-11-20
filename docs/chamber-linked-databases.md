@@ -15,8 +15,8 @@ The two SQLite files can be queried independently. Each contains the same eviden
 From the repository root in the project Python environment, choose a new output directory for a changed release. Rebuilding identical contents in the same directory is supported.
 
 ```sh
-python -m scripts.chamber_products --output-dir artifacts/chamber-products/2026-11-20
-python -m scripts.evaluate_chamber_benchmark --database artifacts/chamber-products/2026-11-20/dcs-model.sqlite --output artifacts/chamber-products/evaluation-v1.40.json
+python -m scripts.chamber_products --output-dir artifacts/chamber-products/2026-11-20-r2
+python -m scripts.evaluate_chamber_benchmark --database artifacts/chamber-products/2026-11-20-r2/dcs-model.sqlite --output artifacts/chamber-products/evaluation-v1.40-r2.json
 python -m pytest -q tests/test_chamber_products.py tests/test_publication_review.py tests/test_review_identity.py tests/test_observed_benchmark.py
 ```
 
@@ -25,7 +25,7 @@ The benchmark reads only the model file, its adjacent checksum manifest and the 
 ```python
 from scripts.chamber_products import connect_pair
 
-with connect_pair("artifacts/chamber-products/2026-11-20") as db:
+with connect_pair("artifacts/chamber-products/2026-11-20-r2") as db:
     for row in db.execute("""
         SELECT c.case_id, r.title, e.review_locator, e.extraction_locator
         FROM historical_case_catalog c
