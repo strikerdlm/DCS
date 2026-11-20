@@ -8885,6 +8885,72 @@
       "report_id": "nlm:101085500x234:8:klingman",
       "basis": "The same named program summary and its printed locator identify this presentation.",
       "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#wigodsky42_randolph",
+      "report_id": "nlm:101085500x233:77",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#101085500x233-p77",
+      "report_id": "nlm:101085500x233:77",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#berkson43_chamber",
+      "report_id": "nlm:101085500x233:140",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#101085500x233-p140",
+      "report_id": "nlm:101085500x233:140",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#bridge44_cam330",
+      "report_id": "report:cam-330",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#cam-330",
+      "report_id": "report:cam-330",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#bridge44_cam382",
+      "report_id": "report:cam-382",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#cam-382",
+      "report_id": "report:cam-382",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#bridge44_cam302",
+      "report_id": "report:cam-302",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#cam-302",
+      "report_id": "report:cam-302",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-gray-f#gray-20287795",
+      "report_id": "pmid:20287795",
+      "basis": "Title and PMID verified on the indexed publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20287795/"
     }
   ],
   "studies": [
@@ -12182,6 +12248,62 @@
       "relationship": "possible_overlap",
       "evidence": "One shared investigator and related training endpoints. The program summary cannot identify exact exposures or distinguish any overlap from other contemporary training reports.",
       "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
+    },
+    {
+      "left_report": "nlm:101085500x233:77",
+      "right_report": "pmid:20287795",
+      "relationship": "likely_overlap",
+      "evidence": "The bulletin reports exactly 43 Randolph pre-flight cadets on five four-hour flights at 35,000 ft. Gray Table I gives the same sample size, flight count and profile. The bulletin adds per-flight failure rates and timing. Participant linkage is unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "left_report": "nlm:101085500x233:77",
+      "right_report": "pmid:20997924",
+      "relationship": "possible_overlap",
+      "evidence": "Shared Randolph Field wartime program and Wigodsky. The 1946 publication includes 2,920 seated runs at 35,000 or 38,000 ft. The 380-person series has no matching run identifiers.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "left_report": "nlm:101085500x233:140",
+      "right_report": "nlm:101085500x233:77",
+      "relationship": "likely_overlap",
+      "evidence": "Both report Randolph profiles of 1,500 ft/min to 35,000 ft for four hours and 4,000 ft/min to 38,000 ft for three hours. Exact membership is unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "left_report": "nlm:101085500x233:140",
+      "right_report": "pmid:20287795",
+      "relationship": "likely_overlap",
+      "evidence": "Shared Randolph Field site and four-hour 35,000-ft profile. Berkson stratifies each successive flight by prior descents. Gray groups people by total number of flights. The summaries cannot be stacked.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "left_report": "nlm:101085500x233:140",
+      "right_report": "pmid:20277052",
+      "relationship": "possible_overlap",
+      "evidence": "Berkson attributes the Pennsylvania tables to the program discussed by Larrabee at the meeting. The final Hodes and Larrabee full text was not available, and the altitude differs between the meeting table and narrative.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "left_report": "report:cam-330",
+      "right_report": "nlm:101085500x796:meeting-14",
+      "relationship": "same_cohort",
+      "evidence": "Reference 3 names the same investigator team and all three exact values in the June minutes, 132 chokes, 329 subjects and 719 chamber flights. The counts are carried by the minutes only.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "left_report": "report:cam-382",
+      "right_report": "doi:10.7326/0003-4819-22-3-398",
+      "relationship": "likely_overlap",
+      "evidence": "Reference 5 gives the same four authors and title as the published paper. The technical report itself has not been compared.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "left_report": "report:cam-302",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "likely_overlap",
+      "evidence": "Reference 6 gives the same six authors and 38,000-ft 90-minute exercise profile as the journal publication. The technical report itself has not been compared.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
     }
   ],
   "report_titles": {
@@ -12221,6 +12343,11 @@
     "pmid:20296024": "Occurrence of bends, scotomata and hemianopsia at altitudes below 20,000 feet",
     "joam:17-6-602": "The use of drugs for the prevention of decompression sickness",
     "report:ada075869": "The Aeroembolism Problem for Long-Range Missions",
-    "report:cam-c-2503": "Review of Canadian Investigations on Decompression Sickness"
+    "report:cam-c-2503": "Review of Canadian Investigations on Decompression Sickness",
+    "nlm:101085500x233:77": "Studies on aero-embolism at Randolph Field",
+    "nlm:101085500x233:140": "Statistical analysis of chamber tests",
+    "report:cam-330": "Analysis of 132 cases of chokes occurring among 329 subjects making 719 flights in a decompression chamber",
+    "report:cam-382": "Chokes: a respiratory manifestation of aeroembolism in high altitude flying",
+    "report:cam-302": "Decompression sickness: Nature and incidence of symptoms during and after artificial decompression to 38,000 feet for 90 minutes with exercise during exposure"
   }
 }

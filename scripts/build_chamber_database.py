@@ -123,6 +123,7 @@ CHAMBER_HISTORICAL_PRESELECTION = ROOT / "data" / "chamber" / "v1.55"
 CHAMBER_HISTORICAL_PREOXYGENATION = ROOT / "data" / "chamber" / "v1.56"
 CHAMBER_CAM_MEETING = ROOT / "data" / "chamber" / "v1.57"
 CHAMBER_CAM_BULLETIN = ROOT / "data" / "chamber" / "v1.58"
+CHAMBER_CAM_MULTICENTER = ROOT / "data" / "chamber" / "v1.59"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1066,6 +1067,17 @@ def build(
                         "publication_repeat_descent": "flight_descents.csv",
                         "publication_repeat_classification": "flight_classification.csv",
                         "publication_archival_cohort_size": "cohort_sizes.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_CAM_MULTICENTER,
+                    "publication",
+                    extra_tables={
+                        "publication_repeat_flight_profile": "repeat_profiles.csv",
+                        "publication_repeat_flight_count": "repeat_counts.csv",
+                        "publication_descent_interval": "descent_intervals.csv",
+                        "publication_reported_rate": "reported_rates.csv",
                     },
                 )
             if rojas_supplement:
