@@ -384,7 +384,7 @@ def test_nasa_ascent_compilation_reconciles_without_adding_clinical_counts(relea
         assert db.execute("""
             SELECT count(*),min(report_id),max(report_id) FROM review.review_record
             WHERE lower(title) LIKE '%different rates of ascent%' OR title=url AND url LIKE '%19890012936%'
-        """).fetchone() == (29, "ntrs:19890012936", "ntrs:19890012936")
+        """).fetchone() == (30, "ntrs:19890012936", "ntrs:19890012936")
         assert db.execute("""
             SELECT count(*) FROM review.review_report_relation
             WHERE left_report='ntrs:19890012936' AND relationship='cites_as_compilation_source'
@@ -481,6 +481,229 @@ def test_henry_preselection_rates_preserve_printed_values_and_derived_controls(r
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='henry47_preselection'
         """).fetchone() == (0,)
+
+
+def test_henry_cook_preserves_counting_units_and_links_reused_controls(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table, count(*), count(source_value), count(reported_numerator)
+            FROM publication_preoxygen_measure GROUP BY 1 ORDER BY 1
+        """).fetchall() == [("I", 28, 28, 1), ("II", 21, 21, 0), ("III", 35, 34, 0)]
+        assert db.execute("""
+            SELECT m.source_value, m.reported_numerator, g.group_size, g.group_size_unit,
+                   g.planned_window_min, g.oxygen_advance_vs_control_min
+            FROM publication_preoxygen_measure m
+            JOIN publication_preoxygen_group g USING (source_id, source_table, group_key)
+            WHERE m.source_table='I' AND m.group_key='nominal_two_hours' AND m.measure='incapacitated'
+        """).fetchone() == (23.0, 14, 61, "ascents", 110, 111)
+        assert db.execute("""
+            SELECT source_value FROM publication_preoxygen_measure
+            WHERE source_table='III' AND group_key='four_hours'
+            AND measure IN ('incapacitated','mean_incapacitation_occurrence') ORDER BY measure
+        """).fetchall() == [(0.0,), (None,)]
+        assert db.execute("""
+            SELECT m.source_value, h.reported_pct FROM publication_preoxygen_measure m
+            JOIN publication_preselection_rate h ON h.endpoint=CASE m.measure
+                WHEN 'with_symptoms' THEN 'total_symptoms'
+                WHEN 'with_grade_3_symptoms' THEN 'moderate_or_severe_symptoms'
+                WHEN 'incapacitated' THEN 'forced_descents' END
+            WHERE m.source_table='II' AND m.group_key='all_runs_unweighted_control'
+            AND h.source_id='henry47_preselection' AND h.source_table='III'
+            AND h.proportion_selected_pct=100 AND h.value_basis='calculated_control_rate'
+            ORDER BY m.source_value
+        """).fetchall() == [(53.3, 53.3), (66.0, 66.0), (82.8, 82.8)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='henry45_cook'
+        """).fetchone() == ("pmid:21005555",)
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-henry-cook-backref-t#19890012936'
+        """).fetchone() == ("ntrs:19890012936",)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:20251251' AND right_report='pmid:21005555'
+            ORDER BY relationship
+        """).fetchall() == [("derives_control_baseline_from",), ("possible_overlap",)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='henry45_cook'
+        """).fetchone() == (0,)
+
+
+def test_cam_minutes_keep_chokes_exposures_separate_from_reported_rates_and_scores(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='cam44_meeting14' ORDER BY endpoint
+        """).fetchall() == [
+            ("chokes_source", 132, 719, "person_exposure", "overlap_hold"),
+            ("circulatory_collapse_source", 6, None, None, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT reported_value,unit FROM publication_meeting_measure
+            WHERE source_id='cam44_meeting14' AND measure='severe_chokes_frequency'
+        """).fetchone() == (1, "cases_per_1000_runs")
+        assert db.execute("""
+            SELECT measure,reported_value FROM publication_meeting_measure
+            WHERE source_id='cam44_meeting14' AND study_group='knee-bends' ORDER BY measure
+        """).fetchall() == [
+            ("combined_bubble_and_streaking", 63),
+            ("fascial_streaking", 37),
+            ("popliteal_bubbles", 46),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='cam44_meeting14'
+        """).fetchone() == ("nlm:101085500x796:meeting-14",)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:101085500x796:meeting-14'
+            AND right_report='doi:10.7326/0003-4819-22-3-398'
+        """).fetchone() == ("likely_overlap",)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='cam44_meeting14'
+        """).fetchone() == (0,)
+
+
+def test_cam_bulletin_preserves_repeat_flight_totals_and_neurological_counting_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table, count(*) FROM publication_repeat_descent GROUP BY 1 ORDER BY 1
+        """).fetchall() == [("I", 26), ("II", 8)]
+        assert db.execute("""
+            SELECT flight_number,descent_count,exposure_count,reported_descent_pct
+            FROM publication_repeat_descent WHERE source_table='I' AND prior_descents='all'
+            ORDER BY flight_number
+        """).fetchall() == [
+            (1, 26, 89, 29.2), (2, 26, 88, 28.6), (3, 23, 87, 26.4),
+            (4, 26, 91, 28.6), (5, 20, 82, 24.4), (6, 19, 79, 24.0),
+        ]
+        assert db.execute("""
+            SELECT descent_count,exposure_count FROM publication_repeat_descent
+            WHERE source_table='II' AND prior_descents='all' ORDER BY flight_number
+        """).fetchall() == [(117, 955), (123, 955), (157, 955)]
+        assert db.execute("""
+            SELECT third_position,third_printed_label,reported_count FROM publication_repeat_classification
+            WHERE first_result='fail' AND second_result='pass' ORDER BY third_position
+        """).fetchall() == [(0, None, 37), (1, "F", 23), (2, "D", 8), (3, "F", 6)]
+        assert db.execute("SELECT count(*) FROM publication_repeat_classification").fetchone() == (39,)
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit
+            FROM publication_observation WHERE source_id='romano44_ana' ORDER BY endpoint
+        """).fetchall() == [
+            ("migraine_like_syndrome_episodes_source", 46, None, None),
+            ("migraine_like_syndrome_people_source", 17, 155, "person"),
+        ]
+        assert db.execute("""
+            SELECT source_id,measure,reported_value,value_basis FROM publication_archival_cohort_size
+            WHERE source_id IN ('romano44_ana','klingman44_ana') ORDER BY source_id,measure
+        """).fetchall() == [
+            ("klingman44_ana", "people_examined", 40000, "strict_lower_bound"),
+            ("romano44_ana", "exposures", 1361, "exact"),
+            ("romano44_ana", "participants_questioned", 115, "exact"),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:101085500x233:159'
+            AND right_report='record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683'
+        """).fetchone() == ("subset_of",)
+
+
+def test_cam_multicenter_preserves_source_counts_and_overlap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.site, p.table_altitude_ft, p.narrative_altitude_ft,
+                   c.exposure_count, c.descent_count
+            FROM publication_repeat_flight_profile p
+            JOIN publication_repeat_flight_count c USING (source_id,profile_id)
+            WHERE c.flight_number=1 AND c.prior_descents='all'
+            ORDER BY p.profile_id
+        """).fetchall() == [
+            ("University of Pennsylvania", 38000, 35000, 18, 15),
+            ("U.S. Navy Pensacola", 40000, None, 105, 14),
+            ("Randolph Field", 35000, None, 122, 36),
+            ("Randolph Field", 38000, None, 51, 17),
+            ("Wright Field", 35000, None, 187, 25),
+        ]
+        assert db.execute("SELECT count(*) FROM publication_repeat_flight_count").fetchone() == (82,)
+        assert db.execute("""
+            SELECT profile_id,exposure_count,reported_group_pct,descent_count,reported_descent_pct
+            FROM publication_repeat_flight_count
+            WHERE (profile_id='randolph-35000' AND flight_number=3 AND prior_descents='2')
+               OR (profile_id='pensacola' AND flight_number=1)
+               OR (profile_id='wright-35000' AND flight_number=2 AND prior_descents='0')
+               OR (profile_id='pennsylvania' AND flight_number=3 AND prior_descents='1')
+            ORDER BY profile_id
+        """).fetchall() == [
+            ("pennsylvania", 0, 0.0, None, None),
+            ("pensacola", 105, 105.0, 14, 13.3),
+            ("randolph-35000", 66, 6.9, 3, 50.0),
+            ("wright-35000", 162, 88.6, 19, 11.7),
+        ]
+        assert db.execute("""
+            SELECT o.numerator,o.denominator,sum(i.descent_count),count(*)
+            FROM publication_observation o JOIN publication_descent_interval i
+            USING (source_id,stratum,endpoint)
+            GROUP BY o.source_id,o.stratum,o.endpoint ORDER BY o.stratum
+        """).fetchall() == [(145, 380, 145, 8), (12, 51, 12, 3), (24, 51, 24, 3)]
+        assert db.execute("""
+            SELECT o.numerator,o.denominator,r.reported_percent
+            FROM publication_observation o JOIN publication_reported_rate r
+            USING (source_id,stratum,endpoint)
+            WHERE o.source_id='wigodsky42_randolph'
+        """).fetchone() == (7, 24, "71")
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:cam-330' AND right_report='nlm:101085500x796:meeting-14'
+        """).fetchone() == ("same_cohort",)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE numerator=132 AND denominator=719 AND source_id IN ('bridge44_cam330','cam44_meeting14')
+        """).fetchone() == (1,)
+
+
+def test_cam_paired_outcomes_reuse_cohort_and_canonical_reports(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT shared_cohort_key,count(*),min(participant_count),max(participant_count)
+            FROM publication_paired_chamber_arm GROUP BY shared_cohort_key
+        """).fetchall() == [("ferris43-same-24", 2, 24, 24)]
+        curves = db.execute("""
+            SELECT arm,endpoint,count(*),group_concat(cumulative_count)
+            FROM (
+                SELECT arm,endpoint,cumulative_count
+                FROM publication_paired_chamber_count ORDER BY arm,endpoint,window_end_min
+            ) GROUP BY arm,endpoint ORDER BY arm,endpoint
+        """).fetchall()
+        assert curves == [
+            ("placebo", "any_bends_or_chokes_source", 6, "4,10,18,20,23,24"),
+            ("placebo", "incapacitating_bends_or_chokes_source", 6, "1,6,15,18,21,21"),
+            ("stimulant", "any_bends_or_chokes_source", 6, "6,15,20,22,24,24"),
+            ("stimulant", "incapacitating_bends_or_chokes_source", 6, "2,10,18,19,19,20"),
+        ]
+        assert db.execute("""
+            SELECT stratum,reported_percent,source_denominator
+            FROM publication_narrative_chamber_rate
+            WHERE source_id='stewart43_retest' AND endpoint='no_symptoms_source' ORDER BY stratum
+        """).fetchall() == [("afternoon", "72", None), ("forenoon", "54", None)]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='stewart43_retest' AND endpoint='same_altitude_test_classification_source'
+        """).fetchone() == (32, 32)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:101085500x233:138:ferris' AND right_report='report:cam-112'
+        """).fetchone() == ("same_cohort",)
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE url='https://jamanetwork.com/journals/jama/fullarticle/291560'
+            GROUP BY report_id
+        """).fetchall() == [("doi:10.1001/jama.1947.02880060015004", 6)]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE run_id='2026-11-20-cam-paired-archive-f' ORDER BY report_id
+        """).fetchall() == [
+            ("record:legacy:data/chamber/v1.12/sources.csv#cotes52_fprc",),
+            ("record:legacy:data/chamber/v1.12/sources.csv#morant52_fprc",),
+        ]
 
 
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):

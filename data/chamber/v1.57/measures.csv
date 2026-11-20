@@ -1,0 +1,12 @@
+source_id,study_group,measure,unit,reported_value,locator,note
+cam44_meeting14,bridge-chamber-series,participants,participants,329,Item 3 printed p. 330 (PDF p. 10),Participants contributed 719 flights. Participant count is distinct from the flight denominator.
+cam44_meeting14,santa-ana-chamber,severe_chokes_frequency,cases_per_1000_runs,1,Item 3 discussion printed p. 330 (PDF p. 10),Narrative rate for runs of 10 to 60 minutes. Exact case and run totals were not given.
+cam44_meeting14,knee-radiography,participants,participants,27,Item 4 printed p. 331 (PDF p. 11),Selected participants who had developed knee bends at 35 000 ft. They are not an unselected risk set.
+cam44_meeting14,knee-radiography,observations,imaging_observations,35,Item 4 printed p. 331 (PDF p. 11),Observations across 27 symptomatic participants. Radiographs were obtained before descent.
+cam44_meeting14,knee-bends,popliteal_bubbles,bubble_count,46,Item 4 printed p. 331 (PDF p. 11),Total bubbles in the symptomatic comparison. A knee could contribute multiple bubbles.
+cam44_meeting14,knee-little-or-no-bends,popliteal_bubbles,bubble_count,28,Item 4 printed p. 331 (PDF p. 11),Total bubbles in the comparison with little or no pain.
+cam44_meeting14,knee-bends,fascial_streaking,streaking_score_sum,37,Item 4 printed p. 331 (PDF p. 11),Sum of the source's ordinal ratings.
+cam44_meeting14,knee-little-or-no-bends,fascial_streaking,streaking_score_sum,15,Item 4 printed p. 331 (PDF p. 11),Sum of the source's ordinal ratings.
+cam44_meeting14,knee-bends,combined_bubble_and_streaking,combined_score_sum,63,Item 4 printed p. 331 (PDF p. 11),The printed total is 63 although the displayed components would sum to 83. Cause unresolved.
+cam44_meeting14,knee-little-or-no-bends,combined_bubble_and_streaking,combined_score_sum,43,Item 4 printed p. 331 (PDF p. 11),The printed control total equals the sum of its displayed components.
+cam44_meeting14,ferris-pressure-breathing,participants,participants,28,Item 7 printed p. 332 (PDF p. 12),The source gives participants in repeated 45 000-ft flights up to 60 minutes. Exact clinical counts and exposure denominators are unavailable.

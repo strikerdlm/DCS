@@ -1,0 +1,14 @@
+source_id,stratum,endpoint,reported_percent,source_denominator,target_altitude_ft,planned_dwell_min,reported_preoxygenation_total_min,printed_page,note
+ivy43_stimulant,placebo,any_bends_or_chokes_source,54,105,40000,60,,137,The narrative rounds to 54%. Subsequent comparisons quote 54.3% under their own wording.
+ivy43_stimulant,placebo,all_bends_comparison_source,54.3,105,40000,60,,137,"Printed comparison baseline, not a separately exposed group."
+ivy43_stimulant,placebo,forced_descent_for_severe_symptoms_source,32.4,105,40000,60,,137,Source defines descent by participant request or severity judged by the observers.
+ivy43_stimulant,placebo-symptomatic,forced_descent_among_symptomatic_source,60,,40000,60,,137,Conditional on source-defined bends or chokes. Number of symptomatic people was not reported as an exact count.
+ivy43_stimulant,stimulant,all_bends_comparison_source,42,50,40000,60,,137,The endpoint is the comparison wording in the report.
+ivy43_stimulant,stimulant,forced_descent_for_severe_symptoms_source,14,50,40000,60,,137,A change in symptom tolerance could influence this endpoint.
+ivy43_stimulant,stimulant-and-preoxygenation,all_bends_comparison_source,24,50,40000,60,45,137,Two interventions were combined. The source says 30 minutes unequivocal and describes a total of 45 minutes before ascent.
+ivy43_stimulant,stimulant-and-preoxygenation,forced_descent_for_severe_symptoms_source,0,50,40000,60,45,137,Printed as a percentage. Two interventions were combined.
+stewart43_retest,forenoon,no_symptoms_source,54,,35000,120,,145,Narrative states 6000 subjects overall. The time-specific group denominator is unavailable.
+stewart43_retest,afternoon,no_symptoms_source,72,,35000,120,,145,Narrative states 6000 subjects overall. The time-specific group denominator is unavailable.
+stewart43_retest,original-classification,no_symptoms_on_three_tests_source,45,,35000,120,,145,Initial programme categories. Exact classification denominator unavailable.
+stewart43_retest,original-classification,one_mild_symptom_source,10,,35000,120,,145,Initial programme categories. Exact classification denominator unavailable.
+stewart43_retest,original-classification,moderate_to_severe_symptoms_source,45,,35000,120,,145,Initial programme categories. Exact classification denominator unavailable.

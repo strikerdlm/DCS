@@ -1,0 +1,8 @@
+source_id,stratum,measure,reported_value,value_basis,unit,locator,note
+rcaf43_constancy,halifax-parent,participants,6566,exact,person,Printed p. 159 (PDF p. 160) item 1D,Parent population for the 955-person Halifax sample. No parent outcome counts supplied.
+rcaf43_constancy,halifax-parent,exposures,16085,exact,person_exposure,Printed p. 159 (PDF p. 160) item 1D,"The February 1943 reanalysis prints 16,085. Citations to the parent report list 16,293. The activity covered by each version remains unresolved."
+rcaf43_constancy,regina-stewart-series,participants,43,exact,person,Printed p. 159 (PDF p. 160) item 1A,The reanalysis prints 43. Another bulletin summary printed p. 107 gives 42 for the same 559 ascents. Identity of the differing participant is unavailable.
+rcaf43_constancy,regina-stewart-series,exposures,559,exact,person_exposure,Printed p. 159 (PDF p. 160) item 1A,This constituent study supplies some of the exposures in Table I. Its full exposure total is not a Table I denominator.
+romano44_ana,migraine-syndrome,exposures,1361,exact,person_exposure,News Letter printed p. 7 (PDF p. 8),Cohort size only. Number of distinct exposures associated with migraine-like episodes is unavailable.
+romano44_ana,migraine-history,participants_questioned,115,exact,person,News Letter printed p. 8 (PDF p. 9),Number given for the prior migraine-history enquiry. Keep distinct from the 155 people in the overall exposure cohort.
+klingman44_ana,indoctrination-program,people_examined,40000,strict_lower_bound,person,News Letter printed p. 8 (PDF p. 9),The source says more than 40 000 people were examined. No exact count of qualifying 38 000-ft flights or diagnosed DCS.

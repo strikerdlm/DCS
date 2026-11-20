@@ -1,0 +1,246 @@
+[
+  {
+    "id": "2026-11-20-henry-cook-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "publisher_full_text_lookup",
+    "params": {
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/21005555/",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located the indexed citation and extracted the original October issue from the publisher. PDF images checked separately.",
+    "records": [
+      {
+        "id": "21005555",
+        "title": "Effectiveness of pre-flight oxygen breathing in preventing decompression sickness",
+        "year": 1945,
+        "pmid": "21005555",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-henry-cook-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_pdf_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf"
+      ],
+      "parsers": [
+        "pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the published title, successful HTTP status and six physical pages. The scraper returned the footer rather than table text.",
+    "records": [
+      {
+        "id": "21005555",
+        "title": "Effectiveness of pre-flight oxygen breathing in preventing decompression sickness",
+        "year": 1945,
+        "pmid": "21005555",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-henry-cook-p",
+    "date": "2026-11-20",
+    "provider": "Original PDF and PubMed",
+    "operation": "source_page_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/21005555/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the title, issue, bibliography and rendered Tables I–III against the original. The four-hour mean time to incapacitation is blank.",
+    "records": [
+      {
+        "id": "21005555",
+        "title": "Effectiveness of pre-flight oxygen breathing in preventing decompression sickness",
+        "year": 1945,
+        "pmid": "21005555",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf",
+        "locator": "Methods pp. 350–353 and Tables I–III pp. 351–353",
+        "sha256": "72cf0412b796d48d275bbddbc3c9862129465e70266ff8b1c96be70842ef9a3c"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-henry-cook-backref-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "cited_source_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/5/article-p316.pdf",
+        "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf"
+      ],
+      "extract_depth": "advanced",
+      "query": "Bridge 1944 Cook report 245 matched altitude 38000 repeated runs actual study author citation",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Confirmed the earlier Bridge protocol and the existing NASA bibliography reference for NRC CAM 245. The standalone Cook original remains unavailable.",
+    "records": [
+      {
+        "id": "joam-15-5-316",
+        "title": "Decompression sickness: nature and incidence of symptoms during and after artificial decompression to 38,000 feet for ninety minutes with exercise during exposure",
+        "year": 1944,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/5/article-p316.pdf",
+        "locator": "Methods and Table I, pp. 316–317"
+      },
+      {
+        "id": "19890012936",
+        "title": "The Effects of Different Rates of Ascent on the Incidence of Altitude Decompression Sickness",
+        "year": 1989,
+        "url": "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf",
+        "locator": "Reference 16",
+        "cited_report": "NRC CAM 245"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-henry-cook-e",
+    "date": "2026-11-20",
+    "provider": "EBSCO UNAL",
+    "operation": "institutional_full_text_access",
+    "params": {
+      "requested_queries": [
+        "\"A comparison of altitude and exercise with respect to decompression sickness\"",
+        "\"Protective effects of pre-oxygenation on abdominal gas pain\"",
+        "\"decompression sickness\" AND \"War Medicine\" AND \"Cook\""
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "unrun",
+    "note": "The institutional proxy remained on the sign-in page after the configured sign-in attempt and returned no visible error message. Search queries were not submitted.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-henry-cook-llama",
+    "date": "2026-11-20",
+    "provider": "LlamaParse",
+    "operation": "public_pdf_table_cross_check",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf"
+      ],
+      "tier": "agentic",
+      "expand": [
+        "markdown_full",
+        "items"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "The configured service returned HTTP 402. No parser output was available. Original page images were the extraction authority.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-henry-cook-cam-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "standalone_report_lookup",
+    "params": {
+      "query": "\"Decompression sickness\" \"nature and incidence\" Bridge Henry Cook 316 1944 38,000",
+      "categories": [
+        "research",
+        "pdf"
+      ],
+      "limit": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The public search returned a later bibliography. No original Cook study or additional chamber outcomes found.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-henry-cook-cam-c",
+    "date": "2026-11-20",
+    "provider": "Consensus",
+    "operation": "standalone_report_lookup",
+    "params": {
+      "query": "\"A comparison of altitude and exercise with respect to decompression sickness\" Cook Williams Lyons Lawrence 1944 War Medicine",
+      "screened": 20,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 20,
+    "status": "observed",
+    "note": "No matching original or full-text data from the 1944 Cook study in the 20 displayed citations.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-henry-cook-cam-o",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "standalone_report_lookup",
+    "params": {
+      "query": "A comparison of altitude and exercise with respect to decompression sickness",
+      "limit": 10,
+      "ranked_ids": [
+        "W2105704732",
+        "W119036867",
+        "W44606038",
+        "W2751556331",
+        "W3031888973",
+        "W812651373",
+        "W4394687381",
+        "W2566550344",
+        "W188169492",
+        "W4386878759"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 265,
+    "status": "observed",
+    "note": "Local OpenAlex CLI returned the search page. Its 10 displayed works did not yield a matching original.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-henry-cook-cam-u",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "standalone_report_lookup",
+    "params": {
+      "sample_abstract": "A comparison of altitude and exercise with respect to decompression sickness. Berkeley Aviation Medicine Unit experiments by Cook, Williams, Lyons and Lawrence reported in War Medicine 6, pages 182–187, and in NRC CAM 245. Altitude chamber ascent and exercise workload were compared for decompression sickness symptoms.",
+      "published_from": "1943",
+      "published_until": "1946",
+      "limit": 10,
+      "ranked_ids": [
+        "Gra46",
+        "Js46",
+        "Har45",
+        "Mac44",
+        "Whi45",
+        "Wel44",
+        "Har45b",
+        "Gra46b",
+        "Aue45",
+        "Aue45b"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The target Cook report was absent. Gray and Masland exposed overlapping citations already represented in the ledger. The Welham lead requires original chamber data and a cohort check.",
+    "records": []
+  }
+]

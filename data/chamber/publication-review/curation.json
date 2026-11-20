@@ -8755,6 +8755,390 @@
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf"
     },
     {
+      "record_key": "legacy:data/chamber/v1.56/sources.csv#henry45_cook",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, topic, year, volume and start page match the publisher scan and PubMed.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-t#21005555",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, title, volume, issue and start page identify this 1945 report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21005555/"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-f#21005555",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, title, volume, issue and start page identify this 1945 report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21005555/"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-p#21005555",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, title, volume, issue and start page identify this 1945 report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21005555/"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-backref-t#joam-15-5-316",
+      "report_id": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "basis": "The source PDF and printed volume, issue and start page match the existing verified Bridge report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/5/article-p316.pdf"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-backref-t#19890012936",
+      "report_id": "ntrs:19890012936",
+      "basis": "NASA accession and document title match the existing historical compilation.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "report_id": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "basis": "Keep the existing verified Bridge report identity for the publisher scan and its later retrieval.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/5/article-p316.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#cam44_meeting14",
+      "report_id": "nlm:101085500x796:meeting-14",
+      "basis": "Original title, meeting number and June 1944 dates match the NLM scan.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=7"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-p#101085500x796-meeting14",
+      "report_id": "nlm:101085500x796:meeting-14",
+      "basis": "Original title, meeting number and June 1944 dates match the NLM scan.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=7"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#thomas45_bends_radiographs",
+      "report_id": "doi:10.1148/44.3.259",
+      "basis": "Authors, volume, issue, pages and DOI verified on publisher site.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-rsna-f#10.1148/44.3.259",
+      "report_id": "doi:10.1148/44.3.259",
+      "basis": "Authors, volume, issue, pages and DOI verified on publisher site.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#tobias44_bends_flight",
+      "report_id": "asb:1944:1:11:9",
+      "basis": "Berkeley bibliography lists the byline, title and pages. The later CAM minutes identify the issue.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-asb-p#asb-1944-1-11-9",
+      "report_id": "asb:1944:1:11:9",
+      "basis": "Berkeley bibliography lists the byline, title and pages. The later CAM minutes identify the issue.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#lund46_latent_neurologic",
+      "report_id": "pmid:21016036",
+      "basis": "Authors, title, year and page numbers match the NLM citation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-lund-p#21016036",
+      "report_id": "pmid:21016036",
+      "basis": "Authors, title, year and page numbers match the NLM citation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-rsna-t#10.1148/44.3.259",
+      "report_id": "doi:10.1148/44.3.259",
+      "basis": "The publisher DOI, title, authors and issue match.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.58/sources.csv#rcaf43_constancy",
+      "report_id": "nlm:101085500x233:159",
+      "basis": "Title, year, release date and printed locator identify the Canadian reanalysis.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160"
+    },
+    {
+      "record_key": "2026-11-20-cam-repeats-primary#101085500x233-p159",
+      "report_id": "nlm:101085500x233:159",
+      "basis": "Title, year, release date and printed locator identify the Canadian reanalysis.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.58/sources.csv#romano44_ana",
+      "report_id": "nlm:101085500x234:7:romano",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-cam-repeats-primary#101085500x234-p7-romano",
+      "report_id": "nlm:101085500x234:7:romano",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.58/sources.csv#klingman44_ana",
+      "report_id": "nlm:101085500x234:8:klingman",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-20-cam-repeats-primary#101085500x234-p8-klingman",
+      "report_id": "nlm:101085500x234:8:klingman",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#wigodsky42_randolph",
+      "report_id": "nlm:101085500x233:77",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#101085500x233-p77",
+      "report_id": "nlm:101085500x233:77",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#berkson43_chamber",
+      "report_id": "nlm:101085500x233:140",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#101085500x233-p140",
+      "report_id": "nlm:101085500x233:140",
+      "basis": "Identical title and page in the NLM Bulletin report and local source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#bridge44_cam330",
+      "report_id": "report:cam-330",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#cam-330",
+      "report_id": "report:cam-330",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#bridge44_cam382",
+      "report_id": "report:cam-382",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#cam-382",
+      "report_id": "report:cam-382",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.59/sources.csv#bridge44_cam302",
+      "report_id": "report:cam-302",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-primary#cam-302",
+      "report_id": "report:cam-302",
+      "basis": "Distinct CAM report number, authors, title and date in the source bibliography.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "record_key": "2026-11-20-cam-multicenter-gray-f#gray-20287795",
+      "report_id": "pmid:20287795",
+      "basis": "Title and PMID verified on the indexed publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20287795/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#ivy43_stimulant",
+      "report_id": "nlm:101085500x233:137:ivy",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=137"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#ferris43_paired",
+      "report_id": "nlm:101085500x233:138:ferris",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=138"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#ferris43_breadth",
+      "report_id": "nlm:101085500x233:145:ferris",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=145"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#stewart43_retest",
+      "report_id": "nlm:101085500x233:144:stewart",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=144"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#ryder43_cam112",
+      "report_id": "report:cam-112",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=463"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#larrabee43_cam137",
+      "report_id": "report:cam-137",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#pensacola42_cam88",
+      "report_id": "report:cam-88",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=463"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#wright42_cam99",
+      "report_id": "report:cam-99",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#burkhardt47_factors",
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#fulton44_factors",
+      "report_id": "doi:10.1093/milmed/94.4.199",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://doi.org/10.1093/milmed/94.4.199"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.60/sources.csv#robie60_pathology",
+      "report_id": "aeme:31-11-885",
+      "basis": "Verified original page, bibliographic report number or DOI and title.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/11/article-p885.pdf"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-archive-f#fprc-793",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#morant52_fprc",
+      "basis": "Same FPRC number and title as existing report. Kew catalog links to the containing report-number range.",
+      "evidence_url": "https://discovery.nationalarchives.gov.uk/details/r/C2151735"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-archive-f#fprc-794",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#cotes52_fprc",
+      "basis": "Same FPRC number and title as existing report. Kew catalog links to the containing report-number range.",
+      "evidence_url": "https://discovery.nationalarchives.gov.uk/details/r/C2151735"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-publisher-t#burkhardt47_factors",
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-publisher-t#fulton44_factors",
+      "report_id": "doi:10.1093/milmed/94.4.199",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://doi.org/10.1093/milmed/94.4.199"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-fulton-f#fulton44_factors",
+      "report_id": "doi:10.1093/milmed/94.4.199",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://doi.org/10.1093/milmed/94.4.199"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-robie-t#robie60_pathology",
+      "report_id": "aeme:31-11-885",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/11/article-p885.pdf"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-nlm#ivy43_stimulant",
+      "report_id": "nlm:101085500x233:137:ivy",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=137"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-nlm#ferris43_paired",
+      "report_id": "nlm:101085500x233:138:ferris",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=138"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-nlm#ferris43_breadth",
+      "report_id": "nlm:101085500x233:145:ferris",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=145"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-nlm#stewart43_retest",
+      "report_id": "nlm:101085500x233:144:stewart",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=144"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-archive-book#ryder43_cam112",
+      "report_id": "report:cam-112",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=463"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-archive-book#larrabee43_cam137",
+      "report_id": "report:cam-137",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-archive-book#pensacola42_cam88",
+      "report_id": "report:cam-88",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=463"
+    },
+    {
+      "record_key": "2026-11-20-cam-paired-archive-book#wright42_cam99",
+      "report_id": "report:cam-99",
+      "basis": "Matches verified source identity and locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/sources.csv#morant52_fprc",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#morant52_fprc",
+      "basis": "Preserve the existing report identity while attaching the new archival lookup.",
+      "evidence_url": "https://discovery.nationalarchives.gov.uk/details/r/C2151735"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/sources.csv#cotes52_fprc",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#cotes52_fprc",
+      "basis": "Preserve the existing report identity while attaching the new archival lookup.",
+      "evidence_url": "https://discovery.nationalarchives.gov.uk/details/r/C2151735"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_motley:2",
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "basis": "Exact publisher article 291560 matched by title, journal, DOI and PMID. Consolidates previously split URL-only identity.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_tavily_primary:5",
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "basis": "Exact publisher article 291560 matched by title, journal, DOI and PMID. Consolidates previously split URL-only identity.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_mot:3",
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "basis": "Exact publisher article 291560 matched by title, journal, DOI and PMID. Consolidates previously split URL-only identity.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_ivy47:2",
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "basis": "Exact publisher article 291560 matched by title, journal, DOI and PMID. Consolidates previously split URL-only identity.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
       "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10902932",
       "report_id": "pmid:10902932",
       "basis": "Webb et al., pp. 692–698. The indexed title and PMID match the original paper. The older abbreviated title links directly to the publisher PDF.",
@@ -12121,6 +12505,244 @@
       "relationship": "possible_overlap",
       "evidence": "Both reports cover Berkeley chamber exercise series. The later report reuses earlier data. Specific arm or exposure membership is unverified.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/13319247/"
+    },
+    {
+      "left_report": "pmid:20251251",
+      "right_report": "pmid:21005555",
+      "relationship": "derives_control_baseline_from",
+      "evidence": "The 1947 derivation on p. 263 cites reference 3. The 1945 Table II unweighted controls reproduce all three 100%-selected 1947 Table III control baselines at 82.8%, 66.0% and 53.3%.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf#page=5"
+    },
+    {
+      "left_report": "pmid:20251251",
+      "right_report": "pmid:21005555",
+      "relationship": "possible_overlap",
+      "evidence": "The 1947 Series DN and 1945 Experiment II share a 35,000-ft target, 3,500-ft/min ascent and 2.5-minute step interval. The publications report 53 and 63 preoxygenated participants, without identifiers for exposure linkage.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:21005555",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "possible_overlap",
+      "evidence": "The paper cites Bridge et al. and uses a 38,000-ft target, oxygen from 10,000 ft, five-minute stepping during a 90-minute window and repeated runs. The different cohort totals and absence of identifiers prevent exact linkage.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf#page=1"
+    },
+    {
+      "left_report": "pmid:21005555",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_historic_bibliographies:1",
+      "relationship": "cites_protocol_source",
+      "evidence": "References and methods identify the 1944 Cook exercise study. The original CAM report was not recovered and its contribution to the interpolated rates remains unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf#page=6"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "doi:10.7326/0003-4819-22-3-398",
+      "relationship": "likely_overlap",
+      "evidence": "Bridge reported the Berkeley chokes analysis in item 3. He is first author on the 1945 article addressing the same symptom. Exact journal counts and shared runs remain unverified.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=10"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "possible_overlap",
+      "evidence": "Same investigators and chamber research. The respective margins are 719 mixed runs and 167 runs at 38,000 ft. Exact inclusion is unknown.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=10"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "pmid:21005555",
+      "relationship": "possible_overlap",
+      "evidence": "The meeting abstract reports a specific 111-minute comparison resembling that in the 1945 report. Exact runs not identified.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=10"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "doi:10.1148/44.3.259",
+      "relationship": "likely_overlap",
+      "evidence": "The same two Berkeley collaborators report paired-knee films at 35,000 ft in the minutes and 35,000 and 38,000 ft in the article excerpt. Full tables unavailable.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "pmid:21016036",
+      "relationship": "possible_overlap",
+      "evidence": "John Lawrence described a severe delayed neurological reaction. The later report has an overlapping author and reports a 38,000-ft case. No exact case crosswalk was recovered.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=14"
+    },
+    {
+      "left_report": "asb:1944:1:11:9",
+      "right_report": "pmid:21005550",
+      "relationship": "likely_overlap",
+      "evidence": "The November 1944 comparison shares five byline authors with the later Liberator study and compares chamber and flight symptoms. The bulletin publication pages were not retrieved.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "left_report": "nlm:101085500x233:159",
+      "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",
+      "relationship": "subset_of",
+      "evidence": "The reanalysis names the same 6566 Halifax personnel and specifically draws a 955-person subset. It reports 16085 total source exposures. The citation for the original report lists 16293. The source dates and exposure total discrepancy remain unresolved.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160"
+    },
+    {
+      "left_report": "nlm:101085500x234:7:romano",
+      "right_report": "record:legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_original_sources:4",
+      "relationship": "likely_overlap",
+      "evidence": "Same six collaborators, event type and year. The newsletter gives participant and episode counts for the program presentation. The complete related journal paper was not recovered.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
+    },
+    {
+      "left_report": "nlm:101085500x234:8:klingman",
+      "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_firecrawl_primary:2",
+      "relationship": "possible_overlap",
+      "evidence": "One shared investigator and related training endpoints. The program summary cannot identify exact exposures or distinguish any overlap from other contemporary training reports.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
+    },
+    {
+      "left_report": "nlm:101085500x233:77",
+      "right_report": "pmid:20287795",
+      "relationship": "likely_overlap",
+      "evidence": "The bulletin reports exactly 43 Randolph pre-flight cadets on five four-hour flights at 35,000 ft. Gray Table I gives the same sample size, flight count and profile. The bulletin adds per-flight failure rates and timing. Participant linkage is unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "left_report": "nlm:101085500x233:77",
+      "right_report": "pmid:20997924",
+      "relationship": "possible_overlap",
+      "evidence": "Shared Randolph Field wartime program and Wigodsky. The 1946 publication includes 2,920 seated runs at 35,000 or 38,000 ft. The 380-person series has no matching run identifiers.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=74"
+    },
+    {
+      "left_report": "nlm:101085500x233:140",
+      "right_report": "nlm:101085500x233:77",
+      "relationship": "likely_overlap",
+      "evidence": "Both report Randolph profiles of 1,500 ft/min to 35,000 ft for four hours and 4,000 ft/min to 38,000 ft for three hours. Exact membership is unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "left_report": "nlm:101085500x233:140",
+      "right_report": "pmid:20287795",
+      "relationship": "likely_overlap",
+      "evidence": "Shared Randolph Field site and four-hour 35,000-ft profile. Berkson stratifies each successive flight by prior descents. Gray groups people by total number of flights. The summaries cannot be stacked.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "left_report": "nlm:101085500x233:140",
+      "right_report": "pmid:20277052",
+      "relationship": "possible_overlap",
+      "evidence": "Berkson attributes the Pennsylvania tables to the program discussed by Larrabee at the meeting. The final Hodes and Larrabee full text was not available, and the altitude differs between the meeting table and narrative.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "left_report": "report:cam-330",
+      "right_report": "nlm:101085500x796:meeting-14",
+      "relationship": "same_cohort",
+      "evidence": "Reference 3 names the same investigator team and all three exact values in the June minutes, 132 chokes, 329 subjects and 719 chamber flights. The counts are carried by the minutes only.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "left_report": "report:cam-382",
+      "right_report": "doi:10.7326/0003-4819-22-3-398",
+      "relationship": "likely_overlap",
+      "evidence": "Reference 5 gives the same four authors and title as the published paper. The technical report itself has not been compared.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "left_report": "report:cam-302",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "likely_overlap",
+      "evidence": "Reference 6 gives the same six authors and 38,000-ft 90-minute exercise profile as the journal publication. The technical report itself has not been compared.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=424"
+    },
+    {
+      "left_report": "nlm:101085500x233:138:ferris",
+      "right_report": "report:cam-112",
+      "relationship": "same_cohort",
+      "evidence": "Fulton 1951 p. 238 identifies CAM 112 with 24 people at 35,000 ft, exercise every three minutes, and paired placebo/stimulant runs. The exact cumulative outcome table is counted once from the investigator meeting.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=263"
+    },
+    {
+      "left_report": "nlm:101085500x233:138:ferris",
+      "right_report": "nlm:101085500x233:145:ferris",
+      "relationship": "possible_overlap",
+      "evidence": "Both are Ferris reports from the Cincinnati programme. The paired study has 24 participants, while the breadth-factor outcomes have 35 and 30. No people or exposures can be matched.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=138"
+    },
+    {
+      "left_report": "nlm:101085500x233:145:ferris",
+      "right_report": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8",
+      "relationship": "possible_overlap",
+      "evidence": "Same Cincinnati investigator and related studies. The breadth-factor table has two source-defined susceptibility outcomes and does not identify historical study membership.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=145"
+    },
+    {
+      "left_report": "nlm:101085500x233:137:ivy",
+      "right_report": "nlm:101085500x233:140",
+      "relationship": "possible_overlap",
+      "evidence": "The Pensacola table and the Ivy placebo group each name 105 subjects, 40,000 ft and one hour. The published first-flight descent counts and severity rates differ. No participant IDs or exact common outcome definition are available.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=137"
+    },
+    {
+      "left_report": "nlm:101085500x233:137:ivy",
+      "right_report": "doi:10.1001/jama.1947.02880060015004",
+      "relationship": "possible_overlap",
+      "evidence": "Ivy and the journal byline are linked historically. The publisher preview does not enumerate any arms or match outcome definitions.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=137"
+    },
+    {
+      "left_report": "nlm:101085500x233:144:stewart",
+      "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",
+      "relationship": "likely_overlap",
+      "evidence": "Stewart reports the same RCAF profile of three two-hour 35,000-ft tests and describes approximately 6000 subjects. The source supplies no overlap identifiers for the retest subset.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=144"
+    },
+    {
+      "left_report": "nlm:101085500x233:144:stewart",
+      "right_report": "nlm:101085500x233:159",
+      "relationship": "likely_overlap",
+      "evidence": "The Canadian reanalysis reports the 6566-person Halifax programme and a 955-person subset. The meeting mentions classification retests and time of day. Independent participant totals cannot be established.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=144"
+    },
+    {
+      "left_report": "report:cam-137",
+      "right_report": "nlm:101085500x233:140",
+      "relationship": "likely_overlap",
+      "evidence": "Same Pennsylvania programme and intermittent exercise. CAM 137 bibliographic title gives 38,000 ft, consistent with the Berkson table heading. The nearby Larrabee narrative gives 35,000 ft. Full report and linkage unavailable.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "left_report": "report:cam-88",
+      "right_report": "nlm:101085500x233:140",
+      "relationship": "possible_overlap",
+      "evidence": "Shared service, location and classification topic. Berkson tables do not identify CAM 88 explicitly.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=463"
+    },
+    {
+      "left_report": "report:cam-99",
+      "right_report": "nlm:101085500x233:140",
+      "relationship": "possible_overlap",
+      "evidence": "Shared Wright Field classification programme. Berkson tables do not cite CAM 99 explicitly.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.12/sources.csv#cotes52_fprc",
+      "right_report": "record:legacy:data/chamber/v1.12/sources.csv#morant52_fprc",
+      "relationship": "analyzes_part_of_same_cohort",
+      "evidence": "Number 794 is explicitly a further analysis of cases of descent in the same 610 flying personnel. The two numbers fall in the same Kew archive range. The underlying group denominators and windows remain unverified.",
+      "evidence_url": "https://discovery.nationalarchives.gov.uk/details/r/C2151735"
+    },
+    {
+      "left_report": "aeme:31-11-885",
+      "right_report": "record:legacy:data/chamber/v1.12/sources.csv#morant52_fprc",
+      "relationship": "cites_as_context",
+      "evidence": "Robie reference 12 identifies FPRC Report 793 and date. Its three original cases all occurred in aircraft.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/11/article-p885.pdf"
+    },
+    {
+      "left_report": "aeme:31-11-885",
+      "right_report": "record:2026-11-20-archival-denominators-consensus-watson#w:4bdde4f9-3c99-4220-bf92-3f734f797657",
+      "relationship": "summarizes_published_study",
+      "evidence": "Robie attributes the 6 deaths and approximately 470,000 underlying records to Masland. Masland calls the denominator trainees and describes deaths related directly or incidentally to training. Robie calls the denominator training chamber runs. Neither supplies a new distinct confirmed DCS incidence rate for this extraction.",
+      "evidence_url": "https://jamanetwork.com/journals/archneurpsyc/article-abstract/650591"
     }
   ],
   "report_titles": {
@@ -12160,6 +12782,22 @@
     "pmid:20296024": "Occurrence of bends, scotomata and hemianopsia at altitudes below 20,000 feet",
     "joam:17-6-602": "The use of drugs for the prevention of decompression sickness",
     "report:ada075869": "The Aeroembolism Problem for Long-Range Missions",
-    "report:cam-c-2503": "Review of Canadian Investigations on Decompression Sickness"
+    "report:cam-c-2503": "Review of Canadian Investigations on Decompression Sickness",
+    "nlm:101085500x233:77": "Studies on aero-embolism at Randolph Field",
+    "nlm:101085500x233:140": "Statistical analysis of chamber tests",
+    "report:cam-330": "Analysis of 132 cases of chokes occurring among 329 subjects making 719 flights in a decompression chamber",
+    "report:cam-382": "Chokes: a respiratory manifestation of aeroembolism in high altitude flying",
+    "report:cam-302": "Decompression sickness: Nature and incidence of symptoms during and after artificial decompression to 38,000 feet for 90 minutes with exercise during exposure",
+    "nlm:101085500x233:137:ivy": "Ivy report on dextroamphetamine and preoxygenation in altitude chamber exposures",
+    "nlm:101085500x233:138:ferris": "Ferris paired placebo and stimulant chamber exposures",
+    "nlm:101085500x233:145:ferris": "Variation in individual and group susceptibility to decompression sickness",
+    "nlm:101085500x233:144:stewart": "Canadian experience with repeat altitude classification tests",
+    "report:cam-112": "An assay of dextroamphetamine for its protective value in decompression sickness",
+    "report:cam-137": "Decompression sickness during exposures to 38,000 feet accompanied by exercise. Evaluation of a classification procedure",
+    "report:cam-88": "Incidence of decompression sickness in the classification of aviation personnel",
+    "report:cam-99": "High altitude classification tests",
+    "doi:10.1001/jama.1947.02880060015004": "Decompression sickness: Some factors which affect the incidence of bends at altitude",
+    "doi:10.1093/milmed/94.4.199": "Some Factors Affecting the Incidence of “Bends” at Altitude",
+    "aeme:31-11-885": "Pathological findings in three cases of decompression sickness"
   }
 }

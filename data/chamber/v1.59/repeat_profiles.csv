@@ -1,0 +1,6 @@
+source_id,profile_id,site,table_altitude_ft,narrative_altitude_ft,planned_dwell_min,ascent_rate_ft_min,protocol,endpoint,locator,analysis_role
+berkson43_chamber,randolph-38000,Randolph Field,38000,,180,4000,Ascent rate stated in table heading.,descent_before_3h_source,Table p. 140 and footnote,overlap_hold
+berkson43_chamber,randolph-35000,Randolph Field,35000,,240,1500,Ascent rate stated in table heading.,descent_before_4h_source,Table p. 141 and footnote,overlap_hold
+berkson43_chamber,pennsylvania,University of Pennsylvania,38000,35000,180,,"Intermittent exercise. Table heading gives 38,000 ft. The investigator summary on p. 144 gives 35,000 ft and 5,000 ft/min for an apparently related 18-person sample.",descent_this_flight_source,Tables pp. 142–143 and narrative p. 144,overlap_hold
+berkson43_chamber,pensacola,U.S. Navy Pensacola,40000,,60,,Staged ascent.,descent_within_1h_source,Table p. 143 and footnote,overlap_hold
+berkson43_chamber,wright-35000,Wright Field,35000,,180,,Ascent rate unavailable in the table.,descent_before_3h_source,Table p. 144 and footnote,overlap_hold
