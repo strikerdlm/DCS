@@ -71,4 +71,6 @@ Five source outcome margins and six additional bibliography links extend the NAS
 
 The historical full-text supplement records 84 repeated chamber runs from Williams et al. and reconciles repeated publications about Houston’s chamber attendants. The crossover rows retain unresolved cells, historical symptom grades and within-person linkage. [Williams and Houston source tables](chamber-historical-crossover-supplement.md)
 
+Henry’s 1947 classification study adds 129 published percentages with explicit identification of calculated controls and nested selections. The 1946 Berkeley series remain linked for cohort-overlap review. [Henry preselection tables](chamber-preselection-supplement.md)
+
 One example of deduplication is the Ata and Karaca chamber report. All 125 full- or truncated-title search occurrences in v1.48 resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)

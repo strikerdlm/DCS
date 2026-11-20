@@ -11,6 +11,7 @@ SOURCE_REGISTERS = (
     *(f"v1.{i}" for i in range(1, 50)),
     "v1.53",
     "v1.54",
+    "v1.55",
     "sharepoint-2026-11-19",
     "fac-official",
     "rojas-2015",

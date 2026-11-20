@@ -1,0 +1,68 @@
+[
+  {
+    "id": "2026-11-20-henry-preselection-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "publisher_full_text_lookup",
+    "params": {
+      "urls": ["https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf"],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Tavily extracted text from the publisher PDF. The original table images were checked separately.",
+    "records": [
+      {
+        "id": "20251251",
+        "title": "The prevention of altitude pain by preselection",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf",
+        "year": 1947,
+        "pmid": "20251251"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-henry-preselection-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_and_index_check",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/20251251/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher extraction returned only the download footer. The PubMed fetch failed. No table values or bibliographic records were captured through Firecrawl.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-henry-preselection-p",
+    "date": "2026-11-20",
+    "provider": "Original PDF and PubMed",
+    "operation": "source_page_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/20251251/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the bibliographic record and visually checked the original rendered tables.",
+    "records": [
+      {
+        "id": "20251251",
+        "title": "The prevention of altitude pain by preselection",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf",
+        "year": 1947,
+        "pmid": "20251251",
+        "locator": "Methods and cohort summary pp. 259–261 and 265, Tables I, III and IV pp. 260 and 262–263",
+        "sha256": "2ef42e27f754573efe12618270384cf3d29912ebbf5a5b363280ec891474a9aa"
+      }
+    ]
+  }
+]

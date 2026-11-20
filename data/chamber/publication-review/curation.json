@@ -8735,6 +8735,24 @@
       "report_id": "report:cam-c-2503",
       "basis": "The two bibliographies identify the same 1943 Canadian report.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/10/article-p1052.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.55/sources.csv#henry47_preselection",
+      "report_id": "pmid:20251251",
+      "basis": "The original published title, author, issue and indexed PMID identify this report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf"
+    },
+    {
+      "record_key": "2026-11-20-henry-preselection-t#20251251",
+      "report_id": "pmid:20251251",
+      "basis": "The original published title, author, issue and indexed PMID identify this report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf"
+    },
+    {
+      "record_key": "2026-11-20-henry-preselection-p#20251251",
+      "report_id": "pmid:20251251",
+      "basis": "The original published title, author, issue and indexed PMID identify this report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf"
     }
   ],
   "studies": [
@@ -11927,6 +11945,20 @@
       "relationship": "cites_as_compilation_source",
       "evidence": "Appendix B refers to Fraser, Stewart and Manning as reference 30. Additional bibliographies supply report number C-2503. The original group-level outcomes have not been recovered.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/10/article-p1052.pdf"
+    },
+    {
+      "left_report": "pmid:20251251",
+      "right_report": "pmid:21018673",
+      "relationship": "likely_overlap",
+      "evidence": "The 1947 paper cites the earlier Berkeley work and repeats the Series E and DN procedures. The reported sample sizes differ and expose no identifiers for linkage.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf#page=4"
+    },
+    {
+      "left_report": "pmid:20251251",
+      "right_report": "pmid:13319247",
+      "relationship": "possible_overlap",
+      "evidence": "Both reports cover Berkeley chamber exercise series. The later report reuses earlier data. Specific arm or exposure membership is unverified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/13319247/"
     }
   ],
   "report_titles": {
