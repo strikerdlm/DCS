@@ -1,0 +1,303 @@
+[
+  {
+    "id": "2026-11-20-lewis-reprints-brazil-search",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "regional_primary_source_search",
+    "params": {
+      "query": "\"doença descompressiva\" \"câmara hipobárica\" aeronáutica treinamento incidência casos Brasil IMAE exposição relatório",
+      "search_depth": "advanced",
+      "max_results": 9,
+      "returned_urls": [
+        "https://ojs.revistacontemporanea.com/ojs/index.php/home/article/view/624",
+        "https://www.researchgate.net/profile/Fabio-Campos-18/publication/351736223_Prevalencia_e_tempo_de_instalacao_do_primeiro_sintoma_de_hipoxia_em_pilotos_da_forca_aerea_brasileira_durante_voos_simulados_em_camara_hipobarica_-_analise_de_um_preditor_de_alerta_situacional/links/6194fe7d3068c54fa5f51097/Prevalencia-e-tempo-de-instalacao-do-primeiro-sintoma-de-hipoxia-em-pilotos-da-forca-aerea-brasileira-durante-voos-simulados-em-camara-hipobarica-analise-de-um-preditor-de-alerta-situacional.pdf",
+        "https://periodicos.ufms.br/index.php/pecibes/article/view/10197",
+        "https://www.youtube.com/watch?v=r2JuHEeEYis",
+        "https://www.bombeiros.go.gov.br/wp-content/uploads/2017/04/ESTUDO-SOBRE-A-IMPORT%C3%82NCIA-DA-UTILIZA%C3%87%C3%83O-DO-TRATAMENTO-HIPERB%C3%81RICO-NO-DEPARTAMENTO-DE-SA%C3%9ADE-DO-CORPO-DE-BOMBEIROS-MILITAR-DO-ESTADO-DE-GOI%C3%81S-ATRAVES-DE-C%C3%82MARA-HIPERBARICA-Andre-Luiz-Aquino.pdf",
+        "https://www.revista-portalesmedicos.com/revista-medica/doenca-descompressiva-aspectos-fisiopatologicos-e-protocolo-de-tratamento-hiperbarico",
+        "https://www2.fab.mil.br/imae/index.php/imagens/event/CmaraHipobrica",
+        "https://www.instagram.com/p/DSIJOoRF_sP",
+        "https://www2.fab.mil.br/bibliotecaunifa/images/Biblioteca/livrosdigitais/XIII_Jornada_IMAE.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 9,
+    "status": "observed",
+    "note": "The search identified the official Brazilian IMAE proceedings and a report of training procedures. No independent clinical denominator or DCS outcome count was verified.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-lewis-reprints-other-search",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "regional_primary_source_search",
+    "params": {
+      "query": "\"decompression sickness\" \"chamber training\" injury report hypobaric \"cases\" \"training flights\" military Italian Air Force French RAF Canadian historical program",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "returned_urls": [
+        "https://www.cmaj.ca/custom-print/154125",
+        "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+        "https://www.etcaircrewtraining.com/altitude-chamber-military-training.html",
+        "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/36309795",
+        "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+        "https://www.semanticscholar.org/paper/Type-II-altitude-decompression-sickness-(DCS)%3A-U.S.-Wirjosemito-Touhey/8bd636b4588a8055044dcc21dda354397e3ba1c1",
+        "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "Primary case and surveillance results match studies already in the database. No independently eligible denominator pair was identified.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-lewis-reprints-brazil-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "official_proceedings_screen",
+    "params": {
+      "url": "https://www2.fab.mil.br/bibliotecaunifa/images/Biblioteca/livrosdigitais/XIII_Jornada_IMAE.pdf",
+      "parser": "pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The printed abstract compares heart rate and oxygen saturation in 13 chamber and seven normobaric rotary-wing pilots. Clinical altitude DCS outcomes are unavailable.",
+    "records": [
+      {
+        "id": "coutinho-2024",
+        "title": "Comparação da frequência cardíaca e saturação de oxigênio no treinamento de hipóxia em dois ambientes: hipobárico e normobárico",
+        "year": 2024,
+        "url": "https://www2.fab.mil.br/bibliotecaunifa/images/Biblioteca/livrosdigitais/XIII_Jornada_IMAE.pdf",
+        "locator": "Printed pp. 16–17, XIII Jornada Científica do IMAE",
+        "context": {
+          "hypobaric_pilots": 13,
+          "normobaric_pilots": 7,
+          "simulated_altitude_ft": 25000,
+          "endpoint": "hypoxia symptoms, SpO2 and heart rate"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-lewis-reprints-west-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "secondary_number_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/43/11/article-p1261.pdf",
+        "https://ntrs.nasa.gov/api/citations/19730022270/downloads/19730022270.pdf"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "partial",
+    "note": "Retrieved the West and Parker text. The visual source confirms 51,530 exposures for the Berry reprint and 950 flights and 17 percent in the Meader paraphrase. The requested Lewis scan was verified independently.",
+    "records": [
+      {
+        "id": "west-tavily-pdf",
+        "title": "A Review of the Influence of Physical Condition Parameters on a Typical Aerospace Stress Effect: Decompression Sickness",
+        "year": 1973,
+        "url": "https://ntrs.nasa.gov/api/citations/19730022270/downloads/19730022270.pdf",
+        "ntrs_id": "19730022270",
+        "report_number": "AD-763453",
+        "locator": "Printed pp. 18–20, PDF pp. 24–26"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-lewis-reprints-west-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "ntrs_report_identity",
+    "params": {
+      "url": "https://ntrs.nasa.gov/citations/19730022270",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The official NASA catalogue confirms the report title and authors as West and Parker.",
+    "records": [
+      {
+        "id": "west-parker-1973",
+        "title": "A Review of the Influence of Physical Condition Parameters on a Typical Aerospace Stress Effect: Decompression Sickness",
+        "year": 1973,
+        "url": "https://ntrs.nasa.gov/citations/19730022270",
+        "ntrs_id": "19730022270",
+        "report_number": "AD-763453",
+        "locator": "Printed pp. 18–20, PDF pp. 24–26"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-lewis-reprints-lewis-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_scan_identity",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/43/11/article-p1261.pdf",
+      "parser": "pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher supplies the original four-page scan. It identifies the same journal article represented by the two historical Lewis entries.",
+    "records": [
+      {
+        "id": "lewis-1972",
+        "title": "Decompression Sickness in USAF Operational Flying, 1968–1971",
+        "year": 1972,
+        "pmid": "4634276",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/43/11/article-p1261.pdf",
+        "locator": "Printed pp. 1261–1264"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-lewis-reprints-verified",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "clinical_case_extraction_and_reconciliation",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/43/11/article-p1261.pdf",
+        "https://ntrs.nasa.gov/citations/19730022270",
+        "https://ntrs.nasa.gov/api/citations/19730006364/downloads/19730006364.pdf#page=38",
+        "https://pubmed.ncbi.nlm.nih.gov/13569694/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Original Lewis counts and case profiles confirmed against the rendered pages. Reviewed the West and Parker and Billings reprints against Berry, Meader and Lewis.",
+    "records": [
+      {
+        "id": "lewis-1972",
+        "title": "Decompression Sickness in USAF Operational Flying, 1968–1971",
+        "year": 1972,
+        "pmid": "4634276",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/43/11/article-p1261.pdf",
+        "locator": "Printed pp. 1261–1264",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/43/11/article-p1261.pdf",
+        "sha256": "601aca3aeb339d0176e3c482fe53522cdd40594f9e76c46fd8f58c415fc444ec",
+        "observations": [
+          {
+            "id": "all-reported",
+            "study_id": "lewis-usaf-operational-1968-1971",
+            "group": "USAF operational flight reports",
+            "endpoint": "reported_dcs",
+            "cases": 14,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1261, Methods and Results",
+            "note": "Fourteen reports and 13 evaluable. Discussion describes 13 reports. Flight and exposed-crew denominators unavailable."
+          },
+          {
+            "id": "evaluable",
+            "study_id": "lewis-usaf-operational-1968-1971",
+            "group": "Case reports with sufficient information",
+            "endpoint": "sufficiently_described_dcs",
+            "cases": 13,
+            "denominator": 14,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 1261 and 1263, Results and Discussion",
+            "note": "The source separates the overall reports from the 13 case profiles."
+          },
+          {
+            "id": "bends-only",
+            "study_id": "lewis-usaf-operational-1968-1971",
+            "group": "Analysed cases",
+            "endpoint": "bends_only",
+            "cases": 7,
+            "denominator": 13,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed p. 1262, Table II",
+            "note": "Source-defined bends only."
+          },
+          {
+            "id": "neurological",
+            "study_id": "lewis-usaf-operational-1968-1971",
+            "group": "Analysed cases",
+            "endpoint": "neurological_dcs",
+            "cases": 6,
+            "denominator": 13,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed p. 1263, Table III",
+            "note": "Includes two cases with coexisting bends. No pressure exposure denominator."
+          }
+        ]
+      },
+      {
+        "id": "west-parker-1973",
+        "title": "A Review of the Influence of Physical Condition Parameters on a Typical Aerospace Stress Effect: Decompression Sickness",
+        "year": 1973,
+        "url": "https://ntrs.nasa.gov/citations/19730022270",
+        "ntrs_id": "19730022270",
+        "report_number": "AD-763453",
+        "locator": "Printed pp. 18–20, PDF pp. 24–26",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19730022270/downloads/19730022270.pdf",
+        "sha256": "e6727daa642a23e866d768f19e0c34ffdfd28ec0e0a52dc52fa6959404706ec8",
+        "table_comparisons": [
+          {
+            "reported_value": 51530,
+            "preferred_value": 51580,
+            "unit": "chamber_person_exposure",
+            "original_report_id": "pmid:13569694",
+            "locator": "Printed p. 20, Table 4",
+            "original_locator": "Berry 1958 p. 940, Table 2 and Billings Table 1-5"
+          },
+          {
+            "reported_value": 950,
+            "preferred_value": 958,
+            "unit": "selected_case_aircraft_flight",
+            "original_report_id": "report:ad0658348",
+            "locator": "Printed p. 19",
+            "original_locator": "Meader 1967 pp. 302–303"
+          },
+          {
+            "reported_value": 17,
+            "preferred_value": 0.17,
+            "unit": "published_operational_percent_excluding_one_pilot",
+            "original_report_id": "report:ad0658348",
+            "locator": "Printed p. 19",
+            "original_locator": "Meader 1967 p. 302, narrative. Whole-squadron denominator unavailable."
+          },
+          {
+            "reported_value": 3,
+            "preferred_value": 4,
+            "unit": "calendar_years_inclusive",
+            "original_report_id": "pmid:4634276",
+            "locator": "Printed p. 18",
+            "original_locator": "Lewis 1972 p. 1261 gives 1 January 1968 through 31 December 1971."
+          }
+        ]
+      },
+      {
+        "id": "billings-1973",
+        "title": "Barometric Pressure",
+        "year": 1973,
+        "url": "https://ntrs.nasa.gov/citations/19730006365",
+        "ntrs_id": "19730006365",
+        "locator": "Printed p. 28, Table 1-5",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19730006364/downloads/19730006364.pdf#page=38",
+        "container_ntrs_id": "19730006364",
+        "sha256": "31e08f0ec6d50be3fde2329f0bc33b6ae458892ab7b47f5ff5bb25db81f3b448",
+        "table_comparisons": [
+          {
+            "reported_value": 51580,
+            "unit": "chamber_person_exposure",
+            "original_report_id": "pmid:13569694",
+            "locator": "Printed p. 28, Table 1-5. Full book PDF p. 38.",
+            "original_locator": "Berry 1958 p. 940, Table 2"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -62,6 +62,155 @@ def test_aircraft_incidents_keep_distinct_reported_risk_sets(release):
         """).fetchone() == (0,)
 
 
+def test_historical_u2_counts_and_case_selected_flights(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role
+            FROM publication_aviation_group WHERE source_id='bruneau62_u2' AND metric GLOB 'dysbarism*'
+            ORDER BY numerator DESC
+        """).fetchall() == [
+            (17, 6048, "aircraft_flight", "overlap_hold"),
+            (1, 271, "reported_decompression_event", "overlapping_margin"),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT crew_code),count(onset_hours),sum(decompression_events)
+            FROM publication_meader_reported_flight WHERE source_id='meade67'
+        """).fetchone() == (36, 11, 24, 2)
+        assert db.execute("""
+            SELECT flight_no, peak_cabin_ft, peak_cabin_relation, decompression_min, onset_hours
+            FROM publication_meader_reported_flight WHERE decompression_events>0 ORDER BY flight_no
+        """).fetchall() == [(9, 60000, ">", 10, None), (12, 60000, ">", 20, None)]
+        assert db.execute("""
+            SELECT sum(numerator),sum(denominator) FROM publication_aviation_group
+            WHERE source_id='meade67' AND stratum GLOB 'crew-*'
+        """).fetchone() == (36, 958)
+        assert db.execute("""
+            WITH bins(stratum,lo,hi) AS (VALUES
+                ('preoxygenation-30-39-min',30,39),
+                ('preoxygenation-40-49-min',40,49),
+                ('preoxygenation-50-60-min',50,60)
+            )
+            SELECT g.numerator,g.denominator,g.rate_as_printed,g.analysis_role,count(f.flight_no)
+            FROM publication_aviation_group g
+            JOIN bins b USING (stratum)
+            JOIN publication_meader_reported_flight f
+              ON f.source_id=g.source_id AND f.crew_code!='I'
+              AND f.preoxygenation_min BETWEEN b.lo AND b.hi
+            WHERE g.source_id='meade67'
+            GROUP BY g.stratum ORDER BY g.stratum
+        """).fetchall() == [
+            (5, 139, ".036", "overlapping_margin", 5),
+            (11, 556, ".020", "overlapping_margin", 11),
+            (1, 114, ".009", "overlapping_margin", 1),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator,rate_as_printed,analysis_role
+            FROM publication_aviation_group WHERE source_id='meade67' AND stratum='crew-H'
+        """).fetchone() == (4, 139, "1.8", "denominator_conflict")
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(url) LIKE '%ad0658348%' OR lower(url) LIKE '%aeme/38/3/article-p301%'
+        """).fetchall() == [("report:ad0658348",)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='publication_source' AND source_id='meade67'
+        """).fetchone() == ("report:ad0658348",)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id IN ('report:ad0658348','pmid:13873988')
+        """).fetchone() == (0,)
+
+
+def test_neurological_archive_preserves_case_selection_and_report_links(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT setting,count(*) FROM publication_liske_case_profile GROUP BY setting ORDER BY setting
+        """).fetchall() == [("aircraft", 7), ("chamber", 6)]
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id='liske67_focal' AND endpoint='focal_neurological_subset'
+        """).fetchone() == (13, 37, "dcs_case", "case_conditional")
+        assert db.execute("""
+            SELECT patient_number,max_cabin_altitude_ft,time_at_max_altitude_min_low,time_at_max_altitude_min_high
+            FROM publication_liske_case_profile WHERE patient_number IN (3,6,9) ORDER BY patient_number
+        """).fetchall() == [(3, 29000, None, None), (6, None, 30, 30), (9, 19000, 13, 30)]
+        assert db.execute("""
+            SELECT patient_number,postconvalescent_eeg FROM publication_liske_case_profile
+            WHERE persistent_eeg_abnormality_reported='yes' ORDER BY patient_number
+        """).fetchall() == [
+            (2, "normal"), (7, "diffuse slowing more prominent on the right"), (8, "normal"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report WHERE study_id='hook-swedish-1954-chamber-case'
+            ORDER BY report_id
+        """).fetchall() == [("pmid:13234873",), ("pmid:13563380",)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:13563380' AND right_report='pmid:13234873'
+        """).fetchone() == ("same_published_case",)
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min FROM historical_case_catalog WHERE source_id GLOB 'hook*'
+        """).fetchall() == [("hook58_swedish_chamber:swedish-1954-chamber-index", "pmid:13563380", None)]
+        assert db.execute("""
+            SELECT elapsed,elapsed_unit,elapsed_reference FROM publication_case_milestone
+            WHERE source_id='hook58_swedish_chamber' AND milestone='paralysis_by_ten_minutes'
+        """).fetchone() == (10.0, "minutes", "return_to_ground")
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft FROM publication_case_milestone
+            WHERE source_id='hook58_swedish_chamber'
+                AND milestone IN ('hand_paresthesias_near_peak','reported_chamber_apex')
+            ORDER BY milestone
+        """).fetchall() == [("hand_paresthesias_near_peak", None), ("reported_chamber_apex", 40000)]
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence
+            WHERE report_id IN ('pmid:13234873','pmid:13563380','pmid:14495081','aeme:38:3:304')
+        """).fetchone() == (0,)
+
+
+def test_lewis_case_series_and_nasa_reprints_preserve_original_risk_sets(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_stratum,count(*) FROM publication_lewis_case_profile
+            WHERE source_id='lewis72_usaf_flight' GROUP BY source_stratum ORDER BY source_stratum
+        """).fetchall() == [("bends_only", 7), ("neurological", 6)]
+        assert db.execute("""
+            SELECT published_row,cabin_altitude_ft,time_at_altitude_before_onset_min
+            FROM publication_lewis_case_profile
+            WHERE source_stratum='neurological' AND published_row IN (1,5,6)
+            ORDER BY published_row
+        """).fetchall() == [(1, 23000, 210), (5, 24000, 53), (6, 19000, 10)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='lewis72_usaf_flight' AND stratum='reported-case-series' ORDER BY endpoint
+        """).fetchall() == [("reported_dcs", 14, None, None), ("sufficiently_described_dcs", 13, 14, "dcs_case")]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),min(denominator),max(denominator) FROM publication_observation
+            WHERE source_id='lewis72_usaf_flight' AND stratum='bends-location-occurrences'
+        """).fetchone() == (12, 15, 15, 15)
+        assert db.execute("""
+            SELECT count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE lower(title) LIKE 'decompression sickness in usaf operational flying%'
+        """).fetchone() == (1, "pmid:4634276")
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE url LIKE '%19730022270%' OR openalex_id='W280567427'
+        """).fetchall() == [("openalex:W280567427",)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link
+            WHERE source_table='publication_source' AND source_id='berry58_training'
+        """).fetchone() == ("pmid:13569694",)
+        assert db.execute("""
+            SELECT source_id,count(*) FROM publication_reported_rate WHERE denominator=51580
+            GROUP BY source_id
+        """).fetchall() == [("berry58_training", 12)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('west_parker73_dcs','billings73_barometric') OR denominator=51530
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id='pmid:4634276'
+        """).fetchone() == (0,)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""
@@ -110,7 +259,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (108, 108, 108)
+        """).fetchone() == (109, 109, 109)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
