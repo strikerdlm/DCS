@@ -11,6 +11,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_aircraft_incident`, `publication_aircraft_incident_count` | Aircraft incident profiles and source-reported outcomes |
 | `dcs-model.sqlite` | `publication_aviation_group`, `publication_meader_reported_flight` | Descriptive historical flight groups and case-selected affected flights |
 | `dcs-model.sqlite` | `publication_liske_case_profile`, `publication_case_milestone` | Selected neurological case profiles and source-reported chronology |
+| `dcs-model.sqlite` | `publication_lewis_case_profile`, `publication_overlap` | Selected aviation surveillance cases and source differences |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 ## Build and use a release
@@ -59,6 +60,8 @@ The aircraft incident supplement links the original military depressurization re
 Bruneau and Hertz report 17 dysbarism cases across 6,048 aircraft flights and one episode across 271 reported decompressions. Keep both counting units and the overlap hold for the 1957–1960 U-2 surveillance. Meader's 36 flight rows describe the affected flights already counted in the 958-flight selected cohort. The original journal article and DTIC reprint use one report ID. Table II covers 809 flights, nine fewer than the Table I sum after excluding crew member I. Nine flights remain unallocated. [v1.66 flight strata](../data/chamber/v1.66/flight_groups.csv)
 
 The neurological archive supplement captures thirteen selected focal cases from Liske's 37 surviving pilots, with six chamber and seven aircraft exposures. The case profiles retain the EEG table and discussion separately for patients 2 and 8. Höök's follow-up and the 1954 Swedish report cite the same chamber case. Rudolph's aircraft case supplies a separate chronology with possible overlap in the earlier USAFSAM archive. Chamber and aircraft exposure denominators remain unavailable for these case series. [v1.67 clinical profiles and locators](../data/chamber/v1.67/liske_cases.csv)
+
+Lewis reports 14 cases from 1968–1971 USAF safety forms and gives profiles for the 13 evaluable cases. The case-series denominator counts reported cases, with total flight exposure unavailable. The NASA compilations are linked to the original Lewis, Meader, Berry and Furry reports. For Berry, the published 51,580 trainees or person-exposures and original symptom rates take precedence over the 51,530 figure in West and Parker. [v1.68 source reconciliation](../data/chamber/v1.68/overlap.csv)
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 

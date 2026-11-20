@@ -166,6 +166,51 @@ def test_neurological_archive_preserves_case_selection_and_report_links(release)
         """).fetchone() == (0,)
 
 
+def test_lewis_case_series_and_nasa_reprints_preserve_original_risk_sets(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_stratum,count(*) FROM publication_lewis_case_profile
+            WHERE source_id='lewis72_usaf_flight' GROUP BY source_stratum ORDER BY source_stratum
+        """).fetchall() == [("bends_only", 7), ("neurological", 6)]
+        assert db.execute("""
+            SELECT published_row,cabin_altitude_ft,time_at_altitude_before_onset_min
+            FROM publication_lewis_case_profile
+            WHERE source_stratum='neurological' AND published_row IN (1,5,6)
+            ORDER BY published_row
+        """).fetchall() == [(1, 23000, 210), (5, 24000, 53), (6, 19000, 10)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='lewis72_usaf_flight' AND stratum='reported-case-series' ORDER BY endpoint
+        """).fetchall() == [("reported_dcs", 14, None, None), ("sufficiently_described_dcs", 13, 14, "dcs_case")]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),min(denominator),max(denominator) FROM publication_observation
+            WHERE source_id='lewis72_usaf_flight' AND stratum='bends-location-occurrences'
+        """).fetchone() == (12, 15, 15, 15)
+        assert db.execute("""
+            SELECT count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE lower(title) LIKE 'decompression sickness in usaf operational flying%'
+        """).fetchone() == (1, "pmid:4634276")
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE url LIKE '%19730022270%' OR openalex_id='W280567427'
+        """).fetchall() == [("openalex:W280567427",)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link
+            WHERE source_table='publication_source' AND source_id='berry58_training'
+        """).fetchone() == ("pmid:13569694",)
+        assert db.execute("""
+            SELECT source_id,count(*) FROM publication_reported_rate WHERE denominator=51580
+            GROUP BY source_id
+        """).fetchall() == [("berry58_training", 12)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('west_parker73_dcs','billings73_barometric') OR denominator=51530
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id='pmid:4634276'
+        """).fetchone() == (0,)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""
