@@ -349,7 +349,7 @@ def test_nasa_ascent_compilation_reconciles_without_adding_clinical_counts(relea
         assert db.execute("""
             SELECT count(*),min(report_id),max(report_id) FROM review.review_record
             WHERE lower(title) LIKE '%different rates of ascent%' OR title=url AND url LIKE '%19890012936%'
-        """).fetchone() == (29, "ntrs:19890012936", "ntrs:19890012936")
+        """).fetchone() == (30, "ntrs:19890012936", "ntrs:19890012936")
         assert db.execute("""
             SELECT count(*) FROM review.review_report_relation
             WHERE left_report='ntrs:19890012936' AND relationship='cites_as_compilation_source'
@@ -445,6 +445,52 @@ def test_henry_preselection_rates_preserve_printed_values_and_derived_controls(r
         """).fetchone() == ("pmid:20251251",)
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='henry47_preselection'
+        """).fetchone() == (0,)
+
+
+def test_henry_cook_preserves_counting_units_and_links_reused_controls(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table, count(*), count(source_value), count(reported_numerator)
+            FROM publication_preoxygen_measure GROUP BY 1 ORDER BY 1
+        """).fetchall() == [("I", 28, 28, 1), ("II", 21, 21, 0), ("III", 35, 34, 0)]
+        assert db.execute("""
+            SELECT m.source_value, m.reported_numerator, g.group_size, g.group_size_unit,
+                   g.planned_window_min, g.oxygen_advance_vs_control_min
+            FROM publication_preoxygen_measure m
+            JOIN publication_preoxygen_group g USING (source_id, source_table, group_key)
+            WHERE m.source_table='I' AND m.group_key='nominal_two_hours' AND m.measure='incapacitated'
+        """).fetchone() == (23.0, 14, 61, "ascents", 110, 111)
+        assert db.execute("""
+            SELECT source_value FROM publication_preoxygen_measure
+            WHERE source_table='III' AND group_key='four_hours'
+            AND measure IN ('incapacitated','mean_incapacitation_occurrence') ORDER BY measure
+        """).fetchall() == [(0.0,), (None,)]
+        assert db.execute("""
+            SELECT m.source_value, h.reported_pct FROM publication_preoxygen_measure m
+            JOIN publication_preselection_rate h ON h.endpoint=CASE m.measure
+                WHEN 'with_symptoms' THEN 'total_symptoms'
+                WHEN 'with_grade_3_symptoms' THEN 'moderate_or_severe_symptoms'
+                WHEN 'incapacitated' THEN 'forced_descents' END
+            WHERE m.source_table='II' AND m.group_key='all_runs_unweighted_control'
+            AND h.source_id='henry47_preselection' AND h.source_table='III'
+            AND h.proportion_selected_pct=100 AND h.value_basis='calculated_control_rate'
+            ORDER BY m.source_value
+        """).fetchall() == [(53.3, 53.3), (66.0, 66.0), (82.8, 82.8)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='henry45_cook'
+        """).fetchone() == ("pmid:21005555",)
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-henry-cook-backref-t#19890012936'
+        """).fetchone() == ("ntrs:19890012936",)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:20251251' AND right_report='pmid:21005555'
+            ORDER BY relationship
+        """).fetchall() == [("derives_control_baseline_from",), ("possible_overlap",)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='henry45_cook'
         """).fetchone() == (0,)
 
 

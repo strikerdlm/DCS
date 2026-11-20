@@ -8753,6 +8753,48 @@
       "report_id": "pmid:20251251",
       "basis": "The original published title, author, issue and indexed PMID identify this report.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.56/sources.csv#henry45_cook",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, topic, year, volume and start page match the publisher scan and PubMed.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-t#21005555",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, title, volume, issue and start page identify this 1945 report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21005555/"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-f#21005555",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, title, volume, issue and start page identify this 1945 report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21005555/"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-p#21005555",
+      "report_id": "pmid:21005555",
+      "basis": "The authors, title, volume, issue and start page identify this 1945 report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21005555/"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-backref-t#joam-15-5-316",
+      "report_id": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "basis": "The source PDF and printed volume, issue and start page match the existing verified Bridge report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/5/article-p316.pdf"
+    },
+    {
+      "record_key": "2026-11-20-henry-cook-backref-t#19890012936",
+      "report_id": "ntrs:19890012936",
+      "basis": "NASA accession and document title match the existing historical compilation.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "report_id": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "basis": "Keep the existing verified Bridge report identity for the publisher scan and its later retrieval.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/5/article-p316.pdf"
     }
   ],
   "studies": [
@@ -11959,6 +12001,34 @@
       "relationship": "possible_overlap",
       "evidence": "Both reports cover Berkeley chamber exercise series. The later report reuses earlier data. Specific arm or exposure membership is unverified.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/13319247/"
+    },
+    {
+      "left_report": "pmid:20251251",
+      "right_report": "pmid:21005555",
+      "relationship": "derives_control_baseline_from",
+      "evidence": "The 1947 derivation on p. 263 cites reference 3. The 1945 Table II unweighted controls reproduce all three 100%-selected 1947 Table III control baselines at 82.8%, 66.0% and 53.3%.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p259.pdf#page=5"
+    },
+    {
+      "left_report": "pmid:20251251",
+      "right_report": "pmid:21005555",
+      "relationship": "possible_overlap",
+      "evidence": "The 1947 Series DN and 1945 Experiment II share a 35,000-ft target, 3,500-ft/min ascent and 2.5-minute step interval. The publications report 53 and 63 preoxygenated participants, without identifiers for exposure linkage.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:21005555",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "possible_overlap",
+      "evidence": "The paper cites Bridge et al. and uses a 38,000-ft target, oxygen from 10,000 ft, five-minute stepping during a 90-minute window and repeated runs. The different cohort totals and absence of identifiers prevent exact linkage.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf#page=1"
+    },
+    {
+      "left_report": "pmid:21005555",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_historic_bibliographies:1",
+      "relationship": "cites_protocol_source",
+      "evidence": "References and methods identify the 1944 Cook exercise study. The original CAM report was not recovered and its contribution to the interpolated rates remains unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf#page=6"
     }
   ],
   "report_titles": {

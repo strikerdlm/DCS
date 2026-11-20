@@ -73,4 +73,6 @@ The historical full-text supplement records 84 repeated chamber runs from Willia
 
 Henry’s 1947 classification study adds 129 published percentages with explicit identification of calculated controls and nested selections. The 1946 Berkeley series remain linked for cohort-overlap review. [Henry preselection tables](chamber-preselection-supplement.md)
 
+The 1945 Berkeley preoxygenation supplement preserves repeated-flight summaries and their outcome time origins. The verified source crosswalk links the 1945 reference values to the calculated 1947 controls. [Henry and Cook preoxygenation tables](chamber-preoxygen-supplement.md)
+
 One example of deduplication is the Ata and Karaca chamber report. All 125 full- or truncated-title search occurrences in v1.48 resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)

@@ -29,3 +29,4 @@ These articles were available for extraction. Their publisher PDFs remain availa
 | Smith, Dhahran hypoxia questionnaires | [Publisher PDF](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/1/article-p54.pdf). The PDF credits copyright to the Aerospace Medical Association. |
 | Johnston et al., New Zealand refresher training | [Publisher PDF](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p962.pdf). The PDF credits copyright to the Aerospace Medical Association. |
 | Stevenson, hypobaric chamber training thesis | [Arizona State University record and PDF](https://keep.lib.asu.edu/items/157199). Redistribution terms remain unverified. |
+| Henry and Cook, 1945 altitude chamber preoxygenation | [Publisher PDF, Tables I–III, pp. 351–353](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf). The watermarked scan was retained locally. Redistribution terms remain unverified. |
