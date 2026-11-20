@@ -10409,6 +10409,18 @@
       "report_id": "pmid:23066619",
       "basis": "The publisher PDF byline, title and pages match the existing surveillance report.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p968.pdf"
+    },
+    {
+      "record_key": "2026-11-20-u2-neurological-case-series#jersey-2011-tables-i-ii",
+      "report_id": "pmid:21748904",
+      "basis": "The author list, title, journal pages and DOI match the existing PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.80/sources.csv#jersey11_u2_series",
+      "report_id": "pmid:21748904",
+      "basis": "The author list, title, journal pages and DOI match the existing PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf"
     }
   ],
   "studies": [
@@ -11190,6 +11202,12 @@
       "study_id": "u2-jersey-2006-neurological-flight-case",
       "label": "Jersey et al. 2006 neurological in-flight DCS case",
       "period": "2006",
+      "setting": "Operational hypobaric flight"
+    },
+    {
+      "study_id": "u2-jersey-1991-2009-neurological-case-series",
+      "label": "Jersey et al. retrospective U-2 neurological DCS series and historical comparison",
+      "period": "January 1991–December 2009, reported in two periods",
       "setting": "Operational hypobaric flight"
     }
   ],
@@ -12447,6 +12465,12 @@
       "report_id": "pmid:20058739",
       "role": "published_clinical_case",
       "locator": "Printed pp. 64–67, Case Report and Figures 1–2"
+    },
+    {
+      "study_id": "u2-jersey-1991-2009-neurological-case-series",
+      "report_id": "pmid:21748904",
+      "role": "selected_clinical_case_series",
+      "locator": "Printed pp. 675–677, Human and Medical Factors, Tables I–II, and Figure 2"
     }
   ],
   "relations": [
@@ -14843,6 +14867,27 @@
       "relationship": "cited_case_in_surveillance",
       "evidence": "The U-2 surveillance paper cites this 2006 episode as reference 6 in its Results account of serious cases, printed p. 970.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p968.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:12688456",
+      "right_report": "pmid:21748904",
+      "relationship": "cited_case_in_case_series",
+      "evidence": "The case-series narrative explicitly cites Pickard's 2002 report as reference 11. Candidate MP1 has compatible values. The article gives no exact row identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf#page=4"
+    },
+    {
+      "left_report": "pmid:20058739",
+      "right_report": "pmid:21748904",
+      "relationship": "cited_case_in_case_series",
+      "evidence": "The case-series narrative explicitly cites the Jersey 2010 report as reference 7. Confirmed MP7 is a likely match. The reported BMI differs and the article gives no exact row identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf#page=4"
+    },
+    {
+      "left_report": "abstract:asma-1997-rhodes-141",
+      "right_report": "pmid:21748904",
+      "relationship": "possible_cohort_overlap",
+      "evidence": "The historical comparison covers 1991–2001. The 1997 abstract reports two pre-publication episodes without their occurrence years or coded identifiers.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf#page=3"
     }
   ],
   "report_titles": {
@@ -14935,6 +14980,7 @@
     "abstract:asma-1997-rhodes-141": "A U-2 Pilot With Repeated DCS and a Patent Foramen Ovale",
     "pmid:12688456": "Altitude decompression sickness in a pilot wearing a pressure suit above 70,000 feet",
     "pmid:20058739": "Severe neurological decompression sickness in a U-2 pilot",
-    "dtic:ada526033": "Report of Evaluation of Decompression Sickness, Beale AFB 10–14 Aug 2009"
+    "dtic:ada526033": "Report of Evaluation of Decompression Sickness, Beale AFB 10–14 Aug 2009",
+    "pmid:21748904": "Neurological altitude decompression sickness among U-2 pilots: 2002–2009"
   }
 }

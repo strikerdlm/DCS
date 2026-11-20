@@ -1,0 +1,231 @@
+[
+  {
+    "id": "2026-11-20-u2-neurological-case-series",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and rendered publisher PDF",
+    "operation": "supplementary_case_series_reconciliation",
+    "params": {
+      "queries": [
+        "Jersey Hundemer neurological altitude decompression sickness among U-2 pilots 2002–2009 21748904 Table I Figure 2"
+      ],
+      "counts_toward_formal_identification": false,
+      "retrieval_note": "Tavily indexed the primary report and publisher URL. Firecrawl parsed the PDF. The publisher pages were downloaded and visually checked."
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Tables I and II are selected published profiles. Their case counts and potential links must not be combined with other U-2 surveillance counts.",
+    "records": [
+      {
+        "id": "jersey-2011-tables-i-ii",
+        "title": "Neurological altitude decompression sickness among U-2 pilots: 2002–2009",
+        "pmid": "21748904",
+        "doi": "10.3357/ASEM.2851.2011",
+        "year": 2011,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf",
+        "sha256": "8be44e3d8279496e0630243d0a87f430ae0bd084777627fdd052977f849b6c10",
+        "study_id": "u2-jersey-1991-2009-neurological-case-series",
+        "locator": "Printed pp. 675–677, Human and Medical Factors, Tables I–II, and Figure 2",
+        "access": "full_text",
+        "table_reconciliation": {
+          "table_i_printed_rows": 17,
+          "table_i_unique_printed_pilot_codes": 16,
+          "table_i_printed_confirmed_rows": 13,
+          "table_i_printed_probable_rows": 4,
+          "table_i_additional_confirmed_footnote_only": 3,
+          "table_i_reported_confirmed_incidents": 16,
+          "table_i_reported_probable_incidents": 4,
+          "table_ii_printed_rows": 6,
+          "table_ii_unique_printed_pilot_codes": 5,
+          "note": "MP7 and AP4 each have two printed rows. The Table I footnote identifies three additional confirmed events without row-level exposure details. Table II's footnote groups multiple incidents and/or symptoms without assigning another incident count."
+        },
+        "diagnostic_wording": {
+          "abstract": "The abstract calls four incidents possible.",
+          "results": "Results and Table I call the four incidents probable.",
+          "treatment_text": "Page 677 calls all 20 cases confirmed while reporting 19 appropriate treatments. The Results identify 16 confirmed and four probable incidents. The treatment count has no resolved certainty denominator.",
+          "persistent_symptoms": "Page 676 describes nine of 20 pilots with lasting symptoms. The 20 described earlier are incidents, with repeated pilots. No pilot-level proportion is inferred."
+        },
+        "case_crosswalk": [
+          {
+            "source_id": "jersey11_u2_series",
+            "source_table": "I",
+            "source_row": 1,
+            "case_source_id": "pickard03_u2_case",
+            "case_stratum": "index-flight-episode",
+            "case_endpoint": "source_reported_flight_dcs",
+            "linkage": "possible",
+            "basis": "Jersey et al. p. 676 cite Pickard as reference 11 for a serious case with neurological and pulmonary symptoms. MP1 lists 29,200 ft physiological altitude and 10.5 hours. Pickard p. 357 reports 29,200 ft cabin altitude and more than nine hours of flight. Pickard gives neither age nor a case code. The altitude definitions are report-specific."
+          },
+          {
+            "source_id": "jersey11_u2_series",
+            "source_table": "I",
+            "source_row": 7,
+            "case_source_id": "jersey10_u2_case",
+            "case_stratum": "index-flight-episode",
+            "case_endpoint": "source_reported_neurological_dcs",
+            "linkage": "likely",
+            "basis": "Jersey et al. p. 676 cite the 2010 report as reference 7 for a serious case and the MRI finding. The confirmed MP7 row matches age 47 and the nominal 28,000 ft. Table I reports BMI 32 and physiological altitude. The 2010 narrative reports BMI 31 and cabin altitude. The 2.5-hour symptom onset and 11.1-hour listed exposure duration have different meanings. No explicit ID match is printed."
+          }
+        ],
+        "observations": [
+          {
+            "id": "all-reported-flight-dcs-i",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "all-reported-flight-dcs-i",
+            "endpoint": "source_reported_dcs_incidents",
+            "cases": 45,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 675, Human and Medical Factors",
+            "period": "2002–2009",
+            "outcome_window": "Incidents reported during the source period.",
+            "note": "37 affected pilots reported 45 incidents of all types. The affected pilot count is not an at-risk denominator."
+          },
+          {
+            "id": "all-reported-flight-dcs-ii",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "all-reported-flight-dcs-ii",
+            "endpoint": "source_reported_dcs_incidents",
+            "cases": 24,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 675, Human and Medical Factors",
+            "period": "1991–2001",
+            "outcome_window": "Incidents reported during the source period.",
+            "note": "13 affected pilots reported 24 incidents of all types. The affected pilot count is not an at-risk denominator."
+          },
+          {
+            "id": "cns-confirmed-i",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "cns-confirmed-i",
+            "endpoint": "source_confirmed_cns_dcs",
+            "cases": 16,
+            "denominator": 45,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 675–676, Human and Medical Factors and Table I",
+            "period": "2002–2009",
+            "outcome_window": "Clinical adjudication for the source period.",
+            "note": "The denominator contains reported DCS incidents of all types. Additional confirmed Table I incidents are reported in a footnote without individual predictor data."
+          },
+          {
+            "id": "cns-probable-i",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "cns-probable-i",
+            "endpoint": "source_probable_cns_dcs",
+            "cases": 4,
+            "denominator": 45,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 675–676, Human and Medical Factors and Table I",
+            "period": "2002–2009",
+            "outcome_window": "Clinical adjudication for the source period.",
+            "note": "The denominator contains reported DCS incidents of all types. Additional confirmed Table I incidents are reported in a footnote without individual predictor data."
+          },
+          {
+            "id": "cns-confirmed-ii",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "cns-confirmed-ii",
+            "endpoint": "source_confirmed_cns_dcs",
+            "cases": 3,
+            "denominator": 24,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 675–676, Human and Medical Factors and Table II",
+            "period": "1991–2001",
+            "outcome_window": "Clinical adjudication for the source period.",
+            "note": "The denominator contains reported DCS incidents of all types. Pulmonary manifestations can overlap CNS DCS."
+          },
+          {
+            "id": "cns-probable-ii",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "cns-probable-ii",
+            "endpoint": "source_probable_cns_dcs",
+            "cases": 1,
+            "denominator": 24,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 675–676, Human and Medical Factors and Table II",
+            "period": "1991–2001",
+            "outcome_window": "Clinical adjudication for the source period.",
+            "note": "The denominator contains reported DCS incidents of all types. Pulmonary manifestations can overlap CNS DCS."
+          },
+          {
+            "id": "cns-possible-ii",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "cns-possible-ii",
+            "endpoint": "source_possible_cns_dcs",
+            "cases": 1,
+            "denominator": 24,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 675–676, Human and Medical Factors and Table II",
+            "period": "1991–2001",
+            "outcome_window": "Clinical adjudication for the source period.",
+            "note": "The denominator contains reported DCS incidents of all types. Pulmonary manifestations can overlap CNS DCS."
+          },
+          {
+            "id": "confirmed-pulmonary-ii",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "confirmed-pulmonary-ii",
+            "endpoint": "source_confirmed_pulmonary_dcs",
+            "cases": 2,
+            "denominator": 24,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 675–676, Human and Medical Factors and Table II",
+            "period": "1991–2001",
+            "outcome_window": "Clinical adjudication for the source period.",
+            "note": "The source reports two confirmed pulmonary incidents within the earlier series. Pulmonary and CNS counts overlap."
+          },
+          {
+            "id": "onset-in-flight-within-four-hours",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "onset-in-flight-within-four-hours",
+            "endpoint": "source_cns_symptom_recognition",
+            "cases": 7,
+            "denominator": 20,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed p. 676, Human and Medical Factors, and p. 677, Figure 2",
+            "period": "2002–2009",
+            "outcome_window": "In flight within four hours of takeoff.",
+            "note": "The reference is takeoff and the source describes recognition of CNS symptoms. The reference group is 20 confirmed and probable incidents."
+          },
+          {
+            "id": "onset-in-flight-after-four-hours",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "onset-in-flight-after-four-hours",
+            "endpoint": "source_cns_symptom_recognition",
+            "cases": 3,
+            "denominator": 20,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed p. 676, Human and Medical Factors, and p. 677, Figure 2",
+            "period": "2002–2009",
+            "outcome_window": "In flight after more than four hours at altitude.",
+            "note": "The prose uses time at altitude. Figure 2 labels the bin 4.1–8 hours in flight. No row-level elapsed value is assigned. The reference group is 20 confirmed and probable incidents."
+          },
+          {
+            "id": "onset-after-landing",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "onset-after-landing",
+            "endpoint": "source_cns_symptom_recognition",
+            "cases": 8,
+            "denominator": 20,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed p. 676, Human and Medical Factors, and p. 677, Figure 2",
+            "period": "2002–2009",
+            "outcome_window": "Recognized postflight from 4.7 to 36 hours after landing.",
+            "note": "The source describes recognition of CNS symptoms after landing. The reference group is 20 confirmed and probable incidents."
+          },
+          {
+            "id": "onset-in-flight-time-unknown",
+            "study_id": "u2-jersey-1991-2009-neurological-case-series",
+            "group": "onset-in-flight-time-unknown",
+            "endpoint": "source_cns_symptom_recognition",
+            "cases": 2,
+            "denominator": 20,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed p. 676, Human and Medical Factors, and p. 677, Figure 2",
+            "period": "2002–2009",
+            "outcome_window": "In flight at an unspecified elapsed time.",
+            "note": "The source places these episodes in flight with unspecified elapsed times. The reference group is 20 confirmed and probable incidents."
+          }
+        ]
+      }
+    ]
+  }
+]
