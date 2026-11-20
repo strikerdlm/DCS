@@ -28,7 +28,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (107, 107, 107)
+        """).fetchone() == (108, 108, 108)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
@@ -793,6 +793,48 @@ def test_operation_everest_i_keeps_staff_cases_and_resident_followup_separate(re
         """).fetchone() == ("pmid:20251062",)
         assert db.execute("""
             SELECT count(*) FROM chamber_group_evidence WHERE study_id='usn-operation-everest-i-1946'
+        """).fetchone() == (0,)
+
+
+def test_asma_case_keeps_assessment_timing_and_reuses_the_published_report(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,period,altitude,prebreathe_min,analysis_role
+            FROM publication_observation WHERE source_id='mendelsohn26_familiarization'
+        """).fetchall() == [(1, None, None, 25000.0, 45, "case_conditional")]
+        assert db.execute("""
+            SELECT report_id,source_time_min,first_assessment_min,recurrence_free_followup_min
+            FROM historical_case_catalog
+            WHERE case_id='mendelsohn26_familiarization:familiarization-flight'
+        """).fetchall() == [("record:2026-11-20-eds-training#kjur5ccdyv", None, 60, None)]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_reference FROM publication_case_milestone
+            WHERE source_id='mendelsohn26_familiarization' ORDER BY milestone
+        """).fetchall() == [
+            ("clinical_improvement", 60, "initial_recompression_treatment"),
+            ("first_clinic_assessment", 60, "return_to_ground"),
+            ("in_flight_symptoms", None, None),
+            ("mask_replaced_at_altitude", 4, "mask_removed_at_altitude"),
+            ("symptom_resolution", None, None),
+            ("symptoms_persisted_at_initial_check", 20, "initial_recompression_treatment"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record WHERE report_id='record:2026-11-20-eds-training#kjur5ccdyv'
+        """).fetchone() == (4,)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE url LIKE '%20260003261%'
+        """).fetchone() == (7, 1)
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='nasa-exploration-atmosphere-test-6' ORDER BY role
+        """).fetchall() == [
+            ("record:2026-11-20-eds-training#rfxje4gd3n",),
+            ("record:legacy:data/chamber/v1.6/sources.csv#garbino_ea6",),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE study_id='nasa-exploration-atmosphere-test-6'
         """).fetchone() == (0,)
 
 
