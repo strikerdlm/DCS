@@ -528,6 +528,50 @@ def test_cam_minutes_keep_chokes_exposures_separate_from_reported_rates_and_scor
         """).fetchone() == (0,)
 
 
+def test_cam_bulletin_preserves_repeat_flight_totals_and_neurological_counting_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table, count(*) FROM publication_repeat_descent GROUP BY 1 ORDER BY 1
+        """).fetchall() == [("I", 26), ("II", 8)]
+        assert db.execute("""
+            SELECT flight_number,descent_count,exposure_count,reported_descent_pct
+            FROM publication_repeat_descent WHERE source_table='I' AND prior_descents='all'
+            ORDER BY flight_number
+        """).fetchall() == [
+            (1, 26, 89, 29.2), (2, 26, 88, 28.6), (3, 23, 87, 26.4),
+            (4, 26, 91, 28.6), (5, 20, 82, 24.4), (6, 19, 79, 24.0),
+        ]
+        assert db.execute("""
+            SELECT descent_count,exposure_count FROM publication_repeat_descent
+            WHERE source_table='II' AND prior_descents='all' ORDER BY flight_number
+        """).fetchall() == [(117, 955), (123, 955), (157, 955)]
+        assert db.execute("""
+            SELECT third_position,third_printed_label,reported_count FROM publication_repeat_classification
+            WHERE first_result='fail' AND second_result='pass' ORDER BY third_position
+        """).fetchall() == [(0, None, 37), (1, "F", 23), (2, "D", 8), (3, "F", 6)]
+        assert db.execute("SELECT count(*) FROM publication_repeat_classification").fetchone() == (39,)
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit
+            FROM publication_observation WHERE source_id='romano44_ana' ORDER BY endpoint
+        """).fetchall() == [
+            ("migraine_like_syndrome_episodes_source", 46, None, None),
+            ("migraine_like_syndrome_people_source", 17, 155, "person"),
+        ]
+        assert db.execute("""
+            SELECT source_id,measure,reported_value,value_basis FROM publication_archival_cohort_size
+            WHERE source_id IN ('romano44_ana','klingman44_ana') ORDER BY source_id,measure
+        """).fetchall() == [
+            ("klingman44_ana", "people_examined", 40000, "strict_lower_bound"),
+            ("romano44_ana", "exposures", 1361, "exact"),
+            ("romano44_ana", "participants_questioned", 115, "exact"),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:101085500x233:159'
+            AND right_report='record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683'
+        """).fetchone() == ("subset_of",)
+
+
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
     with connect_pair(release) as db:
         assert db.execute("""
