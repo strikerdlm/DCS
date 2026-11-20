@@ -1,0 +1,83 @@
+[
+  {
+    "id": "2026-11-20-zotero-flight-pilot",
+    "date": "2026-11-20",
+    "provider": "Local Zotero full-text review",
+    "operation": "targeted primary publication verification",
+    "params": {
+      "scope": "One flight surveillance report"
+    },
+    "reported_total": 1,
+    "status": "completed",
+    "note": "Published flight estimates preserved as contextual data.",
+    "records": [
+      {
+        "id": "pmid:23066619",
+        "title": "Altitude decompression sickness incidence among U-2 pilots: 1994-2010",
+        "year": 2012,
+        "authors": [
+          "Gregory L. Hundemer",
+          "Sean L. Jersey",
+          "Rory P. Stuart",
+          "William P. Butler",
+          "Andrew A. Pilmanis"
+        ],
+        "journal": "Aviation, Space, and Environmental Medicine",
+        "volume": "83",
+        "issue": "10",
+        "pages": "968-974",
+        "doi": "10.3357/ASEM.3201.2012",
+        "pmid": "23066619",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23066619/",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/23066619/",
+        "source_sha256": "576ef2aeab41019fe3914bcc3e750a7022108423276570129ddac2ab6fba081c",
+        "source_locator": "Published article pp968-974, PDF pp1-7",
+        "observation_review_status": "source_verified",
+        "eligibility_status": "pending",
+        "role_review": "Operational flight evidence; separate from operational chamber staff-to-trainee comparison.",
+        "overlap_status": "possible overlap with 2011 meeting report by Hundemer and colleagues; analysis period and report authors differ.",
+        "observations": [
+          {
+            "id": "u2-cases-1994-2010",
+            "study_id": "u2-flight-hundemer-1994-2010",
+            "endpoint": "clinical_dcs",
+            "group": "1994-2010",
+            "cases": 73,
+            "denominator": null,
+            "denominator_unit": "flights",
+            "locator": "Printed p968, Results, PDF p1",
+            "note": "Count is for documented cases. Raw period denominators are not extracted here. Operational-only exposure totals were unavailable to the study."
+          },
+          {
+            "id": "u2-reported-flight-rate-1994-2005",
+            "study_id": "u2-flight-hundemer-1994-2010",
+            "endpoint": "clinical_dcs",
+            "group": "1994-2005",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "flights",
+            "reported_rate": 0.076,
+            "reported_rate_unit": "percent of flights",
+            "reported_rate_percent": 0.076,
+            "locator": "Printed p968, Results, PDF p1",
+            "note": "Rounded source rate."
+          },
+          {
+            "id": "u2-reported-flight-rate-2006-2010",
+            "study_id": "u2-flight-hundemer-1994-2010",
+            "endpoint": "clinical_dcs",
+            "group": "2006-2010",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "flights",
+            "reported_rate": 0.23,
+            "reported_rate_unit": "percent of flights",
+            "reported_rate_percent": 0.23,
+            "locator": "Printed p968, Results, PDF p1",
+            "note": "Rounded source rate."
+          }
+        ]
+      }
+    ]
+  }
+]

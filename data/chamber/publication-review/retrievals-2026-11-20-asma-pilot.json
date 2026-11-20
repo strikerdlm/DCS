@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2026-11-20-asma-dvd-pilot",
+    "date": "2026-11-20",
+    "provider": "Aerospace Medical Association journal DVD",
+    "operation": "targeted local source verification",
+    "params": {
+      "scope": "One Carswell partial-pressure suit report verified in the local complete article",
+      "selection": "Pilot source previously absent from this register"
+    },
+    "reported_total": 1,
+    "status": "completed",
+    "note": "Bibliographic and aggregate abort-endpoint evidence only. Review eligibility and cohort reconciliation remain pending.",
+    "records": [
+      {
+        "id": "32100953-1",
+        "title": "Routine partial pressure suit indoctrination: Results of a two and one-half year program in Strategic Air Command",
+        "year": 1961,
+        "authors": [
+          "Henry C. Moritz, Jr.",
+          "Nicholas C. Nicholas"
+        ],
+        "journal": "Aerospace Medicine",
+        "volume": "32",
+        "issue": "10",
+        "pages": "953-957",
+        "source_kind": "full journal article",
+        "source_locator": "ASMA DVD files/32100953-1.pdf, PDF pp1-5",
+        "source_sha256": "02a86e9c3a292b419e57c6db1fb8ca1ab4c9e12bb59a5bd8f9e3f50f0c638f66",
+        "observation_review_status": "source_verified",
+        "eligibility_status": "pending",
+        "overlap_status": "unknown",
+        "role_review": "Staff and trainee endpoints are not presented as comparable risk sets.",
+        "observations": [
+          {
+            "id": "carswell-minor-bends-aborts",
+            "study_id": "usaf-carswell-partial-pressure-suit",
+            "endpoint": "test_aborting_bends",
+            "group": "all indoctrinations",
+            "cases": 2,
+            "denominator": 378,
+            "denominator_unit": "indoctrinations",
+            "locator": "Printed p955, Table I and adjoining Results, PDF p3",
+            "note": "Two tests aborted for minor bends. Both people were successfully retested. Ascertainment covers test aborts."
+          }
+        ]
+      }
+    ]
+  }
+]
