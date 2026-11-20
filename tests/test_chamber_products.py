@@ -28,7 +28,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (106, 106, 106)
+        """).fetchone() == (107, 107, 107)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
@@ -502,6 +502,7 @@ def test_cam_minutes_keep_chokes_exposures_separate_from_reported_rates_and_scor
         """).fetchall() == [
             ("chokes_source", 132, 719, "person_exposure", "overlap_hold"),
             ("circulatory_collapse_source", 6, None, None, "overlap_hold"),
+            ("severe_neurological_reaction_source", 1, None, None, "case_conditional"),
         ]
         assert db.execute("""
             SELECT reported_value,unit FROM publication_meeting_measure
@@ -525,7 +526,7 @@ def test_cam_minutes_keep_chokes_exposures_separate_from_reported_rates_and_scor
         """).fetchone() == ("likely_overlap",)
         assert db.execute("""
             SELECT count(*) FROM historical_case_catalog WHERE source_id='cam44_meeting14'
-        """).fetchone() == (0,)
+        """).fetchone() == (1,)
 
 
 def test_cam_bulletin_preserves_repeat_flight_totals_and_neurological_counting_units(release):
@@ -714,6 +715,44 @@ def test_gray_age_and_density_keep_conflicts_and_prevent_maxwell_duplication(rel
             )
             HAVING count(*)=3
         """).fetchone() == (1,)
+
+
+def test_ferris_engel_preserves_syndrome_denominators_and_reuses_the_berkeley_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT parent_source_id,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_neurological_episode_margin ORDER BY parent_source_id,endpoint
+        """).fetchall() == [
+            ("romano44_ana", "coexisting_vasodepressor_syncope", 17, 46, "syndrome_episode", "case_conditional"),
+            ("romano44_ana", "onset_at_altitude_unmodified_by_descent", 8, 46, "syndrome_episode", "case_conditional"),
+            ("romano44_ana", "onset_first_30_min_after_descent", 32, 46, "syndrome_episode", "case_conditional"),
+            ("romano44_ana", "scotoma_course_completed_at_altitude", 6, 46, "syndrome_episode", "case_conditional"),
+            ("stewart_halifax_c2683", "no_preceding_dcs_symptoms", 4, 50, "syndrome_episode", "case_conditional"),
+            ("stewart_halifax_c2683", "onset_at_altitude", 27, 50, "syndrome_episode", "case_conditional"),
+            ("stewart_halifax_c2683", "onset_during_or_after_descent", 23, 50, "syndrome_episode", "case_conditional"),
+        ]
+        assert db.execute("""
+            SELECT milestone,reporting_source_id,chamber_altitude_ft,elapsed,elapsed_unit,elapsed_reference
+            FROM publication_case_milestone WHERE stratum='berkeley-delayed-neurological-case'
+            ORDER BY milestone
+        """).fetchall() == [
+            ("bends_and_chokes_at_peak", "ferris51_clinical_nature", 38000, 18, "minutes", "arrival_at_peak"),
+            ("partial_visual_recovery", "ferris51_clinical_nature", None, 48, "hours", "descent"),
+            ("scotoma_during_descent", "ferris51_clinical_nature", None, None, None, None),
+            ("worsening_chapter_account", "ferris51_clinical_nature", None, 105, "minutes", "descent"),
+            ("worsening_minutes_account", "cam44_meeting14", None, 90, "minutes", "descent"),
+        ]
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min FROM historical_case_catalog
+            WHERE case_id LIKE '%berkeley-delayed-neurological-case'
+        """).fetchall() == [
+            ("cam44_meeting14:berkeley-delayed-neurological-case", "fulton1951:clinical-nature", None),
+        ]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='nlm:101085500x796:meeting-14' AND relationship='same_published_case'
+            ORDER BY right_report
+        """).fetchall() == [("fulton1951:clinical-nature",), ("report:cam-396",)]
 
 
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):

@@ -126,6 +126,7 @@ CHAMBER_CAM_BULLETIN = ROOT / "data" / "chamber" / "v1.58"
 CHAMBER_CAM_MULTICENTER = ROOT / "data" / "chamber" / "v1.59"
 CHAMBER_CAM_PAIRED = ROOT / "data" / "chamber" / "v1.60"
 CHAMBER_GRAY_STRATA = ROOT / "data" / "chamber" / "v1.61"
+CHAMBER_NEUROLOGICAL_TIMING = ROOT / "data" / "chamber" / "v1.62"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1101,6 +1102,15 @@ def build(
                         "publication_gray_age_comparison": "age_comparison.csv",
                         "publication_gray_density": "gray_density.csv",
                         "publication_motley_density": "motley_density.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_NEUROLOGICAL_TIMING,
+                    "publication",
+                    extra_tables={
+                        "publication_neurological_episode_margin": "episode_margins.csv",
+                        "publication_case_milestone": "case_milestones.csv",
                     },
                 )
             if rojas_supplement:

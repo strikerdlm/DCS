@@ -9221,6 +9221,48 @@
       "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:3",
       "basis": "Primary book chapter is the same Gray 1951 report previously recorded from the Sulaiman review.",
       "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=208"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.62/sources.csv#ferris51_clinical_nature",
+      "report_id": "fulton1951:clinical-nature",
+      "basis": "Byline and title match the Chapter II title page.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=19"
+    },
+    {
+      "record_key": "2026-11-20-ferris-engel-neurology-pages#ferris-engel-chapter",
+      "report_id": "fulton1951:clinical-nature",
+      "basis": "Byline and title match the Chapter II title page.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=19"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.62/sources.csv#lund44_cam396",
+      "report_id": "report:cam-396",
+      "basis": "Reference 383 supplies authors, report number and date.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "record_key": "2026-11-20-ferris-engel-neurology-pages#lund-cam396",
+      "report_id": "report:cam-396",
+      "basis": "Reference 383 supplies authors, report number and date.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.62/sources.csv#lawrence45_two_reactions",
+      "report_id": "bumed:1945:4-7:3",
+      "basis": "Bibliography entry 45-2 supplies title, byline, year and page range.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "record_key": "2026-11-20-ferris-engel-neurology-berkeley-t#lawrence-bumed-45-2",
+      "report_id": "bumed:1945:4-7:3",
+      "basis": "Bibliography entry 45-2 supplies title, byline, year and page range.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "record_key": "2026-11-20-ferris-engel-neurology-berkeley-t#lund-occup-med-46-2",
+      "report_id": "pmid:21016036",
+      "basis": "Title, authors and pages match the NLM citation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
     }
   ],
   "studies": [
@@ -9817,6 +9859,12 @@
       "label": "19 March 1954 USAF chamber neurocirculatory collapse",
       "period": "19 March 1954 index chamber event, with 1958 clinical reassessment",
       "setting": "U.S. Air Force simulated altitude training. One selected episode without an exposure denominator."
+    },
+    {
+      "study_id": "berkeley-delayed-neurological-case-1944",
+      "label": "Berkeley severe delayed neurological reaction reported in 1944",
+      "period": "Reported June 1944",
+      "setting": "Historical altitude exposure case"
     }
   ],
   "study_reports": [
@@ -10731,6 +10779,24 @@
       "report_id": "pmid:13625439",
       "role": "clinical_followup",
       "locator": "Case 1 pp. 2–3. Comparison table p. 11."
+    },
+    {
+      "study_id": "berkeley-delayed-neurological-case-1944",
+      "report_id": "nlm:101085500x796:meeting-14",
+      "role": "initial_meeting_case_report",
+      "locator": "CAM item 9, printed p. 334"
+    },
+    {
+      "study_id": "berkeley-delayed-neurological-case-1944",
+      "report_id": "report:cam-396",
+      "role": "cited_original_case_report",
+      "locator": "Fulton bibliography printed p. 415, reference 383"
+    },
+    {
+      "study_id": "berkeley-delayed-neurological-case-1944",
+      "report_id": "fulton1951:clinical-nature",
+      "role": "chapter_case_summary",
+      "locator": "Chapter II printed pp. 41–43"
     }
   ],
   "relations": [
@@ -12488,7 +12554,7 @@
       "left_report": "nlm:101085500x796:meeting-14",
       "right_report": "pmid:21016036",
       "relationship": "possible_overlap",
-      "evidence": "John Lawrence described a severe delayed neurological reaction. The later report has an overlapping author and reports a 38,000-ft case. No exact case crosswalk was recovered.",
+      "evidence": "John Lawrence described a severe delayed neurological reaction. The later report has an overlapping author and reports a 38,000-ft case. No exact case crosswalk was recovered. Journal full text remains unverified; the chapter instead cites the matching CAM report 396.",
       "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=14"
     },
     {
@@ -12693,6 +12759,41 @@
       "relationship": "possible_overlap",
       "evidence": "The reports share the Randolph and Pensacola sites. The latter has different profiles in the two reports. Participant and exposure identifiers are not available.",
       "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=208"
+    },
+    {
+      "left_report": "fulton1951:clinical-nature",
+      "right_report": "nlm:101085500x234:7:romano",
+      "relationship": "contains_overlapping_groups",
+      "evidence": "The author chapter breaks down the same 46 Cincinnati episodes reported by the conference team.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=59"
+    },
+    {
+      "left_report": "fulton1951:clinical-nature",
+      "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",
+      "relationship": "summarizes_published_study",
+      "evidence": "Chapter pp. 43–44 cite Stewart for 50 episodes. Reference 509 names the 6,566-person and 16,293-exposure Halifax study. The original report was not examined.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "fulton1951:clinical-nature",
+      "relationship": "same_published_case",
+      "evidence": "CAM item 9 and Ferris–Engel pp. 41–43 give age 20, scotoma around descent, severe headache and vomiting after descent, right-sided neurologic findings, CSF protein 65 mg/100 mL, and at 48 hours return of the right visual field with residual left homonymous deficit. The chapter explicitly cites CAM 396.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=56"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "report:cam-396",
+      "relationship": "same_published_case",
+      "evidence": "CAM item 9 and Ferris–Engel pp. 41–43 give age 20, scotoma around descent, severe headache and vomiting after descent, right-sided neurologic findings, CSF protein 65 mg/100 mL, and at 48 hours return of the right visual field with residual left homonymous deficit. The chapter explicitly cites CAM 396.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462"
+    },
+    {
+      "left_report": "report:cam-396",
+      "right_report": "pmid:21016036",
+      "relationship": "likely_overlap",
+      "evidence": "The same three authors reported a single severe delayed neurologic reaction. The 1946 journal text and original CAM report remain unverified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
     }
   ],
   "report_titles": {
@@ -12748,6 +12849,9 @@
     "report:cam-99": "High altitude classification tests",
     "doi:10.1001/jama.1947.02880060015004": "Decompression sickness: Some factors which affect the incidence of bends at altitude",
     "doi:10.1093/milmed/94.4.199": "Some Factors Affecting the Incidence of “Bends” at Altitude",
-    "aeme:31-11-885": "Pathological findings in three cases of decompression sickness"
+    "aeme:31-11-885": "Pathological findings in three cases of decompression sickness",
+    "fulton1951:clinical-nature": "The clinical nature of high altitude decompression sickness",
+    "report:cam-396": "Case report on a severe delayed reaction with cerebral involvement following decompression",
+    "bumed:1945:4-7:3": "Two severe altitude flight reactions"
   }
 }
