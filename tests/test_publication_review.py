@@ -633,6 +633,32 @@ def test_publication_register_build(tmp_path):
             "SELECT right_report, relationship FROM review_report_relation "
             "WHERE left_report='abstract:asma-2018-cheok-koh-038'"
         ).fetchone() == ("pmid:33875060", "same_policy_cohort_as_full_article")
+        assert db.execute(
+            "SELECT chamber_role, cases, denominator, reported_rate_percent "
+            "FROM review_search_observation WHERE study_id='rmaf-iam-2024-hypoxia-indoctrination' "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("multiple_unseparated", 4, 395, 1.01),
+            ("staff", None, 46, None),
+            ("multiple_unseparated", 4, None, 0.04),
+            ("trainee", None, 349, None),
+        ]
+        assert db.execute(
+            "SELECT endpoint, chamber_role, cases, denominator FROM review_search_observation "
+            "WHERE study_id IN ('saryanto-2021-irani-barotrauma', 'saryanto-2007-sastranegara-barotitis') "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("clinically_diagnosed_otic_barotrauma", "trainee", 3, 97),
+            ("suspected_otic_barotrauma", "trainee", 1, 97),
+            ("clinically_diagnosed_barotitis_media", "participant", 100, 177),
+            ("clinically_diagnosed_barotitis_media", "participant", 22, 52),
+            ("clinically_diagnosed_barotitis_media", "trainee", 78, 125),
+        ]
+        assert db.execute(
+            "SELECT DISTINCT report_id FROM review_record "
+            "WHERE run_id LIKE '2026-11-20-trainee-cohorts-%' "
+            "AND (doi='10.33657/jurkessia.v16i1.1129' OR source_key='w:3f55e3b6-ef26-4f69-ac5f-3e14729e48c8')"
+        ).fetchall() == [("doi:10.33657/jurkessia.v16i1.1129",)]
         assert db.execute("SELECT count(*) FROM review_historical_search_record").fetchone() == (
             473,
         )

@@ -5699,6 +5699,378 @@
       "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
       "evidence_url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
       "basis": "This occurrence anchors the original December 1983 Singapore Medical Journal article shared by the HTTP and HTTPS routes."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-malaysia-dhahran#conference-booklet-1",
+      "report_id": "serial:icmm-jrms-2014-conference-abstract-booklet",
+      "evidence_url": "https://jrms.jaf.mil.jo/Files/abd72c59-2241-4183-a313-d859eaff082c.pdf",
+      "basis": "This route identifies the whole proceedings booklet."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-malaysia-dhahran#conference-booklet-2",
+      "report_id": "serial:icasm-2025-abstract-booklet",
+      "evidence_url": "https://icasm2025.com/assets/pdf/Abstracts%20Booklet.pdf",
+      "basis": "This route identifies the whole proceedings booklet."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-malaysia-dhahran-primary#zainal-2025-icasm-176",
+      "report_id": "abstract:icasm-2025-zainal-176",
+      "evidence_url": "https://icasm2025.com/assets/pdf/Abstracts%20Booklet.pdf#page=141",
+      "basis": "Public proceedings verify the submitted abstract and locator."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-malaysia-dhahran-primary#koshy-al-aql-2014-547",
+      "report_id": "abstract:icmm-2014-koshy-al-aql-547",
+      "evidence_url": "https://jrms.jaf.mil.jo/Files/abd72c59-2241-4183-a313-d859eaff082c.pdf",
+      "basis": "Public proceedings verify the submitted abstract and locator."
+    },
+    {
+      "record_key": "2026-11-20-nato-national-o-nato-chapters#W121412382",
+      "report_id": "doi:10.1037/e458752006-001",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/57943/dot_57943_DS1.pdf",
+      "basis": "Exact title, DOI and year match the primary 2003 FAA report."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:f98a5427-701c-4c40-b40b-712645ed8917",
+      "report_id": "pmid:28518008",
+      "evidence_url": "https://consensus.app/papers/details/w:f98a5427-701c-4c40-b40b-712645ed8917/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:7dc49c65-6c3f-406d-a12f-386f917202d8",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://consensus.app/papers/details/w:7dc49c65-6c3f-406d-a12f-386f917202d8/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:1e918de7-e8bc-49f7-85ef-2e3e54d3bf02",
+      "report_id": "pmid:32574436",
+      "evidence_url": "https://consensus.app/papers/details/w:1e918de7-e8bc-49f7-85ef-2e3e54d3bf02/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:9d0c19fa-7b48-4f31-a04b-fcd4bef784a2",
+      "report_id": "doi:10.1111/j.1442-2026.1995.tb00184.x",
+      "evidence_url": "https://consensus.app/papers/details/w:9d0c19fa-7b48-4f31-a04b-fcd4bef784a2/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:78f02042-4494-4204-b83f-a6b5e4aa19c9",
+      "report_id": "pmid:12546299",
+      "evidence_url": "https://consensus.app/papers/details/w:78f02042-4494-4204-b83f-a6b5e4aa19c9/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:0e080ce0-b1ab-44c7-8e80-ebbc0a609270",
+      "report_id": "pmid:36309795",
+      "evidence_url": "https://consensus.app/papers/details/w:0e080ce0-b1ab-44c7-8e80-ebbc0a609270/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:9c5e4fb2-42f9-4be7-a49b-6a3d86c550ab",
+      "report_id": "doi:10.3357/amhp.4482.2015",
+      "evidence_url": "https://consensus.app/papers/details/w:9c5e4fb2-42f9-4be7-a49b-6a3d86c550ab/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-korea#w:9d0c19fa-7b48-4f31-a04b-fcd4bef784a2",
+      "report_id": "doi:10.1111/j.1442-2026.1995.tb00184.x",
+      "evidence_url": "https://consensus.app/papers/details/w:9d0c19fa-7b48-4f31-a04b-fcd4bef784a2/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-korea#w:7dc49c65-6c3f-406d-a12f-386f917202d8",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://consensus.app/papers/details/w:7dc49c65-6c3f-406d-a12f-386f917202d8/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-thai#w:7281c2bd-e1cd-415b-9e70-4bc2fee022bf",
+      "report_id": "doi:10.58837/chula.the.2009.811",
+      "evidence_url": "https://digital.car.chula.ac.th/chulaetd/44490/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-thai-fetch#w:7281c2bd-e1cd-415b-9e70-4bc2fee022bf",
+      "report_id": "doi:10.58837/chula.the.2009.811",
+      "evidence_url": "https://digital.car.chula.ac.th/chulaetd/44490/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-openalex-cli-vijabund#W4408546421",
+      "report_id": "doi:10.58837/chula.the.2009.811",
+      "evidence_url": "https://digital.car.chula.ac.th/chulaetd/44490/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-openalex-cli-iran#W2053642606",
+      "report_id": "pmid:22225561",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22225561/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-eds-exact-iran#2neofqqxcj",
+      "report_id": "pmid:22225561",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22225561/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-eds-broader-iran#2neofqqxcj",
+      "report_id": "pmid:22225561",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22225561/",
+      "basis": "The returned identifier and title match the existing source record."
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-korea#https://www.kci.go.kr/kciportal/ci/sereArticleSearch/artiPreView.kci?sereArticleSearchBean.artiId=ART001678746",
+      "report_id": "kci:ART001678746",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/artiPreView.kci?sereArticleSearchBean.artiId=ART001678746"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-gulf#https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0",
+      "report_id": "pmid:42345225",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-gulf#https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-gulf#https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+      "report_id": "openalex:W345544355",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-gulf#https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+      "report_id": "adf:smart-cable-2004",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-gulf#https://pubmed.ncbi.nlm.nih.gov/36309795",
+      "report_id": "pmid:36309795",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/36309795"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-nz#https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-nz#https://asma.kglmeridian.com/view/journals/asem/83/10/article-p962.xml",
+      "report_id": "pmid:23066618",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p962.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-nz#https://brieflands.com/journals/jamm/articles/20780",
+      "report_id": "doi:10.5812/jamm.17035",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://brieflands.com/journals/jamm/articles/20780"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-nz#https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p962.pdf",
+      "report_id": "pmid:23066618",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p962.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-malaysia#https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-malaysia#https://www.researchgate.net/publication/351253971_Decompression_Illness_Incidence_and_Hypoxia_Symptoms_After_Prebreathing_in_Hypobaric_Hypoxia_Training",
+      "report_id": "pmid:33875060",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://www.researchgate.net/publication/351253971_Decompression_Illness_Incidence_and_Hypoxia_Symptoms_After_Prebreathing_in_Hypobaric_Hypoxia_Training"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-t-malaysia#https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+      "report_id": "openalex:W345544355",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-korea#https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+      "report_id": "adf:smart-cable-2004",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-gulf#https://pubmed.ncbi.nlm.nih.gov/20824995/",
+      "report_id": "pmid:20824995",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20824995/"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-gulf#https://pubmed.ncbi.nlm.nih.gov/28518008/",
+      "report_id": "pmid:28518008",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-gulf#https://www.researchgate.net/publication/364963577_Mitigating_Risks_of_Altitude_Chamber_Training",
+      "report_id": "pmid:36309795",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://www.researchgate.net/publication/364963577_Mitigating_Risks_of_Altitude_Chamber_Training"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-gulf#https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-gulf#https://files.4medicine.pl/download.php?cfs_id=1400",
+      "report_id": "doi:10.13174/pjamp.21.01.2015.01",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=1400"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-gulf#https://pubmed.ncbi.nlm.nih.gov/36309795/",
+      "report_id": "pmid:36309795",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/36309795"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-gulf#https://pubmed.ncbi.nlm.nih.gov/32574436/",
+      "report_id": "pmid:32574436",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32574436/"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-malaysia#https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-malaysia#https://pdfs.semanticscholar.org/3561/405c78bd6f8054374e30d4c5f9e02027195a.pdf",
+      "report_id": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://content.openalex.org/works/W4403779463.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-oa-nz#W2312996577",
+      "report_id": "pmid:23066618",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p962.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-oa-saudi#W2040176072",
+      "report_id": "pmid:18225780",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/1/article-p54.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-oa-indonesia#W4403779463",
+      "report_id": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://content.openalex.org/works/W4403779463.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-oa-iran#W2115295138",
+      "report_id": "doi:10.5812/jamm.17035",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://brieflands.com/journals/jamm/articles/20780"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-consensus-irani#w:3f55e3b6-ef26-4f69-ac5f-3e14729e48c8",
+      "report_id": "doi:10.33657/jurkessia.v16i1.1129",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-consensus-irani#w:23d423a1-8af2-4f74-959d-2ed0985401f7",
+      "report_id": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://content.openalex.org/works/W4403779463.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-firecrawl-irani-pdf#https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343",
+      "report_id": "doi:10.33657/jurkessia.v16i1.1129",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-pacific-gulf-originals#johnston-2012",
+      "report_id": "pmid:23066618",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p962.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-pacific-gulf-originals#smith-2008",
+      "report_id": "pmid:18225780",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/1/article-p54.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-pacific-gulf-originals#mirzaii-dizgah-2014",
+      "report_id": "doi:10.5812/jamm.17035",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://brieflands.com/journals/jamm/articles/20780"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-oa-putri-pdf#putri-2024",
+      "report_id": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://content.openalex.org/works/W4403779463.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-saryanto-theses#putri-2023-thesis",
+      "report_id": "thesis:upnvj-22446",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://repository.upnvj.ac.id/22446/2/AWAL.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-saryanto-theses#irani-2023-thesis",
+      "report_id": "thesis:upnvj-22749",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://repository.upnvj.ac.id/22749/1/ABSTRAK.pdf"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-saryanto-barotrauma-originals#irani-journal-2025",
+      "report_id": "doi:10.33657/jurkessia.v16i1.1129",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-saryanto-barotrauma-originals#sastranegara-2008",
+      "report_id": "doi:10.13181/mji.v17i1.300",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://mji.ui.ac.id/journal/index.php/mji/article/download/300/295"
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-stevenson-thesis#stevenson-2019",
+      "report_id": "thesis:asu-157199",
+      "basis": "The source locator, title or exact bibliographic identifier verifies the corresponding report.",
+      "evidence_url": "https://keep.lib.asu.edu/items/157199"
+    },
+    {
+      "record_key": "2026-11-20-east-asian-cohorts-o-taiwan-exact#W7144047569",
+      "report_id": "doi:10.33657/jurkessia.v16i1.1129",
+      "basis": "The earlier OpenAlex occurrence carries the DOI printed in the publisher record and links to the same journal article.",
+      "evidence_url": "https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343"
+    },
+    {
+      "record_key": "2026-11-20-east-asian-cohorts-t-taiwan-registry#https://pdfs.semanticscholar.org/3561/405c78bd6f8054374e30d4c5f9e02027195a.pdf",
+      "report_id": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "basis": "The mirror PDF title page prints the same authors, title and DOI as the publisher article.",
+      "evidence_url": "https://pdfs.semanticscholar.org/3561/405c78bd6f8054374e30d4c5f9e02027195a.pdf"
+    },
+    {
+      "record_key": "2026-11-20-turkey-tavily-incidence#https://pdfs.semanticscholar.org/3561/405c78bd6f8054374e30d4c5f9e02027195a.pdf",
+      "report_id": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "basis": "The mirror PDF title page prints the same authors, title and DOI as the publisher article.",
+      "evidence_url": "https://pdfs.semanticscholar.org/3561/405c78bd6f8054374e30d4c5f9e02027195a.pdf"
     }
   ],
   "studies": [
@@ -6217,6 +6589,24 @@
       "label": "Singapore Air Force chamber DCI surveillance across prebreathing policies",
       "period": "July 2011–August 2017 as reported",
       "setting": "Republic of Singapore Air Force, Singapore"
+    },
+    {
+      "study_id": "rmaf-iam-2024-hypoxia-indoctrination",
+      "label": "Royal Malaysian Air Force hypoxia indoctrination training",
+      "period": "2024",
+      "setting": "Institute of Aviation Medicine, Royal Malaysian Air Force"
+    },
+    {
+      "study_id": "saryanto-2021-irani-barotrauma",
+      "label": "Saryanto hypoxia training and ear barotrauma records",
+      "period": "2021",
+      "setting": "Lakespra dr. Saryanto, Jakarta, Indonesia"
+    },
+    {
+      "study_id": "saryanto-2007-sastranegara-barotitis",
+      "label": "Saryanto chamber simulation barotitis cohort",
+      "period": "May–July 2007",
+      "setting": "Lakespra dr. Saryanto, Jakarta, Indonesia"
     }
   ],
   "study_reports": [
@@ -6963,6 +7353,30 @@
       "report_id": "abstract:asma-2018-cheok-koh-038",
       "role": "same_cohort_preliminary_abstract",
       "locator": "AsMA abstract 038, pp. 171–172"
+    },
+    {
+      "study_id": "rmaf-iam-2024-hypoxia-indoctrination",
+      "report_id": "abstract:icasm-2025-zainal-176",
+      "role": "primary_operational_training_conference_abstract",
+      "locator": "ICASM 2025, Abstract 176, printed p. 139 (PDF p. 141)"
+    },
+    {
+      "study_id": "saryanto-2021-irani-barotrauma",
+      "report_id": "doi:10.33657/jurkessia.v16i1.1129",
+      "role": "primary_report",
+      "locator": "Methods and Table 4, pp. 51–52"
+    },
+    {
+      "study_id": "saryanto-2007-sastranegara-barotitis",
+      "report_id": "doi:10.13181/mji.v17i1.300",
+      "role": "primary_report",
+      "locator": "Methods and Tables 1 and 3, pp. 38–40"
+    },
+    {
+      "study_id": "saryanto-2021-irani-barotrauma",
+      "report_id": "thesis:upnvj-22749",
+      "role": "companion_thesis",
+      "locator": "Thesis no. 22749, abstract pp. xv–xvi"
     }
   ],
   "relations": [
@@ -8057,6 +8471,76 @@
       "relationship": "conference_predecessor_of_same_jsc_cohort_and_review",
       "evidence": "The abstract and journal review share the author team, 1999–2016 NASA JSC records, and six student cases in 9,560 exposures. The pooled summaries belong to versions of the same review.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf#page=10"
+    },
+    {
+      "left_report": "abstract:icmm-2014-koshy-al-aql-547",
+      "right_report": "abstract:asma-2018-koshy-037",
+      "relationship": "same_two_chamber_arterial_gas_embolism_cases",
+      "evidence": "Both reports describe the same 25-year-old and 32-year-old aircrew, presentations and outcomes. The 2014 abstract establishes the Dhahran location.",
+      "evidence_url": "https://jrms.jaf.mil.jo/Files/abd72c59-2241-4183-a313-d859eaff082c.pdf"
+    },
+    {
+      "left_report": "pmid:23066618",
+      "right_report": "pmid:18225780",
+      "relationship": "adapts_questionnaire_in_independent_population",
+      "evidence": "Johnston et al. cite Smith as the study they sought to replicate and describe the adapted symptom questionnaire. The RNZAF trainees and Dhahran trainees are separate populations.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p962.pdf"
+    },
+    {
+      "left_report": "pmid:18225780",
+      "right_report": "abstract:icmm-2014-koshy-al-aql-547",
+      "relationship": "same_facility_different_outcome_and_unspecified_overlap",
+      "evidence": "The papers name the same Dhahran aeromedical centre. The questionnaire evaluates hypoxia symptoms and does not establish the denominator or membership of the gas-embolism cases.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/1/article-p54.pdf"
+    },
+    {
+      "left_report": "thesis:upnvj-22446",
+      "right_report": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "relationship": "thesis_and_article_same_sample",
+      "evidence": "Lead author, centre, dates, sample of 99 records and reported hypoxia and useful-consciousness measures match.",
+      "evidence_url": "https://repository.upnvj.ac.id/22446/2/AWAL.pdf"
+    },
+    {
+      "left_report": "thesis:upnvj-22749",
+      "right_report": "doi:10.33657/jurkessia.v16i1.1129",
+      "relationship": "thesis_and_article_same_sample",
+      "evidence": "Lead author, institution, setting, sample of 97 records, and four hypoxia symptom counts agree across the abstracts.",
+      "evidence_url": "https://repository.upnvj.ac.id/22749/1/ABSTRAK.pdf"
+    },
+    {
+      "left_report": "doi:10.33657/jurkessia.v16i1.1129",
+      "right_report": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "relationship": "shared_centre_and_sampling_year_individual_overlap_unresolved",
+      "evidence": "Methods and Results describe 97 and 99 male aircrew records from the same centre, training year and training format, with a shared author. No participant crosswalk is reported.",
+      "evidence_url": "https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343"
+    },
+    {
+      "left_report": "thesis:asu-157199",
+      "right_report": "pmid:3790029",
+      "relationship": "cites_existing_chamber_surveillance_estimate",
+      "evidence": "The thesis literature review credits Piwinski et al. for 0.64 DCS cases per 1,000 exposures across 63 months.",
+      "evidence_url": "https://keep.lib.asu.edu/items/157199"
+    },
+    {
+      "left_report": "thesis:asu-157199",
+      "right_report": "pmid:1755801",
+      "relationship": "cites_existing_chamber_surveillance_estimate",
+      "evidence": "The thesis literature review credits Bason and Yacavone for 78 DCS cases across 111,674 exposures.",
+      "evidence_url": "https://keep.lib.asu.edu/items/157199"
+    },
+    {
+      "left_report": "doi:10.33657/jurkessia.v16i1.1129",
+      "right_report": "doi:10.1007/s00405-016-4198-8",
+      "relationship": "cites_distinct_ear_function_cohort",
+      "evidence": "Irani et al. cite Iannella et al. for a study of ear fullness in 42 Italian Air Force pilots; the Italian participants are distinct from the Indonesian sample.",
+      "evidence_url": "https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343"
+    },
+    {
+      "left_report": "doi:10.20473/ijosh.v13i2.2024.173-181",
+      "right_report": "pmid:32574436",
+      "relationship": "cites_existing_chamber_surveillance_estimate",
+      "evidence": "Putri et al. cite Ercan et al. for an overall DCS estimate from Turkish training. That statement does not tabulate outcomes among the Indonesian trainees.",
+      "evidence_url": "https://content.openalex.org/works/W4403779463.pdf"
     }
   ],
   "report_titles": {
