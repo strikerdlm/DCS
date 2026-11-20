@@ -106,6 +106,24 @@ CREATE VIEW review_run_counts AS
     SELECT q.run_id,q.provider,q.reported_total,q.retrieved,count(DISTINCT r.report_id) AS report_groups
     FROM review_retrieval q LEFT JOIN review_record r USING(run_id) GROUP BY q.run_id;
 
+-- Search follow-up observations retain eligibility notes and their original risk sets.
+CREATE VIEW review_search_observation AS
+    SELECT r.record_key,r.report_id,r.run_id,
+           json_extract(o.value,'$.id') AS observation_id,
+           json_extract(o.value,'$.endpoint') AS endpoint,
+           json_extract(o.value,'$.group') AS reported_group,
+           json_extract(o.value,'$.cases') AS cases,
+           json_extract(o.value,'$.denominator') AS denominator,
+           json_extract(o.value,'$.denominator_unit') AS denominator_unit,
+           json_extract(o.value,'$.reported_rate_percent') AS reported_rate_percent,
+           json_extract(o.value,'$.locator') AS locator,
+           json_extract(r.metadata_json,'$.primary_source') AS evidence_url,
+           json_extract(r.metadata_json,'$.role_review') AS role_review,
+           json_extract(o.value,'$.note') AS note
+    FROM review_record AS r
+    JOIN json_each(r.metadata_json,'$.observations') AS o
+    WHERE r.run_id IS NOT NULL;
+
 CREATE VIEW review_historical_search_record AS
     SELECT r.record_key,r.report_id,r.stream,h.search_id,h.rank,q.searched_on,q.tool,q.database,
            q.query,q.status,h.disposition AS original_disposition
