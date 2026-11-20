@@ -625,6 +625,52 @@ def test_cam_multicenter_preserves_source_counts_and_overlap(release):
         """).fetchone() == (1,)
 
 
+def test_cam_paired_outcomes_reuse_cohort_and_canonical_reports(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT shared_cohort_key,count(*),min(participant_count),max(participant_count)
+            FROM publication_paired_chamber_arm GROUP BY shared_cohort_key
+        """).fetchall() == [("ferris43-same-24", 2, 24, 24)]
+        curves = db.execute("""
+            SELECT arm,endpoint,count(*),group_concat(cumulative_count)
+            FROM (
+                SELECT arm,endpoint,cumulative_count
+                FROM publication_paired_chamber_count ORDER BY arm,endpoint,window_end_min
+            ) GROUP BY arm,endpoint ORDER BY arm,endpoint
+        """).fetchall()
+        assert curves == [
+            ("placebo", "any_bends_or_chokes_source", 6, "4,10,18,20,23,24"),
+            ("placebo", "incapacitating_bends_or_chokes_source", 6, "1,6,15,18,21,21"),
+            ("stimulant", "any_bends_or_chokes_source", 6, "6,15,20,22,24,24"),
+            ("stimulant", "incapacitating_bends_or_chokes_source", 6, "2,10,18,19,19,20"),
+        ]
+        assert db.execute("""
+            SELECT stratum,reported_percent,source_denominator
+            FROM publication_narrative_chamber_rate
+            WHERE source_id='stewart43_retest' AND endpoint='no_symptoms_source' ORDER BY stratum
+        """).fetchall() == [("afternoon", "72", None), ("forenoon", "54", None)]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='stewart43_retest' AND endpoint='same_altitude_test_classification_source'
+        """).fetchone() == (32, 32)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:101085500x233:138:ferris' AND right_report='report:cam-112'
+        """).fetchone() == ("same_cohort",)
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE url='https://jamanetwork.com/journals/jama/fullarticle/291560'
+            GROUP BY report_id
+        """).fetchall() == [("doi:10.1001/jama.1947.02880060015004", 6)]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE run_id='2026-11-20-cam-paired-archive-f' ORDER BY report_id
+        """).fetchall() == [
+            ("record:legacy:data/chamber/v1.12/sources.csv#cotes52_fprc",),
+            ("record:legacy:data/chamber/v1.12/sources.csv#morant52_fprc",),
+        ]
+
+
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
     with connect_pair(release) as db:
         assert db.execute("""
