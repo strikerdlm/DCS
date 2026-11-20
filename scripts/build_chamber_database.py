@@ -145,6 +145,7 @@ CHAMBER_POSTDIVE_CASES = ROOT / "data" / "chamber" / "v1.77"
 CHAMBER_IAF_CASES = ROOT / "data" / "chamber" / "v1.78"
 CHAMBER_U2_CASES = ROOT / "data" / "chamber" / "v1.79"
 CHAMBER_U2_CASE_SERIES = ROOT / "data" / "chamber" / "v1.80"
+CHAMBER_TRAINING_HISTORIES = ROOT / "data" / "chamber" / "v1.81"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1266,6 +1267,15 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_u2_series_row": "case_table_rows.csv",
                         "publication_u2_series_case_link": "case_crosswalk.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_TRAINING_HISTORIES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_allan_chamber_plateau": "allan_plateaus.csv",
+                        "publication_allan_dci_case": "allan_case_details.csv",
                     },
                 )
             if rojas_supplement:
