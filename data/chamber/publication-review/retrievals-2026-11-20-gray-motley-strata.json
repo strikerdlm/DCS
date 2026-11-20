@@ -1,0 +1,145 @@
+[
+  {
+    "id": "2026-11-20-gray-motley-strata-kingman-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "underlying_cohort_search",
+    "params": {
+      "query": "\"Swann and Rosenthal\" \"Kingman\" altitude decompression sickness army 1944 training bends",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "No authoritative Kingman underlying source located. Gray Table 41 supplies the published margins.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-gray-motley-strata-gray-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "underlying_cohort_search",
+    "params": {
+      "query": "\"Constitutional Factors Affecting Susceptibility to Decompression Sickness\" \"Gray\" \"1951\" 52,313 report Sulaiman",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "Located the existing Sulaiman technical report and journal paper. The technical report reprints the table and supplies no additional historical risk set.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-gray-motley-strata-kingman-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "underlying_cohort_search",
+    "params": {
+      "query": "\"Swann\" \"Rosenthal\" bends altitude chamber Kingman field low pressure reports Gray",
+      "limit": 7,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 7,
+    "status": "observed",
+    "note": "No authoritative underlying Kingman source returned. Retain the published Gray group numbers on overlap hold.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-gray-motley-strata-catalog-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "bibliographic_verification",
+    "params": {
+      "urls": [
+        "https://archive.org/details/in.ernet.dli.2015.116475",
+        "https://archive.org/details/DTIC_ADA297023",
+        "https://pubmed.ncbi.nlm.nih.gov/9262810/"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified monograph and technical report catalogues and metadata for Sulaiman journal companion. Direct scans are the table authority. No new or inferred historical counts.",
+    "records": [
+      {
+        "id": "ada297023-catalog",
+        "title": "Relationship Between Age and Susceptibility to Decompression Sickness: A Review",
+        "year": 1995,
+        "url": "https://archive.org/details/DTIC_ADA297023",
+        "locator": "Public DTIC archive catalogue",
+        "sha256": "f0db87b1de8042e9caaf6db71c4c25dd8062e98b1db54606cc518b264ebafd19"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-gray-motley-strata-catalog-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "archive_catalogue_verification",
+    "params": {
+      "urls": [
+        "https://archive.org/details/DTIC_ADA297023"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the title, date and report accession for the archive copy. Table 2 checked against the original page images.",
+    "records": [
+      {
+        "id": "ada297023-catalog",
+        "title": "Relationship Between Age and Susceptibility to Decompression Sickness: A Review",
+        "year": 1995,
+        "url": "https://archive.org/details/DTIC_ADA297023",
+        "locator": "Public DTIC archive catalogue",
+        "sha256": "f0db87b1de8042e9caaf6db71c4c25dd8062e98b1db54606cc518b264ebafd19"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-gray-motley-strata-primary",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "full_text_table_comparison",
+    "params": {
+      "urls": [
+        "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=208",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/4/article-p210.pdf#page=10",
+        "https://archive.org/download/DTIC_ADA297023/DTIC_ADA297023.pdf#page=8"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Read and compared Gray and Sulaiman table images. Verified that all Motley original weight-to-height strata sum to all five corresponding Maxwell denominators in Gray.",
+    "records": [
+      {
+        "id": "fulton1951-gray-chapter7",
+        "title": "Constitutional factors affecting susceptibility to decompression sickness",
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=208",
+        "locator": "Tables 40 and 41, printed pp. 185 and 187 (PDF pp. 208 and 210)",
+        "sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94"
+      },
+      {
+        "id": "motley45-table-ix",
+        "title": "Studies on bends",
+        "year": 1945,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/4/article-p210.pdf#page=10",
+        "locator": "Table IX, p. 219 (PDF p. 10)",
+        "sha256": "0bc21704230e8f836e88c34e66ba5b1768f7ab328645e2fc9b92a595ea773df3"
+      },
+      {
+        "id": "ada297023-table2",
+        "title": "Relationship Between Age and Susceptibility to Decompression Sickness: A Review",
+        "year": 1995,
+        "url": "https://archive.org/download/DTIC_ADA297023/DTIC_ADA297023.pdf#page=8",
+        "locator": "Table 2, p. 3 (PDF p. 8)",
+        "sha256": "f0db87b1de8042e9caaf6db71c4c25dd8062e98b1db54606cc518b264ebafd19"
+      }
+    ]
+  }
+]

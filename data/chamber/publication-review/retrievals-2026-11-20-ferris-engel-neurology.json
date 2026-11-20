@@ -1,0 +1,165 @@
+[
+  {
+    "id": "2026-11-20-ferris-engel-neurology-chapter-search-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "bibliographic_discovery",
+    "params": {
+      "query": "\"clinical nature of decompression sickness\" Ferris Engel Fulton 1951 chapter migraine scotoma pages",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 6,
+    "status": "observed",
+    "note": "Located later citations corroborating chapter pages 4–52. No original case pages in returned results.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-ferris-engel-neurology-archive-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "archive_catalogue_verification",
+    "params": {
+      "url": "https://archive.org/details/in.ernet.dli.2015.116475",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Archive catalogue returned. Verified the chapter data from the public page images.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-ferris-engel-neurology-lund-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "underlying_report_search",
+    "params": {
+      "query": "\"latent neurologic manifestations\" \"Lund\" 38000 decompression Occupational Medicine 1946 PDF",
+      "limit": 7,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 0,
+    "status": "observed",
+    "note": "No ranked web results. Journal full text remains unavailable.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-ferris-engel-neurology-navy-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "underlying_report_search",
+    "params": {
+      "query": "\"Two severe altitude flight reactions\" Lawrence Lund Navy 1945 BUMED news letter aviation supplement",
+      "sources": [
+        "web"
+      ],
+      "limit": 7,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 0,
+    "status": "observed",
+    "note": "No ranked web results. Bulletin full text remains unverified.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-ferris-engel-neurology-navy-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "underlying_report_search",
+    "params": {
+      "query": "Navy Bureau of Medicine Surgery News Letter Aviation Supplement volume 4 issue 7 July 1945 \"severe altitude flight reactions\" Lawrence Lund scan",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "The NLM PDF hit describes a different chamber series. No verified bulletin issue returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-ferris-engel-neurology-berkeley-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "bibliographic_verification",
+    "params": {
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/21016036/",
+        "https://digicoll.lib.berkeley.edu/nanna/record/218052/files/nuclearmedicine00lawrrich.pdf?registerDownload=1&version=1&withMetadata=0&withWatermark=0"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Berkeley bibliography entries 45-2 and 46-2 retrieved. The PubMed request did not return content.",
+    "records": [
+      {
+        "id": "lawrence-bumed-45-2",
+        "title": "Two severe altitude flight reactions",
+        "year": 1945,
+        "url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en",
+        "locator": "Bibliography printed p. 135, entry 45-2"
+      },
+      {
+        "id": "lund-occup-med-46-2",
+        "title": "Latent neurologic manifestations following decompression",
+        "year": 1946,
+        "pmid": "21016036",
+        "url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en",
+        "locator": "Bibliography printed p. 135, entry 46-2"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-ferris-engel-neurology-pages",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "full_text_case_and_series_comparison",
+    "params": {
+      "urls": [
+        "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=56",
+        "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=58",
+        "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=59",
+        "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462",
+        "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=14"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Compared source passage, bibliography and minutes. Historical syndrome episodes are case-conditional counts. Both narratives describe the same single severe Berkeley episode.",
+    "records": [
+      {
+        "id": "ferris-engel-chapter",
+        "title": "The clinical nature of high altitude decompression sickness",
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=56",
+        "locator": "Chapter II printed pp. 41–44 (PDF pp. 56–59)",
+        "sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "observations": [
+          {
+            "id": "berkeley-severe-neurological-reaction",
+            "study_id": "berkeley-delayed-neurological-case-1944",
+            "group": "Selected single Berkeley altitude episode",
+            "endpoint": "severe_neurological_reaction_source",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Chapter II printed pp. 41–43 (PDF pp. 56–58)",
+            "note": "Citation 383 identifies the Lund report. Age, symptom sequence, CSF protein, and the side and timing of partial visual recovery match the 1944 minutes. See case milestones for different source times for subsequent worsening."
+          }
+        ]
+      },
+      {
+        "id": "lund-cam396",
+        "title": "Case report on a severe delayed reaction with cerebral involvement following decompression",
+        "year": 1944,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462",
+        "locator": "Bibliography printed p. 415 (PDF p. 462), reference 383"
+      }
+    ]
+  }
+]
