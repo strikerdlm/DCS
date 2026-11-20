@@ -13,6 +13,7 @@ These articles were available for extraction. Their publisher PDFs remain availa
 
 | Report | Source and access status |
 | --- | --- |
+| Howard, Sheffield and Matos, USAF trainee and inside-observer surveillance | [Publisher supplement, pp. 10–11](https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18). The original scan was retained locally under the publisher’s rights notice. |
 | Irani et al., Saryanto hypoxia and ear barotrauma | [Publisher PDF](https://journal.stikeshb.ac.id/index.php/jurkessia/article/download/1129/343). Redistribution terms for this article version remain unverified. |
 | Sastranegara et al., Saryanto barotitis media | [Publisher PDF](https://mji.ui.ac.id/journal/index.php/mji/article/download/300/295). The journal places its 1992–2013 issues under exclusive copyright. [Publisher terms](https://mji.ui.ac.id/journal/index.php/mji/copyright) |
 | Conkin et al., NASA JSC surveillance and systematic review | [Publisher PDF](https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/11/article-p941.pdf). The journal version carries an Aerospace Medical Association copyright notice. |
