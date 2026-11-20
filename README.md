@@ -21,6 +21,8 @@ The workflow records database queries, retrieval dates and source locations for 
 
 ## Evidence database
 
+Build the two study databases with `python -m scripts.chamber_products --output-dir artifacts/chamber-products/2026-11-20-r2`. Use `systematic-review.sqlite` for screening and meta-analysis and `dcs-model.sqlite` for the chamber benchmark and historical case catalog. Both files share source identifiers and a verified release. [Build, query and link the two databases](docs/chamber-linked-databases.md) · [Agent intake rules](AGENTS.md)
+
 The SQLite build includes the publication register and the observed-outcome benchmark. The register connects search records to reports and study cohorts, and tracks editorial checks, unresolved identity matches and reviewer decisions. The benchmark preserves each observation's population, counting unit and source locator. A person-exposure, a diagnosed case and a limb Doppler reading are distinct units. [Publication database schema](data/chamber/publication-review/schema.sql) · [Observed-outcome database dictionary](docs/chamber-benchmark.md)
 
 The SharePoint library review adds 208 aggregate observations and 26 published VGE-positive subject records. Its source register also identifies textbook definitions, reprinted cohorts and conflicting denominators. [SharePoint extractions and reconciliation notes](docs/chamber-sharepoint-review.md)
@@ -37,7 +39,7 @@ The Zotero DCS collection adds NASA extravehicular activity (EVA) follow-up, sym
 
 ### Build and inspect the data
 
-Run from the repository root. The publication-review build includes the benchmark, releases through v1.11, the SharePoint intake, the official Colombian aggregates and the Rojas, six-PDF and Zotero DCS supplements. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
+Run from the repository root. The legacy combined publication-review build includes the benchmark, releases through v1.40, the SharePoint intake, the official Colombian aggregates and the Rojas, six-PDF and Zotero DCS supplements. It works offline. The evaluation command reproduces the frozen benchmark from its original inputs.
 
 ```sh
 python -m scripts.build_chamber_database --publication-review

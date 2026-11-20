@@ -24,6 +24,64 @@
 
 [Release 1.11 cadet chamber protocols and published outcome rates](chamber-cadet-supplement.md)
 
+[Release 1.12 Royal Air Force chamber records and staged oxygen trials](chamber-raf-supplement.md)
+
+[Release 1.13 NASA, AFRL and Russian clinical chamber series](chamber-clinical-series-supplement.md)
+
+[Release 1.14 British and Swedish chamber outcomes](chamber-crossover-supplement.md)
+
+[Release 1.15 historical chamber trials and Royal Navy selection courses](chamber-historic-supplement.md)
+
+[Release 1.16 simulated spaceflight, air interruptions and source reconciliation](chamber-spaceflight-supplement.md)
+
+[Release 1.17 denitrogenation strata, repeated exposures and Brazilian chamber survey](chamber-denitrogenation-supplement.md)
+
+[Release 1.18 international chamber evidence and clinical case linkage](chamber-international-supplement.md)
+
+[Release 1.19 archival chamber and flight trials](chamber-archival-trial-supplement.md)
+
+[Release 1.20 rapid-decompression cohorts and source crosswalk](chamber-rapid-decompression-supplement.md)
+
+[Release 1.21 chamber programs and historical case reports](chamber-program-supplement.md)
+
+[Release 1.22 chamber Doppler and operational flight surveillance](chamber-flight-surveillance-supplement.md)
+
+[Release 1.23 archive follow-up and simulated zoom trials](chamber-archive-followup-supplement.md)
+
+[Release 1.24 historical chamber surveillance and clinical outcomes](chamber-historical-outcomes-supplement.md)
+
+[Release 1.25 hypobaric chamber case reports and training cluster](chamber-case-supplement.md)
+
+[Release 1.26 participant-linked chamber trial timing](chamber-timing-supplement.md)
+
+[Release 1.27 original journal archives and chamber outcome tables](chamber-archive-supplement.md)
+
+[Release 1.28 chamber symptom counts and paired crossover outcomes](chamber-symptom-supplement.md)
+
+[Release 1.29 chamber case series, symptom onset and diagnostic reports](chamber-case-series-supplement.md)
+
+[Release 1.30 age-stratified chamber outcomes and archival crosswalks](chamber-age-strata-supplement.md)
+
+[Release 1.31 historical chamber outcomes and cohort reconciliation](chamber-reconciliation-supplement.md)
+
+[Release 1.32 NASA session and technician counts and FAA source verification](chamber-nasa-strata-supplement.md)
+
+[Release 1.33 NASA case timing and Swedish paired chamber outcomes](chamber-nasa-cases-supplement.md)
+
+[Release 1.34 Swedish post-dive chamber exposures and exercise crossover VGE grades](chamber-paired-exposures-supplement.md)
+
+[Release 1.35 archived post-dive chamber flights and staged symptom records](chamber-staged-exposures-supplement.md)
+
+[Release 1.36 USAF treated-case surveillance and commercial-flight observations](chamber-treated-case-supplement.md)
+
+[Release 1.37 treated-case distribution, follow-up and individual bubble grades](chamber-case-detail-supplement.md)
+
+[Release 1.38 Polaris Dawn ground test, chamber accident and historical table reconciliation](chamber-threshold-supplement.md)
+
+[Release 1.39 historical Doppler outcomes and a chamber training case](chamber-bubble-outcomes-supplement.md)
+
+[Release 1.40 NASA symptomatic noncases and diagnostic ratings](chamber-diagnosis-supplement.md)
+
 [SharePoint books and papers, linked DCS/VGE observations and denominator reconciliation](chamber-sharepoint-review.md)
 
 [Official Colombian Air Force case register, annual training activity and role counts](chamber-fac-official.md)

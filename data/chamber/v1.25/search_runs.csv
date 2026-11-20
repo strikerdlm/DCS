@@ -1,0 +1,28 @@
+search_id,searched_on,tool,database,query,status,matched_count,screened_count,selected_count,note
+case_v25_cn,2026-11-19,Tavily search,Public web,"""低压舱"" ""高空减压病"" ""发生率"" 航空 舱 航空兵 训练 人次 试验 减压病",completed,,8,0,Screened the returned titles and snippets.
+case_v25_cn2020,2026-11-19,Firecrawl search,Public web,"""低压舱"" ""高空减压病"" ""例"" 低压舱 航空 训练 氧气 半数 发病率",completed,,5,0,Screened the returned titles and snippets.
+case_v25_jp,2026-11-19,Tavily search,Public web,"""低圧訓練"" ""減圧症"" 事例 航空自衛隊 低圧室 事故 発生 人 過去",completed,,8,0,Screened the returned titles and snippets.
+case_v25_kr,2026-11-19,Firecrawl search,Public web,"""고공감압병"" ""저압실"" 공군 훈련 발생 건수 감압병 저압 챔버 저압실",completed,,8,0,Screened the returned titles and snippets.
+case_v25_euro,2026-11-19,Tavily search,Public web,"""altitude decompression sickness"" ""chamber training"" German Swiss Finnish Norwegian Danish Belgium cases subjects retrospective original PDF",completed,,8,1,Screened the returned titles and snippets.
+case_v25_latam,2026-11-19,Firecrawl search,Public web,"""enfermedad descompresiva"" ""cámara hipobárica"" ""casos"" pilotos ocurrencia entrenamiento Fuerza Aérea Chile Perú Argentina Brasil",completed,,0,0,No ranked hit returned for this query.
+case_v25_can,2026-11-19,Tavily search,Public web,"""Canadian Forces"" ""hypobaric chamber"" ""decompression sickness"" case rates Royal Canadian Air Force report operational",completed,,8,0,Screened the returned titles and snippets.
+case_v25_hallarchive,2026-11-19,Firecrawl search,Public web,"""MR005.13-1002"" ""43,000 feet"" Albert Hall 1963 naval School Aviation Medicine original government microfilm accession",completed,,0,0,No ranked hit returned for this query.
+case_v25_zhang,2026-11-19,Tavily search,Public web,"""航天减压病易感性检测的研究"" 张静雪 彭远开 157 160 低压舱",completed,,7,0,Screened the returned titles and snippets.
+case_v25_lab,2026-11-19,Firecrawl search,Public web,"""低压舱"" ""减压病发生率"" 降压 模拟出舱 活动 研究 受试者 例次 彭远开 飞行",completed,,7,0,Screened the returned titles and snippets.
+case_v25_hum,2026-11-19,Tavily search,Public web,"""模拟出舱"" ""减压病"" 实验 ""名"" 低压舱 航天医学 人 减压病发生",completed,,7,0,Screened the returned titles and snippets.
+case_v25_jstage,2026-11-19,Firecrawl search,Public web,"""減圧症"" ""低圧室"" ""航空医学"" 発生 症例 航空医学実験隊 DOI J-STAGE 症例 鈴木",completed,,7,0,Screened the returned titles and snippets.
+case_v25_taiwan,2026-11-19,Tavily search,Public web,"""減壓症"" ""低壓艙"" 台灣 空軍 低壓艙 艙航 病例 例數",completed,,7,0,Screened the returned titles and snippets.
+case_v25_cncase,2026-11-19,Firecrawl search,Public web,"""低压舱高空耐力检查时发生减压病一例"" 齐燕松 徐蜀宣 付",completed,,2,0,Screened the returned titles and snippets.
+case_v25_cncase2,2026-11-19,Tavily search,Public web,"""低压舱"" ""高空减压病"" ""一例"" 中华航空航天医学杂志 低压舱 病例 氧舱",completed,,8,0,Screened the returned titles and snippets.
+case_v25_cnsd,2026-11-19,Firecrawl search,Public web,"""高空减压病"" ""减压病一例"" 飞行员 低压舱 低压 航空航天医学",completed,,2,0,Screened the returned titles and snippets.
+case_v25_jp2000,2026-11-19,Tavily search,Public web,"""減圧症"" ""低圧訓練"" ""航空自衛隊"" 2000 日本 高気圧 医学 事例",completed,,8,0,Screened the returned titles and snippets.
+case_v25_halo,2026-11-19,Firecrawl search,Public web,"""A blitz of bends"" ""Piwinski"" (pdf OR full text OR 600-602 OR 3718386) 1986 altitude chamber",completed,,7,1,Screened the returned titles and snippets.
+case_v25_chinese_translation,2026-11-19,Tavily search,Public web,"""A pilot case of decompression sickness occurred during altitude tolerance test"" 齐燕松 低压舱 2002 13 13",completed,,7,0,Screened the returned titles and snippets.
+case_v25_wang_search,2026-11-19,Firecrawl search,Public web,"""Investigation on performance of pilots in high altitude physiological training"" ""Wang Liping"" OR ""飞行员低压舱高空生理训练表现的调查研究"" DOI 中华航空航天医学杂志 2024",completed,,7,0,Screened the returned titles and snippets.
+case_v25_wang_search_t,2026-11-19,Tavily search,Public web,飞行员低压舱高空生理训练表现的调查研究 王丽萍 2024 35 2 81 MEDNEXUS 减压病 低压舱,completed,,8,0,Screened the returned titles and snippets.
+case_v25_qi_publisher,2026-11-19,Firecrawl scrape and Tavily extract,Chinese Medical Journals,https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2002.01.020,completed,,1,1,Verified with both plugins and archived the publisher HTML.
+case_v25_pfo_review,2026-11-19,Firecrawl scrape,Chinese Medical Journals,https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2002.01.028,completed,,1,0,Checked the journal-designated article type and author abstract.
+case_v25_wang_publisher,2026-11-19,Firecrawl scrape,Chinese Medical Journals,https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.cn113854-20230920-00092,completed,,1,0,Checked the publisher record to distinguish DCS from hypoxia.
+case_v25_gentry_publisher,2026-11-19,Tavily extract,Aerospace Medical Association,https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/88/4/article-p427.pdf,completed,,1,1,Verified text against the PDF downloaded directly from the publisher.
+case_v25_conkin_catalogue,2026-11-19,Tavily extract,NASA NTRS,https://ntrs.nasa.gov/citations/19920072110,completed,,1,0,Confirmed the primary catalogue has no associated downloads.
+case_v25_halo_ncbi,2026-11-19,NCBI PubMed EFetch,NCBI,https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3718386&retmode=xml,completed,,1,1,PubMed bibliographic and abstract record.

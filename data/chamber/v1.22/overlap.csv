@@ -1,0 +1,11 @@
+source_id,related_source,relationship,evidence
+donnell60_chamber,goodman64_altitude,partial_overlap,"Goodman Table I cites Donnell and Norton for Case 8. The 39-year-old pilot, peak 43,000 ft, left-arm deficits and delayed recompression identify the same exposure. Use the original for recorded timings."
+berry62_inflight,goodman64_altitude,partial_overlap,Goodman cites Berry and Smith for Case 9. The 48-year-old master sergeant aboard an unpressurized F-104B on 8 February 1961 matches Berry and Smith Case 3. Goodman v1.21 omitted this reused case.
+berry59_king,malette62_dysbarism,likely_overlap,Malette bibliography identifies the five-case report and cites it in the discussion of fatal cases. Individual linkage remains unavailable.
+berry58_training,berry59_king,unresolved,"Same lead author, nearby publication dates and USAF case sources. No originals establishing distinct case identities were available."
+filipenkov10_patent,filipenkov15_doppler,likely_overlap,"Same author, same diagnostic testing rationale and matching 123-person sample. The 2015 report cites the patent as reference 10."
+filipenkov15_doppler,katuntsev96_human,unresolved,2015 describes use of the Ritm instrument at the Institute of Biomedical Problems and cites overlapping Katuntsev/Filipenkov chamber work. Individual and calendar linkage unavailable.
+filipenkov15_doppler,chadov97_staged,unresolved,2015 cites the same author network and uses prior Chadov/Filipenkov data for Figure 1. Exact overlap with the 1997 chamber experiments cannot be attributed.
+filipenkov15_doppler,chadov01,unresolved,Shared Staged EVA and Doppler research program and linked author network. Pooled 447-test source lacks identifiers needed to compare with the 115-exposure Chadov sample.
+katuntsev04_mir,katuntsev16_orlan,partial_overlap,The Mir program likely contributes to the later all-Russian-spacecraft aggregate. Mir is outside the narrower 2001–2015 Russian-segment ISS stratum.
+katuntsev95_eva,katuntsev96_human,partial_overlap,The dissertation bibliography lists SAE 951594 as publication 27 from the reported work. Public abstract does not identify new exposure counts.

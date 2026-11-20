@@ -51,6 +51,8 @@ and I want it fixed.
 
 ## Chamber review workflow
 
+For source placement, identity reconciliation, updates to historical cases and building the two linked databases, follow the [repository agent rules](AGENTS.md) and [database guide](docs/chamber-linked-databases.md).
+
 Start with the [publication register](docs/chamber-publication-review.md) and
 the [search log](docs/chamber-review-search.md). Keep operational chamber
 outcomes, research exposures and model results distinct.

@@ -1,0 +1,14 @@
+search_id,searched_on,tool,database,query,status,matched_count,screened_count,selected_count,note
+diagnosis_v40_jp,2026-11-20,Tavily search,Public web,低圧室 減圧症 航空自衛隊 高空訓練 症例 日本 航空医学 実験,completed,,8,0,Ranked results screened.
+diagnosis_v40_de,2026-11-20,Firecrawl search,Public web,Höhenkammer Dekompressionskrankheit Unterdruckkammer Fall Flieger Höhenmedizin Luftwaffe Untersuchung Studie,completed,,7,0,Ranked results screened.
+diagnosis_v40_ch,2026-11-20,Tavily search,Public web,低压舱 高空减压病 航空兵 例 试验 高空 预防 高空减压病 医学 低气压舱,completed,,8,0,Ranked results screened.
+diagnosis_v40_drugs,2026-11-20,Firecrawl search,Public web,"""altitude"" ""decompression sickness"" placebo hypobaric chamber aspirin antihistamine drug trial human data incidence 1930 1980",completed,,7,0,Ranked results screened.
+diagnosis_v40_new,2026-11-20,Tavily search,Public web,"""altitude chamber"" ""decompression sickness"" cohort injury incidence trainees surveillance Canada Sweden Japan France original after 2022",completed,,8,0,Ranked results screened.
+diagnosis_v40_uk,2026-11-20,Firecrawl search,Public web,"""altitude decompression sickness"" ""Farnborough"" trials oxygen ascent exercise original group counts experimental report humans",completed,,7,0,Ranked results screened.
+diagnosis_v40_german,2026-11-20,Tavily search,Public web,"""decompression sickness"" ""low pressure chamber"" Luftwaffe Germany Holland Netherlands training altitude bends cohort original echocardiography",completed,,8,0,Ranked results screened.
+diagnosis_v40_cases,2026-11-20,Firecrawl search,Public web,"""hypobaric chamber"" ""decompression sickness"" military flight training original case 1950 2025 neurologic symptoms unusual aeromedical BMJ case",completed,,7,0,Ranked results screened.
+diagnosis_v40_trial_n,2026-11-20,Tavily search,Public web,"""Trial N"" ""48 altitude exposures"" Conkin chamber diagnosis 7 title altitude decompression sickness 2006 prebreathe protocol",completed,,8,0,No protocol identification for Trial N.
+diagnosis_v40_ntrs,2026-11-20,Tavily extract,NASA NTRS and PubMed,20030063917 | 16909875,completed,,2,0,Two URLs attempted.
+diagnosis_v40_tables,2026-11-20,Firecrawl scrape,AsMA,https://asma.kglmeridian.com/downloadpdf/view/journals/asem/77/8/article-p816.pdf,completed,,1,1,Raw table outcomes retained.
+diagnosis_v40_status,2026-11-20,Firecrawl scrape,The Wartime Archive,Status of Investigations of Decompression Sickness archive report,completed,,1,0,No standalone primary cohort entered from this item.
+diagnosis_v40_primary_files,2026-11-20,Web search and source verification,AsMA and NASA,16909875 | 20030063917 | Operation Everest II 1264.6 chamber hours Malconian 3619843,completed,,4,2,Three primary sources and a prior crosswalk checked.

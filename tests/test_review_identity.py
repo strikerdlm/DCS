@@ -67,6 +67,16 @@ def test_near_identical_titles_are_suggestions_even_when_urls_match():
     assert "publication years differ" in candidates[0][2]
 
 
+def test_same_report_title_and_document_url_preserve_both_occurrence_keys():
+    rows = [record("first"), record("second")]
+    for row in rows:
+        row["url"] = "https://example.org/reports/chamber-1986.pdf"
+    mapping, candidates = resolve(rows, {})
+    assert set(mapping) == {"first", "second"}
+    assert mapping["first"] == mapping["second"]
+    assert candidates == []
+
+
 def test_provisional_reviewed_record_cannot_absorb_a_doi_only_occurrence():
     rows = [record("a", doi="10.1234/abc"), record("b", doi="10.1234/abc")]
     mapping, candidates = resolve(rows, {"a": "provisional:possible-commentary"})
@@ -110,8 +120,10 @@ def test_recent_source_and_historical_hit_import_preserves_archived_rows():
     rows = list(legacy_records(ROOT))
     assert len(rows) == len({r["record_key"] for r in rows})
     hits = [r for r in rows if r["stream"].endswith("/search_hits.csv")]
-    assert len(hits) == 473
-    assert len({r["stream"] for r in hits}) == 5
+    assert len(hits) == 3489
+    assert len({r["stream"] for r in hits}) == 34
+
+    assert any(r["stream"].endswith("v1.40/sources.csv") for r in rows)
     by_source = {(r["stream"], r["source_key"]): r for r in rows}
     oa = by_source["data/chamber/v1.7/search_hits.csv", "openalex_fallback:1"]
     assert oa["raw"]["identifier"] == "W2807139063; DOI:10.5772/intechopen.74231"

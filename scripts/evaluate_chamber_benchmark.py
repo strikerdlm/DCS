@@ -19,6 +19,7 @@ from scipy.special import betaln, digamma, expit, log_expit, logit
 from scipy.stats import t
 
 from scripts.build_chamber_database import DATA, DEFAULT_OUTPUT, ROOT, populate, publish, sha256
+from scripts.chamber_products import verify_product
 from tinydcs.study_models import GROUP, group_estimate, read_study
 
 
@@ -331,17 +332,33 @@ def assess_external(r, model):
     return result
 
 
-def run():
-    db = sqlite3.connect(":memory:")
+def run(database: Path | None = None):
+    uri = database.resolve().as_uri() + "?mode=ro" if database else ":memory:"
+    db = sqlite3.connect(uri, uri=True)
     try:
         db.row_factory = sqlite3.Row
-        design = populate(db)
+        provenance = {}
+        if database:
+            release = db.execute("SELECT release_id FROM dataset_release WHERE kind='model'").fetchone()
+            if not release or release[0] != verify_product(database, "model"):
+                raise ValueError("The benchmark requires the verified DCS model database")
+            design = json.loads((DATA / "design.json").read_bytes())
+            inputs = {f"data/chamber/v1/{name}": value for name, value
+                      in json.loads((DATA / "manifest.json").read_bytes()).items()}
+            inputs.update(design["frozen_models"])
+            archived = dict(db.execute("SELECT path,sha256 FROM frozen_input"))
+            if any(archived.get(name) != value or sha256(ROOT / name) != value for name, value in inputs.items()):
+                raise ValueError("Model database and local benchmark inputs are from different releases")
+            provenance["database_release_id"] = release[0]
+        else:
+            design = populate(db)
         frozen = read_study(GROUP)
         locked = [
             assess_external(r, frozen)
             for r in db.execute("SELECT * FROM locked_external ORDER BY source_id,stratum")
         ]
         return {
+            **provenance,
             "release": design["release"],
             "software": {
                 "python": platform.python_version(),
@@ -367,9 +384,10 @@ def run():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--database", type=Path, help="Use dcs-model.sqlite from a verified paired release")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT.with_name("evaluation.json"))
     args = parser.parse_args()
-    content = json.dumps(run(), indent=2, allow_nan=False) + "\n"
+    content = json.dumps(run(args.database), indent=2, allow_nan=False) + "\n"
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=args.output.parent) as folder:
         temp = Path(folder) / "evaluation.json"
