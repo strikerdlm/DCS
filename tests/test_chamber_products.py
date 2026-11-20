@@ -667,6 +667,61 @@ def test_argo_table_ii_keeps_named_and_unresolved_archive_links(release):
             assert [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY rowid")] == json.loads(raw)[field]
 
 
+def test_vann_appendix_partitions_link_to_existing_flight_total(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(g.printed_exposures),sum(g.dcs_cases),max(o.denominator),max(o.cases)
+            FROM publication_vann04_flight_group g JOIN cohort_observation o
+              ON (g.source_id,g.parent_stratum,g.parent_endpoint)=(o.source_id,o.stratum,o.endpoint)
+            WHERE o.source_id='vann04' AND o.exposure_context='post_dive_hypobaric'
+        """).fetchone() == (30, 802, 40, 802, 40)
+        assert db.execute("""
+            SELECT g.profile,g.preflight_surface_interval_hours,g.dcs_cases,count(c.case_number)
+            FROM publication_vann04_flight_group g LEFT JOIN publication_vann04_case c
+              USING (source_id,profile,preflight_surface_interval_hours)
+            GROUP BY g.source_id,g.profile,g.preflight_surface_interval_hours
+            HAVING g.dcs_cases != count(c.case_number)
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT printed_exposures,dcs_cases,printed_dcs_percent FROM publication_vann04_flight_group
+            WHERE profile='repeat-60-55-60-20-60-20' AND preflight_surface_interval_hours=14
+        """).fetchone() == (10, 1, 9.1)
+        assert db.execute("""
+            SELECT count(*),sum(printed_exposures),sum(dcs_cases) FROM publication_vann04_flight_group
+            WHERE preflight_surface_interval_hours=17
+        """).fetchone() == (2, 52, 0)
+        assert db.execute("""
+            SELECT onset_phase,count(*) FROM publication_vann04_case GROUP BY onset_phase ORDER BY onset_phase
+        """).fetchall() == [("chamber_exit", 1), ("in_flight", 23), ("post_flight", 16)]
+        assert db.execute("""
+            SELECT case_number,reported_onset_min,first_dive_bottom_min_override,linked_appendix_a_case
+            FROM publication_vann04_case WHERE case_number IN (1,13,36,37,40) ORDER BY case_number
+        """).fetchall() == [
+            (1, None, None, None), (13, None, None, None), (36, 240, 12, None),
+            (37, 138, 12, None), (40, 150, None, 11),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='vann04' AND source_table='cohort_source'
+        """).fetchone() == ("pmid:15686274",)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id='pmid:15686274'
+        """).fetchone() == (0,)
+
+
+def test_vann_appendix_case_metadata_matches_model_data(release):
+    with connect_pair(release) as db:
+        db.row_factory = sqlite3.Row
+        raw, = db.execute("""
+            SELECT metadata_json FROM review.review_record WHERE source_key='vann-2004-appendix-b'
+        """).fetchone()
+        for table, field in (
+            ("publication_vann04_dive_profile", "dive_profiles"),
+            ("publication_vann04_flight_group", "flight_groups"),
+            ("publication_vann04_case", "case_profiles"),
+        ):
+            assert [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY rowid")] == json.loads(raw)[field]
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):

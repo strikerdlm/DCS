@@ -141,6 +141,7 @@ CHAMBER_NASA_PRP = ROOT / "data" / "chamber" / "v1.73"
 CHAMBER_SOAR_GAS = ROOT / "data" / "chamber" / "v1.74"
 CHAMBER_ARGO = ROOT / "data" / "chamber" / "v1.75"
 CHAMBER_LBA_COMPARISONS = ROOT / "data" / "chamber" / "v1.76"
+CHAMBER_POSTDIVE_CASES = ROOT / "data" / "chamber" / "v1.77"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1223,6 +1224,15 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_lba_argo_arm": "argo_arms.csv",
                         "publication_lba_argo_test_link": "argo_test_links.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_POSTDIVE_CASES,
+                    {
+                        "publication_vann04_dive_profile": "dive_profiles.csv",
+                        "publication_vann04_flight_group": "flight_groups.csv",
+                        "publication_vann04_case": "case_profiles.csv",
                     },
                 )
             if rojas_supplement:

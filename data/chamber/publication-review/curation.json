@@ -10205,6 +10205,60 @@
       "report_id": "abstract:asma-1997-vann-gerth-045",
       "basis": "The model source uses the same issue, abstract number and PDF hash.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.4/sources.csv#vann04",
+      "report_id": "pmid:15686274",
+      "basis": "Title, author group and Undersea and Hyperbaric Medicine volume 31, pages 431–444 identify the same PMID.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.18/search_hits.csv#intl_v18_german:3",
+      "report_id": "pmid:15686274",
+      "basis": "Title, author group and Undersea and Hyperbaric Medicine volume 31, pages 431–444 identify the same PMID.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#15686274",
+      "report_id": "pmid:15686274",
+      "basis": "Title, author group and Undersea and Hyperbaric Medicine volume 31, pages 431–444 identify the same PMID.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15686274",
+      "report_id": "pmid:15686274",
+      "basis": "Title, author group and Undersea and Hyperbaric Medicine volume 31, pages 431–444 identify the same PMID.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1929951027",
+      "report_id": "pmid:15686274",
+      "basis": "Title, author group and Undersea and Hyperbaric Medicine volume 31, pages 431–444 identify the same PMID.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "2026-11-20-vann-flying-after-diving-appendix#vann-2004-appendix-b",
+      "report_id": "pmid:15686274",
+      "basis": "Title, author group and Undersea and Hyperbaric Medicine volume 31, pages 431–444 identify the same PMID.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "2026-11-20-vann-flying-after-diving-appendix#gerth-1997-abstract-44",
+      "report_id": "abstract:asma-1997-gerth-044",
+      "basis": "Exact printed abstract number, title and page 621.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-vann-flying-after-diving-appendix#pilmanis-1997-abstract-42",
+      "report_id": "abstract:asma-1997-pilmanis-042",
+      "basis": "Exact printed abstract number, title and page 621.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-vann-flying-after-diving-appendix#webb-1997-abstract-43",
+      "report_id": "abstract:asma-1997-webb-043",
+      "basis": "Exact printed abstract number, title and page 621.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
     }
   ],
   "studies": [
@@ -10957,6 +11011,12 @@
       "label": "Duke Vann–Gerth 30,000-ft standing and reclining chamber comparison",
       "period": "Reported in 1997",
       "setting": "F.G. Hall Hypo/Hyperbaric Laboratory, Duke Medical Center, Durham, NC"
+    },
+    {
+      "study_id": "duke-dan-postdive-8000ft",
+      "label": "Duke and DAN simulated flying after diving trials",
+      "period": "Reported in 1997 and 2004",
+      "setting": "F.G. Hall Laboratory, 8,000-ft chamber exposures after dry experimental diving"
     }
   ],
   "study_reports": [
@@ -12171,6 +12231,18 @@
       "report_id": "pmid:11277286",
       "role": "later_whole_flight_aggregate_counts",
       "locator": "Printed p. 204, Table II"
+    },
+    {
+      "study_id": "duke-dan-postdive-8000ft",
+      "report_id": "pmid:15686274",
+      "role": "final_aggregate_and_case_appendix",
+      "locator": "Printed pp. 442–444, Appendix B"
+    },
+    {
+      "study_id": "duke-dan-postdive-8000ft",
+      "report_id": "abstract:asma-1997-gerth-044",
+      "role": "preliminary_protocol_subset",
+      "locator": "AsMA abstract 44, printed p. 621"
     }
   ],
   "relations": [
@@ -14497,6 +14569,27 @@
       "relationship": "phase_ii_adynamia_candidates_unresolved",
       "evidence": "The seven-person Phase II adynamic arm has the same n and zero DCS as each of tests 9d and 9e. NEDU distinguishes upper-body exercise and prints two hours of adynamia before prebreathe for both. Table II prints six hours in the Before PB column.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "left_report": "abstract:asma-1997-gerth-044",
+      "right_report": "pmid:15686274",
+      "relationship": "likely_preliminary_subset_of_flying_after_diving_trials",
+      "evidence": "Author overlap, setting, four matching dry dive profiles, four-hour 8,000-ft flight and trial sequence link the publications. Individual trial identity is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "left_report": "abstract:asma-1997-pilmanis-042",
+      "right_report": "pmid:11396555",
+      "relationship": "shared_35000ft_ergometry_protocol",
+      "evidence": "The later article uses the same 35,000-ft exposure, 75-minute prebreathe and identical exercise timing and resistance. Later enrollment differs and participant correspondence is unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "left_report": "abstract:asma-1997-webb-043",
+      "right_report": "pmid:9561279",
+      "relationship": "shared_25000ft_zero_preoxygenation_protocol",
+      "evidence": "The same lab, investigators, 25,000-ft target, zero prebreathe, mild exercise and four-hour endpoint support overlap. Early versus late participant linkage cannot be established.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
     }
   ],
   "report_titles": {
@@ -14579,6 +14672,10 @@
     "ntrs:19940006763": "Project ARGO—Gas Phase Formation in Simulated Microgravity",
     "ntrs:19940007073": "A Mechanism for the Reduction in Risk of Decompression Sickness in Microgravity Environment",
     "pmid:11277286": "Lower body adynamia as a factor to reduce the risk of hypobaric decompression sickness",
-    "abstract:asma-1997-vann-gerth-045": "Is the risk of DCS in microgravity less than on Earth?"
+    "abstract:asma-1997-vann-gerth-045": "Is the risk of DCS in microgravity less than on Earth?",
+    "pmid:15686274": "Experimental trials to assess the risks of decompression sickness in flying after diving",
+    "abstract:asma-1997-gerth-044": "Decompression sickness and flying after diving",
+    "abstract:asma-1997-pilmanis-042": "Decompression sickness (DCS) risk at 35,000 feet",
+    "abstract:asma-1997-webb-043": "Zero-preoxygenation decompression sickness risk at 25,000 feet"
   }
 }
