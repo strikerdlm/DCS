@@ -1192,5 +1192,183 @@
         "evidence_note": "The document refers to hypobaric exposure and reduced-oxygen training in its aeromedical specifications. It gives no institutional exposure denominator or chamber DCS surveillance results."
       }
     ]
+  },
+  {
+    "id": "2026-11-20-pacific-programs-t-malaysia-dhahran",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_public_pdf_extract",
+    "params": {
+      "urls": [
+        "https://icasm2025.com/assets/pdf/Abstracts%20Booklet.pdf",
+        "https://jrms.jaf.mil.jo/Files/abd72c59-2241-4183-a313-d859eaff082c.pdf"
+      ],
+      "format": "text",
+      "extract_depth": "advanced",
+      "query": "Noor Saadiah Zainal Zulkefley Mohammad Royal Malaysian Air Force decompression illness 395 349 46 and M G Koshy Two Cases Dhahran 547",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_partial_extraction",
+    "note": "The provider returned selected passages from both primary conference booklets.",
+    "records": [
+      {
+        "id": "conference-booklet-1",
+        "rank": 1,
+        "title": "7th International Conference of the Royal Medical Services and 4th ICMM Pan Arab Congress, abstracts",
+        "url": "https://jrms.jaf.mil.jo/Files/abd72c59-2241-4183-a313-d859eaff082c.pdf"
+      },
+      {
+        "id": "conference-booklet-2",
+        "rank": 2,
+        "title": "ICASM 2025 Abstracts Booklet",
+        "url": "https://icasm2025.com/assets/pdf/Abstracts%20Booklet.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-pacific-programs-u-malaysia-dhahran",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "supplementary_metadata_lookup",
+    "params": {
+      "paper_metadata": [
+        "Case Report of Decompression Illness Following Altitude Chamber Training in 2024 at the RMAFS Institute of Aviation Medicine, Noor Saadiah Zainal, Zulkefley Mohammad, Muhamad Azrul Zakaria, ICASM 2025 abstract 176",
+        "Two Cases of Cerebral Arterial Gas Embolism (CAGE) during Hypobaric Hypoxia Training at the Armed Forces Aeromedical Centre, Dhahran, Saudi Arabia, M G Koshy, Yahya Al Aql"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_zero",
+    "note": "Undermind resolved neither exact conference abstract.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-pacific-programs-o-malaysia-exact",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_search_works",
+    "params": {
+      "query": "\"Case Report of Decompression Illness Following Altitude Chamber Training in 2024\" \"Noor Saadiah Zainal\"",
+      "per_page": 5,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "usage_limited",
+    "note": "Rate limit exceeded after multiple retries. Please wait before making more requests.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-pacific-programs-malaysia-dhahran-primary",
+    "date": "2026-11-20",
+    "provider": "Public source checks",
+    "operation": "supplementary_source_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Verified the 2025 programme PDF against local text and the earlier Dhahran case report against the public proceedings text.",
+    "records": [
+      {
+        "id": "zainal-2025-icasm-176",
+        "title": "Case Report of Decompression Illness Following Altitude Chamber Training in 2024 at the RMAF’s Institute of Aviation Medicine",
+        "year": 2025,
+        "url": "https://icasm2025.com/assets/pdf/Abstracts%20Booklet.pdf#page=141",
+        "primary_source": "https://icasm2025.com/assets/pdf/Abstracts%20Booklet.pdf#page=141",
+        "locator": "ICASM 2025, Abstract 176, printed p. 139 (PDF p. 141)",
+        "study_id": "rmaf-iam-2024-hypoxia-indoctrination",
+        "authors": [
+          "Noor Saadiah Zainal",
+          "Zulkefley Mohammad",
+          "Muhamad Azrul Zakaria"
+        ],
+        "pdf_sha256": "5e3b9edd1a2b2320b765e8affd6902474c0823df9dfa88ffd51f17cc691ea4af",
+        "role_review": "combined_dci_count_and_role_exposure_headcounts_without_role_cases",
+        "evidence_note": "The report gives 23 sessions in 2024. Four individuals were diagnosed with Type I DCI among 395 individuals exposed. The total comprises 349 trainees and 46 inside observers. The reported 1.01% agrees with 4/395. The abstract also prints 0.04% per exposure without an exposure-event denominator. The authors give neither the roles of the four cases nor the rules for counting repeat participation.",
+        "source_counts": {
+          "sessions": 23,
+          "individuals_as_reported": 395,
+          "trainee_individuals_as_reported": 349,
+          "observer_individuals_as_reported": 46,
+          "reported_type_i_dci_cases": 4,
+          "reported_people_percent": 1.01,
+          "reported_exposure_percent": 0.04,
+          "person_exposure_count": null,
+          "trainee_cases": null,
+          "observer_cases": null
+        },
+        "observations": [
+          {
+            "id": "zainal-rmaf-2024-combined-type-i-dci",
+            "study_id": "rmaf-iam-2024-hypoxia-indoctrination",
+            "endpoint": "diagnosed_type_i_decompression_illness",
+            "group": "Reported individuals exposed in the training program",
+            "chamber_role": "multiple_unseparated",
+            "cases": 4,
+            "denominator": 395,
+            "denominator_unit": "individuals_exposed_as_reported",
+            "locator": "ICASM 2025, Abstract 176, printed p. 139 (PDF p. 141)",
+            "note": "The reported individual denominator does not establish a count of chamber person-exposures.",
+            "reported_rate_percent": 1.01
+          },
+          {
+            "id": "zainal-rmaf-2024-trainee-headcount",
+            "study_id": "rmaf-iam-2024-hypoxia-indoctrination",
+            "endpoint": "reported_role_individuals_exposed",
+            "group": "Reported trainees",
+            "chamber_role": "trainee",
+            "cases": null,
+            "denominator": 349,
+            "denominator_unit": "individuals_exposed_as_reported",
+            "locator": "ICASM 2025, Abstract 176, printed p. 139 (PDF p. 141)",
+            "note": "Cases were not allocated to roles."
+          },
+          {
+            "id": "zainal-rmaf-2024-observer-headcount",
+            "study_id": "rmaf-iam-2024-hypoxia-indoctrination",
+            "endpoint": "reported_role_individuals_exposed",
+            "group": "Reported inside observers",
+            "chamber_role": "staff",
+            "cases": null,
+            "denominator": 46,
+            "denominator_unit": "individuals_exposed_as_reported",
+            "locator": "ICASM 2025, Abstract 176, printed p. 139 (PDF p. 141)",
+            "note": "Cases were not allocated to roles."
+          },
+          {
+            "id": "zainal-rmaf-2024-reported-per-exposure-rate",
+            "study_id": "rmaf-iam-2024-hypoxia-indoctrination",
+            "endpoint": "reported_type_i_dci_percent_per_exposure",
+            "group": "All exposed participants, exposures unspecified",
+            "chamber_role": "multiple_unseparated",
+            "cases": 4,
+            "denominator": null,
+            "denominator_unit": "person_exposures_unreported",
+            "locator": "ICASM 2025, Abstract 176, printed p. 139 (PDF p. 141)",
+            "note": "The abstract gives no basis for reconstructing the exposure denominator.",
+            "reported_rate_percent": 0.04
+          }
+        ]
+      },
+      {
+        "id": "koshy-al-aql-2014-547",
+        "title": "Two Cases of Cerebral Arterial Gas Embolism (CAGE) during Hypobaric Hypoxia Training at the Armed Forces Aeromedical Centre (AFAMC), Dhahran, Saudi Arabia",
+        "year": 2014,
+        "url": "https://jrms.jaf.mil.jo/Files/abd72c59-2241-4183-a313-d859eaff082c.pdf",
+        "primary_source": "https://jrms.jaf.mil.jo/Files/abd72c59-2241-4183-a313-d859eaff082c.pdf",
+        "locator": "7th International Conference of the Royal Medical Services and 4th ICMM Pan Arab Congress, abstract 547, printed p. 281",
+        "authors": [
+          "M. G. Koshy",
+          "Yahya Al Aql"
+        ],
+        "role_review": "same_cerebral_arterial_gas_embolism_cases_as_later_abstract",
+        "evidence_note": "The 2014 report names Dhahran as the training site. Both case narratives match the 2018 Koshy presentation on age, progression and management. Diagnoses are cerebral arterial gas embolism. Neither report gives exposure counts.",
+        "source_counts": {
+          "cerebral_arterial_gas_embolism_cases": 2,
+          "person_exposures": null
+        }
+      }
+    ]
   }
 ]
