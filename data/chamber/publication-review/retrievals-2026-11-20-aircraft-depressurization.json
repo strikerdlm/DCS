@@ -1,0 +1,270 @@
+[
+  {
+    "id": "2026-11-20-aircraft-depressurization-t-search",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "duplicate_incident_search",
+    "params": {
+      "query": "Mancini Crotty Cook 6400 m 49 passengers Johnston 7317 m 66 loss of cabin pressure military transport decompression sickness case aircraft duplicate reports",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "returned_urls": [
+        "https://bjcasereports.com.br/index.php/bjcr/article/download/stanford_type_a_acute_aortic_dissection/stanford_type_a_acute_aortic_dissection/2368",
+        "https://www.researchgate.net/publication/374738426_Stanford_type_A_acute_aortic_dissection_associated_with_aircraft_cabin_depressurization_cause_or_coincidence",
+        "https://www.rma.gov.au/assets/Other/183-3-Reference-list-decompression-sickness-RMA-meeting-April-2023.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/30487030",
+        "https://asma.kglmeridian.com/view/journals/amhp/89/12/amhp.89.issue-12.xml",
+        "https://www.dhmjournal.com/images/IndividArticles/19June/Skinner_SPUMSJ.19.2.66-73.pdf",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA360727.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 7,
+    "status": "observed",
+    "note": "The search retrieved citations and background references. No second primary account of either individual flight was confirmed.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-t-pubmed",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "indexed_record_retrieval",
+    "params": {
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/30487030/",
+        "https://pubmed.ncbi.nlm.nih.gov/18457302/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Tavily returned fetch errors for both PubMed landing pages. The original reports and their PubMed identifiers were verified separately.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-t-pdf",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "publisher_pdf_retrieval",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/12/article-p1085.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/4/article-p429.pdf"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "partial",
+    "note": "The Johnston full text was retrieved. Tavily reported a fetch failure for the Mancini PDF. Firecrawl and the downloaded publisher PDF supplied that source.",
+    "records": [
+      {
+        "id": "johnston",
+        "title": "Loss of Cabin Pressure in a Military Transport: A Mass Casualty with Decompression Illnesses",
+        "year": 2008,
+        "doi": "10.3357/asem.2153.2008",
+        "pmid": "18457302",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/4/article-p429.pdf",
+        "locator": "Printed pp. 429–432"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-f-johnston",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_pdf_retrieval",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/4/article-p429.pdf",
+      "format": "markdown",
+      "parser": "pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher PDF corroborates the C-130 exposure group and postlanding diagnoses. The main text describes the spinal diagnosis as presumptive.",
+    "records": [
+      {
+        "id": "johnston",
+        "title": "Loss of Cabin Pressure in a Military Transport: A Mass Casualty with Decompression Illnesses",
+        "year": 2008,
+        "doi": "10.3357/asem.2153.2008",
+        "pmid": "18457302",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/4/article-p429.pdf",
+        "locator": "Printed pp. 429–432"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-f-mancini",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_pdf_retrieval",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/12/article-p1085.pdf",
+      "format": "markdown",
+      "parser": "pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher PDF corroborates the passenger denominator, selective referral, clinical diagnoses, symptom table and follow-up.",
+    "records": [
+      {
+        "id": "mancini",
+        "title": "Triage and Treatment of Mass Casualty Decompression Sickness After Depressurization at 6400 m",
+        "year": 2018,
+        "doi": "10.3357/amhp.5142.2018",
+        "pmid": "30487030",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/12/article-p1085.pdf",
+        "locator": "Printed pp. 1085–1088, Figure 1 and Tables I–II"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-verified",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "original_pdf_outcome_extraction",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/4/article-p429.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/12/article-p1085.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Original publisher PDFs reviewed for participant counts, pressure-gas histories, symptom onset, diagnosis and follow-up. Flight profiles and ascertainment distinguish the reports. Both describe actual flights.",
+    "records": [
+      {
+        "id": "johnston",
+        "title": "Loss of Cabin Pressure in a Military Transport: A Mass Casualty with Decompression Illnesses",
+        "year": 2008,
+        "doi": "10.3357/asem.2153.2008",
+        "pmid": "18457302",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/4/article-p429.pdf",
+        "locator": "Printed pp. 429–432",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/79/4/article-p429.pdf",
+        "source_id": "johnston08_c130",
+        "sha256": "fd680ef6184572ea440e3a83bb33be4cdcd14e656279601190ea5b4ff5c31e43",
+        "observations": [
+          {
+            "id": "johnston2005-aircraft-dcs",
+            "study_id": "johnston-c130-fall-2005",
+            "group": "All occupants of one C-130 flight",
+            "endpoint": "reported_dcs_any",
+            "cases": 4,
+            "denominator": 66,
+            "denominator_unit": "aircraft_occupant",
+            "year": 2005,
+            "locator": "Abstract p. 429 and case report pp. 430–431",
+            "note": "Includes one presumptive spinal case. The report describes 72 h monitoring of all occupants. Role-specific case counts are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "mancini",
+        "title": "Triage and Treatment of Mass Casualty Decompression Sickness After Depressurization at 6400 m",
+        "year": 2018,
+        "doi": "10.3357/amhp.5142.2018",
+        "pmid": "30487030",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/12/article-p1085.pdf",
+        "locator": "Printed pp. 1085–1088, Figure 1 and Tables I–II",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/12/article-p1085.pdf",
+        "source_id": "mancini18_aircraft",
+        "sha256": "65d42e9b1604f2cffba086fad73c766f13b8044e91c6c05a16f0e9793c643e3d",
+        "observations": [
+          {
+            "id": "mancini-aircraft-type-ii-dcs",
+            "study_id": "mancini-military-aircraft-6400m",
+            "group": "Passengers of one military flight",
+            "endpoint": "reported_type_ii_dcs",
+            "cases": 6,
+            "denominator": 49,
+            "denominator_unit": "exposed_passenger",
+            "locator": "Abstract p. 1085, Figure 1 p. 1086 and case report p. 1087",
+            "note": "Selective referral and incomplete follow-up. Forty-nine counts passengers only. The exact number of flight crew members is unavailable."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-f-chamber",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_chamber_discovery",
+    "params": {
+      "query": "\"decompression sickness\" \"altitude chamber\" training incidence instructor students study cohort symptomatic primary",
+      "limit": 8,
+      "returned_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/28518008/",
+        "https://www.science.gov/topicpages/a/altitude+decompression+sickness",
+        "https://jsomonline.org/product/decompression-sickness-following-altitude-chamber-training/",
+        "https://www.researchgate.net/publication/327371039_White_Matter_Status_of_Participants_in_Altitude_Chamber_Research_and_Training",
+        "https://www.joet.org/journal/view.php?number=3274"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "Clinical hits repeat already indexed Ata, Brandt, Ben-Ari, Gentry and Studer publications. Other results did not yield a directly verified new chamber risk set.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-t-chamber",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_chamber_discovery",
+    "params": {
+      "query": "\"decompression sickness\" \"hypobaric chamber\" \"training\" Spanish Italian German Swedish Norway Poland France trainees exposure series aviation physiology chamber incidents denominator",
+      "max_results": 10,
+      "search_depth": "advanced",
+      "returned_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+        "https://www.etcaircrewtraining.com/altitude-chamber-military-training.html",
+        "https://www.etcaircrewtraining.com/altitude-chamber-civil-aviation-training.html",
+        "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "https://flightsafety.org/hf/hf_nov-dec92.pdf",
+        "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "https://files.4medicine.pl/download.php?cfs_id=1400",
+        "https://medcoe.army.mil/saam-chamber",
+        "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/physiologc.pdf",
+        "https://en.wikipedia.org/wiki/Hypobaric_chamber"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "The Polish Jarosz abstract and the Australian Smart and Cable series match existing source extractions. No new chamber denominator established during this search.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-aircraft-depressurization-f-jarosz",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "comparison_to_existing_chamber_extraction",
+    "params": {
+      "url": "https://files.4medicine.pl/download.php?cfs_id=1400",
+      "parser": "pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Full text confirms Jarosz et al. DOI 10.13174/pjamp.21.01.2015.01 and the same 45 men and 64 exposures as the existing jarosz15 study. The excerpt is another access route to a known report.",
+    "records": [
+      {
+        "id": "jarosz-mirror",
+        "title": "High Altitude Chamber Training for Military Flight Personnel - Altitude DCS Risk Assessment by Means of Echocardiographic Detection of Gas Bubbles",
+        "year": 2015,
+        "doi": "10.13174/pjamp.21.01.2015.01",
+        "url": "https://files.4medicine.pl/download.php?cfs_id=1400",
+        "locator": "PDF abstract and Methods"
+      }
+    ]
+  }
+]

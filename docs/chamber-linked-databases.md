@@ -8,6 +8,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `systematic-review.sqlite` | `review_seed_role_cell`, `review_supplementary_role_cell`, `review_secondary_role_cell` | Original and secondary role-specific counts for eligibility assessment |
 | `dcs-model.sqlite` | `development_counts`, `afrl_test`, `vge_interval`, `locked_external` | Frozen NASA DCS groups, separate AFRL test groups, Grade IV VGE intervals and external strata |
 | `dcs-model.sqlite` | `historical_case_catalog`, `dcs_case`, `publication_observation_revision` | Selected historical case histories and source corrections |
+| `dcs-model.sqlite` | `publication_aircraft_incident`, `publication_aircraft_incident_count` | Aircraft incident profiles and source-reported outcomes |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 ## Build and use a release
@@ -43,11 +44,15 @@ with connect_pair("artifacts/chamber-products/2026-11-20-r2") as db:
 
 The Gentry report supplies symptom onset at three hours, a first presentation at approximately 48 hours and a later presentation on day 14. All three observations belong to the same episode. The Yoneda abstract and extraction support a probable cutaneous DCS case with 24 hours of recurrence-free follow-up. The records retain their original diagnosis and counting unit. Neither supplies a population denominator. NASA case 30 keeps the 86-minute printed table value alongside a preferred 68-minute first symptom report from the narrative. The source locator accompanies each value. [Gentry report](https://pubmed.ncbi.nlm.nih.gov/28518008/) · [Yoneda report](https://pubmed.ncbi.nlm.nih.gov/9681378/) · [NASA timing review](../data/chamber/v1.33/nasa_timing_review.csv)
 
-The historical catalog covers 103 numbered NASA cases and four explicitly cross-linked published cases in this release. Additional case reports and aggregate outcomes remain in the original extraction tables. The fitting dataset contains 41 NASA groups with 124 DCS events in 885 exposures. A separate table contains 238 Grade IV VGE intervals. Clinical risk for an individual routine chamber trainee still requires linked clinical outcomes and validation in that population.
+The historical catalog covers 103 numbered NASA cases and five explicitly cross-linked published cases in this release. Additional case reports and aggregate outcomes remain in the original extraction tables. The fitting dataset contains 41 NASA groups with 124 DCS events in 885 exposures. A separate table contains 238 Grade IV VGE intervals. Clinical risk for an individual routine chamber trainee still requires linked clinical outcomes and validation in that population.
 
 Ferris and Engel supply seven case-conditional margins for the previously catalogued Cincinnati and Halifax series. Their clinical chapter also corroborates one Berkeley case from the 1944 meeting minutes and preserves both reported times to postdescent worsening. [Neurological timing supplement](chamber-ferris-engel-neurological-supplement.md)
 
 The 1946 Operation Everest diary supplies two dated staff cerebral bends reports. Eleven contextual entries retain the lock activity, staffing, recorded symptoms and resident follow-up. The study register links the investigator and diary reports to one experiment. [Operation Everest I supplement](chamber-operation-everest-i-supplement.md)
+
+The 2026 AsMA familiarization case adds six source-reported milestones. The study register also links the EA-6 meeting abstract and original NASA slides to their shared cohort. [AsMA chamber case supplement](chamber-asma-chamber-case-supplement.md)
+
+The aircraft incident supplement links the original military depressurization reports from Johnston and Mancini to two distinct studies. It preserves passenger and occupant denominators, one presumptive diagnosis, and an unreconciled symptom count. These aircraft counts are descriptive aviation evidence. [v1.65 source extractions](../data/chamber/v1.65/counts.csv)
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 

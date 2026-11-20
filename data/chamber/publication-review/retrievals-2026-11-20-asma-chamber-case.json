@@ -1,0 +1,171 @@
+[
+  {
+    "id": "2026-11-20-asma-chamber-case-case-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "related_case_search",
+    "params": {
+      "query": "Rebecca Mendelsohn Robert Sanders \"Test of Pressure\" 2026 \"chamber\" NASA case right elbow wrist decompression safety presentation conference",
+      "max_results": 8,
+      "search_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "The results include NASA's broader technical reports. No additional report identifying this same case was found.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-asma-chamber-case-case-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "related_case_search",
+    "params": {
+      "query": "AsMA 2026 abstract altitude chamber decompression sickness cases NASA familiarization Mendelsohn Sanders public original program",
+      "limit": 8,
+      "sources": [
+        "web"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "Retrieved the official AsMA proceedings landing page and prior NASA summaries. The 2018 report describes different symptom laterality or phenotype.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-asma-chamber-case-journal-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "published_abstract_verification",
+    "params": {
+      "url": "https://openurl.ebsco.com/contentitem/gcd:197020995?id=ebsco%3Agcd%3A197020995&crl=c&jrnl=23756314",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The public EBSCO record supplies the same authors, title and clinical narrative. The volume and opening page agree with the existing index.",
+    "records": [
+      {
+        "id": "mendelsohn-index",
+        "title": "Test of pressure: Medical decision making in a case of altitude chamber DCS",
+        "year": 2026,
+        "url": "https://openurl.ebsco.com/contentitem/gcd:197020995?id=ebsco%3Agcd%3A197020995&crl=c&jrnl=23756314",
+        "locator": "AMHP 97(9), starting p. 758; EBSCO GCD 197020995"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-asma-chamber-case-ea6-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "presentation_accession_verification",
+    "params": {
+      "url": "https://ntrs.nasa.gov/citations/20260003261",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the NTRS presentation accession, author list, meeting and slide PDF.",
+    "records": [
+      {
+        "id": "garbino-ntrs",
+        "title": "NASA Exploration Atmosphere Test 6: Back to Back EVAs",
+        "year": 2026,
+        "url": "https://ntrs.nasa.gov/citations/20260003261",
+        "locator": "NTRS accession 20260003261"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-asma-chamber-case-ea6-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "presentation_accession_verification",
+    "params": {
+      "url": "https://ntrs.nasa.gov/citations/20260003261",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the presentation listing and the author's case counts from the same EA-6 study.",
+    "records": [
+      {
+        "id": "garbino-ntrs",
+        "title": "NASA Exploration Atmosphere Test 6: Back to Back EVAs",
+        "year": 2026,
+        "url": "https://ntrs.nasa.gov/citations/20260003261",
+        "locator": "NTRS accession 20260003261"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-asma-chamber-case-pages",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "full_abstract_screening",
+    "params": {
+      "urls": [
+        "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft7-1.pdf#page=232",
+        "https://ntrs.nasa.gov/citations/20260003261",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/11/article-p941.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Checked the programme abstracts and the prior NASA training report. The familiarization case is recorded once. The EA-6 abstract corroborates the existing slides. Related training and in-flight abstracts add no chamber DCS denominator.",
+    "records": [
+      {
+        "id": "mendelsohn-223",
+        "title": "Test of pressure: Medical decision making in a case of altitude chamber DCS",
+        "year": 2026,
+        "url": "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft7-1.pdf#page=232",
+        "locator": "AsMA programme abstract 223, PDF pp. 232–233",
+        "sha256": "c4cae307f94f6b3d8507594fc4eb36398f732c38aa362e2bb93707fc941ede61",
+        "observations": [
+          {
+            "id": "mendelsohn-sanders-2026-familiarization",
+            "study_id": "asma-mendelsohn-sanders-familiarization-case",
+            "group": "Familiarization chamber flight participant",
+            "chamber_role": "participant",
+            "endpoint": "dcs_source_interpretation",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "AsMA programme abstract 223, PDF pp. 232–233",
+            "note": "The authors interpret the case as DCS. Symptom onset is during the chamber flight. Approximately one hour is the time from return to ground to first clinical presentation.",
+            "altitude_ft": 25000,
+            "prebreathe_min": 45,
+            "mask_off_min_approximate": 4,
+            "first_assessment_min_after_return_to_ground_approximate": 60
+          }
+        ]
+      },
+      {
+        "id": "garbino-18",
+        "title": "The impact of back-to-back extravehicular activity on decompression sickness risk: The NASA Exploration Atmosphere Test 6",
+        "year": 2026,
+        "url": "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft7-1.pdf#page=22",
+        "locator": "Abstract 18, PDF p. 22",
+        "note": "Corroborates two Type II and one Type I cases in the existing 16-participant EA-6 study. The total count of person-exposures is not printed in the abstract."
+      },
+      {
+        "id": "wrigley-334",
+        "title": "A review of the clinical presentation of in-flight altitude decompression sickness (DCS)",
+        "year": 2026,
+        "url": "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft7-1.pdf#page=345",
+        "locator": "Abstract 334, PDF p. 345",
+        "note": "Published-case review of aircraft decompressions. No chamber observation or exposure denominator."
+      },
+      {
+        "id": "baker-188",
+        "title": "Decompression sickness in a Marine F-35C pilot: A case report",
+        "year": 2026,
+        "url": "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft7-1.pdf#page=195",
+        "locator": "Abstract 188, PDF p. 195",
+        "note": "In-flight case report after aircraft depressurization. No chamber outcome or exposure denominator."
+      }
+    ]
+  }
+]
