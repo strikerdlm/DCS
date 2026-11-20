@@ -246,6 +246,63 @@ def test_formal_search_flow_and_source_identities(release):
         ]
 
 
+def test_davis_case_crosswalk_and_hbo_endpoint(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT case_id, report_id, source_time_min FROM historical_case_catalog
+            WHERE source_id IN ('davis71_neurological', 'lewis72_usaf_flight') ORDER BY case_id
+        """).fetchall() == [
+            ("davis71_neurological:first-training-flight-case-02", "pmid:5099868", None),
+            ("lewis72_usaf_flight:neurological-case-06", "pmid:5099868", None),
+        ]
+        assert db.execute("""
+            SELECT left_report,right_report FROM review.review_report_relation
+            WHERE left_report='pmid:5099868' AND relationship='same_published_case'
+        """).fetchone() == ("pmid:5099868", "pmid:4634276")
+        assert db.execute("""
+            SELECT milestone,clock_time,chamber_altitude_ft FROM publication_case_milestone
+            WHERE source_id='davis71_neurological'
+              AND milestone IN ('paresthesia_at_ascent_pause','apparent_recovery','observed_incoordination')
+            ORDER BY clock_time
+        """).fetchall() == [
+            ("paresthesia_at_ascent_pause", "09:03", 25000),
+            ("apparent_recovery", "10:00", None),
+            ("observed_incoordination", "10:35", None),
+        ]
+        assert db.execute("""
+            SELECT period, count(*), sum(numerator), sum(denominator) FROM publication_observation
+            WHERE source_id='davis77_hyperbaric' AND endpoint='dcs_treated_with_hyperbaric_oxygen'
+              AND analysis_role='overlap_hold' GROUP BY period ORDER BY period
+        """).fetchall() == [("1973", 4, 7, 63019), ("1974", 4, 19, 65361),
+                             ("1975", 4, 30, 55667), ("1976", 4, 14, 58305)]
+        assert db.execute("""
+            SELECT denominator FROM publication_observation
+            WHERE source_id='davis77_hyperbaric' AND stratum='1974-trainee-above-25000'
+        """).fetchone() == (51441,)
+        assert db.execute("""
+            SELECT denominator_unit, sum(numerator), sum(denominator) FROM publication_observation
+            WHERE source_id='davis77_hyperbaric' AND endpoint='dcs_treated_with_hyperbaric_oxygen'
+            GROUP BY denominator_unit ORDER BY denominator_unit
+        """).fetchall() == [("observer_exposure", 31, 48148), ("trainee_exposure", 39, 194204)]
+        mismatch = db.execute("""
+            SELECT p.stratum FROM publication_observation p
+            LEFT JOIN review.review_search_observation r
+              ON (r.observation_id,r.endpoint,r.cases,r.denominator,r.denominator_unit)=
+                 (p.stratum,p.endpoint,p.numerator,p.denominator,p.denominator_unit)
+              AND r.report_id='pmid:889546'
+            WHERE p.source_id='davis77_hyperbaric' AND p.endpoint='dcs_treated_with_hyperbaric_oxygen'
+              AND r.record_key IS NULL
+        """).fetchall()
+        assert mismatch == []
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='pmid:889546' AND endpoint='dcs_treated_with_hyperbaric_oxygen'
+        """).fetchone() == (16,)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id='pmid:889546'
+        """).fetchone() == (0,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
@@ -259,7 +316,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (109, 109, 109)
+        """).fetchone() == (111, 111, 111)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
