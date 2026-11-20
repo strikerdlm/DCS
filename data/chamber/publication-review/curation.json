@@ -7002,6 +7002,13 @@
       "relationship": "article_within_journal_issue",
       "evidence": "The published study occupies printed pages 18–21 of volume 18, issue 21.",
       "evidence_url": "https://www2.fab.mil.br/unifa/images/revista/pdf/ed_21.pdf"
+    },
+    {
+      "left_report": "pmid:23066619",
+      "right_report": "pmid:21748904",
+      "relationship": "likely_overlap",
+      "evidence": "Both reports retrospectively cover U-2 pilots. Jersey's 2002–2009 CNS DCS case window is nested in Hundemer's 1994–2010 all-DCS surveillance window; case-level linkage is unavailable. Retain as related reports and avoid pooling them as independent cohorts.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21748904/"
     }
   ],
   "report_titles": {
