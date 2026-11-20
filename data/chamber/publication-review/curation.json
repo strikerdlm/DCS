@@ -683,6 +683,66 @@
       "report_id": "pmid:3790029",
       "basis": "The frozen Zotero source and overlap registers cross-reference the prior article by author, title and publication details.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3790029/"
+    },
+    {
+      "record_key": "2026-11-20-eds-role#ujymfkpogv",
+      "report_id": "report:dot-faa-am-90-12",
+      "basis": "Same technical report number, author, title and survey period.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21318"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.3/sources.csv#faa90",
+      "report_id": "report:dot-faa-am-90-12",
+      "basis": "Same technical report number, author, title and survey period.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21318"
+    },
+    {
+      "record_key": "2026-11-20-eds-training#umroyqpc7b",
+      "report_id": "ntrs:20200004317",
+      "basis": "NTRS primary record and archived file identify NASA/TP-2020-220529.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20200004317"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1/sources.csv#nasa20",
+      "report_id": "ntrs:20200004317",
+      "basis": "NTRS primary record and archived file identify NASA/TP-2020-220529.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20200004317"
+    },
+    {
+      "record_key": "2026-11-20-eds-role#oykgnc56sr",
+      "report_id": "eds:oykgnc56sr",
+      "basis": "Same EDS accession and title in two searches.",
+      "evidence_url": "https://researchs.unalproxy.elogim.com/c/ernpho/search/details/oykgnc56sr"
+    },
+    {
+      "record_key": "2026-11-20-eds-training#oykgnc56sr",
+      "report_id": "eds:oykgnc56sr",
+      "basis": "Same EDS accession and title in two searches.",
+      "evidence_url": "https://researchs.unalproxy.elogim.com/c/ernpho/search/details/oykgnc56sr"
+    },
+    {
+      "record_key": "2026-11-20-eds-training#e7p5cjo6cn",
+      "report_id": "eds:e7p5cjo6cn",
+      "basis": "Same EDS accession and citation in two searches. The news item reports on the Ercan paper.",
+      "evidence_url": "https://researchs.unalproxy.elogim.com/c/ernpho/search/details/e7p5cjo6cn"
+    },
+    {
+      "record_key": "2026-11-20-eds-seed#e7p5cjo6cn",
+      "report_id": "eds:e7p5cjo6cn",
+      "basis": "Same EDS accession and citation in two searches. The news item reports on the Ercan paper.",
+      "evidence_url": "https://researchs.unalproxy.elogim.com/c/ernpho/search/details/e7p5cjo6cn"
+    },
+    {
+      "record_key": "2026-11-20-primary-followup#asma2024-abstract-14",
+      "report_id": "asma:2024-abstract-14",
+      "basis": "Title, authors and abstract number verified in the meeting issue.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/8/article-p1.pdf"
+    },
+    {
+      "record_key": "2026-11-20-primary-followup#kindelan25-biselli",
+      "report_id": "proceedings:kindelan-25-biselli",
+      "basis": "Chapter title and author verified in the official proceedings.",
+      "evidence_url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/k/i/kindelan_25_linea.pdf"
     }
   ],
   "studies": [
@@ -972,6 +1032,27 @@
       "relationship": "historical_reprint",
       "evidence": "The 1948 review quotes the 1946 cold-chamber study and misaligns the warm-group denominators. The 1946 original gives 122 exercise and 92 rest flights at 30,000 ft. The 1948 report also describes its own Pensacola series.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p67.pdf"
+    },
+    {
+      "left_report": "pmid:42345225",
+      "right_report": "pmid:36309795",
+      "relationship": "likely_overlap",
+      "evidence": "Israeli Air Force 2015–2019 surveillance falls within the 2015–2022 period of the later report. Matching events and role-specific exposure records are unavailable.",
+      "evidence_url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf"
+    },
+    {
+      "left_report": "doi:10.1109/aero66936.2026.11520147",
+      "right_report": "asma:2024-abstract-14",
+      "relationship": "overlapping_ground_cohort",
+      "evidence": "Both reports describe eight participants in the Polaris Dawn ground test at NASA JSC, comprising the four mission crew and four matched volunteers. The later paper also reports on a modified flight profile.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/8/article-p1.pdf"
+    },
+    {
+      "left_report": "proceedings:kindelan-25-biselli",
+      "right_report": "pmid:20824995",
+      "relationship": "possible_overlap",
+      "evidence": "Both describe Italian Air Force training with similar profiles. The proceedings do not give a calendar window for the 1,777 trainees, so overlap with the 2003–2009 Morgagni series is unresolved.",
+      "evidence_url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/k/i/kindelan_25_linea.pdf"
     }
   ]
 }
