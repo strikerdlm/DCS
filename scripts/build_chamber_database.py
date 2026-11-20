@@ -120,6 +120,11 @@ CHAMBER_HDSD_COMPILATION = ROOT / "data" / "chamber" / "v1.52"
 CHAMBER_ASCENT_RECONCILIATION = ROOT / "data" / "chamber" / "v1.53"
 CHAMBER_HISTORICAL_CROSSOVER = ROOT / "data" / "chamber" / "v1.54"
 CHAMBER_HISTORICAL_PRESELECTION = ROOT / "data" / "chamber" / "v1.55"
+CHAMBER_HISTORICAL_PREOXYGENATION = ROOT / "data" / "chamber" / "v1.56"
+CHAMBER_CAM_MEETING = ROOT / "data" / "chamber" / "v1.57"
+CHAMBER_CAM_BULLETIN = ROOT / "data" / "chamber" / "v1.58"
+CHAMBER_CAM_MULTICENTER = ROOT / "data" / "chamber" / "v1.59"
+CHAMBER_CAM_PAIRED = ROOT / "data" / "chamber" / "v1.60"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1038,6 +1043,53 @@ def build(
                     "publication",
                     extra_tables={"publication_preselection_rate": "preselection_rates.csv"},
                     include_observations=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_HISTORICAL_PREOXYGENATION,
+                    "publication",
+                    extra_tables={
+                        "publication_preoxygen_group": "groups.csv",
+                        "publication_preoxygen_measure": "measures.csv",
+                    },
+                    include_observations=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_CAM_MEETING,
+                    "publication",
+                    extra_tables={"publication_meeting_measure": "measures.csv"},
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_CAM_BULLETIN,
+                    "publication",
+                    extra_tables={
+                        "publication_repeat_descent": "flight_descents.csv",
+                        "publication_repeat_classification": "flight_classification.csv",
+                        "publication_archival_cohort_size": "cohort_sizes.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_CAM_MULTICENTER,
+                    "publication",
+                    extra_tables={
+                        "publication_repeat_flight_profile": "repeat_profiles.csv",
+                        "publication_repeat_flight_count": "repeat_counts.csv",
+                        "publication_descent_interval": "descent_intervals.csv",
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_CAM_PAIRED,
+                    "publication",
+                    extra_tables={
+                        "publication_paired_chamber_arm": "paired_arms.csv",
+                        "publication_paired_chamber_count": "paired_counts.csv",
+                        "publication_narrative_chamber_rate": "narrative_rates.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(

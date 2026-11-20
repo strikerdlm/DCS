@@ -1,0 +1,386 @@
+[
+  {
+    "id": "2026-11-20-cam-paired-ferris-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "report_overlap_search",
+    "params": {
+      "query": "\"The clinical nature of high altitude decompression sickness\" Ferris Engel Romano 1944 breadth factor chokes original",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "Located an accessible digitized copy of the Fulton 1951 monograph. Returned references did not establish individual linkage in the breadth-factor table.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-ryder-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "report_overlap_search",
+    "params": {
+      "query": "\"An assay of dextro amphetamine for its protective value in decompression sickness\" Ryder CAM 112 January 1943",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "No authoritative standalone CAM 112 copy was returned. Fulton bibliography and narrative supplied the link.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-ryder-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "report_overlap_search",
+    "params": {
+      "query": "\"An assay of dextro amphetamine for its protective value in decompression sickness\" Ryder CAM 112 January 1943",
+      "limit": 7,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 3,
+    "status": "observed",
+    "note": "Three results. No authoritative standalone CAM 112 copy was returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-larrabee-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "report_overlap_search",
+    "params": {
+      "query": "\"Decompression sickness during exposures to 38,000 feet accompanied by exercise\" Larrabee report 137 June 1943",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "No verified full text for CAM 137. Fulton bibliography supplies exact date and locator.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-ivy-b2b-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "report_overlap_search",
+    "params": {
+      "query": "\"re drug B2B\" \"incapacitating bends\" Adler Burkhardt Grodins Atkinson altitude report 1943",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "No verified original report copy. The committee minutes provide printed percentage comparisons.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-fulton-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "report_overlap_search",
+    "params": {
+      "query": "\"Some Factors Affecting the Incidence of Bends At Altitude\" 1944 Adler Burkhardt Thometz full text Military Surgeon",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "The 1944 and 1947 similarly titled publications were resolved using publisher and DOI metadata in follow-up.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-archive-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "archive_container_verification",
+    "params": {
+      "urls": [
+        "https://discovery.nationalarchives.gov.uk/details/r/C2151735"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified AIR 57/22 covers report numbers 754–800 and is undigitized. The two target reports already occur in the review. This records an archival locator only.",
+    "records": [
+      {
+        "id": "fprc-793",
+        "title": "Results of tests in a decompression chamber of 610 flying personnel",
+        "year": 1952,
+        "url": "https://discovery.nationalarchives.gov.uk/details/r/C2151735",
+        "archive_container": "AIR 57/22",
+        "archive_report_number": "793",
+        "access": "undigitized container; individual report contents unverified"
+      },
+      {
+        "id": "fprc-794",
+        "title": "Further analysis of cases of descent in decompression chamber tests of 610 flying personnel",
+        "year": 1952,
+        "url": "https://discovery.nationalarchives.gov.uk/details/r/C2151735",
+        "archive_container": "AIR 57/22",
+        "archive_report_number": "794",
+        "access": "undigitized container; individual report contents unverified"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-paired-archive-kew",
+    "date": "2026-11-20",
+    "provider": "The National Archives",
+    "operation": "public_catalogue_container_verification",
+    "params": {
+      "urls": [
+        "https://discovery.nationalarchives.gov.uk/API/records/v1/details/C2151735"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Official catalogue confirms the title range and digitised=false. No PDF or individual report inventory is attached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-publisher-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "citation_and_full_text_check",
+    "params": {
+      "urls": [
+        "https://jamanetwork.com/journals/jama/fullarticle/291560",
+        "https://pubmed.ncbi.nlm.nih.gov/20281876/",
+        "https://openalex.org/W2802028029"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The JAMA page yielded an article preview without outcome tables; the PubMed extraction failed. OpenAlex independently identified the distinct 1944 Fulton paper.",
+    "records": [
+      {
+        "id": "burkhardt47_factors",
+        "title": "Decompression sickness: Some factors which affect the incidence of bends at altitude",
+        "year": 1947,
+        "url": "https://jamanetwork.com/journals/jama/fullarticle/291560",
+        "locator": "Publisher preview and indexed metadata",
+        "archival_id": "10.1001/jama.1947.02880060015004",
+        "doi": "10.1001/jama.1947.02880060015004",
+        "pmid": "20281876"
+      },
+      {
+        "id": "fulton44_factors",
+        "title": "Some Factors Affecting the Incidence of “Bends” at Altitude",
+        "year": 1944,
+        "url": "https://doi.org/10.1093/milmed/94.4.199",
+        "locator": "Publisher issue and OpenAlex W2802028029",
+        "archival_id": "10.1093/milmed/94.4.199",
+        "doi": "10.1093/milmed/94.4.199",
+        "openalex_id": "W2802028029"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-paired-fulton-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "title_disambiguation",
+    "params": {
+      "urls": [
+        "https://openalex.org/W2802028029",
+        "https://doi.org/10.1093/milmed/94.4.199"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified Fulton metadata and DOI. Oxford pages did not supply the article text.",
+    "records": [
+      {
+        "id": "fulton44_factors",
+        "title": "Some Factors Affecting the Incidence of “Bends” at Altitude",
+        "year": 1944,
+        "url": "https://doi.org/10.1093/milmed/94.4.199",
+        "locator": "Publisher issue and OpenAlex W2802028029",
+        "archival_id": "10.1093/milmed/94.4.199",
+        "doi": "10.1093/milmed/94.4.199",
+        "openalex_id": "W2802028029"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-paired-robie-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "publisher_metadata_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/view/journals/aeme/31/11/article-p885.xml"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified author names and page range. The locally read publisher PDF showed that all three cases were operational flights.",
+    "records": [
+      {
+        "id": "robie60_pathology",
+        "title": "Pathological findings in three cases of decompression sickness",
+        "year": 1960,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/11/article-p885.pdf",
+        "locator": "Case reports pp. 885–891; bibliography p. 896 items 11–13",
+        "archival_id": "AEME:31-11-885",
+        "sha256": "919d901baddbcbd46142bb36caa4763cfec9119f2202134db083887ed2424d54"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-paired-nlm",
+    "date": "2026-11-20",
+    "provider": "National Library of Medicine",
+    "operation": "original_page_verification",
+    "params": {
+      "urls": [
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=137",
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=138",
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=145",
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=144"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified original reported counts, rates, group definitions and pages against the archive images.",
+    "records": [
+      {
+        "id": "ivy43_stimulant",
+        "title": "Ivy report on dextroamphetamine and preoxygenation in altitude chamber exposures",
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=137",
+        "locator": "Heading and items 1–4, pp. 137–138 (PDF pp. 137–138)",
+        "archival_id": "NLM:101085500X233:137:IVY",
+        "sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069"
+      },
+      {
+        "id": "ferris43_paired",
+        "title": "Ferris paired placebo and stimulant chamber exposures",
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=138",
+        "locator": "Two tables on p. 138 and interpretation p. 139 (PDF pp. 138–139)",
+        "archival_id": "NLM:101085500X233:138:FERRIS",
+        "sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069"
+      },
+      {
+        "id": "ferris43_breadth",
+        "title": "Variation in individual and group susceptibility to decompression sickness",
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=145",
+        "locator": "Breadth factor table, p. 145 (PDF p. 145)",
+        "archival_id": "NLM:101085500X233:145:FERRIS",
+        "sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069"
+      },
+      {
+        "id": "stewart43_retest",
+        "title": "Canadian experience with repeat altitude classification tests",
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=144",
+        "locator": "Section III item 4, pp. 144–145 (PDF pp. 144–145)",
+        "archival_id": "NLM:101085500X233:144:STEWART",
+        "sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-paired-archive-book",
+    "date": "2026-11-20",
+    "provider": "Internet Archive",
+    "operation": "monograph_and_report_bibliography_verification",
+    "params": {
+      "urls": [
+        "https://archive.org/details/in.ernet.dli.2015.116475",
+        "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the 1951 printed chapter and bibliography by rendering pp. 238, 415 and 416. Bibliographic report IDs establish or qualify overlaps. No standalone report copies were located.",
+    "records": [
+      {
+        "id": "ryder43_cam112",
+        "title": "An assay of dextroamphetamine for its protective value in decompression sickness",
+        "year": 1943,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=463",
+        "locator": "Fulton 1951, p. 238 (PDF p. 263) and bibliography item 400, p. 416 (PDF p. 463)",
+        "archival_id": "CAM:112",
+        "container_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94"
+      },
+      {
+        "id": "larrabee43_cam137",
+        "title": "Decompression sickness during exposures to 38,000 feet accompanied by exercise. Evaluation of a classification procedure",
+        "year": 1943,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462",
+        "locator": "Fulton 1951, bibliography item 380, p. 415 (PDF p. 462)",
+        "archival_id": "CAM:137",
+        "container_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94"
+      },
+      {
+        "id": "pensacola42_cam88",
+        "title": "Incidence of decompression sickness in the classification of aviation personnel",
+        "year": 1942,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=463",
+        "locator": "Fulton 1951, bibliography item 403, p. 416 (PDF p. 463)",
+        "archival_id": "CAM:88",
+        "container_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94"
+      },
+      {
+        "id": "wright42_cam99",
+        "title": "High altitude classification tests",
+        "year": 1942,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=462",
+        "locator": "Fulton 1951, bibliography item 389, p. 415 (PDF p. 462)",
+        "archival_id": "CAM:99",
+        "container_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-paired-ebsco",
+    "date": "2026-11-20",
+    "provider": "EBSCO-UNAL",
+    "operation": "institutional_access",
+    "params": {
+      "target_doi": "10.1001/jama.1947.02880060015004",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "blocked",
+    "note": "Local sign-in file was located. One login attempt did not reach EBSCO Discovery and did not expose an error message. Full-text search did not run.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-paired-llamaparse",
+    "date": "2026-11-20",
+    "provider": "LlamaParse",
+    "operation": "public_table_parsing",
+    "params": {
+      "source_pages": [
+        137,
+        138,
+        145
+      ],
+      "tier": "agentic",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "blocked",
+    "note": "The service returned HTTP 402 for exhausted plan credits. Final values were verified visually from NLM scans.",
+    "records": []
+  }
+]
