@@ -129,6 +129,7 @@ CHAMBER_GRAY_STRATA = ROOT / "data" / "chamber" / "v1.61"
 CHAMBER_NEUROLOGICAL_TIMING = ROOT / "data" / "chamber" / "v1.62"
 CHAMBER_OPERATION_EVEREST = ROOT / "data" / "chamber" / "v1.63"
 CHAMBER_ASMA_CASE = ROOT / "data" / "chamber" / "v1.64"
+AVIATION_DEPRESSURIZATION = ROOT / "data" / "chamber" / "v1.65"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1127,6 +1128,15 @@ def build(
                     "publication",
                     create_schema=False,
                     extra_tables={"publication_case_milestone": "case_milestones.csv"},
+                )
+                load_version_tables(
+                    db,
+                    AVIATION_DEPRESSURIZATION,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_aircraft_incident": "incidents.csv",
+                        "publication_aircraft_incident_count": "counts.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(

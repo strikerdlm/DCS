@@ -15,6 +15,53 @@ def release(tmp_path_factory):
     return folder
 
 
+def test_aircraft_incidents_keep_distinct_reported_risk_sets(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.report_id, s.study_id, i.peak_cabin_altitude_m,
+                   c.measure, c.numerator, c.denominator, c.denominator_unit,
+                   r.cases, r.denominator, r.denominator_unit
+            FROM publication_aircraft_incident i
+            JOIN publication_aircraft_incident_count c USING (source_id)
+            JOIN model_report_link p USING (source_id)
+            JOIN review.review_study_report s ON s.report_id=p.report_id
+            JOIN review.review_search_observation r ON r.report_id=p.report_id
+                AND r.study_id=s.study_id AND r.endpoint=c.measure
+            WHERE p.source_table='publication_source' AND c.evidence_role='incident_diagnosis'
+            ORDER BY p.report_id
+        """).fetchall() == [
+            ("pmid:18457302", "johnston-c130-fall-2005", 7317,
+             "reported_dcs_any", 4, 66, "aircraft_occupant", 4, 66, "aircraft_occupant"),
+            ("pmid:30487030", "mancini-military-aircraft-6400m", 6400,
+             "reported_type_ii_dcs", 6, 49, "exposed_passenger", 6, 49, "exposed_passenger"),
+        ]
+        assert db.execute("""
+            SELECT measure,numerator,denominator,evidence_role,reported_pct
+            FROM publication_aircraft_incident_count
+            WHERE measure IN ('presumptive_spinal_dcs','remaining_symptomatic_narrative','headache')
+            ORDER BY measure
+        """).fetchall() == [
+            ("headache", 23, 49, "overlapping_symptom", 46.93),
+            ("presumptive_spinal_dcs", 1, 66, "diagnostic_component", None),
+            ("remaining_symptomatic_narrative", 26, None, "unreconciled_narrative", None),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT report_id) FROM review.review_record WHERE pmid='30487030'
+        """).fetchone() == (1,)
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-aircraft-depressurization-f-jarosz#jarosz-mirror'
+        """).fetchone() == ("doi:10.13174/pjamp.21.01.2015.01",)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence
+            WHERE report_id IN (
+                SELECT p.report_id FROM model_report_link p
+                JOIN publication_aircraft_incident i USING (source_id)
+                WHERE p.source_table='publication_source'
+            )
+        """).fetchone() == (0,)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""
