@@ -132,6 +132,7 @@ CHAMBER_ASMA_CASE = ROOT / "data" / "chamber" / "v1.64"
 AVIATION_DEPRESSURIZATION = ROOT / "data" / "chamber" / "v1.65"
 AVIATION_U2_HISTORY = ROOT / "data" / "chamber" / "v1.66"
 CHAMBER_NEUROLOGICAL_ARCHIVE = ROOT / "data" / "chamber" / "v1.67"
+AVIATION_LEWIS_ARCHIVE = ROOT / "data" / "chamber" / "v1.68"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1158,6 +1159,12 @@ def build(
                         "publication_liske_case_profile": "liske_cases.csv",
                         "publication_case_milestone": "case_milestones.csv",
                     },
+                )
+                load_supplement(
+                    db,
+                    AVIATION_LEWIS_ARCHIVE,
+                    "publication",
+                    extra_tables={"publication_lewis_case_profile": "lewis_cases.csv"},
                 )
             if rojas_supplement:
                 load_supplement(
