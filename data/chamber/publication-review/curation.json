@@ -325,6 +325,18 @@
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32574436/"
     },
     {
+      "record_key": "legacy:data/chamber/v1.8/search_hits.csv#historical_ferris:6",
+      "report_id": "openalex:W7233631745",
+      "basis": "Same title and ROSA P deposit as the existing OpenAlex report. The official PDF confirms technical report DOT/FAA/AM-25/52 and DOI 10.21949/1529724. Retain the historical search disposition.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf#page=3"
+    },
+    {
+      "record_key": "2026-11-20-faa-ofos-fulltext#dot-faa-am-25-52",
+      "report_id": "openalex:W7233631745",
+      "basis": "Same author order, title and ROSA P deposit as the existing discovery records. Reuse the canonical report for the page-cited reassessment.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf#page=3"
+    },
+    {
       "record_key": "legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#jsc18:observers:dcs",
       "report_id": "pmid:30352646",
       "basis": "The intake identifies the original JSC profiles in Conkin 2018, and points to that paper. Its systematic review component has a separate evidence role.",
@@ -9681,6 +9693,12 @@
       "setting": "U.S. Army School of Aviation Medicine, Fort Rucker, Alabama"
     },
     {
+      "study_id": "faa-ofos-2025",
+      "label": "FAA CAMI Optimized Flow Oxygen Systems passenger mask experiment",
+      "period": "Reported September 2025",
+      "setting": "FAA CAMI research hypobaric chamber, simulated flights with research participants and inside observers"
+    },
+    {
       "study_id": "fort-rucker-1990-post-overhaul",
       "label": "Fort Rucker post-overhaul chamber cluster",
       "period": "1990-08-21 to 1990-09-12 (case dates)",
@@ -10281,6 +10299,12 @@
       "report_id": "pmid:11952064",
       "role": "primary",
       "locator": "Results and Table I, p. 396, and Discussion, p. 397"
+    },
+    {
+      "study_id": "faa-ofos-2025",
+      "report_id": "openalex:W7233631745",
+      "role": "supplementary_research_safety",
+      "locator": "Roles and sessions, printed pp. 6 and 20. Safety ascertainment and findings, printed pp. 17 and 32."
     },
     {
       "study_id": "jordan-1986-1994",

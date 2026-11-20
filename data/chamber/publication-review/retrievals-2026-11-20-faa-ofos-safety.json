@@ -1,0 +1,85 @@
+[
+  {
+    "id": "2026-11-20-faa-ofos-fulltext",
+    "date": "2026-11-20",
+    "provider": "U.S. DOT National Transportation Library ROSA P",
+    "operation": "targeted full-text reassessment of an existing report",
+    "params": {
+      "report_number": "DOT/FAA/AM-25/52",
+      "doi": "10.21949/1529724",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 1,
+    "status": "completed",
+    "note": "Retains the historical title/source screen and identifies a supplementary research safety observation in the official full text.",
+    "records": [
+      {
+        "id": "dot-faa-am-25-52",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures",
+        "year": 2025,
+        "publication_date": "2025-09",
+        "authors": ["James E. Campbell", "Susan M. Jay"],
+        "publication_type": "technical_report",
+        "report_number": "DOT/FAA/AM-25/52",
+        "doi": "10.21949/1529724",
+        "openalex_id": "W7233631745",
+        "url": "https://rosap.ntl.bts.gov/view/dot/86854",
+        "primary_source": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf#page=39",
+        "source_sha256": "681fa27b1edbbe5e3c92f1d07251872fbc35c96d2ed6c390f61cbea4c0261175",
+        "source_locator": "Technical report documentation p. iii and printed pp. 6, 12, 17-18, 20, 27 and 32 (PDF pp. 3, 13, 19, 24-25, 27, 34 and 39)",
+        "observation_review_status": "source_verified",
+        "role_review": "Supplementary research safety from a passenger oxygen-mask experiment. Research participants and inside observers do not constitute operational staff and trainee risk sets.",
+        "prior_search_record": "legacy:data/chamber/v1.8/search_hits.csv#historical_ferris:6",
+        "reassessment": {
+          "stage": "full_text",
+          "disposition": "supplementary_research_safety",
+          "operational_training_design_match": false,
+          "locator": "Printed pp. 6 and 20 (roles and sessions), 17 and 32 (DCS monitoring and safety statement)"
+        },
+        "session_flow": {
+          "participants_recruited": 14,
+          "testing_sessions": 16,
+          "aborted_sessions": 4,
+          "completed_profiles": 12,
+          "completed_person_profile_exposures_by_role": {"research_participant": 12, "inside_observer": 12},
+          "role_exposures_basis": "Derived from 12 completed profiles and one participant plus one inside observer per flight (printed pp. 6 and 20). Observers could repeat, and the report gives no unique observer count.",
+          "abort_and_rescheduling": [
+            "Two ear blocks. Neither participant returned. The report does not give their exact abort altitude or phase.",
+            "One intestinal gas-expansion pain episode on ascent. The participant returned for a rescheduled session and completed the profile.",
+            "One aviator-mask seal failure. The methods call for seal verification before proceeding, but the report does not document the altitude or phase of the actual failed attempt. The participant returned for a rescheduled session and completed the profile."
+          ],
+          "scope_note": "The 16 sessions include four aborted attempts. They cannot serve as a complete-profile denominator, and completed exposures do not establish uniform dose or unique observers."
+        },
+        "safety_ascertainment": {
+          "active": "Visual assessment and monitoring for DCS signs or symptoms in both roles during flight and through the one-hour post-flight observation period.",
+          "after_release": "Instructed to notify and report to a local hospital if symptoms appeared within 24 hours. Completeness of passive follow-up is unknown.",
+          "zero_scope": "The narrative reports zero signs or symptoms for both roles in flight, immediately after flight and within 24 hours. It gives no session-by-session ascertainment or separate counts for aborted and completed profiles."
+        },
+        "observations": [
+          {
+            "id": "faa-ofos-research-participant-dcs-safety",
+            "study_id": "faa-ofos-2025",
+            "endpoint": "reported_dcs_signs_or_symptoms",
+            "group": "Research participants",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "DCS/Decompression Illness, printed p. 32 (PDF p. 39)",
+            "note": "Source-reported safety zero. The 12 completed participant exposures are contextual. The report does not give an explicit DCS ascertainment denominator by completion status."
+          },
+          {
+            "id": "faa-ofos-inside-observer-dcs-safety",
+            "study_id": "faa-ofos-2025",
+            "endpoint": "reported_dcs_signs_or_symptoms",
+            "group": "Research inside observers",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "DCS/Decompression Illness, printed p. 32 (PDF p. 39)",
+            "note": "Source-reported safety zero. The 12 completed observer exposures are contextual. Some observers repeated, and the report does not give an explicit DCS ascertainment denominator by completion status."
+          }
+        ]
+      }
+    ]
+  }
+]
