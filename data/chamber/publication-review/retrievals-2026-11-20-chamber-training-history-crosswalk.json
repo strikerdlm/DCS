@@ -1,0 +1,183 @@
+[
+  {
+    "id": "2026-11-20-chamber-training-history-crosswalk",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and verified primary document images",
+    "operation": "supplementary_training_history_reconciliation",
+    "params": {
+      "queries": [
+        "Application of Hypo and Hyperbaric Chamber in Czech Air Force ADP011075 RTO-MP-062 Došel",
+        "Allan Kenny decompression illness chamber Canadian Forces 17 trainees Table 1"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The two publications are indexed in the existing review. Source recovery adds detailed profiles and a separate nonspecific pressure-symptom rate.",
+    "records": [
+      {
+        "id": "allan-kenny-2003-table-1",
+        "title": "High-altitude decompression illness: case report and discussion",
+        "pmid": "14557320",
+        "year": 2003,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/",
+        "table_1_image": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/3dc0/203284/181d84bf8e54/24TT1.jpg",
+        "table_1_sha256": "ed4f154318cfae0880a153ef91f445915fc2e0a654b689545082059358e77c99",
+        "locator": "CMAJ pp. 803–804, Case and Table 1",
+        "study_id": "cf-winnipeg-chamber-and-flight-case-series",
+        "access": "full_text",
+        "exposure_details": {
+          "course_trainees": 17,
+          "case_group_linked_denominator": null,
+          "ground_site_altitude_ft": 761,
+          "training_days": 3,
+          "study_day_2_training": false,
+          "case_peak_altitude_ft": 26000,
+          "previous_group_altitude_ft": 25000,
+          "peak_revision_basis": "The earlier value describes typical training. The actual peak printed for the three cases is 26,000 ft.",
+          "typical_ground_level_oxygen_prebreathing_min": 30,
+          "case_specific_prebreathing_min": null,
+          "approximate_hrs_end_of_training_to_first_flight_departure": 6,
+          "first_commercial_flight_duration": "Just over three hours",
+          "symptom_onset_phase_all_three": "during the first commercial flight after training",
+          "individual_elapsed_symptom_onset": null,
+          "scope": "The case series supplies no matching denominator for the later flight. The course count is not reused as a risk set."
+        },
+        "chamber_plateaus": [
+          {
+            "source_id": "allan03",
+            "stratum": "after-chamber-and-commercial-flight",
+            "endpoint": "dci",
+            "study_day": 1,
+            "order_in_description": 1,
+            "altitude_ft": 26000,
+            "duration_min": 33,
+            "locator": "CMAJ p. 803, Case"
+          },
+          {
+            "source_id": "allan03",
+            "stratum": "after-chamber-and-commercial-flight",
+            "endpoint": "dci",
+            "study_day": 1,
+            "order_in_description": 2,
+            "altitude_ft": 18000,
+            "duration_min": 18,
+            "locator": "CMAJ p. 803, Case"
+          },
+          {
+            "source_id": "allan03",
+            "stratum": "after-chamber-and-commercial-flight",
+            "endpoint": "dci",
+            "study_day": 3,
+            "order_in_description": 3,
+            "altitude_ft": 26000,
+            "duration_min": 24,
+            "locator": "CMAJ p. 803, Case"
+          }
+        ],
+        "table_1_cases": [
+          {
+            "source_id": "allan03",
+            "stratum": "after-chamber-and-commercial-flight",
+            "endpoint": "dci",
+            "patient_label": "A",
+            "reported_age_years": 39,
+            "pain_sites": "Began in the knees and spread to hips, lower back, shoulders, elbows and neck.",
+            "self_reported_pain_score": "10+",
+            "other_symptoms": "None reported in Table 1.",
+            "exam_findings": "Pain and tenderness with movement prevented walking. Fluid was visible behind the left tympanic membrane.",
+            "self_reported_resolution_min_from_hbot_start": 90,
+            "possible_oxygen_toxicity_during_hbot": "Right thigh fasciculation after 30 minutes of treatment.",
+            "followup": "Burning on respiration on days 2–9 after treatment. The authors describe it as typical of pulmonary oxygen toxicity.",
+            "locator": "CMAJ p. 804, Table 1 and Case"
+          },
+          {
+            "source_id": "allan03",
+            "stratum": "after-chamber-and-commercial-flight",
+            "endpoint": "dci",
+            "patient_label": "B",
+            "reported_age_years": 30,
+            "pain_sites": "Retrosternal chest discomfort.",
+            "self_reported_pain_score": "4 (lessening)",
+            "other_symptoms": "Left arm numbness and difficulty breathing.",
+            "exam_findings": "Anxious. Reduced left arm pinprick sensation from wrist to shoulder compared with the right.",
+            "self_reported_resolution_min_from_hbot_start": 60,
+            "possible_oxygen_toxicity_during_hbot": "Dizziness and malaise at 70 and 200 minutes after treatment started.",
+            "followup": "The authors report no further problems. Follow-up duration is unspecified.",
+            "locator": "CMAJ p. 804, Table 1 and Case"
+          },
+          {
+            "source_id": "allan03",
+            "stratum": "after-chamber-and-commercial-flight",
+            "endpoint": "dci",
+            "patient_label": "C",
+            "reported_age_years": 38,
+            "pain_sites": "Retrosternal and left pectoral chest pain, headache and mid-to-upper back pain.",
+            "self_reported_pain_score": "6 (lessening)",
+            "other_symptoms": "Difficulty swallowing and speaking for 20 minutes, irritability, shortness of breath, and tingling in both calves.",
+            "exam_findings": "Nystagmus and slight erythema of the left tympanic membrane.",
+            "self_reported_resolution_min_from_hbot_start": 120,
+            "possible_oxygen_toxicity_during_hbot": "None reported in Table 1.",
+            "followup": "The authors report no further problems. Follow-up duration is unspecified.",
+            "locator": "CMAJ p. 804, Table 1 and Case"
+          }
+        ],
+        "existing_cluster_case_count": 3,
+        "hbot_course": {
+          "printed_total_treatment_min": 440,
+          "note": "Table 1 footnote gives total treatment duration. The patient-level resolution times use time from treatment start. The report describes about 9.5 hours of symptoms before treatment, without exact patient-level timings."
+        }
+      },
+      {
+        "id": "dosel-sazel-2001-primary",
+        "title": "Application of Hypo and Hyperbaric Chamber in Czech Air Force",
+        "year": 2001,
+        "url": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf",
+        "primary_source": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf",
+        "sha256": "82ac6bfbeb2d25a91d6460136456e0775efbbba3aba41967079a8bc6d08c964b",
+        "study_id": "prague-training-series-described-2001",
+        "locator": "DTIC cover and printed pp. 19-1–19-3",
+        "access": "full_text",
+        "release_status": "DTIC front matter approves public release and unlimited distribution.",
+        "protocols": [
+          {
+            "profile": "first-year cadet hypoxia examination",
+            "target_altitude_ft": 16400,
+            "duration_min": 20,
+            "locator": "Printed p. 19-2"
+          },
+          {
+            "profile": "third-year cadet hypoxia demonstration",
+            "target_altitude_ft": 25000,
+            "maximum_hypoxic_duration_min": 5,
+            "planned_denitrogenation_min": 30,
+            "locator": "Printed p. 19-2"
+          },
+          {
+            "profile": "pilot recurrent training",
+            "recurrence_years": 5,
+            "locator": "Printed p. 19-2",
+            "note": "The paper points to the cadet hypoxia and decompression tests for profile parameters."
+          }
+        ],
+        "note": "The report does not identify a Czech DCS numerator, at-risk count or observation window. The rate concerns broad dysbarism. The paper mentions more than 120 hyperbaric oxygen patients per year for all indications. That treatment volume does not define a hypobaric exposure denominator.",
+        "observations": [
+          {
+            "id": "prague-broad-dysbarism-reported-percent",
+            "study_id": "prague-training-series-described-2001",
+            "group": "patients_undefined",
+            "endpoint": "source_reported_broad_dysbarism",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate": 10,
+            "reported_rate_unit": "percent of patients as reported",
+            "locator": "Printed p. 19-1, paragraph before Hypobaric Chambers",
+            "note": "Common symptoms include ear or sinus pain, nosebleed and abdominal pain. The passage concerns assessment before hypo- and hyperbaric exposures. The size, time period and composition of the population behind 10% are unspecified."
+          }
+        ]
+      }
+    ]
+  }
+]

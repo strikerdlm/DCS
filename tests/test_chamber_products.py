@@ -865,6 +865,33 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
         assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (116,)
 
 
+def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,altitude,prebreathe_min,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='allan03'
+        """).fetchall() == [("allan03", 26000.0, None, 3, None, "selected_cluster")]
+        assert db.execute("""
+            SELECT study_day,altitude_ft,duration_min FROM publication_allan_chamber_plateau
+            ORDER BY order_in_description
+        """).fetchall() == [(1, 26000, 33), (1, 18000, 18), (3, 26000, 24)]
+        assert db.execute("""
+            SELECT patient_label,self_reported_resolution_min_from_hbot_start
+            FROM publication_allan_dci_case JOIN publication_observation USING(source_id,stratum,endpoint)
+            WHERE source_id='allan03' ORDER BY patient_label
+        """).fetchall() == [("A", 90), ("B", 60), ("C", 120)]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,reported_rate FROM review.review_search_observation
+            WHERE report_id='report:dtic-adp011075'
+        """).fetchall() == [("source_reported_broad_dysbarism", None, None, 10)]
+        assert db.execute("""
+            SELECT l.report_id,s.access
+            FROM publication_source s JOIN model_report_link l USING(source_id)
+            WHERE s.source_id='dosel01_sazel_chamber'
+        """).fetchone() == ("report:dtic-adp011075", "full_text")
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (116,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):

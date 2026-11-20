@@ -10421,6 +10421,24 @@
       "report_id": "pmid:21748904",
       "basis": "The author list, title, journal pages and DOI match the existing PMID.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf"
+    },
+    {
+      "record_key": "2026-11-20-chamber-training-history-crosswalk#allan-kenny-2003-table-1",
+      "report_id": "pmid:14557320",
+      "basis": "PMC Table 1 and the CMAJ case narrative are the same publication as PMID 14557320.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/#t1-24"
+    },
+    {
+      "record_key": "2026-11-20-chamber-training-history-crosswalk#dosel-sazel-2001-primary",
+      "report_id": "report:dtic-adp011075",
+      "basis": "The full report's DTIC cover, byline and chapter title verify the existing ADP011075 identity.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.81/sources.csv#dosel01_sazel_chamber",
+      "report_id": "report:dtic-adp011075",
+      "basis": "The primary PDF is the public archive copy of ADP011075.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf"
     }
   ],
   "studies": [
@@ -11209,6 +11227,12 @@
       "label": "Jersey et al. retrospective U-2 neurological DCS series and historical comparison",
       "period": "January 1991–December 2009, reported in two periods",
       "setting": "Operational hypobaric flight"
+    },
+    {
+      "study_id": "prague-training-series-described-2001",
+      "label": "Prague aviation medicine centre chamber protocols and broad pressure symptoms",
+      "period": "Program described at October 2000 meeting; risk-set dates unspecified",
+      "setting": "Czech military aviation medicine institute, Prague"
     }
   ],
   "study_reports": [
@@ -12471,6 +12495,12 @@
       "report_id": "pmid:21748904",
       "role": "selected_clinical_case_series",
       "locator": "Printed pp. 675–677, Human and Medical Factors, Tables I–II, and Figure 2"
+    },
+    {
+      "study_id": "prague-training-series-described-2001",
+      "report_id": "report:dtic-adp011075",
+      "role": "primary_program_description_with_nonspecific_rate",
+      "locator": "DTIC cover and printed pp. 19-1–19-3"
     }
   ],
   "relations": [
@@ -14888,6 +14918,20 @@
       "relationship": "possible_cohort_overlap",
       "evidence": "The historical comparison covers 1991–2001. The 1997 abstract reports two pre-publication episodes without their occurrence years or coded identifiers.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/7/article-p673.pdf#page=3"
+    },
+    {
+      "left_report": "report:dtic-adp011075",
+      "right_report": "chapter:rto-mp-21-dosel",
+      "relationship": "same_institution_unmatched_risk_sets",
+      "evidence": "The author and Czech aviation medicine centre recur in both publications. The 2001 observations lack a cohort window. Shared protocol or patient records cannot be established.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf#page=2"
+    },
+    {
+      "left_report": "report:dtic-adp011075",
+      "right_report": "doi:10.1186/s12890-020-01321-5",
+      "relationship": "same_institution_unmatched_risk_sets",
+      "evidence": "Both publications concern Prague chamber training. The earlier broad dysbarism rate has no risk set. The later single-occupant pulmonary barotrauma report has its own 566-run count. Do not use those runs as an earlier denominator.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf#page=2"
     }
   ],
   "report_titles": {
