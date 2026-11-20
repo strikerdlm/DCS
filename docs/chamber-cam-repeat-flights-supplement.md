@@ -1,0 +1,15 @@
+# Canadian repeat-flight tables and wartime neurological outcomes
+
+The v1.58 supplement adds two original archival sources from the John F. Fulton Papers. The Canadian reanalysis gives exact counts of descents by flight number and prior descent history. The American conference summaries give counts for a specific neurological syndrome and a separate approximate training-program size. Each dataset retains its source definitions and stays on overlap hold. [Archive finding aid](https://findingaids.nlm.nih.gov/repositories/4/top_containers/6978)
+
+## Royal Canadian Air Force repeat flights
+
+The National Research Council of Canada reanalysis describes three-hour stays at 35,000 ft for the Regina series and two-hour stays at 35,000 ft for the Halifax sample. The Halifax sample includes 955 men with three flights each. The printed flight totals are 117/955, 123/955 and 157/955 descents. These are successive outcomes for the same cohort. The three tables supply 34 descent rows and 39 classification cells with their original denominators, column positions and labels. Table III is an alternate representation of the Halifax sample with pass, doubtful and fail categories. [Canadian report, printed pp. 159–162](https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160)
+
+Several printed values disagree. The Regina fourth-flight denominator is 91, while the text describes 89 participants and the first flight lists 89. The second flight prints 26 descents in 88 exposures and a rate of 28.6%. Table III subgroup counts do not always reconcile with the parent cells, and the leftmost third-flight class after fail then pass is printed as `F.`. The Halifax parent exposure count is 16,085 in the reanalysis and 16,293 in the earlier citation. The database keeps these source values and links the 955-person sample to the existing parent record. [Tables I–III](https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=161) · [Parent report citation](https://journal.chestnet.org/article/S0012-3692%2815%2934656-0/fulltext#bib1)
+
+## Neurological conference summaries
+
+Romano and colleagues reported 17 affected people among 155 participants and 46 episodes of a migraine-like syndrome across a cohort with 1,361 chamber exposures. The number of distinct flights with an episode is unavailable. The summary also records a 115-person migraine-history enquiry. The companion War Medicine report by the same team remains linked for comparison. This is a syndrome-specific outcome. [Original program summary, printed pp. 7–8](https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8)
+
+Klingman and colleagues describe more than 40,000 people examined during high-altitude indoctrination. The approximate program size is stored as a strict lower bound. The number of qualifying flights and the clinical case count are unavailable. The summary remains linked to the existing Motley training study for overlap review. [Program summary, printed p. 8](https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9)

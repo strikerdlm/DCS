@@ -1,0 +1,116 @@
+[
+  {
+    "id": "2026-11-20-cam-repeats-catalog-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "archive_catalog_lookup",
+    "params": {
+      "urls": [
+        "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101085500-root",
+        "https://findingaids.nlm.nih.gov/repositories/4/resources/814/collection_organization"
+      ],
+      "query": "Decompression Sickness reports pressure breathing subcommittee NLM identifier CAM 245 126 Ferris 1944 full PDF",
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located the full bulletin and newsletter identifiers in the Fulton Papers catalogue. These are containers for multiple reports.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-repeats-catalog-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "archive_finding_aid_verification",
+    "params": {
+      "urls": [
+        "https://findingaids.nlm.nih.gov/repositories/4/top_containers/6978"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the NLM Box 5 inventory, dated papers, and item identifiers for the full bulletin and newsletter.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-repeats-war-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "companion_journal_search",
+    "params": {
+      "query": "\"A migraine-like syndrome complicating decompression sickness\" Romano Engel 1944 \"1,361\" \"46\" War Medicine",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located later published citations. The complete 1944 War Medicine paper was not retrieved.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-repeats-war-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "companion_journal_search",
+    "params": {
+      "query": "\"A migraine-like syndrome complicating decompression sickness\" Romano Engel 1944 \"1,361\" \"46\" War Medicine",
+      "urls": [
+        "https://jamanetwork.com/journals/archneurpsyc/fullarticle/650591"
+      ],
+      "limit": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The targeted search returned no original. The retrieved Masland publisher page cites the same 1944 article at War Medicine 5:304 and a related Brown et al. postflight report.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-repeats-primary",
+    "date": "2026-11-20",
+    "provider": "National Library of Medicine",
+    "operation": "original_page_verification",
+    "params": {
+      "urls": [
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf",
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the complete original scans, page labels, group sizes and values on rendered pages.",
+    "records": [
+      {
+        "id": "101085500x233-p159",
+        "title": "Constancy of onset of decompression sickness",
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160",
+        "sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "locator": "Printed pp. 159–162 (PDF pp. 160–163), Tables I–III",
+        "archival_id": "101085500X233"
+      },
+      {
+        "id": "101085500x234-p7-romano",
+        "title": "A migraine-like syndrome complicating decompression sickness. Clinical and electroencephalographic observations",
+        "year": 1944,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8",
+        "sha256": "6c7cc8ff0d37856ea9fe386e82a14ec233fdb73efd5005e1c171647f274f545c",
+        "locator": "Printed pp. 7–8 (PDF pp. 8–9)",
+        "archival_id": "101085500X234"
+      },
+      {
+        "id": "101085500x234-p8-klingman",
+        "title": "Nervous system dysfunction during and following oxygen controlled high altitude indoctrination",
+        "year": 1944,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9",
+        "sha256": "6c7cc8ff0d37856ea9fe386e82a14ec233fdb73efd5005e1c171647f274f545c",
+        "locator": "Printed p. 8 (PDF p. 9)",
+        "archival_id": "101085500X234"
+      }
+    ]
+  }
+]

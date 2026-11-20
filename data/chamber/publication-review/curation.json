@@ -8849,6 +8849,42 @@
       "report_id": "doi:10.1148/44.3.259",
       "basis": "The publisher DOI, title, authors and issue match.",
       "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.58/sources.csv#rcaf43_constancy",
+      "report_id": "nlm:101085500x233:159",
+      "basis": "Title, year, release date and printed locator identify the Canadian reanalysis.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160"
+    },
+    {
+      "record_key": "2026-11-20-cam-repeats-primary#101085500x233-p159",
+      "report_id": "nlm:101085500x233:159",
+      "basis": "Title, year, release date and printed locator identify the Canadian reanalysis.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.58/sources.csv#romano44_ana",
+      "report_id": "nlm:101085500x234:7:romano",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-cam-repeats-primary#101085500x234-p7-romano",
+      "report_id": "nlm:101085500x234:7:romano",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.58/sources.csv#klingman44_ana",
+      "report_id": "nlm:101085500x234:8:klingman",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-20-cam-repeats-primary#101085500x234-p8-klingman",
+      "report_id": "nlm:101085500x234:8:klingman",
+      "basis": "The same named program summary and its printed locator identify this presentation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
     }
   ],
   "studies": [
@@ -12125,6 +12161,27 @@
       "relationship": "likely_overlap",
       "evidence": "The November 1944 comparison shares five byline authors with the later Liberator study and compares chamber and flight symptoms. The bulletin publication pages were not retrieved.",
       "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "left_report": "nlm:101085500x233:159",
+      "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",
+      "relationship": "subset_of",
+      "evidence": "The reanalysis names the same 6566 Halifax personnel and specifically draws a 955-person subset. It reports 16085 total source exposures. The citation for the original report lists 16293. The source dates and exposure total discrepancy remain unresolved.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=160"
+    },
+    {
+      "left_report": "nlm:101085500x234:7:romano",
+      "right_report": "record:legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_original_sources:4",
+      "relationship": "likely_overlap",
+      "evidence": "Same six collaborators, event type and year. The newsletter gives participant and episode counts for the program presentation. The complete related journal paper was not recovered.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
+    },
+    {
+      "left_report": "nlm:101085500x234:8:klingman",
+      "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_firecrawl_primary:2",
+      "relationship": "possible_overlap",
+      "evidence": "One shared investigator and related training endpoints. The program summary cannot identify exact exposures or distinguish any overlap from other contemporary training reports.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=9"
     }
   ],
   "report_titles": {
