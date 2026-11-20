@@ -16,8 +16,16 @@ def test_publication_register_build(tmp_path):
             "SELECT sum(registered_dcs_events) FROM fac_official_chamber_year"
         ).fetchone() == (54,)
         assert db.execute("SELECT count(*) FROM review_record WHERE run_id IS NULL").fetchone() == (
-            4352,
+            4355,
         )
+        assert db.execute(
+            "SELECT source_key,report_id FROM review_record "
+            "WHERE stream='data/chamber/v1.62/sources.csv' ORDER BY source_key"
+        ).fetchall() == [
+            ("ferris51_clinical_nature", "fulton1951:clinical-nature"),
+            ("lawrence45_two_reactions", "bumed:1945:4-7:3"),
+            ("lund44_cam396", "report:cam-396"),
+        ]
         assert db.execute(
             "SELECT count(*) FROM review_record JOIN review_retrieval USING(run_id) "
             "WHERE run_date='2026-11-19'"
