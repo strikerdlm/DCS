@@ -63,7 +63,9 @@
             "denominator_unit": null,
             "reported_rate_percent": null,
             "locator": "Ben-Ari et al. 2026, Table 2, p. 354, chamber cases 3, 5, 12 and 15",
-            "note": "Counted rows labeled API, all with AC as the platform. No matching instructor denominator is published."
+            "note": "Counted rows labeled API, all with AC as the platform. No matching instructor denominator is published.",
+            "study_id": "iaf-ramat-gan-2015-2022",
+            "chamber_role": "staff"
           },
           {
             "id": "iaf-non-api",
@@ -74,7 +76,8 @@
             "denominator_unit": null,
             "reported_rate_percent": null,
             "locator": "Ben-Ari et al. 2026, Table 2, p. 354, chamber cases 1, 2, 4, 6, 9, 10 and 11",
-            "note": "Remaining AC rows after removing four API cases. No role-specific denominator is published."
+            "note": "Remaining AC rows after removing four API cases. No role-specific denominator is published.",
+            "study_id": "iaf-ramat-gan-2015-2022"
           }
         ]
       },
@@ -1103,9 +1106,9 @@
       {
         "id": "kindelan25-biselli",
         "title": "Current Activities in Aerophysiological Training and Future Perspectives. Italian Air Force",
-        "year": 2015,
+        "year": 2016,
         "authors_displayed": "Biselli, Roberto",
-        "citation_displayed": "XXV Seminario Internacional de la Cátedra Alfredo Kindelán, Madrid, Spanish Ministry of Defence, chapter beginning p. 67",
+        "citation_displayed": "XXV Seminario Internacional de la Cátedra Alfredo Kindelán, Madrid 2015. Spanish Ministry of Defence, published July 2016, chapter beginning p. 67.",
         "url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/k/i/kindelan_25_linea.pdf",
         "role_review": "role_denominators_missing",
         "evidence_note": "Published DCS percentage is rounded and trainee-only. Possible overlap with the same service's 2003–2009 trainee series.",
@@ -1119,10 +1122,11 @@
             "denominator": 1777,
             "denominator_unit": "reported trainees",
             "reported_rate_percent": 0.1,
-            "locator": "Biselli 2015, printed p. 78, adverse-effects paragraph",
+            "locator": "Biselli 2016, printed p. 78, adverse-effects paragraph",
             "note": "Rounded percentage and trainee total reported. Exact cases, calendar period, staff risk set, follow-up and overlap with Morgagni 2010 remain unresolved."
           }
-        ]
+        ],
+        "meeting_year": 2015
       }
     ]
   }

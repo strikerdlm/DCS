@@ -1,0 +1,1571 @@
+[
+  {
+    "id": "2026-11-20-iaf-tavily-role",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "Israeli Air Force Nakdimon Ben-Ari hypobaric chamber \"364\" \"1263\" \"185\" training 2015 2019 \"decompression\" instructor role exposures denominator",
+      "search_depth": "advanced",
+      "max_results": 9,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/36309795",
+        "title": "Mitigating Risks of Altitude Chamber Training.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36309795",
+        "rank": 1,
+        "score": 0.39647698,
+        "pmid": "36309795"
+      },
+      {
+        "id": "https://www.researchgate.net/scientific-contributions/Idan-Nakdimon-2042329913",
+        "title": "Idan Nakdimon's research works | Air Force Personnel Center, San ...",
+        "url": "https://www.researchgate.net/scientific-contributions/Idan-Nakdimon-2042329913",
+        "rank": 2,
+        "score": 0.36738375
+      },
+      {
+        "id": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "title": "882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "rank": 3,
+        "score": 0.3161581
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/42345225",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42345225",
+        "rank": 4,
+        "score": 0.3138402,
+        "pmid": "42345225"
+      },
+      {
+        "id": "http://asma.kglmeridian.com/view/journals/amhp/93/11/article-p811.xml",
+        "title": "Mitigating Risks of Altitude Chamber Training in - AsMA",
+        "url": "http://asma.kglmeridian.com/view/journals/amhp/93/11/article-p811.xml",
+        "rank": 5,
+        "score": 0.25423113
+      },
+      {
+        "id": "https://journals.sagepub.com/doi/abs/10.3233/VES-230111",
+        "title": "Simulator sickness among helicopter pilots: Incidence, threshold ...",
+        "url": "https://journals.sagepub.com/doi/abs/10.3233/VES-230111",
+        "rank": 6,
+        "score": 0.18982129
+      },
+      {
+        "id": "https://militaryhealth.bmj.com/content/jramc/early/2026/08/19/military-2026-003318.full.pdf",
+        "title": "flight G- induced loss of consciousness (G- LOC) in military aircrew",
+        "url": "https://militaryhealth.bmj.com/content/jramc/early/2026/08/19/military-2026-003318.full.pdf",
+        "rank": 7,
+        "score": 0.18757874
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/42624618",
+        "title": "Factors associated with in-flight G-induced loss of consciousness (G ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42624618",
+        "rank": 8,
+        "score": 0.18111832,
+        "pmid": "42624618"
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/23855060",
+        "title": "Probability of hypobaric decompression sickness including extreme exposures.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23855060",
+        "rank": 9,
+        "score": 0.17078441,
+        "pmid": "23855060"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-tavily-cohort",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Nakdimon\" \"Ben-Ari\" \"2,279\" \"decompression sickness\" Israeli Air Force hypobaric chamber 2015–2022 case series 11 distinct",
+      "search_depth": "advanced",
+      "max_results": 9,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor. - R Discovery",
+        "url": "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0",
+        "rank": 1,
+        "score": 0.64968973
+      },
+      {
+        "id": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "title": "882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "rank": 2,
+        "score": 0.6139312
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/42345225",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42345225",
+        "rank": 3,
+        "score": 0.54598176,
+        "pmid": "42345225"
+      },
+      {
+        "id": "https://www.ima.org.il/medicineIMAJ/Article.aspx?aId=6788",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "url": "https://www.ima.org.il/medicineIMAJ/Article.aspx?aId=6788",
+        "rank": 4,
+        "score": 0.53142214
+      },
+      {
+        "id": "https://www.researchgate.net/scientific-contributions/Oded-Ben-Ari-2195664001",
+        "title": "Oded Ben-Ari's research works | Ariel University, Ariel and other places",
+        "url": "https://www.researchgate.net/scientific-contributions/Oded-Ben-Ari-2195664001",
+        "rank": 5,
+        "score": 0.5167936
+      },
+      {
+        "id": "https://www.researchgate.net/scientific-contributions/Idan-Nakdimon-2042329913",
+        "title": "Idan Nakdimon's research works | Air Force Personnel Center, San ...",
+        "url": "https://www.researchgate.net/scientific-contributions/Idan-Nakdimon-2042329913",
+        "rank": 6,
+        "score": 0.4248892
+      },
+      {
+        "id": "https://cuhma.ca/_Library/Monthly_Newsletter/E-News_CUHMA_2026_09_07.pdf",
+        "title": "E-NEWS",
+        "url": "https://cuhma.ca/_Library/Monthly_Newsletter/E-News_CUHMA_2026_09_07.pdf",
+        "rank": 7,
+        "score": 0.4167373
+      },
+      {
+        "id": "https://www.researchgate.net/publication/364963577_Mitigating_Risks_of_Altitude_Chamber_Training",
+        "title": "Mitigating Risks of Altitude Chamber Training - ResearchGate",
+        "url": "https://www.researchgate.net/publication/364963577_Mitigating_Risks_of_Altitude_Chamber_Training",
+        "rank": 8,
+        "score": 0.40827677
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/36309795",
+        "title": "Mitigating Risks of Altitude Chamber Training.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36309795",
+        "rank": 9,
+        "score": 0.39513415,
+        "pmid": "36309795"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-tavily-gender",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Gender differences in tolerance to hypoxia\" \"Nakdimon\" \"Eliyahu\" Israeli Military Medicine 2021 pdf chamber instructor trainee",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "title": "882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "rank": 1,
+        "score": 0.48973224
+      },
+      {
+        "id": "https://digitalcommons.liberty.edu/cgi/viewcontent.cgi?article=2487&context=honors",
+        "title": "fulltext.pdf",
+        "url": "https://digitalcommons.liberty.edu/cgi/viewcontent.cgi?article=2487&context=honors",
+        "rank": 2,
+        "score": 0.34643072
+      },
+      {
+        "id": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.1062397/full",
+        "title": "Frontiers | Sex comparisons in physiological and cognitive performance during hypoxic challenge",
+        "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.1062397/full",
+        "rank": 3,
+        "score": 0.34477428
+      },
+      {
+        "id": "https://www.osti.gov/pages/biblio/2425796",
+        "title": "Sex comparisons in physiological and cognitive performance during hypoxic challenge (Journal Article) | OSTI.GOV",
+        "url": "https://www.osti.gov/pages/biblio/2425796",
+        "rank": 4,
+        "score": 0.34411275
+      },
+      {
+        "id": "https://www.osti.gov/servlets/purl/2425796",
+        "title": "https://www.osti.gov/servlets/purl/2425796",
+        "url": "https://www.osti.gov/servlets/purl/2425796",
+        "rank": 5,
+        "score": 0.3192275
+      },
+      {
+        "id": "https://public-pages-files-2025.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.1062397/pdf",
+        "title": "https://public-pages-files-2025.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.1062397/pdf",
+        "url": "https://public-pages-files-2025.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.1062397/pdf",
+        "rank": 6,
+        "score": 0.30197924
+      },
+      {
+        "id": "https://www.sciencedirect.com/science/article/abs/pii/S0954611125002379",
+        "title": "Individual factors affecting oxygen saturation under acute hypoxia exposure in air personnel",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0954611125002379",
+        "rank": 7,
+        "score": 0.2961451
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/40414316",
+        "title": "Individual factors affecting oxygen saturation under acute hypoxia ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40414316",
+        "rank": 8,
+        "score": 0.255158,
+        "pmid": "40414316"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-tavily-hebrew",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "site:ima.org.il \"נקידימון\" (\"דקומפרסיה\" OR \"תא ברומטרי\" OR \"תא לחץ\") \"בן ארי\" מדריכי פיזיולוגיה חיל אוויר",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://www.ima.org.il/MedicineSite/Article.aspx?NewspaperArticleId=4185",
+        "title": "הרפואה - עיתון ההסתדרות הרפואית בישראל | מאמרים | חמצן היפרברי – עקרונות בסיס ויישומים חדשים",
+        "url": "https://www.ima.org.il/MedicineSite/Article.aspx?NewspaperArticleId=4185",
+        "rank": 1,
+        "score": 0.24382246
+      },
+      {
+        "id": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/49/24836.pdf",
+        "title": "[PDF] Assessment of Functional Capacity in Patients with Chronic",
+        "url": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/49/24836.pdf",
+        "rank": 2,
+        "score": 0.0586686
+      },
+      {
+        "id": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/50/25074.pdf",
+        "title": "Implications of Endometriosis for Women who Observe ...",
+        "url": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/50/25074.pdf",
+        "rank": 3,
+        "score": 0.052230857
+      },
+      {
+        "id": "https://www.ima.org.il/main/EditClinicalInstruction.aspx?ClinicalInstructionId=73",
+        "title": "ההסתדרות הרפואית בישראל | אבחון וטיפול ביתר לחץ דם במבוגרים",
+        "url": "https://www.ima.org.il/main/EditClinicalInstruction.aspx?ClinicalInstructionId=73",
+        "rank": 4,
+        "score": 0.050705366
+      },
+      {
+        "id": "https://www.ima.org.il/mainsitenew/EditClinicalInstruction.aspx?ClinicalInstructionId=73",
+        "title": "ההסתדרות הרפואית בישראל | אבחון וטיפול ביתר לחץ דם במבוגרים",
+        "url": "https://www.ima.org.il/mainsitenew/EditClinicalInstruction.aspx?ClinicalInstructionId=73",
+        "rank": 5,
+        "score": 0.046033904
+      },
+      {
+        "id": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/40/20353.pdf",
+        "title": "[PDF] clinical, electrophysiologic and Pathologic Findings in 10 Patients ...",
+        "url": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/40/20353.pdf",
+        "rank": 6,
+        "score": 0.043204036
+      },
+      {
+        "id": "https://ima.org.il/Campus/Course.aspx?uf=0f9bb1b3-d903-41ac-8fb0-e03876420370",
+        "title": "תרגול מיינדפולנס ככלי להפחתת לחץ ושחיקה בקמפוס הר\"י",
+        "url": "https://ima.org.il/Campus/Course.aspx?uf=0f9bb1b3-d903-41ac-8fb0-e03876420370",
+        "rank": 7,
+        "score": 0.039937314
+      },
+      {
+        "id": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/54/27201.pdf",
+        "title": "A Rare Indication for Lung Transplantation",
+        "url": "https://www.ima.org.il/FilesUploadPublic/IMAJ/0/54/27201.pdf",
+        "rank": 8,
+        "score": 0.037326887
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-firecrawl-israel",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "objective": "Locate original public Israeli Air Force altitude chamber safety reports with staff and trainee exposure counts and episode dates.",
+      "query": "\"Nakdimon\" \"Ben-Ari\" \"Mitigating Risks of Altitude Chamber Training\" \"Altitude as a Risk Factor\" Israel decompression",
+      "limit": 9,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "rank": 1,
+        "source": "web"
+      },
+      {
+        "id": "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk ...",
+        "url": "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0",
+        "rank": 2,
+        "source": "web"
+      },
+      {
+        "id": "https://openurl.ebsco.com/c/t4a2lo/results?sid=ebsco:ocu:record&bquery=AU+Ben-Ari,%20Oded&link_origin=&searchDescription=Ben-Ari,%20Oded",
+        "title": "Works by Ben-Ari, Oded",
+        "url": "https://openurl.ebsco.com/c/t4a2lo/results?sid=ebsco:ocu:record&bquery=AU+Ben-Ari,%20Oded&link_origin=&searchDescription=Ben-Ari,%20Oded",
+        "rank": 3,
+        "source": "web"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-firecrawl-gender",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_literature_search",
+    "params": {
+      "query": "Hypobaric chamber Gender differences in tolerance to hypoxia by Nakdimon Ben-Ari Eliyahu Gordon Israeli Military Medicine 2021",
+      "k": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "The ranked indexed search yielded related hypoxia studies. The exact cited article was located at the primary journal.",
+    "records": [
+      {
+        "id": "pmid:637798",
+        "title": "Comparison of exercise responses of males and females during acute exposure to hypobaria.",
+        "pmid": "637798",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/637798/",
+        "rank": 1,
+        "authors": [
+          "P R Elliott",
+          "H A Atterbom"
+        ],
+        "index_date": "1978-02-01"
+      },
+      {
+        "id": "pmcid:PMC13771979",
+        "title": "Leg glucose uptake and substrate utilisation during time trial exercise: Effects of acute hypobaric hypoxia and biological sex.",
+        "pmcid": "PMC13771979",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13771979/",
+        "rank": 2,
+        "authors": [
+          "Anders Aagaard Hansen",
+          "Marcos Martin-Rincon",
+          "Bjarne Rud",
+          "Jacob Marcus Egebjerg",
+          "Daniel Wüstner",
+          "Niels Ørtenblad",
+          "Robert Boushel",
+          "Hans-Christer Holmberg",
+          "Jose A L Calbet",
+          "Jostein Hallén",
+          "Joachim Nielsen",
+          "Øyvind Skattebo"
+        ],
+        "index_date": "2026-11-05"
+      },
+      {
+        "id": "pmcid:PMC9549379",
+        "title": "Sex differences during a cold-stress test in normobaric and hypobaric hypoxia: A randomized controlled crossover study.",
+        "pmcid": "PMC9549379",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9549379/",
+        "rank": 3,
+        "authors": [
+          "Erich Hohenauer",
+          "Wolfgang Taube",
+          "Livia Freitag",
+          "Ron Clijsen"
+        ],
+        "index_date": "2022-09-23"
+      },
+      {
+        "id": "pmid:35585281",
+        "title": "Acute physiological response to a normobaric hypoxic exposure: sex differences.",
+        "pmid": "35585281",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35585281/",
+        "rank": 4,
+        "authors": [
+          "Alba Camacho-Cardenosa",
+          "Marta Camacho-Cardenosa",
+          "Pablo Tomas-Carus",
+          "Rafael Timón",
+          "Guillermo Olcina",
+          "Martin Burtscher"
+        ],
+        "index_date": "2022-07-01"
+      },
+      {
+        "id": "pmid:42099225",
+        "title": "Sex influence on the resting physiological responses to different levels of normobaric hypoxia in young, trained population.",
+        "pmid": "42099225",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42099225/",
+        "rank": 5,
+        "authors": [
+          "Miguel Escudero",
+          "Belén Feriche",
+          "Sergio Pérez-Regalado",
+          "Filipa Almeida",
+          "Juan Bonitch-Gongora",
+          "Paulino Padial",
+          "Cristina Benavente"
+        ],
+        "index_date": "2026-05-08"
+      },
+      {
+        "id": "pmid:11408419",
+        "title": "Gender alters impact of hypobaric hypoxia on adductor pollicis muscle performance.",
+        "pmid": "11408419",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11408419/",
+        "rank": 6,
+        "authors": [
+          "C S Fulco",
+          "P B Rock",
+          "S R Muza",
+          "E Lammi",
+          "B Braun",
+          "A Cymerman",
+          "L G Moore",
+          "S F Lewis"
+        ],
+        "index_date": "2001-07-01"
+      },
+      {
+        "id": "pmcid:PMC10933174",
+        "title": "Women at Altitude: Sex-Related Physiological Responses to Exercise in Hypoxia.",
+        "pmcid": "PMC10933174",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10933174/",
+        "rank": 7,
+        "authors": [
+          "Antoine Raberin",
+          "Johannes Burtscher",
+          "Tom Citherlet",
+          "Giorgio Manferdelli",
+          "Bastien Krumm",
+          "Nicolas Bourdillon",
+          "Juliana Antero",
+          "Letizia Rasica",
+          "Davide Malatesta",
+          "Franck Brocherie",
+          "Martin Burtscher",
+          "Grégoire P Millet"
+        ],
+        "index_date": "2024-02-01"
+      },
+      {
+        "id": "pmcid:PMC9644051",
+        "title": "Hypoxic breathing produces more intense hypoxemia in elderly women than in elderly men.",
+        "pmcid": "PMC9644051",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9644051/",
+        "rank": 8,
+        "authors": [
+          "Jinfeng Zhao",
+          "Yanfeng Ding",
+          "Geoffrey P Kline",
+          "Zhengyang Zhou",
+          "Robert T Mallet",
+          "Xiangrong Shi"
+        ],
+        "index_date": "2022-10-26"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-openalex-israel",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_works_search",
+    "params": {
+      "query": "(\"Nakdimon\" OR \"Ben-Ari\" OR \"Israeli Air Force\") AND (\"decompression sickness\" OR \"hypobaric chamber\" OR \"altitude chamber\")",
+      "per_page": 25,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 37,
+    "status": "observed_visible_results",
+    "note": "Page 1, 25 returned of 37 reported index matches.",
+    "records": [
+      {
+        "id": "W7165972402",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor.",
+        "openalex_id": "https://openalex.org/W7165972402",
+        "year": 2026,
+        "pmid": "42345225",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42345225",
+        "rank": 1,
+        "authors": [
+          "Oded Ben‐Ari",
+          "Daniel Gabbai",
+          "Idan Nakdimon"
+        ],
+        "source": "PubMed",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W4307844695",
+        "title": "Mitigating Risks of Altitude Chamber Training",
+        "openalex_id": "https://openalex.org/W4307844695",
+        "year": 2022,
+        "doi": "https://doi.org/10.3357/amhp.6048.2022",
+        "url": "https://doi.org/10.3357/amhp.6048.2022",
+        "rank": 2,
+        "authors": [
+          "Idan Nakdimon",
+          "Oded Ben‐Ari"
+        ],
+        "source": "Aerospace Medicine and Human Performance",
+        "type": "article",
+        "cited_by_count": 3
+      },
+      {
+        "id": "W3154589438",
+        "title": "Return to aviation duty after recovery from COVID-19",
+        "openalex_id": "https://openalex.org/W3154589438",
+        "year": 2021,
+        "doi": "https://doi.org/10.3138/jmvfh-2020-0041",
+        "url": "https://doi.org/10.3138/jmvfh-2020-0041",
+        "rank": 3,
+        "authors": [
+          "David Gilad",
+          "Daniel Gabbai",
+          "Omer Tehori",
+          "Idan Nakdimon",
+          "Amir Bar‐Shai"
+        ],
+        "source": "Journal of Military Veteran and Family Health",
+        "type": "article",
+        "cited_by_count": 6
+      },
+      {
+        "id": "W2184846787",
+        "title": "Long-lasting changes in the density of nitrergic neurons following kainic acid administration and chronic hypoxia.",
+        "openalex_id": "https://openalex.org/W2184846787",
+        "year": 2005,
+        "doi": "https://doi.org/10.33549/physiolres.930715",
+        "url": "https://doi.org/10.33549/physiolres.930715",
+        "rank": 4,
+        "authors": [
+          "Petra Benesova",
+          "M Langmeier",
+          "Jan Betka",
+          "S Trojan"
+        ],
+        "source": "Physiological Research",
+        "type": "article",
+        "cited_by_count": 9
+      },
+      {
+        "id": "W2181927873",
+        "title": "Changes in the number of nitrergic neurons following kainic acid administration and repeated long-term hypoxia.",
+        "openalex_id": "https://openalex.org/W2181927873",
+        "year": 2004,
+        "doi": "https://doi.org/10.33549/physiolres.930504",
+        "url": "https://doi.org/10.33549/physiolres.930504",
+        "rank": 5,
+        "authors": [
+          "Petra Benesova",
+          "M Langmeier",
+          "Jan Betka",
+          "S Trojan"
+        ],
+        "source": "Physiological Research",
+        "type": "article",
+        "cited_by_count": 11
+      },
+      {
+        "id": "W4392509181",
+        "title": "Impact of flight and equivalent short-term high-altitude exposure on ocular structures and function",
+        "openalex_id": "https://openalex.org/W4392509181",
+        "year": 2023,
+        "doi": "https://doi.org/10.51329/mehdiophthal1478",
+        "url": "https://doi.org/10.51329/mehdiophthal1478",
+        "rank": 6,
+        "authors": [
+          "Styliani Totou",
+          "Efthymios Karmiris",
+          "Menelaos G. Kanakis",
+          "Panos S. Gartaganis",
+          "Petros Petrou"
+        ],
+        "source": "Medical Hypothesis Discovery & Innovation in Ophthalmology",
+        "type": "review",
+        "cited_by_count": 14
+      },
+      {
+        "id": "W7223067273",
+        "title": "Decompression Theory and Models for Diving Operations: A Review of Principles, Algorithms, and Applications",
+        "openalex_id": "https://openalex.org/W7223067273",
+        "year": 2026,
+        "doi": "https://doi.org/10.26748/ksoe.2026.038",
+        "url": "https://doi.org/10.26748/ksoe.2026.038",
+        "rank": 7,
+        "authors": [
+          "Myounghoon Kim",
+          "Woo-Dong Lee"
+        ],
+        "source": "Journal of Ocean Engineering and Technology",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3153340866",
+        "title": "Vestibular effects of diving",
+        "openalex_id": "https://openalex.org/W3153340866",
+        "year": 2020,
+        "doi": "https://doi.org/10.14748/orl.v16i4.7735",
+        "url": "https://doi.org/10.14748/orl.v16i4.7735",
+        "rank": 8,
+        "authors": [
+          "Mario Petrov Milkov",
+          "Miroslav Stoykov",
+          "Stefan Peev",
+          "Dorina Petrova"
+        ],
+        "source": "International Bulletin of Otorhinolaryngology",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W7213953350",
+        "title": "Aerospace stressors and brain health in military aviators: a glymphatic–neurovascular framework",
+        "openalex_id": "https://openalex.org/W7213953350",
+        "year": 2026,
+        "doi": "https://doi.org/10.3389/fphys.2026.1953796",
+        "url": "https://doi.org/10.3389/fphys.2026.1953796",
+        "rank": 9,
+        "authors": [
+          "Joel Ramirez",
+          "Vincent N Marraffino",
+          "Ursula A. Anirud",
+          "Shawn G. Rhind"
+        ],
+        "source": "Frontiers in Physiology",
+        "type": "review",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4403205264",
+        "title": "In Memoriam: Dr. Bill Lippy, 1928–2024",
+        "openalex_id": "https://openalex.org/W4403205264",
+        "year": 2024,
+        "doi": "https://doi.org/10.1097/mao.0000000000004334",
+        "url": "https://doi.org/10.1097/mao.0000000000004334",
+        "rank": 10,
+        "authors": [],
+        "source": "Otology & Neurotology",
+        "type": "other",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W4382010122",
+        "title": "The Importance of Periodic Oral and Dental Health Examination of Aircrew",
+        "openalex_id": "https://openalex.org/W4382010122",
+        "year": 2023,
+        "doi": "https://doi.org/10.30518/jav.1275421",
+        "url": "https://doi.org/10.30518/jav.1275421",
+        "rank": 11,
+        "authors": [
+          "Gürkan Raşit Bayar",
+          "Güneş SANAL",
+          "Şükrü Hakan Gündüz",
+          "Abdurrahman Engin DEMİR"
+        ],
+        "source": "Journal of Aviation",
+        "type": "article",
+        "cited_by_count": 6
+      },
+      {
+        "id": "W7162995450",
+        "title": "Incidencia de enfermedad descompresiva tipo II en entrenamiento hipobárico y evaluación de cámara hiperbárica monoplaza",
+        "openalex_id": "https://openalex.org/W7162995450",
+        "year": 2025,
+        "doi": "https://doi.org/10.25062/9786287818279.12",
+        "url": "https://doi.org/10.25062/9786287818279.12",
+        "rank": 12,
+        "authors": [
+          "César Arnaldo Olaya Santamaria"
+        ],
+        "type": "book-chapter",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4396563962",
+        "title": "Barodontalgia and its implications for Navy divers and dentists: A narrative review",
+        "openalex_id": "https://openalex.org/W4396563962",
+        "year": 2024,
+        "doi": "https://doi.org/10.4317/jced.61619",
+        "url": "https://doi.org/10.4317/jced.61619",
+        "rank": 13,
+        "authors": [
+          "J. García-Torres",
+          "Juan José Segura-Egea"
+        ],
+        "source": "Journal of Clinical and Experimental Dentistry",
+        "type": "review",
+        "cited_by_count": 7
+      },
+      {
+        "id": "W3202439739",
+        "title": "Flyers Tooth Squeeze - Current Concepts and Future Needs - A Review",
+        "openalex_id": "https://openalex.org/W3202439739",
+        "year": 2021,
+        "doi": "https://doi.org/10.14260/jemds/2021/695",
+        "url": "https://doi.org/10.14260/jemds/2021/695",
+        "rank": 14,
+        "authors": [
+          "Sohaib Arshad",
+          "Soha Shawqi Albayat",
+          "Sameer Badri Al-Mhanna",
+          "Raja Azman Awang",
+          "Hina Abbas"
+        ],
+        "source": "Journal of Evolution of Medical and Dental Sciences",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W4411780041",
+        "title": "Personal view: Military forensic medicine – forensic medicine in a military setting",
+        "openalex_id": "https://openalex.org/W4411780041",
+        "year": 2025,
+        "doi": "https://doi.org/10.4038/sljfmsl.v16i1.8049",
+        "url": "https://doi.org/10.4038/sljfmsl.v16i1.8049",
+        "rank": 15,
+        "authors": [
+          "Peter Juel Thiis Knudsen",
+          "Guillaume Visseaux",
+          "Werner Jacobs"
+        ],
+        "source": "Sri Lanka Journal of Forensic Medicine Science & Law",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4403548021",
+        "title": "Comparative evaluation of central serous retinopathy in pilots and non-pilot patients",
+        "openalex_id": "https://openalex.org/W4403548021",
+        "year": 2024,
+        "doi": "https://doi.org/10.1016/j.pdpdt.2024.104376",
+        "url": "https://doi.org/10.1016/j.pdpdt.2024.104376",
+        "rank": 16,
+        "authors": [
+          "Yan-Yan Zhao",
+          "Hua Wang",
+          "Wei Chen",
+          "Quan Wang",
+          "Yong Liu"
+        ],
+        "source": "Photodiagnosis and Photodynamic Therapy",
+        "type": "article",
+        "cited_by_count": 3
+      },
+      {
+        "id": "W1900368273",
+        "title": "Hypobaric-ischemic conditions produce glutamate-like cytopathology in infant rat brain",
+        "openalex_id": "https://openalex.org/W1900368273",
+        "year": 1989,
+        "doi": "https://doi.org/10.1523/jneurosci.09-05-01693.1989",
+        "url": "https://doi.org/10.1523/jneurosci.09-05-01693.1989",
+        "rank": 17,
+        "authors": [
+          "Chrysanthy Ikonomidou",
+          "M. T. PRICE",
+          "Judith Mosinger Ogilvie",
+          "Gregory E. Frierdich",
+          "Joann Labruyere"
+        ],
+        "source": "Journal of Neuroscience",
+        "type": "article",
+        "cited_by_count": 165
+      },
+      {
+        "id": "W4413869451",
+        "title": "Changes and monitoring technology of human heart rate and blood oxygen saturation under high-altitude hypoxia",
+        "openalex_id": "https://openalex.org/W4413869451",
+        "year": 2025,
+        "doi": "https://doi.org/10.3389/fphys.2025.1642777",
+        "url": "https://doi.org/10.3389/fphys.2025.1642777",
+        "rank": 18,
+        "authors": [
+          "Yan Liao",
+          "Dianxiang Lu",
+          "Jin Wook Yang"
+        ],
+        "source": "Frontiers in Physiology",
+        "type": "review",
+        "cited_by_count": 11
+      },
+      {
+        "id": "W3026363587",
+        "title": "Identification and validation of quantitative trait loci for ascites syndrome in broiler chickens using whole genome resequencing",
+        "openalex_id": "https://openalex.org/W3026363587",
+        "year": 2020,
+        "doi": "https://doi.org/10.1186/s12863-020-00859-x",
+        "url": "https://doi.org/10.1186/s12863-020-00859-x",
+        "rank": 19,
+        "authors": [
+          "Alia Parveen",
+          "Christa D. Jackson",
+          "Shatovisha Dey",
+          "Katy J. Tarrant",
+          "Nicholas B. Anthony"
+        ],
+        "source": "BMC Genetics",
+        "type": "article",
+        "cited_by_count": 21
+      },
+      {
+        "id": "W7213863813",
+        "title": "Human limits in next-generation fighter aviation: psychophysiological stressors, readiness, health, performance, and countermeasures",
+        "openalex_id": "https://openalex.org/W7213863813",
+        "year": 2026,
+        "doi": "https://doi.org/10.3389/fphys.2026.1920799",
+        "url": "https://doi.org/10.3389/fphys.2026.1920799",
+        "rank": 20,
+        "authors": [
+          "Jennifer F. Chan",
+          "Jing Zhang",
+          "Maria Y. Shiu",
+          "Fethi Bouak",
+          "Katie Shea"
+        ],
+        "source": "Frontiers in Physiology",
+        "type": "review",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2063744400",
+        "title": "Aviation dentistry: current concepts and practice",
+        "openalex_id": "https://openalex.org/W2063744400",
+        "year": 2009,
+        "doi": "https://doi.org/10.1038/sj.bdj.2008.1121",
+        "url": "https://doi.org/10.1038/sj.bdj.2008.1121",
+        "rank": 21,
+        "authors": [
+          "Yehuda Zadik"
+        ],
+        "source": "BDJ",
+        "type": "article",
+        "cited_by_count": 93
+      },
+      {
+        "id": "W4411776220",
+        "title": "Differential effects of chronic intermittent hypobaric hypoxia on healthy and metabolic syndrome mice through liver tissue proteomic analysis",
+        "openalex_id": "https://openalex.org/W4411776220",
+        "year": 2025,
+        "doi": "https://doi.org/10.2306/scienceasia1513-1874.2025.054",
+        "url": "https://doi.org/10.2306/scienceasia1513-1874.2025.054",
+        "rank": 22,
+        "authors": [
+          "Cheng Wang",
+          "Wei Zhang",
+          "Dong-Hai Zhao",
+          "Pengyan Ji",
+          "Ying Chang"
+        ],
+        "source": "ScienceAsia",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4240863485",
+        "title": "Aviation Dentistry",
+        "openalex_id": "https://openalex.org/W4240863485",
+        "year": 2014,
+        "doi": "https://doi.org/10.7860/jcdr/2014/7232.4189",
+        "url": "https://doi.org/10.7860/jcdr/2014/7232.4189",
+        "rank": 23,
+        "authors": [
+          "D Sri Sakth"
+        ],
+        "source": "JOURNAL OF CLINICAL AND DIAGNOSTIC RESEARCH",
+        "type": "article",
+        "cited_by_count": 15
+      },
+      {
+        "id": "W2029110313",
+        "title": "Post stapedotomy aviation: A changing scenario",
+        "openalex_id": "https://openalex.org/W2029110313",
+        "year": 2014,
+        "doi": "https://doi.org/10.4103/0019-5278.146905",
+        "url": "https://doi.org/10.4103/0019-5278.146905",
+        "rank": 24,
+        "authors": [
+          "Renu Rajguru"
+        ],
+        "source": "Indian Journal of Occupational and Environmental Medicine",
+        "type": "article",
+        "cited_by_count": 2
+      },
+      {
+        "id": "W2685749754",
+        "title": "AEROMEDICAL ASPECTS OF CONTACT LENSES (SOFT AND SEMISOFT)",
+        "openalex_id": "https://openalex.org/W2685749754",
+        "year": 1995,
+        "doi": "https://doi.org/10.1016/s0377-1237(17)30956-5",
+        "url": "https://doi.org/10.1016/s0377-1237(17)30956-5",
+        "rank": 25,
+        "authors": [
+          "GKG PRASAD",
+          "MK Vyawahare",
+          "R KAPUR",
+          "V S Sachdev"
+        ],
+        "source": "Medical Journal Armed Forces India",
+        "type": "article",
+        "cited_by_count": 0
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-openalex-israel-tail",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_works_search",
+    "params": {
+      "query": "(\"Nakdimon\" OR \"Ben-Ari\" OR \"Israeli Air Force\") AND (\"decompression sickness\" OR \"hypobaric chamber\" OR \"altitude chamber\")",
+      "per_page": 25,
+      "page": 2,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 37,
+    "status": "observed_visible_results",
+    "note": "Page 2, 12 returned of 37 reported index matches.",
+    "records": [
+      {
+        "id": "W4400363458",
+        "title": "Challenges in dentistry at high altitude",
+        "openalex_id": "https://openalex.org/W4400363458",
+        "year": 2024,
+        "doi": "https://doi.org/10.18231/j.adr.2024.002",
+        "url": "https://doi.org/10.18231/j.adr.2024.002",
+        "rank": 26,
+        "authors": [
+          "Akshat Sachdeva",
+          "Abhishek Palta",
+          "Maria Gulrez",
+          "Palak Agrawal",
+          "Drishti Palwankar"
+        ],
+        "source": "Archives of Dental Research",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3091934295",
+        "title": "The effect of civil and military flights on coagulation, fibrinolysis and blood flow: insight from a rat model",
+        "openalex_id": "https://openalex.org/W3091934295",
+        "year": 2020,
+        "doi": "https://doi.org/10.1186/s12959-020-00237-8",
+        "url": "https://doi.org/10.1186/s12959-020-00237-8",
+        "rank": 27,
+        "authors": [
+          "Anna Levkovsky",
+          "Rima Dardik",
+          "Daniel Barazany",
+          "David M. Steinberg",
+          "Mark D. Kiri"
+        ],
+        "source": "Thrombosis Journal",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W4237051389",
+        "title": "High-flying dentistry",
+        "openalex_id": "https://openalex.org/W4237051389",
+        "year": 2009,
+        "doi": "https://doi.org/10.1038/sj.bdj.2008.1154",
+        "url": "https://doi.org/10.1038/sj.bdj.2008.1154",
+        "rank": 28,
+        "authors": [],
+        "source": "BDJ",
+        "type": "other",
+        "cited_by_count": 2
+      },
+      {
+        "id": "W4255798700",
+        "title": "New members appointed",
+        "openalex_id": "https://openalex.org/W4255798700",
+        "year": 2009,
+        "doi": "https://doi.org/10.1038/sj.bdj.2008.1160",
+        "url": "https://doi.org/10.1038/sj.bdj.2008.1160",
+        "rank": 29,
+        "authors": [],
+        "source": "BDJ",
+        "type": "other",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4244796140",
+        "title": "NHS patients being overcharged",
+        "openalex_id": "https://openalex.org/W4244796140",
+        "year": 2009,
+        "doi": "https://doi.org/10.1038/sj.bdj.2008.1153",
+        "url": "https://doi.org/10.1038/sj.bdj.2008.1153",
+        "rank": 30,
+        "authors": [],
+        "source": "BDJ",
+        "type": "other",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4229528046",
+        "title": "Funding announced for orthodontic speciality",
+        "openalex_id": "https://openalex.org/W4229528046",
+        "year": 2009,
+        "doi": "https://doi.org/10.1038/sj.bdj.2008.1159",
+        "url": "https://doi.org/10.1038/sj.bdj.2008.1159",
+        "rank": 31,
+        "authors": [],
+        "source": "BDJ",
+        "type": "other",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4240395798",
+        "title": "Honour awarded",
+        "openalex_id": "https://openalex.org/W4240395798",
+        "year": 2009,
+        "doi": "https://doi.org/10.1038/sj.bdj.2008.1155",
+        "url": "https://doi.org/10.1038/sj.bdj.2008.1155",
+        "rank": 32,
+        "authors": [],
+        "source": "BDJ",
+        "type": "other",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4243624654",
+        "title": "Guidance for dentists who want to work in Europe",
+        "openalex_id": "https://openalex.org/W4243624654",
+        "year": 2009,
+        "doi": "https://doi.org/10.1038/sj.bdj.2008.1158",
+        "url": "https://doi.org/10.1038/sj.bdj.2008.1158",
+        "rank": 33,
+        "authors": [],
+        "source": "BDJ",
+        "type": "other",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W7172514147",
+        "title": "Cognitive Framework for Aircraft Piloting: A Core Cognition Set",
+        "openalex_id": "https://openalex.org/W7172514147",
+        "year": 2026,
+        "doi": "https://doi.org/10.3390/bs16081348",
+        "url": "https://doi.org/10.3390/bs16081348",
+        "rank": 34,
+        "authors": [
+          "Hongyi Huang",
+          "Yizhen Guo",
+          "Junsong Lu",
+          "Fan Li",
+          "Yin Wu"
+        ],
+        "source": "Behavioral Sciences",
+        "type": "review",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W7216281575",
+        "title": "Knowledge and Awareness about Barodontolgia among Undergraduate Dental Students",
+        "openalex_id": "https://openalex.org/W7216281575",
+        "year": 2025,
+        "doi": "https://doi.org/10.36437/ijdrd.2025.7.2.f",
+        "url": "https://www.ijdrd.com/index.php/ijdrd/article/view/219",
+        "rank": 35,
+        "authors": [
+          "M. V. N. Snigdha",
+          "K. V. N. R. Prathap",
+          "T. Madhavi Padma",
+          "K. Aravind Kumar",
+          "Surbhit Singh"
+        ],
+        "source": "International Journal of Drug Research And Dental Science",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2301522855",
+        "title": "Effects of sleep-deprivation on long-term depression of excitatory synaptic transmission in the ca1 region of the hippocampus",
+        "openalex_id": "https://openalex.org/W2301522855",
+        "year": 2012,
+        "doi": "https://doi.org/10.14288/1.0072600",
+        "url": "http://hdl.handle.net/2429/40972",
+        "rank": 36,
+        "authors": [
+          "Ramakrishna Tadavarty"
+        ],
+        "source": "cIRcle (University of British Columbia)",
+        "type": "dissertation",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3200177883",
+        "title": "Medical Certification Strategies in Response to Technologically Advanced Prosthetic Devices",
+        "openalex_id": "https://openalex.org/W3200177883",
+        "year": 2018,
+        "url": "http://ntlsearch.bts.gov/ntl/md.do?id=81860",
+        "rank": 37,
+        "authors": [
+          "Eduard M. Ricaurte",
+          "Nevine Mahmoud"
+        ],
+        "source": "ROSA P",
+        "type": "article",
+        "cited_by_count": 1
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-openalex-cites-0",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_forward_citation_search",
+    "params": {
+      "id": "W7165972402",
+      "per_page": 25,
+      "page": 1,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 1,
+    "status": "observed_visible_results",
+    "note": "Returned all listed forward citations. The directly verified citation of the 2022 report in the 2026 case series was not listed by the index.",
+    "records": [
+      {
+        "id": "W7223067273",
+        "title": "Decompression Theory and Models for Diving Operations: A Review of Principles, Algorithms, and Applications",
+        "openalex_id": "https://openalex.org/W7223067273",
+        "year": 2026,
+        "doi": "https://doi.org/10.26748/ksoe.2026.038",
+        "url": "https://doi.org/10.26748/ksoe.2026.038",
+        "rank": 1,
+        "authors": [
+          "Myounghoon Kim",
+          "Woo-Dong Lee"
+        ],
+        "source": "Journal of Ocean Engineering and Technology",
+        "type": "article",
+        "cited_by_count": 0
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-openalex-cites-1",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_forward_citation_search",
+    "params": {
+      "id": "W4307844695",
+      "per_page": 25,
+      "page": 1,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 3,
+    "status": "observed_visible_results",
+    "note": "Returned all listed forward citations. The directly verified citation of the 2022 report in the 2026 case series was not listed by the index.",
+    "records": [
+      {
+        "id": "W4411776220",
+        "title": "Differential effects of chronic intermittent hypobaric hypoxia on healthy and metabolic syndrome mice through liver tissue proteomic analysis",
+        "openalex_id": "https://openalex.org/W4411776220",
+        "year": 2025,
+        "doi": "https://doi.org/10.2306/scienceasia1513-1874.2025.054",
+        "url": "https://doi.org/10.2306/scienceasia1513-1874.2025.054",
+        "rank": 1,
+        "authors": [
+          "Cheng Wang",
+          "Wei Zhang",
+          "Dong-Hai Zhao",
+          "Pengyan Ji",
+          "Ying Chang"
+        ],
+        "source": "ScienceAsia",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W7162995450",
+        "title": "Incidencia de enfermedad descompresiva tipo II en entrenamiento hipobárico y evaluación de cámara hiperbárica monoplaza",
+        "openalex_id": "https://openalex.org/W7162995450",
+        "year": 2025,
+        "doi": "https://doi.org/10.25062/9786287818279.12",
+        "url": "https://doi.org/10.25062/9786287818279.12",
+        "rank": 2,
+        "authors": [
+          "César Arnaldo Olaya Santamaria"
+        ],
+        "type": "book-chapter",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W7163044418",
+        "title": "Salud operacional y medicina militar: un enfoque desde la estrategia para la seguridad y defensa nacional",
+        "openalex_id": "https://openalex.org/W7163044418",
+        "year": 2025,
+        "doi": "https://doi.org/10.25062/9786287818279",
+        "url": "https://doi.org/10.25062/9786287818279",
+        "rank": 3,
+        "authors": [
+          "Wilson Javier Castro Torres",
+          "Alexander Clavijo Otero",
+          "Adriana Marcela Rodríguez Veloz",
+          "Oswaldo Enrique Florez Molinares",
+          "Nina Viviana Ocampo Torre"
+        ],
+        "type": "book",
+        "cited_by_count": 0
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-undermind-israel",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "supplementary_paper_metadata",
+    "params": {
+      "cite_keys": [
+        "Nak22",
+        "Ben26"
+      ],
+      "detail_level": "full",
+      "show_doi": true,
+      "workspace": "Altitude decompression physiology and AI evidence",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "abstract_checked",
+    "note": "Both abstracts identify the same air force program with partially shared calendar years. Separate publisher checks inspected the full articles.",
+    "records": [
+      {
+        "id": "Nak22",
+        "title": "Mitigating Risks of Altitude Chamber Training.",
+        "year": 2022,
+        "pmid": "36309795",
+        "doi": "10.3357/AMHP.6048.2022",
+        "url": "https://doi.org/10.3357/AMHP.6048.2022",
+        "authors": [
+          "Idan Nakdimon",
+          "Oded Ben-Ari"
+        ],
+        "pdf_available": false
+      },
+      {
+        "id": "Ben26",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor.",
+        "year": 2026,
+        "pmid": "42345225",
+        "url": "https://www.semanticscholar.org/paper/fa946f8b3e0b537eb2f991ef89c30c2865f9b128",
+        "authors": [
+          "Oded Ben-Ari",
+          "Daniel Gabbai",
+          "Idan Nakdimon"
+        ],
+        "pdf_available": false
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-firecrawl-nak",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify case ascertainment, calendar window and role denominator definition in the 2022 Israeli Air Force report.",
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+      "formats": [
+        "markdown"
+      ],
+      "parsers": [
+        "pdf"
+      ],
+      "timeout": 18000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_checked",
+    "note": "Text supplied Methods, Figure 2 and Table I. Rendered figures independently checked.",
+    "records": [
+      {
+        "id": "36309795",
+        "title": "Mitigating Risks of Altitude Chamber Training",
+        "year": 2022,
+        "pmid": "36309795",
+        "doi": "10.3357/AMHP.6048.2022",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-firecrawl-ben",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify event counts and population strata for the 2026 Israeli Air Force chamber case series.",
+      "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+      "formats": [
+        "markdown"
+      ],
+      "parsers": [
+        "pdf"
+      ],
+      "timeout": 18000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_checked",
+    "note": "Text supplied Methods and study totals. Rendered Table 2 independently checked.",
+    "records": [
+      {
+        "id": "42345225",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "year": 2026,
+        "pmid": "42345225",
+        "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-firecrawl-gender-pdf",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify the published 2021 Israeli Air Force hypoxia study and whether it supplies role denominator and DCS outcome information.",
+      "url": "https://ima-files.s3.amazonaws.com/321665_3c1aa05a-1e49-4aa8-ace4-70bc5029b53b.pdf",
+      "formats": [
+        "markdown"
+      ],
+      "parsers": [
+        "pdf"
+      ],
+      "timeout": 18000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_checked",
+    "note": "The public publisher PDF confirms the hypothesized context. The article measures hypoxia physiology with no DCS case ascertainment.",
+    "records": [
+      {
+        "id": "jimm-18-51-23",
+        "title": "Gender Differences in Tolerance to Hypoxia",
+        "year": 2021,
+        "url": "https://ima-files.s3.amazonaws.com/321665_3c1aa05a-1e49-4aa8-ace4-70bc5029b53b.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-local-nak",
+    "date": "2026-11-20",
+    "provider": "Publisher full text",
+    "operation": "source_followup",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+      "locator": "Methods, p. 812, and Figure 2 and Table I, p. 813",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_verified",
+    "note": "For 185 sessions, Table I reports two-decimal rates of 0.55% for 364 instructors, 1,263 trainees and 1,627 combined. Each denominator has exactly one integer count compatible with rounding to two decimals. The corresponding total of nine events also uniquely reproduces 9.9% of the 91 adverse events in Figure 2. Methods identify inside instructors and diagnosis by the supervising physician. The source does not specify whether the denominators count unique people or repeated chamber participation or whether follow-up after training was standardized.",
+    "records": [
+      {
+        "id": "36309795",
+        "title": "Mitigating Risks of Altitude Chamber Training",
+        "year": 2022,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+        "pdf_sha256": "3f2cde321aaf33cc83cccdcef4cc8d4f6d390c88a61135b39330076db26ba64b",
+        "evidence_note": "For 185 sessions, Table I reports two-decimal rates of 0.55% for 364 instructors, 1,263 trainees and 1,627 combined. Each denominator has exactly one integer count compatible with rounding to two decimals. The corresponding total of nine events also uniquely reproduces 9.9% of the 91 adverse events in Figure 2. Methods identify inside instructors and diagnosis by the supervising physician. The source does not specify whether the denominators count unique people or repeated chamber participation or whether follow-up after training was standardized.",
+        "pmid": "36309795",
+        "doi": "10.3357/AMHP.6048.2022",
+        "study_id": "iaf-ramat-gan-2015-2019",
+        "role_review": "rounded_count_reconstructed_exposure_unit_unverified",
+        "counts_from_rounded_rates": {
+          "instructors": 2,
+          "trainees": 7,
+          "overall": 9,
+          "overall_from_figure_2": 9,
+          "decimals_table_1": 2,
+          "decimals_figure_2": 1,
+          "rounding_method": "round to the published precision in percentage points"
+        },
+        "reported_totals": {
+          "sessions": 185,
+          "individuals": 1627,
+          "all_adverse_events": 91
+        },
+        "observations": [
+          {
+            "id": "nakdimon22-staff-derived-count",
+            "study_id": "iaf-ramat-gan-2015-2019",
+            "endpoint": "symptomatic_altitude_dcs",
+            "group": "Physiology instructors",
+            "chamber_role": "staff",
+            "cases": 2,
+            "denominator": 364,
+            "denominator_unit": "individuals_as_reported",
+            "reported_rate_percent": 0.55,
+            "locator": "Methods, p. 812, and Figure 2 and Table I, p. 813",
+            "count_basis": "integer_compatible_with_published_rounded_rate",
+            "note": "Under rounding to two decimal places, this is the only integer case count that reproduces the published risk. The paper describes individuals and does not specify counting of repeat attendance. Preserve the official rate-only row as a separate source observation."
+          },
+          {
+            "id": "nakdimon22-trainee-derived-count",
+            "study_id": "iaf-ramat-gan-2015-2019",
+            "endpoint": "symptomatic_altitude_dcs",
+            "group": "Trainees",
+            "chamber_role": "trainee",
+            "cases": 7,
+            "denominator": 1263,
+            "denominator_unit": "individuals_as_reported",
+            "reported_rate_percent": 0.55,
+            "locator": "Methods, p. 812, and Figure 2 and Table I, p. 813",
+            "count_basis": "integer_compatible_with_published_rounded_rate",
+            "note": "Under rounding to two decimal places, this is the only integer case count that reproduces the published risk. The paper describes individuals and does not specify counting of repeat attendance. Preserve the official rate-only row as a separate source observation."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-local-ben",
+    "date": "2026-11-20",
+    "provider": "Publisher full text",
+    "operation": "source_followup",
+    "params": {
+      "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+      "locator": "Methods, Results, Table 1, p. 353, Table 2, p. 354 and reference 13, p. 356",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_verified",
+    "note": "The 272 sessions from January 2015 to December 2022 include 2,279 trainees and instructors combined and 11 reported chamber ADCS cases. The four additional combat-flight cases lie outside the chamber estimates. Table 2 classifies four chamber cases as instructors and the remaining seven by other occupations. All four instructor cases and six of the other cases received HBOT. The remaining chamber case received normobaric oxygen. The table gives no case dates. The paper cites the 2015–2019 report but does not describe individual linkage or publish separate staff and trainee exposure totals.",
+    "records": [
+      {
+        "id": "42345225",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "year": 2026,
+        "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "primary_source": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "pdf_sha256": "edb84b9a03b49f877316169b820d52573f2e051b23f1b9107649acc38ff458e4",
+        "evidence_note": "The 272 sessions from January 2015 to December 2022 include 2,279 trainees and instructors combined and 11 reported chamber ADCS cases. The four additional combat-flight cases lie outside the chamber estimates. Table 2 classifies four chamber cases as instructors and the remaining seven by other occupations. All four instructor cases and six of the other cases received HBOT. The remaining chamber case received normobaric oxygen. The table gives no case dates. The paper cites the 2015–2019 report but does not describe individual linkage or publish separate staff and trainee exposure totals.",
+        "pmid": "42345225",
+        "study_id": "iaf-ramat-gan-2015-2022",
+        "role_review": "role_cases_with_combined_denominator_and_earlier_overlap",
+        "source_counts": {
+          "chamber_sessions": 272,
+          "chamber_trainees_and_instructors": 2279,
+          "all_chamber_cases": 11,
+          "instructor_chamber_cases": 4,
+          "other_occupation_chamber_cases": 7,
+          "instructor_chamber_cases_hbot": 4,
+          "other_occupation_chamber_cases_hbot": 6,
+          "chamber_cases_normobaric_oxygen": 1,
+          "combat_flight_cases": 4
+        },
+        "observations": [
+          {
+            "id": "benari26-chamber-dcs-all",
+            "study_id": "iaf-ramat-gan-2015-2022",
+            "endpoint": "symptomatic_altitude_dcs",
+            "group": "Trainees and aviation physiology instructors combined",
+            "cases": 11,
+            "denominator": 2279,
+            "denominator_unit": "individuals_as_reported",
+            "reported_rate_percent": 0.5,
+            "locator": "Methods, Results and Table 1, p. 353",
+            "note": "Combined estimate across roles and January 2015 through December 2022. Four events in flight are excluded. Calendar overlap with the 2015–2019 report requires attention before synthesis."
+          },
+          {
+            "id": "benari26-chamber-dcs-hbot-all",
+            "study_id": "iaf-ramat-gan-2015-2022",
+            "endpoint": "hyperbaric_treated_altitude_dcs",
+            "group": "Trainees and aviation physiology instructors combined",
+            "cases": 10,
+            "denominator": 2279,
+            "denominator_unit": "individuals_as_reported",
+            "locator": "Combined risk set p. 353 and treatment column in Table 2, p. 354",
+            "note": "Counted ten chamber rows treated with a hyperbaric schedule. The combined denominator is shared with the overall symptomatic DCS row. Four are instructors and six have other occupations. No separate role exposure totals were reported."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-iaf-local-gender",
+    "date": "2026-11-20",
+    "provider": "Publisher full text",
+    "operation": "source_followup",
+    "params": {
+      "url": "https://ima-files.s3.amazonaws.com/321665_3c1aa05a-1e49-4aa8-ace4-70bc5029b53b.pdf",
+      "locator": "Methods and Results, pp. 24–25",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_verified",
+    "note": "The retrospective paper reports pulse oximetry and heart rate for 167 aircrew and auxiliary aircrew undergoing chamber training. No DCS event ascertainment, study calendar window or staff exposure denominator is given. The paper provides training protocol context only.",
+    "records": [
+      {
+        "id": "jimm-18-51-23",
+        "title": "Gender Differences in Tolerance to Hypoxia",
+        "year": 2021,
+        "url": "https://ima-files.s3.amazonaws.com/321665_3c1aa05a-1e49-4aa8-ace4-70bc5029b53b.pdf",
+        "primary_source": "https://ima-files.s3.amazonaws.com/321665_3c1aa05a-1e49-4aa8-ace4-70bc5029b53b.pdf",
+        "pdf_sha256": "093a5c823feaf24071e0302146c2d6fcace7c5fb437c55e6614bf18f19c053d9",
+        "evidence_note": "The retrospective paper reports pulse oximetry and heart rate for 167 aircrew and auxiliary aircrew undergoing chamber training. No DCS event ascertainment, study calendar window or staff exposure denominator is given. The paper provides training protocol context only.",
+        "original_title": "השפעה מגדרית על עמידות להיפוקסיה",
+        "authors": [
+          "Idan Nakdimon",
+          "Oded Ben-Ari",
+          "Uri Eliyahu",
+          "Barak Gordon"
+        ],
+        "article_language": "Hebrew",
+        "journal": "Journal of Israeli Military Medicine",
+        "volume": "18",
+        "issue": "3 (51)",
+        "pages": "23–27",
+        "role_review": "hypoxia_physiology_without_dcs_ascertainment"
+      }
+    ]
+  }
+]

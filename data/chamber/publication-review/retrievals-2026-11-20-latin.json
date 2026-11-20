@@ -1,0 +1,1607 @@
+[
+  {
+    "id": "2026-11-20-latin-tavily-aguirre",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Incidentes fisiológicos\" cámara hipobárica \"Aguirre\" 1992 Chile \"Dirección de Sanidad\" entrenamiento puesto bibliografía \"Fuerza Aérea\"",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://fach.mil.cl/fach/site/tag/port/all/tagport_1056_1.html",
+        "title": "Cámara Hipobárica - | Fuerza Aérea de Chile",
+        "url": "https://fach.mil.cl/fach/site/tag/port/all/tagport_1056_1.html",
+        "rank": 1,
+        "score": 0.43953684
+      },
+      {
+        "id": "https://www.facebook.com/FuerzaAereadeChile/posts/llevando-la-seguridad-a%C3%A9rea-a-nuevas-alturas-nuestro-centro-de-medicina-aeroespa/1008367271383262",
+        "title": "Fuerza Aérea De Chile - Facebook",
+        "url": "https://www.facebook.com/FuerzaAereadeChile/posts/llevando-la-seguridad-a%C3%A9rea-a-nuevas-alturas-nuestro-centro-de-medicina-aeroespa/1008367271383262",
+        "rank": 2,
+        "score": 0.35420963
+      },
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "title": "Incidentes fisiológicos durante entrenamiento en cámara ...",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "rank": 3,
+        "score": 0.34831256,
+        "evidence_note": "The index fragment names a program in the aerospace medicine department of a Dirección de Sanidad. The full institution, country, publication venue and results are unverified."
+      },
+      {
+        "id": "https://www.infodefensa.com/texto-diario/mostrar/5991888/fuerzas-especiales-aerotransportadas-ejercito-chile-realizan-entrenamiento-fisiologico-fach",
+        "title": "Fuerzas Especiales Aerotransportadas del Ejército de Chile realizan ...",
+        "url": "https://www.infodefensa.com/texto-diario/mostrar/5991888/fuerzas-especiales-aerotransportadas-ejercito-chile-realizan-entrenamiento-fisiologico-fach",
+        "rank": 4,
+        "score": 0.34037554
+      },
+      {
+        "id": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "title": "Síntomas de hipoxia en tripulaciones aéreas militares chilenas ...",
+        "url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "rank": 5,
+        "score": 0.3284217
+      },
+      {
+        "id": "https://www.youtube.com/watch?v=Fp2Lp-H3BOw",
+        "title": "En Chile incorporan cámara de hipoxia-hipobárica para estudiar problemas de altura",
+        "url": "https://www.youtube.com/watch?v=Fp2Lp-H3BOw",
+        "rank": 6,
+        "score": 0.27096224
+      },
+      {
+        "id": "https://www.minsal.cl/wp-content/uploads/2026/05/BORRADOR_Actualizacion-Protocolo-de-Vigilancia-Ocupacional-a-Condiciones-Hiperbaricas-2026.pdf",
+        "title": "PROTOCOLO DE VIGILANCIA OCUPACIONAL DE ...",
+        "url": "https://www.minsal.cl/wp-content/uploads/2026/05/BORRADOR_Actualizacion-Protocolo-de-Vigilancia-Ocupacional-a-Condiciones-Hiperbaricas-2026.pdf",
+        "rank": 7,
+        "score": 0.21452682
+      },
+      {
+        "id": "https://www.codem.es/Adjuntos/CODEM/Documentos/Informaciones/Publico/69a30014-add5-4429-a03a-1d4c1e2fd2c5/456CB3C8-0FD6-4C3E-9289-3DE855CA17DC/bfc65c2d-9045-4f85-8ef2-94053e9323e7/bfc65c2d-9045-4f85-8ef2-94053e9323e7.pdf",
+        "title": "OXIGENOTERAPIA HIPERBARICA.",
+        "url": "https://www.codem.es/Adjuntos/CODEM/Documentos/Informaciones/Publico/69a30014-add5-4429-a03a-1d4c1e2fd2c5/456CB3C8-0FD6-4C3E-9289-3DE855CA17DC/bfc65c2d-9045-4f85-8ef2-94053e9323e7/bfc65c2d-9045-4f85-8ef2-94053e9323e7.pdf",
+        "rank": 8,
+        "score": 0.17370832
+      },
+      {
+        "id": "https://es.wikipedia.org/wiki/Fuerza_A%C3%A9rea_de_Chile",
+        "title": "Fuerza Aérea de Chile - Wikipedia, la enciclopedia libre",
+        "url": "https://es.wikipedia.org/wiki/Fuerza_A%C3%A9rea_de_Chile",
+        "rank": 9,
+        "score": 0.16105616
+      },
+      {
+        "id": "https://www.scielo.cl/scielo.php?script=sci_arttext&pid=S0034-98872022001001351",
+        "title": "desde la hipoxia hipobárica al oxígeno hiperbárico",
+        "url": "https://www.scielo.cl/scielo.php?script=sci_arttext&pid=S0034-98872022001001351",
+        "rank": 10,
+        "score": 0.14426938
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-tavily-chile",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "Chile FACH \"enfermedad por descompresión\" \"cámara hipobárica\" entrenamiento \"incidentes\" Lapostol Merino Rodríguez 1992 2018 medicina aeroespacial",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+        "title": "Pilotos chilenos se entrenan en la cámara hipobárica de la FAC",
+        "url": "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+        "rank": 1,
+        "score": 0.5074763
+      },
+      {
+        "id": "https://hospitalfach.cl/ENTRENAMIENTO%20FISIOLOGICO%20EJERCITO%2024.html",
+        "title": "Hospital Clínico de la Fuerza Aérea de Chile \"Gral. Dr. Raúl Yazigi J.\"",
+        "url": "https://hospitalfach.cl/ENTRENAMIENTO%20FISIOLOGICO%20EJERCITO%2024.html",
+        "rank": 2,
+        "score": 0.4749051
+      },
+      {
+        "id": "https://fach.mil.cl/gob_transp/marco_normativo/fach/reglamentos/c49.pdf",
+        "title": "https://fach.mil.cl/gob_transp/marco_normativo/fach/reglamentos/c49.pdf",
+        "url": "https://fach.mil.cl/gob_transp/marco_normativo/fach/reglamentos/c49.pdf",
+        "rank": 3,
+        "score": 0.4594096
+      },
+      {
+        "id": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1",
+        "title": "4828",
+        "url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1",
+        "rank": 4,
+        "score": 0.456955
+      },
+      {
+        "id": "https://fach.mil.cl/el-centro-de-medicina-aeroespacial-recibio-la-visita-profesional-de-oficial",
+        "title": "CMAE recibió visita de oficial española y mostró entrenamiento fisiológico con estándares OTAN | Fuerza Aérea de Chile",
+        "url": "https://fach.mil.cl/el-centro-de-medicina-aeroespacial-recibio-la-visita-profesional-de-oficial",
+        "rank": 5,
+        "score": 0.43464127
+      },
+      {
+        "id": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "title": "Síntomas de hipoxia en tripulaciones aéreas militares ...",
+        "url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "rank": 6,
+        "score": 0.4287715
+      },
+      {
+        "id": "https://www.researchgate.net/publication/364605447_Hipoxia_y_el_entrenamiento_en_la_camara_hipobarica",
+        "title": "Hipoxia y el entrenamiento en la cámara hipobárica",
+        "url": "https://www.researchgate.net/publication/364605447_Hipoxia_y_el_entrenamiento_en_la_camara_hipobarica",
+        "rank": 7,
+        "score": 0.3900692
+      },
+      {
+        "id": "https://fach.mil.cl/centro-de-medicina-aeroespacial-apoya-primera-prueba-de-sistema-de",
+        "title": "CMAE prueba innovador sistema EEG en cámara hipobárica | Fuerza Aérea de Chile",
+        "url": "https://fach.mil.cl/centro-de-medicina-aeroespacial-apoya-primera-prueba-de-sistema-de",
+        "rank": 8,
+        "score": 0.3744475
+      },
+      {
+        "id": "http://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1887-85712018000300179",
+        "title": "Principales lugares de producción de las patologías que requieren recompresión en cámara hiperbárica",
+        "url": "http://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1887-85712018000300179",
+        "rank": 9,
+        "score": 0.3443332
+      },
+      {
+        "id": "https://revistamedicina.net/articulo/revmedicinacolombia-1024",
+        "title": "Complicaciones neurológicas de la enfermedad por descompresión de los buceadores | Revista Medicina",
+        "url": "https://revistamedicina.net/articulo/revmedicinacolombia-1024",
+        "rank": 10,
+        "score": 0.33458942
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-tavily-236",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Análisis de los efectos de la hipoxia en 236 pilotos\" cámara hipobárica autor pdf revista descompresión",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://www.researchgate.net/publication/400580987_Analisis_de_los_efectos_de_la_hipoxia_en_236_pilotos_durante_el_entrenamiento_fisiologico_en_camara_hipobarica",
+        "title": "(PDF) Análisis de los efectos de la hipoxia en 236 pilotos durante el ...",
+        "url": "https://www.researchgate.net/publication/400580987_Analisis_de_los_efectos_de_la_hipoxia_en_236_pilotos_durante_el_entrenamiento_fisiologico_en_camara_hipobarica",
+        "rank": 1,
+        "score": 0.615319
+      },
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/pt/biblio-910830",
+        "title": "Analysis of the effects of hypoxy in 236 pilots during physiological ...",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/pt/biblio-910830",
+        "rank": 2,
+        "score": 0.5619361
+      },
+      {
+        "id": "https://www.researchgate.net/publication/364605447_Hipoxia_y_el_entrenamiento_en_la_camara_hipobarica",
+        "title": "Hipoxia y el entrenamiento en la cámara hipobárica",
+        "url": "https://www.researchgate.net/publication/364605447_Hipoxia_y_el_entrenamiento_en_la_camara_hipobarica",
+        "rank": 3,
+        "score": 0.50044703
+      },
+      {
+        "id": "https://www.youtube.com/watch?v=6Z5iFN6EfVA",
+        "title": "Hipoxia y el entrenamiento de la cámara hipobárica.",
+        "url": "https://www.youtube.com/watch?v=6Z5iFN6EfVA",
+        "rank": 4,
+        "score": 0.4449265
+      },
+      {
+        "id": "https://publicacionescd.uleam.edu.ec/index.php/yaku/article/view/362/577",
+        "title": "Untitled",
+        "url": "https://publicacionescd.uleam.edu.ec/index.php/yaku/article/view/362/577",
+        "rank": 5,
+        "score": 0.36670312
+      },
+      {
+        "id": "https://es.hyperbaric-chamber.com/c%C3%A1mara-de-altitud-de-c%C3%A1mara-hipob%C3%A1rica",
+        "title": "Cámara hipobárica – Cámara de altitud – Cámaras de oxigenoterapia hiperbárica Tekna",
+        "url": "https://es.hyperbaric-chamber.com/c%C3%A1mara-de-altitud-de-c%C3%A1mara-hipob%C3%A1rica",
+        "rank": 6,
+        "score": 0.36658973
+      },
+      {
+        "id": "https://www.redalyc.org/journal/559/55971715016/55971715016.pdf",
+        "title": "Pruebas cognitivas que determinan la alteración del tiempo de conciencia ...",
+        "url": "https://www.redalyc.org/journal/559/55971715016/55971715016.pdf",
+        "rank": 7,
+        "score": 0.3309035
+      },
+      {
+        "id": "https://ejercitodelaireydelespacio.defensa.gob.es/EA/cima/investigacion/invAnteriores",
+        "title": "Centro de Instrucción de Medicina Aeroespacial\n\t\t\t\t\t\t- Investigación\n\t\t\t\t\t\t- Investigaciones anteriores",
+        "url": "https://ejercitodelaireydelespacio.defensa.gob.es/EA/cima/investigacion/invAnteriores",
+        "rank": 8,
+        "score": 0.32348695
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-tavily-udd-file",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Síntomas de hipoxia en tripulaciones aéreas militares chilenas\" \"Lapostol\" pdf 9961 repositorio.udd.cl bitstreams CMAE descompresiva",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "title": "Síntomas de hipoxia en tripulaciones aéreas militares chilenas durante ...",
+        "url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "rank": 1,
+        "score": 0.59343255
+      },
+      {
+        "id": "https://repositorio.udd.cl/items/42f34e9d-0ae3-4988-8aa6-d014e92b0602",
+        "title": "Variabilidad del ritmo cardíaco en pilotos militares durante el ...",
+        "url": "https://repositorio.udd.cl/items/42f34e9d-0ae3-4988-8aa6-d014e92b0602",
+        "rank": 2,
+        "score": 0.5575141
+      },
+      {
+        "id": "https://dialnet.unirioja.es/descarga/articulo/6702059.pdf",
+        "title": "Alteraciones fisiológicas durante el transporte aéreo de ...",
+        "url": "https://dialnet.unirioja.es/descarga/articulo/6702059.pdf",
+        "rank": 3,
+        "score": 0.51134294
+      },
+      {
+        "id": "https://www.oneair.es/que-es-la-hipoxia",
+        "title": "Qué es la hipoxia y cómo afecta la falta de oxígeno en aviación - One Air",
+        "url": "https://www.oneair.es/que-es-la-hipoxia",
+        "rank": 4,
+        "score": 0.50437915
+      },
+      {
+        "id": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961/request-a-copy?bitstream=dfc37b45-9430-4bb6-ba5b-607caad06a96",
+        "title": "Síntomas de hipoxia en tripulaciones aéreas militares chilenas durante ...",
+        "url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961/request-a-copy?bitstream=dfc37b45-9430-4bb6-ba5b-607caad06a96",
+        "rank": 5,
+        "score": 0.50050783
+      },
+      {
+        "id": "https://www.gob.mx/cms/uploads/attachment/file/676726/BOLETIN_016_HIPOXIA.pdf",
+        "title": "BOLETÍN DE SEGURIDAD",
+        "url": "https://www.gob.mx/cms/uploads/attachment/file/676726/BOLETIN_016_HIPOXIA.pdf",
+        "rank": 6,
+        "score": 0.4713145
+      },
+      {
+        "id": "https://cua.cl/descarga/MANUAL%20FISIOLOGIA%20DE%20VUELO-CURSOS%20BASICOS%20(2007).pdf",
+        "title": "FISIOLOGÍA DE AVIACIÓN",
+        "url": "https://cua.cl/descarga/MANUAL%20FISIOLOGIA%20DE%20VUELO-CURSOS%20BASICOS%20(2007).pdf",
+        "rank": 7,
+        "score": 0.44881877
+      },
+      {
+        "id": "https://es.scribd.com/document/617486871/TAREA-1-hipoxia",
+        "title": "Prevención de hipoxia en aviación | PDF",
+        "url": "https://es.scribd.com/document/617486871/TAREA-1-hipoxia",
+        "rank": 8,
+        "score": 0.42793453
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-tavily-historical",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "site:pesquisa.bvsalud.org \"lil-207282\" \"Incidentes fisiológicos\" \"entre los\" \"Dirección de Sanidad\" \"Aguirre\" revista",
+      "search_depth": "advanced",
+      "max_results": 7,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "title": "Incidentes fisiológicos durante entrenamiento en cámara ...",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "rank": 1,
+        "score": 0.21403356,
+        "evidence_note": "The index fragment names a program in the aerospace medicine department of a Dirección de Sanidad. The full institution, country, publication venue and results are unverified."
+      },
+      {
+        "id": "http://pesquisa.bvsalud.org/portal/resource/en/mdl-42442374",
+        "title": "Multidomain lifestyle intervention for the prevention of ...",
+        "url": "http://pesquisa.bvsalud.org/portal/resource/en/mdl-42442374",
+        "rank": 2,
+        "score": 0.0705596
+      },
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/pt/biblio-1250772",
+        "title": "Cambios fisiológicos durante el embarazo normal | Rev. Fac. Med. UNAM;64(1): 39-48, ene.-feb. 2021. tab, graf | LILACS",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/pt/biblio-1250772",
+        "rank": 3,
+        "score": 0.056756895
+      },
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/pt/lil-663763",
+        "title": "Diferencias de sexo en el dolor. Una aproximación a la clínica | Rev. colomb. anestesiol;40(3): 207-212, jul.-oct. 2012. ilus | LILACS | COLNAL",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/pt/lil-663763",
+        "rank": 4,
+        "score": 0.046638038
+      },
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/es/lil-575122",
+        "title": "El concepto de alostasis: un paso más allá del estrés y la homeostasis | Rev. Hosp. Ital. B. Aires (2004);30(1): 7-12, jun. 2010. ilus | LILACS",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/es/lil-575122",
+        "rank": 5,
+        "score": 0.04232459
+      },
+      {
+        "id": "https://pesquisa.bvsalud.org/enfermeria/resource/pt/lil-539900",
+        "title": "Efectos fisiológicos de la crioterapia | Rev. Univ. Ind. Santander, Salud;39(1): 59-70, ene.-abr. 2006. | LILACS",
+        "url": "https://pesquisa.bvsalud.org/enfermeria/resource/pt/lil-539900",
+        "rank": 6,
+        "score": 0.040087357
+      },
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/pt/lil-539900",
+        "title": "Efectos fisiológicos de la crioterapia | Rev. Univ. Ind. Santander, Salud;39(1): 59-70, ene.-abr. 2006. | LILACS",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/pt/lil-539900",
+        "rank": 7,
+        "score": 0.039937314
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-tavily-spanish-clinical",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"enfermedad descompresiva\" OR \"enfermedad por descompresión\" \"cámara hipobárica\" \"casos\" alumnos instructores entrenamiento fisiológico Argentina Chile Uruguay Perú España datos",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://xn--hiperbaricacorua-lub.com/enfermedad-descompresiva-buceo-camara-hiperbarica-coruna",
+        "title": "Enfermedad descompresiva y cámara hiperbárica | A Coruña 2026",
+        "url": "https://xn--hiperbaricacorua-lub.com/enfermedad-descompresiva-buceo-camara-hiperbarica-coruna",
+        "rank": 1,
+        "score": 0.4864001
+      },
+      {
+        "id": "https://revistaemergencias.org/wp-content/uploads/2023/08/Emergencias-1993_5_3_98-104-104.pdf",
+        "title": "accidentes de buceo: la enfermedad descompresiva como ...",
+        "url": "https://revistaemergencias.org/wp-content/uploads/2023/08/Emergencias-1993_5_3_98-104-104.pdf",
+        "rank": 2,
+        "score": 0.4416429
+      },
+      {
+        "id": "https://revistamedicina.net/articulo/revmedicinacolombia-1024",
+        "title": "Complicaciones neurológicas de la enfermedad por descompresión de los buceadores | Revista Medicina",
+        "url": "https://revistamedicina.net/articulo/revmedicinacolombia-1024",
+        "rank": 3,
+        "score": 0.4400481
+      },
+      {
+        "id": "https://world.dan.org/es/health-medicine/health-resource/dive-medical-reference-books/enfermedad-por-descompresion-edc/treating-decompression-sickness",
+        "title": "Capítulo 4: Tratamiento de la enfermedad de descompresión - DAN World en Español",
+        "url": "https://world.dan.org/es/health-medicine/health-resource/dive-medical-reference-books/enfermedad-por-descompresion-edc/treating-decompression-sickness",
+        "rank": 4,
+        "score": 0.42757598
+      },
+      {
+        "id": "https://www.cigna.com/es-us/knowledge-center/hw/temas-de-salud/lesiones-por-presin-en-el-buceo-abo0894",
+        "title": "Lesiones por presión en el buceo | Cigna",
+        "url": "https://www.cigna.com/es-us/knowledge-center/hw/temas-de-salud/lesiones-por-presin-en-el-buceo-abo0894",
+        "rank": 5,
+        "score": 0.4198858
+      },
+      {
+        "id": "https://world.dan.org/es/health-medicine/health-resources/diseases-conditions/decompression-illness-what-is-it-and-what-is-the-treatment",
+        "title": "Enfermedad por descompresión - DAN World",
+        "url": "https://world.dan.org/es/health-medicine/health-resources/diseases-conditions/decompression-illness-what-is-it-and-what-is-the-treatment",
+        "rank": 6,
+        "score": 0.41454327
+      },
+      {
+        "id": "https://www.divessi.com/es/blog/decompression-sickness-treatment-9711.html",
+        "title": "Tratamiento de la enfermedad descompresiva: Todo lo que debes ...",
+        "url": "https://www.divessi.com/es/blog/decompression-sickness-treatment-9711.html",
+        "rank": 7,
+        "score": 0.4143063
+      },
+      {
+        "id": "https://www.merckmanuals.com/es-us/hogar/traumatismos-y-envenenamientos/lesiones-por-submarinismo-y-aire-comprimido/enfermedad-por-descompresi%C3%B3n",
+        "title": "Enfermedad por descompresión - Traumatismos y envenenamientos - Manuale Merck versión para el público general",
+        "url": "https://www.merckmanuals.com/es-us/hogar/traumatismos-y-envenenamientos/lesiones-por-submarinismo-y-aire-comprimido/enfermedad-por-descompresi%C3%B3n",
+        "rank": 8,
+        "score": 0.40333182
+      },
+      {
+        "id": "https://www.facebook.com/COBI.mx/posts/la-enfermedad-por-descompresi%C3%B3n-es-una-amenaza-constante-en-la-pesca-dejando-sec/1256106863229245",
+        "title": "La enfermedad por descompresión es una amenaza constante en la pesca ...",
+        "url": "https://www.facebook.com/COBI.mx/posts/la-enfermedad-por-descompresi%C3%B3n-es-una-amenaza-constante-en-la-pesca-dejando-sec/1256106863229245",
+        "rank": 9,
+        "score": 0.39210403
+      },
+      {
+        "id": "https://www.facebook.com/RadioInsularFTV/posts/m%C3%A1s-de-250-buceadores-han-sido-atendidos-en-canarias-por-sospecha-de-enfermedad-/1927144718267422",
+        "title": "Radio Insular Fuerteventura on Facebook: \"Más de 250 buceadores han sido atendidos en Canarias por sospecha de enfermedad descompresiva en la …\"",
+        "url": "https://www.facebook.com/RadioInsularFTV/posts/m%C3%A1s-de-250-buceadores-han-sido-atendidos-en-canarias-por-sospecha-de-enfermedad-/1927144718267422",
+        "rank": 10,
+        "score": 0.3807014
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-firecrawl-chile",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "objective": "Locate original Chilean hypobaric chamber surveillance reports for symptomatic decompression sickness and historical author Aguirre with LILACS record.",
+      "query": "\"cámara hipobárica\" \"Fuerza Aérea de Chile\" \"síntomas de hipoxia\" OR \"descompresión\" Lapostol Aguirre biblioteca medicina",
+      "limit": 10,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://www.scielo.cl/scielo.php?script=sci_arttext&pid=S0717-73482006000300006",
+        "title": "Evaluación de pacientes con patología respiratoria que efectúan ...",
+        "url": "https://www.scielo.cl/scielo.php?script=sci_arttext&pid=S0717-73482006000300006",
+        "rank": 1,
+        "source": "web"
+      },
+      {
+        "id": "https://cua.cl/descarga/MANUAL%20FISIOLOGIA%20DE%20VUELO-CURSOS%20BASICOS%20(2007).pdf",
+        "title": "FISIOLOGÍA DE AVIACIÓN",
+        "url": "https://cua.cl/descarga/MANUAL%20FISIOLOGIA%20DE%20VUELO-CURSOS%20BASICOS%20(2007).pdf",
+        "rank": 2,
+        "source": "web"
+      },
+      {
+        "id": "https://www.studocu.com/pe/document/universidad-privada-san-juan-bautista/fisiologia-humana/hipoxia/35938245",
+        "title": "Estudio sobre la Hipoxia: Definición, Tipos y Tratamiento en Aviación",
+        "url": "https://www.studocu.com/pe/document/universidad-privada-san-juan-bautista/fisiologia-humana/hipoxia/35938245",
+        "rank": 3,
+        "source": "web"
+      },
+      {
+        "id": "https://www.studocu.com/pe/document/universidad-cesar-vallejo/anatomia/hipoxia/4881634",
+        "title": "Fisiología de la Hipoxia en la Aviación (C.D.G.(S) 2023)",
+        "url": "https://www.studocu.com/pe/document/universidad-cesar-vallejo/anatomia/hipoxia/4881634",
+        "rank": 4,
+        "source": "web"
+      },
+      {
+        "id": "https://www.academia.edu/43100477/FISIOLOG%C3%8DA_DE_AVIACI%C3%93N_EDICI%C3%93N_2004_FUERZA_A%C3%89REA_DE_CHILE",
+        "title": "(PDF) FISIOLOGÍA DE AVIACIÓN EDICIÓN 2004 FUERZA AÉREA DE ...",
+        "url": "https://www.academia.edu/43100477/FISIOLOG%C3%8DA_DE_AVIACI%C3%93N_EDICI%C3%93N_2004_FUERZA_A%C3%89REA_DE_CHILE",
+        "rank": 5,
+        "source": "web"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-firecrawl-aguirre-index",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "objective": "Find independently indexed title, author, journal, issue, and institutional information for LILACS lil-207282, without alternate automated access to the record.",
+      "query": "\"incidentes fisiológicos durante entrenamiento en cámara hipobárica\" \"Aguirre\" \"lil-207282\" \"B\" Chile Argentina 1992 ISSN Sanidad Fuerza Aérea",
+      "limit": 8,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "title": "Incidentes fisiológicos durante entrenamiento en cámara ...",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "rank": 1,
+        "source": "web"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-firecrawl-udd-index",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "objective": "Verify primary archive metadata and independently indexed full-text routes for the Chilean chamber-training thesis.",
+      "query": "site:repositorio.udd.cl \"Lapostol\" \"Síntomas de hipoxia en tripulaciones aéreas militares chilenas\" 11447/9961",
+      "limit": 5,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service supplied no index total.",
+    "records": [
+      {
+        "id": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "title": "Síntomas de hipoxia en tripulaciones aéreas militares chilenas durante ...",
+        "url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961",
+        "rank": 1,
+        "source": "web"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-openalex-chile",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_works_search",
+    "params": {
+      "query": "(\"Chile\" OR \"Lapostol\" OR \"Aguirre\") AND (\"cámara hipobárica\" OR \"decompression sickness\" OR \"hypobaric chamber training\")",
+      "per_page": 25,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 199,
+    "status": "observed_visible_results",
+    "note": "Inspected the first 25 of 199 matches in this broad query.",
+    "records": [
+      {
+        "id": "W4313032542",
+        "title": "Hipoxia y el entrenamiento en la cámara hipobárica",
+        "openalex_id": "https://openalex.org/W4313032542",
+        "year": 2022,
+        "doi": "https://doi.org/10.56124/yaku.v5i10.0053",
+        "url": "https://doi.org/10.56124/yaku.v5i10.0053",
+        "rank": 1,
+        "authors": [
+          "Heredia-Reyes Sleather Adán"
+        ],
+        "source": "Revista de Ciencias del Mar y Acuicultura YAKU",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3202110665",
+        "title": "INJURIES AND FATALITIES CAUSED BY ACCIDENTS OF DIVING IN CHILE BETWEEN 2000 TO 2012",
+        "openalex_id": "https://openalex.org/W3202110665",
+        "year": 2019,
+        "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=8060980",
+        "rank": 2,
+        "authors": [
+          "Rubén Berríos",
+          "A. Burgos",
+          "Juan Guillermo Estay Sepúlveda",
+          "Martin Renauld",
+          "Anita Dörner Paris"
+        ],
+        "source": "Journal of Sport and Health Research",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W7217169364",
+        "title": "ANÁLISIS DE ACCIDENTABILIDAD POR DESCOMPRESIÓN INADECUADA EN TRABAJADORES DE FAENAS SUBACUÁTICAS EN CHILE ENTRE LOS AÑOS 2004 AL 2022",
+        "openalex_id": "https://openalex.org/W7217169364",
+        "year": 2024,
+        "url": "https://revista.cep.org.pe/index.php/index/article/view/126",
+        "rank": 3,
+        "authors": [
+          "José Antonio Araya Ugarte"
+        ],
+        "source": "Revista Científica de Enfermería (Lima En Línea)",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4312445698",
+        "title": "The Impact of Frequency and Duration of Diving Activities on the Occurrence of Decompressive Sickness",
+        "openalex_id": "https://openalex.org/W4312445698",
+        "year": 2022,
+        "doi": "https://doi.org/10.31674/mjn.2022.v14i02.013",
+        "url": "https://doi.org/10.31674/mjn.2022.v14i02.013",
+        "rank": 4,
+        "authors": [
+          "Nur Chabibah",
+          "Ayu Citra Mayasari",
+          "Dhian Satya Rachmawati",
+          "Faridah Mohd Said"
+        ],
+        "source": "The Malaysian Journal of Nursing",
+        "type": "article",
+        "cited_by_count": 4
+      },
+      {
+        "id": "W2889506139",
+        "title": "Prevalence and Risk Factors for Hearing Loss in Chilean Shellfish Divers",
+        "openalex_id": "https://openalex.org/W2889506139",
+        "year": 2018,
+        "doi": "https://doi.org/10.29024/aogh.2310",
+        "url": "https://doi.org/10.29024/aogh.2310",
+        "rank": 5,
+        "authors": [
+          "Marie Astrid Garrido",
+          "Benedikt Anselm Hindelang",
+          "Denise Siqueira de Carvalho",
+          "Ilse Urzúa Finke",
+          "Ronald Herrera"
+        ],
+        "source": "Annals of Global Health",
+        "type": "article",
+        "cited_by_count": 16
+      },
+      {
+        "id": "W2987207115",
+        "title": "Occupational Safety and Health in a Community of Shellfish Divers: A Community-Based Participatory Approach",
+        "openalex_id": "https://openalex.org/W2987207115",
+        "year": 2019,
+        "doi": "https://doi.org/10.1007/s10900-019-00777-9",
+        "url": "https://doi.org/10.1007/s10900-019-00777-9",
+        "rank": 6,
+        "authors": [
+          "Marie Astrid Garrido",
+          "Manuel Parra",
+          "Juana Díaz",
+          "Julia Medel",
+          "Dennis Nowak"
+        ],
+        "source": "Journal of Community Health",
+        "type": "article",
+        "cited_by_count": 15
+      },
+      {
+        "id": "W3165565814",
+        "title": "Executive Function among Chilean Shellfish Divers: A Cross-Sectional Study Considering Working and Health Conditions in Artisanal Fishing",
+        "openalex_id": "https://openalex.org/W3165565814",
+        "year": 2021,
+        "doi": "https://doi.org/10.3390/ijerph18115923",
+        "url": "https://doi.org/10.3390/ijerph18115923",
+        "rank": 7,
+        "authors": [
+          "Marie Astrid Garrido",
+          "Lorenz Mark",
+          "Manuel Parra",
+          "Dennis Nowak",
+          "Katja Radon"
+        ],
+        "source": "International Journal of Environmental Research and Public Health",
+        "type": "article",
+        "cited_by_count": 5
+      },
+      {
+        "id": "W2170270858",
+        "title": "Resistencia a la insulina y altura.",
+        "openalex_id": "https://openalex.org/W2170270858",
+        "year": 2015,
+        "doi": "https://doi.org/10.15381/anales.v76i2.11145",
+        "url": "https://doi.org/10.15381/anales.v76i2.11145",
+        "rank": 8,
+        "authors": [
+          "Oscar Castillo Sayán"
+        ],
+        "source": "Anales de la Facultad de Medicina",
+        "type": "article",
+        "cited_by_count": 9
+      },
+      {
+        "id": "W4367032177",
+        "title": "Efectos biológicos de la exposición a distintas concentraciones de oxígeno: desde la hipoxia hipobárica al oxígeno hiperbárico",
+        "openalex_id": "https://openalex.org/W4367032177",
+        "year": 2022,
+        "doi": "https://doi.org/10.4067/s0034-98872022001001351",
+        "url": "http://dx.doi.org/10.4067/s0034-98872022001001351",
+        "rank": 9,
+        "authors": [
+          "Rodrigo L. Castillo",
+          "Yury Salinas",
+          "Daniel Arturo Espinel Ramos"
+        ],
+        "source": "Revista médica de Chile",
+        "type": "review",
+        "cited_by_count": 3
+      },
+      {
+        "id": "W1500493432",
+        "title": "Cardiorespiratory parameters during submaximal exercise under acute exposure to normobaric and hypobaric hypoxia",
+        "openalex_id": "https://openalex.org/W1500493432",
+        "year": 2012,
+        "doi": "https://doi.org/10.1016/j.apunts.2011.11.005",
+        "url": "https://doi.org/10.1016/j.apunts.2011.11.005",
+        "rank": 10,
+        "authors": [
+          "Carla Basualto-Alarcón",
+          "Gil Rodas",
+          "Pedro Alberto Galilea",
+          "Joan Riera",
+          "Teresa Pagés"
+        ],
+        "source": "Apunts Sports Medicine",
+        "type": "article",
+        "cited_by_count": 45
+      },
+      {
+        "id": "W3034616149",
+        "title": "Novel Insights Into Gas Embolism in Sea Turtles: First Description in Three New Species",
+        "openalex_id": "https://openalex.org/W3034616149",
+        "year": 2020,
+        "doi": "https://doi.org/10.3389/fmars.2020.00442",
+        "url": "https://doi.org/10.3389/fmars.2020.00442",
+        "rank": 11,
+        "authors": [
+          "José Luís Crespo-Picazo",
+          "Mariluz Parga",
+          "Yara Bernaldo de Quirós",
+          "Danielle S. Monteiro",
+          "Vicente Marco-Cabedo"
+        ],
+        "source": "Frontiers in Marine Science",
+        "type": "article",
+        "cited_by_count": 15
+      },
+      {
+        "id": "W4200011442",
+        "title": "Risk Assessment in Artisanal Fisheries in Developing Countries: A Systematic Review",
+        "openalex_id": "https://openalex.org/W4200011442",
+        "year": 2021,
+        "doi": "https://doi.org/10.1016/j.amepre.2021.08.031",
+        "url": "https://doi.org/10.1016/j.amepre.2021.08.031",
+        "rank": 12,
+        "authors": [
+          "Sharad Shrestha",
+          "Bipna Shrestha",
+          "Despena Andrioti Bygvraa",
+          "Olaf Chresten Jensen"
+        ],
+        "source": "American Journal of Preventive Medicine",
+        "type": "review",
+        "cited_by_count": 36
+      },
+      {
+        "id": "W4386954618",
+        "title": "Multicentric case series of scuba diving fatalities: The role of intracardiac gaseous carbon dioxide in the forensic diagnosis",
+        "openalex_id": "https://openalex.org/W4386954618",
+        "year": 2023,
+        "doi": "https://doi.org/10.1016/j.forsciint.2023.111845",
+        "url": "https://doi.org/10.1016/j.forsciint.2023.111845",
+        "rank": 13,
+        "authors": [
+          "T. Keller",
+          "Benoît Desgraz",
+          "Maisy Lossois",
+          "É. Baccino",
+          "Josep Maria Casadesús"
+        ],
+        "source": "Forensic Science International",
+        "type": "article",
+        "cited_by_count": 5
+      },
+      {
+        "id": "W4407947364",
+        "title": "Respiratory anatomy and physiology in diving penguins",
+        "openalex_id": "https://openalex.org/W4407947364",
+        "year": 2025,
+        "doi": "https://doi.org/10.1098/rstb.2023.0422",
+        "url": "https://doi.org/10.1098/rstb.2023.0422",
+        "rank": 14,
+        "authors": [
+          "Paul J. Ponganis",
+          "C. L. Williams",
+          "Miriam Scadeng"
+        ],
+        "source": "Philosophical Transactions of the Royal Society B Biological Sciences",
+        "type": "review",
+        "cited_by_count": 5
+      },
+      {
+        "id": "W3197588877",
+        "title": "Single-Stage Bilateral Stemless Shoulder Hemiarthroplasty using a Subscapularis-Sparing Approach for Bilateral Dysbaric Osteonecrosis of the Humeral Head in a Diver: A Case Report",
+        "openalex_id": "https://openalex.org/W3197588877",
+        "year": 2021,
+        "doi": "https://doi.org/10.13107/jocr.2021.v11.i06.2278",
+        "url": "https://doi.org/10.13107/jocr.2021.v11.i06.2278",
+        "rank": 15,
+        "authors": [
+          "Gabriel Cárdenas",
+          "Gregory V. Gasbarro",
+          "Gianella Aceituno"
+        ],
+        "source": "Journal of Orthopaedic Case Reports",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W7214887026",
+        "title": "Magazine 2026/3: Diving and Hyperbaric Medicine",
+        "openalex_id": "https://openalex.org/W7214887026",
+        "year": 2026,
+        "doi": "https://doi.org/10.5603/imh.114792",
+        "url": "https://doi.org/10.5603/imh.114792",
+        "rank": 16,
+        "authors": [
+          "James Denham",
+          "IMH Editors"
+        ],
+        "source": "International Maritime Health",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3012575411",
+        "title": "Temporary and permanent unfitness of occupational divers. Brest Cohort 2002–2019 from the French National Network for Occupational Disease Vigilance and Prevention (RNV3P)",
+        "openalex_id": "https://openalex.org/W3012575411",
+        "year": 2020,
+        "doi": "https://doi.org/10.5603/imh.2020.0014",
+        "url": "https://doi.org/10.5603/imh.2020.0014",
+        "rank": 17,
+        "authors": [
+          "Richard Pougnet",
+          "Laurence Pougnet",
+          "Jean‐Dominique Dewitte",
+          "Brice Loddé",
+          "David Lucas"
+        ],
+        "source": "International Maritime Health",
+        "type": "article",
+        "cited_by_count": 4
+      },
+      {
+        "id": "W149213652",
+        "title": "Recuento Espermático, Peso Corporal y Pesos de Órganos Reproductivos Pos Hipoxia Hipobárica Intermitente Simulada en Ratón (Mus musculus)",
+        "openalex_id": "https://openalex.org/W149213652",
+        "year": 2010,
+        "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=3707024",
+        "rank": 18,
+        "authors": [
+          "Nahum Amtmann Neiman",
+          "Eduardo Bustos Obregón",
+          "Arturo Bernal Salinas"
+        ],
+        "source": "Ciencia & trabajo",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2647851673",
+        "title": "Hipoxia hipobarica intermitente en forma cronica: Construccion de la historia natural de una nueva situacion epidemiologica y biologica",
+        "openalex_id": "https://openalex.org/W2647851673",
+        "year": 2007,
+        "url": "https://dialnet.unirioja.es/servlet/tesis?codigo=107258",
+        "rank": 19,
+        "authors": [
+          "Julio Brito Richards"
+        ],
+        "source": "Dialnet (Universidad de la Rioja)",
+        "type": "dissertation",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2797106959",
+        "title": "Aufmerksamkeitsdefizite bei chilenischen Muscheltauchern",
+        "openalex_id": "https://openalex.org/W2797106959",
+        "year": 2017,
+        "doi": "https://doi.org/10.5282/edoc.21588",
+        "url": "https://nbn-resolving.org/urn:nbn:de:bvb:19-215889",
+        "rank": 20,
+        "authors": [
+          "Benedikt Hindelang"
+        ],
+        "type": "dissertation",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2116523275",
+        "title": "Uso de oxígeno hiperbárico para el manejo de heridas: bases físicas, biológicas y evidencia disponible",
+        "openalex_id": "https://openalex.org/W2116523275",
+        "year": 2014,
+        "doi": "https://doi.org/10.4067/s0034-98872014001200011",
+        "url": "https://doi.org/10.4067/s0034-98872014001200011",
+        "rank": 21,
+        "authors": [
+          "Juan Enrique Berner",
+          "Pedro Vidal",
+          "Patrick A. Will",
+          "Pablo Castillo"
+        ],
+        "source": "Revista médica de Chile",
+        "type": "review",
+        "cited_by_count": 23
+      },
+      {
+        "id": "W7223036668",
+        "title": "Diagnostic Value of Chest Computed Tomography in Cerebral Arterial Gas Embolism in Compressed‐Air Divers",
+        "openalex_id": "https://openalex.org/W7223036668",
+        "year": 2026,
+        "doi": "https://doi.org/10.1155/ijcp/4244528",
+        "url": "https://doi.org/10.1155/ijcp/4244528",
+        "rank": 22,
+        "authors": [
+          "Fei Yao",
+          "Lu Zhang",
+          "Xin Xiao",
+          "Wensai Ji",
+          "Qing Sun"
+        ],
+        "source": "International Journal of Clinical Practice",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W7219313299",
+        "title": "ภาวะฟองอากาศอุดตันหลอดเลือดแดงที่เกี่ยวเนื่องจากการดำน้ำ",
+        "openalex_id": "https://openalex.org/W7219313299",
+        "year": 2024,
+        "url": "https://he01.tci-thaijo.org/index.php/nmdjournal/article/view/263763",
+        "rank": 23,
+        "authors": [
+          "Supang Tanglitanon",
+          "Thanasawat Chaiyakul"
+        ],
+        "source": "Royal Thai Navy Medical Journal",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2120531670",
+        "title": "Escape libre de submarino hundido: Tratamiento hiperbárico de las enfermedades de buceo.",
+        "openalex_id": "https://openalex.org/W2120531670",
+        "year": 2013,
+        "doi": "https://doi.org/10.20453/rmh.v11i3.640",
+        "url": "https://doi.org/10.20453/rmh.v11i3.640",
+        "rank": 24,
+        "authors": [
+          "Isaac Pedro Abarca Torres",
+          "Oswaldo Castro Alfaro",
+          "Felipe Guerra Buendía"
+        ],
+        "source": "Revista Médica Herediana",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4313180612",
+        "title": "Usos de cámara hiperbárica en otorrinolaringología",
+        "openalex_id": "https://openalex.org/W4313180612",
+        "year": 2022,
+        "doi": "https://doi.org/10.4067/s0718-48162022000300391",
+        "url": "https://doi.org/10.4067/s0718-48162022000300391",
+        "rank": 25,
+        "authors": [
+          "Gonzalo Ortega F",
+          "María José Leal W.",
+          "Valeria Godoy R."
+        ],
+        "source": "Revista de otorrinolaringología y cirugía de cabeza y cuello",
+        "type": "article",
+        "cited_by_count": 1
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-openalex-exact",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_works_search",
+    "params": {
+      "query": "(\"Síntomas de hipoxia en tripulaciones aéreas militares chilenas\" OR \"Incidentes fisiológicos durante entrenamiento en cámara hipobárica\" OR \"Análisis de los efectos de la hipoxia en 236 pilotos\")",
+      "per_page": 15,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 0,
+    "status": "observed_no_visible_results",
+    "note": "No matches were returned to the three-title query.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-latin-firecrawl-udd",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Find the full text and training period of the Chilean aerospace medicine thesis.",
+      "url": "https://hdl.handle.net/11447/9961",
+      "formats": [
+        "markdown",
+        "links"
+      ],
+      "timeout": 16000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_text_unavailable",
+    "note": "The handle resolved to the official repository and returned a verification page with HTTP 403. The indexed item metadata is documented separately.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-latin-firecrawl-fach-manual",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify whether the public aviation physiology manual lists incidence, chamber surveillance dates, or Aguirre's original citation.",
+      "url": "https://cua.cl/descarga/MANUAL%20FISIOLOGIA%20DE%20VUELO-CURSOS%20BASICOS%20(2007).pdf",
+      "formats": [
+        "markdown"
+      ],
+      "parsers": [
+        "pdf"
+      ],
+      "timeout": 18000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_text_unavailable",
+    "note": "The copy of the aviation physiology manual timed out in Firecrawl. A separate local request also timed out.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-latin-firecrawl-spain",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Check the aeromedical institute's published research catalogue for hypobaric chamber DCS observational cohort reports.",
+      "url": "https://ejercitodelaireydelespacio.defensa.gob.es/EA/cima/investigacion/invAnteriores",
+      "formats": [
+        "markdown",
+        "links"
+      ],
+      "timeout": 14000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_checked",
+    "note": "The official research catalogue lists hypoxia symptom-recognition and physiology projects. It does not give DCS event surveillance or compatible exposure denominators.",
+    "records": [
+      {
+        "id": "https://ejercitodelaireydelespacio.defensa.gob.es/EA/cima/investigacion/invAnteriores",
+        "title": "Centro de Instrucción de Medicina Aeroespacial. Investigaciones anteriores",
+        "url": "https://ejercitodelaireydelespacio.defensa.gob.es/EA/cima/investigacion/invAnteriores",
+        "role_review": "context_hypoxia_only",
+        "evidence_note": "The official research catalogue lists hypoxia symptom-recognition and physiology projects. It does not give DCS event surveillance or compatible exposure denominators."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-firecrawl-236",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Read the primary article on 236 Argentine pilots and verify the references and whether DCS was specifically tracked.",
+      "url": "https://www.researchgate.net/publication/400580987_Analisis_de_los_efectos_de_la_hipoxia_en_236_pilotos_durante_el_entrenamiento_fisiologico_en_camara_hipobarica",
+      "formats": [
+        "markdown",
+        "links"
+      ],
+      "timeout": 17000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_verified",
+    "note": "Read the published article from the author-posted copy and checked the inclusion criterion, reported dates and journal title page.",
+    "records": [
+      {
+        "id": "biblio-910830",
+        "title": "Análisis de los efectos de la hipoxia en 236 pilotos durante el entrenamiento fisiológico en cámara hipobárica",
+        "year": 2016,
+        "authors": [
+          "Edward Adalid Pereira",
+          "Pamela Edith Morales Gutiérrez",
+          "Alfredo Da Silva Aguilar"
+        ],
+        "url": "https://www.researchgate.net/publication/400580987_Analisis_de_los_efectos_de_la_hipoxia_en_236_pilotos_durante_el_entrenamiento_fisiologico_en_camara_hipobarica",
+        "primary_source": "https://www.researchgate.net/publication/400580987_Analisis_de_los_efectos_de_la_hipoxia_en_236_pilotos_durante_el_entrenamiento_fisiologico_en_camara_hipobarica",
+        "lilacs_accession": "biblio-910830",
+        "article_language": "Spanish",
+        "journal": "Revista del Hospital Aeronáutico Central",
+        "volume": "11",
+        "issue": "2",
+        "pages": "130–139",
+        "country": "Argentina",
+        "facility": "Instituto Nacional de Medicina Aeroespacial, Buenos Aires",
+        "reported_period": "January 2002–December 2012",
+        "role_review": "sample_selected_by_hypoxia_symptoms_no_dcs_incidence",
+        "evidence_note": "The cohort consists of 236 male pilots selected because they reported at least one hypoxia symptom. The paper uses one test per pilot and does not publish the number of people excluded for no symptoms or a DCS numerator. The summary gives 27,500 without a unit in the Spanish line and the full Methods gives 9,000 m. Use the Spanish terminology for the hypobaric chamber. The English title uses hyperbaric.",
+        "source_locator": "Title page and Spanish abstract, p. 130, and Methods, pp. 133–134",
+        "sample_count": 236
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-indexed-udd-metadata",
+    "date": "2026-11-20",
+    "provider": "Publisher catalogue",
+    "operation": "source_followup",
+    "params": {
+      "url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961/full",
+      "retrieval_route": "Publicly indexed institutional metadata",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "catalogue_metadata_verified",
+    "note": "Inspected the indexed UDD full metadata page. The published catalogue abstract describes recorded hypoxia symptoms and no clinical DCS numerator.",
+    "records": [
+      {
+        "id": "11447/9961",
+        "title": "Síntomas de hipoxia en tripulaciones aéreas militares chilenas durante entrenamiento fisiológico entre los años 2003 y 2018",
+        "year": 2024,
+        "authors": [
+          "Pascale Lapostol",
+          "María Jesús Merino",
+          "Benjamín Rodríguez"
+        ],
+        "url": "https://hdl.handle.net/11447/9961",
+        "catalogue_url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961/full",
+        "institution": "Universidad del Desarrollo, Facultad de Medicina",
+        "type": "undergraduate thesis",
+        "article_language": "Spanish",
+        "country": "Chile",
+        "reported_period": "2003–2018",
+        "page_count": 20,
+        "role_review": "hypoxia_symptoms_abstract_only",
+        "evidence_note": "The catalogue abstract describes verbal reports of hypoxia symptoms from military aircrew. It does not establish case ascertainment for DCS or a staff exposure denominator. The institutional repository presents a verification page to the tested full-text route."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-undermind-exact",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "supplementary_semantic_search",
+    "params": {
+      "search_type": "semantic",
+      "author_contains": "Aguirre",
+      "published_until": "1999",
+      "limit": 8,
+      "offset": 0,
+      "detail_level": "standard",
+      "sample_abstract": "Incidentes fisiológicos durante entrenamiento en cámara hipobárica. Se analizó el Programa de Entrenamiento Fisiológico del Departamento de Medicina Aeroespacial de la Dirección de Sanidad, con descripción de los incidentes observados durante las sesiones y frecuencia de complicaciones.",
+      "workspace": "Altitude decompression physiology and AI evidence",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "The post-reset query with author and pre-2000 filters returned no matching papers.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-latin-undermind-regional",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "supplementary_semantic_search",
+    "params": {
+      "search_type": "semantic",
+      "limit": 12,
+      "offset": 0,
+      "detail_level": "standard",
+      "sample_abstract": "Se analizaron los registros clínicos de casos de enfermedad por descompresión durante el entrenamiento fisiológico de tripulaciones aéreas en una cámara hipobárica en América Latina. Se realizó vigilancia de síntomas tras la exposición y se registró el número de entrenandos y de instructores u observadores dentro de la cámara expuestos en el centro de medicina aeroespacial.",
+      "workspace": "Altitude decompression physiology and AI evidence",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "The broader post-reset search returned indexed sources outside the requested geography. Printed studies were checked separately when they supplied a useful cohort comparison.",
+    "records": [
+      {
+        "id": "Bas76",
+        "title": "Incidence of decompression sickness in Navy low-pressure chambers.",
+        "year": 1976,
+        "rank": 1,
+        "pmid": "971183",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/971183/",
+        "authors_displayed": "R. Bason, H. Pheeny, F. E. Dully - 7 citations - 0.1 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Erc20",
+        "title": "Incidence of decompression sickness in hypobaric hypoxia training.",
+        "year": 2020,
+        "rank": 2,
+        "pmid": "32574436",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+        "authors_displayed": "Erdinç Ercan, ..., and A. Toklu - 4 citations - 0.6 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Bra09",
+        "title": "Decompression sickness rates for chamber personnel: case series from one facility.",
+        "year": 2009,
+        "rank": 3,
+        "pmid": "19522370",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+        "authors_displayed": "M. Brandt, Thomas O Morrison, W. Butler - 7 citations - 0.4 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Bas91",
+        "title": "Decompression sickness: U.S. Navy altitude chamber experience 1 October 1981 to 30 September 1988.",
+        "year": 1991,
+        "rank": 4,
+        "pmid": "1755801",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1755801/",
+        "authors_displayed": "R. Bason, D. Yacavone - 14 citations - 0.4 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Ise88",
+        "title": "[Analysis of clinical symptoms of cases of human decompression disease in altitude chamber studies].",
+        "year": 1988,
+        "rank": 5,
+        "pmid": "3361829",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3361829/",
+        "authors_displayed": "L. R. Iseev, A. S. Tsivilashvili, V. I. Chadov",
+        "pdf_available": false
+      },
+      {
+        "id": "Mor10",
+        "title": "Altitude chamber related adverse effects among 1241 airmen.",
+        "year": 2010,
+        "rank": 6,
+        "pmid": "20824995",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20824995/",
+        "authors_displayed": "Fabio Morgagni, ..., and G. C. Appiani - 15 citations - 0.9 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Lb83",
+        "title": "A five-year survey of hypobaric chamber physiological incidents in the Canadian Forces.",
+        "year": 1983,
+        "rank": 7,
+        "pmid": "6651730",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+        "authors_displayed": "Crowell Lb - 2 citations - 0.0 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Cro83",
+        "title": "A five-year survey of hypobaric chamber physiological incidents in the Canadian Forces.",
+        "year": 1983,
+        "rank": 8,
+        "pmid": "6651730",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+        "authors_displayed": "L. Crowell - 4 citations - 0.1 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Piw86b",
+        "title": "A blitz of bends: decompression sickness in four students after hypobaric chamber training.",
+        "year": 1986,
+        "rank": 9,
+        "pmid": "3718386",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3718386/",
+        "authors_displayed": "S. Piwinski, ..., and F. Butler - 5 citations - 0.1 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Ata21",
+        "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight.",
+        "year": 2021,
+        "rank": 10,
+        "pmid": "33761546",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33761546/",
+        "authors_displayed": "N. Ata, Erkan Karaca - 2 citations - 0.4 cit./yr",
+        "pdf_available": true
+      },
+      {
+        "id": "Piw86",
+        "title": "Decompression sickness incidence over 63 months of hypobaric chamber operation.",
+        "year": 1986,
+        "rank": 11,
+        "pmid": "3790029",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3790029/",
+        "authors_displayed": "S. Piwinski, ..., and E. Jenkins - 6 citations - 0.1 cit./yr",
+        "pdf_available": false
+      },
+      {
+        "id": "Ben26",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor.",
+        "year": 2026,
+        "rank": 12,
+        "pmid": "42345225",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+        "authors_displayed": "Oded Ben-Ari, D. Gabbai, I. Nakdimon - 1 citations - 2.0 cit./yr",
+        "pdf_available": false
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-undermind-details",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "supplementary_paper_metadata",
+    "params": {
+      "cite_keys": [
+        "Bas76",
+        "Erc20",
+        "Bra09",
+        "Bas91",
+        "Ise88",
+        "Mor10",
+        "Lb83",
+        "Cro83",
+        "Piw86b",
+        "Ata21",
+        "Piw86",
+        "Ben26"
+      ],
+      "detail_level": "standard",
+      "show_doi": true,
+      "workspace": "Altitude decompression physiology and AI evidence",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Requested detailed bibliographic metadata for all twelve results from the semantic search. The 1976 Navy report retains its established identity despite the provider returning the DOI for a 1977 digest.",
+    "records": [
+      {
+        "id": "Bas76",
+        "title": "Incidence of decompression sickness in Navy low-pressure chambers.",
+        "year": 1976,
+        "rank": 1,
+        "pmid": "971183",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/971183/",
+        "authors_displayed": "R. Bason, H. Pheeny, F. E. Dully - 7 citations - 0.1 cit./yr",
+        "provider_doi": "10.1097/00006534-197708000-00114",
+        "pdf_available": false,
+        "evidence_note": "The returned DOI belongs to the separately verified 1977 digest. The 1976 primary report retains the PubMed identity."
+      },
+      {
+        "id": "Erc20",
+        "title": "Incidence of decompression sickness in hypobaric hypoxia training.",
+        "year": 2020,
+        "rank": 2,
+        "pmid": "32574436",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+        "authors_displayed": "Erdinç Ercan, ..., and A. Toklu - 4 citations - 0.6 cit./yr",
+        "provider_doi": "10.22462/04.06.2020.5",
+        "doi": "10.22462/04.06.2020.5",
+        "pdf_available": false
+      },
+      {
+        "id": "Bra09",
+        "title": "Decompression sickness rates for chamber personnel: case series from one facility.",
+        "year": 2009,
+        "rank": 3,
+        "pmid": "19522370",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+        "authors_displayed": "M. Brandt, Thomas O Morrison, W. Butler - 7 citations - 0.4 cit./yr",
+        "provider_doi": "10.3357/ASEM.2438.2009",
+        "doi": "10.3357/ASEM.2438.2009",
+        "pdf_available": false
+      },
+      {
+        "id": "Bas91",
+        "title": "Decompression sickness: U.S. Navy altitude chamber experience 1 October 1981 to 30 September 1988.",
+        "year": 1991,
+        "rank": 4,
+        "pmid": "1755801",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1755801/",
+        "authors_displayed": "R. Bason, D. Yacavone - 14 citations - 0.4 cit./yr",
+        "provider_url": "https://www.semanticscholar.org/paper/00707c73d3d94d0de8477d10734b9c180923640e",
+        "pdf_available": false
+      },
+      {
+        "id": "Ise88",
+        "title": "[Analysis of clinical symptoms of cases of human decompression disease in altitude chamber studies].",
+        "year": 1988,
+        "rank": 5,
+        "pmid": "3361829",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3361829/",
+        "authors_displayed": "L. R. Iseev, A. S. Tsivilashvili, V. I. Chadov",
+        "provider_url": "https://www.semanticscholar.org/paper/6b7b1a44ba3b38e295344d581ca8f36aea6916cc",
+        "pdf_available": false
+      },
+      {
+        "id": "Mor10",
+        "title": "Altitude chamber related adverse effects among 1241 airmen.",
+        "year": 2010,
+        "rank": 6,
+        "pmid": "20824995",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20824995/",
+        "authors_displayed": "Fabio Morgagni, ..., and G. C. Appiani - 15 citations - 0.9 cit./yr",
+        "provider_doi": "10.3357/ASEM.2625.2010",
+        "doi": "10.3357/ASEM.2625.2010",
+        "pdf_available": false
+      },
+      {
+        "id": "Lb83",
+        "title": "A five-year survey of hypobaric chamber physiological incidents in the Canadian Forces.",
+        "year": 1983,
+        "rank": 7,
+        "pmid": "6651730",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+        "authors_displayed": "Crowell Lb - 2 citations - 0.0 cit./yr",
+        "provider_url": "https://www.semanticscholar.org/paper/dfc1299a26046153cde4988d290ef61d01358286",
+        "pdf_available": false
+      },
+      {
+        "id": "Cro83",
+        "title": "A five-year survey of hypobaric chamber physiological incidents in the Canadian Forces.",
+        "year": 1983,
+        "rank": 8,
+        "pmid": "6651730",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+        "authors_displayed": "L. Crowell - 4 citations - 0.1 cit./yr",
+        "provider_url": "https://www.semanticscholar.org/paper/09d2c1d34091ff8c70babd5950def3c9fd4ae71e",
+        "pdf_available": false
+      },
+      {
+        "id": "Piw86b",
+        "title": "A blitz of bends: decompression sickness in four students after hypobaric chamber training.",
+        "year": 1986,
+        "rank": 9,
+        "pmid": "3718386",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3718386/",
+        "authors_displayed": "S. Piwinski, ..., and F. Butler - 5 citations - 0.1 cit./yr",
+        "provider_url": "https://www.semanticscholar.org/paper/ff4f07637789673909ff57199f1a76057b1002a3",
+        "pdf_available": false
+      },
+      {
+        "id": "Ata21",
+        "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight.",
+        "year": 2021,
+        "rank": 10,
+        "pmid": "33761546",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33761546/",
+        "authors_displayed": "N. Ata, Erkan Karaca - 2 citations - 0.4 cit./yr",
+        "provider_doi": "10.28920/dhm51.1.82-85",
+        "doi": "10.28920/dhm51.1.82-85",
+        "pdf_available": true
+      },
+      {
+        "id": "Piw86",
+        "title": "Decompression sickness incidence over 63 months of hypobaric chamber operation.",
+        "year": 1986,
+        "rank": 11,
+        "pmid": "3790029",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3790029/",
+        "authors_displayed": "S. Piwinski, ..., and E. Jenkins - 6 citations - 0.1 cit./yr",
+        "provider_url": "https://www.semanticscholar.org/paper/d2cc9e02f0ed58bdfcb343821462fd75f5b28b05",
+        "pdf_available": false
+      },
+      {
+        "id": "Ben26",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor.",
+        "year": 2026,
+        "rank": 12,
+        "pmid": "42345225",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+        "authors_displayed": "Oded Ben-Ari, D. Gabbai, I. Nakdimon - 1 citations - 2.0 cit./yr",
+        "provider_url": "https://www.semanticscholar.org/paper/fa946f8b3e0b537eb2f991ef89c30c2865f9b128",
+        "pdf_available": false
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-local-army-cluster",
+    "date": "2026-11-20",
+    "provider": "Publisher full text",
+    "operation": "supplementary_full_text_verification",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/6/article-p600.pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Public publisher PDF. Verified Case descriptions and Discussion, p. 601.",
+    "records": [
+      {
+        "id": "3718386",
+        "title": "A blitz of bends: decompression sickness in four students after hypobaric chamber training.",
+        "pmid": "3718386",
+        "year": 1986,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/6/article-p600.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/6/article-p600.pdf",
+        "study_id": "fort-rucker-1985-halo-cluster",
+        "role_review": "outcome_selected_cluster_no_incidence_risk_set",
+        "evidence_note": "Four of nine students on the affected flight presented the next morning. Three diagnoses were Type II and one was Type I. Observer attendance and outcomes are unavailable. The paper also describes a wider HALO profile margin of 14.9% (4/27) with overlapping cases and does not specify the profile denominator by role. The printed percentage is retained as reported.",
+        "source_counts": {
+          "affected_flights": 1,
+          "trainee_attendees": 9,
+          "trainee_cases": 4,
+          "type_i_cases": 1,
+          "type_ii_cases": 3,
+          "profile_cases": 4,
+          "profile_exposures": 27,
+          "printed_profile_rate_percent": 14.9
+        },
+        "observations": [
+          {
+            "id": "piwinski86-blitz-affected-flight-trainees",
+            "study_id": "fort-rucker-1985-halo-cluster",
+            "endpoint": "symptomatic_altitude_dcs",
+            "group": "Trainees on affected HALO flight",
+            "chamber_role": "trainee",
+            "cases": 4,
+            "denominator": 9,
+            "denominator_unit": "attendees_in_selected_sessions",
+            "locator": "Case descriptions and Discussion, p. 601",
+            "note": "Attendance on the case-selected flight. The same four cases appear in the broader profile summary."
+          }
+        ],
+        "pdf_sha256": "529a33c35a24a5b3cd67b323df7058da8f0c0ed68cf61af33c5a6db6540072b0"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-latin-local-army-surveillance",
+    "date": "2026-11-20",
+    "provider": "Publisher full text",
+    "operation": "supplementary_full_text_verification",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/11/article-p1097.pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Public publisher PDF. Verified Introduction, p. 1097, Methods and Results, p. 1098, and reference 3, p. 1101.",
+    "records": [
+      {
+        "id": "3790029",
+        "title": "Decompression sickness incidence over 63 months of hypobaric chamber operation.",
+        "pmid": "3790029",
+        "year": 1986,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/11/article-p1097.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/11/article-p1097.pdf",
+        "role_review": "standard_surveillance_explicitly_excluded_specialized_profile",
+        "evidence_note": "The four early-1985 student diagnoses prompted review of chamber surveillance. The paper cites the separate case report as reference 3 and explicitly excludes all specialized HALO profile exposures and their DCS cases from the standard-profile incidence calculations. Existing Table I counts are held in the benchmark archive.",
+        "locator": "Introduction, p. 1097, Methods and Results, p. 1098, and reference 3, p. 1101",
+        "pdf_sha256": "8f4ce70f852281385b5dc671fe9f2089e80c7b7c190b4a085b1893421d5ff26a"
+      }
+    ]
+  }
+]
