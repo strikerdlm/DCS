@@ -10151,6 +10151,60 @@
       "report_id": "ntrs:19940007073",
       "basis": "The NTRS accession and printed workshop abstract identify Powell's separate report.",
       "evidence_url": "https://ntrs.nasa.gov/citations/19940007073"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/sources.csv#conkin01_lba",
+      "report_id": "pmid:11277286",
+      "basis": "Publisher article title, Conkin and Powell authorship, and pp. 202–214 identify PMID 11277286.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/search_hits.csv#clinical_series_tavily_comparison:3",
+      "report_id": "pmid:11277286",
+      "basis": "Publisher article title, Conkin and Powell authorship, and pp. 202–214 identify PMID 11277286.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:8",
+      "report_id": "pmid:11277286",
+      "basis": "Publisher article title, Conkin and Powell authorship, and pp. 202–214 identify PMID 11277286.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#11277286",
+      "report_id": "pmid:11277286",
+      "basis": "Publisher article title, Conkin and Powell authorship, and pp. 202–214 identify PMID 11277286.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11277286",
+      "report_id": "pmid:11277286",
+      "basis": "Publisher article title, Conkin and Powell authorship, and pp. 202–214 identify PMID 11277286.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2416318482",
+      "report_id": "pmid:11277286",
+      "basis": "Publisher article title, Conkin and Powell authorship, and pp. 202–214 identify PMID 11277286.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "record_key": "2026-11-20-duke-posture-argo-source-reconciliation#11277286-table-ii",
+      "report_id": "pmid:11277286",
+      "basis": "Publisher article title, Conkin and Powell authorship, and pp. 202–214 identify PMID 11277286.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "record_key": "2026-11-20-duke-posture-argo-source-reconciliation#vann-gerth-1997-abstract-45",
+      "report_id": "abstract:asma-1997-vann-gerth-045",
+      "basis": "Exact title, author pair, and abstract number on the original meeting page.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.76/sources.csv#vann97_duke_posture",
+      "report_id": "abstract:asma-1997-vann-gerth-045",
+      "basis": "The model source uses the same issue, abstract number and PDF hash.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
     }
   ],
   "studies": [
@@ -10897,6 +10951,12 @@
       "label": "NASA Project ARGO Phase I",
       "period": "Reported in 1993",
       "setting": "NASA/JSC zero-prebreathe experimental altitude chamber crossover"
+    },
+    {
+      "study_id": "duke-altitude-posture-vann-gerth-1997",
+      "label": "Duke Vann–Gerth 30,000-ft standing and reclining chamber comparison",
+      "period": "Reported in 1997",
+      "setting": "F.G. Hall Hypo/Hyperbaric Laboratory, Duke Medical Center, Durham, NC"
     }
   ],
   "study_reports": [
@@ -12096,9 +12156,21 @@
     },
     {
       "study_id": "nasa-jsc-argo-phase-i-crossover",
-      "report_id": "record:legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:8",
+      "report_id": "pmid:11277286",
       "role": "later_reanalysis",
       "locator": "Table II, ARGO I rows"
+    },
+    {
+      "study_id": "duke-altitude-posture-vann-gerth-1997",
+      "report_id": "abstract:asma-1997-vann-gerth-045",
+      "role": "original_site_specific_counts",
+      "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion"
+    },
+    {
+      "study_id": "duke-altitude-posture-vann-gerth-1997",
+      "report_id": "pmid:11277286",
+      "role": "later_whole_flight_aggregate_counts",
+      "locator": "Printed p. 204, Table II"
     }
   ],
   "relations": [
@@ -14397,6 +14469,34 @@
       "relationship": "same_named_argo_protocols",
       "evidence": "The NASA ARGO Phase I posture, no-prebreathe condition, and pressure and duration match NEDU Appendix E tests 9a and 9b. Reuse their existing clinical counts without aggregating this second report.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf#page=39"
+    },
+    {
+      "left_report": "abstract:asma-1997-vann-gerth-045",
+      "right_report": "pmid:11277286",
+      "relationship": "same_duke_posture_experiment",
+      "evidence": "The later article cites abstract 45 and reports the same 19 standing and 18 reclining flights, 210-minute oxygen prebreathe, and Shuttle-suit pressure. The distinct limb margins and later any-DCS totals are nested.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:11277286",
+      "right_report": "ntrs:19940006763",
+      "relationship": "reanalyses_named_argo_protocols",
+      "evidence": "The reported ARGO I clinical and later VGE margins correspond to the original bed-rest protocols. Retain the original Doppler scope alongside the later reanalysis.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:11277286",
+      "right_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "relationship": "shared_argo_arms_and_unresolved_vge_scope",
+      "evidence": "Four arms match named tests 9a, 9b, 9c and 11a. The two potential matches for the seven-person Phase II adynamic arm remain unresolved. In Phase III the source reports seven VGE cases and the archive nine.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:11277286",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#gerth18",
+      "relationship": "phase_ii_adynamia_candidates_unresolved",
+      "evidence": "The seven-person Phase II adynamic arm has the same n and zero DCS as each of tests 9d and 9e. NEDU distinguishes upper-body exercise and prints two hours of adynamia before prebreathe for both. Table II prints six hours in the Before PB column.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3"
     }
   ],
   "report_titles": {
@@ -14477,6 +14577,8 @@
     "pmid:8908349": "Left ventricular gas emboli in six cases of altitude-induced decompression sickness",
     "ntrs:19940007069": "Hypobaric decompression prebreathe requirements and breathing environment",
     "ntrs:19940006763": "Project ARGO—Gas Phase Formation in Simulated Microgravity",
-    "ntrs:19940007073": "A Mechanism for the Reduction in Risk of Decompression Sickness in Microgravity Environment"
+    "ntrs:19940007073": "A Mechanism for the Reduction in Risk of Decompression Sickness in Microgravity Environment",
+    "pmid:11277286": "Lower body adynamia as a factor to reduce the risk of hypobaric decompression sickness",
+    "abstract:asma-1997-vann-gerth-045": "Is the risk of DCS in microgravity less than on Earth?"
   }
 }

@@ -611,6 +611,62 @@ def test_argo_doppler_pairs_link_to_existing_arms_and_preserve_missingness(relea
             assert rows == sorted(json.loads(raw)[field], key=lambda row: row[key])
 
 
+def test_duke_posture_counts_preserve_endpoints_and_monitoring_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.stratum,o.endpoint,o.numerator,o.denominator,o.analysis_role
+            FROM publication_observation o JOIN model_report_link m USING (source_id)
+            JOIN review.review_search_observation r
+              ON r.report_id=m.report_id AND (r.reported_group,r.endpoint)=(o.stratum,o.endpoint)
+              AND (r.cases,r.denominator,r.denominator_unit)=(o.numerator,o.denominator,o.denominator_unit)
+            WHERE r.study_id='duke-altitude-posture-vann-gerth-1997'
+            ORDER BY o.stratum,o.endpoint
+        """).fetchall() == [
+            ("duke-reclining", "arm_dcs", 2, 18, "overlapping_margin"),
+            ("duke-reclining", "arm_doppler_grade_gt_ii", 3, 18, "overlapping_margin"),
+            ("duke-reclining", "dcs_source_defined", 3, 18, "overlap_hold"),
+            ("duke-reclining", "leg_dcs", 1, 18, "overlapping_margin"),
+            ("duke-reclining", "leg_doppler_grade_gt_ii", 1, 18, "overlapping_margin"),
+            ("duke-standing", "arm_dcs", 2, 19, "overlapping_margin"),
+            ("duke-standing", "arm_doppler_grade_gt_ii", 1, 18, "overlapping_margin"),
+            ("duke-standing", "dcs_source_defined", 12, 19, "overlap_hold"),
+            ("duke-standing", "leg_dcs", 10, 19, "overlapping_margin"),
+            ("duke-standing", "leg_doppler_grade_gt_ii", 8, 18, "overlapping_margin"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='conkin01_lba'
+        """).fetchone() == ("pmid:11277286",)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE study_id='duke-altitude-posture-vann-gerth-1997'
+        """).fetchone() == (0,)
+
+
+def test_argo_table_ii_keeps_named_and_unresolved_archive_links(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT a.arm,l.nasa_test_id,l.status,a.exposures,a.dcs_cases,a.vge_cases,n.any_grade_vge_cases
+            FROM publication_lba_argo_arm a JOIN publication_lba_argo_test_link l USING(source_id,arm)
+            JOIN nasa_test n ON n.test_id=l.nasa_test_id
+            ORDER BY a.arm,l.nasa_test_id
+        """).fetchall() == [
+            ("phase-i-ambulatory", "9a", "matched_named_arm", 24, 1, 12, 12),
+            ("phase-i-reclining", "9b", "matched_named_arm", 23, 2, 6, 6),
+            ("phase-ii-adynamia", "9d", "candidate_arm", 7, 0, 2, 2),
+            ("phase-ii-adynamia", "9e", "candidate_arm", 7, 0, 2, 2),
+            ("phase-ii-ambulatory", "9c", "matched_named_arm", 11, 3, 5, 5),
+            ("phase-iii-adynamia", "11a", "matched_named_arm", 28, 3, 7, 9),
+        ]
+        db.row_factory = sqlite3.Row
+        raw, = db.execute("""
+            SELECT metadata_json FROM review.review_record WHERE source_key='11277286-table-ii'
+        """).fetchone()
+        for table, field in (
+            ("publication_lba_argo_arm", "argo_table_ii"),
+            ("publication_lba_argo_test_link", "argo_table_ii_test_links"),
+        ):
+            assert [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY rowid")] == json.loads(raw)[field]
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
