@@ -10259,6 +10259,66 @@
       "report_id": "abstract:asma-1997-webb-043",
       "basis": "Exact printed abstract number, title and page 621.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#10608608",
+      "report_id": "pmid:10608608",
+      "basis": "The article title, author list and journal pages identify PMID 10608608.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10608608",
+      "report_id": "pmid:10608608",
+      "basis": "The article title, author list and journal pages identify PMID 10608608.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W202765626",
+      "report_id": "pmid:10608608",
+      "basis": "The article title, author list and journal pages identify PMID 10608608.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf"
+    },
+    {
+      "record_key": "2026-11-20-usaf-treatment-o-treatment#W202765626",
+      "report_id": "pmid:10608608",
+      "basis": "The article title, author list and journal pages identify PMID 10608608.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf"
+    },
+    {
+      "record_key": "2026-11-20-eds-training#g4jw37nean",
+      "report_id": "pmid:10608608",
+      "basis": "The article title, author list and journal pages identify PMID 10608608.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.78/sources.csv#nachum99_iedcs",
+      "report_id": "pmid:10608608",
+      "basis": "The article title, author list and journal pages identify PMID 10608608.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf"
+    },
+    {
+      "record_key": "2026-11-20-israel-chamber-case-evidence#nachum-1999-full",
+      "report_id": "pmid:10608608",
+      "basis": "The article title, author list and journal pages identify PMID 10608608.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.78/sources.csv#shupak97_iedcs",
+      "report_id": "abstract:asma-1997-shupak-140",
+      "basis": "Publisher abstract 140 with Shupak listed first, printed p. 637.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=24"
+    },
+    {
+      "record_key": "2026-11-20-israel-chamber-case-evidence#shupak-1997-abstract-140",
+      "report_id": "abstract:asma-1997-shupak-140",
+      "basis": "Publisher abstract 140 with Shupak listed first, printed p. 637.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=24"
+    },
+    {
+      "record_key": "2026-11-20-israel-chamber-case-evidence#benari-2026-table-2",
+      "report_id": "pmid:42345225",
+      "basis": "The Table 2 PDF has the same author, title and source hash as the archived cohort report.",
+      "evidence_url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf#page=3"
     }
   ],
   "studies": [
@@ -11017,6 +11077,12 @@
       "label": "Duke and DAN simulated flying after diving trials",
       "period": "Reported in 1997 and 2004",
       "setting": "F.G. Hall Laboratory, 8,000-ft chamber exposures after dry experimental diving"
+    },
+    {
+      "study_id": "israel-vestibular-chamber-case-reported-1997",
+      "label": "Israeli hypobaric chamber vestibular DCS case",
+      "period": "Reported in 1997 and 1999",
+      "setting": "Altitude chamber training, referral to Israel Naval Medical Institute"
     }
   ],
   "study_reports": [
@@ -12243,6 +12309,18 @@
       "report_id": "abstract:asma-1997-gerth-044",
       "role": "preliminary_protocol_subset",
       "locator": "AsMA abstract 44, printed p. 621"
+    },
+    {
+      "study_id": "israel-vestibular-chamber-case-reported-1997",
+      "report_id": "pmid:10608608",
+      "role": "published_clinical_case",
+      "locator": "Printed pp. 1106–1108, Case Report and Figures 1–3"
+    },
+    {
+      "study_id": "israel-vestibular-chamber-case-reported-1997",
+      "report_id": "abstract:asma-1997-shupak-140",
+      "role": "same_case_earlier_version",
+      "locator": "AsMA 1997, abstract 140, printed p. 637"
     }
   ],
   "relations": [
@@ -14590,6 +14668,20 @@
       "relationship": "shared_25000ft_zero_preoxygenation_protocol",
       "evidence": "The same lab, investigators, 25,000-ft target, zero prebreathe, mild exercise and four-hour endpoint support overlap. Early versus late participant linkage cannot be established.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8"
+    },
+    {
+      "left_report": "abstract:asma-1997-shupak-140",
+      "right_report": "pmid:10608608",
+      "relationship": "same_published_case",
+      "evidence": "Same age and job, 25,000-ft chamber exposure, 30-minute preoxygenation, joint symptoms at 20 minutes, vestibular symptoms at 3.5 hours, and treatment at 12 hours. Three-month gain differs.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:10608608",
+      "right_report": "pmid:42345225",
+      "relationship": "distinct_reporting_periods",
+      "evidence": "The single case was reported in 1997 and 1999. The separate IAF case surveillance includes January 2015 through December 2022.",
+      "evidence_url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf#page=2"
     }
   ],
   "report_titles": {
@@ -14676,6 +14768,8 @@
     "pmid:15686274": "Experimental trials to assess the risks of decompression sickness in flying after diving",
     "abstract:asma-1997-gerth-044": "Decompression sickness and flying after diving",
     "abstract:asma-1997-pilmanis-042": "Decompression sickness (DCS) risk at 35,000 feet",
-    "abstract:asma-1997-webb-043": "Zero-preoxygenation decompression sickness risk at 25,000 feet"
+    "abstract:asma-1997-webb-043": "Zero-preoxygenation decompression sickness risk at 25,000 feet",
+    "pmid:10608608": "Inner ear decompression sickness following altitude chamber operation",
+    "abstract:asma-1997-shupak-140": "Inner ear decompression sickness following altitude chamber operation"
   }
 }

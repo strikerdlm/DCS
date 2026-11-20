@@ -18,6 +18,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_argo_phase_i_arm`, `publication_argo_phase_i_doppler`, `publication_argo_phase_i_clinical` | Original ARGO crossover Doppler roster, protocol crosswalk and linked clinical findings |
 | `dcs-model.sqlite` | `publication_lba_argo_arm`, `publication_lba_argo_test_link` | Published ARGO I–III analysis rows and links to existing NASA tests |
 | `dcs-model.sqlite` | `publication_vann04_dive_profile`, `publication_vann04_flight_group`, `publication_vann04_case` | Post-dive chamber schedules, appendix groups and numbered clinical episodes |
+| `dcs-model.sqlite` | `publication_iaf_adcs_case` | Published individual Israeli chamber and flight observations linked to their existing exposure strata |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 ## Build and use a release
@@ -86,6 +87,8 @@ NASA’s original ARGO Phase I report supplies 20 complete paired Doppler grades
 Vann and Gerth’s Duke comparison supplies arm and leg observations under standing and reclining conditions. Conkin and Powell report 12 DCS cases in 19 standing flights and three in 18 reclining flights for the same experiment. The standing Doppler denominator is 18, and the reports print different grade thresholds. The counts remain under overlap review for model fitting. Conkin and Powell’s ARGO Phase II table leaves two candidate links for the seven-exposure adynamia arm. Its Phase III VGE count is seven, compared with nine in NASA Table F1. [Duke and ARGO source extracts](../data/chamber/v1.76) · [Original Duke abstract](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8)
 
 Vann et al.’s Appendix B partitions the existing 802 simulated flights after diving into 30 protocol and surface-interval groups. It describes 40 numbered DCS episodes, including 17 beginning after flight or at chamber exit. The three-dive group at 14 hours retains one listed case, ten printed flights and the source’s 9.1%. Case 40 links to a separate preflight symptom described in Appendix A. The flights belong to the post-dive evidence set. [Appendix B](https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf#page=12) · [Extracted groups and cases](../data/chamber/v1.77)
+
+Ben-Ari et al.’s Table 2 describes the 11 chamber and four flight episodes already represented by the Israeli surveillance counts. The 1997 Shupak abstract and 1999 Nachum article describe one earlier chamber case. The sources agree on its delayed vestibular onset and disagree on three-month rotary-chair gain. Both follow-up observations are preserved under one episode. [Israeli case extracts](../data/chamber/v1.78) · [Historical vestibular report](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf)
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 

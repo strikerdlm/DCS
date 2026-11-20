@@ -722,6 +722,60 @@ def test_vann_appendix_case_metadata_matches_model_data(release):
             assert [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY rowid")] == json.loads(raw)[field]
 
 
+def test_israeli_case_rows_reuse_existing_chamber_and_flight_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT c.exposure_stratum,count(*),a.cases,a.denominator,a.denominator_unit
+            FROM publication_iaf_adcs_case c JOIN aviation_count a
+              ON (a.source_id,a.stratum)=(c.source_id,c.exposure_stratum)
+            GROUP BY c.exposure_stratum ORDER BY c.exposure_stratum
+        """).fetchall() == [
+            ("chamber", 11, 11, 2279, "trainees_instructors_unresolved"),
+            ("flight", 4, 4, None, "unreported"),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(reported_tail_treatments>0),sum(reported_tail_treatments)
+            FROM publication_iaf_adcs_case WHERE reported_treatment IN ('USNTT5','USNTT6')
+        """).fetchone() == (13, 7, 10)
+        assert db.execute("""
+            SELECT case_number,reported_treatment,reported_tail_treatments FROM publication_iaf_adcs_case
+            WHERE case_number IN (2,7,9) ORDER BY case_number
+        """).fetchall() == [(2, "USNTT5", 0), (7, None, None), (9, "100% oxygen", None)]
+        db.row_factory = sqlite3.Row
+        raw, = db.execute("""
+            SELECT metadata_json FROM review.review_record WHERE source_key='benari-2026-table-2'
+        """).fetchone()
+        assert [dict(row) for row in db.execute("""
+            SELECT * FROM publication_iaf_adcs_case ORDER BY case_number
+        """)] == json.loads(raw)["case_rows"]
+
+
+def test_old_vestibular_episode_is_counted_once_and_keeps_conflicting_gain(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT report_id,source_time_min,first_assessment_min FROM historical_case_catalog
+            WHERE source_id IN ('nachum99_iedcs','shupak97_iedcs')
+        """).fetchall() == [("pmid:10608608", 20, 360)]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_reference FROM publication_case_milestone
+            WHERE source_id='nachum99_iedcs' AND elapsed IS NOT NULL ORDER BY elapsed
+        """).fetchall() == [
+            ("joint_and_headache_onset", 20, "after_descent"),
+            ("vestibular_symptom_onset", 210, "after_descent"),
+            ("first_examination", 360, "after_exposure_completion"),
+            ("first_recompression", 720, "after_descent"),
+        ]
+        assert db.execute("""
+            SELECT reporting_source_id,note LIKE '%normal gain%',note LIKE '%low gain%'
+            FROM publication_case_milestone WHERE source_id='nachum99_iedcs'
+            AND milestone LIKE 'three_month_%' ORDER BY milestone
+        """).fetchall() == [("shupak97_iedcs", 1, 0), ("nachum99_iedcs", 0, 1)]
+        assert db.execute("""
+            SELECT count(*),coalesce(sum(cases),0),count(denominator) FROM review.review_search_observation
+            WHERE study_id='israel-vestibular-chamber-case-reported-1997'
+        """).fetchone() == (1, 1, 0)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
@@ -735,7 +789,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (111, 111, 111)
+        """).fetchone() == (112, 112, 112)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
