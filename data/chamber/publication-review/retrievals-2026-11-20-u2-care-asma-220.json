@@ -1,0 +1,124 @@
+[
+  {
+    "id": "2026-11-20-asma-220-program",
+    "date": "2026-11-20",
+    "provider": "Aerospace Medical Association meeting program",
+    "operation": "targeted version verification",
+    "params": {
+      "abstract_number": 220,
+      "pdf_pages": [142, 143],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 1,
+    "status": "completed",
+    "note": "Program version of the September meeting abstract. The title, author order, methods, case counts and reported rates agree with the journal version. Observations are recorded once under the journal version.",
+    "records": [
+      {
+        "id": "asma:2026:220:program",
+        "title": "Incidence of altitude decompression sickness in U-2 pilots following the implementation of engineering controls to reduce cabin altitude: 2014-2025",
+        "year": 2026,
+        "authors": ["Nathaniel Ford", "Ki-Hyeok Lee", "Patricia Manzur-Ballard"],
+        "publication_type": "conference_abstract",
+        "version": "meeting_program",
+        "url": "https://asma.org/wp-content/uploads/2026/04/AsMA_Program-Book_edited_draft-1.pdf#page=142",
+        "source_sha256": "13be078041afd5d41637879108d854a61e70e5f876cef1357cf8e198f176da59",
+        "source_locator": "Abstract 220, PDF pp. 142-143. Results on PDF p. 142."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-asma-220-journal",
+    "date": "2026-11-20",
+    "provider": "Aerospace Medicine and Human Performance",
+    "operation": "publisher-page comparison with the AsMA program and EBSCO indexing",
+    "params": {
+      "abstract_number": 220,
+      "pdf_pages": [97, 98],
+      "ebsco_accession": "gcd:197020992",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 1,
+    "status": "completed",
+    "note": "Both printed pages of abstract 220 were verified in the publisher's September 2026 issue PDF. The EBSCO record gives the first page and matching abstract text.",
+    "records": [
+      {
+        "id": "asma:2026:220:journal",
+        "title": "Incidence of altitude decompression sickness in U-2 pilots following the implementation of engineering controls to reduce cabin altitude: 2014-2025",
+        "year": 2026,
+        "authors": ["Nathaniel Ford", "Ki-Hyeok Lee", "Patricia Manzur-Ballard"],
+        "journal": "Aerospace Medicine and Human Performance",
+        "volume": "97",
+        "issue": "9",
+        "pages": "757-758",
+        "publication_type": "conference_abstract",
+        "version": "published_meeting_abstract",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=97",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=98",
+        "metadata_cross_check": "https://openurl.ebsco.com/contentitem/gcd%3A197020992?crl=c&id=ebsco%3Agcd%3A197020992&jrnl=23756314&sid=ebsco%3Aplink%3Acrawler-gcd",
+        "source_sha256": "e2acd289bc4d6e09070a9de2563adce4906cc671b73514ac505fc083bf954a4f",
+        "source_locator": "AsMA 2026 Meeting Abstracts, abstract 220, printed pp. 757-758 (PDF pp. 97-98)",
+        "observation_review_status": "source_verified",
+        "eligibility_status": "pending",
+        "role_review": "Retrospective surveillance of U-2 operations from official U.S. Air Force medical and safety records. Flight evidence is descriptive. The abstract does not provide staff or trainee chamber risk sets, case-level data or a standardized clinical follow-up window.",
+        "overlap_status": "The program and journal versions describe one report. The 1994-2010 comparison matches the period and rounded rates in Hundemer et al. (PMID 23066619) and supplies no new historical observation.",
+        "observations": [
+          {
+            "id": "u2-care-modified-per-flight",
+            "study_id": "u2-flight-ford-2014-2025",
+            "endpoint": "clinical_dcs",
+            "group": "CARE-modified aircraft, 2014-2025",
+            "cases": 3,
+            "denominator": null,
+            "denominator_unit": "flights",
+            "reported_rate": 0.0088,
+            "reported_rate_unit": "percent per flight",
+            "reported_rate_percent": 0.0088,
+            "reported_rate_printed": "0.0088%",
+            "locator": "Results, printed pp. 757-758 (PDF pp. 97-98)",
+            "note": "Three documented DCS cases include the severe case. Exact flights are unreported."
+          },
+          {
+            "id": "u2-care-modified-severe-subset",
+            "study_id": "u2-flight-ford-2014-2025",
+            "endpoint": "clinical_dcs_severe_source",
+            "group": "CARE-modified aircraft, 2014-2025",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Results, printed p. 758 (PDF p. 98)",
+            "note": "Source-described severe case nested within the three documented CARE-modified cases. The abstract provides no severity criteria or separate risk estimate."
+          },
+          {
+            "id": "u2-unmodified-per-flight",
+            "study_id": "u2-flight-ford-2014-2025",
+            "endpoint": "clinical_dcs",
+            "group": "Unmodified aircraft, 2014-2025",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "flights",
+            "reported_rate": 0.018,
+            "reported_rate_unit": "percent per flight",
+            "reported_rate_percent": 0.018,
+            "reported_rate_printed": "0.0180%",
+            "locator": "Results, printed p. 758 (PDF p. 98)",
+            "note": "Only a rounded per-flight rate is reported. The case count and number of flights are unknown."
+          },
+          {
+            "id": "u2-care-modified-per-flight-hour",
+            "study_id": "u2-flight-ford-2014-2025",
+            "endpoint": "clinical_dcs",
+            "group": "CARE-modified aircraft, 2014-2025",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "flight hours",
+            "reported_rate": 0.1897,
+            "reported_rate_unit": "cases per 10,000 flight hours",
+            "reported_rate_printed": "0.1897 per 10,000 flight hours",
+            "locator": "Results, printed p. 758 (PDF p. 98)",
+            "note": "Alternate scale for the same CARE-modified series. Exact flight hours are unreported."
+          }
+        ]
+      }
+    ]
+  }
+]

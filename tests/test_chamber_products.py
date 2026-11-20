@@ -97,6 +97,36 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             db.execute("DELETE FROM main.shared_case_evidence")
 
 
+def test_u2_care_abstract_versions_share_one_descriptive_report(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT report_id), sum(
+                json_extract(metadata_json,'$.version')='published_meeting_abstract'
+            )
+            FROM review.review_record WHERE report_id='asma:2026:220'
+        """).fetchone() == (2, 1, 1)
+        assert db.execute("""
+            SELECT observation_id, cases, denominator, denominator_unit, reported_rate,
+                   reported_rate_unit
+            FROM review.review_search_observation WHERE report_id='asma:2026:220'
+            ORDER BY observation_id
+        """).fetchall() == [
+            ("u2-care-modified-per-flight", 3, None, "flights", 0.0088, "percent per flight"),
+            ("u2-care-modified-per-flight-hour", None, None, "flight hours",
+             0.1897, "cases per 10,000 flight hours"),
+            ("u2-care-modified-severe-subset", 1, None, None, None, None),
+            ("u2-unmodified-per-flight", None, None, "flights", 0.018, "percent per flight"),
+        ]
+        assert db.execute("""
+            SELECT right_report, relationship FROM review.review_report_relation
+            WHERE left_report='asma:2026:220'
+        """).fetchall() == [("pmid:23066619", "historical_comparator")]
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence
+            WHERE report_id='asma:2026:220'
+        """).fetchone() == (0,)
+
+
 def test_armstrong_archive_preserves_two_reports_and_one_incidence_count(release):
     with connect_pair(release) as db:
         assert db.execute("""
