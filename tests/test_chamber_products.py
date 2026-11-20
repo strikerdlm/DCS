@@ -821,6 +821,50 @@ def test_u2_flight_episodes_preserve_pilot_linkage_and_symptom_time_origin(relea
         """).fetchone() == (0,)
 
 
+def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table,count(*),count(DISTINCT pilot_code),
+                   sum(cns_certainty='confirmed'),sum(cns_certainty='probable'),
+                   coalesce(sum(additional_confirmed_cns_from_footnote),0)
+            FROM publication_u2_series_row GROUP BY source_table ORDER BY source_table
+        """).fetchall() == [("I", 17, 16, 13, 4, 3), ("II", 6, 5, 3, 1, 0)]
+        assert db.execute("""
+            SELECT source_table,source_row,physiological_altitude_ft,altitude_relation,
+                   exposure_hours,exposure_relation
+            FROM publication_u2_series_row
+            WHERE (source_table='II' AND source_row IN (1,3)) OR pilot_code='MP6'
+            ORDER BY source_table,source_row
+        """).fetchall() == [
+            ("I", 6, 25000, "greater_than", 6.0, "reported_point"),
+            ("II", 1, 25000, "greater_than", 8.0, "greater_than"),
+            ("II", 3, None, None, None, None),
+        ]
+        assert db.execute("""
+            SELECT pilot_code,cns_certainty,case_source_id,linkage FROM publication_u2_series_case_link
+            JOIN publication_u2_series_row USING(source_id,source_table,source_row)
+            ORDER BY source_row
+        """).fetchall() == [
+            ("MP1", "confirmed", "pickard03_u2_case", "possible"),
+            ("MP7", "confirmed", "jersey10_u2_case", "likely"),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),min(denominator),max(denominator)
+            FROM publication_observation WHERE source_id='jersey11_u2_series'
+            AND endpoint='source_cns_symptom_recognition' AND denominator_unit='dcs_case'
+        """).fetchone() == (4, 20, 20, 20)
+        assert db.execute("""
+            SELECT analysis_role,numerator,denominator FROM publication_observation
+            WHERE source_id='jersey11_u2_series' AND endpoint='source_confirmed_cns_dcs'
+            ORDER BY stratum
+        """).fetchall() == [("case_conditional", 16, 45), ("case_conditional", 3, 24)]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id)
+            FROM review.review_record WHERE report_id='pmid:21748904'
+        """).fetchone() == (7, 1)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (116,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
