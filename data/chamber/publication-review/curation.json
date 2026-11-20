@@ -9839,6 +9839,36 @@
       "report_id": "openalex:W280567427",
       "basis": "These entries identify the same OpenAlex work and NASA accession 19730022270, with the same title and publication year.",
       "evidence_url": "https://ntrs.nasa.gov/citations/19730022270"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.69/sources.csv#davis71_neurological",
+      "report_id": "pmid:5099868",
+      "basis": "Original paper header and PubMed ESummary identify the 1971 report. P. 85 provides AMRL-TR-70-59.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf"
+    },
+    {
+      "record_key": "2026-11-20-davis-1971-verified#davis-1971",
+      "report_id": "pmid:5099868",
+      "basis": "Publisher scan and PubMed ESummary agree on title, year and printed pages 85–88.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.69/sources.csv#davis77_hyperbaric",
+      "report_id": "pmid:889546",
+      "basis": "Original paper title and pages verify the same 1977 report already indexed by PMID 889546.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1"
+    },
+    {
+      "record_key": "2026-11-20-davis-1977-verified#davis-1977",
+      "report_id": "pmid:889546",
+      "basis": "Publisher scan and PubMed identify the original 1977 case series and Table VIII.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1"
+    },
+    {
+      "record_key": "2026-11-20-davis-1977-firecrawl-discovery#davis-1977-original",
+      "report_id": "pmid:889546",
+      "basis": "The two publisher PDF URLs lead to the same 1977 journal article indexed by PMID 889546.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1"
     }
   ],
   "studies": [
@@ -10513,6 +10543,18 @@
       "label": "Lewis operational USAF flight mishap and incident reports",
       "period": "1968-01-01 to 1971-12-31",
       "setting": "Actual USAF operational flights documented on Air Force Form 711gA"
+    },
+    {
+      "study_id": "davis-usaf-neurological-chamber-case",
+      "label": "Davis 1971 neurological DCS chamber case",
+      "period": "Before the 1971 publication. Exact date unreported.",
+      "setting": "First USAF altitude chamber training flight of one student"
+    },
+    {
+      "study_id": "davis-altitude-treated-referrals-before-1977",
+      "label": "Davis historical review of 145 treated altitude DCS referrals",
+      "period": "Before 1977-01-01",
+      "setting": "Military and civilian treatment facilities, selected chamber and aircraft referrals"
     }
   ],
   "study_reports": [
@@ -11547,6 +11589,24 @@
       "report_id": "openalex:W280567427",
       "role": "secondary_reprint",
       "locator": "West and Parker pp. 18–19, Table 3"
+    },
+    {
+      "study_id": "lewis-usaf-operational-1968-1971",
+      "report_id": "pmid:5099868",
+      "role": "same_aircraft_case_narrative",
+      "locator": "Davis pp. 85–86, Case 1"
+    },
+    {
+      "study_id": "davis-usaf-neurological-chamber-case",
+      "report_id": "pmid:5099868",
+      "role": "primary_chamber_case_report",
+      "locator": "Printed pp. 86–88, Davis Case 2"
+    },
+    {
+      "study_id": "davis-altitude-treated-referrals-before-1977",
+      "report_id": "pmid:889546",
+      "role": "primary_selected_treatment_series",
+      "locator": "Results and Tables I–VI, pp. 725–726"
     }
   ],
   "relations": [
@@ -13684,6 +13744,20 @@
       "relationship": "cites_existing_navy_chamber_cohort",
       "evidence": "West and Parker cite Furry for the 1959–1968 Navy altitude training surveillance. Keep the original Furry risk sets.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19730022270/downloads/19730022270.pdf#page=25"
+    },
+    {
+      "left_report": "pmid:5099868",
+      "right_report": "pmid:4634276",
+      "relationship": "same_published_case",
+      "evidence": "Davis pp. 85–86 Case 1 and Lewis p. 1263 Table III neurological case 6 describe the same 32-year-old bomber gunner with cabin pressurization failure at 19,000 ft, lip and hand paresthesias, visual loss, right hemiparesis and two hyperbaric treatments. Their altitude-to-onset accounts differ. Retain Lewis as the existing case anchor and Davis as the narrative source.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf"
+    },
+    {
+      "left_report": "pmid:889546",
+      "right_report": "pmid:5099868",
+      "relationship": "possible_overlap_of_selected_cases",
+      "evidence": "The 1977 case series cites Davis 1971 as reference 10 and says 19 sufficiently detailed cases from 22 previously reported by 1971 were included. The paper does not list those 19 case identifiers. The two original cases may be included in the 145 treated records. They predate the separate 1973–1976 training table.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1"
     }
   ],
   "report_titles": {

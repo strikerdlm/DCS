@@ -1,0 +1,300 @@
+[
+  {
+    "id": "2026-11-20-davis-1971-verified",
+    "date": "2026-11-20",
+    "provider": "Tavily and publisher PDF verification",
+    "operation": "supplementary_verified_extraction",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf",
+      "extract_depth": "advanced",
+      "bibliographic_check": "PubMed ESummary PMID 5099868",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Checked both cases against the publisher scan. The journal also identifies the paper as AMRL-TR-70-59.",
+    "records": [
+      {
+        "id": "davis-1971",
+        "title": "Neurological Decompression Sickness: Report of Two Cases at Minimal Altitudes with Subsequent Seizures",
+        "year": 1971,
+        "pmid": "5099868",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf",
+        "locator": "Printed pp. 85–88, Cases 1–2 and p. 85 technical report note",
+        "sha256": "4c92e10b1e09afa2abc913f9d5dc62909531f9bae7ab7a8bf81bae19155dadbb",
+        "report_number": "AMRL-TR-70-59",
+        "observations": [
+          {
+            "id": "b52-gunner-davis-case-1",
+            "study_id": "lewis-usaf-operational-1968-1971",
+            "group": "B-52H gunner, Davis Case 1",
+            "endpoint": "source_reported_neurological_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed pp. 85–86, Davis Case 1",
+            "note": "Davis pp. 85–86 Case 1 and Lewis p. 1263 Table III neurological case 6 describe the same 32-year-old bomber gunner with cabin pressurization failure at 19,000 ft, lip and hand paresthesias, visual loss, right hemiparesis and two hyperbaric treatments. Their altitude-to-onset accounts differ. Retain Lewis as the existing case anchor and Davis as the narrative source."
+          },
+          {
+            "id": "chamber-student-davis-case-2",
+            "study_id": "davis-usaf-neurological-chamber-case",
+            "group": "First chamber training flight, Davis Case 2",
+            "endpoint": "source_reported_neurological_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed pp. 86–88, Davis Case 2",
+            "note": "First symptoms at 25,000 ft and neurological progression after an apparent recovery. Other exposed trainees unenumerated."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-davis-1977-verified",
+    "date": "2026-11-20",
+    "provider": "Tavily and publisher PDF verification",
+    "operation": "supplementary_verified_extraction",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1",
+      "extract_depth": "advanced",
+      "pages_verified": [
+        722,
+        725,
+        726,
+        728,
+        729
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Tavily retrieved publisher text. The nine-page official PDF was retrieved from the same publisher using the download query. The scanned Table VIII was reviewed directly. The existing review observations were verified against the scan and reused. The model extract carries the same 16 risk-set IDs on overlap hold.",
+    "records": [
+      {
+        "id": "davis-1977",
+        "title": "Altitude Decompression Sickness: Hyperbaric Therapy Results in 145 Cases",
+        "year": 1977,
+        "pmid": "889546",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1",
+        "locator": "Printed pp. 722, 725–726 and 728–729",
+        "sha256": "e2799ecfc92a02964ebd8ee6db84737c8ddc1bdcbb6ed99014d93c5d9b997a21",
+        "role_review": "HBO-treated outcomes only. Overlap with Bassett 1973–1977 held. No all-DCS or subject-level record.",
+        "table_viii_printed_subtotals": {
+          "1973": {
+            "trainee": [
+              50612,
+              4
+            ],
+            "observer": [
+              12407,
+              3
+            ],
+            "total": [
+              63019,
+              7
+            ]
+          },
+          "1974": {
+            "trainee": [
+              52509,
+              12
+            ],
+            "observer": [
+              12852,
+              7
+            ],
+            "total": [
+              65361,
+              19
+            ]
+          },
+          "1975": {
+            "trainee": [
+              44424,
+              17
+            ],
+            "observer": [
+              11243,
+              13
+            ],
+            "total": [
+              55667,
+              30
+            ]
+          },
+          "1976": {
+            "trainee": [
+              46659,
+              6
+            ],
+            "observer": [
+              11646,
+              8
+            ],
+            "total": [
+              58305,
+              14
+            ]
+          }
+        },
+        "observations": [
+          {
+            "id": "prior_publication-previously_reported",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "prior_publication",
+            "endpoint": "previously_reported",
+            "cases": 19,
+            "denominator": 145,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 725, Results",
+            "note": "The other 126 were reported as previously unpublished."
+          },
+          {
+            "id": "exposure_setting-altitude_chamber",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "exposure_setting",
+            "endpoint": "altitude_chamber",
+            "cases": 131,
+            "denominator": 145,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 725, Table II and Results",
+            "note": "Includes training and research chamber cases. No exposure population for all 131 cases."
+          },
+          {
+            "id": "exposure_setting-aircraft_pressurization",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "exposure_setting",
+            "endpoint": "aircraft_pressurization",
+            "cases": 14,
+            "denominator": 145,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 725, Table II and Results",
+            "note": "Includes the airplane cases across the selected treatment records."
+          },
+          {
+            "id": "onset_setting-onset_at_altitude_persisting_at_ground",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "onset_setting",
+            "endpoint": "onset_at_altitude_persisting_at_ground",
+            "cases": 72,
+            "denominator": 145,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 726, Table IV",
+            "note": "The cases remained symptomatic after return to ground."
+          },
+          {
+            "id": "onset_setting-onset_at_ground",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "onset_setting",
+            "endpoint": "onset_at_ground",
+            "cases": 73,
+            "denominator": 145,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 726, Table IV",
+            "note": "Symptom-free altitude exposure as recorded in the table."
+          },
+          {
+            "id": "ground_onset-onset_at_ground_before_two_hours",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "ground_onset",
+            "endpoint": "onset_at_ground_before_two_hours",
+            "cases": 43,
+            "denominator": 73,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 726, Table IV",
+            "note": "The source presents this as less than two hours."
+          },
+          {
+            "id": "ground_onset-onset_at_ground_after_two_hours",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "ground_onset",
+            "endpoint": "onset_at_ground_after_two_hours",
+            "cases": 23,
+            "denominator": 73,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 726, Table IV",
+            "note": "The source presents this as more than two hours."
+          },
+          {
+            "id": "ground_onset-onset_at_ground_unknown_delay",
+            "study_id": "davis-altitude-treated-referrals-before-1977",
+            "group": "ground_onset",
+            "endpoint": "onset_at_ground_unknown_delay",
+            "cases": 7,
+            "denominator": 73,
+            "denominator_unit": "treated_referral",
+            "locator": "P. 726, Table IV",
+            "note": "No precise interval was reported."
+          }
+        ],
+        "table_viii_review_study_id": "usaf-1973-1976-treated",
+        "table_viii_review_record_key": "2026-11-20-followup-tavily-davis-extract#https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-davis-1977-firecrawl-discovery",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_original_source_search",
+    "params": {
+      "query": "\"Hyperbaric Therapy Results in 145 Cases\" Davis Sheffield 1977 722",
+      "limit": 7,
+      "returned_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/889546/",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf",
+        "https://link.springer.com/chapter/10.1007/978-3-662-83872-9_26",
+        "https://uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "https://www.sciencedirect.com/science/article/pii/0014488679900773",
+        "https://asma.kglmeridian.com/view/journals/asem/48/8/article-p722.xml",
+        "https://www.surveyophthalmol.com/article/S0039-6257(05)80091-8/abstract"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 7,
+    "status": "observed",
+    "note": "The public primary PDF and PubMed indexing resolve to one report. The Firecrawl scrape exposed only the PDF watermark. Use the original scan for tables.",
+    "records": [
+      {
+        "id": "davis-1977-original",
+        "title": "Altitude Decompression Sickness: Hyperbaric Therapy Results in 145 Cases",
+        "year": 1977,
+        "pmid": "889546",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-davis-amrl-edition-search",
+    "date": "2026-11-20",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_archive_identifier_search",
+    "params": {
+      "query": "\"AMRL-TR-70-59\" Davis Tager Polkovitz neurological decompression sickness",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "No independently retrievable technical-report edition was verified. The publisher scan explicitly identifies the article with this accession.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-davis-bassett-overlap-audit",
+    "date": "2026-11-20",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_original_source_reconciliation",
+    "params": {
+      "tavily_query": "\"52,509\" \"12,852\" \"decompression sickness\" 1974 Davis student observer chamber",
+      "firecrawl_query": "USAF altitude chamber training 1973 1974 1975 1976 63019 65361 Davis 70 hyperbaric treated cases observer appendix other report",
+      "checked_original": "https://archive.org/download/DTIC_ADA360821/DTIC_ADA360821.pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Davis Table VIII is 1973–1976 USAF chamber HBO treatment surveillance. Bassett p. 12 covers 1973–1977 USAF chamber exposures and includes reported DCS with and without treatment. The date spans, roles and training network overlap. Site-specific membership and the common case roster are unavailable. Hold these strata out of pooled symptomatic DCS incidence.",
+    "records": []
+  }
+]
