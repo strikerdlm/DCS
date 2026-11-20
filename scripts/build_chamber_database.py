@@ -127,6 +127,7 @@ CHAMBER_CAM_MULTICENTER = ROOT / "data" / "chamber" / "v1.59"
 CHAMBER_CAM_PAIRED = ROOT / "data" / "chamber" / "v1.60"
 CHAMBER_GRAY_STRATA = ROOT / "data" / "chamber" / "v1.61"
 CHAMBER_NEUROLOGICAL_TIMING = ROOT / "data" / "chamber" / "v1.62"
+CHAMBER_OPERATION_EVEREST = ROOT / "data" / "chamber" / "v1.63"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1112,6 +1113,12 @@ def build(
                         "publication_neurological_episode_margin": "episode_margins.csv",
                         "publication_case_milestone": "case_milestones.csv",
                     },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_OPERATION_EVEREST,
+                    "publication",
+                    extra_tables={"publication_everest_context": "context.csv"},
                 )
             if rojas_supplement:
                 load_supplement(

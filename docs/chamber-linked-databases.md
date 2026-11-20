@@ -47,6 +47,8 @@ The historical catalog covers 103 numbered NASA cases and four explicitly cross-
 
 Ferris and Engel supply seven case-conditional margins for the previously catalogued Cincinnati and Halifax series. Their clinical chapter also corroborates one Berkeley case from the 1944 meeting minutes and preserves both reported times to postdescent worsening. [Neurological timing supplement](chamber-ferris-engel-neurological-supplement.md)
 
+The 1946 Operation Everest diary supplies two dated staff cerebral bends reports. Eleven contextual entries retain the lock activity, staffing, recorded symptoms and resident follow-up. The study register links the investigator and diary reports to one experiment. [Operation Everest I supplement](chamber-operation-everest-i-supplement.md)
+
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 
 The Armstrong archive supplement adds two reports of one chamber series, including the original 309 DCS cases in 1,163 exposures on overlap hold. The paired release also includes the Doppler reconciliation and Russian repeated-exposure supplements. [Armstrong archive](chamber-armstrong-archive-supplement.md) · [Doppler reconciliation](chamber-vge-reconciliation-supplement.md) · [Repeated exposures](chamber-repeated-eva-supplement.md)
