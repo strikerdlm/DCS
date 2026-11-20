@@ -10487,6 +10487,60 @@
       "report_id": "pmid:3240220",
       "basis": "The PubMed URL and case title identify PMID 3240220.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf"
+    },
+    {
+      "record_key": "2026-11-20-prp-pfo-headache-odland#sullivan-2001-table-1",
+      "report_id": "report:adp011061",
+      "basis": "The publisher pages identify this report and its source location.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011061/DTIC_ADP011061.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.83/sources.csv#sullivan01_prp_pfo",
+      "report_id": "report:adp011061",
+      "basis": "The numbered extraction uses the verified original source.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011061/DTIC_ADP011061.pdf"
+    },
+    {
+      "record_key": "2026-11-20-prp-pfo-headache-odland#bryce-2001-case-subset",
+      "report_id": "report:adp011060",
+      "basis": "The publisher pages identify this report and its source location.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011060/DTIC_ADP011060.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.83/sources.csv#bryce01_headache",
+      "report_id": "report:adp011060",
+      "basis": "The numbered extraction uses the verified original source.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011060/DTIC_ADP011060.pdf"
+    },
+    {
+      "record_key": "2026-11-20-prp-pfo-headache-odland#odland-1959-primary",
+      "report_id": "pmid:14428293",
+      "basis": "The publisher pages identify this report and its source location.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/30/11/article-p840.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.83/sources.csv#odland59_flight",
+      "report_id": "pmid:14428293",
+      "basis": "The numbered extraction uses the verified original source.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/30/11/article-p840.pdf"
+    },
+    {
+      "record_key": "2026-11-20-prp-pfo-headache-odland#robie-1960-case-one",
+      "report_id": "aeme:31-11-885",
+      "basis": "The publisher pages identify this report and its source location.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/11/article-p885.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_odland59:1",
+      "report_id": "pmid:14428293",
+      "basis": "The original publisher URL and byline identify PMID 14428293.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/30/11/article-p840.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W301042756",
+      "report_id": "report:adp011061",
+      "basis": "Original proceedings title, authors and paper number identify ADP011061.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011061/DTIC_ADP011061.pdf"
     }
   ],
   "studies": [
@@ -11299,6 +11353,18 @@
       "label": "USAF C-17A fatal flight DCS investigation",
       "period": "21–22 August 2023",
       "setting": "Operational aircraft test flight"
+    },
+    {
+      "study_id": "usaf-davis-1987-1999-treated-headache-subset",
+      "label": "Headache in Davis Hyperbaric Laboratory's treated altitude DCS archive",
+      "period": "January 1987–December 1999",
+      "setting": "Retrospective treatment archive, multiple altitude exposure settings"
+    },
+    {
+      "study_id": "odland-robie-fatal-flight-case",
+      "label": "Odland and Robie historical fatal aircraft flight case",
+      "period": "Reported in 1959 and 1960. Occurrence date unresolved.",
+      "setting": "Operational hypobaric flight"
     }
   ],
   "study_reports": [
@@ -12591,6 +12657,30 @@
       "report_id": "amc:3740477",
       "role": "summary_of_same_case",
       "locator": "Press release, 12 April 2024"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "report_id": "report:adp011061",
+      "role": "dciem_phase_ii_iv_echo_screened_subset",
+      "locator": "Printed pp. 3-1–3-4, especially Table 1 and Results p. 3-3"
+    },
+    {
+      "study_id": "usaf-davis-1987-1999-treated-headache-subset",
+      "report_id": "report:adp011060",
+      "role": "case_conditional_treatment_archive_analysis",
+      "locator": "Printed pp. 2-1 and 2-3, case histories and clinical archive review"
+    },
+    {
+      "study_id": "odland-robie-fatal-flight-case",
+      "report_id": "pmid:14428293",
+      "role": "primary_clinical_case",
+      "locator": "Printed pp. 840–842 and 845–846, Case Report and reference 11"
+    },
+    {
+      "study_id": "odland-robie-fatal-flight-case",
+      "report_id": "aeme:31-11-885",
+      "role": "same_case_pathology_followup",
+      "locator": "Printed pp. 885–888, Case 1, and Table I"
     }
   ],
   "relations": [
@@ -15050,6 +15140,27 @@
       "relationship": "summarizes_same_flight_case",
       "evidence": "The press coverage names the same official investigation, chronology and medical examiner cause of death.",
       "evidence_url": "https://www.amc.af.mil/News/Article-Display/Article/3740477/press-release-civilian-employee-fatality-investigation-results-released"
+    },
+    {
+      "left_report": "report:adp011061",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "relationship": "nested_trial_program_subset",
+      "evidence": "The 2001 source explicitly includes DCIEM participants in PRP phases II and IV. It stratifies only participants who underwent echocardiography and preserves person counts. Individual matching to NASA Table 6 is unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011061/DTIC_ADP011061.pdf#page=4"
+    },
+    {
+      "left_report": "report:adp011060",
+      "right_report": "report:adp011059",
+      "relationship": "same_treatment_archive_subset",
+      "evidence": "The same dates, Davis Hyperbaric Laboratory extraction, 729 reviewed records and breakdown including 480 altitude cases match RTO paper 1. The 70 headache records form a subset.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011060/DTIC_ADP011060.pdf#page=4"
+    },
+    {
+      "left_report": "pmid:14428293",
+      "right_report": "aeme:31-11-885",
+      "relationship": "same_published_case",
+      "evidence": "Case 1 matches age 36, the approximate 22,000-ft cabin reading, in-flight loss of consciousness, 22-hour postmortem interval, 1,650 g combined lungs, 1,800 g brain and an anatomically patent foramen ovale. Source-specific cough and chest-pain times differ.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/11/article-p885.pdf"
     }
   ],
   "report_titles": {
@@ -15146,6 +15257,9 @@
     "pmid:21748904": "Neurological altitude decompression sickness among U-2 pilots: 2002–2009",
     "pmid:3240220": "Fatal pulmonary decompression sickness: a case report",
     "aib:usaf-c17-2023-08-21": "Aircraft Accident Investigation Board Report: C-17A, 21 August 2023",
-    "amc:3740477": "Civilian employee fatality investigation results released"
+    "amc:3740477": "Civilian employee fatality investigation results released",
+    "report:adp011061": "Patent Foramen Ovale as a Risk Factor for Altitude Decompression Illness",
+    "report:adp011060": "Headache and Decompression Sickness: Type I or Type II?",
+    "pmid:14428293": "Fatal decompression illness at an altitude of 22,000 feet"
   }
 }

@@ -862,7 +862,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (118,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (119,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -889,7 +889,7 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (118,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (119,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -929,6 +929,71 @@ def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(releas
         """).fetchone() == (0,)
 
 
+def test_prp_pfo_and_headache_outcomes_keep_person_and_case_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit,denominator_basis,analysis_role
+            FROM publication_observation WHERE source_id='sullivan01_prp_pfo'
+            AND endpoint='source_type_i_dci' ORDER BY stratum
+        """).fetchall() == [
+            ("all-screened-test-subjects", 4, 29, "person", "source_reported", "overlap_hold"),
+            ("echo-probable-pfo", 0, 5, "person", "source_reported", "overlap_hold"),
+            ("pfo-not-detected-by-tte", 4, 24, "person", "author_reconstructed", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='sullivan01_prp_pfo' AND stratum='echo-probable-pfo'
+            AND endpoint IN ('source_spencer_vge_grade_3','source_spencer_vge_grade_4')
+            ORDER BY endpoint
+        """).fetchall() == [(1, 5), (1, 5)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.source_discrepancy.abstract_echo_probable_pfo_grade_iv'),
+                   json_extract(metadata_json,'$.source_discrepancy.table_1_echo_probable_pfo_grade_iv')
+            FROM review.review_record
+            WHERE run_id='2026-11-20-prp-pfo-headache-odland' AND source_key='sullivan-2001-table-1'
+        """).fetchone() == (2, 1)
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='bryce01_headache' ORDER BY stratum
+        """).fetchall() == [(44, 70, "dcs_case"), (16, 70, "dcs_case"), (70, 480, "dcs_case")]
+        assert db.execute("""
+            SELECT published_subject_number,sequence_in_subject,symptom_elapsed_min,symptom_time_basis
+            FROM publication_bryce_headache_sequence ORDER BY published_subject_number,sequence_in_subject
+        """).fetchall() == [
+            (1, 1, 135, "from_protocol_start"),
+            (2, 1, 540, "after_reported_chamber_flight"),
+            (2, 2, 120, "after_reported_chamber_flight"),
+        ]
+
+
+def test_odland_and_robie_share_one_fatal_flight_case_with_conflicting_dates(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,period,altitude FROM publication_observation
+            WHERE source_id='odland59_flight'
+        """).fetchone() == (1, None, None, 22000.0)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT case_id)
+            FROM historical_case_catalog WHERE source_id='odland59_flight'
+        """).fetchone() == (1, 1)
+        assert db.execute("""
+            SELECT report_id FROM shared_case_evidence
+            WHERE source_id='odland59_flight' ORDER BY report_id
+        """).fetchall() == [("aeme:31-11-885",), ("pmid:14428293",)]
+        assert db.execute("""
+            SELECT elapsed,elapsed_reference FROM publication_case_milestone
+            WHERE source_id='odland59_flight' AND milestone LIKE 'chest_symptom_%'
+            ORDER BY elapsed
+        """).fetchall() == [(25, "from_flight_start"), (30, "from_flight_start")]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.chronology.printed_event_date'),
+                   json_extract(metadata_json,'$.chronology.printed_meeting_date'),
+                   json_extract(metadata_json,'$.chronology.normalized_event_date')
+            FROM review.review_record
+            WHERE run_id='2026-11-20-prp-pfo-headache-odland' AND source_key='odland-1959-primary'
+        """).fetchone() == ("1959-10-13", "1959-04-28", None)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
@@ -942,7 +1007,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (118, 118, 118)
+        """).fetchone() == (119, 119, 119)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
