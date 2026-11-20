@@ -16,7 +16,7 @@ def test_publication_register_build(tmp_path):
             "SELECT sum(registered_dcs_events) FROM fac_official_chamber_year"
         ).fetchone() == (54,)
         assert db.execute("SELECT count(*) FROM review_record WHERE run_id IS NULL").fetchone() == (
-            4188,
+            4325,
         )
         assert db.execute(
             "SELECT count(*) FROM review_record JOIN review_retrieval USING(run_id) "
@@ -697,9 +697,9 @@ def test_publication_register_build(tmp_path):
             "AND (doi='10.33657/jurkessia.v16i1.1129' OR source_key='w:3f55e3b6-ef26-4f69-ac5f-3e14729e48c8')"
         ).fetchall() == [("doi:10.33657/jurkessia.v16i1.1129",)]
         assert db.execute("SELECT count(*) FROM review_historical_search_record").fetchone() == (
-            3489,
+            3603,
         )
-        assert db.execute("SELECT count(*) FROM publication_search_run").fetchone() == (752,)
+        assert db.execute("SELECT count(*) FROM publication_search_run").fetchone() == (779,)
         comments = db.execute(
             "SELECT left_report FROM review_report_relation "
             "WHERE right_report='pmid:33875060' AND relationship='comment_on'"

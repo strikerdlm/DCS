@@ -120,8 +120,8 @@ def test_recent_source_and_historical_hit_import_preserves_archived_rows():
     rows = list(legacy_records(ROOT))
     assert len(rows) == len({r["record_key"] for r in rows})
     hits = [r for r in rows if r["stream"].endswith("/search_hits.csv")]
-    assert len(hits) == 3489
-    assert len({r["stream"] for r in hits}) == 34
+    assert len(hits) == 3603
+    assert len({r["stream"] for r in hits}) == 36
 
     assert any(r["stream"].endswith("v1.40/sources.csv") for r in rows)
     by_source = {(r["stream"], r["source_key"]): r for r in rows}

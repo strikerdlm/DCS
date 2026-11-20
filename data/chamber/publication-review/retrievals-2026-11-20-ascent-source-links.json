@@ -1,0 +1,190 @@
+[
+  {
+    "id": "2026-11-20-ascent-source-links-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "targeted_source_verification",
+    "params": {
+      "urls": [
+        "https://ntrs.nasa.gov/citations/19860063003",
+        "https://pubmed.ncbi.nlm.nih.gov/21012578/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the proceedings abstract and Henry citation. The original proceedings pages are unavailable from the NASA catalog.",
+    "records": [
+      {
+        "id": "19860063003",
+        "title": "Evaluation of 9.5 PSIA as a suit pressure for prolonged extravehicular activity",
+        "url": "https://ntrs.nasa.gov/citations/19860063003",
+        "year": 1986,
+        "primary_source": "https://ntrs.nasa.gov/citations/19860063003"
+      },
+      {
+        "id": "21012578",
+        "title": "The role of exercise in altitude pain",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21012578/",
+        "year": 1946,
+        "pmid": "21012578",
+        "doi": "10.1152/ajplegacy.1946.145.3.279",
+        "note": "Bibliographic identity verified. Outcome tables not obtained."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-ascent-source-links-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "targeted_source_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA110.pdf",
+        "https://ntrs.nasa.gov/citations/19880025744",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p418.pdf",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA201274.pdf",
+        "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Recovered the journal articles and Air Force protocol pages. The protocol supplies exact Dixon and Krutz margins and identifies the earlier 50% oxygen threshold experiment. Waligora and Degner were already extracted.",
+    "records": [
+      {
+        "id": "2960317",
+        "title": "The effect of extended O2 prebreathing on altitude decompression sickness and venous gas bubbles",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA110.pdf",
+        "year": 1987,
+        "pmid": "2960317",
+        "locator": "Methods, Tables I–II and Figure 2, p. A111",
+        "sha256": "ee1d8fb3fd151aaaa7ca8738de08336e788391403527eec1f350669080a624d7"
+      },
+      {
+        "id": "A65-24074",
+        "title": "Dissolved Nitrogen and Bends in Oxygen-Nitrogen Mixtures During Exercise at Decreased Pressures",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p418.pdf",
+        "year": 1965,
+        "sha256": "de0bb547d9b590374bb782a79b079ead481619e2b3d7107c4d2e7af0b1c32251",
+        "locator": "Title page and Table III p. 420"
+      },
+      {
+        "id": "ADA201274",
+        "title": "An annotated bibliography of hypobaric decompression sickness research conducted at the Crew Technology Division, USAF School of Aerospace Medicine, Brooks AFB, Texas from 1983 to 1988",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA201274.pdf",
+        "year": 1988,
+        "locator": "Studies 4 and 5, printed pp. 9–10 (PDF pp. 13–14)",
+        "sha256": "02b1792cadf6068665dbb4cd6408dd78410d4aa90b152766aa090289a82edf5e"
+      },
+      {
+        "id": "AD1101527",
+        "title": "A probabilistic model of altitude decompression sickness based on the 3RUT-MB model of gas bubble evolution in perfused tissue",
+        "url": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf",
+        "locator": "Appendix E p. E-1, 9.5 psia Validation-A and -B",
+        "note": "The published table gives 20 female and 12 male exposure entries, with no DCS in either group. The Air Force archive gives 10 female and 20 male exposures.",
+        "year": 2018
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-ascent-source-links-p",
+    "date": "2026-11-20",
+    "provider": "Original PDF scan",
+    "operation": "targeted_source_verification",
+    "params": {
+      "urls": [
+        "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA110.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p418.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Checked the Air Force study pages and both journal originals. Source PDFs are identified by digest.",
+    "records": [
+      {
+        "id": "ADA201274",
+        "title": "An annotated bibliography of hypobaric decompression sickness research conducted at the Crew Technology Division, USAF School of Aerospace Medicine, Brooks AFB, Texas from 1983 to 1988",
+        "url": "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf",
+        "year": 1988,
+        "locator": "Studies 4 and 5, printed pp. 9–10 (PDF pp. 13–14)",
+        "sha256": "02b1792cadf6068665dbb4cd6408dd78410d4aa90b152766aa090289a82edf5e"
+      },
+      {
+        "id": "2960317",
+        "title": "The effect of extended O2 prebreathing on altitude decompression sickness and venous gas bubbles",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA110.pdf",
+        "year": 1987,
+        "pmid": "2960317",
+        "locator": "Methods, Tables I–II and Figure 2, p. A111",
+        "sha256": "ee1d8fb3fd151aaaa7ca8738de08336e788391403527eec1f350669080a624d7"
+      },
+      {
+        "id": "A65-24074",
+        "title": "Dissolved Nitrogen and Bends in Oxygen-Nitrogen Mixtures During Exercise at Decreased Pressures",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p418.pdf",
+        "year": 1965,
+        "sha256": "de0bb547d9b590374bb782a79b079ead481619e2b3d7107c4d2e7af0b1c32251",
+        "locator": "Title page and Table III p. 420"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-ascent-source-links-f-navy",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "public_archive_catalog_check",
+    "params": {
+      "url": "https://archive.org/details/FlightSurgeonsNewsletter1965",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The public Navy newsletter archive includes the October 1965 issue. The numbered abstract was subsequently verified from its scanned page.",
+    "records": [
+      {
+        "id": "NAEC-ACEL-529",
+        "title": "The Incidence of Aeroembolism Resulting from Rapid Decompression Following Exposure to a Mixed Gas Atmosphere at a Pressure of 380 mmHg",
+        "url": "https://archive.org/details/FlightSurgeonsNewsletter1965",
+        "year": 1965,
+        "primary_source": "https://archive.org/details/FlightSurgeonsNewsletter1965/page/n150/mode/1up",
+        "locator": "Flight Surgeon's Newsletter 10-65 p. 3 (scan n150)",
+        "sha256": "1b7ab4201a96cd495d8cf37e0e03399ee397e14ceffb0a3d412a15c46f748922",
+        "participants": 12,
+        "main_ascents": 103,
+        "additional_ascents": 19,
+        "note": "The archive collection identifies the Naval Aviation Safety Center. The reproduced abstract gives four cases at 18,000 ft and one at 35,000 ft after mixed-gas equilibration. Phase denominators and the report tables are unavailable."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-ascent-source-links-p-navy",
+    "date": "2026-11-20",
+    "provider": "Internet Archive",
+    "operation": "original_scan_verification",
+    "params": {
+      "url": "https://archive.org/details/FlightSurgeonsNewsletter1965/page/n150/mode/1up",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified case counts, stated main and ancillary ascents, phase description and report number from the printed page.",
+    "records": [
+      {
+        "id": "NAEC-ACEL-529",
+        "title": "The Incidence of Aeroembolism Resulting from Rapid Decompression Following Exposure to a Mixed Gas Atmosphere at a Pressure of 380 mmHg",
+        "url": "https://archive.org/details/FlightSurgeonsNewsletter1965/page/n150/mode/1up",
+        "year": 1965,
+        "primary_source": "https://archive.org/details/FlightSurgeonsNewsletter1965/page/n150/mode/1up",
+        "locator": "Flight Surgeon's Newsletter 10-65 p. 3 (scan n150)",
+        "sha256": "1b7ab4201a96cd495d8cf37e0e03399ee397e14ceffb0a3d412a15c46f748922",
+        "participants": 12,
+        "main_ascents": 103,
+        "additional_ascents": 19,
+        "note": "The archive collection identifies the Naval Aviation Safety Center. The reproduced abstract gives four cases at 18,000 ft and one at 35,000 ft after mixed-gas equilibration. Phase denominators and the report tables are unavailable."
+      }
+    ]
+  }
+]

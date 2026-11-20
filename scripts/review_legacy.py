@@ -8,14 +8,15 @@ from urllib.parse import unquote, urlsplit
 
 SOURCE_REGISTERS = (
     "v1",
-    *(f"v1.{i}" for i in range(1, 41)),
+    *(f"v1.{i}" for i in range(1, 50)),
+    "v1.53",
     "sharepoint-2026-11-19",
     "fac-official",
     "rojas-2015",
     "attachments-2026-11-19",
     "zotero-dcs-2026-11-19",
 )
-HISTORICAL_SEARCH_RELEASES = tuple(f"v1.{i}" for i in range(7, 41))
+HISTORICAL_SEARCH_RELEASES = tuple(f"v1.{i}" for i in range(7, 43))
 
 
 def _only(candidates: list[str]) -> str | None:

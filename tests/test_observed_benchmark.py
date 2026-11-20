@@ -454,6 +454,66 @@ def test_diagnosis_supplement_keeps_report_and_rating_denominators(tmp_path):
         ).fetchall() == [("trial-n", 7, 48, "overlap_hold")]
 
 
+def test_vge_reconciliation_supplement_preserves_printed_conflicts(tmp_path):
+    target = tmp_path / "vge-reconciliation.sqlite"
+    build(target, chamber_vge_reconciliation_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT earlier_cases,reconciled_cases,denominator "
+            "FROM literature_observation_count_revision "
+            "WHERE source_id='waligora87' AND endpoint='any_vge'"
+        ).fetchall() == [(18, 11, 38)]
+        assert db.execute(
+            "SELECT stratum,cases,denominator,analysis_role FROM literature_observation "
+            "WHERE source_id='waligora87' AND endpoint='any_vge' ORDER BY stratum"
+        ).fetchall() == [
+            ("360min-prebreathe", 11, 38, "overlap_hold"),
+            ("480min-prebreathe", 0, 8, "overlap_hold"),
+        ]
+        assert db.execute(
+            "SELECT numerator,denominator,analysis_role FROM publication_observation "
+            "WHERE source_id='kumar93_cmb' AND stratum='peak_grade_iv'"
+        ).fetchone() == (20, 31, "denominator_conflict")
+        assert db.execute(
+            "SELECT endpoint,numerator,denominator FROM publication_observation "
+            "WHERE source_id IN ('skedina98_ru','skedina98_acta')"
+        ).fetchall() == [("vge_grade_3_or_4", 24, 32)]
+
+
+def test_repeated_eva_supplement_keeps_participant_and_exposure_scopes(tmp_path):
+    target = tmp_path / "repeated-eva.sqlite"
+    build(target, chamber_repeated_eva_supplement=True)
+    with closing(sqlite3.connect(target)) as db:
+        assert db.execute(
+            "SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role "
+            "FROM publication_observation WHERE source_id='ryabtsev96_repeat' ORDER BY stratum"
+        ).fetchall() == [
+            (
+                "series-3-exposures",
+                "suspected_dcs_source",
+                1,
+                540,
+                "person_exposure",
+                "descriptive",
+            ),
+            (
+                "series-3-participants",
+                "suspected_dcs_source",
+                1,
+                18,
+                "person",
+                "overlapping_margin",
+            ),
+        ]
+        assert db.execute(
+            "SELECT count(*) FROM publication_observation "
+            "WHERE source_id IN ('kazakova78_oxygen_envelope','ryabtsev91_repeat_lead')"
+        ).fetchone() == (0,)
+        assert db.execute(
+            "SELECT count(*) FROM publication_source WHERE identifier='Medical-diss:564651'"
+        ).fetchone() == (1,)
+
+
 def test_eligibility_precedes_scoring(evidence):
     model = read_study(GROUP)
     external = evidence.execute("SELECT * FROM locked_external").fetchall()

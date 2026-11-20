@@ -103,6 +103,21 @@ CHAMBER_BUBBLE_OUTCOMES_DATA = ROOT / "data" / "chamber" / "v1.39"
 CHAMBER_BUBBLE_OUTCOMES_OUTPUT = ROOT / "artifacts" / "chamber-v1.39" / "observed.sqlite"
 CHAMBER_DIAGNOSIS_DATA = ROOT / "data" / "chamber" / "v1.40"
 CHAMBER_DIAGNOSIS_OUTPUT = ROOT / "artifacts" / "chamber-v1.40" / "observed.sqlite"
+CHAMBER_VGE_RECONCILIATION_DATA = ROOT / "data" / "chamber" / "v1.41"
+CHAMBER_VGE_RECONCILIATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.41" / "observed.sqlite"
+CHAMBER_REPEATED_EVA_DATA = ROOT / "data" / "chamber" / "v1.42"
+CHAMBER_REPEATED_EVA_OUTPUT = ROOT / "artifacts" / "chamber-v1.42" / "observed.sqlite"
+CHAMBER_ARMSTRONG_ARCHIVE_DATA = ROOT / "data" / "chamber" / "v1.43"
+CHAMBER_JPRS_TRANSLATION_DATA = ROOT / "data" / "chamber" / "v1.44"
+CHAMBER_USAFSAM_ARCHIVE_DATA = ROOT / "data" / "chamber" / "v1.45"
+CHAMBER_BROOKS_JOINT_DATA = ROOT / "data" / "chamber" / "v1.46"
+CHAMBER_KANNAN_REPORT_DATA = ROOT / "data" / "chamber" / "v1.47"
+CHAMBER_ADRAC_PROCEEDINGS = ROOT / "data" / "chamber" / "v1.48"
+CHAMBER_BERRY_TRAINING = ROOT / "data" / "chamber" / "v1.49"
+CHAMBER_HALBOUTY_CASE = ROOT / "data" / "chamber" / "v1.50"
+CHAMBER_NASA_ASCENT = ROOT / "data" / "chamber" / "v1.51"
+CHAMBER_HDSD_COMPILATION = ROOT / "data" / "chamber" / "v1.52"
+CHAMBER_ASCENT_RECONCILIATION = ROOT / "data" / "chamber" / "v1.53"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -331,13 +346,19 @@ def publish(path, output, *, allow_identical=True):
             raise FileExistsError(f"A file exists at {output}. Choose a new path.") from None
 
 
-def load_supplement(db, directory, prefix, *, extra_tables=None, create_schema=True):
+def load_supplement(
+    db, directory, prefix, *, extra_tables=None, create_schema=True, include_observations=True
+):
     tables = {
         f"{prefix}_source": "sources.csv",
-        f"{prefix}_observation": "observations.csv",
+        **({f"{prefix}_observation": "observations.csv"} if include_observations else {}),
         f"{prefix}_overlap": "overlap.csv",
         **(extra_tables or {}),
     }
+    load_version_tables(db, directory, tables, create_schema=create_schema)
+
+
+def load_version_tables(db, directory, tables, *, create_schema=True):
     manifest = json.loads((directory / "manifest.json").read_bytes())
     required = set(tables.values())
     if create_schema:
@@ -346,7 +367,7 @@ def load_supplement(db, directory, prefix, *, extra_tables=None, create_schema=T
         raise ValueError(f"Unexpected {directory.name} supplement manifest entries")
     for name, expected in manifest.items():
         if sha256(directory / name) != expected:
-            raise ValueError(f"{prefix} supplement input digest mismatch: {name}")
+            raise ValueError(f"{directory.name} supplement input digest mismatch: {name}")
     if create_schema:
         db.executescript((directory / "schema.sql").read_text(encoding="utf-8"))
     for table, filename in tables.items():
@@ -464,6 +485,8 @@ def build(
     chamber_threshold_supplement=False,
     chamber_bubble_outcomes_supplement=False,
     chamber_diagnosis_supplement=False,
+    chamber_vge_reconciliation_supplement=False,
+    chamber_repeated_eva_supplement=False,
     fac_official=False,
     fac_workbooks=None,
     publication_review=False,
@@ -473,7 +496,13 @@ def build(
     rojas_supplement = rojas_supplement or publication_review
     zotero_dcs_supplement = zotero_dcs_supplement or publication_review
     include_attachments = attachment_supplement or zotero_dcs_supplement
-    chamber_diagnosis_supplement = chamber_diagnosis_supplement or publication_review
+    chamber_repeated_eva_supplement = chamber_repeated_eva_supplement or publication_review
+    include_chamber_vge_reconciliation = (
+        chamber_vge_reconciliation_supplement or chamber_repeated_eva_supplement
+    )
+    chamber_diagnosis_supplement = (
+        chamber_diagnosis_supplement or publication_review or include_chamber_vge_reconciliation
+    )
     include_chamber_bubble_outcomes = (
         chamber_bubble_outcomes_supplement or chamber_diagnosis_supplement
     )
@@ -899,6 +928,101 @@ def build(
                         "literature_symptomatic_noncase": "symptomatic_noncases.csv",
                     },
                 )
+            if include_chamber_vge_reconciliation:
+                load_supplement(
+                    db,
+                    CHAMBER_VGE_RECONCILIATION_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "literature_overlap": "literature_overlap.csv",
+                    },
+                )
+            if chamber_repeated_eva_supplement:
+                load_supplement(
+                    db,
+                    CHAMBER_REPEATED_EVA_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if publication_review:
+                load_supplement(
+                    db,
+                    CHAMBER_ARMSTRONG_ARCHIVE_DATA,
+                    "publication",
+                    extra_tables={"publication_reported_rate": "reported_rates.csv"},
+                    create_schema=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_JPRS_TRANSLATION_DATA,
+                    "publication",
+                    extra_tables={"publication_chamber_reported_onset": "reported_onsets.csv"},
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_USAFSAM_ARCHIVE_DATA,
+                    "publication",
+                    extra_tables={
+                        "publication_adrac_profile_inventory": "archive_profiles.csv",
+                        "publication_archive_protocol_summary": "protocol_summaries.csv",
+                        "literature_observation_case_annotation": "case_annotations.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_BROOKS_JOINT_DATA,
+                    "publication",
+                    extra_tables={
+                        "publication_joint_dcs_vge": "joint_outcomes.csv",
+                        "publication_validation_snapshot": "validation_estimates.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_KANNAN_REPORT_DATA,
+                    "publication",
+                    extra_tables={"publication_exposure_outcome_margin": "outcome_margins.csv"},
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_ADRAC_PROCEEDINGS,
+                    "publication",
+                    extra_tables={"publication_validation_snapshot": "validation_estimates.csv"},
+                    include_observations=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_BERRY_TRAINING,
+                    "publication",
+                    extra_tables={"publication_reported_rate": "reported_rates.csv"},
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_HALBOUTY_CASE,
+                    {"publication_case_milestone": "case_milestones.csv"},
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_ASCENT,
+                    {
+                        "publication_ascent_reference": "references.csv",
+                        "publication_ascent_compilation": "appendix_b.csv",
+                        "publication_ascent_compilation_total": "analysis_totals.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_HDSD_COMPILATION,
+                    {"literature_hdsd_compilation": "table_iii.csv"},
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_ASCENT_RECONCILIATION,
+                    "publication",
+                )
             if rojas_supplement:
                 load_supplement(
                     db, ROJAS_DATA, "rojas", extra_tables={"rojas_result": "results.csv"}
@@ -1149,6 +1273,16 @@ if __name__ == "__main__":
         action="store_true",
         help="Build v1.40 with NASA symptom reports and diagnostic ratings.",
     )
+    parser.add_argument(
+        "--chamber-vge-reconciliation-supplement",
+        action="store_true",
+        help="Build v1.41 with reconciled historical Doppler counts.",
+    )
+    parser.add_argument(
+        "--chamber-repeated-eva-supplement",
+        action="store_true",
+        help="Build v1.42 with a Russian repeat-exposure chamber series.",
+    )
     release.add_argument(
         "--fac-official",
         action="store_true",
@@ -1270,8 +1404,16 @@ if __name__ == "__main__":
         default_output = CHAMBER_BUBBLE_OUTCOMES_OUTPUT
     if args.chamber_diagnosis_supplement:
         default_output = CHAMBER_DIAGNOSIS_OUTPUT
+    if args.chamber_vge_reconciliation_supplement:
+        default_output = CHAMBER_VGE_RECONCILIATION_OUTPUT
+    if args.chamber_repeated_eva_supplement:
+        default_output = CHAMBER_REPEATED_EVA_OUTPUT
     supplement_version = (
-        CHAMBER_DIAGNOSIS_DATA.name
+        CHAMBER_REPEATED_EVA_DATA.name
+        if args.chamber_repeated_eva_supplement
+        else CHAMBER_VGE_RECONCILIATION_DATA.name
+        if args.chamber_vge_reconciliation_supplement
+        else CHAMBER_DIAGNOSIS_DATA.name
         if args.chamber_diagnosis_supplement
         else CHAMBER_BUBBLE_OUTCOMES_DATA.name
         if args.chamber_bubble_outcomes_supplement
@@ -1418,6 +1560,8 @@ if __name__ == "__main__":
         chamber_threshold_supplement=args.chamber_threshold_supplement,
         chamber_bubble_outcomes_supplement=args.chamber_bubble_outcomes_supplement,
         chamber_diagnosis_supplement=args.chamber_diagnosis_supplement,
+        chamber_vge_reconciliation_supplement=args.chamber_vge_reconciliation_supplement,
+        chamber_repeated_eva_supplement=args.chamber_repeated_eva_supplement,
         citation_supplement=args.citation_supplement,
         fac_official=args.fac_official,
         fac_workbooks=args.fac_workbooks,

@@ -82,6 +82,10 @@
 
 [Release 1.40 NASA symptomatic noncases and diagnostic ratings](chamber-diagnosis-supplement.md)
 
+[Release 1.41 Waligora count correction and historical Doppler outcomes](chamber-vge-reconciliation-supplement.md)
+
+[Release 1.42 Russian repeat-exposure chamber series and translation leads](chamber-repeated-eva-supplement.md)
+
 [SharePoint books and papers, linked DCS/VGE observations and denominator reconciliation](chamber-sharepoint-review.md)
 
 [Official Colombian Air Force case register, annual training activity and role counts](chamber-fac-official.md)

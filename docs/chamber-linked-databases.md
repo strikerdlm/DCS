@@ -43,8 +43,30 @@ with connect_pair("artifacts/chamber-products/2026-11-20-r2") as db:
 
 The Gentry report supplies symptom onset at three hours, a first presentation at approximately 48 hours and a later presentation on day 14. All three observations belong to the same episode. The Yoneda abstract and extraction support a probable cutaneous DCS case with 24 hours of recurrence-free follow-up. The records retain their original diagnosis and counting unit. Neither supplies a population denominator. NASA case 30 keeps the 86-minute printed table value alongside a preferred 68-minute first symptom report from the narrative. The source locator accompanies each value. [Gentry report](https://pubmed.ncbi.nlm.nih.gov/28518008/) · [Yoneda report](https://pubmed.ncbi.nlm.nih.gov/9681378/) · [NASA timing review](../data/chamber/v1.33/nasa_timing_review.csv)
 
-The historical catalog covers 103 numbered NASA cases and two explicitly cross-linked published cases in this release. Additional case reports and aggregate outcomes remain in the original extraction tables. The fitting dataset contains 41 NASA groups with 124 DCS events in 885 exposures. A separate table contains 238 Grade IV VGE intervals. Clinical risk for an individual routine chamber trainee still requires linked clinical outcomes and validation in that population.
+The historical catalog covers 103 numbered NASA cases and three explicitly cross-linked published cases in this release. Additional case reports and aggregate outcomes remain in the original extraction tables. The fitting dataset contains 41 NASA groups with 124 DCS events in 885 exposures. A separate table contains 238 Grade IV VGE intervals. Clinical risk for an individual routine chamber trainee still requires linked clinical outcomes and validation in that population.
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 
-One example of deduplication is the Ata and Karaca chamber report. All 121 full- or truncated-title search occurrences in this release resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)
+The Armstrong archive supplement adds two reports of one chamber series, including the original 309 DCS cases in 1,163 exposures on overlap hold. The paired release also includes the Doppler reconciliation and Russian repeated-exposure supplements. [Armstrong archive](chamber-armstrong-archive-supplement.md) · [Doppler reconciliation](chamber-vge-reconciliation-supplement.md) · [Repeated exposures](chamber-repeated-eva-supplement.md)
+
+The JPRS translation adds five strata from Kazakova and Poleshchuk's 38 chamber tests and the 25 reported symptomatic onset rows. The original article and its English translation share one study ID. [JPRS translation and extraction](chamber-jprs-translation-supplement.md)
+
+The USAFSAM manual links the ADRAC development profile inventory and archive counts to their source denominators. The workshop rates and added 18,000-ft staging case detail can be traced to the prior cohort records. [USAFSAM archive and ADRAC profile reconciliation](chamber-usafsam-archive-supplement.md)
+
+The Brooks supplement adds two VGE thresholds linked to one 2,077-exposure clinical margin, three related counts from the loglogistic development sample, and the original 1999 ADRAC validation percentages. [Joint DCS and Doppler evidence](chamber-brooks-joint-supplement.md)
+
+The Armstrong survival report links its 1,426-exposure archive to the 975-exposure journal subset. The review holds both publications under one study. The model database preserves the archive outcome and four source breakdowns, with explicit discrepancies in the censoring and bubble-grade totals. [Armstrong survival report supplement](chamber-kannan-report-supplement.md)
+
+The 2001 Air Force proceedings add five published ADRAC estimates and their printed uncertainty margins. The three reports describe one validation cohort, with differing model predictions and a documented discrepancy for the 35,000-ft observed estimate. [ADRAC proceedings crosswalk](chamber-adrac-proceedings-supplement.md)
+
+Berry’s Stockholm manuscript and journal article corroborate 48 reported reactors in 1956 and symptom percentages for the 125 hospitalized reactors in the earlier period. The outcome count is recorded once, with the historical case definition and missing 1956 denominator. [Berry chamber surveillance supplement](chamber-berry-training-supplement.md)
+
+The Halbouty and Heisler original report and Berry and King’s follow-up now share one existing 1954 chamber case. The follow-up’s earlier self-reported symptom and the original’s first observed signs retain distinct timing fields. [1954 case chronology](chamber-halbouty-case-supplement.md)
+
+NASA TM-100472 adds the 150 profiles from its historical ascent-rate compilation and links 19 of its cited reports to existing source IDs. The historical rates and denominator totals are available for reconciliation. The clinical benchmark excludes these overlapping entries. [Ascent-rate compilation](chamber-nasa-ascent-compilation.md)
+
+The 1992 HDSD article adds 27 historical group summaries for citation and outcome reconciliation. Four groups match existing Motley training strata and the rest remain on overlap hold. [HDSD Table III intake](chamber-hdsd-compilation.md)
+
+Five source outcome margins and six additional bibliography links extend the NASA ascent-rate intake. The supplement preserves the conflicting 9.5-psia validation denominators and two phase-specific Navy bends counts with unavailable denominators. [Ascent source reconciliation](chamber-ascent-source-reconciliation.md)
+
+One example of deduplication is the Ata and Karaca chamber report. All 125 full- or truncated-title search occurrences in v1.48 resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)

@@ -1,0 +1,5 @@
+source_id,related_source,relationship,evidence
+kannan98_survival_report,kannan98_loglogistic,partial_overlap,"Section 4.2 defines the 975-exposure subset at final pressures through 314 mmHg. Table 3.4 yields 506 DCS and 469 censored at these pressures, matching the later journal sample."
+kannan98_survival_report,webb10_usafsam_database,likely_overlap,The survival report analyzes earlier records in the Brooks chamber archive. The later manual describes a wider archive. Shared exposure identifiers have not been established.
+kannan98_survival_report,webb11_brooks_joint,likely_overlap,Both reports use the Brooks experimental archive. The joint analysis selects exposures from monitored high-incidence profiles. The common exposure count is unknown.
+kannan98_survival_report,gerth18,likely_overlap,NEDU Appendix E contains protocols drawn from the Brooks experimental archive. The historical report gives one-way margins without identifiers for linking profiles.

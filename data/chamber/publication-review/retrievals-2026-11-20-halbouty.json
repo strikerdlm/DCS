@@ -1,0 +1,176 @@
+[
+  {
+    "id": "2026-11-20-halbouty-a-original",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "primary_source_check",
+    "params": {
+      "urls": [
+        "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104083990;seq=452",
+        "https://archive.org/download/in.ernet.dli.2015.71418/page/n1139_large.jpg"
+      ],
+      "printed_pages": [
+        1364,
+        1365,
+        1366,
+        1367,
+        1368
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Internet Archive copy interleaves p. 1362 where p. 1364 belongs. HathiTrust supplies the missing original page. Date and observed clock times were checked from the primary pages.",
+    "records": [
+      {
+        "id": "13247522",
+        "title": "Severe neurocirculatory collapse at simulated altitude",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104083990;seq=452",
+        "pmid": "13247522",
+        "year": 1955,
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104083990;seq=452",
+        "role_review": "Single trainee event without a matched inside-staff or trainee denominator.",
+        "observations": [
+          {
+            "id": "halbouty-1954-chamber-index",
+            "endpoint": "severe_dysbarism_source",
+            "group": "1954 USAF chamber episode",
+            "cases": 1,
+            "denominator": null,
+            "year": 1954,
+            "study_id": "usaf-1954-halbouty-chamber-episode",
+            "altitude_band": "43,000-ft simulated peak",
+            "chamber_role": "trainee",
+            "locator": "Case report, printed pp. 1364–1368",
+            "note": "Event 1954-03-19. First observed signs 30 seconds after achieving 43,000 ft. Lost consciousness on descent at 30,000 ft. The original paper does not expressly identify these signs as the earliest symptoms."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-halbouty-b-followup",
+    "date": "2026-11-20",
+    "provider": "Internet Archive",
+    "operation": "original_followup_scan",
+    "params": {
+      "url": "https://archive.org/details/in.ernet.dli.2015.71422/page/n6/mode/1up",
+      "printed_pages": [
+        2,
+        3,
+        11
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the published Case 1 account, follow-up and cross-reference with the original 1955 report.",
+    "records": [
+      {
+        "id": "13625439",
+        "title": "Severe dysbarism in actual and simulated flight: a follow-up study of five cases",
+        "url": "https://archive.org/details/in.ernet.dli.2015.71422/page/n6/mode/1up",
+        "pmid": "13625439",
+        "year": 1959,
+        "primary_source": "https://archive.org/details/in.ernet.dli.2015.71422/page/n6/mode/1up",
+        "role_review": "Follow-up of the same trainee event without an observed exposure denominator.",
+        "observations": [
+          {
+            "id": "berry-king-1954-case-1",
+            "endpoint": "severe_dysbarism_source",
+            "group": "1954 USAF chamber episode",
+            "cases": 1,
+            "denominator": null,
+            "year": 1954,
+            "study_id": "usaf-1954-halbouty-chamber-episode",
+            "altitude_band": "43,000-ft simulated peak",
+            "chamber_role": "trainee",
+            "locator": "Case 1 pp. 2–3 and Table 2 p. 11",
+            "note": "Self-reported abdominal discomfort on ascent at 35,000 ft. Profile, anthropometrics, peak signs and course match the 1955 report. No precise earliest symptom time relative to ascent or exposure end."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-halbouty-t-verification",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "targeted_primary_record_check",
+    "params": {
+      "urls": [
+        "https://archive.org/stream/in.ernet.dli.2015.71422/2015.71422.United-States-Armed-Forces-Medical-Journal10124-12_djvu.txt",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/12/article-p1004.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The follow-up issue was identified and checked in the primary page scans. The related 1960 Donnell and Norton chamber report was already represented in the model database.",
+    "records": [
+      {
+        "id": "13625439",
+        "title": "Severe dysbarism in actual and simulated flight: a follow-up study of five cases",
+        "url": "https://archive.org/details/in.ernet.dli.2015.71422/page/n6/mode/1up",
+        "pmid": "13625439",
+        "year": 1959
+      },
+      {
+        "id": "donnell-1960",
+        "title": "Successful Use of the Recompression Chamber in Severe Decompression Sickness with Neurocirculatory Collapse",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/12/article-p1004.pdf",
+        "year": 1960
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-halbouty-gribble",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "full_text_relevance_check",
+    "params": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The report compares published findings on pressure syndromes and does not supply an independent chamber outcome risk set.",
+    "records": [
+      {
+        "id": "13829253",
+        "title": "A Comparison of the High-Altitude and High-Pressure Syndromes of Decompression Sickness",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+        "pmid": "13829253",
+        "doi": "10.1136/oem.17.3.181",
+        "year": 1960
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-halbouty-cotes-reference",
+    "date": "2026-11-20",
+    "provider": "Tavily and Firecrawl",
+    "operation": "reference_chain_check",
+    "params": {
+      "query": "Decompression Sickness with Post-Decompression Collapse Cotes 1953 Farnborough",
+      "evidence_urls": [
+        "https://apps.dtic.mil/sti/tr/pdf/AD0700239.pdf",
+        "https://journals.sagepub.com/doi/abs/10.1177/002580246200200206"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Reference lists name an RAF report of three cases. Full text and exposure identities remain unavailable.",
+    "records": [
+      {
+        "id": "cotes-1953",
+        "title": "Decompression Sickness with Post-Decompression Collapse (an account of three cases)",
+        "url": "https://journals.sagepub.com/doi/abs/10.1177/002580246200200206",
+        "year": 1953,
+        "access": "citation only",
+        "note": "Indexed citation evidence. No exact clinical case identities or exposure risk set extracted."
+      }
+    ]
+  }
+]

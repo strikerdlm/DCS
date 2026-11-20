@@ -1,0 +1,469 @@
+[
+  {
+    "id": "2026-11-20-usafsam-archive-t-inflight",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"inflight denitrogenation\" Pilmanis Webb 29500 oxygen DCS study 1991 1992",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "efa22ec6-de94-4f1e-a346-26b0082c8a18",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Results preserve provider rank.",
+    "records": [
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "rank": 1,
+        "score": 0.6312534
+      },
+      {
+        "id": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+        "title": "ALTITUDE DECOMPRESSION SICKNESS (DCS) RISK FACTORS ...",
+        "url": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+        "rank": 2,
+        "score": 0.45048025
+      },
+      {
+        "id": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "title": "Preventing Decompression Sickness Over Three Decades of ...",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "rank": 3,
+        "score": 0.43500128
+      },
+      {
+        "id": "https://www.semanticscholar.org/paper/The-effect-of-staged-decompression-while-breathing-Webb-Pilmanis/a357f00bf44f0f373f4616e1162619262fef9079",
+        "title": "The effect of staged decompression while breathing 100% oxygen ...",
+        "url": "https://www.semanticscholar.org/paper/The-effect-of-staged-decompression-while-breathing-Webb-Pilmanis/a357f00bf44f0f373f4616e1162619262fef9079",
+        "rank": 4,
+        "score": 0.43266258
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/tr/pdf/ADA530698.pdf",
+        "title": "Air Break During Preoxygenation and Risk of Altitude Decompression ...",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA530698.pdf",
+        "rank": 5,
+        "score": 0.42775524
+      },
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8505281",
+        "title": "High-altitude decompression strain can be reduced by an early excursion to moderate altitude while breathing oxygen",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8505281",
+        "rank": 6,
+        "score": 0.41418782
+      },
+      {
+        "id": "https://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1086&context=anth_fac",
+        "title": "Review of High Altitude Aviation Preoxygenation / Denitrogenization Procedures and Draft Pressure Schedule for Open-Cockpit Balloon Flight to 65,000 Feet",
+        "url": "https://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1086&context=anth_fac",
+        "rank": 7,
+        "score": 0.41170207
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-f-inflight",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"inflight denitrogenation\" \"decompression sickness\" \"Pilmanis\" 29,500",
+      "limit": 7,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f914-232f-7461-8a14-96e00f0b02d3",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Results preserve provider rank.",
+    "records": [
+      {
+        "id": "https://www.researchgate.net/publication/235202729_Decompression_Sickness_and_U-2_Operations_Summary_of_Research_Findings_and_Recommendations_Regarding_Use_of_Exercise_During_Prebreathe",
+        "title": "(PDF) Decompression Sickness and U-2 Operations: Summary of ...",
+        "url": "https://www.researchgate.net/publication/235202729_Decompression_Sickness_and_U-2_Operations_Summary_of_Research_Findings_and_Recommendations_Regarding_Use_of_Exercise_During_Prebreathe",
+        "rank": 1
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-t-threshold",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Determining a bends-preventing pressure for a space suit\" Krutz Webb 1988 PDF",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "9bcb305f-573a-4e32-abd9-d51c83ad4e95",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Results preserve provider rank.",
+    "records": [
+      {
+        "id": "https://ntrs.nasa.gov/citations/19900024036",
+        "title": "Determining a bends-preventing pressure for a space suit",
+        "url": "https://ntrs.nasa.gov/citations/19900024036",
+        "rank": 1,
+        "score": 0.51404965
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "rank": 2,
+        "score": 0.3415825
+      },
+      {
+        "id": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "title": "Preventing Decompression Sickness Over Three Decades of ...",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "rank": 3,
+        "score": 0.34004676
+      },
+      {
+        "id": "https://bhp.engr.tamu.edu/wp-content/uploads/sites/212/2022/01/Kluis-2021-Revisiting-decompression-sickness-risk-and-mobility-in-the-context-of-the-SmartSuit-a-hybrid-planetary-spacesuit.pdf",
+        "title": "Revisiting decompression sickness risk and mobility in the context of ...",
+        "url": "https://bhp.engr.tamu.edu/wp-content/uploads/sites/212/2022/01/Kluis-2021-Revisiting-decompression-sickness-risk-and-mobility-in-the-context-of-the-SmartSuit-a-hybrid-planetary-spacesuit.pdf",
+        "rank": 4,
+        "score": 0.31352484
+      },
+      {
+        "id": "https://www.lpi.usra.edu/publications/reports/CB-1106/ucb01.pdf",
+        "title": "Advanced Two-System Space Suit",
+        "url": "https://www.lpi.usra.edu/publications/reports/CB-1106/ucb01.pdf",
+        "rank": 5,
+        "score": 0.21502088
+      },
+      {
+        "id": "https://www.researchgate.net/publication/8991351_Compression_under_a_mechanical_counter_pressure_space_suit_glove",
+        "title": "Compression under a mechanical counter pressure space suit glove",
+        "url": "https://www.researchgate.net/publication/8991351_Compression_under_a_mechanical_counter_pressure_space_suit_glove",
+        "rank": 6,
+        "score": 0.12538631
+      },
+      {
+        "id": "https://aero.und.edu/space/human-spaceflight-lab/_files/docs/publications/some-throughts.pdf",
+        "title": "Some Thoughts on the Architecture of a Planetary Extravehicular ...",
+        "url": "https://aero.und.edu/space/human-spaceflight-lab/_files/docs/publications/some-throughts.pdf",
+        "rank": 7,
+        "score": 0.1112412
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-f-threshold",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Determining a bends-preventing pressure for a space suit\" Krutz Webb",
+      "limit": 7,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f914-22e4-779e-bc0c-1d07b71eb416",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Results preserve provider rank.",
+    "records": [
+      {
+        "id": "https://ntrs.nasa.gov/citations/19900024036",
+        "title": "Determining a bends-preventing pressure for a space suit",
+        "url": "https://ntrs.nasa.gov/citations/19900024036",
+        "rank": 1
+      },
+      {
+        "id": "https://scispace.com/papers/characterization-of-carbon-dioxide-washout-measurement-bxmzcn6c2t",
+        "title": "Characterization of Carbon Dioxide Washout Measurement ...",
+        "url": "https://scispace.com/papers/characterization-of-carbon-dioxide-washout-measurement-bxmzcn6c2t",
+        "rank": 2
+      },
+      {
+        "id": "https://www.researchgate.net/publication/301356472_Ultrasonic_Assistive_Headset_for_Visually_Impaired_People",
+        "title": "Ultrasonic Assistive Headset for Visually Impaired People",
+        "url": "https://www.researchgate.net/publication/301356472_Ultrasonic_Assistive_Headset_for_Visually_Impaired_People",
+        "rank": 3
+      },
+      {
+        "id": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude ...",
+        "url": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "rank": 4
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-t-database",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database\" full text PDF",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "901fd483-c66e-4e0d-a46d-d97248c3358e",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Results preserve provider rank.",
+    "records": [
+      {
+        "id": "https://www.researchgate.net/publication/235078171_Altitude_Decompression_Sickness_Risk_Prediction_Research",
+        "title": "Altitude Decompression Sickness Risk Prediction Research",
+        "url": "https://www.researchgate.net/publication/235078171_Altitude_Decompression_Sickness_Risk_Prediction_Research",
+        "rank": 1,
+        "score": 0.7102265
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "title": "ADA257612.pdf - DTIC",
+        "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "rank": 2,
+        "score": 0.6541219
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf",
+        "title": "A Probabilistic Model of Altitude Decompression Sickness Based on ...",
+        "url": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf",
+        "rank": 3,
+        "score": 0.63000226
+      },
+      {
+        "id": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude ...",
+        "url": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "rank": 4,
+        "score": 0.58622676
+      },
+      {
+        "id": "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude ...",
+        "url": "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "rank": 5,
+        "score": 0.51978034
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "rank": 6,
+        "score": 0.5067478
+      },
+      {
+        "id": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+        "title": "altitude decompression sickness",
+        "url": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+        "rank": 7,
+        "score": 0.44034892
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-f-database",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database\" DTIC",
+      "limit": 7,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f914-2351-72a8-9c42-6f36a38de388",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Results preserve provider rank.",
+    "records": [
+      {
+        "id": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude ...",
+        "url": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "rank": 1
+      },
+      {
+        "id": "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "title": "Documentation for the USAF School of Aerospace ... - Minsky DTIC",
+        "url": "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "rank": 2
+      },
+      {
+        "id": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology",
+        "title": "(PDF) Handbook of Aerospace and Operational Physiology",
+        "url": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology",
+        "rank": 3
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-f-manual",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://dtic.minsky.ai/index/ADA521198/pdf"
+      ],
+      "provider_request_id": "01a1f914-a18d-774e-94b2-02a9a736e6e8",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Full HTML text of the original report. Used to cross-check Table 1, the DNT section and Appendix D.",
+    "records": [
+      {
+        "id": "ada521198-manual",
+        "url": "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-t-manual",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://apps.dtic.mil/sti/tr/pdf/ADA521198.pdf",
+        "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf",
+        "https://ntrs.nasa.gov/citations/19900024036"
+      ],
+      "provider_request_id": "3225976b-449d-4242-9011-3a748059fdaf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Target extraction returned official DTIC text, the Minsky report, the 1991 meeting abstract and the NASA journal catalog record.",
+    "records": [
+      {
+        "id": "ada521198-dtic",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA521198.pdf",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database"
+      },
+      {
+        "id": "ada521198-mirror",
+        "url": "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database"
+      },
+      {
+        "id": "pilmanis-olson-46",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=8",
+        "title": "The effect of inflight denitrogenation on altitude decompression sickness risk"
+      },
+      {
+        "id": "19900024036",
+        "url": "https://ntrs.nasa.gov/citations/19900024036",
+        "title": "Determining a bends-preventing pressure for a space suit"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-t-ntis",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://apps.dtic.mil/sti/pdfs/ADA521198.pdf",
+        "https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/ADA521198.xhtml",
+        "https://dtic.minsky.ai/index/ADA521198/pdf"
+      ],
+      "provider_request_id": "d3e03948-3da4-4759-b47b-c77acc2dd3ad",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The direct DTIC PDF fetch failed. The NTIS catalog and Minsky report were retained.",
+    "records": [
+      {
+        "id": "ada521198-ntis",
+        "url": "https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/ADA521198.xhtml",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database"
+      },
+      {
+        "id": "ada521198-mirror",
+        "url": "https://dtic.minsky.ai/index/ADA521198/pdf",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-f-dtic-file",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://apps.dtic.mil/sti/pdfs/ADA521198.pdf"
+      ],
+      "provider_request_id": "01a1f916-d865-74fc-8420-950a880eeb8d",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Requested PDF returned a maintenance notice.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-web-citeseer",
+    "date": "2026-11-20",
+    "provider": "Web",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://citeseerx.ist.psu.edu/document?doi=fd54938fecafffcd0289e96c8a985a53a922bc3e&repid=rep1&type=pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The indexed PDF text independently reproduces Table 1 and all 41 Table D1 values. Direct download and screenshot were unavailable.",
+    "records": [
+      {
+        "id": "ada521198-citeseer",
+        "url": "https://citeseerx.ist.psu.edu/document?doi=fd54938fecafffcd0289e96c8a985a53a922bc3e&repid=rep1&type=pdf",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude Decompression Sickness Research Database"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usafsam-archive-archive-workshop",
+    "date": "2026-11-20",
+    "provider": "Local archive",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=352"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Original archived proceedings confirmed visually at pp. 338–339, PDF pp. 352–353.",
+    "records": [
+      {
+        "id": "webb-p337",
+        "url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=352",
+        "title": "USAFSAM hypobaric decompression sickness research since 1983"
+      }
+    ]
+  }
+]

@@ -1,0 +1,831 @@
+[
+  {
+    "id": "2026-11-20-brooks-joint-t-guide",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"AFRL-SA-BR-SR-2009-0008\" \"Guide\" Webb PDF",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "7a9e9c95-29b1-44bb-a233-7c4e09a0ecfd",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://www.afrl.af.mil/Portals/90/Documents/711/USAFSAM/Air%20Force%20Waiver%20Guide%20Compendium.pdf",
+        "title": "Air Force Waiver Guide",
+        "url": "https://www.afrl.af.mil/Portals/90/Documents/711/USAFSAM/Air%20Force%20Waiver%20Guide%20Compendium.pdf",
+        "rank": 1,
+        "score": 0.15649123
+      },
+      {
+        "id": "https://static.e-publishing.af.mil/production/1/afrl/publication/afrli61-108/afrli61-108.pdf",
+        "title": "afrli61-108.pdf - Air Force",
+        "url": "https://static.e-publishing.af.mil/production/1/afrl/publication/afrli61-108/afrli61-108.pdf",
+        "rank": 2,
+        "score": 0.11008789
+      },
+      {
+        "id": "https://www.afrl.af.mil/Portals/90/Documents/PA/2024_AFRL_BRAND_BOOK_FINAL_28MAR24.pdf",
+        "title": "Brand Book - Air Force Research Laboratory",
+        "url": "https://www.afrl.af.mil/Portals/90/Documents/PA/2024_AFRL_BRAND_BOOK_FINAL_28MAR24.pdf",
+        "rank": 3,
+        "score": 0.09947021
+      },
+      {
+        "id": "https://www.afrl.af.mil/Portals/90/Documents/RI/AFRL%20ANSI%20Guide%202018.pdf",
+        "title": "AFRL ANSI Guide 2018.pdf",
+        "url": "https://www.afrl.af.mil/Portals/90/Documents/RI/AFRL%20ANSI%20Guide%202018.pdf",
+        "rank": 4,
+        "score": 0.09484524
+      },
+      {
+        "id": "https://www.scribd.com/document/554653750/Air-Force-Research-Laboratory",
+        "title": "Overview of Air Force Research Laboratory | PDF | Military",
+        "url": "https://www.scribd.com/document/554653750/Air-Force-Research-Laboratory",
+        "rank": 5,
+        "score": 0.09186979
+      },
+      {
+        "id": "https://www.afrl.af.mil/Portals/90/Documents/RI/AFRL-RI-II-2021-Research-Program-Guide.pdf?ver=bq2zZ47LqMu5QeGSnzBTIw%3D%3D",
+        "title": "INFORMATION INSTITUTE 2021 RESEARCH PROGRAM GUIDE",
+        "url": "https://www.afrl.af.mil/Portals/90/Documents/RI/AFRL-RI-II-2021-Research-Program-Guide.pdf?ver=bq2zZ47LqMu5QeGSnzBTIw%3D%3D",
+        "rank": 6,
+        "score": 0.08479541
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/tr/pdf/ADA538947.pdf",
+        "title": "Quick Reference Guide for IRB submission at Air Command ... - DTIC",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA538947.pdf",
+        "rank": 7,
+        "score": 0.07613248
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-series",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"James T. Webb\" \"Guide to altitude decompression sickness research\" 88 \"DTIC\"",
+      "limit": 7,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f920-a089-702e-be37-ef0942d9acca",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-brooks",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Fifty years of decompression sickness research at Brooks AFB\" full text Webb Pilmanis",
+      "limit": 7,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f920-a089-7589-8e16-d1a7fabbe5ec",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://www.researchgate.net/publication/51167457_Fifty_Years_of_Decompression_Sickness_Research_at_Brooks_AFB_TX_1960-2010",
+        "title": "Fifty Years of Decompression Sickness Research at Brooks AFB ...",
+        "url": "https://www.researchgate.net/publication/51167457_Fifty_Years_of_Decompression_Sickness_Research_at_Brooks_AFB_TX_1960-2010",
+        "rank": 1
+      },
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight - PMC - NIH",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "rank": 2
+      },
+      {
+        "id": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2016.00586/full",
+        "title": "Pre-dive Whole-Body Vibration Better Reduces Decompression-Induced Vascular Gas Emboli than Oxygenation or a Combination of Both",
+        "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2016.00586/full",
+        "rank": 3
+      },
+      {
+        "id": "https://journals.physiology.org/doi/abs/10.1152/japplphysiol.00169.2017",
+        "title": "Acute hypoxia in a simulated high-altitude airdrop scenario due to oxygen system failure",
+        "url": "https://journals.physiology.org/doi/abs/10.1152/japplphysiol.00169.2017",
+        "rank": 4
+      },
+      {
+        "id": "https://www.researchgate.net/scientific-contributions/James-T-Webb-9937430",
+        "title": "James T Webb's research works | Johnson Space Center, Houston and other places",
+        "url": "https://www.researchgate.net/scientific-contributions/James-T-Webb-9937430",
+        "rank": 5
+      },
+      {
+        "id": "https://scispace.com/pdf/high-altitude-chamber-training-for-military-flight-personnel-34awb80616.pdf",
+        "title": "High Altitude Chamber Training for Military Flight Personnel",
+        "url": "https://scispace.com/pdf/high-altitude-chamber-training-for-military-flight-personnel-34awb80616.pdf",
+        "rank": 6
+      },
+      {
+        "id": "https://www.bjanaesthesia.org/article/S0007-0912(17)54125-2/fulltext",
+        "title": "An overview of space medicine",
+        "url": "https://www.bjanaesthesia.org/article/S0007-0912(17)54125-2/fulltext",
+        "rank": 7
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-brooks",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Fifty years of decompression sickness research at Brooks AFB\" table 1960 2010",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "9943e45f-21d3-4a36-a326-39c9a76be5b7",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://discovery.researcher.life/article/fifty-years-of-decompression-sickness-research-at-brooks-afb-tx-1960-2010/c164d34952b638ff89340b584125d228",
+        "title": "Fifty Years of Decompression Sickness Research at Brooks AFB, TX: 1960–2010 - R Discovery",
+        "url": "https://discovery.researcher.life/article/fifty-years-of-decompression-sickness-research-at-brooks-afb-tx-1960-2010/c164d34952b638ff89340b584125d228",
+        "rank": 1,
+        "score": 0.80084777
+      },
+      {
+        "id": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf",
+        "title": "Case reports",
+        "url": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf",
+        "rank": 2,
+        "score": 0.7159208
+      },
+      {
+        "id": "https://www.bohrium.com/paper-details/fifty-years-of-decompression-sickness-research-at-brooks-afb-tx-1960-2010/811667077931728897-0",
+        "title": "Fifty Years of Decompression Sickness Research at Brooks AFB, TX",
+        "url": "https://www.bohrium.com/paper-details/fifty-years-of-decompression-sickness-research-at-brooks-afb-tx-1960-2010/811667077931728897-0",
+        "rank": 3,
+        "score": 0.70740473
+      },
+      {
+        "id": "https://www.rma.gov.au/assets/Other/183-3-Reference-list-decompression-sickness-RMA-meeting-April-2023.pdf",
+        "title": "decompression sickness - Repatriation Medical Authority",
+        "url": "https://www.rma.gov.au/assets/Other/183-3-Reference-list-decompression-sickness-RMA-meeting-April-2023.pdf",
+        "rank": 4,
+        "score": 0.70079243
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20230013523/downloads/Evidence%20Report%20Draft%20Hypoxia%20and%20DCS_20230918.pdf?attachment=true",
+        "title": "RISK OF REDUCED CREW HEALTH AND PERFORMANCE DUE ...",
+        "url": "https://ntrs.nasa.gov/api/citations/20230013523/downloads/Evidence%20Report%20Draft%20Hypoxia%20and%20DCS_20230918.pdf?attachment=true",
+        "rank": 5,
+        "score": 0.68246794
+      },
+      {
+        "id": "https://www.researchgate.net/publication/51167457_Fifty_Years_of_Decompression_Sickness_Research_at_Brooks_AFB_TX_1960-2010",
+        "title": "Fifty Years of Decompression Sickness Research at Brooks AFB, TX",
+        "url": "https://www.researchgate.net/publication/51167457_Fifty_Years_of_Decompression_Sickness_Research_at_Brooks_AFB_TX_1960-2010",
+        "rank": 6,
+        "score": 0.54083294
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/21614886",
+        "title": "Fifty years of decompression sickness research at Brooks AFB, TX",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21614886",
+        "rank": 7,
+        "score": 0.5284726
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-profile",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Altitude Decompression Sickness Risk Prediction Research\" Pilmanis Petropoulos Kannan Webb 2001 ADP results",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "0defc2a4-9a51-4197-b745-044f51dfc6f5",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "rank": 1,
+        "score": 0.66421366
+      },
+      {
+        "id": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+        "title": "ALTITUDE DECOMPRESSION SICKNESS (DCS) RISK FACTORS ...",
+        "url": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+        "rank": 2,
+        "score": 0.65742844
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/15460625",
+        "title": "Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15460625",
+        "rank": 3,
+        "score": 0.63522243
+      },
+      {
+        "id": "https://www.semanticscholar.org/paper/Altitude-Decompression-Sickness-Risk-Prediction-Pilmanis-Petropoulos/9960412e77468900693deb8d6fb74f84dd45c938",
+        "title": "Altitude Decompression Sickness Risk Prediction Research",
+        "url": "https://www.semanticscholar.org/paper/Altitude-Decompression-Sickness-Risk-Prediction-Pilmanis-Petropoulos/9960412e77468900693deb8d6fb74f84dd45c938",
+        "rank": 4,
+        "score": 0.6338636
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/tr/pdf/ADA426860.pdf",
+        "title": "The Effect of Exposure to 35,000 ft on Incidence of Altitude ... - DTIC",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA426860.pdf",
+        "rank": 5,
+        "score": 0.6311397
+      },
+      {
+        "id": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development",
+        "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development",
+        "url": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development",
+        "rank": 6,
+        "score": 0.5868188
+      },
+      {
+        "id": "https://www.semanticscholar.org/paper/Decompression-sickness-risk-model%3A-development-and-Pilmanis-Petropoulos/9bce6b2a366a576fe7ec71f0ffa3f64b1ae9a672",
+        "title": "Decompression sickness risk model: development and validation by 150 ...",
+        "url": "https://www.semanticscholar.org/paper/Decompression-sickness-risk-model%3A-development-and-Pilmanis-Petropoulos/9bce6b2a366a576fe7ec71f0ffa3f64b1ae9a672",
+        "rank": 7,
+        "score": 0.54782695
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-guide",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"AFRL-SA-BR-SR-2009-0008\" Altitude Decompression Sickness research pdf",
+      "limit": 7,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f920-a07e-74cc-aa4f-62b97499b081",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology",
+        "title": "(PDF) Handbook of Aerospace and Operational Physiology",
+        "url": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology",
+        "rank": 1
+      },
+      {
+        "id": "https://www.scribd.com/document/1045543423/Handbook-of-Aerospace-and-Operational-Physiology",
+        "title": "Handbook of Aerospace and Operational Physiology | PDF | Heart",
+        "url": "https://www.scribd.com/document/1045543423/Handbook-of-Aerospace-and-Operational-Physiology",
+        "rank": 2
+      },
+      {
+        "id": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology#rank-3",
+        "title": "Handbook of Aerospace and Operational Physiology",
+        "url": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology",
+        "rank": 3,
+        "provider_record_id": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology"
+      },
+      {
+        "id": "https://en.wikipedia.org/wiki/Decompression_sickness",
+        "title": "Decompression sickness - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Decompression_sickness",
+        "rank": 4
+      },
+      {
+        "id": "https://dan.org/",
+        "title": "Home - Divers Alert Network",
+        "url": "https://dan.org/",
+        "rank": 5
+      },
+      {
+        "id": "https://en.wikipedia.org/wiki/Effects_of_high_altitude_on_humans",
+        "title": "Effects of high altitude on humans - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Effects_of_high_altitude_on_humans",
+        "rank": 6
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-kannan",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "Kannan Raychaudhuri Pilmanis \"Loglogistic models for altitude decompression sickness\" data 1998",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "3a9c4f46-617b-4240-ac32-3b961c70f052",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/9773897",
+        "title": "A loglogistic model for altitude decompression sickness.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/9773897",
+        "rank": 1,
+        "score": 0.79438496
+      },
+      {
+        "id": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development",
+        "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development",
+        "url": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development",
+        "rank": 2,
+        "score": 0.7496374
+      },
+      {
+        "id": "https://wwwndmc.ndmutsgh.edu.tw/files/web/192/file_up/100036/5651/1996-2000%E5%B9%B4%E6%96%87%E7%8D%BB.pdf",
+        "title": "<4D6963726F736F667420576F7264202D2033313032B0AAC0A3A4CEBCE7A4F4B0F2C2A6C2E5BEC72E646F63>",
+        "url": "https://wwwndmc.ndmutsgh.edu.tw/files/web/192/file_up/100036/5651/1996-2000%E5%B9%B4%E6%96%87%E7%8D%BB.pdf",
+        "rank": 3,
+        "score": 0.7426084
+      },
+      {
+        "id": "https://www.cmaj.ca/custom-print/154125",
+        "title": "Print Article | CMAJ",
+        "url": "https://www.cmaj.ca/custom-print/154125",
+        "rank": 4,
+        "score": 0.73961055
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf",
+        "title": "A Probabilistic Model of Altitude Decompression Sickness Based on ...",
+        "url": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf",
+        "rank": 5,
+        "score": 0.73753643
+      },
+      {
+        "id": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_1401-investigation-cluster-deco-sickness-cases.pdf",
+        "title": "Case reports",
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_1401-investigation-cluster-deco-sickness-cases.pdf",
+        "rank": 6,
+        "score": 0.736211
+      },
+      {
+        "id": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf",
+        "title": "Case reports",
+        "url": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf",
+        "rank": 7,
+        "score": 0.736211
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-china",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Probability models for altitude decompression sickness\" \"12434813\"",
+      "max_results": 7,
+      "search_depth": "advanced",
+      "provider_request_id": "59a16ad6-a83e-4448-825f-ed5dcfc6bedd",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf",
+        "title": "A Probabilistic Model of Altitude Decompression Sickness Based on ...",
+        "url": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf",
+        "rank": 1,
+        "score": 0.69616497
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/9773897",
+        "title": "A loglogistic model for altitude decompression sickness.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/9773897",
+        "rank": 2,
+        "score": 0.67017674
+      },
+      {
+        "id": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/7/article-p661.pdf",
+        "title": "asem3506.indd",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/7/article-p661.pdf",
+        "rank": 3,
+        "score": 0.6338636
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140012081/downloads/20140012081.pdf",
+        "title": "Probabilistic Assessment of Hypobaric Decompression Sickness ...",
+        "url": "https://ntrs.nasa.gov/api/citations/20140012081/downloads/20140012081.pdf",
+        "rank": 4,
+        "score": 0.6110919
+      },
+      {
+        "id": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0172665",
+        "title": "The probability and severity of decompression sickness | PLOS One",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0172665",
+        "rank": 5,
+        "score": 0.563438
+      },
+      {
+        "id": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf",
+        "title": "Experimental trials to assess the risks of decompression sickness in ...",
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf",
+        "rank": 6,
+        "score": 0.55450064
+      },
+      {
+        "id": "https://en.wikipedia.org/wiki/Decompression_theory",
+        "title": "Decompression theory - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Decompression_theory",
+        "rank": 7,
+        "score": 0.52643406
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-1995",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Development of an Operational Altitude Decompression Sickness Computer Model\" \"Feasibility\" Pilmanis accession",
+      "limit": 6,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f924-c89b-717e-a195-a97d2f33776d",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://www.science.gov/topicpages/a/altitude+decompression+sickness",
+        "title": "altitude decompression sickness: Topics by ...",
+        "url": "https://www.science.gov/topicpages/a/altitude+decompression+sickness",
+        "rank": 1
+      },
+      {
+        "id": "https://www.science.gov/topicpages/d/decompression+sickness",
+        "title": "decompression sickness: Topics by ...",
+        "url": "https://www.science.gov/topicpages/d/decompression+sickness",
+        "rank": 2
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-nato",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Altitude Decompression Sickness Risk Prediction Research\" \"MP-062\" Pilmanis",
+      "max_results": 6,
+      "search_depth": "advanced",
+      "provider_request_id": "0d58a8a2-1e9d-4910-b0e2-399492bf891b",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Provider order preserved.",
+    "records": [
+      {
+        "id": "https://www.researchgate.net/publication/235078171_Altitude_Decompression_Sickness_Risk_Prediction_Research",
+        "title": "Altitude Decompression Sickness Risk Prediction Research",
+        "url": "https://www.researchgate.net/publication/235078171_Altitude_Decompression_Sickness_Risk_Prediction_Research",
+        "rank": 1,
+        "score": 0.7234072
+      },
+      {
+        "id": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+        "title": "ALTITUDE DECOMPRESSION SICKNESS (DCS) RISK FACTORS ...",
+        "url": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+        "rank": 2,
+        "score": 0.7128323
+      },
+      {
+        "id": "https://www.semanticscholar.org/paper/Altitude-Decompression-Sickness-Risk-Prediction-Pilmanis-Petropoulos/9960412e77468900693deb8d6fb74f84dd45c938",
+        "title": "Altitude Decompression Sickness Risk Prediction Research",
+        "url": "https://www.semanticscholar.org/paper/Altitude-Decompression-Sickness-Risk-Prediction-Pilmanis-Petropoulos/9960412e77468900693deb8d6fb74f84dd45c938",
+        "rank": 3,
+        "score": 0.6970936
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/15460625",
+        "title": "Decompression sickness risk model: development and validation by 150 prospective hypobaric exposures.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15460625",
+        "rank": 4,
+        "score": 0.6875251
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/14556566",
+        "title": "The risk of altitude decompression sickness at 12000 m and the effect ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14556566",
+        "rank": 5,
+        "score": 0.6599533
+      },
+      {
+        "id": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development",
+        "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development",
+        "url": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development",
+        "rank": 6,
+        "score": 0.59930927
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-webb",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf"
+      ],
+      "provider_request_id": "01a1f921-1474-74cd-b316-084e5b8dd114",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Publisher returned a consent shell. No full-text tables in the returned markup.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-webb",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf",
+        "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development"
+      ],
+      "provider_request_id": "70c0edcd-5a23-4ccb-8f78-98986a3628b1",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Search extracts identify both reports and support screening. The exact Table I values were obtained from the indexed publisher PDF.",
+    "records": [
+      {
+        "id": "webb-publisher",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf",
+        "title": "Fifty years of decompression sickness research at Brooks AFB, TX: 1960–2010"
+      },
+      {
+        "id": "adrac-mirror",
+        "url": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development",
+        "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-joint",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf"
+      ],
+      "provider_request_id": "748faadc-81a3-4cd5-9678-16ace884f99c",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Targeted request for the joint table returned a fetch error.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-joint-indexed-webb",
+    "date": "2026-11-20",
+    "provider": "Web",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Publisher-indexed full text reproduced both counts and narrative. Direct download and image rendering were unavailable.",
+    "records": [
+      {
+        "id": "table-i",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf",
+        "title": "Fifty years of decompression sickness research at Brooks AFB, TX: 1960–2010"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-adrac",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://dtic.minsky.ai/index/ADA397485/pdf"
+      ],
+      "provider_request_id": "01a1f921-c736-7508-be94-88200ba51ca2",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Accession and author abstract available. Verified Table 1 from the public archive scan.",
+    "records": [
+      {
+        "id": "ada397485",
+        "url": "https://dtic.minsky.ai/index/ADA397485/pdf",
+        "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-t-adrac",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://citeseerx.ist.psu.edu/document?doi=15fb6346e7ba81f154087239f8edbdab92a2a20c&repid=rep1&type=pdf",
+        "https://citeseerx.ist.psu.edu/document?doi=6a199c3efe245c3b7189800c597b487ff8eac058&repid=rep1&type=pdf",
+        "https://dtic.minsky.ai/index/ADA397485/pdf"
+      ],
+      "provider_request_id": "5ac2442b-b22a-4da3-85b0-4e07abc5fbb7",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "CiteSeer copies returned 404 via target extraction. Minsky returned the ADA397485 abstract. An indexed report scan and an Internet Archive copy yielded Table 1.",
+    "records": [
+      {
+        "id": "ada397485",
+        "url": "https://dtic.minsky.ai/index/ADA397485/pdf",
+        "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-original-1999",
+    "date": "2026-11-20",
+    "provider": "Public archive",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://archive.org/download/DTIC_ADA397485/DTIC_ADA397485.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The original scanned PDF verifies both percentage columns and public distribution notice.",
+    "records": [
+      {
+        "id": "ada397485-original",
+        "url": "https://archive.org/download/DTIC_ADA397485/DTIC_ADA397485.pdf",
+        "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-indexed-1995",
+    "date": "2026-11-20",
+    "provider": "Web",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://citeseerx.ist.psu.edu/document?doi=15fb6346e7ba81f154087239f8edbdab92a2a20c&repid=rep1&type=pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Section 12.A gives an archive inventory of 1,076 exposures. No clinical numerator accompanies this inventory.",
+    "records": [
+      {
+        "id": "alcf-sr-1994-0032",
+        "url": "https://citeseerx.ist.psu.edu/document?doi=15fb6346e7ba81f154087239f8edbdab92a2a20c&repid=rep1&type=pdf",
+        "title": "Development of an Operational Altitude Decompression Sickness Computer Model: Feasibility Study Results"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-kannan",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/10/article-p965.pdf"
+      ],
+      "provider_request_id": "01a1f925-78e6-7068-953e-ba644e3097c7",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Retrieved the publisher edition. Its Markdown only exposes the watermark. The direct PDF independently returned six readable pages.",
+    "records": [
+      {
+        "id": "kannan-publisher",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/10/article-p965.pdf",
+        "title": "A loglogistic model for altitude decompression sickness"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-original-kannan",
+    "date": "2026-11-20",
+    "provider": "Publisher download",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/10/article-p965.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Rendered p. 967 verified archive totals, censoring and two held-out parameter groups.",
+    "records": [
+      {
+        "id": "kannan-publisher",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/10/article-p965.pdf",
+        "title": "A loglogistic model for altitude decompression sickness"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-brooks-joint-f-zhao",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12434813/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "The target fetch failed. Independent NLM lookup below confirmed an abstract without cohort identifiers or counts.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-joint-zhao-index",
+    "date": "2026-11-20",
+    "provider": "Web",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12434813/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The 1999 abstract does not report an exposure risk set. Full text remains a lead.",
+    "records": [
+      {
+        "id": "12434813",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12434813/",
+        "title": "Probability models for altitude decompression sickness"
+      }
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+source_id,stratum,endpoint,milestone,reporting_source_id,chamber_altitude_ft,clock_time,elapsed,elapsed_unit,elapsed_reference,locator,note
+berry59_king,case-01,severe_dysbarism_source,abdominal_pain_reported,berry59_king,35000,,,,,Case 1 p. 2,"Patient-reported mild abdominal pain during ascent. The report gives no elapsed time or confirmation that this symptom was the start of DCS."
+berry59_king,case-01,severe_dysbarism_source,peak_arrival,halbouty55_collapse,43000,14:02,,,,Case report p. 1365,Reported time of arrival at peak simulated altitude.
+berry59_king,case-01,severe_dysbarism_source,first_chamber_observed_signs,halbouty55_collapse,43000,,30,seconds,peak_arrival,Case report p. 1365,"The chamber team observed forehead and shoulder gestures suggesting dizziness or pain. The follow-up also places these signs 30 seconds after reaching 43,000 ft."
+berry59_king,case-01,severe_dysbarism_source,loss_of_consciousness,halbouty55_collapse,30000,,,,,Case report p. 1365,"Loss of consciousness with involuntary urination during descent, also described by the follow-up."
+berry59_king,case-01,severe_dysbarism_source,ground_arrival,halbouty55_collapse,,14:07,,,,Case report p. 1365,"Semicomatose at ground level. The patient received immediate attention in the training unit recovery room."
+berry59_king,case-01,severe_dysbarism_source,hospital_ward_transfer,halbouty55_collapse,,15:00,,,,Case report p. 1365,"Transferred to the hospital ward after initial care in the training unit. This is a transfer time."
+berry59_king,case-01,severe_dysbarism_source,tracheotomy,berry59_king,,,31,hours,onset_of_neurocirculatory_collapse,Case 1 p. 3,The follow-up reports the interval from collapse onset. The original records 22:00 on the following day.
+berry59_king,case-01,severe_dysbarism_source,normal_neurologic_exam,berry59_king,,,5,days,tracheotomy,Case 1 p. 3,Neurologic findings were reported within normal limits.
+berry59_king,case-01,severe_dysbarism_source,discharge_to_duty,berry59_king,,,24,days,chamber_incident,Case 1 p. 3,Reported historical discharge to duty.
+berry59_king,case-01,severe_dysbarism_source,return_to_flying_status,berry59_king,,,4,days,discharge_to_duty,Case 1 p. 3,Reported historical return to flying status.
+berry59_king,case-01,severe_dysbarism_source,followup_reexamination,berry59_king,,,,,,Case 1 p. 3,The authors report a 1958 follow-up examination within normal limits neurologically. Visit date and standardized surveillance window are unavailable.

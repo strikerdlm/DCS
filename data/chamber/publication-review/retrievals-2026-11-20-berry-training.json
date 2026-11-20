@@ -1,0 +1,328 @@
+[
+  {
+    "id": "2026-11-20-berry-training-t-berry",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "Severe dysbarism in Air Force operations and training Berry 1958 937 948 PDF original report School Aviation Medicine",
+      "provider_request_id": "41083c5b-7d69-4bb8-963e-f136f1e61311",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ranked results preserved for discovery and identity review.",
+    "records": [
+      {
+        "id": "https://apps.dtic.mil/sti/tr/pdf/ADA168595.pdf",
+        "title": "[PDF] Operation Everest II. Altitude Decompression Sickness during ... - DTIC",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA168595.pdf",
+        "rank": 1,
+        "score": 0.6989463
+      },
+      {
+        "id": "https://utmb-ir.tdl.org/bitstreams/528a8896-daf5-4426-bd5d-b1058bc3a0b3/download",
+        "title": "Lt Colonel Charles A. Berry, USAF, MC",
+        "url": "https://utmb-ir.tdl.org/bitstreams/528a8896-daf5-4426-bd5d-b1058bc3a0b3/download",
+        "rank": 2,
+        "score": 0.6753365
+      },
+      {
+        "id": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf",
+        "title": "FAA-AM-77-4",
+        "url": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf",
+        "rank": 3,
+        "score": 0.6293191
+      },
+      {
+        "id": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=USAF+School+of+Aviation+Medicine",
+        "title": "USAF School of Aviation Medicine | The Online Books Page",
+        "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=USAF+School+of+Aviation+Medicine",
+        "rank": 4,
+        "score": 0.3298233
+      },
+      {
+        "id": "https://utmb-ir.tdl.org/items/64e001c1-e5f6-4ffd-b6f4-1d8ebdf2d467",
+        "title": "Decompression Sickness as a Problem in Operations and Training in the USAF",
+        "url": "https://utmb-ir.tdl.org/items/64e001c1-e5f6-4ffd-b6f4-1d8ebdf2d467",
+        "rank": 5,
+        "score": 0.30819026
+      },
+      {
+        "id": "https://www.airuniversity.af.edu/Portals/10/ASPJ/journals/1958_Vol10_No1-4/1958_Vol10_No2.pdf",
+        "title": "Air University Quarterly Review: Summer 1958, Volume X, No. 2",
+        "url": "https://www.airuniversity.af.edu/Portals/10/ASPJ/journals/1958_Vol10_No1-4/1958_Vol10_No2.pdf",
+        "rank": 6,
+        "score": 0.29380956
+      },
+      {
+        "id": "https://www.airforcemedicine.af.mil/Portals/1/Documents/AFMS-75th-Anniversary/The-Air-Force-Medical-Service-1949-2024-A-Commemorative-History-2024.pdf",
+        "title": "The-Air-Force-Medical-Service-1949-2024-A-Commemorative-History-2024.pdf",
+        "url": "https://www.airforcemedicine.af.mil/Portals/1/Documents/AFMS-75th-Anniversary/The-Air-Force-Medical-Service-1949-2024-A-Commemorative-History-2024.pdf",
+        "rank": 7,
+        "score": 0.23528403
+      },
+      {
+        "id": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/40/5/article-p572_1.pdf",
+        "title": "Aerospace Medical News - AsMA",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/40/5/article-p572_1.pdf",
+        "rank": 8,
+        "score": 0.21190567
+      },
+      {
+        "id": "https://journals.sagepub.com/doi/10.1177/000348946107000209?icid=int.sj-abstract.similar-articles.9",
+        "title": "XXXIII Man, Drugs, and Space Flight - Charles A. Berry, 1961",
+        "url": "https://journals.sagepub.com/doi/10.1177/000348946107000209?icid=int.sj-abstract.similar-articles.9",
+        "rank": 9,
+        "score": 0.21125406
+      },
+      {
+        "id": "https://news.sma.org.sg/4212/Michael_Berry.pdf",
+        "title": "INTERVIEW WITH DR MICHAEL BERRY - SMA News",
+        "url": "https://news.sma.org.sg/4212/Michael_Berry.pdf",
+        "rank": 10,
+        "score": 0.13557506
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-berry-training-f-journal",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"United States Armed Forces Medical Journal\" 1958 volume 9 July 937 dysbarism archive HathiTrust NLM DTIC Berry",
+      "provider_request_id": "01a1f94f-b6d5-754f-8100-7499c325c005",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ranked results preserved for discovery and identity review.",
+    "records": [
+      {
+        "id": "https://catalog.hathitrust.org/Record/002138717",
+        "title": "Catalog Record: United States Armed Forces medical journal",
+        "url": "https://catalog.hathitrust.org/Record/002138717",
+        "rank": 1
+      },
+      {
+        "id": "https://catalog.hathitrust.org/Record/007908483",
+        "title": "Catalog Record: The Bulletin of the U.S. Army Medical Department",
+        "url": "https://catalog.hathitrust.org/Record/007908483",
+        "rank": 2
+      },
+      {
+        "id": "https://scispace.com/journals/united-states-armed-forces-medical-journal-2oi3hepz/1958",
+        "title": "Showing papers in \"United States Armed Forces medical journal in 1958\"",
+        "url": "https://scispace.com/journals/united-states-armed-forces-medical-journal-2oi3hepz/1958",
+        "rank": 3
+      },
+      {
+        "id": "https://achh.army.mil/history/book-spanam-gillet3-bib/",
+        "title": "History | AMEDD Center of History & Heritage",
+        "url": "https://achh.army.mil/history/book-spanam-gillet3-bib/",
+        "rank": 4
+      },
+      {
+        "id": "https://archive.org/stream/in.ernet.dli.2015.71422/2015.71422.United-States-Armed-Forces-Medical-Journal10124-12_djvu.txt",
+        "title": "Full text of \"United States Armed Forces Medical Journal(10)1,2,4-12\"",
+        "url": "https://archive.org/stream/in.ernet.dli.2015.71422/2015.71422.United-States-Armed-Forces-Medical-Journal10124-12_djvu.txt",
+        "rank": 5
+      },
+      {
+        "id": "https://archive.org/stream/in.ernet.dli.2015.71416/2015.71416.United-States-Armed-Forces-Medical-Journal412_djvu.txt",
+        "title": "Full text of \"United States Armed Forces Medical Journal(4)12\"",
+        "url": "https://archive.org/stream/in.ernet.dli.2015.71416/2015.71416.United-States-Armed-Forces-Medical-Journal412_djvu.txt",
+        "rank": 6
+      },
+      {
+        "id": "https://books.google.cg/books?id=6RyGnXtvnJEC&hl=fr&source=gbs_navlinks_s",
+        "title": "United States Armed Forces Medical Journal",
+        "url": "https://books.google.cg/books?id=6RyGnXtvnJEC&hl=fr&source=gbs_navlinks_s",
+        "rank": 7
+      },
+      {
+        "id": "https://archive.org/stream/in.ernet.dli.2015.71418/2015.71418.United-States-Armed-Forces-Medical-Journal612_djvu.txt",
+        "title": "Full text of \"United States Armed Forces Medical Journal(6)12\"",
+        "url": "https://archive.org/stream/in.ernet.dli.2015.71418/2015.71418.United-States-Armed-Forces-Medical-Journal612_djvu.txt",
+        "rank": 8
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-berry-training-hathi-article",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "primary_text_retrieval",
+    "params": {
+      "url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104084048;seq=7",
+      "locators": [
+        "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104084048;seq=10",
+        "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104084048;seq=13",
+        "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104084048;seq=16"
+      ],
+      "retrieved_sequences": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "All twelve pages of Berry's July 1958 journal article were accessed in the public HathiTrust text view. The first page identifies the 1957 Stockholm presentation.",
+    "records": [
+      {
+        "id": "berry-1958",
+        "title": "Severe dysbarism in Air Force operations and training",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104084048;seq=7",
+        "pmid": "13569694",
+        "year": 1958,
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104084048;seq=16",
+        "role_review": "Program surveillance of trainees. No matched inside-staff risk set.",
+        "observations": [
+          {
+            "id": "usaf-1954-grade-iv-rate",
+            "endpoint": "grade_iv_hospitalizing_reaction_source",
+            "group": "Historical training program, 1954",
+            "cases": null,
+            "denominator": null,
+            "reported_rate": 49,
+            "reported_rate_unit": "per 100000 trainees",
+            "locator": "Text below Table 2, p. 940",
+            "study_id": "usaf-1954-1956-grade-iv-rates",
+            "year": 1954,
+            "chamber_role": "trainees",
+            "note": "Exact numerator and denominator unavailable."
+          },
+          {
+            "id": "usaf-1956-grade-iv-rate-and-count",
+            "endpoint": "grade_iv_hospitalizing_reaction_source",
+            "group": "Historical training program, 1956",
+            "cases": 48,
+            "denominator": null,
+            "reported_rate": 110,
+            "reported_rate_unit": "per 100000 trainees",
+            "locator": "Text below Table 2, p. 940 and Disposition, p. 946",
+            "study_id": "usaf-1954-1956-grade-iv-rates",
+            "year": 1956,
+            "chamber_role": "trainees",
+            "note": "Count and rounded rate both printed. No exact annual trainee denominator. Reports requiring admission under the historical grade definition."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-berry-training-utmb",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "archive_catalogue",
+    "params": {
+      "url": "https://utmb-ir.tdl.org/items/64e001c1-e5f6-4ffd-b6f4-1d8ebdf2d467",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified date, author and institutional handle for the presentation.",
+    "records": [
+      {
+        "id": "2152.3/7868",
+        "title": "Decompression Sickness as a Problem in Operations and Training in the USAF",
+        "url": "https://utmb-ir.tdl.org/items/64e001c1-e5f6-4ffd-b6f4-1d8ebdf2d467",
+        "year": 1957
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-berry-training-parse",
+    "date": "2026-11-20",
+    "provider": "LlamaParse",
+    "operation": "full_text_pdf_parsing",
+    "params": {
+      "url": "https://utmb-ir.tdl.org/bitstreams/36358400-9c6c-4bc1-b94f-7146c4bd442f/download",
+      "locator": "Printed pp. 4 and 10, Tables 2–4",
+      "pages": 21,
+      "sha256": "9e9586391b1ee84d73061958320be44e081b99d7189366c99b616ef263602e40",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Public manuscript downloaded, parsed, and numbers compared with the published edition.",
+    "records": [
+      {
+        "id": "2152.3/7868",
+        "title": "Decompression Sickness as a Problem in Operations and Training in the USAF",
+        "url": "https://utmb-ir.tdl.org/bitstreams/36358400-9c6c-4bc1-b94f-7146c4bd442f/download",
+        "year": 1957
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-berry-training-korea-followup",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "targeted_reference_and_access_check",
+    "params": {
+      "url": "https://kiss.kstudy.com/Detail/Ar?key=4019953",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The 1974 version remains a reference citation. The 1975 catalogue supplies a stable accession and lists paid or institutional access. No counts were recovered.",
+    "records": [
+      {
+        "id": "1974-eom",
+        "title": "저압실 비행 훈련 시 나타나는 변압증에 대한 통계학적 고찰",
+        "url": "https://koreascience.kr/article/JAKO201231434069438.pub?&lang=ko&orgId=ksafo",
+        "year": 1974,
+        "citation": "엄융의, 유승흠, 최홍열, 구본술. 항공의학. 1974;22:103–108.",
+        "access": "reference only",
+        "locator": "Reference 1 of KCI ART001678746"
+      },
+      {
+        "id": "4019953",
+        "title": "저압실 비행훈련시 나타나는 변압증에 관한 통계학적 고찰",
+        "url": "https://kiss.kstudy.com/Detail/Ar?key=4019953",
+        "year": 1975,
+        "uci": "I410-ECN-151-24-02-088689109",
+        "citation": "엄융의, 유승흠, 최홍열, 구본술, 표학배, 손영인. 대한군진의학학술지. 1975;6(2):15–19.",
+        "access": "catalogue only"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-berry-training-gao",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "official_case_context",
+    "params": {
+      "url": "https://www.gao.gov/products/b-133537",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Official administrative record for one 1956 chamber decompression injury. Diagnostic details and membership in Berry's surveillance count are unverified.",
+    "records": [
+      {
+        "id": "b-133537",
+        "title": "GAO B-133537, October 21, 1957",
+        "url": "https://www.gao.gov/products/b-133537",
+        "year": 1957,
+        "evidence_source": "https://www.gao.gov/products/b-133537",
+        "clinical_outcome": "decompression injury in an official training chamber exposure, source diagnosis otherwise unavailable",
+        "event_date": "1956-11-23",
+        "overlap": "possible membership in the 1956 Berry surveillance reports"
+      }
+    ]
+  }
+]

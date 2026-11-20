@@ -1,0 +1,16 @@
+search_id,searched_on,tool,database,query,status,matched_count,screened_count,selected_count,note
+repeated_eva_v42_kz_en,2026-11-20,Tavily search,Public web,"""Checking effectiveness of prevention of high-altitude decompression disorders"" Kazakova Poleshchuk 1978 oxygen NASA translation",completed,,7,0,Ranked results screened.
+repeated_eva_v42_kz_ru,2026-11-20,Firecrawl search,Public web,"""Казакова"" ""Полещук"" ""высотных декомпрессионных расстройств"" кислород 1978",completed,,1,0,Ranked results screened.
+repeated_eva_v42_udc,2026-11-20,Tavily search,Public web,"""617-001.12-08-039.71"" Казакова Полещук декомпрессия",completed,,7,0,Ranked results screened.
+repeated_eva_v42_g74,2026-11-20,Firecrawl search,Public web,"""Gramenitskiy"" ""Decompression Disorders"" NASA TT F-15970 N75-13518 full text NASA pdf",completed,,0,0,No result returned.
+repeated_eva_v42_kz_co,2026-11-20,Firecrawl search,Public web,"""The Effect of Hypercapnia on the Decompression Sickness Risk During Simulated Extravehicular Activity"" 941332 full text",completed,,1,0,Ranked results screened.
+repeated_eva_v42_russia,2026-11-20,Tavily search,Public web,"""высотная декомпрессионная болезнь"" ""экспериментов"" барокамера космонавтов Козакова Полещук 1978 по данным",completed,,7,0,Ranked results screened.
+repeated_eva_v42_jprs78,2026-11-20,Firecrawl search,Public web,"""Space Biology and Aerospace Medicine"" ""No. 2"" 1978 Kazakova JPRS oxygen decompression",completed,,7,0,Ranked results screened.
+repeated_eva_v42_jprs_exact_f,2026-11-20,Firecrawl search,Public web,"""JPRS-71096"" ""checking effectiveness"" Kazakova NTIS CIA archive pdf ""1978""",completed,,0,0,No matching result returned.
+repeated_eva_v42_jprs_exact_t,2026-11-20,Tavily search,Public web,"""JPRS-71096"" N78 astronaut aeromedical USSR journal 1978 download report 34-38 Kazakova",completed,,8,0,Ranked results screened.
+repeated_eva_v42_ryabtsev_text_f,2026-11-20,Firecrawl search,Public web,"""Рябцев, Кирилл Леонидович"" ""Психофизиологическое состояние"" РГБ 1996 автореферат pdf НЭБ",completed,,0,0,No matching result returned.
+repeated_eva_v42_ryabtsev_text_t,2026-11-20,Tavily search,Public web,"""Рябцев Кирилл Леонидович"" ""Психофизиологическое состояние человека"" 1996 РГБ pdf автореферат",completed,,8,0,Ranked results screened.
+repeated_eva_v42_synopsis,2026-11-20,Firecrawl scrape and Tavily extract,Medical-diss,https://medical-diss.com/medicina/psihofiziologicheskoe-sostoyanie-cheloveka-pri-modelirovanii-nekotoryh-faktorov-sistematicheskoy-vnekorabelnoy-deyatelnos,completed,,2,1,Both plugins supplied relevant original text. Direct HTML snapshot fingerprinted.
+repeated_eva_v42_scans,2026-11-20,Firecrawl scrape and direct retrieval,Medical-diss,https://medical-diss.com/docreader/564651/a,failed,,1,0,Tavily and Firecrawl located the OCR synopsis. The scan endpoint could not be retrieved.
+repeated_eva_v42_kazakova_abstract,2026-11-20,Tavily extract and web verification,NASA NTRS and PubMed,642418 | JPRS-71096 | N78-23713,completed,,2,0,Exact full-text locator established.
+repeated_eva_v42_overlap,2026-11-20,Web search and archive verification,NASA NTRS and PubMed,Chadov staged 1997 or 2001 and 1996 chamber PCC-270 540 exits,completed,,3,0,"Overlap compared by facility, pressure, exposure count and study design."
