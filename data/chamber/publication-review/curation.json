@@ -9941,6 +9941,36 @@
       "report_id": "doi:10.1001/jama.1973.03220150019005",
       "basis": "Publisher URL, DOI and PMID 4347745 identify the 1973 JAMA article.",
       "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/347678"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "report_id": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "basis": "Same title, 1996 institution and source URL. The v1.21 source anchor and current HTML checksum match.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.21/sources.csv#katuntsev96_human",
+      "report_id": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "basis": "Same title, 1996 institution and source URL. The v1.21 source anchor and current HTML checksum match.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-20-katuntsev-program-source-verification#existing-1996-author-summary",
+      "report_id": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "basis": "Same title, 1996 institution and source URL. The v1.21 source anchor and current HTML checksum match.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-20-katuntsev-pulmonary-source-link#katuntsev-shcherbakova-1994-29-case-citation",
+      "report_id": "cited:katuntsev-shcherbakova-1994-pulmonary-dcs",
+      "basis": "The author cites this as publication 23 from the dissertation work. Journal issue and pages are printed in the bibliography.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-20-katuntsev-grigorev-reference-verification#grigorev-2015-reference-9",
+      "report_id": "doi:10.1134/s1019331615020094",
+      "basis": "Publisher DOI and title match the existing OpenAlex record.",
+      "evidence_url": "https://link.springer.com/article/10.1134/S1019331615020094"
     }
   ],
   "studies": [
@@ -10639,6 +10669,12 @@
       "label": "Earlier USAF persistent altitude DCS treatment summary",
       "period": "Approximate decade discussed in 1976",
       "setting": "Multiple USAF hyperbaric treatment chambers"
+    },
+    {
+      "study_id": "katuntsev-imbp-altitude-experimental-program",
+      "label": "Katuntsev IMBP experimental hypobaric program",
+      "period": "Experimental program summarized in 1996. Accrual dates unreported.",
+      "setting": "Human volunteer research in the GBK-63 hypobaric chamber"
     }
   ],
   "study_reports": [
@@ -11703,6 +11739,24 @@
       "report_id": "report:ada036031",
       "role": "primary_treatment_network_summary",
       "locator": "Printed p. 4"
+    },
+    {
+      "study_id": "katuntsev-imbp-altitude-experimental-program",
+      "report_id": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "role": "primary_experimental_program_summary",
+      "locator": "Methods and Table 1, Results sections 1, 3 and 5–7, and Table 2"
+    },
+    {
+      "study_id": "katuntsev-imbp-altitude-experimental-program",
+      "report_id": "doi:10.4271/941332",
+      "role": "nested_hypercapnia_comparison",
+      "locator": "SAE publisher abstract. Results section 5 and bibliography of Katuntsev dissertation."
+    },
+    {
+      "study_id": "katuntsev-imbp-altitude-experimental-program",
+      "report_id": "cited:katuntsev-shcherbakova-1994-pulmonary-dcs",
+      "role": "nested_respiratory_case_publication_cited_only",
+      "locator": "Results section 3, respiratory subsection and reference 23"
     }
   ],
   "relations": [
@@ -13868,6 +13922,27 @@
       "relationship": "cites_earlier_treatment_summary_overlap_unresolved",
       "evidence": "Heimbach reference 6 cites Davis et al. 1973. The JAMA abstract reports a mixed-diagnosis referral total and does not identify the altitude case roster.",
       "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf#page=27"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "doi:10.4271/941332",
+      "relationship": "includes_published_component_experiments",
+      "evidence": "The dissertation lists this SAE paper and repeats its 72/106 and 33/101 arms in Results section 5.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "cited:katuntsev-shcherbakova-1994-pulmonary-dcs",
+      "relationship": "likely_same_selected_respiratory_case_analysis",
+      "evidence": "Results section 3 describes 29 selected pulmonary observations. Reference 23 describes the same count, endpoint and chamber setting in the author’s listed publication. No extra event count is taken from the citation.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "doi:10.1134/s1019331615020094",
+      "right_report": "cited:katuntsev-shcherbakova-1994-pulmonary-dcs",
+      "relationship": "cites_selected_case_series_with_conflicting_issue",
+      "evidence": "Katuntsev’s own publication list gives volume 28 issue 5, pages 28–33. Both editions of the 2015 Grigor’ev article cite volume 28 issue 3. Matching authors, title and 29 cases support one provisional citation. The original 1994 issue was unavailable.",
+      "evidence_url": "https://link.springer.com/article/10.1134/S1019331615020094"
     }
   ],
   "report_titles": {
@@ -13934,6 +14009,7 @@
     "record:2026-11-20-eds-training#kjur5ccdyv": "Test of pressure: Medical decision making in a case of altitude chamber DCS",
     "abstract:asma-2026-baker-188": "Decompression sickness in a Marine F-35C pilot: A case report",
     "report:ad0658348": "Decompression Sickness in High-Altitude Flight",
-    "report:ada036031": "Hyperbaric Medicine in the U.S. Air Force"
+    "report:ada036031": "Hyperbaric Medicine in the U.S. Air Force",
+    "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1": "High-altitude decompression sickness: Experimental study of pathogenesis and methods of prevention"
   }
 }

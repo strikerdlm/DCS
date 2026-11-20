@@ -1,0 +1,290 @@
+[
+  {
+    "id": "2026-11-20-katuntsev-program-source-verification",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and archived primary-source verification",
+    "operation": "supplementary_outcome_reconciliation",
+    "params": {
+      "url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki",
+      "checked_sections": [
+        "Methods and Table 1",
+        "Results section 1",
+        "Results section 3",
+        "Bibliography, reference 23"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The original v1.21 archive and current direct download have identical SHA-256. The earlier source note overlooked the explicit Results section 1 count. Tavily and Firecrawl also returned the same result.",
+    "records": [
+      {
+        "id": "existing-1996-author-summary",
+        "title": "High-altitude decompression sickness: Experimental study of pathogenesis and methods of prevention",
+        "year": 1996,
+        "url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki",
+        "primary_source": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki",
+        "sha256": "1c500ace0b7d95cb519e2404b0a4f81e550313e0ba9557f6cdc5bfb136e9bd7a",
+        "locator": "Methods and Table 1, Results sections 1, 3 and 5–7, and Table 2",
+        "canonical_existing_occurrence": "legacy:data/chamber/v1.21/sources.csv#katuntsev96_human",
+        "access": "public author-summary HTML transcription",
+        "source_note_revision": {
+          "previous": "Author summary reports 205 male volunteers, 1,778 simulated person-ascents and 13 simulated dives across the program. The full dissertation and page-image reader were unavailable. Counts copied from the original wording in the public author-summary transcription. No program-wide case count was given.",
+          "current": "The author summary reports 931 ascents with DCS symptoms in 1,778 chamber person-ascents by the human research program. The 205 male volunteers and 13 simulated dives are distinct counting units. Results section 1 and section 3 margins were verified in the same archived author-summary transcription as v1.21. The full dissertation and page-image reader remain unavailable. The program total and nested comparisons overlap.",
+          "evidence": "Results section 1 explicitly gives 931 symptomatic ascents."
+        },
+        "methods": {
+          "volunteers": 205,
+          "reported_gender": "male",
+          "age_range_years": [
+            19,
+            50
+          ],
+          "human_experiments": 1791,
+          "chamber_ascents": 1778,
+          "simulated_dives": 13,
+          "animal_experiments": 41,
+          "chamber_altitude_m": [
+            5000,
+            11000
+          ],
+          "chamber_pressure_kpa": [
+            54,
+            22.6
+          ]
+        },
+        "unenumerated_altitude_specific_rates": [
+          {
+            "altitude_m": 5000,
+            "reported_percent": 7
+          },
+          {
+            "altitude_m": 6000,
+            "reported_percent": 9
+          },
+          {
+            "altitude_m": 7000,
+            "reported_percent": 49
+          },
+          {
+            "altitude_m": 8100,
+            "reported_percent": 56
+          },
+          {
+            "altitude_m": 9000,
+            "reported_percent": 67
+          },
+          {
+            "altitude_m": 11000,
+            "reported_percent": 100
+          }
+        ],
+        "reported_limb_pain_vge_precedence": {
+          "reported_percent": 95,
+          "implied_percent": 94.25,
+          "locator": "Results section 3, first subsection"
+        },
+        "delayed_symptom_narrative": {
+          "affected_people": 1,
+          "pressure_kpa": 38,
+          "reported_altitude_m": 7600,
+          "elapsed_min": 60,
+          "reference": "early test conclusion",
+          "diagnostic_scope": "neurological manifestations as reported",
+          "note": "Individual case attribution within the parent count is unresolved."
+        },
+        "observations": [
+          {
+            "id": "katuntsev96-program-all-chamber-ascents-dcs_symptoms_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "program-all-chamber-ascents",
+            "endpoint": "dcs_symptoms_source",
+            "cases": 931,
+            "denominator": 1778,
+            "denominator_unit": "person_exposure",
+            "locator": "Results section 1, first paragraph. Methods and Table 1.",
+            "note": "Source-defined symptoms per simulated ascent. The 13 simulated dives and 41 animal experiments are outside this denominator. Repeated volunteers and earlier component studies remain nested.",
+            "analysis_role": "overlap_hold"
+          },
+          {
+            "id": "katuntsev96-program-primary-altitude-dcs_main_altitude_phase_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "program-primary-altitude",
+            "endpoint": "dcs_main_altitude_phase_source",
+            "cases": 784,
+            "denominator": 931,
+            "denominator_unit": "dcs_case",
+            "locator": "Results section 1, first paragraph",
+            "note": "DCS symptoms reported during the main-altitude phase. This is a margin among affected ascents. The source provides no corresponding phase-specific at-risk count.",
+            "analysis_role": "overlapping_margin",
+            "parent_risk_set": "katuntsev96-program-all-chamber-ascents-dcs_symptoms_source"
+          },
+          {
+            "id": "katuntsev96-program-added-decompression-dcs_additional_decompression_phase_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "program-added-decompression",
+            "endpoint": "dcs_additional_decompression_phase_source",
+            "cases": 147,
+            "denominator": 931,
+            "denominator_unit": "dcs_case",
+            "locator": "Results section 1, first paragraph",
+            "note": "DCS symptoms reported during additional decompression late in the protocol. Together with the main-altitude phase this reconciles all 931 affected ascents.",
+            "analysis_role": "overlapping_margin",
+            "parent_risk_set": "katuntsev96-program-all-chamber-ascents-dcs_symptoms_source"
+          },
+          {
+            "id": "katuntsev96-program-intense-symptoms-dcs_early_termination_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "program-intense-symptoms",
+            "endpoint": "dcs_early_termination_source",
+            "cases": 562,
+            "denominator": 931,
+            "denominator_unit": "dcs_case",
+            "locator": "Results section 1, second paragraph",
+            "note": "Ascents terminated early because of intense symptoms. This is a severity and termination margin nested within the affected ascents.",
+            "analysis_role": "overlapping_margin",
+            "parent_risk_set": "katuntsev96-program-all-chamber-ascents-dcs_symptoms_source"
+          },
+          {
+            "id": "katuntsev96-selected-8100-9000m-experiments-dcs_lower_limb_pain_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "selected-8100-9000m-experiments",
+            "endpoint": "dcs_lower_limb_pain_source",
+            "cases": 174,
+            "denominator": 228,
+            "denominator_unit": "person_exposure",
+            "locator": "Results section 3, first subsection on pain and venous bubbles",
+            "note": "Symptoms were lower-limb pain in this selected series. Exact linkage to specific component protocols is unavailable.",
+            "analysis_role": "overlap_hold",
+            "parent_risk_set": "katuntsev96-program-all-chamber-ascents-dcs_symptoms_source"
+          },
+          {
+            "id": "katuntsev96-selected-8100-9000m-experiments-vge_detected_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "selected-8100-9000m-experiments",
+            "endpoint": "vge_detected_source",
+            "cases": 212,
+            "denominator": 228,
+            "denominator_unit": "person_exposure",
+            "locator": "Results section 3, first subsection",
+            "note": "Venous bubble detection in the same 228 experiments. The source does not publish a complete joint DCS/VGE table.",
+            "analysis_role": "overlapping_margin",
+            "parent_risk_set": "katuntsev96-selected-8100-9000m-experiments-dcs_lower_limb_pain_source"
+          },
+          {
+            "id": "katuntsev96-selected-lower-limb-pain-cases-vge_before_lower_limb_pain_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "selected-lower-limb-pain-cases",
+            "endpoint": "vge_before_lower_limb_pain_source",
+            "cases": 164,
+            "denominator": 174,
+            "denominator_unit": "dcs_case",
+            "locator": "Results section 3, first subsection",
+            "note": "Pulmonary artery and femoral vein detection reported before pain. Printed text gives 95 percent, whereas 164/174 is 94.25 percent. Preserve the exact counts and retain the printed percentage in review metadata.",
+            "analysis_role": "case_conditional",
+            "parent_risk_set": "katuntsev96-selected-8100-9000m-experiments-dcs_lower_limb_pain_source"
+          },
+          {
+            "id": "katuntsev96-selected-respiratory-cases-pulmonary_vge_before_respiratory_symptoms_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "selected-respiratory-cases",
+            "endpoint": "pulmonary_vge_before_respiratory_symptoms_source",
+            "cases": 29,
+            "denominator": 29,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Results section 3, respiratory subsection",
+            "note": "Pulmonary artery VGE preceded symptoms in the selected cases. The cited 1994 report likely overlaps this 29-case analysis. No independent count is extracted from the citation.",
+            "analysis_role": "case_conditional",
+            "parent_risk_set": "katuntsev96-program-all-chamber-ascents-dcs_symptoms_source"
+          },
+          {
+            "id": "katuntsev96-selected-respiratory-cases-grade_3_or_4_vge_before_respiratory_symptoms_source",
+            "study_id": "katuntsev-imbp-altitude-experimental-program",
+            "group": "selected-respiratory-cases",
+            "endpoint": "grade_3_or_4_vge_before_respiratory_symptoms_source",
+            "cases": 25,
+            "denominator": 29,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Results section 3, respiratory subsection",
+            "note": "Grades 3–4 on the source scale. The mapping to the published Grade IV model endpoint is unverified.",
+            "analysis_role": "case_conditional",
+            "parent_risk_set": "katuntsev96-program-all-chamber-ascents-dcs_symptoms_source"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-katuntsev-program-page-image-access",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_original_scan_access",
+    "params": {
+      "url": "https://medical-diss.com/docreader/449434/a",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "unavailable",
+    "note": "The page-image reader returned HTTP 404. The program totals were verified against the publicly available transcription and the prior archived bytes.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-katuntsev-pulmonary-source-link",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and primary bibliography",
+    "operation": "supplementary_citation_overlap_follow_up",
+    "params": {
+      "query": "Katuntsev Shcherbakova 1994 pulmonary DCS 29 chamber cases",
+      "citing_source": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The dissertation lists its pulmonary case publication. Matching authors, endpoint and selected case count support a shared analysis. The standalone journal text and a screening denominator remain unavailable.",
+    "records": [
+      {
+        "id": "katuntsev-shcherbakova-1994-29-case-citation",
+        "title": "Pulmonary form of decompression sickness: Analysis of 29 cases in humans during chamber ascents",
+        "year": 1994,
+        "author": "V. P. Katuntsev and M. A. Shcherbakova",
+        "journal": "Aviakosmicheskaya i Ekologicheskaya Meditsina",
+        "volume": "28",
+        "issue": "5",
+        "pages": "28–33",
+        "access": "cited only",
+        "citation_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki",
+        "locator": "Bibliography, reference 23",
+        "issue_as_reported_by_dissertation": "5",
+        "issue_as_reported_by_grigorev_2015": "3",
+        "locator_conflict": "Katuntsev’s own publication list gives volume 28 issue 5, pages 28–33. Both editions of the 2015 Grigor’ev article cite volume 28 issue 3. Matching authors, title and 29 cases support one provisional citation. The original 1994 issue was unavailable.",
+        "alternate_citation": "https://link.springer.com/article/10.1134/S1019331615020094"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-katuntsev-grigorev-reference-verification",
+    "date": "2026-11-20",
+    "provider": "Tavily and publisher reference verification",
+    "operation": "supplementary_citation_locator_reconciliation",
+    "params": {
+      "url": "https://link.springer.com/article/10.1134/S1019331615020094",
+      "russian_edition_reference_page": "https://epizodsspace.airbase.ru/bibl/vestnik-an/2015/4/291-298.pdf#page=8",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Katuntsev’s own publication list gives volume 28 issue 5, pages 28–33. Both editions of the 2015 Grigor’ev article cite volume 28 issue 3. Matching authors, title and 29 cases support one provisional citation. The original 1994 issue was unavailable.",
+    "records": [
+      {
+        "id": "grigorev-2015-reference-9",
+        "title": "Medical support of cosmonauts’ extravehicular activity",
+        "year": 2015,
+        "doi": "10.1134/s1019331615020094",
+        "url": "https://link.springer.com/article/10.1134/S1019331615020094",
+        "locator": "Reference 9",
+        "access": "publisher abstract and references",
+        "note": "The bibliography provides the alternate issue. No outcomes extracted from this occurrence."
+      }
+    ]
+  }
+]
