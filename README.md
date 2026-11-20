@@ -21,7 +21,7 @@ The workflow records database queries, retrieval dates and source locations for 
 
 ## Evidence database
 
-Build the two study databases with `python -m scripts.chamber_products --output-dir artifacts/chamber-products/v1.40-linked`. Use `systematic-review.sqlite` for screening and meta-analysis and `dcs-model.sqlite` for the chamber benchmark and historical case catalog. Both files share source identifiers and a verified release. [Build, query and link the two databases](docs/chamber-linked-databases.md) · [Agent intake rules](AGENTS.md)
+Build the two study databases with `python -m scripts.chamber_products --output-dir artifacts/chamber-products/v1.40-reconciled`. Use `systematic-review.sqlite` for screening and meta-analysis and `dcs-model.sqlite` for the chamber benchmark and historical case catalog. Both files share source identifiers and a verified release. [Build, query and link the two databases](docs/chamber-linked-databases.md) · [Agent intake rules](AGENTS.md)
 
 The SQLite build includes the publication register and the observed-outcome benchmark. The register connects search records to reports and study cohorts, and tracks editorial checks, unresolved identity matches and reviewer decisions. The benchmark preserves each observation's population, counting unit and source locator. A person-exposure, a diagnosed case and a limb Doppler reading are distinct units. [Publication database schema](data/chamber/publication-review/schema.sql) · [Observed-outcome database dictionary](docs/chamber-benchmark.md)
 

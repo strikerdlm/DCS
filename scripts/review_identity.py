@@ -271,6 +271,7 @@ def resolve(records, aliases):
     identifiers = {key: _identifier_values(row) for key, row in rows.items()}
     metadata = {key: _metadata(row) for key, row in rows.items()}
     buckets = defaultdict(set)
+    repeated_hits = defaultdict(list)
     for key, ids in identifiers.items():
         for token in ids.items():
             buckets[token].add(key)
@@ -283,7 +284,15 @@ def resolve(records, aliases):
         if (parts.scheme in {"https", "http"} and parts.hostname and parts.path.strip("/")
                 and len(title.split()) >= 4 and not parts.query and not parts.fragment
                 and not re.search(r"/(?:search|topicpages|results|browse)(?:/|$)", parts.path, re.I)):
-            buckets["titled_url", (parts.netloc.lower(), parts.path.rstrip("/"), title)].add(key)
+            document = (parts.netloc.lower(), parts.path.rstrip("/"), title)
+            buckets["titled_url", document].add(key)
+            # Identical unassigned hits from independent searches are the same
+            # resource even if a third record with contradictory metadata also
+            # points there. The third record goes through the usual checks.
+            if not ids and key not in aliases and len(groups[owner[key]]) == 1:
+                repeated_hits[document, metadata[key]].append(key)
+    for keys in repeated_hits.values():
+        merge(keys)
     # Prefer PMID and OpenAlex to DOI, which a source may repeat on a translation,
     # journal digest, reply, or correction. Check entire groups before merging.
     for kind in ("pmid", "openalex", "doi", "titled_url"):

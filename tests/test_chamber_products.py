@@ -40,6 +40,11 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT dcs_time_min,preferred_dcs_time_min FROM dcs_case WHERE published_case_number=30
         """).fetchone() == (86, 68)
         assert db.execute("SELECT count(*) FROM dcs_case").fetchone() == (103,)
+        assert db.execute("SELECT count(*) FROM literature_symptomatic_noncase").fetchone() == (32,)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id)
+            FROM review.review_record WHERE lower(title) LIKE 'investigation of a cluster of decompression%'
+        """).fetchone() == (120, 1, "doi:10.28920/dhm51.1.82-85")
         assert db.execute("""
             SELECT cases,exposures FROM chamber_group_evidence
             WHERE study_id='usaf-howard-1979-1981' ORDER BY stratum
