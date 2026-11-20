@@ -451,6 +451,61 @@ def test_lunar_case_timelines_link_to_existing_nasa_trial_outcomes(release):
         """).fetchone() == (0,)
 
 
+def test_nasa_prp_counts_preserve_three_overlapping_analysis_populations(release):
+    with connect_pair(release) as db:
+        db.row_factory = sqlite3.Row
+        counts = db.execute("""
+            SELECT * FROM publication_prp_analysis_counts WHERE source_id='nasa04_exercise' ORDER BY phase
+        """).fetchall()
+        assert [tuple(row)[1:9] for row in counts] == [
+            ("I", 49, 47, 9, 47, 9, 49, 7),
+            ("II", 50, 45, 0, 45, 0, 47, 0),
+            ("III", 10, 9, 2, 4, 2, 9, 2),
+            ("IV", 65, 56, 8, 3, 0, 62, 8),
+            ("V-1", 10, 9, 3, 9, 3, 9, 3),
+            ("V-2", 4, 3, 1, 3, 1, 3, 1),
+            ("V-3", 50, 48, 7, 48, 7, 50, 7),
+        ]
+        report_id, review_counts, nedu_exposures, nedu_weighted_dcs = db.execute("""
+            SELECT r.report_id,json_extract(r.metadata_json,'$.table_6_analysis_populations'),
+                   json_extract(r.metadata_json,'$.phase_iv_crosswalk.nedu_exposures'),
+                   json_extract(r.metadata_json,'$.phase_iv_crosswalk.nedu_weighted_dcs')
+            FROM review.review_record r JOIN model_report_link m USING (report_id)
+            WHERE r.source_key='ntrs-20040191712-table-6' AND m.source_table='sharepoint_source'
+              AND m.source_id='nasa04_exercise'
+        """).fetchone()
+        assert [dict(row) for row in counts] == json.loads(review_counts)
+        assert (nedu_exposures, nedu_weighted_dcs) == (69, 8.3)
+        assert tuple(db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE url LIKE '%20040191712%' OR openalex_id='W118136854'
+        """).fetchone()) == (5, 1)
+        assert db.execute("SELECT count(*) FROM chamber_group_evidence WHERE report_id=?", (report_id,)).fetchone()[0] == 0
+
+
+def test_duke_trials_preserve_distinct_enrollment_without_inferred_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT s.study_id,r.report_id,json_extract(r.metadata_json,'$.registered_enrollment.count'),
+                   json_extract(r.metadata_json,'$.registered_enrollment.type'),
+                   json_extract(r.metadata_json,'$.duke_protocol'),
+                   json_extract(r.metadata_json,'$.has_results'),
+                   json_extract(r.metadata_json,'$.evaluable_person_exposures'),
+                   json_extract(r.metadata_json,'$.observed_cases')
+            FROM review.review_study_report s JOIN review.review_record r USING (report_id)
+            WHERE r.source_key IN ('NCT06740305','NCT07702539') ORDER BY s.study_id
+        """).fetchall() == [
+            ("duke-nct06740305", "nct:NCT06740305", 19, "ACTUAL", "Pro00116846", 0, None, None),
+            ("duke-nct07702539", "nct:NCT07702539", 30, "ESTIMATED", "Pro00120426", 0, None, None),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record WHERE url='https://ctv.veeva.com/study/nasa-prebreathe-study'
+        """).fetchone() == ("nct:NCT06740305",)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id IN ('nct:NCT06740305','nct:NCT07702539')
+        """).fetchone() == (0,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):

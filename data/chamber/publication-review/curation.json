@@ -10007,6 +10007,72 @@
       "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
       "basis": "The abstract and NTRS record have the same accession 20240013238 and title as the existing source.",
       "evidence_url": "https://ntrs.nasa.gov/citations/20240013238"
+    },
+    {
+      "record_key": "2026-11-20-nasa-prp-primary#ntrs-20040191712-table-6",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "The NTRS accession and NASA technical publication number match the existing SharePoint report.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.26/search_hits.csv#timing_v26_fq_dist:4",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "The report title, publication date or NTRS document link match NASA/TP-2004-213158.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "2026-11-20-survey-operators-f-schirmer#https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "The report title, publication date or NTRS document link match NASA/TP-2004-213158.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W118136854",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "The report title, publication date or NTRS document link match NASA/TP-2004-213158.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "2026-11-20-nasa-prp-primary#tmc-aai9981807",
+      "report_id": "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4",
+      "basis": "The institutional abstract and existing discovery hit share the author and ProQuest accession AAI9981807.",
+      "evidence_url": "https://digitalcommons.library.tmc.edu/dissertations/AAI9981807"
+    },
+    {
+      "record_key": "2026-11-20-nasa-prp-primary#ntrs-20000110070",
+      "report_id": "ntrs:20000110070",
+      "basis": "Canonical original NTRS abstract with document ID 20000110070.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20000110070"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/search_hits.csv#clinical_series_dk23_garbino:6",
+      "report_id": "nct:NCT06740305",
+      "basis": "Veeva gives NCT06740305, Duke protocol Pro00116846 and NASA award 80NSSC24PB887.",
+      "evidence_url": "https://ctv.veeva.com/study/nasa-prebreathe-study"
+    },
+    {
+      "record_key": "2026-11-20-duke-nasa-registry-primary#NCT06740305",
+      "report_id": "nct:NCT06740305",
+      "basis": "Official ClinicalTrials.gov study registration.",
+      "evidence_url": "https://clinicaltrials.gov/study/NCT06740305"
+    },
+    {
+      "record_key": "2026-11-20-duke-nasa-registry-primary#NCT07702539",
+      "report_id": "nct:NCT07702539",
+      "basis": "Official ClinicalTrials.gov study registration.",
+      "evidence_url": "https://clinicaltrials.gov/study/NCT07702539"
+    },
+    {
+      "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "The source register gives the exact NASA technical publication and NTRS accession.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4",
+      "report_id": "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4",
+      "basis": "The archived hit points directly to the same institutional dissertation accession.",
+      "evidence_url": "https://digitalcommons.library.tmc.edu/dissertations/AAI9981807"
     }
   ],
   "studies": [
@@ -10717,6 +10783,24 @@
       "label": "NASA Exploration Atmosphere Tests 3 and 4",
       "period": "Trial dates unreported in the paired publications",
       "setting": "NASA Johnson Space Center experimental simulated lunar EVA with alternate habitat atmosphere"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "label": "NASA Prebreathe Reduction Protocol",
+      "period": "Historical program reported in 2000 and 2004",
+      "setting": "Multicenter simulated EVA hypobaric chamber experiments"
+    },
+    {
+      "study_id": "duke-nct06740305",
+      "label": "Duke Pro00116846 NASA Prebreathe Study",
+      "period": "2025-05-05 to 2025-08-21 (actual completion)",
+      "setting": "Duke University hypobaric chamber research"
+    },
+    {
+      "study_id": "duke-nct07702539",
+      "label": "Duke Pro00120426 Exercise Prebreathe Study in Healthy Adult Volunteers to Evaluate Risk of Decompression Sickness During Simulated Spacewalk Conditions",
+      "period": "2026-08-13 to 2027-02-27 (estimated completion)",
+      "setting": "Duke University hypobaric chamber research"
     }
   ],
   "study_reports": [
@@ -11811,6 +11895,48 @@
       "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6",
       "role": "likely_existing_arm_case_narratives",
       "locator": "Printed pp. 4–7, Cases 1–2 and Figures 1–2"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "role": "observed_analysis_population_counts",
+      "locator": "Table 5 printed p. 24 and Table 6 printed p. 25 (PDF page 33)"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "report_id": "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4",
+      "role": "author_abstract_overlapping_program",
+      "locator": "Texas Medical Center Dissertation Repository, author abstract"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "report_id": "ntrs:20000110070",
+      "role": "original_protocol_trial_abstract",
+      "locator": "NTRS original abstract"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "role": "later_compilation_with_named_protocols",
+      "locator": "Table F1 Phase P I–P IV"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#gerth18",
+      "role": "later_compilation_with_named_protocols",
+      "locator": "Appendix E, PRP phases"
+    },
+    {
+      "study_id": "duke-nct06740305",
+      "report_id": "nct:NCT06740305",
+      "role": "registration_without_posted_results",
+      "locator": "Identification, Status, Study Design and Outcome Measures sections"
+    },
+    {
+      "study_id": "duke-nct07702539",
+      "report_id": "nct:NCT07702539",
+      "role": "registration_without_posted_results",
+      "locator": "Identification, Status, Study Design and Outcome Measures sections"
     }
   ],
   "relations": [
@@ -14004,6 +14130,34 @@
       "relationship": "likely_existing_campaign_episodes",
       "evidence": "Lam describes a 90-minute case at nominal 4.3 psia and a 20-minute case at nominal 5.2 psia. Both follow 9.6 psia habituation at 28.5% oxygen and use 95% oxygen for prebreathe. Garbino EA Tests 3–4 reports one affected subject in each corresponding arm. The 90-minute target matches the campaign 29.6 kPa. For the 20-minute arm the campaign Methods give 35.6 kPa and Results give 36.5 kPa. Individual IDs and test dates are unavailable. Preserve likely matches without adding independent case counts. Earlier EA1–2 and EA6 use different prebreathe protocols.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/20260004151/downloads/v2_Neurologic%20Decompression%20Illness.pdf"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "relationship": "shared_prp_program_phase_mapping_unresolved",
+      "evidence": "The dissertation analyzes three phases of the same multicenter NASA program. The abstract cannot assign the selected subjects to the seven Table 6 phase rows.",
+      "evidence_url": "https://digitalcommons.library.tmc.edu/dissertations/AAI9981807"
+    },
+    {
+      "left_report": "ntrs:20000110070",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "relationship": "shared_prp_program_with_phase_ii",
+      "evidence": "The trial abstract names the same NASA program and describes Phase II acceptance. Exact case and exposure overlap cannot be reconstructed from the abstract.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20000110070"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "right_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "relationship": "shared_prp_phases",
+      "evidence": "NASA Table F1 lists P I–P IV. Phase IV reports 8/65, consistent with the Table 6 total of 65 and an 8-case count in two Table 6 analysis populations.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#gerth18",
+      "relationship": "shared_named_prp_phase_denominator_discrepancy",
+      "evidence": "NASA Table 6 reports 65 Phase IV exposures. NEDU Appendix E PRP IV reports 69 exposures and 8.3 weighted DCS. The Appendix E attribution and denominators are preserved as published.",
+      "evidence_url": "https://apps.dtic.mil/sti/trecms/pdf/AD1101527.pdf"
     }
   ],
   "report_titles": {
@@ -14073,6 +14227,10 @@
     "report:ada036031": "Hyperbaric Medicine in the U.S. Air Force",
     "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1": "High-altitude decompression sickness: Experimental study of pathogenesis and methods of prevention",
     "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6": "Recommending an Approach for NASA Toward Neurologic Decompression Illness",
-    "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34": "NASA Exploration Atmosphere Tests 3 & 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures"
+    "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34": "NASA Exploration Atmosphere Tests 3 & 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+    "nct:NCT06740305": "NASA Prebreathe Study",
+    "nct:NCT07702539": "Exercise Prebreathe Study in Healthy Adult Volunteers to Evaluate Risk of Decompression Sickness During Simulated Spacewalk Conditions",
+    "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise": "A Probability Model of Decompression Sickness at 4.3 Psia After Exercise Prebreathe",
+    "record:legacy:data/chamber/v1.26/search_hits.csv#timing_v26_moreqs_alt:4": "Effects of exercise with oxygen prebreathe for decompression risk reduction"
   }
 }

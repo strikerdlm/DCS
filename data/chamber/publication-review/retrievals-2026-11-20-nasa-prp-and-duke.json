@@ -1,0 +1,326 @@
+[
+  {
+    "id": "2026-11-20-nasa-prp-primary",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and NTRS PDF verification",
+    "operation": "supplementary_original_source_extraction",
+    "params": {
+      "search_focus": "NASA prebreathe reduction protocol, Beltran dissertation, Butler two-hour trials, Conkin exercise model",
+      "verified_printed_pages": [
+        24,
+        25
+      ],
+      "original_sources": [
+        "https://ntrs.nasa.gov/citations/20040191712",
+        "https://digitalcommons.library.tmc.edu/dissertations/AAI9981807",
+        "https://ntrs.nasa.gov/citations/20000110070"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Table 6 was checked against the rendered original. The dissertation repository and NTRS trial abstract provide program context. The abstract-level estimates lack exact exposure denominators.",
+    "records": [
+      {
+        "id": "ntrs-20040191712-table-6",
+        "title": "A Probability Model of Decompression Sickness at 4.3 Psia After Exercise Prebreathe",
+        "year": 2004,
+        "url": "https://ntrs.nasa.gov/citations/20040191712",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf",
+        "sha256": "35611527116431abd49f1ec63702f0c42df4acfd1880ce9e3d7b09af87a6c32d",
+        "identifier": "NASA/TP-2004-213158",
+        "ntrs_document_id": "20040191712",
+        "access": "public_full_text",
+        "locator": "Table 5 printed p. 24 and Table 6 printed p. 25 (PDF page 33)",
+        "study_id": "nasa-prebreathe-reduction-protocol",
+        "model_source_id": "nasa04_exercise",
+        "analysis_role": "overlapping_selection_frames_of_observed_counts",
+        "table_6_analysis_populations": [
+          {
+            "source_id": "nasa04_exercise",
+            "phase": "I",
+            "total_exposures": 49,
+            "hypothesis_exposures": 47,
+            "hypothesis_dcs_cases": 9,
+            "nasa_model_exposures": 47,
+            "nasa_model_dcs_cases": 9,
+            "research_model_exposures": 49,
+            "research_model_dcs_cases": 7,
+            "locator": "Table 6, printed p. 25",
+            "note": "Two post-exposure DCS reports contribute to the hypothesis and NASA Model counts. Two exposures had longer prebreathe in the Research Model set."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "phase": "II",
+            "total_exposures": 50,
+            "hypothesis_exposures": 45,
+            "hypothesis_dcs_cases": 0,
+            "nasa_model_exposures": 45,
+            "nasa_model_dcs_cases": 0,
+            "research_model_exposures": 47,
+            "research_model_dcs_cases": 0,
+            "locator": "Table 6, printed p. 25",
+            "note": "Footnotes identify longer prebreathe, an ambiguous classification, and two exposures cut short when Doppler technicians developed DCS."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "phase": "III",
+            "total_exposures": 10,
+            "hypothesis_exposures": 9,
+            "hypothesis_dcs_cases": 2,
+            "nasa_model_exposures": 4,
+            "nasa_model_dcs_cases": 2,
+            "research_model_exposures": 9,
+            "research_model_dcs_cases": 2,
+            "locator": "Table 6, printed p. 25",
+            "note": "Research Model notes an incomplete exposure later classified as no DCS."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "phase": "IV",
+            "total_exposures": 65,
+            "hypothesis_exposures": 56,
+            "hypothesis_dcs_cases": 8,
+            "nasa_model_exposures": 3,
+            "nasa_model_dcs_cases": 0,
+            "research_model_exposures": 62,
+            "research_model_dcs_cases": 8,
+            "locator": "Table 6, printed p. 25",
+            "note": "Research Model notes longer prebreathe, incomplete exposure, and ambiguous classifications. NEDU A1309 reports 69 in its Phase IV aggregate. The 65 and 69 totals retain their publication scopes."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "phase": "V-1",
+            "total_exposures": 10,
+            "hypothesis_exposures": 9,
+            "hypothesis_dcs_cases": 3,
+            "nasa_model_exposures": 9,
+            "nasa_model_dcs_cases": 3,
+            "research_model_exposures": 9,
+            "research_model_dcs_cases": 3,
+            "locator": "Table 6, printed p. 25",
+            "note": "Research Model notes an ambiguous classification and incomplete exposure."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "phase": "V-2",
+            "total_exposures": 4,
+            "hypothesis_exposures": 3,
+            "hypothesis_dcs_cases": 1,
+            "nasa_model_exposures": 3,
+            "nasa_model_dcs_cases": 1,
+            "research_model_exposures": 3,
+            "research_model_dcs_cases": 1,
+            "locator": "Table 6, printed p. 25",
+            "note": "Research Model notes an incomplete exposure."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "phase": "V-3",
+            "total_exposures": 50,
+            "hypothesis_exposures": 48,
+            "hypothesis_dcs_cases": 7,
+            "nasa_model_exposures": 48,
+            "nasa_model_dcs_cases": 7,
+            "research_model_exposures": 50,
+            "research_model_dcs_cases": 7,
+            "locator": "Table 6, printed p. 25",
+            "note": "Research Model notes two exercise profiles modified early in prebreathe."
+          }
+        ],
+        "table_6_reported_totals": {
+          "phase_exposures": 238,
+          "hypothesis": {
+            "cases": 30,
+            "exposures": 217
+          },
+          "nasa_model": {
+            "cases": 22,
+            "exposures": 159
+          },
+          "research_model": {
+            "cases": 28,
+            "exposures": 229
+          }
+        },
+        "eligibility_notes": "Table 5 distinguishes on-protocol eligibility, late symptoms, ambiguous outcomes, early terminations and estimated VO2peak. Table 6 gives distinct overlap-dependent sample sizes and reports during- and after-exposure DCS in the TDCS columns. Printed integer counts are retained as selection-frame evidence.",
+        "phase_iv_crosswalk": {
+          "nasa_table_f1_test": "P IV",
+          "nasa_table_f1_dcs_cases": 8,
+          "nasa_table_f1_exposures": 65,
+          "nedu_appendix_e_test": "PRP IV",
+          "nedu_exposures": 69,
+          "nedu_weighted_dcs": 8.3,
+          "relationship": "same_named_phase_with_distinct_reporting_frames",
+          "repository_crosswalk": "data/chamber/v1/source_overlap.csv"
+        }
+      },
+      {
+        "id": "tmc-aai9981807",
+        "title": "Effects of exercise with oxygen prebreathe for decompression risk reduction",
+        "year": 2000,
+        "url": "https://digitalcommons.library.tmc.edu/dissertations/AAI9981807",
+        "identifier": "AAI9981807",
+        "access": "public_author_abstract",
+        "locator": "Texas Medical Center Dissertation Repository, author abstract",
+        "study_id": "nasa-prebreathe-reduction-protocol",
+        "analysis_role": "overlapping_program_scope_unresolved",
+        "sites": [
+          "NASA Johnson Space Center",
+          "Duke University",
+          "Defence and Civil Institute of Environmental Medicine"
+        ],
+        "reported_rounded_percent": {
+          "clinical_dcs": 10,
+          "high_grade_vge": 20
+        },
+        "reported_phase_without_dcs": "Dual-cycle plus light exercise",
+        "evaluable_exposures": null,
+        "exact_cases": null,
+        "later_dcs_given_high_grade_vge": {
+          "reported_sensitivity_percent": 88.2,
+          "reported_specificity_percent": 87.2,
+          "reported_rr_min": 7.52,
+          "reported_rr_max": 35.0
+        },
+        "limits": "Three phase combinations described. Exact phase mapping, denominators, VGE assessment threshold, contingency table and follow-up require the full dissertation."
+      },
+      {
+        "id": "ntrs-20000110070",
+        "title": "Human Trials of a 2-Hour Prebreathe Protocol",
+        "year": 2000,
+        "url": "https://ntrs.nasa.gov/citations/20000110070",
+        "ntrs_document_id": "20000110070",
+        "access": "public_author_abstract",
+        "locator": "NTRS original abstract",
+        "study_id": "nasa-prebreathe-reduction-protocol",
+        "analysis_role": "program_methods_and_phase_acceptance",
+        "evaluable_exposures": null,
+        "exact_cases": null,
+        "note": "Butler et al. describe chamber work at three sites across four prebreathe exercise conditions and acceptance of Phase II. E. Beltran is a coauthor."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-duke-nasa-registry-primary",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and ClinicalTrials.gov API",
+    "operation": "supplementary_trial_registration_verification",
+    "params": {
+      "registrations": [
+        "NCT06740305",
+        "NCT07702539"
+      ],
+      "queries": [
+        "NASA Prebreathe Study Duke Pro00116846",
+        "Duke NASA Exercise Prebreathe Study Pro00120426"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Veeva mirror identifies the completed registration. Duke lists the later exercise registration. Neither registration has posted results as of the retrieval date.",
+    "records": [
+      {
+        "id": "NCT06740305",
+        "title": "NASA Prebreathe Study",
+        "url": "https://clinicaltrials.gov/study/NCT06740305",
+        "primary_source": "https://clinicaltrials.gov/api/v2/studies/NCT06740305",
+        "sha256": "4b7604be34c9c776deb198fceaafdf1985b6c0bb24e701e1eb36361a45afe3d4",
+        "locator": "Identification, Status, Study Design and Outcome Measures sections",
+        "study_id": "duke-nct06740305",
+        "registration_id": "NCT06740305",
+        "duke_protocol": "Pro00116846",
+        "nasa_award": "80NSSC24PB887",
+        "recruitment_status": "COMPLETED",
+        "start": {
+          "date": "2025-05-05",
+          "type": "ACTUAL"
+        },
+        "study_completion": {
+          "date": "2025-08-21",
+          "type": "ACTUAL"
+        },
+        "last_update_posted": "2026-06-01",
+        "registered_enrollment": {
+          "count": 19,
+          "type": "ACTUAL",
+          "unit": "participant"
+        },
+        "registered_outcomes": [
+          {
+            "role": "primaryOutcomes",
+            "measure": "Number of participants with each type of decompression sickness",
+            "time_frame": "24 hours"
+          },
+          {
+            "role": "secondaryOutcomes",
+            "measure": "Number of participants with venous gas embolism",
+            "time_frame": "24 hours"
+          }
+        ],
+        "has_results": false,
+        "evaluable_person_exposures": null,
+        "observed_cases": null,
+        "registry_timing_note": "The registry gives a 24-hour outcomes time frame.",
+        "discovery_alias": "https://ctv.veeva.com/study/nasa-prebreathe-study"
+      },
+      {
+        "id": "NCT07702539",
+        "title": "Exercise Prebreathe Study in Healthy Adult Volunteers to Evaluate Risk of Decompression Sickness During Simulated Spacewalk Conditions",
+        "url": "https://clinicaltrials.gov/study/NCT07702539",
+        "primary_source": "https://clinicaltrials.gov/api/v2/studies/NCT07702539",
+        "sha256": "91d6ded18b1cc2964a5d1ce53ef1f7dd9cff6906454184efea6a11d69263b4be",
+        "locator": "Identification, Status, Study Design and Outcome Measures sections",
+        "study_id": "duke-nct07702539",
+        "registration_id": "NCT07702539",
+        "duke_protocol": "Pro00120426",
+        "nasa_award": "80NSSC26P0252",
+        "recruitment_status": "RECRUITING",
+        "start": {
+          "date": "2026-08-13",
+          "type": "ACTUAL"
+        },
+        "study_completion": {
+          "date": "2027-02-27",
+          "type": "ESTIMATED"
+        },
+        "last_update_posted": "2026-10-05",
+        "registered_enrollment": {
+          "count": 30,
+          "type": "ESTIMATED",
+          "unit": "participant"
+        },
+        "registered_outcomes": [
+          {
+            "role": "primaryOutcomes",
+            "measure": "Number of participants with Decompression Sickness",
+            "time_frame": "Up to 6 months"
+          }
+        ],
+        "has_results": false,
+        "evaluable_person_exposures": null,
+        "observed_cases": null,
+        "registry_timing_note": "Up to six months is the registry outcomes time frame. Per-exposure follow-up is unspecified.",
+        "discovery_alias": "https://www.dukehealth.org/clinical-trials/directory/pro00120426"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-beltran-ebsco-access",
+    "date": "2026-11-20",
+    "provider": "EBSCO Discovery Service via UNAL library proxy",
+    "operation": "supplementary_full_text_access_attempt",
+    "params": {
+      "queries_planned": [
+        "AAI9981807",
+        "Effects of exercise with oxygen prebreathe"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "unavailable",
+    "note": "The proxy sign-in did not open EBSCO Discovery Service. Queries could not be submitted and a full dissertation PDF was not retrieved.",
+    "records": []
+  }
+]

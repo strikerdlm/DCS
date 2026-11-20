@@ -137,6 +137,7 @@ CHAMBER_DAVIS_CASES = ROOT / "data" / "chamber" / "v1.69"
 CHAMBER_OPERATOR_TREATMENT_ARCHIVE = ROOT / "data" / "chamber" / "v1.70"
 CHAMBER_KATUNTSEV_PROGRAM = ROOT / "data" / "chamber" / "v1.71"
 CHAMBER_NASA_TRIAL_CASES = ROOT / "data" / "chamber" / "v1.72"
+CHAMBER_NASA_PRP = ROOT / "data" / "chamber" / "v1.73"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1187,6 +1188,9 @@ def build(
                         "publication_trial_case_profile": "case_profiles.csv",
                         "publication_trial_case_milestone": "case_milestones.csv",
                     },
+                )
+                load_version_tables(
+                    db, CHAMBER_NASA_PRP, {"publication_prp_analysis_counts": "prp_analysis_counts.csv"}
                 )
             if rojas_supplement:
                 load_supplement(
