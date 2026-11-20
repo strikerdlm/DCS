@@ -354,6 +354,54 @@ def test_operator_history_and_treatment_archive_keep_distinct_denominators(relea
         """).fetchone() == (0,)
 
 
+def test_katuntsev_program_total_reuses_source_and_retains_nested_endpoints(release):
+    with connect_pair(release) as db:
+        report_id = "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1"
+        assert db.execute("""
+            SELECT l.report_id, s.note LIKE '%931 ascents with DCS symptoms%'
+            FROM publication_source s JOIN model_report_link l USING(source_id)
+            WHERE s.source_id='katuntsev96_human' AND l.source_table='publication_source'
+        """).fetchone() == (report_id, 1)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE url LIKE '%vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe%'
+        """).fetchone() == (3, 1)
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role FROM publication_observation
+            WHERE source_id='katuntsev96_human' AND stratum='program-all-chamber-ascents'
+        """).fetchone() == (931, 1778, "person_exposure", "overlap_hold")
+        assert db.execute("""
+            SELECT sum(numerator),min(denominator),max(denominator) FROM publication_observation
+            WHERE source_id='katuntsev96_human' AND endpoint IN
+                ('dcs_main_altitude_phase_source','dcs_additional_decompression_phase_source')
+              AND denominator_unit='dcs_case' AND analysis_role='overlapping_margin'
+        """).fetchone() == (931, 931, 931)
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='katuntsev96_human' AND stratum='program-intense-symptoms'
+        """).fetchone() == (562, 931, "dcs_case")
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='katuntsev96_human' AND stratum='selected-8100-9000m-experiments'
+            ORDER BY endpoint
+        """).fetchall() == [("dcs_lower_limb_pain_source", 174, 228), ("vge_detected_source", 212, 228)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation p
+            JOIN review.review_search_observation r
+              ON (r.observation_id,r.endpoint,r.cases,r.denominator,r.denominator_unit)=
+                 ('katuntsev96-' || p.stratum || '-' || p.endpoint,p.endpoint,
+                  p.numerator,p.denominator,p.denominator_unit)
+            WHERE p.source_id='katuntsev96_human' AND r.report_id=?
+        """, (report_id,)).fetchone() == (9,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id=? AND denominator=1778
+        """, (report_id,)).fetchone() == (1,)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id=?
+        """, (report_id,)).fetchone() == (0,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
