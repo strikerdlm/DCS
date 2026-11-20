@@ -349,7 +349,7 @@ def test_nasa_ascent_compilation_reconciles_without_adding_clinical_counts(relea
         assert db.execute("""
             SELECT count(*),min(report_id),max(report_id) FROM review.review_record
             WHERE lower(title) LIKE '%different rates of ascent%' OR title=url AND url LIKE '%19890012936%'
-        """).fetchone() == (29, "ntrs:19890012936", "ntrs:19890012936")
+        """).fetchone() == (30, "ntrs:19890012936", "ntrs:19890012936")
         assert db.execute("""
             SELECT count(*) FROM review.review_report_relation
             WHERE left_report='ntrs:19890012936' AND relationship='cites_as_compilation_source'
@@ -480,6 +480,10 @@ def test_henry_cook_preserves_counting_units_and_links_reused_controls(release):
         assert db.execute("""
             SELECT report_id FROM model_report_link WHERE source_id='henry45_cook'
         """).fetchone() == ("pmid:21005555",)
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-henry-cook-backref-t#19890012936'
+        """).fetchone() == ("ntrs:19890012936",)
         assert db.execute("""
             SELECT relationship FROM review.review_report_relation
             WHERE left_report='pmid:20251251' AND right_report='pmid:21005555'
