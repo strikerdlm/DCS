@@ -10439,6 +10439,54 @@
       "report_id": "report:dtic-adp011075",
       "basis": "The primary PDF is the public archive copy of ADP011075.",
       "evidence_url": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf"
+    },
+    {
+      "record_key": "2026-11-20-halo-and-usaf-onset#piwinski-1986-full",
+      "report_id": "pmid:3718386",
+      "basis": "The original publisher record establishes this report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/6/article-p600.pdf"
+    },
+    {
+      "record_key": "2026-11-20-halo-and-usaf-onset#neubauer-1988-full",
+      "report_id": "pmid:3240220",
+      "basis": "The original publisher record establishes this report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.82/sources.csv#neubauer88_pulmonary",
+      "report_id": "pmid:3240220",
+      "basis": "The extraction uses the same verified primary publication.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf"
+    },
+    {
+      "record_key": "2026-11-20-halo-and-usaf-onset#c17-aib-2023-primary",
+      "report_id": "aib:usaf-c17-2023-08-21",
+      "basis": "The original publisher record establishes this report identity.",
+      "evidence_url": "https://www.afjag.af.mil/Portals/77/AIB-Reports/2023/21AUG23%20AMC%20C-17A%20JBER%20AIB%20Report.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.82/sources.csv#usaf_aib_c17_2023",
+      "report_id": "aib:usaf-c17-2023-08-21",
+      "basis": "The extraction uses the same verified primary publication.",
+      "evidence_url": "https://www.afjag.af.mil/Portals/77/AIB-Reports/2023/21AUG23%20AMC%20C-17A%20JBER%20AIB%20Report.pdf"
+    },
+    {
+      "record_key": "2026-11-20-halo-and-usaf-onset#amc-2024-release",
+      "report_id": "amc:3740477",
+      "basis": "The original publisher record establishes this report identity.",
+      "evidence_url": "https://www.amc.af.mil/News/Article-Display/Article/3740477/press-release-civilian-employee-fatality-investigation-results-released"
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-malaysia#w:68914d70-455b-4635-b52d-f445c939d25d",
+      "report_id": "pmid:3718386",
+      "basis": "The title and journal citation match the verified 1986 full paper.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/6/article-p600.pdf"
+    },
+    {
+      "record_key": "2026-11-20-case-verification-t-olson#https://pubmed.ncbi.nlm.nih.gov/3240220",
+      "report_id": "pmid:3240220",
+      "basis": "The PubMed URL and case title identify PMID 3240220.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf"
     }
   ],
   "studies": [
@@ -11233,6 +11281,24 @@
       "label": "Prague aviation medicine centre chamber protocols and broad pressure symptoms",
       "period": "Program described at October 2000 meeting; risk-set dates unspecified",
       "setting": "Czech military aviation medicine institute, Prague"
+    },
+    {
+      "study_id": "neubauer-usaf-1980-1987-chamber-series",
+      "label": "USAF student chamber symptom and onset surveillance in Neubauer et al.",
+      "period": "1980–1987; nested 1985–1987 table",
+      "setting": "USAF altitude chamber training"
+    },
+    {
+      "study_id": "neubauer-fatal-f100-flight-case",
+      "label": "Neubauer et al. fatal F-100 flight DCS",
+      "period": "Published in 1988",
+      "setting": "Operational aircraft flight, unpressurized cabin"
+    },
+    {
+      "study_id": "usaf-c17a-2023-fatal-flight-case",
+      "label": "USAF C-17A fatal flight DCS investigation",
+      "period": "21–22 August 2023",
+      "setting": "Operational aircraft test flight"
     }
   ],
   "study_reports": [
@@ -12501,6 +12567,30 @@
       "report_id": "report:dtic-adp011075",
       "role": "primary_program_description_with_nonspecific_rate",
       "locator": "DTIC cover and printed pp. 19-1–19-3"
+    },
+    {
+      "study_id": "neubauer-usaf-1980-1987-chamber-series",
+      "report_id": "pmid:3240220",
+      "role": "overlapping_chamber_surveillance",
+      "locator": "Printed pp. 1181–1183, Case History, Clinical Course and Tables I–II"
+    },
+    {
+      "study_id": "neubauer-fatal-f100-flight-case",
+      "report_id": "pmid:3240220",
+      "role": "primary_clinical_case",
+      "locator": "Printed pp. 1181–1182"
+    },
+    {
+      "study_id": "usaf-c17a-2023-fatal-flight-case",
+      "report_id": "aib:usaf-c17-2023-08-21",
+      "role": "primary_investigation",
+      "locator": "Summary of Facts §§ 4(d), 4(e), 9(d)(3), and Statement of Opinion"
+    },
+    {
+      "study_id": "usaf-c17a-2023-fatal-flight-case",
+      "report_id": "amc:3740477",
+      "role": "summary_of_same_case",
+      "locator": "Press release, 12 April 2024"
     }
   ],
   "relations": [
@@ -14932,6 +15022,34 @@
       "relationship": "same_institution_unmatched_risk_sets",
       "evidence": "Both publications concern Prague chamber training. The earlier broad dysbarism rate has no risk set. The later single-occupant pulmonary barotrauma report has its own 566-run count. Do not use those runs as an earlier denominator.",
       "evidence_url": "https://archive.org/download/DTIC_ADP011075/DTIC_ADP011075.pdf#page=2"
+    },
+    {
+      "left_report": "pmid:3240220",
+      "right_report": "workshop:ada257612-baumgartner-weien",
+      "relationship": "possible_cohort_overlap",
+      "evidence": "Neubauer Table II has 186 in 178,305 student exposures. Baumgartner and Weien Table 3 gives 228 in 192,623 student exposures. Both cover 1985–1987 and use USAF training records. Coverage and case linkage remain unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:3240220",
+      "right_report": "pmid:2241750",
+      "relationship": "possible_cohort_overlap",
+      "evidence": "The 1980–1987 Neubauer training margins overlap the calendar years of the Weien and Baumgartner case and treatment registry. Treatment selection and linkage remain unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf#page=2"
+    },
+    {
+      "left_report": "amc:3740477",
+      "right_report": "aib:usaf-c17-2023-08-21",
+      "relationship": "same_published_case",
+      "evidence": "The public affairs release links the investigation and describes the same flight incident and subsequent death.",
+      "evidence_url": "https://www.amc.af.mil/News/Article-Display/Article/3740477/press-release-civilian-employee-fatality-investigation-results-released"
+    },
+    {
+      "left_report": "record:2026-11-20-case-verification-f-fatal#https://www.airandspaceforces.com/air-force-c-17-death-investigation/",
+      "right_report": "aib:usaf-c17-2023-08-21",
+      "relationship": "summarizes_same_flight_case",
+      "evidence": "The press coverage names the same official investigation, chronology and medical examiner cause of death.",
+      "evidence_url": "https://www.amc.af.mil/News/Article-Display/Article/3740477/press-release-civilian-employee-fatality-investigation-results-released"
     }
   ],
   "report_titles": {
@@ -15025,6 +15143,9 @@
     "pmid:12688456": "Altitude decompression sickness in a pilot wearing a pressure suit above 70,000 feet",
     "pmid:20058739": "Severe neurological decompression sickness in a U-2 pilot",
     "dtic:ada526033": "Report of Evaluation of Decompression Sickness, Beale AFB 10–14 Aug 2009",
-    "pmid:21748904": "Neurological altitude decompression sickness among U-2 pilots: 2002–2009"
+    "pmid:21748904": "Neurological altitude decompression sickness among U-2 pilots: 2002–2009",
+    "pmid:3240220": "Fatal pulmonary decompression sickness: a case report",
+    "aib:usaf-c17-2023-08-21": "Aircraft Accident Investigation Board Report: C-17A, 21 August 2023",
+    "amc:3740477": "Civilian employee fatality investigation results released"
   }
 }
