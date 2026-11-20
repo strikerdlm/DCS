@@ -353,7 +353,7 @@ def test_nasa_ascent_compilation_reconciles_without_adding_clinical_counts(relea
         assert db.execute("""
             SELECT count(*) FROM review.review_report_relation
             WHERE left_report='ntrs:19890012936' AND relationship='cites_as_compilation_source'
-        """).fetchone() == (25,)
+        """).fetchone() == (26,)
 
 
 def test_ascent_source_reconciliation_preserves_denominator_conflicts(release):
@@ -384,6 +384,38 @@ def test_ascent_source_reconciliation_preserves_denominator_conflicts(release):
             ("damato65_acel529", "report:naec-acel-529"),
             ("dixon86_suit95", "ntrs:19860063003"),
         ]
+
+
+def test_historical_crossover_and_attendant_outcomes_keep_their_counting_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT participant_number),count(DISTINCT condition)
+            FROM publication_crossover_run WHERE analysis_role='overlap_hold'
+        """).fetchone() == (84, 21, 4)
+        assert db.execute("""
+            SELECT condition,sum(symptom_status='reported'),sum(symptom_status='unresolved'),
+                   sum(forced_descent_status='reported')
+            FROM publication_crossover_run GROUP BY condition ORDER BY condition
+        """).fetchall() == [
+            ("aminophyllin", 20, 0, 6), ("codeine_and_aspirin", 19, 0, 7),
+            ("control", 19, 0, 10), ("demerol", 19, 1, 10),
+        ]
+        assert db.execute("""
+            SELECT symptom_onset_min,forced_descent_min,maximum_symptom_grade,grade_annotation
+            FROM publication_crossover_run WHERE participant_number=14 ORDER BY condition
+        """).fetchall() == [(45, 56, 7, "ch"), (None, 37, 5, None), (20, 58, 2, None), (25, 25, 3, None)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='houston47_low_altitude' ORDER BY endpoint
+        """).fetchall() == [("incapacitating_bends_source", 2, 20, "person")]
+        assert db.execute("""
+            SELECT count(*),min(retained_source_id) FROM publication_observation_superseded
+            WHERE source_id='houston47_low_altitude'
+        """).fetchone() == (3, "houston46_navy")
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id IN ('houston47_low_altitude','williams46_drug_crossover')
+            ORDER BY source_id
+        """).fetchall() == [("pmid:20296024",), ("joam:17-6-602",)]
 
 
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):

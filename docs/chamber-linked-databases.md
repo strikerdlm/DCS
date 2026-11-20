@@ -69,4 +69,6 @@ The 1992 HDSD article adds 27 historical group summaries for citation and outcom
 
 Five source outcome margins and six additional bibliography links extend the NASA ascent-rate intake. The supplement preserves the conflicting 9.5-psia validation denominators and two phase-specific Navy bends counts with unavailable denominators. [Ascent source reconciliation](chamber-ascent-source-reconciliation.md)
 
+The historical full-text supplement records 84 repeated chamber runs from Williams et al. and reconciles repeated publications about Houston’s chamber attendants. The crossover rows retain unresolved cells, historical symptom grades and within-person linkage. [Williams and Houston source tables](chamber-historical-crossover-supplement.md)
+
 One example of deduplication is the Ata and Karaca chamber report. All 125 full- or truncated-title search occurrences in v1.48 resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)
