@@ -105,6 +105,10 @@ def load_register(db, root):
         titles.setdefault(report_id, record["title"])
         record["report_id"] = report_id
         record["metadata_json"] = json.dumps(record["raw"], ensure_ascii=False, sort_keys=True)
+    preferred_titles = curation.get("report_titles", {})
+    if unknown_reports := preferred_titles.keys() - titles.keys():
+        raise ValueError(f"Preferred titles reference unknown reports: {sorted(unknown_reports)}")
+    titles.update(preferred_titles)
     db.executemany("INSERT INTO review_report VALUES (?,?)", sorted(titles.items()))
     _insert(
         db,

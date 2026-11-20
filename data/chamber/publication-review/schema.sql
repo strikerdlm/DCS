@@ -117,9 +117,16 @@ CREATE VIEW review_search_observation AS
            json_extract(o.value,'$.denominator_unit') AS denominator_unit,
            json_extract(o.value,'$.reported_rate_percent') AS reported_rate_percent,
            json_extract(o.value,'$.locator') AS locator,
-           json_extract(r.metadata_json,'$.primary_source') AS evidence_url,
+           COALESCE(json_extract(r.metadata_json,'$.primary_source'),
+                    json_extract(r.metadata_json,'$.evidence_source')) AS evidence_url,
            json_extract(r.metadata_json,'$.role_review') AS role_review,
-           json_extract(o.value,'$.note') AS note
+           json_extract(o.value,'$.note') AS note,
+           json_extract(o.value,'$.study_id') AS study_id,
+           json_extract(o.value,'$.year') AS exposure_year,
+           json_extract(o.value,'$.altitude_band') AS altitude_band,
+           json_extract(o.value,'$.chamber_role') AS chamber_role,
+           json_extract(o.value,'$.reported_rate') AS reported_rate,
+           json_extract(o.value,'$.reported_rate_unit') AS reported_rate_unit
     FROM review_record AS r
     JOIN json_each(r.metadata_json,'$.observations') AS o
     WHERE r.run_id IS NOT NULL;
@@ -178,6 +185,28 @@ WITH cells(study_id,source_table,source_id,stratum,cases,exposures,denominator_b
     SELECT 'usaf-shaw-fy2004','attachment_observation',source_id,stratum,events,denominator,
            'source_reported',locator,note FROM attachment_observation
     WHERE source_id='brandt09_attachment' AND endpoint='dcs' AND stratum IN ('fy04_students','fy04_observers')
+    UNION ALL
+    SELECT 'usaf-bassett-1973-1977','citation_observation',source_id,stratum,numerator,denominator,
+           denominator_unit,locator,
+           'Reported DCS. Students exclude USAFSAM and Academy cadets. Site matching to the observer series is unresolved.'
+    FROM citation_observation WHERE source_id='bassett_survey' AND endpoint='reported_dcs'
+      AND stratum IN ('Inside observers','All other training units excluding USAFSAM and Academy cadets')
 )
 SELECT c.*,l.report_id FROM cells c JOIN review_study_report l USING(study_id)
 WHERE l.role='supplementary_candidate';
+
+-- Role-specific counts available in a later publication's historical table.
+CREATE VIEW review_secondary_role_cell AS
+WITH strata(study_id,stratum,chamber_role) AS (
+    VALUES
+        ('usn-1976-1977','reprint_1976_trainee','trainee'),
+        ('usn-1976-1977','reprint_1976_observer','staff'),
+        ('usn-1978-1981','reprint_1978_trainee','trainee'),
+        ('usn-1978-1981','reprint_1978_observer','staff')
+)
+SELECT s.study_id,l.report_id,s.chamber_role,z.cases,z.denominator AS exposures,
+       z.denominator_unit,z.source_id,z.stratum AS source_cell,z.locator,l.locator AS source_note
+FROM strata s JOIN zotero_observation z USING(stratum)
+JOIN review_study_report l USING(study_id)
+WHERE z.source_id='bason91' AND z.endpoint='dcs' AND z.analysis_role='historical_reprint'
+  AND l.report_id='pmid:1755801' AND l.role='secondary_summary';

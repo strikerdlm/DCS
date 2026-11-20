@@ -1,0 +1,1690 @@
+[
+  {
+    "id": "2026-11-20-regional-tavily-chile",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "site:pesquisa.bvsalud.org/portal/resource/enebate/lil-207282 \"Aguirre\" \"Rev\" \"Incidentes fisiológicos durante entrenamiento en cámara hipobárica\" 1992",
+      "max_results": 10,
+      "search_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "title": "Incidentes fisiológicos durante entrenamiento en cámara hipobárica ...",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "rank": 1,
+        "score": 0.41276684,
+        "index_attribution": "B Aguirre, 1992",
+        "role_review": "index_only_full_text_pending",
+        "evidence_note": "Indexed snippet describes a physiological training program at an aerospace medicine department of a Dirección de Sanidad. The available text ends before the name of the parent institution. Venue, country, dates and outcomes remain unverified."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-tavily-programs",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"decompression sickness\" \"hypobaric chamber\" \"physiological incidents\" flight training Korea Taiwan Japan Republic Air Force older annual surveillance",
+      "max_results": 10,
+      "search_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "title": "Australian Defence Force hypobaric chamber training, 1984–2001",
+        "url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "rank": 1,
+        "score": 0.5349162
+      },
+      {
+        "id": "https://www.researchgate.net/publication/11415075_Physiological_incidents_during_39_years_of_hypobaric_chamber_training_in_Japan",
+        "title": "Physiological incidents during 39 years of hypobaric chamber training ...",
+        "url": "https://www.researchgate.net/publication/11415075_Physiological_incidents_during_39_years_of_hypobaric_chamber_training_in_Japan",
+        "rank": 2,
+        "score": 0.53239477
+      },
+      {
+        "id": "https://flightsafety.org/hf/hf_nov-dec92.pdf",
+        "title": "Human Factors & Aviation Medicine November-December 1992",
+        "url": "https://flightsafety.org/hf/hf_nov-dec92.pdf",
+        "rank": 3,
+        "score": 0.5316045
+      },
+      {
+        "id": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+        "title": "Decompression Illness in United States Air Force: High Risk Occupations",
+        "url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+        "rank": 4,
+        "score": 0.50481015
+      },
+      {
+        "id": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "title": "CASE REPORT",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "rank": 5,
+        "score": 0.50473773
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "title": "ADA257612.pdf - DTIC",
+        "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "rank": 6,
+        "score": 0.4898848
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/11952064",
+        "title": "Physiological incidents during 39 years of hypobaric chamber training ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11952064",
+        "rank": 7,
+        "score": 0.4850661,
+        "pmid": "11952064"
+      },
+      {
+        "id": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+        "title": "altitude decompression sickness",
+        "url": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+        "rank": 8,
+        "score": 0.417984
+      },
+      {
+        "id": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf",
+        "title": "FAA-AM-77-4",
+        "url": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf",
+        "rank": 9,
+        "score": 0.2982869
+      },
+      {
+        "id": "https://www.airforcemedicine.af.mil/News/Display/Article/4522643/rapid-response-under-pressure-andrews-aerospace-physiology-conducts-decompressi",
+        "title": "Andrews Aerospace Physiology conducts decompression sickness ...",
+        "url": "https://www.airforcemedicine.af.mil/News/Display/Article/4522643/rapid-response-under-pressure-andrews-aerospace-physiology-conducts-decompressi",
+        "rank": 10,
+        "score": 0.28170192
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-tavily-japan-thesis",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"大類 伸浩\" \"低圧\" OR \"高空\" \"500000282229\" 博士 航空医学",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202202287514703004",
+        "title": "航空医学研究所報告-2007年3月から2022年6月まで- | 文献情報",
+        "url": "https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202202287514703004",
+        "rank": 1,
+        "score": 0.38485432
+      },
+      {
+        "id": "https://www.jstage.jst.go.jp/article/jasdfaml/62/4/62_64/_article/-char/ja",
+        "title": "航空自衛隊パイロットにおける血糖管理",
+        "url": "https://www.jstage.jst.go.jp/article/jasdfaml/62/4/62_64/_article/-char/ja",
+        "rank": 2,
+        "score": 0.37972334
+      },
+      {
+        "id": "https://www.jstage.jst.go.jp/article/jasdfaml/55/3/55_33/_article/-char/ja",
+        "title": "ホルター心電計の放射電磁波測定―航空機搭載への適合確認について―",
+        "url": "https://www.jstage.jst.go.jp/article/jasdfaml/55/3/55_33/_article/-char/ja",
+        "rank": 3,
+        "score": 0.36988392
+      },
+      {
+        "id": "http://jsasem.kenkyuukai.jp/images/sys/information/20200414183254-1A3DF9F57D8D021582E735BA5825EBE93F4B4BD2E7882083590EEDFB65849FA3.pdf",
+        "title": "日本宇宙航空環境医学会役員",
+        "url": "http://jsasem.kenkyuukai.jp/images/sys/information/20200414183254-1A3DF9F57D8D021582E735BA5825EBE93F4B4BD2E7882083590EEDFB65849FA3.pdf",
+        "rank": 4,
+        "score": 0.35801628
+      },
+      {
+        "id": "https://zh.wikipedia.org/zh-hans/%E8%88%AA%E7%A9%BA%E9%86%AB%E5%AD%B8",
+        "title": "航空医学 - 维基百科，自由的百科全书",
+        "url": "https://zh.wikipedia.org/zh-hans/%E8%88%AA%E7%A9%BA%E9%86%AB%E5%AD%B8",
+        "rank": 5,
+        "score": 0.24113183
+      },
+      {
+        "id": "https://mamor-web.jp/_ct/17544611",
+        "title": "関節の痛み、呼吸困難…戦闘機パイロットを襲う症状／「航空医学」の重要性 - MAMOR-WEB",
+        "url": "https://mamor-web.jp/_ct/17544611",
+        "rank": 6,
+        "score": 0.18698418
+      },
+      {
+        "id": "https://ja.wikipedia.org/wiki/%E8%88%AA%E7%A9%BA%E5%8C%BB%E5%AD%A6",
+        "title": "航空医学 - Wikipedia",
+        "url": "https://ja.wikipedia.org/wiki/%E8%88%AA%E7%A9%BA%E5%8C%BB%E5%AD%A6",
+        "rank": 7,
+        "score": 0.17924304
+      },
+      {
+        "id": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf",
+        "title": "[PDF] 懷時論集: 航空生理一代宗師方懷時院士",
+        "url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf",
+        "rank": 8,
+        "score": 0.16317856
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-tavily-jordan",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Physiological training in Jordan\" Al-Wedyan 882 884 chamber decompression sickness cases exposures",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://www.sciencedirect.com/science/article/pii/S1081120610611532",
+        "title": "Allergic rhinitis and ear pain in flight - ScienceDirect.com",
+        "url": "https://www.sciencedirect.com/science/article/pii/S1081120610611532",
+        "rank": 1,
+        "score": 0.5081017
+      },
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+        "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+        "rank": 2,
+        "score": 0.41620332
+      },
+      {
+        "id": "https://flightsafety.org/hf/hf_nov-dec92.pdf",
+        "title": "human factors & aviation medicine - Flight Safety Foundation",
+        "url": "https://flightsafety.org/hf/hf_nov-dec92.pdf",
+        "rank": 3,
+        "score": 0.40615514
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "rank": 4,
+        "score": 0.34886694
+      },
+      {
+        "id": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_1401-investigation-cluster-deco-sickness-cases.pdf",
+        "title": "Case reports - Investigation of a cluster of decompression sickness ...",
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_1401-investigation-cluster-deco-sickness-cases.pdf",
+        "rank": 5,
+        "score": 0.33209375
+      },
+      {
+        "id": "https://www.semanticscholar.org/paper/d48b522d350134f90fe5b2d4c1d2ffd64d564403",
+        "title": "Decompression sickness rates for chamber personnel: case series ...",
+        "url": "https://www.semanticscholar.org/paper/d48b522d350134f90fe5b2d4c1d2ffd64d564403",
+        "rank": 6,
+        "score": 0.31373507
+      },
+      {
+        "id": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "title": "CASE REPORT",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "rank": 7,
+        "score": 0.30580097
+      },
+      {
+        "id": "https://www.researchgate.net/publication/346659871_Incidence_of_decompression_sickness_in_hypobaric_hypoxia_training",
+        "title": "Incidence of decompression sickness in hypobaric hypoxia training",
+        "url": "https://www.researchgate.net/publication/346659871_Incidence_of_decompression_sickness_in_hypobaric_hypoxia_training",
+        "rank": 8,
+        "score": 0.29808256
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-tavily-thesis-title",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"航空自衛隊における航空機搭乗員の低圧訓練による生理学的障害\" OR \"000007648028\" 大類 麻布大学",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://mamor-web.jp/_ct/17544611",
+        "title": "関節の痛み、呼吸困難…戦闘機パイロットを襲う症状／「航空医学」の重要性 - MAMOR-WEB",
+        "url": "https://mamor-web.jp/_ct/17544611",
+        "rank": 1,
+        "score": 0.4324229
+      },
+      {
+        "id": "https://www.wikiwand.com/ja/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "title": "航空学生 - Wikiwand",
+        "url": "https://www.wikiwand.com/ja/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "rank": 2,
+        "score": 0.122838534
+      },
+      {
+        "id": "https://ja.wikipedia.org/wiki/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "title": "航空学生 - Wikipedia",
+        "url": "https://ja.wikipedia.org/wiki/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "rank": 3,
+        "score": 0.09825223
+      },
+      {
+        "id": "https://mod.jpn.org/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "title": "航空学生の試験概要 - 自衛隊ナビ",
+        "url": "https://mod.jpn.org/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "rank": 4,
+        "score": 0.09285216
+      },
+      {
+        "id": "https://www.weblio.jp/content/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "title": "航空学生とは何？ わかりやすく解説 Weblio辞書",
+        "url": "https://www.weblio.jp/content/%E8%88%AA%E7%A9%BA%E5%AD%A6%E7%94%9F",
+        "rank": 5,
+        "score": 0.090092994
+      },
+      {
+        "id": "https://ja.wikipedia.org/wiki/%E8%88%AA%E7%A9%BA%E5%A3%AB_(%E8%87%AA%E8%A1%9B%E9%9A%8A)",
+        "title": "航空士 (自衛隊) - Wikipedia",
+        "url": "https://ja.wikipedia.org/wiki/%E8%88%AA%E7%A9%BA%E5%A3%AB_(%E8%87%AA%E8%A1%9B%E9%9A%8A)",
+        "rank": 6,
+        "score": 0.07765744
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-tavily-aguirre-snippet",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Departamento de Medicina Aeroespacial\" \"Dirección de Sanidad\" \"Programa de Entrenamiento Fisiológico\" \"Aguirre\" hipobárica",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "title": "Incidentes fisiológicos durante entrenamiento en cámara hipobárica ...",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "rank": 1,
+        "score": 0.60795414,
+        "index_attribution": "B Aguirre, 1992",
+        "role_review": "index_only_full_text_pending",
+        "evidence_note": "Indexed snippet describes a physiological training program at an aerospace medicine department of a Dirección de Sanidad. The available text ends before the name of the parent institution. Venue, country, dates and outcomes remain unverified."
+      },
+      {
+        "id": "https://ejercitodelaireydelespacio.defensa.gob.es/EA/cima/ensenanza/cursos",
+        "title": "Centro de Instrucción de Medicina Aeroespacial - Enseñanza - Cursos",
+        "url": "https://ejercitodelaireydelespacio.defensa.gob.es/EA/cima/ensenanza/cursos",
+        "rank": 2,
+        "score": 0.42435238
+      },
+      {
+        "id": "https://dialnet.unirioja.es/servlet/articulo?codigo=10325026",
+        "title": "Hipoxia y el entrenamiento en la cámara hipobárica - Dialnet",
+        "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=10325026",
+        "rank": 3,
+        "score": 0.3628563
+      },
+      {
+        "id": "https://www.instagram.com/reel/DCsibUSRIVF",
+        "title": "Entrenamiento Fisiológico para Pilotos y Técnicos Aeronáuticos en ...",
+        "url": "https://www.instagram.com/reel/DCsibUSRIVF",
+        "rank": 4,
+        "score": 0.35499188
+      },
+      {
+        "id": "https://www.youtube.com/watch?v=6Z5iFN6EfVA",
+        "title": "Hipoxia y el entrenamiento de la cámara hipobárica.",
+        "url": "https://www.youtube.com/watch?v=6Z5iFN6EfVA",
+        "rank": 5,
+        "score": 0.35131106
+      },
+      {
+        "id": "https://www.researchgate.net/publication/400580987_Analisis_de_los_efectos_de_la_hipoxia_en_236_pilotos_durante_el_entrenamiento_fisiologico_en_camara_hipobarica",
+        "title": "(PDF) Análisis de los efectos de la hipoxia en 236 pilotos durante el ...",
+        "url": "https://www.researchgate.net/publication/400580987_Analisis_de_los_efectos_de_la_hipoxia_en_236_pilotos_durante_el_entrenamiento_fisiologico_en_camara_hipobarica",
+        "rank": 6,
+        "score": 0.347205
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-firecrawl-europe",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "objective": "Locate national-program reports of decompression sickness or reported chamber incidents in aviation physiology training, including staff and trainee exposure counts where available.",
+      "query": "Dekompressionskrankheit Unterdruckkammer Höhenkammer Flugphysiologie Ausbildung Vorfälle Personal Probanden Luftwaffe OR accident décompression caisson hypobare entraînement aéronautique",
+      "limit": 9,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_visible_results",
+    "note": "Ranked web results. The service did not provide an index total.",
+    "records": [
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "title": "Investigation of a cluster of decompression sickness cases ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "rank": 1,
+        "source": "web"
+      },
+      {
+        "id": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+        "title": "altitude decompression sickness",
+        "url": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+        "rank": 2,
+        "source": "web"
+      },
+      {
+        "id": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+        "title": "Decompression Illness in United States Air Force - CORE Scholar",
+        "url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+        "rank": 3,
+        "source": "web"
+      },
+      {
+        "id": "https://www.youtube.com/watch?v=VTFK6TNuJQk",
+        "title": "13 - Decompression Sickness Treatment",
+        "url": "https://www.youtube.com/watch?v=VTFK6TNuJQk",
+        "rank": 4,
+        "source": "web"
+      },
+      {
+        "id": "https://www.omao.noaa.gov/sites/default/files/documents/Pathophysiology%20of%20Decompression.pdf",
+        "title": "Pathophysiology of Decompression.pdf",
+        "url": "https://www.omao.noaa.gov/sites/default/files/documents/Pathophysiology%20of%20Decompression.pdf",
+        "rank": 5,
+        "source": "web"
+      },
+      {
+        "id": "https://rosap.ntl.bts.gov/view/dot/12769",
+        "title": "Altitude-Induced Decompression Sickness - ROSA P",
+        "url": "https://rosap.ntl.bts.gov/view/dot/12769",
+        "rank": 6,
+        "source": "web"
+      },
+      {
+        "id": "https://skybrary.aero/sites/default/files/bookshelf/1269.pdf",
+        "title": "Cabin Decompression Awareness",
+        "url": "https://skybrary.aero/sites/default/files/bookshelf/1269.pdf",
+        "rank": 7,
+        "source": "web"
+      },
+      {
+        "id": "https://sm4.global-aero.com/articles/decompression-illness-following-explosive-cabin-depressurization/",
+        "title": "Decompression Illness Following Explosive Cabin Depressurization",
+        "url": "https://sm4.global-aero.com/articles/decompression-illness-following-explosive-cabin-depressurization/",
+        "rank": 8,
+        "source": "web"
+      },
+      {
+        "id": "https://mail.uhms.org/images/DCS-and-AGE-Journal-Watch/jersey_u-2_pilot_aviat_space.pdf",
+        "title": "Severe Neurological Decompression Sickness in a U-2 Pilot",
+        "url": "https://mail.uhms.org/images/DCS-and-AGE-Journal-Watch/jersey_u-2_pilot_aviat_space.pdf",
+        "rank": 9,
+        "source": "web"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-firecrawl-aguirre",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "objective": "Locate national-program reports of decompression sickness or reported chamber incidents in aviation physiology training, including staff and trainee exposure counts where available.",
+      "query": "\"Incidentes fisiológicos durante entrenamiento en cámara hipobárica\" Aguirre 1992 \"lil-207282\" revista datos",
+      "limit": 8,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "The restricted title and accession query returned no web records.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-regional-firecrawl-thesis-verified",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify the CiNii catalogue metadata and find an open abstract or manuscript for Ohrui's 2004 JASDF hypobaric training dissertation.",
+      "url": "https://cir.nii.ac.jp/crid/1920020910002897920",
+      "formats": [
+        "markdown",
+        "links"
+      ],
+      "timeout": 14000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "catalogue_metadata_verified",
+    "note": "Public catalogue read successfully. HTTP 200. The retrieved entry did not supply an online manuscript.",
+    "records": [
+      {
+        "id": "1920020910002897920",
+        "url": "https://cir.nii.ac.jp/crid/1920020910002897920",
+        "title": "Physiological incidents of hypobaric chamber training for aircrew and characteristics of peptic ulcer in pilots in the Japan Air Self Defense Force",
+        "year": 2004,
+        "authors": [
+          "Nobuhiro Ohrui"
+        ],
+        "original_title": "航空自衛隊における航空機搭乗員の低圧訓練による生理学的障害及びパイロットの消化性潰瘍の特性",
+        "work_type": "doctoral thesis",
+        "institution": "Azabu University",
+        "degree_granted_date": "2004-10-20",
+        "nii_article_id": "500000282229",
+        "cinii_crid": "1920020910002897920",
+        "ndl_bib_id": "000007648028",
+        "ndl_call_number": "UT51-2004-R276",
+        "role_review": "full_text_and_cohort_overlap_pending",
+        "evidence_note": "The catalogues identify Ohrui, the Japan Air Self-Defense Force training subject, and the doctoral award. The inspected records did not supply outcome data, exact periods, or online full text."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-firecrawl-thesis-ndl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Check Japan National Diet Library catalogue for public online access to Ohrui's Azabu University dissertation including an abstract or digitized text.",
+      "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000007648028",
+      "formats": [
+        "markdown",
+        "links"
+      ],
+      "timeout": 16000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "catalogue_metadata_verified",
+    "note": "Public catalogue read successfully. HTTP 200. The retrieved entry did not supply an online manuscript.",
+    "records": [
+      {
+        "id": "000007648028",
+        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000007648028",
+        "title": "Physiological incidents of hypobaric chamber training for aircrew and characteristics of peptic ulcer in pilots in the Japan Air Self Defense Force",
+        "year": 2004,
+        "authors": [
+          "Nobuhiro Ohrui"
+        ],
+        "original_title": "航空自衛隊における航空機搭乗員の低圧訓練による生理学的障害及びパイロットの消化性潰瘍の特性",
+        "work_type": "doctoral thesis",
+        "institution": "Azabu University",
+        "degree_granted_date": "2004-10-20",
+        "nii_article_id": "500000282229",
+        "cinii_crid": "1920020910002897920",
+        "ndl_bib_id": "000007648028",
+        "ndl_call_number": "UT51-2004-R276",
+        "role_review": "full_text_and_cohort_overlap_pending",
+        "evidence_note": "The catalogues identify Ohrui, the Japan Air Self-Defense Force training subject, and the doctoral award. The inspected records did not supply outcome data, exact periods, or online full text."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-firecrawl-thesis",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify bibliographic details and locate an open abstract or manuscript for the Japanese Air Self Defense Force hypobaric chamber doctoral thesis.",
+      "url": "https://cir.nii.ac.jp/crid/1110564260227603968",
+      "formats": [
+        "markdown",
+        "links"
+      ],
+      "timeout": 15000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_text_unavailable",
+    "note": "The candidate catalogue route resolved to an unrelated dissertation. The verified CiNii record was obtained separately.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-regional-firecrawl-japan",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify the original JASDF physiological incidents article, especially trainee exposure denominator and cases requiring hyperbaric treatment.",
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/4/article-p395.pdf",
+      "formats": [
+        "markdown"
+      ],
+      "parsers": [
+        "pdf"
+      ],
+      "timeout": 20000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_text_unavailable",
+    "note": "The publisher returned a 4-page PDF. Firecrawl extracted only the publisher watermark. The tables were verified separately against the downloaded publisher file.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-regional-firecrawl-jordan",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "source_followup",
+    "params": {
+      "objective": "Verify the original Jordan trainee chamber study and its complete enumeration of physiological reactions in Tables I and II.",
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/9/article-p882.pdf",
+      "formats": [
+        "markdown"
+      ],
+      "parsers": [
+        "pdf"
+      ],
+      "timeout": 18000,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_text_unavailable",
+    "note": "The publisher returned a 3-page PDF. Firecrawl extracted only the publisher watermark. The tables were verified separately against the downloaded publisher file.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-regional-openalex-international-cohorts",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_works_search",
+    "params": {
+      "query": "(\"physiological incidents\" OR \"decompression sickness\" OR \"adverse effects\") AND (\"hypobaric chamber training\" OR \"altitude chamber training\") AND (Korea OR Taiwan OR Japan OR Switzerland OR Sweden OR Germany OR Spain OR Chile)",
+      "per_page": 25,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 26,
+    "status": "observed_visible_results",
+    "note": "Page 1, with 25 records returned from 26 index matches.",
+    "records": [
+      {
+        "id": "W36271899",
+        "title": "Physiological incidents during 39 years of hypobaric chamber training in Japan.",
+        "openalex_id": "W36271899",
+        "year": 2002,
+        "pmid": "11952064",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11952064",
+        "rank": 1,
+        "authors": [
+          "Nobuhiro Ohrui",
+          "Akihiko Takeuchi",
+          "Andrew Tong",
+          "Masami Ohuchi",
+          "Masashi Iwata"
+        ],
+        "source": "PubMed",
+        "type": "article",
+        "cited_by_count": 16
+      },
+      {
+        "id": "W2286393360",
+        "title": "Physiological incidents of hypobaric chamber training for aircrew and characteristics of peptic ulcer in pilots in the Japan Air Self Defense Force",
+        "openalex_id": "W2286393360",
+        "year": 2004,
+        "url": "http://ci.nii.ac.jp/naid/500000282229",
+        "rank": 2,
+        "authors": [
+          "伸浩 大類"
+        ],
+        "type": "dissertation",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3124638093",
+        "title": "European position paper on the management of patients with patent foramen ovale. Part II - Decompression sickness, migraine, arterial deoxygenation syndromes and select high-risk clinical conditions",
+        "openalex_id": "W3124638093",
+        "year": 2021,
+        "doi": "https://doi.org/10.4244/eij-d-20-00785",
+        "url": "https://doi.org/10.4244/eij-d-20-00785",
+        "rank": 3,
+        "authors": [
+          "Christian Pristipino",
+          "Peter Germonpré",
+          "Danilo Toni",
+          "Horst Sievert",
+          "Bernhard Meier"
+        ],
+        "source": "EuroIntervention",
+        "type": "article",
+        "cited_by_count": 40
+      },
+      {
+        "id": "W1998597377",
+        "title": "Ear Pain and Its Treatment in Hypobaric Chamber Training in the Japan Air Self-Defense Force",
+        "openalex_id": "W1998597377",
+        "year": 2008,
+        "doi": "https://doi.org/10.1097/mao.0b013e31816c7c59",
+        "url": "https://doi.org/10.1097/mao.0b013e31816c7c59",
+        "rank": 4,
+        "authors": [
+          "Nobuhiro Ohrui",
+          "Akihiko Takeuchi",
+          "Andrew Tong",
+          "Masashi Iwata"
+        ],
+        "source": "Otology & Neurotology",
+        "type": "article",
+        "cited_by_count": 3
+      },
+      {
+        "id": "W1967417765",
+        "title": "Allergic rhinitis and ear pain in flight",
+        "openalex_id": "W1967417765",
+        "year": 2005,
+        "doi": "https://doi.org/10.1016/s1081-1206(10)61153-2",
+        "url": "https://doi.org/10.1016/s1081-1206(10)61153-2",
+        "rank": 5,
+        "authors": [
+          "Nobuhiro Ohrui",
+          "Akihiko Takeuchi",
+          "Andrew Tong",
+          "Masashi Iwata",
+          "Akio Nakamura"
+        ],
+        "source": "Annals of Allergy Asthma & Immunology",
+        "type": "article",
+        "cited_by_count": 10
+      },
+      {
+        "id": "W7140306506",
+        "title": "Oxidative stress response to simulated altitude training: a longitudinal study of the biomarker variation and the contributing factors",
+        "openalex_id": "W7140306506",
+        "year": 2026,
+        "doi": "https://doi.org/10.1136/military-2025-003189",
+        "url": "https://doi.org/10.1136/military-2025-003189",
+        "rank": 6,
+        "authors": [
+          "Yen-Chiao Huang",
+          "Sheng-Tang Wu",
+          "Chia-Tung Liao",
+          "Wun-Wei Huang",
+          "Hsin Chu"
+        ],
+        "source": "BMJ Military Health",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W1963700883",
+        "title": "Cognitive responses to hypobaric hypoxia: implications for aviation training",
+        "openalex_id": "W1963700883",
+        "year": 2014,
+        "doi": "https://doi.org/10.2147/prbm.s51844",
+        "url": "https://doi.org/10.2147/prbm.s51844",
+        "rank": 7,
+        "authors": [
+          "Christopher Neuhaus",
+          "Jochen Hinkelbein"
+        ],
+        "source": "Psychology Research and Behavior Management",
+        "type": "article",
+        "cited_by_count": 68
+      },
+      {
+        "id": "W4412025500",
+        "title": "The malleability of air travelers hypobaric hypoxia symptoms observed among repeated exposures: systematic review",
+        "openalex_id": "W4412025500",
+        "year": 2025,
+        "doi": "https://doi.org/10.54022/shsv6n3-004",
+        "url": "https://doi.org/10.54022/shsv6n3-004",
+        "rank": 8,
+        "authors": [
+          "Danielle Filippo de Lemos",
+          "Adriano Percival Calderaro Calvo",
+          "Alexander Barreiros Cardoso Bomfim",
+          "Thiago Teixeira Guimarães"
+        ],
+        "source": "STUDIES IN HEALTH SCIENCES",
+        "type": "review",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4382010122",
+        "title": "The Importance of Periodic Oral and Dental Health Examination of Aircrew",
+        "openalex_id": "W4382010122",
+        "year": 2023,
+        "doi": "https://doi.org/10.30518/jav.1275421",
+        "url": "https://doi.org/10.30518/jav.1275421",
+        "rank": 9,
+        "authors": [
+          "Gürkan Raşit Bayar",
+          "Güneş SANAL",
+          "Şükrü Hakan Gündüz",
+          "Abdurrahman Engin DEMİR"
+        ],
+        "source": "Journal of Aviation",
+        "type": "article",
+        "cited_by_count": 6
+      },
+      {
+        "id": "W4396563962",
+        "title": "Barodontalgia and its implications for Navy divers and dentists: A narrative review",
+        "openalex_id": "W4396563962",
+        "year": 2024,
+        "doi": "https://doi.org/10.4317/jced.61619",
+        "url": "https://doi.org/10.4317/jced.61619",
+        "rank": 10,
+        "authors": [
+          "J. García-Torres",
+          "Juan José Segura-Egea"
+        ],
+        "source": "Journal of Clinical and Experimental Dentistry",
+        "type": "review",
+        "cited_by_count": 7
+      },
+      {
+        "id": "W7215573584",
+        "title": "Normobaric hypoxia training in military aviation",
+        "openalex_id": "W7215573584",
+        "year": 2024,
+        "url": "http://urn.fi/URN:ISBN:978-952-61-5425-1",
+        "rank": 11,
+        "authors": [
+          "Antti M. Leinonen"
+        ],
+        "source": "UEF eRepo (University of Eastern Finland)",
+        "type": "dissertation",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2804855639",
+        "title": "Increased System Fidelity for Navy Aviation Hypoxia Training",
+        "openalex_id": "W2804855639",
+        "year": 2017,
+        "url": "https://commons.erau.edu/publication/697",
+        "rank": 12,
+        "authors": [
+          "Beth F. Wheeler Atkinson",
+          "Janet Marnane",
+          "Daniel L Immeker",
+          "Jonathan Reeh",
+          "John Zbranek"
+        ],
+        "source": "Scholarly Commons (Embry–Riddle Aeronautical University)",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3088460201",
+        "title": "Comparison of hypobaric hypoxia symptoms between a recalled exposure and a current exposure",
+        "openalex_id": "W3088460201",
+        "year": 2020,
+        "doi": "https://doi.org/10.1371/journal.pone.0239194",
+        "url": "https://doi.org/10.1371/journal.pone.0239194",
+        "rank": 13,
+        "authors": [
+          "Min‐Yu Tu",
+          "Kwo-Tsao Chiang",
+          "Chao-Chien Cheng",
+          "Fang‐Ling Li",
+          "Yu-His Wen"
+        ],
+        "source": "PLoS ONE",
+        "type": "article",
+        "cited_by_count": 32
+      },
+      {
+        "id": "W3032095815",
+        "title": "Aerospace Medicine and Biology: A continuing bibliography with indexes (supplement 290)",
+        "openalex_id": "W3032095815",
+        "year": 2019,
+        "url": "http://hdl.handle.net/2060/19870003692",
+        "rank": 14,
+        "authors": [
+          "nasa"
+        ],
+        "source": "NASA STI Repository (National Aeronautics and Space Administration)",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3100074180",
+        "title": "Rare pulmonary barotrauma after explosive decompression: a case report",
+        "openalex_id": "W3100074180",
+        "year": 2020,
+        "doi": "https://doi.org/10.1186/s12890-020-01321-5",
+        "url": "https://doi.org/10.1186/s12890-020-01321-5",
+        "rank": 15,
+        "authors": [
+          "Jakub Tlapák",
+          "Boris Oniščenko",
+          "Petr Došel",
+          "Pavel Požár",
+          "Petr Chmátal"
+        ],
+        "source": "BMC Pulmonary Medicine",
+        "type": "article",
+        "cited_by_count": 5
+      },
+      {
+        "id": "W621537098",
+        "title": "Vascular reactivity and biomarkers of endothelial function in healthy subjects exposed to acute hypobaric hypoxia",
+        "openalex_id": "W621537098",
+        "year": 2015,
+        "doi": "https://doi.org/10.1016/j.clinbiochem.2015.06.007",
+        "url": "https://doi.org/10.1016/j.clinbiochem.2015.06.007",
+        "rank": 16,
+        "authors": [
+          "Diego E. Iglesias",
+          "Leonardo Adrián Gomez Rosso",
+          "Nora E. Vainstein",
+          "Tomás Meroño",
+          "Christian Esteban Lezón"
+        ],
+        "source": "Clinical Biochemistry",
+        "type": "article",
+        "cited_by_count": 24
+      },
+      {
+        "id": "W7162995450",
+        "title": "Incidencia de enfermedad descompresiva tipo II en entrenamiento hipobárico y evaluación de cámara hiperbárica monoplaza",
+        "openalex_id": "W7162995450",
+        "year": 2025,
+        "doi": "https://doi.org/10.25062/9786287818279.12",
+        "url": "https://doi.org/10.25062/9786287818279.12",
+        "rank": 17,
+        "authors": [
+          "César Arnaldo Olaya Santamaria"
+        ],
+        "type": "book-chapter",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4240382202",
+        "title": "Abstracts of current literature",
+        "openalex_id": "W4240382202",
+        "year": 2003,
+        "doi": "https://doi.org/10.1580/1080-6032(2003)014[0059:aocl]2.0.co;2",
+        "url": "https://doi.org/10.1580/1080-6032(2003)014[0059:aocl]2.0.co;2",
+        "rank": 18,
+        "authors": [],
+        "source": "Wilderness and Environmental Medicine",
+        "type": "conference-abstract",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4308571558",
+        "title": "Characterizing candidate decompression rates for hypobaric hypoxic stunning of pigs. Part 2: Pathological consequences",
+        "openalex_id": "W4308571558",
+        "year": 2022,
+        "doi": "https://doi.org/10.3389/fvets.2022.1027883",
+        "url": "https://doi.org/10.3389/fvets.2022.1027883",
+        "rank": 19,
+        "authors": [
+          "Emma Baxter",
+          "Dorothy E. F. McKeegan",
+          "Marianne Farish",
+          "Jill R. Thomson",
+          "Richard Eddie Clutton"
+        ],
+        "source": "Frontiers in Veterinary Science",
+        "type": "article",
+        "cited_by_count": 6
+      },
+      {
+        "id": "W4404821765",
+        "title": "Meniere’s Disease in Flight Crew",
+        "openalex_id": "W4404821765",
+        "year": 2024,
+        "doi": "https://doi.org/10.47363/jmcn/2024(5)192",
+        "url": "https://doi.org/10.47363/jmcn/2024(5)192",
+        "rank": 20,
+        "authors": [
+          "Dragana Dragic Ranisavljevic"
+        ],
+        "source": "Journal of Medical & Clinical Nursing",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W1787746916",
+        "title": "Erratum zu „Aerosinusitis –Teil 1: Grundlagen, Pathophysiologie und Prophylaxe“",
+        "openalex_id": "W1787746916",
+        "year": 2014,
+        "doi": "https://doi.org/10.1007/s00106-014-2860-2",
+        "url": "https://doi.org/10.1007/s00106-014-2860-2",
+        "rank": 21,
+        "authors": [
+          "Rainer K. Weber",
+          "Thomas Kühnel",
+          "J. Graf",
+          "Werner G Hosemann"
+        ],
+        "source": "HNO",
+        "type": "erratum",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3108774230",
+        "title": "Bombarderos en picado (1941): un modelo de estudio de la fisiología de la aviación",
+        "openalex_id": "W3108774230",
+        "year": 2020,
+        "doi": "https://doi.org/10.14201/rmc2020164261277",
+        "url": "https://doi.org/10.14201/rmc2020164261277",
+        "rank": 22,
+        "authors": [
+          "Germán Domínguez-Vías"
+        ],
+        "source": "Revista de Medicina y Cine",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W1880873052",
+        "title": "Civilian Training in High-Altitude Flight Physiology",
+        "openalex_id": "W1880873052",
+        "year": 1991,
+        "url": "https://rosap.ntl.bts.gov/view/dot/8626",
+        "rank": 23,
+        "authors": [
+          "John W. Turner",
+          "Stephen Huntley"
+        ],
+        "source": "ROSA P",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W7155565319",
+        "title": "Advancements and challenges in the management of chronic inducible urticaria",
+        "openalex_id": "W7155565319",
+        "year": 2026,
+        "doi": "https://doi.org/10.3389/fimmu.2026.1747542",
+        "url": "https://doi.org/10.3389/fimmu.2026.1747542",
+        "rank": 24,
+        "authors": [
+          "Menghao Zhang",
+          "Juan Liu",
+          "Yuxiang Zhi"
+        ],
+        "source": "Frontiers in Immunology",
+        "type": "review",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W939629322",
+        "title": "The organism and the habitation atmosphere",
+        "openalex_id": "W939629322",
+        "year": 1978,
+        "url": "http://hdl.handle.net/2060/19790004514",
+        "rank": 25,
+        "authors": [
+          "N. A. Agadzhanyan"
+        ],
+        "source": "NASA STI Repository (National Aeronautics and Space Administration)",
+        "type": "article",
+        "cited_by_count": 0
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-openalex-international-tail",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_works_search",
+    "params": {
+      "query": "(\"physiological incidents\" OR \"decompression sickness\" OR \"adverse effects\") AND (\"hypobaric chamber training\" OR \"altitude chamber training\") AND (Korea OR Taiwan OR Japan OR Switzerland OR Sweden OR Germany OR Spain OR Chile)",
+      "per_page": 25,
+      "page": 2,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 26,
+    "status": "observed_visible_results",
+    "note": "Page 2, with 1 records returned from 26 index matches.",
+    "records": [
+      {
+        "id": "W4411776220",
+        "title": "Differential effects of chronic intermittent hypobaric hypoxia on healthy and metabolic syndrome mice through liver tissue proteomic analysis",
+        "openalex_id": "W4411776220",
+        "year": 2025,
+        "doi": "https://doi.org/10.2306/scienceasia1513-1874.2025.054",
+        "url": "https://doi.org/10.2306/scienceasia1513-1874.2025.054",
+        "rank": 26,
+        "authors": [
+          "Cheng Wang",
+          "Wei Zhang",
+          "Dong-Hai Zhao",
+          "Pengyan Ji",
+          "Ying Chang"
+        ],
+        "source": "ScienceAsia",
+        "type": "article",
+        "cited_by_count": 0
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-openalex-ohrui-search",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_works_search",
+    "params": {
+      "query": "Physiological incidents during 39 years of hypobaric chamber training in Japan",
+      "exact_phrase": true,
+      "per_page": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed_visible_results",
+    "note": "Page 1, with 8 records returned from 8 index matches.",
+    "records": [
+      {
+        "id": "W36271899",
+        "title": "Physiological incidents during 39 years of hypobaric chamber training in Japan.",
+        "openalex_id": "W36271899",
+        "year": 2002,
+        "pmid": "11952064",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11952064",
+        "rank": 1,
+        "authors": [
+          "Nobuhiro Ohrui",
+          "Akihiko Takeuchi",
+          "Andrew Tong",
+          "Masami Ohuchi",
+          "Masashi Iwata"
+        ],
+        "source": "PubMed",
+        "type": "article",
+        "cited_by_count": 16
+      },
+      {
+        "id": "W1963700883",
+        "title": "Cognitive responses to hypobaric hypoxia: implications for aviation training",
+        "openalex_id": "W1963700883",
+        "year": 2014,
+        "doi": "https://doi.org/10.2147/prbm.s51844",
+        "url": "https://doi.org/10.2147/prbm.s51844",
+        "rank": 2,
+        "authors": [
+          "Christopher Neuhaus",
+          "Jochen Hinkelbein"
+        ],
+        "source": "Psychology Research and Behavior Management",
+        "type": "article",
+        "cited_by_count": 68
+      },
+      {
+        "id": "W4396563962",
+        "title": "Barodontalgia and its implications for Navy divers and dentists: A narrative review",
+        "openalex_id": "W4396563962",
+        "year": 2024,
+        "doi": "https://doi.org/10.4317/jced.61619",
+        "url": "https://doi.org/10.4317/jced.61619",
+        "rank": 3,
+        "authors": [
+          "J. García-Torres",
+          "Juan José Segura-Egea"
+        ],
+        "source": "Journal of Clinical and Experimental Dentistry",
+        "type": "review",
+        "cited_by_count": 7
+      },
+      {
+        "id": "W621537098",
+        "title": "Vascular reactivity and biomarkers of endothelial function in healthy subjects exposed to acute hypobaric hypoxia",
+        "openalex_id": "W621537098",
+        "year": 2015,
+        "doi": "https://doi.org/10.1016/j.clinbiochem.2015.06.007",
+        "url": "https://doi.org/10.1016/j.clinbiochem.2015.06.007",
+        "rank": 4,
+        "authors": [
+          "Diego E. Iglesias",
+          "Leonardo Adrián Gomez Rosso",
+          "Nora E. Vainstein",
+          "Tomás Meroño",
+          "Christian Esteban Lezón"
+        ],
+        "source": "Clinical Biochemistry",
+        "type": "article",
+        "cited_by_count": 24
+      },
+      {
+        "id": "W1787746916",
+        "title": "Erratum zu „Aerosinusitis –Teil 1: Grundlagen, Pathophysiologie und Prophylaxe“",
+        "openalex_id": "W1787746916",
+        "year": 2014,
+        "doi": "https://doi.org/10.1007/s00106-014-2860-2",
+        "url": "https://doi.org/10.1007/s00106-014-2860-2",
+        "rank": 5,
+        "authors": [
+          "Rainer K. Weber",
+          "Thomas Kühnel",
+          "J. Graf",
+          "Werner G Hosemann"
+        ],
+        "source": "HNO",
+        "type": "erratum",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2804855639",
+        "title": "Increased System Fidelity for Navy Aviation Hypoxia Training",
+        "openalex_id": "W2804855639",
+        "year": 2017,
+        "url": "https://commons.erau.edu/publication/697",
+        "rank": 6,
+        "authors": [
+          "Beth F. Wheeler Atkinson",
+          "Janet Marnane",
+          "Daniel L Immeker",
+          "Jonathan Reeh",
+          "John Zbranek"
+        ],
+        "source": "Scholarly Commons (Embry–Riddle Aeronautical University)",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W3124638093",
+        "title": "European position paper on the management of patients with patent foramen ovale. Part II - Decompression sickness, migraine, arterial deoxygenation syndromes and select high-risk clinical conditions",
+        "openalex_id": "W3124638093",
+        "year": 2021,
+        "doi": "https://doi.org/10.4244/eij-d-20-00785",
+        "url": "https://doi.org/10.4244/eij-d-20-00785",
+        "rank": 7,
+        "authors": [
+          "Christian Pristipino",
+          "Peter Germonpré",
+          "Danilo Toni",
+          "Horst Sievert",
+          "Bernhard Meier"
+        ],
+        "source": "EuroIntervention",
+        "type": "article",
+        "cited_by_count": 40
+      },
+      {
+        "id": "W7215573584",
+        "title": "Normobaric hypoxia training in military aviation",
+        "openalex_id": "W7215573584",
+        "year": 2024,
+        "url": "http://urn.fi/URN:ISBN:978-952-61-5425-1",
+        "rank": 8,
+        "authors": [
+          "Antti M. Leinonen"
+        ],
+        "source": "UEF eRepo (University of Eastern Finland)",
+        "type": "dissertation",
+        "cited_by_count": 0
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-openalex-ohrui-cross",
+    "date": "2026-11-20",
+    "provider": "OpenAlex",
+    "operation": "supplementary_forward_citation_search",
+    "params": {
+      "id": "W36271899",
+      "per_page": 25,
+      "page": 1,
+      "sort": "publication_year",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 16,
+    "status": "observed_visible_results",
+    "note": "All 16 indexed forward citations of Ohrui et al. (2002) were retrieved.",
+    "records": [
+      {
+        "id": "W7167018037",
+        "title": "Middle Ear and Sinus Barotraumas of Military Pilots in Finland",
+        "openalex_id": "W7167018037",
+        "year": 2026,
+        "doi": "https://doi.org/10.3357/amhp.6899.2026",
+        "url": "https://doi.org/10.3357/amhp.6899.2026",
+        "rank": 1,
+        "authors": [
+          "Oskari H. Lindfors",
+          "Tuomo K. Leino",
+          "Matti Mäntysaari",
+          "Saku Tapani Sinkkonen"
+        ],
+        "source": "Aerospace Medicine and Human Performance",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4405346493",
+        "title": "Recent Research on Anti-G Suit for Fighter Pilots",
+        "openalex_id": "W4405346493",
+        "year": 2024,
+        "doi": "https://doi.org/10.2174/0118722121316059240815060549",
+        "url": "https://doi.org/10.2174/0118722121316059240815060549",
+        "rank": 2,
+        "authors": [
+          "Hongbo Liu",
+          "Y. Li",
+          "Xiaodong Yang"
+        ],
+        "source": "Recent Patents on Engineering",
+        "type": "article",
+        "cited_by_count": 3
+      },
+      {
+        "id": "W7215573584",
+        "title": "Normobaric hypoxia training in military aviation",
+        "openalex_id": "W7215573584",
+        "year": 2024,
+        "url": "http://urn.fi/URN:ISBN:978-952-61-5425-1",
+        "rank": 3,
+        "authors": [
+          "Antti M. Leinonen"
+        ],
+        "source": "UEF eRepo (University of Eastern Finland)",
+        "type": "dissertation",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W4396563962",
+        "title": "Barodontalgia and its implications for Navy divers and dentists: A narrative review",
+        "openalex_id": "W4396563962",
+        "year": 2024,
+        "doi": "https://doi.org/10.4317/jced.61619",
+        "url": "https://doi.org/10.4317/jced.61619",
+        "rank": 4,
+        "authors": [
+          "J. García-Torres",
+          "Juan José Segura-Egea"
+        ],
+        "source": "Journal of Clinical and Experimental Dentistry",
+        "type": "review",
+        "cited_by_count": 7
+      },
+      {
+        "id": "W4307844695",
+        "title": "Mitigating Risks of Altitude Chamber Training",
+        "openalex_id": "W4307844695",
+        "year": 2022,
+        "doi": "https://doi.org/10.3357/amhp.6048.2022",
+        "url": "https://doi.org/10.3357/amhp.6048.2022",
+        "rank": 5,
+        "authors": [
+          "Idan Nakdimon",
+          "Oded Ben‐Ari"
+        ],
+        "source": "Aerospace Medicine and Human Performance",
+        "type": "article",
+        "cited_by_count": 3
+      },
+      {
+        "id": "W3124638093",
+        "title": "European position paper on the management of patients with patent foramen ovale. Part II - Decompression sickness, migraine, arterial deoxygenation syndromes and select high-risk clinical conditions",
+        "openalex_id": "W3124638093",
+        "year": 2021,
+        "doi": "https://doi.org/10.4244/eij-d-20-00785",
+        "url": "https://doi.org/10.4244/eij-d-20-00785",
+        "rank": 6,
+        "authors": [
+          "Christian Pristipino",
+          "Peter Germonpré",
+          "Danilo Toni",
+          "Horst Sievert",
+          "Bernhard Meier"
+        ],
+        "source": "EuroIntervention",
+        "type": "article",
+        "cited_by_count": 40
+      },
+      {
+        "id": "W3089889292",
+        "title": "Psychophysiological Responses of Pilots in Hypoxia Training at 7000 and 7500 m",
+        "openalex_id": "W3089889292",
+        "year": 2020,
+        "doi": "https://doi.org/10.3357/amhp.5634.2020",
+        "url": "https://doi.org/10.3357/amhp.5634.2020",
+        "rank": 7,
+        "authors": [
+          "Dongqing Wen",
+          "Lei Tu",
+          "Guiyou Wang",
+          "Zhao Gu",
+          "Weiru Shi"
+        ],
+        "source": "Aerospace Medicine and Human Performance",
+        "type": "article",
+        "cited_by_count": 2
+      },
+      {
+        "id": "W2987034851",
+        "title": "A paradigm approach toward predicting barotrauma",
+        "openalex_id": "W2987034851",
+        "year": 2019,
+        "doi": "https://doi.org/10.25259/ijasm_2019_9",
+        "url": "https://doi.org/10.25259/ijasm_2019_9",
+        "rank": 8,
+        "authors": [
+          "V Raghunandan",
+          "Mohapatra Ss"
+        ],
+        "source": "Indian Journal of Aerospace Medicine",
+        "type": "article",
+        "cited_by_count": 1
+      },
+      {
+        "id": "W2804855639",
+        "title": "Increased System Fidelity for Navy Aviation Hypoxia Training",
+        "openalex_id": "W2804855639",
+        "year": 2017,
+        "url": "https://commons.erau.edu/publication/697",
+        "rank": 9,
+        "authors": [
+          "Beth F. Wheeler Atkinson",
+          "Janet Marnane",
+          "Daniel L Immeker",
+          "Jonathan Reeh",
+          "John Zbranek"
+        ],
+        "source": "Scholarly Commons (Embry–Riddle Aeronautical University)",
+        "type": "article",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W621537098",
+        "title": "Vascular reactivity and biomarkers of endothelial function in healthy subjects exposed to acute hypobaric hypoxia",
+        "openalex_id": "W621537098",
+        "year": 2015,
+        "doi": "https://doi.org/10.1016/j.clinbiochem.2015.06.007",
+        "url": "https://doi.org/10.1016/j.clinbiochem.2015.06.007",
+        "rank": 10,
+        "authors": [
+          "Diego E. Iglesias",
+          "Leonardo Adrián Gomez Rosso",
+          "Nora E. Vainstein",
+          "Tomás Meroño",
+          "Christian Esteban Lezón"
+        ],
+        "source": "Clinical Biochemistry",
+        "type": "article",
+        "cited_by_count": 24
+      },
+      {
+        "id": "W1963700883",
+        "title": "Cognitive responses to hypobaric hypoxia: implications for aviation training",
+        "openalex_id": "W1963700883",
+        "year": 2014,
+        "doi": "https://doi.org/10.2147/prbm.s51844",
+        "url": "https://doi.org/10.2147/prbm.s51844",
+        "rank": 11,
+        "authors": [
+          "Christopher Neuhaus",
+          "Jochen Hinkelbein"
+        ],
+        "source": "Psychology Research and Behavior Management",
+        "type": "article",
+        "cited_by_count": 68
+      },
+      {
+        "id": "W1787746916",
+        "title": "Erratum zu „Aerosinusitis –Teil 1: Grundlagen, Pathophysiologie und Prophylaxe“",
+        "openalex_id": "W1787746916",
+        "year": 2014,
+        "doi": "https://doi.org/10.1007/s00106-014-2860-2",
+        "url": "https://doi.org/10.1007/s00106-014-2860-2",
+        "rank": 12,
+        "authors": [
+          "Rainer K. Weber",
+          "Thomas Kühnel",
+          "J. Graf",
+          "Werner G Hosemann"
+        ],
+        "source": "HNO",
+        "type": "erratum",
+        "cited_by_count": 0
+      },
+      {
+        "id": "W2424316677",
+        "title": "Aerosinusitis: Teil 1: Grundlagen, Pathophysiologie und Prophylaxe",
+        "openalex_id": "W2424316677",
+        "year": 2013,
+        "doi": "https://doi.org/10.1007/s00106-013-2791-3",
+        "url": "https://doi.org/10.1007/s00106-013-2791-3",
+        "rank": 13,
+        "authors": [
+          "Rainer K. Weber",
+          "Thomas Kühnel",
+          "J. Graf",
+          "Werner G Hosemann"
+        ],
+        "source": "HNO",
+        "type": "review",
+        "cited_by_count": 7
+      },
+      {
+        "id": "W1998597377",
+        "title": "Ear Pain and Its Treatment in Hypobaric Chamber Training in the Japan Air Self-Defense Force",
+        "openalex_id": "W1998597377",
+        "year": 2008,
+        "doi": "https://doi.org/10.1097/mao.0b013e31816c7c59",
+        "url": "https://doi.org/10.1097/mao.0b013e31816c7c59",
+        "rank": 14,
+        "authors": [
+          "Nobuhiro Ohrui",
+          "Akihiko Takeuchi",
+          "Andrew Tong",
+          "Masashi Iwata"
+        ],
+        "source": "Otology & Neurotology",
+        "type": "article",
+        "cited_by_count": 3
+      },
+      {
+        "id": "W1967417765",
+        "title": "Allergic rhinitis and ear pain in flight",
+        "openalex_id": "W1967417765",
+        "year": 2005,
+        "doi": "https://doi.org/10.1016/s1081-1206(10)61153-2",
+        "url": "https://doi.org/10.1016/s1081-1206(10)61153-2",
+        "rank": 15,
+        "authors": [
+          "Nobuhiro Ohrui",
+          "Akihiko Takeuchi",
+          "Andrew Tong",
+          "Masashi Iwata",
+          "Akio Nakamura"
+        ],
+        "source": "Annals of Allergy Asthma & Immunology",
+        "type": "article",
+        "cited_by_count": 10
+      },
+      {
+        "id": "W2339570775",
+        "title": "Australian Defence Force hypobaric chamber training, 1984-2001",
+        "openalex_id": "W2339570775",
+        "year": 2004,
+        "url": "http://www.defence.gov.au/Health/infocentre/journals/ADFHJ_apr04/ADFHealth_5_1_03-10.pdf",
+        "rank": 16,
+        "authors": [
+          "Tracy L. Smart",
+          "Wing Commander"
+        ],
+        "type": "article",
+        "cited_by_count": 8
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-undermind-international",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "supplementary_semantic_search",
+    "params": {
+      "search_type": "semantic",
+      "limit": 20,
+      "offset": 0,
+      "detail_level": "standard",
+      "sample_abstract": "This report examined physiological incidents during routine hypobaric chamber flights for flight crew altitude training. Safety surveillance in an East Asian, Latin American or continental European programme reported the number of decompression sickness cases and the number of exposures, including inside observers and trainees.",
+      "workspace": "Altitude decompression physiology and AI evidence",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "provider_quota_limited",
+    "note": "The account's free search quota was exhausted. Undermind reported its reset at 2026-11-20 07:00 UTC. The search did not run.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-regional-undermind-ohrui-cites",
+    "date": "2026-11-20",
+    "provider": "Undermind",
+    "operation": "supplementary_forward_citation_search",
+    "params": {
+      "search_type": "citations",
+      "seed_papers": [
+        "Ohr02",
+        "Mor10",
+        "Nak22"
+      ],
+      "limit": 20,
+      "offset": 0,
+      "detail_level": "standard",
+      "sample_abstract": "Clinical adverse events from routine hypobaric training were counted by category, role and person-exposure. Primary surveillance in independent air force programs documents decompression sickness and includes student and inside chamber observer risks.",
+      "workspace": "Altitude decompression physiology and AI evidence",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "provider_quota_limited",
+    "note": "The account's free search quota was exhausted. Undermind reported its reset at 2026-11-20 07:00 UTC. The search did not run.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-regional-local-jasdf",
+    "date": "2026-11-20",
+    "provider": "Publisher full text",
+    "operation": "source_followup",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/4/article-p395.pdf",
+      "locator": "Table I, p. 396 and discussion p. 397",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_verified",
+    "note": "A publisher PDF was downloaded, and the zero treatment statement and exposure denominator were checked against a rendered page.",
+    "records": [
+      {
+        "id": "11952064",
+        "pmid": "11952064",
+        "title": "Physiological incidents during 39 years of hypobaric chamber training in Japan.",
+        "year": 2002,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/4/article-p395.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/4/article-p395.pdf#page=2",
+        "pdf_sha256": "a4b55407d8bded358245d60a4c916084247af69ba6c5af96ef640ed7d459052d",
+        "role_review": "trainee_only_treatment_endpoint",
+        "evidence_note": "The trainee joint-pain rate and fiscal-period Table I rates already appear in v1.1/ohrui02. The source separately states that no trainee required hyperbaric treatment. The article does not give an inside-staff risk set.",
+        "observations": [
+          {
+            "id": "jasdf-trainee-treated-all",
+            "study_id": "jasdf-1960-1998",
+            "endpoint": "hyperbaric_treated_altitude_dcs",
+            "group": "All trainees, fiscal 1960–1998",
+            "chamber_role": "trainee",
+            "cases": 0,
+            "denominator": 58454,
+            "denominator_unit": "trainee_exposures",
+            "locator": "Results and Table I, p. 396, and Discussion, p. 397",
+            "note": "The authors report that no trainee required hyperbaric chamber treatment. Mild joint-pain DCS occurred and resolved with controlled descent. Table I prints a rounded 0.05% joint-pain rate and 29,677 trainees. The rate-only observations for this cohort are archived in v1.1/ohrui02."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-regional-local-jordan",
+    "date": "2026-11-20",
+    "provider": "Publisher full text",
+    "operation": "source_followup",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/9/article-p882.pdf",
+      "locator": "Methods p. 882, Tables I and II p. 883, follow-up p. 884",
+      "discovery_seed": "PMID 11952064, reference 1, p. 398",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "source_verified",
+    "note": "Publisher full text and rendered Tables I and II verified. The study contains a trainee surveillance series.",
+    "records": [
+      {
+        "id": "9025808",
+        "pmid": "9025808",
+        "title": "Physiological training in Jordan.",
+        "year": 1996,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/9/article-p882.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/9/article-p882.pdf#page=2",
+        "pdf_sha256": "7f6772ba6893ed9970311e5b666c4ad4779defbc6141de6da4e34ba221e3c9da",
+        "role_review": "trainee_only_dcs_absent_from_complete_reaction_table",
+        "evidence_note": "The report covers 705 individuals and 43 documented reactions in 39 trainees. Tables I and II exhaust the recorded events. The methods classify mild and severe DCS as possible chamber reactions. The authors describe 48-hour follow-up and give no distinct count of completed follow-ups or staff exposures. Counts shown for the three individual training profiles may overlap.",
+        "observations": [
+          {
+            "id": "jordan-trainee-recorded-dcs",
+            "study_id": "jordan-1986-1994",
+            "endpoint": "recorded_symptomatic_dcs",
+            "group": "Trainees, February 1986 to February 1994",
+            "chamber_role": "trainee",
+            "cases": 0,
+            "denominator": 705,
+            "denominator_unit": "trainees",
+            "locator": "Methods, p. 882, Tables I and II, p. 883, and follow-up, p. 884",
+            "note": "Zero is derived from the complete published enumeration of reactions, which contains ear block, sinus block, hypoxia, epistaxis and hyperventilation. The authors did not print a separate DCS count. The denominator counts individuals."
+          },
+          {
+            "id": "jordan-trainee-any-reaction",
+            "study_id": "jordan-1986-1994",
+            "endpoint": "at_least_one_recorded_physiological_reaction",
+            "group": "Trainees, February 1986 to February 1994",
+            "chamber_role": "trainee",
+            "cases": 39,
+            "denominator": 705,
+            "denominator_unit": "trainees",
+            "reported_rate_percent": 5.5,
+            "locator": "Table II, p. 883",
+            "note": "Thirty-nine trainees experienced 43 documented reactions. This is an all-reaction context measure."
+          }
+        ]
+      }
+    ]
+  }
+]
