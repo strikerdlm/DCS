@@ -9869,6 +9869,78 @@
       "report_id": "pmid:889546",
       "basis": "The two publisher PDF URLs lead to the same 1977 journal article indexed by PMID 889546.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.70/sources.csv#hodgson68_operator_followup",
+      "report_id": "pmid:5658347",
+      "basis": "Publisher scan agrees with the existing PubMed-indexed 1968 follow-up.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/39/4/article-p417.pdf?download=1"
+    },
+    {
+      "record_key": "2026-11-20-hodgson-operator-primary-scan#5658347-full-text",
+      "report_id": "pmid:5658347",
+      "basis": "Publisher scan agrees with the existing PubMed-indexed 1968 follow-up.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/39/4/article-p417.pdf?download=1"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.70/sources.csv#heimbach76_usaf_hyperbaric",
+      "report_id": "report:ada036031",
+      "basis": "DTIC accession ADA036031 matches the printed Aeromedical Review 6-76 cover and authors.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf"
+    },
+    {
+      "record_key": "2026-11-20-heimbach-center-primary-scan#ada036031",
+      "report_id": "report:ada036031",
+      "basis": "DTIC accession ADA036031 matches the printed Aeromedical Review 6-76 cover and authors.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf"
+    },
+    {
+      "record_key": "2026-11-20-rapid-decompression-t-dosel#https://apps.dtic.mil/sti/pdfs/ADA036031.pdf",
+      "report_id": "report:ada036031",
+      "basis": "DTIC accession ADA036031 matches the printed Aeromedical Review 6-76 cover and authors.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.22/search_hits.csv#flight_v22_donnell:5",
+      "report_id": "report:ada036031",
+      "basis": "DTIC accession ADA036031 matches the printed Aeromedical Review 6-76 cover and authors.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_v27_q_aar:2",
+      "report_id": "report:ada036031",
+      "basis": "DTIC accession ADA036031 matches the printed Aeromedical Review 6-76 cover and authors.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_v27_q_ch:3",
+      "report_id": "report:ada036031",
+      "basis": "DTIC accession ADA036031 matches the printed Aeromedical Review 6-76 cover and authors.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf"
+    },
+    {
+      "record_key": "2026-11-20-davis-jama-publisher-abstract#4347745-publisher-abstract",
+      "report_id": "doi:10.1001/jama.1973.03220150019005",
+      "basis": "Publisher URL, DOI and PMID 4347745 identify the 1973 JAMA article.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/347678"
+    },
+    {
+      "record_key": "2026-11-20-roles-tavily-butler#https://jamanetwork.com/journals/jama/fullarticle/347678",
+      "report_id": "doi:10.1001/jama.1973.03220150019005",
+      "basis": "Publisher URL, DOI and PMID 4347745 identify the 1973 JAMA article.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/347678"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.21/search_hits.csv#prog_v21_good:1",
+      "report_id": "doi:10.1001/jama.1973.03220150019005",
+      "basis": "Publisher URL, DOI and PMID 4347745 identify the 1973 JAMA article.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/347678"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_v27_q_ch:4",
+      "report_id": "doi:10.1001/jama.1973.03220150019005",
+      "basis": "Publisher URL, DOI and PMID 4347745 identify the 1973 JAMA article.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/347678"
     }
   ],
   "studies": [
@@ -10555,6 +10627,18 @@
       "label": "Davis historical review of 145 treated altitude DCS referrals",
       "period": "Before 1977-01-01",
       "setting": "Military and civilian treatment facilities, selected chamber and aircraft referrals"
+    },
+    {
+      "study_id": "heimbach-usafsam-hyperbaric-center-first-year",
+      "label": "USAFSAM Hyperbaric Center first operating-year referrals",
+      "period": "First operating-year report through 1975-09-10, including earlier emergency referrals",
+      "setting": "Brooks USAFSAM hyperbaric center. Initial exposure settings unavailable."
+    },
+    {
+      "study_id": "heimbach-usaf-hyperbaric-treatment-network",
+      "label": "Earlier USAF persistent altitude DCS treatment summary",
+      "period": "Approximate decade discussed in 1976",
+      "setting": "Multiple USAF hyperbaric treatment chambers"
     }
   ],
   "study_reports": [
@@ -11607,6 +11691,18 @@
       "report_id": "pmid:889546",
       "role": "primary_selected_treatment_series",
       "locator": "Results and Tables I–VI, pp. 725–726"
+    },
+    {
+      "study_id": "heimbach-usafsam-hyperbaric-center-first-year",
+      "report_id": "report:ada036031",
+      "role": "primary_selected_treatment_series",
+      "locator": "Printed pp. 11–12, Table 2"
+    },
+    {
+      "study_id": "heimbach-usaf-hyperbaric-treatment-network",
+      "report_id": "report:ada036031",
+      "role": "primary_treatment_network_summary",
+      "locator": "Printed p. 4"
     }
   ],
   "relations": [
@@ -13758,6 +13854,20 @@
       "relationship": "possible_overlap_of_selected_cases",
       "evidence": "The 1977 case series cites Davis 1971 as reference 10 and says 19 sufficiently detailed cases from 22 previously reported by 1971 were included. The paper does not list those 19 case identifiers. The two original cases may be included in the 145 treated records. They predate the separate 1973–1976 training table.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1"
+    },
+    {
+      "left_report": "report:ada036031",
+      "right_report": "pmid:889546",
+      "relationship": "likely_overlapping_treated_case_series",
+      "evidence": "Heimbach pp. 4, 11–13 refer to USAF-treated cases and Brooks program activity before 1977. Davis 1977 cites this report at reference 22 and uses USAF treatment records through 1976. Dates and facilities overlap, and the reports supply no case linkage. Hold the narrower 1976 observations out of pooled counts with Davis Tables II and VIII.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf#page=18"
+    },
+    {
+      "left_report": "report:ada036031",
+      "right_report": "doi:10.1001/jama.1973.03220150019005",
+      "relationship": "cites_earlier_treatment_summary_overlap_unresolved",
+      "evidence": "Heimbach reference 6 cites Davis et al. 1973. The JAMA abstract reports a mixed-diagnosis referral total and does not identify the altitude case roster.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA036031/DTIC_ADA036031.pdf#page=27"
     }
   ],
   "report_titles": {
@@ -13823,6 +13933,7 @@
     "pmid:20247562": "Operation Everest; a study of acclimatization to anoxia",
     "record:2026-11-20-eds-training#kjur5ccdyv": "Test of pressure: Medical decision making in a case of altitude chamber DCS",
     "abstract:asma-2026-baker-188": "Decompression sickness in a Marine F-35C pilot: A case report",
-    "report:ad0658348": "Decompression Sickness in High-Altitude Flight"
+    "report:ad0658348": "Decompression Sickness in High-Altitude Flight",
+    "report:ada036031": "Hyperbaric Medicine in the U.S. Air Force"
   }
 }

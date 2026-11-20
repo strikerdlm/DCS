@@ -134,6 +134,7 @@ AVIATION_U2_HISTORY = ROOT / "data" / "chamber" / "v1.66"
 CHAMBER_NEUROLOGICAL_ARCHIVE = ROOT / "data" / "chamber" / "v1.67"
 AVIATION_LEWIS_ARCHIVE = ROOT / "data" / "chamber" / "v1.68"
 CHAMBER_DAVIS_CASES = ROOT / "data" / "chamber" / "v1.69"
+CHAMBER_OPERATOR_TREATMENT_ARCHIVE = ROOT / "data" / "chamber" / "v1.70"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1174,6 +1175,7 @@ def build(
                     create_schema=False,
                     extra_tables={"publication_case_milestone": "case_milestones.csv"},
                 )
+                load_supplement(db, CHAMBER_OPERATOR_TREATMENT_ARCHIVE, "publication", create_schema=False)
             if rojas_supplement:
                 load_supplement(
                     db, ROJAS_DATA, "rojas", extra_tables={"rojas_result": "results.csv"}

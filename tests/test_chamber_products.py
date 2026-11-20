@@ -306,6 +306,54 @@ def test_davis_case_crosswalk_and_hbo_endpoint(release):
         """).fetchone() == (0,)
 
 
+def test_operator_history_and_treatment_archive_keep_distinct_denominators(release):
+    with connect_pair(release) as db:
+        for pattern, expected in (("%-chamber-hours-%", 15), ("%-age-%", 9)):
+            assert db.execute("""
+                SELECT count(*),sum(numerator),sum(denominator)
+                FROM publication_observation
+                WHERE source_id='hodgson68_operator_followup' AND stratum LIKE ?
+                  AND analysis_role='overlapping_margin' AND denominator_unit='person'
+            """, (pattern,)).fetchone() == (expected, 107, 164)
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='hodgson68_operator_followup'
+              AND stratum='hodgson-1966-chamber-hours-not-given'
+        """).fetchone() == (5, 8)
+        assert db.execute("""
+            SELECT count(*),sum(numerator),min(denominator),max(denominator)
+            FROM publication_observation WHERE source_id='hodgson68_operator_followup'
+              AND endpoint='self_reported_episode_category' AND denominator_unit='symptom_report'
+        """).fetchone() == (5, 571, 571, 571)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='pmid:5658347' AND cases=107 AND denominator=164
+        """).fetchone() == (1,)
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.chamber_hours_conflict.table_i_above_20000_ft'),
+                   json_extract(metadata_json,'$.chamber_hours_conflict.table_v_sum')
+            FROM review.review_record WHERE source_key='5658347-full-text' AND report_id='pmid:5658347'
+        """).fetchone() == (27724, 27575)
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='heimbach76_usaf_hyperbaric'
+            ORDER BY stratum
+        """).fetchall() == [(11, 127, "treated_referral", "overlap_hold"),
+                             (11, 11, "treated_referral", "case_conditional"),
+                             (80, None, None, "overlap_hold")]
+        assert db.execute("""
+            SELECT left_report,right_report FROM review.review_report_relation
+            WHERE left_report='report:ada036031' AND relationship='likely_overlapping_treated_case_series'
+        """).fetchone() == ("report:ada036031", "pmid:889546")
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE url LIKE '%ADA036031.pdf'
+        """).fetchone() == (6, 1, "report:ada036031")
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id IN ('pmid:5658347','report:ada036031')
+        """).fetchone() == (0,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
