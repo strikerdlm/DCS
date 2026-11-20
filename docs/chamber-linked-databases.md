@@ -15,8 +15,8 @@ The two SQLite files can be queried independently. Each contains the same eviden
 From the repository root in the project Python environment, choose a new output directory for a changed release. Rebuilding identical contents in the same directory is supported.
 
 ```sh
-python -m scripts.chamber_products --output-dir artifacts/chamber-products/v1.40-reconciled
-python -m scripts.evaluate_chamber_benchmark --database artifacts/chamber-products/v1.40-reconciled/dcs-model.sqlite --output artifacts/chamber-products/evaluation-v1.40.json
+python -m scripts.chamber_products --output-dir artifacts/chamber-products/2026-11-20
+python -m scripts.evaluate_chamber_benchmark --database artifacts/chamber-products/2026-11-20/dcs-model.sqlite --output artifacts/chamber-products/evaluation-v1.40.json
 python -m pytest -q tests/test_chamber_products.py tests/test_publication_review.py tests/test_review_identity.py tests/test_observed_benchmark.py
 ```
 
@@ -25,7 +25,7 @@ The benchmark reads only the model file, its adjacent checksum manifest and the 
 ```python
 from scripts.chamber_products import connect_pair
 
-with connect_pair("artifacts/chamber-products/v1.40-reconciled") as db:
+with connect_pair("artifacts/chamber-products/2026-11-20") as db:
     for row in db.execute("""
         SELECT c.case_id, r.title, e.review_locator, e.extraction_locator
         FROM historical_case_catalog c
@@ -47,4 +47,4 @@ The historical catalog covers 103 numbered NASA cases and two explicitly cross-l
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 
-One example of deduplication is the Ata and Karaca chamber report. All 120 full- or truncated-title search occurrences in this release resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)
+One example of deduplication is the Ata and Karaca chamber report. All 121 full- or truncated-title search occurrences in this release resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)

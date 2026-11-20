@@ -560,11 +560,28 @@ def test_publication_register_build(tmp_path):
             "AND (relationship LIKE 'possible_%' OR relationship='same_program_denominator_discrepancy') "
             "ORDER BY left_report"
         ).fetchall() == [
+            ("abstract:ogata-jasdf-altitude-dcs-2000", "possible_overlap_with_historical_chamber_surveillance"),
             ("doi:10.1097/mao.0b013e31816c7c59", "same_program_denominator_discrepancy"),
             ("journal:watanabe-yamazaki-1964-amlr-5-4", "possible_overlapping_training_periods"),
             ("openalex:W2286393360", "possible_overlap"),
             ("pmid:9681378", "possible_overlap_case_membership_unverified"),
         ]
+        assert db.execute(
+            "SELECT endpoint,cases,denominator,denominator_unit,reported_rate_percent "
+            "FROM review_search_observation WHERE study_id LIKE 'jasdf-ogata-%' "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("bends_as_reported", 236, 30763, "trainee_count_as_reported", None),
+            ("neurologic_dcs_as_reported", 6, 30763, "trainee_count_as_reported", None),
+            ("skin_bends_as_reported", 1, 30763, "trainee_count_as_reported", None),
+            ("suspected_altitude_dcs", 243, 30763, "trainee_count_as_reported", 0.93),
+            ("reported_altitude_dcs", 12, 9668, "trainee_count_as_reported", 0.12),
+        ]
+        assert db.execute(
+            "SELECT relationship FROM review_report_relation "
+            "WHERE left_report='report:ogata-ide-kusano-jasdf-altitude-dcs-2001' "
+            "AND right_report='pmid:11952064'"
+        ).fetchone() == ("substantial_calendar_and_program_overlap_unresolved_case_linkage",)
         assert db.execute(
             "SELECT observation_id,endpoint,chamber_role,cases,denominator,denominator_unit "
             "FROM review_search_observation WHERE run_id LIKE '2026-11-20-rapid-decompression-%' "

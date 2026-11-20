@@ -2,6 +2,8 @@
 
 These rules apply across this repository when acquiring, extracting, reviewing or modeling hypobaric evidence. Both studies use the same versioned evidence inputs. Publish their analysis databases as a matched pair.
 
+Follow the existing [chamber review workflow](CONTRIBUTING.md#chamber-review-workflow) for the formal search, full-text rights, archive and publication checkpoints.
+
 ## Where to put a finding
 
 | Finding | Version-controlled destination | What to record |
