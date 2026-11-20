@@ -862,7 +862,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (116,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (118,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -889,7 +889,44 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (116,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (118,)
+
+
+def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role,prebreathe_min
+            FROM publication_observation
+            WHERE source_id='piwinski86_halo' AND endpoint='dcs' ORDER BY stratum
+        """).fetchall() == [
+            ("halo-profile-experience", 4, 27, "overlapping_margin", None),
+            ("single-halo-training-flight", 4, 9, "selected_cluster", 30),
+        ]
+        assert db.execute("""
+            SELECT case_number,printed_type,reported_onset_clock
+            FROM publication_piwinski_halo_case ORDER BY case_number
+        """).fetchall() == [(1, "II", "06:00"), (2, "I", None), (3, "II", "03:00"), (4, "II", None)]
+        assert db.execute("""
+            SELECT endpoint,sum(numerator),count(denominator) FROM publication_observation
+            WHERE source_id='neubauer88_pulmonary' AND stratum LIKE 'table-ii-19%'
+            GROUP BY endpoint ORDER BY endpoint
+        """).fetchall() == [("source_delayed_symptoms", 122, 0), ("source_inflight_symptoms", 64, 0)]
+        assert db.execute("""
+            SELECT p.numerator,p.denominator,p.analysis_role,r.reported_rate,r.reported_rate_unit
+            FROM publication_observation p JOIN review.review_search_observation r
+            ON r.report_id='pmid:3240220' AND r.observation_id=p.stratum
+            WHERE p.source_id='neubauer88_pulmonary' AND p.stratum='table-ii-student-total'
+        """).fetchone() == (186, 178305, "overlap_hold", 105, "cases per 100,000 student exposures")
+        assert db.execute("""
+            SELECT source_id,report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id IN ('neubauer88_pulmonary','usaf_aib_c17_2023') ORDER BY source_id
+        """).fetchall() == [
+            ("neubauer88_pulmonary", "pmid:3240220", None),
+            ("usaf_aib_c17_2023", "aib:usaf-c17-2023-08-21", None),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id='amc:3740477'
+        """).fetchone() == (0,)
 
 
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
@@ -905,7 +942,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (116, 116, 116)
+        """).fetchone() == (118, 118, 118)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence

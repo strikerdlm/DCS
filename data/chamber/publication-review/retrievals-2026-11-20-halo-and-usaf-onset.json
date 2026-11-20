@@ -1,0 +1,343 @@
+[
+  {
+    "id": "2026-11-20-halo-and-usaf-onset",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and publisher page verification",
+    "operation": "supplementary_chamber_and_flight_outcome_reconciliation",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        "Piwinski A blitz of bends 4/27 full study 3718386",
+        "Neubauer Dixon Herndon fatal pulmonary decompression sickness 3240220",
+        "USAF public C-17A aircraft accident investigation altitude decompression sickness 21 August 2023"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Publisher images establish nested HALO counts and overlapping USAF surveillance. The official investigation and its press release describe one flight case.",
+    "records": [
+      {
+        "id": "piwinski-1986-full",
+        "title": "A blitz of bends: decompression sickness in four students after hypobaric chamber training",
+        "pmid": "3718386",
+        "year": 1986,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/6/article-p600.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/6/article-p600.pdf",
+        "sha256": "529a33c35a24a5b3cd67b323df7058da8f0c0ed68cf61af33c5a6db6540072b0",
+        "locator": "Printed pp. 600–602, Case Histories, Figure 1 and Discussion",
+        "study_id": "fort-rucker-1985-halo-cluster",
+        "access": "full_text",
+        "case_rows": [
+          {
+            "source_id": "piwinski86_halo",
+            "stratum": "single-halo-training-flight",
+            "endpoint": "dcs",
+            "case_number": 1,
+            "reported_age_years": 36,
+            "printed_type": "II",
+            "onset_description": "Morning following the chamber flight, after attempting to equalize pressure.",
+            "reported_onset_clock": "06:00",
+            "symptoms": "Neck pain and right elbow paresthesias.",
+            "resolution": "Symptoms resolved after recompression except for focal sensory loss the authors considered pre-existing.",
+            "locator": "Printed p. 601, Case 1"
+          },
+          {
+            "source_id": "piwinski86_halo",
+            "stratum": "single-halo-training-flight",
+            "endpoint": "dcs",
+            "case_number": 2,
+            "reported_age_years": 32,
+            "printed_type": "I",
+            "onset_description": "Morning following the chamber flight.",
+            "reported_onset_clock": null,
+            "symptoms": "Right elbow pain.",
+            "resolution": "Pain resolved with oxygen before recompression. The authors report complete recovery.",
+            "locator": "Printed p. 601, Case 2"
+          },
+          {
+            "source_id": "piwinski86_halo",
+            "stratum": "single-halo-training-flight",
+            "endpoint": "dcs",
+            "case_number": 3,
+            "reported_age_years": 24,
+            "printed_type": "II",
+            "onset_description": "Woke from sleep the following morning.",
+            "reported_onset_clock": "03:00",
+            "symptoms": "Bilateral knee and low back pain, difficulty breathing, and transient bilateral foot numbness.",
+            "resolution": "The authors report complete symptom resolution during hyperbaric treatment.",
+            "locator": "Printed p. 601, Case 3"
+          },
+          {
+            "source_id": "piwinski86_halo",
+            "stratum": "single-halo-training-flight",
+            "endpoint": "dcs",
+            "case_number": 4,
+            "reported_age_years": 30,
+            "printed_type": "II",
+            "onset_description": "Awoke the next morning.",
+            "reported_onset_clock": null,
+            "symptoms": "Left elbow and shoulder pain and left arm numbness in an ulnar distribution.",
+            "resolution": "The authors report complete symptom resolution during hyperbaric treatment.",
+            "locator": "Printed p. 601, Case 4"
+          }
+        ],
+        "existing_index_flight": {
+          "cases": 4,
+          "participants": 9,
+          "completed_peak_ft": 32500
+        },
+        "wider_profile": {
+          "cases": 4,
+          "exposures": 27,
+          "printed_percent": 14.9
+        },
+        "source_pressure_discrepancy": "Case Histories give the completed peak of 32,500 ft. Figure 1 depicts a higher peak near 10,671 m. The higher figure is retained as a figure-specific value.",
+        "observations": [
+          {
+            "id": "halo-profile-experience",
+            "study_id": "fort-rucker-1985-halo-cluster",
+            "group": "halo-profile-experience",
+            "endpoint": "dcs",
+            "cases": 4,
+            "denominator": 27,
+            "denominator_unit": "trainee_exposure",
+            "locator": "Printed p. 601, Discussion",
+            "period": null,
+            "note": "The broader 4/27 numerator is the same four cases as 4/9 on the affected flight. The completed peak and gas history for the other exposures are not reported. The source prints 14.9%.",
+            "reported_rate_percent": 14.9
+          }
+        ]
+      },
+      {
+        "id": "neubauer-1988-full",
+        "title": "Fatal pulmonary decompression sickness: a case report",
+        "pmid": "3240220",
+        "year": 1988,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf",
+        "sha256": "9844bf7dea5a6f1274581c7dcabbb657e466dda146b0b545528c7d1a7f05d8f5",
+        "locator": "Printed pp. 1181–1183, Case History, Clinical Course and Tables I–II",
+        "study_id": "neubauer-usaf-1980-1987-chamber-series",
+        "access": "full_text",
+        "table_i_context": {
+          "approximate_student_exposures": 350000,
+          "note": "Manifestation counts are potentially overlapping."
+        },
+        "table_ii_context": {
+          "inflight": 64,
+          "delayed": 122,
+          "student_exposures": 178305,
+          "printed_rate_per_100000": 105
+        },
+        "note": "The fatal flight case and historical student chamber tables have different risk sets. Table II's series may overlap Baumgartner and Weien's 1985–1987 records. A separate discussion mentions 99 USAF aircraft flight DCS cases in 1975–1985 with no flight denominator.",
+        "observations": [
+          {
+            "id": "table-i-joint_pain_only",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-i-joint_pain_only",
+            "endpoint": "source_manifestation_joint_pain_only",
+            "cases": 401,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1182, Table I and Discussion",
+            "period": "1980-01 to 1987-07",
+            "note": "The narrative gives approximately 350,000 student exposures. The manifestation categories may overlap. No exact matched denominator or unique event total is available."
+          },
+          {
+            "id": "table-i-central_nervous_system",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-i-central_nervous_system",
+            "endpoint": "source_manifestation_central_nervous_system",
+            "cases": 129,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1182, Table I and Discussion",
+            "period": "1980-01 to 1987-07",
+            "note": "The narrative gives approximately 350,000 student exposures. The manifestation categories may overlap. No exact matched denominator or unique event total is available."
+          },
+          {
+            "id": "table-i-peripheral_nervous_system",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-i-peripheral_nervous_system",
+            "endpoint": "source_manifestation_peripheral_nervous_system",
+            "cases": 43,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1182, Table I and Discussion",
+            "period": "1980-01 to 1987-07",
+            "note": "The narrative gives approximately 350,000 student exposures. The manifestation categories may overlap. No exact matched denominator or unique event total is available."
+          },
+          {
+            "id": "table-i-chokes",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-i-chokes",
+            "endpoint": "source_manifestation_chokes",
+            "cases": 3,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1182, Table I and Discussion",
+            "period": "1980-01 to 1987-07",
+            "note": "The narrative gives approximately 350,000 student exposures. The manifestation categories may overlap. No exact matched denominator or unique event total is available."
+          },
+          {
+            "id": "table-i-skin",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-i-skin",
+            "endpoint": "source_manifestation_skin",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1182, Table I and Discussion",
+            "period": "1980-01 to 1987-07",
+            "note": "The narrative gives approximately 350,000 student exposures. The manifestation categories may overlap. No exact matched denominator or unique event total is available."
+          },
+          {
+            "id": "table-i-vasomotor",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-i-vasomotor",
+            "endpoint": "source_manifestation_vasomotor",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1182, Table I and Discussion",
+            "period": "1980-01 to 1987-07",
+            "note": "The narrative gives approximately 350,000 student exposures. The manifestation categories may overlap. No exact matched denominator or unique event total is available."
+          },
+          {
+            "id": "table-ii-1985-inflight",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-ii-1985-inflight",
+            "endpoint": "source_inflight_symptoms",
+            "cases": 21,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1183, Table II",
+            "period": "1985",
+            "note": "Annual symptom counts within the same Table II series. The article does not give annual exposure denominators. The end of the 1987 Table II observation period is unspecified."
+          },
+          {
+            "id": "table-ii-1985-delayed",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-ii-1985-delayed",
+            "endpoint": "source_delayed_symptoms",
+            "cases": 40,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1183, Table II",
+            "period": "1985",
+            "note": "Annual symptom counts within the same Table II series. The article does not give annual exposure denominators. The end of the 1987 Table II observation period is unspecified."
+          },
+          {
+            "id": "table-ii-1986-inflight",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-ii-1986-inflight",
+            "endpoint": "source_inflight_symptoms",
+            "cases": 24,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1183, Table II",
+            "period": "1986",
+            "note": "Annual symptom counts within the same Table II series. The article does not give annual exposure denominators. The end of the 1987 Table II observation period is unspecified."
+          },
+          {
+            "id": "table-ii-1986-delayed",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-ii-1986-delayed",
+            "endpoint": "source_delayed_symptoms",
+            "cases": 45,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1183, Table II",
+            "period": "1986",
+            "note": "Annual symptom counts within the same Table II series. The article does not give annual exposure denominators. The end of the 1987 Table II observation period is unspecified."
+          },
+          {
+            "id": "table-ii-1987-inflight",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-ii-1987-inflight",
+            "endpoint": "source_inflight_symptoms",
+            "cases": 19,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1183, Table II",
+            "period": "1987",
+            "note": "Annual symptom counts within the same Table II series. The article does not give annual exposure denominators. The end of the 1987 Table II observation period is unspecified."
+          },
+          {
+            "id": "table-ii-1987-delayed",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-ii-1987-delayed",
+            "endpoint": "source_delayed_symptoms",
+            "cases": 37,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 1183, Table II",
+            "period": "1987",
+            "note": "Annual symptom counts within the same Table II series. The article does not give annual exposure denominators. The end of the 1987 Table II observation period is unspecified."
+          },
+          {
+            "id": "table-ii-student-total",
+            "study_id": "neubauer-usaf-1980-1987-chamber-series",
+            "group": "table-ii-student-total",
+            "endpoint": "dcs",
+            "cases": 186,
+            "denominator": 178305,
+            "denominator_unit": "trainee_exposure",
+            "locator": "Printed pp. 1182–1183, Discussion and Table II",
+            "period": "1985–1987 as displayed",
+            "note": "Reported 105 per 100,000 exposures. The table and narrative yield 104.3156 per 100,000 from 186/178,305. Overlap with Baumgartner and Weien is unresolved.",
+            "reported_rate": 105,
+            "reported_rate_unit": "cases per 100,000 student exposures"
+          },
+          {
+            "id": "fatal-f100-flight",
+            "study_id": "neubauer-fatal-f100-flight-case",
+            "group": "fatal-f100-flight",
+            "endpoint": "source_reported_fatal_pulmonary_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed pp. 1181–1182, Case History and Clinical Course",
+            "period": null,
+            "note": "The case is separate from the chamber surveillance tables in the same article. No at-risk aircraft flight denominator."
+          }
+        ]
+      },
+      {
+        "id": "c17-aib-2023-primary",
+        "title": "Aircraft Accident Investigation Board Report: C-17A, 21 August 2023",
+        "year": 2024,
+        "url": "https://www.afjag.af.mil/Portals/77/AIB-Reports/2023/21AUG23%20AMC%20C-17A%20JBER%20AIB%20Report.pdf",
+        "primary_source": "https://www.afjag.af.mil/Portals/77/AIB-Reports/2023/21AUG23%20AMC%20C-17A%20JBER%20AIB%20Report.pdf",
+        "locator": "Summary of Facts §§ 4(d), 4(e), 9(d)(3), and Statement of Opinion",
+        "study_id": "usaf-c17a-2023-fatal-flight-case",
+        "access": "official_pdf_text",
+        "note": "Air Mobility Command announced public release in April 2024. Firecrawl read the official PDF. The archive contains only source-backed medical exposure details and no inferred exposed population.",
+        "observations": [
+          {
+            "id": "fatal-c17-flight",
+            "study_id": "usaf-c17a-2023-fatal-flight-case",
+            "group": "fatal-c17-flight",
+            "endpoint": "medical_examiner_fatal_aerospace_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Summary of Facts §§ 4(d), 4(e), 9(d)(3), and Statement of Opinion",
+            "period": "2023-08-21 to 2023-08-22",
+            "note": "The medical examiner attributed death to aerospace DCS. Published crew or passenger descriptions do not establish an at-risk cohort denominator."
+          }
+        ]
+      },
+      {
+        "id": "amc-2024-release",
+        "title": "Civilian employee fatality investigation results released",
+        "year": 2024,
+        "url": "https://www.amc.af.mil/News/Article-Display/Article/3740477/press-release-civilian-employee-fatality-investigation-results-released",
+        "primary_source": "https://www.amc.af.mil/News/Article-Display/Article/3740477/press-release-civilian-employee-fatality-investigation-results-released",
+        "locator": "Air Mobility Command press release of 12 April 2024",
+        "study_id": "usaf-c17a-2023-fatal-flight-case",
+        "note": "Summarizes and links the official investigation of the same fatal flight episode."
+      }
+    ]
+  }
+]
