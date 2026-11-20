@@ -408,6 +408,49 @@ def test_katuntsev_program_total_reuses_source_and_retains_nested_endpoints(rele
         """, (report_id,)).fetchone() == (0,)
 
 
+def test_lunar_case_timelines_link_to_existing_nasa_trial_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.case_number,p.trial_stratum,p.trial_endpoint,p.linkage,p.nominal_target_psia,
+                   p.prebreathe_min,o.numerator,o.denominator,o.target_pressure_kpa
+            FROM publication_trial_case_profile p JOIN discovery_observation o
+              ON (o.source_id,o.stratum,o.endpoint)=(p.trial_source_id,p.trial_stratum,p.trial_endpoint)
+            WHERE p.source_id='lam26_nasa_neuro' AND p.trial_source_id='garbino_ea34'
+            ORDER BY p.case_number
+        """).fetchall() == [
+            (1, "90-min-prebreathe", "dcs_neurological", "likely_same_episode", 4.3, 90, 1, None, 29.6),
+            (2, "20-min-prebreathe", "dcs_type_ii_source", "likely_same_episode", 5.2, 20, 1, None, None),
+        ]
+        assert db.execute("""
+            SELECT case_number,count(*) FROM publication_trial_case_milestone
+            WHERE source_id='lam26_nasa_neuro' GROUP BY case_number ORDER BY case_number
+        """).fetchall() == [(1, 4), (2, 7)]
+        assert db.execute("""
+            SELECT event_type,elapsed_from_target_min,time_basis FROM publication_trial_case_milestone
+            WHERE source_id='lam26_nasa_neuro' AND case_number=2
+              AND milestone IN ('transient_tingling_reported','next_day_neurological_exam') ORDER BY milestone
+        """).fetchall() == [("followup_exam", None, "next_day"), ("symptom_report", 7, "approximate_target_elapsed")]
+        assert db.execute("""
+            SELECT decision,accepted_value FROM discovery_adjudication WHERE issue_id='ea34-target-pressure'
+        """).fetchone() == ("unresolved", None)
+        for doc_id in ("20260004151", "20240013238"):
+            assert db.execute("""
+                SELECT count(*),count(DISTINCT report_id) FROM review.review_record WHERE url LIKE ?
+            """, (f"%{doc_id}%",)).fetchone() == (3, 1)
+        assert db.execute("""
+            SELECT json_array_length(metadata_json,'$.case_profiles'),
+                   json_array_length(metadata_json,'$.case_milestones')
+            FROM review.review_record WHERE source_key='ntrs-20260004151-v2'
+        """).fetchone() == (2, 11)
+        assert db.execute("""
+            SELECT count(*),sum(numerator),count(denominator) FROM discovery_observation
+            WHERE source_id='garbino_ea34'
+        """).fetchone() == (3, 2, 0)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='lam26_nasa_neuro'
+        """).fetchone() == (0,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):

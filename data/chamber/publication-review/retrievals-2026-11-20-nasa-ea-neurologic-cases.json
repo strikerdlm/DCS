@@ -1,0 +1,219 @@
+[
+  {
+    "id": "2026-11-20-lam-nasa-case-primary",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and NTRS PDF verification",
+    "operation": "supplementary_original_case_crosswalk",
+    "params": {
+      "url": "https://ntrs.nasa.gov/citations/20260004151",
+      "file_url": "https://ntrs.nasa.gov/api/citations/20260004151/downloads/v2_Neurologic%20Decompression%20Illness.pdf",
+      "verified_pdf_pages": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The public NTRS PDF supplies report-specific clinical milestones. The original source alternate dates and counts remain in the campaign source. No numerical incidence observations were added.",
+    "records": [
+      {
+        "id": "ntrs-20260004151-v2",
+        "title": "Recommending an Approach for NASA Toward Neurologic Decompression Illness",
+        "year": 2026,
+        "url": "https://ntrs.nasa.gov/citations/20260004151",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20260004151/downloads/v2_Neurologic%20Decompression%20Illness.pdf",
+        "sha256": "58600a48a9b690a101af3364c20ab408e9c7856c2a1a2ee030e75a5a02f673d7",
+        "ntrs_document_id": "20260004151",
+        "locator": "Printed pp. 4–7, Cases 1–2 and Figures 1–2",
+        "study_id": "nasa-exploration-atmosphere-tests-3-4",
+        "analysis_role": "case_details_likely_overlap_existing_campaign",
+        "existing_campaign_source": "garbino_ea34",
+        "case_profiles": [
+          {
+            "case_number": 1,
+            "trial_stratum": "90-min-prebreathe",
+            "trial_endpoint": "dcs_neurological",
+            "prebreathe_min": 90,
+            "nominal_target_psia": 4.3,
+            "locator": "Lam printed pp. 4–6, Case 1 and Figure 1 caption",
+            "note": "The case report describes a neurological DCS episode with left-sided intracardiac gas and subtle clinical signs. One case in the same 90-minute arm is already recorded in EA3–4. The nominal pressure agrees to survey precision. Participant identifiers are unavailable.",
+            "source_id": "lam26_nasa_neuro",
+            "trial_source_id": "garbino_ea34",
+            "linkage": "likely_same_episode",
+            "saturation_pressure_psia": 9.6,
+            "saturation_oxygen_percent": 28.5,
+            "prebreathe_oxygen_percent": 95,
+            "decompression_min": 8
+          },
+          {
+            "case_number": 2,
+            "trial_stratum": "20-min-prebreathe",
+            "trial_endpoint": "dcs_type_ii_source",
+            "prebreathe_min": 20,
+            "nominal_target_psia": 5.2,
+            "locator": "Lam printed pp. 6–7, Case 2 and Figure 2 caption",
+            "note": "The same 20-minute schedule and habitat support a likely link to the single Type II case in EA3–4. The case report gives 5.2 psia, approximately 35.85 kPa. The campaign gives 35.6 kPa in Methods and 36.5 kPa in Results. Actual chamber logs are unavailable.",
+            "source_id": "lam26_nasa_neuro",
+            "trial_source_id": "garbino_ea34",
+            "linkage": "likely_same_episode",
+            "saturation_pressure_psia": 9.6,
+            "saturation_oxygen_percent": 28.5,
+            "prebreathe_oxygen_percent": 95,
+            "decompression_min": 8
+          }
+        ],
+        "case_milestones": [
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 1,
+            "milestone": "left_intracardiac_bubbles",
+            "event_type": "systemic_bubble_detection",
+            "elapsed_from_target_min": 165,
+            "time_basis": "approximate_target_elapsed",
+            "locator": "Lam p. 5, Case 1",
+            "note": "Left-sided intracardiac bubbles were detected during monitoring, meeting the test termination criterion. The gas finding has no source VGE grade and does not establish symptom onset."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 1,
+            "milestone": "finger_fullness_recalled",
+            "event_type": "symptom_report",
+            "elapsed_from_target_min": null,
+            "time_basis": "during_eva_unspecified",
+            "locator": "Lam p. 5, Case 1",
+            "note": "The participant recalled right finger fullness during EVA after further questioning. Neither the time of onset nor the report time was specified."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 1,
+            "milestone": "first_detailed_neurological_exam",
+            "event_type": "neurological_exam",
+            "elapsed_from_target_min": 197,
+            "time_basis": "at_target_elapsed",
+            "locator": "Lam p. 5, Case 1",
+            "note": "Detailed examination found nystagmus, left lower-limb hyperesthesia and weakness, and slight right arm weakness."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 1,
+            "milestone": "neurological_findings_resolved",
+            "event_type": "symptom_resolution",
+            "elapsed_from_target_min": 258,
+            "time_basis": "at_target_elapsed",
+            "locator": "Lam p. 5, Case 1",
+            "note": "Signs and symptoms had resolved on the reported examination during hyperbaric treatment, and subsequent examinations also reported resolution."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 2,
+            "milestone": "transient_tingling_reported",
+            "event_type": "symptom_report",
+            "elapsed_from_target_min": 7,
+            "time_basis": "approximate_target_elapsed",
+            "locator": "Lam p. 6, Case 2",
+            "note": "The participant reported prior transient thigh and calf tingling. Later questioning established bilateral symptoms. The reported duration was about two minutes, and the onset time was not given."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 2,
+            "milestone": "joint_pain_triggered_termination",
+            "event_type": "symptom_report",
+            "elapsed_from_target_min": 90,
+            "time_basis": "at_target_elapsed",
+            "locator": "Lam p. 6, Case 2",
+            "note": "Unilateral knee and toe pain was reported and met the test termination criterion for suspected DCS."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 2,
+            "milestone": "joint_pain_resolved_on_descent",
+            "event_type": "symptom_resolution",
+            "elapsed_from_target_min": null,
+            "time_basis": "during_repressurization",
+            "locator": "Lam p. 6, Case 2",
+            "note": "Knee and foot pain resolved at approximately 9.2–9.4 psia. Elapsed time unavailable."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 2,
+            "milestone": "first_detailed_neurological_exam",
+            "event_type": "neurological_exam",
+            "elapsed_from_target_min": 118,
+            "time_basis": "at_target_elapsed",
+            "locator": "Lam p. 6, Case 2",
+            "note": "Detailed examination found low reflexes and slight right arm weakness."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 2,
+            "milestone": "reflexes_became_brisk",
+            "event_type": "neurological_exam",
+            "elapsed_from_target_min": 183,
+            "time_basis": "at_target_elapsed",
+            "locator": "Lam p. 6, Case 2",
+            "note": "Reflexes increased before the decision to transfer to hyperbaric treatment."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 2,
+            "milestone": "arm_weakness_resolved",
+            "event_type": "symptom_resolution",
+            "elapsed_from_target_min": 267,
+            "time_basis": "at_target_elapsed",
+            "locator": "Lam p. 7, Case 2",
+            "note": "Right arm weakness had resolved during treatment. Brisk reflexes persisted through later examinations that day."
+          },
+          {
+            "source_id": "lam26_nasa_neuro",
+            "case_number": 2,
+            "milestone": "next_day_neurological_exam",
+            "event_type": "followup_exam",
+            "elapsed_from_target_min": null,
+            "time_basis": "next_day",
+            "locator": "Lam p. 7, Case 2",
+            "note": "Reflexes had normalized by the next-day examination. Brief bilateral horizontal nystagmus was noted. Later follow-up was unavailable."
+          }
+        ],
+        "exposure_denominator": null,
+        "case_overlap": "Lam describes a 90-minute case at nominal 4.3 psia and a 20-minute case at nominal 5.2 psia. Both follow 9.6 psia habituation at 28.5% oxygen and use 95% oxygen for prebreathe. Garbino EA Tests 3–4 reports one affected subject in each corresponding arm. The 90-minute target matches the campaign 29.6 kPa. For the 20-minute arm the campaign Methods give 35.6 kPa and Results give 36.5 kPa. Individual IDs and test dates are unavailable. Preserve likely matches without adding independent case counts. Earlier EA1–2 and EA6 use different prebreathe protocols."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-garbino-ea34-abstract-verification",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and NTRS",
+    "operation": "supplementary_protocol_and_case_overlap_verification",
+    "params": {
+      "url": "https://ntrs.nasa.gov/citations/20240013238",
+      "file_url": "https://ntrs.nasa.gov/api/citations/20240013238/downloads/ASMA_2025_EA_Garbino_v2.pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The registered campaign abstract provides matching case counts and profiles. Preserve the older outcome rows and pressure discrepancy.",
+    "records": [
+      {
+        "id": "ntrs-20240013238-ea34",
+        "title": "NASA Exploration Atmosphere Tests 3 & 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+        "year": 2025,
+        "url": "https://ntrs.nasa.gov/citations/20240013238",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20240013238/downloads/ASMA_2025_EA_Garbino_v2.pdf",
+        "locator": "NTRS 20240013238, Methods and Results, 2025 AsMA-UHMS abstract",
+        "ntrs_document_id": "20240013238",
+        "study_id": "nasa-exploration-atmosphere-tests-3-4",
+        "parent_source": "legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+        "do_not_duplicate_existing_observations": true,
+        "methods_20_min_target_kpa": 35.6,
+        "results_20_min_target_kpa": 36.5,
+        "case_narrative_20_min_nominal_psia": 5.2,
+        "case_narrative_20_min_approximate_kpa": 35.85,
+        "target_pressure_status": "unresolved",
+        "exact_arm_exposure_denominators": null
+      }
+    ]
+  }
+]

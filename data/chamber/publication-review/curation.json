@@ -9971,6 +9971,42 @@
       "report_id": "doi:10.1134/s1019331615020094",
       "basis": "Publisher DOI and title match the existing OpenAlex record.",
       "evidence_url": "https://link.springer.com/article/10.1134/S1019331615020094"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6",
+      "basis": "The prior NASA search hit and PDF have matching title and NTRS accession.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20260004151"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.72/sources.csv#lam26_nasa_neuro",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6",
+      "basis": "The prior NASA search hit and PDF have matching title and NTRS accession.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20260004151"
+    },
+    {
+      "record_key": "2026-11-20-lam-nasa-case-primary#ntrs-20260004151-v2",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6",
+      "basis": "The prior NASA search hit and PDF have matching title and NTRS accession.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20260004151"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+      "basis": "The abstract and NTRS record have the same accession 20240013238 and title as the existing source.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20240013238"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.37/search_hits.csv#detail_v37_eva:1",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+      "basis": "The abstract and NTRS record have the same accession 20240013238 and title as the existing source.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20240013238"
+    },
+    {
+      "record_key": "2026-11-20-garbino-ea34-abstract-verification#ntrs-20240013238-ea34",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+      "basis": "The abstract and NTRS record have the same accession 20240013238 and title as the existing source.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20240013238"
     }
   ],
   "studies": [
@@ -10675,6 +10711,12 @@
       "label": "Katuntsev IMBP experimental hypobaric program",
       "period": "Experimental program summarized in 1996. Accrual dates unreported.",
       "setting": "Human volunteer research in the GBK-63 hypobaric chamber"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-tests-3-4",
+      "label": "NASA Exploration Atmosphere Tests 3 and 4",
+      "period": "Trial dates unreported in the paired publications",
+      "setting": "NASA Johnson Space Center experimental simulated lunar EVA with alternate habitat atmosphere"
     }
   ],
   "study_reports": [
@@ -11757,6 +11799,18 @@
       "report_id": "cited:katuntsev-shcherbakova-1994-pulmonary-dcs",
       "role": "nested_respiratory_case_publication_cited_only",
       "locator": "Results section 3, respiratory subsection and reference 23"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-tests-3-4",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+      "role": "primary_experimental_campaign_abstract",
+      "locator": "NTRS 20240013238, Methods and Results, 2025 AsMA-UHMS abstract"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-tests-3-4",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6",
+      "role": "likely_existing_arm_case_narratives",
+      "locator": "Printed pp. 4–7, Cases 1–2 and Figures 1–2"
     }
   ],
   "relations": [
@@ -13943,6 +13997,13 @@
       "relationship": "cites_selected_case_series_with_conflicting_issue",
       "evidence": "Katuntsev’s own publication list gives volume 28 issue 5, pages 28–33. Both editions of the 2015 Grigor’ev article cite volume 28 issue 3. Matching authors, title and 29 cases support one provisional citation. The original 1994 issue was unavailable.",
       "evidence_url": "https://link.springer.com/article/10.1134/S1019331615020094"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6",
+      "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+      "relationship": "likely_existing_campaign_episodes",
+      "evidence": "Lam describes a 90-minute case at nominal 4.3 psia and a 20-minute case at nominal 5.2 psia. Both follow 9.6 psia habituation at 28.5% oxygen and use 95% oxygen for prebreathe. Garbino EA Tests 3–4 reports one affected subject in each corresponding arm. The 90-minute target matches the campaign 29.6 kPa. For the 20-minute arm the campaign Methods give 35.6 kPa and Results give 36.5 kPa. Individual IDs and test dates are unavailable. Preserve likely matches without adding independent case counts. Earlier EA1–2 and EA6 use different prebreathe protocols.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20260004151/downloads/v2_Neurologic%20Decompression%20Illness.pdf"
     }
   ],
   "report_titles": {
@@ -14010,6 +14071,8 @@
     "abstract:asma-2026-baker-188": "Decompression sickness in a Marine F-35C pilot: A case report",
     "report:ad0658348": "Decompression Sickness in High-Altitude Flight",
     "report:ada036031": "Hyperbaric Medicine in the U.S. Air Force",
-    "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1": "High-altitude decompression sickness: Experimental study of pathogenesis and methods of prevention"
+    "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1": "High-altitude decompression sickness: Experimental study of pathogenesis and methods of prevention",
+    "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_gramen:6": "Recommending an Approach for NASA Toward Neurologic Decompression Illness",
+    "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34": "NASA Exploration Atmosphere Tests 3 & 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures"
   }
 }
