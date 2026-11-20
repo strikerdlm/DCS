@@ -79,4 +79,6 @@ The June 1944 CAM minutes provide the 132/719 source-defined chokes finding and 
 
 The wartime bulletin adds linked Canadian repeat-flight tables and neurological program summaries. Flight-level counts, repeated classifications and archive discrepancies retain their printed scope. [Canadian and neurological chamber evidence](chamber-cam-repeat-flights-supplement.md)
 
+The multicenter supplement adds the preliminary Randolph Field interval counts and the Berkson repeat-flight tables from four sites. The records preserve source-defined descents, changing denominators, incompatible printed values and crosswalks to related reports. [Multicenter repeat-flight evidence](chamber-cam-multicenter-supplement.md)
+
 One example of deduplication is the Ata and Karaca chamber report. All 125 full- or truncated-title search occurrences in v1.48 resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)

@@ -572,6 +572,59 @@ def test_cam_bulletin_preserves_repeat_flight_totals_and_neurological_counting_u
         """).fetchone() == ("subset_of",)
 
 
+def test_cam_multicenter_preserves_source_counts_and_overlap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.site, p.table_altitude_ft, p.narrative_altitude_ft,
+                   c.exposure_count, c.descent_count
+            FROM publication_repeat_flight_profile p
+            JOIN publication_repeat_flight_count c USING (source_id,profile_id)
+            WHERE c.flight_number=1 AND c.prior_descents='all'
+            ORDER BY p.profile_id
+        """).fetchall() == [
+            ("University of Pennsylvania", 38000, 35000, 18, 15),
+            ("U.S. Navy Pensacola", 40000, None, 105, 14),
+            ("Randolph Field", 35000, None, 122, 36),
+            ("Randolph Field", 38000, None, 51, 17),
+            ("Wright Field", 35000, None, 187, 25),
+        ]
+        assert db.execute("SELECT count(*) FROM publication_repeat_flight_count").fetchone() == (82,)
+        assert db.execute("""
+            SELECT profile_id,exposure_count,reported_group_pct,descent_count,reported_descent_pct
+            FROM publication_repeat_flight_count
+            WHERE (profile_id='randolph-35000' AND flight_number=3 AND prior_descents='2')
+               OR (profile_id='pensacola' AND flight_number=1)
+               OR (profile_id='wright-35000' AND flight_number=2 AND prior_descents='0')
+               OR (profile_id='pennsylvania' AND flight_number=3 AND prior_descents='1')
+            ORDER BY profile_id
+        """).fetchall() == [
+            ("pennsylvania", 0, 0.0, None, None),
+            ("pensacola", 105, 105.0, 14, 13.3),
+            ("randolph-35000", 66, 6.9, 3, 50.0),
+            ("wright-35000", 162, 88.6, 19, 11.7),
+        ]
+        assert db.execute("""
+            SELECT o.numerator,o.denominator,sum(i.descent_count),count(*)
+            FROM publication_observation o JOIN publication_descent_interval i
+            USING (source_id,stratum,endpoint)
+            GROUP BY o.source_id,o.stratum,o.endpoint ORDER BY o.stratum
+        """).fetchall() == [(145, 380, 145, 8), (12, 51, 12, 3), (24, 51, 24, 3)]
+        assert db.execute("""
+            SELECT o.numerator,o.denominator,r.reported_percent
+            FROM publication_observation o JOIN publication_reported_rate r
+            USING (source_id,stratum,endpoint)
+            WHERE o.source_id='wigodsky42_randolph'
+        """).fetchone() == (7, 24, "71")
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:cam-330' AND right_report='nlm:101085500x796:meeting-14'
+        """).fetchone() == ("same_cohort",)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE numerator=132 AND denominator=719 AND source_id IN ('bridge44_cam330','cam44_meeting14')
+        """).fetchone() == (1,)
+
+
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
     with connect_pair(release) as db:
         assert db.execute("""
