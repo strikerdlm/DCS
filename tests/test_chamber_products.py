@@ -15,6 +15,41 @@ def release(tmp_path_factory):
     return folder
 
 
+def test_formal_search_flow_and_source_identities(release):
+    with connect_pair(release) as db:
+        flow, = db.execute("""
+            SELECT content_json FROM review.review_workflow_document
+            WHERE input_path LIKE '%/prisma-flow.json'
+        """).fetchone()
+        totals = dict(db.execute("""
+            SELECT q.operation, count(*) FROM review.review_retrieval q
+            JOIN review.review_record r USING (run_id)
+            WHERE json_extract(q.parameters_json, '$.counts_toward_formal_identification') = 1
+            GROUP BY q.operation
+        """))
+        flow = json.loads(flow)
+        assert totals["formal_database_search"] == flow["formal_database_records_exported"]
+        assert totals["formal_citation_search"] == flow["formal_citation_records_exported"]
+        assert sum(totals.values()) == flow["formal_records_exported"]
+        assert db.execute("""
+            SELECT reported_total, retrieved FROM review.review_retrieval
+            WHERE run_id='2026-11-20-formal-chamber-lilacs'
+        """).fetchone() == (None, 0)
+        assert db.execute("""
+            SELECT report_id, doi, json_extract(metadata_json, '$.reported_doi')
+            FROM review.review_record
+            WHERE record_key='2026-11-20-formal-chamber-openalex#W1898307'
+        """).fetchone() == ("pmid:1898307", None, "10.24471/shigaku.115.9_1617")
+        assert db.execute("""
+            SELECT report_id FROM review.review_record WHERE record_key IN (
+                'legacy:data/chamber/v1.17/search_hits.csv#denit_v17_allen:1',
+                'legacy:data/chamber/v1.17/sources.csv#allen71_body_fat',
+                '2026-11-20-formal-chamber-pubmed#5155138') ORDER BY record_key
+        """).fetchall() == [
+            ("pmid:5155138",), ("retrieval:fitness-for-divers-scribd-420648411",), ("pmid:5155138",)
+        ]
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
@@ -45,7 +80,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
         assert db.execute("""
             SELECT count(*),count(DISTINCT report_id),min(report_id)
             FROM review.review_record WHERE lower(title) LIKE 'investigation of a cluster of decompression%'
-        """).fetchone() == (125, 1, "doi:10.28920/dhm51.1.82-85")
+        """).fetchone() == (129, 1, "doi:10.28920/dhm51.1.82-85")
         assert db.execute("""
             SELECT cases,exposures FROM chamber_group_evidence
             WHERE study_id='usaf-howard-1979-1981' ORDER BY stratum
