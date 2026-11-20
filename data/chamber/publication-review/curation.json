@@ -1,6 +1,18 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-asma-220-program#asma:2026:220:program",
+      "report_id": "asma:2026:220",
+      "basis": "Abstract 220 title, three-author byline, 2014-2025 operational sample and published outcome figures match the September version.",
+      "evidence_url": "https://asma.org/wp-content/uploads/2026/04/AsMA_Program-Book_edited_draft-1.pdf#page=142"
+    },
+    {
+      "record_key": "2026-11-20-asma-220-journal#asma:2026:220:journal",
+      "report_id": "asma:2026:220",
+      "basis": "Publisher's September meeting abstract 220 spans printed pp. 757-758. The program version represents the same report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=97"
+    },
+    {
       "record_key": "2026-11-19-consensus#w:0e080ce0-b1ab-44c7-8e80-ebbc0a609270",
       "report_id": "pmid:36309795",
       "basis": "Title, year and listed authors or source details match the primary bibliographic record.",
@@ -9141,6 +9153,12 @@
   ],
   "studies": [
     {
+      "study_id": "u2-flight-ford-2014-2025",
+      "label": "Ford et al. U-2 operational flight surveillance",
+      "period": "2014-2025",
+      "setting": "U.S. Air Force U-2 flight operations in CARE-modified and unmodified aircraft"
+    },
+    {
       "study_id": "usn-1972-1975",
       "label": "U.S. Navy training, 1972–1975",
       "period": "1972-01-01 to 1975-12-31",
@@ -9736,6 +9754,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "u2-flight-ford-2014-2025",
+      "report_id": "asma:2026:220",
+      "role": "primary_conference_abstract",
+      "locator": "Abstract 220, September 2026, printed pp. 757-758 (PDF pp. 97-98)"
+    },
     {
       "study_id": "usn-1972-1975",
       "report_id": "pmid:971183",
@@ -10650,6 +10674,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "asma:2026:220",
+      "right_report": "pmid:23066619",
+      "relationship": "historical_comparator",
+      "evidence": "The cited 1994-2010 window and rounded historical per-flight rates match Hundemer's published period rates. The abstract gives no separate historical risk set. This link records comparator reuse without adding historical observations.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23066619/"
+    },
     {
       "left_report": "pmid:30352646",
       "right_report": "pmid:3790029",
