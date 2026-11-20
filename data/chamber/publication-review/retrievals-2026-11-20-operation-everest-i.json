@@ -1,0 +1,180 @@
+[
+  {
+    "id": "2026-11-20-operation-everest-i-lineage-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "bibliographic_discovery",
+    "params": {
+      "query": "\"Operation Everest\" \"20247562\" Houston 1946 Anesthesiology 160 165 full text DOI",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 6,
+    "status": "observed",
+    "note": "Located the author's full AAJ account and returned papers from later experiments. The August report is indexed as Contact and remains a bibliographic lead.",
+    "records": [
+      {
+        "id": "houston-aaj",
+        "title": "Operation Everest, 1946",
+        "year": 1947,
+        "url": "https://publications.americanalpineclub.org/articles/12194731100/Operation-Everest-1946"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-operation-everest-i-bulletin-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "underlying_report_search",
+    "params": {
+      "query": "\"Operation Everest\" Houston \"1783\" naval medical bulletin 1946 original U.S. Navy full scan",
+      "limit": 7,
+      "sources": [
+        "web"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 5,
+    "status": "observed",
+    "note": "Returned aviation and acclimatization citations. The bound volume was retrieved by its archive filename.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-operation-everest-i-aaj-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "author_full_text",
+    "params": {
+      "url": "https://publications.americanalpineclub.org/articles/12194731100/Operation-Everest-1946",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the AAJ byline and the same 1946 Pensacola study. Full text repeats the four residents and 14 technicians, with a broader support group of 40.",
+    "records": [
+      {
+        "id": "houston-aaj",
+        "title": "Operation Everest, 1946",
+        "year": 1947,
+        "url": "https://publications.americanalpineclub.org/articles/12194731100/Operation-Everest-1946",
+        "locator": "Opening and Methods"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-operation-everest-i-duplicates-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "recheck_historical_occurrences",
+    "params": {
+      "urls": [
+        "https://www.semanticscholar.org/paper/1eabc4ed058272f5be4266cadcebce3f4a5bc197",
+        "https://scispace.com/papers/respiratory-and-circulatory-changes-during-acclimatization-36fdzb9gzd"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Tavily did not retrieve either page. In a follow-up, SciSpace was reachable and listed the exact publisher DOI.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-operation-everest-i-august-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "bibliographic_verification",
+    "params": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20247562/",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "PubMed response yielded the indexing record, without original article pages.",
+    "records": [
+      {
+        "id": "contact-pmid",
+        "title": "Operation Everest; a study of acclimatization to anoxia",
+        "year": 1946,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20247562/",
+        "pmid": "20247562",
+        "locator": "Contact 6(1):160–165"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-operation-everest-i-index-pages",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "original_report_reconciliation",
+    "params": {
+      "urls": [
+        "https://digirepo.nlm.nih.gov/ext/dw/35721900R/PDF/35721900R.pdf#page=34",
+        "https://archive.org/download/NavalMedicalBulletin467121946/NavalMedicalBulletin46-7-121946.pdf#page=870",
+        "https://journals.physiology.org/doi/10.1152/ajplegacy.1947.149.3.565",
+        "https://scispace.com/papers/respiratory-and-circulatory-changes-during-acclimatization-36fdzb9gzd",
+        "https://aac-publications.s3.amazonaws.com/documents/aaj/1947/PDF/AAJ_1947_6_3_311.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Compared the Navy diary and December author report and verified the publisher identity. Kept staff endpoints and resident follow-up distinct.",
+    "records": [
+      {
+        "id": "navy-diary",
+        "title": "Operation Everest",
+        "year": 1946,
+        "url": "https://digirepo.nlm.nih.gov/ext/dw/35721900R/PDF/35721900R.pdf#page=34",
+        "sha256": "694313d242dc5acf5dfd3f5a799943fc4f7879dfcf49743bde01978a82d6b3ac",
+        "locator": "Printed pp. 24 and 26 (PDF pp. 34 and 36)",
+        "observations": [
+          {
+            "id": "everest-i-staff-july19",
+            "study_id": "usn-operation-everest-i-1946",
+            "group": "Case report in operating crew",
+            "chamber_role": "operating_crew",
+            "endpoint": "cerebral_bends_source",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 24 (PDF p. 34)",
+            "note": "Temporary blindness. Daily chamber level changed from 18500 to 19000 ft. Case-specific pressure history and diagnostic adjudication are unavailable.",
+            "observation_date": "1946-07-19"
+          },
+          {
+            "id": "everest-i-observer-july21",
+            "study_id": "usn-operation-everest-i-1946",
+            "group": "Case report in an observer",
+            "chamber_role": "observer",
+            "endpoint": "cerebral_bends_source",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 26 (PDF p. 36)",
+            "note": "Temporary partial blindness in a second observer. Daily chamber level changed from 19000 to 19500 ft. Case-specific pressure history is unavailable.",
+            "observation_date": "1946-07-21"
+          }
+        ]
+      },
+      {
+        "id": "navy-bulletin",
+        "title": "Operation Everest; a study of acclimatization to anoxia",
+        "year": 1946,
+        "url": "https://archive.org/download/NavalMedicalBulletin467121946/NavalMedicalBulletin46-7-121946.pdf#page=870",
+        "pmid": "20276818",
+        "sha256": "4d690e8e40853cac9c1b6ab7a95fd6b8c28126f570b816f788a791f10c754fdd",
+        "locator": "Printed pp. 1783–1792 (PDF pp. 870–879)"
+      },
+      {
+        "id": "physiology-publisher",
+        "title": "Respiratory and circulatory changes during acclimatization to high altitude",
+        "year": 1947,
+        "url": "https://journals.physiology.org/doi/10.1152/ajplegacy.1947.149.3.565",
+        "pmid": "20251062",
+        "doi": "10.1152/ajplegacy.1947.149.3.565",
+        "locator": "Publisher index, vol. 149(3):565–588"
+      }
+    ]
+  }
+]
