@@ -1,0 +1,33 @@
+[
+  {
+    "id": "2026-11-20-hdsd-table-iii-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "original_full_text_retrieval",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf",
+        "https://jamanetwork.com/journals/jama/fullarticle/266607"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Tavily exposed the free-access publisher PDF for Conkin and colleagues. The scan was checked against Table III. The JAMA Mackenzie and Riesen full-text fetch failed.",
+    "records": [
+      {
+        "id": "1524540",
+        "title": "A computerized databank of decompression sickness incidence in altitude chambers",
+        "year": 1992,
+        "pmid": "1524540",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf",
+        "sha256": "b4b6b303c8787c050083474632248c34c90203c1168c26005f498c7a609817ed",
+        "locator": "Table III p. 821 and availability statement p. 822",
+        "table_iii_groups": 27,
+        "table_iii_person_exposures": 117422,
+        "note": "The article prints a subset of the 378 grouped records. The article describes separate request-based access to the complete databank. Publisher redistributability was not established."
+      }
+    ]
+  }
+]

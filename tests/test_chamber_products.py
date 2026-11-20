@@ -1,0 +1,471 @@
+import json
+import shutil
+import sqlite3
+
+import pytest
+
+from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
+from scripts.evaluate_chamber_benchmark import run
+
+
+@pytest.fixture(scope="module")
+def release(tmp_path_factory):
+    folder = tmp_path_factory.mktemp("chamber") / "release"
+    publish_pair(folder)
+    return folder
+
+
+def test_separate_products_join_without_duplicate_cases_or_strata(release):
+    with connect_pair(release) as db:
+        for schema in ("main", "review"):
+            assert db.execute(f"PRAGMA {schema}.integrity_check").fetchone() == ("ok",)
+            assert db.execute(f"PRAGMA {schema}.foreign_key_check").fetchall() == []
+            for (view,) in db.execute(f"SELECT name FROM {schema}.sqlite_schema WHERE type='view'"):
+                db.execute(f'SELECT * FROM {schema}."{view}" LIMIT 1').fetchone()
+        assert db.execute("SELECT 1 FROM review.sqlite_schema WHERE name='nasa_test'").fetchone() is None
+        assert db.execute("SELECT 1 FROM main.sqlite_schema WHERE name='review_screening'").fetchone() is None
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
+            FROM historical_case_catalog c LEFT JOIN review.review_record r
+            ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
+        """).fetchone() == (106, 106, 106)
+        assert db.execute("""
+            SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
+            FROM shared_case_evidence
+            WHERE source_id IN ('case17_delayed','yoneda98_skin_bends') ORDER BY source_id
+        """).fetchall() == [
+            ("case17_delayed", 180, 2880, 14, None),
+            ("yoneda98_skin_bends", None, None, None, 1440),
+        ]
+        assert db.execute("""
+            SELECT dcs_time_min,preferred_dcs_time_min FROM dcs_case WHERE published_case_number=30
+        """).fetchone() == (86, 68)
+        assert db.execute("SELECT count(*) FROM dcs_case").fetchone() == (103,)
+        assert db.execute("SELECT count(*) FROM literature_symptomatic_noncase").fetchone() == (32,)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id)
+            FROM review.review_record WHERE lower(title) LIKE 'investigation of a cluster of decompression%'
+        """).fetchone() == (125, 1, "doi:10.28920/dhm51.1.82-85")
+        assert db.execute("""
+            SELECT cases,exposures FROM chamber_group_evidence
+            WHERE study_id='usaf-howard-1979-1981' ORDER BY stratum
+        """).fetchall() == [(67, 47921), (139, 203315)]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+        assert db.execute("SELECT count(*) FROM vge_interval").fetchone() == (238,)
+        assert db.execute("""
+            SELECT count(*) FROM model_report_link l LEFT JOIN review.review_record r
+            ON (r.record_key,r.report_id)=(l.record_key,l.report_id) WHERE r.record_key IS NULL
+        """).fetchone() == (0,)
+        with pytest.raises(sqlite3.OperationalError, match="readonly"):
+            db.execute("DELETE FROM main.shared_case_evidence")
+
+
+def test_armstrong_archive_preserves_two_reports_and_one_incidence_count(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT l.report_id,p.numerator,p.denominator,p.analysis_role
+            FROM publication_observation p JOIN model_report_link l USING(source_id)
+            JOIN review.review_study_report s USING(report_id)
+            WHERE s.study_id='armstrong-demboski-1983-1993' AND p.endpoint='dcs'
+        """).fetchall() == [("ntrs:19940029137", 309, 1163, "overlap_hold")]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_study_report
+            WHERE study_id='armstrong-demboski-1983-1993'
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='demboski94_soar' AND endpoint='symptom_recurrence_source'
+        """).fetchone() == (2, 261)
+        assert db.execute("""
+            SELECT reported_percent FROM publication_reported_rate
+            WHERE source_id IN ('demboski94_soar','demboski94_asma91')
+            ORDER BY reported_percent
+        """).fetchall() == [("98.5",), ("99.2",), ("99.23",)]
+
+
+def test_jprs_translation_reconciles_exposure_and_symptomatic_rows_once(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.stratum,p.numerator,p.denominator,p.prebreathe_min,count(t.reported_row)
+            FROM publication_observation p JOIN model_report_link l USING(source_id)
+            JOIN review.review_study_report s USING(report_id)
+            LEFT JOIN publication_chamber_reported_onset t USING(source_id,stratum,endpoint)
+            WHERE s.study_id='ussr-kazakova-poleshchuk-11000m' AND p.analysis_role='descriptive'
+            GROUP BY p.source_id,p.stratum,p.endpoint ORDER BY p.stratum
+        """).fetchall() == [
+            ("control-5h", 4, 6, 300, 4),
+            ("control-6h", 9, 15, 360, 9),
+            ("control-8h", 1, 2, 480, 1),
+            ("suit-5-or-6h", 8, 11, None, 8),
+            ("suit-8h", 3, 4, 480, 3),
+        ]
+        assert db.execute("""
+            SELECT p.stratum,p.numerator,p.denominator
+            FROM publication_observation p JOIN model_report_link l USING(source_id)
+            JOIN review.review_study_report s USING(report_id)
+            WHERE s.study_id='ussr-kazakova-poleshchuk-11000m' AND p.analysis_role='overlapping_margin'
+            ORDER BY p.stratum
+        """).fetchall() == [("control-total", 14, 23), ("suit-total", 11, 15)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_study_report
+            WHERE study_id='ussr-kazakova-poleshchuk-11000m'
+        """).fetchone() == (2,)
+
+
+def test_usafsam_archive_keeps_profile_conflicts_and_one_staging_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role
+            FROM publication_observation
+            WHERE source_id='webb10_usafsam_database' ORDER BY stratum
+        """).fetchall() == [
+            ("archive-completed-exposures", 1190, 2946, "overlap_hold"),
+            ("archive-person-margin", 356, 573, "overlapping_margin"),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(printed_subject_n),count(nedu_profile),
+                   sum(printed_subject_n != p.exposures)
+            FROM publication_adrac_profile_inventory i
+            LEFT JOIN a1309_profile p ON i.nedu_profile=p.profile
+        """).fetchone() == (41, 1013, 29, 7)
+        assert db.execute("""
+            SELECT s.reported_dcs_pct,s.reported_exposures,p.exact_cases,p.exposures
+            FROM publication_archive_protocol_summary s JOIN a1309_profile p
+            ON p.profile=s.candidate_nedu_profile WHERE s.stratum='16500ft'
+        """).fetchall() == [(0.0, 94, 1, 94)]
+        assert db.execute("""
+            SELECT count(*),sum(reported_exposures IS NULL)
+            FROM publication_archive_protocol_summary
+        """).fetchone() == (24, 12)
+        assert db.execute("""
+            SELECT o.cases,o.denominator,a.stage_altitude_ft,a.onset_min_since_stage_arrival
+            FROM literature_observation o JOIN literature_observation_case_annotation a
+            USING(source_id,stratum,endpoint)
+        """).fetchall() == [(1, 173, 18000, 105)]
+
+
+def test_brooks_joint_tables_and_validation_versions_reuse_their_cohorts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT vge_definition,dcs_with_vge,no_dcs_with_vge,dcs_without_vge,no_dcs_without_vge,
+                   o.numerator,o.denominator
+            FROM publication_joint_dcs_vge j JOIN publication_observation o
+            ON (j.source_id,j.stratum,j.clinical_endpoint)=(o.source_id,o.stratum,o.endpoint)
+            ORDER BY vge_definition
+        """).fetchall() == [
+            ("any_vge", 809, 575, 225, 468, 1034, 2077),
+            ("grade_iv_vge", 471, 268, 563, 775, 1034, 2077),
+        ]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='kannan98_loglogistic' ORDER BY stratum
+        """).fetchall() == [
+            ("231mmhg-mild-135min", 49, 115, "overlapping_margin"),
+            ("231mmhg-mild-75min", 57, 102, "overlapping_margin"),
+            ("all-model-exposures", 506, 975, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT source_profile,nedu_profile,predicted_dcs_pct,reported_actual_dcs_pct
+            FROM publication_validation_snapshot WHERE source_id='pilmanis99_adrac_development'
+            ORDER BY source_profile
+        """).fetchall() == [
+            ("1", "MV-A", 93.0, 91.0), ("2", "MV-B", 62.0, 61.0),
+            ("3", "MV-E", 52.0, 58.0), ("4", "MV-D", 17.0, 13.0),
+            ("5", "MV-C", 38.0, 30.0),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='pilmanis99_adrac_development'
+        """).fetchone() == (0,)
+
+
+def test_kannan_report_records_margins_without_counting_the_journal_subset_twice(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='kannan98_survival_report'
+        """).fetchall() == [(518, 1426, "overlap_hold")]
+        assert db.execute("""
+            SELECT dimension,count(*),sum(cases),sum(right_censored)
+            FROM publication_exposure_outcome_margin GROUP BY dimension ORDER BY dimension
+        """).fetchall() == [
+            ("exercise_code", 3, 518, 908),
+            ("final_pressure_mmhg", 21, 518, 908),
+            ("maximum_spencer_grade", 5, 516, 907),
+            ("prebreathe_min", 7, 518, 908),
+        ]
+        assert db.execute("""
+            SELECT sum(cases),sum(right_censored)
+            FROM publication_exposure_outcome_margin
+            WHERE dimension='final_pressure_mmhg' AND level<=314
+        """).fetchone() == (506, 469)
+        assert db.execute("""
+            SELECT report_id,role FROM review.review_study_report
+            WHERE study_id='usafsam-brooks-kannan-survival' ORDER BY report_id
+        """).fetchall() == [
+            ("pmid:9773897", "nested_analysis_subset"),
+            ("report:ada338089", "original_full_text"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link
+            WHERE source_table='publication_source' AND source_id='kannan98_survival_report'
+        """).fetchall() == [("report:ada338089",)]
+
+
+def test_adrac_proceedings_adds_reported_estimates_to_the_existing_cohort(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT nedu_profile,predicted_dcs_pct,reported_actual_dcs_pct,
+                   reported_actual_dcs_plus_minus_pp
+            FROM publication_validation_snapshot
+            WHERE source_id='pilmanis01_adrac_proceedings' ORDER BY nedu_profile
+        """).fetchall() == [
+            ("MV-A", 94.0, 94.0, 9.0),
+            ("MV-B", 62.0, 61.0, 17.0),
+            ("MV-C", 38.0, 30.0, 16.0),
+            ("MV-D", 17.0, 13.0, 12.0),
+            ("MV-E", 50.0, 58.0, 17.0),
+        ]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='pilmanis01_adrac_proceedings' ORDER BY related_source
+        """).fetchall() == [
+            ("adrac04", "same_cohort"), ("gerth18", "likely_overlap"),
+            ("pilmanis99_adrac_development", "same_cohort"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id='pilmanis01_adrac_proceedings'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='pilmanis01_adrac_proceedings'
+        """).fetchone() == ("report:adp011090",)
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='usafsam-adrac-five-profile-validation' ORDER BY report_id
+        """).fetchall() == [
+            ("abstract:asma-1999-krause-364",), ("abstract:asma-2000-pilmanis-272",),
+            ("pmid:15460625",), ("report:ada397485",), ("report:adp011090",),
+        ]
+
+
+def test_berry_training_keeps_annual_reactors_distinct_from_case_conditioned_symptoms(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='berry58_training' AND endpoint='grade_iv_hospitalizing_reaction_source'
+            ORDER BY stratum
+        """).fetchall() == [("1950-1955-all-reported", 125, None), ("1956-annual-reported", 48, None)]
+        assert db.execute("""
+            SELECT r.stratum,count(*),min(r.denominator),max(r.denominator)
+            FROM publication_reported_rate r
+            WHERE r.source_id='berry58_training' AND r.stratum LIKE 'grade-iv-group-%'
+            GROUP BY r.stratum ORDER BY r.stratum
+        """).fetchall() == [
+            ("grade-iv-group-1", 16, 65, 65), ("grade-iv-group-2", 10, 4, 4),
+            ("grade-iv-group-3", 11, 4, 4), ("grade-iv-group-4", 8, 5, 5),
+            ("grade-iv-group-5", 17, 47, 47),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate,reported_rate_unit FROM review.review_search_observation
+            WHERE observation_id='usaf-1956-grade-iv-rate-and-count'
+        """).fetchone() == (48, None, 110, "per 100000 trainees")
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='berry57_stockholm' AND related_source='berry58_training'
+        """).fetchone() == ("berry58_training", "same_cohort")
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='citation:korea-eom-1974-dysbarism' AND right_report='kiss:4019953'
+        """).fetchone() == ("possible_overlap",)
+
+
+def test_halbouty_chamber_case_links_two_reports_to_one_existing_observation(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT period,numerator,denominator FROM publication_observation
+            WHERE source_id='berry59_king' AND stratum='case-01'
+        """).fetchall() == [("1954-03-19", 1, None)]
+        assert db.execute("""
+            SELECT report_id FROM shared_case_evidence
+            WHERE source_id='berry59_king' AND stratum='case-01' ORDER BY report_id
+        """).fetchall() == [("pmid:13247522",), ("pmid:13625439",)]
+        assert db.execute("""
+            SELECT report_id,source_time_min FROM historical_case_catalog
+            WHERE case_id='berry59_king:case-01'
+        """).fetchall() == [("pmid:13247522", None)]
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='halbouty55_collapse' AND related_source='berry59_king'
+        """).fetchall() == [("partial_overlap",)]
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft,elapsed,elapsed_unit,elapsed_reference
+            FROM publication_case_milestone
+            WHERE milestone IN ('abdominal_pain_reported','first_chamber_observed_signs')
+            ORDER BY milestone
+        """).fetchall() == [
+            ("abdominal_pain_reported", 35000, None, None, None),
+            ("first_chamber_observed_signs", 43000, 30.0, "seconds", "peak_arrival"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_case_milestone
+            WHERE source_id='berry59_king' AND stratum='case-01'
+        """).fetchone() == (11,)
+
+
+def test_nasa_ascent_compilation_reconciles_without_adding_clinical_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(person_exposures),count(DISTINCT reference_number)
+            FROM publication_ascent_compilation WHERE analysis_role='overlap_hold'
+        """).fetchone() == (150, 14123, 36)
+        assert db.execute("""
+            WITH totals AS (
+                SELECT CASE WHEN exercise_cycles_per_hour IS NULL THEN 'rest' ELSE 'exercise' END AS activity,
+                       CASE WHEN ground_denitrogenation_hours=0 THEN 'no' ELSE 'yes' END AS denitrogenation,
+                       sum(person_exposures) AS reconstructed_exposures
+                FROM publication_ascent_compilation GROUP BY 1,2
+            )
+            SELECT activity,denitrogenation,reconstructed_exposures,person_exposures
+            FROM publication_ascent_compilation_total JOIN totals USING(activity,denitrogenation)
+            ORDER BY activity,denitrogenation
+        """).fetchall() == [
+            ("exercise", "no", 5885, 5885), ("exercise", "yes", 1649, 1649),
+            ("rest", "no", 5897, 5897), ("rest", "yes", 692, 692),
+        ]
+        assert db.execute("""
+            SELECT person_exposures,symptom_pct,forced_descent_pct,reference_number
+            FROM publication_ascent_compilation
+            WHERE printed_page=58 AND row_on_page IN (37,38) ORDER BY row_on_page
+        """).fetchall() == [(223, None, 33, 37), (204, None, 11, 36)]
+        assert db.execute("""
+            SELECT symptom_pct,forced_descent_pct FROM publication_ascent_compilation
+            WHERE printed_page=56 AND altitude_ft=20000
+        """).fetchone() == (None, 0)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='kumar89_ascent'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*),min(report_id),max(report_id) FROM review.review_record
+            WHERE lower(title) LIKE '%different rates of ascent%' OR title=url AND url LIKE '%19890012936%'
+        """).fetchone() == (29, "ntrs:19890012936", "ntrs:19890012936")
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE left_report='ntrs:19890012936' AND relationship='cites_as_compilation_source'
+        """).fetchone() == (26,)
+
+
+def test_ascent_source_reconciliation_preserves_denominator_conflicts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='dixon86_suit95' ORDER BY stratum
+        """).fetchall() == [
+            ("validation-all", 0, 30, "denominator_conflict"),
+            ("validation-men", 4, 20, "overlap_hold"),
+            ("validation-women", 0, 10, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='damato65_acel529' ORDER BY stratum
+        """).fetchall() == [
+            ("equilibration-phase", 4, None, "overlap_hold"),
+            ("post-equilibration-phase", 1, None, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT reference_number,related_source_id FROM publication_ascent_reference
+            WHERE source_id='kumar89_ascent' AND reference_number IN (12,22) ORDER BY reference_number
+        """).fetchall() == [(12, "bridge44_38000"), (22, "degner65_orbital")]
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE source_id IN ('dixon86_suit95','damato65_acel529') ORDER BY source_id
+        """).fetchall() == [
+            ("damato65_acel529", "report:naec-acel-529"),
+            ("dixon86_suit95", "ntrs:19860063003"),
+        ]
+
+
+def test_historical_crossover_and_attendant_outcomes_keep_their_counting_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT participant_number),count(DISTINCT condition)
+            FROM publication_crossover_run WHERE analysis_role='overlap_hold'
+        """).fetchone() == (84, 21, 4)
+        assert db.execute("""
+            SELECT condition,sum(symptom_status='reported'),sum(symptom_status='unresolved'),
+                   sum(forced_descent_status='reported')
+            FROM publication_crossover_run GROUP BY condition ORDER BY condition
+        """).fetchall() == [
+            ("aminophyllin", 20, 0, 6), ("codeine_and_aspirin", 19, 0, 7),
+            ("control", 19, 0, 10), ("demerol", 19, 1, 10),
+        ]
+        assert db.execute("""
+            SELECT symptom_onset_min,forced_descent_min,maximum_symptom_grade,grade_annotation
+            FROM publication_crossover_run WHERE participant_number=14 ORDER BY condition
+        """).fetchall() == [(45, 56, 7, "ch"), (None, 37, 5, None), (20, 58, 2, None), (25, 25, 3, None)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='houston47_low_altitude' ORDER BY endpoint
+        """).fetchall() == [("incapacitating_bends_source", 2, 20, "person")]
+        assert db.execute("""
+            SELECT count(*),min(retained_source_id) FROM publication_observation_superseded
+            WHERE source_id='houston47_low_altitude'
+        """).fetchone() == (3, "houston46_navy")
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id IN ('houston47_low_altitude','williams46_drug_crossover')
+            ORDER BY source_id
+        """).fetchall() == [("pmid:20296024",), ("joam:17-6-602",)]
+
+
+def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(person_exposures) FROM literature_hdsd_compilation
+            WHERE source_id='conkin92' AND analysis_role='overlap_hold'
+        """).fetchone() == (27, 117422)
+        assert db.execute("""
+            SELECT report_number,dcs_pct,serious_dcs_pct FROM literature_hdsd_compilation
+            WHERE report_number IN (93,109,351) ORDER BY report_number
+        """).fetchall() == [(93, None, None), (109, 0.0, 0.0), (351, None, 0.4)]
+        assert db.execute("""
+            SELECT count(*),sum(h.person_exposures)
+            FROM literature_hdsd_compilation h
+            JOIN publication_reported_rate r
+              ON (r.source_id,r.stratum,r.denominator)=(h.related_source_id,h.related_stratum,h.person_exposures)
+            JOIN publication_reported_rate s
+              ON (s.source_id,s.stratum,s.denominator)=(h.related_source_id,h.related_stratum,h.person_exposures)
+            WHERE r.endpoint='bends_any_grade' AND CAST(r.reported_percent AS REAL)=h.dcs_pct
+              AND s.endpoint='bends_grade_4' AND CAST(s.reported_percent AS REAL)=h.serious_dcs_pct
+        """).fetchone() == (4, 68422)
+        assert db.execute("""
+            SELECT count(*) FROM literature_observation WHERE source_id='conkin92'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT report_id FROM model_report_link
+            WHERE source_table='literature_source' AND source_id='conkin92'
+        """).fetchone() == ("pmid:1524540",)
+
+
+def test_benchmark_reproduces_original_without_the_review_file(release, tmp_path):
+    model = tmp_path / PRODUCTS["model"]
+    shutil.copyfile(release / model.name, model)
+    shutil.copyfile(release / "release.json", tmp_path / "release.json")
+    result = run(model)
+    assert result.pop("database_release_id") == json.loads((release / "release.json").read_bytes())["evidence_sha256"]
+    assert result == run()
+
+
+def test_mixed_or_edited_files_rejected(release, tmp_path):
+    folder = tmp_path / "edited"
+    shutil.copytree(release, folder)
+    with sqlite3.connect(folder / PRODUCTS["review"]) as db:
+        db.execute("UPDATE dataset_release SET release_id='different'")
+    with pytest.raises(ValueError, match="checksum"):
+        with connect_pair(folder):
+            pytest.fail("modified release was opened")
+    # A verified rebuild must also preserve an existing destination with user changes.
+    with pytest.raises(FileExistsError):
+        publish_pair(folder)
+    with sqlite3.connect(folder / PRODUCTS["review"]) as db:
+        assert db.execute("SELECT release_id FROM dataset_release").fetchone() == ("different",)

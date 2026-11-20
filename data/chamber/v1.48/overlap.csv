@@ -1,0 +1,4 @@
+source_id,related_source,relationship,evidence
+pilmanis01_adrac_proceedings,pilmanis99_adrac_development,same_cohort,"Both reports describe the same completed 1999 AFRL validation trials and the same five conditions, with 30 exposures per profile. The later proceedings expressly cite the SAFE report and print 94% rather than 91% for actual DCS at 35,000 ft."
+pilmanis01_adrac_proceedings,adrac04,same_cohort,"Each of the five 2001 conditions matches a 2004 journal validation group on target altitude, preoxygenation, activity in the results table and design exposures. Their five actual DCS percentages agree, while three model predictions differ."
+pilmanis01_adrac_proceedings,gerth18,likely_overlap,The five protocol conditions match profiles MV-A through MV-E in NEDU Appendix E. The compilation counts 30 or 31 exposures per profile. Treat its exact incidence counts as source-specific and preserve their scope.

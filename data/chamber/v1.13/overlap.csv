@@ -1,0 +1,11 @@
+source_id,related_source,relationship,evidence
+nasa_pfo24,v1.4/conkin18,likely_overlap,The refresher reporting period begins in 2015 and the prior JSC review includes refresher exposures through 2016. The reports do not supply an exposure-level crosswalk or matching role and profile breakdown.
+nasa_pfo24,v1.6/garbino_ea12 and garbino_ea34,likely_overlap,The aggregate as-of-2023 exploration-atmosphere counts are likely to include the separately reported JSC campaigns. Do not add the campaign-specific rows to this aggregate. Exact test linkage remains unavailable.
+nasa_pfo24,v1/nasa19 and v1/nasa_test/Nuc,likely_overlap,"The historical Shuttle, Prebreathe Reduction and Nucleation margins derive from programmes already covered in part by the NASA protocol tables. The historical denominators sum to 678 before the newer exploration 126, while the header prints 677. No historical margin was copied."
+nasa_pfo24,v1/bip24,unresolved,The approximately 225 research and hardware exposures may include the separately documented 2023 Type II event. Clinical case linkage and exact risk denominator are unavailable.
+nasa_pfo26,v1.13/nasa_pfo24,same_cohort,The newer executive summary integrates the 2024 work. It supplies no additional outcome denominators.
+balldin02_posture,v1.5/webb96_preoxygenation and v1/a1309_profile/PE1-A,same_cohort,Balldin cites reference 24 for the 26 ambulatory control exposures. They match PE1-A and the earlier clinical count. The control is a citation crosswalk only.
+balldin02_posture,v1.13/conkin01_lba,unresolved,"The 39-person prospective arm is distinct from the named earlier ARGO datasets, but individual linkage to broader NASA/USAF compilations is unavailable."
+conkin01_lba,v1/nasa_test/ARGO and v1.6/kumar93,partial_overlap,The analysis explicitly incorporates ARGO I–III and additional earlier data. No second exposure pool was created.
+skedina97,v1.6/chadov01 and v1.13/chadov97_staged,unresolved,The Russian records name different schedules and different author teams. There is no participant- or experiment-level crosswalk between the papers.
+chadov97_staged,v1.6/chadov01,likely_overlap,Shared investigators and staged normoxic chamber system. Preliminary percentages have no exact denominator and are not pooled with the 2001 report.

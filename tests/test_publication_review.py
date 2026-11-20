@@ -16,7 +16,7 @@ def test_publication_register_build(tmp_path):
             "SELECT sum(registered_dcs_events) FROM fac_official_chamber_year"
         ).fetchone() == (54,)
         assert db.execute("SELECT count(*) FROM review_record WHERE run_id IS NULL").fetchone() == (
-            993,
+            4326,
         )
         assert db.execute(
             "SELECT count(*) FROM review_record JOIN review_retrieval USING(run_id) "
@@ -125,7 +125,27 @@ def test_publication_register_build(tmp_path):
         assert len(groups) == 12
         assert ("pmid:971183", "staff", 57, 14959) in groups
         assert ("pmid:3790029", "trainee", 8, 12596) in groups
-        assert db.execute("SELECT count(*) FROM review_supplementary_role_cell").fetchone() == (8,)
+        assert db.execute("SELECT count(*) FROM review_supplementary_role_cell").fetchone() == (10,)
+        assert db.execute(
+            "SELECT stratum, cases, exposures, report_id FROM review_supplementary_role_cell "
+            "WHERE study_id='usaf-howard-1979-1981' ORDER BY stratum"
+        ).fetchall() == [
+            ("inside-observers", 67, 47921, "abstract:howard-sheffield-matos-1982"),
+            ("trainees", 139, 203315, "abstract:howard-sheffield-matos-1982"),
+        ]
+        assert db.execute(
+            "SELECT s.period, json_extract(r.metadata_json, '$.period_for_extracted_counts.end'), "
+            "json_extract(r.metadata_json, '$.surveillance_period_described.end') "
+            "FROM review_study s JOIN review_study_report l USING(study_id) "
+            "JOIN review_record r USING(report_id) WHERE s.study_id='usaf-howard-1979-1981' "
+            "AND r.source_key='howard-1982-original'"
+        ).fetchone() == ("1979-01-01 to 1981-08-31", "1981-08-31", "1981-12-31")
+        assert db.execute(
+            "SELECT source_key, report_id, json_extract(metadata_json, '$.source_counts.dcs_episodes'), "
+            "json_extract(metadata_json, '$.source_counts.investigator_flights_above_15000_ft_body'), "
+            "json_extract(metadata_json, '$.source_counts.investigator_flights_above_15000_ft_abstract_and_table') "
+            "FROM review_record WHERE source_key='ada168595-original'"
+        ).fetchone() == ("ada168595-original", "report:ada168595", 28, 275, 274)
         assert db.execute(
             "SELECT cases,exposures,denominator_basis FROM review_supplementary_role_cell "
             "WHERE study_id='usaf-bassett-1973-1977' ORDER BY stratum"
@@ -256,7 +276,7 @@ def test_publication_register_build(tmp_path):
         assert db.execute(
             "SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review_record "
             "WHERE pmid='3619843' OR record_key='2026-11-20-undermind-references#Mal87'"
-        ).fetchone() == (5, 1, "pmid:3619843")
+        ).fetchone() == (7, 1, "pmid:3619843")
         assert db.execute(
             "SELECT relationship FROM review_report_relation "
             "WHERE left_report='pmid:14503681' AND right_report='pmid:3619843'"
@@ -540,11 +560,28 @@ def test_publication_register_build(tmp_path):
             "AND (relationship LIKE 'possible_%' OR relationship='same_program_denominator_discrepancy') "
             "ORDER BY left_report"
         ).fetchall() == [
+            ("abstract:ogata-jasdf-altitude-dcs-2000", "possible_overlap_with_historical_chamber_surveillance"),
             ("doi:10.1097/mao.0b013e31816c7c59", "same_program_denominator_discrepancy"),
             ("journal:watanabe-yamazaki-1964-amlr-5-4", "possible_overlapping_training_periods"),
             ("openalex:W2286393360", "possible_overlap"),
             ("pmid:9681378", "possible_overlap_case_membership_unverified"),
         ]
+        assert db.execute(
+            "SELECT endpoint,cases,denominator,denominator_unit,reported_rate_percent "
+            "FROM review_search_observation WHERE study_id LIKE 'jasdf-ogata-%' "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("bends_as_reported", 236, 30763, "trainee_count_as_reported", None),
+            ("neurologic_dcs_as_reported", 6, 30763, "trainee_count_as_reported", None),
+            ("skin_bends_as_reported", 1, 30763, "trainee_count_as_reported", None),
+            ("suspected_altitude_dcs", 243, 30763, "trainee_count_as_reported", 0.93),
+            ("reported_altitude_dcs", 12, 9668, "trainee_count_as_reported", 0.12),
+        ]
+        assert db.execute(
+            "SELECT relationship FROM review_report_relation "
+            "WHERE left_report='report:ogata-ide-kusano-jasdf-altitude-dcs-2001' "
+            "AND right_report='pmid:11952064'"
+        ).fetchone() == ("substantial_calendar_and_program_overlap_unresolved_case_linkage",)
         assert db.execute(
             "SELECT observation_id,endpoint,chamber_role,cases,denominator,denominator_unit "
             "FROM review_search_observation WHERE run_id LIKE '2026-11-20-rapid-decompression-%' "
@@ -602,10 +639,67 @@ def test_publication_register_build(tmp_path):
             ("journal:taubman-unifa-2006-18-21", "self_reported_post_training_symptoms_through_24_hours", 0, None),
             ("chapter:rto-mp-21-valentiner", "rule_out_dcs_diagnoses", 3, 5300),
         ]
+        assert db.execute(
+            "SELECT observation_id, chamber_role, cases, denominator "
+            "FROM review_search_observation WHERE run_id LIKE '2026-11-20-europe-staff-%' "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("kopka-wiml-20-year-reported-dcs", "unreported", 0, None),
+            ("szabo-hungary-repeated-staff-cutaneous-dcs", "staff", None, None),
+        ]
+        assert db.execute(
+            "SELECT right_report, relationship FROM review_report_relation "
+            "WHERE left_report='poster:rojas-dohn-voss-wright-mph-170'"
+        ).fetchone() == ("openalex:W2344433097", "companion_poster_same_case_control_sample")
+        assert db.execute(
+            "SELECT left_report, right_report FROM review_report_relation "
+            "WHERE relationship IN ('cites_corresponding_chamber_pulmonary_overexpansion_event', "
+            "'same_experimental_crossover_as_full_article') ORDER BY left_report"
+        ).fetchall() == [
+            ("abstract:asma-2023-anell-228", "doi:10.1007/s00421-023-05173-9"),
+            ("doi:10.4321/s1887-85712018000300008", "pmid:9383503"),
+        ]
+        assert db.execute(
+            "SELECT report_id, chamber_role, cases, denominator FROM review_search_observation "
+            "WHERE study_id='rsaf-chamber-2011-2017-prebreathing-policy' ORDER BY denominator"
+        ).fetchall() == [
+            ("pmid:33875060", "unreported", 2, 1530),
+            ("pmid:33875060", "unreported", 2, 1729),
+        ]
+        assert db.execute(
+            "SELECT right_report, relationship FROM review_report_relation "
+            "WHERE left_report='abstract:asma-2018-cheok-koh-038'"
+        ).fetchone() == ("pmid:33875060", "same_policy_cohort_as_full_article")
+        assert db.execute(
+            "SELECT chamber_role, cases, denominator, reported_rate_percent "
+            "FROM review_search_observation WHERE study_id='rmaf-iam-2024-hypoxia-indoctrination' "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("multiple_unseparated", 4, 395, 1.01),
+            ("staff", None, 46, None),
+            ("multiple_unseparated", 4, None, 0.04),
+            ("trainee", None, 349, None),
+        ]
+        assert db.execute(
+            "SELECT endpoint, chamber_role, cases, denominator FROM review_search_observation "
+            "WHERE study_id IN ('saryanto-2021-irani-barotrauma', 'saryanto-2007-sastranegara-barotitis') "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("clinically_diagnosed_otic_barotrauma", "trainee", 3, 97),
+            ("suspected_otic_barotrauma", "trainee", 1, 97),
+            ("clinically_diagnosed_barotitis_media", "participant", 100, 177),
+            ("clinically_diagnosed_barotitis_media", "participant", 22, 52),
+            ("clinically_diagnosed_barotitis_media", "trainee", 78, 125),
+        ]
+        assert db.execute(
+            "SELECT DISTINCT report_id FROM review_record "
+            "WHERE run_id LIKE '2026-11-20-trainee-cohorts-%' "
+            "AND (doi='10.33657/jurkessia.v16i1.1129' OR source_key='w:3f55e3b6-ef26-4f69-ac5f-3e14729e48c8')"
+        ).fetchall() == [("doi:10.33657/jurkessia.v16i1.1129",)]
         assert db.execute("SELECT count(*) FROM review_historical_search_record").fetchone() == (
-            473,
+            3603,
         )
-        assert db.execute("SELECT count(*) FROM publication_search_run").fetchone() == (72,)
+        assert db.execute("SELECT count(*) FROM publication_search_run").fetchone() == (779,)
         comments = db.execute(
             "SELECT left_report FROM review_report_relation "
             "WHERE right_report='pmid:33875060' AND relationship='comment_on'"

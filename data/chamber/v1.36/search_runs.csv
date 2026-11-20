@@ -1,0 +1,11 @@
+search_id,searched_on,tool,database,query,status,matched_count,screened_count,selected_count,note
+treated_v36_duff1,2026-11-19,Firecrawl search,Public web,Duffner Kiessling 1960 NEDU 2-60 report National Technical Reports Library archive decomp test,completed,,8,0,Screened returned results.
+treated_v36_duff2,2026-11-19,Tavily search,Public web,"""Development of a test to determine"" ""following a dive"" Duffner Kiessling original report download 14409013 AD accession",completed,,8,0,Screened returned results.
+treated_v36_duff3,2026-11-19,Tavily search,Public web,"""Duffner"" ""Kiessling"" ""18,000"" hypobaric 57 original exact simulated altitude ascent human decompression sickness 1960",completed,,8,0,Screened returned results.
+treated_v36_faas,2026-11-19,Firecrawl search,Public web,site:faa.gov 196620 chamber human aerospace medicine 1966 report decompression condition,completed,,8,0,Screened returned results.
+treated_v36_padi,2026-11-19,Firecrawl search,Public web,original human flight after diving chamber trial decompression illness within 12 hours altitude Vann Sheffield 1982 PADI 1990 clinical trials datasets results,completed,,8,0,Screened returned results.
+treated_v36_c14f,2026-11-19,Firecrawl scrape,Public web,https://researchportal.vub.be/en/publications/flying-after-diving-in-flight-echocardiography-after-a-scuba-divi/,completed,,1,0,Parsed source reviewed.
+treated_v36_c15t,2026-11-19,Tavily extract,Public web,https://www.dhmjournal.com/images/IndividArticles/45March/Cialoni_dhm.45.1.10-15.pdf,completed,,1,1,Parsed source reviewed.
+treated_v36_duffntrl,2026-11-19,Firecrawl scrape,Public web,https://ntrl.ntis.gov/NTRL/dashboard/searchResults.xhtml?searchQuery=The%20Development%20of%20a%20Test%20to%20Determine%20the%20Adequacy%20of%20Decompression%20Following%20a%20Dive,failed,,0,0,Public catalogue query returned no readable results.
+treated_v36_dux,2026-11-19,Tavily extract,Public web,https://apps.dtic.mil/sti/tr/pdf/AD0630518.pdf,completed,,1,0,Parsed source reviewed.
+treated_v36_originals,2026-11-19,Primary publisher and archive verification,Public web,"USAF treated cases, published commercial-flight studies and historical reference tracing",completed,,7,3,"Verified primary locators, data scope and overlapping records."

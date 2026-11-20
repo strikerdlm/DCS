@@ -1,0 +1,22 @@
+CREATE TABLE publication_staged_symptom (
+    source_id TEXT NOT NULL REFERENCES publication_source,
+    printed_table TEXT NOT NULL CHECK(printed_table IN ('III','IV','V','VI')),
+    table_row INTEGER NOT NULL CHECK(table_row>0),
+    participant_code TEXT NOT NULL,
+    dive_depth_fsw INTEGER NOT NULL CHECK(dive_depth_fsw>0),
+    dive_duration_min INTEGER NOT NULL CHECK(dive_duration_min>0),
+    dive_activity TEXT NOT NULL CHECK(dive_activity IN ('working','resting','unreported')),
+    surface_interval_min INTEGER NOT NULL CHECK(surface_interval_min>=0),
+    initial_nominal_altitude_ft INTEGER NOT NULL CHECK(initial_nominal_altitude_ft>0),
+    later_nominal_altitude_ft INTEGER NOT NULL CHECK(later_nominal_altitude_ft>initial_nominal_altitude_ft),
+    first_phase_itch_grade INTEGER CHECK(first_phase_itch_grade BETWEEN 0 AND 4),
+    first_phase_pain_grade INTEGER CHECK(first_phase_pain_grade BETWEEN 0 AND 4),
+    later_phase_itch_grade INTEGER CHECK(later_phase_itch_grade BETWEEN 0 AND 4),
+    later_phase_pain_grade INTEGER CHECK(later_phase_pain_grade BETWEEN 0 AND 4),
+    reported_later_pain_altitude_ft INTEGER CHECK(reported_later_pain_altitude_ft>initial_nominal_altitude_ft),
+    reported_first_phase_onset_min INTEGER CHECK(reported_first_phase_onset_min>=0),
+    reported_followup TEXT,
+    locator TEXT NOT NULL,
+    note TEXT,
+    PRIMARY KEY(source_id, printed_table, table_row)
+) STRICT;

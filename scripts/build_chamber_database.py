@@ -45,6 +45,80 @@ EXPEDITION_DATA = ROOT / "data" / "chamber" / "v1.10"
 EXPEDITION_OUTPUT = ROOT / "artifacts" / "chamber-v1.10" / "observed.sqlite"
 CADET_DATA = ROOT / "data" / "chamber" / "v1.11"
 CADET_OUTPUT = ROOT / "artifacts" / "chamber-v1.11" / "observed.sqlite"
+RAF_DATA = ROOT / "data" / "chamber" / "v1.12"
+RAF_OUTPUT = ROOT / "artifacts" / "chamber-v1.12" / "observed.sqlite"
+CLINICAL_SERIES_DATA = ROOT / "data" / "chamber" / "v1.13"
+CLINICAL_SERIES_OUTPUT = ROOT / "artifacts" / "chamber-v1.13" / "observed.sqlite"
+CROSSOVER_DATA = ROOT / "data" / "chamber" / "v1.14"
+CROSSOVER_OUTPUT = ROOT / "artifacts" / "chamber-v1.14" / "observed.sqlite"
+HISTORIC_CHAMBER_DATA = ROOT / "data" / "chamber" / "v1.15"
+HISTORIC_CHAMBER_OUTPUT = ROOT / "artifacts" / "chamber-v1.15" / "observed.sqlite"
+SPACEFLIGHT_DATA = ROOT / "data" / "chamber" / "v1.16"
+SPACEFLIGHT_OUTPUT = ROOT / "artifacts" / "chamber-v1.16" / "observed.sqlite"
+DENITROGENATION_DATA = ROOT / "data" / "chamber" / "v1.17"
+DENITROGENATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.17" / "observed.sqlite"
+INTERNATIONAL_DATA = ROOT / "data" / "chamber" / "v1.18"
+INTERNATIONAL_OUTPUT = ROOT / "artifacts" / "chamber-v1.18" / "observed.sqlite"
+ARCHIVAL_TRIAL_DATA = ROOT / "data" / "chamber" / "v1.19"
+ARCHIVAL_TRIAL_OUTPUT = ROOT / "artifacts" / "chamber-v1.19" / "observed.sqlite"
+RAPID_DECOMPRESSION_DATA = ROOT / "data" / "chamber" / "v1.20"
+RAPID_DECOMPRESSION_OUTPUT = ROOT / "artifacts" / "chamber-v1.20" / "observed.sqlite"
+CHAMBER_PROGRAM_DATA = ROOT / "data" / "chamber" / "v1.21"
+CHAMBER_PROGRAM_OUTPUT = ROOT / "artifacts" / "chamber-v1.21" / "observed.sqlite"
+FLIGHT_SURVEILLANCE_DATA = ROOT / "data" / "chamber" / "v1.22"
+FLIGHT_SURVEILLANCE_OUTPUT = ROOT / "artifacts" / "chamber-v1.22" / "observed.sqlite"
+ARCHIVE_FOLLOWUP_DATA = ROOT / "data" / "chamber" / "v1.23"
+ARCHIVE_FOLLOWUP_OUTPUT = ROOT / "artifacts" / "chamber-v1.23" / "observed.sqlite"
+HISTORICAL_OUTCOMES_DATA = ROOT / "data" / "chamber" / "v1.24"
+HISTORICAL_OUTCOMES_OUTPUT = ROOT / "artifacts" / "chamber-v1.24" / "observed.sqlite"
+CHAMBER_CASE_DATA = ROOT / "data" / "chamber" / "v1.25"
+CHAMBER_CASE_OUTPUT = ROOT / "artifacts" / "chamber-v1.25" / "observed.sqlite"
+CHAMBER_TIMING_DATA = ROOT / "data" / "chamber" / "v1.26"
+CHAMBER_TIMING_OUTPUT = ROOT / "artifacts" / "chamber-v1.26" / "observed.sqlite"
+CHAMBER_ARCHIVE_DATA = ROOT / "data" / "chamber" / "v1.27"
+CHAMBER_ARCHIVE_OUTPUT = ROOT / "artifacts" / "chamber-v1.27" / "observed.sqlite"
+CHAMBER_SYMPTOM_DATA = ROOT / "data" / "chamber" / "v1.28"
+CHAMBER_SYMPTOM_OUTPUT = ROOT / "artifacts" / "chamber-v1.28" / "observed.sqlite"
+CHAMBER_CASE_SERIES_DATA = ROOT / "data" / "chamber" / "v1.29"
+CHAMBER_CASE_SERIES_OUTPUT = ROOT / "artifacts" / "chamber-v1.29" / "observed.sqlite"
+CHAMBER_AGE_STRATA_DATA = ROOT / "data" / "chamber" / "v1.30"
+CHAMBER_AGE_STRATA_OUTPUT = ROOT / "artifacts" / "chamber-v1.30" / "observed.sqlite"
+CHAMBER_RECONCILIATION_DATA = ROOT / "data" / "chamber" / "v1.31"
+CHAMBER_RECONCILIATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.31" / "observed.sqlite"
+CHAMBER_NASA_STRATA_DATA = ROOT / "data" / "chamber" / "v1.32"
+CHAMBER_NASA_STRATA_OUTPUT = ROOT / "artifacts" / "chamber-v1.32" / "observed.sqlite"
+CHAMBER_NASA_CASES_DATA = ROOT / "data" / "chamber" / "v1.33"
+CHAMBER_NASA_CASES_OUTPUT = ROOT / "artifacts" / "chamber-v1.33" / "observed.sqlite"
+CHAMBER_PAIRED_EXPOSURES_DATA = ROOT / "data" / "chamber" / "v1.34"
+CHAMBER_PAIRED_EXPOSURES_OUTPUT = ROOT / "artifacts" / "chamber-v1.34" / "observed.sqlite"
+CHAMBER_STAGED_EXPOSURES_DATA = ROOT / "data" / "chamber" / "v1.35"
+CHAMBER_STAGED_EXPOSURES_OUTPUT = ROOT / "artifacts" / "chamber-v1.35" / "observed.sqlite"
+CHAMBER_TREATED_CASE_DATA = ROOT / "data" / "chamber" / "v1.36"
+CHAMBER_TREATED_CASE_OUTPUT = ROOT / "artifacts" / "chamber-v1.36" / "observed.sqlite"
+CHAMBER_CASE_DETAIL_DATA = ROOT / "data" / "chamber" / "v1.37"
+CHAMBER_CASE_DETAIL_OUTPUT = ROOT / "artifacts" / "chamber-v1.37" / "observed.sqlite"
+CHAMBER_THRESHOLD_DATA = ROOT / "data" / "chamber" / "v1.38"
+CHAMBER_THRESHOLD_OUTPUT = ROOT / "artifacts" / "chamber-v1.38" / "observed.sqlite"
+CHAMBER_BUBBLE_OUTCOMES_DATA = ROOT / "data" / "chamber" / "v1.39"
+CHAMBER_BUBBLE_OUTCOMES_OUTPUT = ROOT / "artifacts" / "chamber-v1.39" / "observed.sqlite"
+CHAMBER_DIAGNOSIS_DATA = ROOT / "data" / "chamber" / "v1.40"
+CHAMBER_DIAGNOSIS_OUTPUT = ROOT / "artifacts" / "chamber-v1.40" / "observed.sqlite"
+CHAMBER_VGE_RECONCILIATION_DATA = ROOT / "data" / "chamber" / "v1.41"
+CHAMBER_VGE_RECONCILIATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.41" / "observed.sqlite"
+CHAMBER_REPEATED_EVA_DATA = ROOT / "data" / "chamber" / "v1.42"
+CHAMBER_REPEATED_EVA_OUTPUT = ROOT / "artifacts" / "chamber-v1.42" / "observed.sqlite"
+CHAMBER_ARMSTRONG_ARCHIVE_DATA = ROOT / "data" / "chamber" / "v1.43"
+CHAMBER_JPRS_TRANSLATION_DATA = ROOT / "data" / "chamber" / "v1.44"
+CHAMBER_USAFSAM_ARCHIVE_DATA = ROOT / "data" / "chamber" / "v1.45"
+CHAMBER_BROOKS_JOINT_DATA = ROOT / "data" / "chamber" / "v1.46"
+CHAMBER_KANNAN_REPORT_DATA = ROOT / "data" / "chamber" / "v1.47"
+CHAMBER_ADRAC_PROCEEDINGS = ROOT / "data" / "chamber" / "v1.48"
+CHAMBER_BERRY_TRAINING = ROOT / "data" / "chamber" / "v1.49"
+CHAMBER_HALBOUTY_CASE = ROOT / "data" / "chamber" / "v1.50"
+CHAMBER_NASA_ASCENT = ROOT / "data" / "chamber" / "v1.51"
+CHAMBER_HDSD_COMPILATION = ROOT / "data" / "chamber" / "v1.52"
+CHAMBER_ASCENT_RECONCILIATION = ROOT / "data" / "chamber" / "v1.53"
+CHAMBER_HISTORICAL_CROSSOVER = ROOT / "data" / "chamber" / "v1.54"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -273,13 +347,19 @@ def publish(path, output, *, allow_identical=True):
             raise FileExistsError(f"A file exists at {output}. Choose a new path.") from None
 
 
-def load_supplement(db, directory, prefix, *, extra_tables=None, create_schema=True):
+def load_supplement(
+    db, directory, prefix, *, extra_tables=None, create_schema=True, include_observations=True
+):
     tables = {
         f"{prefix}_source": "sources.csv",
-        f"{prefix}_observation": "observations.csv",
+        **({f"{prefix}_observation": "observations.csv"} if include_observations else {}),
         f"{prefix}_overlap": "overlap.csv",
         **(extra_tables or {}),
     }
+    load_version_tables(db, directory, tables, create_schema=create_schema)
+
+
+def load_version_tables(db, directory, tables, *, create_schema=True):
     manifest = json.loads((directory / "manifest.json").read_bytes())
     required = set(tables.values())
     if create_schema:
@@ -288,7 +368,7 @@ def load_supplement(db, directory, prefix, *, extra_tables=None, create_schema=T
         raise ValueError(f"Unexpected {directory.name} supplement manifest entries")
     for name, expected in manifest.items():
         if sha256(directory / name) != expected:
-            raise ValueError(f"{prefix} supplement input digest mismatch: {name}")
+            raise ValueError(f"{directory.name} supplement input digest mismatch: {name}")
     if create_schema:
         db.executescript((directory / "schema.sql").read_text(encoding="utf-8"))
     for table, filename in tables.items():
@@ -343,6 +423,22 @@ def promote_comex_counts(db):
     )
 
 
+def apply_publication_revisions(db):
+    revisions = db.execute("""
+        SELECT denominator, outcome_window, locator, note, source_id, stratum, endpoint,
+               numerator, previous_denominator
+        FROM publication_observation_revision
+    """)
+    for revision in revisions:
+        update = db.execute(
+            "UPDATE publication_observation SET denominator=?, outcome_window=?, locator=?, note=? "
+            "WHERE source_id=? AND stratum=? AND endpoint=? AND numerator=? AND denominator=?",
+            revision,
+        )
+        if update.rowcount != 1:
+            raise ValueError(f"Published observation revision does not reconcile: {revision[4:7]}")
+
+
 def build(
     output,
     *,
@@ -361,6 +457,37 @@ def build(
     protocol_supplement=False,
     expedition_supplement=False,
     cadet_supplement=False,
+    raf_supplement=False,
+    clinical_series_supplement=False,
+    crossover_supplement=False,
+    historic_chamber_supplement=False,
+    spaceflight_supplement=False,
+    denitrogenation_supplement=False,
+    international_supplement=False,
+    archival_trial_supplement=False,
+    rapid_decompression_supplement=False,
+    chamber_program_supplement=False,
+    flight_surveillance_supplement=False,
+    archive_followup_supplement=False,
+    historical_outcomes_supplement=False,
+    chamber_case_supplement=False,
+    chamber_timing_supplement=False,
+    chamber_archive_supplement=False,
+    chamber_symptom_supplement=False,
+    chamber_case_series_supplement=False,
+    chamber_age_strata_supplement=False,
+    chamber_reconciliation_supplement=False,
+    chamber_nasa_strata_supplement=False,
+    chamber_nasa_cases_supplement=False,
+    chamber_paired_exposures_supplement=False,
+    chamber_staged_exposures_supplement=False,
+    chamber_treated_case_supplement=False,
+    chamber_case_detail_supplement=False,
+    chamber_threshold_supplement=False,
+    chamber_bubble_outcomes_supplement=False,
+    chamber_diagnosis_supplement=False,
+    chamber_vge_reconciliation_supplement=False,
+    chamber_repeated_eva_supplement=False,
     fac_official=False,
     fac_workbooks=None,
     publication_review=False,
@@ -370,7 +497,51 @@ def build(
     rojas_supplement = rojas_supplement or publication_review
     zotero_dcs_supplement = zotero_dcs_supplement or publication_review
     include_attachments = attachment_supplement or zotero_dcs_supplement
-    include_expedition = expedition_supplement or cadet_supplement
+    chamber_repeated_eva_supplement = chamber_repeated_eva_supplement or publication_review
+    include_chamber_vge_reconciliation = (
+        chamber_vge_reconciliation_supplement or chamber_repeated_eva_supplement
+    )
+    chamber_diagnosis_supplement = (
+        chamber_diagnosis_supplement or publication_review or include_chamber_vge_reconciliation
+    )
+    include_chamber_bubble_outcomes = (
+        chamber_bubble_outcomes_supplement or chamber_diagnosis_supplement
+    )
+    include_chamber_threshold = chamber_threshold_supplement or include_chamber_bubble_outcomes
+    include_chamber_case_details = chamber_case_detail_supplement or include_chamber_threshold
+    include_chamber_treated_cases = chamber_treated_case_supplement or include_chamber_case_details
+    include_chamber_staged_exposures = (
+        chamber_staged_exposures_supplement or include_chamber_treated_cases
+    )
+    include_chamber_paired_exposures = (
+        chamber_paired_exposures_supplement or include_chamber_staged_exposures
+    )
+    include_chamber_nasa_cases = chamber_nasa_cases_supplement or include_chamber_paired_exposures
+    include_chamber_nasa_strata = chamber_nasa_strata_supplement or include_chamber_nasa_cases
+    include_chamber_reconciliation = (
+        chamber_reconciliation_supplement or include_chamber_nasa_strata
+    )
+    include_chamber_age_strata = chamber_age_strata_supplement or include_chamber_reconciliation
+    include_chamber_case_series = chamber_case_series_supplement or include_chamber_age_strata
+    include_chamber_symptoms = chamber_symptom_supplement or include_chamber_case_series
+    include_chamber_archive = chamber_archive_supplement or include_chamber_symptoms
+    include_chamber_timing = chamber_timing_supplement or include_chamber_archive
+    include_chamber_cases = chamber_case_supplement or include_chamber_timing
+    include_historical_outcomes = historical_outcomes_supplement or include_chamber_cases
+    include_archive_followup = archive_followup_supplement or include_historical_outcomes
+    include_flight_surveillance = flight_surveillance_supplement or include_archive_followup
+    include_chamber_program = chamber_program_supplement or include_flight_surveillance
+    include_rapid_decompression = rapid_decompression_supplement or include_chamber_program
+    include_archival = archival_trial_supplement or include_rapid_decompression
+    include_international = international_supplement or include_archival
+    include_denitrogenation = denitrogenation_supplement or include_international
+    include_spaceflight = spaceflight_supplement or include_denitrogenation
+    include_historic_chamber = historic_chamber_supplement or include_spaceflight
+    include_crossover = crossover_supplement or include_historic_chamber
+    include_clinical_series = clinical_series_supplement or include_crossover
+    include_raf = raf_supplement or include_clinical_series
+    include_cadet = cadet_supplement or include_raf
+    include_expedition = expedition_supplement or include_cadet
     include_protocols = protocol_supplement or include_expedition
     include_historical = historical_supplement or include_protocols
     include_publications = publication_supplement or include_historical
@@ -469,7 +640,7 @@ def build(
                 promote_comex_counts(db)
                 verify(db)
                 db.commit()
-            if cadet_supplement:
+            if include_cadet:
                 load_supplement(
                     db,
                     CADET_DATA,
@@ -478,6 +649,387 @@ def build(
                         **PUBLICATION_SEARCH_TABLES,
                         "publication_reported_rate": "reported_rates.csv",
                     },
+                )
+            if include_raf:
+                load_supplement(
+                    db,
+                    RAF_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_clinical_series:
+                load_supplement(
+                    db,
+                    CLINICAL_SERIES_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_crossover:
+                load_supplement(
+                    db,
+                    CROSSOVER_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_historic_chamber:
+                load_supplement(
+                    db,
+                    HISTORIC_CHAMBER_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_selection_course": "selection_courses.csv",
+                    },
+                )
+            if include_spaceflight:
+                load_supplement(
+                    db,
+                    SPACEFLIGHT_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_observation_revision": "observation_revisions.csv",
+                    },
+                )
+                apply_publication_revisions(db)
+                verify(db)
+                db.commit()
+            if include_denitrogenation:
+                load_supplement(
+                    db,
+                    DENITROGENATION_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                    create_schema=False,
+                )
+            if include_international:
+                load_supplement(
+                    db,
+                    INTERNATIONAL_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_archival:
+                load_supplement(
+                    db,
+                    ARCHIVAL_TRIAL_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                )
+            if include_rapid_decompression:
+                load_supplement(
+                    db,
+                    RAPID_DECOMPRESSION_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_chamber_program:
+                load_supplement(
+                    db,
+                    CHAMBER_PROGRAM_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_flight_surveillance:
+                load_supplement(
+                    db,
+                    FLIGHT_SURVEILLANCE_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_archive_followup:
+                load_supplement(
+                    db,
+                    ARCHIVE_FOLLOWUP_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                )
+            if include_historical_outcomes:
+                load_supplement(
+                    db,
+                    HISTORICAL_OUTCOMES_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                )
+            if include_chamber_cases:
+                load_supplement(
+                    db,
+                    CHAMBER_CASE_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if include_chamber_timing:
+                load_supplement(
+                    db,
+                    CHAMBER_TIMING_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_chamber_participant": "participants.csv",
+                        "publication_chamber_trial_time": "trial_times.csv",
+                    },
+                )
+            if include_chamber_archive:
+                load_supplement(
+                    db,
+                    CHAMBER_ARCHIVE_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                )
+            if include_chamber_symptoms:
+                load_supplement(
+                    db,
+                    CHAMBER_SYMPTOM_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                    create_schema=False,
+                )
+            if include_chamber_case_series:
+                load_supplement(
+                    db,
+                    CHAMBER_CASE_SERIES_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                )
+            if include_chamber_age_strata:
+                load_supplement(
+                    db,
+                    CHAMBER_AGE_STRATA_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                )
+            if include_chamber_reconciliation:
+                load_supplement(
+                    db,
+                    CHAMBER_RECONCILIATION_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                )
+            if include_chamber_nasa_strata:
+                load_supplement(
+                    db,
+                    CHAMBER_NASA_STRATA_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "discovery_observation": "daily_exposures.csv",
+                    },
+                    create_schema=False,
+                )
+            if include_chamber_nasa_cases:
+                load_supplement(
+                    db,
+                    CHAMBER_NASA_CASES_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "literature_case_table_i": "nasa_table_i_cases.csv",
+                        "literature_case_timing_review": "nasa_timing_review.csv",
+                    },
+                )
+            if include_chamber_paired_exposures:
+                load_supplement(
+                    db,
+                    CHAMBER_PAIRED_EXPOSURES_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_postdive_exposure": "postdive_exposures.csv",
+                        "publication_vge_peak": "vge_peaks.csv",
+                    },
+                )
+            if include_chamber_staged_exposures:
+                load_supplement(
+                    db,
+                    CHAMBER_STAGED_EXPOSURES_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_staged_symptom": "staged_symptoms.csv",
+                    },
+                )
+            if include_chamber_treated_cases:
+                load_supplement(
+                    db,
+                    CHAMBER_TREATED_CASE_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                    create_schema=False,
+                )
+            if include_chamber_case_details:
+                load_supplement(
+                    db,
+                    CHAMBER_CASE_DETAIL_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "citation_observation": "krause_outcomes.csv",
+                        "publication_menstrual_case_margin": "case_margins.csv",
+                        "web_vge_exercise_peak": "eiken_stage_peaks.csv",
+                    },
+                )
+            if include_chamber_threshold:
+                load_supplement(
+                    db,
+                    CHAMBER_THRESHOLD_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_threshold_profile": "threshold_profiles.csv",
+                    },
+                )
+            if include_chamber_bubble_outcomes:
+                load_supplement(
+                    db,
+                    CHAMBER_BUBBLE_OUTCOMES_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                    create_schema=False,
+                )
+            if chamber_diagnosis_supplement:
+                load_supplement(
+                    db,
+                    CHAMBER_DIAGNOSIS_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "publication_diagnostic_stratum": "diagnostic_strata.csv",
+                        "literature_symptomatic_noncase": "symptomatic_noncases.csv",
+                    },
+                )
+            if include_chamber_vge_reconciliation:
+                load_supplement(
+                    db,
+                    CHAMBER_VGE_RECONCILIATION_DATA,
+                    "publication",
+                    extra_tables={
+                        **PUBLICATION_SEARCH_TABLES,
+                        "literature_overlap": "literature_overlap.csv",
+                    },
+                )
+            if chamber_repeated_eva_supplement:
+                load_supplement(
+                    db,
+                    CHAMBER_REPEATED_EVA_DATA,
+                    "publication",
+                    extra_tables=PUBLICATION_SEARCH_TABLES,
+                    create_schema=False,
+                )
+            if publication_review:
+                load_supplement(
+                    db,
+                    CHAMBER_ARMSTRONG_ARCHIVE_DATA,
+                    "publication",
+                    extra_tables={"publication_reported_rate": "reported_rates.csv"},
+                    create_schema=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_JPRS_TRANSLATION_DATA,
+                    "publication",
+                    extra_tables={"publication_chamber_reported_onset": "reported_onsets.csv"},
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_USAFSAM_ARCHIVE_DATA,
+                    "publication",
+                    extra_tables={
+                        "publication_adrac_profile_inventory": "archive_profiles.csv",
+                        "publication_archive_protocol_summary": "protocol_summaries.csv",
+                        "literature_observation_case_annotation": "case_annotations.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_BROOKS_JOINT_DATA,
+                    "publication",
+                    extra_tables={
+                        "publication_joint_dcs_vge": "joint_outcomes.csv",
+                        "publication_validation_snapshot": "validation_estimates.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_KANNAN_REPORT_DATA,
+                    "publication",
+                    extra_tables={"publication_exposure_outcome_margin": "outcome_margins.csv"},
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_ADRAC_PROCEEDINGS,
+                    "publication",
+                    extra_tables={"publication_validation_snapshot": "validation_estimates.csv"},
+                    include_observations=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_BERRY_TRAINING,
+                    "publication",
+                    extra_tables={"publication_reported_rate": "reported_rates.csv"},
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_HALBOUTY_CASE,
+                    {"publication_case_milestone": "case_milestones.csv"},
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_ASCENT,
+                    {
+                        "publication_ascent_reference": "references.csv",
+                        "publication_ascent_compilation": "appendix_b.csv",
+                        "publication_ascent_compilation_total": "analysis_totals.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_HDSD_COMPILATION,
+                    {"literature_hdsd_compilation": "table_iii.csv"},
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_ASCENT_RECONCILIATION,
+                    "publication",
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_HISTORICAL_CROSSOVER,
+                    "publication",
+                    extra_tables={"publication_crossover_run": "crossover_runs.csv"},
+                    include_observations=False,
                 )
             if rojas_supplement:
                 load_supplement(
@@ -584,6 +1136,161 @@ if __name__ == "__main__":
         action="store_true",
         help="Build v1.11 with historical cadet chamber results and the v1.10 evidence.",
     )
+    parser.add_argument(
+        "--raf-supplement",
+        action="store_true",
+        help="Build v1.12 with public Royal Air Force chamber observations and earlier evidence.",
+    )
+    parser.add_argument(
+        "--clinical-series-supplement",
+        action="store_true",
+        help="Build v1.13 with NASA, AFRL and Russian clinical chamber series.",
+    )
+    parser.add_argument(
+        "--crossover-supplement",
+        action="store_true",
+        help="Build v1.14 with British and Swedish chamber outcomes and earlier evidence.",
+    )
+    parser.add_argument(
+        "--historic-chamber-supplement",
+        action="store_true",
+        help="Build v1.15 with historic pressure trials and Royal Navy selection courses.",
+    )
+    parser.add_argument(
+        "--spaceflight-supplement",
+        action="store_true",
+        help="Build v1.16 with historical simulated spaceflight and interruption trials.",
+    )
+    parser.add_argument(
+        "--denitrogenation-supplement",
+        action="store_true",
+        help="Build v1.17 with denitrogenation strata and source-level NASA reconciliation.",
+    )
+    parser.add_argument(
+        "--international-supplement",
+        action="store_true",
+        help="Build v1.18 with additional international chamber sources and clinical evidence.",
+    )
+    parser.add_argument(
+        "--archival-trial-supplement",
+        action="store_true",
+        help="Build v1.19 with original historical flight and chamber outcomes.",
+    )
+    parser.add_argument(
+        "--rapid-decompression-supplement",
+        action="store_true",
+        help="Build v1.20 with the Canadian rapid-decompression cohort and source crosswalk.",
+    )
+    parser.add_argument(
+        "--chamber-program-supplement",
+        action="store_true",
+        help="Build v1.21 with Russian chamber trials and historical case reports.",
+    )
+    parser.add_argument(
+        "--flight-surveillance-supplement",
+        action="store_true",
+        help="Build v1.22 with chamber Doppler evidence and operational flight surveillance.",
+    )
+    parser.add_argument(
+        "--archive-followup-supplement",
+        action="store_true",
+        help="Build v1.23 with verified archive follow-up evidence and cohort links.",
+    )
+    parser.add_argument(
+        "--historical-outcomes-supplement",
+        action="store_true",
+        help="Build v1.24 with original chamber surveillance and clinical outcome reports.",
+    )
+    parser.add_argument(
+        "--chamber-case-supplement",
+        action="store_true",
+        help="Build v1.25 with published chamber case and cluster observations.",
+    )
+    parser.add_argument(
+        "--chamber-timing-supplement",
+        action="store_true",
+        help="Build v1.26 with published chamber trial timing and censoring data.",
+    )
+    parser.add_argument(
+        "--chamber-archive-supplement",
+        action="store_true",
+        help="Build v1.27 with original chamber archives and trial outcome tables.",
+    )
+    parser.add_argument(
+        "--chamber-symptom-supplement",
+        action="store_true",
+        help="Build v1.28 with chamber symptom counts and crossover outcomes.",
+    )
+    parser.add_argument(
+        "--chamber-case-series-supplement",
+        action="store_true",
+        help="Build v1.29 with chamber case series, onset counts and diagnostic reports.",
+    )
+    parser.add_argument(
+        "--chamber-age-strata-supplement",
+        action="store_true",
+        help="Build v1.30 with age-stratified counts from historical chamber reports.",
+    )
+    parser.add_argument(
+        "--chamber-reconciliation-supplement",
+        action="store_true",
+        help="Build v1.31 with historical chamber outcomes and a verified cohort merge.",
+    )
+    parser.add_argument(
+        "--chamber-nasa-strata-supplement",
+        action="store_true",
+        help="Build v1.32 with NASA technician and session outcomes, plus FAA source verification.",
+    )
+    parser.add_argument(
+        "--chamber-nasa-cases-supplement",
+        action="store_true",
+        help="Build v1.33 with NASA case timing and Swedish crossover outcomes.",
+    )
+    parser.add_argument(
+        "--chamber-paired-exposures-supplement",
+        action="store_true",
+        help="Build v1.34 with Swedish post-dive exposures and crossover VGE grades.",
+    )
+    parser.add_argument(
+        "--chamber-staged-exposures-supplement",
+        action="store_true",
+        help="Build v1.35 with historical staged chamber symptoms and NASA series counts.",
+    )
+    parser.add_argument(
+        "--chamber-treated-case-supplement",
+        action="store_true",
+        help="Build v1.36 with USAF treated-case surveillance and passenger flight outcomes.",
+    )
+    parser.add_argument(
+        "--chamber-case-detail-supplement",
+        action="store_true",
+        help="Build v1.37 with verified treated-case distributions and research follow-up.",
+    )
+    parser.add_argument(
+        "--chamber-threshold-supplement",
+        action="store_true",
+        help="Build v1.38 with Polaris Dawn ground-test outcomes and historical table provenance.",
+    )
+    parser.add_argument(
+        "--chamber-bubble-outcomes-supplement",
+        action="store_true",
+        help="Build v1.39 with 8.3-psia Doppler outcomes and a chamber training case.",
+    )
+    parser.add_argument(
+        "--chamber-diagnosis-supplement",
+        action="store_true",
+        help="Build v1.40 with NASA symptom reports and diagnostic ratings.",
+    )
+    parser.add_argument(
+        "--chamber-vge-reconciliation-supplement",
+        action="store_true",
+        help="Build v1.41 with reconciled historical Doppler counts.",
+    )
+    parser.add_argument(
+        "--chamber-repeated-eva-supplement",
+        action="store_true",
+        help="Build v1.42 with a Russian repeat-exposure chamber series.",
+    )
     release.add_argument(
         "--fac-official",
         action="store_true",
@@ -647,8 +1354,132 @@ if __name__ == "__main__":
         default_output = EXPEDITION_OUTPUT
     if args.cadet_supplement:
         default_output = CADET_OUTPUT
+    if args.raf_supplement:
+        default_output = RAF_OUTPUT
+    if args.clinical_series_supplement:
+        default_output = CLINICAL_SERIES_OUTPUT
+    if args.crossover_supplement:
+        default_output = CROSSOVER_OUTPUT
+    if args.historic_chamber_supplement:
+        default_output = HISTORIC_CHAMBER_OUTPUT
+    if args.spaceflight_supplement:
+        default_output = SPACEFLIGHT_OUTPUT
+    if args.denitrogenation_supplement:
+        default_output = DENITROGENATION_OUTPUT
+    if args.international_supplement:
+        default_output = INTERNATIONAL_OUTPUT
+    if args.archival_trial_supplement:
+        default_output = ARCHIVAL_TRIAL_OUTPUT
+    if args.rapid_decompression_supplement:
+        default_output = RAPID_DECOMPRESSION_OUTPUT
+    if args.chamber_program_supplement:
+        default_output = CHAMBER_PROGRAM_OUTPUT
+    if args.flight_surveillance_supplement:
+        default_output = FLIGHT_SURVEILLANCE_OUTPUT
+    if args.archive_followup_supplement:
+        default_output = ARCHIVE_FOLLOWUP_OUTPUT
+    if args.historical_outcomes_supplement:
+        default_output = HISTORICAL_OUTCOMES_OUTPUT
+    if args.chamber_case_supplement:
+        default_output = CHAMBER_CASE_OUTPUT
+    if args.chamber_timing_supplement:
+        default_output = CHAMBER_TIMING_OUTPUT
+    if args.chamber_archive_supplement:
+        default_output = CHAMBER_ARCHIVE_OUTPUT
+    if args.chamber_symptom_supplement:
+        default_output = CHAMBER_SYMPTOM_OUTPUT
+    if args.chamber_case_series_supplement:
+        default_output = CHAMBER_CASE_SERIES_OUTPUT
+    if args.chamber_age_strata_supplement:
+        default_output = CHAMBER_AGE_STRATA_OUTPUT
+    if args.chamber_reconciliation_supplement:
+        default_output = CHAMBER_RECONCILIATION_OUTPUT
+    if args.chamber_nasa_strata_supplement:
+        default_output = CHAMBER_NASA_STRATA_OUTPUT
+    if args.chamber_nasa_cases_supplement:
+        default_output = CHAMBER_NASA_CASES_OUTPUT
+    if args.chamber_paired_exposures_supplement:
+        default_output = CHAMBER_PAIRED_EXPOSURES_OUTPUT
+    if args.chamber_staged_exposures_supplement:
+        default_output = CHAMBER_STAGED_EXPOSURES_OUTPUT
+    if args.chamber_treated_case_supplement:
+        default_output = CHAMBER_TREATED_CASE_OUTPUT
+    if args.chamber_case_detail_supplement:
+        default_output = CHAMBER_CASE_DETAIL_OUTPUT
+    if args.chamber_threshold_supplement:
+        default_output = CHAMBER_THRESHOLD_OUTPUT
+    if args.chamber_bubble_outcomes_supplement:
+        default_output = CHAMBER_BUBBLE_OUTCOMES_OUTPUT
+    if args.chamber_diagnosis_supplement:
+        default_output = CHAMBER_DIAGNOSIS_OUTPUT
+    if args.chamber_vge_reconciliation_supplement:
+        default_output = CHAMBER_VGE_RECONCILIATION_OUTPUT
+    if args.chamber_repeated_eva_supplement:
+        default_output = CHAMBER_REPEATED_EVA_OUTPUT
     supplement_version = (
-        CADET_DATA.name
+        CHAMBER_REPEATED_EVA_DATA.name
+        if args.chamber_repeated_eva_supplement
+        else CHAMBER_VGE_RECONCILIATION_DATA.name
+        if args.chamber_vge_reconciliation_supplement
+        else CHAMBER_DIAGNOSIS_DATA.name
+        if args.chamber_diagnosis_supplement
+        else CHAMBER_BUBBLE_OUTCOMES_DATA.name
+        if args.chamber_bubble_outcomes_supplement
+        else CHAMBER_THRESHOLD_DATA.name
+        if args.chamber_threshold_supplement
+        else CHAMBER_CASE_DETAIL_DATA.name
+        if args.chamber_case_detail_supplement
+        else CHAMBER_TREATED_CASE_DATA.name
+        if args.chamber_treated_case_supplement
+        else CHAMBER_STAGED_EXPOSURES_DATA.name
+        if args.chamber_staged_exposures_supplement
+        else CHAMBER_PAIRED_EXPOSURES_DATA.name
+        if args.chamber_paired_exposures_supplement
+        else CHAMBER_NASA_CASES_DATA.name
+        if args.chamber_nasa_cases_supplement
+        else CHAMBER_NASA_STRATA_DATA.name
+        if args.chamber_nasa_strata_supplement
+        else CHAMBER_RECONCILIATION_DATA.name
+        if args.chamber_reconciliation_supplement
+        else CHAMBER_AGE_STRATA_DATA.name
+        if args.chamber_age_strata_supplement
+        else CHAMBER_CASE_SERIES_DATA.name
+        if args.chamber_case_series_supplement
+        else CHAMBER_SYMPTOM_DATA.name
+        if args.chamber_symptom_supplement
+        else CHAMBER_ARCHIVE_DATA.name
+        if args.chamber_archive_supplement
+        else CHAMBER_TIMING_DATA.name
+        if args.chamber_timing_supplement
+        else CHAMBER_CASE_DATA.name
+        if args.chamber_case_supplement
+        else HISTORICAL_OUTCOMES_DATA.name
+        if args.historical_outcomes_supplement
+        else ARCHIVE_FOLLOWUP_DATA.name
+        if args.archive_followup_supplement
+        else FLIGHT_SURVEILLANCE_DATA.name
+        if args.flight_surveillance_supplement
+        else CHAMBER_PROGRAM_DATA.name
+        if args.chamber_program_supplement
+        else RAPID_DECOMPRESSION_DATA.name
+        if args.rapid_decompression_supplement
+        else ARCHIVAL_TRIAL_DATA.name
+        if args.archival_trial_supplement
+        else INTERNATIONAL_DATA.name
+        if args.international_supplement
+        else DENITROGENATION_DATA.name
+        if args.denitrogenation_supplement
+        else SPACEFLIGHT_DATA.name
+        if args.spaceflight_supplement
+        else HISTORIC_CHAMBER_DATA.name
+        if args.historic_chamber_supplement
+        else CROSSOVER_DATA.name
+        if args.crossover_supplement
+        else CLINICAL_SERIES_DATA.name
+        if args.clinical_series_supplement
+        else RAF_DATA.name
+        if args.raf_supplement
+        else CADET_DATA.name
         if args.cadet_supplement
         else EXPEDITION_DATA.name
         if args.expedition_supplement
@@ -708,6 +1539,37 @@ if __name__ == "__main__":
         protocol_supplement=args.protocol_supplement,
         expedition_supplement=args.expedition_supplement,
         cadet_supplement=args.cadet_supplement,
+        raf_supplement=args.raf_supplement,
+        clinical_series_supplement=args.clinical_series_supplement,
+        crossover_supplement=args.crossover_supplement,
+        historic_chamber_supplement=args.historic_chamber_supplement,
+        spaceflight_supplement=args.spaceflight_supplement,
+        denitrogenation_supplement=args.denitrogenation_supplement,
+        international_supplement=args.international_supplement,
+        archival_trial_supplement=args.archival_trial_supplement,
+        rapid_decompression_supplement=args.rapid_decompression_supplement,
+        chamber_program_supplement=args.chamber_program_supplement,
+        flight_surveillance_supplement=args.flight_surveillance_supplement,
+        archive_followup_supplement=args.archive_followup_supplement,
+        historical_outcomes_supplement=args.historical_outcomes_supplement,
+        chamber_case_supplement=args.chamber_case_supplement,
+        chamber_timing_supplement=args.chamber_timing_supplement,
+        chamber_archive_supplement=args.chamber_archive_supplement,
+        chamber_symptom_supplement=args.chamber_symptom_supplement,
+        chamber_case_series_supplement=args.chamber_case_series_supplement,
+        chamber_age_strata_supplement=args.chamber_age_strata_supplement,
+        chamber_reconciliation_supplement=args.chamber_reconciliation_supplement,
+        chamber_nasa_strata_supplement=args.chamber_nasa_strata_supplement,
+        chamber_nasa_cases_supplement=args.chamber_nasa_cases_supplement,
+        chamber_paired_exposures_supplement=args.chamber_paired_exposures_supplement,
+        chamber_staged_exposures_supplement=args.chamber_staged_exposures_supplement,
+        chamber_treated_case_supplement=args.chamber_treated_case_supplement,
+        chamber_case_detail_supplement=args.chamber_case_detail_supplement,
+        chamber_threshold_supplement=args.chamber_threshold_supplement,
+        chamber_bubble_outcomes_supplement=args.chamber_bubble_outcomes_supplement,
+        chamber_diagnosis_supplement=args.chamber_diagnosis_supplement,
+        chamber_vge_reconciliation_supplement=args.chamber_vge_reconciliation_supplement,
+        chamber_repeated_eva_supplement=args.chamber_repeated_eva_supplement,
         citation_supplement=args.citation_supplement,
         fac_official=args.fac_official,
         fac_workbooks=args.fac_workbooks,

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "2026-11-20-nasa-ascent-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "targeted_pdf_extract",
+    "params": {
+      "urls": [
+        "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "A public NASA technical memorandum supplies Appendix B and its references. The extracted text was checked against the PDF page images.",
+    "records": [
+      {
+        "id": "19890012936",
+        "title": "The Effects of Different Rates of Ascent on the Incidence of Altitude Decompression Sickness",
+        "url": "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf",
+        "year": 1989,
+        "primary_source": "https://ntrs.nasa.gov/citations/19890012936"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-nasa-ascent-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "catalog_scrape",
+    "params": {
+      "urls": [
+        "https://ntrs.nasa.gov/citations/19890012936",
+        "https://ntrs.nasa.gov/citations/19920072110"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "NASA labels TM-100472 public with reuse permitted. The companion search returned the 1992 databank description but NASA provides no download for that cited record.",
+    "records": [
+      {
+        "id": "19890012936",
+        "title": "The Effects of Different Rates of Ascent on the Incidence of Altitude Decompression Sickness",
+        "url": "https://ntrs.nasa.gov/citations/19890012936",
+        "year": 1989,
+        "primary_source": "https://ntrs.nasa.gov/citations/19890012936"
+      },
+      {
+        "id": "19920072110",
+        "title": "A computerized databank of decompression sickness incidence in altitude chambers",
+        "url": "https://ntrs.nasa.gov/citations/19920072110",
+        "year": 1992,
+        "note": "Catalog entry. NASA lists no file to download. Describes a databank rather than releasing its records.",
+        "pmid": "1524540"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-nasa-ascent-a",
+    "date": "2026-11-20",
+    "provider": "NASA NTRS",
+    "operation": "original_pdf_scan",
+    "params": {
+      "urls": [
+        "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The original scan restores two entire Appendix B rows that the PDF text layer omits. All four exposure subtotals reconcile with Table 1.",
+    "records": [
+      {
+        "id": "19890012936",
+        "title": "The Effects of Different Rates of Ascent on the Incidence of Altitude Decompression Sickness",
+        "url": "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf",
+        "year": 1989,
+        "primary_source": "https://ntrs.nasa.gov/citations/19890012936",
+        "locator": "Results p. 8, Table 1 p. 23, Appendix B pp. 56–59",
+        "reported_experiments": 150,
+        "reported_source_reports": 42,
+        "reported_person_exposures": 14123,
+        "appendix_rows": 150,
+        "appendix_exposure_entry_sum": 14123,
+        "appendix_reference_numbers": 36,
+        "archive_path": "technical-reports/1989-kumar-waligora-ascent-nasa-tm-100472.pdf",
+        "sha256": "536e7be9c8500092c5d3f0820c641deccaee9c6e43eb8d16d6aa552063081eac",
+        "note": "Secondary compilation. Rows contain rounded rates and overlapping or unresolved cohorts. Held for source reconciliation."
+      }
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+source_id,related_source,relationship,evidence
+cooke74_primary,cooke74,same_cohort,The full text and the abstract record refer to the same publication. The source count of 22 for Flight B supersedes the abstract's 20 with a retained revision record.
+cooke75_docking,cooke74_primary,unresolved,The two papers address Apollo–Soyuz but use distinct 24-hour repeated transfers and suit-pressure challenge protocols. Shared volunteers are possible and there is no person linkage across papers.
+cooke76_airbreak,cooke75_air_tech,likely_overlap,"Matching authorship, 17 volunteers, interrupted three-hour 95% oxygen prebreathe and two-hour 3.8 psia challenge. Journal results serve as the study's single outcome source."
+damato63_journal,damato65_acel,same_cohort,"Authors, laboratory, 136 man ascents in 17 people and the exact study table align."
+degner65_orbital,beard67,unresolved,Related USAFSAM multistage work at the same institution. Four 1965 protocols and reported pressure sequence differ from the later Beard comparison; participant linkage is unavailable.
+pilmanis91_agard,v1.15/pilmanis95_ceiling and v1/afrl13,likely_overlap,Historical Armstrong research database underlies the 1991 table and later summaries. Source descriptions and outcome definitions may differ by analysis cut.

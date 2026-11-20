@@ -1,0 +1,164 @@
+[
+  {
+    "id": "2026-11-20-historical-crossover-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "publisher_full_text_lookup",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/2/article-p165.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/6/article-p350.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located the original Houston and Williams papers. The 1945 Henry and Cook publisher lookup did not yield its original pages.",
+    "records": [
+      {
+        "id": "20296024",
+        "title": "Occurrence of bends, scotomata and hemianopsia at altitudes below 20,000 feet",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/2/article-p165.pdf",
+        "year": 1947,
+        "pmid": "20296024",
+        "locator": "Methods p. 165, cases pp. 166–167, and Summary pp. 167–168",
+        "sha256": "a5ce682ecad1aa8eafabc0646a9f42bc65a8dc9bf0db66131c2a8e233bdce278",
+        "scope_note": "Twenty attendants made all but a few of 387 lock ascents. Six people had symptoms. Incomplete ascertainment and about fifteen episodes."
+      },
+      {
+        "id": "joam-17-6-602",
+        "title": "The use of drugs for the prevention of decompression sickness",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf",
+        "year": 1946,
+        "locator": "Methods p. 602, outcome table p. 604, and Table V p. 605",
+        "sha256": "1da815b7359b1ceab306a7bc7632307f790db9dfb8d1a38fea9af5eb1276ea7e",
+        "runs": 84,
+        "participants": 21
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-historical-crossover-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "archive_and_index_check",
+    "params": {
+      "urls": [
+        "https://archive.org/details/DTIC_ADA075869",
+        "https://pubmed.ncbi.nlm.nih.gov/14381363/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Firecrawl verified the Air Force archive accession. Its PubMed fetch did not succeed. The Vavala index was verified separately.",
+    "records": [
+      {
+        "id": "ADA075869",
+        "title": "The Aeroembolism Problem for Long-Range Missions",
+        "url": "https://archive.org/details/DTIC_ADA075869",
+        "year": 1952,
+        "locator": "Appendix III, printed p. 21",
+        "sha256": "8abd57fe5c523d90ecfa1d09d07ea0834c1e686ae5cadaa619fecf79938c6cb8",
+        "note": "Historical narrative with approximated study sizes. The exact antecedent Canadian and U.S. HDSD groups are not identified."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-historical-crossover-p",
+    "date": "2026-11-20",
+    "provider": "Original PDFs",
+    "operation": "source_page_verification",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/2/article-p165.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf",
+        "https://archive.org/details/DTIC_ADA075869",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/26/3/article-p230.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Inspected the Williams run table and Houston outcome counts. Henry and Vavala support source identity and context only.",
+    "records": [
+      {
+        "id": "20296024",
+        "title": "Occurrence of bends, scotomata and hemianopsia at altitudes below 20,000 feet",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/2/article-p165.pdf",
+        "year": 1947,
+        "pmid": "20296024",
+        "locator": "Methods p. 165, cases pp. 166–167, and Summary pp. 167–168",
+        "sha256": "a5ce682ecad1aa8eafabc0646a9f42bc65a8dc9bf0db66131c2a8e233bdce278",
+        "scope_note": "Twenty attendants made all but a few of 387 lock ascents. Six people had symptoms. Incomplete ascertainment and about fifteen episodes."
+      },
+      {
+        "id": "joam-17-6-602",
+        "title": "The use of drugs for the prevention of decompression sickness",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf",
+        "year": 1946,
+        "locator": "Methods p. 602, outcome table p. 604, and Table V p. 605",
+        "sha256": "1da815b7359b1ceab306a7bc7632307f790db9dfb8d1a38fea9af5eb1276ea7e",
+        "runs": 84,
+        "participants": 21
+      },
+      {
+        "id": "ADA075869",
+        "title": "The Aeroembolism Problem for Long-Range Missions",
+        "url": "https://archive.org/details/DTIC_ADA075869",
+        "year": 1952,
+        "locator": "Appendix III, printed p. 21",
+        "sha256": "8abd57fe5c523d90ecfa1d09d07ea0834c1e686ae5cadaa619fecf79938c6cb8",
+        "note": "Historical narrative with approximated study sizes. The exact antecedent Canadian and U.S. HDSD groups are not identified."
+      },
+      {
+        "id": "14381363",
+        "title": "The present status of aeroembolism",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14381363/",
+        "year": 1955,
+        "pmid": "14381363",
+        "locator": "Premedication p. 238 and reference 22 p. 239",
+        "sha256": "aa84cc939cd4549f246a172ce134ac022b301da28667b63b2d5f3dc25191a183",
+        "note": "This review cites Williams and colleagues for the 21-person experiment."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-historical-crossover-c",
+    "date": "2026-11-20",
+    "provider": "Public web",
+    "operation": "bibliography_verification",
+    "params": {
+      "urls": [
+        "https://ntrs.nasa.gov/api/citations/19660023909/downloads/19660023909.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/10/article-p1052.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/14381363/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The original bibliographies identify the Canadian report number. PubMed confirms the Vavala citation. Primary Canadian tables and a definitive HDSD link remain unavailable.",
+    "records": [
+      {
+        "id": "CAM-C-2503",
+        "title": "Review of Canadian Investigations on Decompression Sickness",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/10/article-p1052.pdf",
+        "year": 1943,
+        "locator": "Pilmanis et al. 2003 reference 5 and 1966 NASA report reference 8",
+        "note": "Bibliographic confirmation of Fraser, Stewart and Manning and reference number C-2503. Original tables unavailable. Candidate, not a confirmed HDSD match."
+      },
+      {
+        "id": "14381363",
+        "title": "The present status of aeroembolism",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14381363/",
+        "year": 1955,
+        "pmid": "14381363",
+        "locator": "Premedication p. 238 and reference 22 p. 239",
+        "sha256": "aa84cc939cd4549f246a172ce134ac022b301da28667b63b2d5f3dc25191a183",
+        "note": "This review cites Williams and colleagues for the 21-person experiment."
+      }
+    ]
+  }
+]

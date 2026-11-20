@@ -14,6 +14,17 @@ The author identified active-duty USAF cases from archived ICD-9 993.3 billing c
 
 The paper reports occupation without a count of all personnel at risk, a denominator of flights or chamber exposures, or a reconstructed pressure history. The data support case-control association and case descriptions. Neither incidence per chamber flight nor an absolute DCS prediction can be fitted from these counts. Case-level matched sets and VGE outcomes are also unavailable.
 
+## Comparison with the companion poster
+
+The university's companion poster by Rojas, Dohn and Voss reports the same 2006–2010 sample of 123 cases and 369 controls, including eight U-2 aviators and 28 hypobaric technicians among the cases. Its Table 1 has 40 occupation rows that sum to 123 cases. Three counts differ from the project report. The source register links both reports to the same sample and keeps the published counts for each version. The cause of the differences remains unresolved. [Wright State poster, Results and Table 1](https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph&filename=0&type=additional) · [Firecrawl retrieval and comparison](../data/chamber/publication-review/retrievals-2026-11-20-europe-staff.json)
+
+| Occupation | Project report | Companion poster |
+| --- | ---: | ---: |
+| Airborne Battle Management or Airborne Operations (1A4X1) | 4 | 3 |
+| Airborne Cryptologic Linguist (1A8X1) | 1 | 2 |
+| Basic Enlisted Airman | 1 | 2 |
+| Total across the 40 occupation rows | 122 | 123 |
+
 ## Verification and build
 
 LlamaParse Agentic was used on the abstract and study pages. The extracted numerical cells and AFSC codes were checked against the PDF text layer and rendered tables. The rendered Table 3 shows `>= 4 times per week`, where LlamaParse omitted the greater-than sign. The database uses the printed label. Source locators distinguish the printed page from the PDF page.

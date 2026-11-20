@@ -1,0 +1,15 @@
+source_id,related_source,relationship,evidence
+katuntsev94_co2,katuntsev96_human,same_cohort,The SAE abstract gives exactly 72/106 and 33/101 under the same conditions. The dissertation explicitly lists SAE paper 941332 as a publication from this work.
+skedina99_dissertation,katuntsev96_human,likely_overlap,"Same institute and chamber. Skedina Table 2 series 1 reports 17/58 at 7,000 m with upper-limb work; Katuntsev section 6 reports 17/58 at 40 kPa with upright upper-limb work. These two groups were not counted independently."
+skedina99_dissertation,skedina97,likely_overlap,"The 1999 Methods describes fatty-acid sampling at 7,000 and 8,100 m in ten men with co-investigator V.P. Naidina. The 1997 paper has the same test altitudes, ten volunteers and authors. Exact cohort linkage remains unavailable."
+katuntsev96_human,skedina97,unresolved,"Same laboratory and overlapping co-investigators, using historical 7,000 and 8,100 m tests. Participant codes and dates are unavailable."
+katuntsev96_human,chadov01,unresolved,"Both concern Russian simulated EVA, but shared exposure identifiers were not available. The newly curated Katuntsev comparisons are not represented as clinical training validation."
+malette61_tech,malette62_dysbarism,same_cohort,"The report and journal paper share authors, title and 35 reviewed cases. Counts retained in the journal source note only."
+goodman64_altitude,cannon64_aviators,partial_overlap,Cannon case 1 is the prior Coburn case that Goodman numbers 10. Cannon cases 2–4 match Goodman's cases 11–13 by case details and the explicit source link. The four cases are represented through Cannon only.
+goodman64_altitude,coburn62_collapse,partial_overlap,Goodman Table I explicitly attributes case 10 to Coburn et al. Cannon and Gould also cite Coburn as prior background.
+goodman64_altitude,malette62_dysbarism,unresolved,The historical reviews name different reporting settings. Some of Goodman's previously published cases predate Malette's 1962 review. Case-level linkage was not established.
+roth68_explosive,goodman64_altitude,same_cohort,Roth cites Goodman's series as reference 78. Roth supplies no DCS risk set for the cases used in this release.
+roth68_explosive,malette62_dysbarism,same_cohort,"Roth reference 134 cites the 1961 project report, which corresponds to the 1962 paper."
+cannon64_aviators,coburn62_collapse,partial_overlap,Cannon Case 1 explicitly credits the earlier Coburn report of the same case. Goodman's Case 10 also cites Coburn.
+cannon64_aviators,kenyon72_hast,likely_overlap,"Same Royal Navy selection programme and category scheme. Kenyon Tables II–III report 371 courses in 1961–1962 (228 A, 119 B, 24 C) versus 365 subjects (238 A, 109 B, 18 C) in Cannon. Matching identities and exact study period of the Cannon denominator were unavailable."
+cannon64_aviators,gould63_royal_navy,likely_overlap,Gould is a coauthor and reports the same Royal Navy programme in the 1961–1962 publication. The current source did not establish exact denominator linkage.

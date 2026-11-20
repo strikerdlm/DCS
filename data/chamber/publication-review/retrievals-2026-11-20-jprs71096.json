@@ -1,0 +1,725 @@
+[
+  {
+    "id": "2026-11-20-jprs71096-tav-russian",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Казакова\" \"Полещук\" \"кислородной оболочкой\" 1978",
+      "max_results": 8,
+      "search_depth": "advanced",
+      "provider_request_id": "e2165fd3-35cc-4656-aca1-eba36906f679",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": [
+      {
+        "id": "https://znanierussia.ru/articles/%D0%9F%D0%BE%D0%BB%D0%B5%D1%89%D1%83%D0%BA,_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87",
+        "title": "Полещук, Александр Фёдорович — энциклопедия «Знание.Вики»",
+        "url": "https://znanierussia.ru/articles/%D0%9F%D0%BE%D0%BB%D0%B5%D1%89%D1%83%D0%BA,_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87",
+        "rank": 1,
+        "score": 0.15090263
+      },
+      {
+        "id": "https://books.google.com/books/about/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BA%D0%B8%D1%81%D0%BB%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D0%BE_%D0%B4%D1%8B.html?id=k4480gEACAAJ",
+        "title": "Полевая кислородно-дыхательная аппаратура: Учебно-методическое пособие для ... - Google Books",
+        "url": "https://books.google.com/books/about/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BA%D0%B8%D1%81%D0%BB%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D0%BE_%D0%B4%D1%8B.html?id=k4480gEACAAJ",
+        "rank": 2,
+        "score": 0.089136936
+      },
+      {
+        "id": "https://my-dict.ru/dic/bolshaya-biograficheskaya-enciklopediya/1488536-kazakova-marina-vasilevna",
+        "title": "Казакова, Марина Васильевна — значение слова | Большая биографическая энциклопедия",
+        "url": "https://my-dict.ru/dic/bolshaya-biograficheskaya-enciklopediya/1488536-kazakova-marina-vasilevna",
+        "rank": 3,
+        "score": 0.08509905
+      },
+      {
+        "id": "https://pegasuspublishers.com/author/paul-a_-kazakov",
+        "title": "Paul A. Kazakov Books",
+        "url": "https://pegasuspublishers.com/author/paul-a_-kazakov",
+        "rank": 4,
+        "score": 0.061536737
+      },
+      {
+        "id": "https://iairas.ru/mag/2024/full2/Art5.pdf",
+        "title": "КИНЕТИКА ПРОВОДИМОСТИ ПОЛУПРОВОДНИКОВЫХ ...",
+        "url": "https://iairas.ru/mag/2024/full2/Art5.pdf",
+        "rank": 5,
+        "score": 0.054098696
+      },
+      {
+        "id": "https://www.ebsco.com/research-starters/history/yuri-pavlovich-kazakov",
+        "title": "Yuri Pavlovich Kazakov | History | Research Starters | EBSCOhost",
+        "url": "https://www.ebsco.com/research-starters/history/yuri-pavlovich-kazakov",
+        "rank": 6,
+        "score": 0.04401865
+      },
+      {
+        "id": "https://vital.lib.tsu.ru/vital/access/services/Download/koha:000900031/SOURCE1",
+        "title": "Семантическое поле пространства в рассказе Ю.П. Казакова",
+        "url": "https://vital.lib.tsu.ru/vital/access/services/Download/koha:000900031/SOURCE1",
+        "rank": 7,
+        "score": 0.03919513
+      },
+      {
+        "id": "https://www.med-kislorod.ru/o_kompanii/technologies/tekhnologiya-polucheniya-kisloroda",
+        "title": "Технология для получения кислорода",
+        "url": "https://www.med-kislorod.ru/o_kompanii/technologies/tekhnologiya-polucheniya-kisloroda",
+        "rank": 8,
+        "score": 0.035144847
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-fire-issue",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Космическая биология и авиакосмическая медицина\" \"1978\" том 12 № 2 pdf",
+      "limit": 8,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f906-3fb5-76df-b092-9d56c597a384",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": [
+      {
+        "id": "http://journal.imbp.ru/pdf/aem2021_2.pdf",
+        "title": "Авиакосмическая и экологическая медицина - ИМБП РАН",
+        "url": "http://journal.imbp.ru/pdf/aem2021_2.pdf",
+        "rank": 1
+      },
+      {
+        "id": "https://xn--h1aaeem8d.xn--p1ai/files/60_let_sbornik.pdf",
+        "title": "Авиационно-космическая медицина ... - Перечень публикаций",
+        "url": "https://xn--h1aaeem8d.xn--p1ai/files/60_let_sbornik.pdf",
+        "rank": 2
+      },
+      {
+        "id": "https://tert.nla.am/archive/NLA%20AMSAGIR/Agrogitutyn1996/2013/1-2_ocr.pdf",
+        "title": "ԱԳՐՈԳԻՏՈՒԹՅՈՒՆ",
+        "url": "https://tert.nla.am/archive/NLA%20AMSAGIR/Agrogitutyn1996/2013/1-2_ocr.pdf",
+        "rank": 3
+      },
+      {
+        "id": "https://www.researchgate.net/publication/266098550_Zabytye_stranicy_sovetskoj_inzenernoj_psihologii",
+        "title": "(PDF) Забытые страницы советской инженерной психологии",
+        "url": "https://www.researchgate.net/publication/266098550_Zabytye_stranicy_sovetskoj_inzenernoj_psihologii",
+        "rank": 4
+      },
+      {
+        "id": "http://library.grsmu.by/docs/biobibl/%D0%9E%D0%A1%D0%A2%D0%A0%D0%9E%D0%92%D0%A1%D0%9A%D0%98%D0%99%20%D0%AE%D0%A0%D0%98%D0%99%20%D0%9C%D0%98%D0%A5%D0%90%D0%99%D0%9B%D0%9E%D0%92%D0%98%D0%A7.pdf",
+        "title": "ОСТРОВСКИЙ ЮРИЙ МИХАЙЛОВИЧ.pdf",
+        "url": "http://library.grsmu.by/docs/biobibl/%D0%9E%D0%A1%D0%A2%D0%A0%D0%9E%D0%92%D0%A1%D0%9A%D0%98%D0%99%20%D0%AE%D0%A0%D0%98%D0%99%20%D0%9C%D0%98%D0%A5%D0%90%D0%99%D0%9B%D0%9E%D0%92%D0%98%D0%A7.pdf",
+        "rank": 5
+      },
+      {
+        "id": "https://repository.kpi.kharkov.ua/bitstreams/bf44cbe6-702e-4eff-9bc4-f60bcc85b84c/download",
+        "title": "Leteratura_2015_The weakening of the static geomagnetic field by the ...",
+        "url": "https://repository.kpi.kharkov.ua/bitstreams/bf44cbe6-702e-4eff-9bc4-f60bcc85b84c/download",
+        "rank": 6
+      },
+      {
+        "id": "http://www.ips.ac.ru/index.php?option=com_content&task=view&id=558&Itemid=1",
+        "title": "ДВОРКИН ВЛАДИМИР ИЛЬИЧ",
+        "url": "http://www.ips.ac.ru/index.php?option=com_content&task=view&id=558&Itemid=1",
+        "rank": 7
+      },
+      {
+        "id": "https://www.academia.edu/118625250/%D0%9D%D0%BE%D0%B2%D1%8B%D0%B5_%D0%B3%D0%BE%D1%80%D0%B8%D0%B7%D0%BE%D0%BD%D1%82%D1%8B_%D0%B3%D0%B5%D0%BE%D0%BA%D0%BE%D1%81%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9_%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%8B",
+        "title": "(PDF) Новые горизонты геокосмической медицины",
+        "url": "https://www.academia.edu/118625250/%D0%9D%D0%BE%D0%B2%D1%8B%D0%B5_%D0%B3%D0%BE%D1%80%D0%B8%D0%B7%D0%BE%D0%BD%D1%82%D1%8B_%D0%B3%D0%B5%D0%BE%D0%BA%D0%BE%D1%81%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9_%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%8B",
+        "rank": 8
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-tav-series",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Space biology and aerospace medicine\" \"Joint Publications Research Service\" 1978 library",
+      "max_results": 8,
+      "search_depth": "advanced",
+      "provider_request_id": "c2aba9b8-8ff5-422f-968c-81700d533e23",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": [
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/19780019804/downloads/19780019804.pdf",
+        "title": "r Aerospace Medicine & Biology & ...",
+        "url": "https://ntrs.nasa.gov/api/citations/19780019804/downloads/19780019804.pdf",
+        "rank": 1,
+        "score": 0.76559335
+      },
+      {
+        "id": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=United+States.+Joint+Publications+Research+Service",
+        "title": "United States. Joint Publications Research Service",
+        "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=United+States.+Joint+Publications+Research+Service",
+        "rank": 2,
+        "score": 0.6617043
+      },
+      {
+        "id": "https://search.library.yale.edu/catalog/991011348295008651",
+        "title": "USSR report. Space biology and aerospace medicine - Quicksearch",
+        "url": "https://search.library.yale.edu/catalog/991011348295008651",
+        "rank": 3,
+        "score": 0.39326853
+      },
+      {
+        "id": "https://www.readex.com/products/joint-publications-research-service-jprs-reports-1957-1995",
+        "title": "Joint Publications Research Service (JPRS) Reports, 1957-1995 | Readex",
+        "url": "https://www.readex.com/products/joint-publications-research-service-jprs-reports-1957-1995",
+        "rank": 4,
+        "score": 0.3338289
+      },
+      {
+        "id": "https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/N8819079.xhtml",
+        "title": "JPRS (Joint Publications Research Service) Report: Science and ...",
+        "url": "https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/N8819079.xhtml",
+        "rank": 5,
+        "score": 0.32348695
+      },
+      {
+        "id": "https://catalog.hathitrust.org/Record/000526419",
+        "title": "Catalog Record: Aerospace medicine and biology",
+        "url": "https://catalog.hathitrust.org/Record/000526419",
+        "rank": 6,
+        "score": 0.24999616
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/19870016300/downloads/19870016300.pdf?attachment=true",
+        "title": "Aerospace Medicine and Biology A Continuing NASA SP-7011(300) ...",
+        "url": "https://ntrs.nasa.gov/api/citations/19870016300/downloads/19870016300.pdf?attachment=true",
+        "rank": 7,
+        "score": 0.2168396
+      },
+      {
+        "id": "https://books.google.com/books/about/Aerospace_Medicine_and_Biology.html?id=qzJUAAAAMAAJ",
+        "title": "Aerospace Medicine and Biology - Google Books",
+        "url": "https://books.google.com/books/about/Aerospace_Medicine_and_Biology.html?id=qzJUAAAAMAAJ",
+        "rank": 8,
+        "score": 0.21239533
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-fire-chapter",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"USAFSAM hypobaric decompression sickness research since 1983\" Webb",
+      "limit": 8,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f906-41ea-74af-aa8d-dcedded17f2f",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": [
+      {
+        "id": "https://catalog.nlm.nih.gov/nde/fulldisplay/alma999346563406676/01NLM_INST:NDE/en",
+        "title": "USAFSAM hypobaric decompression sickness research since 1983",
+        "url": "https://catalog.nlm.nih.gov/nde/fulldisplay/alma999346563406676/01NLM_INST:NDE/en",
+        "rank": 1
+      },
+      {
+        "id": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "title": "ADA257612.pdf - DTIC",
+        "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "rank": 2
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-tav-source",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"USAFSAM hypobaric decompression sickness research since 1983\" Webb tests exposures",
+      "max_results": 8,
+      "search_depth": "advanced",
+      "provider_request_id": "ea4fe04e-4875-4c23-9538-0c140fd8fe03",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": [
+      {
+        "id": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "title": "ADA257612.pdf - DTIC",
+        "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "rank": 1,
+        "score": 0.78464925
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "rank": 2,
+        "score": 0.6913932
+      },
+      {
+        "id": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-case-description-research-tp218561-2014.pdf",
+        "title": "Probabilistic Assessment of Treatment Success for Hypobaric ...",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-case-description-research-tp218561-2014.pdf",
+        "rank": 3,
+        "score": 0.63420355
+      },
+      {
+        "id": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+        "title": "Decompression Illness in United States Air Force: High Risk Occupations",
+        "url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+        "rank": 4,
+        "score": 0.5887709
+      },
+      {
+        "id": "https://catalog.nlm.nih.gov/nde/fulldisplay/alma999346563406676/01NLM_INST:NDE/en",
+        "title": "USAFSAM hypobaric decompression sickness research since 1983",
+        "url": "https://catalog.nlm.nih.gov/nde/fulldisplay/alma999346563406676/01NLM_INST:NDE/en",
+        "rank": 5,
+        "score": 0.57642275
+      },
+      {
+        "id": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "title": "CASE REPORT",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "rank": 6,
+        "score": 0.5484317
+      },
+      {
+        "id": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "title": "Documentation for the USAF School of Aerospace Medicine Altitude ...",
+        "url": "https://www.researchgate.net/publication/235123582_Documentation_for_the_USAF_School_of_Aerospace_Medicine_Altitude_Decompression_Sickness_Research_Database",
+        "rank": 7,
+        "score": 0.5362218
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/23855060",
+        "title": "Probability of hypobaric decompression sickness including extreme exposures.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23855060",
+        "rank": 8,
+        "score": 0.5071635
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-fire-russian",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Казакова\" \"Полещук\" \"высотных декомпрессионных\"",
+      "limit": 8,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f906-3f7f-7674-964a-004455122dc5",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-jprs71096-dup0",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "Kazakova Poleshchuk \"14 out of 23\" decompression disorders 11000",
+      "max_results": 6,
+      "search_depth": "advanced",
+      "provider_request_id": "6fe8a341-3b38-43c9-a915-6d2529506fbc",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": [
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11444918",
+        "title": "Effects of CO2 on the occurrence of decompression sickness - PMC - NIH",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11444918",
+        "rank": 1,
+        "score": 0.3761647
+      },
+      {
+        "id": "https://www.germanjournalsportsmedicine.com/fileadmin/content/archiv_2025/Issue_5/DtschZSportmed_ClinicalReview_Tetzlaff_Management_of_Decompression_Illness_2025-5.pdf",
+        "title": "Management of Decompression Illness",
+        "url": "https://www.germanjournalsportsmedicine.com/fileadmin/content/archiv_2025/Issue_5/DtschZSportmed_ClinicalReview_Tetzlaff_Management_of_Decompression_Illness_2025-5.pdf",
+        "rank": 2,
+        "score": 0.263789
+      },
+      {
+        "id": "https://www.merckmanuals.com/professional/injuries-poisoning/injury-during-diving-or-work-in-compressed-air/decompression-sickness",
+        "title": "Decompression Sickness - Injuries; Poisoning - Merck Manual Professional Edition",
+        "url": "https://www.merckmanuals.com/professional/injuries-poisoning/injury-during-diving-or-work-in-compressed-air/decompression-sickness",
+        "rank": 3,
+        "score": 0.21917035
+      },
+      {
+        "id": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/scuba-diving-decompression-illness-and-other-dive-related-injuries.html",
+        "title": "Scuba Diving: Decompression Illness and Other Dive-Related Injuries | CDC Yellow Book™",
+        "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/scuba-diving-decompression-illness-and-other-dive-related-injuries.html",
+        "rank": 4,
+        "score": 0.21883628
+      },
+      {
+        "id": "https://apcz.umk.pl/QS/article/view/67991",
+        "title": "Pathophysiology of Decompression Sickness: Current Insights and Emerging Models | Quality in Sport",
+        "url": "https://apcz.umk.pl/QS/article/view/67991",
+        "rank": 5,
+        "score": 0.21866935
+      },
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11168797",
+        "title": "Decompression illness: a comprehensive overview",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11168797",
+        "rank": 6,
+        "score": 0.20930801
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-dup1",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"11 out of 15\" \"14 out of 23\" decompression Kazakova oxygen",
+      "limit": 6,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false,
+      "provider_request_id": "01a1f90a-0e4b-76fa-abcd-facae1bd88c2",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-jprs71096-dup2",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "query": "\"Kuznetsov\" \"Poleshchuk\" \"11,000\" ascent decompression oxygen human chamber",
+      "max_results": 6,
+      "search_depth": "advanced",
+      "provider_request_id": "7c6351b4-89a2-43dd-9c4a-49c484f70ba7",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Search results retain provider order.",
+    "records": [
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/33975411",
+        "title": "Hyperbaric oxygen for decompression sickness.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33975411",
+        "rank": 1,
+        "score": 0.244363
+      },
+      {
+        "id": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "rank": 2,
+        "score": 0.23091978
+      },
+      {
+        "id": "https://navalunderseamuseum.org/nedu-decompression",
+        "title": "NEDU: Decompression Procedures - U. S. Naval Undersea Museum",
+        "url": "https://navalunderseamuseum.org/nedu-decompression",
+        "rank": 3,
+        "score": 0.22236224
+      },
+      {
+        "id": "https://atlantic-pt.com/hyperbaric-chamber-for-decompression-sickness-quick-relief-protocols",
+        "title": "Hyperbaric Chamber for Decompression Sickness: Quick Relief Protocols - Atlantic Physical Therapy",
+        "url": "https://atlantic-pt.com/hyperbaric-chamber-for-decompression-sickness-quick-relief-protocols",
+        "rank": 4,
+        "score": 0.21717146
+      },
+      {
+        "id": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "title": "CASE REPORT",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "rank": 5,
+        "score": 0.1887722
+      },
+      {
+        "id": "https://divingmuseum.org/blogs-from-the-past/under-pressure-decompression-chambers",
+        "title": "Under Pressure: Decompression Chambers - History Of Diving Museum",
+        "url": "https://divingmuseum.org/blogs-from-the-past/under-pressure-decompression-chambers",
+        "rank": 6,
+        "score": 0.18609506
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-t-upenn",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_catalogue_retrieval",
+    "params": {
+      "urls": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=United+States.+Joint+Publications+Research+Service"
+      ],
+      "provider_request_id": "b50f82bb-a4a3-4df4-a232-7566fd22c40e",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Pre-1979 serial listed separately from the later FBIS run.",
+    "records": [
+      {
+        "id": "upenn-catalogue",
+        "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=United+States.+Joint+Publications+Research+Service",
+        "title": "United States Joint Publications Research Service"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-f-catalogue",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_catalogue_retrieval",
+    "params": {
+      "urls": [
+        "https://catalog.hathitrust.org/Record/102453231"
+      ],
+      "provider_request_id": "01a1f907-8526-7118-b49d-4f3c383ded51",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Catalogue lists full view of volume 12, University of California copy.",
+    "records": [
+      {
+        "id": "catalogue",
+        "url": "https://catalog.hathitrust.org/Record/102453231",
+        "title": "Space biology and aerospace medicine"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-f-volume",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_catalogue_retrieval",
+    "params": {
+      "urls": [
+        "https://babel.hathitrust.org/cgi/pt?id=uc1.c2960236"
+      ],
+      "provider_request_id": "01a1f907-e10b-750a-bc8e-5da4f80f68f7",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Bound volume 12 contains six issues. Page sequence mapping identifies the second run of pp. 34–38 as sequences 190–194.",
+    "records": [
+      {
+        "id": "bound-volume",
+        "url": "https://babel.hathitrust.org/cgi/pt?id=uc1.c2960236",
+        "title": "Space biology and aerospace medicine, volume 12"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-f-jprs-issue",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=149",
+        "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=151"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Cover and data sheet give report number JPRS-71096 and date 11 May 1978.",
+    "records": [
+      {
+        "id": "cover",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=149",
+        "title": "Space biology and aerospace medicine, volume 12, issue 2 (JPRS-71096)",
+        "hathitrust_sequence": 149,
+        "provider_request_id": "01a1f909-3777-71d6-bc47-70e3ffeaaa1d"
+      },
+      {
+        "id": "bib-sheet",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=151",
+        "title": "Space biology and aerospace medicine, volume 12, issue 2 (JPRS-71096)",
+        "hathitrust_sequence": 151,
+        "provider_request_id": "01a1f909-377d-72a9-9e05-20e2e0963b44"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-f-study",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=190",
+        "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=191",
+        "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=192",
+        "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=193",
+        "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=194"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "HathiTrust source-provided page OCR. Study text and both outcome tables were readable. The two arm totals agree with the sum of the relevant table rows. Page image rendering was unavailable.",
+    "records": [
+      {
+        "id": "jprs71096-p34",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=190",
+        "title": "Checking effectiveness of prevention of high-altitude decompression disorders by means of prebreathing in an oxygen environment",
+        "hathitrust_sequence": 190,
+        "provider_request_id": "01a1f908-7c9d-748b-8d32-f23896772f9a"
+      },
+      {
+        "id": "jprs71096-p35",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=191",
+        "title": "Checking effectiveness of prevention of high-altitude decompression disorders by means of prebreathing in an oxygen environment",
+        "hathitrust_sequence": 191,
+        "provider_request_id": "01a1f908-7f36-7689-a95e-26b65a34d38d"
+      },
+      {
+        "id": "jprs71096-p36",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=192",
+        "title": "Checking effectiveness of prevention of high-altitude decompression disorders by means of prebreathing in an oxygen environment",
+        "hathitrust_sequence": 192,
+        "provider_request_id": "01a1f908-7daa-750f-9848-74d95a3e6c4d"
+      },
+      {
+        "id": "jprs71096-p37",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=193",
+        "title": "Checking effectiveness of prevention of high-altitude decompression disorders by means of prebreathing in an oxygen environment",
+        "hathitrust_sequence": 193,
+        "provider_request_id": "01a1f908-7cca-7034-87e7-8ded12d61625"
+      },
+      {
+        "id": "jprs71096-p38",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=194",
+        "title": "Checking effectiveness of prevention of high-altitude decompression disorders by means of prebreathing in an oxygen environment",
+        "hathitrust_sequence": 194,
+        "provider_request_id": "01a1f908-7d60-746d-a265-217e9d8a16e5"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-t-hathi",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://babel.hathitrust.org/cgi/pt?id=uc1.c2960236",
+        "https://babel.hathitrust.org/cgi/pt?id=uc1.c2960236&a=srchls&q1=Kazakova"
+      ],
+      "provider_request_id": "a24bb525-cefb-4202-8a71-fb6c76d4240b",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Both the HathiTrust volume and the in-volume query returned fetch errors.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-jprs71096-t-catalogue",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_catalogue_retrieval",
+    "params": {
+      "urls": [
+        "https://catalog.hathitrust.org/Record/102453231",
+        "https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/N7823708.xhtml"
+      ],
+      "provider_request_id": "0b3511b6-89d4-484e-99cd-a21ed65261ed",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "The HathiTrust catalogue and NTIS accession page returned fetch errors.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-jprs71096-f-webb",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_catalogue_retrieval",
+    "params": {
+      "urls": [
+        "https://catalog.nlm.nih.gov/nde/fulldisplay/alma999346563406676/01NLM_INST:NDE/en"
+      ],
+      "provider_request_id": "01a1f906-d146-7568-a974-a8efdba20e7a",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Identifies the Webb chapter within the 1992 DTIC workshop. Source text contains overlapping research snapshots to reconcile.",
+    "records": [
+      {
+        "id": "nlm-chapter",
+        "url": "https://catalog.nlm.nih.gov/nde/fulldisplay/alma999346563406676/01NLM_INST:NDE/en",
+        "title": "USAFSAM hypobaric decompression sickness research since 1983"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-jprs71096-t-workshop",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text",
+    "params": {
+      "urls": [
+        "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf"
+      ],
+      "provider_request_id": "3324c19f-ecd3-4470-9190-83391c49f992",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Recovered Webb chapter text and references. Primary volume already archived. No cohort counts were added from this chapter at this checkpoint.",
+    "records": [
+      {
+        "id": "ada257612",
+        "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "title": "Hypobaric Decompression Sickness workshop proceedings, ADA257612"
+      }
+    ]
+  }
+]

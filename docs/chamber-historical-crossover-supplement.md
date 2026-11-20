@@ -1,0 +1,17 @@
+# Williams and Houston historical chamber data
+
+The publisher scans yielded 84 run records from Williams and colleagues and clarified the source linkage for Houston’s existing chamber attendant series. The records use source-defined symptoms and remain outside the clinical fitting and validation populations. [Houston 1947](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/2/article-p165.pdf) · [Williams et al. 1946](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf)
+
+## Houston chamber attendants
+
+The 1947 journal article and the 1946 Navy report describe the same attendants. The Navy report retains the clinical counts for six affected people, three people with scotomata and two with transient temporal blindness in the 20-person cohort. The journal remains the source for the existing incapacitating-bends margin, whose summary describes two instances. The Methods on p. 165 attribute all but a few of 387 lock ascents to the attendants, with only an approximate count of symptomatic occasions. The Summary gives 18,000–20,000 ft for the visual episodes, and Case 3 describes descent from 21,000 ft. The review consolidates multiple records for the journal article under PMID 20296024. [Methods and case reports](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/2/article-p165.pdf#page=2)
+
+## Williams crossover experiment
+
+Table II gives 84 chamber runs at a target of 35,000 ft. Each of the same 21 men contributed one run in each of four conditions. The planned duration was 90 minutes, with earlier descent when symptoms warranted it. `publication_crossover_run` retains the published participant number, condition, symptom onset, time of forced descent and maximum symptom grade. A dash denotes absence for the corresponding outcome. Unexplained dots or an empty cell remain unresolved unless another field establishes that an outcome occurred. No time was assigned when the figure is absent. One aminophyllin grade retains the attached `ch` annotation. [Original table, p. 604](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf#page=3)
+
+Table II shows 10, 6, 7 and 10 forced descents across the four conditions. These counts reproduce Table III's reported percentages. Summary severity categories in Table III do not consistently reconcile to the displayed maximum grades. For example, eight control runs of grade 7 or higher appear in Tables II and V, and Table III prints 39.1%. The experiment also had uneven treatment assignments across run order, and the original paper supplies only aggregate order information. The database preserves linked participant rows and the reported outcomes for historical analysis. [Tables II and III](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf#page=3) · [Table V](https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p602.pdf#page=4)
+
+## HDSD follow-up
+
+The 1952 Wright Air Development Center review gives only rounded, broad estimates for wartime chamber programs. It describes several thousand Canadian chamber tests without an exact risk set. The bibliographies identify Fraser, Stewart and Manning's 1943 review as report C-2503. A public copy of its tables was not recovered, and the candidate HDSD links remain unresolved. [WADC TR 52-84, Appendix III](https://archive.org/details/DTIC_ADA075869) · [NASA bibliography](https://ntrs.nasa.gov/api/citations/19660023909/downloads/19660023909.pdf)

@@ -1,0 +1,20 @@
+source_id,stratum,grouping,period,course_count,category_a,category_b,category_c,peak_altitude_ft,planned_runs_per_course,planned_dwell_per_run_min,locator,note
+kenyon72_hast,all_courses,total,1950–1962,2565,1667,764,134,37000,3,60,Introduction p. 3 and Table I p. 4,"2,135 unique people took one to three courses. Outcomes are restrictions on course completion. Year and role rows are alternative partitions of the same courses."
+kenyon72_hast,year_1950,year,1950,58,37,15,6,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1951,year,1951,88,61,22,5,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1952,year,1952,101,72,25,4,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1953,year,1953,177,114,52,11,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1954,year,1954,276,181,79,16,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1955,year,1955,327,218,94,15,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1956,year,1956,220,138,69,13,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1957,year,1957,174,104,66,4,37000,3,60,"Tables II–III, pp. 5–6","Table III prints 177, while its category cells sum to 174, matching Table II. The two agreeing evidence sources support denominator 174."
+kenyon72_hast,year_1958,year,1958,230,148,68,14,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1959,year,1959,284,202,70,12,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1960,year,1960,259,164,85,10,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1961,year,1961,174,115,50,9,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,year_1962,year,1962,197,113,69,15,37000,3,60,"Tables II–III, pp. 5–6",Year partition of all courses. Some people returned in later years.
+kenyon72_hast,pilots,role,1950–1962,2053,1342,606,105,37000,3,60,"Table I, p. 4",Role partition of all courses. Source uses the label R. Aircrew for the corresponding role.
+kenyon72_hast,observers,role,1950–1962,367,226,121,20,37000,3,60,"Table I, p. 4",Role partition of all courses. Source uses the label R. Aircrew for the corresponding role.
+kenyon72_hast,r_aircrew,role,1950–1962,43,30,12,1,37000,3,60,"Table I, p. 4",Role partition of all courses. Source uses the label R. Aircrew for the corresponding role.
+kenyon72_hast,civilians,role,1950–1962,43,27,12,4,37000,3,60,"Table I, p. 4",Role partition of all courses. Source uses the label R. Aircrew for the corresponding role.
+kenyon72_hast,others,role,1950–1962,59,42,13,4,37000,3,60,"Table I, p. 4",Role partition of all courses. Source uses the label R. Aircrew for the corresponding role.
