@@ -1664,15 +1664,15 @@
     },
     {
       "record_key": "legacy:data/chamber/v1.10/search_hits.csv#expedition_extract:2",
-      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_extract:2",
-      "basis": "Original occurrence at the same page address and title.",
-      "evidence_url": "http://smj.sma.org.sg/2406/2406smj6.pdf"
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
+      "basis": "HTTP and HTTPS routes resolve to the same original December 1983 journal report.",
+      "evidence_url": "https://smj.sma.org.sg/2406/2406smj6.pdf"
     },
     {
       "record_key": "2026-11-20-archival-tavily-howard-exact#http://smj.sma.org.sg/2406/2406smj6.pdf",
-      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_extract:2",
-      "basis": "Same page address and title as the archived route.",
-      "evidence_url": "http://smj.sma.org.sg/2406/2406smj6.pdf"
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
+      "basis": "HTTP and HTTPS routes resolve to the same original December 1983 journal report.",
+      "evidence_url": "https://smj.sma.org.sg/2406/2406smj6.pdf"
     },
     {
       "record_key": "2026-11-20-openalex-observers#W2114767327",
@@ -4775,6 +4775,930 @@
       "report_id": "serial:revista-da-unifa-v18-n21-2006",
       "evidence_url": "https://www2.fab.mil.br/unifa/images/revista/pdf/ed_21.pdf",
       "basis": "The source URL identifies the full journal issue containing the separately indexed Taubman article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-poland-primary#kopka-wiml-reserve-time",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-poland-primary#kusmierska-bone-case-2013",
+      "report_id": "doi:10.13075/mp.5893/2013/0023",
+      "evidence_url": "https://medpr.imp.lodz.pl/pdf-442-14369?filename=Wieloogniskowa--kostna-ma.pdf",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-poland-references#golec-markiewicz-1989",
+      "report_id": "journal:golec-markiewicz-1989-medycyna-lotnicza-103",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900008820/downloads/19900008820.pdf",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-poland-references#golec-1998-book",
+      "report_id": "book:golec-1998-niedotlenienie-wysokosciowe",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-hungary-primary#szabo-2008-thesis",
+      "report_id": "dissertation:szabo-2008-nke-12137",
+      "evidence_url": "https://nkerepo.uni-nke.hu/xmlui/bitstream/123456789/12137/1/ertekezes.pdf",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-hungary-primary#szabo-2018-monitoring",
+      "report_id": "journal:szabo-2018-orvosbiologiai-monitorizalas",
+      "evidence_url": "https://repulestudomany.hu/folyoirat/2018_2/2018-2-14-0457_Szabo_Sandor_Andras.pdf",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-related-reports#nehring-2018-speyer",
+      "report_id": "poster:dglrm-2018-nehring-66-67",
+      "evidence_url": "https://www.bundeswehr.de/de/organisation/luftwaffe/organisation-/luftwaffentruppenkommando/zentrum-fuer-luft-und-raumfahrtmedizin/zentrum-luft-und-raumfahrtmedizin-forschung",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-related-reports#kempe-2018-fuerstenfeldbruck",
+      "report_id": "conference:bundeswehr-2018-kempe-druckfallkrankheit",
+      "evidence_url": "https://www.bundeswehr.de/de/organisation/luftwaffe/organisation-/luftwaffentruppenkommando/zentrum-fuer-luft-und-raumfahrtmedizin/zentrum-luft-und-raumfahrtmedizin-forschung",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-related-reports#rojas-2015-catalogue",
+      "report_id": "openalex:W2344433097",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-related-reports#witucki-2013-hyperbaric",
+      "report_id": "pmid:23957205",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23957205/",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-related-reports#huggins-1997-hyperbaric",
+      "report_id": "record:2026-11-20-undermind-role#Hug97",
+      "evidence_url": "https://uhms.org/images/Safety-Articles/dcs_in_inside_attendants.pdf",
+      "basis": "Public source and recorded locator identify this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-o-polish#W4411219597",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "The exact journal PDF or DOI identifies the Kopka article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-t-kopka#result-1",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "The exact journal PDF or DOI identifies the Kopka article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-t-golec#result-1",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "The exact journal PDF or DOI identifies the Kopka article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-f-kopka#result-1",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "The exact journal PDF or DOI identifies the Kopka article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Bas76",
+      "report_id": "pmid:971183",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/971183/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Bra09",
+      "report_id": "pmid:19522370",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Bas91",
+      "report_id": "pmid:1755801",
+      "evidence_url": "https://www.semanticscholar.org/paper/00707c73d3d94d0de8477d10734b9c180923640e",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Piw86",
+      "report_id": "pmid:3790029",
+      "evidence_url": "https://www.semanticscholar.org/paper/d2cc9e02f0ed58bdfcb343821462fd75f5b28b05",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Erc20",
+      "report_id": "pmid:32574436",
+      "evidence_url": "https://doi.org/10.22462/04.06.2020.5",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Sma04",
+      "report_id": "adf:smart-cable-2004",
+      "evidence_url": "https://www.semanticscholar.org/paper/92419a4d62d9daaaa55e1d3d820ca72e0be356fe",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Ric03",
+      "report_id": "pmid:12546299",
+      "evidence_url": "https://www.semanticscholar.org/paper/96444d782f8d08b93bd33907684562f6d1b02c64",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Piw86b",
+      "report_id": "pmid:3718386",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3718386/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Mor10",
+      "report_id": "pmid:20824995",
+      "evidence_url": "https://doi.org/10.3357/ASEM.2625.2010",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Con18",
+      "report_id": "pmid:30352646",
+      "evidence_url": "https://doi.org/10.3357/AMHP.5135.2018",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Lb83",
+      "report_id": "pmid:6651730",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Cro83",
+      "report_id": "pmid:6651730",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Ata21",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "evidence_url": "https://doi.org/10.28920/dhm51.1.82-85",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Wit13",
+      "report_id": "pmid:23957205",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23957205/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Gen17",
+      "report_id": "pmid:28518008",
+      "evidence_url": "https://doi.org/10.3357/AMHP.4691.2017",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Hug97",
+      "report_id": "record:2026-11-20-undermind-role#Hug97",
+      "evidence_url": "https://uhms.org/images/Safety-Articles/dcs_in_inside_attendants.pdf",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Ben26",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Ohr02",
+      "report_id": "pmid:11952064",
+      "evidence_url": "https://www.semanticscholar.org/paper/fd203bfe3bb05ae7ee6355323cac3b945aa5bcf7",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Rus90",
+      "report_id": "pmid:2256877",
+      "evidence_url": "https://www.semanticscholar.org/paper/f49e4a7f16bc172e2dcba493053843ee6ac3731a",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-staff#Erc20b",
+      "report_id": "doi:10.22462/03.07.2020.4",
+      "evidence_url": "https://doi.org/10.22462/03.07.2020.4",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-named#Kop25",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "The exact journal PDF or DOI identifies the Kopka article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-named#Kus13",
+      "report_id": "doi:10.13075/mp.5893/2013/0023",
+      "evidence_url": "https://medpr.imp.lodz.pl/pdf-442-14369?filename=Wieloogniskowa--kostna-ma.pdf",
+      "basis": "The exact author-published PDF or DOI identifies the Kuśmierska article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Sma04",
+      "report_id": "adf:smart-cable-2004",
+      "evidence_url": "https://www.semanticscholar.org/paper/92419a4d62d9daaaa55e1d3d820ca72e0be356fe",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Bra09",
+      "report_id": "pmid:19522370",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Erc20",
+      "report_id": "pmid:32574436",
+      "evidence_url": "https://doi.org/10.22462/04.06.2020.5",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#But99",
+      "report_id": "report:adp011059",
+      "evidence_url": "https://www.semanticscholar.org/paper/c90f1f50c1c0ae75c0eb8c9c0aabb99be3313d80",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Ben26",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Mor10",
+      "report_id": "pmid:20824995",
+      "evidence_url": "https://doi.org/10.3357/ASEM.2625.2010",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Con18",
+      "report_id": "pmid:30352646",
+      "evidence_url": "https://doi.org/10.3357/AMHP.5135.2018",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Ata21",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "evidence_url": "https://doi.org/10.28920/dhm51.1.82-85",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Ohr02",
+      "report_id": "pmid:11952064",
+      "evidence_url": "https://www.semanticscholar.org/paper/fd203bfe3bb05ae7ee6355323cac3b945aa5bcf7",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Mor10b",
+      "report_id": "undermind:mor10b-italian-chamber-safety",
+      "evidence_url": "https://www.semanticscholar.org/paper/18f002cc412582e683d7d796f00b729402591de1",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Web11",
+      "report_id": "doi:10.3357/asem.2576.2011",
+      "evidence_url": "https://doi.org/10.3357/ASEM.2576.2011",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Roj15",
+      "report_id": "openalex:W2344433097",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Gen17",
+      "report_id": "pmid:28518008",
+      "evidence_url": "https://doi.org/10.3357/AMHP.4691.2017",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Ric03",
+      "report_id": "pmid:12546299",
+      "evidence_url": "https://www.semanticscholar.org/paper/96444d782f8d08b93bd33907684562f6d1b02c64",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-natoops#Dem22",
+      "report_id": "pmid:36243908",
+      "evidence_url": "https://doi.org/10.3357/AMHP.6091.2022",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-info#Kop25",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "The exact journal PDF or DOI identifies the Kopka article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-info#Kus13",
+      "report_id": "doi:10.13075/mp.5893/2013/0023",
+      "evidence_url": "https://medpr.imp.lodz.pl/pdf-442-14369?filename=Wieloogniskowa--kostna-ma.pdf",
+      "basis": "The exact author-published PDF or DOI identifies the Kuśmierska article."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-info#Ben26",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-info#Wit13",
+      "report_id": "pmid:23957205",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23957205/",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-u-info#Hug97",
+      "report_id": "record:2026-11-20-undermind-role#Hug97",
+      "evidence_url": "https://uhms.org/images/Safety-Articles/dcs_in_inside_attendants.pdf",
+      "basis": "Provider cite key, title and bibliographic evidence identify the same report."
+    },
+    {
+      "record_key": "2026-11-20-latin-undermind-regional#Bra09",
+      "report_id": "pmid:19522370",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-latin-undermind-details#Bra09",
+      "report_id": "pmid:19522370",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-navy-outbreaks-und-navy#Bra09",
+      "report_id": "pmid:19522370",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-latin-undermind-regional#Ata21",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "evidence_url": "https://doi.org/10.28920/dhm51.1.82-85",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-latin-undermind-details#Ata21",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "evidence_url": "https://doi.org/10.28920/dhm51.1.82-85",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-latin-undermind-regional#Ben26",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-latin-undermind-details#Ben26",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-f-rojas-thesis-pdf#rojas-thesis-pdf",
+      "report_id": "openalex:W2344433097",
+      "evidence_url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+      "basis": "The exact university-hosted PDF identifies this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-f-rojas-poster-pdf#rojas-poster-pdf",
+      "report_id": "poster:rojas-dohn-voss-wright-mph-170",
+      "evidence_url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph&filename=0&type=additional",
+      "basis": "The exact university-hosted PDF identifies this report."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-t-pdf-extract#pdf-1",
+      "report_id": "openalex:W2344433097",
+      "evidence_url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+      "basis": "Exact PDF URL and article heading."
+    },
+    {
+      "record_key": "2026-11-20-europe-staff-t-pdf-extract#pdf-2",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020",
+      "basis": "Exact PDF URL and article heading."
+    },
+    {
+      "record_key": "2026-11-20-followup-undermind-nonus#Erc20b",
+      "report_id": "doi:10.22462/03.07.2020.4",
+      "evidence_url": "https://doi.org/10.22462/03.07.2020.4",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-roles-undermind-usaf-risksets#Web11",
+      "report_id": "doi:10.3357/asem.2576.2011",
+      "evidence_url": "https://doi.org/10.3357/asem.2576.2011",
+      "basis": "Earlier Undermind occurrence with the same cite key and verified title."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-spain-primary#olea-2018-table4",
+      "report_id": "doi:10.4321/s1887-85712018000300008",
+      "evidence_url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/r/s/rsm_74-3.pdf",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-spain-primary#viqueira-adp011068",
+      "report_id": "report:adp011068",
+      "evidence_url": "https://www.academia.edu/82613724/Spanish_Navy_Up_to_Date_Data_in_DCS",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-sweden-crossover#anell-2023-228",
+      "report_id": "abstract:asma-2023-anell-228",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/4/article-p200.pdf",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-sweden-crossover#eiken-2023-journal",
+      "report_id": "doi:10.1007/s00421-023-05173-9",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-023-05173-9",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-german-abstract#gebauer-2026-186",
+      "report_id": "abstract:asma-2026-gebauer-186",
+      "evidence_url": "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft9.pdf",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-korean-records#kim-jeon-2012-blood",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001678746",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-korean-records#lee-kim-2003-oxygen",
+      "report_id": "journal:rokaamc-lee-kim-2003-v50-n1",
+      "evidence_url": "https://dl.nanet.go.kr/detail/KINX2003080426",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-korean-records#jeong-2003-altitude-dcs",
+      "report_id": "journal:rokaamc-jeong-2003-v50-n1",
+      "evidence_url": "https://dl.nanet.go.kr/detail/KINX2003080426",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-additional-scope-checks#bason-1991-operational-flight",
+      "report_id": "pmid:1764015",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/1764015/",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-additional-scope-checks#norwegian-institute-experiment",
+      "report_id": "pmid:28839003",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28839003/",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-additional-scope-checks#norway-aviation-medicine-chamber",
+      "report_id": "program:norwegian-force-flymedisinsk-lavtrykkskammer",
+      "evidence_url": "https://www.forsvaret.no/om-forsvaret/organisasjon/forsvarets-sanitet/nytt-styringssystem-skal-sikre-kritisk-flymedisinsk-trening-i-forsvaret",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-t-korea#result-1",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001678746",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-t-korea#result-4",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001678746",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Bas76",
+      "report_id": "pmid:971183",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/971183/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Bra09",
+      "report_id": "pmid:19522370",
+      "evidence_url": "https://consensus.app/papers/details/w:38ac8803-8e26-4b8a-be84-227313524a69/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Erc20",
+      "report_id": "pmid:32574436",
+      "evidence_url": "https://consensus.app/papers/details/w:1e918de7-e8bc-49f7-85ef-2e3e54d3bf02/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Bas91",
+      "report_id": "pmid:1755801",
+      "evidence_url": "https://consensus.app/papers/details/w:a91b791d-af18-481a-9570-fff19ea809c9/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Piw86b",
+      "report_id": "pmid:3718386",
+      "evidence_url": "https://researchs.unalproxy.elogim.com/c/ernpho/search/details/tnhs5t3cb5",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Ata21",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Ben26",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://consensus.app/papers/details/w:7dc49c65-6c3f-406d-a12f-386f917202d8/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Mor10",
+      "report_id": "pmid:20824995",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20824995/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Ohr02",
+      "report_id": "pmid:11952064",
+      "evidence_url": "https://consensus.app/papers/details/w:5562764c-ecc1-450e-b4fe-fffe0d1e5416/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Sma04",
+      "report_id": "adf:smart-cable-2004",
+      "evidence_url": "https://consensus.app/papers/details/w:11701d4c-e88c-4279-afa7-3b2c157ab173/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Ric03",
+      "report_id": "pmid:12546299",
+      "evidence_url": "https://consensus.app/papers/details/w:78f02042-4494-4204-b83f-a6b5e4aa19c9/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Lb83",
+      "report_id": "pmid:6651730",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Cro83",
+      "report_id": "pmid:6651730",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Viq01",
+      "report_id": "report:adp011068",
+      "evidence_url": "https://www.academia.edu/82613724/Spanish_Navy_Up_to_Date_Data_in_DCS",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Bas91b",
+      "report_id": "pmid:1764015",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/1764015/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-nordic#Dem22",
+      "report_id": "pmid:36243908",
+      "evidence_url": "https://consensus.app/papers/details/w:565f0ed0-4008-44a8-bc78-4e9c5c431d6b/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-t-gebauer#result-1",
+      "report_id": "abstract:asma-2026-gebauer-186",
+      "evidence_url": "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft9.pdf",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-o-eiken-exact#W4360599773",
+      "report_id": "doi:10.1007/s00421-023-05173-9",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-023-05173-9",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-o-olea-exact#W3035089201",
+      "report_id": "doi:10.4321/s1887-85712018000300008",
+      "evidence_url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/r/s/rsm_74-3.pdf",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-named#Eik23",
+      "report_id": "doi:10.1007/s00421-023-05173-9",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-023-05173-9",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-viq#Viq01",
+      "report_id": "report:adp011068",
+      "evidence_url": "https://www.academia.edu/82613724/Spanish_Navy_Up_to_Date_Data_in_DCS",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "2026-11-20-regional-cohorts-u-viq#Bas91b",
+      "report_id": "pmid:1764015",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/1764015/",
+      "basis": "Matched the exact source record, title and identifier."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/search_hits.csv#consensus:7",
+      "report_id": "doi:10.1007/s00421-023-05173-9",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-023-05173-9",
+      "basis": "Earlier occurrence has the same verified article title and bibliographic source."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.8/search_hits.csv#historical_parachute:2",
+      "report_id": "doi:10.1007/s00421-023-05173-9",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-023-05173-9",
+      "basis": "Earlier occurrence has the same verified article title and bibliographic source."
+    },
+    {
+      "record_key": "2026-11-20-latin-tavily-chile#http://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1887-85712018000300179",
+      "report_id": "doi:10.4321/s1887-85712018000300008",
+      "evidence_url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/r/s/rsm_74-3.pdf",
+      "basis": "Earlier occurrence has the same verified article title and bibliographic source."
+    },
+    {
+      "record_key": "2026-11-20-rucker-gap-t-chile#http://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1887-85712018000300179",
+      "report_id": "doi:10.4321/s1887-85712018000300008",
+      "evidence_url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/r/s/rsm_74-3.pdf",
+      "basis": "Earlier occurrence has the same verified article title and bibliographic source."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-asma-originals#cheok-koh-2018-038",
+      "report_id": "abstract:asma-2018-cheok-koh-038",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf#page=10",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-asma-originals#koshy-2018-037",
+      "report_id": "abstract:asma-2018-koshy-037",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf#page=10",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-asma-originals#conkin-2018-036",
+      "report_id": "abstract:asma-2018-conkin-036",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf#page=10",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-singapore-journal#cheok-2021-rsaf",
+      "report_id": "pmid:33875060",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/5/article-p289.pdf",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-other-cohorts#vijabund-2009-thai",
+      "report_id": "doi:10.58837/chula.the.2009.811",
+      "evidence_url": "https://digital.car.chula.ac.th/chulaetd/44490/",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-other-cohorts#alagha-2012-iran",
+      "report_id": "pmid:22225561",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22225561/",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-other-cohorts#hackworth-2003-faa",
+      "report_id": "doi:10.1037/e458752006-001",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/57943/dot_57943_DS1.pdf",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-program-context#singapore-pioneer-2014",
+      "report_id": "program:singapore-defence-pioneer-2014-aeromedical-chamber",
+      "evidence_url": "https://defencepioneer.sg/pioneer-articles/time-to-get-high",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-program-context#kopp-bron-2025",
+      "report_id": "pmid:41569275",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41569275/",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-program-context#new-zealand-aircrew-standards",
+      "report_id": "standards:nzdf-oia-2024-5144-aircrew",
+      "evidence_url": "https://www.nzdf.mil.nz/assets/Uploads/DocumentLibrary/OIA-2024-5144-Aircrew-medical-standards-specifications.pdf",
+      "basis": "Public primary document or specified catalogue item verifies this report."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-thai#result-2",
+      "report_id": "doi:10.58837/chula.the.2009.811",
+      "evidence_url": "https://digital.car.chula.ac.th/chulaetd/44490/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-sing#result-1",
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
+      "evidence_url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-sing#result-3",
+      "report_id": "doi:10.13174/pjamp.21.01.2015.01",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=1400",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-sing#result-7",
+      "report_id": "program:singapore-defence-pioneer-2014-aeromedical-chamber",
+      "evidence_url": "https://defencepioneer.sg/pioneer-articles/time-to-get-high",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Erc20",
+      "report_id": "pmid:32574436",
+      "evidence_url": "https://consensus.app/papers/details/w:1e918de7-e8bc-49f7-85ef-2e3e54d3bf02/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Sma04",
+      "report_id": "adf:smart-cable-2004",
+      "evidence_url": "https://consensus.app/papers/details/w:11701d4c-e88c-4279-afa7-3b2c157ab173/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Bas76",
+      "report_id": "pmid:971183",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/971183/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Bra09",
+      "report_id": "pmid:19522370",
+      "evidence_url": "https://consensus.app/papers/details/w:38ac8803-8e26-4b8a-be84-227313524a69/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Cro83",
+      "report_id": "pmid:6651730",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Lb83",
+      "report_id": "pmid:6651730",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Mor10",
+      "report_id": "pmid:20824995",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20824995/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Che21",
+      "report_id": "pmid:33875060",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/5/article-p289.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Bas91",
+      "report_id": "pmid:1755801",
+      "evidence_url": "https://consensus.app/papers/details/w:a91b791d-af18-481a-9570-fff19ea809c9/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Piw86b",
+      "report_id": "pmid:3718386",
+      "evidence_url": "https://researchs.unalproxy.elogim.com/c/ernpho/search/details/tnhs5t3cb5",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Mor10b",
+      "report_id": "undermind:mor10b-italian-chamber-safety",
+      "evidence_url": "https://www.semanticscholar.org/paper/18f002cc412582e683d7d796f00b729402591de1",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Nak22",
+      "report_id": "pmid:36309795",
+      "evidence_url": "https://consensus.app/papers/details/w:0e080ce0-b1ab-44c7-8e80-ebbc0a609270/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Ata21",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Piw86",
+      "report_id": "pmid:3790029",
+      "evidence_url": "https://consensus.app/papers/details/w:5bd9cda7-cebd-4e23-9762-406288e826bf/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Ric03",
+      "report_id": "pmid:12546299",
+      "evidence_url": "https://consensus.app/papers/details/w:78f02042-4494-4204-b83f-a6b5e4aa19c9/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-pacific#Ohr02",
+      "report_id": "pmid:11952064",
+      "evidence_url": "https://consensus.app/papers/details/w:5562764c-ecc1-450e-b4fe-fffe0d1e5416/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-cheok#result-1",
+      "report_id": "pmid:33875060",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/5/article-p289.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-cheok#result-3",
+      "report_id": "pmid:33875060",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/5/article-p289.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-o-iran-exact#W2053642606",
+      "report_id": "pmid:22225561",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22225561/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-o-vijabund#W4408546421",
+      "report_id": "doi:10.58837/chula.the.2009.811",
+      "evidence_url": "https://digital.car.chula.ac.th/chulaetd/44490/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-exact#Vij09",
+      "report_id": "doi:10.58837/chula.the.2009.811",
+      "evidence_url": "https://digital.car.chula.ac.th/chulaetd/44490/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-u-exact#Ala12",
+      "report_id": "pmid:22225561",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22225561/",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-f-asma-scope-1#asma-2018-sunday",
+      "report_id": "serial:asma-2018-sunday-abstracts",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p159.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-asma-scope#asma-route-1",
+      "report_id": "serial:asma-2018-sunday-abstracts",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p159.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-asma-scope#asma-route-2",
+      "report_id": "serial:asma-2018-meeting-issue-contents",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p1-s.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-f-cheok-monday#asma-monday",
+      "report_id": "serial:asma-2018-monday-abstracts",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-pacific-programs-t-cheok-monday#asma-monday-1",
+      "report_id": "serial:asma-2018-monday-abstracts",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf",
+      "basis": "Source URL, exact title or external bibliographic identifier identifies this record."
+    },
+    {
+      "record_key": "2026-11-20-fort-rucker-tav-howard#http://smj.sma.org.sg/2406/2406smj6.pdf",
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
+      "evidence_url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+      "basis": "HTTP and HTTPS routes resolve to the same original December 1983 journal report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.9/search_hits.csv#protocol_other:6",
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
+      "evidence_url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+      "basis": "HTTP and HTTPS routes resolve to the same original December 1983 journal report."
+    },
+    {
+      "record_key": "2026-11-20-india-followup-t-joshi#https://rosap.ntl.bts.gov/view/dot/57943/dot_57943_DS1.pdf",
+      "report_id": "doi:10.1037/e458752006-001",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/57943/dot_57943_DS1.pdf",
+      "basis": "Exact FAA archive and report number identify the same 2003 survey."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1",
+      "evidence_url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+      "basis": "This occurrence anchors the original December 1983 Singapore Medical Journal article shared by the HTTP and HTTPS routes."
     }
   ],
   "studies": [
@@ -5269,6 +6193,30 @@
       "label": "Brazilian Air Force IFISAL chamber training symptom survey",
       "period": "Ten months, calendar dates unreported",
       "setting": "Instituto de Fisiologia Aeroespacial, Rio de Janeiro"
+    },
+    {
+      "study_id": "poland-wiml-warsaw-reported-20-year-chamber-experience",
+      "label": "Warsaw WIML institutional chamber experience",
+      "period": "Preceding 20 years as described, exact dates unreported",
+      "setting": "Military Institute of Aviation Medicine, Warsaw"
+    },
+    {
+      "study_id": "hungary-szabo-chamber-medical-supervisors",
+      "label": "Hungarian chamber examining physicians with repeated ascents",
+      "period": "Historical experience reported in the 2008 dissertation",
+      "setting": "Hungarian military aeromedical qualification chambers as described by Szabó"
+    },
+    {
+      "study_id": "luftwaffe-gebauer-2002-2025-hypoxia-recognition",
+      "label": "Königsbrück retrospective hypoxia-recognition training cohort",
+      "period": "2002–2025",
+      "setting": "German Air Force Centre of Aerospace Medicine, Königsbrück"
+    },
+    {
+      "study_id": "rsaf-chamber-2011-2017-prebreathing-policy",
+      "label": "Singapore Air Force chamber DCI surveillance across prebreathing policies",
+      "period": "July 2011–August 2017 as reported",
+      "setting": "Republic of Singapore Air Force, Singapore"
     }
   ],
   "study_reports": [
@@ -5985,6 +6933,36 @@
       "report_id": "journal:taubman-unifa-2006-18-21",
       "role": "primary_operational_symptom_survey",
       "locator": "Methods and Results, pp. 20–21"
+    },
+    {
+      "study_id": "poland-wiml-warsaw-reported-20-year-chamber-experience",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "role": "primary_institutional_safety_narrative",
+      "locator": "Journal printed p. 29 (PDF p. 3), institutional experience in Introduction"
+    },
+    {
+      "study_id": "hungary-szabo-chamber-medical-supervisors",
+      "report_id": "dissertation:szabo-2008-nke-12137",
+      "role": "primary_staff_occurrence_narrative",
+      "locator": "Dissertation printed p. 63, repeat ascents by examining physicians"
+    },
+    {
+      "study_id": "luftwaffe-gebauer-2002-2025-hypoxia-recognition",
+      "report_id": "abstract:asma-2026-gebauer-186",
+      "role": "primary_hypoxia_recognition_abstract",
+      "locator": "2026 AsMA Scientific Sessions, abstract 186, Methods"
+    },
+    {
+      "study_id": "rsaf-chamber-2011-2017-prebreathing-policy",
+      "report_id": "pmid:33875060",
+      "role": "primary_operational_full_article",
+      "locator": "pp. 290 and 292"
+    },
+    {
+      "study_id": "rsaf-chamber-2011-2017-prebreathing-policy",
+      "report_id": "abstract:asma-2018-cheok-koh-038",
+      "role": "same_cohort_preliminary_abstract",
+      "locator": "AsMA abstract 038, pp. 171–172"
     }
   ],
   "relations": [
@@ -7002,6 +7980,83 @@
       "relationship": "article_within_journal_issue",
       "evidence": "The published study occupies printed pages 18–21 of volume 18, issue 21.",
       "evidence_url": "https://www2.fab.mil.br/unifa/images/revista/pdf/ed_21.pdf"
+    },
+    {
+      "left_report": "doi:10.13174/pjambp.23.05.2025.03",
+      "right_report": "proceedings:rto-mp-21",
+      "relationship": "cites_nato_workshop_proceedings",
+      "evidence": "Reference 8 cites the proceedings. The Warsaw safety statement appears in the later journal article.",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020"
+    },
+    {
+      "left_report": "doi:10.13174/pjambp.23.05.2025.03",
+      "right_report": "journal:golec-markiewicz-1989-medycyna-lotnicza-103",
+      "relationship": "cites_earlier_polish_hypoxia_report",
+      "evidence": "Reference 5 identifies the journal article.",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020"
+    },
+    {
+      "left_report": "doi:10.13174/pjambp.23.05.2025.03",
+      "right_report": "book:golec-1998-niedotlenienie-wysokosciowe",
+      "relationship": "cites_polish_pilot_hypoxia_tolerance_book",
+      "evidence": "Reference 6 is cited with reserve-time values.",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020"
+    },
+    {
+      "left_report": "journal:szabo-2018-orvosbiologiai-monitorizalas",
+      "right_report": "abstract:asma-2017-nehring-282",
+      "relationship": "cites_same_hypobaric_syncope_case",
+      "evidence": "Reference 6 gives Nehring’s 2017 title and AsMA abstract number. The German case is reused in the 2018 discussion.",
+      "evidence_url": "https://repulestudomany.hu/folyoirat/2018_2/2018-2-14-0457_Szabo_Sandor_Andras.pdf"
+    },
+    {
+      "left_report": "poster:dglrm-2018-nehring-66-67",
+      "right_report": "abstract:asma-2017-nehring-282",
+      "relationship": "possible_repeat_meeting_presentation",
+      "evidence": "The catalogue lists the same author and title in 2017 and 2018. Case identity is unconfirmed without the 2018 booklet.",
+      "evidence_url": "https://www.bundeswehr.de/de/organisation/luftwaffe/organisation-/luftwaffentruppenkommando/zentrum-fuer-luft-und-raumfahrtmedizin/zentrum-luft-und-raumfahrtmedizin-forschung"
+    },
+    {
+      "left_report": "poster:rojas-dohn-voss-wright-mph-170",
+      "right_report": "openalex:W2344433097",
+      "relationship": "companion_poster_same_case_control_sample",
+      "evidence": "The poster is attached to the MPH project and gives the same sample, 123 cases and 369 controls. Table 1 totals 123 on the poster and 122 in the thesis. The versions must not be counted as two samples.",
+      "evidence_url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph&filename=0&type=additional"
+    },
+    {
+      "left_report": "doi:10.4321/s1887-85712018000300008",
+      "right_report": "pmid:9383503",
+      "relationship": "cites_corresponding_chamber_pulmonary_overexpansion_event",
+      "evidence": "Table 4 contains only one pulmonary-overexpansion referral after chamber hypoxia exercises. The Discussion cites Ríos-Tejada et al. directly for that event, which their case report describes as presumptive arterial gas embolism.",
+      "evidence_url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/r/s/rsm_74-3.pdf"
+    },
+    {
+      "left_report": "report:adp011068",
+      "right_report": "doi:10.4321/s1887-85712018000300008",
+      "relationship": "shared_treatment_center_and_intersecting_archive_periods",
+      "evidence": "Both series use the Cartagena treatment centre, and their archive periods intersect. Viqueira focuses on diving. Membership of individual cases in both series is unverified.",
+      "evidence_url": "https://www.academia.edu/82613724/Spanish_Navy_Up_to_Date_Data_in_DCS"
+    },
+    {
+      "left_report": "abstract:asma-2023-anell-228",
+      "right_report": "doi:10.1007/s00421-023-05173-9",
+      "relationship": "same_experimental_crossover_as_full_article",
+      "evidence": "The author teams, ten jumpmasters, paired exposure design and two condition-level DCS results match. The abstract is another report of the single experiment.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/4/article-p200.pdf"
+    },
+    {
+      "left_report": "abstract:asma-2018-cheok-koh-038",
+      "right_report": "pmid:33875060",
+      "relationship": "same_policy_cohort_as_full_article",
+      "evidence": "Both reports study the same Singapore Air Force programme over the same two three-year policy windows, with exactly 2/1,530 and 2/1,729. Retain both source labels and symptom narratives without duplicating case totals.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf#page=10"
+    },
+    {
+      "left_report": "abstract:asma-2018-conkin-036",
+      "right_report": "pmid:30352646",
+      "relationship": "conference_predecessor_of_same_jsc_cohort_and_review",
+      "evidence": "The abstract and journal review share the author team, 1999–2016 NASA JSC records, and six student cases in 9,560 exposures. The pooled summaries belong to versions of the same review.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf#page=10"
     }
   ],
   "report_titles": {

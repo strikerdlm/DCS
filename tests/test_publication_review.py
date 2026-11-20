@@ -602,6 +602,37 @@ def test_publication_register_build(tmp_path):
             ("journal:taubman-unifa-2006-18-21", "self_reported_post_training_symptoms_through_24_hours", 0, None),
             ("chapter:rto-mp-21-valentiner", "rule_out_dcs_diagnoses", 3, 5300),
         ]
+        assert db.execute(
+            "SELECT observation_id, chamber_role, cases, denominator "
+            "FROM review_search_observation WHERE run_id LIKE '2026-11-20-europe-staff-%' "
+            "ORDER BY observation_id"
+        ).fetchall() == [
+            ("kopka-wiml-20-year-reported-dcs", "unreported", 0, None),
+            ("szabo-hungary-repeated-staff-cutaneous-dcs", "staff", None, None),
+        ]
+        assert db.execute(
+            "SELECT right_report, relationship FROM review_report_relation "
+            "WHERE left_report='poster:rojas-dohn-voss-wright-mph-170'"
+        ).fetchone() == ("openalex:W2344433097", "companion_poster_same_case_control_sample")
+        assert db.execute(
+            "SELECT left_report, right_report FROM review_report_relation "
+            "WHERE relationship IN ('cites_corresponding_chamber_pulmonary_overexpansion_event', "
+            "'same_experimental_crossover_as_full_article') ORDER BY left_report"
+        ).fetchall() == [
+            ("abstract:asma-2023-anell-228", "doi:10.1007/s00421-023-05173-9"),
+            ("doi:10.4321/s1887-85712018000300008", "pmid:9383503"),
+        ]
+        assert db.execute(
+            "SELECT report_id, chamber_role, cases, denominator FROM review_search_observation "
+            "WHERE study_id='rsaf-chamber-2011-2017-prebreathing-policy' ORDER BY denominator"
+        ).fetchall() == [
+            ("pmid:33875060", "unreported", 2, 1530),
+            ("pmid:33875060", "unreported", 2, 1729),
+        ]
+        assert db.execute(
+            "SELECT right_report, relationship FROM review_report_relation "
+            "WHERE left_report='abstract:asma-2018-cheok-koh-038'"
+        ).fetchone() == ("pmid:33875060", "same_policy_cohort_as_full_article")
         assert db.execute("SELECT count(*) FROM review_historical_search_record").fetchone() == (
             473,
         )
