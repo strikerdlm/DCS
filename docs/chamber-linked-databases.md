@@ -15,6 +15,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_trial_case_profile`, `publication_trial_case_milestone` | Case narratives linked to existing experimental chamber outcomes |
 | `dcs-model.sqlite` | `publication_prp_analysis_counts` | Overlapping analysis populations for seven NASA prebreathe phases |
 | `dcs-model.sqlite` | `publication_left_heart_gas_case` | Armstrong ultrasound detections with clinical details, venous grades and paired report values |
+| `dcs-model.sqlite` | `publication_argo_phase_i_arm`, `publication_argo_phase_i_doppler`, `publication_argo_phase_i_clinical` | Original ARGO crossover Doppler roster, protocol crosswalk and linked clinical findings |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 ## Build and use a release
@@ -77,6 +78,8 @@ Lam and Sanders describe two selected neurological DCS narratives likely corresp
 Conkin et al. report observed DCS counts for three overlapping analysis populations across seven NASA prebreathe phases. The hypothesis test, NASA Model, and Research Model respectively use 217, 159, and 229 of the 238 reported exposures. Phase IV has 65 exposures in NASA Table 6 and 69 in NEDU Appendix E. The review links Beltran’s dissertation abstract and Butler et al.’s trial abstract to the same NASA program. The two Duke registrations have separate protocol IDs and no posted outcomes. [v1.73 phase counts](../data/chamber/v1.73/prp_analysis_counts.csv) · [Source and registration provenance](../data/chamber/publication-review/retrievals-2026-11-20-nasa-prp-and-duke.json)
 
 The NASA SOAR workshop reports five left ventricular gas detections in 79 Armstrong chamber exposures. The later journal article reports six detections and counts 369 exposures between the first and sixth detections. Three case pairs agree on altitude and detection time. Two probable pairs preserve conflicting values. The same release adds Powell’s first symptom location among 88 NASA/JSC DCS cases and two small Doppler subgroup counts from Norfleet et al. These selected observations remain outside the incidence and model fitting datasets. [v1.74 observations](../data/chamber/v1.74/observations.csv) · [Case profiles and crosswalk](../data/chamber/v1.74/left_heart_gas_cases.csv)
+
+NASA’s original ARGO Phase I report supplies 20 complete paired Doppler grades for ambulatory and bed-rest conditions. The extract retains incomplete pairs and distinguishes precordial grade, transcranial detection and saline contrast findings. The source reports five graded-positive bed-rest observations among 22 people. The later Table F1 has six any-VGE observations among 23 bed-rest exposures. The atypical original Doppler signal remains ungraded. Three clinical findings link to the existing 9a and 9b arm counts. [ARGO protocol and Doppler data](../data/chamber/v1.75) · [Original report, Table 2-I](https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf#page=42)
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 

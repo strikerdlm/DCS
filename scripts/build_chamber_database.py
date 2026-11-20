@@ -139,6 +139,7 @@ CHAMBER_KATUNTSEV_PROGRAM = ROOT / "data" / "chamber" / "v1.71"
 CHAMBER_NASA_TRIAL_CASES = ROOT / "data" / "chamber" / "v1.72"
 CHAMBER_NASA_PRP = ROOT / "data" / "chamber" / "v1.73"
 CHAMBER_SOAR_GAS = ROOT / "data" / "chamber" / "v1.74"
+CHAMBER_ARGO = ROOT / "data" / "chamber" / "v1.75"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1201,6 +1202,16 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_left_heart_gas_case": "left_heart_gas_cases.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_ARGO,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_argo_phase_i_arm": "arms.csv",
+                        "publication_argo_phase_i_doppler": "doppler.csv",
+                        "publication_argo_phase_i_clinical": "clinical.csv",
                     },
                 )
             if rojas_supplement:

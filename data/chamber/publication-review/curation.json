@@ -10133,6 +10133,24 @@
       "report_id": "ntrs:19940007069",
       "basis": "Matches the original article title, printed locator and report accession or PMID.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=108"
+    },
+    {
+      "record_key": "2026-11-20-argo-phase-i-primary-crossover#19940006763",
+      "report_id": "ntrs:19940006763",
+      "basis": "The official PDF cover and NTRS accession identify NASA/TM-104762.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.75/sources.csv#powell93_argo",
+      "report_id": "ntrs:19940006763",
+      "basis": "The model table extraction cites the same NASA/TM and verifies the original PDF hash.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf"
+    },
+    {
+      "record_key": "2026-11-20-argo-phase-i-primary-crossover#19940007073",
+      "report_id": "ntrs:19940007073",
+      "basis": "The NTRS accession and printed workshop abstract identify Powell's separate report.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940007073"
     }
   ],
   "studies": [
@@ -10873,6 +10891,12 @@
       "label": "NASA/JSC historical hypobaric Doppler analyses",
       "period": "Reported at SOAR 1992",
       "setting": "Historical experimental hypobaric simulated EVA studies at JSC, with subset membership unresolved"
+    },
+    {
+      "study_id": "nasa-jsc-argo-phase-i-crossover",
+      "label": "NASA Project ARGO Phase I",
+      "period": "Reported in 1993",
+      "setting": "NASA/JSC zero-prebreathe experimental altitude chamber crossover"
     }
   ],
   "study_reports": [
@@ -12039,6 +12063,42 @@
       "report_id": "openalex:W650078426",
       "role": "selected_doppler_subgroup",
       "locator": "Workshop printed pp. 553–554"
+    },
+    {
+      "study_id": "nasa-jsc-argo-phase-i-crossover",
+      "report_id": "ntrs:19940006763",
+      "role": "original_crossover_and_participant_tables",
+      "locator": "Part II, printed pp. 25–30 and Part III, printed pp. 55–56"
+    },
+    {
+      "study_id": "nasa-jsc-argo-phase-i-crossover",
+      "report_id": "ntrs:19940007073",
+      "role": "same_trial_workshop_summary",
+      "locator": "SOAR 1992 proceedings, printed p. 562"
+    },
+    {
+      "study_id": "nasa-jsc-argo-phase-i-crossover",
+      "report_id": "openalex:W650078426",
+      "role": "same_tcd_clinical_subset",
+      "locator": "SOAR 1992 proceedings, printed p. 554"
+    },
+    {
+      "study_id": "nasa-jsc-argo-phase-i-crossover",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "role": "later_named_test_compilation",
+      "locator": "Appendix F, Table F1 tests 9a and 9b"
+    },
+    {
+      "study_id": "nasa-jsc-argo-phase-i-crossover",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#gerth18",
+      "role": "later_named_test_compilation",
+      "locator": "Appendix E, p. E-4, tests 9a and 9b"
+    },
+    {
+      "study_id": "nasa-jsc-argo-phase-i-crossover",
+      "report_id": "record:legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:8",
+      "role": "later_reanalysis",
+      "locator": "Table II, ARGO I rows"
     }
   ],
   "relations": [
@@ -14302,6 +14362,41 @@
       "relationship": "reuses_historical_mixed_gas_comparison",
       "evidence": "The workshop cites the earlier 7.8 psia 50:50 male series and reports one DCS case and 56% severe VGE for the mixed gas comparison.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf#page=108"
+    },
+    {
+      "left_report": "ntrs:19940006763",
+      "right_report": "ntrs:19940007073",
+      "relationship": "same_argo_phase_i_crossover",
+      "evidence": "Same author, three-day head-down bed rest, three-hour altitude exposure and simulated exercise. The full report supplies 20 usable paired Doppler grades and additional incomplete pairs.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf#page=42"
+    },
+    {
+      "left_report": "ntrs:19940006763",
+      "right_report": "openalex:W650078426",
+      "relationship": "same_argo_transcranial_case_subset",
+      "evidence": "The same one of 13 higher-grade subgroup finding, two Grade IV resting-PFO participants and the same participant who developed skin marbling and orthostatic instability are described in ARGO Part III and at SOAR.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf#page=68"
+    },
+    {
+      "left_report": "ntrs:19940006763",
+      "right_report": "openalex:W808314617",
+      "relationship": "same_retrospective_joint_site_summary",
+      "evidence": "Part I and the workshop abstract both report that 73 of 88 cases first presented in an ankle, knee or hip. Keep the original count under the existing observation.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf#page=17"
+    },
+    {
+      "left_report": "ntrs:19940006763",
+      "right_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "relationship": "same_argo_tests_with_differing_doppler_scope",
+      "evidence": "The ambulatory margins agree with F1 test 9a. Table 2-I reports five graded positive observations and a 22-person Doppler total for bed rest. Later Table F1 test 9b reports six any-VGE observations across 23 exposures. Record-level alignment of the difference is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf#page=42"
+    },
+    {
+      "left_report": "ntrs:19940006763",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#gerth18",
+      "relationship": "same_named_argo_protocols",
+      "evidence": "The NASA ARGO Phase I posture, no-prebreathe condition, and pressure and duration match NEDU Appendix E tests 9a and 9b. Reuse their existing clinical counts without aggregating this second report.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940006763/downloads/19940006763.pdf#page=39"
     }
   ],
   "report_titles": {
@@ -14380,6 +14475,8 @@
     "ntrs:19940007071": "Arterial gas emboli in altitude-induced decompression sickness",
     "openalex:W650078426": "Transcranial Doppler ultrasound and the etiology of neurologic decompression sickness during altitude decompression",
     "pmid:8908349": "Left ventricular gas emboli in six cases of altitude-induced decompression sickness",
-    "ntrs:19940007069": "Hypobaric decompression prebreathe requirements and breathing environment"
+    "ntrs:19940007069": "Hypobaric decompression prebreathe requirements and breathing environment",
+    "ntrs:19940006763": "Project ARGO—Gas Phase Formation in Simulated Microgravity",
+    "ntrs:19940007073": "A Mechanism for the Reduction in Risk of Decompression Sickness in Microgravity Environment"
   }
 }
