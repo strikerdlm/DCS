@@ -1,6 +1,36 @@
 # Search strategy for symptomatic DCS during altitude chamber training
 
-**19 November 2026 · Pilot searches completed. Full identification searches await investigator approval.** The investigator approved protocol development for the within-program comparison of inside staff and trainees. Search the disease and exposure setting together. Review titles and abstracts for the role comparison because either role may appear only in the full text. The proposed search period runs from database inception through the execution date, without language or study-design filters. [Review protocol](chamber-publication-review.md) · [PRISMA-S reporting items](https://www.prisma-statement.org/prisma-search)
+**20 November 2026 · Formal identification in progress.** The investigator approved the documented platform strategies for incidence and risk factors in operational hypobaric chamber training, including the within-program role comparison. The queries cover the disease and setting from database inception through execution, without language or study-design filters. The 19 November calibration and subsequent supplementary searches retain their original status. [Amended protocol](chamber-publication-review.md) · [PRISMA-S reporting items](https://www.prisma-statement.org/prisma-search)
+
+## Formal identification, 20 November 2026
+
+| Source and route | Provider hits | Exported occurrences |
+| --- | ---: | ---: |
+| PubMed, ESearch followed by ESummary for metadata | 869 | 869 |
+| Europe PMC, REST search | 718 | 718 |
+| OpenAlex, Works search | 2,158 | 2,158 |
+| NASA NTRS, disease and setting query | 6 | 6 |
+| NASA NTRS, altitude chamber phrase | 65 | 65 |
+| OpenAlex, citing papers for the six seed PMIDs | 62 across six runs | 62 |
+| OpenAlex, indexed reference lists for the six seeds | 0 indexed links | 0 |
+
+The database searches exported **3,816** occurrences and citation searches added **62**. Each run preserves its query, provider identifiers, result order and pagination. OpenAlex returned an empty reference list for each seed. Checking the published reference lists remains outstanding. The BVS and SciELO query URLs, the three FAA ROSA P searches and the Cochrane Search Manager entry point returned HTTP 403. The institutional EBSCO check timed out before individual CINAHL and SPORTDiscus selection could be verified. The yields for these platforms remain unknown. Revisit them and search references and citations of newly included reports as selection proceeds. [Ordered exports and access log](../data/chamber/publication-review/retrievals-2026-11-20-formal-operational-chamber.json) · [PRISMA status](../data/chamber/publication-review/prisma-flow.json)
+
+For title and abstract screening, the following query returns one working occurrence per provisional report from the formal runs. Keep its record key when entering a decision. Inspect identity conflicts in `review_identity_candidate` before merging or excluding a report, and retain the other retrieval routes. Counts of included studies require completed screening and cohort reconciliation.
+
+```sql
+WITH formal AS (
+    SELECT r.report_id, r.record_key, r.title, r.url,
+           row_number() OVER (
+               PARTITION BY r.report_id
+               ORDER BY r.pmid IS NULL, r.record_key
+           ) AS occurrence
+    FROM review_record r JOIN review_retrieval q USING (run_id)
+    WHERE json_extract(q.parameters_json, '$.counts_toward_formal_identification') = 1
+)
+SELECT report_id, record_key, title, url FROM formal
+WHERE occurrence = 1 ORDER BY report_id;
+```
 
 ## Calibration
 

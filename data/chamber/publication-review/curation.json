@@ -9137,6 +9137,168 @@
       "report_id": "doi:10.1001/jama.1947.02880060015004",
       "basis": "Exact publisher article 291560 matched by title, journal, DOI and PMID. Consolidates previously split URL-only identity.",
       "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10902932",
+      "report_id": "pmid:10902932",
+      "basis": "Webb et al., pp. 692–698. The indexed title and PMID match the original paper. The older abbreviated title links directly to the publisher PDF.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/7/article-p692.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:5155138",
+      "report_id": "pmid:5155138",
+      "basis": "Allen, Maio and Bancroft, p. 518. The title, authors, journal, year and PMID identify the 1971 report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/5/article-p518.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1561400689",
+      "report_id": "pmid:5155138",
+      "basis": "Allen, Maio and Bancroft, p. 518. The title, authors, journal, year and PMID identify the 1971 report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/5/article-p518.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1662893357",
+      "report_id": "pmid:10902932",
+      "basis": "Webb et al., pp. 692–698. The indexed title and PMID match the original paper. The older abbreviated title links directly to the publisher PDF.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/7/article-p692.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#10902932",
+      "report_id": "pmid:10902932",
+      "basis": "Webb et al., pp. 692–698. The indexed title and PMID match the original paper. The older abbreviated title links directly to the publisher PDF.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/7/article-p692.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#5155138",
+      "report_id": "pmid:5155138",
+      "basis": "Allen, Maio and Bancroft, p. 518. The title, authors, journal, year and PMID identify the 1971 report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/5/article-p518.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-12546299#W3089889292",
+      "report_id": "doi:10.3357/amhp.5634.2020",
+      "basis": "Wen et al., title page p. 785. The PMID and DOI identify the publication already linked to the mainland pilot cohort. Retain its canonical DOI-based report ID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/10/article-p785.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-32574436#W3089889292",
+      "report_id": "doi:10.3357/amhp.5634.2020",
+      "basis": "Wen et al., title page p. 785. The PMID and DOI identify the publication already linked to the mainland pilot cohort. Retain its canonical DOI-based report ID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/10/article-p785.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.17/search_hits.csv#denit_v17_allen:1",
+      "report_id": "retrieval:fitness-for-divers-scribd-420648411",
+      "basis": "The v1.17 retrieval identifies Fitness for Divers by its document title and URL and labels it a secondary bibliographic pointer. The PMID in its identifier field refers to the cited Allen report, p. 518.",
+      "evidence_url": "https://www.scribd.com/document/420648411/Fitness-for-Divers"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.17/sources.csv#allen71_body_fat",
+      "report_id": "pmid:5155138",
+      "basis": "Allen, Maio and Bancroft, p. 518. The title, authors, journal, year and PMID identify the 1971 report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/5/article-p518.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.26/search_hits.csv#timing_v26_webb_profile:1",
+      "report_id": "pmid:10902932",
+      "basis": "Webb et al., pp. 692–698. The indexed title and PMID match the original paper. The older abbreviated title links directly to the publisher PDF.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/7/article-p692.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.3/sources.csv#webb00",
+      "report_id": "pmid:10902932",
+      "basis": "Webb et al., pp. 692–698. The indexed title and PMID match the original paper. The older abbreviated title links directly to the publisher PDF.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/7/article-p692.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#33761546",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "Ata and Karaca, p. 82. Title, PMID 33761546 and DOI match the report already registered for this chamber cluster.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33761546",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "Ata and Karaca, p. 82. Title, PMID 33761546 and DOI match the report already registered for this chamber cluster.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3137390087",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "Ata and Karaca, p. 82. Title, PMID 33761546 and DOI match the report already registered for this chamber cluster.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-3790029#W3137390087",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "Ata and Karaca, p. 82. Title, PMID 33761546 and DOI match the report already registered for this chamber cluster.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#42345225",
+      "report_id": "pmid:42345225",
+      "basis": "Methods and Results p. 353 and Table 2 p. 354. The earlier Israeli surveillance period retains its distinct report ID. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#28518008",
+      "report_id": "pmid:28518008",
+      "basis": "Case Report pp. 428–429. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#19522370",
+      "report_id": "pmid:19522370",
+      "basis": "Shaw cohort, pp. 571–572. The original outbreak and its sensitivity analysis remain one report. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:42345225",
+      "report_id": "pmid:42345225",
+      "basis": "Methods and Results p. 353 and Table 2 p. 354. The earlier Israeli surveillance period retains its distinct report ID. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:28518008",
+      "report_id": "pmid:28518008",
+      "basis": "Case Report pp. 428–429. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:19522370",
+      "report_id": "pmid:19522370",
+      "basis": "Shaw cohort, pp. 571–572. The original outbreak and its sensitivity analysis remain one report. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W7165972402",
+      "report_id": "pmid:42345225",
+      "basis": "Methods and Results p. 353 and Table 2 p. 354. The earlier Israeli surveillance period retains its distinct report ID. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2616866197",
+      "report_id": "pmid:28518008",
+      "basis": "Case Report pp. 428–429. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2114767327",
+      "report_id": "pmid:19522370",
+      "basis": "Shaw cohort, pp. 571–572. The original outbreak and its sensitivity analysis remain one report. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-971183#W2114767327",
+      "report_id": "pmid:19522370",
+      "basis": "Shaw cohort, pp. 571–572. The original outbreak and its sensitivity analysis remain one report. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-12546299#W2114767327",
+      "report_id": "pmid:19522370",
+      "basis": "Shaw cohort, pp. 571–572. The original outbreak and its sensitivity analysis remain one report. The indexed title and PMID identify the existing publication.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
     }
   ],
   "studies": [

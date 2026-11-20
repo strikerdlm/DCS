@@ -113,7 +113,7 @@ def _hit_matches_source(hit, source):
     return bool(hit.get("doi") and hit["doi"] == source.get("doi"))
 
 
-def _legacy_links(rows):
+def _legacy_links(rows, aliases):
     sources = defaultdict(list)
     links = []
     hits = []
@@ -143,6 +143,10 @@ def _legacy_links(rows):
             source = ("v1.10", "smedal48_review")
         if source in sources:
             for other in sources[source]:
+                # A retrieved bibliography may carry the PMID of a cited paper.
+                # Honor the reviewed identities of both documents in that case.
+                if key in aliases and other in aliases and aliases[key] != aliases[other]:
+                    continue
                 if _hit_matches_source(rows[key], rows[other]):
                     yield [key, other]
 
@@ -262,7 +266,7 @@ def resolve(records, aliases):
         reviewed[report].append(key)
     for keys in reviewed.values():
         merge(keys)
-    for keys in _legacy_links(rows):
+    for keys in _legacy_links(rows, aliases):
         labels = {aliases[k] for i in keys for k in groups[owner[i]] if k in aliases}
         if len(labels) > 1:
             raise ValueError(f"Conflicting reviewed assignments for legacy crosswalk: {keys}")
