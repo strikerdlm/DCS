@@ -1,0 +1,309 @@
+[
+  {
+    "id": "2026-11-20-duke-posture-argo-source-reconciliation",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and original publisher PDFs",
+    "operation": "supplementary_primary_posture_outcomes_and_overlap_resolution",
+    "params": {
+      "queries": [
+        "Is the risk of DCS in microgravity less than on Earth Vann Gerth Abstract 45 68 621 1997",
+        "ARGO II III NASA JSC Powell adynamia Table II 421 453 454",
+        "NAGW-4417 NASA Vann Gerth Duke altitude"
+      ],
+      "verified_printed_pages": [
+        204,
+        621
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Firecrawl found the 1997 abstract issue. Tavily retrieved the reporting article and its trial citation. Publisher PDFs were downloaded directly and rendered to verify the tables.",
+    "records": [
+      {
+        "id": "vann-gerth-1997-abstract-45",
+        "title": "Is the risk of DCS in microgravity less than on Earth?",
+        "year": 1997,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=8",
+        "sha256": "051de0dd1cd9f036209a2e47bd1075847aa6cce0d95f0e441e817bdec84236dc",
+        "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+        "source_id": "vann97_duke_posture",
+        "study_id": "duke-altitude-posture-vann-gerth-1997",
+        "grant": "NASA NAGW-4417",
+        "protocol": {
+          "reported_altitude_ft": 30000,
+          "reported_ascent_ft_per_min": 3500,
+          "prebreathe_min": 210,
+          "symptom_interview_interval_min": 16,
+          "within_person_pairing": "Most subjects did not serve as their own controls. Individual linkage unavailable."
+        },
+        "note": "The original report gives anatomical-site metrics and prints Doppler Grade >2. It reports the standing Doppler subset separately from the clinical flights. Limb-specific margins can overlap.",
+        "observations": [
+          {
+            "id": "duke-standing-arm_dcs",
+            "group": "duke-standing",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "arm_dcs",
+            "cases": 2,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "Site-specific symptomatic DCS. Link to the later any-DCS total. Individual overlap between body sites and between conditions is unavailable.",
+            "analysis_role": "overlapping_margin"
+          },
+          {
+            "id": "duke-standing-arm_doppler_grade_gt_ii",
+            "group": "duke-standing",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "arm_doppler_grade_gt_ii",
+            "cases": 1,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "The original heading is Doppler Grade >2. Standing-arm Doppler is based on 18 of 19 clinical flights. Do not sum anatomical sites.",
+            "analysis_role": "overlapping_margin"
+          },
+          {
+            "id": "duke-standing-leg_dcs",
+            "group": "duke-standing",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "leg_dcs",
+            "cases": 10,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "Site-specific symptomatic DCS. Link to the later any-DCS total. Individual overlap between body sites and between conditions is unavailable.",
+            "analysis_role": "overlapping_margin"
+          },
+          {
+            "id": "duke-standing-leg_doppler_grade_gt_ii",
+            "group": "duke-standing",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "leg_doppler_grade_gt_ii",
+            "cases": 8,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "The original heading is Doppler Grade >2. Standing-arm Doppler is based on 18 of 19 clinical flights. Do not sum anatomical sites.",
+            "analysis_role": "overlapping_margin"
+          },
+          {
+            "id": "duke-reclining-arm_dcs",
+            "group": "duke-reclining",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "arm_dcs",
+            "cases": 2,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "Site-specific symptomatic DCS. Link to the later any-DCS total. Individual overlap between body sites and between conditions is unavailable.",
+            "analysis_role": "overlapping_margin"
+          },
+          {
+            "id": "duke-reclining-arm_doppler_grade_gt_ii",
+            "group": "duke-reclining",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "arm_doppler_grade_gt_ii",
+            "cases": 3,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "The original heading is Doppler Grade >2. Standing-arm Doppler is based on 18 of 19 clinical flights. Do not sum anatomical sites.",
+            "analysis_role": "overlapping_margin"
+          },
+          {
+            "id": "duke-reclining-leg_dcs",
+            "group": "duke-reclining",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "leg_dcs",
+            "cases": 1,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "Site-specific symptomatic DCS. Link to the later any-DCS total. Individual overlap between body sites and between conditions is unavailable.",
+            "analysis_role": "overlapping_margin"
+          },
+          {
+            "id": "duke-reclining-leg_doppler_grade_gt_ii",
+            "group": "duke-reclining",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "leg_doppler_grade_gt_ii",
+            "cases": 1,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "1997 AsMA Abstract 45, printed p. 621, Methods, results table, and Discussion",
+            "note": "The original heading is Doppler Grade >2. Standing-arm Doppler is based on 18 of 19 clinical flights. Do not sum anatomical sites.",
+            "analysis_role": "overlapping_margin"
+          }
+        ]
+      },
+      {
+        "id": "11277286-table-ii",
+        "title": "Lower body adynamia as a factor to reduce the risk of hypobaric decompression sickness",
+        "year": 2001,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11277286/",
+        "pmid": "11277286",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p202.pdf#page=3",
+        "sha256": "76c8e3d747278b200169da0bc9de81de5d68948df8b74bebaa480e8dc66fb9dc",
+        "locator": "Printed p. 204, Table II",
+        "source_id": "conkin01_lba",
+        "study_id": "duke-altitude-posture-vann-gerth-1997",
+        "argo_table_ii": [
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-i-reclining",
+            "exposures": 23,
+            "dcs_cases": 2,
+            "vge_cases": 6,
+            "before_pb_hours": 72,
+            "during_pb_hours": 0,
+            "at_p2_hours": 3,
+            "target_psia": 6.5,
+            "printed_tr": 1.78,
+            "adynamic_condition": 1,
+            "locator": "Printed p. 204, Table II",
+            "note": "Table II agrees with the later F1 count. The original Phase I Doppler denominator differs."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-i-ambulatory",
+            "exposures": 24,
+            "dcs_cases": 1,
+            "vge_cases": 12,
+            "before_pb_hours": 0,
+            "during_pb_hours": 0,
+            "at_p2_hours": 0,
+            "target_psia": 6.5,
+            "printed_tr": 1.78,
+            "adynamic_condition": 0,
+            "locator": "Printed p. 204, Table II",
+            "note": "Table II and Table F1 align on clinical and VGE counts."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-ii-adynamia",
+            "exposures": 7,
+            "dcs_cases": 0,
+            "vge_cases": 2,
+            "before_pb_hours": 6,
+            "during_pb_hours": 4,
+            "at_p2_hours": 3,
+            "target_psia": 4.3,
+            "printed_tr": 1.68,
+            "adynamic_condition": 2,
+            "locator": "Printed p. 204, Table II",
+            "note": "Both F1 adynamia candidates match on DCS and VGE counts. NEDU lists two hours of prior adynamia for both candidates. This table prints six hours in the Before PB column."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-ii-ambulatory",
+            "exposures": 11,
+            "dcs_cases": 3,
+            "vge_cases": 5,
+            "before_pb_hours": 0,
+            "during_pb_hours": 4,
+            "at_p2_hours": 0,
+            "target_psia": 4.3,
+            "printed_tr": 1.68,
+            "adynamic_condition": 0,
+            "locator": "Printed p. 204, Table II",
+            "note": "F1 test 9c has the same counts and pressure. It reports mean TR 1.66 rather than the table's 1.68."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-iii-adynamia",
+            "exposures": 28,
+            "dcs_cases": 3,
+            "vge_cases": 7,
+            "before_pb_hours": 6,
+            "during_pb_hours": 3,
+            "at_p2_hours": 4,
+            "target_psia": 4.3,
+            "printed_tr": 1.88,
+            "adynamic_condition": 2,
+            "locator": "Printed p. 204, Table II",
+            "note": "F1 test 11a reports nine any-grade VGE and mean TR 1.85. This table reports seven VGE and TR 1.88. Both report three DCS cases in 28 exposures."
+          }
+        ],
+        "argo_table_ii_test_links": [
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-i-ambulatory",
+            "nasa_test_id": "9a",
+            "status": "matched_named_arm",
+            "evidence": "Same Phase I ambulatory arm, pressure, n and counts."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-i-reclining",
+            "nasa_test_id": "9b",
+            "status": "matched_named_arm",
+            "evidence": "Same Phase I bed-rest arm, pressure, n and counts."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-ii-ambulatory",
+            "nasa_test_id": "9c",
+            "status": "matched_named_arm",
+            "evidence": "Same Phase II ambulatory arm, pressure, n and counts. TR differs."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-ii-adynamia",
+            "nasa_test_id": "9d",
+            "status": "candidate_arm",
+            "evidence": "Same Phase II posture, pressure, sample size and outcomes. NEDU specifies no upper-body exercise in prebreathe. Table II does not disambiguate."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-ii-adynamia",
+            "nasa_test_id": "9e",
+            "status": "candidate_arm",
+            "evidence": "Same Phase II posture, pressure, sample size and outcomes. NEDU specifies upper-body exercise in prebreathe. Table II does not disambiguate."
+          },
+          {
+            "source_id": "conkin01_lba",
+            "arm": "phase-iii-adynamia",
+            "nasa_test_id": "11a",
+            "status": "matched_named_arm",
+            "evidence": "Same Phase III posture, pressure and clinical scope. VGE counts and TR differ."
+          }
+        ],
+        "duke_vge_reporting": {
+          "reclining_count": 4,
+          "standing_count": 9,
+          "printed_threshold": "Grade >= II",
+          "printed_footnote_people": 18,
+          "note": "Later table reports exposure-level VGE cases with a footnote on reports in 18 subjects. The original abstract gives body-site Doppler observations at Grade >2. The later footnote does not align monitored exposure IDs or estimate site overlap."
+        },
+        "observations": [
+          {
+            "id": "duke-standing-dcs_source_defined",
+            "group": "duke-standing",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "dcs_source_defined",
+            "cases": 12,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 204, Table II",
+            "note": "The authors report any-DCS arm totals for the original Duke study. Retain overlap hold for fitting and preserve the original report's warning that most subjects did not serve as their own controls. The amount of shared attendance is unavailable.",
+            "analysis_role": "overlap_hold"
+          },
+          {
+            "id": "duke-reclining-dcs_source_defined",
+            "group": "duke-reclining",
+            "study_id": "duke-altitude-posture-vann-gerth-1997",
+            "endpoint": "dcs_source_defined",
+            "cases": 3,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 204, Table II",
+            "note": "The authors report any-DCS arm totals for the original Duke study. Retain overlap hold for fitting and preserve the original report's warning that most subjects did not serve as their own controls. The amount of shared attendance is unavailable.",
+            "analysis_role": "overlap_hold"
+          }
+        ]
+      }
+    ]
+  }
+]

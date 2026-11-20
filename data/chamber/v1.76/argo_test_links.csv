@@ -1,0 +1,7 @@
+source_id,arm,nasa_test_id,status,evidence
+conkin01_lba,phase-i-ambulatory,9a,matched_named_arm,"Same Phase I ambulatory arm, pressure, n and counts."
+conkin01_lba,phase-i-reclining,9b,matched_named_arm,"Same Phase I bed-rest arm, pressure, n and counts."
+conkin01_lba,phase-ii-ambulatory,9c,matched_named_arm,"Same Phase II ambulatory arm, pressure, n and counts. TR differs."
+conkin01_lba,phase-ii-adynamia,9d,candidate_arm,"Same Phase II posture, pressure, sample size and outcomes. NEDU specifies no upper-body exercise in prebreathe. Table II does not disambiguate."
+conkin01_lba,phase-ii-adynamia,9e,candidate_arm,"Same Phase II posture, pressure, sample size and outcomes. NEDU specifies upper-body exercise in prebreathe. Table II does not disambiguate."
+conkin01_lba,phase-iii-adynamia,11a,matched_named_arm,"Same Phase III posture, pressure and clinical scope. VGE counts and TR differ."

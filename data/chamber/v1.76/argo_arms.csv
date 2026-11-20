@@ -1,0 +1,6 @@
+source_id,arm,exposures,dcs_cases,vge_cases,before_pb_hours,during_pb_hours,at_p2_hours,target_psia,printed_tr,adynamic_condition,locator,note
+conkin01_lba,phase-i-reclining,23,2,6,72,0,3,6.5,1.78,1,"Printed p. 204, Table II",Table II agrees with the later F1 count. The original Phase I Doppler denominator differs.
+conkin01_lba,phase-i-ambulatory,24,1,12,0,0,0,6.5,1.78,0,"Printed p. 204, Table II",Table II and Table F1 align on clinical and VGE counts.
+conkin01_lba,phase-ii-adynamia,7,0,2,6,4,3,4.3,1.68,2,"Printed p. 204, Table II",Both F1 adynamia candidates match on DCS and VGE counts. NEDU lists two hours of prior adynamia for both candidates. This table prints six hours in the Before PB column.
+conkin01_lba,phase-ii-ambulatory,11,3,5,0,4,0,4.3,1.68,0,"Printed p. 204, Table II",F1 test 9c has the same counts and pressure. It reports mean TR 1.66 rather than the table's 1.68.
+conkin01_lba,phase-iii-adynamia,28,3,7,6,3,4,4.3,1.88,2,"Printed p. 204, Table II",F1 test 11a reports nine any-grade VGE and mean TR 1.85. This table reports seven VGE and TR 1.88. Both report three DCS cases in 28 exposures.
