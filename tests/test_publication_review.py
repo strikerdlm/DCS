@@ -16,7 +16,7 @@ def test_publication_register_build(tmp_path):
             "SELECT sum(registered_dcs_events) FROM fac_official_chamber_year"
         ).fetchone() == (54,)
         assert db.execute("SELECT count(*) FROM review_record WHERE run_id IS NULL").fetchone() == (
-            4328,
+            4332,
         )
         assert db.execute(
             "SELECT count(*) FROM review_record JOIN review_retrieval USING(run_id) "

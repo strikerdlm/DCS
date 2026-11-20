@@ -75,4 +75,6 @@ Henry’s 1947 classification study adds 129 published percentages with explicit
 
 The 1945 Berkeley preoxygenation supplement preserves repeated-flight summaries and their outcome time origins. The verified source crosswalk links the 1945 reference values to the calculated 1947 controls. [Henry and Cook preoxygenation tables](chamber-preoxygen-supplement.md)
 
+The June 1944 CAM minutes provide the 132/719 source-defined chokes finding and distinguish it from a narrative rate and radiographic score totals. Related reports stay on overlap hold pending exposure-level linkage. [Wartime CAM minutes](chamber-cam-minutes-supplement.md)
+
 One example of deduplication is the Ata and Karaca chamber report. All 125 full- or truncated-title search occurrences in v1.48 resolve to the same publication. The candidate queue preserves uncertain matches for adjudication. Use `review_identity_candidate` to inspect them and follow the agent rules when recording a decision on either computer. [Primary paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/) · [Agent rules](../AGENTS.md)

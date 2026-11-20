@@ -1,0 +1,162 @@
+[
+  {
+    "id": "2026-11-20-cam-minutes-asb-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "issue_catalog_lookup",
+    "params": {
+      "urls": [
+        "https://catalog.hathitrust.org/Record/000068770",
+        "https://babel.hathitrust.org/cgi/pt?id=osu.32436001888930",
+        "https://wellcomecollection.org/works/tnse56rb"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified three HathiTrust bound volumes and the Wellcome physical holdings. The November issue reader and original article pages were unavailable.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-minutes-asb-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "issue_discovery",
+    "params": {
+      "query": "Air Surgeon Bulletin November 1944 volume 1 No 11 archive PDF",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located the HathiTrust catalogue and the Uniformed Services University finding aid. No original article pages were retrieved.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-cam-minutes-asb-p",
+    "date": "2026-11-20",
+    "provider": "Berkeley Bancroft Library and NLM",
+    "operation": "archival_bibliographic_verification",
+    "params": {
+      "urls": [
+        "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en",
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=28"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Berkeley lists the exact title, seven authors and pp. 9–10. In the later CAM minutes, PDF p. 28 identifies the November 1944 issue and the chamber/flight comparison.",
+    "records": [
+      {
+        "id": "asb-1944-1-11-9",
+        "title": "Study of bends: A comparison in low pressure chamber and actual flight",
+        "year": 1944,
+        "url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en",
+        "locator": "Berkeley p. 134 item 44-4; later minutes PDF p. 28"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-minutes-p",
+    "date": "2026-11-20",
+    "provider": "National Library of Medicine",
+    "operation": "original_archive_verification",
+    "params": {
+      "urls": [
+        "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The official 29-page scan contains the original June meeting minutes and separate later minutes. Rendered June pages verify the recorded chokes count, narrative rate, imaging values and discussion excerpts.",
+    "records": [
+      {
+        "id": "101085500x796-meeting14",
+        "title": "Minutes of the Fourteenth Meeting of the Subcommittee on Decompression-Sickness",
+        "year": 1944,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=7",
+        "sha256": "28a38b07a11adf98a1df71ced0eacaa3798057975e49f5b8938320c600af4318",
+        "locator": "Title and date PDF pp. 7 and 13, extracted June items PDF pp. 10–12, case presentation PDF p. 14"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-minutes-rsna-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "publisher_excerpt_lookup",
+    "params": {
+      "urls": [
+        "https://pubs.rsna.org/doi/10.1148/44.3.259",
+        "https://pubs.rsna.org/doi/pdf/10.1148/44.3.259"
+      ],
+      "query": "Thomas Williams table 27 subjects 35 observations popliteal bubbles 46 28 35,000 feet 38,000 high altitude pain study",
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Publisher excerpt confirms paired knee radiographs at 35,000 and 38,000 ft. The complete publisher PDF and count reconciliation were unavailable.",
+    "records": [
+      {
+        "id": "10.1148/44.3.259",
+        "title": "High-altitude joint pains (bends): Their roentgenographic aspects",
+        "year": 1945,
+        "doi": "10.1148/44.3.259",
+        "url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-minutes-rsna-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_excerpt_verification",
+    "params": {
+      "urls": [
+        "https://pubs.rsna.org/doi/10.1148/44.3.259"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified publisher title, authors, volume, issue, pp. 259–261 and the public methods excerpt. Full text remains restricted.",
+    "records": [
+      {
+        "id": "10.1148/44.3.259",
+        "title": "High-altitude joint pains (bends): Their roentgenographic aspects",
+        "year": 1945,
+        "doi": "10.1148/44.3.259",
+        "url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-cam-minutes-lund-p",
+    "date": "2026-11-20",
+    "provider": "PubMed and Berkeley Bancroft Library",
+    "operation": "case_report_identifier",
+    "params": {
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/21016036/",
+        "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The citation confirms a severe reaction following ascent to 38,000 ft. Full case pages were unavailable. The June minutes case remains a possible match.",
+    "records": [
+      {
+        "id": "21016036",
+        "title": "Latent neurologic manifestations following decompression: report of a case of severe reaction following ascent to 38,000 feet",
+        "pmid": "21016036",
+        "year": 1946,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
+      }
+    ]
+  }
+]
