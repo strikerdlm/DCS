@@ -9563,6 +9563,12 @@
       "report_id": "pmid:19522370",
       "basis": "Shaw cohort, pp. 571–572. The original outbreak and its sensitivity analysis remain one report. The indexed title and PMID identify the existing publication.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "2026-11-20-aircraft-depressurization-f-jarosz#jarosz-mirror",
+      "report_id": "doi:10.13174/pjamp.21.01.2015.01",
+      "basis": "The original PDF gives the same DOI, authors and title and describes the same 45 men and 64 chamber exposures as the existing Jarosz extraction.",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=1400"
     }
   ],
   "studies": [
@@ -10183,6 +10189,18 @@
       "label": "NASA Exploration Atmosphere Test 6",
       "period": "2025 exposure series",
       "setting": "Simulated surface EVA hypobaric chamber study"
+    },
+    {
+      "study_id": "johnston-c130-fall-2005",
+      "label": "Johnston C-130 cabin depressurization",
+      "period": "Fall 2005",
+      "setting": "Military C-130 flight in the Middle East, landed in Bahrain"
+    },
+    {
+      "study_id": "mancini-military-aircraft-6400m",
+      "label": "Mancini, Crotty and Cook military cabin depressurization at 6400 m",
+      "period": "Flight date unreported; published 2018",
+      "setting": "Military aircraft; passengers"
     }
   ],
   "study_reports": [
@@ -11151,6 +11169,18 @@
       "report_id": "record:2026-11-20-eds-training#rfxje4gd3n",
       "role": "companion_abstract",
       "locator": "AsMA abstract 18, PDF p. 22"
+    },
+    {
+      "study_id": "johnston-c130-fall-2005",
+      "report_id": "pmid:18457302",
+      "role": "primary_aircraft_incident_report",
+      "locator": "Printed pp. 429–432"
+    },
+    {
+      "study_id": "mancini-military-aircraft-6400m",
+      "report_id": "pmid:30487030",
+      "role": "primary_aircraft_incident_report",
+      "locator": "Printed pp. 1085–1088, Figure 1 and Tables I–II"
     }
   ],
   "relations": [
@@ -13190,6 +13220,13 @@
       "relationship": "contains_overlapping_groups",
       "evidence": "The AsMA abstract and NTRS slides describe the same 16-participant EA-6 study. Both report two Type II events in the 120-minute arm and one Type I event in the 150-minute arm. The abstract supplies no total exposure count to resolve the slides' 61 versus 62 discrepancy.",
       "evidence_url": "https://asma.org/wp-content/uploads/2026/05/AsMA_Program_Book_edited_cleanup_draft7-1.pdf#page=22"
+    },
+    {
+      "left_report": "pmid:30487030",
+      "right_report": "pmid:18457302",
+      "relationship": "cites_distinct_aircraft_incident",
+      "evidence": "Mancini cites Johnston in reference 5 (p. 1088). Mancini describes 49 passengers with crew-only oxygen and 6,400 m cabin altitude. Johnston describes 66 total occupants with passenger and crew oxygen, a 7,317 m cabin altitude and a fall 2005 C-130 flight landing in Bahrain.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/12/article-p1085.pdf#page=4"
     }
   ],
   "report_titles": {
