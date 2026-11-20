@@ -271,32 +271,35 @@ def test_davis_case_crosswalk_and_hbo_endpoint(release):
         ]
         assert db.execute("""
             SELECT period, count(*), sum(numerator), sum(denominator) FROM publication_observation
-            WHERE source_id='davis77_hyperbaric' AND endpoint='dcs_treated_with_hyperbaric_oxygen'
+            WHERE source_id='davis77_hyperbaric' AND endpoint='hyperbaric_treated_altitude_dcs'
               AND analysis_role='overlap_hold' GROUP BY period ORDER BY period
         """).fetchall() == [("1973", 4, 7, 63019), ("1974", 4, 19, 65361),
                              ("1975", 4, 30, 55667), ("1976", 4, 14, 58305)]
         assert db.execute("""
             SELECT denominator FROM publication_observation
-            WHERE source_id='davis77_hyperbaric' AND stratum='1974-trainee-above-25000'
+            WHERE source_id='davis77_hyperbaric' AND stratum='davis77-1974-above_25000_ft-trainee'
         """).fetchone() == (51441,)
         assert db.execute("""
             SELECT denominator_unit, sum(numerator), sum(denominator) FROM publication_observation
-            WHERE source_id='davis77_hyperbaric' AND endpoint='dcs_treated_with_hyperbaric_oxygen'
+            WHERE source_id='davis77_hyperbaric' AND endpoint='hyperbaric_treated_altitude_dcs'
             GROUP BY denominator_unit ORDER BY denominator_unit
         """).fetchall() == [("observer_exposure", 31, 48148), ("trainee_exposure", 39, 194204)]
         mismatch = db.execute("""
             SELECT p.stratum FROM publication_observation p
             LEFT JOIN review.review_search_observation r
-              ON (r.observation_id,r.endpoint,r.cases,r.denominator,r.denominator_unit)=
-                 (p.stratum,p.endpoint,p.numerator,p.denominator,p.denominator_unit)
-              AND r.report_id='pmid:889546'
-            WHERE p.source_id='davis77_hyperbaric' AND p.endpoint='dcs_treated_with_hyperbaric_oxygen'
+              ON (r.observation_id,r.endpoint,r.cases,r.denominator)=
+                 (p.stratum,p.endpoint,p.numerator,p.denominator)
+              AND r.report_id='pmid:889546' AND r.study_id='usaf-1973-1976-treated'
+              AND r.denominator_unit='chamber_exposures'
+              AND p.denominator_unit=CASE r.chamber_role
+                WHEN 'staff' THEN 'observer_exposure' WHEN 'trainee' THEN 'trainee_exposure' END
+            WHERE p.source_id='davis77_hyperbaric' AND p.endpoint='hyperbaric_treated_altitude_dcs'
               AND r.record_key IS NULL
         """).fetchall()
         assert mismatch == []
         assert db.execute("""
             SELECT count(*) FROM review.review_search_observation
-            WHERE report_id='pmid:889546' AND endpoint='dcs_treated_with_hyperbaric_oxygen'
+            WHERE report_id='pmid:889546' AND endpoint='hyperbaric_treated_altitude_dcs'
         """).fetchone() == (16,)
         assert db.execute("""
             SELECT count(*) FROM chamber_group_evidence WHERE report_id='pmid:889546'

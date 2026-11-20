@@ -10551,12 +10551,6 @@
       "setting": "First USAF altitude chamber training flight of one student"
     },
     {
-      "study_id": "davis-usaf-chamber-1973-1976-hbo",
-      "label": "Davis annual USAF chamber training and hyperbaric-treated DCS counts",
-      "period": "1973–1976",
-      "setting": "USAF altitude chamber training, students and inside observers"
-    },
-    {
       "study_id": "davis-altitude-treated-referrals-before-1977",
       "label": "Davis historical review of 145 treated altitude DCS referrals",
       "period": "Before 1977-01-01",
@@ -11607,12 +11601,6 @@
       "report_id": "pmid:5099868",
       "role": "primary_chamber_case_report",
       "locator": "Printed pp. 86–88, Davis Case 2"
-    },
-    {
-      "study_id": "davis-usaf-chamber-1973-1976-hbo",
-      "report_id": "pmid:889546",
-      "role": "primary_treated_chamber_endpoint_overlap_hold",
-      "locator": "Table VIII, p. 728, and Discussion, p. 729"
     },
     {
       "study_id": "davis-altitude-treated-referrals-before-1977",
@@ -13763,13 +13751,6 @@
       "relationship": "same_published_case",
       "evidence": "Davis pp. 85–86 Case 1 and Lewis p. 1263 Table III neurological case 6 describe the same 32-year-old bomber gunner with cabin pressurization failure at 19,000 ft, lip and hand paresthesias, visual loss, right hemiparesis and two hyperbaric treatments. Their altitude-to-onset accounts differ. Retain Lewis as the existing case anchor and Davis as the narrative source.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf"
-    },
-    {
-      "left_report": "pmid:889546",
-      "right_report": "doi:10.21236/ada360821",
-      "relationship": "likely_overlapping_chamber_surveillance",
-      "evidence": "Davis Table VIII is 1973–1976 USAF chamber HBO treatment surveillance. Bassett p. 12 covers 1973–1977 USAF chamber exposures and includes reported DCS with and without treatment. The date spans, roles and training network overlap. Site-specific membership and the common case roster are unavailable. Hold these strata out of pooled symptomatic DCS incidence.",
-      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1"
     },
     {
       "left_report": "pmid:889546",
