@@ -121,6 +121,7 @@ CHAMBER_ASCENT_RECONCILIATION = ROOT / "data" / "chamber" / "v1.53"
 CHAMBER_HISTORICAL_CROSSOVER = ROOT / "data" / "chamber" / "v1.54"
 CHAMBER_HISTORICAL_PRESELECTION = ROOT / "data" / "chamber" / "v1.55"
 CHAMBER_HISTORICAL_PREOXYGENATION = ROOT / "data" / "chamber" / "v1.56"
+CHAMBER_CAM_MEETING = ROOT / "data" / "chamber" / "v1.57"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1049,6 +1050,12 @@ def build(
                         "publication_preoxygen_measure": "measures.csv",
                     },
                     include_observations=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_CAM_MEETING,
+                    "publication",
+                    extra_tables={"publication_meeting_measure": "measures.csv"},
                 )
             if rojas_supplement:
                 load_supplement(

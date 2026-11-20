@@ -494,6 +494,40 @@ def test_henry_cook_preserves_counting_units_and_links_reused_controls(release):
         """).fetchone() == (0,)
 
 
+def test_cam_minutes_keep_chokes_exposures_separate_from_reported_rates_and_scores(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='cam44_meeting14' ORDER BY endpoint
+        """).fetchall() == [
+            ("chokes_source", 132, 719, "person_exposure", "overlap_hold"),
+            ("circulatory_collapse_source", 6, None, None, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT reported_value,unit FROM publication_meeting_measure
+            WHERE source_id='cam44_meeting14' AND measure='severe_chokes_frequency'
+        """).fetchone() == (1, "cases_per_1000_runs")
+        assert db.execute("""
+            SELECT measure,reported_value FROM publication_meeting_measure
+            WHERE source_id='cam44_meeting14' AND study_group='knee-bends' ORDER BY measure
+        """).fetchall() == [
+            ("combined_bubble_and_streaking", 63),
+            ("fascial_streaking", 37),
+            ("popliteal_bubbles", 46),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='cam44_meeting14'
+        """).fetchone() == ("nlm:101085500x796:meeting-14",)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:101085500x796:meeting-14'
+            AND right_report='doi:10.7326/0003-4819-22-3-398'
+        """).fetchone() == ("likely_overlap",)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='cam44_meeting14'
+        """).fetchone() == (0,)
+
+
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
     with connect_pair(release) as db:
         assert db.execute("""

@@ -8795,6 +8795,60 @@
       "report_id": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
       "basis": "Keep the existing verified Bridge report identity for the publisher scan and its later retrieval.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/5/article-p316.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#cam44_meeting14",
+      "report_id": "nlm:101085500x796:meeting-14",
+      "basis": "Original title, meeting number and June 1944 dates match the NLM scan.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=7"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-p#101085500x796-meeting14",
+      "report_id": "nlm:101085500x796:meeting-14",
+      "basis": "Original title, meeting number and June 1944 dates match the NLM scan.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=7"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#thomas45_bends_radiographs",
+      "report_id": "doi:10.1148/44.3.259",
+      "basis": "Authors, volume, issue, pages and DOI verified on publisher site.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-rsna-f#10.1148/44.3.259",
+      "report_id": "doi:10.1148/44.3.259",
+      "basis": "Authors, volume, issue, pages and DOI verified on publisher site.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#tobias44_bends_flight",
+      "report_id": "asb:1944:1:11:9",
+      "basis": "Berkeley bibliography lists the byline, title and pages. The later CAM minutes identify the issue.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-asb-p#asb-1944-1-11-9",
+      "report_id": "asb:1944:1:11:9",
+      "basis": "Berkeley bibliography lists the byline, title and pages. The later CAM minutes identify the issue.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.57/sources.csv#lund46_latent_neurologic",
+      "report_id": "pmid:21016036",
+      "basis": "Authors, title, year and page numbers match the NLM citation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-lund-p#21016036",
+      "report_id": "pmid:21016036",
+      "basis": "Authors, title, year and page numbers match the NLM citation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
+    },
+    {
+      "record_key": "2026-11-20-cam-minutes-rsna-t#10.1148/44.3.259",
+      "report_id": "doi:10.1148/44.3.259",
+      "basis": "The publisher DOI, title, authors and issue match.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
     }
   ],
   "studies": [
@@ -12029,6 +12083,48 @@
       "relationship": "cites_protocol_source",
       "evidence": "References and methods identify the 1944 Cook exercise study. The original CAM report was not recovered and its contribution to the interpolated rates remains unresolved.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/16/5/article-p350.pdf#page=6"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "doi:10.7326/0003-4819-22-3-398",
+      "relationship": "likely_overlap",
+      "evidence": "Bridge reported the Berkeley chokes analysis in item 3. He is first author on the 1945 article addressing the same symptom. Exact journal counts and shared runs remain unverified.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=10"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "possible_overlap",
+      "evidence": "Same investigators and chamber research. The respective margins are 719 mixed runs and 167 runs at 38,000 ft. Exact inclusion is unknown.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=10"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "pmid:21005555",
+      "relationship": "possible_overlap",
+      "evidence": "The meeting abstract reports a specific 111-minute comparison resembling that in the 1945 report. Exact runs not identified.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=10"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "doi:10.1148/44.3.259",
+      "relationship": "likely_overlap",
+      "evidence": "The same two Berkeley collaborators report paired-knee films at 35,000 ft in the minutes and 35,000 and 38,000 ft in the article excerpt. Full tables unavailable.",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259"
+    },
+    {
+      "left_report": "nlm:101085500x796:meeting-14",
+      "right_report": "pmid:21016036",
+      "relationship": "possible_overlap",
+      "evidence": "John Lawrence described a severe delayed neurological reaction. The later report has an overlapping author and reports a 38,000-ft case. No exact case crosswalk was recovered.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=14"
+    },
+    {
+      "left_report": "asb:1944:1:11:9",
+      "right_report": "pmid:21005550",
+      "relationship": "likely_overlap",
+      "evidence": "The November 1944 comparison shares five byline authors with the later Liberator study and compares chamber and flight symptoms. The bulletin publication pages were not retrieved.",
+      "evidence_url": "https://digicoll.lib.berkeley.edu/record/54360/files/nuclearmedicine00lawrrich.pdf?ln=en"
     }
   ],
   "report_titles": {
