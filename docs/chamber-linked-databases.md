@@ -9,6 +9,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `development_counts`, `afrl_test`, `vge_interval`, `locked_external` | Frozen NASA DCS groups, separate AFRL test groups, Grade IV VGE intervals and external strata |
 | `dcs-model.sqlite` | `historical_case_catalog`, `dcs_case`, `publication_observation_revision` | Selected historical case histories and source corrections |
 | `dcs-model.sqlite` | `publication_aircraft_incident`, `publication_aircraft_incident_count` | Aircraft incident profiles and source-reported outcomes |
+| `dcs-model.sqlite` | `publication_aviation_group`, `publication_meader_reported_flight` | Descriptive historical flight groups and case-selected affected flights |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 ## Build and use a release
@@ -53,6 +54,8 @@ The 1946 Operation Everest diary supplies two dated staff cerebral bends reports
 The 2026 AsMA familiarization case adds six source-reported milestones. The study register also links the EA-6 meeting abstract and original NASA slides to their shared cohort. [AsMA chamber case supplement](chamber-asma-chamber-case-supplement.md)
 
 The aircraft incident supplement links the original military depressurization reports from Johnston and Mancini to two distinct studies. It preserves passenger and occupant denominators, one presumptive diagnosis, and an unreconciled symptom count. These aircraft counts are descriptive aviation evidence. [v1.65 source extractions](../data/chamber/v1.65/counts.csv)
+
+Bruneau and Hertz report 17 dysbarism cases across 6,048 aircraft flights and one episode across 271 reported decompressions. Keep both counting units and the overlap hold for the 1957–1960 U-2 surveillance. Meader's 36 flight rows describe the affected flights already counted in the 958-flight selected cohort. The original journal article and DTIC reprint use one report ID. Table II covers 809 flights, nine fewer than the Table I sum after excluding crew member I. Nine flights remain unallocated. [v1.66 flight strata](../data/chamber/v1.66/flight_groups.csv)
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 

@@ -1,0 +1,287 @@
+[
+  {
+    "id": "2026-11-20-u2-historical-unit-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_discovery",
+    "params": {
+      "query": "\"13873988\" Bruneau Hertz \"6048\" \"4080th\" Meader WU-2 squadron 1959 1960 overlap physiological support case",
+      "max_results": 8,
+      "search_depth": "advanced",
+      "returned_urls": [
+        "https://usafunithistory.com/PDF/4000/4080%20STRATEGIC%20WG.pdf",
+        "https://en.wikipedia.org/wiki/4080th_Strategic_Reconnaissance_Wing",
+        "https://www.laughlin.af.mil/News/News/Display/Article/354644/memories-of-the-4080th-strategic-reconnaissance-wing-at-laughlin",
+        "https://usmilitaryarchive.com/view-article/c39c82ab-7c93-4fbe-b91c-a41f075c91df/the-4080th-reconnaissance-wing-over-banes",
+        "https://www.vetfriends.com/branches/air-force/units/4080sw",
+        "https://www.arpc.afrc.af.mil/News/Article-Display/Article/1666374/physiological-episodes-feedback-from-the-pilot-community-is-critical",
+        "https://www.vietnamairlosses.com/index.php/sidelines/1966/oct66",
+        "https://www.govinfo.gov/content/pkg/GOVPUB-D304-PURL-gpo128900/pdf/GOVPUB-D304-PURL-gpo128900.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "The official Laughlin history describes the 4080th Wing’s 1963 move to Davis-Monthan. Flight-level study membership remains unavailable.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-u2-historical-unit-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_discovery",
+    "params": {
+      "query": "\"Meader\" \"WU-2\" 1959 1960 \"squadron\" \"4080th\" weather reconnaissance decompression sickness source",
+      "limit": 8,
+      "returned_urls": [],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 0,
+    "status": "observed",
+    "note": "No results returned for the exact unit and study query.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-u2-historical-wing-history",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "wing_relocation_verification",
+    "params": {
+      "url": "https://www.laughlin.af.mil/News/News/Display/Article/354644/memories-of-the-4080th-strategic-reconnaissance-wing-at-laughlin/",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Official USAF history confirms the unit relocation in summer 1963. The article provides organizational context, without linked medical records.",
+    "records": [
+      {
+        "id": "laughlin-history",
+        "title": "Memories of the 4080th Strategic Reconnaissance Wing at Laughlin",
+        "year": 2013,
+        "url": "https://www.laughlin.af.mil/News/News/Display/Article/354644/memories-of-the-4080th-strategic-reconnaissance-wing-at-laughlin/"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-u2-historical-dtic-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "archival_reprint_verification",
+    "params": {
+      "urls": [
+        "https://dtic.minsky.ai/index/AD0658348/pdf",
+        "https://apps.dtic.mil/sti/tr/pdf/AD0658348.pdf"
+      ],
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The DTIC scan explicitly identifies itself as the 1967 journal reprint and gives the same 36 episodes, 11 affected crew and 958 flights.",
+    "records": [
+      {
+        "id": "meader-dtic",
+        "title": "Decompression Sickness in High-Altitude Flight",
+        "year": 1967,
+        "url": "https://apps.dtic.mil/sti/tr/pdf/AD0658348.pdf",
+        "locator": "Cover, journal reprint pp. 301–303 and report documentation sheet",
+        "archive_accession": "AD0658348"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-u2-historical-dtic-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "archival_metadata_verification",
+    "params": {
+      "url": "https://dtic.minsky.ai/index/AD0658348/pdf",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The archive catalogue verifies the publication date, accession and the same three counts.",
+    "records": [
+      {
+        "id": "meader-mirror",
+        "title": "Decompression Sickness in High-Altitude Flight",
+        "year": 1967,
+        "url": "https://dtic.minsky.ai/index/AD0658348/pdf",
+        "locator": "DTIC catalogue AD0658348",
+        "archive_accession": "AD0658348"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-u2-historical-canada-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_discovery",
+    "params": {
+      "query": "\"K.C. Glass\" \"C.J. Brooks\" \"decompression sickness\" 1987 1992 Edmonton Trenton Greenwood altitude chamber staff students report exposure counts",
+      "max_results": 10,
+      "search_depth": "advanced",
+      "returned_urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/5/article-p439-s.pdf",
+        "https://apps.dtic.mil/sti/tr/pdf/ADP011059.pdf",
+        "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "https://ntrs.nasa.gov/citations/20040088016",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA168595.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+        "https://discovery.researcher.life/article/fifty-years-of-decompression-sickness-research-at-brooks-afb-tx-1960-2010/c164d34952b638ff89340b584125d228",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA328256.pdf",
+        "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "https://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "The search did not yield exact case or exposure counts for the Canadian study. The original abstract reports role- and altitude-specific rates only.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-u2-historical-canada-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_discovery",
+    "params": {
+      "query": "\"Glass\" \"Brooks\" \"Edmonton\" \"Trenton\" \"Greenwood\" \"decompression sickness\" altitude chamber 1987 1992 Canada report",
+      "limit": 8,
+      "returned_urls": [],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 0,
+    "status": "observed",
+    "note": "No new exposure table returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-u2-historical-canada-pdf",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "published_abstract_reconciliation",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/5/article-p439-s.pdf",
+      "extract_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The search did not yield exact case or exposure counts for the Canadian study. The original abstract reports role- and altitude-specific rates only.",
+    "records": [
+      {
+        "id": "glass-brooks",
+        "title": "Incidence of Decompression Sickness in Canadian Forces Altitude Chambers",
+        "year": 1994,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/5/article-p439-s.pdf#page=16",
+        "locator": "Abstract 93, printed p. 454 (PDF p. 16)",
+        "sha256": "7e819368f9c948a0fbd0e9f84a205d12fe43dcbfe5b78e0b27b9bc2141b0926e"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-u2-historical-verified",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "full_text_aviation_extraction",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/33/4/article-p436.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p301.pdf"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the source pages and Meader case-flight rows against the publisher scans. Bruneau and Hertz is on overlap hold. The Meader aircraft totals correspond to the existing case-selected aggregate.",
+    "records": [
+      {
+        "id": "bruneau-hertz",
+        "title": "Physiological Support of an Extreme High Altitude Flying Program",
+        "year": 1962,
+        "pmid": "13873988",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/33/4/article-p436.pdf",
+        "locator": "Printed pp. 436–439",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/33/4/article-p436.pdf",
+        "sha256": "909c9e7fcc10dcec732fa116058c8e57cb93cb2bde4f8c97f3a4c44a7067510c",
+        "observations": [
+          {
+            "id": "reported-flight-dysbarism",
+            "study_id": "bruneau-hertz-4080-wing",
+            "group": "All reported aircraft flights",
+            "endpoint": "dysbarism_source",
+            "cases": 17,
+            "denominator": 6048,
+            "denominator_unit": "aircraft_flight",
+            "reported_rate_percent": 0.3,
+            "locator": "Printed pp. 438–439, Table I and Medical Problems",
+            "note": "Historical source-defined dysbarism. Potential record overlap unresolved."
+          },
+          {
+            "id": "reported-decompression-dysbarism",
+            "study_id": "bruneau-hertz-4080-wing",
+            "group": "Reported decompression events",
+            "endpoint": "dysbarism_grade_i_ii_joint_pain",
+            "cases": 1,
+            "denominator": 271,
+            "denominator_unit": "reported_decompression_event",
+            "locator": "Printed p. 439, Summary",
+            "note": "Five minutes of joint pain. This margin may overlap the 17 diagnoses. Unique flights experiencing pressure excursions are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "meader",
+        "title": "Decompression Sickness in High-Altitude Flight",
+        "year": 1967,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p301.pdf",
+        "locator": "Printed pp. 301–303",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p301.pdf",
+        "sha256": "a1041abff6c0dda1c9652256330e01b9dfd9168a4c24af0d194e2cbd6280ed53",
+        "archive_accession": "AD0658348",
+        "observations": [
+          {
+            "id": "preoxygenation-30-39-minutes",
+            "study_id": "meader-wu2-selected-crew",
+            "group": "30–39 min preoxygenation among selected affected crew, excluding crew code I",
+            "endpoint": "bends_source",
+            "cases": 5,
+            "denominator": 139,
+            "denominator_unit": "aircraft_flight",
+            "reported_rate": ".036",
+            "reported_rate_unit": "fraction",
+            "locator": "Printed p. 302 Table I and p. 303 Table II",
+            "note": "Numerator enumerated from the numbered affected flights in Table I. Table II prints the denominator and rounded fraction. Nine nonallocated flights remain between the sum of Table II and the Table I total excluding I."
+          },
+          {
+            "id": "preoxygenation-40-49-minutes",
+            "study_id": "meader-wu2-selected-crew",
+            "group": "40–49 min preoxygenation among selected affected crew, excluding crew code I",
+            "endpoint": "bends_source",
+            "cases": 11,
+            "denominator": 556,
+            "denominator_unit": "aircraft_flight",
+            "reported_rate": ".020",
+            "reported_rate_unit": "fraction",
+            "locator": "Printed p. 302 Table I and p. 303 Table II",
+            "note": "Numerator enumerated from the numbered affected flights in Table I. Table II prints the denominator and rounded fraction. Nine nonallocated flights remain between the sum of Table II and the Table I total excluding I."
+          },
+          {
+            "id": "preoxygenation-50-60-minutes",
+            "study_id": "meader-wu2-selected-crew",
+            "group": "50–60 min preoxygenation among selected affected crew, excluding crew code I",
+            "endpoint": "bends_source",
+            "cases": 1,
+            "denominator": 114,
+            "denominator_unit": "aircraft_flight",
+            "reported_rate": ".009",
+            "reported_rate_unit": "fraction",
+            "locator": "Printed p. 302 Table I and p. 303 Table II",
+            "note": "Numerator enumerated from the numbered affected flights in Table I. Table II prints the denominator and rounded fraction. Nine nonallocated flights remain between the sum of Table II and the Table I total excluding I."
+          }
+        ]
+      }
+    ]
+  }
+]

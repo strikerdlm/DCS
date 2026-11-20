@@ -130,6 +130,7 @@ CHAMBER_NEUROLOGICAL_TIMING = ROOT / "data" / "chamber" / "v1.62"
 CHAMBER_OPERATION_EVEREST = ROOT / "data" / "chamber" / "v1.63"
 CHAMBER_ASMA_CASE = ROOT / "data" / "chamber" / "v1.64"
 AVIATION_DEPRESSURIZATION = ROOT / "data" / "chamber" / "v1.65"
+AVIATION_U2_HISTORY = ROOT / "data" / "chamber" / "v1.66"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1136,6 +1137,16 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_aircraft_incident": "incidents.csv",
                         "publication_aircraft_incident_count": "counts.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    AVIATION_U2_HISTORY,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_aviation_group": "flight_groups.csv",
+                        "publication_meader_reported_flight": "meader_flights.csv",
                     },
                 )
             if rojas_supplement:

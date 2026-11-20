@@ -62,6 +62,63 @@ def test_aircraft_incidents_keep_distinct_reported_risk_sets(release):
         """).fetchone() == (0,)
 
 
+def test_historical_u2_counts_and_case_selected_flights(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role
+            FROM publication_aviation_group WHERE source_id='bruneau62_u2' AND metric GLOB 'dysbarism*'
+            ORDER BY numerator DESC
+        """).fetchall() == [
+            (17, 6048, "aircraft_flight", "overlap_hold"),
+            (1, 271, "reported_decompression_event", "overlapping_margin"),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT crew_code),count(onset_hours),sum(decompression_events)
+            FROM publication_meader_reported_flight WHERE source_id='meade67'
+        """).fetchone() == (36, 11, 24, 2)
+        assert db.execute("""
+            SELECT flight_no, peak_cabin_ft, peak_cabin_relation, decompression_min, onset_hours
+            FROM publication_meader_reported_flight WHERE decompression_events>0 ORDER BY flight_no
+        """).fetchall() == [(9, 60000, ">", 10, None), (12, 60000, ">", 20, None)]
+        assert db.execute("""
+            SELECT sum(numerator),sum(denominator) FROM publication_aviation_group
+            WHERE source_id='meade67' AND stratum GLOB 'crew-*'
+        """).fetchone() == (36, 958)
+        assert db.execute("""
+            WITH bins(stratum,lo,hi) AS (VALUES
+                ('preoxygenation-30-39-min',30,39),
+                ('preoxygenation-40-49-min',40,49),
+                ('preoxygenation-50-60-min',50,60)
+            )
+            SELECT g.numerator,g.denominator,g.rate_as_printed,g.analysis_role,count(f.flight_no)
+            FROM publication_aviation_group g
+            JOIN bins b USING (stratum)
+            JOIN publication_meader_reported_flight f
+              ON f.source_id=g.source_id AND f.crew_code!='I'
+              AND f.preoxygenation_min BETWEEN b.lo AND b.hi
+            WHERE g.source_id='meade67'
+            GROUP BY g.stratum ORDER BY g.stratum
+        """).fetchall() == [
+            (5, 139, ".036", "overlapping_margin", 5),
+            (11, 556, ".020", "overlapping_margin", 11),
+            (1, 114, ".009", "overlapping_margin", 1),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator,rate_as_printed,analysis_role
+            FROM publication_aviation_group WHERE source_id='meade67' AND stratum='crew-H'
+        """).fetchone() == (4, 139, "1.8", "denominator_conflict")
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(url) LIKE '%ad0658348%' OR lower(url) LIKE '%aeme/38/3/article-p301%'
+        """).fetchall() == [("report:ad0658348",)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='publication_source' AND source_id='meade67'
+        """).fetchone() == ("report:ad0658348",)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id IN ('report:ad0658348','pmid:13873988')
+        """).fetchone() == (0,)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""
