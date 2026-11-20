@@ -790,6 +790,47 @@ def test_ferris_engel_preserves_syndrome_denominators_and_reuses_the_berkeley_ca
         """).fetchall() == [("fulton1951:clinical-nature",), ("report:cam-396",)]
 
 
+def test_operation_everest_i_keeps_staff_cases_and_resident_followup_separate(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,period,endpoint,numerator,denominator,altitude,analysis_role
+            FROM publication_observation WHERE source_id='navy46_operation_everest' ORDER BY period
+        """).fetchall() == [
+            ("staff-july19", "1946-07-19", "cerebral_bends_source", 1, None, None, "case_conditional"),
+            ("observer-july21", "1946-07-21", "cerebral_bends_source", 1, None, None, "case_conditional"),
+        ]
+        assert db.execute("""
+            SELECT observation_id,chamber_role,reported_value,counting_unit
+            FROM publication_everest_context
+            WHERE observation_id IN ('lock-ascents','crew-roster','support-roster','resident-follow-up')
+            ORDER BY observation_id
+        """).fetchall() == [
+            ("crew-roster", "operating_crew", 14, "roster_member"),
+            ("lock-ascents", "lock", 409, "lock_ascent"),
+            ("resident-follow-up", "resident_subject", 3, "day"),
+            ("support-roster", "all_support_staff", 40, "roster_member"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_everest_context
+            WHERE counting_unit IN ('protocol_change','qualitative_frequency') AND reported_value IS NULL
+        """).fetchone() == (3,)
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='usn-operation-everest-i-1946' ORDER BY report_id
+        """).fetchall() == [("aaj:12194731100",), ("nlm:35721900r",), ("pmid:20276818",)]
+        assert db.execute("""
+            SELECT count(*),sum(cases),count(denominator),count(DISTINCT report_id)
+            FROM review.review_search_observation WHERE study_id='usn-operation-everest-i-1946'
+        """).fetchone() == (2, 2, 0, 1)
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_ever:2'
+        """).fetchone() == ("pmid:20251062",)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE study_id='usn-operation-everest-i-1946'
+        """).fetchone() == (0,)
+
+
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
     with connect_pair(release) as db:
         assert db.execute("""

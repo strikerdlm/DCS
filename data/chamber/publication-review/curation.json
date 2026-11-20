@@ -9425,6 +9425,48 @@
       "report_id": "pmid:19522370",
       "basis": "Shaw cohort, pp. 571–572. The original outbreak and its sensitivity analysis remain one report. The indexed title and PMID identify the existing publication.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.63/sources.csv#navy46_operation_everest",
+      "report_id": "nlm:35721900r",
+      "basis": "Same NLM volume and diary pages.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/dw/35721900R/PDF/35721900R.pdf"
+    },
+    {
+      "record_key": "2026-11-20-operation-everest-i-index-pages#navy-diary",
+      "report_id": "nlm:35721900r",
+      "basis": "Same NLM volume and diary pages.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/dw/35721900R/PDF/35721900R.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.63/sources.csv#houston47_everest_aaj",
+      "report_id": "aaj:12194731100",
+      "basis": "Same AAJ publication and byline.",
+      "evidence_url": "https://publications.americanalpineclub.org/articles/12194731100/Operation-Everest-1946"
+    },
+    {
+      "record_key": "2026-11-20-operation-everest-i-aaj-f#houston-aaj",
+      "report_id": "aaj:12194731100",
+      "basis": "Same AAJ publication and byline.",
+      "evidence_url": "https://publications.americanalpineclub.org/articles/12194731100/Operation-Everest-1946"
+    },
+    {
+      "record_key": "2026-11-20-operation-everest-i-lineage-t#houston-aaj",
+      "report_id": "aaj:12194731100",
+      "basis": "Same AAJ publication and byline.",
+      "evidence_url": "https://publications.americanalpineclub.org/articles/12194731100/Operation-Everest-1946"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_ever:2",
+      "report_id": "pmid:20251062",
+      "basis": "SciSpace lists the same authors, year, page range and exact DOI as the publisher and PubMed records.",
+      "evidence_url": "https://journals.physiology.org/doi/10.1152/ajplegacy.1947.149.3.565"
+    },
+    {
+      "record_key": "2026-11-20-operation-everest-i-index-pages#physiology-publisher",
+      "report_id": "pmid:20251062",
+      "basis": "Publisher DOI and issue identify the same publication as the existing PMID.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20251062/"
     }
   ],
   "studies": [
@@ -10027,6 +10069,12 @@
       "label": "Berkeley severe delayed neurological reaction reported in 1944",
       "period": "Reported June 1944",
       "setting": "Historical altitude exposure case"
+    },
+    {
+      "study_id": "usn-operation-everest-i-1946",
+      "label": "Operation Everest I",
+      "period": "June–August 1946",
+      "setting": "U.S. Navy hypobaric research chamber, Pensacola, Florida"
     }
   ],
   "study_reports": [
@@ -10959,6 +11007,24 @@
       "report_id": "fulton1951:clinical-nature",
       "role": "chapter_case_summary",
       "locator": "Chapter II printed pp. 41–43"
+    },
+    {
+      "study_id": "usn-operation-everest-i-1946",
+      "report_id": "nlm:35721900r",
+      "role": "contemporary_diary",
+      "locator": "Printed pp. 20–33 and 43"
+    },
+    {
+      "study_id": "usn-operation-everest-i-1946",
+      "report_id": "pmid:20276818",
+      "role": "resident_physiology_report",
+      "locator": "Printed pp. 1783–1792"
+    },
+    {
+      "study_id": "usn-operation-everest-i-1946",
+      "report_id": "aaj:12194731100",
+      "role": "investigator_project_account",
+      "locator": "Printed pp. 311–315"
     }
   ],
   "relations": [
@@ -12956,6 +13022,34 @@
       "relationship": "likely_overlap",
       "evidence": "The same three authors reported a single severe delayed neurologic reaction. The 1946 journal text and original CAM report remain unverified.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21016036/"
+    },
+    {
+      "left_report": "nlm:35721900r",
+      "right_report": "pmid:20276818",
+      "relationship": "contains_overlapping_groups",
+      "evidence": "Same Pensacola altitude chamber, four resident subjects and final high ascents. Staff events are recorded in the diary. The December article describes three-day follow-up in the residents.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin467121946/NavalMedicalBulletin46-7-121946.pdf#page=873"
+    },
+    {
+      "left_report": "aaj:12194731100",
+      "right_report": "nlm:35721900r",
+      "relationship": "contains_overlapping_groups",
+      "evidence": "Houston describes the same 1946 project, four residents, fourteen chamber technicians and repeated lock use.",
+      "evidence_url": "https://publications.americanalpineclub.org/articles/12194731100/Operation-Everest-1946"
+    },
+    {
+      "left_report": "pmid:20276818",
+      "right_report": "pmid:20247562",
+      "relationship": "possible_overlap",
+      "evidence": "Same title and author with distinct journal, date, and page range. August original unavailable.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20247562/"
+    },
+    {
+      "left_report": "pmid:20276818",
+      "right_report": "pmid:20251062",
+      "relationship": "likely_overlap",
+      "evidence": "Pensacola acclimatization project and its lead investigators. Published physiology pages remain unverified.",
+      "evidence_url": "https://journals.physiology.org/doi/10.1152/ajplegacy.1947.149.3.565"
     }
   ],
   "report_titles": {
@@ -13014,6 +13108,10 @@
     "aeme:31-11-885": "Pathological findings in three cases of decompression sickness",
     "fulton1951:clinical-nature": "The clinical nature of high altitude decompression sickness",
     "report:cam-396": "Case report on a severe delayed reaction with cerebral involvement following decompression",
-    "bumed:1945:4-7:3": "Two severe altitude flight reactions"
+    "bumed:1945:4-7:3": "Two severe altitude flight reactions",
+    "nlm:35721900r": "Operation Everest — 1946 Pensacola Navy diary",
+    "aaj:12194731100": "Operation Everest, 1946",
+    "pmid:20276818": "Operation Everest; a study of acclimatization to anoxia",
+    "pmid:20247562": "Operation Everest; a study of acclimatization to anoxia"
   }
 }
