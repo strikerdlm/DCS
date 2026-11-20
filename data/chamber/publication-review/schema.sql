@@ -191,6 +191,13 @@ WITH cells(study_id,source_table,source_id,stratum,cases,exposures,denominator_b
            'Reported DCS. Students exclude USAFSAM and Academy cadets. Site matching to the observer series is unresolved.'
     FROM citation_observation WHERE source_id='bassett_survey' AND endpoint='reported_dcs'
       AND stratum IN ('Inside observers','All other training units excluding USAFSAM and Academy cadets')
+    UNION ALL
+    SELECT study_id,'review_search_observation',record_key,
+           CASE chamber_role WHEN 'staff' THEN 'inside-observers' ELSE 'trainees' END,
+           cases,denominator,denominator_unit,locator,note
+    FROM review_search_observation
+    WHERE study_id='usaf-howard-1979-1981' AND endpoint='reported_altitude_dcs'
+      AND chamber_role IN ('staff','trainee')
 )
 SELECT c.*,l.report_id FROM cells c JOIN review_study_report l USING(study_id)
 WHERE l.role='supplementary_candidate';

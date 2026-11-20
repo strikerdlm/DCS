@@ -125,7 +125,27 @@ def test_publication_register_build(tmp_path):
         assert len(groups) == 12
         assert ("pmid:971183", "staff", 57, 14959) in groups
         assert ("pmid:3790029", "trainee", 8, 12596) in groups
-        assert db.execute("SELECT count(*) FROM review_supplementary_role_cell").fetchone() == (8,)
+        assert db.execute("SELECT count(*) FROM review_supplementary_role_cell").fetchone() == (10,)
+        assert db.execute(
+            "SELECT stratum, cases, exposures, report_id FROM review_supplementary_role_cell "
+            "WHERE study_id='usaf-howard-1979-1981' ORDER BY stratum"
+        ).fetchall() == [
+            ("inside-observers", 67, 47921, "abstract:howard-sheffield-matos-1982"),
+            ("trainees", 139, 203315, "abstract:howard-sheffield-matos-1982"),
+        ]
+        assert db.execute(
+            "SELECT s.period, json_extract(r.metadata_json, '$.period_for_extracted_counts.end'), "
+            "json_extract(r.metadata_json, '$.surveillance_period_described.end') "
+            "FROM review_study s JOIN review_study_report l USING(study_id) "
+            "JOIN review_record r USING(report_id) WHERE s.study_id='usaf-howard-1979-1981' "
+            "AND r.source_key='howard-1982-original'"
+        ).fetchone() == ("1979-01-01 to 1981-08-31", "1981-08-31", "1981-12-31")
+        assert db.execute(
+            "SELECT source_key, report_id, json_extract(metadata_json, '$.source_counts.dcs_episodes'), "
+            "json_extract(metadata_json, '$.source_counts.investigator_flights_above_15000_ft_body'), "
+            "json_extract(metadata_json, '$.source_counts.investigator_flights_above_15000_ft_abstract_and_table') "
+            "FROM review_record WHERE source_key='ada168595-original'"
+        ).fetchone() == ("ada168595-original", "report:ada168595", 28, 275, 274)
         assert db.execute(
             "SELECT cases,exposures,denominator_basis FROM review_supplementary_role_cell "
             "WHERE study_id='usaf-bassett-1973-1977' ORDER BY stratum"
