@@ -1,0 +1,148 @@
+[
+  {
+    "id": "2026-11-20-u2-published-case-chronologies",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and primary source verification",
+    "operation": "supplementary_primary_case_crosswalk",
+    "params": {
+      "queries": [
+        "Rhodes Ainscough 1997 U-2 pilot repeated decompression sickness patent foramen ovale abstract",
+        "Jersey severe neurological decompression sickness U-2 pilot 2010 full text",
+        "Pickard altitude decompression sickness pilot wearing pressure suit 2003 full text",
+        "Altitude Decompression Sickness Incidence Among U-2 Pilots 1994–2010 full text",
+        "ADA526033 report evaluation decompression sickness Beale 2009 DTIC"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "References and candidate reports were checked against the publication register. Extraction uses the original journal case reports and the published meeting abstract.",
+    "records": [
+      {
+        "id": "rhodes-1997-abstract-141",
+        "title": "A U-2 Pilot With Repeated DCS and a Patent Foramen Ovale",
+        "year": 1997,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=24",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/7/article-p614.pdf#page=24",
+        "study_id": "u2-rhodes-repeated-flight-case",
+        "locator": "AsMA 1997, abstract 141, printed p. 637",
+        "sha256": "051de0dd1cd9f036209a2e47bd1075847aa6cce0d95f0e441e817bdec84236dc",
+        "access": "primary_abstract",
+        "note": "The same pilot had two distinct reported flight episodes approximately six months apart. The echocardiography finding is descriptive. The at-risk flight denominator is unavailable.",
+        "cohort_overlap": "Potential overlap with the U-2 surveillance series covering 1994–2010. The abstract supplies neither exact episode years nor case identifiers.",
+        "observations": [
+          {
+            "id": "rhodes97_u2_pfo:first-flight-episode",
+            "study_id": "u2-rhodes-repeated-flight-case",
+            "group": "first-flight-episode",
+            "endpoint": "source_reported_type_i_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "AsMA 1997, abstract 141, printed p. 637",
+            "note": "Historical source Type I. The next episode in the same reported pilot is a separate flight."
+          },
+          {
+            "id": "rhodes97_u2_pfo:second-flight-episode",
+            "study_id": "u2-rhodes-repeated-flight-case",
+            "group": "second-flight-episode",
+            "endpoint": "source_reported_type_ii_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "AsMA 1997, abstract 141, printed p. 637",
+            "note": "Historical source Type II. The reported interval from the first episode is approximately six months."
+          }
+        ]
+      },
+      {
+        "id": "pickard-2003-full",
+        "title": "Altitude decompression sickness in a pilot wearing a pressure suit above 70,000 feet",
+        "year": 2003,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/4/article-p357.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/4/article-p357.pdf",
+        "pmid": "12688456",
+        "study_id": "u2-pickard-2002-flight-case",
+        "locator": "Printed pp. 357–358, Case Report",
+        "sha256": "4875b2f9a99703a4e1d98a4f101a977feb7ba4ad6ad927ae1d69041240c83014",
+        "access": "full_text",
+        "note": "The U-2 case report documents symptoms in flight followed by additional symptoms after landing. The at-risk flight denominator is unavailable.",
+        "cohort_overlap": "The U-2 surveillance paper cites this 2002 episode as reference 12 in its Results account of serious cases, printed p. 970.",
+        "observations": [
+          {
+            "id": "pickard03_u2_case:index-flight-episode",
+            "study_id": "u2-pickard-2002-flight-case",
+            "group": "index-flight-episode",
+            "endpoint": "source_reported_flight_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed pp. 357–358, Case Report",
+            "note": "The report presents one index episode. First symptoms and later clinical notification have different time origins."
+          }
+        ]
+      },
+      {
+        "id": "jersey-2010-full",
+        "title": "Severe neurological decompression sickness in a U-2 pilot",
+        "year": 2010,
+        "url": "https://uhms.org/images/DCS-and-AGE-Journal-Watch/jersey_u-2_pilot_aviat_space.pdf",
+        "primary_source": "https://uhms.org/images/DCS-and-AGE-Journal-Watch/jersey_u-2_pilot_aviat_space.pdf",
+        "pmid": "20058739",
+        "doi": "10.3357/ASEM.2303.2010",
+        "study_id": "u2-jersey-2006-neurological-flight-case",
+        "locator": "Printed pp. 64–67, Case Report and Figures 1–2",
+        "sha256": "9bbc1ee22aec15df9a19bf5c8a46a85ed37090840e902af64f4ae765c634d396",
+        "access": "full_text",
+        "note": "The main case occurred in 2006. Brief retrospective mentions of earlier symptoms and an uncertain later presentation are retained in the source but do not supply additional episode records. The at-risk flight denominator is unavailable.",
+        "cohort_overlap": "The U-2 surveillance paper cites this 2006 episode as reference 6 in its Results account of serious cases, printed p. 970.",
+        "observations": [
+          {
+            "id": "jersey10_u2_case:index-flight-episode",
+            "study_id": "u2-jersey-2006-neurological-flight-case",
+            "group": "index-flight-episode",
+            "endpoint": "source_reported_neurological_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed pp. 64–67, Case Report and Figures 1–2",
+            "note": "One index episode as diagnosed by treating physicians. The report describes neurological sequelae."
+          }
+        ]
+      },
+      {
+        "id": "hundemer-2012-cohort-crosswalk",
+        "title": "Altitude decompression sickness incidence among U-2 pilots: 1994–2010",
+        "year": 2012,
+        "pmid": "23066619",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p968.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/10/article-p968.pdf",
+        "sha256": "8e2d37b0ae27143c030b8f61fe6e6fc64784d0a982bd31f72ac0259ee2eb5ff7",
+        "locator": "Printed p. 970, Results, and p. 974, references 6 and 12",
+        "access": "full_text",
+        "cited_case_reports": [
+          "pmid:20058739",
+          "pmid:12688456"
+        ],
+        "cutis_marmorata_discrepancy": {
+          "surveillance_p970": "The study reports zero recorded cutis marmorata cases.",
+          "jersey_index_case_p65": "The first examination describes a rash consistent with cutis marmorata.",
+          "resolution": "Preserve each source's finding and ascertainment context. Case-level surveillance coding is unavailable."
+        },
+        "note": "The paper cites two index cases within its Results account. This crosswalk adds no cases to the existing 73-case aggregate."
+      },
+      {
+        "id": "ada526033-release-status",
+        "title": "Report of Evaluation of Decompression Sickness, Beale AFB 10–14 Aug 2009",
+        "year": 2009,
+        "url": "https://apps.dtic.mil/sti/citations/ADA526033",
+        "identifier": "ADA526033; AFRL-SA-BR-TR-2010-0008",
+        "archive_copy": "https://archive.org/details/DTIC_ADA526033",
+        "archive_sha256": "6131019f586539b6c9b0e0367fedbd5dd89ecf6aaa486ddedc2e7d4da4c77b3d",
+        "locator": "Report cover and Figure 5 release marking",
+        "access": "figure_release_unclear",
+        "note": "The archived report has a public release statement on the cover and a conflicting dissemination marking on the case-level figure. Case values are withheld pending clarification of that figure's release status."
+      }
+    ]
+  }
+]
