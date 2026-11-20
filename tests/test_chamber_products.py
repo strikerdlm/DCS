@@ -418,6 +418,36 @@ def test_historical_crossover_and_attendant_outcomes_keep_their_counting_units(r
         """).fetchall() == [("pmid:20296024",), ("joam:17-6-602",)]
 
 
+def test_henry_preselection_rates_preserve_printed_values_and_derived_controls(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table, value_basis, count(*), count(validation_exposure_denominator)
+            FROM publication_preselection_rate GROUP BY 1,2 ORDER BY 1,2
+        """).fetchall() == [
+            ("I", "reported_validation_rate", 48, 6),
+            ("III", "calculated_control_rate", 27, 0),
+            ("III", "reported_validation_rate", 27, 0),
+            ("IV", "reported_validation_rate", 27, 0),
+        ]
+        assert db.execute("""
+            SELECT validation_group, reported_pct, validation_exposure_denominator
+            FROM publication_preselection_rate WHERE source_table='I'
+              AND endpoint='total_symptoms' AND proportion_selected_pct=100
+            ORDER BY validation_group
+        """).fetchall() == [("isometric_v", 57.5, 33), ("isotonic_ii", 76.5, 34), ("mixed_exercise", 67.2, 67)]
+        assert db.execute("""
+            SELECT value_basis, reported_pct FROM publication_preselection_rate
+            WHERE source_table='III' AND endpoint='forced_descents' AND proportion_selected_pct=100
+            ORDER BY value_basis
+        """).fetchall() == [("calculated_control_rate", 53.3), ("reported_validation_rate", 17.0)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='henry47_preselection'
+        """).fetchone() == ("pmid:20251251",)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='henry47_preselection'
+        """).fetchone() == (0,)
+
+
 def test_hdsd_table_iii_retains_published_rates_and_links_reprinted_groups(release):
     with connect_pair(release) as db:
         assert db.execute("""

@@ -119,6 +119,7 @@ CHAMBER_NASA_ASCENT = ROOT / "data" / "chamber" / "v1.51"
 CHAMBER_HDSD_COMPILATION = ROOT / "data" / "chamber" / "v1.52"
 CHAMBER_ASCENT_RECONCILIATION = ROOT / "data" / "chamber" / "v1.53"
 CHAMBER_HISTORICAL_CROSSOVER = ROOT / "data" / "chamber" / "v1.54"
+CHAMBER_HISTORICAL_PRESELECTION = ROOT / "data" / "chamber" / "v1.55"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1029,6 +1030,13 @@ def build(
                     CHAMBER_HISTORICAL_CROSSOVER,
                     "publication",
                     extra_tables={"publication_crossover_run": "crossover_runs.csv"},
+                    include_observations=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_HISTORICAL_PRESELECTION,
+                    "publication",
+                    extra_tables={"publication_preselection_rate": "preselection_rates.csv"},
                     include_observations=False,
                 )
             if rojas_supplement:
