@@ -14,6 +14,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_lewis_case_profile`, `publication_overlap` | Selected aviation surveillance cases and source differences |
 | `dcs-model.sqlite` | `publication_trial_case_profile`, `publication_trial_case_milestone` | Case narratives linked to existing experimental chamber outcomes |
 | `dcs-model.sqlite` | `publication_prp_analysis_counts` | Overlapping analysis populations for seven NASA prebreathe phases |
+| `dcs-model.sqlite` | `publication_left_heart_gas_case` | Armstrong ultrasound detections with clinical details, venous grades and paired report values |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 ## Build and use a release
@@ -74,6 +75,8 @@ Katuntsev's 1996 author summary reports DCS symptoms in 931 of 1,778 experimenta
 Lam and Sanders describe two selected neurological DCS narratives likely corresponding to the two already counted outcomes in NASA Exploration Atmosphere Tests 3–4. The release links 11 clinical and ultrasound milestones to those existing arms. The 20-minute arm retains the campaign's conflicting pressures of 35.6 and 36.5 kPa and the narrative's nominal 5.2 psia. Symptom reports, exams and next-day findings retain their respective time references. Arm denominators and participant identifiers remain unavailable. [v1.72 case profiles](../data/chamber/v1.72/case_profiles.csv) · [Case and campaign provenance](../data/chamber/publication-review/retrievals-2026-11-20-nasa-ea-neurologic-cases.json)
 
 Conkin et al. report observed DCS counts for three overlapping analysis populations across seven NASA prebreathe phases. The hypothesis test, NASA Model, and Research Model respectively use 217, 159, and 229 of the 238 reported exposures. Phase IV has 65 exposures in NASA Table 6 and 69 in NEDU Appendix E. The review links Beltran’s dissertation abstract and Butler et al.’s trial abstract to the same NASA program. The two Duke registrations have separate protocol IDs and no posted outcomes. [v1.73 phase counts](../data/chamber/v1.73/prp_analysis_counts.csv) · [Source and registration provenance](../data/chamber/publication-review/retrievals-2026-11-20-nasa-prp-and-duke.json)
+
+The NASA SOAR workshop reports five left ventricular gas detections in 79 Armstrong chamber exposures. The later journal article reports six detections and counts 369 exposures between the first and sixth detections. Three case pairs agree on altitude and detection time. Two probable pairs preserve conflicting values. The same release adds Powell’s first symptom location among 88 NASA/JSC DCS cases and two small Doppler subgroup counts from Norfleet et al. These selected observations remain outside the incidence and model fitting datasets. [v1.74 observations](../data/chamber/v1.74/observations.csv) · [Case profiles and crosswalk](../data/chamber/v1.74/left_heart_gas_cases.csv)
 
 The diagnostic supplement also includes 32 selected symptomatic NASA exposures classified as no DCS. They remain in `literature_symptomatic_noncase` with their original selection criteria. [Diagnostic extraction and interpretation](chamber-diagnosis-supplement.md)
 

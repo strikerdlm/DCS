@@ -506,6 +506,58 @@ def test_duke_trials_preserve_distinct_enrollment_without_inferred_outcomes(rele
         """).fetchone() == (0,)
 
 
+def test_left_heart_gas_case_crosswalk_preserves_source_discrepancies(release):
+    with connect_pair(release) as db:
+        db.row_factory = sqlite3.Row
+        cases = db.execute("SELECT * FROM publication_left_heart_gas_case ORDER BY case_number").fetchall()
+        assert [
+            (r["case_number"], r["journal_altitude_ft"], r["journal_detection_min"],
+             r["workshop_altitude_ft"], r["workshop_detection_min"], r["linkage"])
+            for r in cases
+        ] == [
+            (1, 25000, 153, 25500, 143, "likely_with_discrepancies"),
+            (2, 29500, 27, 29000, 27, "likely_with_discrepancies"),
+            (3, 19500, 229, 19500, 229, "altitude_and_time_match"),
+            (4, 29500, 195, 29500, 195, "altitude_and_time_match"),
+            (5, 29500, 91, 29500, 91, "altitude_and_time_match"),
+            (6, 25000, 216, None, None, "journal_only"),
+        ]
+        assert cases[2]["journal_symptoms"] is None
+        assert cases[3]["vge_left_leg"] == 3
+        assert all(row["vge_right_leg"] == 4 for row in cases)
+        review_profiles, = db.execute("""
+            SELECT json_extract(r.metadata_json,'$.case_profiles') FROM review.review_record r
+            JOIN model_report_link m USING (report_id)
+            WHERE r.source_key='8908349-full-table' AND m.source_id='pilmanis96_age'
+        """).fetchone()
+        assert [dict(r) for r in cases] == json.loads(review_profiles)
+
+
+def test_soar_counts_preserve_distinct_endpoints_and_overlapping_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.stratum,o.endpoint,o.numerator,o.denominator,o.denominator_unit,o.analysis_role
+            FROM publication_observation o JOIN model_report_link m USING (source_id)
+            JOIN review.review_search_observation r
+              ON r.report_id=m.report_id AND (r.reported_group,r.endpoint)=(o.stratum,o.endpoint)
+              AND (r.cases,r.denominator,r.denominator_unit)=(o.numerator,o.denominator,o.denominator_unit)
+            WHERE o.source_id IN ('pilmanis93_soar_age','pilmanis96_age','powell93_soar_joint','norfleet93_soar_tcd')
+            ORDER BY o.stratum
+        """).fetchall() == [
+            ("journal-first-to-sixth-detection", "left_ventricular_gas_detected", 6, 369, "person_exposure", "overlap_hold"),
+            ("journal-six-detections", "symptoms_at_left_ventricular_gas_detection", 5, 6, "person", "case_conditional"),
+            ("jsc-dcs-cases-with-site", "dcs_first_ankle_knee_or_hip", 73, 88, "dcs_case", "case_conditional"),
+            ("jsc-doppler-grade-iii-or-higher", "arterial_bubbles_detected", 1, 13, "person", "overlap_hold"),
+            ("jsc-resting-pfo", "spencer_grade_iv_venous_bubbles", 2, 3, "person", "overlapping_margin"),
+            ("soar-five-detections", "symptoms_at_left_ventricular_gas_detection", 4, 5, "person", "case_conditional"),
+            ("soar-three-protocols", "left_ventricular_gas_detected", 5, 79, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence
+            WHERE report_id IN ('ntrs:19940007071','pmid:8908349','openalex:W808314617','openalex:W650078426')
+        """).fetchone() == (0,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):

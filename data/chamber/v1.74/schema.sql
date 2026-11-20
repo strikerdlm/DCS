@@ -1,0 +1,33 @@
+CREATE TABLE publication_left_heart_gas_case (
+    source_id TEXT NOT NULL REFERENCES publication_source,
+    case_number INTEGER NOT NULL CHECK(case_number > 0),
+    journal_altitude_ft INTEGER NOT NULL CHECK(journal_altitude_ft > 0),
+    journal_detection_min INTEGER NOT NULL CHECK(journal_detection_min > 0),
+    journal_prebreathe TEXT,
+    journal_symptoms TEXT,
+    journal_treatment TEXT NOT NULL,
+    journal_cardiac_evaluation TEXT NOT NULL,
+    vge_left_leg INTEGER NOT NULL CHECK(vge_left_leg BETWEEN 0 AND 4),
+    vge_right_leg INTEGER NOT NULL CHECK(vge_right_leg BETWEEN 0 AND 4),
+    vge_right_arm INTEGER NOT NULL CHECK(vge_right_arm BETWEEN 0 AND 4),
+    vge_left_arm INTEGER NOT NULL CHECK(vge_left_arm BETWEEN 0 AND 4),
+    vge_general INTEGER NOT NULL CHECK(vge_general BETWEEN 0 AND 4),
+    journal_locator TEXT NOT NULL,
+    workshop_source_id TEXT REFERENCES publication_source,
+    workshop_case_number INTEGER CHECK(workshop_case_number > 0),
+    workshop_altitude_ft INTEGER CHECK(workshop_altitude_ft > 0),
+    workshop_detection_min INTEGER CHECK(workshop_detection_min > 0),
+    workshop_locator TEXT,
+    linkage TEXT NOT NULL CHECK(linkage IN ('altitude_and_time_match','likely_with_discrepancies','journal_only')),
+    CHECK((workshop_source_id IS NULL) = (workshop_case_number IS NULL)),
+    CHECK((workshop_source_id IS NULL) = (workshop_altitude_ft IS NULL)),
+    CHECK((workshop_source_id IS NULL) = (workshop_detection_min IS NULL)),
+    CHECK((workshop_source_id IS NULL) = (workshop_locator IS NULL)),
+    CHECK((workshop_source_id IS NULL) = (linkage = 'journal_only')),
+    CHECK(linkage != 'altitude_and_time_match' OR
+        (journal_altitude_ft = workshop_altitude_ft AND journal_detection_min = workshop_detection_min)),
+    CHECK(linkage != 'likely_with_discrepancies' OR
+        (journal_altitude_ft != workshop_altitude_ft OR journal_detection_min != workshop_detection_min)),
+    PRIMARY KEY(source_id,case_number),
+    UNIQUE(workshop_source_id,workshop_case_number)
+) STRICT;

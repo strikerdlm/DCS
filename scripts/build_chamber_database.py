@@ -138,6 +138,7 @@ CHAMBER_OPERATOR_TREATMENT_ARCHIVE = ROOT / "data" / "chamber" / "v1.70"
 CHAMBER_KATUNTSEV_PROGRAM = ROOT / "data" / "chamber" / "v1.71"
 CHAMBER_NASA_TRIAL_CASES = ROOT / "data" / "chamber" / "v1.72"
 CHAMBER_NASA_PRP = ROOT / "data" / "chamber" / "v1.73"
+CHAMBER_SOAR_GAS = ROOT / "data" / "chamber" / "v1.74"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1191,6 +1192,16 @@ def build(
                 )
                 load_version_tables(
                     db, CHAMBER_NASA_PRP, {"publication_prp_analysis_counts": "prp_analysis_counts.csv"}
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_SOAR_GAS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_left_heart_gas_case": "left_heart_gas_cases.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(
