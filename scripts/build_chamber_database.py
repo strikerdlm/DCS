@@ -120,6 +120,7 @@ CHAMBER_HDSD_COMPILATION = ROOT / "data" / "chamber" / "v1.52"
 CHAMBER_ASCENT_RECONCILIATION = ROOT / "data" / "chamber" / "v1.53"
 CHAMBER_HISTORICAL_CROSSOVER = ROOT / "data" / "chamber" / "v1.54"
 CHAMBER_HISTORICAL_PRESELECTION = ROOT / "data" / "chamber" / "v1.55"
+CHAMBER_HISTORICAL_PREOXYGENATION = ROOT / "data" / "chamber" / "v1.56"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1037,6 +1038,16 @@ def build(
                     CHAMBER_HISTORICAL_PRESELECTION,
                     "publication",
                     extra_tables={"publication_preselection_rate": "preselection_rates.csv"},
+                    include_observations=False,
+                )
+                load_supplement(
+                    db,
+                    CHAMBER_HISTORICAL_PREOXYGENATION,
+                    "publication",
+                    extra_tables={
+                        "publication_preoxygen_group": "groups.csv",
+                        "publication_preoxygen_measure": "measures.csv",
+                    },
                     include_observations=False,
                 )
             if rojas_supplement:
