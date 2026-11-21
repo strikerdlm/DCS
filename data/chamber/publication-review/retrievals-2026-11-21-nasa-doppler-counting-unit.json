@@ -1,0 +1,173 @@
+[
+  {
+    "id": "2026-11-21-nasa-doppler-counting-unit-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_search_and_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ff08-0c7b-705d-bf3c-30b962dceb41",
+          "query": "AD-A151800 Vann saturation decompression altitude Doppler technical report",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff08-0ccb-7788-acd8-668d08a6d427",
+          "query": "1983 annual scientific meeting Aerospace Medical Association Houston preprints archive",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff08-0c7e-70ce-a632-7de5c9f72863",
+          "query": "Skinner Hart Adams 283 altitude DCS cases",
+          "returned": 3
+        },
+        {
+          "id": "01a1ff08-0d29-7481-bd46-042d3915bb89",
+          "query": "Eatock Gray Ford DCIEM 83-C-07",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff0a-5ade-7668-9798-4e7a8257c9cd",
+          "url": "https://archive.org/download/DTIC_ADA151800/DTIC_ADA151800.pdf",
+          "http_status": 200,
+          "pdf_pages": 49
+        },
+        {
+          "id": "01a1ff0a-5a68-735e-b77e-a996da9196c7",
+          "url": "https://apps.dtic.mil/sti/pdfs/ADA151800.pdf",
+          "result": "DTIC maintenance page"
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The original Vann archive PDF was retrieved. The Skinner and Eatock originals remained unverified.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-doppler-counting-unit-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Preprints of the 1983 Annual Scientific Meeting Aerospace Medical Association Houston digital library worldcat archive",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-doppler-counting-unit-verified",
+    "date": "2026-11-21",
+    "provider": "Internet Archive and NASA Technical Reports Server",
+    "operation": "verify_altitude_counting_unit_and_original_citation",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Visually checked Figure 12 and matched every altitude count to Powell Table I. The same clinical data remain linked to their existing observation IDs.",
+    "records": [
+      {
+        "id": "vann85_ada151800",
+        "title": "A Comprehensive Strategy for Saturation Decompression with Nitrogen-Oxygen",
+        "authors": [
+          "Richard D Vann"
+        ],
+        "year": 1985,
+        "url": "https://archive.org/download/DTIC_ADA151800/DTIC_ADA151800.pdf",
+        "source_sha256": "a9a08c7a2b2fd70b05f36f54a3077ceb358fe5ce70d5e5db3562fd2f22915a1c",
+        "locator": "Fig. 12, PDF p. 44. Attribution and Altitude totals, printed p. 14 (PDF p. 17).",
+        "technical_report": "AD-A151800",
+        "source_use": "corroborates_existing_rows",
+        "verified_observation_source": "powell91_tm102176",
+        "matching_dcs_by_grade": [
+          [
+            0,
+            75
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            8,
+            25
+          ],
+          [
+            29,
+            55
+          ]
+        ],
+        "source_counting_unit": "person_exposure",
+        "analysis_role": "overlap_hold",
+        "note": "Vann identifies 40 DCS cases in 173 altitude exposures from NASA Shuttle testing. The 1982 Vann/Dick/Barry abstract applies to diving. Participant-linked data remain unavailable."
+      },
+      {
+        "id": "horrigan84_six_hour_doppler",
+        "title": "Doppler measurements of intravenous gas bubbles during six hours of exercise at space suit pressures",
+        "authors": [
+          "D J Horrigan Jr",
+          "J M Waligora",
+          "A T Hadley III",
+          "J Conkin"
+        ],
+        "year": 1984,
+        "url": null,
+        "evidence_url": "https://ntrs.nasa.gov/api/citations/19920020098/downloads/19920020098.pdf",
+        "locator": "NASA bibliography, printed p. 10. Aviat Space Environ Med. 55(5):451. GWU 5649.",
+        "note": "Bibliographic citation verified. Original conference outcome cells are unavailable."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-doppler-counting-unit-russian-training",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "verify_source_endpoint_and_training_scope",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        "01a1ff0a-5a69-71ec-a7c8-da4f7c67feab",
+        "01a1ff0a-5a82-7298-9017-f7cf86f6c35a"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Russian training publications do not provide a verified DCS count linked to these denominators.",
+    "records": [
+      {
+        "id": "shishov2014",
+        "title": "Барокамерные подъемы как метод специального обследования летного состава государственной авиации",
+        "doi": "10.17816/RMMJ74154",
+        "year": 2014,
+        "url": "https://doi.org/10.17816/RMMJ74154",
+        "locator": "Methods and printed table p. 57",
+        "published_pilots": 1326,
+        "dcs_events": null,
+        "note": "Full publisher HTML describes 754 screened pilots at 5,000 m for 20 minutes and 572 at 5,000 and 6,000 m for five minutes each. The table counts hypoxia intolerance. Other pressure-related conditions are described without a compatible DCS numerator."
+      },
+      {
+        "id": "isaenkov2015",
+        "title": "Разработка методики барокамерных подъемов для врачебно-летной экспертизы летного состава в условиях госпиталя",
+        "pmid": "30590882",
+        "doi": "10.17816/RMMJ74030",
+        "year": 2015,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30590882/",
+        "locator": "Primary Russian and indexed English abstracts",
+        "hospital_aircrew_group": 589,
+        "experimental_group": 95,
+        "dcs_events": null,
+        "note": "The abstract reports hypoxia tolerance, mentions a potential DCS risk, and leaves incidence and relation to Shishov 2014 unresolved. The publisher PDF route returned a web page."
+      }
+    ]
+  }
+]

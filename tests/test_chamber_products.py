@@ -4659,3 +4659,36 @@ def test_nasa_prebreathe_windows_and_grade_iv_archive_overlap(release):
             SELECT DISTINCT report_id FROM review.review_record
             WHERE lower(title) LIKE '%limited failure population model with random effects%'
         """).fetchall() == [("openalex:W1651164841",)]
+
+
+def test_nasa_shuttle_doppler_counting_unit_revision_preserves_existing_rows(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.stratum,o.numerator,o.denominator,r.previous_unit,r.revised_unit
+            FROM publication_observation_counting_unit_revision r
+            JOIN publication_observation o USING(source_id,stratum,endpoint)
+            WHERE r.evidence_source_id='vann85_ada151800'
+              AND o.denominator_unit=r.revised_unit AND o.analysis_role='overlap_hold'
+            ORDER BY o.stratum
+        """).fetchall() == [
+            ("max-spencer-0", 0, 75, "person", "person_exposure"),
+            ("max-spencer-I", 1, 6, "person", "person_exposure"),
+            ("max-spencer-II", 2, 12, "person", "person_exposure"),
+            ("max-spencer-III", 8, 25, "person", "person_exposure"),
+            ("max-spencer-IV", 29, 55, "person", "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('vann85_ada151800','horrigan84_six_hour_doppler')
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE source_id IN ('vann85_ada151800','horrigan84_six_hour_doppler') ORDER BY source_id
+        """).fetchall() == [
+            ("horrigan84_six_hour_doppler", "abstract:asma-1984-horrigan-451"),
+            ("vann85_ada151800", "report:ada151800"),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='openalex:W920476218' AND right_report='report:ada151800'
+        """).fetchall() == [("same_altitude_counts_by_doppler_grade",)]
