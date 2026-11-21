@@ -150,6 +150,7 @@ CHAMBER_HALO_AND_USAF_ONSET = ROOT / "data" / "chamber" / "v1.82"
 CHAMBER_PFO_AND_HEADACHE = ROOT / "data" / "chamber" / "v1.83"
 CHAMBER_POSTEXPOSURE_EXERCISE = ROOT / "data" / "chamber" / "v1.84"
 CHAMBER_GROUND_OXYGEN = ROOT / "data" / "chamber" / "v1.85"
+CHAMBER_INCIDENTS_AND_PREFLIGHT = ROOT / "data" / "chamber" / "v1.86"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1319,6 +1320,15 @@ def build(
                     {
                         "publication_source": "sources.csv",
                         "publication_ground_oxygen_flow": "treatment_flow.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_INCIDENTS_AND_PREFLIGHT,
+                    {
+                        "publication_crowell83_chamber_incidents": "chamber_incidents.csv",
+                        "publication_vann04_preflight_group": "preflight_groups.csv",
+                        "publication_vann04_preflight_case": "preflight_cases.csv",
                     },
                 )
             if rojas_supplement:

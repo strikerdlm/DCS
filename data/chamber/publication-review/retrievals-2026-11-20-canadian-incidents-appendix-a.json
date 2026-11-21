@@ -1,0 +1,189 @@
+[
+  {
+    "id": "2026-11-20-chamber-incidents-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_retrieval_and_source_comparison",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "Crowell 1983 Canadian Forces hypobaric chamber physiological incidents Table II Trenton Winnipeg 1977 1981 decompression sickness Canada report",
+          "ranked_urls": [
+            "https://www.researchgate.net/publication/9053211_High-altitude_decompression_illness_Case_report_and_discussion",
+            "https://pubmed.ncbi.nlm.nih.gov/6651730",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284",
+            "https://www.cmaj.ca/custom-print/154125",
+            "https://www.centreforevidence.org/article/20031014-high-altitude-decompression-illness-case-report-and-discussion",
+            "https://www.semanticscholar.org/paper/A-five-year-survey-of-hypobaric-chamber-incidents-Lb/dfc1299a26046153cde4988d290ef61d01358286",
+            "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+            "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-case-description-research-tp218561-2014.pdf"
+          ]
+        },
+        {
+          "query": "Olson Adams Dixon Fitzpatrick 1980 air transport after hypobaric chamber training decompression sickness 101 102 preprints",
+          "ranked_urls": [
+            "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+            "https://ntrs.nasa.gov/api/citations/20230013523/downloads/Evidence%20Report%20Draft%20Hypoxia%20and%20DCS_20230918.pdf?attachment=true",
+            "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+            "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+            "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+            "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_93-deco-to-altitude_assumptions-experimental-evidence-and-future-directions.pdf",
+            "https://www.intechopen.com/chapters/59500"
+          ]
+        },
+        {
+          "query": "Vann Gerth Denoble 802 flying after diving Doppler data will be reported separately 495 preflight surface interval trial venous gas emboli same cohort",
+          "ranked_urls": [
+            "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf",
+            "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_54-incidence-venous-gas-emboli-recreational-diving.pdf",
+            "https://dan.org/alert-diver/article/flying-after-diving",
+            "https://www.deepdivingacademy.it/wordpress/wp-content/uploads/2024/03/moon-decompression-illness.pdf",
+            "https://uhms.org/images/Publications/Workshops/DDS_Final.pdf",
+            "https://www.dhmjournal.com/images/IndividArticles/45March/Cialoni_dhm.45.1.10-15.pdf",
+            "https://journals.viamedica.pl/international_maritime_health/article/view/106248",
+            "https://dan.org/research-reports/research-studies/flying-after-diving"
+          ]
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Crowell PMID from search. An attempted PubMed extract failed. Vann full-text extraction returned the 802 completed flights and verified the distinct diving history.",
+    "records": [
+      {
+        "id": "crowell-pmid",
+        "pmid": "6651730",
+        "title": "A five-year survey of hypobaric chamber physiological incidents in the Canadian Forces",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6651730/"
+      },
+      {
+        "id": "vann-extract",
+        "pmid": "15686274",
+        "title": "Experimental trials to assess the risks of decompression sickness in flying after diving",
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-chamber-incidents-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_retrieval_and_source_comparison",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "ranked_urls": [
+            "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+            "https://www.cmaj.ca/custom-print/154125",
+            "http://www.stormchaser.ca/Misc/Dive_Chamber/Dive_Chamber.html",
+            "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf",
+            "https://canadiem.org/wp-content/uploads/2018/01/CCE143-Diving-Injuries-and-Dysbarism.pdf",
+            "https://www.dhmjournal.com/images/IndividArticles/16Dec/Robertson_SPUMSJ164141-143.pdf",
+            "https://www.academia.edu/41035078/Decompression_illness",
+            "https://medcoe.army.mil/pfw-images/borden/harshenv2/HE2index.pdf"
+          ]
+        },
+        {
+          "ranked_urls": [
+            "https://www.researchgate.net/publication/8046765_Experimental_trials_to_assess_the_risks_of_decompression_sickness_in_flying_after_diving",
+            "https://scholars.duke.edu/individual/pub679054",
+            "https://dan.org/alert-diver/article/flying-after-diving/",
+            "https://pubmed.ncbi.nlm.nih.gov/15686274/",
+            "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_54-incidence-venous-gas-emboli-recreational-diving.pdf",
+            "https://repository.si.edu/bitstream/handle/10088/2723/proceedings_repetitivediving.pdf.txt?sequence=2",
+            "https://journals.viamedica.pl/international_maritime_health/article/view/106248"
+          ]
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Vann PDF returned primary study text. The Crowell publisher scrape returned metadata and a watermark. The original Crowell PDF already in the local archive supplied Table I.",
+    "records": [
+      {
+        "id": "crowell-publisher",
+        "pmid": "6651730",
+        "title": "A five-year survey of hypobaric chamber physiological incidents in the Canadian Forces",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/11/article-p1034.pdf"
+      },
+      {
+        "id": "vann-primary-pdf",
+        "pmid": "15686274",
+        "title": "Experimental trials to assess the risks of decompression sickness in flying after diving",
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-original-chamber-incidents-appendix-a",
+    "date": "2026-11-20",
+    "provider": "Original article PDFs",
+    "operation": "supplementary_table_and_appendix_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The original tables add incident mix and post-dive event phases to two existing study identities.",
+    "records": [
+      {
+        "id": "crowell-table-i",
+        "title": "A five-year survey of hypobaric chamber physiological incidents in the Canadian Forces",
+        "year": 1983,
+        "pmid": "6651730",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/11/article-p1034.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/11/article-p1034.pdf",
+        "access": "full_text",
+        "sha256": "c56a159915efb79682bc7f394579964bca6cfa4f651915e9b5d35f414348faad",
+        "locator": "Printed p. 1035, Tables I–II and Results",
+        "study_id": "cf-amtu-1977-1981",
+        "chamber_runs": 2744,
+        "events_as_printed": 1687,
+        "sum_of_categories_including_dcs": 1689,
+        "trenton": {
+          "printed_total": 598,
+          "sum_of_printed_categories": 600
+        },
+        "person_exposure_counts": {
+          "table_ii_sum": 19573,
+          "results_narrative": 21423,
+          "dcs_cases": 69
+        },
+        "note": "Table I uses chamber runs. The 69 DCS cases are shared with the existing Results and Table II extraction. Preserve the contradictory incident and exposure totals."
+      },
+      {
+        "id": "vann-appendix-a",
+        "title": "Experimental trials to assess the risks of decompression sickness in flying after diving",
+        "year": 2004,
+        "pmid": "15686274",
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf",
+        "primary_source": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf",
+        "access": "full_text",
+        "sha256": "25a8b580cd0b1ad3b32e354edbc777595a9339b8b10ade1d22b179b3fee1b1dd",
+        "locator": "Printed pp. 433, 436–437 and 441, Table 1, Results and Appendix A",
+        "study_id": "duke-dan-postdive-8000ft",
+        "appendices": {
+          "a_case_count": 11,
+          "a_did_not_fly": 7,
+          "a_flew": 4,
+          "appendix_a_case_with_inflight_recurrence": 3,
+          "linked_distinct_symptoms": {
+            "appendix_a": 11,
+            "appendix_b": 40
+          }
+        },
+        "same_cohort": {
+          "completed_flights": 802,
+          "people_completing_flights": 495,
+          "published_noncompleters": 16,
+          "existing_flight_related_dcs": 40,
+          "printed_postdive_percent": 1.4,
+          "explicit_denominator_for_percent": null
+        },
+        "note": "The recurrence assigned to diving is Appendix A case number 3. The 11 Appendix A cases and their printed profile trial counts remain separate from the in-flight and post-flight endpoint. Appendix A gives counts for five profiles with cases. The source does not print an explicit denominator next to the overall 1.4% for preflight DCS."
+      }
+    ]
+  }
+]
