@@ -14909,9 +14909,75 @@
       "report_id": "abstract:asma-1984-horrigan-451",
       "basis": "NASA bibliography gives the exact conference citation and GWU 5649.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19920020098/downloads/19920020098.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.144/sources.csv#fraser42_rose_thermal",
+      "report_id": "report:nrcc-fraser-rose-1942-low-temperature",
+      "basis": "Matches the source title, authors and identifier in the verified source register.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=260"
+    },
+    {
+      "record_key": "2026-11-21-thermal-and-delayed-case-verified#fraser42_rose_thermal",
+      "report_id": "report:nrcc-fraser-rose-1942-low-temperature",
+      "basis": "Same source citation and locator as in the numbered supplement.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=260"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.144/sources.csv#tobias44_cam352_thermal",
+      "report_id": "report:cam-352",
+      "basis": "Matches the source title, authors and identifier in the verified source register.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=261"
+    },
+    {
+      "record_key": "2026-11-21-thermal-and-delayed-case-verified#tobias44_cam352_thermal",
+      "report_id": "report:cam-352",
+      "basis": "Same source citation and locator as in the numbered supplement.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=261"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.144/sources.csv#laverdiere25_chamber_case",
+      "report_id": "abstract:asma-2025-laverdiere-208",
+      "basis": "Matches the source title, authors and identifier in the verified source register.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/96/8/article-p682.pdf"
+    },
+    {
+      "record_key": "2026-11-21-thermal-and-delayed-case-verified#laverdiere25_chamber_case",
+      "report_id": "abstract:asma-2025-laverdiere-208",
+      "basis": "Same source citation and locator as in the numbered supplement.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/96/8/article-p682.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.144/sources.csv#tobias47_skin_temperature",
+      "report_id": "pmid:20251066",
+      "basis": "Matches the source title, authors and identifier in the verified source register.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20251066/"
+    },
+    {
+      "record_key": "2026-11-21-thermal-and-delayed-case-verified#tobias47_skin_temperature",
+      "report_id": "pmid:20251066",
+      "basis": "Same source citation and locator as in the numbered supplement.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20251066/"
     }
   ],
   "studies": [
+    {
+      "study_id": "rcaf-1942-fraser-rose-temperature",
+      "label": "Fraser and Rose chamber-temperature experiment",
+      "period": "Reported 1942. Individual dates unavailable.",
+      "setting": "Weekly altitude chamber exposure program in 25 subjects. The archive tabulates 187 scored man-runs at 35,000 ft."
+    },
+    {
+      "study_id": "tobias-1944-left-leg-diathermy",
+      "label": "Tobias and colleagues paired left-leg diathermy experiment",
+      "period": "Reported 1944. Individual dates unavailable.",
+      "setting": "Thirty-four subjects in sequential control and pretreatment chamber runs. Endpoint is left-leg symptoms."
+    },
+    {
+      "study_id": "us-army-laverdiere-2025-delayed-chamber-case",
+      "label": "Laverdiere and Hawker delayed chamber case",
+      "period": "Reported 2025. Exposure date unavailable.",
+      "setting": "One military pilot following a 25,000-ft chamber profile. Case ascertainment is through a selected meeting report."
+    },
     {
       "study_id": "soviet-chadov-1986-posture-chamber",
       "label": "Chadov 1986 chamber posture experiments",
@@ -16294,6 +16360,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "rcaf-1942-fraser-rose-temperature",
+      "report_id": "report:nrcc-fraser-rose-1942-low-temperature",
+      "role": "archival_symptom_grade_table",
+      "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table"
+    },
+    {
+      "study_id": "tobias-1944-left-leg-diathermy",
+      "report_id": "report:cam-352",
+      "role": "archival_site_specific_paired_percentages",
+      "locator": "Fulton 1951, printed p. 236 (PDF p. 261), diathermy paragraph"
+    },
+    {
+      "study_id": "us-army-laverdiere-2025-delayed-chamber-case",
+      "report_id": "abstract:asma-2025-laverdiere-208",
+      "role": "primary_case_abstract",
+      "locator": "2025 AsMA Scientific Sessions, abstract 208, Case Presentation"
+    },
     {
       "study_id": "soviet-chadov-1986-posture-chamber",
       "report_id": "kaluga:1986:chadov:154",
