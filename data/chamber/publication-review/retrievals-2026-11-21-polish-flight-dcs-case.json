@@ -1,0 +1,262 @@
+[
+  {
+    "id": "2026-11-21-polish-flight-dcs-case-firecrawl-regional",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1ffbc-d447-737a-998b-4d2ddc6dc4d2",
+      "query": "\"decompression sickness\" \"hypobaric chamber\" incidência treinamento câmara hipobárica Brasil Argentina Colômbia descompresión enfermedad cámara hipobárica"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Returned web records were preserved. The query did not verify a new training cohort or clinical denominator.",
+    "records": [
+      {
+        "id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "title": "Investigation of a cluster of decompression sickness cases ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "doi": "10.28920/dhm51.1.82-85",
+        "pmid": "33761546"
+      },
+      {
+        "id": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "title": "Decompression Sickness Rates for Chamber Personnel: Case Series ...",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "pmid": "19522370",
+        "doi": "10.3357/asem.2438.2009"
+      },
+      {
+        "id": "https://www.mdpi.com/1422-0067/25/21/11367",
+        "title": "Decompression Illness After Technical Diving Session in ...",
+        "url": "https://www.mdpi.com/1422-0067/25/21/11367",
+        "pmid": "39518919",
+        "doi": "10.3390/ijms252111367"
+      },
+      {
+        "id": "https://www.researchgate.net/publication/286374161_Pathophysiology_of_Decompression_Sickness",
+        "title": "Pathophysiology of Decompression Sickness",
+        "url": "https://www.researchgate.net/publication/286374161_Pathophysiology_of_Decompression_Sickness"
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+        "title": "Incidence of decompression sickness in hypobaric hypoxia training",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+        "pmid": "32574436"
+      },
+      {
+        "id": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+        "pmid": "42345225"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-polish-flight-dcs-case-firecrawl-polish",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1ffbe-cc37-73cd-84b2-7cf01f40c432",
+      "query": "\"komora niskich ciśnień\" \"choroba dekompresyjna\" ćwiczenia piloci przypadki szkolenie komorze hipobarycznej lotnicza Polska"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Returned web records were preserved. The query did not verify a new training cohort or clinical denominator.",
+    "records": [
+      {
+        "id": "https://www.scribd.com/document/990646003/Medycyna-Lotnicza-Adam-Skrzypkowski",
+        "title": "Medycyna Lotnicza Adam Skrzypkowski | PDF",
+        "url": "https://www.scribd.com/document/990646003/Medycyna-Lotnicza-Adam-Skrzypkowski"
+      },
+      {
+        "id": "https://www.cmkp.edu.pl/wp-content/uploads/2023/02/0793-program-2-4.pdf",
+        "title": "Program specjalizacji w dziedzinie MEDYCYNY LOTNICZEJ",
+        "url": "https://www.cmkp.edu.pl/wp-content/uploads/2023/02/0793-program-2-4.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-polish-flight-dcs-case-firecrawl-case",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1ffbd-ffa2-714f-ad78-3f6061761b9b",
+      "query": "\"Siewiera\" \"high-altitude decompression sickness\" \"asp\" \"TRICON2018\" pilot ECMO"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Returned web records were preserved. The query did not verify a new training cohort or clinical denominator.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-polish-flight-dcs-case-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 433,
+      "search_depth": "advanced",
+      "query": "Siewiera Szalanski \"decompression sickness\" \"MiG-29\" altitude case 2018 Warsaw"
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The account spending limit prevented a search response.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-polish-flight-dcs-case-primary-journal",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association",
+    "operation": "verify_public_full_text",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "One author-diagnosed severe in-flight DCS case. This is the sole publication observation for the episode.",
+    "records": [
+      {
+        "id": "siewiera20_polish_flight",
+        "title": "High-Altitude Decompression Sickness Treated with Hyperbaric Therapy and Extracorporeal Oxygenation",
+        "author": "Siewiera J, Szałański P, Tomaszewski D, Kot J",
+        "year": 2020,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/2/article-p106.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/2/article-p106.pdf",
+        "locator": "Case Report pp. 107–108 and Table I p. 108 (PDF pp. 2–3)",
+        "sha256": "bec9cee6928601a1ae65b42d98cde2dc6ae8b6f4302323f8f920fe3a27a06ca4",
+        "full_text_available": true,
+        "case_facts": {
+          "aircraft_altitude_at_onset_ft": 28000,
+          "cabin_altitude_ft": null,
+          "elapsed_ascent_to_onset_min": null,
+          "warsaw_presentation_after_landing_h": 6,
+          "earlier_district_hospital_assessment": true,
+          "therapy_duration_min": 285,
+          "respiratory_deterioration_day_following_hyperbaric_treatment": 3,
+          "vv_ecmo_narrative_stop_day": 7,
+          "vv_ecmo_table_i_marked_treatment_days": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "delirium_narrative_day": 9,
+          "delirium_table_i_marked_treatment_days": [
+            11,
+            12
+          ],
+          "discharge_day_as_reported": 19
+        },
+        "observations": [
+          {
+            "id": "siewiera20_polish_flight-reported-episode",
+            "group": "flight-index-case",
+            "endpoint": "severe_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Case Report pp. 107–108 and Table I p. 108 (PDF pp. 2–3)",
+            "note": "One author-diagnosed severe in-flight DCS case. This is the sole publication observation for the episode.",
+            "outcome_window": "Onset in flight. The journal places Warsaw emergency department presentation 6 hours after emergency landing. Discharged on reported day 19 without residual neurological deficit. Longer-term follow-up was not reported."
+          }
+        ],
+        "pmid": "31980050",
+        "doi": "10.3357/amhp.5457.2020"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-polish-flight-dcs-case-siewiera18_tricon_case",
+    "date": "2026-11-21",
+    "provider": "European Underwater and Baromedical Society",
+    "operation": "verify_public_full_text",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Earlier account of the same event. The military circumstances were withheld.",
+    "records": [
+      {
+        "id": "siewiera18_tricon_case",
+        "title": "Successful Treatment of Severe High-Altitude Decompression Sickness in a Jet Pilot Using Hyperbaric Oxygen Therapy and Extra Corporeal Oxygenation",
+        "author": "Siewiera J, Pawlak M, Machowicz A, Szałański P, Gryszko L, Kot J",
+        "year": 2018,
+        "url": "https://www.eubs.org/wp-content/uploads/2019/03/EUBS2018%20AbstractBook.pdf#page=49",
+        "primary_source": "https://www.eubs.org/wp-content/uploads/2019/03/EUBS2018%20AbstractBook.pdf#page=49",
+        "locator": "TRICON2018 abstract D-17, printed p. 48 (PDF p. 49)",
+        "sha256": "9d6d6773aba0834cd74235342c04d34b19f44f50c18c6a2b4e4ec3c1d4658ec2",
+        "full_text_available": true,
+        "case_facts": {
+          "warsaw_presentation_after_landing_h_approximate": 6,
+          "vv_ecmo_start_ordinal_day_of_treatment": 2,
+          "discharge_day_as_reported": 19,
+          "planned_followup_completed": null
+        },
+        "observations": [
+          {
+            "id": "siewiera18_tricon_case-reported-episode",
+            "group": "flight-index-case",
+            "endpoint": "severe_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "TRICON2018 abstract D-17, printed p. 48 (PDF p. 49)",
+            "note": "Earlier account of the same event. The military circumstances were withheld."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-polish-flight-dcs-case-siewiera23_autoreferat_case",
+    "date": "2026-11-21",
+    "provider": "Medical University of Gdańsk",
+    "operation": "verify_public_full_text",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The treating author explicitly identifies the journal case as a 2018 MiG-29 incident. Exact cabin pressure remains unknown.",
+    "records": [
+      {
+        "id": "siewiera23_autoreferat_case",
+        "title": "Autoreferat",
+        "author": "Siewiera J",
+        "year": 2023,
+        "url": "https://doktoratyihabilitacje.gumed.edu.pl/attachment/attachment/96430/AUTOREFERAT.pdf",
+        "primary_source": "https://doktoratyihabilitacje.gumed.edu.pl/attachment/attachment/96430/AUTOREFERAT.pdf",
+        "locator": "Publication list and Omówienie osiągnięć, printed pp. 17–18",
+        "sha256": "9c05395adf4c1f0a95a1ab732bbc14171833e1c755e81d5fa171085630d7c541",
+        "full_text_available": true,
+        "case_facts": {
+          "flight_incident_year": 2018,
+          "aircraft_model": "MiG-29",
+          "cabin_pressure_history": null,
+          "vv_ecmo_narrative_stop_day": 7,
+          "exact_ecmo_start_time": null
+        },
+        "observations": [
+          {
+            "id": "siewiera23_autoreferat_case-reported-episode",
+            "group": "flight-index-case",
+            "endpoint": "severe_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Publication list and Omówienie osiągnięć, printed pp. 17–18",
+            "note": "The treating author explicitly identifies the journal case as a 2018 MiG-29 incident. Exact cabin pressure remains unknown."
+          }
+        ]
+      }
+    ]
+  }
+]
