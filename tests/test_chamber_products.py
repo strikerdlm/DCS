@@ -3996,3 +3996,52 @@ def test_air_surgeons_bulletin_retains_counts_rates_and_cohort_links(release):
             SELECT relationship FROM publication_overlap
             WHERE source_id='guest44_diurnal_bends' AND related_source='gray51_constitutional_book'
         """).fetchone() == ('unresolved',)
+
+
+def test_wartime_reexposure_retains_scope_and_deduplicates_cases(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='rodbard44_kingman_reflight'
+              AND stratum IN ('prior-bends-reflights','any-bends-on-reflight')
+            ORDER BY endpoint
+        """).fetchall() == [
+            ('any_site_bends_as_reported', 70, 149, 'selected_cluster'),
+            ('bends_at_new_site_only', 7, 70, 'case_conditional'),
+            ('bends_at_original_site', 63, 70, 'case_conditional'),
+        ]
+        assert db.execute("""
+            SELECT stratum,reported_percent,denominator FROM publication_reported_rate
+            WHERE source_id='rodbard44_kingman_reflight' ORDER BY stratum
+        """).fetchall() == [('rest-121-180', '38', 13), ('rest-21-60', '50', 52), ('rest-61-120', '52', 52)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='asb:1944:1:11:6:rodbard' AND cases IS NULL AND denominator IS NOT NULL
+        """).fetchone() == (3,)
+        assert db.execute("""
+            SELECT source_id,numerator,denominator FROM publication_observation
+            WHERE (source_id='tobias44_bends_primary' OR source_id='lawrence45_b24')
+              AND stratum IN ('actual-subject-flights','b24-duty-crew')
+            ORDER BY source_id
+        """).fetchall() == [('lawrence45_b24', 10, 72), ('tobias44_bends_primary', 17, 36)]
+        assert db.execute("""
+            SELECT study_id,count(*) FROM review.review_study_report
+            WHERE report_id IN ('asb:1944:1:11:9','pmid:21005550') GROUP BY study_id
+        """).fetchall() == [('berkeley-liberator-chamber-flight-experiments', 2)]
+        assert db.execute("""
+            SELECT link.catalog_case_number,link.link_status,link.source_altitude_ft,link.source_death_hours,
+                   old.table_peak_altitude_ft,old.table_time_to_death_hours_min
+            FROM publication_chamber_fatality_crosswalk link
+            JOIN publication_fryer69_chamber_fatality old
+              ON (old.source_id,old.case_number)=(link.catalog_source_id,link.catalog_case_number)
+            WHERE link.source_id='masland44_altitude_collapse' ORDER BY link.catalog_case_number
+        """).fetchall() == [(1, 'confirmed', 38000, 11.0, 38000, 8.5), (2, 'likely', 30000, 70.0, 38000, 71.0)]
+        assert db.execute("""
+            SELECT numerator,denominator,trial_count FROM publication_observation
+            JOIN publication_chamber_trial_scope USING(source_id,stratum)
+            WHERE source_id='masland44_altitude_collapse'
+        """).fetchone() == (5, None, 800000)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog
+            WHERE source_id IN ('masland44_altitude_collapse','york44_aeroembolism')
+        """).fetchone() == (0,)

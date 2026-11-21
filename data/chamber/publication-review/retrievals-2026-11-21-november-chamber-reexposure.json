@@ -1,0 +1,684 @@
+[
+  {
+    "id": "2026-11-21-november-chamber-reexposure-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Simon Rodbard 1947 Studies on the recurrence of decompression sickness re-ascent 149 Kingman hypobaric chamber public PDF",
+      "http_status": 433,
+      "search_depth": "advanced",
+      "max_results": 5
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented a search return.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-november-chamber-reexposure-firecrawl-journal",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and PubMed",
+    "operation": "search_and_verify_metadata",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Rodbard \"Recurrence of decompression sickness\" \"reascent\" Kingman 1944",
+      "search_id": "01a1fe24-8bd4-76af-9645-e7301a414ef2",
+      "pubmed_scrape_id": "01a1fe24-eb97-779c-9cb7-a5b99747d103"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Firecrawl identified the journal successor. PubMed verified the citation and provided no abstract.",
+    "records": [
+      {
+        "id": "rodbard47_reascent",
+        "title": "Studies on the Recurrence of Decompression Sickness on Re-Ascent to High Altitudes",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20252835/",
+        "year": 1947,
+        "author": "Rodbard S",
+        "doi": "10.1152/ajplegacy.1947.150.1.133",
+        "pmid": "20252835",
+        "journal": "American Journal of Physiology",
+        "volume": "150",
+        "issue": "1",
+        "pages": "133–141",
+        "openalex_id": "W2414985226",
+        "access": "metadata_only",
+        "note": "No PubMed abstract. Publisher HTML and PDF routes require access. Cohort overlap is unresolved."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-november-chamber-reexposure-firecrawl-overlap",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "1944 Rodbard Kingman chamber reflight recurrence 149 Fryer Fulton full text rod bard",
+      "search_id": "01a1fe28-654f-734a-9b6b-531c502fb5b9",
+      "max_results": 6
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Returned nonmatching Bard records and an aircraft yearbook without linked primary data.",
+    "records": [
+      {
+        "id": "1",
+        "title": "Bard Student Newspaper Archive: Introduction",
+        "url": "https://www.bard.edu/library/archive/newspapers/hilites/fdr.html",
+        "note": "Screened as a nonmatching discovery result. No chamber outcome could be verified."
+      },
+      {
+        "id": "2",
+        "title": "Bard Family Papers",
+        "url": "https://nyheritage.org/collections/bard-family-papers",
+        "note": "Screened as a nonmatching discovery result. No chamber outcome could be verified."
+      },
+      {
+        "id": "3",
+        "title": "The Bard family",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/The_Bard_family%3B_a_history_and_genealogy_of_the_Bards_of_%22Carroll%27s_Delight%2C%22_together_with_a_chronicle_of_the_Bards_and_genealogies_of_the_Bard_kinship_%28IA_bardfamilyhistor01lcseil%29.pdf",
+        "note": "Screened as a nonmatching discovery result. No chamber outcome could be verified."
+      },
+      {
+        "id": "4",
+        "title": "Full text of \"The Bard family : a history and genealogy ...",
+        "url": "https://archive.org/stream/bardfamilyhistor00seil_0/bardfamilyhistor00seil_0_djvu.txt",
+        "note": "Screened as a nonmatching discovery result. No chamber outcome could be verified."
+      },
+      {
+        "id": "5",
+        "title": "1944 Aircraft Year Book",
+        "url": "https://www.aia-aerospace.org/wp-content/uploads/the-1944-aircraft-year-book.pdf",
+        "note": "Screened as a nonmatching discovery result. No chamber outcome could be verified."
+      },
+      {
+        "id": "6",
+        "title": "Ronald Bard Family History Records",
+        "url": "https://www.ancestry.com/genealogy/records/results?firstName=ronald&lastName=bard",
+        "note": "Screened as a nonmatching discovery result. No chamber outcome could be verified."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-november-chamber-reexposure-publisher",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "verify_full_text",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "pdf_scrape_id": "01a1fe25-75ef-722d-9b9e-1999b72cfb0d",
+      "epdf_scrape_id": "01a1fe25-751f-7044-a112-5647c7eb5016",
+      "full_scrape_id": "01a1fe25-753a-70be-99b3-3e2fe75660c8"
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Publisher PDF, ePDF and full-text routes returned purchase-access HTML instead of a PDF.",
+    "records": [
+      {
+        "id": "pdf-route",
+        "title": "Studies on the Recurrence of Decompression Sickness on Re-Ascent to High Altitudes",
+        "url": "https://doi.org/10.1152/ajplegacy.1947.150.1.133",
+        "year": 1947,
+        "author": "Rodbard S",
+        "doi": "10.1152/ajplegacy.1947.150.1.133",
+        "pmid": "20252835"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-november-chamber-reexposure-ebsco",
+    "date": "2026-11-21",
+    "provider": "EBSCO via UNAL",
+    "operation": "full_text_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Studies on the Recurrence of Decompression Sickness on Re-Ascent to High Altitudes\" OR \"10.1152/ajplegacy.1947.150.1.133\"",
+      "failed_stage": "proxy_signin",
+      "llamaparse": "No PDF retrieved."
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The institutional proxy remained at its sign-in page and displayed no error. No search results or PDF were obtained.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-november-chamber-reexposure-primary",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and HathiTrust",
+    "operation": "verify_original_publication",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "issue_contents_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=290",
+      "issue_contents_scrape_id": "01a1fe18-ecb3-7638-b8eb-fceb15fb74a8",
+      "rodbard_p6_scrape_id": "01a1fe1b-d399-711b-a6f6-8df55879cc7c",
+      "rodbard_p7_scrape_id": "01a1fe1b-d44b-7317-8b78-77b45bb0ef29",
+      "tobias_p10_scrape_id": "01a1fe18-ecb1-764a-8236-b77036e6c126",
+      "masland_p3_scrape_id": "01a1fe1e-a6ec-7152-b5e0-f6b9f6dc455c",
+      "masland_p4_scrape_id": "01a1fe1b-d398-7603-b327-098c8a0f1fbf",
+      "masland_york_p5_scrape_id": "01a1fe1e-a6e9-7625-b639-c55ff8caaea5",
+      "gray_p8_scrape_id": "01a1fe18-ece3-720a-8aec-5143905f1459",
+      "gray_p9_scrape_id": "01a1fe18-f102-75cb-be37-ee17ee898c8c"
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Retrieved publicly available page text from two digitized holdings. Keep ambiguous figure cells out of extracted counts.",
+    "records": [
+      {
+        "id": "rodbard44_kingman_reflight",
+        "title": "Recurrence of Decompression Sickness on Reascent to High Altitudes",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=296",
+        "year": 1944,
+        "author": "Rodbard S",
+        "locator": "November 1944, printed pp. 6–7",
+        "second_page": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=297",
+        "observations": [
+          {
+            "id": "rodbard44_kingman_reflight-prior-bends-reflights-any_site_bends_as_reported",
+            "endpoint": "any_site_bends_as_reported",
+            "group": "prior-bends-reflights",
+            "cases": 70,
+            "denominator": 149,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 6",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "selected_cluster",
+            "note": "All subjects in this analysis had reported bends on the original flight.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-any-bends-on-reflight-bends_at_original_site",
+            "endpoint": "bends_at_original_site",
+            "group": "any-bends-on-reflight",
+            "cases": 63,
+            "denominator": 70,
+            "denominator_unit": "dcs_case",
+            "locator": "November 1944, printed pp. 6–7, p. 6",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Among the 70 with bends on reflight. Four of the 63 also reported a new affected site.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-any-bends-on-reflight-bends_at_new_site_only",
+            "endpoint": "bends_at_new_site_only",
+            "group": "any-bends-on-reflight",
+            "cases": 7,
+            "denominator": 70,
+            "denominator_unit": "dcs_case",
+            "locator": "November 1944, printed pp. 6–7, p. 6",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Complement of the 63 with recurrence at an originally affected site within the 70.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-same-site-bends-on-reflight-bends_at_additional_new_site",
+            "endpoint": "bends_at_additional_new_site",
+            "group": "same-site-bends-on-reflight",
+            "cases": 4,
+            "denominator": 63,
+            "denominator_unit": "dcs_case",
+            "locator": "November 1944, printed pp. 6–7, p. 6",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Subset of the same-site recurrence group.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-rest-0-20-bends_at_original_site",
+            "endpoint": "bends_at_original_site",
+            "group": "rest-0-20",
+            "cases": 5,
+            "denominator": 5,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 6, Figure 1",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Figure 1 and prose both state all five recurred. The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "interval_min": 0,
+            "interval_max": 20,
+            "interval_definition": "The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-rest-181-1800-bends_at_original_site",
+            "endpoint": "bends_at_original_site",
+            "group": "rest-181-1800",
+            "cases": 0,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 6, Figure 1",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Figure 1 gives the group size and explicitly reports none. The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "interval_min": 181,
+            "interval_max": 1800,
+            "interval_definition": "The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-re-ascent-before-target-same_site_bends_before_target",
+            "endpoint": "same_site_bends_before_target",
+            "group": "re-ascent-before-target",
+            "cases": 14,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "November 1944, printed pp. 6–7, p. 6",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Count developing symptoms before regaining 38,000 ft. Denominator of the onset assessment is unavailable in prose.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-chokes-chokes_recurrence_source",
+            "endpoint": "chokes_recurrence_source",
+            "group": "prior-chokes",
+            "cases": 1,
+            "denominator": 17,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "November 1944, printed pp. 6–7, p. 6",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Selected on initial chokes.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-chokes-and-bends-bends_recurrence_source",
+            "endpoint": "bends_recurrence_source",
+            "group": "prior-chokes-and-bends",
+            "cases": 8,
+            "denominator": 13,
+            "denominator_unit": "dcs_case",
+            "locator": "November 1944, printed pp. 6–7, p. 6",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "The 13 with both symptoms on the initial flight are nested in the 17 with initial chokes.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-rash-rash_recurrence_source",
+            "endpoint": "rash_recurrence_source",
+            "group": "prior-rash",
+            "cases": 2,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 7",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "The initial rash and reflight rash were described by the author.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-blurred-vision-blurred_vision_recurrence_source",
+            "endpoint": "blurred_vision_recurrence_source",
+            "group": "prior-blurred-vision",
+            "cases": 0,
+            "denominator": 4,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 7",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Reflight interval 62–118 min as reported.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-headache-headache_persistent_or_aggravated_source",
+            "endpoint": "headache_persistent_or_aggravated_source",
+            "group": "prior-headache",
+            "cases": 2,
+            "denominator": 3,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 7",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Two headaches persisted and appeared aggravated, and one did not recur.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-sweating-sweating_recurrence_source",
+            "endpoint": "sweating_recurrence_source",
+            "group": "prior-sweating",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 7",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Selected on initial profuse sweating.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-faintness-faintness_recurrence_source",
+            "endpoint": "faintness_recurrence_source",
+            "group": "prior-faintness",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 7",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Selected on initial faintness.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-prior-nausea-nausea_recurrence_source",
+            "endpoint": "nausea_recurrence_source",
+            "group": "prior-nausea",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "locator": "November 1944, printed pp. 6–7, p. 7",
+            "outcome_window": "On the selected reflight. The text defines same-site recurrence within its first five minutes. Standardized later follow-up unavailable.",
+            "role": "case_conditional",
+            "note": "Selected on initial nausea.",
+            "protocol": "Kingman flying personnel and chamber crew. Initial chamber profile included a 20,000-ft demonstration and up to two hours at 38,000 ft. Following symptoms, subjects were brought down and returned to 38,000 ft for five minutes. Gas history and exact re-ascent rate unavailable.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-rest-21-60-bends_at_original_site",
+            "endpoint": "bends_at_original_site",
+            "group": "rest-21-60",
+            "cases": null,
+            "denominator": 52,
+            "denominator_unit": "person",
+            "reported_rate_percent": 50.0,
+            "locator": "November 1944, printed pp. 6–7, p. 6, Figure 1",
+            "role": "selected_cluster",
+            "note": "Same-site recurrence in subjects selected on original bends. Exact numerator unavailable for this stratum.",
+            "interval_min": 21,
+            "interval_max": 60,
+            "interval_definition": "The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-rest-61-120-bends_at_original_site",
+            "endpoint": "bends_at_original_site",
+            "group": "rest-61-120",
+            "cases": null,
+            "denominator": 52,
+            "denominator_unit": "person",
+            "reported_rate_percent": 52.0,
+            "locator": "November 1944, printed pp. 6–7, p. 6, Figure 1",
+            "role": "selected_cluster",
+            "note": "Same-site recurrence in subjects selected on original bends. Exact numerator unavailable for this stratum.",
+            "interval_min": 61,
+            "interval_max": 120,
+            "interval_definition": "The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          },
+          {
+            "id": "rodbard44_kingman_reflight-rest-121-180-bends_at_original_site",
+            "endpoint": "bends_at_original_site",
+            "group": "rest-121-180",
+            "cases": null,
+            "denominator": 13,
+            "denominator_unit": "person",
+            "reported_rate_percent": 38.0,
+            "locator": "November 1944, printed pp. 6–7, p. 6, Figure 1",
+            "role": "selected_cluster",
+            "note": "Same-site recurrence in subjects selected on original bends. Exact numerator unavailable for this stratum.",
+            "interval_min": 121,
+            "interval_max": 180,
+            "interval_definition": "The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+            "study_id": "kingman-post-bends-chamber-reflight"
+          }
+        ],
+        "earlier_exposure_max_target_min": 120,
+        "repeat_target_min": 5,
+        "repeat_target_ft": 38000,
+        "interflight_clock": "The reported interval starts when leaving 38,000 ft and ends on return to 38,000 ft, including descent and re-ascent.",
+        "reported_selected_mean_onset_min": {
+          "initial": 28,
+          "reflight": 2
+        },
+        "pre_target_rates_with_group_counts_unavailable": [
+          {
+            "interval": "less than 40 minutes",
+            "percent": 60
+          },
+          {
+            "interval": "41 to 120 minutes",
+            "percent": 10
+          },
+          {
+            "interval": "more than 120 minutes",
+            "percent": 0
+          }
+        ],
+        "study_id": "kingman-post-bends-chamber-reflight"
+      },
+      {
+        "id": "tobias44_bends_primary",
+        "title": "Study of Bends: A Comparison in Low Pressure Chamber and Actual Flight",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=300",
+        "year": 1944,
+        "author": "Tobias CA, Lyons WR, Williams OL, Bridge EV, Lawrence JH, Helmholz HF Jr, Sweeney AR Jr",
+        "locator": "November 1944, printed p. 10",
+        "aircraft_flights": 25,
+        "actual_subject_runs": 36,
+        "chamber_subject_runs": 72,
+        "subject_ages": [
+          {
+            "age_min": 18,
+            "age_max": 21,
+            "n": 31
+          },
+          {
+            "age_min": 38,
+            "age_max": 41,
+            "n": 5
+          }
+        ],
+        "chamber_runs_per_participant": 2,
+        "target_ft": 35000,
+        "target_min": 75,
+        "mean_aircraft_ascent_min": 54,
+        "constant_flow_aircraft_oxygen": true,
+        "subject_oxygen_from_ft": 15000,
+        "exercise_start_ft": 25000,
+        "previously_registered_crew_outcomes": {
+          "source_id": "lawrence45_b24",
+          "cases": 10,
+          "man_flights": 72,
+          "descent_cases": 2
+        },
+        "observations": [
+          {
+            "id": "tobias44_bends_primary-actual-subject-flights-actual_flight_failure_as_reported",
+            "endpoint": "actual_flight_failure_as_reported",
+            "group": "actual-subject-flights",
+            "cases": 17,
+            "denominator": 36,
+            "denominator_unit": "person_exposure",
+            "locator": "November 1944, printed p. 10, Figure 2",
+            "outcome_window": "During the 35,000-ft actual B-24 flights, up to 75 minutes at altitude or symptom-related early termination.",
+            "role": "overlap_hold",
+            "note": "Figure 2 prints 19 passed and 17 failed among the 36 actual subject man-runs. This is an earlier margin with different selection from the 1945 Table II comparison. The chamber-to-flight cross-classification is unclear in the text-only figure. The separate 10/72 aircrew bends margin is already extracted under Lawrence.",
+            "protocol": "Two matched chamber runs per subject. Aircraft ascent averaged 54 minutes. Subjects began oxygen at 15,000 ft and step-up exercise at 25,000 ft.",
+            "study_id": "berkeley-liberator-chamber-flight-experiments"
+          }
+        ],
+        "cross_classification": "Unverified from the text-only figure.",
+        "study_id": "berkeley-liberator-chamber-flight-experiments"
+      },
+      {
+        "id": "masland44_altitude_collapse",
+        "title": "Collapse at High Altitude",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=291",
+        "year": 1944,
+        "author": "Masland RL",
+        "locator": "November 1944, printed pp. 3–5",
+        "later_pages": [
+          "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=294",
+          "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=293"
+        ],
+        "observations": [
+          {
+            "id": "masland44_altitude_collapse-wartime-historical-tally-fatal_high_altitude_collapse_as_reported",
+            "endpoint": "fatal_high_altitude_collapse_as_reported",
+            "group": "wartime-historical-tally",
+            "cases": 5,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "November 1944, printed pp. 3–5, p. 3",
+            "outcome_window": "Surveillance dates and ascertainment window are unavailable.",
+            "role": "overlap_hold",
+            "note": "The same extract gives fewer than 100 serious reactions. Five fatalities are a reported aggregate, with uncertain overlap with published individual cases.",
+            "protocol": "Broad wartime tally. Masland labels the denominator chamber flights. Individual and session linkage are unavailable."
+          }
+        ],
+        "reported_flight_count": 800000,
+        "flight_count_unit": "chamber flights",
+        "source_serious_collapse": {
+          "cases_upper_exclusive": 100,
+          "denominator": 800000,
+          "reported_unit": "chamber flights"
+        },
+        "other_reported_proportions": [
+          {
+            "endpoint": "severe_aeroembolism_during_exercise_source",
+            "altitude_ft": 25000,
+            "percent": 1.6,
+            "n": null
+          },
+          {
+            "endpoint": "collapse_among_severe_bends_or_chokes",
+            "percent": 10,
+            "approximate": true,
+            "n": null
+          }
+        ],
+        "fatality_crosswalk": [
+          {
+            "source_case_label": "first-fatal-example",
+            "catalog_source_id": "fryer69_raf",
+            "catalog_case": 1,
+            "link_status": "confirmed",
+            "age_years": null,
+            "altitude_ft": 38000,
+            "onset_min": 72,
+            "death_hours": 11,
+            "death_clock": "Chamber collapse",
+            "source_locator": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=294",
+            "note": "Fryer cites this report under case 1. Onset, signs during decompression, and terminal autopsy findings agree. Fryer tabulates 8.5 h with a different or unclear clock."
+          },
+          {
+            "source_case_label": "second-fatal-example",
+            "catalog_source_id": "fryer69_raf",
+            "catalog_case": 2,
+            "link_status": "likely",
+            "age_years": 25,
+            "altitude_ft": 30000,
+            "onset_min": 35,
+            "death_hours": 70,
+            "death_clock": "After the flight",
+            "source_locator": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=293",
+            "note": "Shared wrist onset at 35 min, BP 100/60, pulse 60, sweating, progressive right hemiparesis and peak hematocrit 65. Fryer gives age 26, 38,000 ft and 71 h. Retain both source profiles."
+          }
+        ],
+        "additional_nonfatal_chamber_narrative": {
+          "age_years": 25,
+          "target_ft": 38000,
+          "onset_altitude_ft": 28000,
+          "onset_min_since_departure": 13,
+          "symptoms": "Right hemiplegia and hemianesthesia on descent",
+          "catalogue_overlap": "Unresolved. No additional case is counted."
+        }
+      },
+      {
+        "id": "gray44_pb_protection",
+        "title": "Prevention of Decompression Sickness by Denitrogenation",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=298",
+        "year": 1944,
+        "author": "Gray JS",
+        "locator": "November 1944, printed pp. 8–9",
+        "second_page": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=299",
+        "target_altitude_ft": 38000,
+        "target_min": 120,
+        "total_cadets_reported": 1800,
+        "ground_oxygen_min": 15,
+        "relative_reduction_percent": 55,
+        "endpoint": "combined_bends_and_chokes_as_reported",
+        "absolute_event_n": null,
+        "arm_denominators": null,
+        "note": "Prose confirms 55 percent relative reduction. Other figure points cannot be paired reliably in page text."
+      },
+      {
+        "id": "york44_aeroembolism",
+        "title": "A Case of Aeroembolism",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=293",
+        "year": 1944,
+        "author": "York DE",
+        "locator": "November 1944, printed p. 5",
+        "setting": "unpressurized B-29 aircraft",
+        "target_altitude_ft": 38000,
+        "diagnosis": "Author suspected aeroembolism",
+        "oxygen_from_ft": 10000,
+        "source_assessment_min_since_onset": 35,
+        "recovery_within_hours": 6,
+        "narrative": "Left hemiparesis after shoulder pain and collapse. No chamber exposure or incidence denominator."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-november-chamber-reexposure-manifestations",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and HathiTrust",
+    "operation": "verify_manifestation",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Additional scan copies confirm report identities. Counts remain on their original extraction rows.",
+    "records": [
+      {
+        "id": "rodbard-p6-alt",
+        "title": "Recurrence of Decompression Sickness on Reascent to High Altitudes",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=294",
+        "year": 1944,
+        "author": "Rodbard S",
+        "locator": "November 1944, printed pp. 6–7",
+        "scrape_id": "01a1fe1e-a6c0-764a-8050-481e4717d553",
+        "study_id": "kingman-post-bends-chamber-reflight"
+      },
+      {
+        "id": "rodbard-p7-alt",
+        "title": "Recurrence of Decompression Sickness on Reascent to High Altitudes",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=295",
+        "year": 1944,
+        "author": "Rodbard S",
+        "locator": "November 1944, printed pp. 6–7",
+        "scrape_id": "01a1fe1e-a6e6-727a-aab0-ca1a5d3939cc",
+        "study_id": "kingman-post-bends-chamber-reflight"
+      },
+      {
+        "id": "tobias-p10-alt",
+        "title": "Study of Bends: A Comparison in Low Pressure Chamber and Actual Flight",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=298",
+        "year": 1944,
+        "author": "Tobias CA, Lyons WR, Williams OL, Bridge EV, Lawrence JH, Helmholz HF Jr, Sweeney AR Jr",
+        "locator": "November 1944, printed p. 10",
+        "scrape_id": "01a1fe1c-f2a6-758d-8e47-a873a784ae67",
+        "study_id": "berkeley-liberator-chamber-flight-experiments"
+      }
+    ]
+  }
+]
