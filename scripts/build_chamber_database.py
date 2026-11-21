@@ -155,6 +155,7 @@ CHAMBER_FRYER_FATALITIES = ROOT / "data" / "chamber" / "v1.87"
 CHAMBER_MOON_PATHOLOGY = ROOT / "data" / "chamber" / "v1.88"
 CHAMBER_FLINN_WOMACK = ROOT / "data" / "chamber" / "v1.89"
 CHAMBER_HISTORICAL_VISUAL_SUMMARIES = ROOT / "data" / "chamber" / "v1.90"
+CHAMBER_REGIONAL_ECCENTRIC_EXERCISE = ROOT / "data" / "chamber" / "v1.91"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1361,6 +1362,15 @@ def build(
                     db,
                     CHAMBER_HISTORICAL_VISUAL_SUMMARIES,
                     {"publication_historical_visual_summary": "cited_observations.csv"},
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_REGIONAL_ECCENTRIC_EXERCISE,
+                    {
+                        "publication_gottschalk24_protocol": "protocols.csv",
+                        "publication_gottschalk24_vge_peak": "vge_peaks.csv",
+                        "publication_gottschalk24_safety_stop": "safety_stops.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(
