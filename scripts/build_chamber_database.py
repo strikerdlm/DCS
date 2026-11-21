@@ -216,6 +216,7 @@ CHAMBER_CINCINNATI_HALIFAX_RETESTS = ROOT / "data" / "chamber" / "v1.148"
 CHAMBER_STANDARD_TEST_COMPARISONS = ROOT / "data" / "chamber" / "v1.149"
 CHAMBER_TRAINING_SURVEILLANCE_SOURCES = ROOT / "data" / "chamber" / "v1.150"
 CHAMBER_DCI_VGE_CHECKPOINTS = ROOT / "data" / "chamber" / "v1.151"
+CHAMBER_RAPID_DECOMPRESSION_STUDIES = ROOT / "data" / "chamber" / "v1.152"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2096,6 +2097,17 @@ def build(
                     db,
                     CHAMBER_DCI_VGE_CHECKPOINTS,
                     {"publication_outcome_checkpoint": "outcome_checkpoints.csv"},
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_RAPID_DECOMPRESSION_STUDIES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(
