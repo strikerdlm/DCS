@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.14/sources.csv#lee_hay01",
+      "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "basis": "The extracted source has the verified authors, article title and DTIC accession ADP011091.",
+      "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_628-altitude-deco-illness.pdf#page=1"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "basis": "The inspected cover identifies the same article and the DTIC accession ADP011091.",
+      "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_628-altitude-deco-illness.pdf#page=1"
+    },
+    {
+      "record_key": "2026-11-21-lee-hay-outcome-timing-verified#lee_hay01",
+      "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "basis": "The exact authors, source title and DTIC accession identify the same previously extracted chamber report.",
+      "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_628-altitude-deco-illness.pdf#page=7"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_harding:1",
+      "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "basis": "The inspected compilation cover gives the same DTIC accession ADP011091 and the original article title.",
+      "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_628-altitude-deco-illness.pdf#page=1"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.150/sources.csv#fang99_taiwan_chamber_reactions",
       "report_id": "isbn:9789572950715:fang-taiwan-aviation-medicine",
       "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
@@ -15249,6 +15273,12 @@
   ],
   "studies": [
     {
+      "study_id": "lee-hay-dera-sustained-altitude-2001",
+      "label": "DERA sustained hypobaric exposure comparisons",
+      "period": "Published 2001.",
+      "setting": "Seven DERA chamber profiles with 15 male person-exposures per profile and up to four hours at final altitude. Individual linkage, crossover attendance and exact censoring times are unavailable."
+    },
+    {
       "study_id": "taiwan-air-force-chamber-training-1959-1986",
       "label": "Taiwan Air Force historical chamber training surveillance",
       "period": "1959–1986 as reported.",
@@ -16762,6 +16792,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "lee-hay-dera-sustained-altitude-2001",
+      "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "role": "original_chamber_figures",
+      "locator": "Table 1 and Figures 4–6, pp. 37-2 and 37-6–37-7 (PDF pp. 3, 7–8)"
+    },
     {
       "study_id": "taiwan-air-force-chamber-training-1959-1986",
       "report_id": "isbn:9789572950715:fang-taiwan-aviation-medicine",
@@ -23875,6 +23911,7 @@
     "pmid:20994853": "The Incidence and Relation of Syncope to Decompression Sickness",
     "pmid:20994854": "Studies of the Effects of Morphine at Simulated High Altitudes and Its Use for the Relief of Pain of Decompression Sickness",
     "citation:peterson-bornstein-jasper-1945-altitude": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude",
-    "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude"
+    "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude",
+    "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3": "Altitude Decompression Illness - The Operational Risk at Sustained Altitudes up to 35,000 ft"
   }
 }

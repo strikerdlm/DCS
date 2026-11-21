@@ -215,6 +215,7 @@ CHAMBER_CINCINNATI_HALIFAX_TESTS = ROOT / "data" / "chamber" / "v1.147"
 CHAMBER_CINCINNATI_HALIFAX_RETESTS = ROOT / "data" / "chamber" / "v1.148"
 CHAMBER_STANDARD_TEST_COMPARISONS = ROOT / "data" / "chamber" / "v1.149"
 CHAMBER_TRAINING_SURVEILLANCE_SOURCES = ROOT / "data" / "chamber" / "v1.150"
+CHAMBER_DCI_VGE_CHECKPOINTS = ROOT / "data" / "chamber" / "v1.151"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2090,6 +2091,11 @@ def build(
                         "publication_overlap": "overlap.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_DCI_VGE_CHECKPOINTS,
+                    {"publication_outcome_checkpoint": "outcome_checkpoints.csv"},
                 )
             if rojas_supplement:
                 load_supplement(
