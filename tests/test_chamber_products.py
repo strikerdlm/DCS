@@ -960,7 +960,7 @@ def test_katuntsev_program_total_reuses_source_and_retains_nested_endpoints(rele
         assert db.execute("""
             SELECT count(*),count(DISTINCT report_id) FROM review.review_record
             WHERE url LIKE '%vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe%'
-        """).fetchone() == (3, 1)
+        """).fetchone() == (4, 1)
         assert db.execute("""
             SELECT numerator,denominator,denominator_unit,analysis_role FROM publication_observation
             WHERE source_id='katuntsev96_human' AND stratum='program-all-chamber-ascents'
