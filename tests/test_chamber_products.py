@@ -4536,3 +4536,40 @@ def test_italian_rate_and_taiwan_training_margins_reuse_existing_reports(release
             WHERE lower(title) LIKE '%oxidative stress response to simulated altitude training%'
                OR url LIKE '%military-2025-003189%'
         """).fetchall() == [("pmid:41881514",)]
+
+
+def test_nasa_serious_dcs_appendix_retains_reported_counts_and_overlap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT printed_page,count(*),sum(male_exposures),sum(serious_cases)
+            FROM publication_nasa_serious_dcs_group GROUP BY printed_page ORDER BY printed_page
+        """).fetchall() == [
+            (40, 39, 1674, 0), (41, 45, 1178, 4), (42, 45, 61896, 375),
+            (43, 45, 2891, 4), (44, 45, 9551, 195), (45, 39, 2176, 340),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT reference_number),sum(male_exposures),sum(serious_cases)
+            FROM publication_nasa_serious_dcs_group WHERE analysis_role='overlap_hold'
+        """).fetchone() == (258, 73, 79366, 918)
+        assert db.execute("""
+            SELECT serious_cases,source_annotation,reference_number
+            FROM publication_nasa_serious_dcs_group WHERE source_annotation LIKE '%+++%'
+            ORDER BY row_on_page
+        """).fetchall() == [(0, "NASA 0+++", 41), (1, "NASA 1++++", 55)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(title) LIKE '%evidence%based approach%serious decompression%'
+        """).fetchall() == [("ntrs:20010020946",)]
+        assert db.execute("""
+            SELECT url FROM publication_source WHERE source_id='ferris44_cam363'
+        """).fetchone()[0].endswith("conkin-dcs-estimation-tp210196-2001.pdf#page=39")
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE source_id IN ('conkin01_serious_archive','ferris44_cam363') ORDER BY source_id
+        """).fetchall() == [
+            ("conkin01_serious_archive", "ntrs:20010020946"),
+            ("ferris44_cam363", "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='conkin01_serious_archive'
+        """).fetchone() == (0,)
