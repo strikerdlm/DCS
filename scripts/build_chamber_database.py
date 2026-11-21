@@ -212,6 +212,7 @@ CHAMBER_TEMPERATURE_AND_DELAYED_CASE = ROOT / "data" / "chamber" / "v1.144"
 CHAMBER_ALTITUDE_RESIDENCE = ROOT / "data" / "chamber" / "v1.145"
 CHAMBER_WARTIME_CLASSIFICATION = ROOT / "data" / "chamber" / "v1.146"
 CHAMBER_CINCINNATI_HALIFAX_TESTS = ROOT / "data" / "chamber" / "v1.147"
+CHAMBER_CINCINNATI_HALIFAX_RETESTS = ROOT / "data" / "chamber" / "v1.148"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2057,6 +2058,12 @@ def build(
                         "publication_overlap": "overlap.csv",
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                     },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_CINCINNATI_HALIFAX_RETESTS,
+                    {"publication_observation": "observations.csv"},
                     create_schema=False,
                 )
             if rojas_supplement:
