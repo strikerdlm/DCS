@@ -3594,14 +3594,22 @@ def test_space_activity_suit_observer_pressure_is_distinct_from_subject_timing(r
         """).fetchall() == [("ntrs:19680002042", 1, None)]
         assert db.execute("""
             SELECT report_id,count(*) FROM review.review_record
-            WHERE report_id IN ('ntrs:19680002042','ntrs:19650004856','ntrs:20190027194','dot:20777')
+            WHERE report_id IN ('ntrs:19680002042','ntrs:19650004856','dot:20777')
             GROUP BY report_id ORDER BY report_id
         """).fetchall() == [
             ("dot:20777", 4),
             ("ntrs:19650004856", 2),
             ("ntrs:19680002042", 5),
-            ("ntrs:20190027194", 3),
         ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_spa:6',
+                '2026-11-20-formal-chamber-ntrs-setting#20190027194',
+                '2026-11-21-nasa-observer-primary#nasa-history'
+            )
+            GROUP BY report_id
+        """).fetchall() == [("ntrs:20190027194", 3)]
 
 
 def test_chile_cmae_keeps_incident_and_training_periods_separate(release):
@@ -3695,9 +3703,14 @@ def test_cr1892_keeps_one_case_and_preserves_its_three_clock_values(release):
             WHERE left_report='ntrs:20190027194' AND right_report='ntrs:19720005428'
         """).fetchall() == [("same_published_case",)]
         assert db.execute("""
-            SELECT report_id FROM review.review_record
-            WHERE record_key='2026-11-20-formal-chamber-ntrs-setting#19720005428'
-        """).fetchone() == ("ntrs:19720005428",)
+            SELECT record_key,report_id FROM review.review_record
+            WHERE record_key IN ('2026-11-20-formal-chamber-ntrs-setting#19720005428',
+                '2026-11-21-nasa-cr1892-primary#sharpe-retelling')
+            ORDER BY record_key
+        """).fetchall() == [
+            ("2026-11-20-formal-chamber-ntrs-setting#19720005428", "ntrs:19720005428"),
+            ("2026-11-21-nasa-cr1892-primary#sharpe-retelling", "ntrs:20190027194"),
+        ]
         assert db.execute("""
             SELECT json_extract(metadata_json,'$.case_details.target_pressure_mmhg'),
                    json_extract(metadata_json,'$.case_details.prerepressurization_pressure_mmhg'),
