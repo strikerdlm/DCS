@@ -14351,6 +14351,42 @@
       "report_id": "doi:10.7011/jamsroc.201412_28(2).0003",
       "basis": "Exact DOI, byline and issue match the already registered article.",
       "evidence_url": "https://www.airitilibrary.com/Publication/Index/16839595-201412-201601210011-201601210011-105-118"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.128/sources.csv#powell91_tm102176",
+      "report_id": "openalex:W920476218",
+      "basis": "Exact title, author, year and NASA TM-102176.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19910021378/downloads/19910021378.pdf"
+    },
+    {
+      "record_key": "2026-11-21-powell-dervay-doppler-verified#powell91_tm102176",
+      "report_id": "openalex:W920476218",
+      "basis": "Exact NASA TM-102176 and OpenAlex identity.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19910021378/downloads/19910021378.pdf"
+    },
+    {
+      "record_key": "2026-11-20-russian-oa-related#W920476218",
+      "report_id": "openalex:W920476218",
+      "basis": "Exact title, date and handle 2060/19910021378 resolve to NASA TM-102176.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19910021378/downloads/19910021378.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.128/sources.csv#waligora83_tm58257",
+      "report_id": "ntrs:19840006905",
+      "basis": "Same annual report NASA TM-58257 and NTRS 19840006905.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19840006905/downloads/19840006905.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.128/sources.csv#dervay02_fulltext",
+      "report_id": "pmid:11817616",
+      "basis": "Exact PubMed identifier, title, author list and issue.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p22.pdf"
+    },
+    {
+      "record_key": "2026-11-21-powell-dervay-doppler-verified#waligora83_tm58257",
+      "report_id": "ntrs:19840006905",
+      "basis": "NASA TM-58257 and NTRS 19840006905 identify one annual report.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19840006905"
     }
   ],
   "studies": [
@@ -15709,6 +15745,12 @@
       "label": "FAC DIMAE chamber training neurological Type II DCS surveillance",
       "period": "2013–2023 as reported",
       "setting": "DIMAE-FAC operational hypobaric chamber training in Colombia. Follow-up subset of 15 neurological cases."
+    },
+    {
+      "study_id": "dervay-exercise-rest-doppler-crossover",
+      "label": "Dervay hypobaric exercise-rest Doppler crossover",
+      "period": "Reported 2002",
+      "setting": "Research hypobaric chamber. Twenty completed all arms and three withdrew after one visit."
     }
   ],
   "study_reports": [
@@ -18075,6 +18117,12 @@
       "report_id": "doi:10.25062/9786287818279.12",
       "role": "primary_registry_summary_and_case_followup",
       "locator": "Printed pp. 310–326, Tables 2–6 and Discussion"
+    },
+    {
+      "study_id": "dervay-exercise-rest-doppler-crossover",
+      "report_id": "pmid:11817616",
+      "role": "primary_crossover_outcomes",
+      "locator": "Printed pp. 23–26, Methods, Table III and Complications"
     }
   ],
   "relations": [
@@ -22067,6 +22115,34 @@
       "relationship": "possible_fac_case_series_overlap",
       "evidence": "The official registry covers overlapping facility and years through 2020. Source definitions and linkage are unresolved. This chapter uses a neurological Type II endpoint and extends through 2023.",
       "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "left_report": "openalex:W920476218",
+      "right_report": "ntrs:19840006905",
+      "relationship": "possible_chamber_cohort_overlap",
+      "evidence": "Powell reports 173 altitude records classified by maximum grade. The 1983 JSC report gives 173 manned chamber runs with precordial Doppler. Site, method and total are consistent with overlap. The 1983 report gives neither the grade-by-DCS cross-tabulation nor a row or date crosswalk to Powell's table.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19840006905/downloads/19840006905.pdf"
+    },
+    {
+      "left_report": "openalex:W920476218",
+      "right_report": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "relationship": "possible_chamber_cohort_overlap",
+      "evidence": "Procedures 1–9 in Conkin Table 1 sum to 173 exposures and use the same chamber program. This is a candidate overlap with the Powell and Waligora summaries. No matching grade-by-DCS cells or visit identifiers were located. Twelve Table V profile pairs match Conkin Table 1 rounded values.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19870019681"
+    },
+    {
+      "left_report": "ntrs:19840006905",
+      "right_report": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "relationship": "possible_chamber_cohort_overlap",
+      "evidence": "Procedures 1–9 in Conkin Table 1 sum to 173 exposures and use the same chamber program. This is a candidate overlap with the Powell and Waligora summaries. No matching grade-by-DCS cells or visit identifiers were located.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19870019681"
+    },
+    {
+      "left_report": "openalex:W920476218",
+      "right_report": "record:2026-11-21-powell-dervay-doppler-vann-abstract#vann82",
+      "relationship": "cited_source_scope_discrepancy",
+      "evidence": "Powell's introduction attributes Table I to Vann, Dick and Barry. The recovered UHMS abstract includes only 286 Duke nitrogen–oxygen dives and 166 DCIEM air dives. It does not establish the primary source of the altitude rows.",
+      "evidence_url": "https://uhms.org/uhm-search/abstracts-session-iiii-bubble-dynamics-pdf/viewdocument/1783.html"
     }
   ],
   "report_titles": {

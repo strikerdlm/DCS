@@ -192,6 +192,7 @@ CHAMBER_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.124"
 CHAMBER_WARTIME_REEXPOSURE = ROOT / "data" / "chamber" / "v1.125"
 CHAMBER_DESCENT_AND_TREATED_PAIN = ROOT / "data" / "chamber" / "v1.126"
 CHAMBER_FAC_CASE_FOLLOWUP = ROOT / "data" / "chamber" / "v1.127"
+CHAMBER_DOPPLER_CROSSWALK = ROOT / "data" / "chamber" / "v1.128"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1823,6 +1824,18 @@ def build(
                         "publication_role_incidence_estimate": "role_incidence_estimates.csv",
                         "publication_treatment_session_summary": "treatment_session_summaries.csv",
                         "publication_web_count_discrepancy": "source_discrepancies.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_DOPPLER_CROSSWALK,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_powell_doppler_margin": "powell_doppler_margins.csv",
+                        "publication_dervay_doppler_visit": "dervay_doppler_visits.csv",
                     },
                 )
             if rojas_supplement:
