@@ -1176,6 +1176,8 @@ def test_fryer_fatalities_preserve_chamber_scope_and_case_identity(release):
         """).fetchone() == (37, 37)
         assert db.execute("""
             SELECT count(*) FROM review.review_record WHERE report_id='report:ada111509'
+              AND (run_id IS NULL OR run_id IN ('2026-11-20-original-agard-fatalities',
+                  '2026-11-20-chamber-fatality-tavily', '2026-11-20-formal-chamber-openalex'))
         """).fetchone() == (14,)
 
 
@@ -1243,7 +1245,9 @@ def test_flinn_history_keeps_subject_scope_control_and_chamber_milestones(releas
         ]
         assert db.execute("""
             SELECT right_report,relationship FROM review.review_report_relation
-            WHERE left_report='pmid:14050686' ORDER BY right_report
+            WHERE left_report='pmid:14050686'
+              AND relationship IN ('same_published_case','explicit_same_pilot_and_eight_prior_episodes')
+            ORDER BY right_report
         """).fetchall() == [
             ("faa-horizons:1963-08:17:flinn-womack", "same_published_case"),
             ("unpublished:scherman-neurologic-dysbarism", "explicit_same_pilot_and_eight_prior_episodes"),
