@@ -193,6 +193,7 @@ CHAMBER_WARTIME_REEXPOSURE = ROOT / "data" / "chamber" / "v1.125"
 CHAMBER_DESCENT_AND_TREATED_PAIN = ROOT / "data" / "chamber" / "v1.126"
 CHAMBER_FAC_CASE_FOLLOWUP = ROOT / "data" / "chamber" / "v1.127"
 CHAMBER_DOPPLER_CROSSWALK = ROOT / "data" / "chamber" / "v1.128"
+CHAMBER_MARSEILLE_SURVEILLANCE = ROOT / "data" / "chamber" / "v1.129"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1837,6 +1838,16 @@ def build(
                         "publication_powell_doppler_margin": "powell_doppler_margins.csv",
                         "publication_dervay_doppler_visit": "dervay_doppler_visits.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_MARSEILLE_SURVEILLANCE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(
