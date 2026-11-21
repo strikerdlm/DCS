@@ -4087,3 +4087,41 @@ def test_brown_smith_preserve_nested_descents_and_reported_cells(release):
             FROM review.review_record
             WHERE report_id='pmid:20994853' AND json_type(metadata_json,'$.table_iii')='object'
         """).fetchall() == [(15, 8)]
+
+
+def test_fac_followup_uses_original_cohort_and_reconciles_chapter_records(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(cases),sum(denominator) FROM web_observation
+            WHERE source_id='olaya25' AND endpoint='dcs_type_ii_neurologic'
+                AND stratum LIKE 'year-%'
+        """).fetchone() == (11, 15, 10280)
+        assert db.execute("""
+            SELECT w.cases,w.denominator,d.alternate_case_count
+            FROM web_observation w JOIN publication_web_count_discrepancy d USING(source_id,stratum,endpoint)
+            WHERE source_id='olaya25' AND stratum='year-2015'
+        """).fetchall() == [(1, 828, 0)]
+        assert db.execute("""
+            SELECT role_as_reported,reported_cases,observed_role_exposures,rate_per_1000,
+                   ci_lower_per_1000,ci_upper_per_1000,denominator_basis
+            FROM publication_role_incidence_estimate WHERE source_id='olaya25' ORDER BY role_as_reported
+        """).fetchall() == [
+            ('ico', 5, None, 1.82, 0.78, 4.26, 'author_estimated_staffing'),
+            ('non-ico', 10, None, 1.33, 0.72, 2.44, 'author_estimated_staffing'),
+        ]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='olaya25' AND endpoint='received_hyperbaric_oxygen_source' ORDER BY stratum
+        """).fetchall() == [('all-neurologic-cases', 13, 15), ('latency-gt-60-min-source', 9, 9),
+                             ('latency-le-60-min-source', 4, 6)]
+        assert db.execute("""
+            SELECT DISTINCT denominator_unit,analysis_role FROM publication_observation WHERE source_id='olaya25'
+        """).fetchall() == [('dcs_case', 'case_conditional')]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE openalex_id LIKE '%W7162995450' OR doi LIKE '%9786287818279.12'
+        """).fetchall() == [('doi:10.25062/9786287818279.12',)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_identity_assignment
+            WHERE record_key LIKE '%#W7162995450' AND report_id='doi:10.25062/9786287818279.12'
+        """).fetchone() == (6,)

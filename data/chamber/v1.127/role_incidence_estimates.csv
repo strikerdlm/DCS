@@ -1,0 +1,3 @@
+source_id,role_as_reported,endpoint,reported_cases,observed_role_exposures,rate_per_1000,ci_lower_per_1000,ci_upper_per_1000,confidence_level,nominal_ico_per_exercise,mean_students_per_exercise,denominator_basis,locator,note
+olaya25,ico,dcs_type_ii_neurologic,5,,1.82,0.78,4.26,0.95,2,5.5,author_estimated_staffing,"Printed p. 318, Figure 3 and p. 326","Rate per 1,000. The report gives no exact roster-derived role exposure count."
+olaya25,non-ico,dcs_type_ii_neurologic,10,,1.33,0.72,2.44,0.95,2,5.5,author_estimated_staffing,"Printed p. 318, Figure 3 and p. 326","Rate per 1,000. Preserve the source's non-ICO comparison label and estimated denominator basis."
