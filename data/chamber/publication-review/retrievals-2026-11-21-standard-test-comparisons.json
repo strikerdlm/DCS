@@ -1,0 +1,744 @@
+[
+  {
+    "id": "2026-11-21-standard-test-comparisons-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ff62-5f01-722b-b206-a9d2074fde9b",
+          "query": "Larrabee Lilly Comroe Hodes 1943 decompression sickness \"classification\" \"38,000\" 37 retests CAM 137",
+          "returned": 2
+        },
+        {
+          "id": "01a1ff62-5efa-75de-b727-1399d11d9238",
+          "query": "Lawrence Tobias 1943 Berkeley 53 subjects altitude decompression sickness chamber preselection 38,000 feet retests CAM report",
+          "returned": 3
+        },
+        {
+          "id": "01a1ff62-5f0a-7613-b5f7-029122205ff9",
+          "query": "Hodes Larrabee 1946 altitude decompression sickness alveolar carbon dioxide 603 615 full text",
+          "returned": 4
+        },
+        {
+          "id": "01a1ff64-530d-71ee-a34a-23dc251049bd",
+          "query": "\"Grenell\" \"Somberg\" decompression sickness 90 minute CAM 355 Yale WWII",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff64-5353-7030-a39a-32304ba9d18e",
+          "query": "\"The reliability of chamber classification\" \"176\" Henry inert gas exchange high altitude",
+          "returned": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Search surfaced an existing Hodes and Larrabee citation and Berkeley photo finding aid. Target standalone reports were not retrieved.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-standard-test-comparisons-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Larrabee Lilly Comroe Hodes 1943 decompression sickness \"classification\" \"38,000\" 37 retests CAM 137",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-standard-test-comparisons-verified",
+    "date": "2026-11-21",
+    "provider": "National Library of Medicine and Internet Archive",
+    "operation": "verify_standard_test_original_and_secondary_tables",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Compared the investigator reports with the 1951 chapter and bibliography. Inspecting the same person group in a second report does not add another set of outcomes.",
+    "records": [
+      {
+        "title": "Report on the Pennsylvania standard selection procedure and retests",
+        "authors": [
+          "Martin G. Larrabee"
+        ],
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226",
+        "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "id": "larrabee43_pennsylvania_preselection",
+        "primary_source": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226",
+        "study_id": "larrabee-1943-pennsylvania-preselection",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "pennsylvania-first-flight-classification_a",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-first-flight",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "reported_rate_percent": 30,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Rounded values total 99%. The later Table 74 Pennsylvania row repeats them and is linked as a restatement. Actual altitude is not stated in the meeting item.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-first-flight-classification_b",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-first-flight",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "reported_rate_percent": 19,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Rounded values total 99%. The later Table 74 Pennsylvania row repeats them and is linked as a restatement. Actual altitude is not stated in the meeting item.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-first-flight-classification_c",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-first-flight",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "reported_rate_percent": 35,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Rounded values total 99%. The later Table 74 Pennsylvania row repeats them and is linked as a restatement. Actual altitude is not stated in the meeting item.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-first-flight-classification_d",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-first-flight",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "reported_rate_percent": 15,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Rounded values total 99%. The later Table 74 Pennsylvania row repeats them and is linked as a restatement. Actual altitude is not stated in the meeting item.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-a-classification_a",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-a",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 79,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-a-classification_b",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-a",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 9,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-a-classification_c",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-a",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 12,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-a-classification_d",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-a",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 0,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-b-classification_a",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-b",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 38,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-b-classification_b",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-b",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 14,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-b-classification_c",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-b",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 29,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-b-classification_d",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-b",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 19,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-c-classification_a",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-c",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 33,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-c-classification_b",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-c",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 13,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-c-classification_c",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-c",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 41,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-c-classification_d",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-c",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 13,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-d-classification_a",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-d",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 39,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-d-classification_b",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-d",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 17,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-d-classification_c",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-d",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 28,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-d-classification_d",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-d",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 17,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-all-classification_a",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-all",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 48,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable. The all-subject row overlaps the first-test class strata.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-all-classification_b",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-all",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 13,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable. The all-subject row overlaps the first-test class strata.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-all-classification_c",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-all",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 28,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable. The all-subject row overlaps the first-test class strata.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          },
+          {
+            "id": "pennsylvania-retests-first-all-classification_d",
+            "study_id": "larrabee-1943-pennsylvania-preselection",
+            "group": "pennsylvania-retests-first-all",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 11,
+            "target_altitude_ft": null,
+            "target_duration_min": 180,
+            "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228",
+            "note": "Three retests are pooled by first-test class. The actual retest denominator and individual outcomes are unavailable. The all-subject row overlaps the first-test class strata.",
+            "protocol": "Standard test modified to continue exercise until incapacitating bends. Reports describe flights extending to three hours and classification based on the first 90 minutes."
+          }
+        ]
+      },
+      {
+        "title": "Report on the California standard selection procedure in 53 men",
+        "authors": [
+          "John H. Lawrence"
+        ],
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226",
+        "locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "discrepancies": [
+          {
+            "cohort_people": 53,
+            "order": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "investigator_minutes": [
+              50,
+              15,
+              17,
+              7
+            ],
+            "later_table_74": [
+              60,
+              15,
+              17,
+              8
+            ],
+            "investigator_locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)",
+            "later_locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366)",
+            "later_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366",
+            "disposition": "Retain the original printed rates as one held series. Class A and D differ. The later table is a conflicting restatement of the same likely cohort."
+          }
+        ],
+        "id": "lawrence43_california_preselection",
+        "primary_source": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226",
+        "study_id": "lawrence-1943-california-preselection",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "california-classification-classification_a",
+            "study_id": "lawrence-1943-california-preselection",
+            "group": "california-classification",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": 53,
+            "denominator_unit": "person",
+            "reported_rate_percent": 50,
+            "target_altitude_ft": null,
+            "target_duration_min": null,
+            "locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)",
+            "note": "Original rough values total 89%. Later Table 74 reads 60%, 15%, 17%, and 8% for the same likely group. Neither text supplies exact counts. The source disagreement remains open.",
+            "protocol": "Applied the Subcommittee’s standard selection procedure in 53 healthy students. Original meeting item does not specify actual altitude, oxygen delivery or individual histories."
+          },
+          {
+            "id": "california-classification-classification_b",
+            "study_id": "lawrence-1943-california-preselection",
+            "group": "california-classification",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": 53,
+            "denominator_unit": "person",
+            "reported_rate_percent": 15,
+            "target_altitude_ft": null,
+            "target_duration_min": null,
+            "locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)",
+            "note": "Original rough values total 89%. Later Table 74 reads 60%, 15%, 17%, and 8% for the same likely group. Neither text supplies exact counts. The source disagreement remains open.",
+            "protocol": "Applied the Subcommittee’s standard selection procedure in 53 healthy students. Original meeting item does not specify actual altitude, oxygen delivery or individual histories."
+          },
+          {
+            "id": "california-classification-classification_c",
+            "study_id": "lawrence-1943-california-preselection",
+            "group": "california-classification",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": 53,
+            "denominator_unit": "person",
+            "reported_rate_percent": 17,
+            "target_altitude_ft": null,
+            "target_duration_min": null,
+            "locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)",
+            "note": "Original rough values total 89%. Later Table 74 reads 60%, 15%, 17%, and 8% for the same likely group. Neither text supplies exact counts. The source disagreement remains open.",
+            "protocol": "Applied the Subcommittee’s standard selection procedure in 53 healthy students. Original meeting item does not specify actual altitude, oxygen delivery or individual histories."
+          },
+          {
+            "id": "california-classification-classification_d",
+            "study_id": "lawrence-1943-california-preselection",
+            "group": "california-classification",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": 53,
+            "denominator_unit": "person",
+            "reported_rate_percent": 7,
+            "target_altitude_ft": null,
+            "target_duration_min": null,
+            "locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)",
+            "note": "Original rough values total 89%. Later Table 74 reads 60%, 15%, 17%, and 8% for the same likely group. Neither text supplies exact counts. The source disagreement remains open.",
+            "protocol": "Applied the Subcommittee’s standard selection procedure in 53 healthy students. Original meeting item does not specify actual altitude, oxygen delivery or individual histories."
+          },
+          {
+            "id": "california-classification-prior_less_strenuous_classification_as_reported",
+            "study_id": "lawrence-1943-california-preselection",
+            "group": "california-classification",
+            "endpoint": "prior_less_strenuous_classification_as_reported",
+            "cases": 44,
+            "denominator": 53,
+            "denominator_unit": "person",
+            "locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)",
+            "note": "Prior exposure history for the same 53 people. No clinical case outcome is associated with the count.",
+            "protocol": "Applied the Subcommittee’s standard selection procedure in 53 healthy students. Original meeting item does not specify actual altitude, oxygen delivery or individual histories.",
+            "outcome_window": "Before the standardized classification reported at the meeting."
+          }
+        ]
+      },
+      {
+        "title": "Preselection tests",
+        "authors": [
+          "Franklin M. Henry",
+          "Andrew C. Ivy"
+        ],
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366",
+        "locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366); Henry and Ivy, printed pp. 332–333 (PDF pp. 367–368), cites ref. 348",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "note": "Table 74 repeats the Pennsylvania first-test rates and provides conflicting California percentages. The Yale row has no earlier tabulation verified. The 21% first-flight A/B margin repeats the sum of the two reported categories.",
+        "id": "henry_ivy51_preselection",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366",
+        "study_id": "grenell-1944-yale-preselection",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "yale-first-flight-classification_a",
+            "study_id": "grenell-1944-yale-preselection",
+            "group": "yale-first-flight",
+            "endpoint": "classification_a",
+            "cases": null,
+            "denominator": 92,
+            "denominator_unit": "person",
+            "reported_rate_percent": 9,
+            "target_altitude_ft": 38000,
+            "target_duration_min": 90,
+            "locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366)",
+            "note": "Rounded first-flight class percentages are from the 1951 summary. The original CAM 355 report was not recovered.",
+            "protocol": "Standard 90-minute test nominally specified 38,000 ft. The Yale descent criterion included symptoms that slightly interfered with normal activity."
+          },
+          {
+            "id": "yale-first-flight-classification_b",
+            "study_id": "grenell-1944-yale-preselection",
+            "group": "yale-first-flight",
+            "endpoint": "classification_b",
+            "cases": null,
+            "denominator": 92,
+            "denominator_unit": "person",
+            "reported_rate_percent": 12,
+            "target_altitude_ft": 38000,
+            "target_duration_min": 90,
+            "locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366)",
+            "note": "Rounded first-flight class percentages are from the 1951 summary. The original CAM 355 report was not recovered.",
+            "protocol": "Standard 90-minute test nominally specified 38,000 ft. The Yale descent criterion included symptoms that slightly interfered with normal activity."
+          },
+          {
+            "id": "yale-first-flight-classification_c",
+            "study_id": "grenell-1944-yale-preselection",
+            "group": "yale-first-flight",
+            "endpoint": "classification_c",
+            "cases": null,
+            "denominator": 92,
+            "denominator_unit": "person",
+            "reported_rate_percent": 61,
+            "target_altitude_ft": 38000,
+            "target_duration_min": 90,
+            "locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366)",
+            "note": "Rounded first-flight class percentages are from the 1951 summary. The original CAM 355 report was not recovered.",
+            "protocol": "Standard 90-minute test nominally specified 38,000 ft. The Yale descent criterion included symptoms that slightly interfered with normal activity."
+          },
+          {
+            "id": "yale-first-flight-classification_d",
+            "study_id": "grenell-1944-yale-preselection",
+            "group": "yale-first-flight",
+            "endpoint": "classification_d",
+            "cases": null,
+            "denominator": 92,
+            "denominator_unit": "person",
+            "reported_rate_percent": 18,
+            "target_altitude_ft": 38000,
+            "target_duration_min": 90,
+            "locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366)",
+            "note": "Rounded first-flight class percentages are from the 1951 summary. The original CAM 355 report was not recovered.",
+            "protocol": "Standard 90-minute test nominally specified 38,000 ft. The Yale descent criterion included symptoms that slightly interfered with normal activity."
+          },
+          {
+            "id": "yale-second-flight-first-ab-classification_ab",
+            "study_id": "grenell-1944-yale-preselection",
+            "group": "yale-second-flight-first-ab",
+            "endpoint": "classification_ab",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person",
+            "reported_rate_percent": 68,
+            "target_altitude_ft": 38000,
+            "target_duration_min": 90,
+            "locator": "Henry and Ivy, printed pp. 332–333 (PDF pp. 367–368), cites ref. 348",
+            "note": "Second-flight A/B percentage conditional on first-flight grade. The original conditional denominator is unavailable.",
+            "protocol": "Standard 90-minute test nominally specified 38,000 ft. The Yale descent criterion included symptoms that slightly interfered with normal activity."
+          },
+          {
+            "id": "yale-second-flight-first-cd-classification_ab",
+            "study_id": "grenell-1944-yale-preselection",
+            "group": "yale-second-flight-first-cd",
+            "endpoint": "classification_ab",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "person",
+            "reported_rate_percent": 23,
+            "target_altitude_ft": 38000,
+            "target_duration_min": 90,
+            "locator": "Henry and Ivy, printed pp. 332–333 (PDF pp. 367–368), cites ref. 348",
+            "note": "Second-flight A/B percentage conditional on first-flight grade. The original conditional denominator is unavailable.",
+            "protocol": "Standard 90-minute test nominally specified 38,000 ft. The Yale descent criterion included symptoms that slightly interfered with normal activity."
+          }
+        ]
+      },
+      {
+        "title": "Ferris report of the Cincinnati 90-minute altitude preselection test",
+        "authors": [
+          "Eugene B. Ferris"
+        ],
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=225",
+        "locator": "Ninth CAM meeting, discussion, printed p. 226 (PDF p. 225)",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "id": "ferris43_cincinnati_selection",
+        "primary_source": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=225",
+        "study_id": "ferris-1943-cincinnati-preselection",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "cincinnati-seven-test-discussion-bends_free_across_seven_flights_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-seven-test-discussion",
+            "endpoint": "bends_free_across_seven_flights_as_reported",
+            "cases": 2,
+            "denominator": 83,
+            "denominator_unit": "person",
+            "locator": "Ninth CAM meeting, discussion, printed p. 226 (PDF p. 225)",
+            "note": "The same report’s frequency tables describe 78 subjects across seven flights. The 83-person narrative denominator cannot be linked to the 78-person subset. Preserve the narrative count on its own stated scope.",
+            "protocol": "The investigator discussion names seven chamber flights. It does not specify the pressure and gas histories for these 83 individuals.",
+            "outcome_window": "Across seven tests as reported. Postflight surveillance duration unavailable."
+          }
+        ]
+      },
+      {
+        "title": "The reliability of the decompression subcommittee’s 90 minute preselection test",
+        "authors": [
+          "R. Grenell",
+          "F. D. Humm",
+          "L. F. Nims",
+          "H. M. Somberg"
+        ],
+        "year": 1944,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460",
+        "locator": "Fulton bibliography item 348, printed p. 413 (PDF p. 460)",
+        "technical_report": "CAM 355",
+        "note": "Standalone report unavailable. The 1951 chapter attributes the Yale retest results to bibliography reference 348.",
+        "id": "grenell44_cam355",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-standard-test-comparisons-archive",
+    "date": "2026-11-21",
+    "provider": "National Library of Medicine and U.S. Department of Energy",
+    "operation": "verify_primary_collection_leads",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified two collection-level routes for original reports. Contents and participant data for the targeted studies were not verified.",
+    "records": [
+      {
+        "id": "nlm-yale-aeromedical-unit-finding-aid",
+        "title": "Yale Aeromedical Research Unit, 1942–1946",
+        "url": "https://findingaids.nlm.nih.gov/repositories/4/archival_objects/60762",
+        "locator": "John F. Fulton Papers, MS C 603, Box 11 Folder 44, 101085500X822",
+        "note": "Finding aid verified. Digital viewing required a browser challenge. The folder may contain correspondence rather than CAM Report 355."
+      },
+      {
+        "id": "doe-donner-aviation-research-finding-aid",
+        "title": "Donner Laboratory aviation medicine and high-altitude physiology wartime records",
+        "url": "https://ehss.energy.gov/ohre/roadmap/roadmap/part2.html",
+        "locator": "DOE/EH-0445, chapter 2, Lawrence Berkeley Laboratory, p. 114, 1940–1954 series",
+        "note": "Collection lists CAM reports and experimental chamber files. Original results and restricted or identifiable materials were not retrieved."
+      }
+    ]
+  }
+]
