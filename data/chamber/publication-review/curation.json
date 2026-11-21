@@ -12853,6 +12853,18 @@
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19870019681/downloads/19870019681.pdf#page=48"
     },
     {
+      "record_key": "legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "report_id": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "basis": "Same NASA TM-100456 report as the appendix used for the protocol crosswalk.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19870019681"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.38/sources.csv#conkin87_tm100456",
+      "report_id": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "basis": "Same NASA TM-100456 report as the appendix used for the protocol crosswalk.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19870019681"
+    },
+    {
       "record_key": "2026-11-21-conkin-nasa-timing-fulltext#nasa-2011",
       "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
       "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
@@ -12868,6 +12880,12 @@
       "record_key": "2026-11-21-conkin-nasa-timing-catalog#hdsd",
       "report_id": "record:legacy:data/chamber/v1/sources.csv#hdsd",
       "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/man/hdsd.Rd"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1/sources.csv#hdsd",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#hdsd",
+      "basis": "Same publicly released thregI hdsd individual-record dataset.",
       "evidence_url": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/man/hdsd.Rd"
     },
     {

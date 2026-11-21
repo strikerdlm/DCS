@@ -3364,6 +3364,16 @@ def test_nasa_reanalysis_preserves_shared_trials_and_selected_censoring(release)
             ORDER BY mean_time_min
         """).fetchall() == [(235, 6), (218, 10), (224, 20), (208, 20), (238, 36)]
         assert db.execute("""
-            SELECT count(DISTINCT report_id)
+            SELECT DISTINCT report_id
             FROM review.review_record WHERE pmid='14620470'
-        """).fetchone() == (1,)
+        """).fetchall() == [("pmid:14620470",)]
+        for new, previous in [
+            ("2026-11-21-conkin-nasa-timing-fulltext#nasa-1987",
+             "legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2"),
+            ("2026-11-21-conkin-nasa-timing-catalog#hdsd",
+             "legacy:data/chamber/v1/sources.csv#hdsd"),
+        ]:
+            assert db.execute("""
+                SELECT count(*),min(report_id),max(report_id)
+                FROM review.review_record WHERE record_key IN (?,?)
+            """, (new, previous)).fetchone() == (2, "record:" + previous, "record:" + previous)
