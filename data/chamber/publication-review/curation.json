@@ -13253,6 +13253,48 @@
       "report_id": "ntrs:20190027194",
       "basis": "The PDF and archive pages identify the same conference report ICES-2019-173.",
       "evidence_url": "https://ntrs.nasa.gov/citations/20190027194"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.117/sources.csv#montiglio23_chile_cmae",
+      "report_id": "fach-investiga:2023:2-1:27",
+      "basis": "Both the indexed issue and the full-text extraction identify the same authored article beginning at printed p. 27.",
+      "evidence_url": "https://www.hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf#page=15"
+    },
+    {
+      "record_key": "2026-11-21-chile-cmae-firecrawl-pdf#fach-issue",
+      "report_id": "fach-investiga:2023:2-1:27",
+      "basis": "Both the indexed issue and the full-text extraction identify the same authored article beginning at printed p. 27.",
+      "evidence_url": "https://www.hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf#page=15"
+    },
+    {
+      "record_key": "2026-11-21-chile-cmae-primary#montiglio",
+      "report_id": "fach-investiga:2023:2-1:27",
+      "basis": "Both the indexed issue and the full-text extraction identify the same authored article beginning at printed p. 27.",
+      "evidence_url": "https://www.hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf#page=15"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.7/search_hits.csv#public_general:12",
+      "report_id": "fach:cmae-6000-flight-hours-2021",
+      "basis": "Both citations resolve to the same official announcement of 6,000 chamber flight hours.",
+      "evidence_url": "https://www.hospitalfach.cl/6000hrs_CMAE_21.html"
+    },
+    {
+      "record_key": "2026-11-21-chile-cmae-primary#hospital-milestone",
+      "report_id": "fach:cmae-6000-flight-hours-2021",
+      "basis": "Both citations resolve to the same official announcement of 6,000 chamber flight hours.",
+      "evidence_url": "https://www.hospitalfach.cl/6000hrs_CMAE_21.html"
+    },
+    {
+      "record_key": "2026-11-21-chile-cmae-primary#alvear-2024",
+      "report_id": "doi:10.3390/s24134168",
+      "basis": "The publisher page gives the same title and DOI as the existing record.",
+      "evidence_url": "https://www.mdpi.com/1424-8220/24/13/4168"
+    },
+    {
+      "record_key": "2026-11-21-chile-cmae-thesis-abstract#lapostol-2024",
+      "report_id": "hdl:11447/9961",
+      "basis": "The repository abstract gives the same handle and title as the indexed thesis.",
+      "evidence_url": "https://hdl.handle.net/11447/9961"
     }
   ],
   "studies": [
@@ -14479,6 +14521,12 @@
       "label": "Naval ACEL Gemini environmental profile with sequential acceleration",
       "period": "Original report dated June 1963",
       "setting": "Experimental Gemini confinement and re-entry simulation"
+    },
+    {
+      "study_id": "fach-cmae-hypobaric-training",
+      "label": "Chilean Air Force CMAE operational chamber training",
+      "period": "March 1972–December 2022 activities, March 1982–December 2022 incident table",
+      "setting": "Retrospective institutional training register, with separate hypoxia-recognition and rapid cabin decompression activities."
     }
   ],
   "study_reports": [
@@ -16593,6 +16641,18 @@
       "report_id": "ntrs:19650004856",
       "role": "primary_report",
       "locator": "NASA TN D-2506 Appendix D, PDF pp. 503 and 512"
+    },
+    {
+      "study_id": "fach-cmae-hypobaric-training",
+      "report_id": "fach-investiga:2023:2-1:27",
+      "role": "primary_outcome",
+      "locator": "Results and Table 4, printed p. 31 (PDF p. 17)"
+    },
+    {
+      "study_id": "fach-cmae-hypobaric-training",
+      "report_id": "fach:cmae-6000-flight-hours-2021",
+      "role": "program_throughput",
+      "locator": "Hospital announcement body"
     }
   ],
   "relations": [
@@ -20228,6 +20288,27 @@
       "relationship": "reviews_earlier_experiment",
       "evidence": "Section IV explicitly summarizes Webb and Annis and identifies NASA CR-973 as the primary report.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/20190027194/downloads/20190027194.pdf#page=7"
+    },
+    {
+      "left_report": "fach-investiga:2023:2-1:27",
+      "right_report": "fach:cmae-6000-flight-hours-2021",
+      "relationship": "overlapping_program_scope",
+      "evidence": "The opening Results describe the same CMAE chamber and refer to reaching the 6,000-hour milestone. Training counts and periods differ.",
+      "evidence_url": "https://www.hospitalfach.cl/6000hrs_CMAE_21.html"
+    },
+    {
+      "left_report": "fach-investiga:2023:2-1:27",
+      "right_report": "doi:10.3390/s24134168",
+      "relationship": "overlapping_program_scope",
+      "evidence": "Both papers describe the same CMAE hypoxia-recognition activity. The 2010–2018 selected oximetry records fall within the broader reported surveillance period. There is no clinical outcome crosswalk.",
+      "evidence_url": "https://www.mdpi.com/1424-8220/24/13/4168"
+    },
+    {
+      "left_report": "fach-investiga:2023:2-1:27",
+      "right_report": "hdl:11447/9961",
+      "relationship": "overlapping_program_scope",
+      "evidence": "Both reports draw on the Chilean Air Force CMAE hypoxia-recognition program. The thesis uses records from 2003 to 2018, inside the program surveillance period of the 2023 report. A record-level crosswalk is unavailable.",
+      "evidence_url": "https://hdl.handle.net/11447/9961"
     }
   ],
   "report_titles": {

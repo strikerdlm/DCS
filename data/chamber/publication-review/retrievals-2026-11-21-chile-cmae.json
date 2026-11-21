@@ -1,0 +1,313 @@
+[
+  {
+    "id": "2026-11-21-chile-cmae-chile-denominator",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "no_results",
+    "operation": "search",
+    "reported_total": 0,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Chile CMAE Montiglio \"24.173\" hipobárica personas entrenadas \"1982\" enfermedad descompresión registros estadísticos",
+      "search_id": "01a1fd97-af66-73e4-bbd1-f3ab028cbcc6",
+      "limit": 8
+    },
+    "note": "No matching March 1982–December 2022 person-exposure denominator was returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chile-cmae-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Fuerza Aérea de Chile Montiglio Hechtenleiner entrenamiento fisiológico cámara hipobárica 1982 2022 registro 24173 enfermedad descompresión denominador",
+      "http_status": 433,
+      "max_results": 10,
+      "search_depth": "advanced"
+    },
+    "note": "The account spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chile-cmae-firecrawl-pdf",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Entrenamiento fisiológico aeroespacial en la Fuerza Aérea de Chile"
+    },
+    "note": "Parsed the hospital journal issue and located the article, Tables 3–4 and the two training activity windows.",
+    "records": [
+      {
+        "id": "fach-issue",
+        "title": "Entrenamiento fisiológico aeroespacial en la Fuerza Aérea de Chile",
+        "url": "https://www.hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf",
+        "year": 2023,
+        "scrape_id": "01a1fd93-231f-705f-b96e-044728d44796",
+        "locator": "Article within Revista Investiga 2(1), starting on printed p. 27 (PDF p. 15)"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chile-cmae-primary",
+    "date": "2026-11-21",
+    "provider": "Chilean Air Force Hospital and primary companion sources",
+    "status": "observed_full_text",
+    "operation": "verify_aggregate_scopes",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Montiglio et al. 2023, companion oximetry study and hospital milestone"
+    },
+    "note": "Checked the original results, activity counts and incident surveillance scope. Companion documents provide overlapping program data or different definitions.",
+    "records": [
+      {
+        "id": "montiglio",
+        "title": "Entrenamiento fisiológico aeroespacial en la Fuerza Aérea de Chile",
+        "url": "https://www.hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf#page=15",
+        "year": 2023,
+        "primary_source": "https://www.hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf#page=17",
+        "observations": [
+          {
+            "id": "dcs_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "dcs_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The Results explicitly report zero recorded DCS cases for hypoxia-recognition instruction. Table 3 covers an additional ten years. A person-exposure count matching the incident window and a staff–trainee breakdown are unavailable."
+          },
+          {
+            "id": "barotitis_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "barotitis_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 595,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The table counts this recorded physiological incident. The record gives no clinical DCS classification or matching exposure denominator for the incident."
+          },
+          {
+            "id": "barosinusitis_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "barosinusitis_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 162,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The table counts this recorded physiological incident. The record gives no clinical DCS classification or matching exposure denominator for the incident."
+          },
+          {
+            "id": "gastrointestinal_gas_colic_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "gastrointestinal_gas_colic_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 87,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The table counts this recorded physiological incident. The record gives no clinical DCS classification or matching exposure denominator for the incident."
+          },
+          {
+            "id": "barodontalgia_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "barodontalgia_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 7,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The table counts this recorded physiological incident. The record gives no clinical DCS classification or matching exposure denominator for the incident."
+          },
+          {
+            "id": "hyperventilation_syndrome_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "hyperventilation_syndrome_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 19,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The table counts this recorded physiological incident. The record gives no clinical DCS classification or matching exposure denominator for the incident."
+          },
+          {
+            "id": "oxygen_mask_apprehension_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "oxygen_mask_apprehension_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 9,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The table counts this recorded physiological incident. The record gives no clinical DCS classification or matching exposure denominator for the incident."
+          },
+          {
+            "id": "loss_of_consciousness_as_recorded",
+            "group": "hypoxia-recognition-incident-register",
+            "endpoint": "loss_of_consciousness_as_recorded",
+            "study_id": "fach-cmae-hypobaric-training",
+            "cases": 14,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "period": "March 1982–December 2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "outcome_window": "Recorded incidents associated with instruction in the Table 4 reporting period. A fixed post-training follow-up window is unavailable.",
+            "note": "The table counts this recorded physiological incident. The record gives no clinical DCS classification or matching exposure denominator for the incident."
+          }
+        ],
+        "training_activity": [
+          {
+            "stratum": "hypoxia-recognition-people-trained",
+            "endpoint": "people_trained_as_reported",
+            "count": 24173,
+            "period": "March 1972–December 2022",
+            "locator": "Table 3 and its caption (PDF pp. 15–16)",
+            "note": "The source labels this as people trained. Unique attendance, repeats and a 1982–2022 subtotal are unavailable."
+          },
+          {
+            "stratum": "hypoxia-recognition-2022-instructions",
+            "endpoint": "instructions_as_reported",
+            "count": 427,
+            "period": "2022",
+            "locator": "Results and Table 4, printed p. 31 (PDF p. 17)",
+            "note": "The source counts instructions. A conversion to persons, person-exposures or flight sessions is unavailable."
+          },
+          {
+            "stratum": "rapid-decompression-people-trained",
+            "endpoint": "people_trained_as_reported",
+            "count": 3257,
+            "period": "March 1972–December 2022",
+            "locator": "Table 3 and its caption (PDF pp. 15–16) and Figure 3, printed p. 32 (PDF p. 18)",
+            "note": "The source labels this as people trained. The article supplies no clinical DCS numerator for this separate activity."
+          }
+        ],
+        "matched_dcs_exposure_denominator": null,
+        "unique_trainee_count": null,
+        "instrumented_sample_kind": "One trainee per flight monitored from 2003 according to the report.",
+        "clinical_followup_window": null,
+        "chamber_hours": {
+          "hours": 6172,
+          "through": "December 2022",
+          "start_as_reported": "1982"
+        },
+        "visit_scope": "No basis to combine the hypoxia and rapid cabin decompression activity margins."
+      },
+      {
+        "id": "hospital-milestone",
+        "title": "6.000 horas de vuelo de la Cámara Hipobárica del CMAE",
+        "url": "https://www.hospitalfach.cl/6000hrs_CMAE_21.html",
+        "year": 2021,
+        "reported_training_flights": 535,
+        "people_trained_lower_bound_exclusive": 3180,
+        "clinical_dcs_cases": null,
+        "role_review": "The hospital reports varied flight purposes. Person counting rules and matching clinical DCS ascertainment are unavailable."
+      },
+      {
+        "id": "alvear-2024",
+        "title": "Oxygen Saturation Curve Analysis in 2298 Hypoxia Awareness Training Tests of Military Aircrew Members in a Hypobaric Chamber",
+        "url": "https://www.mdpi.com/1424-8220/24/13/4168",
+        "year": 2024,
+        "doi": "10.3390/s24134168",
+        "selected_records": 2298,
+        "selected_people": 1526,
+        "underlying_flights": 569,
+        "period": "2010–2018",
+        "clinical_dcs_cases": null,
+        "role_review": "A selected oximetry analysis from the same training program. Its records supply no linked DCS event count."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chile-cmae-alternate-public-host",
+    "date": "2026-11-21",
+    "provider": "Hospital Clínico FACH",
+    "status": "access_limited",
+    "operation": "direct_pdf_download",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Hospital PDF at both official hostnames",
+      "alternate_url": "https://hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf",
+      "primary_url": "https://www.hospitalfach.cl/REVISTA%20INVESTIGA/Inter%20Revista%20U%20de%20Chile.pdf",
+      "http_status": 403
+    },
+    "note": "Both direct download attempts returned HTTP 403. The source bytes were unavailable for hashing.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chile-cmae-thesis-access",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "access_limited",
+    "operation": "scrape_repositories",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "UDD collection item 11447/9961",
+      "scrape_id": "01a1fd9b-6c24-750a-9967-ed47b891872a"
+    },
+    "note": "The automated scrape returned a human-verification screen. The publisher catalogue exposes the abstract and marks the thesis file private.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chile-cmae-thesis-abstract",
+    "date": "2026-11-21",
+    "provider": "Universidad del Desarrollo",
+    "status": "observed_abstract",
+    "operation": "verify_primary_abstract",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "UDD catalogue abstract for 11447/9961"
+    },
+    "note": "The physiological symptom sample requires two or more exposures and excludes people without hypoxia symptoms. It cannot provide the denominator for the DCS outcome.",
+    "records": [
+      {
+        "id": "lapostol-2024",
+        "title": "Síntomas de hipoxia en tripulaciones aéreas militares chilenas durante entrenamiento fisiológico entre los años 2003 y 2018",
+        "url": "https://repositorio.udd.cl/items/e6cde437-3659-441b-aa8e-b6c231d52961/full",
+        "year": 2024,
+        "identifier": "11447/9961",
+        "sample_people": 885,
+        "source_people": 2820,
+        "minimum_exposures_per_selected_participant": 2,
+        "clinical_dcs_cases": null,
+        "excluded_asymptomatic_hypoxia_records": true,
+        "full_text_access": "private"
+      }
+    ]
+  }
+]

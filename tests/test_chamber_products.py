@@ -3602,3 +3602,50 @@ def test_space_activity_suit_observer_pressure_is_distinct_from_subject_timing(r
             ("ntrs:19680002042", 5),
             ("ntrs:20190027194", 3),
         ]
+
+
+def test_chile_cmae_keeps_incident_and_training_periods_separate(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,period
+            FROM publication_observation
+            WHERE source_id='montiglio23_chile_cmae'
+              AND endpoint IN ('dcs_as_recorded','people_trained_as_reported','instructions_as_reported')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("hypoxia-recognition-2022-instructions", "instructions_as_reported", 427, None, None, "2022"),
+            ("hypoxia-recognition-incident-register", "dcs_as_recorded", 0, None, None, "March 1982–December 2022"),
+            ("hypoxia-recognition-people-trained", "people_trained_as_reported", 24173, None, None, "March 1972–December 2022"),
+            ("rapid-decompression-people-trained", "people_trained_as_reported", 3257, None, None, "March 1972–December 2022"),
+        ]
+        # Only incident endpoints enter the review outcome view.
+        review_incidents = db.execute("""
+            SELECT endpoint,cases,denominator FROM review.review_search_observation
+            WHERE report_id='fach-investiga:2023:2-1:27' ORDER BY endpoint
+        """).fetchall()
+        assert review_incidents == [
+            ("barodontalgia_as_recorded", 7, None),
+            ("barosinusitis_as_recorded", 162, None),
+            ("barotitis_as_recorded", 595, None),
+            ("dcs_as_recorded", 0, None),
+            ("gastrointestinal_gas_colic_as_recorded", 87, None),
+            ("hyperventilation_syndrome_as_recorded", 19, None),
+            ("loss_of_consciousness_as_recorded", 14, None),
+            ("oxygen_mask_apprehension_as_recorded", 9, None),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='montiglio23_chile_cmae' AND stratum='hypoxia-recognition-incident-register'
+            ORDER BY endpoint
+        """).fetchall() == review_incidents
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='fach-investiga:2023:2-1:27' ORDER BY right_report
+        """).fetchall() == [
+            ("doi:10.3390/s24134168", "overlapping_program_scope"),
+            ("fach:cmae-6000-flight-hours-2021", "overlapping_program_scope"),
+            ("hdl:11447/9961", "overlapping_program_scope"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record WHERE report_id='fach:cmae-6000-flight-hours-2021'
+        """).fetchone() == (2,)
