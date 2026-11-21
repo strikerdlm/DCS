@@ -1,0 +1,1048 @@
+[
+  {
+    "id": "2026-11-21-chadov-cabin-search-f82",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"N82-20839\" OR \"JPRS-80323\" \"Probability of Caisson Disease\" 840 308",
+      "limit": 6,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "Medicine & Biology Aerbspac icine & Biology Aerospace Mel e & ...",
+          "url": "https://ntrs.nasa.gov/api/citations/19830017076/downloads/19830017076.pdf?attachment=true"
+        }
+      ],
+      "returned_web_count": 1
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered web hits retained in run metadata. Verified source occurrences enter the targeted records below.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-search-f83",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"N83-36648\" OR \"JPRS-84412\" \"two-hour denitrogenation\" Barer",
+      "limit": 6,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "[Effect of a nitrogen admixture in the inhaled oxygen on ...",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/6620957/"
+        }
+      ],
+      "returned_web_count": 1
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered web hits retained in run metadata. Verified source occurrences enter the targeted records below.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-search-taro",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"JPRS-80323\" OR \"JPRS-84412\" TXArchives NASA Space Medicine Records",
+      "limit": 6,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "Full text of \"NASA Technical Reports Server (NTRS) 19890006134",
+          "url": "https://archive.org/stream/NASA_NTRS_Archive_19890006134/NASA_NTRS_Archive_19890006134_djvu.txt"
+        },
+        {
+          "position": 2,
+          "title": "FR:GVARDEYTSEV M I TO:HAMMAND M",
+          "url": "https://www.cia.gov/readingroom/document/cia-rdp91-00403r000100850030-0"
+        }
+      ],
+      "returned_web_count": 2
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered web hits retained in run metadata. Verified source occurrences enter the targeted records below.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-search-cia",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"80323\" OR \"84412\" \"space biology\" USSR report site:cia.gov OR site:archive.org",
+      "limit": 6,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "Full text of \"NASA Technical Reports Server (NTRS) 19890006134",
+          "url": "https://archive.org/stream/NASA_NTRS_Archive_19890006134/NASA_NTRS_Archive_19890006134_djvu.txt"
+        },
+        {
+          "position": 2,
+          "title": "Super Mario 64 : Nintendo : Free Download, Borrow, and ...",
+          "url": "https://archive.org/details/super-mario-64_n64"
+        },
+        {
+          "position": 3,
+          "title": "Microsoft Office Word 2007 (English 32-bit) - Archive.org",
+          "url": "https://archive.org/details/office-word-2007-en"
+        }
+      ],
+      "returned_web_count": 3
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered web hits retained in run metadata. Verified source occurrences enter the targeted records below.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-search-lo",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"USSR report. Space biology and aerospace medicine\" 1979 HathiTrust OCLC library",
+      "limit": 6,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "USSR report. Space biology and aerospace medicine",
+          "url": "https://catalog.hathitrust.org/Record/103228561"
+        },
+        {
+          "position": 2,
+          "title": "USSR report. Space biology and aerospace medicine",
+          "url": "https://catalog.nlm.nih.gov/discovery/fulldisplay/alma995201963406676/01NLM_INST:01NLM_INST"
+        },
+        {
+          "position": 3,
+          "title": "Catalog Record: Aerospace medicine and biology",
+          "url": "https://catalog.hathitrust.org/Record/000526419"
+        },
+        {
+          "position": 4,
+          "title": "USSR report. Space biology and aerospace medicine - Quicksearch",
+          "url": "https://search.library.yale.edu/catalog/991011348295008651"
+        },
+        {
+          "position": 5,
+          "title": "USSR Space Life Sciences Digest",
+          "url": "https://ntrs.nasa.gov/api/citations/19820002826/downloads/19820002826.pdf"
+        },
+        {
+          "position": 6,
+          "title": "USSR Report: Space biology and aerospace medicine, Volume 16",
+          "url": "https://books.google.com/books/about/USSR_Report.html?id=vXlag0UJWK0C"
+        }
+      ],
+      "returned_web_count": 6
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered web hits retained in run metadata. Verified source occurrences enter the targeted records below.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Chadov Iseev Polyakov P910 altitude decompression normoxic cabin Barer JPRS 80323 84412 original full text",
+      "depth": "advanced",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-unal",
+    "date": "2026-11-21",
+    "provider": "UNAL library discovery",
+    "operation": "supplementary_institutional_access",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries_planned": [
+        "Assessment of the Atmospheric Parameters of the Space Craft and Space Suit OR 10.4271/961419",
+        "6620957 OR 7062695 OR 84412 OR 80323"
+      ]
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "The proxy login remained at the proxy host after form submission without a displayed error. No authenticated search or PDF retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-sae",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and JSTOR",
+    "operation": "supplementary_full_text_access_check",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://www.jstor.org/stable/44725531"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher abstract is available on JSTOR. The article is behind institutional access. No primary numeric outcome counts extracted.",
+    "records": [
+      {
+        "id": "961419",
+        "title": "Assessment of the Atmospheric Parameters of the Space Craft and Space Suit Ensuring Decompression Safety During Episodic Extra-Vehicular Activity",
+        "year": 1996,
+        "doi": "10.4271/961419",
+        "url": "https://www.jstor.org/stable/44725531",
+        "journal": "SAE Transactions",
+        "pages": "425–434",
+        "note": "Abstract describes a multiyear program. Relationship to specific experimental cohort rows is unverified."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-digest",
+    "date": "2026-11-21",
+    "provider": "NASA public source scan",
+    "operation": "supplementary_full_text_outcome_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf"
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Verified the rendered table with two trials and one person affected. Clinical narratives confirm repeat participation.",
+    "records": [
+      {
+        "id": "P910",
+        "title": "The hypobaric normoxic cabin atmosphere and minimum acceptable level of working pressures in an EVA space suit",
+        "year": 1988,
+        "url": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf#page=107",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf#page=110",
+        "report_number": "NASA CR-3922(23)",
+        "digest_label": "P910(20/88)",
+        "pdf_sha256": "22011317ab0fbf2f60f84620f55c35d6c28435c88a0477307d55e9901b7470ca",
+        "locator": "Printed pp. 102–105 (PDF pp. 107–110)",
+        "role_review": "experimental_chamber_overlap_hold",
+        "observations": [
+          {
+            "id": "p910-experiment-1-high_altitude_decompression_disorders_as_reported",
+            "study_id": "chadov-cabin-normoxia-working-pressure",
+            "endpoint": "high_altitude_decompression_disorders_as_reported",
+            "group": "experiment-1",
+            "cases": 2,
+            "denominator": 35,
+            "denominator_unit": "person_exposure",
+            "locator": "P910 printed p. 105 (PDF p. 110)",
+            "note": "HADD cases per trial, source Table p. 105. Repeated participation and possible clinical archive overlap.",
+            "protocol": "Two hours at printed 1.142 atm, 24 hours at 0.58 atm with 38% oxygen, then six planned hours at 0.24 atm with 95% oxygen/5% nitrogen. Periodic graded arm work during the final stage.",
+            "outcome_window": "HADD assessed in the experimental protocol. The planned final stage was six hours. Fixed event-free postdescent follow-up is unspecified.",
+            "analysis_role": "overlap_hold"
+          },
+          {
+            "id": "p910-experiment-1-people_with_high_altitude_decompression_disorders_as_reported",
+            "study_id": "chadov-cabin-normoxia-working-pressure",
+            "endpoint": "people_with_high_altitude_decompression_disorders_as_reported",
+            "group": "experiment-1",
+            "cases": 1,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "locator": "P910 printed p. 105 (PDF p. 110)",
+            "note": "People with HADD from the same table row. Some volunteers underwent both experiments.",
+            "protocol": "Two hours at printed 1.142 atm, 24 hours at 0.58 atm with 38% oxygen, then six planned hours at 0.24 atm with 95% oxygen/5% nitrogen. Periodic graded arm work during the final stage.",
+            "outcome_window": "HADD assessed in the experimental protocol. The planned final stage was six hours. Fixed event-free postdescent follow-up is unspecified.",
+            "analysis_role": "overlap_hold"
+          },
+          {
+            "id": "p910-experiment-2-high_altitude_decompression_disorders_as_reported",
+            "study_id": "chadov-cabin-normoxia-working-pressure",
+            "endpoint": "high_altitude_decompression_disorders_as_reported",
+            "group": "experiment-2",
+            "cases": 0,
+            "denominator": 31,
+            "denominator_unit": "person_exposure",
+            "locator": "P910 printed p. 105 (PDF p. 110)",
+            "note": "HADD cases per trial, source Table p. 105. Repeated participation and possible clinical archive overlap.",
+            "protocol": "Two hours at printed 1.142 atm, 24 hours at 0.62 atm with 36% oxygen, then six planned hours at 0.25 atm with 95% oxygen/5% nitrogen. Periodic graded arm work during the final stage.",
+            "outcome_window": "HADD assessed in the experimental protocol. The planned final stage was six hours. Fixed event-free postdescent follow-up is unspecified.",
+            "analysis_role": "overlap_hold"
+          },
+          {
+            "id": "p910-experiment-2-people_with_high_altitude_decompression_disorders_as_reported",
+            "study_id": "chadov-cabin-normoxia-working-pressure",
+            "endpoint": "people_with_high_altitude_decompression_disorders_as_reported",
+            "group": "experiment-2",
+            "cases": 0,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "locator": "P910 printed p. 105 (PDF p. 110)",
+            "note": "People with HADD from the same table row. Some volunteers underwent both experiments.",
+            "protocol": "Two hours at printed 1.142 atm, 24 hours at 0.62 atm with 36% oxygen, then six planned hours at 0.25 atm with 95% oxygen/5% nitrogen. Periodic graded arm work during the final stage.",
+            "outcome_window": "HADD assessed in the experimental protocol. The planned final stage was six hours. Fixed event-free postdescent follow-up is unspecified.",
+            "analysis_role": "overlap_hold"
+          },
+          {
+            "id": "p910-experiment-1-cutaneous-selected_hadd_episode_as_reported",
+            "study_id": "chadov-cabin-normoxia-working-pressure",
+            "endpoint": "selected_hadd_episode_as_reported",
+            "group": "experiment-1-cutaneous",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "P910 printed p. 103 (PDF p. 108)",
+            "note": "One of the two cases already counted in experiment 1. First affected trial. Chest erythema began in the second hour of the final stage. Pruritic petechial eruption formed by the end of hour four.",
+            "protocol": "Two hours at printed 1.142 atm, 24 hours at 0.58 atm with 38% oxygen, then six planned hours at 0.24 atm with 95% oxygen/5% nitrogen. Periodic graded arm work during the final stage.",
+            "outcome_window": "Selected narrative of an affected trial, including clinical response during descent.",
+            "analysis_role": "overlap_hold",
+            "parent_observation_id": "p910-experiment-1-high_altitude_decompression_disorders_as_reported",
+            "participant_code": "p910-repeat-volunteer",
+            "episode_order": 1,
+            "months_after_previous_episode": null,
+            "source_classification": "Source reports cutaneous manifestations as HADD",
+            "milestones": [
+              {
+                "event": "chest_erythema_observed",
+                "elapsed": null,
+                "unit": null,
+                "reference": null,
+                "locator": "P910 printed p. 103 (PDF p. 108)",
+                "note": "Appeared during the second hour of the final stage. Exact onset minute unavailable."
+              },
+              {
+                "event": "pruritic_petechial_eruption",
+                "elapsed": 240,
+                "unit": "minutes",
+                "reference": "start of final chamber stage",
+                "locator": "P910 printed p. 104 (PDF p. 109)",
+                "note": "Present by the end of hour four. This is a latest reported time, not a precise onset."
+              },
+              {
+                "event": "itch_resolved_during_descent",
+                "elapsed": null,
+                "unit": null,
+                "reference": null,
+                "locator": "P910 printed p. 104 (PDF p. 109)",
+                "note": "Itching stopped at the printed alternate pressure 389 gPa (0.397 atm)."
+              },
+              {
+                "event": "skin_findings_persisted_at_clinic",
+                "elapsed": null,
+                "unit": null,
+                "reference": null,
+                "locator": "P910 printed p. 104 (PDF p. 109)",
+                "note": "Hyperaemic findings persisted several hours. No exact time or time of final resolution."
+              }
+            ]
+          },
+          {
+            "id": "p910-experiment-1-musculoskeletal-selected_hadd_episode_as_reported",
+            "study_id": "chadov-cabin-normoxia-working-pressure",
+            "endpoint": "selected_hadd_episode_as_reported",
+            "group": "experiment-1-musculoskeletal",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "P910 printed p. 104 (PDF p. 109)",
+            "note": "One of the two cases already counted in experiment 1. Distinct affected trial in the same person six months later. Initial discomfort at 1.5 hours preceded increasing right knee pain.",
+            "protocol": "Two hours at printed 1.142 atm, 24 hours at 0.58 atm with 38% oxygen, then six planned hours at 0.24 atm with 95% oxygen/5% nitrogen. Periodic graded arm work during the final stage.",
+            "outcome_window": "Selected narrative of an affected trial, including clinical response during descent.",
+            "analysis_role": "overlap_hold",
+            "parent_observation_id": "p910-experiment-1-high_altitude_decompression_disorders_as_reported",
+            "participant_code": "p910-repeat-volunteer",
+            "episode_order": 2,
+            "months_after_previous_episode": 6,
+            "source_classification": "Degree II muscle-joint HADD",
+            "milestones": [
+              {
+                "event": "initial_discomfort",
+                "elapsed": 90,
+                "unit": "minutes",
+                "reference": "start of final chamber stage",
+                "locator": "P910 printed p. 104 (PDF p. 109)",
+                "note": "Initial symptoms reported at 1.5 hours. Later knee pain onset was not separately timed."
+              },
+              {
+                "event": "increasing_right_knee_pain",
+                "elapsed": null,
+                "unit": null,
+                "reference": null,
+                "locator": "P910 printed p. 104 (PDF p. 109)",
+                "note": "Source-defined degree II muscle-joint episode."
+              },
+              {
+                "event": "knee_pain_resolved_during_descent",
+                "elapsed": null,
+                "unit": null,
+                "reference": null,
+                "locator": "P910 printed p. 104 (PDF p. 109)",
+                "note": "Pain ceased at the printed alternate pressure 440 gPa (0.448 atm)."
+              }
+            ]
+          }
+        ],
+        "trial_scopes": [
+          {
+            "group": "both-experiments",
+            "parent_group": null,
+            "tests": 66,
+            "people": 32,
+            "locator": "P910 printed p. 103 (PDF p. 108)",
+            "note": "66 sums the separate 35- and 31-trial counts. The Methods give 32 male volunteers aged 21–47 across both."
+          },
+          {
+            "group": "experiment-1",
+            "parent_group": "both-experiments",
+            "tests": 35,
+            "people": 25,
+            "locator": "P910 printed p. 105 (PDF p. 110)",
+            "note": "Trial and participant denominators from Table. Two positive trials belong to one participant."
+          },
+          {
+            "group": "experiment-2",
+            "parent_group": "both-experiments",
+            "tests": 31,
+            "people": 26,
+            "locator": "P910 printed p. 105 (PDF p. 110)",
+            "note": "Trial and participant denominators from Table. The same participant with two events in experiment 1 appears here."
+          }
+        ],
+        "native_stages": [
+          {
+            "arm": 1,
+            "stage": 1,
+            "minutes": 120,
+            "nominal_pressure": 1.142,
+            "nominal_unit": "atm",
+            "alternate_pressure": 1120,
+            "alternate_unit": "gPa",
+            "oxygen_percent": null,
+            "nitrogen_percent": null,
+            "note": "Oxygen and nitrogen fractions at stage 1 are not specified in Table."
+          },
+          {
+            "arm": 1,
+            "stage": 2,
+            "minutes": 1440,
+            "nominal_pressure": 0.58,
+            "nominal_unit": "atm",
+            "alternate_pressure": 569,
+            "alternate_unit": "gPa",
+            "oxygen_percent": 38,
+            "nitrogen_percent": 62,
+            "note": "No special exercise in this preliminary stage."
+          },
+          {
+            "arm": 1,
+            "stage": 3,
+            "minutes": 360,
+            "nominal_pressure": 0.24,
+            "nominal_unit": "atm",
+            "alternate_pressure": null,
+            "alternate_unit": null,
+            "oxygen_percent": 95,
+            "nitrogen_percent": 5,
+            "note": "Reported gas delivered by mask. Graded arm work 40 min/h and 20 min/h rest. Final pressure only printed in source-labeled atm."
+          },
+          {
+            "arm": 2,
+            "stage": 1,
+            "minutes": 120,
+            "nominal_pressure": 1.142,
+            "nominal_unit": "atm",
+            "alternate_pressure": 1120,
+            "alternate_unit": "gPa",
+            "oxygen_percent": null,
+            "nitrogen_percent": null,
+            "note": "Same first stage as experiment 1."
+          },
+          {
+            "arm": 2,
+            "stage": 2,
+            "minutes": 1440,
+            "nominal_pressure": 0.62,
+            "nominal_unit": "atm",
+            "alternate_pressure": 608,
+            "alternate_unit": "gPa",
+            "oxygen_percent": 36,
+            "nitrogen_percent": 64,
+            "note": "No special exercise in this preliminary stage."
+          },
+          {
+            "arm": 2,
+            "stage": 3,
+            "minutes": 360,
+            "nominal_pressure": 0.25,
+            "nominal_unit": "atm",
+            "alternate_pressure": null,
+            "alternate_unit": null,
+            "oxygen_percent": 95,
+            "nitrogen_percent": 5,
+            "note": "The same gas, work and rest schedule as experiment 1. Final pressure only printed in source-labeled atm."
+          }
+        ],
+        "unit_note": "Keep both native unit labels. Their paired values are consistent with a technical atmosphere. No standardized final pressure is printed."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-cabin-catalogue",
+    "date": "2026-11-21",
+    "provider": "NASA publications and author bibliography",
+    "operation": "supplementary_original_metadata_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "urls": [
+        "https://ntrs.nasa.gov/api/citations/19890016185/downloads/19890016185.pdf",
+        "https://ntrs.nasa.gov/api/citations/19890002795/downloads/19890002795.pdf",
+        "https://www.dissercat.com/content/eksperimentalno-teoreticheskoe-obosnovanie-dekompressionnoi-bezopasnosti-vnekorabelnoi-deyat",
+        "https://nrcerm.ru/files/book/bezopchs2009.pdf"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "NASA issue index and Table of Contents plus Chadov author bibliography identify the original 1987 publication.",
+    "records": [
+      {
+        "id": "cabin-chapter",
+        "title": "The hypobaric normoxic cabin atmosphere and minimum acceptable level of working pressures in an EVA space suit",
+        "year": 1987,
+        "url": null,
+        "evidence_source": "https://ntrs.nasa.gov/api/citations/19890016185/downloads/19890016185.pdf",
+        "original_pages": "113–123",
+        "original_title": "Гипобарическая нормоксическая атмосфера кабины и минимально допустимая величина рабочего давления в выходном скафандре",
+        "citation": "XX–XXI Tsiolkovsky readings, Moscow, USSR Academy of Sciences, 1987, pp. 113–123",
+        "locator": "NASA issue index P910; 2005 dissertation publication list item 25",
+        "note": "Original Russian chapter full text was not located."
+      },
+      {
+        "id": "chadov-2005",
+        "title": "Experimental and theoretical support for decompression safety during EVA by crew of manned space objects",
+        "year": 2005,
+        "url": "https://www.dissercat.com/content/eksperimentalno-teoreticheskoe-obosnovanie-dekompressionnoi-bezopasnosti-vnekorabelnoi-deyat",
+        "source_format": "84-page dissertation",
+        "locator": "Bibliography item 25",
+        "note": "The public host provides excerpts and a publication list. No independent cohort size assigned."
+      },
+      {
+        "id": "chadov-2004",
+        "title": "Experimental and theoretical support for decompression safety during EVA by crew of manned space objects (author summary)",
+        "year": 2004,
+        "url": null,
+        "evidence_source": "https://nrcerm.ru/files/book/bezopchs2009.pdf",
+        "source_format": "86-page author summary",
+        "locator": "2009 national bibliography entry 374, printed p. 66",
+        "call_number": "RNB 2008-4/13",
+        "note": "Distinct item from the 2005 dissertation. Bibliography only."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-barer-parallel-editions",
+    "date": "2026-11-21",
+    "provider": "NASA Index and PubMed",
+    "operation": "supplementary_report_identity_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/7062695/",
+        "https://pubmed.ncbi.nlm.nih.gov/6620957/",
+        "https://ntrs.nasa.gov/api/citations/19820024046/downloads/19820024046.pdf",
+        "https://ntrs.nasa.gov/api/citations/19840008722/downloads/19840008722.pdf"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Two translations correspond to two original papers. Preserve each original, translation and retrieval identity.",
+    "records": [
+      {
+        "id": "original-1982",
+        "title": "Probability of altitude decompression sickness following a drop in pressure from 840 to 308 mm Hg",
+        "year": 1982,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7062695/",
+        "pmid": "7062695",
+        "pages": "26–28",
+        "english_abstract_exposure_minutes": 40,
+        "english_abstract_case_pct_range": [
+          5,
+          40
+        ],
+        "note": "Translated Methods and Table give planned 120 min at reduced pressure and no observed event before minute 41. The text's conclusion refers to more than 40 min."
+      },
+      {
+        "id": "N82-20839",
+        "title": "Probability of caisson disease after pressure drop from 840 to 308 mm Hg",
+        "year": 1982,
+        "url": "https://ntrs.nasa.gov/api/citations/19820024046/downloads/19820024046.pdf",
+        "translation": "JPRS-80323",
+        "locator": "NASA SP-7011(234), p. 214"
+      },
+      {
+        "id": "original-1983",
+        "title": "Effect of a nitrogen admixture in the inhaled oxygen on the effectiveness of 2-hour desaturation before decompression from 760 to 220 mm Hg",
+        "year": 1983,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6620957/",
+        "pmid": "6620957",
+        "pages": "45–47",
+        "reported_pct_mild": 3.2,
+        "note": "The original abstract's reported 3.2% corresponds to the full text's 3/93 low-nitrogen arm."
+      },
+      {
+        "id": "N83-36648",
+        "title": "Influence of addition of nitrogen to inhaled oxygen on efficacy of two-hour denitrogenation before decompression from 760 to 220 mm Hg",
+        "year": 1983,
+        "url": "https://ntrs.nasa.gov/api/citations/19840008722/downloads/19840008722.pdf",
+        "translation": "JPRS-84412",
+        "locator": "NASA SP-7011(253), N83-36648"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chadov-cabin-hathi-barer",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and HathiTrust",
+    "operation": "supplementary_full_text_outcome_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "catalogue": "https://catalog.hathitrust.org/Record/103228561"
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Matched counts were extracted once per study from the public English translation. Both title pages credit V. I. Chadov.",
+    "records": [
+      {
+        "id": "N82-20839",
+        "title": "Probability of caisson disease after pressure drop from 840 to 308 mm Hg",
+        "year": 1982,
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=46",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=48",
+        "original_pages": "26–28",
+        "translated_pages": "34–37",
+        "role_review": "experimental_chamber_overlap_hold",
+        "catalogue_url": "https://catalog.hathitrust.org/Record/103228561",
+        "page_urls": [
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=46",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=47",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=48",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=49"
+        ],
+        "byline": "Barer AS, Vakar MI, Vorobyev GF, Iseyev LR, Filipenkov SN, Chadov VI",
+        "diagnosis": "Source-defined caisson disease (altitude decompression sickness).",
+        "outcome_windows": {
+          "abstract_exposure_minutes": 40,
+          "planned_minutes_at_target": 120,
+          "onset_range_minutes": [
+            41,
+            102
+          ],
+          "early_termination_range_minutes": [
+            55,
+            96
+          ]
+        },
+        "observations": [
+          {
+            "id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "altitude_caisson_disease_as_reported",
+            "group": "all-trials",
+            "cases": 14,
+            "denominator": 74,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 35 (HathiTrust sequence 47)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlap_hold",
+            "parent_observation_id": null,
+            "note": "Combined result from the same five table strata. Repeated volunteers. Overlap with the Iseev program is unresolved.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-all-trials-people_with_altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "people_with_altitude_caisson_disease_as_reported",
+            "group": "all-trials",
+            "cases": 13,
+            "denominator": 43,
+            "denominator_unit": "person",
+            "locator": "JPRS-80323 printed p. 35 (HathiTrust sequence 47)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": null,
+            "note": "Unique people with a case, among the same exposures counted in the trial-level margin.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-2h-40-percent-oxygen-continuous-altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "altitude_caisson_disease_as_reported",
+            "group": "2h-40-percent-oxygen-continuous",
+            "cases": 1,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 36 (HathiTrust sequence 48)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression. Two hours at 840 mmHg. Approximately 40% oxygen at target. Continuous work, 150–180 kcal/h.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Table counts reconcile to 14 affected tests among 74. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-12h-40-percent-oxygen-continuous-altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "altitude_caisson_disease_as_reported",
+            "group": "12h-40-percent-oxygen-continuous",
+            "cases": 8,
+            "denominator": 20,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 36 (HathiTrust sequence 48)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression. Twelve hours at 840 mmHg. Approximately 40% oxygen at target. Continuous work, 150–180 kcal/h.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Table counts reconcile to 14 affected tests among 74. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-12h-40-percent-oxygen-intermittent-altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "altitude_caisson_disease_as_reported",
+            "group": "12h-40-percent-oxygen-intermittent",
+            "cases": 3,
+            "denominator": 21,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 36 (HathiTrust sequence 48)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression. Twelve hours at 840 mmHg. Approximately 40% oxygen at target. Alternating 10-min work and rest, 120–140 kcal/h.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Table counts reconcile to 14 affected tests among 74. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-12h-40-percent-oxygen-rest-altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "altitude_caisson_disease_as_reported",
+            "group": "12h-40-percent-oxygen-rest",
+            "cases": 1,
+            "denominator": 20,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 36 (HathiTrust sequence 48)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression. Twelve hours at 840 mmHg. Approximately 40% oxygen at target. Relative rest, 80–90 kcal/h.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Table counts reconcile to 14 affected tests among 74. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-12h-95-to-100-percent-oxygen-intermittent-altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "altitude_caisson_disease_as_reported",
+            "group": "12h-95-to-100-percent-oxygen-intermittent",
+            "cases": 1,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 36 (HathiTrust sequence 48)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression. Twelve hours at 840 mmHg. Approximately 95–100% oxygen at target. Intermittent work, 120–140 kcal/h.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Table counts reconcile to 14 affected tests among 74. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-selected-susceptible-altitude_caisson_disease_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "altitude_caisson_disease_as_reported",
+            "group": "selected-susceptible",
+            "cases": 4,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 36 (HathiTrust sequence 48)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Four individuals selected by earlier susceptibility contributed five tests in the described series. The report gives affected tests without unique affected participant count.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-all-trials-premature_trial_termination",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "premature_trial_termination",
+            "group": "all-trials",
+            "cases": 6,
+            "denominator": 74,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-80323 printed p. 35 (HathiTrust sequence 47)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Six early terminations at minutes 55–96. Five for grade III–IV disease and one at the request of a participant with cutaneous symptoms.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-affected-trials-muscle_or_joint_pain_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "muscle_or_joint_pain_as_reported",
+            "group": "affected-trials",
+            "cases": 12,
+            "denominator": 14,
+            "denominator_unit": "dcs_case",
+            "locator": "JPRS-80323 printed p. 35 (HathiTrust sequence 47)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "case_conditional",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Musculoskeletal pain during exercise. This is an outcome among the 14 affected tests.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-affected-trials-isolated_cutaneous_form_as_reported",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "isolated_cutaneous_form_as_reported",
+            "group": "affected-trials",
+            "cases": 2,
+            "denominator": 14,
+            "denominator_unit": "dcs_case",
+            "locator": "JPRS-80323 printed p. 35 (HathiTrust sequence 47)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "case_conditional",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Isolated cutaneous cases among the 14 affected tests.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer82-affected-trials-early_termination_for_grade_iii_or_iv",
+            "study_id": "barer-1982-hyperbaric-to-hypobaric",
+            "endpoint": "early_termination_for_grade_iii_or_iv",
+            "group": "affected-trials",
+            "cases": 5,
+            "denominator": 14,
+            "denominator_unit": "dcs_case",
+            "locator": "JPRS-80323 printed p. 35 (HathiTrust sequence 47)",
+            "protocol": "Hyperbaric air at 840±5 mmHg, then planned two hours at 308±1 mmHg. Diagnosis used symptoms, localization, time and response during recompression.",
+            "outcome_window": "During planned two hours at 308±1 mmHg. Symptoms occurred from minute 41 through 102 across the study. The paper follows reported symptoms through recompression. Fixed event-free follow-up is unspecified.",
+            "analysis_role": "case_conditional",
+            "parent_observation_id": "barer82-all-trials-altitude_caisson_disease_as_reported",
+            "note": "Five of the six early terminations were attributed to grade III–IV disease.",
+            "prebreathe_min": null
+          }
+        ]
+      },
+      {
+        "id": "N83-36648",
+        "title": "Influence of addition of nitrogen to inhaled oxygen on efficacy of two-hour denitrogenation before decompression from 760 to 220 mm Hg",
+        "year": 1983,
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=548",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=550",
+        "original_pages": "45–47",
+        "translated_pages": "66–69",
+        "role_review": "experimental_chamber_overlap_hold",
+        "catalogue_url": "https://catalog.hathitrust.org/Record/103228561",
+        "page_urls": [
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=548",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=549",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=550",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=551"
+        ],
+        "byline": "Barer AS, Vakar MI, Vorobyev GF, Iseyev LR, Filipenkov SN, Chadov VI",
+        "diagnosis": "Source-defined altitude decompression disorders. Nonspecific mild symptoms required resolution during recompression.",
+        "outcome_windows": {
+          "control_minutes_at_target_range": [
+            240,
+            360
+          ],
+          "other_planned_minutes_at_target": 240,
+          "onset_range_minutes": [
+            25,
+            194
+          ],
+          "early_termination_range_minutes": [
+            45,
+            204
+          ]
+        },
+        "measurements": "Mass spectrometric sampling under mask. Exposure-by-participant records are unavailable.",
+        "observations": [
+          {
+            "id": "barer83-all-trials-altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "all-trials",
+            "cases": 22,
+            "denominator": 191,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 67 (HathiTrust sequence 549)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlap_hold",
+            "parent_observation_id": null,
+            "note": "Four directly reported table strata. The arm with air breathing contains two nested durations.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer83-all-trials-people_with_altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "people_with_altitude_decompression_disorders_as_reported",
+            "group": "all-trials",
+            "cases": 20,
+            "denominator": 70,
+            "denominator_unit": "person",
+            "locator": "JPRS-84412 printed p. 67 (HathiTrust sequence 549)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": null,
+            "note": "Unique affected participants among the same experiments counted in the 22/191 trial margin.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer83-control-altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "control",
+            "cases": 2,
+            "denominator": 6,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 68 (HathiTrust sequence 550)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity. Control series. Near-pure oxygen during 4–6 hours at target with the first two hours at relative rest.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-all-trials-altitude_decompression_disorders_as_reported",
+            "note": "Source-reported count and matched test denominator. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": 0
+          },
+          {
+            "id": "barer83-10-to-14-percent-nitrogen-altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "10-to-14-percent-nitrogen",
+            "cases": 9,
+            "denominator": 28,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 68 (HathiTrust sequence 550)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity. Measured 10–14% nitrogen in the oxygen mixture under the mask during two-hour prebreathe.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-all-trials-altitude_decompression_disorders_as_reported",
+            "note": "Source-reported count and matched test denominator. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": 120
+          },
+          {
+            "id": "barer83-0p4-to-5-percent-nitrogen-altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "0p4-to-5-percent-nitrogen",
+            "cases": 3,
+            "denominator": 93,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 68 (HathiTrust sequence 550)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity. Measured 0.4–5% nitrogen during two-hour prebreathe. All 93 performed the planned four-hour work schedule.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-all-trials-altitude_decompression_disorders_as_reported",
+            "note": "Source-reported count and matched test denominator. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": 120
+          },
+          {
+            "id": "barer83-0p4-to-5-percent-nitrogen-air-break-altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "0p4-to-5-percent-nitrogen-air-break",
+            "cases": 8,
+            "denominator": 64,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 68 (HathiTrust sequence 550)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity. Low-nitrogen prebreathe and 3 or 10 min of air breathing. The Results describe air breathing at the end of two hours, whereas Methods call it an interruption. Previously unaffected volunteers were selected from series II and III.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-all-trials-altitude_decompression_disorders_as_reported",
+            "note": "Source-reported count and matched test denominator. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": 120
+          },
+          {
+            "id": "barer83-air-break-3-minutes-altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "air-break-3-minutes",
+            "cases": 4,
+            "denominator": 16,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 69 (HathiTrust sequence 551)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity. Three-minute air breathing arm from the selected interruption series.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-0p4-to-5-percent-nitrogen-air-break-altitude_decompression_disorders_as_reported",
+            "note": "Source-reported count and matched test denominator. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": 120
+          },
+          {
+            "id": "barer83-air-break-10-minutes-altitude_decompression_disorders_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "air-break-10-minutes",
+            "cases": 4,
+            "denominator": 48,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 69 (HathiTrust sequence 551)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity. Ten-minute air breathing arm from the selected interruption series.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-0p4-to-5-percent-nitrogen-air-break-altitude_decompression_disorders_as_reported",
+            "note": "Source-reported count and matched test denominator. Per-arm unique participant counts are unspecified.",
+            "prebreathe_min": 120
+          },
+          {
+            "id": "barer83-all-trials-premature_trial_termination",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "premature_trial_termination",
+            "group": "all-trials",
+            "cases": 11,
+            "denominator": 191,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 68 (HathiTrust sequence 550)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-all-trials-altitude_decompression_disorders_as_reported",
+            "note": "11 tests terminated early between minutes 45 and 204. The 11 remaining affected trials are described as mild.",
+            "prebreathe_min": null
+          },
+          {
+            "id": "barer83-0p4-to-5-percent-nitrogen-grade_iii_or_iv_disorder_as_reported",
+            "study_id": "barer-1983-prebreathe-nitrogen",
+            "endpoint": "grade_iii_or_iv_disorder_as_reported",
+            "group": "0p4-to-5-percent-nitrogen",
+            "cases": 0,
+            "denominator": 93,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS-84412 printed p. 68 (HathiTrust sequence 550)",
+            "protocol": "Prebreathe gas sampled continuously in the mask space by mass spectrometry. No linked individual measurements are public. At 220 mmHg, testing included arm and leg activity.",
+            "outcome_window": "During the test at 220 mmHg. Symptoms occurred from minute 25 through 194 across the study. Fixed clinical surveillance after chamber exit is unspecified.",
+            "analysis_role": "overlapping_margin",
+            "parent_observation_id": "barer83-0p4-to-5-percent-nitrogen-altitude_decompression_disorders_as_reported",
+            "note": "The author states that all 93 completed the program and only mild grade I–II signs occurred. The zero is an explicit absence of the severe grade outcome, separate from three mild cases.",
+            "prebreathe_min": 120
+          }
+        ]
+      }
+    ]
+  }
+]

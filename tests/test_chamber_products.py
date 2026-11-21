@@ -8,6 +8,126 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_chadov_cabin_risk_sets_and_barer_full_text_reconcile(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='chadov87_cabin_p910' AND denominator IS NOT NULL
+            ORDER BY stratum,denominator_unit
+        """).fetchall() == [
+            ("experiment-1", 1, 25, "person"), ("experiment-1", 2, 35, "person_exposure"),
+            ("experiment-2", 0, 26, "person"), ("experiment-2", 0, 31, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT participant_code),count(*),max(months_after_previous_episode),min(parent_stratum)
+            FROM publication_chamber_case_episode WHERE source_id='chadov87_cabin_p910'
+        """).fetchone() == (1, 2, 6, "experiment-1")
+        assert db.execute("""
+            SELECT stratum,stage,printed_nominal_pressure,printed_nominal_unit,printed_alternate_pressure,
+                   printed_alternate_unit,oxygen_percent,nitrogen_percent
+            FROM publication_chamber_native_pressure_stage ORDER BY stratum,stage
+        """).fetchall() == [
+            ("experiment-1", 1, 1.142, "atm", 1120, "gPa", None, None),
+            ("experiment-1", 2, .58, "atm", 569, "gPa", 38, 62),
+            ("experiment-1", 3, .24, "atm", None, None, 95, 5),
+            ("experiment-2", 1, 1.142, "atm", 1120, "gPa", None, None),
+            ("experiment-2", 2, .62, "atm", 608, "gPa", 36, 64),
+            ("experiment-2", 3, .25, "atm", None, None, 95, 5),
+        ]
+        assert db.execute("""
+            SELECT source_id,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id IN ('barer82_jprs_80323','barer83_jprs_84412') AND stratum='all-trials'
+              AND endpoint <> 'premature_trial_termination' ORDER BY source_id,denominator_unit
+        """).fetchall() == [
+            ("barer82_jprs_80323", 13, 43, "person"), ("barer82_jprs_80323", 14, 74, "person_exposure"),
+            ("barer83_jprs_84412", 20, 70, "person"), ("barer83_jprs_84412", 22, 191, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='barer82_jprs_80323' AND endpoint='altitude_caisson_disease_as_reported'
+              AND stratum NOT IN ('all-trials','selected-susceptible') ORDER BY denominator,numerator
+        """).fetchall() == [(1, 5), (1, 8), (1, 20), (8, 20), (3, 21)]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='barer83_jprs_84412' AND endpoint='altitude_decompression_disorders_as_reported'
+              AND stratum <> 'all-trials' ORDER BY denominator
+        """).fetchall() == [(2, 6), (4, 16), (9, 28), (4, 48), (8, 64), (3, 93)]
+        assert db.execute("""
+            SELECT stratum,parent_stratum FROM publication_chamber_trial_scope
+            WHERE source_id='barer83_jprs_84412' AND stratum LIKE 'air-break-%' ORDER BY stratum
+        """).fetchall() == [
+            ("air-break-10-minutes", "0p4-to-5-percent-nitrogen-air-break"),
+            ("air-break-3-minutes", "0p4-to-5-percent-nitrogen-air-break"),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_search_observation
+            WHERE report_id IN ('ntrs:19890006135:p910','ntrs:n82-20839','ntrs:n83-36648','pmid:7062695','pmid:6620957')
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [("ntrs:19890006135:p910", 6), ("ntrs:n82-20839", 12), ("ntrs:n83-36648", 10)]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='chadov87_cabin_p910'
+        """).fetchone() == (0,)
+
+
+def test_katuntsev_component_keeps_first_pain_and_recurrence_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='katuntsev74_chamber_pain_jprs' AND analysis_role='overlap_hold'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("all-research-ascents", 284, None, None),
+            ("previous-pain-resolved", 44, 52, "person_exposure"),
+            ("previously-symptom-free", 29, 142, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='katuntsev74_chamber_pain_jprs' ORDER BY stratum
+        """).fetchall() == [
+            ("all-research-ascents", 357, 61), ("previous-pain-resolved", 52, 29),
+            ("previously-symptom-free", 142, 42), ("selected-additional-ascent", 194, None),
+            ("selected-local-compression", 49, 24),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='katuntsev74_chamber_pain_jprs' AND analysis_role='overlapping_margin'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("first_pain_at_additional_target", 13, 142), ("first_pain_during_additional_ascent", 16, 142),
+            ("pain_recurrence_at_additional_target", 8, 52), ("pain_recurrence_during_additional_ascent", 36, 52),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_basis FROM publication_observation
+            WHERE source_id='katuntsev74_chamber_pain_jprs' AND denominator_unit='symptom_report'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("pain_eliminated_as_reported", 6, 57, "author_reconstructed"),
+            ("pain_reappeared_after_cuff_removal", 19, 57, "author_reconstructed"),
+            ("pain_reappeared_during_pressure_release", 32, 57, "author_reconstructed"),
+            ("pain_resolved_during_local_compression", 57, 62, "source_reported"),
+        ]
+        assert db.execute("""
+            SELECT hour_at_altitude,reported_percent,denominator FROM publication_chamber_pain_onset_percentage
+            ORDER BY hour_at_altitude
+        """).fetchall() == [(1, 30.4, None), (2, 32.3, None), (3, 20.4, None),
+                             (4, 11.6, None), (5, 2.4, None), (6, 2.9, None)]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE study_id='katuntsev-imbp-altitude-experimental-program' AND endpoint='dcs_symptoms_source'
+        """).fetchall() == [(931, 1778)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_study_report
+            WHERE study_id='katuntsev-imbp-altitude-experimental-program'
+              AND report_id IN ('ntrs:n74-33560','kosmbio:1974:8:4:66')
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id='ntrs:n74-33560'
+        """).fetchone() == (17,)
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap WHERE source_id='katuntsev74_chamber_pain_jprs'
+        """).fetchall() == [("katuntsev96_human", "likely_overlap")]
+
+
 def test_iseev_archive_completes_one_risk_set_and_keeps_nested_findings(release):
     with connect_pair(release) as db:
         assert db.execute("""
@@ -901,7 +1021,7 @@ def test_katuntsev_program_total_reuses_source_and_retains_nested_endpoints(rele
         assert db.execute("""
             SELECT count(*),count(DISTINCT report_id) FROM review.review_record
             WHERE url LIKE '%vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe%'
-        """).fetchone() == (3, 1)
+        """).fetchone() == (4, 1)
         assert db.execute("""
             SELECT numerator,denominator,denominator_unit,analysis_role FROM publication_observation
             WHERE source_id='katuntsev96_human' AND stratum='program-all-chamber-ascents'
