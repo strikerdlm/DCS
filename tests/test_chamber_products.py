@@ -4874,6 +4874,47 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_hypobaric_osteonecrosis_and_postflight_screening_keep_source_grain(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.analysis_role,o.numerator,o.denominator,o.denominator_unit,r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (r.report_id,r.endpoint,r.reported_group)=(l.report_id,o.endpoint,o.stratum)
+            WHERE o.stratum='ratnoff-1943-hip-radiography'
+        """).fetchall() == [("descriptive", 0, 21, "person", 0, 21)]
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min FROM historical_case_catalog
+            WHERE endpoint IN ('femoral_head_osteonecrosis_after_reported_altitude_bends',
+                               'humeral_head_osteonecrosis_after_reported_altitude_bends')
+            ORDER BY case_id
+        """).fetchall() == [
+            ("fryer69_raf:photo-survey-pilot-case-28", "report:ada111509", None),
+            ("hodgson68_operator_followup:b29-crew-1953-hip-necrosis", "pmid:5658347", None),
+        ]
+        assert db.execute("""
+            SELECT s.participant_count,s.trial_count,l.report_id,
+                   json_extract(r.metadata_json,'$.scope.rechecked_after_flight'),
+                   json_extract(r.metadata_json,'$.scope.dcs_cases')
+            FROM publication_chamber_trial_scope s JOIN model_report_link l USING(source_id)
+            JOIN review.review_record r USING(report_id)
+            WHERE s.source_id='kim_jeon12_rokaf_blood' AND r.record_key LIKE '%osteonecrosis-verified#kim'
+        """).fetchall() == [(60, None, "kci:ART001678746", 60, None)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='kim_jeon12_rokaf_blood'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1.25/search_hits.csv#case_v25_kr:3',
+                'legacy:data/chamber/v1.39/search_hits.csv#bubble_v39_ko:2',
+                'legacy:data/chamber/v1.39/search_hits.csv#bubble_v39_ko:5',
+                '2026-11-20-trainee-cohorts-f-korea#https://koreascience.kr/article/JAKO201231434069438.pub?&lang=ko&orgId=ksafo',
+                '2026-11-20-berry-training-korea-followup#1974-eom')
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [("citation:korea-eom-1974-dysbarism", 1), ("kci:ART001678746", 4)]
+
+
 def test_taiwan_hypoxia_subgroups_and_fatal_case_overlap_retain_source_grain(release):
     with connect_pair(release) as db:
         assert db.execute("""
