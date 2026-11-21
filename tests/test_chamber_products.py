@@ -3420,3 +3420,50 @@ def test_nasa_long_exposure_tables_preserve_source_counts_and_overlap(release):
             GROUP BY endpoint ORDER BY endpoint
         """)] == [("dcs_as_compiled_by_nasa", 23), ("serious_dcs_as_compiled_by_nasa", 23)]
         assert db.execute("SELECT count(*) FROM publication_observation WHERE source_id='nasa19'").fetchone()[0] == 0
+
+
+def test_faa_oxygen_studies_keep_outcomes_separate_from_instrument_traces(release):
+    with connect_pair(release) as db:
+        counts = db.execute("""
+            SELECT source_id,stratum,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id IN ('campbell_jay25_ofos','garner96_mask40k')
+            ORDER BY source_id
+        """).fetchall()
+        assert counts == [
+            ("campbell_jay25_ofos", "completed-participant-profiles", 0, 12, "person_exposure", "descriptive"),
+            ("garner96_mask40k", "mask-test-participants", 0, 4, "person", "descriptive"),
+        ]
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='campbell_jay25_ofos' ORDER BY stratum
+        """).fetchall() == [
+            ("aborted-chamber-attempts", 4, None),
+            ("all-chamber-attempts", 16, 14),
+            ("completed-participant-profiles", 12, 12),
+        ]
+        assert db.execute("""
+            SELECT report_id,cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id IN ('doi:10.21949/1529724','dot:21429','dot:86852','doi:10.48321/d1caaba6e8')
+            ORDER BY report_id
+        """).fetchall() == [("doi:10.21949/1529724", 0, 12, "person_exposure"), ("dot:21429", 0, 4, "person")]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE record_key LIKE '%#W7233631745'
+               OR record_key='legacy:data/chamber/v1.8/search_hits.csv#historical_ferris:6'
+        """).fetchone() == (3, 1, "doi:10.21949/1529724")
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='faa-cami-ofos-2025-chamber' ORDER BY report_id
+        """).fetchall() == [("doi:10.21949/1529724",), ("doi:10.48321/d1caaba6e8",), ("dot:86852",)]
+        assert db.execute("""
+            SELECT files_checked,sample_count,invalid_samples,nonincreasing_clock_intervals,
+                   recorded_gaps_gt_0_1s,files_with_altitude_at_least_44000_ft
+            FROM publication_chamber_pressure_trace_audit
+        """).fetchone() == (12, 6422333, 0, 0, 0, 12)
+        db.row_factory = sqlite3.Row
+        audit = db.execute("SELECT * FROM publication_chamber_pressure_trace_audit").fetchone()
+        raw = db.execute("""
+            SELECT json_extract(metadata_json,'$.pressure_audit') FROM review.review_record
+            WHERE report_id='dot:86852' AND source_key='smartlab-archive'
+        """).fetchone()
+        assert dict(audit) == json.loads(raw[0])

@@ -12911,6 +12911,102 @@
       "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
       "basis": "Same NASA report number and PDF as the existing Table F1 source.",
       "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/abercromby-suited-chamber-testing-tp220343-2019.pdf#page=61"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.8/search_hits.csv#historical_ferris:6",
+      "report_id": "doi:10.21949/1529724",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W7233631745",
+      "report_id": "doi:10.21949/1529724",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-20-openalex-observers#W7233631745",
+      "report_id": "doi:10.21949/1529724",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.113/sources.csv#campbell_jay25_ofos",
+      "report_id": "doi:10.21949/1529724",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-primary#ofos-technical-report",
+      "report_id": "doi:10.21949/1529724",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-firecrawl-ofos#report-dot",
+      "report_id": "doi:10.21949/1529724",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.113/sources.csv#garner96_mask40k",
+      "report_id": "dot:21429",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21429",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-primary#garner-technical-report",
+      "report_id": "dot:21429",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21429",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-garner-scan#garner-scan",
+      "report_id": "dot:21429",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21429",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-firecrawl-garner#garner-dot",
+      "report_id": "dot:21429",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21429",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-firecrawl-garner#garner-faa",
+      "report_id": "dot:21429",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21429",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-primary#smartlab-archive",
+      "report_id": "dot:86852",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86852",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-firecrawl-ofos#dataset-dot",
+      "report_id": "dot:86852",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86852",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-firecrawl-ofos#dataset-trid",
+      "report_id": "dot:86852",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86852",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-firecrawl-ofos#dmp-hub",
+      "report_id": "doi:10.48321/d1caaba6e8",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86853",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "2026-11-21-faa-oxygen-chamber-firecrawl-ofos#dmp-dot",
+      "report_id": "doi:10.48321/d1caaba6e8",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86853",
+      "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
     }
   ],
   "studies": [
@@ -14095,6 +14191,18 @@
       "label": "Conkin et al. 2003 selected NASA seven-test reanalysis",
       "setting": "Experimental hypobaric simulated EVA with pulmonary artery Doppler monitoring",
       "period": "Reanalysis published in 2003 of historical NASA database tests. Overlap with named PRP and other tests is recorded."
+    },
+    {
+      "study_id": "faa-cami-ofos-2025-chamber",
+      "label": "FAA CAMI Optimized Flow Oxygen Systems chamber tests",
+      "period": "FY23–FY25 as listed on the technical report",
+      "setting": "FAA CAMI blue hypobaric research chamber"
+    },
+    {
+      "study_id": "faa-cami-garner-1996-chamber",
+      "label": "FAA CAMI Garner 40,000-ft oxygen mask tests",
+      "period": "Reported February 1996",
+      "setting": "FAA CAMI hypobaric chamber mask performance experiment"
     }
   ],
   "study_reports": [
@@ -16149,6 +16257,30 @@
       "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
       "role": "later_nasa_group_catalog",
       "locator": "Table F1"
+    },
+    {
+      "study_id": "faa-cami-ofos-2025-chamber",
+      "report_id": "doi:10.21949/1529724",
+      "role": "primary_outcome",
+      "locator": "Methods p. 6, Results p. 20 and DCS surveillance p. 32 (PDF pp. 13, 27 and 39)"
+    },
+    {
+      "study_id": "faa-cami-ofos-2025-chamber",
+      "report_id": "doi:10.48321/d1caaba6e8",
+      "role": "data_management_plan",
+      "locator": "ROSA P dot:86853 and associated dataset link"
+    },
+    {
+      "study_id": "faa-cami-ofos-2025-chamber",
+      "report_id": "dot:86852",
+      "role": "supporting_instrument_dataset",
+      "locator": "ROSA P dot:86852 and DS5 download"
+    },
+    {
+      "study_id": "faa-cami-garner-1996-chamber",
+      "report_id": "dot:21429",
+      "role": "primary_outcome",
+      "locator": "Participants and Methods, Discussion p. 10 (PDF p. 11)"
     }
   ],
   "relations": [
@@ -19693,6 +19825,27 @@
       "relationship": "unresolved_overlap",
       "evidence": "The indexed original covers a compatible final pressure and duration but its abstract does not identify the F5 group 291 risk set.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19740007667/downloads/19740007667.pdf"
+    },
+    {
+      "left_report": "doi:10.21949/1529724",
+      "right_report": "dot:86852",
+      "relationship": "supporting_dataset_same_campaign",
+      "evidence": "DOT catalogs link the instrument data to the same investigators, grant and chamber campaign. The archive supplies no independently adjudicated DCS cohort.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86852"
+    },
+    {
+      "left_report": "doi:10.21949/1529724",
+      "right_report": "doi:10.48321/d1caaba6e8",
+      "relationship": "data_management_plan_for_same_campaign",
+      "evidence": "The DOI appears on the technical report documentation page. The plan and outcome report are distinct documents.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86853"
+    },
+    {
+      "left_report": "doi:10.21949/1529724",
+      "right_report": "dot:21429",
+      "relationship": "cites_earlier_distinct_chamber_experiment",
+      "evidence": "Appendix A3 cites Garner's earlier oxygen mask study as an example. The 1996 and 2025 cohorts have distinct enrolled groups, protocols and reporting windows.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf#page=49"
     }
   ],
   "report_titles": {

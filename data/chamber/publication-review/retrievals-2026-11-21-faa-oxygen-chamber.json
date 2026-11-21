@@ -1,0 +1,246 @@
+[
+  {
+    "id": "2026-11-21-faa-oxygen-chamber-firecrawl-ofos",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "status": "retrieved",
+    "reported_total": 5,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Low Flow / Optimized Flow Oxygen Systems for Passengers\" Campbell Jay",
+      "search_id": "01a1fd5d-335d-7408-8f48-abe035f8f110",
+      "limit": 5
+    },
+    "note": "All five results are independently cross-referenced to the report, data or plan.",
+    "records": [
+      {
+        "id": "dataset-dot",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures [supporting dataset]",
+        "url": "https://rosap.ntl.bts.gov/view/dot/86852",
+        "year": 2025
+      },
+      {
+        "id": "report-dot",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures",
+        "url": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf",
+        "year": 2025
+      },
+      {
+        "id": "dataset-trid",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures [supporting dataset]",
+        "url": "https://trid.trb.org/View/2606754",
+        "year": 2025
+      },
+      {
+        "id": "dmp-hub",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures [Data Management Plan]",
+        "url": "https://dmphub.uc3prd.cdlib.net/dmps/10.48321/D1CAABA6E8",
+        "year": 2025,
+        "doi": "10.48321/d1caaba6e8"
+      },
+      {
+        "id": "dmp-dot",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures [Data Management Plan]",
+        "url": "https://rosap.ntl.bts.gov/view/dot/86853/dot_86853_DS1.pdf",
+        "year": 2025
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-oxygen-chamber-firecrawl-garner",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "status": "retrieved",
+    "reported_total": 5,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Performance of a Continuous Flow Passenger Oxygen Mask\" \"Garner\" FAA",
+      "search_id": "01a1fd5d-331f-73d7-aa92-3beb70ff4719",
+      "limit": 5,
+      "other_ranks": {
+        "2": "https://librarycatalog.ecu.edu/catalog/1094286",
+        "4": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM21-11.pdf",
+        "5": "https://www.semanticscholar.org/paper/PERFORMANCE-CRITERIA-CONSIDERATIONS-FOR-TRANSPORT-Garner/3e9e070ec1345afe3c6ea0df5f306af3194c3d86"
+      }
+    },
+    "note": "Indexed the two independently verified report catalog records. The remaining returned URLs are retained with their original ranks.",
+    "records": [
+      {
+        "id": "garner-dot",
+        "title": "Performance of a Continuous Flow Passenger Oxygen Mask at an Altitude of 40,000 Feet",
+        "url": "https://rosap.ntl.bts.gov/view/dot/21429",
+        "year": 1996
+      },
+      {
+        "id": "garner-faa",
+        "title": "Performance of a Continuous Flow Passenger Oxygen Mask at an Altitude of 40,000 Feet",
+        "url": "https://www.faa.gov/data_research/research/med_humanfacs/oamtechreports/1990s/1996/9604",
+        "year": 1996
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-oxygen-chamber-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "status": "access_limited",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA altitude chamber oxygen mask Campbell Jay OFOS Garner AM-96/4 DCS adverse events DOT dataset",
+      "http_status": 433,
+      "max_results": 10,
+      "search_depth": "advanced"
+    },
+    "note": "The account spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-faa-oxygen-chamber-primary",
+    "date": "2026-11-21",
+    "provider": "FAA and US DOT",
+    "operation": "inspect_original_reports_and_data",
+    "status": "observed_full_text",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "DOT/FAA/AM-25/52 and DOT/FAA/AM-96/4 plus OFOS supporting data"
+    },
+    "note": "Verified the published denominators and outcomes independently of the raw instrument files.",
+    "records": [
+      {
+        "id": "ofos-technical-report",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures",
+        "url": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf",
+        "year": 2025,
+        "doi": "10.21949/1529724",
+        "primary_source": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf#page=39",
+        "source_sha256": "681fa27b1edbbe5e3c92f1d07251872fbc35c96d2ed6c390f61cbea4c0261175",
+        "locator": "Methods p. 6, Results p. 20 and DCS surveillance p. 32 (PDF pp. 13, 27 and 39)",
+        "role_review": "Experimental chamber safety observation, outside operational incidence.",
+        "observations": [
+          {
+            "id": "completed-participant-profiles-dcs",
+            "group": "completed-participant-profiles",
+            "endpoint": "dcs_signs_or_symptoms_as_reported",
+            "study_id": "faa-cami-ofos-2025-chamber",
+            "cases": 0,
+            "denominator": 12,
+            "denominator_unit": "person_exposure",
+            "locator": "Methods p. 6, Results p. 20 and DCS surveillance p. 32 (PDF pp. 13, 27 and 39)",
+            "outcome_window": "In-flight and one-hour postflight staff observation. Reported no signs or symptoms through 24 hours under participant-initiated reporting after release.",
+            "note": "Twelve completed profiles, distinct from 16 attempts and 14 recruited people. Four aborted attempts and observer exposures are outside this denominator. Ascertainment is source-defined and delayed reporting is passive."
+          }
+        ],
+        "trial_scope": {
+          "recruited_people": 14,
+          "attempts": 16,
+          "completed": 12,
+          "aborted": 4,
+          "abort_reasons": {
+            "ear_block": 2,
+            "intestinal_gas_expansion": 1,
+            "mask_seal": 1
+          },
+          "unique_inside_observers": null,
+          "inside_observer_slots_per_attempt": 1
+        },
+        "source_reassessment": "The original discussion records DCS surveillance. The earlier title-only exclusion stays in the historical search stream."
+      },
+      {
+        "id": "garner-technical-report",
+        "title": "Performance of a Continuous Flow Passenger Oxygen Mask at an Altitude of 40,000 Feet",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf",
+        "year": 1996,
+        "primary_source": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf#page=11",
+        "source_sha256": "472fbfdda0dcd66a2ed3642dc8ba7580a7e04dd64a5651111c840eb2c20f91d0",
+        "locator": "Participants and Methods, Discussion p. 10 (PDF p. 11)",
+        "role_review": "Experimental chamber observation with a during-exposure window.",
+        "observations": [
+          {
+            "id": "mask-test-participants-dcs",
+            "group": "mask-test-participants",
+            "endpoint": "dcs_signs_or_symptoms_as_reported",
+            "study_id": "faa-cami-garner-1996-chamber",
+            "cases": 0,
+            "denominator": 4,
+            "denominator_unit": "person",
+            "locator": "Participants and Methods, Discussion p. 10 (PDF p. 11)",
+            "outcome_window": "During altitude exposure. A postexposure clinic evaluation and instructions for reporting delayed symptoms are described. A delayed outcome count is unavailable.",
+            "note": "The paper gives four subjects and explicitly states no symptoms during altitude exposure. The counting unit is people. No delayed event-free follow-up was imputed."
+          }
+        ],
+        "above_25000_ft_min_mean": 28.25,
+        "above_35000_ft_min_mean": 16.75
+      },
+      {
+        "id": "smartlab-archive",
+        "title": "Low Flow / Optimized Flow Oxygen Systems for Passengers – (OFOS) - A Physiologic Inquiry into Emergency Supplemental Oxygen Supply Needs and Procedures [supporting dataset]",
+        "url": "https://rosap.ntl.bts.gov/view/dot/86852",
+        "year": 2025,
+        "archive": "https://rosap.ntl.bts.gov/view/dot/86852/dot_86852_DS5.zip",
+        "pressure_audit": {
+          "source_id": "campbell_jay25_ofos",
+          "stratum": "completed-participant-profiles",
+          "archive_url": "https://rosap.ntl.bts.gov/view/dot/86852/dot_86852_DS5.zip",
+          "archive_sha256": "48c485c65fc25731e8820875433df5f7edab643c096ce27b216a110b716cf12c",
+          "files_checked": 12,
+          "sample_count": 6422333,
+          "invalid_samples": 0,
+          "nonincreasing_clock_intervals": 0,
+          "recorded_gaps_gt_0_1s": 0,
+          "files_with_altitude_at_least_44000_ft": 12,
+          "shortest_logged_seconds": 18937.68,
+          "longest_logged_seconds": 22751.0,
+          "lowest_absolute_pressure_psi": 2.1002,
+          "lowest_trace_peak_altitude_ft": 44763.4757,
+          "highest_trace_peak_altitude_ft": 44977.3895,
+          "locator": "ROSA P dot:86852, SmartLab Data Files, DS5 ZIP and nested acquisition files",
+          "note": "Aggregate audit of absolute pressure, altitude and elapsed session time. The logger span can include ground preparation. Trace-level clinical adjudication, synchronization to mask oxygen delivery and follow-up are unavailable."
+        },
+        "rights": "CC0",
+        "outcome_provenance": "The publication supplies the clinical outcome. The checked consolidated workbook only expands DCS in a glossary."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-oxygen-chamber-garner-scan",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "scrape_pdf",
+    "status": "observed_full_text",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "DOT/FAA/AM-96/4 Discussion p. 10",
+      "scrape_id": "01a1fd55-0186-76db-9f68-29e3fd29bb86"
+    },
+    "note": "The scan states that no test subject reported symptoms during altitude exposure. Local OCR independently located the paragraph.",
+    "records": [
+      {
+        "id": "garner-scan",
+        "title": "Performance of a Continuous Flow Passenger Oxygen Mask at an Altitude of 40,000 Feet",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf",
+        "year": 1996
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-oxygen-chamber-garner-llamaparse",
+    "date": "2026-11-21",
+    "provider": "LlamaParse",
+    "operation": "upload_public_pdf",
+    "status": "access_limited",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "DOT/FAA/AM-96/4",
+      "http_status": 402
+    },
+    "note": "The provider returned payment-required at upload. The original scan was obtained and verified independently.",
+    "records": []
+  }
+]
