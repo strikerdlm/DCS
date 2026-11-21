@@ -4529,6 +4529,72 @@ def test_naval_event_series_keeps_cluster_membership_and_native_symptom_endpoint
         """).fetchall() == [("pmid:38870953",)]
 
 
+def test_ucsd_referrals_keep_review_votes_and_link_existing_chamber_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT case_number,dcs_votes FROM publication_aviation_referral_review
+            WHERE source_id='kutz23_chamber_referral' AND dcs_votes>0 ORDER BY case_number
+        """).fetchall() == [(1, 4), (3, 1), (5, 3), (12, 2), (13, 1), (15, 4), (17, 1)]
+        assert db.execute("""
+            SELECT count(*),count(CASE WHEN dcs_votes=0 THEN 1 END),min(reviewers),max(reviewers)
+            FROM publication_aviation_referral_review WHERE source_id='kutz23_chamber_referral'
+        """).fetchone() == (18, 11, 4, 4)
+        assert db.execute("""
+            SELECT case_number,count(*) FROM publication_aviation_referral_stage
+            GROUP BY case_number ORDER BY case_number
+        """).fetchall() == [(1, 1), (3, 1), (5, 1), (12, 3), (13, 1), (15, 2), (17, 1)]
+        assert db.execute("""
+            SELECT stage_number,timing_as_reported,decompression_value,decompression_unit,exposures_reported
+            FROM publication_aviation_referral_stage WHERE case_number=12 ORDER BY stage_number
+        """).fetchall() == [(1, None, 33, "fsw", 30), (2, "+48 h", 33, "fsw", 10), (3, "+24 h", None, None, None)]
+        assert db.execute("""
+            SELECT s.stage_number,s.aircraft_altitude_column_ft,s.cabin_altitude_column_ft,
+                   s.decompression_missing_reason,c.pressure_change_atm_as_printed
+            FROM publication_aviation_referral_stage s
+            JOIN publication_aviation_referral_case c USING (source_id,case_number)
+            WHERE s.case_number=15 ORDER BY s.stage_number
+        """).fetchall() == [(1, 65000, 35000, "unknown", 0.94), (2, 25000, 13000, "not_applicable_as_printed", 0.94)]
+        assert db.execute("""
+            SELECT c.case_number,o.numerator,o.denominator,e.report_id,e.onset_min
+            FROM publication_aviation_referral_case c JOIN publication_observation o
+                ON (c.source_id,c.linked_stratum,c.linked_endpoint)=(o.source_id,o.stratum,o.endpoint)
+            JOIN shared_case_evidence e ON (o.source_id,o.stratum,o.endpoint)=(e.source_id,e.stratum,e.endpoint)
+        """).fetchall() == [(15, 1, None, "pmid:36757235", None)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='kutz23_chamber_referral' ORDER BY endpoint,numerator
+        """).fetchall() == [
+            ("dcs_favored_by_at_least_one_reviewer", 3, 6, "dcs_case"),
+            ("dcs_favored_by_at_least_one_reviewer", 7, 18, "dcs_case"),
+            ("dcs_favored_unanimously", 2, 18, "dcs_case"),
+            ("initial_clinician_dcs_diagnosis", 18, 21, "treated_referral"),
+            ("inpatient_admission", 6, 18, "dcs_case"),
+            ("reviewer_supported_chamber_linked_dcs_case", 1, None, None),
+            ("treated_aviation_decompression_referral", 21, None, None),
+        ]
+        assert db.execute("""
+            SELECT count(*),min(reviewer_dcs_total),max(reviewer_dcs_total),
+                   min(alternative_total),max(alternative_total)
+            FROM publication_aviation_referral_comparison
+        """).fetchone() == (7, 6, 6, 11, 11)
+        assert db.execute("""
+            SELECT reviewer_dcs_count,alternative_count,p_value_relation,p_value_as_reported
+            FROM publication_aviation_referral_comparison WHERE criterion_as_reported='Altitude pressure change ≥0.3 atm'
+        """).fetchone() == (3, 0, "<", 0.05)
+        assert db.execute("""
+            SELECT left_report FROM review.review_report_relation WHERE right_report='pmid:36757235'
+              AND relationship='possible_ucsd_navy_case_overlap' ORDER BY left_report
+        """).fetchall() == [("pmid:29673435",), ("pmid:31038172",)]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_search_observation
+            WHERE record_key LIKE '2026-11-21-ucsd-aviation-referral-primary#%' GROUP BY report_id
+        """).fetchall() == [("pmid:36757235", 7)]
+        assert db.execute("""
+            SELECT report_id FROM review.review_report
+            WHERE lower(display_title) LIKE 'aviation decompression sickness in aerospace and hyperbaric medicine%'
+        """).fetchall() == [("pmid:36757235",)]
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
