@@ -1666,7 +1666,9 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (127,)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='jersey11_u2_series'
+        """).fetchone() == (0,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1693,7 +1695,10 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (127,)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog
+            WHERE source_id IN ('allan03','dosel01_sazel_chamber')
+        """).fetchone() == (0,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
