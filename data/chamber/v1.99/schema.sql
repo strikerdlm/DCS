@@ -1,0 +1,20 @@
+CREATE TABLE publication_aircraft_case_milestone (
+    source_id TEXT NOT NULL,
+    stratum TEXT NOT NULL,
+    endpoint TEXT NOT NULL,
+    milestone TEXT NOT NULL,
+    elapsed REAL CHECK(elapsed >= 0),
+    elapsed_unit TEXT CHECK(elapsed_unit IN ('minutes','hours','days','weeks')),
+    elapsed_reference TEXT,
+    elapsed_qualifier TEXT CHECK(elapsed_qualifier IN ('reported','approximate','less_than')),
+    aircraft_altitude_ft INTEGER CHECK(aircraft_altitude_ft > 0),
+    altitude_qualifier TEXT CHECK(altitude_qualifier IN ('reported','above_threshold')),
+    locator TEXT NOT NULL,
+    note TEXT NOT NULL,
+    PRIMARY KEY(source_id,stratum,endpoint,milestone),
+    FOREIGN KEY(source_id,stratum,endpoint) REFERENCES publication_observation,
+    CHECK((elapsed IS NULL) = (elapsed_unit IS NULL)),
+    CHECK((elapsed IS NULL) = (elapsed_reference IS NULL)),
+    CHECK((elapsed IS NULL) = (elapsed_qualifier IS NULL)),
+    CHECK((aircraft_altitude_ft IS NULL) = (altitude_qualifier IS NULL))
+) STRICT;

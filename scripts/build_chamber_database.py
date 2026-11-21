@@ -163,6 +163,7 @@ CHAMBER_USAFSAM_APPENDIX_A = ROOT / "data" / "chamber" / "v1.95"
 CHAMBER_DUKE_PREBREATHE = ROOT / "data" / "chamber" / "v1.96"
 CHAMBER_NASA_SEVERITY_AND_LUNAR = ROOT / "data" / "chamber" / "v1.97"
 CHAMBER_USAF_TREATMENT_AND_PREBREATHE = ROOT / "data" / "chamber" / "v1.98"
+CHAMBER_JAPANESE_ALTITUDE_CASES = ROOT / "data" / "chamber" / "v1.99"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1452,6 +1453,15 @@ def build(
                         "publication_tt8_interim_tally": "tt8_interim.csv",
                         "publication_webb94_interim_group": "webb94_interim_groups.csv",
                         "publication_webb94_case_link": "webb94_case_links.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_JAPANESE_ALTITUDE_CASES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                     },
                 )
             if rojas_supplement:
