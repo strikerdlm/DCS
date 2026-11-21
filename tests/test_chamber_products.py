@@ -4365,3 +4365,36 @@ def test_chinese_flight_counts_use_incident_strata_and_one_dcs_report(release):
             SELECT count(*) FROM historical_case_catalog
             WHERE source_id IN ('zheng05_chinese_flight_decompression','liu08_chinese_flight_nursing')
         """).fetchone() == (0,)
+
+
+def test_chamber_severity_reuses_the_kumar_trial_and_preserves_prague_barotrauma(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.endpoint,o.numerator,o.denominator,o.denominator_unit,
+                   o.analysis_role,r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (l.report_id,o.endpoint,o.stratum)=(r.report_id,r.endpoint,r.reported_group)
+            WHERE o.source_id IN ('kumar92_prior_exercise','oniscenko23_prague_gi_barotrauma')
+              AND r.run_id='2026-11-21-chamber-symptom-grades-primary'
+            ORDER BY o.endpoint
+        """).fetchall() == [
+            ("gastrointestinal_barotrauma_source", 1, None, None, "case_conditional", 1, None),
+            ("type_i_grade_1_awareness_without_pain", 8, 15, "dcs_case", "case_conditional", 8, 15),
+            ("type_i_grade_2_delayed_onset_after_testing", 1, 3, "dcs_case", "case_conditional", 1, 3),
+            ("type_i_grade_2_mild_pain", 3, 15, "dcs_case", "case_conditional", 3, 15),
+            ("type_i_grade_2_or_3_pain", 7, 78, "person_exposure", "overlap_hold", 7, 78),
+            ("type_i_grade_3_task_interfering_pain", 4, 15, "dcs_case", "case_conditional", 4, 15),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='kumar92_prior_exercise'
+              AND stratum='both-arms' AND endpoint='dcs_pain_only_source'
+        """).fetchone() == (15, 78)
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE left_report='abstract:asma-1991-kumar-182'
+        """).fetchall() == [("abstract:asma-1991-kumar-182", "pmid:1417653", "same_underlying_crossover_trial")]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='kumar91_prior_exercise_abstract'
+        """).fetchone() == (0,)
