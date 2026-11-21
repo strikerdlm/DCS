@@ -5060,3 +5060,59 @@ def test_historical_taiwan_surveillance_preserves_sessions_and_all_cause_reactio
                    json_type(metadata_json,'$.clinical_dcs_count')
             FROM review.review_record WHERE report_id='drks:00016337' AND run_id IS NOT NULL
         """).fetchone() == (6, "null")
+
+
+def test_lee_hay_outcome_checkpoints_link_to_existing_terminal_totals(release):
+    with connect_pair(release) as db:
+        checkpoints = db.execute("""
+            SELECT c.stratum,c.endpoint,c.elapsed_min,c.cumulative_events,
+                   p.denominator,c.analysis_role,c.locator,p.numerator
+            FROM publication_outcome_checkpoint c JOIN publication_observation p USING(source_id,stratum,endpoint)
+            WHERE c.source_id='lee_hay01'
+            ORDER BY c.stratum,c.endpoint,c.elapsed_min
+        """).fetchall()
+        assert len(checkpoints) == 147
+        assert db.execute("""
+            SELECT reported_group,endpoint,elapsed_min,cases,denominator,role_review,locator
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-21-lee-hay-outcome-timing-verified' AND denominator_unit='person_exposure'
+            ORDER BY reported_group,endpoint,elapsed_min
+        """).fetchall() == [row[:-1] for row in checkpoints]
+
+        curves = {}
+        for group, endpoint, minute, count, denominator, role, _, final in checkpoints:
+            assert denominator == 15 and role == "overlap_hold"
+            assert 0 <= count <= final <= denominator
+            curves.setdefault((group, endpoint), []).append((minute, count))
+        assert len(curves) == 21
+        for values in curves.values():
+            minutes, counts = zip(*values, strict=True)
+            assert minutes == tuple(range(30, 240, 30))
+            assert list(counts) == sorted(counts)
+        assert [
+            [count for _, count in values]
+            for (_, endpoint), values in curves.items() if endpoint == "dci_symptoms_recompression"
+        ] == [
+            [0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 1, 1], [0, 1, 1, 3, 8, 9, 9],
+            [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 4, 5, 6, 8], [0, 0, 1, 1, 2, 4, 6], [0, 1, 3, 6, 7, 7, 8],
+        ]
+        for group in {key[0] for key in curves}:
+            assert all(
+                high_grade <= any_grade for (_, high_grade), (_, any_grade) in zip(
+                    curves[group, "spencer_grade_iv_vge"], curves[group, "vge_any"], strict=True,
+                )
+            )
+        assert db.execute("""
+            SELECT endpoint,count(*),sum(numerator) FROM publication_observation
+            WHERE source_id='lee_hay01' AND denominator=15
+              AND endpoint IN ('dci_symptoms_recompression','spencer_grade_iv_vge','vge_any')
+            GROUP BY endpoint ORDER BY endpoint
+        """).fetchall() == [("dci_symptoms_recompression", 7, 33), ("spencer_grade_iv_vge", 7, 54), ("vge_any", 7, 78)]
+        assert db.execute("""
+            SELECT count(DISTINCT report_id),count(*) FROM review.review_record WHERE record_key IN (
+                'legacy:data/chamber/v1.14/sources.csv#lee_hay01',
+                'legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3',
+                'legacy:data/chamber/v1.15/search_hits.csv#historic_v15_harding:1',
+                '2026-11-21-lee-hay-outcome-timing-verified#lee_hay01'
+            )
+        """).fetchone() == (1, 4)
