@@ -1,0 +1,131 @@
+[
+  {
+    "id": "2026-11-21-italy-taiwan-training-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search_and_extraction",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "id": "01a1fed3-73bd-71a0-af2a-60cc30bce7fe",
+          "query": "\"1777\" ipobarica \"malattia da decompressione\" aeronautica addestramento Biselli Morgagni",
+          "returned": 0
+        },
+        {
+          "id": "01a1fed3-efca-716e-bc91-498b634ce7b5",
+          "query": "\"二十七年中國空軍低壓艙航空生理訓練艙航反應之研究\"",
+          "returned": 1
+        }
+      ],
+      "publisher_scrape_id": "01a1fed8-9529-71ab-bce8-ffe27a7544f3"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Read the original Huang publication. The National Central Library entry for the older Taiwan survey is already catalogued and did not provide the full text.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-italy-taiwan-training-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"hypobaric chamber\" \"no decompression sickness\" \"25,000\" training altitude hypoxia subjects adverse events",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-italy-taiwan-training-primary",
+    "date": "2026-11-21",
+    "provider": "Spanish Ministry of Defence and BMJ Military Health",
+    "operation": "verify_original_aggregate_and_training_profiles",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "italian_existing_observation": "2026-11-20-primary-followup#kindelan25-biselli / itaf-dcs-rounded"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified figures from the original Ministry chapter and BMJ publisher text. The source review rate is reused and the training counts are scope only.",
+    "records": [
+      {
+        "id": "biselli16_itaf_training",
+        "title": "Current Activities in Aerophysiological Training and Future Perspectives. Italian Air Force",
+        "authors": [
+          "Roberto Biselli"
+        ],
+        "year": 2016,
+        "meeting_year": 2015,
+        "url": "https://publicaciones.defensa.gob.es/media/downloadable/files/links/k/i/kindelan_25_linea.pdf",
+        "locator": "Printed pp. 75 and 78, adverse-effects paragraph and reference 4",
+        "reported_dcs_percent": "0.1",
+        "trainee_records": 1777,
+        "exact_dcs_cases": null,
+        "ascertainment_window": null,
+        "possible_overlap_report": "pmid:20824995",
+        "direct_pdf_download": "request timeout",
+        "extraction_method": "Published source text as indexed",
+        "evidence_note": "The chapter reports 0.1% DCS in a review of 1,777 military flight crew and paratrooper trainees. An exact event count, role-specific denominators, ascertainment period and repeat-person linkage are unavailable. The chapter cites the 2010 military medicine report about the earlier Italian Air Force training cohort. The 1,777 trainees may include records from the 2003–2009 analysis of 1,241 evaluable trainees. Dates for the 1,777 and participant-level linkage are unavailable, so the rounded rate remains on overlap hold."
+      },
+      {
+        "id": "huang26_taiwan_training",
+        "title": "Oxidative stress response to simulated altitude training: a longitudinal study of the biomarker variation and the contributing factors",
+        "year": 2026,
+        "doi": "10.1136/military-2025-003189",
+        "authors": [
+          "Yen-Chiao Huang",
+          "Shu-Yu Wu",
+          "Chia-Tung Liao",
+          "Wun-Wei Huang",
+          "Hsin Chu",
+          "Min-Yu Tu",
+          "Yi-Chang Lin",
+          "Chung-Yu Lai"
+        ],
+        "url": "https://militaryhealth.bmj.com/content/early/2026/03/25/military-2025-003189",
+        "publication_date": "2026-03-25",
+        "locator": "Methods and Results, printed p. 2, and Table 1, p. 4",
+        "scrape_id": "01a1fed8-9529-71ab-bce8-ffe27a7544f3",
+        "cohort_scope": {
+          "participants": 47,
+          "chamber_sessions": 5,
+          "trainees": 37,
+          "inside_observers": 10,
+          "type_i": {
+            "sessions": 3,
+            "participants": 31,
+            "peak_ft": 35000,
+            "session_minutes_approx": 80
+          },
+          "type_v": {
+            "sessions": 2,
+            "participants": 16,
+            "peak_ft": 25000,
+            "session_minutes_approx": 70
+          },
+          "prebreathe_minutes": 30,
+          "planned_prebreathe_oxygen_percent": 100,
+          "urine_sampling_minutes_post_training": [
+            30,
+            120
+          ],
+          "clinical_dcs_count": null,
+          "clinical_followup": null,
+          "vge_measurements": false
+        },
+        "direct_pdf_download": "HTTP 403",
+        "extraction_method": "Publisher HTML verified with indexed PDF text",
+        "evidence_note": "A urinary biomarker study of 47 participants, including 37 trainees and 10 inside observers, in five chamber sessions. No clinical DCS ascertainment, measured VGE or individual data are reported publicly. The study reports biomarker sampling 30 and 120 minutes after training.",
+        "pmid": "41881514",
+        "openalex_id": "W7140306506"
+      }
+    ]
+  }
+]
