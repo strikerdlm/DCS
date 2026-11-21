@@ -1022,6 +1022,64 @@ def test_postexercise_trial_keeps_interim_rest_event_and_final_rest_gap(release)
         """).fetchone() == (33, 2810, "overlap_hold")
 
 
+def test_ground_oxygen_flow_preserves_treatment_and_followup_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT child.source_id, child.group_id FROM publication_ground_oxygen_flow child
+            JOIN publication_ground_oxygen_flow parent ON parent.source_id=child.source_id
+              AND parent.group_id=child.parent_group_id
+            WHERE child.population_count > parent.population_count
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT child.group_id,child.population_count,parent.population_count,child.counting_unit
+            FROM publication_ground_oxygen_flow child JOIN publication_ground_oxygen_flow parent
+              ON (child.source_id,child.parent_group_id)=(parent.source_id,parent.group_id)
+            WHERE child.source_id='krause00_full' AND child.group_id IN (
+                'recurrent-or-delayed-symptoms', 'hbo-after-recurrent-or-delayed-symptoms',
+                'resolved-without-further-treatment-after-symptoms', 'source-defined-glo-success',
+                'incomplete-vge-record', 'complete-vge-record', 'symptoms-resolved-during-descent')
+            ORDER BY child.group_id
+        """).fetchall() == [
+            ("complete-vge-record", 260, 613, "dcs_case"),
+            ("hbo-after-recurrent-or-delayed-symptoms", 9, 10, "dcs_case"),
+            ("incomplete-vge-record", 353, 613, "dcs_case"),
+            ("recurrent-or-delayed-symptoms", 10, 728, "dcs_case"),
+            ("resolved-without-further-treatment-after-symptoms", 1, 10, "dcs_case"),
+            ("source-defined-glo-success", 739, 749, "dcs_case"),
+            ("symptoms-resolved-during-descent", 852, 907, "symptom_report"),
+        ]
+        assert db.execute("""
+            SELECT child.group_id,child.population_count,parent.population_count,child.count_basis
+            FROM publication_ground_oxygen_flow child JOIN publication_ground_oxygen_flow parent
+              ON (child.source_id,child.parent_group_id)=(parent.source_id,parent.group_id)
+            WHERE child.source_id='rudge92_chamber_onset' AND child.group_id IN (
+                'abstract-initial-glo', 'table-initial-glo', 'table-glo-hbo-for-symptoms',
+                'table-glo-hbo-any', 'ground-onset-hbo-while-asymptomatic', 'ground-onset-recurrence')
+            ORDER BY child.group_id
+        """).fetchall() == [
+            ("abstract-initial-glo", 175, 221, "source_reported"),
+            ("ground-onset-hbo-while-asymptomatic", 4, 45, "source_reported"),
+            ("ground-onset-recurrence", 5, 41, "source_reported"),
+            ("table-glo-hbo-any", 53, 176, "reconstructed"),
+            ("table-glo-hbo-for-symptoms", 49, 176, "reconstructed"),
+            ("table-initial-glo", 176, 221, "reconstructed"),
+        ]
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT report_id), min(report_id)
+            FROM review.review_record WHERE record_key IN (
+                'legacy:data/chamber/v1.5/sources.csv#krause00',
+                'legacy:data/chamber/v1.5/references.csv#mahon2014:124',
+                'legacy:data/chamber/v1.85/sources.csv#krause00_full',
+                '2026-11-20-formal-chamber-pubmed#10685583',
+                '2026-11-20-formal-chamber-europe-pmc#MED:10685583',
+                '2026-11-20-formal-chamber-openalex#W93154131',
+                '2026-11-20-ground-oxygen-source-verification#krause-2000-original')
+        """).fetchone() == (7, 1, "openalex:W93154131")
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='krause00_full'
+        """).fetchone() == (0,)
+
+
 def test_repeat_exposure_report_preserves_joint_counts_and_changed_timing(release):
     with connect_pair(release) as db:
         assert db.execute("""
