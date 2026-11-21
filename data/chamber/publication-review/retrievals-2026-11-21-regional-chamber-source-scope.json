@@ -1,0 +1,216 @@
+[
+  {
+    "id": "2026-11-21-regional-chamber-source-scope-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Discovered the 2005 Russian training abstract and identified the NASA chapter. Korean exact searches yielded a citation and a restricted-access edition.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "russian_query": "Иллюзорная декомпрессионная болезнь тренировки барокамера лётный состав частота случаев высотная декомпрессионная болезнь барокамерный подъем испытания",
+      "russian_request_id": "86329c91-bc41-4ac2-87bc-bca42c6db23d",
+      "korean_query": "저압실 비행 훈련 시 나타나는 변압증에 대한 통계학적 고찰 엄융의 유승흠 최홍열 구본술 1974",
+      "korean_request_id": "6fe3b8bc-21b3-4b1a-86b8-946c877d91a3",
+      "nasa_extract_request_id": "b9aee84d-956a-461c-aeac-c5ce3eba19ca"
+    },
+    "records": [
+      {
+        "id": "filipenkov",
+        "title": "Decompression sickness risk in low-pressure tolerance training and trials of high-altitude equipment",
+        "url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA"
+      },
+      {
+        "id": "eom",
+        "title": "저압실 비행 훈련 시 나타나는 변압증에 대한 통계학적 고찰",
+        "url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3#page=2"
+      },
+      {
+        "id": "malkin",
+        "title": "Barometric Pressure and Gas Composition",
+        "url": "https://ntrs.nasa.gov/citations/19760019722"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-regional-chamber-source-scope-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Recovered the conference abstract, the Korean PDF and the academy memoir. The KISS catalogue lists the related 1975 paper without public results. The large NASA PDF timed out during scraping and was retrieved directly.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "korean_search_id": "01a20038-da13-75ba-82ee-1d30402e375a",
+      "filipenkov_scrape_id": "01a20039-06a2-74a6-8b21-2f8381d59462",
+      "kim_scrape_id": "01a2003a-39cd-7351-98f1-fe5ad1c123e9",
+      "kiss_scrape_id": "01a2003a-ff70-7026-bef1-44002b108660",
+      "academy_scrape_id": "01a20043-de7f-73c3-a601-70e85f57898b",
+      "nasa_scrape_error": "SCRAPE_TIMEOUT"
+    },
+    "records": [
+      {
+        "id": "kim",
+        "title": "The Relationship Between Time Useful Consciousness and Various Physiological Factors in ROKAF Pilots",
+        "url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3"
+      },
+      {
+        "id": "filipenkov",
+        "title": "Decompression sickness risk in low-pressure tolerance training and trials of high-altitude equipment",
+        "url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA"
+      },
+      {
+        "id": "kiss",
+        "title": "저압실 비행훈련시 나타나는 변압증에 관한 통계학적 고찰",
+        "url": "https://kiss.kstudy.com/Detail/Ar?key=4019953"
+      },
+      {
+        "id": "obituary",
+        "title": "Levensbericht J. Jongbloed",
+        "url": "https://dwc.knaw.nl/DL/levensberichten/PE00001130.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-regional-chamber-source-scope-verified",
+    "date": "2026-11-21",
+    "provider": "GMIK, KJAsEM, NASA NTRS and the Royal Netherlands Academy",
+    "operation": "verify_public_text_or_citation",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified two reported person counts. The material supplies no paired DCS numerator for either training sample. One older secondary account identifies a selected chamber self-experiment with joint pain.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "filipenkov",
+        "title": "Decompression sickness risk in low-pressure tolerance training and trials of high-altitude equipment",
+        "url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA",
+        "year": 2005,
+        "identifier": "GMIK:2005:FILIPENKOV-EVDOKIMOV-SHANGIN",
+        "sha256": "6ac3e3e06947bc696abd3801db018cdf3a5f9e914870201e5fdb3feba48eff84",
+        "locator": "Final sentence of the author abstract",
+        "full_text_available": false,
+        "access": "Public author abstract",
+        "training_scope": {
+          "reported_people": 100,
+          "exposures": null,
+          "target_altitude_m": 10000,
+          "simulated_duration_min": 15,
+          "prebreathe_oxygen_min": 60,
+          "dcs_cases": null,
+          "follow_up": null
+        }
+      },
+      {
+        "id": "kim",
+        "title": "The Relationship Between Time Useful Consciousness and Various Physiological Factors in ROKAF Pilots",
+        "url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3",
+        "year": 2001,
+        "identifier": "KJAsEM:2001:11:3:160",
+        "sha256": "2677ded9989553a2e343452754f5b40e0ab0754c6ab4addb8ce01fad2a683ef3",
+        "locator": "Abstract p. 160, Methods p. 161, Results p. 162 and reference 6 p. 164",
+        "full_text_available": true,
+        "training_scope": {
+          "reported_people": 929,
+          "period_start": "1998-05-15",
+          "period_end": "1999-09-17",
+          "hypoxia_demo_altitude_ft": 25000,
+          "exposures": null,
+          "reported_endpoint": "time of useful consciousness",
+          "dcs_cases": null
+        }
+      },
+      {
+        "id": "eom",
+        "title": "저압실 비행 훈련 시 나타나는 변압증에 대한 통계학적 고찰",
+        "url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3#page=2",
+        "year": 1974,
+        "reference_source": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3",
+        "locator": "Kim et al. 2001, p. 161 and reference 6, p. 164",
+        "full_text_available": false,
+        "study_period_as_cited": {
+          "first_year": 1969,
+          "last_year": 1974
+        },
+        "note": "The later paper supplies only the date range. The original counts, subtype definitions, roles and follow-up remain unverified. The 1975 KISS edition is already linked as a possible overlap."
+      },
+      {
+        "id": "malkin",
+        "title": "Barometric Pressure and Gas Composition",
+        "url": "https://ntrs.nasa.gov/citations/19760019722",
+        "year": 1975,
+        "identifier": "NTRS:19760019722; NASA SP-374",
+        "parent_volume_pdf": "https://ntrs.nasa.gov/api/citations/19760019721/downloads/19760019721_Update.pdf",
+        "locator": "Printed p. 12 and refs. 26, 73, 97 and 99, pp. 56, 58–59 (parent PDF pp. 20, 64, 66–67)",
+        "sha256": "0c379fd049c904e2edb727396b836c1ff137bbb6f3f9271f799028b8d7fb2aea",
+        "full_text_available": true,
+        "observations": [
+          {
+            "id": "jongbloed-selected-self-exposure",
+            "group": "jongbloed-selected-self-exposure",
+            "endpoint": "altitude_joint_pain_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Clinical Aspects of ADS, p. 12 (parent PDF p. 20)",
+            "note": "Secondary attribution to an original 1929 self-experiment. Ankle and knee symptoms are described across a reported 10,000–12,000 m range. A total run count, event latency and adjudication are unavailable."
+          }
+        ],
+        "reference_leads": [
+          {
+            "reference": 26,
+            "authors": "I. M. Bel’gov, M. D. Vyadro, V. D. Gorbov, A. S. Panfilov",
+            "title": "Problem of decompression disorders in a flight crew",
+            "journal": "Voyenno-meditsinskiy zhurnal",
+            "year": 1954,
+            "issue": 11,
+            "pages": "38–42"
+          },
+          {
+            "reference": 73,
+            "authors": "A. M. Genin et al.",
+            "title": "Altitude decompression disorders in man in a rarefied atmosphere with various methods of desaturation of the organism",
+            "year": 1970,
+            "pages": "65–67",
+            "venue": "Fifth Tsiolkovsky Readings"
+          },
+          {
+            "reference": 97,
+            "authors": "P. N. Ivanov, A. G. Kuznetsov, V. B. Malkin, E. O. Popova",
+            "title": "Decompression phenomena in humans at extremely low barometric pressure",
+            "journal": "Biofizika",
+            "year": 1960,
+            "volume": 5,
+            "issue": 6,
+            "pages": "704–709"
+          }
+        ]
+      },
+      {
+        "id": "obituary",
+        "title": "Levensbericht J. Jongbloed",
+        "url": "https://dwc.knaw.nl/DL/levensberichten/PE00001130.pdf",
+        "year": 1974,
+        "identifier": "KNAW:PE00001130",
+        "locator": "PDF p. 5, discussion of the 1929 thesis",
+        "sha256": "4381799db2101c17605378d4eb1ac9363702d73e592dd204dd8d7b1f671b6cfb",
+        "full_text_available": true,
+        "note": "Corroborates title, year and below-ambient-pressure chamber setting. Supplies no additional case details or counts."
+      },
+      {
+        "id": "thesis",
+        "title": "Bijdrage tot de physiologie der vliegers op groote hoogten",
+        "url": "https://www.tmgn.nl/uploaded_files/BMN2_totaal.pdf",
+        "year": 1929,
+        "identifier": "TMGN library catalogue G. Dis. 2696",
+        "locator": "TMGN thesis catalogue under Jongbloed, also Malkin reference 99 and Verbiest’s KNAW memoir",
+        "full_text_available": false,
+        "note": "Original thesis text remains unavailable. Distinct bibliographic identity for the study cited by Malkin."
+      }
+    ]
+  }
+]

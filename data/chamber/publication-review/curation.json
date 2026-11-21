@@ -1,6 +1,102 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-regional-chamber-source-scope-tavily#filipenkov",
+      "report_id": "gmik:2005:filipenkov-ten-km",
+      "evidence_url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA",
+      "basis": "Same three authors, title and 2005 meeting in the official GMIK catalogue."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-tavily#eom",
+      "report_id": "citation:korea-eom-1974-dysbarism",
+      "evidence_url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3#page=2",
+      "basis": "Kim 2001 supplies the original 1974 citation in reference 6 and its dates in the introduction."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-tavily#malkin",
+      "report_id": "ntrs:19760019722",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19760019721/downloads/19760019721_Update.pdf#page=20",
+      "basis": "NASA lists the chapter and parent volume with the same title, author and chapter number."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-firecrawl#kim",
+      "report_id": "article:kjasem-2001-kim-tuc",
+      "evidence_url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3",
+      "basis": "Original PDF confirms the exact English title, four authors, September 2001 issue and pages 160–164."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-firecrawl#filipenkov",
+      "report_id": "gmik:2005:filipenkov-ten-km",
+      "evidence_url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA",
+      "basis": "Same three authors, title and 2005 meeting in the official GMIK catalogue."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-firecrawl#kiss",
+      "report_id": "kiss:4019953",
+      "evidence_url": "https://kiss.kstudy.com/Detail/Ar?key=4019953",
+      "basis": "The KISS ID and UCI refer to the same 1975 catalogue record."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-firecrawl#obituary",
+      "report_id": "knaw:pe00001130",
+      "evidence_url": "https://dwc.knaw.nl/DL/levensberichten/PE00001130.pdf#page=5",
+      "basis": "Exact KNAW memoir access ID, author and title."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-verified#filipenkov",
+      "report_id": "gmik:2005:filipenkov-ten-km",
+      "evidence_url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA",
+      "basis": "Same three authors, title and 2005 meeting in the official GMIK catalogue."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-verified#kim",
+      "report_id": "article:kjasem-2001-kim-tuc",
+      "evidence_url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3",
+      "basis": "Original PDF confirms the exact English title, four authors, September 2001 issue and pages 160–164."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-verified#eom",
+      "report_id": "citation:korea-eom-1974-dysbarism",
+      "evidence_url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3#page=2",
+      "basis": "Kim 2001 supplies the original 1974 citation in reference 6 and its dates in the introduction."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-verified#malkin",
+      "report_id": "ntrs:19760019722",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19760019721/downloads/19760019721_Update.pdf#page=20",
+      "basis": "NASA lists the chapter and parent volume with the same title, author and chapter number."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-verified#obituary",
+      "report_id": "knaw:pe00001130",
+      "evidence_url": "https://dwc.knaw.nl/DL/levensberichten/PE00001130.pdf#page=5",
+      "basis": "Exact KNAW memoir access ID, author and title."
+    },
+    {
+      "record_key": "2026-11-21-regional-chamber-source-scope-verified#thesis",
+      "report_id": "thesis:utrecht-jongbloed-1929",
+      "evidence_url": "https://www.tmgn.nl/uploaded_files/BMN2_totaal.pdf",
+      "basis": "Exact thesis title in the institutional thesis catalogue, the NTRS chapter bibliography and the KNAW record."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.166/sources.csv#filipenkov05_ten_km_training",
+      "report_id": "gmik:2005:filipenkov-ten-km",
+      "evidence_url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA",
+      "basis": "Same three authors, title and 2005 meeting in the official GMIK catalogue."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.166/sources.csv#kim01_rokaf_tuc",
+      "report_id": "article:kjasem-2001-kim-tuc",
+      "evidence_url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3",
+      "basis": "Original PDF confirms the exact English title, four authors, September 2001 issue and pages 160–164."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.166/sources.csv#malkin75_nasa_dysbarism_chapter",
+      "report_id": "ntrs:19760019722",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19760019721/downloads/19760019721_Update.pdf#page=20",
+      "basis": "NASA lists the chapter and parent volume with the same title, author and chapter number."
+    },
+    {
       "record_key": "2026-11-21-nasa-crossover-scopes-tavily#archive",
       "report_id": "record:legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#conkin03:all_research:dcs",
       "basis": "Case report series, authors and NTRS document number 20030063917 match.",
@@ -16947,6 +17043,12 @@
   ],
   "studies": [
     {
+      "study_id": "filipenkov-ten-km-training-100",
+      "label": "Filipenkov et al. 10-km chamber training, 100 participants",
+      "period": "Reported in 2005. Training dates unreported.",
+      "setting": "Hypobaric training. Reported people only. Repeated attendance and DCS outcomes unknown."
+    },
+    {
       "study_id": "nasa-jsc-backup-pressure-51",
       "label": "NASA JSC 6.5-psia backup-pressure experiment, 51 subject-runs",
       "period": "Exposure dates unreported (March 1990 report)",
@@ -18628,6 +18730,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "filipenkov-ten-km-training-100",
+      "report_id": "gmik:2005:filipenkov-ten-km",
+      "role": "protocol_and_participant_scope",
+      "locator": "Final sentence of the author abstract"
+    },
     {
       "study_id": "nasa-jsc-cmb-time-81",
       "report_id": "pmid:1417653",
@@ -21462,6 +21570,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "article:kjasem-2001-kim-tuc",
+      "right_report": "citation:korea-eom-1974-dysbarism",
+      "relationship": "cites_prior_surveillance_window",
+      "evidence": "The introduction dates the historical dysbarism survey to 1969–1974. The 929 pilots in the 2001 study were recruited in 1998–1999 for a different endpoint.",
+      "evidence_url": "https://www.kjasem.org/journal/download_pdf.php?spage=160&volume=11&number=3#page=2"
+    },
+    {
+      "left_report": "gmik:2005:filipenkov-ten-km",
+      "right_report": "gmik:2007:filipenkov",
+      "relationship": "possible_overlap",
+      "evidence": "Shared lead author, chamber setting and research program. The 100-person short training sample cannot be mapped to the 123-volunteer 2007 report.",
+      "evidence_url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA"
+    },
+    {
+      "left_report": "gmik:2005:filipenkov-ten-km",
+      "right_report": "biofizpribor:2015:filipenkov",
+      "relationship": "possible_overlap",
+      "evidence": "The meeting abstract identifies 100 people with no dates or participant identifiers. The later article reports a 123-person research pool. Membership is unresolved.",
+      "evidence_url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA"
+    },
+    {
+      "left_report": "ntrs:19760019722",
+      "right_report": "thesis:utrecht-jongbloed-1929",
+      "relationship": "cites_historical_self_experiment",
+      "evidence": "Malkin attributes an ankle and knee symptom narrative during a chamber self-exposure to Jongbloed’s 1929 thesis. No exact run denominator is available.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19760019721/downloads/19760019721_Update.pdf#page=20"
+    },
+    {
+      "left_report": "knaw:pe00001130",
+      "right_report": "thesis:utrecht-jongbloed-1929",
+      "relationship": "corroborates_chamber_setting",
+      "evidence": "The Academy memoir provides the original thesis title, year and underpressure chamber setting, with no clinical counts.",
+      "evidence_url": "https://dwc.knaw.nl/DL/levensberichten/PE00001130.pdf#page=5"
+    },
     {
       "left_report": "pmid:1417653",
       "right_report": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
@@ -25965,6 +26108,11 @@
     }
   ],
   "report_titles": {
+    "gmik:2005:filipenkov-ten-km": "Decompression sickness risk in low-pressure tolerance training and trials of high-altitude equipment",
+    "article:kjasem-2001-kim-tuc": "The Relationship Between Time Useful Consciousness and Various Physiological Factors in ROKAF Pilots",
+    "ntrs:19760019722": "Barometric Pressure and Gas Composition",
+    "knaw:pe00001130": "Levensbericht J. Jongbloed",
+    "thesis:utrecht-jongbloed-1929": "Bijdrage tot de physiologie der vliegers op groote hoogten",
     "ntrs:19900012405:ms5": "Selection of a Space Suit Emergency Backup Pressure by Analysis of the Rate-of-Onset of Decompression Sickness",
     "report:faa-shaw-cami-training": "Training of Civilian Aircrews in Altitude Chambers",
     "article:fsf-2000-mohler": "Quick Response by Pilots Remains Key to Surviving Cabin Decompression",

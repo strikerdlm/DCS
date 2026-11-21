@@ -4841,6 +4841,39 @@ def test_nasa_crossover_links_preserve_archive_and_paired_analysis_scopes(releas
         """).fetchone() == ("paired_crossover_completers",)
 
 
+def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT s.source_id, s.participant_count, s.trial_count,
+                   json_extract(r.metadata_json, '$.training_scope.reported_people'),
+                   json_extract(r.metadata_json, '$.training_scope.dcs_cases')
+            FROM publication_chamber_trial_scope s JOIN model_report_link l USING(source_id)
+            JOIN review.review_record r ON r.report_id = l.report_id
+            WHERE r.run_id = '2026-11-21-regional-chamber-source-scope-verified'
+              AND s.source_id IN ('filipenkov05_ten_km_training','kim01_rokaf_tuc')
+            ORDER BY s.source_id
+        """).fetchall() == [
+            ("filipenkov05_ten_km_training", 100, None, 100, None),
+            ("kim01_rokaf_tuc", 929, None, 929, None),
+        ]
+        assert db.execute("""
+            SELECT source_id FROM publication_observation
+            WHERE source_id IN ('filipenkov05_ten_km_training','kim01_rokaf_tuc')
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT o.endpoint, o.analysis_role, o.numerator, o.denominator, r.cases, r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r ON (r.report_id, r.endpoint) = (l.report_id, o.endpoint)
+            WHERE o.source_id = 'malkin75_nasa_dysbarism_chapter'
+        """).fetchall() == [("altitude_joint_pain_as_reported", "case_conditional", 1, None, 1, None)]
+        assert db.execute("""
+            SELECT report_id, json_extract(metadata_json, '$.study_period_as_cited.first_year'),
+                   json_extract(metadata_json, '$.study_period_as_cited.last_year')
+            FROM review.review_record
+            WHERE record_key = '2026-11-21-regional-chamber-source-scope-verified#eom'
+        """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
