@@ -1,6 +1,96 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-chadov-cabin-digest#P910",
+      "report_id": "ntrs:19890006135:p910",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf#page=107"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-cabin-catalogue#cabin-chapter",
+      "report_id": "kaluga:1987:chadov:113",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890016185/downloads/19890016185.pdf"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-cabin-catalogue#chadov-2005",
+      "report_id": "thesis:2005:chadov",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://www.dissercat.com/content/eksperimentalno-teoreticheskoe-obosnovanie-dekompressionnoi-bezopasnosti-vnekorabelnoi-deyat"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-cabin-catalogue#chadov-2004",
+      "report_id": "nlr:2008-4:13:chadov",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://nrcerm.ru/files/book/bezopchs2009.pdf"
+    },
+    {
+      "record_key": "2026-11-20-russian-fire-ru#https://www.dissercat.com/content/eksperimentalno-teoreticheskoe-obosnovanie-dekompressionnoi-bezopasnosti-vnekorabelnoi-deyat",
+      "report_id": "thesis:2005:chadov",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://www.dissercat.com/content/eksperimentalno-teoreticheskoe-obosnovanie-dekompressionnoi-bezopasnosti-vnekorabelnoi-deyat"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-barer-parallel-editions#original-1982",
+      "report_id": "pmid:7062695",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/7062695/"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-barer-parallel-editions#original-1983",
+      "report_id": "pmid:6620957",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6620957/"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-barer-parallel-editions#N82-20839",
+      "report_id": "ntrs:n82-20839",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19820024046/downloads/19820024046.pdf"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-barer-parallel-editions#N83-36648",
+      "report_id": "ntrs:n83-36648",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19840008722/downloads/19840008722.pdf"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-hathi-barer#N82-20839",
+      "report_id": "ntrs:n82-20839",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=46"
+    },
+    {
+      "record_key": "2026-11-21-chadov-cabin-hathi-barer#N83-36648",
+      "report_id": "ntrs:n83-36648",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=548"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.105/sources.csv#chadov87_cabin_p910",
+      "report_id": "ntrs:19890006135:p910",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf#page=107"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.105/sources.csv#barer83_denitrogenation",
+      "report_id": "pmid:6620957",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/6620957/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.105/sources.csv#barer82_jprs_80323",
+      "report_id": "ntrs:n82-20839",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=46"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.105/sources.csv#barer83_jprs_84412",
+      "report_id": "ntrs:n83-36648",
+      "basis": "Publication title, identifiers and source locator verified.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=548"
+    },
+    {
       "record_key": "2026-11-21-katuntsev-1974-hathi#N74-33560",
       "report_id": "ntrs:n74-33560",
       "basis": "HathiTrust matches the authors, issue, original pages and JPRS article.",
@@ -13285,6 +13375,24 @@
       "label": "Whitten Berkeley experimental scotoma chamber series",
       "period": "Published in 1946. Individual exposure dates unavailable.",
       "setting": "Case and exposure margins from an experimental hypobaric chamber series. Primary outcome table pending."
+    },
+    {
+      "study_id": "chadov-cabin-normoxia-working-pressure",
+      "label": "Chadov, Iseev and Polyakov two-protocol cabin experiment",
+      "period": "Before 1987 source publication. Accrual dates unspecified.",
+      "setting": "Soviet hypobaric experimental chamber"
+    },
+    {
+      "study_id": "barer-1982-hyperbaric-to-hypobaric",
+      "label": "Barer twelve- or two-hour hyperbaric exposure before hypobaric tests",
+      "period": "Before April 1981 manuscript receipt",
+      "setting": "Soviet experimental pressure chamber"
+    },
+    {
+      "study_id": "barer-1983-prebreathe-nitrogen",
+      "label": "Barer prebreathe nitrogen exposure and interruption series",
+      "period": "Before June 1982 manuscript receipt",
+      "setting": "Soviet hypobaric experimental chamber"
     }
   ],
   "study_reports": [
@@ -15087,6 +15195,42 @@
       "report_id": "kosmbio:1974:8:4:66",
       "role": "nested_original_pain_component",
       "locator": "Original journal 8(4):66–70; listed in author summary item 1"
+    },
+    {
+      "study_id": "chadov-cabin-normoxia-working-pressure",
+      "report_id": "ntrs:19890006135:p910",
+      "role": "experimental_results_translation_summary",
+      "locator": "P910 printed pp. 102–105, especially Table p. 105"
+    },
+    {
+      "study_id": "chadov-cabin-normoxia-working-pressure",
+      "report_id": "kaluga:1987:chadov:113",
+      "role": "original_proceedings_article",
+      "locator": "XX–XXI Tsiolkovsky readings, original pp. 113–123"
+    },
+    {
+      "study_id": "barer-1982-hyperbaric-to-hypobaric",
+      "report_id": "pmid:7062695",
+      "role": "original_journal_article",
+      "locator": "Original Russian pp. 26–28"
+    },
+    {
+      "study_id": "barer-1982-hyperbaric-to-hypobaric",
+      "report_id": "ntrs:n82-20839",
+      "role": "experimental_results_full_translation",
+      "locator": "JPRS-80323 pp. 34–37"
+    },
+    {
+      "study_id": "barer-1983-prebreathe-nitrogen",
+      "report_id": "pmid:6620957",
+      "role": "original_journal_article",
+      "locator": "Original Russian pp. 45–47"
+    },
+    {
+      "study_id": "barer-1983-prebreathe-nitrogen",
+      "report_id": "ntrs:n83-36648",
+      "role": "experimental_results_full_translation",
+      "locator": "JPRS-84412 pp. 66–69"
     }
   ],
   "relations": [
@@ -18239,6 +18383,76 @@
       "relationship": "cites_dissertation_component",
       "evidence": "Author lists this experiment report as item 14 among works based on dissertation material. No cross-report trial identifiers or matched outcomes are available.",
       "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "ntrs:19890006135:p910",
+      "right_report": "kaluga:1987:chadov:113",
+      "relationship": "summarizes_original_study",
+      "evidence": "NASA summary identifies the same authors, full title, venue and original page range.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf#page=107"
+    },
+    {
+      "left_report": "ntrs:19890006135:p910",
+      "right_report": "ntrs:n88-26074",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "Same research group, and dates may overlap. No subject or trial crosswalk.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf#page=107"
+    },
+    {
+      "left_report": "ntrs:19890006135:p910",
+      "right_report": "ntrs:n87-25740",
+      "relationship": "possible_overlap_related_staging_protocol",
+      "evidence": "Same research team and stage schedule family but different pressure values and risk sets. Shared subjects are possible.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890006135/downloads/19890006135.pdf#page=110"
+    },
+    {
+      "left_report": "thesis:2005:chadov",
+      "right_report": "kaluga:1987:chadov:113",
+      "relationship": "cites_dissertation_component",
+      "evidence": "Item 25 in the 2005 publication list cites the proceeding chapter.",
+      "evidence_url": "https://www.dissercat.com/content/eksperimentalno-teoreticheskoe-obosnovanie-dekompressionnoi-bezopasnosti-vnekorabelnoi-deyat"
+    },
+    {
+      "left_report": "nlr:2008-4:13:chadov",
+      "right_report": "thesis:2005:chadov",
+      "relationship": "author_summary_of",
+      "evidence": "Same author and title; the 2004 author summary and 2005 dissertation are distinct publication items.",
+      "evidence_url": "https://nrcerm.ru/files/book/bezopchs2009.pdf"
+    },
+    {
+      "left_report": "ntrs:n82-20839",
+      "right_report": "pmid:7062695",
+      "relationship": "translation_of",
+      "evidence": "Translated title page identifies the original issue and original pp. 26–28, and displays all six authors.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=46"
+    },
+    {
+      "left_report": "ntrs:n83-36648",
+      "right_report": "pmid:6620957",
+      "relationship": "translation_of",
+      "evidence": "Translated title page identifies the original issue and original pp. 45–47, and displays all six authors.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=548"
+    },
+    {
+      "left_report": "ntrs:n82-20839",
+      "right_report": "ntrs:n88-26074",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "Accrual precedes April 1981 within the broad 1975–1986 program dates. Shared authors and no member-level trial map.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139392&seq=46"
+    },
+    {
+      "left_report": "ntrs:n83-36648",
+      "right_report": "ntrs:n88-26074",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "Accrual precedes June 1982 within the broad 1975–1986 program dates. Shared authors and no member-level trial map.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=548"
+    },
+    {
+      "left_report": "ntrs:n82-20839",
+      "right_report": "ntrs:n83-36648",
+      "relationship": "possible_overlap_between_chamber_volunteers",
+      "evidence": "Same investigator group. Named test protocols differ. Shared participants cannot be identified.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139400&seq=548"
     }
   ],
   "report_titles": {

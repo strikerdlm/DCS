@@ -8,6 +8,67 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_chadov_cabin_risk_sets_and_barer_full_text_reconcile(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='chadov87_cabin_p910' AND denominator IS NOT NULL
+            ORDER BY stratum,denominator_unit
+        """).fetchall() == [
+            ("experiment-1", 1, 25, "person"), ("experiment-1", 2, 35, "person_exposure"),
+            ("experiment-2", 0, 26, "person"), ("experiment-2", 0, 31, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT participant_code),count(*),max(months_after_previous_episode),min(parent_stratum)
+            FROM publication_chamber_case_episode WHERE source_id='chadov87_cabin_p910'
+        """).fetchone() == (1, 2, 6, "experiment-1")
+        assert db.execute("""
+            SELECT stratum,stage,printed_nominal_pressure,printed_nominal_unit,printed_alternate_pressure,
+                   printed_alternate_unit,oxygen_percent,nitrogen_percent
+            FROM publication_chamber_native_pressure_stage ORDER BY stratum,stage
+        """).fetchall() == [
+            ("experiment-1", 1, 1.142, "atm", 1120, "gPa", None, None),
+            ("experiment-1", 2, .58, "atm", 569, "gPa", 38, 62),
+            ("experiment-1", 3, .24, "atm", None, None, 95, 5),
+            ("experiment-2", 1, 1.142, "atm", 1120, "gPa", None, None),
+            ("experiment-2", 2, .62, "atm", 608, "gPa", 36, 64),
+            ("experiment-2", 3, .25, "atm", None, None, 95, 5),
+        ]
+        assert db.execute("""
+            SELECT source_id,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id IN ('barer82_jprs_80323','barer83_jprs_84412') AND stratum='all-trials'
+              AND endpoint <> 'premature_trial_termination' ORDER BY source_id,denominator_unit
+        """).fetchall() == [
+            ("barer82_jprs_80323", 13, 43, "person"), ("barer82_jprs_80323", 14, 74, "person_exposure"),
+            ("barer83_jprs_84412", 20, 70, "person"), ("barer83_jprs_84412", 22, 191, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='barer82_jprs_80323' AND endpoint='altitude_caisson_disease_as_reported'
+              AND stratum NOT IN ('all-trials','selected-susceptible') ORDER BY denominator,numerator
+        """).fetchall() == [(1, 5), (1, 8), (1, 20), (8, 20), (3, 21)]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='barer83_jprs_84412' AND endpoint='altitude_decompression_disorders_as_reported'
+              AND stratum <> 'all-trials' ORDER BY denominator
+        """).fetchall() == [(2, 6), (4, 16), (9, 28), (4, 48), (8, 64), (3, 93)]
+        assert db.execute("""
+            SELECT stratum,parent_stratum FROM publication_chamber_trial_scope
+            WHERE source_id='barer83_jprs_84412' AND stratum LIKE 'air-break-%' ORDER BY stratum
+        """).fetchall() == [
+            ("air-break-10-minutes", "0p4-to-5-percent-nitrogen-air-break"),
+            ("air-break-3-minutes", "0p4-to-5-percent-nitrogen-air-break"),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_search_observation
+            WHERE report_id IN ('ntrs:19890006135:p910','ntrs:n82-20839','ntrs:n83-36648','pmid:7062695','pmid:6620957')
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [("ntrs:19890006135:p910", 6), ("ntrs:n82-20839", 12), ("ntrs:n83-36648", 10)]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='chadov87_cabin_p910'
+        """).fetchone() == (0,)
+
+
 def test_katuntsev_component_keeps_first_pain_and_recurrence_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""

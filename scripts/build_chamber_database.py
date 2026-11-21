@@ -169,6 +169,7 @@ CHAMBER_RUSSIAN_AND_DISPATCHER_COMPANIONS = ROOT / "data" / "chamber" / "v1.101"
 CHAMBER_SOVIET_POSTURE_AND_STAGING = ROOT / "data" / "chamber" / "v1.102"
 CHAMBER_ISEEV_ARCHIVE = ROOT / "data" / "chamber" / "v1.103"
 CHAMBER_KATUNTSEV_PAIN_PHASES = ROOT / "data" / "chamber" / "v1.104"
+CHAMBER_CHADOV_CABIN_EXPERIMENTS = ROOT / "data" / "chamber" / "v1.105"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1542,6 +1543,19 @@ def build(
                         "publication_overlap": "overlap.csv",
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                         "publication_chamber_pain_onset_percentage": "onset_percentages.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_CHADOV_CABIN_EXPERIMENTS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_chamber_native_pressure_stage": "exposure_stages.csv",
+                        "publication_chamber_case_episode": "case_episodes.csv",
                     },
                 )
             if rojas_supplement:
