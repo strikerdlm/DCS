@@ -14309,6 +14309,48 @@
       "report_id": "citation:peterson-bornstein-jasper-1945-altitude",
       "basis": "Smith reference 4 gives the author sequence, title, year and starting page.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf#page=5"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W7162995450",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "Exact chapter title, publisher, year, verified DOI and OpenAlex work identifier identify one public chapter.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "record_key": "2026-11-20-regional-openalex-international-cohorts#W7162995450",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "Exact chapter title, publisher, year, verified DOI and OpenAlex work identifier identify one public chapter.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "record_key": "2026-11-20-iaf-openalex-cites-1#W7162995450",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "Exact chapter title, publisher, year, verified DOI and OpenAlex work identifier identify one public chapter.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "record_key": "2026-11-20-iaf-openalex-israel#W7162995450",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "Exact chapter title, publisher, year, verified DOI and OpenAlex work identifier identify one public chapter.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "record_key": "2026-11-20-turkey-openalex-turk#W7162995450",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "Exact chapter title, publisher, year, verified DOI and OpenAlex work identifier identify one public chapter.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "record_key": "2026-11-21-fac-neurologic-case-followup-verified-chapter#olaya25",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "Exact chapter title, publisher, year, verified DOI and OpenAlex work identifier identify one public chapter.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "record_key": "2026-11-21-fac-neurologic-case-followup-nearby-regional-reports#lai-chiang",
+      "report_id": "doi:10.7011/jamsroc.201412_28(2).0003",
+      "basis": "Exact DOI, byline and issue match the already registered article.",
+      "evidence_url": "https://www.airitilibrary.com/Publication/Index/16839595-201412-201601210011-201601210011-105-118"
     }
   ],
   "studies": [
@@ -15661,6 +15703,12 @@
       "label": "Smith 1946 treated decompression symptom experiments",
       "period": "Published 1946. Exact dates unavailable.",
       "setting": "AAF School of Aviation Medicine, Randolph Field. The report describes two treatment/observation series."
+    },
+    {
+      "study_id": "fac-dimae-2013-2023-type-ii-dcs",
+      "label": "FAC DIMAE chamber training neurological Type II DCS surveillance",
+      "period": "2013–2023 as reported",
+      "setting": "DIMAE-FAC operational hypobaric chamber training in Colombia. Follow-up subset of 15 neurological cases."
     }
   ],
   "study_reports": [
@@ -18021,6 +18069,12 @@
       "report_id": "pmid:20994854",
       "role": "original_experimental_report",
       "locator": "Printed pp. 265–269"
+    },
+    {
+      "study_id": "fac-dimae-2013-2023-type-ii-dcs",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "role": "primary_registry_summary_and_case_followup",
+      "locator": "Printed pp. 310–326, Tables 2–6 and Discussion"
     }
   ],
   "relations": [
@@ -21999,6 +22053,20 @@
       "relationship": "cites_prior_collapse_report",
       "evidence": "Brown lists this original 1944 article as reference 10. The synopsis does not identify shared exposures or cases.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf#page=8"
+    },
+    {
+      "left_report": "doi:10.25062/9786287818279.12",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#celis23_thesis",
+      "relationship": "possible_fac_case_series_overlap",
+      "evidence": "Same DIMAE chamber and overlapping years. Annual trainee counts agree in 2013–2019 and differ in 2020. Linkage and equivalence of clinical endpoints are unresolved.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "left_report": "doi:10.25062/9786287818279.12",
+      "right_report": "record:legacy:data/chamber/fac-official/sources.csv#fac_cases",
+      "relationship": "possible_fac_case_series_overlap",
+      "evidence": "The official registry covers overlapping facility and years through 2020. Source definitions and linkage are unresolved. This chapter uses a neurological Type II endpoint and extends through 2023.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
     }
   ],
   "report_titles": {
