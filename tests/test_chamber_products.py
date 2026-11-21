@@ -77,6 +77,14 @@ def test_usafsam_appendix_editions_and_abstract_denominators(release):
                   'abstract:asma-1989-baas-co2-prebreathe'
               )
         """).fetchone() == (3,)
+        assert db.execute("""
+            SELECT COUNT(*), SUM(o.numerator=r.cases AND o.denominator=r.denominator)
+            FROM publication_observation o
+            JOIN model_report_link l ON l.source_id=o.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON r.report_id=l.report_id AND r.endpoint=o.endpoint
+                AND r.reported_group=o.stratum
+            WHERE o.source_id IN ('adams84_bsi_pilot','smead87_bsi_preliminary','baas89_co2_interim')
+        """).fetchone() == (7, 7)
 
 
 @pytest.fixture(scope="module")
@@ -1316,6 +1324,7 @@ def test_olson_flights_keep_joint_outcomes_timing_and_ambiguous_link(release):
         assert db.execute("""
             SELECT right_report,relationship FROM review.review_report_relation
             WHERE left_report='report:ada231355'
+              AND relationship IN ('same_published_exposure_subset_in_archive','revised_version_of')
             ORDER BY right_report
         """).fetchall() == [
             ("pmid:3044322", "same_published_exposure_subset_in_archive"),
