@@ -1,0 +1,149 @@
+[
+  {
+    "id": "2026-11-21-brook-complement-hall-identity-firecrawl-discovery",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_attempts": [
+        {
+          "query": "\"decompression sickness\" \"hypobaric chamber\" incidence outcomes altitude \"chamber runs\" volunteers zero",
+          "id": "01a1fe6b-b6f0-777c-b43b-88b760d7c254",
+          "hits": 2
+        },
+        {
+          "query": "\"decompression sickness\" \"altitude chamber\" \"cases\" site:indjaerospacemed.com OR site:aerospacemedicine.org",
+          "id": "01a1fe6b-b712-763e-8556-73e6f038536d",
+          "hits": 5
+        },
+        {
+          "query": "\"Complement levels and exposure in the hypobaric chamber\" \"Brook\" \"Secombe\" full text PDF Monash",
+          "id": "01a1fe6d-a8e4-7321-b49d-89c76c1e21a7",
+          "hits": 0
+        },
+        {
+          "query": "\"Brook\" \"Seychell\" \"decompression sickness\" Australia hypobaric chamber complement full text",
+          "id": "01a1fe6d-a85f-704d-b02b-5544e8bfa170",
+          "hits": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Indian overview and South African first-hand report were already catalogued. The complement lead guided retrieval of Brook's primary abstract.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-brook-complement-hall-identity-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 433,
+      "query": "\"decompression sickness\" \"altitude chamber\" \"cases\" site:indjaerospacemed.com OR site:aerospacemedicine.org"
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented search.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-brook-complement-hall-identity-brook-verified",
+    "date": "2026-11-21",
+    "provider": "PubMed and Firecrawl",
+    "operation": "verify_primary_abstract",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "firecrawl_scrape_id": "01a1fe6e-b360-737a-b3f2-f25f532d4cf2",
+      "pdf_attempt": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p415.pdf",
+      "pdf_http_status": 404
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Primary abstract establishes the zero and exposed denominator. The publisher PDF path returned 404. Scheduling of the biomarker draws does not set the clinical window.",
+    "records": [
+      {
+        "id": "brook95_hypobaric_complement",
+        "title": "Complement levels and exposure in the hypobaric chamber",
+        "author": "Brook WH, Secombe J, Seychell D",
+        "pmid": "7619033",
+        "openalex_id": "W2431395716",
+        "year": 1995,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7619033/",
+        "study_id": "brook95-hypobaric-complement-volunteers",
+        "locator": "Author abstract, Methods and final paragraph, issue pp. 415–417",
+        "note": "Eleven male and two female exposed volunteers. Exact number and location of runs, repeat attendance and DCS definition unavailable. The four controls do not contribute to the exposed denominator.",
+        "source_counts": {
+          "exposed_volunteers": 13,
+          "exposed_male": 11,
+          "exposed_female": 2,
+          "controls": 4,
+          "controls_male": 3,
+          "controls_female": 1,
+          "chamber_runs": null
+        },
+        "biomarker_collection": {
+          "pre_exposure_hours": 1,
+          "post_exposure_hours": [
+            1,
+            24
+          ],
+          "last_p_as_indexed": 1.051,
+          "inference_status": "Out-of-range value in the indexed abstract. Original table required."
+        },
+        "observations": [
+          {
+            "id": "brook95_hypobaric_complement:exposed-volunteers:dcs_as_reported",
+            "study_id": "brook95-hypobaric-complement-volunteers",
+            "endpoint": "dcs_as_reported",
+            "group": "exposed-volunteers",
+            "cases": 0,
+            "denominator": 13,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Reported during the study. The abstract gives timed blood samples and no defined clinical surveillance window.",
+            "locator": "Author abstract, Methods and final paragraph, issue pp. 415–417",
+            "note": "Eleven male and two female exposed volunteers. Exact number and location of runs, repeat attendance and DCS definition unavailable. The four controls do not contribute to the exposed denominator."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-brook-complement-hall-identity-hall-verified",
+    "date": "2026-11-21",
+    "provider": "PubMed and U.S. Navy publication list",
+    "operation": "verify_report_identity",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "navy_listing": "https://archive.org/details/NavyMedicalNewsletter19640320"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Identity verified from original serial metadata and the contemporary Navy publication list. The study's original body and outcome tables were not verified.",
+    "records": [
+      {
+        "id": "14166642",
+        "title": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude",
+        "author": "Hall AL",
+        "pmid": "14166642",
+        "year": 1963,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14166642/",
+        "report_number": "MR005.13-1002, subtask 9, report 3",
+        "note": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants."
+      },
+      {
+        "id": "14131303",
+        "title": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet stimulated altitude",
+        "author": "Hall AL",
+        "pmid": "14131303",
+        "year": 1963,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14131303/",
+        "report_number": "MR005.13-1002, subtask 9, report 3",
+        "note": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants."
+      }
+    ]
+  }
+]
