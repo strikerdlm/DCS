@@ -227,6 +227,7 @@ NAVAL_AVIATOR_EVENT_SERIES = ROOT / "data" / "chamber" / "v1.159"
 UCSD_AVIATION_REFERRALS = ROOT / "data" / "chamber" / "v1.160"
 BRADLEY_CHAMBER_DCI = ROOT / "data" / "chamber" / "v1.161"
 OPERATIONAL_FLIGHT_SAFETY = ROOT / "data" / "chamber" / "v1.162"
+INTERNATIONAL_PRESSURE_LOSS = ROOT / "data" / "chamber" / "v1.163"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2242,6 +2243,16 @@ def build(
                         "publication_flight_safety_count": "flight_safety_counts.csv",
                         "publication_aircraft_pressure_excursion": "pressure_excursions.csv",
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    INTERNATIONAL_PRESSURE_LOSS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_flight_safety_count": "flight_safety_counts.csv",
+                        "publication_pressure_loss_record": "pressure_loss_records.csv",
                         "publication_overlap": "overlap.csv",
                     },
                 )

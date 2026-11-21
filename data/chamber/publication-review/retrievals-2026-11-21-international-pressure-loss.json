@@ -1,0 +1,277 @@
+[
+  {
+    "id": "2026-11-21-international-pressure-loss-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ranked results retained. The Canadian transport article and ATSB report are original-source leads.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_id": "fb700edb-713c-4450-99f5-1f9d96e94145",
+      "query": "Brooks Canadian Forces transport cabin pressure loss 1963 1984 Cable Australian defence aircraft 1988 2003 decompression sickness case counts PDFs"
+    },
+    "records": [
+      {
+        "id": "c05521-00",
+        "title": "Loss of cabin pressure in Canadian Forces transport aircraft ...",
+        "url": "https://www.semanticscholar.org/paper/Loss-of-cabin-pressure-in-Canadian-Forces-transport-Brooks/f25470eb9667bbdb16a02441baf3073d48edd6cb"
+      },
+      {
+        "id": "77cedd-01",
+        "title": "Loss of cabin pressure in Canadian Forces transport aircraft ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3579812"
+      },
+      {
+        "id": "3c2a60-02",
+        "title": "Loss of Cabin Pressure in Canadian Forces Transport Aircraft ...",
+        "url": "https://asma.kglmeridian.com/view/journals/asem/58/3/article-p268.xml"
+      },
+      {
+        "id": "d96664-03",
+        "title": "Uncontrolled decompression - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Uncontrolled_decompression"
+      },
+      {
+        "id": "3d44f5-04",
+        "title": "Aviation Research and Analysis report B20060142",
+        "url": "https://www.atsb.gov.au/sites/default/files/media/32876/b20060142.pdf"
+      },
+      {
+        "id": "85f827-05",
+        "title": "Australian Defence Force hypobaric chamber training, 1984–2001",
+        "url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-international-pressure-loss-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Australian military hypoxia study and associated reports are bibliographic context. They are not merged with accident surveillance research.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a2000d-09af-704b-9ee1-8650213a437d",
+      "query": "\"Loss of cabin pressure\" Canadian Forces transport aircraft 1963 1984 Australian Defence Force Cable decompression sickness case"
+    },
+    "records": [
+      {
+        "id": "result-1",
+        "title": "In-flight hypoxia incidents in military aircraft: causes and implications for ...",
+        "url": "https://europepmc.org/article/med/12602449"
+      },
+      {
+        "id": "result-2",
+        "title": "hypoxia recognition training in civilian aviation: a neglected area of safety?",
+        "url": "http://hypoxic-training.com/new_abstracts/2010_JASAM_Cable_Westerman_Neglected_Area_of_Safety_Normobaric_Hypoxia_Training.pdf"
+      },
+      {
+        "id": "result-3",
+        "title": "Uncontrolled decompression",
+        "url": "https://en.wikipedia.org/wiki/Uncontrolled_decompression"
+      },
+      {
+        "id": "result-4",
+        "title": "A comparison of acute Hypoxia induced by low concentrations ...",
+        "url": "https://www.researchgate.net/publication/242397143_A_comparison_of_acute_Hypoxia_induced_by_low_concentrations_of_oxygen_at_ground_level_10000_feet_and_by_air_at_25000_feet_Implications_for_military_Aircrew_training"
+      },
+      {
+        "id": "result-5",
+        "title": "ROYAL AIR FORCE HISTORICAL SOCIETY JOURNAL 43",
+        "url": "https://www.rafmuseum.org.uk/documents/Research/RAF-Historical-Society-Journals/Journal_43_Seminar_Aviation_Medicine.pdf"
+      },
+      {
+        "id": "result-6",
+        "title": "In-flight hypoxia incidents in military aircraft: Causes and implications for ...",
+        "url": "https://www.researchgate.net/publication/10887390_In-flight_hypoxia_incidents_in_military_aircraft_Causes_and_implications_for_training"
+      },
+      {
+        "id": "result-7",
+        "title": "Unlimited Horizons: Design and Development of the U-2",
+        "url": "https://www.nasa.gov/wp-content/uploads/2015/07/unlimited-horizons.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-international-pressure-loss-tavily-extract",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "verify_public_source",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Returned pressure-loss and clinical outcome excerpts for all three originals.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_id": "742382fc-b360-4765-ba5e-787572ea40bf",
+      "extract_depth": "advanced"
+    },
+    "records": [
+      {
+        "id": "extract-1",
+        "title": "Aviation Research and Analysis report B20060142",
+        "url": "https://www.atsb.gov.au/sites/default/files/media/32876/b20060142.pdf",
+        "note": "Targeted original excerpt was cross-checked against the complete PDF."
+      },
+      {
+        "id": "extract-2",
+        "title": "Loss of Cabin Pressure in Canadian Forces Transport Aircraft, 1963-1984",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/3/article-p268.pdf",
+        "note": "Targeted original excerpt was cross-checked against the complete PDF."
+      },
+      {
+        "id": "extract-3",
+        "title": "Loss of Cabin Pressurization in U.S. Naval Aircraft: 1969-90",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p341.pdf",
+        "note": "Targeted original excerpt was cross-checked against the complete PDF."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-international-pressure-loss-originals",
+    "date": "2026-11-21",
+    "provider": "Primary reports via publisher and FAA mirror",
+    "operation": "verify_public_full_text",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Tavily extracted terms and numerical context. The journals' scans and the ATSB report were inspected locally. Firecrawl extracted the FAA mirror and returned limited text for both scanned journal PDFs.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "brooks_scrape_id": "01a2000d-a4f0-71d1-9c13-b256f52e0423",
+      "bason_scrape_id": "01a2000d-a517-775f-bfea-03bab3bb189c",
+      "atsb_scrape_id": "01a2000e-a1bb-765e-a53a-4c5947e11025"
+    },
+    "records": [
+      {
+        "id": "brooks1987",
+        "title": "Loss of Cabin Pressure in Canadian Forces Transport Aircraft, 1963–1984",
+        "year": 1987,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/3/article-p268.pdf",
+        "pmid": "3579812",
+        "locator": "Tables I–III and Results pp. 268–273; Conclusions p. 274",
+        "sha256": "455bd22a93ae81b13cb368d0e2392a64fa99ac01c8aa962a904fa66e4e8efc34",
+        "full_text_available": true,
+        "observations": [
+          {
+            "id": "recorded-dcs",
+            "group": "all-reported-depressurizations",
+            "endpoint": "reported_dcs",
+            "cases": 0,
+            "denominator": 47,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Conclusions item 10 p. 274 and Table I p. 269",
+            "note": "Explicit absence of reported DCS in the transport aircraft series. No individual denominator or systematic follow-up."
+          },
+          {
+            "id": "definite-hypoxia",
+            "group": "all-reported-depressurizations",
+            "endpoint": "definite_hypoxia_incidents",
+            "cases": 2,
+            "denominator": 47,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Abstract p. 268 and Conclusions item 5 p. 274",
+            "note": "Two definite incidents and one possible additional incident involving smoke."
+          }
+        ]
+      },
+      {
+        "id": "bason1992",
+        "title": "Loss of Cabin Pressurization in U.S. Naval Aircraft: 1969–90",
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p341.pdf",
+        "pmid": "1599378",
+        "locator": "Methods and Results pp. 342–344; Table I p. 342; Conclusions p. 345",
+        "sha256": "e2925a64f8a5184dc69a4626e08389b45ff782152ec2ae7024b3cbc7d8467ee7",
+        "full_text_available": true,
+        "observations": [
+          {
+            "id": "incident-count",
+            "group": "all-reported-depressurizations",
+            "endpoint": "pressure_loss_incidents",
+            "cases": 205,
+            "denominator": null,
+            "numerator_unit": "reported_depressurization_incident",
+            "locator": "Results and Table I p. 342",
+            "note": "Keep 205 as printed. The earlier DCS series reports 225 pressure losses in a shorter period. The 1992 Results gives 30 December 1990 as the end date; the Abstract and Conclusions give 31 December."
+          },
+          {
+            "id": "selected-affected-crew",
+            "group": "affected-crew",
+            "endpoint": "type_i_dcs_affected_crew",
+            "cases": 11,
+            "denominator": null,
+            "numerator_unit": "dcs_affected_aircrew",
+            "locator": "Abstract p. 341, Results pp. 342 and 344",
+            "note": "The 11 are people. The aircraft incident risk set cannot be matched from published data."
+          },
+          {
+            "id": "remission-by-landing",
+            "group": "affected-crew",
+            "endpoint": "symptom_remission_by_landing",
+            "cases": 9,
+            "denominator": 11,
+            "denominator_unit": "dcs_affected_aircrew",
+            "locator": "Results p. 344",
+            "note": "Nine of the 11 affected crew had symptom remission at landing."
+          }
+        ]
+      },
+      {
+        "id": "newman2006",
+        "title": "Depressurisation Accidents and Incidents Involving Australian Civil Aircraft: 1 January 1975 to 31 March 2006",
+        "year": 2006,
+        "url": "https://www.faa.gov/sites/faa.gov/files/2023-12/ATSB_B20060142.pdf",
+        "identifier": "ATSB:B2006/0142",
+        "agency_source": "https://www.atsb.gov.au/sites/default/files/media/32876/b20060142.pdf",
+        "locator": "Methods p. 4; Results pp. 6, 10–12; Discussion p. 15",
+        "sha256": "d9e229d6cfb7255bb59885e4a3b2d4c4f978a087e044a68f288456e72f0356e1",
+        "full_text_available": true,
+        "observations": [
+          {
+            "id": "reported-dci",
+            "group": "all-reported-depressurizations",
+            "endpoint": "reported_dci",
+            "cases": 0,
+            "denominator": 517,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results section 3.5 p. 11; Discussion p. 15",
+            "note": "Report explicitly states no DCI among recorded pressure-loss events. Civil aircraft dataset includes 19 records coded as military operations."
+          },
+          {
+            "id": "altitude-coverage",
+            "group": "all-reported-depressurizations",
+            "endpoint": "max_cabin_and_occurrence_altitude_available",
+            "cases": 55,
+            "denominator": 517,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results section 3.6 and Figure 1 p. 11",
+            "note": "Only 55 reports give occurrence altitude and maximum cabin altitude."
+          },
+          {
+            "id": "rate-coverage",
+            "group": "all-reported-depressurizations",
+            "endpoint": "change_in_cabin_altitude_rate_available",
+            "cases": 39,
+            "denominator": 517,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results section 3.6 and Figure 2 p. 12",
+            "note": "Only 39 reports give the rate of change of cabin altitude."
+          },
+          {
+            "id": "higher-cabin-altitude",
+            "group": "altitude-profiled-incidents",
+            "endpoint": "max_cabin_altitude_above_14000_ft",
+            "cases": 6,
+            "denominator": 55,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results section 3.6 and Figure 1 p. 11",
+            "note": "Six documented maxima exceed 14,000 ft. Results gives the highest value as 22,000 ft, while Discussion p. 15 says 14,000 ft."
+          }
+        ]
+      }
+    ]
+  }
+]

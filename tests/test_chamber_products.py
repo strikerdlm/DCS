@@ -4705,6 +4705,63 @@ def test_operational_flight_counts_keep_incident_units_and_possible_case_overlap
         """).fetchone() == (0,)
 
 
+def test_international_pressure_loss_preserves_reported_zeroes_and_risk_sets(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,endpoint,numerator,denominator,counting_unit
+            FROM publication_flight_safety_count
+            WHERE source_id IN ('brooks87_transport_pressure_loss','newman06_atsb_pressure_loss')
+              AND endpoint IN ('reported_dcs','reported_dci') ORDER BY source_id
+        """).fetchall() == [
+            ("brooks87_transport_pressure_loss", "reported_dcs", 0, 47, "reported_depressurization_incident"),
+            ("newman06_atsb_pressure_loss", "reported_dci", 0, 517, "reported_depressurization_incident"),
+        ]
+        assert db.execute("""
+            SELECT speed_class,count(*),count(reported_altitude_ft) FROM publication_pressure_loss_record
+            WHERE source_id='brooks87_transport_pressure_loss' GROUP BY speed_class ORDER BY speed_class
+        """).fetchall() == [("intermediate", 5, 4), ("massive", 2, 1), ("slow", 40, 34)]
+        assert db.execute("""
+            SELECT reported_altitude_ft, documented_cabin_altitude_ft, speed_class
+            FROM publication_pressure_loss_record
+            WHERE source_id='brooks87_transport_pressure_loss' AND incident_number=11
+        """).fetchall() == [(37000, 19000, "slow")]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_flight_safety_count
+            WHERE source_id='newman06_atsb_pressure_loss'
+              AND endpoint IN (
+                 'max_cabin_and_occurrence_altitude_available','change_in_cabin_altitude_rate_available',
+                 'max_cabin_altitude_above_14000_ft','military_operation_coded')
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("change_in_cabin_altitude_rate_available", 39, 517),
+            ("max_cabin_altitude_above_14000_ft", 6, 55),
+            ("max_cabin_and_occurrence_altitude_available", 55, 517),
+            ("military_operation_coded", 19, 517),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator,counting_unit FROM publication_flight_safety_count
+            WHERE source_id='bason92_naval_pressure_loss'
+              AND endpoint IN ('pressure_loss_incidents','type_i_dcs_affected_crew') ORDER BY numerator
+        """).fetchall() == [(11, None, "dcs_affected_aircrew"), (205, None, "reported_depressurization_incident")]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='bason92_naval_pressure_loss' ORDER BY related_source
+        """).fetchall() == [("bason91_operational_flight", "unresolved"), ("files05_aircraft_depressurization", "unresolved")]
+        assert db.execute("""
+            SELECT report_id,cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE observation_id IN ('recorded-dcs','reported-dci')
+              AND report_id IN ('pmid:3579812','report:atsb-b2006-0142')
+            ORDER BY report_id
+        """).fetchall() == [
+            ("pmid:3579812", 0, 47, "reported_depressurization_incident"),
+            ("report:atsb-b2006-0142", 0, 517, "reported_depressurization_incident"),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(url) LIKE '%b20060142%'
+        """).fetchall() == [("report:atsb-b2006-0142",)]
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
