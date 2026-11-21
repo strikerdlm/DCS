@@ -4263,3 +4263,36 @@ def test_russian_chamber_scope_keeps_unmatched_proportions_out_of_clinical_count
             SELECT count(*) FROM publication_observation
             WHERE source_id IN ('chadov97_sae_pcc270','kalyuzhny76_h_reflex')
         """).fetchone() == (0,)
+
+
+def test_dak_case_links_both_databases_without_imputing_exposure_or_pooling(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role,period,altitude,prebreathe_min
+            FROM publication_observation WHERE source_id='dak19_pulmonary_training_case'
+        """).fetchall() == [(1, None, "case_conditional", None, None, None)]
+        assert db.execute("""
+            SELECT e.endpoint,h.source_time_min,o.cases,o.denominator,
+                   json_extract(r.metadata_json,'$.case_facts.routine_protocol_altitude_ft'),
+                   json_extract(r.metadata_json,'$.case_facts.patient_actual_altitude_ft')
+            FROM shared_case_evidence e
+            JOIN historical_case_catalog h USING(source_id,endpoint,report_id)
+            JOIN review.review_search_observation o
+              ON (o.record_key,o.observation_id,o.report_id)=(e.record_key,e.observation_id,e.report_id)
+            JOIN review.review_record r ON r.record_key=e.record_key
+            WHERE e.source_id='dak19_pulmonary_training_case'
+        """).fetchall() == [("pulmonary_dcs_author_diagnosed", None, 1, None, 25000, None)]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='dak19_pulmonary_training_case'
+        """).fetchall() == [("ercan20", "unresolved")]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record WHERE report_id=(
+                SELECT report_id FROM shared_case_evidence WHERE source_id='dak19_pulmonary_training_case'
+            )
+        """).fetchone() == (3,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE relationship='possible_turkish_chamber_cohort_overlap'
+              AND 'pmid:32574436' IN (left_report,right_report)
+        """).fetchone() == (1,)

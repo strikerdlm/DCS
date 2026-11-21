@@ -14489,6 +14489,24 @@
       "report_id": "record:legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:5",
       "basis": "Same JA1 symposium byline and printed p. 206, in the previously catalogued NTRS session.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19980024361/downloads/19980024361.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.132/sources.csv#dak19_pulmonary_training_case",
+      "report_id": "record:legacy:data/chamber/v1.132/sources.csv#dak19_pulmonary_training_case",
+      "basis": "Exact 2019 congress and same printed pp. 82–87 byline, case and official proceedings.",
+      "evidence_url": "https://web.shgm.gov.tr/documents/sivilhavacilik/files/havaalanlari/5.pdf#page=94"
+    },
+    {
+      "record_key": "2026-11-21-dak-turkish-chamber-case-primary#dak19_pulmonary_training_case",
+      "report_id": "record:legacy:data/chamber/v1.132/sources.csv#dak19_pulmonary_training_case",
+      "basis": "Exact 2019 congress and same printed pp. 82–87 byline, case and official proceedings.",
+      "evidence_url": "https://web.shgm.gov.tr/documents/sivilhavacilik/files/havaalanlari/5.pdf#page=94"
+    },
+    {
+      "record_key": "2026-11-21-dak-turkish-chamber-case-firecrawl#shgm-aviation-medicine-v5",
+      "report_id": "record:legacy:data/chamber/v1.132/sources.csv#dak19_pulmonary_training_case",
+      "basis": "Exact 2019 congress and same printed pp. 82–87 byline, case and official proceedings.",
+      "evidence_url": "https://web.shgm.gov.tr/documents/sivilhavacilik/files/havaalanlari/5.pdf#page=94"
     }
   ],
   "studies": [
@@ -22304,6 +22322,13 @@
       "relationship": "possible_pcc270_program_overlap",
       "evidence": "Shared authors and staged normoxic EVA simulation. The 2001 report specifies 115 experiments. Protocol-specific linkage to the SAE abstract's broader scope is unavailable.",
       "evidence_url": "https://saemobilus.sae.org/papers/hypobaric-atmosphere-a-prophylactic-measure-decompression-sickness-repetitive-eva-972317"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.132/sources.csv#dak19_pulmonary_training_case",
+      "right_report": "pmid:32574436",
+      "relationship": "possible_turkish_chamber_cohort_overlap",
+      "evidence": "Ercan and Demir are coauthors on both reports. Ercan et al., Table 1 (p. 206), reports zero DCS events among 79 female trainees in the 2011-01-01 to 2018-10-01 archive. The case report omits the exposure date, chamber site, participant role and archive membership. The finding cannot be assigned to that risk set or used to revise its numerator.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32574436/"
     }
   ],
   "report_titles": {

@@ -1,0 +1,147 @@
+[
+  {
+    "id": "2026-11-21-dak-turkish-chamber-case-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Hipobarik\" \"dekompresyon hastalığı\" \"olgu\" uçuş eğitim hava kuvvetleri",
+      "search_id": "01a1fe83-0285-71ac-a557-e3c16c5e307a"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Turkish-language search led to the public civil aviation congress proceedings.",
+    "records": [
+      {
+        "id": "shgm-aviation-medicine-v5",
+        "title": "Hipobarik Hipoksi Eğitimi Sonrasında Gelişen, Dekompresyon Hastalığı: Bir Olgu Sunumu",
+        "url": "https://web.shgm.gov.tr/documents/sivilhavacilik/files/havaalanlari/5.pdf#page=94",
+        "year": 2019,
+        "locator": "Proceedings, printed pp. 82–87 (PDF pp. 94–99)"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-dak-turkish-chamber-case-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 433,
+      "query": "\"Hipobarik Hipoksi Eğitimi\" \"Dekompresyon Hastalığı\" \"Ecem Dak\"",
+      "search_depth": "advanced",
+      "max_results": 6
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented the query from returning results.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-dak-turkish-chamber-case-primary",
+    "date": "2026-11-21",
+    "provider": "Turkish Directorate General of Civil Aviation",
+    "operation": "verify_public_full_text",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Case and discussion were checked against rendered pages. The published figure refers to the routine procedure.",
+    "records": [
+      {
+        "id": "dak19_pulmonary_training_case",
+        "title": "Hipobarik Hipoksi Eğitimi Sonrasında Gelişen, Dekompresyon Hastalığı: Bir Olgu Sunumu",
+        "author": "Dak E, Demir AE, Ercan E",
+        "year": 2019,
+        "url": "https://web.shgm.gov.tr/documents/sivilhavacilik/files/havaalanlari/5.pdf#page=94",
+        "primary_source": "https://web.shgm.gov.tr/documents/sivilhavacilik/files/havaalanlari/5.pdf#page=97",
+        "locator": "Proceedings, printed pp. 82–87 (PDF pp. 94–99)",
+        "sha256": "5a228a0e4673a644d0a9c4fe94aa8c30db28757eb6ea3ce9ed1fd7511b690f98",
+        "full_text_available": true,
+        "assessment": "single descriptive case, exposure denominator unavailable",
+        "case_facts": {
+          "exposure_date": null,
+          "chamber_site": null,
+          "participant_role": null,
+          "age_years": 26,
+          "sex_as_reported": "female",
+          "onset_phase": "after_training",
+          "onset_min": null,
+          "symptom_at_presentation": "air hunger",
+          "first_assessment_min": null,
+          "diagnosis_at_recompression": "provisional DCS",
+          "diagnosis_in_discussion": "pulmonary DCS considered confirmed by the authors after treatment response",
+          "ct_pulmonary_angiography": "no findings favoring pulmonary thromboembolism",
+          "post_treatment": "symptoms resolved",
+          "follow_up_min": null,
+          "mask_issue": "poor fit per case investigation",
+          "measured_prewashout_fio2": null,
+          "patient_actual_altitude_ft": null,
+          "patient_actual_prebreathe_min": null,
+          "routine_protocol_altitude_ft": 25000,
+          "routine_protocol_prebreathe_min": 30,
+          "routine_protocol_prebreathe_oxygen_percent": 100,
+          "routine_protocol_locator": "Figure 1, printed p. 85 (PDF p. 97)"
+        },
+        "observations": [
+          {
+            "id": "dak-2019-post-training-pulmonary-dcs",
+            "group": "post-training-case",
+            "endpoint": "pulmonary_dcs_author_diagnosed",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Case and Discussion, printed pp. 85–86 (PDF pp. 97–98)",
+            "outcome_window": "Symptom onset after the training. Exact onset interval, time to first assessment and post-treatment follow-up are unreported.",
+            "note": "The 26-year-old woman reported air hunger. ECG showed sinus tachycardia and arterial blood gas showed hypoxia, hypocarbia and mild respiratory alkalosis. CT angiography did not show pulmonary thromboembolism. The team treated provisional DCS with hyperbaric oxygen and considered the diagnosis confirmed after symptoms resolved. The authors attributed inadequate denitrogenation to mask fit on case review. Delivered FiO2 and the exposure denominator are unavailable."
+          }
+        ],
+        "cohort_checks": [
+          {
+            "report_id": "pmid:32574436",
+            "locator": "Methods and Table 1, pp. 204–206",
+            "relationship": "possible_overlap",
+            "evidence": "Shared authors. The register reports zero events among 79 female trainees. Incident date, site and participant role are unavailable.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32574436/"
+          },
+          {
+            "report_id": "doi:10.28920/dhm51.1.82-85",
+            "locator": "Case report and Population, pp. 82–83",
+            "relationship": "distinct_reported_cases",
+            "evidence": "The published cluster describes three male patients with limb pain during descent. The Dak report concerns a woman with air hunger after training.",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-dak-turkish-chamber-case-korea",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "verify_public_full_text",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrape_id": "01a1fe85-48ad-77f9-9665-c5b5d126f7ca"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Full text checked for clinical outcome; no DCS value entered.",
+    "records": [
+      {
+        "id": "kjasem-2003-13-3-131",
+        "title": "Difference of Hypoxia Tolerance with Reference to Sex",
+        "author": "Choi JM, Jung CK, Min TH, Lee WK",
+        "year": 2003,
+        "url": "https://www.kjasem.org/journal/download_pdf.php?spage=131&volume=13&number=3",
+        "primary_source": "https://www.kjasem.org/journal/download_pdf.php?spage=131&volume=13&number=3",
+        "locator": "Abstract, Methods and Results, starting p. 131",
+        "context_only": true,
+        "chamber_participants": 32,
+        "note": "The study reports hypoxia tolerance and pulse oximetry. It supplies no exact DCS outcome count."
+      }
+    ]
+  }
+]
