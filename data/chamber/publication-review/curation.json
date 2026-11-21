@@ -14885,6 +14885,30 @@
       "report_id": "preprint:asma-1983-eatock-126",
       "basis": "Eftedal thesis reference 161 prints authors, title, year and meeting pages.",
       "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_792-ultrasonic-detection-deco-induced-vascular-microbubbles.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.143/sources.csv#vann85_ada151800",
+      "report_id": "report:ada151800",
+      "basis": "Exact authorship, report title and AD-A151800.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA151800/DTIC_ADA151800.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-doppler-counting-unit-verified#vann85_ada151800",
+      "report_id": "report:ada151800",
+      "basis": "Same public report and checked Figure 12.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA151800/DTIC_ADA151800.pdf#page=44"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.143/sources.csv#horrigan84_six_hour_doppler",
+      "report_id": "abstract:asma-1984-horrigan-451",
+      "basis": "Same title, byline, year and printed p. 451.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19920020098/downloads/19920020098.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-doppler-counting-unit-verified#horrigan84_six_hour_doppler",
+      "report_id": "abstract:asma-1984-horrigan-451",
+      "basis": "NASA bibliography gives the exact conference citation and GWU 5649.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19920020098/downloads/19920020098.pdf"
     }
   ],
   "studies": [
@@ -22788,6 +22812,20 @@
       "relationship": "possible_overlap_same_authors_and_year",
       "evidence": "The report and preprint share three authors, publication year and the Doppler altitude subject. Membership and full texts are unresolved.",
       "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_792-ultrasonic-detection-deco-induced-vascular-microbubbles.pdf"
+    },
+    {
+      "left_report": "openalex:W920476218",
+      "right_report": "report:ada151800",
+      "relationship": "same_altitude_counts_by_doppler_grade",
+      "evidence": "All five altitude fractions match exactly. Vann in text and Figure 12 defines the 173 records as chamber exposures, and names the underlying NASA study.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA151800/DTIC_ADA151800.pdf#page=44"
+    },
+    {
+      "left_report": "report:ada151800",
+      "right_report": "abstract:asma-1984-horrigan-451",
+      "relationship": "cites_original_nasa_doppler_study",
+      "evidence": "Vann's text and references attribute the 173-exposure altitude series to this NASA Shuttle study. The original conference page was unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA151800/DTIC_ADA151800.pdf#page=17"
     }
   ],
   "report_titles": {
