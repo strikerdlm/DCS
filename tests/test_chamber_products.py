@@ -5017,3 +5017,46 @@ def test_standard_test_comparisons_keep_rounding_and_denominator_scope(release):
             SELECT report_id FROM review.review_study_report
             WHERE study_id='grenell-1944-yale-preselection' ORDER BY report_id
         """).fetchall() == [("fulton1951:preselection-tests",), ("report:cam-355",)]
+
+
+def test_historical_taiwan_surveillance_preserves_sessions_and_all_cause_reactions(release):
+    with connect_pair(release) as db:
+        report = "isbn:9789572950715:fang-taiwan-aviation-medicine"
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='fang99_taiwan_chamber_reactions'
+        """).fetchall() == [("any_chamber_reaction_as_reported", 696, 15370, "person_exposure", "overlap_hold")]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit,role_review,reported_rate_percent
+            FROM review.review_search_observation WHERE report_id=?
+        """, (report,)).fetchall() == [
+            ("any_chamber_reaction_as_reported", 696, 15370, "person_exposure", "overlap_hold", 4.5),
+        ]
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='fang99_taiwan_chamber_reactions'
+        """).fetchall() == [(1578, None)]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE url='https://irvingthofoundation.github.io/drfang_book_full_version.pdf'
+            GROUP BY report_id
+        """).fetchall() == [("isbn:9789572950715", 5)]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation WHERE left_report=?
+              AND relationship='likely_overlap' ORDER BY right_report
+        """, (report,)).fetchall() == [
+            ("pmid:3167655",), ("record:legacy:data/chamber/v1.18/sources.csv#ho88_taiwan_survey",),
+        ]
+        assert db.execute("""
+            SELECT source_id FROM publication_observation
+            WHERE source_id IN ('wen88_taiwan_survey','ho88_taiwan_survey','dlr19_protected_registry')
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='dlr19_protected_registry'
+        """).fetchall() == [(None, 6)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.actual_enrolled'),
+                   json_type(metadata_json,'$.clinical_dcs_count')
+            FROM review.review_record WHERE report_id='drks:00016337' AND run_id IS NOT NULL
+        """).fetchone() == (6, "null")

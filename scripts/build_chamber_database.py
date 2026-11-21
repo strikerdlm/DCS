@@ -214,6 +214,7 @@ CHAMBER_WARTIME_CLASSIFICATION = ROOT / "data" / "chamber" / "v1.146"
 CHAMBER_CINCINNATI_HALIFAX_TESTS = ROOT / "data" / "chamber" / "v1.147"
 CHAMBER_CINCINNATI_HALIFAX_RETESTS = ROOT / "data" / "chamber" / "v1.148"
 CHAMBER_STANDARD_TEST_COMPARISONS = ROOT / "data" / "chamber" / "v1.149"
+CHAMBER_TRAINING_SURVEILLANCE_SOURCES = ROOT / "data" / "chamber" / "v1.150"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2074,6 +2075,17 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_reported_rate": "reported_rates.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_TRAINING_SURVEILLANCE_SOURCES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                         "publication_overlap": "overlap.csv",
                     },
