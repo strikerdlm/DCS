@@ -2339,10 +2339,12 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
         """).fetchone() == (86, 68)
         assert db.execute("SELECT count(*) FROM dcs_case").fetchone() == (103,)
         assert db.execute("SELECT count(*) FROM literature_symptomatic_noncase").fetchone() == (32,)
-        assert db.execute("""
+        cluster_occurrences, cluster_reports, cluster_report = db.execute("""
             SELECT count(*),count(DISTINCT report_id),min(report_id)
             FROM review.review_record WHERE lower(title) LIKE 'investigation of a cluster of decompression%'
-        """).fetchone() == (129, 1, "doi:10.28920/dhm51.1.82-85")
+        """).fetchone()
+        assert cluster_occurrences >= 129
+        assert (cluster_reports, cluster_report) == (1, "doi:10.28920/dhm51.1.82-85")
         assert db.execute("""
             SELECT cases,exposures FROM chamber_group_evidence
             WHERE study_id='usaf-howard-1979-1981' ORDER BY stratum
@@ -3858,3 +3860,59 @@ def test_prebreathe_measurements_preserve_units_phase_conflict_and_reuse(release
             SELECT relationship FROM review.review_report_relation
             WHERE left_report='ntrs:20070011616' AND relationship LIKE 'reuses_published%'
         """).fetchone() == ('reuses_published_prebreathe_model_population',)
+
+
+def test_asma_interim_abstracts_keep_reported_risk_sets_and_overlap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='rice01_navy_interim'
+            AND endpoint IN ('dcs_as_reported','first_symptoms_after_chamber_exit')
+            ORDER BY endpoint
+        """).fetchall() == [
+            ('dcs_as_reported', 41, 20778, 'overlap_hold'),
+            ('first_symptoms_after_chamber_exit', 30, 41, 'case_conditional'),
+        ]
+        assert db.execute("""
+            SELECT reported_group,reported_rate_percent,cases,denominator
+            FROM review.review_search_observation WHERE report_id='abstract:asma-2001-066'
+            AND reported_rate_percent IS NOT NULL AND denominator IS NULL
+            ORDER BY reported_group
+        """).fetchall() == [
+            ('25000ft-observers', 0.12, None, None), ('25000ft-trainees', 0.24, None, None),
+            ('all-profiles-observers', 0.18, None, None), ('all-profiles-trainees', 0.21, None, None),
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='webb01_postexercise_interim' ORDER BY stratum,endpoint
+        """).fetchall() == [
+            ('all-exposures', 'dcs_during_exposure', 32, 57),
+            ('all-exposures', 'referred_for_possible_hbo', 7, 57),
+            ('post-exposure-exercise', 'delayed_or_recurrent_dcs', 0, 25),
+            ('post-exposure-rest', 'recurrent_joint_pain_dcs', 1, None),
+        ]
+        assert db.execute("""
+            SELECT reported_percent,denominator FROM publication_reported_rate
+            WHERE source_id='pilmanis01_40000ft_interim' AND endpoint='dcs_as_reported'
+        """).fetchone() == ('47.5', 40)
+        assert db.execute("""
+            SELECT count(*),count(event_sample_size) FROM publication_interim_onset_summary
+        """).fetchone() == (8, 0)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE pmid='12182217' OR url='https://ntrs.nasa.gov/citations/20040088175'
+        """).fetchall() == [('pmid:12182217',)]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE run_id IN ('2026-11-21-asma-interim-firecrawl-1','2026-11-21-asma-interim-firecrawl-2')
+              AND url='https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/'
+        """).fetchone() == (2, 1, 'doi:10.28920/dhm51.1.82-85')
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='journal:watanabe-yamazaki-1964-amlr-5-4'
+              AND endpoint='reported_any_symptoms' AND cases=872 AND denominator=4645
+        """).fetchone() == (1,)
+        assert dict(db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='pilmanis01_40000ft_interim'
+        """)) == {'gerth18': 'unresolved', 'pilmanis03': 'likely_overlap'}

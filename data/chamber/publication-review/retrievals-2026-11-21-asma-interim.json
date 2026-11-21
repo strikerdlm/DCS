@@ -1,0 +1,706 @@
+[
+  {
+    "id": "2026-11-21-asma-interim-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"decompression sickness\" altitude chamber proceedings post-exposure exercise Pilmanis 2001 Rice Anderson",
+      "http_status": 433,
+      "search_depth": "advanced",
+      "max_results": 10
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The account spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-asma-interim-firecrawl-1",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"altitude chamber\" \"decompression sickness\" \"cases\" \"exposures\" naval altitude training 1996 2000 Rice Anderson interim original AsMA",
+      "search_id": "01a1fdec-9479-704e-a80b-5b4674b22215"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Preserve the ranked results.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Investigation of a cluster of decompression sickness cases ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "ADA257612.pdf - DTIC",
+        "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-asma-interim-firecrawl-2",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"decompression sickness\" \"training\" hypobaric chamber experience \"cases\" trainees 1980 1990 air force human aeromedical NATO Canada Italy Spain Germany report",
+      "search_id": "01a1fdec-942d-75ad-b42b-7420afdf61f9"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Preserve the ranked results.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Investigation of a cluster of decompression sickness cases ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "ADA257612.pdf - DTIC",
+        "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "title": "Australian Defence Force hypobaric chamber training, 1984–2001",
+        "url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "title": "Incidence of decompression sickness in hypoxia training with and without ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12546299/"
+      },
+      {
+        "id": "5",
+        "rank": 5,
+        "title": "Aviation Medicine Research: A Historical Review.",
+        "url": "https://www.faa.gov/about/office_org/headquarters_offices/avs/offices/aam/cami/library/online_libraries/aerospace_medicine/media/77013861.pdf"
+      },
+      {
+        "id": "6",
+        "rank": 6,
+        "title": "\"3T-»",
+        "url": "https://repository.library.noaa.gov/view/noaa/44969/noaa_44969_DS3.pdf"
+      },
+      {
+        "id": "7",
+        "rank": 7,
+        "title": "AEROSPACE MEDICINE AND BIOLOGY",
+        "url": "https://ntrs.nasa.gov/api/citations/19910014388/downloads/19910014388.pdf?attachment=true"
+      },
+      {
+        "id": "8",
+        "rank": 8,
+        "title": "42789608.pdf",
+        "url": "https://core.ac.uk/download/42789608.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-asma-interim-firecrawl-3",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"effect of simulated weightlessness on hypobaric decompression sickness\" \"20040088175\" Balldin 773",
+      "search_id": "01a1fdee-d983-763e-a958-2033ae0e383e"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Preserve the ranked results.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-asma-interim-firecrawl-4",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"altitude decompression sickness\" \"chamber\" unpublished \"Swedish Air Force\" \"Danish\" exposure training incidence primary hypobaric",
+      "search_id": "01a1fdee-d983-718f-a9a4-2714b0d2779f"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Supplementary search. Preserve the ranked results.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-asma-interim-primary",
+    "date": "2026-11-21",
+    "provider": "AsMA journal archive",
+    "operation": "verify_original_abstracts",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "pdf_sha256": "7ff0cb57788961e099153331f832647413fa5ca96e73a03fec3a7c5e5780900a",
+      "pdf_pages": 88,
+      "discovery_search_ids": [
+        "01a1fde1-296e-770a-8494-5b3539cf3ad3",
+        "01a1fde8-39f8-73a9-abc5-a4796a85bbbb"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Verified four abstract reports from the original 88-page publisher issue. Treat all rates as overlapping or case-conditional.",
+    "records": [
+      {
+        "id": "rice01_navy_interim",
+        "title": "Altitude Decompression Sickness Following Naval Altitude Chamber Operations (January 1996–October 2000)",
+        "authors_as_printed": "Rice G, Anderson D",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=15",
+        "year": 2001,
+        "study_id": "usn-1993-2002",
+        "source_sha256": "7ff0cb57788961e099153331f832647413fa5ca96e73a03fec3a7c5e5780900a",
+        "abstract_number": 66,
+        "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=15",
+        "observations": [
+          {
+            "id": "rice01_navy_interim-all-exposures-dcs_as_reported",
+            "group": "all-exposures",
+            "endpoint": "dcs_as_reported",
+            "analysis_role": "overlap_hold",
+            "cases": 41,
+            "denominator": 20778,
+            "denominator_unit": "person_exposure",
+            "study_id": "usn-1993-2002",
+            "outcome_window": "During or after chamber exposure. Fixed surveillance horizon unavailable.",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Likely earlier cut of the 1993–2002 naval cohort. Hold from pooling."
+          },
+          {
+            "id": "rice01_navy_interim-all-dcs-cases-first_symptoms_after_chamber_exit",
+            "group": "all-dcs-cases",
+            "endpoint": "first_symptoms_after_chamber_exit",
+            "analysis_role": "case_conditional",
+            "cases": 30,
+            "denominator": 41,
+            "denominator_unit": "dcs_case",
+            "study_id": "usn-1993-2002",
+            "outcome_window": "First symptom after completed exposure. Maximum documented delay unavailable.",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Post-exit timing among the 41 source-defined cases."
+          },
+          {
+            "id": "rice01_navy_interim-all-dcs-cases-navy_type_ii_dcs_as_reported",
+            "group": "all-dcs-cases",
+            "endpoint": "navy_type_ii_dcs_as_reported",
+            "analysis_role": "case_conditional",
+            "cases": 26,
+            "denominator": 41,
+            "denominator_unit": "dcs_case",
+            "study_id": "usn-1993-2002",
+            "outcome_window": "Diagnosis among the cases as reported. Assessment horizon unavailable.",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Historical Navy Type II classification. Keep separate from present severe or neurologic definitions."
+          },
+          {
+            "id": "rice01_navy_interim-navy-type-ii-cases-type_ii_paresthesias_alone",
+            "group": "navy-type-ii-cases",
+            "endpoint": "type_ii_paresthesias_alone",
+            "analysis_role": "case_conditional",
+            "cases": 15,
+            "denominator": 26,
+            "denominator_unit": "dcs_case",
+            "study_id": "usn-1993-2002",
+            "outcome_window": "Classification among Navy Type II cases. Assessment horizon unavailable.",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Paresthesias alone were sufficient for the historical Navy Type II label."
+          },
+          {
+            "id": "rice01_navy_interim-all-dcs-cases-complete_symptom_resolution_as_reported",
+            "group": "all-dcs-cases",
+            "endpoint": "complete_symptom_resolution_as_reported",
+            "analysis_role": "case_conditional",
+            "cases": 39,
+            "denominator": 41,
+            "denominator_unit": "dcs_case",
+            "study_id": "usn-1993-2002",
+            "outcome_window": "After ground-level oxygen or hyperbaric therapy. Follow-up horizon unavailable.",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Clinical resolution as reported, regardless of therapy."
+          },
+          {
+            "id": "rice01_navy_interim-all-dcs-cases-limb_or_joint_pain_as_reported",
+            "group": "all-dcs-cases",
+            "endpoint": "limb_or_joint_pain_as_reported",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 73.0,
+            "cases": null,
+            "denominator": 41,
+            "denominator_unit": "dcs_case",
+            "study_id": "usn-1993-2002",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Symptom percentage among diagnosed cases. Exact numerator unavailable."
+          },
+          {
+            "id": "rice01_navy_interim-all-dcs-cases-paresthesias_as_reported",
+            "group": "all-dcs-cases",
+            "endpoint": "paresthesias_as_reported",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 43.0,
+            "cases": null,
+            "denominator": 41,
+            "denominator_unit": "dcs_case",
+            "study_id": "usn-1993-2002",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Symptom percentage among diagnosed cases. Exact numerator unavailable."
+          },
+          {
+            "id": "rice01_navy_interim-all-profiles-observers-rate",
+            "group": "all-profiles-observers",
+            "endpoint": "dcs_as_reported",
+            "reported_rate_percent": 0.18,
+            "cases": null,
+            "denominator": null,
+            "study_id": "usn-1993-2002",
+            "analysis_role": "overlap_hold",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Role-specific reported rate. Numerator, denominator and fixed surveillance horizon unavailable."
+          },
+          {
+            "id": "rice01_navy_interim-all-profiles-trainees-rate",
+            "group": "all-profiles-trainees",
+            "endpoint": "dcs_as_reported",
+            "reported_rate_percent": 0.21,
+            "cases": null,
+            "denominator": null,
+            "study_id": "usn-1993-2002",
+            "analysis_role": "overlap_hold",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Role-specific reported rate. Numerator, denominator and fixed surveillance horizon unavailable."
+          },
+          {
+            "id": "rice01_navy_interim-25000ft-observers-rate",
+            "group": "25000ft-observers",
+            "endpoint": "dcs_as_reported",
+            "reported_rate_percent": 0.12,
+            "cases": null,
+            "denominator": null,
+            "study_id": "usn-1993-2002",
+            "analysis_role": "overlap_hold",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Role-specific reported rate. Numerator, denominator and fixed surveillance horizon unavailable."
+          },
+          {
+            "id": "rice01_navy_interim-25000ft-trainees-rate",
+            "group": "25000ft-trainees",
+            "endpoint": "dcs_as_reported",
+            "reported_rate_percent": 0.24,
+            "cases": null,
+            "denominator": null,
+            "study_id": "usn-1993-2002",
+            "analysis_role": "overlap_hold",
+            "locator": "Abstract 66, printed p. 243 (PDF p. 15)",
+            "note": "Role-specific reported rate. Numerator, denominator and fixed surveillance horizon unavailable."
+          }
+        ]
+      },
+      {
+        "id": "balldin01_posture_interim",
+        "title": "Hypobaric Decompression Sickness and Simulated Weightlessness",
+        "authors_as_printed": "Balldin U, Pilmanis A, Webb J",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=34",
+        "year": 2001,
+        "study_id": "afrl-brooks-simulated-weightlessness",
+        "source_sha256": "7ff0cb57788961e099153331f832647413fa5ca96e73a03fec3a7c5e5780900a",
+        "abstract_number": 154,
+        "locator": "Abstract 154, printed p. 262 (PDF p. 34)",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=34",
+        "observations": [
+          {
+            "id": "balldin01_posture_interim-ambulatory-dcs_as_reported",
+            "group": "ambulatory",
+            "endpoint": "dcs_as_reported",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 42.0,
+            "cases": null,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-simulated-weightlessness",
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)",
+            "note": "Source-reported percentage. Exact numerator not tabulated."
+          },
+          {
+            "id": "balldin01_posture_interim-ambulatory-any_vge",
+            "group": "ambulatory",
+            "endpoint": "any_vge",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 81.0,
+            "cases": null,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-simulated-weightlessness",
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)",
+            "note": "Source-reported percentage. Exact numerator not tabulated."
+          },
+          {
+            "id": "balldin01_posture_interim-ambulatory-grade_iii_iv_vge",
+            "group": "ambulatory",
+            "endpoint": "grade_iii_iv_vge",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 58.0,
+            "cases": null,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-simulated-weightlessness",
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)",
+            "note": "Source-reported percentage. Exact numerator not tabulated."
+          },
+          {
+            "id": "balldin01_posture_interim-supine-dcs_as_reported",
+            "group": "supine",
+            "endpoint": "dcs_as_reported",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 42.0,
+            "cases": null,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-simulated-weightlessness",
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)",
+            "note": "Source-reported percentage. Exact numerator not tabulated."
+          },
+          {
+            "id": "balldin01_posture_interim-supine-any_vge",
+            "group": "supine",
+            "endpoint": "any_vge",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 54.0,
+            "cases": null,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-simulated-weightlessness",
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)",
+            "note": "Source-reported percentage. Exact numerator not tabulated."
+          },
+          {
+            "id": "balldin01_posture_interim-supine-grade_iii_iv_vge",
+            "group": "supine",
+            "endpoint": "grade_iii_iv_vge",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 38.0,
+            "cases": null,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-simulated-weightlessness",
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)",
+            "note": "Source-reported percentage. Exact numerator not tabulated."
+          }
+        ],
+        "onset_summaries": [
+          {
+            "stratum": "ambulatory",
+            "endpoint": "dcs_as_reported",
+            "exposed_people": 26,
+            "event_sample_size": null,
+            "mean_onset_min": 113,
+            "standard_deviation_min": 62,
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)"
+          },
+          {
+            "stratum": "ambulatory",
+            "endpoint": "any_vge",
+            "exposed_people": 26,
+            "event_sample_size": null,
+            "mean_onset_min": 86,
+            "standard_deviation_min": 51,
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)"
+          },
+          {
+            "stratum": "ambulatory",
+            "endpoint": "grade_iii_iv_vge",
+            "exposed_people": 26,
+            "event_sample_size": null,
+            "mean_onset_min": 113,
+            "standard_deviation_min": 43,
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)"
+          },
+          {
+            "stratum": "supine",
+            "endpoint": "dcs_as_reported",
+            "exposed_people": 26,
+            "event_sample_size": null,
+            "mean_onset_min": 123,
+            "standard_deviation_min": 64,
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)"
+          },
+          {
+            "stratum": "supine",
+            "endpoint": "any_vge",
+            "exposed_people": 26,
+            "event_sample_size": null,
+            "mean_onset_min": 72,
+            "standard_deviation_min": 58,
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)"
+          },
+          {
+            "stratum": "supine",
+            "endpoint": "grade_iii_iv_vge",
+            "exposed_people": 26,
+            "event_sample_size": null,
+            "mean_onset_min": 116,
+            "standard_deviation_min": 50,
+            "locator": "Abstract 154, printed p. 262 (PDF p. 34)"
+          }
+        ]
+      },
+      {
+        "id": "webb01_postexercise_interim",
+        "title": "The Effect of Post-Exposure Exercise on Altitude Decompression Sickness",
+        "authors_as_printed": "Webb J, Pilmanis A",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=36",
+        "year": 2001,
+        "study_id": "afrl-postexposure-exercise-trial",
+        "source_sha256": "7ff0cb57788961e099153331f832647413fa5ca96e73a03fec3a7c5e5780900a",
+        "abstract_number": 164,
+        "locator": "Abstract 164, printed p. 264–265 (PDF p. 36–37)",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=36",
+        "observations": [
+          {
+            "id": "webb01_postexercise_interim-all-exposures-dcs_during_exposure",
+            "group": "all-exposures",
+            "endpoint": "dcs_during_exposure",
+            "analysis_role": "overlap_hold",
+            "cases": 32,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "outcome_window": "During the intended 120-min chamber plateau or until symptomatic termination.",
+            "locator": "Abstract 164, printed p. 264–265 (PDF p. 36–37)",
+            "note": "Additional sample cut within the already indexed trial: RTO proceedings n=54 and final article n=67."
+          },
+          {
+            "id": "webb01_postexercise_interim-all-exposures-referred_for_possible_hbo",
+            "group": "all-exposures",
+            "endpoint": "referred_for_possible_hbo",
+            "analysis_role": "overlap_hold",
+            "cases": 7,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "outcome_window": "Referral around recompression. Actual hyperbaric treatment is unspecified.",
+            "locator": "Abstract 164, printed p. 264–265 (PDF p. 36–37)",
+            "note": "Referral count, not an intervention or outcome count."
+          },
+          {
+            "id": "webb01_postexercise_interim-post-exposure-exercise-delayed_or_recurrent_dcs",
+            "group": "post-exposure-exercise",
+            "endpoint": "delayed_or_recurrent_dcs",
+            "analysis_role": "case_conditional",
+            "cases": 0,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "outcome_window": "Two-hour post-exposure observation after recompression.",
+            "locator": "Abstract 164, printed p. 264–265 (PDF p. 36–37)",
+            "note": "Conditional on reaching ground-level allocation and assigned exercise."
+          },
+          {
+            "id": "webb01_postexercise_interim-post-exposure-rest-recurrent_joint_pain_dcs",
+            "group": "post-exposure-rest",
+            "endpoint": "recurrent_joint_pain_dcs",
+            "analysis_role": "case_conditional",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "study_id": "afrl-postexposure-exercise-trial",
+            "outcome_window": "Two-hour post-exposure observation after recompression.",
+            "locator": "Abstract 164, printed p. 264–265 (PDF p. 36–37)",
+            "note": "Rest-arm denominator unavailable. The RTO proceedings label a resting event in a no-initial-DCS subgroup. Case identity unresolved."
+          }
+        ]
+      },
+      {
+        "id": "pilmanis01_40000ft_interim",
+        "title": "The Incidence and Onset Times of Venous Gas Emboli (VGE) and Altitude Decompression Sickness (DCS) Symptoms in Human Subjects Exposed to 40,000 Ft",
+        "authors_as_printed": "Pilmanis A, Webb J, Balldin U",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=37",
+        "year": 2001,
+        "study_id": "afrl-brooks-40000ft-ascent-rate",
+        "source_sha256": "7ff0cb57788961e099153331f832647413fa5ca96e73a03fec3a7c5e5780900a",
+        "abstract_number": 165,
+        "locator": "Abstract 165, printed p. 265 (PDF p. 37)",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/72/3/article-p229.pdf#page=37",
+        "observations": [
+          {
+            "id": "pilmanis01_40000ft_interim-resting-40000ft-dcs_as_reported",
+            "group": "resting-40000ft",
+            "endpoint": "dcs_as_reported",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 47.5,
+            "cases": null,
+            "denominator": 40,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-40000ft-ascent-rate",
+            "locator": "Abstract 165, printed p. 265 (PDF p. 37)",
+            "note": "Matches the later journal slow arm. Keep distinct from the weighted NEDU count."
+          },
+          {
+            "id": "pilmanis01_40000ft_interim-resting-40000ft-any_vge",
+            "group": "resting-40000ft",
+            "endpoint": "any_vge",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 65.0,
+            "cases": null,
+            "denominator": 40,
+            "denominator_unit": "person",
+            "study_id": "afrl-brooks-40000ft-ascent-rate",
+            "locator": "Abstract 165, printed p. 265 (PDF p. 37)",
+            "note": "Matches the later journal slow arm. Keep distinct from the weighted NEDU count."
+          }
+        ],
+        "onset_summaries": [
+          {
+            "stratum": "resting-40000ft",
+            "endpoint": "dcs_as_reported",
+            "exposed_people": 40,
+            "event_sample_size": null,
+            "mean_onset_min": 37,
+            "standard_deviation_min": 17,
+            "locator": "Abstract 165, printed p. 265 (PDF p. 37)"
+          },
+          {
+            "stratum": "resting-40000ft",
+            "endpoint": "any_vge",
+            "exposed_people": 40,
+            "event_sample_size": null,
+            "mean_onset_min": 32,
+            "standard_deviation_min": 22,
+            "locator": "Abstract 165, printed p. 265 (PDF p. 37)"
+          }
+        ],
+        "follow_up_note": "No recurrence or late symptoms were reported. Duration of surveillance after descent was not given."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-asma-interim-ntrs",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS",
+    "operation": "verify_reprint",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_metadata",
+    "note": "NASA identifies the 2002 final journal study as a journal reprint. The copy does not have a download.",
+    "records": [
+      {
+        "id": "balldin-2002-ntrs",
+        "title": "The effect of simulated weightlessness on hypobaric decompression sickness",
+        "url": "https://ntrs.nasa.gov/citations/20040088175",
+        "year": 2002,
+        "ntrs_id": "20040088175",
+        "document_type": "Reprint (Version printed in journal)",
+        "study_id": "afrl-brooks-simulated-weightlessness"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-asma-interim-bibliographies",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS and Firecrawl",
+    "operation": "verify_source_identity",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "core_scrape_id": "01a1fdef-d997-738e-93cb-1615ae3b82f5"
+    },
+    "reported_total": null,
+    "status": "observed_metadata",
+    "note": "Matched Firecrawl leads to two different NASA bibliographies. Neither retrieval provides a new cohort.",
+    "records": [
+      {
+        "id": "ntrs-19910014388",
+        "title": "Aerospace Medicine and Biology: A Continuing Bibliography with Indexes (Supplement 347)",
+        "url": "https://ntrs.nasa.gov/citations/19910014388",
+        "ntrs_id": "19910014388",
+        "source_content": "bibliography",
+        "note": "The document indexes prior reports."
+      },
+      {
+        "id": "ntrs-19940014596",
+        "title": "Aerospace Medicine and Biology: A Continuing Bibliography with Indexes (Supplement 381)",
+        "url": "https://ntrs.nasa.gov/citations/19940014596",
+        "ntrs_id": "19940014596",
+        "source_content": "bibliography",
+        "note": "The document indexes prior reports."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-asma-interim-jasdf-catalogues",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "verify_archive_access",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "corroborating_summary": "https://www.jstage.jst.go.jp/article/jasdfaml/47/2/47_141/_pdf#page=80"
+    },
+    "reported_total": null,
+    "status": "observed_metadata",
+    "note": "Original article catalogued, with access qualifications at NDL. Preserve the existing institutional-summary observation without duplication.",
+    "records": [
+      {
+        "id": "ndl-8204039",
+        "url": "https://ndlsearch.ndl.go.jp/books/R000000004-I8204039",
+        "catalogue_id": "8204039",
+        "digitized_issue_id": "3397379",
+        "access": "restricted_library_or_registered_japan_resident",
+        "scrape_id": "01a1fdd9-fe98-70c1-9ab8-89e6ec73a1f8",
+        "title": "航空自衛隊における航空生理訓練の概況",
+        "year": 1964,
+        "author_labels_as_indexed": [
+          "渡辺隆夫",
+          "山崎由久"
+        ],
+        "volume": "5",
+        "issue": "2",
+        "pages": "4–12",
+        "study_id": "jasdf-training-five-years-through-1962"
+      },
+      {
+        "id": "cinii-1521980704689039488",
+        "url": "https://cir.nii.ac.jp/crid/1521980704689039488",
+        "scrape_id": "01a1fdd9-9d39-721d-8b01-19aeac3a7167",
+        "title": "航空自衛隊における航空生理訓練の概況",
+        "year": 1964,
+        "author_labels_as_indexed": [
+          "渡辺隆夫",
+          "山崎由久"
+        ],
+        "volume": "5",
+        "issue": "2",
+        "pages": "4–12",
+        "study_id": "jasdf-training-five-years-through-1962"
+      },
+      {
+        "id": "ichushi-1966067232",
+        "url": "https://search.jamas.or.jp/link/ui/1966067232",
+        "scrape_id": "01a1fdd9-fddb-709b-a2c2-7cb499ebc797",
+        "title": "航空自衛隊における航空生理訓練の概況",
+        "year": 1964,
+        "author_labels_as_indexed": [
+          "渡辺隆夫",
+          "山崎由久"
+        ],
+        "volume": "5",
+        "issue": "2",
+        "pages": "4–12",
+        "study_id": "jasdf-training-five-years-through-1962"
+      }
+    ]
+  }
+]

@@ -2,7 +2,8 @@ import sqlite3
 
 import pytest
 
-from scripts.build_chamber_database import build
+from scripts.build_chamber_database import ROOT, build
+from scripts.review_legacy import legacy_records
 
 
 def test_publication_register_build(tmp_path):
@@ -15,9 +16,11 @@ def test_publication_register_build(tmp_path):
         assert db.execute(
             "SELECT sum(registered_dcs_events) FROM fac_official_chamber_year"
         ).fetchone() == (54,)
-        assert db.execute("SELECT count(*) FROM review_record WHERE run_id IS NULL").fetchone() == (
-            4479,
-        )
+        (legacy_occurrences,) = db.execute(
+            "SELECT count(*) FROM review_record WHERE run_id IS NULL"
+        ).fetchone()
+        assert legacy_occurrences >= 4479
+        assert legacy_occurrences == sum(1 for _ in legacy_records(ROOT))
         assert db.execute(
             "SELECT source_key,report_id FROM review_record "
             "WHERE stream='data/chamber/v1.62/sources.csv' ORDER BY source_key"
