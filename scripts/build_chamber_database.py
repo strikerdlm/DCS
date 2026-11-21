@@ -162,6 +162,7 @@ CHAMBER_OLSON_DOPPLER_FLIGHTS = ROOT / "data" / "chamber" / "v1.94"
 CHAMBER_USAFSAM_APPENDIX_A = ROOT / "data" / "chamber" / "v1.95"
 CHAMBER_DUKE_PREBREATHE = ROOT / "data" / "chamber" / "v1.96"
 CHAMBER_NASA_SEVERITY_AND_LUNAR = ROOT / "data" / "chamber" / "v1.97"
+CHAMBER_USAF_TREATMENT_AND_PREBREATHE = ROOT / "data" / "chamber" / "v1.98"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1439,6 +1440,18 @@ def build(
                         "publication_nasa_f2_case": "nasa_f2_cases.csv",
                         "publication_nasa_f3_stratum": "nasa_f3_strata.csv",
                         "publication_lunar_pressure_campaign": "lunar_campaigns.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_USAF_TREATMENT_AND_PREBREATHE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_tt8_episode": "tt8_episodes.csv",
+                        "publication_tt8_interim_tally": "tt8_interim.csv",
+                        "publication_webb94_interim_group": "webb94_interim_groups.csv",
+                        "publication_webb94_case_link": "webb94_case_links.csv",
                     },
                 )
             if rojas_supplement:

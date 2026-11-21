@@ -1,0 +1,235 @@
+[
+  {
+    "id": "2026-11-20-usaf-treatment-prebreathe-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_title_and_overlap_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Butler Topper Dart USAF Treatment Table 8 altitude decompression 11817619 Topper Touhey 1989 60 489 9561289",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-usaf-treatment-prebreathe-firecrawl-search",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_original_treatment_report_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Butler Topper Dart USAF Treatment Table 8 altitude decompression 11817619 Topper Touhey 1989 60 489 9561289"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Eight hits checked. None supplied an independent Table 8 study.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-usaf-treatment-prebreathe-firecrawl-asma",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_pdf_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p46.pdf",
+      "http_status": 200
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Publisher interstitial returned instead of the PDF. Source bytes acquired and verified directly.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-usaf-treatment-prebreathe-firecrawl-ntrs",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_ntrs_document_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://ntrs.nasa.gov/api/citations/19940029133/downloads/19940029133.pdf",
+      "http_status": 200
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Retrieved the original paper and confirmed the interim methods and results.",
+    "records": [
+      {
+        "id": "webb-ntrs",
+        "title": "Exercise with prebreathe appears to increase protection from decompression sickness: preliminary findings",
+        "year": 1994,
+        "identifier": "NTRS:19940029133",
+        "url": "https://ntrs.nasa.gov/api/citations/19940029133/downloads/19940029133.pdf",
+        "access": "full_text",
+        "locator": "Printed pp. 497–498, abstract, methods, results and Figure 1"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-usaf-treatment-prebreathe-originals",
+    "date": "2026-11-20",
+    "provider": "AsMA publisher and NASA NTRS original reports",
+    "operation": "supplementary_original_case_table_and_trial_stage_reconciliation",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 4,
+    "status": "observed",
+    "note": "Verified the twelve Table 8 people and thirteen episodes, and checked the preliminary and final trial publications for reused exposures.",
+    "records": [
+      {
+        "id": "butler-2002-final",
+        "title": "USAF treatment table 8: treatment for altitude decompression sickness",
+        "year": 2002,
+        "identifier": "PMID:11817619",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p46.pdf",
+        "locator": "Methods pp. 46–47, Results p. 47 and Table I p. 48 (PDF p. 3)",
+        "access": "full_text",
+        "sha256": "843feeada3b22617bb22cc16370b261a939c2fa4f5f5f75f9ab2d2dd3b7e0198",
+        "note": "Thirteen treatment episodes among 12 people. The pilot selected patients with altitude DCS. Triggering exposure setting and evaluable chamber population are unavailable.",
+        "pmid": "11817619",
+        "observations": [
+          {
+            "id": "type_i_treated-tt8_success_as_reported",
+            "group": "type_i_treated",
+            "endpoint": "tt8_success_as_reported",
+            "study_id": "usaf-brooks-tt8-pilot-1985-1989",
+            "cases": 10,
+            "denominator": 11,
+            "denominator_unit": "dcs_case",
+            "outcome_window": "Initial treatment response, next-day exam and two-week contact described in Methods. Individual follow-up completeness is unavailable.",
+            "locator": "Methods pp. 46–47, Results p. 47 and Table I p. 48 (PDF p. 3)",
+            "note": "Ten people contributed 11 Type I episodes. The one failure was recurrent elbow pain after initial resolution."
+          },
+          {
+            "id": "type_ii_treated-tt8_success_as_reported",
+            "group": "type_ii_treated",
+            "endpoint": "tt8_success_as_reported",
+            "study_id": "usaf-brooks-tt8-pilot-1985-1989",
+            "cases": 1,
+            "denominator": 2,
+            "denominator_unit": "dcs_case",
+            "outcome_window": "Initial treatment response, next-day exam and two-week contact described in Methods. Individual follow-up completeness is unavailable.",
+            "locator": "Methods pp. 46–47, Results p. 47 and Table I p. 48 (PDF p. 3)",
+            "note": "The failure was persistent focal symptoms at reassessment and conversion to TT6. The other case was labeled Type II, with paresthesia but no objective deficit."
+          }
+        ],
+        "reported_scope": {
+          "participants": 12,
+          "treated_episodes": 13,
+          "enrolment_years": "1985–1989",
+          "recurrences_reported": 1,
+          "conversions_to_tt6_described": 1,
+          "ear_blocks_reported": 2,
+          "next_day_exam_planned": true,
+          "two_week_contact_planned": true,
+          "two_week_completion_count": null,
+          "exposure_setting_at_episode_level": null,
+          "chamber_exposure_denominator": null
+        }
+      },
+      {
+        "id": "topper-1989-abstract-73",
+        "title": "USAF Table 8: treatment of altitude decompression sickness",
+        "year": 1989,
+        "identifier": "AsMA 1989:abstract 73",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13",
+        "locator": "1989 AsMA abstract 73, printed p. 489 (PDF p. 13)",
+        "access": "primary_abstract",
+        "sha256": "cf6c87dfa13dc309aca802f67976d6dac8f7cd5b61024cbd3fdd6432ab2184de",
+        "note": "Ten selected participants with Type I DCS. The completed paper explicitly cites these preliminary results. Individual matching and follow-up duration are unavailable.",
+        "observations": [
+          {
+            "id": "interim-type-i-response",
+            "group": "interim_type_i_treated",
+            "case_role": "case_conditional",
+            "endpoint": "resolved_without_reported_recurrence",
+            "study_id": "usaf-brooks-tt8-pilot-1985-1989",
+            "cases": 10,
+            "denominator": 10,
+            "denominator_unit": "person",
+            "outcome_window": "Interim follow-up window unavailable.",
+            "locator": "1989 AsMA abstract 73, printed p. 489 (PDF p. 13)",
+            "note": "Ten people in the 1989 interim Type I presentation, repeated in the 1998 review. The review calls onset at altitude while the abstract gives eligibility within two hours of descent. The 2002 final reports ground and altitude onset, and explicitly includes the earlier study. No episode-level link to the interim tally."
+          }
+        ],
+        "reported_scope": {
+          "type_i_participants": 10,
+          "reported_resolutions_without_recurrence": 10,
+          "assessment_completion_time": null
+        }
+      },
+      {
+        "id": "dart-butler-1998",
+        "title": "Towards new paradigms for the treatment of hypobaric decompression sickness",
+        "year": 1998,
+        "identifier": "PMID:9561289",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/4/article-p403.pdf",
+        "locator": "Table I and discussion, printed pp. 406–407",
+        "access": "full_text",
+        "sha256": "83fe60c5477ede262b371af07039d5251a796b21f96aee88a232772088b03588",
+        "note": "Explicitly repeats the Topper and Touhey 10-person trial tally. Also reprints Rudge and other selected series. No new Table 8 patients or outcomes.",
+        "pmid": "9561289",
+        "reprint_comparison": {
+          "topper_interim": "The review reprints 10/10 from its reference 30. This is the Topper and Touhey presentation, not another case series.",
+          "rudge_altitude": "The review copies 78/104 under a 14.7 psia treatment heading. Rudge Table I and p. 1103 identify this as initial resolution during descent before postflight oxygen. The 78 subsequently received oxygen.",
+          "rudge_persistent": "The review shows 12/26, with a recurrence-after-initial-resolution label. Rudge describes these 26 as persistent during descent; six received immediate compression and 12 of the 20 initially given ground-level oxygen responded.",
+          "rudge_ground": "The review prints 40/78, while Rudge Table II preserves initially resolved (45), recurrent (5) and asymptomatic hyperbaric-treatment transitions. The summary cannot establish an independent efficacy estimate."
+        }
+      },
+      {
+        "id": "webb-1994-ntrs-19940029133",
+        "title": "Exercise with prebreathe appears to increase protection from decompression sickness: preliminary findings",
+        "year": 1994,
+        "identifier": "NTRS:19940029133; N94-33639",
+        "url": "https://ntrs.nasa.gov/api/citations/19940029133/downloads/19940029133.pdf",
+        "locator": "Printed pp. 497–498, abstract, methods, results and Figure 1",
+        "access": "full_text",
+        "sha256": "60592a7dd811572d0475fc396325114fc69f2eca2cd67141f2d6676770745373",
+        "note": "Interim results through August 1, 1993. The 1996 journal report contains the completed study. Percentages disagree between the interim abstract and results. Only explicit case counts are transcribed.",
+        "observations": [
+          {
+            "id": "exercise10_rest50-symptomatic_dcs_as_reported",
+            "group": "exercise10_rest50",
+            "endpoint": "symptomatic_dcs_as_reported",
+            "study_id": "usaf-brooks-webb-exercise-preoxygenation-paired",
+            "cases": 8,
+            "denominator": 22,
+            "denominator_unit": "person_exposure",
+            "outcome_window": "During the scheduled four-hour altitude exposure, with symptoms during descent reported separately. Delayed surveillance unavailable.",
+            "locator": "Printed pp. 497–498, abstract, methods, results and Figure 1",
+            "note": "Eight cases explicitly stated in Results, all resolving during repressurization. Interim results nested in the completed report."
+          },
+          {
+            "id": "rest60-respiratory_dcs_as_reported",
+            "group": "rest60",
+            "endpoint": "respiratory_dcs_as_reported",
+            "study_id": "usaf-brooks-webb-exercise-preoxygenation-paired",
+            "cases": 2,
+            "denominator": 22,
+            "denominator_unit": "person_exposure",
+            "outcome_window": "During the scheduled four-hour altitude exposure, with symptoms during descent reported separately. Delayed surveillance unavailable.",
+            "locator": "Printed pp. 497–498, abstract, methods, results and Figure 1",
+            "note": "Two chokes cases explicitly stated. One remained symptomatic at ground and received hyperbaric oxygen. Use the link to the completed report for that case."
+          }
+        ],
+        "reported_scope": {
+          "preliminary_as_of": "1993-08-01",
+          "complete_interim_per_arm": 22,
+          "planned_participants": 26,
+          "active_abstract_percent": 38,
+          "active_results_percent": 36,
+          "active_explicit_cases": 8,
+          "resting_abstract_percent": 76,
+          "resting_results_percent": 77,
+          "resting_exact_all_dcs_cases": null,
+          "resting_respiratory_cases": 2,
+          "compatible_cross_source_case": "The interim report describes one chokes episode after the resting 60-minute regimen that continued at ground and resolved with hyperbaric oxygen. The completed report describes a single matching episode in that arm and Table VI marks participant 14 as the only chokes case receiving hyperbaric oxygen there. This compatible unique published cell is linked for deduplication. Original flight dates and identity crosswalk are unavailable."
+        }
+      }
+    ]
+  }
+]
