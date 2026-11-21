@@ -159,6 +159,7 @@ CHAMBER_REGIONAL_ECCENTRIC_EXERCISE = ROOT / "data" / "chamber" / "v1.91"
 CHAMBER_NASA_REHEARSALS = ROOT / "data" / "chamber" / "v1.92"
 CHAMBER_BROOKS_DOPPLER_AND_LATENCY = ROOT / "data" / "chamber" / "v1.93"
 CHAMBER_OLSON_DOPPLER_FLIGHTS = ROOT / "data" / "chamber" / "v1.94"
+CHAMBER_USAFSAM_APPENDIX_A = ROOT / "data" / "chamber" / "v1.95"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1403,6 +1404,18 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_olson88_protocol": "protocols.csv",
                         "publication_olson88_exposure": "exposures.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_USAFSAM_APPENDIX_A,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_usafsam_appendix_a": "appendix_a.csv",
+                        "publication_usafsam_appendix_a_link": "appendix_a_links.csv",
+                        "publication_usafsam_pilot_onset": "pilot_onset.csv",
+                        "publication_usafsam_co2_interim_arm": "co2_interim_arms.csv",
                     },
                 )
             if rojas_supplement:

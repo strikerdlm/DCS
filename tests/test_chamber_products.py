@@ -8,6 +8,85 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_usafsam_appendix_editions_and_abstract_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id, COUNT(*), COUNT(exposures_grade2_pct)
+            FROM publication_usafsam_appendix_a GROUP BY source_id ORDER BY source_id
+        """).fetchall() == [
+            ('webb88_protocol_bibliography', 20, 0),
+            ('webb90_protocol_bibliography_revised', 21, 21),
+        ]
+        assert dict(db.execute("""
+            SELECT relationship, COUNT(*) FROM publication_usafsam_appendix_a_link
+            GROUP BY relationship
+        """)) == {
+            'shared_summary_values': 18,
+            'revised_counts_unresolved': 1,
+            'planned_design_to_duration_result': 2,
+        }
+        assert db.execute("""
+            SELECT onset_status, participant_count, reported_exposure_count, scheduled_max_hours,
+                   participants_grade2_first_pct, participants_grade2_ever_pct, exposures_grade2_pct
+            FROM publication_usafsam_appendix_a WHERE study_number=8 ORDER BY source_id,row_number
+        """).fetchall() == [
+            ('study_in_progress', 30, 120, None, None, None, None),
+            ('reported', 23, 77, 3, 26, 30, 12),
+            ('reported', 13, 49, 6, 92, 100, 86),
+        ]
+        assert db.execute("""
+            SELECT participant_count, reported_exposure_count, participants_grade2_first_pct,
+                   exposures_grade2_pct, mean_grade2_onset_min
+            FROM publication_usafsam_appendix_a
+            WHERE study_number=1 AND pressure_altitude_ft=25000 ORDER BY source_id
+        """).fetchall() == [(29, 30, 69, None, 151), (27, 28, 74, 75, 151)]
+        assert db.execute("""
+            SELECT participants_max_vge_3_4_pct, participants_max_vge_1_2_pct, participants_max_vge_0_pct
+            FROM publication_usafsam_appendix_a WHERE pressure_psia=9.00
+        """).fetchall() == [(23, 14, 64), (23, 14, 64)]
+        assert db.execute("""
+            SELECT numerator, denominator, mean_min, earliest_min, latest_min, analysis_role
+            FROM publication_usafsam_pilot_onset
+            JOIN publication_observation USING (source_id)
+            WHERE altitude_ft=altitude ORDER BY altitude_ft
+        """).fetchall() == [
+            (8, 10, 133, 82, 234, 'overlap_hold'),
+            (6, 10, 127, 59, 204, 'overlap_hold'),
+            (10, 10, 93.5, 42, 172, 'overlap_hold'),
+        ]
+        assert db.execute("""
+            SELECT cases, reported_percent, reported_exposures
+            FROM publication_usafsam_co2_interim_arm
+        """).fetchall() == [(4, 10.3, None), (4, 10.3, None)]
+        assert db.execute("""
+            SELECT endpoint, numerator, denominator, analysis_role FROM publication_observation
+            WHERE source_id IN ('smead87_bsi_preliminary','baas89_co2_interim') ORDER BY endpoint
+        """).fetchall() == [
+            ('bubbles_preceded_bends', 93, 126, 'overlap_hold'),
+            ('grade2_limb_bends', 126, 190, 'overlap_hold'),
+            ('no_significant_vge', 31, 64, 'overlap_hold'),
+            ('persistent_dcs_as_reported', 8, 78, 'overlap_hold'),
+        ]
+        assert db.execute("""
+            SELECT COUNT(*) FROM review.review_report_relation
+            WHERE relationship='reprints_study_abstract'
+              AND left_report='report:ada231355'
+              AND right_report IN (
+                  'abstract:asma-1984-adams-bends-susceptibility',
+                  'abstract:space-life-sciences-1987-smead-bsi',
+                  'abstract:asma-1989-baas-co2-prebreathe'
+              )
+        """).fetchone() == (3,)
+        assert db.execute("""
+            SELECT COUNT(*), SUM(o.numerator=r.cases AND o.denominator=r.denominator)
+            FROM publication_observation o
+            JOIN model_report_link l ON l.source_id=o.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON r.report_id=l.report_id AND r.endpoint=o.endpoint
+                AND r.reported_group=o.stratum
+            WHERE o.source_id IN ('adams84_bsi_pilot','smead87_bsi_preliminary','baas89_co2_interim')
+        """).fetchone() == (7, 7)
+
+
 @pytest.fixture(scope="module")
 def release(tmp_path_factory):
     folder = tmp_path_factory.mktemp("chamber") / "release"
@@ -1245,6 +1324,7 @@ def test_olson_flights_keep_joint_outcomes_timing_and_ambiguous_link(release):
         assert db.execute("""
             SELECT right_report,relationship FROM review.review_report_relation
             WHERE left_report='report:ada231355'
+              AND relationship IN ('same_published_exposure_subset_in_archive','revised_version_of')
             ORDER BY right_report
         """).fetchall() == [
             ("pmid:3044322", "same_published_exposure_subset_in_archive"),

@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-usafsam-appendix-a-primary#ada201274-appendix-a",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
+      "basis": "The original USAFSAM-TP-88-10 and DTIC accession match the existing 1988 record.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf#page=21"
+    },
+    {
+      "record_key": "2026-11-20-usafsam-appendix-a-primary#ada231355-appendix-a",
+      "report_id": "report:ada231355",
+      "basis": "Exact match on report accession and June 1990 revision.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=22"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.95/sources.csv#adams84_bsi_pilot",
+      "report_id": "abstract:asma-1984-adams-bends-susceptibility",
+      "basis": "Original author abstract credited by name in the 1990 report and bibliography. Both retrieval and model source point to that reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=7"
+    },
+    {
+      "record_key": "2026-11-20-usafsam-appendix-a-primary#adams-1984-bsi-pilot",
+      "report_id": "abstract:asma-1984-adams-bends-susceptibility",
+      "basis": "Original author abstract credited by name in the 1990 report and bibliography. Both retrieval and model source point to that reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=7"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.95/sources.csv#smead87_bsi_preliminary",
+      "report_id": "abstract:space-life-sciences-1987-smead-bsi",
+      "basis": "Original author abstract credited by name in the 1990 report and bibliography. Both retrieval and model source point to that reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-usafsam-appendix-a-primary#smead-1987-bsi-preliminary",
+      "report_id": "abstract:space-life-sciences-1987-smead-bsi",
+      "basis": "Original author abstract credited by name in the 1990 report and bibliography. Both retrieval and model source point to that reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.95/sources.csv#baas89_co2_interim",
+      "report_id": "abstract:asma-1989-baas-co2-prebreathe",
+      "basis": "Original author abstract credited by name in the 1990 report and bibliography. Both retrieval and model source point to that reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=18"
+    },
+    {
+      "record_key": "2026-11-20-usafsam-appendix-a-primary#baas-1989-co2-interim",
+      "report_id": "abstract:asma-1989-baas-co2-prebreathe",
+      "basis": "Original author abstract credited by name in the 1990 report and bibliography. Both retrieval and model source point to that reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=18"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.94/sources.csv#olson88_precordial",
       "report_id": "pmid:3044322",
       "basis": "Publisher's original title, four authors, issue and pages match PMID 3044322.",
@@ -11175,6 +11223,24 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-brooks-co2-vax23",
+      "label": "Brooks alternative prebreathe gas chamber experiment",
+      "period": "November 1987–March 1989; interim tally through September 1988.",
+      "setting": "Repeated experimental hypobaric chamber exposures at Brooks AFB."
+    },
+    {
+      "study_id": "usaf-brooks-bsi-smead-preliminary",
+      "label": "Brooks BSI preliminary four-altitude Doppler analysis",
+      "period": "Parent VAX 17 dates May 1983–August 1987. Dates of individual sessions unavailable.",
+      "setting": "Repeated experimental hypobaric chamber exposures at Brooks AFB."
+    },
+    {
+      "study_id": "usaf-brooks-bsi-adams-pilot",
+      "label": "Brooks BSI pilot at three altitudes",
+      "period": "Parent VAX 17 dates May 1983–August 1987; pilot abstract published in 1984.",
+      "setting": "Repeated experimental hypobaric chamber exposures at Brooks AFB."
+    },
+    {
       "study_id": "usaf-brooks-bsi-olson-1988-precordial",
       "label": "Olson Brooks BSI precordial ultrasound experiment",
       "period": "Dates of the 82 individual sessions are unavailable. The parent BSI protocol ran from May 1983 to August 1987.",
@@ -12088,6 +12154,42 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-brooks-co2-vax23",
+      "report_id": "abstract:asma-1989-baas-co2-prebreathe",
+      "role": "primary_author_abstract",
+      "locator": "Printed p. 14 (PDF p. 18)"
+    },
+    {
+      "study_id": "usaf-brooks-co2-vax23",
+      "report_id": "report:ada231355",
+      "role": "protocol_identity_and_abstract_reprint",
+      "locator": "Printed p. 14 (PDF p. 18)"
+    },
+    {
+      "study_id": "usaf-brooks-bsi-smead-preliminary",
+      "report_id": "abstract:space-life-sciences-1987-smead-bsi",
+      "role": "primary_author_abstract",
+      "locator": "Printed pp. 4–5 (PDF pp. 8–9)"
+    },
+    {
+      "study_id": "usaf-brooks-bsi-smead-preliminary",
+      "report_id": "report:ada231355",
+      "role": "protocol_identity_and_abstract_reprint",
+      "locator": "Printed pp. 4–5 (PDF pp. 8–9)"
+    },
+    {
+      "study_id": "usaf-brooks-bsi-adams-pilot",
+      "report_id": "abstract:asma-1984-adams-bends-susceptibility",
+      "role": "primary_author_abstract",
+      "locator": "Printed p. 3 (PDF p. 7)"
+    },
+    {
+      "study_id": "usaf-brooks-bsi-adams-pilot",
+      "report_id": "report:ada231355",
+      "role": "protocol_identity_and_abstract_reprint",
+      "locator": "Printed p. 3 (PDF p. 7)"
+    },
     {
       "study_id": "usaf-brooks-bsi-olson-1988-precordial",
       "report_id": "pmid:3044322",
@@ -13578,6 +13680,48 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
+      "right_report": "abstract:asma-1989-baas-co2-prebreathe",
+      "relationship": "reprints_study_abstract",
+      "evidence": "Same interim abstract as the in-press reprint in ADA201274, printed pp. 13–14. This 78-flight snapshot is an earlier analysis from the Study 8 / VAX 23 program. Arm denominators are unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf#page=17"
+    },
+    {
+      "left_report": "report:ada231355",
+      "right_report": "abstract:asma-1989-baas-co2-prebreathe",
+      "relationship": "reprints_study_abstract",
+      "evidence": "Same interim abstract as the in-press reprint in ADA201274, printed pp. 13–14. This 78-flight snapshot is an earlier analysis from the Study 8 / VAX 23 program. Arm denominators are unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=18"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
+      "right_report": "abstract:space-life-sciences-1987-smead-bsi",
+      "relationship": "reprints_study_abstract",
+      "evidence": "The archived abstract heading is on printed p. 4 and the quantitative outcomes on p. 5. This Smead report is distinct from the preceding Krutz et al. 1986 abstract and reuses the parent BSI experiment.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf#page=8"
+    },
+    {
+      "left_report": "report:ada231355",
+      "right_report": "abstract:space-life-sciences-1987-smead-bsi",
+      "relationship": "reprints_study_abstract",
+      "evidence": "The archived abstract heading is on printed p. 4 and the quantitative outcomes on p. 5. This Smead report is distinct from the preceding Krutz et al. 1986 abstract and reuses the parent BSI experiment.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=8"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
+      "right_report": "abstract:asma-1984-adams-bends-susceptibility",
+      "relationship": "reprints_study_abstract",
+      "evidence": "Original author abstract reprinted under Study 1, BSI VAX 17. The same 10 men each flew once at each altitude. Exposure-level identity and post-exit follow-up are unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf#page=7"
+    },
+    {
+      "left_report": "report:ada231355",
+      "right_report": "abstract:asma-1984-adams-bends-susceptibility",
+      "relationship": "reprints_study_abstract",
+      "evidence": "Original author abstract reprinted under Study 1, BSI VAX 17. The same 10 men each flew once at each altitude. Exposure-level identity and post-exit follow-up are unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=7"
+    },
     {
       "left_report": "report:ada231355",
       "right_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
@@ -16393,6 +16537,9 @@
     "pmid:14050686": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes",
     "faa-horizons:1963-08:17:flinn-womack": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes (FAA Horizons digest)",
     "unpublished:scherman-neurologic-dysbarism": "Scherman unpublished neurologic dysbarism case series",
-    "journal:war-medicine:1944:5:304": "A migraine-like syndrome complicating decompression sickness"
+    "journal:war-medicine:1944:5:304": "A migraine-like syndrome complicating decompression sickness",
+    "abstract:asma-1984-adams-bends-susceptibility": "Bends susceptibility",
+    "abstract:space-life-sciences-1987-smead-bsi": "Preliminary findings: Bends Screening Index Study",
+    "abstract:asma-1989-baas-co2-prebreathe": "Effect of a carbon dioxide prebreathe gas mixture on the incidence of altitude-induced decompression sickness"
   }
 }
