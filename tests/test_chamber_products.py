@@ -1080,6 +1080,67 @@ def test_ground_oxygen_flow_preserves_treatment_and_followup_denominators(releas
         """).fetchone() == (0,)
 
 
+def test_crowell_keeps_chamber_runs_and_overlapping_exposure_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT i.summary_stratum, i.type_i_to_iv_chamber_runs, o.cases, o.denominator,
+                   i.reported_total_incidents, o.cases + i.sinus_incidents + i.dental_incidents
+                       + i.ear_incidents + i.gastrointestinal_incidents
+                       + i.hypoxia_or_hyperventilation_incidents + i.other_incidents
+            FROM publication_crowell83_chamber_incidents i JOIN zotero_observation o
+                ON (i.source_id,i.summary_stratum)=(o.source_id,o.stratum)
+            WHERE o.analysis_role='overlap_hold'
+            ORDER BY i.summary_stratum
+        """).fetchall() == [
+            ("results_all", 2744, 69, 21423, 1687, 1689),
+            ("results_lahr", 232, 3, 1389, 124, 124),
+            ("results_toronto", 393, 7, 3482, 237, 237),
+            ("results_trenton", 1216, 10, 7024, 598, 600),
+            ("results_winnipeg_edmonton", 903, 49, 9528, 728, 728),
+        ]
+        assert db.execute("""
+            SELECT sum(cases),sum(denominator) FROM zotero_observation
+            WHERE source_id='crowell83' AND stratum NOT GLOB 'results_*'
+        """).fetchone() == (69, 19573)
+
+
+def test_vann_preflight_cases_stay_outside_existing_flight_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT g.profile, g.printed_trials, sum(f.printed_exposures)
+            FROM publication_vann04_preflight_group g JOIN publication_vann04_flight_group f
+                USING (source_id,profile)
+            GROUP BY g.profile ORDER BY g.profile
+        """).fetchall() == [
+            ("repeat-100-15-60-35", 111, 109),
+            ("repeat-40-60-40-60", 119, 117),
+            ("repeat-60-55-60-20-60-20", 100, 100),
+            ("repeat-60-55-60-30", 36, 34),
+            ("single-100-20", 109, 107),
+        ]
+        assert db.execute("""
+            SELECT flight_disposition,count(*) FROM publication_vann04_preflight_case
+            GROUP BY flight_disposition ORDER BY flight_disposition
+        """).fetchall() == [
+            ("did_not_fly", 7), ("flew_with_distinct_episode", 1),
+            ("flew_with_recurrence", 1), ("flew_without_new_symptoms", 2),
+        ]
+        assert db.execute("""
+            SELECT a.case_number,b.case_number FROM publication_vann04_preflight_case a
+            JOIN publication_vann04_case b ON (a.source_id,a.linked_appendix_b_case,a.profile)
+                =(b.source_id,b.case_number,b.profile)
+            WHERE a.case_number=b.linked_appendix_a_case
+        """).fetchall() == [(11, 40)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_vann04_case WHERE source_id='vann04'
+        """).fetchone() == (40,)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE record_key IN ('legacy:data/chamber/v1.4/sources.csv#vann04',
+                '2026-11-20-original-chamber-incidents-appendix-a#vann-appendix-a')
+        """).fetchone() == (2, 1)
+
+
 def test_repeat_exposure_report_preserves_joint_counts_and_changed_timing(release):
     with connect_pair(release) as db:
         assert db.execute("""

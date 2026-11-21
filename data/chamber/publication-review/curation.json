@@ -10649,6 +10649,42 @@
       "report_id": "openalex:W93154131",
       "basis": "The Krause and Pilmanis title, journal citation and PMID 10685583 identify the same 2000 paper.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "record_key": "2026-11-20-chamber-incidents-tavily#crowell-pmid",
+      "report_id": "pmid:6651730",
+      "basis": "The PMID and title match the existing Canadian surveillance report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/11/article-p1034.pdf"
+    },
+    {
+      "record_key": "2026-11-20-chamber-incidents-firecrawl#crowell-publisher",
+      "report_id": "pmid:6651730",
+      "basis": "The publisher URL and article title match the existing Canadian study report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/11/article-p1034.pdf"
+    },
+    {
+      "record_key": "2026-11-20-original-chamber-incidents-appendix-a#crowell-table-i",
+      "report_id": "pmid:6651730",
+      "basis": "Table I is in the same original paper as the Table II exposure data.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/11/article-p1034.pdf"
+    },
+    {
+      "record_key": "2026-11-20-chamber-incidents-tavily#vann-extract",
+      "report_id": "pmid:15686274",
+      "basis": "The author list, article title and journal pagination match the existing publication.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "2026-11-20-chamber-incidents-firecrawl#vann-primary-pdf",
+      "report_id": "pmid:15686274",
+      "basis": "The original article PDF matches the existing clinical data source.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
+    {
+      "record_key": "2026-11-20-original-chamber-incidents-appendix-a#vann-appendix-a",
+      "report_id": "pmid:15686274",
+      "basis": "Appendix A is in the same paper as the already extracted Appendix B.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
     }
   ],
   "studies": [
