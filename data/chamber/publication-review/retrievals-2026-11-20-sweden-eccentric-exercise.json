@@ -1,0 +1,123 @@
+[
+  {
+    "id": "2026-11-20-sweden-eccentric-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_source_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Gottschalk EP091853 regional eccentric exercise 24000 ft chamber venous gas emboli and NASA 3-day pilot Garbino 20220009546 decompression sickness",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-sweden-eccentric-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_pdf_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://www.diva-portal.org/smash/get/diva2:1909222/FULLTEXT01.pdf",
+      "http_status": 200
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Retrieved the accepted manuscript through the DiVA repository. Its 99 participant-level Table 1 cells agree with the Wiley version of record.",
+    "records": [
+      {
+        "title": "Eccentric exercise before a 90 min exposure at 24,000 ft increases decompression strain depending on body region but not total muscle mass recruited",
+        "year": 2024,
+        "pmid": "38923893",
+        "doi": "10.1113/EP091853",
+        "access": "full_text",
+        "id": "diva-accepted-manuscript",
+        "url": "https://www.diva-portal.org/smash/get/diva2:1909222/FULLTEXT01.pdf",
+        "locator": "Sections 2.2–2.9 and 3, Table 1"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-sweden-eccentric-primary",
+    "date": "2026-11-20",
+    "provider": "Wiley version of record",
+    "operation": "supplementary_full_text_and_study_overlap_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 2,
+    "status": "observed",
+    "note": "Checked study design, all participant-level Table 1 values, early safety stops and explicit reuse of chamber exposures in a subsequent biomarker analysis.",
+    "records": [
+      {
+        "title": "Eccentric exercise before a 90 min exposure at 24,000 ft increases decompression strain depending on body region but not total muscle mass recruited",
+        "year": 2024,
+        "pmid": "38923893",
+        "doi": "10.1113/EP091853",
+        "access": "full_text",
+        "id": "regional-exercise",
+        "url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853",
+        "locator": "Sections 2.2–2.9 and 3, Table 1",
+        "source_scope": {
+          "participants": 11,
+          "participant_exposures": 33,
+          "assessment_contexts_per_exposure": 3,
+          "reported_peak_grade_cells": 99,
+          "grade_scale": "Eftedal–Brubakk 0–5",
+          "clinical_dcs_count": null,
+          "post_exposure_follow_up": null
+        },
+        "table_1_medians": {
+          "assessment_order": [
+            "rest",
+            "knee-flex",
+            "arm-flex"
+          ],
+          "Control": [
+            0,
+            0,
+            0
+          ],
+          "ECCw": [
+            1,
+            1,
+            2
+          ],
+          "ECCu": [
+            1,
+            3,
+            3
+          ]
+        },
+        "source_counting_note": "The Results opening reports eight early stops for an EB score of at least four. Table 1 contains five participant-exposures with an EB grade of four, and Section 2.9 distinguishes in-chamber and offline readings. The Results also describe limiting comparison times in affected participants. The report supplies no individual linkage between the stop times and Table 1, or case count for DCS."
+      },
+      {
+        "id": "inflammation-secondary",
+        "title": "Eccentric exercise-induced muscle damage and inflammation in conjunction with high-altitude decompression in adults",
+        "year": 2024,
+        "pmid": "39667826",
+        "doi": "10.14814/phy2.70147",
+        "url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.14814/phy2.70147",
+        "access": "full_text",
+        "locator": "Sections 2.2 and 2.3, Table 1",
+        "parent_reports": [
+          "pmid:37140728",
+          "pmid:38923893"
+        ],
+        "source_scope": {
+          "volunteers": 21,
+          "pooled_session_rows": 52,
+          "exercise_session_rows": 31,
+          "control_session_rows": 21,
+          "session_rows_with_visible_vge": 35,
+          "session_rows_without_visible_vge": 17,
+          "additional_exposures": 0
+        },
+        "note": "Study forms a biomarker subset of both prior trials. Visit allocation to original participants is unavailable. The reported pooled session margins are retained for source reconciliation only."
+      }
+    ]
+  }
+]

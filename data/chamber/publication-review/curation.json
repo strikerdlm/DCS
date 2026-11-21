@@ -1,6 +1,78 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-19-openalex-citers#W4400037054",
+      "report_id": "pmid:38923893",
+      "basis": "OpenAlex W4400037054 and the primary article identify the same DOI, title and reporting year.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W4400037054",
+      "report_id": "pmid:38923893",
+      "basis": "OpenAlex W4400037054 and the primary article identify the same DOI, title and reporting year.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-30352646#W4400037054",
+      "report_id": "pmid:38923893",
+      "basis": "OpenAlex W4400037054 and the primary article identify the same DOI, title and reporting year.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "2026-11-20-openalex-training#W4400037054",
+      "report_id": "pmid:38923893",
+      "basis": "OpenAlex W4400037054 and the primary article identify the same DOI, title and reporting year.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "2026-11-20-sweden-eccentric-firecrawl#diva-accepted-manuscript",
+      "report_id": "pmid:38923893",
+      "basis": "The DiVA manuscript front matter, DOI and all 99 Table 1 grades agree with the Wiley version of record.",
+      "evidence_url": "https://www.diva-portal.org/smash/get/diva2:1909222/FULLTEXT01.pdf"
+    },
+    {
+      "record_key": "2026-11-20-undermind-citations#Got24",
+      "report_id": "pmid:38923893",
+      "basis": "Exact DOI and title identify the same regional crossover publication, including the institutional repository manuscript.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.23/search_hits.csv#archive_v23_diva:1",
+      "report_id": "pmid:38923893",
+      "basis": "Exact DOI and title identify the same regional crossover publication, including the institutional repository manuscript.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.23/search_hits.csv#archive_v23_press:1",
+      "report_id": "pmid:38923893",
+      "basis": "Exact DOI and title identify the same regional crossover publication, including the institutional repository manuscript.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.23/sources.csv#gottschalk24_region",
+      "report_id": "pmid:38923893",
+      "basis": "Exact DOI and title identify the same regional crossover publication, including the institutional repository manuscript.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "2026-11-20-sweden-eccentric-primary#regional-exercise",
+      "report_id": "pmid:38923893",
+      "basis": "Exact DOI and title identify the same regional crossover publication, including the institutional repository manuscript.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#38923893",
+      "report_id": "pmid:38923893",
+      "basis": "Exact DOI and title identify the same regional crossover publication, including the institutional repository manuscript.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP091853"
+    },
+    {
+      "record_key": "2026-11-20-sweden-eccentric-primary#inflammation-secondary",
+      "report_id": "pmid:39667826",
+      "basis": "Exact DOI and version-of-record title identify the secondary analysis.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.14814/phy2.70147"
+    },
+    {
       "record_key": "2026-11-20-asma-220-program#asma:2026:220:program",
       "report_id": "asma:2026:220",
       "basis": "Abstract 220 title, three-author byline, 2014-2025 operational sample and published outcome figures match the September version.",
@@ -10983,6 +11055,18 @@
   ],
   "studies": [
     {
+      "study_id": "se-kth-gottschalk-upper-body-eccentric-exercise",
+      "label": "KTH two-condition upper-body eccentric exercise and altitude study",
+      "period": "Published in 2023. Individual session dates unavailable.",
+      "setting": "Thirteen volunteers in a two-condition hypobaric crossover."
+    },
+    {
+      "study_id": "se-kth-gottschalk-regional-eccentric-exercise",
+      "label": "KTH three-condition regional eccentric exercise and altitude study",
+      "period": "Published in 2024. Individual session dates unavailable.",
+      "setting": "Eleven male military volunteers in a three-condition hypobaric crossover in Solna, Sweden."
+    },
+    {
       "study_id": "u2-flight-ford-2014-2025",
       "label": "Ford et al. U-2 operational flight surveillance",
       "period": "2014-2025",
@@ -11854,6 +11938,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "se-kth-gottschalk-upper-body-eccentric-exercise",
+      "report_id": "pmid:37140728",
+      "role": "original_two_condition_crossover",
+      "locator": "Methods and Results"
+    },
+    {
+      "study_id": "se-kth-gottschalk-regional-eccentric-exercise",
+      "report_id": "pmid:38923893",
+      "role": "original_three_condition_crossover",
+      "locator": "Sections 2.2–2.9 and 3, Table 1"
+    },
+    {
+      "study_id": "se-kth-gottschalk-upper-body-eccentric-exercise",
+      "report_id": "pmid:39667826",
+      "role": "secondary_biomarker_subset",
+      "locator": "Section 2.3 and Table 1"
+    },
+    {
+      "study_id": "se-kth-gottschalk-regional-eccentric-exercise",
+      "report_id": "pmid:39667826",
+      "role": "secondary_biomarker_subset",
+      "locator": "Section 2.3 and Table 1"
+    },
     {
       "study_id": "u2-flight-ford-2014-2025",
       "report_id": "asma:2026:220",
@@ -13248,6 +13356,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:39667826",
+      "right_report": "pmid:37140728",
+      "relationship": "reuses_subset_of_chamber_exposures",
+      "evidence": "The biomarker analysis explicitly derives samples from the two prior experiments. Its Table 1 gives pooled exercise and control session counts without session-level linkage to the original reports.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.14814/phy2.70147"
+    },
+    {
+      "left_report": "pmid:39667826",
+      "right_report": "pmid:38923893",
+      "relationship": "reuses_subset_of_chamber_exposures",
+      "evidence": "The biomarker analysis explicitly derives samples from the two prior experiments. Its Table 1 gives pooled exercise and control session counts without session-level linkage to the original reports.",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.14814/phy2.70147"
+    },
     {
       "left_report": "asma:2026:220",
       "right_report": "pmid:23066619",

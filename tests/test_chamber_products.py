@@ -1080,6 +1080,43 @@ def test_ground_oxygen_flow_preserves_treatment_and_followup_denominators(releas
         """).fetchone() == (0,)
 
 
+def test_regional_exercise_keeps_ultrasound_grades_and_unlinked_stops(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.condition,p.participant_exposures,count(*),p.exposures_with_visible_vge,
+                   sum(max(v.rest_eb_grade,v.knee_flex_eb_grade,v.arm_flex_eb_grade)>0),
+                   sum(max(v.rest_eb_grade,v.knee_flex_eb_grade,v.arm_flex_eb_grade)>=4),
+                   p.rest_assessment_interval_min,p.provocation_assessment_interval_min
+            FROM publication_gottschalk24_protocol p JOIN publication_gottschalk24_vge_peak v
+                USING(source_id,condition)
+            GROUP BY p.source_id,p.condition ORDER BY p.condition
+        """).fetchall() == [("Control", 11, 11, 4, 4, 1, 5, 15),
+                           ("ECCu", 11, 11, 8, 8, 3, 5, 15), ("ECCw", 11, 11, 7, 7, 1, 5, 15)]
+        assert db.execute("""
+            SELECT condition,sum(reported_stop_count) FROM publication_gottschalk24_safety_stop
+            GROUP BY condition ORDER BY condition
+        """).fetchall() == [("Control", 2), ("ECCu", 3), ("ECCw", 3)]
+        assert db.execute("""
+            SELECT condition,rest_eb_grade,knee_flex_eb_grade,arm_flex_eb_grade
+            FROM publication_gottschalk24_vge_peak WHERE participant_number=10 ORDER BY condition
+        """).fetchall() == [("Control", 0, 0, 0), ("ECCu", 1, 0, 1), ("ECCw", 2, 2, 0)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link
+            WHERE source_table='publication_source' AND source_id='gottschalk24_region'
+        """).fetchone() == ("pmid:38923893",)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE doi='10.1113/ep091853'
+        """).fetchall() == [("pmid:38923893",)]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='pmid:39667826' AND relationship='reuses_subset_of_chamber_exposures'
+            ORDER BY right_report
+        """).fetchall() == [("pmid:37140728",), ("pmid:38923893",)]
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence WHERE report_id IN ('pmid:38923893','pmid:39667826')
+        """).fetchone() == (0,)
+
+
 def test_crowell_keeps_chamber_runs_and_overlapping_exposure_counts(release):
     with connect_pair(release) as db:
         assert db.execute("""
