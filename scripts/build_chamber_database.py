@@ -161,6 +161,7 @@ CHAMBER_BROOKS_DOPPLER_AND_LATENCY = ROOT / "data" / "chamber" / "v1.93"
 CHAMBER_OLSON_DOPPLER_FLIGHTS = ROOT / "data" / "chamber" / "v1.94"
 CHAMBER_USAFSAM_APPENDIX_A = ROOT / "data" / "chamber" / "v1.95"
 CHAMBER_DUKE_PREBREATHE = ROOT / "data" / "chamber" / "v1.96"
+CHAMBER_NASA_SEVERITY_AND_LUNAR = ROOT / "data" / "chamber" / "v1.97"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1427,6 +1428,17 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_duke_prebreathe_protocol": "protocols.csv",
                         "publication_duke_prebreathe_exposure": "exposures.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_SEVERITY_AND_LUNAR,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_nasa_f2_case": "nasa_f2_cases.csv",
+                        "publication_nasa_f3_stratum": "nasa_f3_strata.csv",
+                        "publication_lunar_pressure_campaign": "lunar_campaigns.csv",
                     },
                 )
             if rojas_supplement:
