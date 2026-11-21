@@ -1,6 +1,108 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-naval-decompression-series-case-search#result-1",
+      "report_id": "pmid:31038172",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/31038172/",
+      "basis": "Exact article title and verified publisher or index identify the report."
+    },
+    {
+      "record_key": "2026-11-21-naval-decompression-series-case-search#result-2",
+      "report_id": "pmid:31038172",
+      "evidence_url": "https://academic.oup.com/milmed/article-abstract/184/11-12/e863/5481854",
+      "basis": "Exact article title and verified publisher or index identify the report."
+    },
+    {
+      "record_key": "2026-11-21-naval-decompression-series-case-search#result-4",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact article title and verified publisher or index identify the report."
+    },
+    {
+      "record_key": "2026-11-21-naval-decompression-series-case-search#result-5",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "basis": "Exact article title and verified publisher or index identify the report."
+    },
+    {
+      "record_key": "2026-11-21-naval-decompression-series-chamber-search#result-1",
+      "report_id": "pmid:41881514",
+      "evidence_url": "https://doi.org/10.1136/military-2025-003189",
+      "basis": "Publisher DOI matches the established PMID 41881514 for this training biomarker study."
+    },
+    {
+      "record_key": "2026-11-21-naval-decompression-series-navy-primary#andicochea19_naval_events",
+      "report_id": "pmid:31038172",
+      "evidence_url": "https://academic.oup.com/milmed/article-abstract/184/11-12/e863/5481854",
+      "basis": "Original indexed publisher table and abstract share PMID 31038172 and the same DOI."
+    },
+    {
+      "record_key": "2026-11-21-naval-decompression-series-navy-preview#paperity",
+      "report_id": "pmid:31038172",
+      "evidence_url": "https://academic.oup.com/milmed/article-abstract/184/11-12/e863/5481854",
+      "basis": "Preview identifies the publisher DOI and the same nine-aviator case series."
+    },
+    {
+      "record_key": "2026-11-21-naval-decompression-series-lee-primary#lee18_sanou_aircraft_cases",
+      "report_id": "pmid:29673435",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/5/article-p478.pdf",
+      "basis": "Printed title, author names, DOI and both source cases identify PMID 29673435."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.159/sources.csv#andicochea19_naval_events",
+      "report_id": "pmid:31038172",
+      "evidence_url": "https://academic.oup.com/milmed/article-abstract/184/11-12/e863/5481854",
+      "basis": "The numbered extract uses the primary journal article."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.159/sources.csv#lee18_sanou_aircraft_cases",
+      "report_id": "pmid:29673435",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/5/article-p478.pdf",
+      "basis": "The numbered extract uses the primary Lee and Sanou article."
+    },
+    {
+      "record_key": "2026-11-20-jprs71096-dup0#https://pmc.ncbi.nlm.nih.gov/articles/PMC11444918",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact PMC11444918 record identifies the Daubresse et al. literature review."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/search_hits.csv#raf_a22_hypervent:4",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact PMC11444918 record identifies the Daubresse et al. literature review."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/search_hits.csv#raf_a22_hypervent:6",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact PMC11444918 record identifies the Daubresse et al. literature review."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/search_hits.csv#raf_tavily_yale_pdfs:1",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact PMC11444918 record identifies the Daubresse et al. literature review."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.26/search_hits.csv#timing_v26_cited_qs_hodes:3",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact PMC11444918 record identifies the Daubresse et al. literature review."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_v27_q_aar:7",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact PMC11444918 record identifies the Daubresse et al. literature review."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.42/search_hits.csv#repeated_eva_v42_kz_co:1",
+      "report_id": "pmid:38870953",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/38870953/",
+      "basis": "Exact PMC11444918 record identifies the Daubresse et al. literature review."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.8/search_hits.csv#historical_russian:8",
       "report_id": "pmid:42345225",
       "evidence_url": "https://www.ima.org.il/MedicineIMAJ/Article.aspx?aId=6788",
@@ -16437,6 +16539,18 @@
   ],
   "studies": [
     {
+      "study_id": "us-navy-lee-sanou-two-fa18c-dcs-episodes",
+      "label": "Decompression Sickness in the F/A-18C After Atypical Cabin Pressure Fluctuations",
+      "period": "Published 2018. Event dates unavailable.",
+      "setting": "Two selected clinician-diagnosed Type II DCS episodes. The affected exposure population and incident dates were not given."
+    },
+    {
+      "study_id": "us-navy-nevada-2014-2015-decompression-event-series",
+      "label": "Elevated Environmental Carbon Dioxide Exposure Confounding Physiologic Events in Aviators?",
+      "period": "June 2014 to November 2015",
+      "setting": "Seven selected in-flight rapid-decompression events at one Naval air base in Nevada, including nine aviators. Symptoms in the planning-room and staging-room groups come from these same events."
+    },
+    {
       "study_id": "wolf89_commercial_flight-index-event",
       "label": "A case of decompression sickness in a commercial pilot",
       "period": "Flight date undocumented.",
@@ -18052,6 +18166,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "us-navy-lee-sanou-two-fa18c-dcs-episodes",
+      "report_id": "pmid:29673435",
+      "role": "original_aviation_case_series",
+      "locator": "Case Reports 1 and 2, pp. 479–480 and Figure 2"
+    },
+    {
+      "study_id": "us-navy-nevada-2014-2015-decompression-event-series",
+      "report_id": "pmid:31038172",
+      "role": "original_aviation_case_series",
+      "locator": "Abstract, Case Series, Table II and pp. e864–e865"
+    },
     {
       "study_id": "wolf89_commercial_flight-index-event",
       "report_id": "pmid:2803166",
@@ -20802,6 +20928,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:29673435",
+      "right_report": "pmid:31038172",
+      "relationship": "possible_naval_case_series_overlap",
+      "evidence": "The studies describe US Navy F/A-18C cases. Lee Case 1 reports overpressure at 600 ft near a carrier. Lee Case 2 is a 35-year-old pilot at 30,000 ft with a reported cabin range of 9,000–18,000 ft. Andicochea Table II lists no exact match by reported age and aircraft profile. Two post-event cabin readings are absent and Lee gives no incident dates or common identifiers. Case membership was not verified.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/5/article-p478.pdf"
+    },
     {
       "left_report": "pmid:2256876",
       "right_report": "pmid:2241750",
