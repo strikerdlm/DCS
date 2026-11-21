@@ -10895,6 +10895,36 @@
       "report_id": "pmid:18904642",
       "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1942710/",
       "basis": "The scanned article pages are from the same Moon report as the case citation in Fryer."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.89/sources.csv#flinn63_recurrent",
+      "report_id": "pmid:14050686",
+      "basis": "The source citation and publisher journal pages identify PMID 14050686.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf"
+    },
+    {
+      "record_key": "2026-11-20-flinn-womack-original-and-digest#journal-original",
+      "report_id": "pmid:14050686",
+      "basis": "The journal copy gives the exact authors and pagination of PMID 14050686.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf"
+    },
+    {
+      "record_key": "2026-11-20-flinn-womack-original-and-digest#faa-digest-original",
+      "report_id": "faa-horizons:1963-08:17:flinn-womack",
+      "basis": "The August 1963 FAA publication provides an authored, condensed account.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/90556/dot_90556_DS1.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-20-flinn-womack-firecrawl#faa-digest-p17",
+      "report_id": "faa-horizons:1963-08:17:flinn-womack",
+      "basis": "Same FAA issue and page.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/90556/dot_90556_DS1.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-20-flinn-womack-original-and-digest#scherman-unpublished",
+      "report_id": "unpublished:scherman-neurologic-dysbarism",
+      "basis": "The discussion and bibliography identify Scherman's unpublished case series.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=3"
     }
   ],
   "studies": [
@@ -11755,6 +11785,12 @@
       "label": "Fryer AGARDograph chamber fatality series",
       "period": "1943–1951 for nine dated cases. Canadian case date unspecified.",
       "setting": "Case-selected historical hypobaric chamber fatalities without exposure denominators."
+    },
+    {
+      "study_id": "usaf-flinn-womack-single-pilot-recurrent-dysbarism",
+      "label": "Flinn and Womack one-pilot recurrent altitude dysbarism history",
+      "period": "Antecedent dates largely unspecified. One evaluation chamber exposure on October 27, 1961.",
+      "setting": "Selected aircraft, suit-chamber and hypobaric chamber exposures."
     }
   ],
   "study_reports": [
@@ -13125,6 +13161,18 @@
       "report_id": "pmid:18904642",
       "role": "original_accession_linked_subset",
       "locator": "Printed pp. 249–251, Low Atmospheric Pressure"
+    },
+    {
+      "study_id": "usaf-flinn-womack-single-pilot-recurrent-dysbarism",
+      "report_id": "pmid:14050686",
+      "role": "original_case_and_observed_exposures",
+      "locator": "Printed pp. 956–958, Case Report"
+    },
+    {
+      "study_id": "usaf-flinn-womack-single-pilot-recurrent-dysbarism",
+      "report_id": "faa-horizons:1963-08:17:flinn-womack",
+      "role": "same_pilot_condensed_account",
+      "locator": "Printed p. 17"
     }
   ],
   "relations": [
@@ -15710,6 +15758,20 @@
       "relationship": "same_selected_five_chamber_cases_via_fryer",
       "evidence": "Exact accession links identify all five Moon cases in Fryer. Fryer maps those same five cases to Haymaker and Davison case numbers 1, 5, 2, 3 and 4. The identity is linked through the AGARDograph case references.",
       "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=141"
+    },
+    {
+      "left_report": "pmid:14050686",
+      "right_report": "faa-horizons:1963-08:17:flinn-womack",
+      "relationship": "same_published_case",
+      "evidence": "The same authors, age, USAF pilot, approximately three years of recurrent symptoms and monitored chamber findings identify the same selected pilot. The FAA account is a condensed rendering.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/90556/dot_90556_DS1.pdf#page=9"
+    },
+    {
+      "left_report": "pmid:14050686",
+      "right_report": "unpublished:scherman-neurologic-dysbarism",
+      "relationship": "explicit_same_pilot_and_eight_prior_episodes",
+      "evidence": "Page 958 footnote explicitly states that the patient reported as having eight episodes in Scherman's case series was the pilot described in this paper.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=3"
     }
   ],
   "report_titles": {
@@ -15813,6 +15875,9 @@
     "report:adp011093": "Altitude DCS Research in Support of Special Operations Forces (SOF)",
     "pmid:12234037": "Moderate exercise after altitude exposure fails to induce decompression sickness",
     "pmid:12056666": "The effect of repeated altitude exposures on the incidence of decompression sickness",
-    "report:ada111509": "Subatmospheric Decompression Sickness in Man"
+    "report:ada111509": "Subatmospheric Decompression Sickness in Man",
+    "pmid:14050686": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes",
+    "faa-horizons:1963-08:17:flinn-womack": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes (FAA Horizons digest)",
+    "unpublished:scherman-neurologic-dysbarism": "Scherman unpublished neurologic dysbarism case series"
   }
 }

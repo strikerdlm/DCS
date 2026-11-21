@@ -1209,6 +1209,50 @@ def test_moon_accessions_link_existing_fatalities_with_original_time_origins(rel
         """).fetchone() == ("pmid:18904642", "Anoxia", 83172)
 
 
+def test_flinn_history_keeps_subject_scope_control_and_chamber_milestones(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_phase,count(*),sum(antecedent_neurologic_episode)
+            FROM publication_flinn63_exposure GROUP BY source_phase ORDER BY source_phase
+        """).fetchall() == [("antecedent_history", 10, 8), ("medical_evaluation", 2, None)]
+        assert db.execute("""
+            SELECT sequence_number,reported_altitude_ft,altitude_description,inside_suit_equivalent_ft,
+                   altitude_stated_to_subject_ft,prebreathe_min,first_subjective_symptom_min,
+                   first_symptom_phase,symptom_free_observation_min
+            FROM publication_flinn63_exposure WHERE sequence_number IN (2,8,9,11,12)
+            ORDER BY sequence_number
+        """).fetchall() == [
+            (2, 100000, "outer_chamber", 40000, None, 90, None, "after_chamber", None),
+            (8, 30000, "chamber", None, None, 0, 180, "at_altitude", None),
+            (9, 12000, "chamber_upper_bound", None, 30000, None, None, None, 240),
+            (11, 30000, "chamber", None, None, None, 26, "at_altitude", None),
+            (12, 30000, "chamber", None, None, 20, 94, "at_altitude", None),
+        ]
+        assert db.execute("""
+            SELECT sequence_number,finding,elapsed_min,elapsed_reference,precision
+            FROM publication_flinn63_milestone WHERE finding IN (
+                'scotoma_onset_after_initial_abdominal_symptoms','mapped_right_homonymous_scotoma',
+                'residual_local_findings_at_exam','scratching_without_reported_itch','anterior_chest_mottling')
+            ORDER BY sequence_number,elapsed_min
+        """).fetchall() == [
+            (8, "scotoma_onset_after_initial_abdominal_symptoms", 15, "after_first_symptom", "upper_bound"),
+            (11, "mapped_right_homonymous_scotoma", 125, "at_altitude", "source_value"),
+            (11, "residual_local_findings_at_exam", 2880, "postflight", "source_value"),
+            (12, "scratching_without_reported_itch", 35, "at_altitude", "source_value"),
+            (12, "anterior_chest_mottling", 114, "at_altitude", "derived_from_source_timing"),
+        ]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='pmid:14050686' ORDER BY right_report
+        """).fetchall() == [
+            ("faa-horizons:1963-08:17:flinn-womack", "same_published_case"),
+            ("unpublished:scherman-neurologic-dysbarism", "explicit_same_pilot_and_eight_prior_episodes"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='flinn63_recurrent'
+        """).fetchone() == (0,)
+
+
 def test_repeat_exposure_report_preserves_joint_counts_and_changed_timing(release):
     with connect_pair(release) as db:
         assert db.execute("""
