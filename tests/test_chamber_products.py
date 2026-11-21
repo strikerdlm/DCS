@@ -3992,3 +3992,7 @@ def test_air_surgeons_bulletin_retains_counts_rates_and_cohort_links(release):
             SELECT related_source FROM publication_overlap
             WHERE source_id='asb44_cincinnati_migraine' AND relationship='same_cohort'
         """).fetchone() == ('romano44_ana',)
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='guest44_diurnal_bends' AND related_source='gray51_constitutional_book'
+        """).fetchone() == ('unresolved',)
