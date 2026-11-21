@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-duke-prebreathe-firecrawl#nasa-dcs-evidence",
+      "report_id": "record:2026-11-20-archival-denominators-f-cadets#https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+      "basis": "Identical NTRS accession and download URL.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf"
+    },
+    {
+      "record_key": "2026-11-20-duke-prebreathe-firecrawl#conkin-prebreathe-overview",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "Identical download URL for NASA/TP-2011-216147.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+    },
+    {
+      "record_key": "2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "Original retrieval for the NASA/TP-2011-216147 report.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa11_eva",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "Full report title, technical report number and download URL match the existing retrieval.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/attachments-2026-11-19/sources.csv#nasa_dcs_evidence_2013",
+      "report_id": "record:2026-11-20-archival-denominators-f-cadets#https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+      "basis": "The existing NASA attachment identifies NTRS 20140003729. The dated June 2016 evidence report remains a separate report.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20140003729"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.96/sources.csv#gerth89_duke_nitrogen_workshop",
+      "report_id": "workshop:uhms38-gerth-vann-nitrogen",
+      "basis": "Title, three authors, locator and venue verified in original scans.",
+      "evidence_url": "https://www.divetable.eu/UHMS_workshops/38.pdf#page=152"
+    },
+    {
+      "record_key": "2026-11-20-duke-prebreathe-primary#gerth-workshop",
+      "report_id": "workshop:uhms38-gerth-vann-nitrogen",
+      "basis": "Title, three authors, locator and venue verified in original scans.",
+      "evidence_url": "https://www.divetable.eu/UHMS_workshops/38.pdf#page=152"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.96/sources.csv#gerth89_duke_nitrogen_abstract",
+      "report_id": "abstract:asma-1989-duke-gerth-072",
+      "basis": "Title, three authors, locator and venue verified in original scans.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13"
+    },
+    {
+      "record_key": "2026-11-20-duke-prebreathe-primary#gerth72",
+      "report_id": "abstract:asma-1989-duke-gerth-072",
+      "basis": "Title, three authors, locator and venue verified in original scans.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.96/sources.csv#vann89_duke_prebreathe_duration",
+      "report_id": "abstract:asma-1989-duke-vann-071",
+      "basis": "Title, three authors, locator and venue verified in original scans.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13"
+    },
+    {
+      "record_key": "2026-11-20-duke-prebreathe-primary#vann71",
+      "report_id": "abstract:asma-1989-duke-vann-071",
+      "basis": "Title, three authors, locator and venue verified in original scans.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13"
+    },
+    {
       "record_key": "2026-11-20-usafsam-appendix-a-primary#ada201274-appendix-a",
       "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
       "basis": "The original USAFSAM-TP-88-10 and DTIC accession match the existing 1988 record.",
@@ -11223,6 +11289,18 @@
   ],
   "studies": [
     {
+      "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
+      "label": "Duke four-duration and posture chamber outcomes with 30-minute ascent",
+      "period": "Published in May 1989. Individual exposure dates unknown.",
+      "setting": "Duke experimental program. Four preoxygenation conditions with repeat volunteers and up to four hours at 4.3 psia."
+    },
+    {
+      "study_id": "duke-1989-nitrogen-workshop-nine-minute-ascent",
+      "label": "Duke workshop washout illustrations with approximately 9-minute ascent",
+      "period": "Workshop published in June 1989. Individual exposure dates unknown.",
+      "setting": "Duke experimental program. Six figure-linked participants with repeat 4.3 psia chamber exposures."
+    },
+    {
       "study_id": "usaf-brooks-co2-vax23",
       "label": "Brooks alternative prebreathe gas chamber experiment",
       "period": "November 1987–March 1989; interim tally through September 1988.",
@@ -12154,6 +12232,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "duke-1989-nitrogen-workshop-nine-minute-ascent",
+      "report_id": "workshop:uhms38-gerth-vann-nitrogen",
+      "role": "primary_figure_outcomes",
+      "locator": "Printed pp. 147–151 (PDF pp. 152–156), Methods and Figures 1–3"
+    },
+    {
+      "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
+      "report_id": "abstract:asma-1989-duke-gerth-072",
+      "role": "companion_measured_washout",
+      "locator": "Abstract 72, printed p. 489 (PDF p. 13)"
+    },
+    {
+      "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
+      "report_id": "abstract:asma-1989-duke-vann-071",
+      "role": "primary_chamber_results",
+      "locator": "Abstract 71, printed p. 489 (PDF p. 13)"
+    },
     {
       "study_id": "usaf-brooks-co2-vax23",
       "report_id": "abstract:asma-1989-baas-co2-prebreathe",
@@ -13680,6 +13776,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "abstract:asma-1989-duke-gerth-072",
+      "right_report": "abstract:asma-1989-duke-vann-071",
+      "relationship": "same_duke_prebreathe_protocols",
+      "evidence": "Adjacent Abstracts 71–72 have the same authors, site, four named schedules and altitude. SHR and HDR counts match exactly, as does the SE2 numerator. Preserve only the primary clinical margins from Abstract 71.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13"
+    },
+    {
+      "left_report": "workshop:uhms38-gerth-vann-nitrogen",
+      "right_report": "abstract:asma-1989-duke-vann-071",
+      "relationship": "possible_historical_subset",
+      "evidence": "The workshop figure cohort ascended in about 9 minutes. Abstract 71 mentions earlier 9-minute exposures with rest and exercise before describing its 30-minute series. No cross-publication participant or exposure mapping is available.",
+      "evidence_url": "https://www.divetable.eu/UHMS_workshops/38.pdf#page=152"
+    },
     {
       "left_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
       "right_report": "abstract:asma-1989-baas-co2-prebreathe",
@@ -16540,6 +16650,9 @@
     "journal:war-medicine:1944:5:304": "A migraine-like syndrome complicating decompression sickness",
     "abstract:asma-1984-adams-bends-susceptibility": "Bends susceptibility",
     "abstract:space-life-sciences-1987-smead-bsi": "Preliminary findings: Bends Screening Index Study",
-    "abstract:asma-1989-baas-co2-prebreathe": "Effect of a carbon dioxide prebreathe gas mixture on the incidence of altitude-induced decompression sickness"
+    "abstract:asma-1989-baas-co2-prebreathe": "Effect of a carbon dioxide prebreathe gas mixture on the incidence of altitude-induced decompression sickness",
+    "abstract:asma-1989-duke-vann-071": "Influence of oxygen prebreathe duration and exercise on the risk of decompression sickness at 4.3 psia",
+    "abstract:asma-1989-duke-gerth-072": "The relation of whole-body nitrogen elimination during prebreathe to the incidence of decompression sickness at 4.3 psia",
+    "workshop:uhms38-gerth-vann-nitrogen": "Whole-body nitrogen elimination during oxygen prebreathing and altitude decompression sickness risk"
   }
 }

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "2026-11-20-duke-prebreathe-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_primary_publication_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Vann Gerth Leatherman influence oxygen prebreathe duration exercise decompression sickness Duke 4.3 psia 1989 supine head-down",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-duke-prebreathe-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_source_and_reference_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Vann Gerth Leatherman influence oxygen prebreathe duration exercise decompression sickness Duke 4.3 psia 1989 supine head-down"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Retained only the two sources linked to the targeted Duke bibliography from the supplemental search.",
+    "records": [
+      {
+        "id": "nasa-dcs-evidence",
+        "year": 2014,
+        "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+        "identifier": "NTRS:20140003729",
+        "note": "Retrieved reference match for the UHMS workshop chapter. Secondary citation, no Duke outcomes imported."
+      },
+      {
+        "id": "conkin-prebreathe-overview",
+        "year": 2011,
+        "title": "Preventing Decompression Sickness Over Three Decades of Extravehicular Activity",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "identifier": "NASA/TP-2011-216147",
+        "note": "Retrieved reference match for the workshop. NASA protocol tables describe different flights and supply no additional Duke rows."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-duke-prebreathe-firecrawl-uhms38",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_chapter_access_attempt",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://www.divetable.eu/UHMS_workshops/38.pdf"
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Connector reported insufficient PDF processing time for 428 pages. The same public scan was downloaded and its chapter read directly.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-duke-prebreathe-primary",
+    "date": "2026-11-20",
+    "provider": "AsMA publisher scan and UHMS workshop public scan",
+    "operation": "supplementary_primary_results_and_figure_extraction",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 3,
+    "status": "observed",
+    "note": "Visually verified the two adjacent AsMA abstracts and the UHMS Methods and three figures. Crosschecked the Duke and NEDU profile descriptions before extraction.",
+    "records": [
+      {
+        "id": "vann71",
+        "title": "Influence of oxygen prebreathe duration and exercise on the risk of decompression sickness at 4.3 psia",
+        "year": 1989,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13",
+        "access": "primary_abstract",
+        "locator": "Abstract 71, printed p. 489 (PDF p. 13)",
+        "sha256": "cf6c87dfa13dc309aca802f67976d6dac8f7cd5b61024cbd3fdd6432ab2184de",
+        "identifier": "AsMA 1989:abstract 71",
+        "note": "Four current 30-minute-ascent groups. The earlier 9-minute comparisons are source-reported percentages. The additional previous 0/10 under conditions similar to SE3 may duplicate an older group.",
+        "observations": [
+          {
+            "id": "shr-symptoms",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
+            "group": "SHR",
+            "cases": 1,
+            "denominator": 7,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "Abstract 71, printed p. 489 (PDF p. 13)",
+            "note": "Repeated volunteers across protocols. Abstract 72 describes the same study and contributes method details. Group-specific actual stop times are unavailable.",
+            "outcome_window": "During the plateau, until symptoms or the scheduled 240-minute end. Follow-up after exit is unavailable."
+          },
+          {
+            "id": "hdr-symptoms",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
+            "group": "HDR",
+            "cases": 1,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "Abstract 71, printed p. 489 (PDF p. 13)",
+            "note": "Repeated volunteers across protocols. Abstract 72 describes the same study and contributes method details. Group-specific actual stop times are unavailable.",
+            "outcome_window": "During the plateau, until symptoms or the scheduled 240-minute end. Follow-up after exit is unavailable."
+          },
+          {
+            "id": "se2-symptoms",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
+            "group": "SE2",
+            "cases": 5,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "Abstract 71, printed p. 489 (PDF p. 13)",
+            "note": "Repeated volunteers across protocols. Abstract 72 describes the same study and contributes method details. Group-specific actual stop times are unavailable.",
+            "outcome_window": "During the plateau, until symptoms or the scheduled 240-minute end. Follow-up after exit is unavailable."
+          },
+          {
+            "id": "se3-symptoms",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
+            "group": "SE3",
+            "cases": 0,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "Abstract 71, printed p. 489 (PDF p. 13)",
+            "note": "Repeated volunteers across protocols. Abstract 72 describes the same study and contributes method details. Group-specific actual stop times are unavailable.",
+            "outcome_window": "During the plateau, until symptoms or the scheduled 240-minute end. Follow-up after exit is unavailable."
+          }
+        ],
+        "reported_scope": {
+          "newer_ascent_min": 30,
+          "newer_planned_plateau_min": 240,
+          "pressure_psia": 4.3,
+          "historical_ascent_min": 9,
+          "historical_rest_participants": 16,
+          "historical_rest_dcs_percent": 63,
+          "historical_exercise_participants": 10,
+          "historical_exercise_dcs_percent": 0,
+          "similar_se3_prior_zero_in_ten": "Mentioned separately in the Results. Its identity relative to the historical ten exercise participants is unverified.",
+          "scope_conflict": "The 40-minute resting clause prints SE4 alongside SE2, while the methods and results otherwise identify SE3. SE3 rest time is left blank."
+        }
+      },
+      {
+        "id": "gerth72",
+        "title": "The relation of whole-body nitrogen elimination during prebreathe to the incidence of decompression sickness at 4.3 psia",
+        "year": 1989,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13",
+        "access": "primary_abstract",
+        "locator": "Abstract 72, printed p. 489 (PDF p. 13)",
+        "sha256": "cf6c87dfa13dc309aca802f67976d6dac8f7cd5b61024cbd3fdd6432ab2184de",
+        "identifier": "AsMA 1989:abstract 72",
+        "note": "Ten men each had measurements in at least three of the same four conditions. SHR and HDR counts and the SE2 numerator match Abstract 71. This report contributes methods and the demonstrated use of measured washout, with no downloadable individual washout values.",
+        "reported_scope": {
+          "measured_whole_body_washout_participants": 10,
+          "minimum_conditions_per_participant": 3,
+          "maximum_conditions_available": 4,
+          "included_transfer_min": 30,
+          "reported_nitrogen_volumes_available": false
+        }
+      },
+      {
+        "id": "gerth-workshop",
+        "title": "Whole-body nitrogen elimination during oxygen prebreathing and altitude decompression sickness risk",
+        "year": 1989,
+        "url": "https://www.divetable.eu/UHMS_workshops/38.pdf#page=152",
+        "primary_source": "https://www.divetable.eu/UHMS_workshops/38.pdf#page=152",
+        "access": "full_text",
+        "locator": "Printed pp. 147–151 (PDF pp. 152–156), Methods and Figures 1–3",
+        "sha256": "f0d199a1aa3080fbcdfad710aa678e31ffe81e7eca810ecef74e98d5485170a8",
+        "identifier": "UHMS 75(Phys)6/1/89 pp. 147–151",
+        "note": "Six participants with 17 displayed DCS outcomes at approximately 9-minute ascent. Participants are linked within figures by an ordinal, and chronological order and actual stop times are unavailable. This may be a subset of the historical groups cited by Abstract 71.",
+        "observations": [
+          {
+            "id": "sr-symptoms",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "duke-1989-nitrogen-workshop-nine-minute-ascent",
+            "group": "SR",
+            "cases": 4,
+            "denominator": 6,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "author_reconstructed",
+            "locator": "Printed pp. 147–151 (PDF pp. 152–156), Methods and Figures 1–3",
+            "note": "Tally of explicit DCS glyphs in Figure 3, one exposure per visible condition. Participant linkage is within publication only.",
+            "outcome_window": "During the plateau, until symptoms or the scheduled 240-minute end. Follow-up after exit is unavailable."
+          },
+          {
+            "id": "hdr-symptoms",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "duke-1989-nitrogen-workshop-nine-minute-ascent",
+            "group": "HDR",
+            "cases": 2,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "author_reconstructed",
+            "locator": "Printed pp. 147–151 (PDF pp. 152–156), Methods and Figures 1–3",
+            "note": "Tally of explicit DCS glyphs in Figure 3, one exposure per visible condition. Participant linkage is within publication only.",
+            "outcome_window": "During the plateau, until symptoms or the scheduled 240-minute end. Follow-up after exit is unavailable."
+          },
+          {
+            "id": "se-symptoms",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "duke-1989-nitrogen-workshop-nine-minute-ascent",
+            "group": "SE",
+            "cases": 0,
+            "denominator": 6,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "author_reconstructed",
+            "locator": "Printed pp. 147–151 (PDF pp. 152–156), Methods and Figures 1–3",
+            "note": "Tally of explicit DCS glyphs in Figure 3, one exposure per visible condition. Participant linkage is within publication only.",
+            "outcome_window": "During the plateau, until symptoms or the scheduled 240-minute end. Follow-up after exit is unavailable."
+          }
+        ],
+        "reported_scope": {
+          "participants_shown": 6,
+          "flight_outcomes_shown": 17,
+          "absent_cells": "No HDR glyph under the fourth participant.",
+          "subjects_with_some_approximate_onset_values": 2,
+          "figure_labels": "The published parentheses list Grade 2 or higher VGE onset before clinical onset in the tuple. One reported Doppler time exceeds the clinical onset. Preserve both event clocks.",
+          "uncertain_vge_text": "Question marks in both Figure 2 VGE labels are retained. Numeric onset and actual observation end are unavailable."
+        }
+      }
+    ]
+  }
+]

@@ -160,6 +160,7 @@ CHAMBER_NASA_REHEARSALS = ROOT / "data" / "chamber" / "v1.92"
 CHAMBER_BROOKS_DOPPLER_AND_LATENCY = ROOT / "data" / "chamber" / "v1.93"
 CHAMBER_OLSON_DOPPLER_FLIGHTS = ROOT / "data" / "chamber" / "v1.94"
 CHAMBER_USAFSAM_APPENDIX_A = ROOT / "data" / "chamber" / "v1.95"
+CHAMBER_DUKE_PREBREATHE = ROOT / "data" / "chamber" / "v1.96"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1416,6 +1417,16 @@ def build(
                         "publication_usafsam_appendix_a_link": "appendix_a_links.csv",
                         "publication_usafsam_pilot_onset": "pilot_onset.csv",
                         "publication_usafsam_co2_interim_arm": "co2_interim_arms.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_DUKE_PREBREATHE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_duke_prebreathe_protocol": "protocols.csv",
+                        "publication_duke_prebreathe_exposure": "exposures.csv",
                     },
                 )
             if rojas_supplement:
