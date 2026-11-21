@@ -1,6 +1,66 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.92/sources.csv#garbino22_ea_pilot",
+      "report_id": "ntrs:20220009546",
+      "basis": "NTRS accession, printed ICAM abstract identifier and authors match the primary source.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20220009546/downloads/ICAM_ExAtm_3day_abstract_final.docx"
+    },
+    {
+      "record_key": "2026-11-20-nasa-rehearsals-primary#garbino-pilot-docx",
+      "report_id": "ntrs:20220009546",
+      "basis": "Author abstract retrieved from the NASA accession.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20220009546/downloads/ICAM_ExAtm_3day_abstract_final.docx"
+    },
+    {
+      "record_key": "2026-11-20-nasa-rehearsals-primary#icam-abstract-03-3",
+      "report_id": "ntrs:20220009546",
+      "basis": "The byline, study methods and numerical outcomes match the NTRS author abstract.",
+      "evidence_url": "https://www.icam2022.com/2022%20International%20Conference%20of%20Aerospace%20Medicine%20Abstract%20Book%209%2020.pdf#page=25"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "basis": "The PDF URL and NTRS accession identify the same original EA Tests 1 and 2 campaign slide deck.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_originals:4",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "basis": "The PDF URL and NTRS accession identify the same original EA Tests 1 and 2 campaign slide deck.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf"
+    },
+    {
+      "record_key": "2026-11-20-nasa-rehearsals-primary#garbino-campaign-full-slides",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "basis": "The PDF URL and NTRS accession identify the same original EA Tests 1 and 2 campaign slide deck.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf"
+    },
+    {
+      "record_key": "2026-11-20-nasa-rehearsals-primary#anchondo-facility-history",
+      "report_id": "ntrs:20240005117",
+      "basis": "Conference paper accession identifies the independently published facility history.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005117/downloads/ICES-2024-128-Final%20Manuscript-No%20Tracked%20Changes.pdf"
+    },
+    {
+      "record_key": "2026-11-20-nasa-rehearsals-primary#earlier-nasa-forum",
+      "report_id": "ntrs:20220011152",
+      "basis": "NASA forum presentation identified by its deposit and slide 2.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20220011152/downloads/Exploration%20Atmosphers%20OAF%2020220805.pdf"
+    },
+    {
+      "record_key": "2026-11-20-nasa-rehearsals-primary#habitability-companion",
+      "report_id": "ntrs:20220016245",
+      "basis": "NASA accession and title identify the companion abstract.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20220016245"
+    },
+    {
+      "record_key": "2026-11-20-nasa-rehearsals-firecrawl#sanders-medical-lessons",
+      "report_id": "ntrs:20220015741",
+      "basis": "NASA accession and author byline identify the medical companion abstract.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20220015741"
+    },
+    {
       "record_key": "2026-11-19-openalex-citers#W4400037054",
       "report_id": "pmid:38923893",
       "basis": "OpenAlex W4400037054 and the primary article identify the same DOI, title and reporting year.",
@@ -11055,6 +11115,18 @@
   ],
   "studies": [
     {
+      "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+      "label": "NASA JSC 2022 three-day Exploration Atmosphere pilot",
+      "period": "May 9–12, 2022 in Anchondo et al. Campaign rehearsal entry gives March.",
+      "setting": "Experimental chamber simulated EVA precursor. Six research volunteers and two in-chamber technicians reported separately."
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2023-dress-rehearsal",
+      "label": "NASA JSC 2023 three-day Exploration Atmosphere rehearsal",
+      "period": "May 1–4, 2023 in Anchondo et al. Campaign rehearsal entry gives March.",
+      "setting": "Experimental chamber precursor to the separate June 2023 11-day EVA campaign."
+    },
+    {
       "study_id": "se-kth-gottschalk-upper-body-eccentric-exercise",
       "label": "KTH two-condition upper-body eccentric exercise and altitude study",
       "period": "Published in 2023. Individual session dates unavailable.",
@@ -11938,6 +12010,54 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+      "report_id": "ntrs:20220009546",
+      "role": "primary_volunteer_outcomes",
+      "locator": "NTRS author abstract and ICAM 2022 abstract 03-3"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+      "report_id": "ntrs:20220011152",
+      "role": "role_headcounts",
+      "locator": "Slide 2"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+      "report_id": "ntrs:20220015741",
+      "role": "medical_overview_across_two_tests",
+      "locator": "Overview and Discussion"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+      "report_id": "ntrs:20220016245",
+      "role": "multi_test_habitability_overview",
+      "locator": "Methods and Results and Discussion"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "role": "possible_same_rehearsal_outcome_scope_unspecified",
+      "locator": "Slide 21"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+      "report_id": "ntrs:20240005117",
+      "role": "facility_test_chronology",
+      "locator": "Printed p. 14"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2023-dress-rehearsal",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "role": "possible_same_rehearsal_outcome_scope_unspecified",
+      "locator": "Slide 21"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-2023-dress-rehearsal",
+      "report_id": "ntrs:20240005117",
+      "role": "facility_test_chronology",
+      "locator": "Printed p. 14"
+    },
     {
       "study_id": "se-kth-gottschalk-upper-body-eccentric-exercise",
       "report_id": "pmid:37140728",
@@ -13356,6 +13476,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "right_report": "ntrs:20220009546",
+      "relationship": "likely_same_2022_pilot_outcome_scope_unresolved",
+      "evidence": "Campaign slide 21 gives March, eight attendees and one DCS case with role unspecified. The author abstract gives zero diagnoses among six study volunteers. The forum lists two additional technicians. The one case cannot be assigned to either role or added to the six-volunteer risks.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf#page=21"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "right_report": "ntrs:20240005117",
+      "relationship": "likely_same_rehearsals_reported_dates_conflict",
+      "evidence": "Both sources place a three-day precursor before the separate June campaigns in 2022 and 2023. The summary lists March for each and the facility chronology reports May. The exact role-specific denominators and dated outcome logs are unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005117/downloads/ICES-2024-128-Final%20Manuscript-No%20Tracked%20Changes.pdf#page=14"
+    },
+    {
+      "left_report": "ntrs:20220009546",
+      "right_report": "ntrs:20220015741",
+      "relationship": "same_pilot_reported_pressure_differs",
+      "evidence": "The pilot Methods give 34 kPa. The medical overview gives 4.3 psia for the test with one simulated EVA, and reports no pilot-specific DCS count. The measured pressure trace is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20220015741"
+    },
     {
       "left_report": "pmid:39667826",
       "right_report": "pmid:37140728",

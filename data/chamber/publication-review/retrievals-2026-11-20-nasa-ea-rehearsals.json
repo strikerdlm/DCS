@@ -1,0 +1,204 @@
+[
+  {
+    "id": "2026-11-20-nasa-rehearsals-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_source_search",
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": [],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA May 2022 Garbino exploration atmosphere 3-day pilot chamber decompression sickness 20220009546 20220015741 Doppler technician",
+      "error_code": 433
+    }
+  },
+  {
+    "id": "2026-11-20-nasa-rehearsals-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_medical_abstract_retrieval",
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Retrieved the NASA medical account. It gives the scheduled chamber profile and one versus five EVAs, with no case breakdown by test or participant role.",
+    "records": [
+      {
+        "id": "sanders-medical-lessons",
+        "title": "Medical Lessons Learned from the Exploration Atmospheres Study",
+        "year": 2023,
+        "url": "https://ntrs.nasa.gov/citations/20220015741",
+        "access": "primary_abstract",
+        "locator": "Overview and Discussion",
+        "three_day_simulated_eva_count": 1,
+        "eleven_day_simulated_eva_count": 5,
+        "eva_pressure_psia": 4.3,
+        "case_count_by_test": null,
+        "note": "The overall text mentions multiple DCS cases across its account. Exact count by test and role and cases attributable to the three-day pilot are unreported."
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://ntrs.nasa.gov/citations/20220015741",
+      "http_status": 200
+    }
+  },
+  {
+    "id": "2026-11-20-nasa-rehearsals-primary",
+    "date": "2026-11-20",
+    "provider": "NASA NTRS and ICAM proceedings",
+    "operation": "supplementary_rehearsal_source_and_scope_reconciliation",
+    "reported_total": 6,
+    "status": "observed",
+    "note": "Compared author versions, pilot outcome risk sets, campaign slides, and facility dates. Rehearsal case and date disagreements remain visible. The original 50-exposure June campaign analysis remains separate.",
+    "records": [
+      {
+        "id": "garbino-pilot-docx",
+        "title": "Results of a 3-day pilot study to validate planetary prebreathe protocols using a 56.5 kPa 34% O2, 66% N2 saturation cabin atmosphere",
+        "year": 2022,
+        "url": "https://ntrs.nasa.gov/api/citations/20220009546/downloads/ICAM_ExAtm_3day_abstract_final.docx",
+        "access": "primary_abstract",
+        "locator": "NTRS author abstract, Results and Discussion. ICAM 2022 abstract 03-3, p. 25.",
+        "sha256": "689f2e513d80ae35b226760f1a14b699c00a0d22c66376cdb3da8b9aa1154919",
+        "primary_source": "https://ntrs.nasa.gov/citations/20220009546",
+        "observations": [
+          {
+            "id": "dcs-diagnosed",
+            "endpoint": "dcs_diagnosed",
+            "group": "Study volunteers",
+            "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+            "year": 2022,
+            "chamber_role": "research_volunteer",
+            "cases": 0,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "NTRS author abstract, Results and Discussion. ICAM 2022 abstract 03-3, p. 25.",
+            "note": "No diagnoses among the six study volunteers during the initial test. The report provides no standardized delayed follow-up or case count for technicians."
+          },
+          {
+            "id": "vge-any",
+            "endpoint": "vge_any_grade",
+            "group": "Study volunteers",
+            "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+            "year": 2022,
+            "chamber_role": "research_volunteer",
+            "cases": 3,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "NTRS author abstract, Results and Discussion. ICAM 2022 abstract 03-3, p. 25.",
+            "note": "Preliminary any-VGE count. Report gives a maximum Doppler grade II and maximum echocardiographic Eftedal–Brubakk score 5. Grade-specific counts and linkage between modalities are unavailable."
+          }
+        ],
+        "protocol": {
+          "volunteers": 6,
+          "simulated_eva_sessions": 1,
+          "acclimation_hours": 48,
+          "prebreathe_min": 20,
+          "planned_eva_min": 360,
+          "habitat_pressure_kpa_in_methods": 56.6,
+          "habitat_oxygen_fraction": 0.34,
+          "eva_oxygen_fraction": 0.85,
+          "pilot_methods_eva_pressure_kpa": 34,
+          "medical_overview_eva_pressure_psia": 4.3,
+          "verified_actual_pressure_trace": null
+        }
+      },
+      {
+        "id": "icam-abstract-03-3",
+        "title": "Results of a 3-day pilot study to validate planetary prebreathe protocols using a 56.5 kPa 34% O2, 66% N2 saturation cabin atmosphere",
+        "year": 2022,
+        "url": "https://www.icam2022.com/2022%20International%20Conference%20of%20Aerospace%20Medicine%20Abstract%20Book%209%2020.pdf#page=25",
+        "access": "primary_abstract",
+        "locator": "Printed p. 25, abstract 03-3",
+        "note": "The proceedings repeat the author abstract's methods and outcome counts for the same six volunteers."
+      },
+      {
+        "id": "garbino-campaign-full-slides",
+        "title": "Development, Validation and Approval of A Planetary Extravehicular Activity Prebreathe Protocol: NASA Exploration Atmosphere Tests 1 & 2",
+        "year": 2024,
+        "url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf",
+        "access": "full_text",
+        "locator": "Slide 21, Test Campaign Summary, and slide 29, June campaign analysis",
+        "sha256": "a936ef610d7c38ea52152265a13698f7618c8fcb2371ede524e39738454946c6",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf#page=21",
+        "observations": [
+          {
+            "id": "2022-rehearsal-campaign-summary",
+            "endpoint": "reported_dcs_unspecified",
+            "group": "2022 dress rehearsal, role unspecified",
+            "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
+            "year": 2022,
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Slide 21",
+            "note": "The attendance margin is eight. The slide does not specify the case role, evaluated denominator, or observation window. March on the slide differs from May in the facility history."
+          },
+          {
+            "id": "2023-rehearsal-campaign-summary",
+            "endpoint": "reported_dcs_type_i_or_ii",
+            "group": "2023 dress rehearsal, role coverage unspecified",
+            "study_id": "nasa-exploration-atmosphere-2023-dress-rehearsal",
+            "year": 2023,
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Slide 21",
+            "note": "The slide reports eight attendees and no Type I or II DCS. The outcome risk set and window are unspecified. March on the slide differs from May in the facility history."
+          }
+        ],
+        "source_scope": {
+          "reported_attendance_for_each_rehearsal": 8,
+          "analyzed_eva_exposures_in_separate_june_campaigns": 50
+        }
+      },
+      {
+        "id": "anchondo-facility-history",
+        "title": "Creating the Test Environment for Exploration Habitats",
+        "year": 2024,
+        "url": "https://ntrs.nasa.gov/api/citations/20240005117/downloads/ICES-2024-128-Final%20Manuscript-No%20Tracked%20Changes.pdf",
+        "access": "full_text",
+        "locator": "Printed p. 14, sections VIII and IX",
+        "sha256": "f1652aceeff887c45162738824d41f3e5cfed9c863aad711d25f7f34f87c2edd",
+        "facility_dates": {
+          "three_day_2022": [
+            "2022-05-09",
+            "2022-05-12"
+          ],
+          "three_day_2023": [
+            "2023-05-01",
+            "2023-05-04"
+          ]
+        },
+        "note": "Provides dates distinguishing the short precursors and later June campaigns. No DCS tally for the three-day rehearsals is reported here."
+      },
+      {
+        "id": "earlier-nasa-forum",
+        "title": "Open Atmospheres Forum",
+        "year": 2022,
+        "url": "https://ntrs.nasa.gov/api/citations/20220011152/downloads/Exploration%20Atmosphers%20OAF%2020220805.pdf",
+        "access": "full_text",
+        "locator": "PDF slide 2",
+        "sha256": "cfc050aded4f9f8da9487d4279dc38c500375017e8562050bb9d15ed465e4d87",
+        "source_scope": {
+          "pilot_volunteers": 6,
+          "pilot_in_chamber_technicians": 2,
+          "pilot_month": "2022-05"
+        },
+        "note": "Preserves the research-volunteer and technician headcounts rather than assigning case status to either role."
+      },
+      {
+        "id": "habitability-companion",
+        "title": "Habitability Assessments and Lessons-learned From 3-day And 11-day Enriched Oxygen Hypobaric Chamber Tests At NASA Johnson Space Center",
+        "year": 2023,
+        "url": "https://ntrs.nasa.gov/citations/20220016245",
+        "access": "primary_abstract",
+        "locator": "Methods and Results and Discussion",
+        "note": "Gives headcounts covering the three-day and 11-day tests and refers to companion outcome presentations. Test completion is not a clinical DCS result."
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false
+    }
+  }
+]
