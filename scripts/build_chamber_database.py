@@ -225,6 +225,7 @@ BAKER_FLIGHT_DCS_CASE = ROOT / "data" / "chamber" / "v1.157"
 HISTORICAL_FLIGHT_DCS_CASES = ROOT / "data" / "chamber" / "v1.158"
 NAVAL_AVIATOR_EVENT_SERIES = ROOT / "data" / "chamber" / "v1.159"
 UCSD_AVIATION_REFERRALS = ROOT / "data" / "chamber" / "v1.160"
+BRADLEY_CHAMBER_DCI = ROOT / "data" / "chamber" / "v1.161"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2219,6 +2220,16 @@ def build(
                         "publication_aviation_referral_stage": "flight_stages.csv",
                         "publication_aviation_referral_comparison": "selected_comparisons.csv",
                         "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    BRADLEY_CHAMBER_DCI,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_case_milestone": "milestones.csv",
+                        "publication_case_anam": "anam_subtests.csv",
                     },
                 )
             if rojas_supplement:

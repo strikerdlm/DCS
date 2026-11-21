@@ -1,0 +1,101 @@
+[
+  {
+    "id": "2026-11-21-bradley-chamber-dci-firecrawl",
+    "date": "2026-11-21",
+    "reported_total": null,
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "status": "observed",
+    "note": "Recovered the index entry for the same report already in the register.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1fff9-1031-7469-abcb-0a28cab92048",
+      "query": "\"Chronic decompression illness cognitive dysfunction improved with hyperbaric oxygen\" Bradley 32176954 2012 altitude chamber"
+    },
+    "records": [
+      {
+        "id": "result-1",
+        "title": "Chronic decompression illness cognitive dysfunction improved with ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32176954/",
+        "pmid": "32176954"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-bradley-chamber-dci-tavily",
+    "date": "2026-11-21",
+    "reported_total": null,
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "status": "blocked",
+    "note": "HTTP 433. The provider's pay-as-you-go limit prevented the search.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Bradley Krassow 32176954 2012 altitude chamber decompression illness full text"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-bradley-chamber-dci-eds-primary",
+    "date": "2026-11-21",
+    "reported_total": null,
+    "provider": "EBSCO Discovery Service via Universidad Nacional de Colombia",
+    "operation": "verify_subscribed_full_text",
+    "status": "observed",
+    "note": "Matched the exact-title discovery result to the previously captured accession and inspected the original seven-page journal article.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Chronic decompression illness cognitive dysfunction improved with hyperbaric oxygen\"",
+      "archive_access": "institutional_subscription",
+      "redistribution": "unverified; source PDF retained locally"
+    },
+    "records": [
+      {
+        "id": "wfhl7kw3c5",
+        "title": "Chronic decompression illness cognitive dysfunction improved with hyperbaric oxygen: a case report",
+        "author": "Bradley KR, Krassow JL, Richards MF, Beckstrand DP, Wolf EG",
+        "year": 2020,
+        "url": "https://researchs.unalproxy.elogim.com/c/ernpho/search/details/wfhl7kw3c5",
+        "pmid": "32176954",
+        "doi": "10.22462/01.03.2020.14",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/32176954/",
+        "full_text_available": true,
+        "access": "institutional_subscription",
+        "sha256": "d8d06667f19d42b7d7cdb4224222c8100367b5b6e235376d06a743b4a56f2976",
+        "pages": 7,
+        "bytes": 691793,
+        "locator": "Patient history and Methods p. 132; Results and Figures 1–4 pp. 133–135; follow-up p. 136",
+        "extraction_method": "Local PDF layout extraction; visual verification of Figures 1–4",
+        "source_discrepancies": [
+          {
+            "locator": "Methods p. 132",
+            "field": "later treatment pressure",
+            "note": "The simultaneous values 2.0 ATA and 101 kPa do not agree if both are absolute at standard pressure. The article does not specify a reference for kPa. Neither value is used to infer chamber exposure pressure."
+          },
+          {
+            "locator": "Results p. 134; Figure 3 p. 135",
+            "field": "post-39 ANAM categories",
+            "note": "The Results paragraph describes two abnormal subtests and two distinct categories. Figure 3 marks two simple reaction time subtests and one procedural reaction time subtest below average. Extracted category rows use the figure."
+          },
+          {
+            "locator": "Results p. 134; Discussion p. 136",
+            "field": "later treatment break",
+            "note": "Results gives 11 days, Discussion gives 10 days, and the two dated tests are 11 calendar days apart. Preserve both statements."
+          }
+        ],
+        "observations": [
+          {
+            "id": "training-index-exposure",
+            "group": "training-index-exposure",
+            "endpoint": "chamber_training_dci_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Patient history p. 132; Discussion pp. 134 and 136",
+            "outcome_window": "Symptoms at altitude during the index training exposure and recurrence six days later. Later clinical and cognitive follow-up described separately.",
+            "note": "The authors describe DCI and discuss both decompression sickness and gas embolism. A single selected episode without an exposed-roster denominator."
+          }
+        ]
+      }
+    ]
+  }
+]

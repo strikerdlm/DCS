@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-eds-training#wfhl7kw3c5",
+      "report_id": "pmid:32176954",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32176954/",
+      "basis": "The indexed library result matches the printed journal, volume, issue, pages and title verified from the original PDF."
+    },
+    {
+      "record_key": "2026-11-21-bradley-chamber-dci-eds-primary#wfhl7kw3c5",
+      "report_id": "pmid:32176954",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32176954/",
+      "basis": "The original journal PDF and NLM entry match by DOI and citation."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.161/sources.csv#bradley20_chamber_dci",
+      "report_id": "pmid:32176954",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32176954/",
+      "basis": "The numbered extract uses the original 2020 journal article."
+    },
+    {
       "record_key": "2026-11-21-ucsd-aviation-referral-exact-search#result-1",
       "report_id": "pmid:36757235",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf",
@@ -16599,6 +16617,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-bradley-july-2012-altitude-chamber-dci-case",
+      "label": "USAF chamber training DCI case with longitudinal cognitive follow-up",
+      "period": "Index chamber exposure July 2012. Clinical follow-up into autumn 2018.",
+      "setting": "Selected published U.S. Air Force aircrew trainee case. No exposed roster is reported."
+    },
+    {
       "study_id": "ucsd-2010-2020-aviation-decompression-referrals",
       "label": "Aviation Decompression Sickness in Aerospace and Hyperbaric Medicine",
       "period": "August 2010 to August 2020",
@@ -18232,6 +18256,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-bradley-july-2012-altitude-chamber-dci-case",
+      "report_id": "pmid:32176954",
+      "role": "primary_chamber_training_dci_case_report",
+      "locator": "Patient history and Methods p. 132; Results and Figures 1–4 pp. 133–135; follow-up p. 136"
+    },
     {
       "study_id": "ucsd-2010-2020-aviation-decompression-referrals",
       "report_id": "pmid:36757235",
