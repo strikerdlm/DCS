@@ -1,0 +1,220 @@
+[
+  {
+    "id": "2026-11-21-chinese-flight-cohorts-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "\"低压舱\" \"减压病\" \"发生率\" 训练 飞行员 例次",
+          "search_id": "01a1fe9a-9583-742c-8bf6-a546f69879b0"
+        },
+        {
+          "query": "\"高空迅速减压飞行人员的临床诊治和医学鉴定\"",
+          "search_id": "01a1fe9c-5025-740e-b8a0-a5a42c50482f"
+        },
+        {
+          "query": "\"高空迅速减压患者的临床观察及护理\" \"5起\" \"19\"",
+          "search_id": "01a1fe9c-5019-75ab-b49a-558156a5270c"
+        },
+        {
+          "query": "\"高空飞行座舱压力突降两例\" \"张九刚\" 2006",
+          "search_id": "01a1fe9e-6d19-746e-a456-c85f013179ed"
+        },
+        {
+          "query": "\"高空迅速减压对中耳和听力的影响\" 窦艳玲 2011 全文",
+          "search_id": "01a1fe9e-6ec8-728a-8f76-83b5d8026dda"
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Searched national journal issues and followed primary journal links. The English rendering of the Zheng abstract omits the zero DCS count, which is explicit in the original Chinese.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chinese-flight-cohorts-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"低压舱\" \"减压病\" \"发生率\" 训练 飞行员 例次",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chinese-flight-cohorts-primary",
+    "date": "2026-11-21",
+    "provider": "Chinese Medical Association journal, CQVIP and JASPTL",
+    "operation": "verify_original_abstracts",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "chamber_followups": [
+        {
+          "source_id": "qi02_chamber",
+          "doi": "10.3760/cma.j.issn.1007-6239.2002.01.020",
+          "search_id": "01a1fe9a-d8ce-72ac-8f90-7e530c0f83d1",
+          "status": "publisher preview requires institutional or personal full-text access",
+          "conclusion": "No addition to the existing single case identified in the original title."
+        },
+        {
+          "source_id": "lee21_taiwan_training",
+          "doi": "10.7011/jamsroc.202112_35(1_2).0005",
+          "search_id": "01a1fe9a-d937-752e-bcab-5baef0a4041a",
+          "status": "public bilingual abstract",
+          "conclusion": "No separately reported DCS count recovered for the existing 18,487 training exposures."
+        },
+        {
+          "source_id": "liu23_lunar_pressure_campaign",
+          "doi": "10.3969/j.issn.1674-5825.2023.01.009",
+          "scrape_id": "01a1fe9e-f8fe-77d2-9823-e332d4975255",
+          "status": "publisher abstract",
+          "conclusion": "No additional per-arm or per-exposure denominator recovered."
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed_primary_abstract",
+    "note": "Used the original Chinese result statements. Search discovery occurrences for Zheng and Liu retain their existing report identities.",
+    "records": [
+      {
+        "id": "zheng05_chinese_flight_decompression",
+        "title": "高空迅速减压飞行人员的临床诊治和医学鉴定",
+        "year": 2005,
+        "doi": "10.3760/cma.j.issn.1007-6239.2005.02.013",
+        "openalex_id": "W2373448517",
+        "authors": [
+          "郑军",
+          "徐先荣",
+          "刘成刚",
+          "陈立君",
+          "崔丽",
+          "徐蜀宣",
+          "陈同欣"
+        ],
+        "url": "https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2005.02.013",
+        "primary_source": "https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2005.02.013",
+        "locator": "Author abstract in original Chinese, Methods and Results (1), article pp. 130–134",
+        "html_sha256": "9fe21cb407c43706951b89f191fc5a63bc19657184da6973334647a1a2eeffa4",
+        "scrape_id": "01a1fe9c-5044-7128-b4c2-76976c8edb48",
+        "exposure_setting": "in_flight",
+        "incident_count": 5,
+        "reported_person_exposures": 19,
+        "exposure_altitude_min_m": 8300,
+        "exposure_altitude_max_m": 10000,
+        "outcome_window": null,
+        "group_management_comparison": "unadjusted, selected incident groups",
+        "full_text_available": false,
+        "note": "Five selected in-flight decompression incidents, 19 person-exposures. The reported exposure altitude range is 8,300–10,000 m. Exact dates, cabin pressure and gas histories, individual linkage and uniform clinical follow-up are unavailable in the public abstract. The groups differ by incident and reported post-landing management.",
+        "observations": [
+          {
+            "id": "zheng05_chinese_flight_decompression:a-three-incidents",
+            "group": "a-three-incidents",
+            "endpoint": "type_ii_altitude_dcs_as_reported",
+            "incident_count": 3,
+            "cases": 7,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "group_management": "Post-landing rest with oxygen and hyperbaric treatment were not provided in the source's initial grouping.",
+            "locator": "Author abstract in original Chinese, Methods and Results (1), article pp. 130–134",
+            "note": "Seven cases explicitly classified as Type II. The abstract does not enumerate other possible clinical diagnoses."
+          },
+          {
+            "id": "zheng05_chinese_flight_decompression:b-two-incidents",
+            "group": "b-two-incidents",
+            "endpoint": "type_ii_altitude_dcs_as_reported",
+            "incident_count": 2,
+            "cases": 0,
+            "denominator": 9,
+            "denominator_unit": "person_exposure",
+            "group_management": "The group received resting oxygen and referral for hyperbaric oxygen after landing.",
+            "locator": "Author abstract in original Chinese, Methods and Results (1), article pp. 130–134",
+            "note": "The original Chinese abstract explicitly states that none developed altitude DCS. The English machine translation omits that sentence."
+          }
+        ]
+      },
+      {
+        "id": "liu08_chinese_flight_nursing",
+        "title": "高空迅速减压患者的临床观察及护理",
+        "year": 2008,
+        "authors": [
+          "刘玉华",
+          "李金花",
+          "李丽"
+        ],
+        "url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824",
+        "primary_source": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824",
+        "locator": "Author abstract, Methods and Results, published pp. 11–12",
+        "scrape_id": "01a1fe9e-a3a1-768e-9169-9441625fc017",
+        "index_identifier": "CQVIP:28209824",
+        "exposure_setting": "in_flight",
+        "incident_count": 5,
+        "reported_person_exposures": 19,
+        "clinical_dcs_cases": null,
+        "return_to_flight_count": 18,
+        "disqualified_due_to_psychological_symptoms_count": 1,
+        "full_text_available": false,
+        "note": "The abstract gives return-to-flight status for 19 pilot records across five in-flight incidents. One record involved disqualification for severe psychological symptoms. It supplies no separate DCS case count or DCS-specific return-to-flight denominator.",
+        "observations": [
+          {
+            "id": "liu08_chinese_flight_nursing:return-to-flight",
+            "group": "all-incident-pilot-records",
+            "endpoint": "returned_to_flight_after_rapid_decompression",
+            "cases": 18,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "locator": "Author abstract, Methods and Results, published pp. 11–12"
+          }
+        ]
+      },
+      {
+        "id": "zhang06-cabin-pressure-drop",
+        "title": "高空飞行座舱压力突降两例",
+        "year": 2006,
+        "authors": [
+          "张九刚",
+          "周友明",
+          "肖立军"
+        ],
+        "doi": "10.3760/cma.j.issn.1007-6239.2006.01.025",
+        "url": "https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2006.01.025",
+        "locator": "Publisher's visible first-case excerpt, p. 77",
+        "first_event_date": "2005-12-03",
+        "clinical_dcs_cases": null,
+        "scrape_id": "01a1fe9e-f970-7000-ab2c-3f1b25121fbe",
+        "note": "The first reported pressure loss occurred after the publication of Zheng's article. The abstract excerpt does not verify DCS status or reveal the second event date."
+      },
+      {
+        "id": "dou11-ear-hearing",
+        "title": "高空迅速减压对中耳和听力的影响",
+        "year": 2011,
+        "authors": [
+          "窦艳玲",
+          "徐先荣",
+          "冯怀志",
+          "徐辉",
+          "李硕",
+          "刘汉强",
+          "付明亮"
+        ],
+        "url": "https://jasptl.haoyicn.cn/summary/21004?type=history&eng=0",
+        "locator": "Original journal abstract, pp. 210–212",
+        "incident_count": 1,
+        "assessed_aircrew": 12,
+        "reported_aircraft_altitude_m": 7000,
+        "clinical_dcs_cases": null,
+        "scrape_id": "01a1fe9e-f9aa-7345-9450-dfdaf6b5e765",
+        "note": "Otologic outcomes after a Y-8 in-flight incident. The abstract does not furnish a DCS count."
+      }
+    ]
+  }
+]

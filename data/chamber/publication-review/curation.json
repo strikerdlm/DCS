@@ -14543,6 +14543,42 @@
       "report_id": "abstract:asma-2012-blackadder-coward-198",
       "basis": "2012 AsMA original abstract 198, exact title, author line and publication locator.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=58"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.134/sources.csv#zheng05_chinese_flight_decompression",
+      "report_id": "doi:10.3760/cma.j.issn.1007-6239.2005.02.013",
+      "basis": "Exact DOI, byline, pages and clinical cohort description.",
+      "evidence_url": "https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2005.02.013"
+    },
+    {
+      "record_key": "2026-11-21-chinese-flight-cohorts-primary#zheng05_chinese_flight_decompression",
+      "report_id": "doi:10.3760/cma.j.issn.1007-6239.2005.02.013",
+      "basis": "Exact DOI, byline, pages and clinical cohort description.",
+      "evidence_url": "https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2005.02.013"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.134/sources.csv#liu08_chinese_flight_nursing",
+      "report_id": "record:2026-11-20-east-asian-cohorts-t-mainland-cases#http://dianda.cqvip.com/Qikan/Article/Detail?id=28209824&from=Qikan_Article_Detail",
+      "basis": "CQVIP article 28209824 identifies the same titled 2008 nursing report in the existing search record.",
+      "evidence_url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824"
+    },
+    {
+      "record_key": "2026-11-21-chinese-flight-cohorts-primary#liu08_chinese_flight_nursing",
+      "report_id": "record:2026-11-20-east-asian-cohorts-t-mainland-cases#http://dianda.cqvip.com/Qikan/Article/Detail?id=28209824&from=Qikan_Article_Detail",
+      "basis": "CQVIP article 28209824 identifies the same titled 2008 nursing report in the existing search record.",
+      "evidence_url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2373448517",
+      "report_id": "doi:10.3760/cma.j.issn.1007-6239.2005.02.013",
+      "basis": "Exact DOI and shared 2005 publication. OpenAlex uses the English title and the original publisher uses the Chinese title.",
+      "evidence_url": "https://cs.medjournals.cn/article/doi/full/10.3760/cma.j.issn.1007-6239.2005.02.013"
+    },
+    {
+      "record_key": "2026-11-20-east-asian-cohorts-t-mainland-cases#http://dianda.cqvip.com/Qikan/Article/Detail?id=28209824&from=Qikan_Article_Detail",
+      "report_id": "record:2026-11-20-east-asian-cohorts-t-mainland-cases#http://dianda.cqvip.com/Qikan/Article/Detail?id=28209824&from=Qikan_Article_Detail",
+      "basis": "The older index domain and current CQVIP page use article 28209824 and the identical Chinese title.",
+      "evidence_url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824"
     }
   ],
   "studies": [
@@ -22372,6 +22408,13 @@
       "relationship": "possible_raf_cam_training_case_overlap",
       "evidence": "Manton and McLoughlin concern RAF CAM hypobaric training. McLoughlin reports one DCS case from the year preceding the 2000 presentation. Manton's undated training DCI and suspected AGE descriptions cannot be linked to that episode. The research participant has a separate setting from McLoughlin's training surveillance.",
       "evidence_url": "https://archive.org/download/DTIC_ADP011069/DTIC_ADP011069.pdf#page=4"
+    },
+    {
+      "left_report": "doi:10.3760/cma.j.issn.1007-6239.2005.02.013",
+      "right_report": "record:2026-11-20-east-asian-cohorts-t-mainland-cases#http://dianda.cqvip.com/Qikan/Article/Detail?id=28209824&from=Qikan_Article_Detail",
+      "relationship": "likely_same_inflight_rapid_decompression_series",
+      "evidence": "Both papers retrospectively describe five Chinese Air Force in-flight rapid decompression incidents and 19 affected person-incident records over about 10 years. Zheng's return-to-flight statement concerns patients who developed illness. Liu describes all 19 records and does not identify which had DCS. Incident dates and participant linkage are unavailable. The series likely overlap.",
+      "evidence_url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824"
     }
   ],
   "report_titles": {

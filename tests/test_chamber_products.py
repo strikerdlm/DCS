@@ -4332,3 +4332,36 @@ def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(
             SELECT related_source,relationship FROM publication_overlap
             WHERE source_id='manton12_raf_chamber'
         """).fetchall() == [("mcloughlin00", "unresolved")]
+
+
+def test_chinese_flight_counts_use_incident_strata_and_one_dcs_report(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.stratum,o.endpoint,o.analysis_role,o.numerator,o.denominator,o.denominator_unit,
+                   r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (l.report_id,o.endpoint,o.stratum)=(r.report_id,r.endpoint,r.reported_group)
+            WHERE o.source_id IN ('zheng05_chinese_flight_decompression','liu08_chinese_flight_nursing')
+            ORDER BY o.stratum
+        """).fetchall() == [
+            ("a-three-incidents", "type_ii_altitude_dcs_as_reported", "selected_cluster", 7, 10,
+             "person_exposure", 7, 10),
+            ("all-incident-pilot-records", "returned_to_flight_after_rapid_decompression", "overlap_hold",
+             18, 19, "person_exposure", 18, 19),
+            ("b-two-incidents", "type_ii_altitude_dcs_as_reported", "selected_cluster", 0, 9,
+             "person_exposure", 0, 9),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE doi='10.3760/cma.j.issn.1007-6239.2005.02.013'
+               OR report_id='doi:10.3760/cma.j.issn.1007-6239.2005.02.013'
+        """).fetchone() == (3, 1)
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='zheng05_chinese_flight_decompression'
+        """).fetchall() == [("liu08_chinese_flight_nursing", "likely_overlap")]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog
+            WHERE source_id IN ('zheng05_chinese_flight_decompression','liu08_chinese_flight_nursing')
+        """).fetchone() == (0,)
