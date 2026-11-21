@@ -206,6 +206,7 @@ CHAMBER_INDIAN_CASE_CHRONOLOGY = ROOT / "data" / "chamber" / "v1.138"
 CHAMBER_ITALY_TAIWAN_TRAINING = ROOT / "data" / "chamber" / "v1.139"
 CHAMBER_SERIOUS_DCS_ARCHIVE = ROOT / "data" / "chamber" / "v1.140"
 CHAMBER_SERIOUS_DCS_REFERENCES = ROOT / "data" / "chamber" / "v1.141"
+CHAMBER_NASA_SEX_PREBREATHE = ROOT / "data" / "chamber" / "v1.142"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1985,6 +1986,16 @@ def build(
                     {
                         "publication_source": "sources.csv",
                         "publication_nasa_serious_dcs_reference": "serious_dcs_references.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_SEX_PREBREATHE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_outcome_latency_summary": "latency_summaries.csv",
                     },
                 )
             if rojas_supplement:
