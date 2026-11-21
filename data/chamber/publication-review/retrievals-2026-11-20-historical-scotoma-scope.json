@@ -1,0 +1,222 @@
+[
+  {
+    "id": "2026-11-20-scotoma-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "status": "failed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "error_code": 433,
+      "query": "Whitten scotoma as a complication decompression sickness chamber 1946 100 subjects Berkeley report and Romano Engel 1361 chamber exposures"
+    },
+    "note": "The search endpoint returned a spending-limit response.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-scotoma-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_public_full_text_check",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "The Whitten journal retrieval returned publisher metadata and the opening excerpt. The FAA and DTIC alternatives did not verify the original table. The Engel link is a government bibliography entry.",
+    "records": [
+      {
+        "id": "whitten-publisher",
+        "title": "Scotoma as a complication of decompression sickness",
+        "pmid": "20997673",
+        "year": 1946,
+        "url": "https://jamanetwork.com/journals/jamaophthalmology/article-abstract/619076",
+        "access": "publisher_opening_excerpt"
+      },
+      {
+        "id": "engel-bibliography",
+        "title": "A migraine-like syndrome complicating decompression sickness",
+        "url": "https://digitalcollections.lrc.usuhs.edu/digital/api/collection/p16005coll4/id/14565/download",
+        "year": 1944,
+        "access": "secondary_bibliography"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-scotoma-library",
+    "date": "2026-11-20",
+    "provider": "UNAL library proxy",
+    "operation": "supplementary_licensed_access_check",
+    "status": "blocked",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "planned_titles": [
+        "Scotoma as a complication of decompression sickness",
+        "A migraine-like syndrome complicating decompression sickness"
+      ]
+    },
+    "note": "After one credential submission the official proxy did not reach EBSCO. No title query or download occurred.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-flinn-cited-scotoma-counts",
+    "date": "2026-11-20",
+    "provider": "Rendered source pages and existing original CAM abstract",
+    "operation": "supplementary_neurological_outcome_scope_audit",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Summaries from the original Flinn and Womack source are retained as secondary evidence. The broader 46 episodes and 17 affected participants are already in the Romano source extraction.",
+    "records": [
+      {
+        "id": "flinn-pp959-960",
+        "title": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes",
+        "year": 1963,
+        "pmid": "14050686",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf",
+        "evidence_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=4",
+        "role_review": "secondary_margins_original_underlying_tables_unverified",
+        "locator": "Printed pp. 958–960, Discussion, references 1, 12, 16 and 39",
+        "observations": [
+          {
+            "id": "whitten:whole-series:dcs_related_ascent_terminations",
+            "group": "whole-series",
+            "endpoint": "dcs_related_ascent_terminations",
+            "cases": 37,
+            "denominator": 100,
+            "denominator_unit": "chamber_ascent",
+            "reported_rate_percent": null,
+            "study_id": "berkeley-whitten-1946-repeated-ascents",
+            "locator": "Printed p. 959, Discussion",
+            "note": "The cited outcome is stopping an ascent because of DCS. The original total symptomatic count and the follow-up of other ascents are unknown."
+          },
+          {
+            "id": "whitten:quoted-visual-subset:scotoma_observations",
+            "group": "quoted-visual-subset",
+            "endpoint": "scotoma_observations",
+            "cases": 8,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": null,
+            "study_id": "berkeley-whitten-1946-repeated-ascents",
+            "locator": "Printed p. 959, Discussion",
+            "note": "Eight observations are a recurrent symptom count. No numerator of distinct scotoma-positive ascents is given."
+          },
+          {
+            "id": "whitten:quoted-visual-subset:subjects_with_scotomas",
+            "group": "quoted-visual-subset",
+            "endpoint": "subjects_with_scotomas",
+            "cases": 6,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": null,
+            "study_id": "berkeley-whitten-1946-repeated-ascents",
+            "locator": "Printed p. 959, Discussion",
+            "note": "Six people are described with scotomas in the quoted visual subset. The number assessed in that subset is unavailable."
+          },
+          {
+            "id": "adler:all-collapse-cases:broad_visual_symptoms",
+            "group": "all-collapse-cases",
+            "endpoint": "broad_visual_symptoms",
+            "cases": null,
+            "denominator": 314,
+            "denominator_unit": "collapse_case",
+            "reported_rate_percent": 28,
+            "study_id": null,
+            "locator": "Printed p. 959, Discussion",
+            "note": "Only a rounded rate is quoted. The visual definitions also cover other symptoms such as blurred vision and diplopia. The primary case-level count is unavailable."
+          },
+          {
+            "id": "adler:collapse-without-preceding-dysbarism-symptoms:broad_visual_symptoms",
+            "group": "collapse-without-preceding-dysbarism-symptoms",
+            "endpoint": "broad_visual_symptoms",
+            "cases": 12,
+            "denominator": 35,
+            "denominator_unit": "collapse_case",
+            "reported_rate_percent": null,
+            "study_id": null,
+            "locator": "Printed p. 959, Discussion",
+            "note": "The denominator is selected collapse cases with no preceding dysbarism symptoms. This is a case-conditional symptom count."
+          },
+          {
+            "id": "engel:history-assessed-scotoma-susceptible:prior_typical_migraine_history",
+            "group": "history-assessed-scotoma-susceptible",
+            "endpoint": "prior_typical_migraine_history",
+            "cases": 11,
+            "denominator": 16,
+            "denominator_unit": "person",
+            "reported_rate_percent": null,
+            "study_id": null,
+            "locator": "Printed pp. 959–960, Discussion",
+            "note": "The cited assessment uses 16 susceptible subjects. The study's broader historical reported affected total is 17. The reason for the smaller comparison denominator is unknown."
+          },
+          {
+            "id": "engel:history-assessed-non-susceptible:prior_typical_migraine_history",
+            "group": "history-assessed-non-susceptible",
+            "endpoint": "prior_typical_migraine_history",
+            "cases": 10,
+            "denominator": 102,
+            "denominator_unit": "person",
+            "reported_rate_percent": null,
+            "study_id": null,
+            "locator": "Printed p. 960, Discussion",
+            "note": "Historical selected reference group described as non-susceptible. Original matching, assessment and ascertainment remain unverified."
+          }
+        ],
+        "whitten_context": {
+          "repeated_ascents": 100,
+          "people": 41,
+          "quoted_visual_subset_ascents": 15
+        },
+        "engel_duplicate_margin": {
+          "affected_people": 17,
+          "total_people": 155,
+          "reported_episodes": 46,
+          "chamber_exposures": 1361,
+          "original_report_id": "nlm:101085500x234:7:romano",
+          "status": "already_extracted_author_abstract"
+        },
+        "eligibility": "secondary_cited_observations_on_hold"
+      },
+      {
+        "id": "whitten-exposure-study",
+        "title": "Scotoma as a complication of decompression sickness",
+        "year": 1946,
+        "pmid": "20997673",
+        "doi": "10.1001/archopht.1946.00890210225007",
+        "url": "https://jamanetwork.com/journals/jamaophthalmology/article-abstract/619076",
+        "study_id": "berkeley-whitten-1946-repeated-ascents",
+        "access": "publisher_opening_excerpt",
+        "note": "Primary outcome table unavailable."
+      },
+      {
+        "id": "adler-report-catalog",
+        "title": "Neurocirculatory collapse at altitude",
+        "year": 1950,
+        "url": "https://openlibrary.org/works/OL44641058W/Neurocirculatory_collapse_at_altitude",
+        "access": "catalog_metadata",
+        "note": "The rounded proportion and subgroup count were checked in the citing article."
+      },
+      {
+        "id": "romano-original-conference-summary",
+        "title": "A migraine-like syndrome complicating decompression sickness",
+        "year": 1944,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8",
+        "access": "full_text_author_conference_summary",
+        "note": "Original author summary already linked to 17/155 and 46 historical syndrome episodes."
+      },
+      {
+        "id": "fryer-scotoma-summary",
+        "title": "Subatmospheric Decompression Sickness in Man",
+        "year": 1969,
+        "identifier": "ADA111509",
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf",
+        "note": "The same 46 events in 17 susceptible persons are cited. No extra outcome observations were ingested."
+      }
+    ]
+  }
+]
