@@ -13073,6 +13073,96 @@
       "report_id": "dtic:ada168832",
       "basis": "Original title and agency report number verified against the issuing agency or archive.",
       "evidence_url": "https://archive.org/details/DTIC_ADA168832"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.115/sources.csv#mcfadden79_cessna_observer",
+      "report_id": "faa:aac-119-77-8s",
+      "basis": "The archive index identifies the memorandum number and title. The FAA collection reproduces the same authored chapter.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/201601.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-primary#cessna-chapter",
+      "report_id": "faa:aac-119-77-8s",
+      "basis": "The archive index identifies the memorandum number and title. The FAA collection reproduces the same authored chapter.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/201601.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-firecrawl-search#faa-collection-pdf",
+      "report_id": "dot:21164",
+      "basis": "The issuing agency and DOT editions show the same collection number FAA AM-79-13.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21164"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-firecrawl-search#faa-collection",
+      "report_id": "dot:21164",
+      "basis": "The issuing agency and DOT editions show the same collection number FAA AM-79-13.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21164"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-firecrawl-search#dot-collection",
+      "report_id": "dot:21164",
+      "basis": "The issuing agency and DOT editions show the same collection number FAA AM-79-13.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21164"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-firecrawl-compilation-scan#dot-scan",
+      "report_id": "dot:21164",
+      "basis": "The issuing agency and DOT editions show the same collection number FAA AM-79-13.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21164"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-primary#faa-index",
+      "report_id": "dot:57194",
+      "basis": "FAA archive index report number and edition.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/201601.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-firecrawl-search#mask66-catalog",
+      "report_id": "dot:20789",
+      "basis": "The two FAA editions and the existing OpenAlex result resolve to the exact title and DOT archive record for AM 66-20.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20789"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-adjacent-mask#mask66-scan",
+      "report_id": "dot:20789",
+      "basis": "The two FAA editions and the existing OpenAlex result resolve to the exact title and DOT archive record for AM 66-20.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20789"
+    },
+    {
+      "record_key": "2026-11-20-rapid-decompression-o-history#W1597299230",
+      "report_id": "dot:20789",
+      "basis": "The two FAA editions and the existing OpenAlex result resolve to the exact title and DOT archive record for AM 66-20.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20789"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-firecrawl-search#methods67-catalog",
+      "report_id": "faa:am67-03",
+      "basis": "The original government scan and the FAA catalog give the same complete report title.",
+      "evidence_url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS79297/pdf/GOVPUB-TD4_200-PURL-LPS79297.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/search_hits.csv#rd_v20_web_rcaf_iam:1",
+      "report_id": "faa:am67-03",
+      "basis": "The original government scan and the FAA catalog give the same complete report title.",
+      "evidence_url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS79297/pdf/GOVPUB-TD4_200-PURL-LPS79297.pdf"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-firecrawl-search#mask72-catalog",
+      "report_id": "dot:20989",
+      "basis": "The FAA catalog and DOT archive give the same title and report number AM 72-10.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20989"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-flight27#faa-flight27",
+      "report_id": "faa:am79-13-flight27",
+      "basis": "Chapter authorship and title in the FAA compilation.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=89"
+    },
+    {
+      "record_key": "2026-11-21-faa-cessna-observer-flight27#ntsb-flight27",
+      "report_id": "ntsb:aar7502",
+      "basis": "Original NTSB report cover and report number.",
+      "evidence_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR7502.pdf"
     }
   ],
   "studies": [
@@ -14275,6 +14365,18 @@
       "label": "FAA CAMI McFadden 1966 prototype mask chamber test",
       "period": "Published April 1966, enrollment dates unavailable",
       "setting": "FAA CAMI hypobaric chamber"
+    },
+    {
+      "study_id": "faa-cami-cessna-mask-1966",
+      "label": "FAA CAMI Cessna oxygen mask chamber experiment",
+      "period": "1966",
+      "setting": "FAA CAMI hypobaric chamber"
+    },
+    {
+      "study_id": "national-airlines-flight27-1973",
+      "label": "National Airlines Flight 27 in-flight decompression",
+      "period": "1973-11-03",
+      "setting": "Operational aviation occurrence"
     }
   ],
   "study_reports": [
@@ -16359,6 +16461,24 @@
       "report_id": "dot:20771",
       "role": "primary_outcome",
       "locator": "Methods printed p. 2 (PDF p. 4), Table 1 printed pp. 14–15 (PDF pp. 16–17)"
+    },
+    {
+      "study_id": "faa-cami-cessna-mask-1966",
+      "report_id": "faa:aac-119-77-8s",
+      "role": "primary_outcome",
+      "locator": "Phase 2 Methods, printed p. 20 (PDF p. 29) and Phase 2 Results, printed p. 25 (PDF p. 34)"
+    },
+    {
+      "study_id": "national-airlines-flight27-1973",
+      "report_id": "faa:am79-13-flight27",
+      "role": "flight_investigation",
+      "locator": "Printed pp. 79–80 (PDF pp. 89–90)"
+    },
+    {
+      "study_id": "national-airlines-flight27-1973",
+      "report_id": "ntsb:aar7502",
+      "role": "flight_investigation",
+      "locator": "Sections 1.2 and 1.13"
     }
   ],
   "relations": [
@@ -19952,6 +20072,34 @@
       "relationship": "cites_earlier_mask_experiment",
       "evidence": "Garner 1996 references the named original as previous oxygen mask application work. The citation does not establish shared participants or clinical risk sets.",
       "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf#page=15"
+    },
+    {
+      "left_report": "faa:aac-119-77-8s",
+      "right_report": "dot:21164",
+      "relationship": "chapter_in_compilation",
+      "evidence": "The FAA compilation reproduces the memorandum chapter at printed pp. 17–58.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=26"
+    },
+    {
+      "left_report": "faa:am79-13-flight27",
+      "right_report": "dot:21164",
+      "relationship": "chapter_in_compilation",
+      "evidence": "The FAA compilation contains the Flight 27 human factors investigation.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=89"
+    },
+    {
+      "left_report": "faa:am79-13-flight27",
+      "right_report": "ntsb:aar7502",
+      "relationship": "same_aircraft_occurrence",
+      "evidence": "Both primary reports identify N60NA, Flight 27 and November 3, 1973. The FAA title gives 127 people. The NTSB lists 127 evacuated people and one ejected passenger.",
+      "evidence_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR7502.pdf"
+    },
+    {
+      "left_report": "faa:aac-119-77-8s",
+      "right_report": "dot:20771",
+      "relationship": "distinct_chamber_event_participant_overlap_unverified",
+      "evidence": "The Cessna experiment describes the safety observer at 30,000 ft. AM 66-7 describes an instrumented participant after a distinct 35,000-ft measurement. Shared personnel across the two 1966 experiments are undocumented.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=34"
     }
   ],
   "report_titles": {

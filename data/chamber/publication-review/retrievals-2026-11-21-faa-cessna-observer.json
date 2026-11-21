@@ -1,0 +1,270 @@
+[
+  {
+    "id": "2026-11-21-faa-cessna-observer-firecrawl-search",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "retrieved",
+    "operation": "search",
+    "reported_total": 6,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA AM79-13 21164 Oxygen equipment and rapid decompression studies McFadden",
+      "search_id": "01a1fd7d-d30b-76f9-a7d3-75eae53283cc"
+    },
+    "note": "The leading three results resolve to the same FAA collection. The remaining URLs identify adjacent mask research.",
+    "records": [
+      {
+        "id": "faa-collection-pdf",
+        "title": "Oxygen Equipment and Rapid Decompression Studies",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf",
+        "year": 1979,
+        "rank": 1
+      },
+      {
+        "id": "faa-collection",
+        "title": "Oxygen Equipment and Rapid Decompression Studies",
+        "url": "https://www.faa.gov/data_research/research/med_humanfacs/oamtechreports/1970s/1979/197913",
+        "year": 1979,
+        "rank": 2
+      },
+      {
+        "id": "dot-collection",
+        "title": "Oxygen Equipment and Rapid Decompression Studies",
+        "url": "https://rosap.ntl.bts.gov/view/dot/21164",
+        "year": 1979,
+        "rank": 3
+      },
+      {
+        "id": "mask66-catalog",
+        "title": "Evaluation of the Sierra, hanging, quick-don, crew, pressure-breathing, oxygen mask",
+        "url": "https://www.faa.gov/data_research/research/med_humanfacs/oamtechreports/1960s/1966/196620",
+        "year": 1966,
+        "rank": 4
+      },
+      {
+        "id": "methods67-catalog",
+        "title": "Development of techniques for evaluating the physiological protective efficiency of civil aviation oxygen equipment",
+        "url": "https://www.faa.gov/data_research/research/med_humanfacs/oamtechreports/1960s/1967/196703",
+        "year": 1967,
+        "rank": 5,
+        "identifier": "FAA-AM-67-03"
+      },
+      {
+        "id": "mask72-catalog",
+        "title": "Physiological evaluation of a modified jet transport passenger oxygen mask",
+        "url": "https://www.faa.gov/data_research/research/med_humanfacs/oamtechreports/1970s/1972/7210",
+        "year": 1972,
+        "rank": 6,
+        "identifier": "FAA-AM-72-10"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-cessna-observer-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"AAC-119-77-8(S)\" McFadden Harrison Simpson Cessna safety observer altitude bends",
+      "http_status": 433
+    },
+    "note": "Account spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-faa-cessna-observer-firecrawl-compilation-scan",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA AM-79-13 full text",
+      "scrape_id": "01a1fd70-2302-72dd-a530-7da8aea968f8"
+    },
+    "note": "Parsed the DOT scan and located the Cessna chapter. The case was checked against the FAA edition.",
+    "records": [
+      {
+        "id": "dot-scan",
+        "title": "Oxygen Equipment and Rapid Decompression Studies",
+        "url": "https://rosap.ntl.bts.gov/view/dot/21164/dot_21164_DS1.pdf",
+        "year": 1979
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-cessna-observer-primary",
+    "date": "2026-11-21",
+    "provider": "Federal Aviation Administration",
+    "status": "observed_full_text",
+    "operation": "compare_full_text_and_archive_index",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "AAC-119-77-8(S), FAA AM-79-13 and FAA archive index"
+    },
+    "note": "Verified the observer case, termination time, source wording and memorandum equivalence.",
+    "records": [
+      {
+        "id": "cessna-chapter",
+        "title": "Physiological Evaluation of a Cessna Continuous-Flow Oxygen Mask for Unpressurized General Aviation Aircraft",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=26",
+        "year": 1977,
+        "identifier": "AAC-119-77-8(S)",
+        "source_sha256": "3b9e8fa1642cc1e942a3399a629a4d8590998124a1470d8c06c216800c0a43fe",
+        "primary_source": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=34",
+        "archive_index": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/201601.pdf#page=8",
+        "observations": [
+          {
+            "id": "one-safety-observer-bends",
+            "group": "phase-2-30000ft-safety-observer",
+            "endpoint": "observer_bends_as_reported",
+            "study_id": "faa-cami-cessna-mask-1966",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "locator": "Phase 2 Methods, printed p. 20 (PDF p. 29) and Phase 2 Results, printed p. 25 (PDF p. 34)",
+            "outcome_window": "Symptoms were recognized by the time the chamber flight was stopped at 32 minutes on the plateau. Exact symptom onset and delayed follow-up are unavailable.",
+            "note": "Methods describe light bends and Results describe moderate symptoms of bends in the same observer. Diagnostic adjudication, observer breathing gas and workload, and the observer risk-set denominator are unavailable. A decline in blood oxygen saturation to 75% occurred in the instrumented test participant and also contributed to the termination."
+          }
+        ],
+        "role_review": "Experimental chamber case with no observer denominator.",
+        "reported_outcome": {
+          "source_key": "cessna-phase-2-safety-observer",
+          "endpoint": "observer_bends_as_reported",
+          "cases": 1,
+          "denominator": null,
+          "role": "safety_observer",
+          "chamber_altitude_ft": 30000,
+          "planned_plateau_min": 60,
+          "abort_min_after_reaching_plateau": 32,
+          "onset_min": null,
+          "body_site": null,
+          "gas_delivery_to_observer": null,
+          "observer_prebreathe_min": null,
+          "observer_workload": null,
+          "clinical_adjudication": null,
+          "delayed_follow_up": null,
+          "source_characterizations": [
+            {
+              "section": "Methods",
+              "source_descriptor": "light",
+              "printed_page": 20,
+              "pdf_page": 29
+            },
+            {
+              "section": "Results",
+              "source_descriptor": "moderate",
+              "printed_page": 25,
+              "pdf_page": 34
+            }
+          ]
+        },
+        "exposure_scope": {
+          "phase_1_instrumented_subjects": 10,
+          "phase_1_repeat_comparator_flights": 2,
+          "phase_2_extended_trials_at_25000ft": 2,
+          "phase_2_extended_trials_at_30000ft": 1,
+          "phase_3_exploratory_profiles": 2,
+          "unique_observers": null,
+          "observer_person_exposure_denominator": null
+        },
+        "non_dcs_reason_for_same_abort": {
+          "role": "instrumented_test_subject",
+          "observed_blood_oxygen_saturation_percent_by_abort": 75
+        },
+        "crosswalk": {
+          "previous_report_id": "dot:20771",
+          "relationship": "distinct_published_event_possible_personnel_overlap",
+          "basis": "The AM 66-7 event concerns the active mask-test participant after a distinct 35,000-ft stage. The Cessna report concerns a safety observer at 30,000 ft."
+        }
+      },
+      {
+        "id": "faa-index",
+        "title": "Index of Historical Research Reports and Documents in the Protection and Survival Laboratory at the Civil Aerospace Medical Institute",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/201601.pdf#page=8",
+        "year": 2016,
+        "identifier": "DOT/FAA/AM-16/1; DOT:57194"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-cessna-observer-adjacent-mask",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA AM 66-20 oxygen mask report",
+      "scrape_id": "01a1fd7e-6b74-76b7-8aef-f0d526861e1c"
+    },
+    "note": "This separate five-subject physiological report provides chamber profiles and no verified clinical DCS tally.",
+    "records": [
+      {
+        "id": "mask66-scan",
+        "title": "Evaluation of the Sierra, hanging, quick-don, crew, pressure-breathing, oxygen mask",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM66-20.pdf",
+        "year": 1966,
+        "identifier": "FAA-AM-66-20",
+        "reported_people": 5,
+        "clinical_dcs_cases": null
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-cessna-observer-flight27",
+    "date": "2026-11-21",
+    "provider": "FAA, NTSB and Firecrawl",
+    "status": "observed_full_text",
+    "operation": "compare_primary_investigations",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "National Airlines Flight 27 on November 3, 1973"
+    },
+    "note": "Both reports describe the same decompression. The aircraft altitude is documented and the maximum cabin altitude is undetermined. No verified clinical DCS tally appears in the evaluated passages.",
+    "records": [
+      {
+        "id": "faa-flight27",
+        "title": "Human Factors Report of the Investigation of the In-Flight Decompression, November 3, 1973, of National Airlines Flight 27 (N60NA)",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=89",
+        "year": 1979,
+        "source_sha256": "3b9e8fa1642cc1e942a3399a629a4d8590998124a1470d8c06c216800c0a43fe",
+        "reported_title_persons_aboard": 127,
+        "maximum_cabin_altitude_ft": null,
+        "clinical_dcs_cases": null,
+        "date_note": "The chapter title gives November 3, 1973. The collection table of contents prints November 2.",
+        "locator": "Chapter title and cabin narrative, printed pp. 79–80 (PDF pp. 89–90)"
+      },
+      {
+        "id": "ntsb-flight27",
+        "title": "Aircraft Accident Report: National Airlines, Inc., DC-10-10, N60NA, near Albuquerque, New Mexico, November 3, 1973",
+        "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR7502.pdf",
+        "year": 1975,
+        "identifier": "NTSB-AAR-75-02",
+        "source_sha256": "45c7e9eb51b1dcf40d16555ac167db31d8f87a85da2c83500d0ccc35fd259a07",
+        "aircraft_altitude_ft": 39000,
+        "passengers_onboard": 116,
+        "crew_onboard": 12,
+        "fatal_passengers": 1,
+        "evacuated_passengers": 115,
+        "evacuated_crew": 12,
+        "passengers_examined": 20,
+        "crew_examined": 4,
+        "treated_for_smoke_inhalation": 10,
+        "treated_for_barotrauma": 10,
+        "reported_loss_of_consciousness": 5,
+        "clinical_dcs_cases": null,
+        "locator": "Synopsis, section 1.2 Injuries to Persons and section 1.13 Medical and Pathological Information",
+        "scrape_id": "01a1fd75-b109-743f-99a1-2cec18079ee9"
+      }
+    ]
+  }
+]
