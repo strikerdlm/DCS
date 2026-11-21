@@ -1,0 +1,8 @@
+source_id,printed_row,phase_as_printed,linked_phase,phase_link_status,estimate_liters_stpd,estimate_spread_liters_stpd,estimate_n,measured_liters_stpd,measured_spread_liters_stpd,measured_n,locator,note
+nasa04_exercise,1,I,I,identified,76.5,20.1,49,73.1,14.3,19,"Table 4, printed p. 21 (PDF p. 29)",Chamber-group estimate and site-level measurement have different populations.
+nasa04_exercise,2,I,,phase_label_conflict,88.1,20.7,47,79.1,15.6,19,"Table 4, printed p. 21 (PDF p. 29)",Printed phase I a second time. Sequence and n=47 agree with Phase II in Table 6. Inferred phase assignment withheld.
+nasa04_exercise,3,III,III,identified,60.2,6.2,9,58.5,9.4,19,"Table 4, printed p. 21 (PDF p. 29)",Chamber-group estimate and site-level measurement have different populations.
+nasa04_exercise,4,IV,IV,identified,66.7,12.3,62,65.5,11.9,19,"Table 4, printed p. 21 (PDF p. 29)",Chamber-group estimate and site-level measurement have different populations.
+nasa04_exercise,5,V-1,V-1,identified,78.4,15.5,9,75.0,12.6,18,"Table 4, printed p. 21 (PDF p. 29)",Chamber-group estimate and site-level measurement have different populations.
+nasa04_exercise,6,V-2,V-2,identified,62.0,28.5,3,,,,"Table 4, printed p. 21 (PDF p. 29)",No baseline measurement was collected.
+nasa04_exercise,7,V-3,V-3,identified,92.5,22.2,21,,,,"Table 4, printed p. 21 (PDF p. 29)",No baseline measurement was collected. Denominator 21 differs from Table 6 Research Model Phase V-3 n=50.

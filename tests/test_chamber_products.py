@@ -1280,10 +1280,12 @@ def test_nasa_prp_counts_preserve_three_overlapping_analysis_populations(release
         """).fetchone()
         assert [dict(row) for row in counts] == json.loads(review_counts)
         assert (nedu_exposures, nedu_weighted_dcs) == (69, 8.3)
-        assert tuple(db.execute("""
-            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+        prp_occurrences, first_report, last_report = db.execute("""
+            SELECT count(*),min(report_id),max(report_id) FROM review.review_record
             WHERE url LIKE '%20040191712%' OR openalex_id='W118136854'
-        """).fetchone()) == (6, 1)
+        """).fetchone()
+        assert prp_occurrences >= 6
+        assert first_report == last_report == report_id
         assert db.execute("SELECT count(*) FROM chamber_group_evidence WHERE report_id=?", (report_id,)).fetchone()[0] == 0
 
 
@@ -2671,10 +2673,12 @@ def test_nasa_ascent_compilation_reconciles_without_adding_clinical_counts(relea
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='kumar89_ascent'
         """).fetchone() == (0,)
-        assert db.execute("""
+        ascent_occurrences, first_report, last_report = db.execute("""
             SELECT count(*),min(report_id),max(report_id) FROM review.review_record
             WHERE lower(title) LIKE '%different rates of ascent%' OR title=url AND url LIKE '%19890012936%'
-        """).fetchone() == (30, "ntrs:19890012936", "ntrs:19890012936")
+        """).fetchone()
+        assert ascent_occurrences >= 30
+        assert first_report == last_report == "ntrs:19890012936"
         assert db.execute("""
             SELECT count(*) FROM review.review_report_relation
             WHERE left_report='ntrs:19890012936' AND relationship='cites_as_compilation_source'
@@ -3819,3 +3823,38 @@ def test_nasa_doppler_margins_and_postdive_adjudication(release):
             "SELECT report_id FROM review.review_study_report "
             "WHERE study_id='nasa-jsc-doppler-516' ORDER BY report_id"
         ).fetchall() == [('pmid:11540992',), ('pmid:9125093',)]
+
+
+def test_prebreathe_measurements_preserve_units_phase_conflict_and_reuse(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT phase_as_printed,linked_phase,estimate_n,measured_n
+            FROM publication_prp_prebreathe_oxygen ORDER BY printed_row
+        """).fetchall() == [
+            ('I', 'I', 49, 19), ('I', None, 47, 19),
+            ('III', 'III', 9, 19), ('IV', 'IV', 62, 19), ('V-1', 'V-1', 9, 18),
+            ('V-2', 'V-2', 3, None), ('V-3', 'V-3', 21, None),
+        ]
+        assert db.execute("""
+            SELECT mean,standard_error,sample_n FROM publication_calibration_workload
+            WHERE source_id='loftin93_task_posture' AND stratum='upright-rope-pull'
+        """).fetchone() == (247.0, 21.7, 4)
+        assert db.execute("""
+            SELECT reporting_group,reported_percent,denominator_as_printed,related_source
+            FROM publication_prebreathe_compilation_rate
+            WHERE stratum='powell-1995' ORDER BY reporting_group
+        """).fetchall() == [
+            ('resting', 27, 11, 'conkin01_lba'), ('seated_combined', 0, 7, 'conkin01_lba')
+        ]
+        assert db.execute("""
+            SELECT count(*),count(reported_percent),count(denominator_as_printed)
+            FROM publication_prebreathe_compilation_rate
+        """).fetchone() == (18, 17, 16)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE study_id='loftin-1997-prebreathe-analysis' AND cases IS NOT NULL
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:20070011616' AND relationship LIKE 'reuses_published%'
+        """).fetchone() == ('reuses_published_prebreathe_model_population',)

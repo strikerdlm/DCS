@@ -1,0 +1,861 @@
+[
+  {
+    "id": "2026-11-21-prebreathe-workload-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Provider account spending limit prevented retrieval.",
+    "records": [],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"decompression sickness\" \"chamber\" \"Loftin\" \"Freeman-Perez\" prebreathe exercise AIR NASA incidence",
+      "http_status": 433,
+      "max_results": 10,
+      "search_depth": "advanced"
+    }
+  },
+  {
+    "id": "2026-11-21-prebreathe-workload-firecrawl-workload-citation",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Supplementary citation and source search. Ranked results are preserved.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Conkin DCS Ambulation 2001",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-ambulation-2001.pdf"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "Recommendations for Exploration Spacecraft Internal Atmospheres",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/henninger-8.2-34-atm-tp216134-2010.pdf"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "title": "Recommendations for Exploration Spacecraft Internal Atmospheres",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/henninger-8.2-34-atm-tp216134-2010.pdf"
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"decompression sickness\" \"chamber\" \"Loftin\" \"Freeman-Perez\" prebreathe exercise AIR NASA incidence",
+      "search_id": "01a1fdce-d7e6-708c-8656-fba9db8665be"
+    }
+  },
+  {
+    "id": "2026-11-21-prebreathe-workload-firecrawl-calibration",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Supplementary citation and source search. Ranked results are preserved.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Metabolic rate measurements comparing supine with upright upper ...",
+        "url": "https://ntrs.nasa.gov/citations/19940009555"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "Search - NASA Technical Reports Server (NTRS)",
+        "url": "https://ntrs.nasa.gov/search?q=Bee%7CApis&subjectCategory=Life+Sciences+%28General%29"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "title": "Recommendations for Exploration Spacecraft Internal Atmospheres",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/henninger-8.2-34-atm-tp216134-2010.pdf"
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "title": "AEROSPACE MEDICINE AND BIOLOGY",
+        "url": "https://ntrs.nasa.gov/api/citations/19940027842/downloads/19940027842.pdf"
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Metabolic Rate Measurements Comparing Supine\" NASA 4549 Loftin",
+      "search_id": "01a1fdcf-75d0-76db-8efe-57f9463dba5f"
+    }
+  },
+  {
+    "id": "2026-11-21-prebreathe-workload-firecrawl-balke",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Supplementary citation and source search. Ranked results are preserved.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Effects of exercise on the incidence of decompression sickness: a ...",
+        "url": "https://link.springer.com/article/10.1007/BF00405664"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "Human Output Characteristics during Specific Task Performance in ...",
+        "url": "https://journals.sagepub.com/doi/10.1177/001872086400600201"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "title": "Historical Viewpoints: Exercise and Health",
+        "url": "https://www.ovid.com/jnls/jcrjournal/pdf/00008483-199012000-00001~historical-viewpoints-exercise-and-health"
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "title": "A New Preoxygenation Procedure for Extravehicular Activity (EVA) - DTIC",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA426870.pdf"
+      },
+      {
+        "id": "5",
+        "rank": 5,
+        "title": "A PROBABILITY MODEL OF DECOMPRESSION SICKNESS AT ...",
+        "url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf"
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Rate of gaseous nitrogen elimination during rest and work\" \"Balke\" 1954 Report 6 1201-0014",
+      "search_id": "01a1fdd1-6572-766f-821d-3331d534bcd5"
+    }
+  },
+  {
+    "id": "2026-11-21-prebreathe-workload-firecrawl-gray",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Supplementary citation and source search. Ranked results are preserved.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Full text of \"Military medicine\"",
+        "url": "https://archive.org/stream/58730190R.nlm.nih.gov/58730190R_djvu.txt"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "A PROBABILITY MODEL OF DECOMPRESSION SICKNESS AT ...",
+        "url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "title": "Full text of \"Index-catalogue of the Library of the Surgeon General's ...",
+        "url": "https://archive.org/stream/8209737X2.nlm.nih.gov/8209737X2_djvu.txt"
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Prevention of aeroembolism by denitrogenation procedures\" \"Gray\" Report 123 1942",
+      "search_id": "01a1fdd1-65ed-744c-8cca-5b940636b06a"
+    }
+  },
+  {
+    "id": "2026-11-21-prebreathe-workload-firecrawl-webb",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Supplementary citation and source search. Ranked results are preserved.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "The Effects of Different Rates of Ascent on the Incidence of Altitude ...",
+        "url": "https://ntrs.nasa.gov/api/citations/19890012936/downloads/19890012936.pdf?attachment=true"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "Vital issues in computing decompression schedules from ...",
+        "url": "https://link.springer.com/article/10.1007/BF01440958"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "title": "A PROBABILITY MODEL OF DECOMPRESSION SICKNESS AT ...",
+        "url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf"
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"preflight oxygen inhalation at rest\" \"Webb\" 134 1943 Aeroembolism report",
+      "search_id": "01a1fdd1-6584-7688-b42b-58a6e895f7ae"
+    }
+  },
+  {
+    "id": "2026-11-21-prebreathe-workload-firecrawl-author-pdf",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "note": "Recovered the author-deposited original pages and complete Tables II and III. Publisher retrieval had returned only a footer and local PDF delivery returned HTTP 403.",
+    "records": [
+      {
+        "id": "loftin-full-text",
+        "title": "Modeling the Effects of Exercise During 100% Oxygen Prebreathe on the Risk of Hypobaric Decompression Sickness",
+        "url": "https://www.researchgate.net/profile/Johnny-Conkin/publication/14155561_Modeling_the_effects_of_exercise_during_100_oxygen_prebreathe_on_the_risk_of_hypobaric_decompression_sickness/links/591d934c0f7e9b642817b769/Modeling-the-effects-of-exercise-during-100-oxygen-prebreathe-on-the-risk-of-hypobaric-decompression-sickness.pdf",
+        "year": 1997,
+        "pmid": "9056027"
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrape_id": "01a1fdcf-75c7-710a-bd29-328b66937db1",
+      "previous_publisher_scrape_id": "01a1fdca-08a5-722e-929d-2648512c6099"
+    }
+  },
+  {
+    "id": "2026-11-21-prebreathe-workload-primary",
+    "date": "2026-11-21",
+    "provider": "NASA, AsMA and SIMSI",
+    "status": "observed_full_text",
+    "operation": "verify_original_sources",
+    "reported_total": null,
+    "note": "Compared original PDF tables, author abstract reuse, original outcome subsets and a historical conference lead.",
+    "records": [
+      {
+        "id": "loftin-1997",
+        "title": "Modeling the Effects of Exercise During 100% Oxygen Prebreathe on the Risk of Hypobaric Decompression Sickness",
+        "url": "https://www.researchgate.net/profile/Johnny-Conkin/publication/14155561_Modeling_the_effects_of_exercise_during_100_oxygen_prebreathe_on_the_risk_of_hypobaric_decompression_sickness/links/591d934c0f7e9b642817b769/Modeling-the-effects-of-exercise-during-100-oxygen-prebreathe-on-the-risk-of-hypobaric-decompression-sickness.pdf",
+        "year": 1997,
+        "primary_source": "https://www.researchgate.net/profile/Johnny-Conkin/publication/14155561_Modeling_the_effects_of_exercise_during_100_oxygen_prebreathe_on_the_risk_of_hypobaric_decompression_sickness/links/591d934c0f7e9b642817b769/Modeling-the-effects-of-exercise-during-100-oxygen-prebreathe-on-the-risk-of-hypobaric-decompression-sickness.pdf",
+        "pmid": "9056027",
+        "study_id": "loftin-1997-prebreathe-analysis",
+        "note": "Table III retains the nine historical protocol rows and 17 reported percentages. No event numerators reconstructed. Table II comes from ambient-pressure training.",
+        "observations": [
+          {
+            "id": "loftin-iii-gray-1942-resting",
+            "group": "gray-1942-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 13,
+            "denominator": 87,
+            "denominator_unit": "as_reported_n",
+            "related_source": "gray_mahady46",
+            "overlap_status": "possible_overlap",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "USAF/NRC report 123. Seated after decompression. Cohort and endpoint correspondence to the 1946 publication are unresolved."
+          },
+          {
+            "id": "loftin-iii-gray-1942-prebreathe_exercise",
+            "group": "gray-1942-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 11,
+            "denominator": 88,
+            "denominator_unit": "as_reported_n",
+            "related_source": "gray_mahady46",
+            "overlap_status": "possible_overlap",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "USAF/NRC report 123. Seated after decompression. Cohort and endpoint correspondence to the 1946 publication are unresolved."
+          },
+          {
+            "id": "loftin-iii-webb-1943-resting",
+            "group": "webb-1943-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 95,
+            "denominator": 39,
+            "denominator_unit": "as_reported_n",
+            "related_source": null,
+            "overlap_status": "underlying_source_pending",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "NRC report 134, 1943. Exact counts and overlap with other wartime cohorts require the original report."
+          },
+          {
+            "id": "loftin-iii-webb-1943-prebreathe_exercise",
+            "group": "webb-1943-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 69,
+            "denominator": 39,
+            "denominator_unit": "as_reported_n",
+            "related_source": null,
+            "overlap_status": "underlying_source_pending",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "NRC report 134, 1943. Exact counts and overlap with other wartime cohorts require the original report."
+          },
+          {
+            "id": "loftin-iii-gray-1946-resting",
+            "group": "gray-1946-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 16,
+            "denominator": 90,
+            "denominator_unit": "flight",
+            "related_source": "gray_mahady46",
+            "overlap_status": "overlap_hold",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "The cell prints 90 flights. The 1946 article reports several cause-specific endpoints. Its exact correspondence to the reprinted percentage is unverified."
+          },
+          {
+            "id": "loftin-iii-gray-1946-prebreathe_exercise",
+            "group": "gray-1946-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 13,
+            "denominator": null,
+            "denominator_unit": null,
+            "related_source": "gray_mahady46",
+            "overlap_status": "overlap_hold",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "Table III prints no denominator alongside the exercise percentage. The original paper has a 90-flight exercise group, with different source-defined endpoints."
+          },
+          {
+            "id": "loftin-iii-balke-1954-a-resting",
+            "group": "balke-1954-a-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 100,
+            "denominator": 7,
+            "denominator_unit": "as_reported_n",
+            "related_source": null,
+            "overlap_status": "underlying_source_pending",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "USAF Project 21-1201-0014, Report 6. Arm counts are rounded percentages with n as printed. Subject linkage between exercise arms and repeated controls is unresolved."
+          },
+          {
+            "id": "loftin-iii-balke-1954-a-prebreathe_exercise",
+            "group": "balke-1954-a-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 100,
+            "denominator": 7,
+            "denominator_unit": "as_reported_n",
+            "related_source": null,
+            "overlap_status": "underlying_source_pending",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "USAF Project 21-1201-0014, Report 6. Arm counts are rounded percentages with n as printed. Subject linkage between exercise arms and repeated controls is unresolved."
+          },
+          {
+            "id": "loftin-iii-balke-1954-b-resting",
+            "group": "balke-1954-b-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 100,
+            "denominator": 7,
+            "denominator_unit": "as_reported_n",
+            "related_source": null,
+            "overlap_status": "underlying_source_pending",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "USAF Project 21-1201-0014, Report 6. Arm counts are rounded percentages with n as printed. Subject linkage between exercise arms and repeated controls is unresolved."
+          },
+          {
+            "id": "loftin-iii-balke-1954-b-prebreathe_exercise",
+            "group": "balke-1954-b-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 71,
+            "denominator": 7,
+            "denominator_unit": "as_reported_n",
+            "related_source": null,
+            "overlap_status": "underlying_source_pending",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "USAF Project 21-1201-0014, Report 6. Arm counts are rounded percentages with n as printed. Subject linkage between exercise arms and repeated controls is unresolved."
+          },
+          {
+            "id": "loftin-iii-vann-1989-a-resting",
+            "group": "vann-1989-a-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 57,
+            "denominator": 23,
+            "denominator_unit": "as_reported_n",
+            "related_source": "vann89_duke_prebreathe_duration",
+            "overlap_status": "overlap_hold",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "Duke, longer 210-min oxygen schedule. Exact members of prior profiles and their overlap with the stage-specific Duke extracts are unavailable."
+          },
+          {
+            "id": "loftin-iii-vann-1989-a-prebreathe_exercise",
+            "group": "vann-1989-a-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 6,
+            "denominator": 17,
+            "denominator_unit": "as_reported_n",
+            "related_source": "vann89_duke_prebreathe_duration",
+            "overlap_status": "overlap_hold",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "Duke, longer 210-min oxygen schedule. Exact members of prior profiles and their overlap with the stage-specific Duke extracts are unavailable."
+          },
+          {
+            "id": "loftin-iii-vann-1989-b-resting",
+            "group": "vann-1989-b-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "related_source": "vann89_duke_prebreathe_duration",
+            "overlap_status": "linked_reprint",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "The resting cell explicitly states N/A. Exercise observation corresponds to the previously extracted 5/10 SE2 arm at 150-min prebreathe."
+          },
+          {
+            "id": "loftin-iii-vann-1989-b-prebreathe_exercise",
+            "group": "vann-1989-b-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 50,
+            "denominator": 10,
+            "denominator_unit": "as_reported_n",
+            "related_source": "vann89_duke_prebreathe_duration",
+            "overlap_status": "linked_reprint",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "The resting cell explicitly states N/A. Exercise observation corresponds to the previously extracted 5/10 SE2 arm at 150-min prebreathe."
+          },
+          {
+            "id": "loftin-iii-webb-1996-resting",
+            "group": "webb-1996-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 77,
+            "denominator": 26,
+            "denominator_unit": "as_reported_n",
+            "related_source": "webb96_preoxygenation",
+            "overlap_status": "linked_reprint",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "The one-hour Brooks AFB profiles in PMID 8830940. The underlying matched participant rows are already curated."
+          },
+          {
+            "id": "loftin-iii-webb-1996-prebreathe_exercise",
+            "group": "webb-1996-prebreathe_exercise",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 42,
+            "denominator": 26,
+            "denominator_unit": "as_reported_n",
+            "related_source": "webb96_preoxygenation",
+            "overlap_status": "linked_reprint",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "The one-hour Brooks AFB profiles in PMID 8830940. The underlying matched participant rows are already curated."
+          },
+          {
+            "id": "loftin-iii-powell-1995-resting",
+            "group": "powell-1995-resting",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 27,
+            "denominator": 11,
+            "denominator_unit": "as_reported_n",
+            "related_source": "conkin01_lba",
+            "overlap_status": "linked_reprint",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "ARGO II ambulatory controls. Conkin and Powell Table II reports exactly 3/11. This reports the earlier rounded percentage."
+          },
+          {
+            "id": "loftin-iii-powell-1995-seated_combined",
+            "group": "powell-1995-seated_combined",
+            "study_id": "loftin-1997-prebreathe-analysis",
+            "endpoint": "dcs_percent_as_reported",
+            "reported_rate_percent": 0,
+            "denominator": 7,
+            "denominator_unit": "as_reported_n",
+            "related_source": "conkin01_lba",
+            "overlap_status": "linked_reprint",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 202 (PDF p. 4)",
+            "note": "ARGO II seated group. Discussion combines resting prebreathe and exercise among the seven participants. Table III places this value under exercise, but it does not isolate the effect of exercise. Existing Phase II result is 0/7."
+          }
+        ],
+        "workload_measurements": [
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "rest",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 83.3,
+            "standard_error": 9.0,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "rest",
+            "metric": "task_fraction_of_vo2max",
+            "unit": "percent",
+            "mean": 9,
+            "standard_error": 0.9,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "prebreathe-exercise",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 188.7,
+            "standard_error": 15.0,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "prebreathe-exercise",
+            "metric": "task_fraction_of_vo2max",
+            "unit": "percent",
+            "mean": 19,
+            "standard_error": 1.5,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "ambulatory-eva",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 223.3,
+            "standard_error": 13.6,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "ambulatory-eva",
+            "metric": "task_fraction_of_vo2max",
+            "unit": "percent",
+            "mean": 26,
+            "standard_error": 1.3,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "seated-eva",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 191.2,
+            "standard_error": 13.0,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "seated-eva",
+            "metric": "task_fraction_of_vo2max",
+            "unit": "percent",
+            "mean": 23,
+            "standard_error": 1.9,
+            "sample_n": 10,
+            "measurement_context": "Ambient-pressure training reconstruction using indirect calorimetry. Not measured contemporaneously at simulated altitude.",
+            "locator": "Table II, printed p. 201 (PDF p. 3)",
+            "note": "Table II gives mean and standard error. The footnote tests contrasts with resting values."
+          },
+          {
+            "source_id": "loftin97_prebreathe",
+            "stratum": "maximal-exercise-test",
+            "metric": "vo2max",
+            "unit": "mL/kg/min",
+            "mean": 41,
+            "standard_error": 1.8,
+            "sample_n": 10,
+            "measurement_context": "Maximal pretest exercise stress test.",
+            "locator": "Results, printed p. 202 (PDF p. 4)",
+            "note": "Mean and standard error. Fitness measure distinct from task oxygen consumption."
+          }
+        ]
+      },
+      {
+        "id": "nasa-cr4549",
+        "title": "Metabolic Rate Measurements Comparing Supine with Upright Upper-Body Exercises",
+        "url": "https://ntrs.nasa.gov/api/citations/19940009555/downloads/19940009555.pdf",
+        "year": 1993,
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19940009555/downloads/19940009555.pdf",
+        "study_id": "nasa-cr4549-site-level-eva-workload",
+        "sha256": "fbe00a96a572b684eee02d76b6bb27f5de8285ed0a3c3e72a1db77b9bb17f7dd",
+        "note": "Metabolic measurements at site level. Four upright measurements per task derive from the same six studied subjects as the supine group.",
+        "workload_measurements": [
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "supine-baseline",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 76.9,
+            "standard_error": 10.3,
+            "sample_n": 6,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          },
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "supine-ergometer",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 161.6,
+            "standard_error": 16.8,
+            "sample_n": 6,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          },
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "supine-rope-pull",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 153.5,
+            "standard_error": 16.6,
+            "sample_n": 6,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          },
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "supine-torque",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 132.3,
+            "standard_error": 11.8,
+            "sample_n": 6,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          },
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "upright-baseline",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 83.8,
+            "standard_error": 9.3,
+            "sample_n": 4,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          },
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "upright-ergometer",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 200.4,
+            "standard_error": 8.4,
+            "sample_n": 4,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          },
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "upright-rope-pull",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 247.0,
+            "standard_error": 21.7,
+            "sample_n": 4,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          },
+          {
+            "source_id": "loftin93_task_posture",
+            "stratum": "upright-torque",
+            "metric": "metabolic_rate",
+            "unit": "kcal/h",
+            "mean": 158.6,
+            "standard_error": 34.2,
+            "sample_n": 4,
+            "measurement_context": "Site-level expired-gas collection for simulated upper-body tasks.",
+            "locator": "Table 4, printed p. 6",
+            "note": "Mean and standard error. Four of the six completed upright testing. Table groups do not represent ten independent people."
+          }
+        ]
+      },
+      {
+        "id": "nasa-prp-table-4",
+        "title": "A Probability Model of Decompression Sickness at 4.3 Psia After Exercise Prebreathe",
+        "url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf#page=29",
+        "year": 2004,
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf#page=29",
+        "study_id": "nasa-prebreathe-reduction-protocol",
+        "sha256": "35611527116431abd49f1ec63702f0c42df4acfd1880ce9e3d7b09af87a6c32d",
+        "note": "Preserves the seven oxygen-volume rows in Table 4. The established source ID is nasa04_exercise. Existing clinical and Doppler rows from Tables 6 and 14–16 are reused.",
+        "workload_measurements": [
+          {
+            "source_id": "nasa04_exercise",
+            "printed_row": 1,
+            "phase_as_printed": "I",
+            "linked_phase": "I",
+            "phase_link_status": "identified",
+            "estimate_liters_stpd": 76.5,
+            "estimate_spread_liters_stpd": 20.1,
+            "estimate_n": 49,
+            "measured_liters_stpd": 73.1,
+            "measured_spread_liters_stpd": 14.3,
+            "measured_n": 19,
+            "locator": "Table 4, printed p. 21 (PDF p. 29)",
+            "note": "Chamber-group estimate and site-level measurement have different populations."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "printed_row": 2,
+            "phase_as_printed": "I",
+            "linked_phase": null,
+            "phase_link_status": "phase_label_conflict",
+            "estimate_liters_stpd": 88.1,
+            "estimate_spread_liters_stpd": 20.7,
+            "estimate_n": 47,
+            "measured_liters_stpd": 79.1,
+            "measured_spread_liters_stpd": 15.6,
+            "measured_n": 19,
+            "locator": "Table 4, printed p. 21 (PDF p. 29)",
+            "note": "Printed phase I a second time. Sequence and n=47 agree with Phase II in Table 6. Inferred phase assignment withheld."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "printed_row": 3,
+            "phase_as_printed": "III",
+            "linked_phase": "III",
+            "phase_link_status": "identified",
+            "estimate_liters_stpd": 60.2,
+            "estimate_spread_liters_stpd": 6.2,
+            "estimate_n": 9,
+            "measured_liters_stpd": 58.5,
+            "measured_spread_liters_stpd": 9.4,
+            "measured_n": 19,
+            "locator": "Table 4, printed p. 21 (PDF p. 29)",
+            "note": "Chamber-group estimate and site-level measurement have different populations."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "printed_row": 4,
+            "phase_as_printed": "IV",
+            "linked_phase": "IV",
+            "phase_link_status": "identified",
+            "estimate_liters_stpd": 66.7,
+            "estimate_spread_liters_stpd": 12.3,
+            "estimate_n": 62,
+            "measured_liters_stpd": 65.5,
+            "measured_spread_liters_stpd": 11.9,
+            "measured_n": 19,
+            "locator": "Table 4, printed p. 21 (PDF p. 29)",
+            "note": "Chamber-group estimate and site-level measurement have different populations."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "printed_row": 5,
+            "phase_as_printed": "V-1",
+            "linked_phase": "V-1",
+            "phase_link_status": "identified",
+            "estimate_liters_stpd": 78.4,
+            "estimate_spread_liters_stpd": 15.5,
+            "estimate_n": 9,
+            "measured_liters_stpd": 75.0,
+            "measured_spread_liters_stpd": 12.6,
+            "measured_n": 18,
+            "locator": "Table 4, printed p. 21 (PDF p. 29)",
+            "note": "Chamber-group estimate and site-level measurement have different populations."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "printed_row": 6,
+            "phase_as_printed": "V-2",
+            "linked_phase": "V-2",
+            "phase_link_status": "identified",
+            "estimate_liters_stpd": 62.0,
+            "estimate_spread_liters_stpd": 28.5,
+            "estimate_n": 3,
+            "measured_liters_stpd": null,
+            "measured_spread_liters_stpd": null,
+            "measured_n": null,
+            "locator": "Table 4, printed p. 21 (PDF p. 29)",
+            "note": "No baseline measurement was collected."
+          },
+          {
+            "source_id": "nasa04_exercise",
+            "printed_row": 7,
+            "phase_as_printed": "V-3",
+            "linked_phase": "V-3",
+            "phase_link_status": "identified",
+            "estimate_liters_stpd": 92.5,
+            "estimate_spread_liters_stpd": 22.2,
+            "estimate_n": 21,
+            "measured_liters_stpd": null,
+            "measured_spread_liters_stpd": null,
+            "measured_n": null,
+            "locator": "Table 4, printed p. 21 (PDF p. 29)",
+            "note": "No baseline measurement was collected. Denominator 21 differs from Table 6 Research Model Phase V-3 n=50."
+          }
+        ]
+      },
+      {
+        "id": "gernhardt-2007",
+        "title": "Potential Fifty Percent Reduction in Saturation Diving Decompression Time Using a Combination of Intermittent Recompression and Exercise",
+        "url": "https://ntrs.nasa.gov/citations/20070011616",
+        "year": 2007,
+        "primary_source": "https://ntrs.nasa.gov/citations/20070011616",
+        "study_id": "nasa-prebreathe-reduction-protocol",
+        "note": "Reports 22 DCS cases in 159 altitude exposures for the NASA exercise prebreathe model. The matching count and denominator are already stored from NASA/TP-2004-213158 Table 6. No second outcome row."
+      },
+      {
+        "id": "autore-2010",
+        "title": "La camera ipobarica quale strumento di addestramento e ricerca scientifica",
+        "url": "https://simsi.it/wp-content/uploads/2019/06/Medicina-Subacquea-e-Iperbarica-%E2%80%93-N.2-%E2%80%93-Giugno-2010.pdf",
+        "year": 2010,
+        "primary_source": "https://simsi.it/wp-content/uploads/2019/06/Medicina-Subacquea-e-Iperbarica-%E2%80%93-N.2-%E2%80%93-Giugno-2010.pdf",
+        "note": "A. Autore, SIMSI Verona proceedings p. 39. Approximately 1,300 trainees over around six years in Pratica di Mare. No exact DCS numerator. Possible overlap with the 1,241-airman Morgagni series. No incidence record."
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Verify clinical rates, reported phase labels and measurement provenance."
+    }
+  }
+]

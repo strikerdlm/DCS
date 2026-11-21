@@ -13589,6 +13589,186 @@
       "report_id": "record:legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#conkin03:all_research:dcs",
       "basis": "The 2003 NASA case archive and its existing source record have the same authors, date and NTRS document.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.121/sources.csv#loftin97_prebreathe",
+      "report_id": "pmid:9056027",
+      "basis": "Author PDF and PubMed match authors, journal, title and pages.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9056027/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.121/sources.csv#loftin93_task_posture",
+      "report_id": "ntrs:19940009555",
+      "basis": "NTRS report number and printed contractor report title page agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940009555"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-primary#loftin-1997",
+      "report_id": "pmid:9056027",
+      "basis": "Author PDF and PubMed identify the same printed article.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9056027/"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-author-pdf#loftin-full-text",
+      "report_id": "pmid:9056027",
+      "basis": "Author PDF and PubMed identify the same printed article.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9056027/"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-primary#nasa-cr4549",
+      "report_id": "ntrs:19940009555",
+      "basis": "NTRS and the PDF report number identify NASA CR 4549.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940009555"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-calibration#1",
+      "report_id": "ntrs:19940009555",
+      "basis": "NTRS record identifies NASA CR 4549.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940009555"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-primary#nasa-prp-table-4",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "Same NASA TP-2004-213158 and title as existing canonical report. Site-level and modeled oxygen data add Table 4.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-balke#5",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "Search result is the complete NASA TP-2004-213158.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-gray#2",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "Search result is the complete NASA TP-2004-213158.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-webb#3",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "Search result is the complete NASA TP-2004-213158.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040191712"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-primary#gernhardt-2007",
+      "report_id": "ntrs:20070011616",
+      "basis": "NASA conference abstract identifier and title.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070011616"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-primary#autore-2010",
+      "report_id": "simsi:2010:39:autore",
+      "basis": "Original printed proceedings p. 39, unique chapter title and author.",
+      "evidence_url": "https://simsi.it/wp-content/uploads/2019/06/Medicina-Subacquea-e-Iperbarica-%E2%80%93-N.2-%E2%80%93-Giugno-2010.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1502376449",
+      "report_id": "ntrs:20070011616",
+      "basis": "The exact long meeting title identifies the NTRS record.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070011616"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-webb#1",
+      "report_id": "ntrs:19890012936",
+      "basis": "Exact NTRS PDF document ID and title identify the existing rates of ascent report.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19890012936"
+    },
+    {
+      "record_key": "2026-11-20-case-verification-t-olson#https://link.springer.com/article/10.1007/BF00405664",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed agree on Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_smedal:1",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed agree on Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/search_hits.csv#raf_a22_ryder:7",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed agree on Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.19/search_hits.csv#archival_v19_cook:1",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed agree on Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.26/search_hits.csv#timing_v26_fq_dist:1",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed agree on Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_n205:3",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed agree on Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.41/search_hits.csv#vge_review_v41_jg:7",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed agree on Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.9/search_hits.csv#protocol_krutz:4",
+      "report_id": "pmid:11277286",
+      "basis": "NASA hosts the published Conkin and Powell article with matching title and authors.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-ambulation-2001.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.26/search_hits.csv#timing_v26_fq_dist:2",
+      "report_id": "dtic:ada426870",
+      "basis": "Exact DTIC accession and title match the same archived copy.",
+      "evidence_url": "https://apps.dtic.mil/sti/tr/pdf/ADA426870.pdf"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-balke#1",
+      "report_id": "pmid:3133319",
+      "basis": "Publisher DOI and PubMed identify Jauchem's article.",
+      "evidence_url": "https://link.springer.com/article/10.1007/BF00405664"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-balke#4",
+      "report_id": "dtic:ada426870",
+      "basis": "Exact DTIC accession and title identify the same archived copy.",
+      "evidence_url": "https://apps.dtic.mil/sti/tr/pdf/ADA426870.pdf"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-workload-citation#1",
+      "report_id": "pmid:11277286",
+      "basis": "NASA hosts the published Conkin and Powell article.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-ambulation-2001.pdf"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-workload-citation#2",
+      "report_id": "nasa:tp-2010-216134",
+      "basis": "Title and NASA technical publication number agree.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/henninger-8.2-34-atm-tp216134-2010.pdf"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-workload-citation#3",
+      "report_id": "nasa:tp-2010-216134",
+      "basis": "Same NASA technical publication with different text excerpts.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/henninger-8.2-34-atm-tp216134-2010.pdf"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-calibration#3",
+      "report_id": "nasa:tp-2010-216134",
+      "basis": "Same NASA technical publication and verified official PDF.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/henninger-8.2-34-atm-tp216134-2010.pdf"
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-calibration#4",
+      "report_id": "ntrs:19940027842",
+      "basis": "Official NTRS PDF identifies the bibliography.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940027842"
     }
   ],
   "studies": [
@@ -14869,6 +15049,18 @@
       "label": "HDSD evolved-gas and pain survival analysis",
       "period": "Published 1998",
       "setting": "Historical hypobaric chamber exposures. Abstract-only analytic scope."
+    },
+    {
+      "study_id": "loftin-1997-prebreathe-analysis",
+      "label": "Loftin 1997 historical prebreathe comparison and workload calibration",
+      "period": "Published 1997",
+      "setting": "Reanalysis of NASA, USAF, Duke and earlier chamber trials. Report includes a separate ambient-pressure task calibration."
+    },
+    {
+      "study_id": "nasa-cr4549-site-level-eva-workload",
+      "label": "NASA CR 4549 upright and supine workload calibration",
+      "period": "Published 1993",
+      "setting": "NASA JSC ground-based reconstruction with expired-gas calorimetry."
     }
   ],
   "study_reports": [
@@ -17091,6 +17283,24 @@
       "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
       "role": "archive_protocol_outcomes",
       "locator": "Table F1, Test 10"
+    },
+    {
+      "study_id": "loftin-1997-prebreathe-analysis",
+      "report_id": "pmid:9056027",
+      "role": "historical_compilation",
+      "locator": "Tables II–III, pp. 201–202"
+    },
+    {
+      "study_id": "nasa-cr4549-site-level-eva-workload",
+      "report_id": "ntrs:19940009555",
+      "role": "site_level_workload_calibration",
+      "locator": "Methods pp. 1–2 and Table 4 p. 6"
+    },
+    {
+      "study_id": "nasa-prebreathe-reduction-protocol",
+      "report_id": "ntrs:20070011616",
+      "role": "republished_model_sample_total",
+      "locator": "NASA conference abstract, 22 DCS cases in 159 altitude exposures"
     }
   ],
   "relations": [
@@ -20866,6 +21076,48 @@
       "relationship": "possible_shared_hdsd_exposures",
       "evidence": "Two distinct historical analyses by the same group with different selection and analytic sample sizes. Individual membership is unavailable.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9561282/"
+    },
+    {
+      "left_report": "pmid:9056027",
+      "right_report": "pmid:11277286",
+      "relationship": "reused_argo_ii_comparison",
+      "evidence": "Methods and Discussion identify the Powell chair-rest comparison as ARGO II. Conkin and Powell Table II report exactly 0/7 in the seated group and 3/11 ambulatory at 4.3 psia and TR 1.68. No additional clinical episodes are introduced.",
+      "evidence_url": "https://www.researchgate.net/profile/Johnny-Conkin/publication/14155561_Modeling_the_effects_of_exercise_during_100_oxygen_prebreathe_on_the_risk_of_hypobaric_decompression_sickness/links/591d934c0f7e9b642817b769/Modeling-the-effects-of-exercise-during-100-oxygen-prebreathe-on-the-risk-of-hypobaric-decompression-sickness.pdf"
+    },
+    {
+      "left_report": "pmid:9056027",
+      "right_report": "openalex:W2399739399",
+      "relationship": "reused_matched_brooks_profiles",
+      "evidence": "Table III explicitly cites Webb's 1996 one-hour two-profile sample and repeats the observed percentage out of 26 in each arm. The 15-min profile is not included.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8830940/"
+    },
+    {
+      "left_report": "pmid:9056027",
+      "right_report": "abstract:asma-1989-duke-vann-071",
+      "relationship": "reused_duke_arms",
+      "evidence": "Table III cites Vann abstract 71. Its short exercise arm matches 50% among 10 at 150-min prebreathe. Longer arm membership and scope remain unresolved.",
+      "evidence_url": "https://www.researchgate.net/profile/Johnny-Conkin/publication/14155561_Modeling_the_effects_of_exercise_during_100_oxygen_prebreathe_on_the_risk_of_hypobaric_decompression_sickness/links/591d934c0f7e9b642817b769/Modeling-the-effects-of-exercise-during-100-oxygen-prebreathe-on-the-risk-of-hypobaric-decompression-sickness.pdf"
+    },
+    {
+      "left_report": "ntrs:20070011616",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "relationship": "reuses_published_prebreathe_model_population",
+      "evidence": "NASA 2007 reports the exercise-prebreathe model using 22 DCS in 159 altitude exposures. Table 6 of the 2004 source uses the same named NASA model and exact numerator and denominator. The dive series in the abstract is separate.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070011616"
+    },
+    {
+      "left_report": "simsi:2010:39:autore",
+      "right_report": "pmid:20824995",
+      "relationship": "possible_shared_training_population",
+      "evidence": "Both 2010 reports concern the Italian Air Force Pratica di Mare training facility and similar cohort sizes. The conference abstract's approximate total has no exact dates or clinical numerator.",
+      "evidence_url": "https://simsi.it/wp-content/uploads/2019/06/Medicina-Subacquea-e-Iperbarica-%E2%80%93-N.2-%E2%80%93-Giugno-2010.pdf"
+    },
+    {
+      "left_report": "pmid:9056027",
+      "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:3",
+      "relationship": "reprinted_summary_endpoint_unresolved",
+      "evidence": "Table III explicitly cites Gray et al. 1946 as reference 10 and reports two percentages. The earlier 1942 source may partly overlap; the source-defined symptom and descent outcomes remain distinct.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p606.pdf"
     }
   ],
   "report_titles": {
