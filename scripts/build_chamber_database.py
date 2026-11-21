@@ -202,6 +202,7 @@ CHAMBER_CHINESE_FLIGHT_INCIDENTS = ROOT / "data" / "chamber" / "v1.134"
 CHAMBER_SYMPTOM_SEVERITY = ROOT / "data" / "chamber" / "v1.135"
 CHAMBER_PUBLIC_PHYSIOLOGY_DATA = ROOT / "data" / "chamber" / "v1.136"
 CHAMBER_TREADMILL_CASE_CROSSWALK = ROOT / "data" / "chamber" / "v1.137"
+CHAMBER_INDIAN_CASE_CHRONOLOGY = ROOT / "data" / "chamber" / "v1.138"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1945,6 +1946,16 @@ def build(
                 """)
                 if revised_case.rowcount != 1:
                     raise ValueError("Kumar treadmill case location correction does not reconcile")
+                load_version_tables(
+                    db,
+                    CHAMBER_INDIAN_CASE_CHRONOLOGY,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                    },
+                    create_schema=False,
+                )
             if rojas_supplement:
                 load_supplement(
                     db, ROJAS_DATA, "rojas", extra_tables={"rojas_result": "results.csv"}
