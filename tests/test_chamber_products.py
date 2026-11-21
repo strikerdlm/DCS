@@ -4045,3 +4045,45 @@ def test_wartime_reexposure_retains_scope_and_deduplicates_cases(release):
             SELECT count(*) FROM historical_case_catalog
             WHERE source_id IN ('masland44_altitude_collapse','york44_aeroembolism')
         """).fetchone() == (0,)
+
+
+def test_brown_smith_preserve_nested_descents_and_reported_cells(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='brown46_chamber_syncope' AND stratum='all-runs' ORDER BY endpoint
+        """).fetchall() == [
+            ('early_descent_any_cause_source', 134, 225),
+            ('early_descent_bends_primary_source', 89, 225),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),min(denominator),max(denominator) FROM publication_observation
+            WHERE source_id='brown46_chamber_syncope' AND stratum='early-descent-reasons'
+        """).fetchone() == (11, 134, 134, 134)
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='brown46_chamber_syncope' AND endpoint='syncope_major_or_minor_printed_composite'
+        """).fetchone() == (64, 134)
+        assert db.execute("""
+            SELECT syncope_absent_count,mild_syncope_count,severe_syncope_count,reported_any_syncope_percent
+            FROM publication_bends_grade_syncope
+            WHERE source_id='brown46_chamber_syncope' AND bends_grade=9
+        """).fetchone() == (3, 2, None, 66)
+        assert db.execute("""
+            SELECT stratum,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='smith46_treated_joint_pain' ORDER BY stratum
+        """).fetchall() == [('symptom-treatment', 15), ('treated-physiology', 6)]
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='smith46_treated_joint_pain' AND endpoint='joint_decompression_pain_source'
+        """).fetchone() == (2, 6, 'selected_cluster')
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_search_observation
+            WHERE report_id IN ('pmid:20994853','pmid:20994854') GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [('pmid:20994853', 29), ('pmid:20994854', 2)]
+        assert db.execute("""
+            SELECT json_array_length(metadata_json,'$.table_iii.rows'),
+                   json_array_length(metadata_json,'$.table_iv.rows')
+            FROM review.review_record
+            WHERE report_id='pmid:20994853' AND json_type(metadata_json,'$.table_iii')='object'
+        """).fetchall() == [(15, 8)]
