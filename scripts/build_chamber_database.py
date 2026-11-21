@@ -233,6 +233,7 @@ NASA_CROSSOVER_RECONCILIATION = ROOT / "data" / "chamber" / "v1.165"
 REGIONAL_CHAMBER_SCOPES = ROOT / "data" / "chamber" / "v1.166"
 POLARIS_RNZAF_RECONCILIATION = ROOT / "data" / "chamber" / "v1.167"
 TAIWAN_SWEDEN_OUTCOMES = ROOT / "data" / "chamber" / "v1.168"
+TAIWAN_TRAINING_SOURCE_LINKS = ROOT / "data" / "chamber" / "v1.169"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2304,6 +2305,17 @@ def build(
                 load_version_tables(
                     db,
                     TAIWAN_SWEDEN_OUTCOMES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_trial_scope": "trial_scope.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    TAIWAN_TRAINING_SOURCE_LINKS,
                     {
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",

@@ -4874,6 +4874,52 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_taiwan_hypoxia_subgroups_and_fatal_case_overlap_retain_source_grain(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT s.source_id,s.participant_count,s.trial_count,l.report_id,
+                   json_extract(r.metadata_json,'$.scope.participant_count'),
+                   json_extract(r.metadata_json,'$.scope.dcs_cases')
+            FROM publication_chamber_trial_scope s JOIN model_report_link l USING(source_id)
+            JOIN review.review_record r ON r.report_id=l.report_id
+            WHERE s.source_id IN ('lee21_taiwan_training','tong19_taiwan_training','wen99_taiwan_hypoxia_study')
+              AND r.run_id='2026-11-21-taiwan-training-links-verified'
+            ORDER BY s.source_id
+        """).fetchall() == [
+            ("lee21_taiwan_training", 1008, None, "doi:10.7011/jamsroc.202112_35(1_2).0005", 1008, None),
+            ("tong19_taiwan_training", 993, None, "abstract:ndmc-2019-a-i-003", 993, None),
+            ("wen99_taiwan_hypoxia_study", 112, None, "doi:10.7011/tamaroc.199912.0051", 112, None),
+        ]
+        assert db.execute("""
+            SELECT source_id,endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id IN ('lee21_taiwan_training','wen99_taiwan_hypoxia_study')
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("lee21_taiwan_training", "training_interruption_any_cause", 572, None),
+            ("lee21_taiwan_training", "training_noncompletion_any_cause", 57, 18487),
+        ]
+        assert db.execute("""
+            SELECT o.analysis_role,p.related_source,p.relationship,r.cases,r.denominator
+            FROM publication_observation o JOIN publication_overlap p USING(source_id)
+            JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (r.report_id,r.endpoint,r.reported_group)=(l.report_id,o.endpoint,o.stratum)
+            WHERE o.source_id='chen04_fatal_pulmonary_dcs'
+        """).fetchall() == [("overlap_hold", "neubauer88_pulmonary", "unresolved", 1, None)]
+        assert db.execute("""
+            SELECT case_id FROM historical_case_catalog
+            WHERE source_id IN ('chen04_fatal_pulmonary_dcs','neubauer88_pulmonary')
+        """).fetchall() == [("neubauer88_pulmonary:fatal-f100-flight",)]
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE left_report IN ('doi:10.7011/jamsrc.200406.0049','mnd:28915-ho-gangshan-history')
+            ORDER BY left_report
+        """).fetchall() == [
+            ("doi:10.7011/jamsrc.200406.0049", "pmid:3240220", "possible_case_overlap"),
+            ("mnd:28915-ho-gangshan-history", "pmid:3167655", "documents_registry_provenance"),
+        ]
+
+
 def test_taiwan_and_sweden_join_only_matching_source_observations(release):
     with connect_pair(release) as db:
         assert db.execute("""
