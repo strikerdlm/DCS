@@ -3860,7 +3860,7 @@ def test_nasa_doppler_margins_and_postdive_adjudication(release):
         ).fetchall() == [(96, 68, 32), (91, 70, 30), (85, 80, 20), (73, 86, 14)]
         assert db.execute(
             "SELECT DISTINCT cases,denominator FROM review.review_search_observation "
-            "WHERE study_id='nasa-jsc-cmb-time-81'"
+            "WHERE study_id='nasa-jsc-cmb-time-81' AND report_id='ntrs:19950010323'"
         ).fetchall() == [(17, 81)]
         assert db.execute(
             "SELECT numerator,denominator,analysis_role FROM publication_observation "
@@ -4799,6 +4799,46 @@ def test_chamber_archive_counts_preserve_risk_sets_and_avoid_duplicate_reports(r
         assert db.execute("""
             SELECT DISTINCT report_id FROM review.review_record WHERE url LIKE '%/fasb597/43.htm'
         """).fetchall() == [("report:faa-shaw-cami-training",)]
+
+
+def test_nasa_crossover_links_preserve_archive_and_paired_analysis_scopes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT n.test_id, n.dcs_cases, n.dcs_denominator, o.numerator, o.denominator,
+                   o.analysis_role, r.cases, r.denominator
+            FROM publication_nasa_crossover_link l
+            JOIN publication_observation o USING (source_id,stratum,endpoint)
+            JOIN nasa_test n ON n.test_id = l.nasa_test_id
+            JOIN review.review_search_observation r
+              ON r.observation_id = 'table2-test' || n.test_id
+            WHERE l.source_id = 'kumar92_prior_exercise'
+            ORDER BY n.test_id
+        """).fetchall() == [
+            ("8a", 7, 40, 7, 39, "overlap_hold", 7, 40),
+            ("8b", 10, 41, 8, 39, "overlap_hold", 10, 41),
+        ]
+        assert db.execute("""
+            SELECT t.published_case_number, t.noticed_lower_min, t.noticed_upper_min,
+                   t.first_report_min, c.dcs_time_min
+            FROM literature_case_report_timing t
+            JOIN literature_case_table_i c USING (source_id,published_case_number)
+            WHERE t.source_id = 'nasa03'
+              AND c.dcs_time_basis = 'noticed_before_in_test_report'
+            ORDER BY t.published_case_number
+        """).fetchall() == [(58, 42, 42, 54, 42), (66, 117, 117, 120, 117),
+                            (71, 105, 110, 120, 110), (72, 40, 40, 60, 40)]
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT published_case_number) FROM literature_case_index
+            WHERE source_id = 'nasa03'
+        """).fetchone() == (103, 103)
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id = 'horrigan90_backup_pressure' AND related_source = 'nasa03'
+        """).fetchone() == ("unresolved",)
+        assert db.execute("""
+            SELECT role FROM review.review_study_report
+            WHERE study_id = 'nasa-jsc-cmb-time-81' AND report_id = 'pmid:1417653'
+        """).fetchone() == ("paired_crossover_completers",)
 
 
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
