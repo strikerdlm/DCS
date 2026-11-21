@@ -1,0 +1,157 @@
+[
+  {
+    "id": "2026-11-21-marseille-hypobaric-surveillance-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_attempts": [
+        {
+          "query": "\"accidents de décompression\" \"caisson hypobare\" entraînement personnel navigant incidence",
+          "id": "01a1fe61-2a99-7442-8d38-67f41f629ffa",
+          "hits": 0
+        },
+        {
+          "query": "\"Dekompressionskrankheit\" \"Unterdruckkammer\" Höhenflugtraining Ausbilder Häufigkeit",
+          "id": "01a1fe61-2a7e-70a8-a533-cbbc400a7cba",
+          "hits": 0
+        },
+        {
+          "query": "\"decompression sickness\" \"hypobaric chamber\" training cohort aircrew studies Ecuador Chile Portugal France",
+          "id": "01a1fe61-2a79-75fe-87bb-faf7759c3788",
+          "hits": 6
+        },
+        {
+          "query": "\"expérience marseillaise\" \"recherche en physiologie intégrée\" Coulange Reynier Marotte COMEX hypobare",
+          "id": "01a1fe64-8a72-75ea-a9cd-6817a345fb0c",
+          "hits": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "English search rediscovered registered studies. Broader multilingual web discovery located the French society proceedings. The exact Marseille title search did not identify a separate full article.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-marseille-hypobaric-surveillance-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 433,
+      "query": "\"decompression sickness\" \"hypobaric chamber\" training cohort aircrew studies Ecuador Chile Portugal France"
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented search.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-marseille-hypobaric-surveillance-catalog-cross-check",
+    "date": "2026-11-21",
+    "provider": "Firecrawl, NASA and existing review register",
+    "operation": "verify_followup_leads",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "catalog_record_key": "2026-11-20-nato-national-verified-proceedings#rto-mp-21-complete",
+      "nato_rto": "RTO-MP-21; DTIC ADA365897; NTRS catalog accession 19990068480",
+      "avmed_reference": "AVMED Report 3/2001. ADF hypobaric chamber training: consideration of dangers, benefits, options, and alternatives.",
+      "avmed_citing_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "NATO RTO-MP-21 is already in the register, with North Luffenham outcomes and other national chapters. The Australian article cites AVMED Report 3/2001. A standalone public original was not verified. No new outcomes were taken from these leads.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-marseille-hypobaric-surveillance-verified-source",
+    "date": "2026-11-21",
+    "provider": "Society proceedings and Firecrawl",
+    "operation": "verify_published_conference_abstract",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "firecrawl_scrape_id": "01a1fe64-8a70-77ed-a17d-4570c528c393",
+      "pdf_url": "https://www.medsubhyp.fr/wp-content/uploads/2024/10/Bulletin-MSH-2022-tome-32-1.pdf"
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Firecrawl extraction, local PDF text and the rendered results page agree on the reported counts and scope.",
+    "records": [
+      {
+        "id": "coulange22_marseille_hypobaric",
+        "title": "L’expérience marseillaise après 15 ans de recherche en physiologie intégrée à l’aéronautique",
+        "author": "Coulange M, Reynier J-C, Oppenheim-Delauze A, Oskian A, Giret M, Marotte H",
+        "year": 2022,
+        "url": "https://www.medsubhyp.fr/wp-content/uploads/2024/10/Bulletin-MSH-2022-tome-32-1.pdf#page=34",
+        "sha256": "b7d8299e88de46cc98827e0da68d386a80c75592719eec3c808796f0f1e190c9",
+        "study_id": "marseille-aphm-comex-2008-2022-hypobaric",
+        "locator": "Printed pp. 30–31 (PDF pp. 34–35), Methods and Results",
+        "source_type": "primary_conference_abstract",
+        "note": "Marseille APHM then COMEX hypobaric test program. Mixed aircrew hypoxia familiarization, smoke protection equipment testing and oxygen-system evaluations. Individual and protocol-specific exposure histories unavailable.",
+        "study_period": "2008–2022",
+        "transfer_to_comex_year": 2016,
+        "source_counts": {
+          "test_sessions": 39,
+          "subjects_as_reported": 294,
+          "mean_subjects_per_session_as_reported": 8,
+          "min_subjects_per_session": 1,
+          "max_subjects_per_session": 25,
+          "reported_decompression_incidents": 0,
+          "aircrew_attendance_strictly_greater_than": 140,
+          "exact_aircrew_attendance": null
+        },
+        "source_limits": {
+          "overall_max_altitude_ft": 40000,
+          "case_definition": null,
+          "post_exposure_follow_up": null,
+          "repeat_attendance": null,
+          "oxygen_evaluation_denominator": null
+        },
+        "observations": [
+          {
+            "id": "coulange22_marseille_hypobaric:mixed-hypobaric-testing:reported_decompression_incident_source",
+            "study_id": "marseille-aphm-comex-2008-2022-hypobaric",
+            "endpoint": "reported_decompression_incident_source",
+            "group": "mixed-hypobaric-testing",
+            "cases": 0,
+            "denominator": 294,
+            "denominator_unit": "person",
+            "analysis_role": "descriptive",
+            "outcome_window": "Session-associated surveillance as reported. Post-session follow-up duration unspecified.",
+            "locator": "Printed p. 31 (PDF p. 35), Results",
+            "note": "The source counts 294 subjects across 39 test sessions, with 1–25 per session. Unique persons and repeat attendance are unreported. No formal DCS case definition is given. The ceiling of 40,000 ft applies to the mixed series, without a stratum denominator."
+          },
+          {
+            "id": "coulange22_marseille_hypobaric:aircrew-hypoxia-familiarization:reported_vagal_malaise_source",
+            "study_id": "marseille-aphm-comex-2008-2022-hypobaric",
+            "endpoint": "reported_vagal_malaise_source",
+            "group": "aircrew-hypoxia-familiarization",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "outcome_window": "Session-associated surveillance as reported. Post-session follow-up duration unspecified.",
+            "locator": "Printed p. 31 (PDF p. 35), Results",
+            "note": "The source gives more than 140 aircrew tested in this subgroup. No exact aircrew denominator is available."
+          },
+          {
+            "id": "coulange22_marseille_hypobaric:oxygen-system-evaluations:reported_hypoxic_syncope_source",
+            "study_id": "marseille-aphm-comex-2008-2022-hypobaric",
+            "endpoint": "reported_hypoxic_syncope_source",
+            "group": "oxygen-system-evaluations",
+            "cases": 3,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "descriptive",
+            "outcome_window": "Session-associated surveillance as reported. Post-session follow-up duration unspecified.",
+            "locator": "Printed p. 31 (PDF p. 35), Results",
+            "note": "All three described above 36,000 ft. The source gives no exact denominator for oxygen-system evaluations."
+          }
+        ]
+      }
+    ]
+  }
+]

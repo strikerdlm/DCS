@@ -4181,3 +4181,29 @@ def test_powell_margins_and_dervay_visits_preserve_risk_sets_and_identity(releas
             SELECT count(*) FROM review.review_report_relation
             WHERE relationship='cited_source_scope_discrepancy' AND left_report='openalex:W920476218'
         """).fetchone() == (1,)
+
+
+def test_marseille_separates_reported_subjects_sessions_and_hypoxic_events(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT trial_count,participant_count,pressure_mmhg
+            FROM publication_chamber_trial_scope
+            WHERE source_id='coulange22_marseille_hypobaric'
+        """).fetchone() == (39, 294, None)
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role,altitude
+            FROM publication_observation
+            WHERE source_id='coulange22_marseille_hypobaric' ORDER BY stratum
+        """).fetchall() == [
+            ("aircrew-hypoxia-familiarization", "reported_vagal_malaise_source", 1, None, None, "descriptive", None),
+            ("mixed-hypobaric-testing", "reported_decompression_incident_source", 0, 294, "person", "descriptive", None),
+            ("oxygen-system-evaluations", "reported_hypoxic_syncope_source", 3, None, None, "descriptive", None),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id)
+            FROM review.review_record WHERE source_key='coulange22_marseille_hypobaric'
+        """).fetchone() == (2, 1)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='abstract:coulange-2022-bmsh-32-30' AND right_report='journal:coulange-2014-bmsh-24-89'
+        """).fetchone() == ("distinct_exposure_modalities",)

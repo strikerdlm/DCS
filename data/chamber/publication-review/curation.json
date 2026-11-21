@@ -14387,6 +14387,18 @@
       "report_id": "ntrs:19840006905",
       "basis": "NASA TM-58257 and NTRS 19840006905 identify one annual report.",
       "evidence_url": "https://ntrs.nasa.gov/citations/19840006905"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.129/sources.csv#coulange22_marseille_hypobaric",
+      "report_id": "abstract:coulange-2022-bmsh-32-30",
+      "basis": "Same printed title, author list, issue and pages in the public proceedings.",
+      "evidence_url": "https://www.medsubhyp.fr/wp-content/uploads/2024/10/Bulletin-MSH-2022-tome-32-1.pdf#page=34"
+    },
+    {
+      "record_key": "2026-11-21-marseille-hypobaric-surveillance-verified-source#coulange22_marseille_hypobaric",
+      "report_id": "abstract:coulange-2022-bmsh-32-30",
+      "basis": "Same printed title, author list, issue and pages in the public proceedings.",
+      "evidence_url": "https://www.medsubhyp.fr/wp-content/uploads/2024/10/Bulletin-MSH-2022-tome-32-1.pdf#page=34"
     }
   ],
   "studies": [
@@ -15751,6 +15763,12 @@
       "label": "Dervay hypobaric exercise-rest Doppler crossover",
       "period": "Reported 2002",
       "setting": "Research hypobaric chamber. Twenty completed all arms and three withdrew after one visit."
+    },
+    {
+      "study_id": "marseille-aphm-comex-2008-2022-hypobaric",
+      "label": "Marseille APHM–COMEX hypobaric testing surveillance",
+      "period": "2008–2022",
+      "setting": "Marseille APHM then COMEX hypobaric test program. Mixed aircrew hypoxia familiarization, smoke protection equipment testing and oxygen-system evaluations. Individual and protocol-specific exposure histories unavailable."
     }
   ],
   "study_reports": [
@@ -18123,6 +18141,12 @@
       "report_id": "pmid:11817616",
       "role": "primary_crossover_outcomes",
       "locator": "Printed pp. 23–26, Methods, Table III and Complications"
+    },
+    {
+      "study_id": "marseille-aphm-comex-2008-2022-hypobaric",
+      "report_id": "abstract:coulange-2022-bmsh-32-30",
+      "role": "primary_mixed_chamber_surveillance",
+      "locator": "Printed pp. 30–31 (PDF pp. 34–35), Methods and Results"
     }
   ],
   "relations": [
@@ -22143,6 +22167,13 @@
       "relationship": "cited_source_scope_discrepancy",
       "evidence": "Powell's introduction attributes Table I to Vann, Dick and Barry. The recovered UHMS abstract includes only 286 Duke nitrogen–oxygen dives and 166 DCIEM air dives. It does not establish the primary source of the altitude rows.",
       "evidence_url": "https://uhms.org/uhm-search/abstracts-session-iiii-bubble-dynamics-pdf/viewdocument/1783.html"
+    },
+    {
+      "left_report": "abstract:coulange-2022-bmsh-32-30",
+      "right_report": "journal:coulange-2014-bmsh-24-89",
+      "relationship": "distinct_exposure_modalities",
+      "evidence": "The 2014 article describes a ten-person normobaric feasibility study and gives context on the Mont-de-Marsan DMAO program. The 2022 abstract enumerates mixed hypobaric tests in Marseille at APHM and COMEX. The earlier feasibility sample supplies no chamber denominator.",
+      "evidence_url": "https://www.medsubhyp.fr/wp-content/uploads/2024/10/Bulletin-MSH-2022-tome-32-1.pdf#page=34"
     }
   ],
   "report_titles": {
