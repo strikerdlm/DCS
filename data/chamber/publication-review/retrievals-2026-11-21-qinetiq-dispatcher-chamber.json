@@ -1,0 +1,314 @@
+[
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-publisher",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medicine and Human Performance",
+    "status": "observed_full_text",
+    "operation": "verify_published_abstract",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "publication_sha256": "e2acd289bc4d6e09070a9de2563adce4906cc671b73514ac505fc083bf954a4f"
+    },
+    "note": "Verified the 2026 primary conference report on source pages. Outcome data are linked to the existing published cohort.",
+    "records": [
+      {
+        "id": "publisher-253",
+        "title": "High Altitude Parachuting Training and Trials at 25,000 Ft",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=109",
+        "year": 2026,
+        "authors": [
+          "Desmond Connolly",
+          "Tim D’Oyly",
+          "V. C. Edwards",
+          "Vivienne Lee"
+        ],
+        "study_id": "qinetiq-connolly-two-day-dispatcher-chamber",
+        "locator": "Abstract 253, printed pp. 769–770 (publisher PDF pp. 109–110)",
+        "source_sha256": "e2acd289bc4d6e09070a9de2563adce4906cc671b73514ac505fc083bf954a4f",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=109",
+        "journal": "Aerospace Medicine and Human Performance",
+        "volume": "97",
+        "issue": "9",
+        "pages": "769–770",
+        "regimen": "Two planned 25,000-ft pressure-altitude ascents per day for two days, separated by three hours within each day. Simulated despatcher activity and breathing 100% oxygen at target altitude. Denitrogenation was 60 min at 8,000 ft. The target plateau was interrupted after 15 min by 15 min of pressure recovery at 10,000 ft. The complete schedule and exact gas history are unavailable.",
+        "participants": 11,
+        "participant_age_min": 23,
+        "participant_age_max": 41,
+        "planned_ascents": 44,
+        "commenced_ascents": null,
+        "uneventful_completions": 42,
+        "same_day_interval_hours": 3,
+        "outcome_ascertainment": "At altitude. Standardized follow-up unavailable.",
+        "vge": {
+          "method": "2D plus Doppler echocardiography",
+          "sampling_interval_min": 15,
+          "score": "Kisman integrated severity score",
+          "test": "chi_square",
+          "statistic": 14.45,
+          "df": 3,
+          "reported_n": 10,
+          "p": 0.0024,
+          "absolute_grade_counts": null
+        },
+        "biomarker": {
+          "analyte": "morning monocyte count",
+          "change_percent": {
+            "B2": 20,
+            "B3": 40
+          },
+          "test": "F",
+          "df_numerator": 2,
+          "df_denominator": 16,
+          "statistic": 4.61,
+          "p": 0.026
+        },
+        "linked_existing_outcome": {
+          "source_id": "connolly26",
+          "stratum": "all-decompressions",
+          "endpoint": "dcs",
+          "source_locator": "Publisher abstract, Methods and Results",
+          "note": "The published abstract and conference version describe the same single outcome."
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-program",
+    "date": "2026-11-21",
+    "provider": "AsMA meeting program",
+    "status": "observed_full_text",
+    "operation": "compare_manifestations",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Program and printed conference results agree. The two renderings are manifestations of one conference abstract.",
+    "records": [
+      {
+        "id": "meeting-program-253",
+        "title": "High Altitude Parachuting Training and Trials at 25,000 Ft",
+        "url": "https://asma.org/wp-content/uploads/2026/04/AsMA_Program-Book_edited_draft-1.pdf#page=163",
+        "year": 2026,
+        "authors": [
+          "Desmond Connolly",
+          "Tim D’Oyly",
+          "V. C. Edwards",
+          "Vivienne Lee"
+        ],
+        "study_id": "qinetiq-connolly-two-day-dispatcher-chamber",
+        "locator": "Draft program PDF pp. 163–164",
+        "source_sha256": "13be078041afd5d41637879108d854a61e70e5f876cef1357cf8e198f176da59"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-ebsco-index",
+    "date": "2026-11-21",
+    "provider": "EBSCOhost public index",
+    "status": "observed_metadata",
+    "operation": "verify_public_catalogue",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "The publisher and index agree on title, authors and first page. A full paper beyond this abstract remains unavailable.",
+    "records": [
+      {
+        "id": "ebsco-253",
+        "title": "High Altitude Parachuting Training and Trials at 25,000 Ft",
+        "url": "https://openurl.ebsco.com/results?bquery=AU+Connolly%2C+Desmond&link_origin=&searchDescription=Connolly%2C+Desmond&sid=ebsco%3Aocu%3Arecord",
+        "year": 2026,
+        "authors": [
+          "Desmond Connolly",
+          "Tim D’Oyly",
+          "V. C. Edwards",
+          "Vivienne Lee"
+        ],
+        "study_id": "qinetiq-connolly-two-day-dispatcher-chamber",
+        "locator": "Author search result, vol. 97 no. 9 p. 769"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-firecrawl-exact",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"High Altitude Parachuting Training and Trials at 25,000 Ft\" \"Connolly\" \"Edwards\" 2026 DCS",
+      "search_id": "01a1fdf8-6b75-7287-a0c9-f655e87bf25a"
+    },
+    "note": "The exact-title search did not return a usable web result.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-unal-eds",
+    "date": "2026-11-21",
+    "provider": "EBSCO UNAL",
+    "status": "access_limited",
+    "operation": "institutional_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "planned_queries": [
+        "\"high altitude parachuting training and trials\" OR (Connolly AND despatchers AND recompression)",
+        "\"航空自衛隊における航空生理訓練の概況\" OR \"1521980704689039488\""
+      ]
+    },
+    "note": "The institution sign-in did not reach the database. Public publisher verification was used.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-llamaparse",
+    "date": "2026-11-21",
+    "provider": "LlamaParse",
+    "status": "access_limited",
+    "operation": "parse_public_abstract_page",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 402,
+      "physical_page": 109
+    },
+    "note": "The official cloud endpoint returned HTTP 402 at upload. The extract was verified locally against the publisher and program PDFs.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-firecrawl-article",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_publisher_abstract",
+    "operation": "identify_later_full_article",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "profile_search_id": "01a1fe02-5927-763b-b7b7-87dc4aba4158",
+      "doi_search_id": "01a1fe04-4579-74a6-89fe-8ae18e797051",
+      "publisher_scrape_id": "01a1fe04-4549-726c-bdde-e34767f4c2a0",
+      "full_text_http_status": 401
+    },
+    "note": "Search under the pressure profile found the later journal article. The public publisher abstract provides the actual-exposure count and confirms the case linkage.",
+    "records": [
+      {
+        "id": "final-abstract",
+        "title": "Human Tolerance of Frequent Altitude Decompression",
+        "doi": "10.3357/amhp.6973.2026",
+        "url": "https://asma.kglmeridian.com/view/journals/amhp/97/10/article-p840.xml",
+        "year": 2026,
+        "authors": [
+          "Desmond Connolly",
+          "Tim D’Oyly",
+          "V. C. Edwards",
+          "Vivienne Lee"
+        ],
+        "study_id": "qinetiq-connolly-two-day-dispatcher-chamber",
+        "actual_decompressions": 43,
+        "participants": 11,
+        "primary_source": "https://asma.kglmeridian.com/view/journals/amhp/97/10/article-p840.xml",
+        "role_review": "experimental_only",
+        "observations": [
+          {
+            "id": "connolly26-actual-decompressions",
+            "study_id": "qinetiq-connolly-two-day-dispatcher-chamber",
+            "endpoint": "dcs",
+            "group": "All actual decompressions",
+            "cases": 1,
+            "denominator": 43,
+            "denominator_unit": "chamber_decompression",
+            "reported_rate_percent": 2.3,
+            "locator": "Publisher abstract, Methods and Results",
+            "note": "Same result as v1.2 connolly26. Limb pain after 53 minutes at 25,000 ft in ascent 3. Post-exposure follow-up unreported."
+          }
+        ],
+        "note": "The public publisher abstract verifies the same cohort as the meeting contribution and the existing connolly26 extraction. The publisher PDF returned HTTP 401."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-firecrawl-followup-1",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "QinetiQ Desmond Connolly \"Kisman\" \"recompression\" \"8,000\" decompression sickness altitude report",
+      "search_id": "01a1fe02-5927-763b-b7b7-87dc4aba4158"
+    },
+    "note": "Targeted search for the published trial. Preserve the ranked records and link the exact DOI.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Human Tolerance of Frequent Altitude Decompression",
+        "url": "https://meridian-asma-published.prime-prod-local.pubfactory.com/downloadpdf/view/journals/amhp/97/10/article-p840.pdf"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "Aerospace Medicineand Human Performance",
+        "url": "https://meridian-asma-published.prime-prod-local.pubfactory.com/downloadpdf/view/journals/amhp/97/10/article-p1.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-firecrawl-followup-2",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"parachutist despatchers\" \"10,000 ft\" \"decompression\" Connolly study repeat day altitude",
+      "search_id": "01a1fe02-5935-7735-8d85-95d5e2547742"
+    },
+    "note": "Targeted search for the published trial. Preserve the ranked records and link the exact DOI.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-qinetiq-dispatcher-chamber-firecrawl-followup-3",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"10.3357/AMHP.6973.2026\" \"Human Tolerance of Frequent Altitude Decompression\" 43 44 ascents DCS source",
+      "search_id": "01a1fe04-4579-74a6-89fe-8ae18e797051"
+    },
+    "note": "Targeted search for the published trial. Preserve the ranked records and link the exact DOI.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Human Tolerance of Frequent Altitude Decompression",
+        "url": "https://meridian-asma-published.prime-prod-local.pubfactory.com/downloadpdf/view/journals/amhp/97/10/article-p840.pdf"
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "title": "Human Tolerance of Frequent Altitude Decompression | Request PDF",
+        "url": "https://www.researchgate.net/publication/416913572_Human_Tolerance_of_Frequent_Altitude_Decompression"
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "title": "Human Tolerance of Frequent Altitude Decompression",
+        "url": "https://www.semanticscholar.org/paper/Human-Tolerance-of-Frequent-Altitude-Decompression-Connolly-D'Oyly/dc80fa9063a1b90aee868d8773358854cc6b7cbc"
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "title": "Aerospace Medicineand Human Performance",
+        "url": "https://meridian-asma-published.prime-prod-local.pubfactory.com/downloadpdf/view/journals/amhp/97/10/article-p1.pdf"
+      }
+    ]
+  }
+]

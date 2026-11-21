@@ -3916,3 +3916,39 @@ def test_asma_interim_abstracts_keep_reported_risk_sets_and_overlap(release):
             SELECT related_source,relationship FROM publication_overlap
             WHERE source_id='pilmanis01_40000ft_interim'
         """)) == {'gerth18': 'unresolved', 'pilmanis03': 'likely_overlap'}
+
+
+def test_qinetiq_dispatcher_counts_link_one_event_to_two_publications(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,parent_stratum,trial_count,participant_count
+            FROM publication_chamber_trial_scope
+            WHERE source_id='connolly26_dispatcher_chamber' ORDER BY stratum
+        """).fetchall() == [
+            ('planned-ascents', None, 44, 11),
+            ('uneventful-completions', 'planned-ascents', 42, None),
+        ]
+        assert db.execute("""
+            SELECT p.cases,p.denominator,p.denominator_unit,l.report_id
+            FROM web_observation p JOIN model_report_link l USING(source_id)
+            WHERE p.source_id='connolly26' AND l.source_table='web_source'
+        """).fetchall() == [(1, 43, 'chamber_decompression', 'doi:10.3357/amhp.6973.2026')]
+        assert db.execute("""
+            SELECT report_id,cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE study_id='qinetiq-connolly-two-day-dispatcher-chamber'
+        """).fetchall() == [('doi:10.3357/amhp.6973.2026', 1, 43, 'chamber_decompression')]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(title) LIKE '%human tolerance of frequent altitude decompression%'
+        """).fetchall() == [('doi:10.3357/amhp.6973.2026',)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record WHERE report_id='abstract:asma-2026-connolly-253'
+        """).fetchone() == (4,)
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='abstract:asma-2026-connolly-253'
+            ORDER BY right_report
+        """).fetchall() == [
+            ('doi:10.3357/amhp.6973.2026', 'same_chamber_experiment'),
+            ('pmid:37587625', 'distinct_reported_exposure_schedules_participant_overlap_unresolved'),
+        ]
