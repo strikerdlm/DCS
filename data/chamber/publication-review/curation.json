@@ -14699,6 +14699,18 @@
       "report_id": "article:iam-1986-kumar-92",
       "basis": "Verified byline, volume, printed pages and SHA-256 for the original scan.",
       "evidence_url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=981620fdef4d6997a6f0f9381d1ac839Bh0fuTf8hc0%3D"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.138/sources.csv#majumdar57_iaf_chamber",
+      "report_id": "journal:maj-1957-ijasm-4-1-9",
+      "basis": "Original publisher scan, issue table of contents and identical previously recorded file checksum.",
+      "evidence_url": "https://indjaerospacemed.com/issue/1957-4-1/"
+    },
+    {
+      "record_key": "2026-11-21-indian-archive-chronology-primary#maj-1957-chronology",
+      "report_id": "journal:maj-1957-ijasm-4-1-9",
+      "basis": "Same 1957 issue, byline and original scan. Verified 5 June as the exposure date and 6 June as the next-day examination.",
+      "evidence_url": "https://indjaerospacemed.com/issue/1957-4-1/"
     }
   ],
   "studies": [
@@ -15317,7 +15329,7 @@
     {
       "study_id": "iaf-new-delhi-june-1957-preconversion-chamber-case",
       "label": "Majumdar preconversion hypobaric chamber case",
-      "period": "1957-06-06",
+      "period": "1957-06-05",
       "setting": "No. 1 Indian Air Force Aero Medical Unit, New Delhi"
     },
     {

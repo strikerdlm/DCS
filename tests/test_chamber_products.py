@@ -4460,3 +4460,41 @@ def test_bangalore_treadmill_reports_reuse_one_dcs_case(release):
             SELECT count(*),count(DISTINCT report_id) FROM review.review_record
             WHERE source_key='reconciliation_v31_india2:6' OR report_id='article:iam-1986-kumar-92'
         """).fetchone() == (3, 1)
+
+
+def test_majumdar_chamber_milestones_reuse_the_original_review_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT a.period,a.altitude,a.numerator,a.denominator,c.report_id,c.source_time_min
+            FROM publication_observation a JOIN historical_case_catalog c
+              ON c.case_id=a.source_id || ':' || a.stratum AND c.endpoint=a.endpoint
+            WHERE a.source_id='majumdar57_iaf_chamber'
+        """).fetchall() == [("1957-06-05", 37000, 1, None, "journal:maj-1957-ijasm-4-1-9", None)]
+        assert db.execute("""
+            SELECT r.observation_id,r.cases,r.denominator
+            FROM shared_case_evidence e
+            JOIN review.review_search_observation r USING(record_key,observation_id,report_id)
+            WHERE r.report_id='journal:maj-1957-ijasm-4-1-9'
+        """).fetchall() == [("maj-1957-preconversion-altitude-chamber-dcs", 1, None)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='journal:maj-1957-ijasm-4-1-9'
+        """).fetchone() == (1,)
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft,clock_time,elapsed,elapsed_unit
+            FROM publication_case_milestone
+            WHERE source_id='majumdar57_iaf_chamber'
+              AND milestone IN ('new_symptoms_at_altitude','recurrent_hypotension','documented_asymptomatic')
+            ORDER BY milestone
+        """).fetchall() == [
+            ("documented_asymptomatic", None, "10:00", 22.0, "hours"),
+            ("new_symptoms_at_altitude", 37000, None, 51.0, "minutes"),
+            ("recurrent_hypotension", None, "14:30", 1.5, "hours"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_case_milestone WHERE source_id='majumdar57_iaf_chamber'
+        """).fetchone() == (8,)
+        assert db.execute("""
+            SELECT period FROM review.review_study
+            WHERE study_id='iaf-new-delhi-june-1957-preconversion-chamber-case'
+        """).fetchone() == ("1957-06-05",)

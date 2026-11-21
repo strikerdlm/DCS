@@ -1,0 +1,112 @@
+[
+  {
+    "id": "2026-11-21-indian-archive-chronology-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "id": "01a1fec8-f699-749e-a8e8-e0efc6cff234",
+          "query": "site:indjaerospacemed.com \"decompression sickness\" \"bends\" \"altitude\" case -tinnitus -arterial -thromboembolism",
+          "returned": 6
+        },
+        {
+          "id": "01a1feca-842b-728b-a646-855b953b78fc",
+          "query": "\"K S Rao\" \"decompression sickness\" aviation India neurocirculatory case",
+          "returned": 1
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Rediscovered the 1957 original and found a 1972 citation in the journal cumulative index.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-indian-archive-chronology-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "altitude chamber \"decompression sickness\" Canada RCAF training incidence exposures Defence and Civil Institute Toronto hypobaric",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-indian-archive-chronology-primary",
+    "date": "2026-11-21",
+    "provider": "Indian Journal of Aerospace Medicine and Firecrawl",
+    "operation": "verify_original_chamber_sources_and_chronology",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "publication_review_reuse": "2026-11-20-india-followup-historical-chamber#maj-1957-4-1-9"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the publisher scan visually and checked its SHA-256 against the earlier report. The linked model record uses the existing review case observation.",
+    "records": [
+      {
+        "id": "maj-1957-chronology",
+        "title": "Post decompression shock (a case report)",
+        "authors": [
+          "K. K. Majumdar"
+        ],
+        "year": 1957,
+        "url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=43cd9e90a99be4bbdd8ed3f9a22d16d5ke%2F8kDhFSfA%3D",
+        "archive_issue": "https://indjaerospacemed.com/issue/1957-4-1/",
+        "source_sha256": "7a5004e7b9b3a4a2ea39dde250df600923668705b66b32f3b217b5947d4458cd",
+        "locator": "Case History, Chamber Record and Discussion, printed pp. 10–13",
+        "scrape_id": "01a1feca-053a-75e9-929b-44d01d0afe06",
+        "case_observation_reused": "maj-1957-preconversion-altitude-chamber-dcs",
+        "study_id": "iaf-new-delhi-june-1957-preconversion-chamber-case",
+        "exposure_date": "1957-06-05",
+        "previous_catalogued_exposure_date": "1957-06-06",
+        "exposure_date_locator": "Case History, p. 10, and next-day assessment on p. 12",
+        "extraction_method": "Firecrawl OCR followed by visual verification against the original numbered pages.",
+        "timeline": {
+          "peak_altitude_ft": 37000,
+          "peak_arrival_time": "11:30",
+          "new_symptom_onset_dwell_minute_reported": 51,
+          "postdescent_recurrence_clock": "14:30",
+          "first_documented_asymptomatic_date": "1957-06-06",
+          "discharge_date": "1957-06-12"
+        },
+        "evidence_note": "The model uses the existing review observation for one case. The scan on p. 10 dates the chamber test 5 June 1957. The 6 June entry on p. 12 is the first documented asymptomatic examination. Hospital discharge recorded DCS. The proposed pulmonary vascular mechanism was unconfirmed."
+      },
+      {
+        "id": "dutta-1962-7-1-52",
+        "title": "Decompression testing of aircrew",
+        "authors": [
+          "H. N. Dutta"
+        ],
+        "year": 1962,
+        "url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=f8addef591a105ade8d7798cfae36d79N8cR5hbPv2g%3D",
+        "locator": "Testing of aircrew, observation procedure and references",
+        "scrape_id": "01a1fecc-a08d-7014-8364-ad289146862b",
+        "evidence_note": "The paper gives a later protocol linked to the cited 1958 Air HQ letter. It describes planned surveillance and clinical observations but no cohort numerator or denominator. It cannot establish either the 1957 case protocol or the surveillance window."
+      },
+      {
+        "id": "rao-1972-15-1",
+        "title": "Decompression sickness with neurocirculatory manifestations (a case report)",
+        "authors": [
+          "K. S. Rao"
+        ],
+        "year": 1972,
+        "url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=d11e63ff3d36751f8a177b520a43ac77rXle2zPKuuw%3D",
+        "archive_issue": "https://indjaerospacemed.com/issue/1972-15-1/",
+        "locator": "Publisher cumulative index, Volume XV, October 1972, number 1",
+        "access": "bibliographic_index_only",
+        "evidence_note": "The online issue lists its first five articles. The case appears in the cumulative index, but its original full text and exposure setting were not established. The episode cannot be reconciled or counted from the title."
+      }
+    ]
+  }
+]
