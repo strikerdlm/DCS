@@ -164,6 +164,7 @@ CHAMBER_DUKE_PREBREATHE = ROOT / "data" / "chamber" / "v1.96"
 CHAMBER_NASA_SEVERITY_AND_LUNAR = ROOT / "data" / "chamber" / "v1.97"
 CHAMBER_USAF_TREATMENT_AND_PREBREATHE = ROOT / "data" / "chamber" / "v1.98"
 CHAMBER_JAPANESE_ALTITUDE_CASES = ROOT / "data" / "chamber" / "v1.99"
+CHAMBER_RAF_DISPATCHER_AND_ARMY = ROOT / "data" / "chamber" / "v1.100"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1462,6 +1463,17 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_RAF_DISPATCHER_AND_ARMY,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_altitude_symptom_survey": "symptom_surveys.csv",
+                        "publication_altitude_symptom_survey_item": "symptom_survey_items.csv",
                     },
                 )
             if rojas_supplement:
