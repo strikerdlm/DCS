@@ -1,0 +1,388 @@
+[
+  {
+    "id": "2026-11-21-pressure-breathing-outcomes-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_rapid_decompression_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ff94-e291-718e-a136-3c33b19587f0",
+          "query": "\"NAWCADWAR-95034-4.6\" Fraser Ackles decompression technical report",
+          "returned": 1
+        },
+        {
+          "id": "01a1ff94-e24f-779d-b073-fd8d76f77b95",
+          "query": "\"Gradwell\" \"decompression\" \"135\" hypobaric thesis",
+          "returned": 2
+        },
+        {
+          "id": "01a1ff95-c275-76ed-a4c2-63044bc47f20",
+          "query": "\"Explosive decompression of subjects\" \"Balldin\" DCS",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff98-dde8-7479-aa7c-cb0dfc821985",
+          "query": "\"Effects of variable decompressions to 45,000 feet\" \"aeroembolism\" Barron Cook",
+          "returned": 1
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The curated connector identified the Lindeis bibliography. The local connector returned an authentication error. Original outcome PDFs were retrieved from the publisher.",
+    "records": [
+      {
+        "id": "firecrawl-lindeis",
+        "title": "Performance during Positive Pressure Breathing after Rapid Decompression Up to 72000 Feet",
+        "url": "https://journals.sagepub.com/doi/10.1518/001872097778940641",
+        "rank": 1
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-pressure-breathing-outcomes-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_rapid_decompression_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"NAWCADWAR-95034-4.6\" Fraser Ackles decompression",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-pressure-breathing-outcomes-verified",
+    "date": "2026-11-21",
+    "provider": "AsMA publisher and DTIC proceedings",
+    "operation": "verify_pressure_breathing_outcomes_and_left_heart_timing",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Checked original PDF results and distinguished counts of symptoms, exclusions, exposures and bubble timing.",
+    "records": [
+      {
+        "id": "barron65_variable_decompression",
+        "title": "Effects of Variable Decompressions to 45,000 Feet",
+        "authors": [
+          "Charles I. Barron",
+          "Thomas J. Cook"
+        ],
+        "year": 1965,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p425.pdf#page=6",
+        "identifier": "NASA index:A65-24075; FAA contract:FA 3082",
+        "country": "United States",
+        "access": "full_text",
+        "source_sha256": "1a3552039baabb374bb7d0ad154358a6ee1767ebdb2f9f7750a459610247e410",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p425.pdf#page=6",
+        "locator": "Methods pp. 426–427; Table I p. 427; Discussion and Summary p. 430 (PDF p. 6)",
+        "study_id": "lockheed-faa-variable-decompression-fa3082",
+        "note": "Four civilian test pilots and four passenger volunteers made eight experimental exposures. The report explicitly states that none experienced symptoms of aeroembolism. One case of barotitis required myringotomy. The separate 1955 Lockheed training report covers a different protocol and cohort scope.",
+        "clinical_dcs_count": null,
+        "trial_scopes": [
+          {
+            "stratum": "barron-variable-decompression",
+            "parent_stratum": null,
+            "trial_count": 8,
+            "participant_count": 8,
+            "note": "Eight runs, one per participant. Four pilots and four passenger volunteers. The protocol sought approximately 45,000 ft. Table I gives measured peaks from 44,295 to 48,000 ft."
+          }
+        ],
+        "observations": [
+          {
+            "id": "barron-variable-decompression-aeroembolism_symptoms_as_reported",
+            "group": "barron-variable-decompression",
+            "endpoint": "aeroembolism_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "study_id": "lockheed-faa-variable-decompression-fa3082",
+            "role_review": "overlap_hold",
+            "locator": "Methods pp. 426–427; Table I p. 427; Discussion and Summary p. 430 (PDF p. 6)",
+            "note": "The historical symptom endpoint is preserved as printed. The study gives no separately adjudicated DCS outcome or instrumented VGE tally.",
+            "outcome_window": "The authors obtained a subject report the following morning and stopped monitoring if there were no adverse reactions. Exact elapsed follow-up is unavailable."
+          }
+        ]
+      },
+      {
+        "id": "marotte90_pressure_schedule",
+        "title": "Transport aircraft crew and decompression hazards: study of a positive pressure schedule",
+        "authors": [
+          "H. Marotte",
+          "C. Toure",
+          "G. Florence",
+          "D. Lejeune",
+          "M. Kerguelen"
+        ],
+        "year": 1990,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p690.pdf#page=2",
+        "identifier": "PMID:2205195",
+        "country": "France",
+        "access": "full_text",
+        "source_sha256": "ad34a58d000564ea2176a22a76fc6f1ad6621b9e1d7b54b968c9f1adc3f3dbe3",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p690.pdf#page=2",
+        "locator": "Subjects and Experimental Protocol p. 691 (PDF p. 2)",
+        "study_id": "bretigny-marotte-pressure-schedule-1990",
+        "note": "Eleven participants. One could not complete all tests due to significant dysbaric disturbances and was excluded from the physiological analysis. The protocol reports no observed aeroembolism symptoms. It does not give an outcome-evaluable count of people, sessions or altitude excursions.",
+        "clinical_dcs_count": null,
+        "trial_scopes": [
+          {
+            "stratum": "marotte-pressure-schedule",
+            "parent_stratum": null,
+            "trial_count": null,
+            "participant_count": 11,
+            "note": "Eleven participants, one incomplete. Four planned altitude plateaus after donning each equipment configuration. Actual session and excursion counts are unavailable."
+          }
+        ],
+        "observations": [
+          {
+            "id": "marotte-pressure-schedule-aeroembolism_symptoms_as_reported",
+            "group": "marotte-pressure-schedule",
+            "endpoint": "aeroembolism_symptoms_as_reported",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "study_id": "bretigny-marotte-pressure-schedule-1990",
+            "role_review": "overlap_hold",
+            "locator": "Subjects and Experimental Protocol p. 691 (PDF p. 2)",
+            "note": "The symptom statement is explicit. An exact outcome denominator is unavailable. The dysbaric disturbance that prevented one volunteer from completing the tests has no reported diagnostic adjudication.",
+            "outcome_window": "During the described protocol. Post-exposure follow-up is unspecified."
+          },
+          {
+            "id": "marotte-pressure-schedule-dysbaric_disturbance_analysis_exclusion",
+            "group": "marotte-pressure-schedule",
+            "endpoint": "dysbaric_disturbance_analysis_exclusion",
+            "cases": 1,
+            "denominator": 11,
+            "denominator_unit": "person",
+            "study_id": "bretigny-marotte-pressure-schedule-1990",
+            "role_review": "descriptive",
+            "locator": "Subjects and Experimental Protocol p. 691 (PDF p. 2)",
+            "note": "One of eleven volunteers did not complete all tests and was excluded from statistical analysis for significant dysbaric disturbances. This records the exclusion endpoint. Symptoms, mechanism and diagnosis are unspecified.",
+            "outcome_window": "Participation and completion of the experimental test series."
+          }
+        ]
+      },
+      {
+        "id": "marotte90_transport_hypoxia",
+        "title": "Rapid decompression of a transport aircraft cabin: protection against hypoxia",
+        "authors": [
+          "H. Marotte",
+          "C. Toure",
+          "J. M. Clere",
+          "H. Vieillefond"
+        ],
+        "year": 1990,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/1/article-p21.pdf#page=2",
+        "identifier": "PMID:2302122",
+        "country": "France",
+        "access": "full_text",
+        "source_sha256": "e08717cb155553664604dea1c9675cc2475a7ef71b93efbd9217337a32cb0b48",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/1/article-p21.pdf#page=2",
+        "locator": "Subjects and Results pp. 21–22 (PDF pp. 1–2)",
+        "study_id": "bretigny-marotte-transport-hypoxia-1990",
+        "note": "Ten volunteers and 105 rapid-decompression tests, including calibration tests. The exact number of participant exposures used in analysis and the number of clinical DCS events are unavailable.",
+        "clinical_dcs_count": null,
+        "trial_scopes": [
+          {
+            "stratum": "marotte-rapid-decompression-tests",
+            "parent_stratum": null,
+            "trial_count": 105,
+            "participant_count": 10,
+            "note": "The printed count includes some calibration-setting tests. Clinical outcome-evaluable exposures are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "holness80_phoenix",
+        "title": "Respiratory gas exchange during positive pressure breathing and rapid decompression to simulated altitudes of 18.3 and 24.4 km",
+        "authors": [
+          "D. E. Holness",
+          "J. A. G. Porlier",
+          "K. N. Ackles",
+          "G. R. Wright"
+        ],
+        "year": 1980,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/51/5/article-p454.pdf",
+        "identifier": "PMID:6770839",
+        "country": "Canada",
+        "access": "full_text",
+        "source_sha256": "f3f59c1f8d30f7e60349a6c4196c37c27cfec5145f1180e496b4d9e2672bf7e5",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/51/5/article-p454.pdf",
+        "locator": "Materials and Methods pp. 454–455 (PDF pp. 1–2)",
+        "study_id": "dciem-holness-phoenix-gas-exchange",
+        "note": "The 60,000-ft experiment reports seven participants and the 80,000-ft experiment reports two. The paper does not establish the number of actual runs or overlap of participants between experiments. DCS and VGE tallies are unavailable.",
+        "clinical_dcs_count": null,
+        "trial_scopes": [
+          {
+            "stratum": "holness-60000-ft",
+            "parent_stratum": null,
+            "trial_count": null,
+            "participant_count": 7,
+            "note": "Experiment 2. Two phases of pressure breathing were described. The publication gives the participant count for the experiment."
+          },
+          {
+            "stratum": "holness-80000-ft",
+            "parent_stratum": null,
+            "trial_count": null,
+            "participant_count": 2,
+            "note": "Experiment 3. The publication gives the participant count for the experiment. Linkage with participants from experiment 2 is unavailable."
+          }
+        ]
+      },
+      {
+        "id": "ernsting60_mask_helmet",
+        "title": "High altitude protection from pressure-breathing mask with trunk and lower limb counterpressure",
+        "authors": [
+          "J. Ernsting",
+          "I. D. Green",
+          "R. E. Nagle",
+          "P. R. Wagner"
+        ],
+        "year": 1960,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/1/article-p40.pdf#page=4",
+        "identifier": "PMID:13820682; DOI:10.3357/AEME.31.1.40",
+        "country": "United Kingdom",
+        "access": "full_text",
+        "source_sha256": "a9de99a886b911b015344b3b36a23be848c809c9dabcaee7c5d8e16d64264005",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/1/article-p40.pdf#page=4",
+        "locator": "Experimental Methods pp. 41–42 and Series 3–4 p. 43 (PDF pp. 2–4)",
+        "study_id": "raf-iam-ernsting-mask-helmet-1960",
+        "note": "The same five participants made both 56,000-ft chamber runs, one per configuration. Separate ground-level comparisons are outside that count. The paper describes loss of consciousness in two mask exposures. DCS and VGE tallies are unavailable.",
+        "clinical_dcs_count": null,
+        "trial_scopes": [
+          {
+            "stratum": "ernsting-altitude-comparison",
+            "parent_stratum": null,
+            "trial_count": 10,
+            "participant_count": 5,
+            "note": "Five people each completed or began one test with each configuration at 56,000 ft. The ground-level series are excluded."
+          },
+          {
+            "stratum": "ernsting-helmet",
+            "parent_stratum": "ernsting-altitude-comparison",
+            "trial_count": 5,
+            "participant_count": 5,
+            "note": "Series 3. All five completed the planned six-minute helmet exposure."
+          },
+          {
+            "stratum": "ernsting-mask",
+            "parent_stratum": "ernsting-altitude-comparison",
+            "trial_count": 5,
+            "participant_count": 5,
+            "note": "Series 4. Three completed the planned exposure, and two collapsed and were recompressed early."
+          }
+        ]
+      },
+      {
+        "id": "lee_hay01",
+        "title": "Altitude Decompression Illness - The Operational Risk at Sustained Altitudes up to 35,000 ft",
+        "authors": [
+          "V. M. Lee",
+          "A. E. Hay"
+        ],
+        "year": 2001,
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_628-altitude-deco-illness.pdf#page=9",
+        "primary_source": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_628-altitude-deco-illness.pdf#page=9",
+        "source_sha256": "acd4e7a73dcc33b95ed4952f108b4cb237daf21b25a47fbb79c89a030ecea49a",
+        "technical_report": "DTIC ADP011091; RTO MP-062 paper 37",
+        "study_id": "lee-hay-dera-sustained-altitude-2001",
+        "locator": "Table 3, printed p. 37-8 (PDF p. 9)",
+        "note": "Printed times to left-ventricular gas detection for profiles with events. Event counts are already catalogued. The table distinguishes a mean and standard deviation for the two-event profile. Individual times and identities for those two observations are unavailable.",
+        "left_ventricular_onset": [
+          {
+            "stratum": "ft20500_o2_56_prebreathe_0",
+            "endpoint": "left_ventricular_gas_source",
+            "detections_in_existing_stratum": 1,
+            "time_basis": "single_detection",
+            "onset_min": 212,
+            "standard_deviation_min": null,
+            "associated_vge_grades": "4",
+            "locator": "Table 3, printed p. 37-8 (PDF p. 9)"
+          },
+          {
+            "stratum": "ft22500_o2_56_prebreathe_0",
+            "endpoint": "left_ventricular_gas_source",
+            "detections_in_existing_stratum": 1,
+            "time_basis": "single_detection",
+            "onset_min": 77,
+            "standard_deviation_min": null,
+            "associated_vge_grades": "3",
+            "locator": "Table 3, printed p. 37-8 (PDF p. 9)"
+          },
+          {
+            "stratum": "ft25000_o2_63_prebreathe_0",
+            "endpoint": "left_ventricular_gas_source",
+            "detections_in_existing_stratum": 2,
+            "time_basis": "mean_sd",
+            "onset_min": 63,
+            "standard_deviation_min": 24,
+            "associated_vge_grades": "4/4",
+            "locator": "Table 3, printed p. 37-8 (PDF p. 9)"
+          },
+          {
+            "stratum": "ft25000_o2_100_prebreathe_0",
+            "endpoint": "left_ventricular_gas_source",
+            "detections_in_existing_stratum": 1,
+            "time_basis": "single_detection",
+            "onset_min": 195,
+            "standard_deviation_min": null,
+            "associated_vge_grades": "4",
+            "locator": "Table 3, printed p. 37-8 (PDF p. 9)"
+          },
+          {
+            "stratum": "ft35000_o2_100_prebreathe_60",
+            "endpoint": "left_ventricular_gas_source",
+            "detections_in_existing_stratum": 1,
+            "time_basis": "single_detection",
+            "onset_min": 150,
+            "standard_deviation_min": null,
+            "associated_vge_grades": "4",
+            "locator": "Table 3, printed p. 37-8 (PDF p. 9)"
+          }
+        ],
+        "profiles_without_onset": [
+          "ft25000_o2_100_prebreathe_60",
+          "ft30000_o2_100_prebreathe_60"
+        ]
+      },
+      {
+        "id": "lindeis97_performance",
+        "title": "Performance during Positive Pressure Breathing after Rapid Decompression Up to 72000 Feet",
+        "authors": [
+          "Ann Elise Lindeis",
+          "W. D. Fraser",
+          "Barry Fowler"
+        ],
+        "year": 1997,
+        "url": "https://journals.sagepub.com/doi/10.1518/001872097778940641",
+        "pmid": "9302882",
+        "doi": "10.1518/001872097778940641",
+        "access": "primary_abstract",
+        "locator": "Publisher abstract, Experiment 1 and References",
+        "note": "Six participants in a chamber performance experiment. The accessible abstract gives no run count, DCS tally or cohort linkage to Fraser 1994. Publisher full-text download returned 403."
+      },
+      {
+        "id": "fraser_ackles95_nawc",
+        "title": "Cardiovascular responses with TLSS, ATAGS, and EAGLE life support systems during rapid decompression",
+        "authors": [
+          "W. D. Fraser",
+          "K. N. Ackles"
+        ],
+        "year": 1995,
+        "url": "https://journals.sagepub.com/doi/10.1518/001872097778940641",
+        "technical_report": "NAWCADWAR-95034-4.6",
+        "access": "reference_only",
+        "locator": "Lindeis et al. 1997, publisher References",
+        "note": "The citing paper verifies the report number. The original, clinical and bubble outcomes, and cohort membership remain unverified."
+      }
+    ]
+  }
+]
