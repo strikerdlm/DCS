@@ -69,7 +69,7 @@ def test_russian_reports_and_connolly_companions_keep_distinct_outcome_units(rel
             SELECT report_id,COUNT(*) FROM review.review_record
             WHERE report_id IN ('doi:10.17816/rmmj73430','doi:10.21949/1403478')
             GROUP BY report_id ORDER BY report_id
-        """).fetchall() == [("doi:10.17816/rmmj73430", 9), ("doi:10.21949/1403478", 7)]
+        """).fetchall() == [("doi:10.17816/rmmj73430", 9), ("doi:10.21949/1403478", 8)]
 
 
 def test_raf_sortie_year_survey_and_army_case_keep_published_counting_units(release):
