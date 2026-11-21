@@ -1,0 +1,231 @@
+[
+  {
+    "id": "2026-11-21-powell-dervay-doppler-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA Powell NASA-TM-102176 173 altitude Doppler bubbles decompression sickness Vann Dick Barry source data 29/55",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented the query.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-powell-dervay-doppler-firecrawl-search",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_attempts": [
+        {
+          "query": "decompression sickness \"Spencer\" \"29/55\" \"0/75\" altitude chamber Powell original studies",
+          "id": "01a1fe53-d3b3-7088-bcab-6b8bcd6f4413",
+          "hits": 0
+        },
+        {
+          "query": "\"Detection of Incipient Altitude Decompression Sickness With Doppler Sensors In Flight\" \"19840006905\"",
+          "id": "01a1fe54-7abf-728b-8e16-9e7caf164f92",
+          "verified_url": "https://ntrs.nasa.gov/api/citations/19840006905/downloads/19840006905.pdf"
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The exact grade cells did not yield another source. The named sensor study was recovered in the 1983 NASA JSC annual report.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-powell-dervay-doppler-verified",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS, AsMA and Firecrawl",
+    "operation": "verify_primary_tables",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "powell_scrape_id": "01a1fe49-cd9b-73ee-a7b9-8d93a1f8996f",
+      "waligora_scrape_id": "01a1fe54-7cb5-70d8-9af7-835936d708c6"
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Extracted from original PDF text and verified by rendered pages for numerical tables.",
+    "records": [
+      {
+        "id": "powell91_tm102176",
+        "title": "Doppler indices of gas phase formation in hypobaric environments: Time-intensity analysis",
+        "year": 1991,
+        "author": "Michael R. Powell",
+        "openalex_id": "W920476218",
+        "url": "https://ntrs.nasa.gov/api/citations/19910021378/downloads/19910021378.pdf",
+        "locator": "Printed p. 6, Table I, Altitude rows; Printed p. 14, Table V",
+        "sha256": "cdd6e22388221586d96538670798c505dd7f53bc55a928296032fff258ad4e42",
+        "observations": [
+          {
+            "id": "powell91_tm102176:max-spencer-0:dcs_conditional_on_maximum_vge_grade",
+            "endpoint": "dcs_conditional_on_maximum_vge_grade",
+            "group": "max-spencer-0",
+            "cases": 0,
+            "denominator": 75,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Clinical timing and surveillance window not reported.",
+            "locator": "Printed p. 6, Table I, Altitude rows",
+            "note": "The source calls records subjects. Repeat attendance, timing relative to symptoms and unique cohort identity are unresolved."
+          },
+          {
+            "id": "powell91_tm102176:max-spencer-I:dcs_conditional_on_maximum_vge_grade",
+            "endpoint": "dcs_conditional_on_maximum_vge_grade",
+            "group": "max-spencer-I",
+            "cases": 1,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Clinical timing and surveillance window not reported.",
+            "locator": "Printed p. 6, Table I, Altitude rows",
+            "note": "The source calls records subjects. Repeat attendance, timing relative to symptoms and unique cohort identity are unresolved."
+          },
+          {
+            "id": "powell91_tm102176:max-spencer-II:dcs_conditional_on_maximum_vge_grade",
+            "endpoint": "dcs_conditional_on_maximum_vge_grade",
+            "group": "max-spencer-II",
+            "cases": 2,
+            "denominator": 12,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Clinical timing and surveillance window not reported.",
+            "locator": "Printed p. 6, Table I, Altitude rows",
+            "note": "The source calls records subjects. Repeat attendance, timing relative to symptoms and unique cohort identity are unresolved."
+          },
+          {
+            "id": "powell91_tm102176:max-spencer-III:dcs_conditional_on_maximum_vge_grade",
+            "endpoint": "dcs_conditional_on_maximum_vge_grade",
+            "group": "max-spencer-III",
+            "cases": 8,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Clinical timing and surveillance window not reported.",
+            "locator": "Printed p. 6, Table I, Altitude rows",
+            "note": "The source calls records subjects. Repeat attendance, timing relative to symptoms and unique cohort identity are unresolved."
+          },
+          {
+            "id": "powell91_tm102176:max-spencer-IV:dcs_conditional_on_maximum_vge_grade",
+            "endpoint": "dcs_conditional_on_maximum_vge_grade",
+            "group": "max-spencer-IV",
+            "cases": 29,
+            "denominator": 55,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Clinical timing and surveillance window not reported.",
+            "locator": "Printed p. 6, Table I, Altitude rows",
+            "note": "The source calls records subjects. Repeat attendance, timing relative to symptoms and unique cohort identity are unresolved."
+          }
+        ],
+        "table_v_margins": 14,
+        "rounded_profile_matches": 12,
+        "note": "Table V does not define the denominator of the right-column fraction. Keep it as printed. Rounded agreement with Conkin Table 1 supplies no denominator."
+      },
+      {
+        "id": "waligora83_tm58257",
+        "title": "Research and Technology Annual Report 1983",
+        "year": 1983,
+        "author": "NASA Johnson Space Center",
+        "url": "https://ntrs.nasa.gov/api/citations/19840006905/downloads/19840006905.pdf",
+        "locator": "OSSA 77, Detection of Incipient Altitude Decompression Sickness With Doppler Sensors In Flight",
+        "sha256": "f4899f0d6f90f0983833220fdf678918da0ab3a0158ce02bc1743a74cd7e43db",
+        "reported_manned_chamber_runs": 173,
+        "note": "Powell reports 173 altitude records classified by maximum grade. The 1983 JSC report gives 173 manned chamber runs with precordial Doppler. Site, method and total are consistent with overlap. The 1983 report gives neither the grade-by-DCS cross-tabulation nor a row or date crosswalk to Powell's table."
+      },
+      {
+        "id": "dervay02_fulltext",
+        "title": "The effect of exercise and rest duration on the generation of venous gas bubbles at altitude",
+        "year": 2002,
+        "pmid": "11817616",
+        "author": "Dervay JP, Powell MR, Butler B, Fife CE",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p22.pdf",
+        "locator": "Printed p. 25, Table III; Printed p. 26, Complications, and p. 25, Table III",
+        "sha256": "e0fb072220cc5056328420d34cf2e295c52c177708c886fcef9d732da510bb59",
+        "observations": [
+          {
+            "id": "dervay02_fulltext:completed-crossover-visits:reported_dcs_during_altitude",
+            "endpoint": "reported_dcs_during_altitude",
+            "group": "completed-crossover-visits",
+            "cases": 0,
+            "denominator": 60,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlapping_margin",
+            "outcome_window": "During the 120-minute altitude exposure.",
+            "locator": "Printed p. 26, Complications, and p. 25, Table III",
+            "note": "The full text reports no DCS during the two-hour exposures. The 60-visit complete crossover is a repeated-person margin of the previously recorded abstract cohort. The following paragraph describes an exercise complication diagnosed as rhabdomyolysis after one visit. This is a distinct endpoint and provides no standardized clinical DCS follow-up window."
+          }
+        ],
+        "published_doppler_visits": 63,
+        "published_subject_numbers": 23,
+        "complete_crossover_visits": 60,
+        "note": "Existing article. The full text documents exposure-level VGE and specifies the DCS observation window."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-powell-dervay-doppler-vann-abstract",
+    "date": "2026-11-21",
+    "provider": "UHMS and Firecrawl",
+    "operation": "verify_original_attribution",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrape_id": "01a1fe51-4061-723e-89f7-d691a9781653"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "No altitude outcome appears in the cited original meeting abstract.",
+    "records": [
+      {
+        "id": "vann82",
+        "title": "Doppler bubble measurements and decompression sickness",
+        "year": 1982,
+        "author": "Vann RD, Dick AP, Barry PD",
+        "url": "https://uhms.org/uhm-search/abstracts-session-iiii-bubble-dynamics-pdf/viewdocument/1783.html",
+        "locator": "Undersea Biomedical Research 9(Suppl):24, Session III, abstract 33",
+        "note": "Powell's introduction attributes Table I to Vann, Dick and Barry. The recovered UHMS abstract includes only 286 Duke nitrogen–oxygen dives and 166 DCIEM air dives. It does not establish the primary source of the altitude rows."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-powell-dervay-doppler-unal",
+    "date": "2026-11-21",
+    "provider": "EBSCO UNAL",
+    "operation": "sign_in_for_discovery_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "planned_queries": [
+        "(\"decompression sickness\" OR \"venous gas emboli\") AND (\"hypobaric chamber\" OR \"altitude chamber\") AND (Doppler OR prebreathe)",
+        "(\"decompression sickness\" AND (\"altitude chamber\" OR \"hypobaric chamber\")) AND (training OR trainees OR instructors)"
+      ],
+      "searches_executed": 0
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "UNAL proxy was reachable. One configured sign-in attempt remained on the proxy page without a visible alert. No search results or full-text files were returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-powell-dervay-doppler-llamaparse",
+    "date": "2026-11-21",
+    "provider": "LlamaParse",
+    "operation": "parse_one_public_pdf_page",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://ntrs.nasa.gov/api/citations/19910021378/downloads/19910021378.pdf",
+      "printed_page": 14,
+      "pdf_page": 22,
+      "http_status": 402
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "LlamaParse returned HTTP 402 and produced no extraction. The source table was verified with local PDF text and the original rendered page.",
+    "records": []
+  }
+]

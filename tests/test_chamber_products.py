@@ -4125,3 +4125,59 @@ def test_fac_followup_uses_original_cohort_and_reconciles_chapter_records(releas
             SELECT count(*) FROM review.review_identity_assignment
             WHERE record_key LIKE '%#W7162995450' AND report_id='doi:10.25062/9786287818279.12'
         """).fetchone() == (6,)
+
+
+def test_powell_margins_and_dervay_visits_preserve_risk_sets_and_identity(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='powell91_tm102176' AND analysis_role='overlap_hold'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("max-spencer-0", 0, 75),
+            ("max-spencer-I", 1, 6),
+            ("max-spencer-II", 2, 12),
+            ("max-spencer-III", 8, 25),
+            ("max-spencer-IV", 29, 55),
+        ]
+        assert db.execute("""
+            SELECT concordance,count(*) FROM publication_powell_doppler_margin
+            GROUP BY concordance ORDER BY concordance
+        """).fetchall() == [("potential_combination", 2), ("rounded_profile_concordance", 12)]
+        assert db.execute("""
+            SELECT modeled_tissue_ratio,any_vge_percent_as_printed,grade_iii_iv_fraction_numerator,
+                   grade_iii_iv_fraction_denominator,conkin_procedures
+            FROM publication_powell_doppler_margin WHERE table_row=5
+        """).fetchone() == (1.68, 57, 15, 26, "8")
+        assert db.execute("""
+            SELECT trial_count,participant_count
+            FROM publication_chamber_trial_scope WHERE source_id='waligora83_tm58257'
+        """).fetchone() == (173, None)
+        assert db.execute("""
+            SELECT condition_as_reported,count(*),sum(highest_spencer_grade > 0),
+                   sum(highest_spencer_grade >= 3)
+            FROM publication_dervay_doppler_visit WHERE completed_crossover=1
+            GROUP BY condition_as_reported ORDER BY condition_as_reported
+        """).fetchall() == [("A", 20, 6, 2), ("B", 20, 8, 5), ("C", 20, 10, 9)]
+        assert db.execute("""
+            SELECT source_subject_number,condition_as_reported,visit_order,first_vge_detection_min,highest_spencer_grade
+            FROM publication_dervay_doppler_visit WHERE completed_crossover=0
+            ORDER BY source_subject_number
+        """).fetchall() == [(7, "A", 1, None, 0), (10, "A", 1, None, 0), (23, "B", 1, None, 0)]
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role,outcome_window
+            FROM publication_observation
+            WHERE source_id='dervay02_fulltext' AND endpoint='reported_dcs_during_altitude'
+        """).fetchone() == (0, 60, "person_exposure", "overlapping_margin", "During the 120-minute altitude exposure.")
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE pmid='11817616' OR source_key IN ('dervay02','dervay02_fulltext')
+        """).fetchall() == [("pmid:11817616",)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE openalex_id='W920476218' OR source_key IN ('W920476218','powell91_tm102176')
+        """).fetchall() == [("openalex:W920476218",)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE relationship='cited_source_scope_discrepancy' AND left_report='openalex:W920476218'
+        """).fetchone() == (1,)
