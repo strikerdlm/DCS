@@ -1,0 +1,78 @@
+[
+  {
+    "id": "2026-11-21-nasa-serious-reference-audit-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_underlying_report_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {"id": "01a1feea-816e-7639-bb17-91b35c1bbc8d", "topic": "Bridge et al. 1945 Chokes", "returned": 2},
+        {"id": "01a1feea-8246-75ce-9b40-415c6a3e4887", "topic": "Anthony et al. Temperature and decompression sickness CAM 136"},
+        {"id": "01a1feea-8147-747f-856c-1576b6974069", "topic": "Robinson and Donnelly ENG-49-696-1E and ENG-49-696-1G"},
+        {"id": "01a1feeb-cdd2-774d-af82-0ae9e4622ef2", "topic": "Walder Studies in the susceptibility to decompression sickness, Bristol 1947"},
+        {"id": "01a1feea-81a4-769f-a7e4-2e81bf9d8029", "topic": "Webb and Engel pressure breathing CAM 385"},
+        {"id": "01a1feeb-cdd6-7752-96b7-fb9c75ed74cf", "topic": "Williams et al. Drugs for prevention of decompression sickness 1946"},
+        {"id": "01a1fef0-92f8-72eb-8450-30284eb712a1", "query": "\"JPRS-75251\" \"space biology and aerospace medicine\" March 1980 Sedov Mazin", "returned": 0}
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Bridge publisher excerpt identifies reuse of the 1944 study; independent membership in the 1945 series is unresolved. The other archive searches did not verify additional original outcome cells.",
+    "records": [
+      {
+        "id": "10.7326/0003-4819-22-3-398",
+        "doi": "10.7326/0003-4819-22-3-398",
+        "title": "Chokes: a respiratory manifestation of aeroembolism in high altitude flying",
+        "year": 1945,
+        "url": "https://www.acpjournals.org/doi/10.7326/0003-4819-22-3-398",
+        "locator": "Publisher excerpt and Conkin Appendix A ref. 14",
+        "note": "Previously registered publication. Publisher excerpt cites the earlier 167-exposure report and mentions unpublished observations. The full 1945 article remains unverified."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-serious-reference-audit-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_underlying_report_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "topic": "Bridge et al. 1945 Chokes original full text",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-serious-reference-audit-primary",
+    "date": "2026-11-21",
+    "provider": "NASA Technical Reports Server and PubMed",
+    "operation": "verify_cited_publication_identity_and_translation_locator",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "nasa_appendix_sha256": "601397b25eb54bb50342daf137847fd31bead522858a4aa957f631bc751d1607",
+      "conkin_reference_count": 73,
+      "matched_kumar_reference_count": 22,
+      "comparison_report": "https://ntrs.nasa.gov/citations/19890012936"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Same-publication links are keyed by original authors, title, year and report or journal identifier. No case or exposure keys were inferred. The Sedov PubMed record already occurs in the formal retrieval export. Its translation locator is additional provenance.",
+    "records": [
+      {
+        "id": "6102169",
+        "pmid": "6102169",
+        "title": "Probability of the occurrence of altitude decompression disorders from breathing oxygen containing the gaseous products of human vital activities",
+        "authors": ["A V Sedov", "A N Mazin", "N A Surovtsev"],
+        "year": 1980,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/6102169/",
+        "evidence_url": "https://ntrs.nasa.gov/api/citations/19800017534/downloads/19800017534.pdf#page=29",
+        "locator": "Conkin Appendix A ref. 59 and NASA index N80-19762 on printed p. 115. English translation in JPRS-75251, March 5, 1980, printed pp. 49–53.",
+        "note": "Publication fingerprint and translation locator verified. The public abstract gives qualitative observations and no compatible numerator–denominator pairs."
+      }
+    ]
+  }
+]
