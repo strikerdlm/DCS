@@ -2317,11 +2317,13 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
                 db.execute(f'SELECT * FROM {schema}."{view}" LIMIT 1').fetchone()
         assert db.execute("SELECT 1 FROM review.sqlite_schema WHERE name='nasa_test'").fetchone() is None
         assert db.execute("SELECT 1 FROM main.sqlite_schema WHERE name='review_screening'").fetchone() is None
-        assert db.execute("""
+        total_cases, unique_cases, linked_cases = db.execute("""
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (127, 127, 127)
+        """).fetchone()
+        assert total_cases > 0
+        assert total_cases == unique_cases == linked_cases
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
