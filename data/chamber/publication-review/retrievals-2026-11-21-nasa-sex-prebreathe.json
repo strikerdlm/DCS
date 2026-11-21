@@ -1,0 +1,673 @@
+[
+  {
+    "id": "2026-11-21-nasa-sex-prebreathe-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_hypobaric_outcome_source_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "id": "01a1fef8-7f69-70ad-aaec-0b0a7a398e7c",
+          "topic": "Eatock Gray Ford DCIEM 83-C-07",
+          "returned": 0
+        },
+        {
+          "id": "01a1fef8-7f26-75e9-ba05-dd87e22f3487",
+          "topic": "Canadian Doppler aeromedical training technical report title",
+          "returned": 0
+        },
+        {
+          "id": "01a1fef8-7f31-773c-823c-a9e9f066a3e6",
+          "topic": "French hypobaric chamber training incidence",
+          "returned": 5
+        },
+        {
+          "id": "01a1fef8-7f20-719d-9afb-81110bae96ee",
+          "topic": "Brazilian and Argentine operational chamber incidence",
+          "returned": 1
+        },
+        {
+          "id": "01a1fefb-53ab-7258-a72a-36b72677b347",
+          "topic": "Skinner, Hart and Adams 283 cases original preprint",
+          "returned": 4
+        },
+        {
+          "id": "01a1fefb-5343-718c-b6e6-7d7164c28c21",
+          "topic": "NASA/TP-2004-213148 public full text",
+          "returned": 2
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The Brazilian source is already indexed. The NASA technical report was located and its outcome tables were verified against the public PDF. The original Eatock and Skinner reports remain unverified.",
+    "records": [
+      {
+        "id": "conkin04_sex_prebreathe",
+        "title": "Gender and Decompression Sickness: A Critical Review and Analysis",
+        "openalex_id": "W2181311634",
+        "year": 2004,
+        "url": "https://ntrs.nasa.gov/api/citations/20050041819/downloads/20050041819.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-sex-prebreathe-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_hypobaric_outcome_source_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "83-C-07 Eatock Gray Ford aeromedical training altitude profiles Doppler Canadian Forces DCIEM",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-sex-prebreathe-primary",
+    "date": "2026-11-21",
+    "provider": "NASA Technical Reports Server",
+    "operation": "verify_reused_hypobaric_risk_sets_and_case_windows",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Transcribed the original tables and checked numeric cells against the rendered pages. Repeated tabulations are identified by source and table.",
+    "records": [
+      {
+        "id": "conkin04_sex_prebreathe",
+        "title": "Gender and Decompression Sickness: A Critical Review and Analysis",
+        "openalex_id": "W2181311634",
+        "year": 2004,
+        "url": "https://ntrs.nasa.gov/api/citations/20050041819/downloads/20050041819.pdf",
+        "locator": "Tables III–XI, printed pp. 26–32",
+        "source_sha256": "b244a583cb9b6c32f5797b8cb35185f0ccf0f45f111b520867c21409f902d2fb",
+        "observations": [
+          {
+            "id": "conkin04_sex_prebreathe:resting-female:dcs_as_reported",
+            "endpoint": "dcs_as_reported",
+            "group": "resting-female",
+            "cases": 11,
+            "denominator": 96,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "DCS reported or recalled as occurring at altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:resting-female:any_vge",
+            "endpoint": "any_vge",
+            "group": "resting-female",
+            "cases": 23,
+            "denominator": 96,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Precordial Doppler detection during altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:resting-female:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "resting-female",
+            "cases": 10,
+            "denominator": 96,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV Doppler detection during altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:resting-female:grade_iv_vge_among_vge_positive",
+            "endpoint": "grade_iv_vge_among_vge_positive",
+            "group": "resting-female",
+            "cases": 10,
+            "denominator": 23,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV among exposures with any Doppler detection during altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:resting-male:dcs_as_reported",
+            "endpoint": "dcs_as_reported",
+            "group": "resting-male",
+            "cases": 71,
+            "denominator": 453,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "DCS reported or recalled as occurring at altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold. Table VII, printed p. 29, gives 71 DCS and 362 non-DCS (sum 433). Tables III and VI explicitly give 71/453. Table III supplies this record. The source gives no explanation for the 20-record difference."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:resting-male:any_vge",
+            "endpoint": "any_vge",
+            "group": "resting-male",
+            "cases": 199,
+            "denominator": 453,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Precordial Doppler detection during altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:resting-male:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "resting-male",
+            "cases": 114,
+            "denominator": 453,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV Doppler detection during altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:resting-male:grade_iv_vge_among_vge_positive",
+            "endpoint": "grade_iv_vge_among_vge_positive",
+            "group": "resting-male",
+            "cases": 114,
+            "denominator": 199,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV among exposures with any Doppler detection during altitude.",
+            "locator": "Table III, printed p. 26 (PDF p. 34)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-female:dcs_as_reported",
+            "endpoint": "dcs_as_reported",
+            "group": "exercise-female",
+            "cases": 11,
+            "denominator": 51,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "At altitude with two delayed Phase I reports included in the female margin.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold. Table XI includes nine timed DCS events. Two female cases reported hours after Phase I are included in the 11, with no timed in-chamber event."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-female:any_vge",
+            "endpoint": "any_vge",
+            "group": "exercise-female",
+            "cases": 20,
+            "denominator": 51,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Precordial Doppler detection during altitude.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-female:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "exercise-female",
+            "cases": 4,
+            "denominator": 51,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV Doppler detection during altitude.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-female:grade_iv_vge_among_vge_positive",
+            "endpoint": "grade_iv_vge_among_vge_positive",
+            "group": "exercise-female",
+            "cases": 4,
+            "denominator": 20,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV among exposures with any Doppler detection during altitude.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-male:dcs_as_reported",
+            "endpoint": "dcs_as_reported",
+            "group": "exercise-male",
+            "cases": 19,
+            "denominator": 166,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "At altitude with two delayed Phase I reports included in the female margin.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-male:any_vge",
+            "endpoint": "any_vge",
+            "group": "exercise-male",
+            "cases": 74,
+            "denominator": 166,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Precordial Doppler detection during altitude.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-male:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "exercise-male",
+            "cases": 18,
+            "denominator": 166,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV Doppler detection during altitude.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          },
+          {
+            "id": "conkin04_sex_prebreathe:exercise-male:grade_iv_vge_among_vge_positive",
+            "endpoint": "grade_iv_vge_among_vge_positive",
+            "group": "exercise-male",
+            "cases": 18,
+            "denominator": 74,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV among exposures with any Doppler detection during altitude.",
+            "locator": "Table IV, printed p. 27 (PDF p. 35)",
+            "note": "Tables V–X reclassify the same observations. This row remains on overlap hold."
+          }
+        ],
+        "role_review": "overlap_hold"
+      },
+      {
+        "id": "thompson02_grade_iv",
+        "title": "Modeling Grade IV Gas Emboli Using a Limited Failure Population Model with Random Effects",
+        "openalex_id": "W1651164841",
+        "year": 2002,
+        "url": "https://ntrs.nasa.gov/api/citations/20020044431/downloads/20020044431.pdf",
+        "locator": "Section 2 and Tables 2a–2d, printed pp. 3–6",
+        "source_sha256": "9d8e8b8fedcca142c36c1164acd1498e384a0d44c101d3bcdd35cb247b9fd2a8",
+        "observations": [
+          {
+            "id": "thompson02_grade_iv:full-before-equipment-exclusion:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "full-before-equipment-exclusion",
+            "cases": 124,
+            "denominator": 549,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Section 2.1, printed p. 4 (PDF p. 12)",
+            "note": "Source total before one interval-censored Grade IV record was excluded for equipment failure. Later tables share one 548-record subset."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-adynamic-tr360-0.94-to-1.35:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-adynamic-tr360-0.94-to-1.35",
+            "cases": 3,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-adynamic-tr360-1.35-to-1.68:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-adynamic-tr360-1.35-to-1.68",
+            "cases": 0,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-adynamic-tr360-1.68-to-1.77:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-adynamic-tr360-1.68-to-1.77",
+            "cases": 1,
+            "denominator": 23,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-adynamic-tr360-1.77-to-1.89:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-adynamic-tr360-1.77-to-1.89",
+            "cases": 4,
+            "denominator": 28,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-ambulatory-tr360-0.94-to-1.35:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-ambulatory-tr360-0.94-to-1.35",
+            "cases": 6,
+            "denominator": 113,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-ambulatory-tr360-1.35-to-1.68:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-ambulatory-tr360-1.35-to-1.68",
+            "cases": 33,
+            "denominator": 124,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-ambulatory-tr360-1.68-to-1.77:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-ambulatory-tr360-1.68-to-1.77",
+            "cases": 65,
+            "denominator": 191,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-ambulatory-tr360-1.77-to-1.89:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-ambulatory-tr360-1.77-to-1.89",
+            "cases": 11,
+            "denominator": 24,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2a-tr360-le-0.94:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2a-tr360-le-0.94",
+            "cases": 0,
+            "denominator": 12,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2a footnote, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report. The source reports this omitted TR360 band without a mobility split."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2b-female-adynamic:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2b-female-adynamic",
+            "cases": 2,
+            "denominator": 27,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2b, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2b-female-ambulatory:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2b-female-ambulatory",
+            "cases": 8,
+            "denominator": 69,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2b, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2b-male-adynamic:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2b-male-adynamic",
+            "cases": 6,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2b, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2b-male-ambulatory:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2b-male-ambulatory",
+            "cases": 107,
+            "denominator": 395,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2b, printed p. 5 (PDF p. 13)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2c-female-age-19-to-30:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2c-female-age-19-to-30",
+            "cases": 1,
+            "denominator": 35,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2c, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2c-female-age-30-to-40:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2c-female-age-30-to-40",
+            "cases": 8,
+            "denominator": 47,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2c, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2c-female-age-40-to-60:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2c-female-age-40-to-60",
+            "cases": 1,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2c, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2c-male-age-19-to-30:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2c-male-age-19-to-30",
+            "cases": 54,
+            "denominator": 260,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2c, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2c-male-age-30-to-40:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2c-male-age-30-to-40",
+            "cases": 35,
+            "denominator": 124,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2c, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2c-male-age-40-to-60:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2c-male-age-40-to-60",
+            "cases": 24,
+            "denominator": 68,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2c, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2d-adynamic-age-19-to-30:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2d-adynamic-age-19-to-30",
+            "cases": 1,
+            "denominator": 34,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2d, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2d-adynamic-age-30-to-40:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2d-adynamic-age-30-to-40",
+            "cases": 4,
+            "denominator": 31,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2d, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2d-adynamic-age-40-to-60:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2d-adynamic-age-40-to-60",
+            "cases": 3,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2d, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2d-ambulatory-age-19-to-30:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2d-ambulatory-age-19-to-30",
+            "cases": 54,
+            "denominator": 261,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2d, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2d-ambulatory-age-30-to-40:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2d-ambulatory-age-30-to-40",
+            "cases": 39,
+            "denominator": 140,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2d, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          },
+          {
+            "id": "thompson02_grade_iv:table-2d-ambulatory-age-40-to-60:grade_iv_vge",
+            "endpoint": "grade_iv_vge",
+            "group": "table-2d-ambulatory-age-40-to-60",
+            "cases": 22,
+            "denominator": 63,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Grade IV detection by precordial Doppler during hypobaric exposure. Monitoring intervals and early termination were variable.",
+            "locator": "Table 2d, printed p. 6 (PDF p. 14)",
+            "note": "Each table reclassifies the same retained records. Range labels follow the report."
+          }
+        ],
+        "role_review": "overlap_hold"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-sex-prebreathe-citation-tracing",
+    "date": "2026-11-21",
+    "provider": "NASA technical bibliographies and Eftedal thesis",
+    "operation": "trace_original_reports",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Exact archive identifiers and citation locators were recovered. Direct study data were unavailable for these leads.",
+    "records": [
+      {
+        "id": "skinner83",
+        "title": "Altitude decompression sickness: a retrospective study of treatment parameters in 283 cases",
+        "year": 1983,
+        "authors": [
+          "J L Skinner",
+          "K R Hart",
+          "J D Adams"
+        ],
+        "url": null,
+        "evidence_url": "https://ntrs.nasa.gov/api/citations/19850005160/downloads/19850005160.pdf",
+        "locator": "NASA bibliography entry 359, printed p. 50. AsMA 1983 preprints pp. 128–129. GWU 4891.",
+        "note": "Conkin 2004 printed p. 22 quotes rounded proportions conditional on a DCS diagnosis. The preprint, exposure source and exposed denominator remain unverified.",
+        "reported_case_series_size": 283,
+        "type_ii_percent_among_dcs_cases": {
+          "male": 25,
+          "female": 36
+        }
+      },
+      {
+        "id": "eatock83_technical",
+        "title": "Evaluation with Doppler ultrasonic bubble detection of standard Canadian forces aeromedical training altitude profiles",
+        "year": 1983,
+        "authors": [
+          "B C Eatock",
+          "G W Gray",
+          "G S Ford"
+        ],
+        "url": null,
+        "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf#page=39",
+        "locator": "Conkin 2001 Appendix A ref. 28. DCIEM Technical Communication 83-C-07.",
+        "note": "Conkin Appendix C shows two six-exposure cells with zero serious cases. The original outcome definitions, VGE counts and overlap with the preprint are unknown."
+      },
+      {
+        "id": "eatock83_preprint",
+        "title": "Evaluation, with Doppler ultrasonic bubble detection, of pre-breathing oxygen for reducing the incidence of decompression sickness",
+        "year": 1983,
+        "authors": [
+          "B C Eatock",
+          "G W Gray",
+          "G S Ford"
+        ],
+        "url": null,
+        "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_792-ultrasonic-detection-deco-induced-vascular-microbubbles.pdf",
+        "locator": "Eftedal thesis bibliography ref. 161, printed p. 59. AsMA annual meeting preprints pp. 126–127.",
+        "note": "Same three authors and year as the DCIEM report. The publication and exposure linkage require the original pages."
+      }
+    ]
+  }
+]

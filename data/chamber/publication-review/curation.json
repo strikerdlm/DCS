@@ -14837,6 +14837,54 @@
       "report_id": "ntrs:20010020946",
       "evidence_url": "https://ntrs.nasa.gov/citations/20010020946",
       "basis": "Exact Conkin technical-paper title or report number, January 2001, verified against NTRS and the publisher PDF."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.142/sources.csv#conkin04_sex_prebreathe",
+      "report_id": "openalex:W2181311634",
+      "basis": "Exact title, author and NASA/TP-2004-213148.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20050041819/downloads/20050041819.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.142/sources.csv#thompson02_grade_iv",
+      "report_id": "openalex:W1651164841",
+      "basis": "Exact title, authors and NASA/TP-2002-210781.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20020044431/downloads/20020044431.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1651164841",
+      "report_id": "openalex:W1651164841",
+      "basis": "Exact title, authors and NASA/TP-2002-210781.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20020044431/downloads/20020044431.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-sex-prebreathe-primary#thompson02_grade_iv",
+      "report_id": "openalex:W1651164841",
+      "basis": "Primary NASA PDF identifies the same title, authors and NASA/TP-2002-210781.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20020044431/downloads/20020044431.pdf"
+    },
+    {
+      "record_key": "2026-11-20-fort-rucker-tav-preprint#https://www.researchgate.net/publication/242216490_Gender_and_Decompression_Sickness_A_Critical_Review_and_Analysis",
+      "report_id": "openalex:W2181311634",
+      "basis": "The alternate page identifies the same NASA title, author and report number.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20050041819/downloads/20050041819.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-sex-prebreathe-citation-tracing#skinner83",
+      "report_id": "preprint:asma-1983-skinner-128",
+      "basis": "NASA bibliography entry 359 gives title, authors, publication year and meeting pages.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19850005160/downloads/19850005160.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-sex-prebreathe-citation-tracing#eatock83_technical",
+      "report_id": "report:dciem-83-c-07",
+      "basis": "Conkin Appendix A reference 28 identifies this Canadian report.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf#page=39"
+    },
+    {
+      "record_key": "2026-11-21-nasa-sex-prebreathe-citation-tracing#eatock83_preprint",
+      "report_id": "preprint:asma-1983-eatock-126",
+      "basis": "Eftedal thesis reference 161 prints authors, title, year and meeting pages.",
+      "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_792-ultrasonic-detection-deco-induced-vascular-microbubbles.pdf"
     }
   ],
   "studies": [
@@ -22712,6 +22760,34 @@
       "relationship": "same_published_case",
       "evidence": "Both reports by K. V. Kumar match on participant stature and weight, the Bruce treadmill test and 45-minute equilibration at 15,000 ft, the leaking airlock and brief descent to about 6,000 ft, resumed exercise, left-elbow pain after descent, the unavailable hyperbaric chamber and the 65% and 50% packed-cell-volume measurements. The age, symptom timing and recovery wording differ. The 1988 paper identifies the site as the Institute of Aviation Medicine, Bangalore, India.",
       "evidence_url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=981620fdef4d6997a6f0f9381d1ac839Bh0fuTf8hc0%3D"
+    },
+    {
+      "left_report": "openalex:W2181311634",
+      "right_report": "openalex:W1651164841",
+      "relationship": "same_historical_nasa_records_before_one_exclusion",
+      "evidence": "Conkin Table III and Thompson Section 2 each report 549 records, including 453 male and 96 female records and 124 Grade IV detections. Thompson removes one Grade IV interval after equipment failure before its cross-tabulations.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20020044431/downloads/20020044431.pdf#page=12"
+    },
+    {
+      "left_report": "openalex:W2181311634",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "relationship": "same_seven_phase_hypothesis_test_subset",
+      "evidence": "Conkin Table IV and the exercise-only report Table 9 agree on 217 exposure records, 30 DCS, 94 any VGE and 22 Grade IV VGE. Each identifies two delayed Phase I reports.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-exercise-tp-213158-2004.pdf"
+    },
+    {
+      "left_report": "openalex:W2181311634",
+      "right_report": "preprint:asma-1983-skinner-128",
+      "relationship": "quotes_case_only_series",
+      "evidence": "Conkin pp. 22 and 48 identify the 283-case retrospective treatment-series preprint and quote sex-specific Type II case percentages without subgroup denominators.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20050041819/downloads/20050041819.pdf#page=30"
+    },
+    {
+      "left_report": "report:dciem-83-c-07",
+      "right_report": "preprint:asma-1983-eatock-126",
+      "relationship": "possible_overlap_same_authors_and_year",
+      "evidence": "The report and preprint share three authors, publication year and the Doppler altitude subject. Membership and full texts are unresolved.",
+      "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_792-ultrasonic-detection-deco-induced-vascular-microbubbles.pdf"
     }
   ],
   "report_titles": {

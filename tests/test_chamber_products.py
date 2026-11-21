@@ -4611,3 +4611,51 @@ def test_nasa_serious_references_link_publications_without_merging_outcomes(rele
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='sedov80_waste_gas'
         """).fetchone() == (0,)
+
+
+def test_nasa_prebreathe_windows_and_grade_iv_archive_overlap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='conkin04_sex_prebreathe' AND endpoint='dcs_as_reported'
+              AND analysis_role='overlap_hold' ORDER BY stratum
+        """).fetchall() == [
+            ("exercise-female", 11, 51), ("exercise-male", 19, 166),
+            ("resting-female", 11, 96), ("resting-male", 71, 453),
+        ]
+        assert db.execute("""
+            SELECT sum(timed_events),count(*) FROM publication_outcome_latency_summary
+            WHERE source_id='conkin04_sex_prebreathe' AND endpoint='dcs_as_reported'
+        """).fetchone() == (110, 4)
+        assert db.execute("""
+            SELECT timed_events,mean_minutes,standard_deviation_minutes
+            FROM publication_outcome_latency_summary
+            WHERE source_id='conkin04_sex_prebreathe' AND endpoint='dcs_as_reported'
+              AND stratum='exercise-female'
+        """).fetchone() == (9, 118.2, 29.3)
+        assert db.execute("""
+            SELECT substr(stratum,1,8),sum(numerator),sum(denominator)
+            FROM publication_observation WHERE source_id='thompson02_grade_iv'
+              AND endpoint='grade_iv_vge' AND analysis_role='overlap_hold'
+              AND stratum LIKE 'table-%' GROUP BY substr(stratum,1,8) ORDER BY stratum
+        """).fetchall() == [(f"table-2{table}", 123, 548) for table in "abcd"]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='thompson02_grade_iv' AND stratum='full-before-equipment-exclusion'
+        """).fetchone() == (124, 549)
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE source_id IN ('conkin04_sex_prebreathe','thompson02_grade_iv') ORDER BY source_id
+        """).fetchall() == [
+            ("conkin04_sex_prebreathe", "openalex:W2181311634"),
+            ("thompson02_grade_iv", "openalex:W1651164841"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id IN ('openalex:W2181311634','openalex:W1651164841')
+              AND role_review='overlap_hold'
+        """).fetchone() == (42,)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(title) LIKE '%limited failure population model with random effects%'
+        """).fetchall() == [("openalex:W1651164841",)]

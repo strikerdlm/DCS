@@ -1,0 +1,9 @@
+source_id,stratum,endpoint,timed_events,mean_minutes,standard_deviation_minutes,locator,note
+conkin04_sex_prebreathe,resting-female,dcs_as_reported,11,130.3,69.3,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of report or recalled symptom latency among timed DCS cases.
+conkin04_sex_prebreathe,resting-female,any_vge,23,100.6,73.3,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of first detected VGE. Intermittent monitoring makes onset interval-censored.
+conkin04_sex_prebreathe,resting-male,dcs_as_reported,71,120.1,70.7,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of report or recalled symptom latency among timed DCS cases.
+conkin04_sex_prebreathe,resting-male,any_vge,199,81.8,61.6,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of first detected VGE. Intermittent monitoring makes onset interval-censored.
+conkin04_sex_prebreathe,exercise-female,dcs_as_reported,9,118.2,29.3,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of report or recalled symptom latency among timed DCS cases. Excludes the two cases reported after the test.
+conkin04_sex_prebreathe,exercise-female,any_vge,20,80.6,42.0,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of first detected VGE. Intermittent monitoring makes onset interval-censored.
+conkin04_sex_prebreathe,exercise-male,dcs_as_reported,19,102.2,46.7,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of report or recalled symptom latency among timed DCS cases.
+conkin04_sex_prebreathe,exercise-male,any_vge,74,94.4,59.4,"Table XI, printed p. 32 (PDF p. 40)",Source mean and SD of first detected VGE. Intermittent monitoring makes onset interval-censored.
