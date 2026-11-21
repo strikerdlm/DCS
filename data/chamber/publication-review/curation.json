@@ -14117,6 +14117,72 @@
       "report_id": "issue:amhp-2026-97-10",
       "evidence_url": "https://meridian-asma-published.prime-prod-local.pubfactory.com/downloadpdf/view/journals/amhp/97/10/article-p1.pdf",
       "basis": "Search hit points to the complete journal issue."
+    },
+    {
+      "record_key": "2026-11-21-prebreathe-workload-firecrawl-gray#1",
+      "report_id": "record:2026-11-21-prebreathe-workload-firecrawl-gray#1",
+      "basis": "Exact same Military Medicine bibliography-copy URL. The occurrence is distinct from the Guest result source.",
+      "evidence_url": "https://archive.org/stream/58730190R.nlm.nih.gov/58730190R_djvu.txt"
+    },
+    {
+      "record_key": "2026-11-21-air-surgeons-bulletin-guest-citation#1",
+      "report_id": "record:2026-11-21-prebreathe-workload-firecrawl-gray#1",
+      "basis": "Exact same Military Medicine bibliography-copy URL. The occurrence is distinct from the Guest result source.",
+      "evidence_url": "https://archive.org/stream/58730190R.nlm.nih.gov/58730190R_djvu.txt"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.124/sources.csv#guest44_diurnal_bends",
+      "report_id": "asb:1944:1:6:5:guest",
+      "basis": "Printed issue, page, heading and credited investigators identify the distinct article on the scanned issue page.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155"
+    },
+    {
+      "record_key": "2026-11-21-air-surgeons-bulletin-primary#guest44_diurnal_bends",
+      "report_id": "asb:1944:1:6:5:guest",
+      "basis": "Printed issue, page, heading and credited investigators identify the distinct article on the scanned issue page.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.124/sources.csv#karpovich44_fitness_bends",
+      "report_id": "asb:1944:1:6:5:karpovich",
+      "basis": "Printed issue, page, heading and credited investigators identify the distinct article on the scanned issue page.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155"
+    },
+    {
+      "record_key": "2026-11-21-air-surgeons-bulletin-primary#karpovich44_fitness_bends",
+      "report_id": "asb:1944:1:6:5:karpovich",
+      "basis": "Printed issue, page, heading and credited investigators identify the distinct article on the scanned issue page.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.124/sources.csv#asb44_cincinnati_migraine",
+      "report_id": "asb:1944:1:7:8:cincinnati-migraine",
+      "basis": "Printed issue, page, heading and credited investigators identify the distinct article on the scanned issue page.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=186"
+    },
+    {
+      "record_key": "2026-11-21-air-surgeons-bulletin-primary#asb44_cincinnati_migraine",
+      "report_id": "asb:1944:1:7:8:cincinnati-migraine",
+      "basis": "Printed issue, page, heading and credited investigators identify the distinct article on the scanned issue page.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=186"
+    },
+    {
+      "record_key": "2026-11-21-air-surgeons-bulletin-alternate-copies#guest-michigan",
+      "report_id": "asb:1944:1:6:5:guest",
+      "basis": "Same printed contribution from another holding or the continuation of the same article.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=153"
+    },
+    {
+      "record_key": "2026-11-21-air-surgeons-bulletin-alternate-copies#karpovich-michigan",
+      "report_id": "asb:1944:1:6:5:karpovich",
+      "basis": "Same printed contribution from another holding or the continuation of the same article.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=153"
+    },
+    {
+      "record_key": "2026-11-21-air-surgeons-bulletin-alternate-copies#migraine-continuation",
+      "report_id": "asb:1944:1:7:8:cincinnati-migraine",
+      "basis": "Same printed contribution from another holding or the continuation of the same article.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=187"
     }
   ],
   "studies": [
@@ -15427,6 +15493,24 @@
       "label": "QinetiQ two-day repeated dispatcher chamber experiment",
       "period": "Published September 2026. Exposure dates unavailable.",
       "setting": "Experimental hypobaric chamber. Two intended ascents daily with simulated despatcher duty."
+    },
+    {
+      "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+      "label": "Guest wartime chamber trainees by time of day",
+      "period": "Published 1944. Exposure dates unavailable.",
+      "setting": "Army Air Forces. Author affiliation Las Vegas Army Air Field, Nevada."
+    },
+    {
+      "study_id": "us-aaf-san-antonio-fitness-38000ft",
+      "label": "Karpovich chamber bends and Pre-Flight School fitness",
+      "period": "Published 1944. Exposure dates unavailable.",
+      "setting": "Aviation students from San Antonio. Author at Randolph Field."
+    },
+    {
+      "study_id": "cincinnati-repeated-migraine-syndrome",
+      "label": "University of Cincinnati repeated chamber exposures and migraine-like syndrome",
+      "period": "Published 1944. Exposure dates unavailable.",
+      "setting": "1944 University of Cincinnati chamber research on repeated simulated altitude exposures."
     }
   ],
   "study_reports": [
@@ -17727,6 +17811,36 @@
       "report_id": "doi:10.3357/amhp.6973.2026",
       "role": "primary_actual_decompression_count",
       "locator": "Publisher abstract, Results"
+    },
+    {
+      "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+      "report_id": "asb:1944:1:6:5:guest",
+      "role": "primary_historical_trainee_rates",
+      "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153)"
+    },
+    {
+      "study_id": "us-aaf-san-antonio-fitness-38000ft",
+      "report_id": "asb:1944:1:6:5:karpovich",
+      "role": "primary_bends_termination_and_fitness",
+      "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153)"
+    },
+    {
+      "study_id": "cincinnati-repeated-migraine-syndrome",
+      "report_id": "asb:1944:1:7:8:cincinnati-migraine",
+      "role": "contemporaneous_clinical_synthesis",
+      "locator": "Vol. 1 no. 7, printed pp. 8–9 (OSU scans 186–187)"
+    },
+    {
+      "study_id": "cincinnati-repeated-migraine-syndrome",
+      "report_id": "nlm:101085500x234:7:romano",
+      "role": "investigator_presentation",
+      "locator": "CAM Subcommittee newsletter, pp. 7–8"
+    },
+    {
+      "study_id": "cincinnati-repeated-migraine-syndrome",
+      "report_id": "fulton1951:clinical-nature",
+      "role": "later_symptom_timing_summary",
+      "locator": "Chapter II, Cincinnati subgroup"
     }
   ],
   "relations": [
@@ -21607,6 +21721,20 @@
       "relationship": "distinct_reported_exposure_schedules_participant_overlap_unresolved",
       "evidence": "The earlier QinetiQ protocol used 15,000-ft denitrogenation, one-hour same-day air breaks, and different target altitudes across the phases. The 2026 authors identify a new two-day protocol with 8,000-ft denitrogenation and pressure recovery during each ascent. Participant linkage across studies is unavailable.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=109"
+    },
+    {
+      "left_report": "asb:1944:1:7:8:cincinnati-migraine",
+      "right_report": "nlm:101085500x234:7:romano",
+      "relationship": "reuses_cincinnati_migraine_series",
+      "evidence": "The bulletin explicitly names the ANA presentation and reproduces 155 people, 1,361 flights, 17 affected people and 46 syndrome episodes. Existing margins are retained once.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=187"
+    },
+    {
+      "left_report": "asb:1944:1:7:8:cincinnati-migraine",
+      "right_report": "journal:war-medicine:1944:5:304",
+      "relationship": "likely_shared_cincinnati_population",
+      "evidence": "Same Cincinnati investigators and syndrome. The bulletin cites CAM 127 and 227 and the ANA presentation. The full War Medicine article remains pending, so its exact cohort match is unverified.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=187"
     }
   ],
   "report_titles": {
@@ -21767,6 +21895,9 @@
     "abstract:asma-2001-154": "Hypobaric Decompression Sickness and Simulated Weightlessness",
     "abstract:asma-2001-164": "The Effect of Post-Exposure Exercise on Altitude Decompression Sickness",
     "abstract:asma-2001-165": "The Incidence and Onset Times of Venous Gas Emboli (VGE) and Altitude Decompression Sickness (DCS) Symptoms in Human Subjects Exposed to 40,000 Ft",
-    "abstract:asma-2026-connolly-253": "High Altitude Parachuting Training and Trials at 25,000 Ft"
+    "abstract:asma-2026-connolly-253": "High Altitude Parachuting Training and Trials at 25,000 Ft",
+    "asb:1944:1:6:5:guest": "The Incidence of Bends During Different Periods of the Day",
+    "asb:1944:1:6:5:karpovich": "Relation Between Bends and Physical Fitness",
+    "asb:1944:1:7:8:cincinnati-migraine": "A Migraine-Like Syndrome Complicating Decompression Sickness"
   }
 }
