@@ -1,0 +1,328 @@
+[
+  {
+    "id": "2026-11-20-neurological-archive-sweden-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_search",
+    "params": {
+      "query": "\"Olycksfall vid undertryckskammarprov\" \"13234873\" Swedish journal 1954 digital archive Flyg och navalmedicinska full text",
+      "returned_urls": [
+        "https://libris.kb.se/jgvxwsb2144sbzx?_r=library%3AS",
+        "http://www.hammarskjoldcommission.org/wp-content/uploads/2012/02/Accident-Investigators-report-to-the-Hammarskold-Commission1.pdf",
+        "https://books.google.com.jm/books?id=2GOUY9ILm1cC&printsec=frontcover",
+        "https://www.sciencedirect.com/science/article/pii/0376634985900148",
+        "https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A2070029",
+        "https://journals.lub.lu.se/anf/en/issue/view/1829/149",
+        "https://en.wikipedia.org/wiki/Swedish_Armed_Forces_Diving_and_Naval_Medicine_Centre",
+        "https://www.rand.org/content/dam/rand/pubs/papers/2008/P3481.pdf"
+      ],
+      "max_results": 8,
+      "search_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "Located the Libris journal lineage. An original public article scan was not located.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-neurological-archive-sweden-col",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "national_catalog_holdings_verification",
+    "params": {
+      "url": "https://libris.kb.se/5ng37g1h225dp2c?_r=library%3AS",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Libris identifies paper holdings at Kungliga biblioteket for 1952–1955, including the year of the original report. No article text was available through the catalogue.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-neurological-archive-clinical-t",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_search",
+    "params": {
+      "query": "\"altitude chamber\" decompression sickness exposures \"cases\" \"instructors\" Taiwan Italy Germany Canada prospective DCS clinical \"trainees\" original data incidence 2010 2020 2025",
+      "returned_urls": [
+        "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA168595.pdf",
+        "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/28518008",
+        "https://ntrs.nasa.gov/citations/20040088278",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775",
+        "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+        "https://files.4medicine.pl/download.php?cfs_id=1400",
+        "https://jsomonline.org/product/decompression-sickness-following-altitude-chamber-training",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA426860.pdf"
+      ],
+      "max_results": 10,
+      "search_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "Clinical reports with group data match existing Canadian, Israeli, Turkish, Polish and USAF sources. No new exact chamber incidence denominator verified.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-neurological-archive-clinical-f",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search",
+    "params": {
+      "query": "\"hypobaric chamber\" \"decompression sickness\" trainee \"incidence\" clinical student instructor official regional \"training\" data archive OR proceedings 1980 2005",
+      "returned_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "https://www.semanticscholar.org/paper/Australian-Defence-Force-hypobaric-chamber-Smart-Commander/92419a4d62d9daaaa55e1d3d820ca72e0be356fe",
+        "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+        "https://www.researchgate.net/publication/351253971_Decompression_Illness_Incidence_and_Hypoxia_Symptoms_After_Prebreathing_in_Hypobaric_Hypoxia_Training",
+        "https://www.science.gov/topicpages/d/decompression+sickness",
+        "https://www.intechopen.com/chapters/59500",
+        "https://www.deepdivingacademy.it/wordpress/wp-content/uploads/2024/03/moon-decompression-illness.pdf",
+        "https://www.dhmjournal.com/images/49/DHM_Vol49No2.pdf"
+      ],
+      "limit": 10,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "Retrieved the known Brandt, Karaca, Smart and Cable, Ercan and Cheok records. No independent exposure denominator was added.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-neurological-archive-liske-index",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_search",
+    "params": {
+      "query": "\"13\" \"37\" Edward Liske Crowley Lewis \"focal neurological\" altitude 1967 NASA USAFSAM dysbarism original archival identifier",
+      "returned_urls": [
+        "https://ntrs.nasa.gov/api/citations/19670023825/downloads/19670023825.pdf",
+        "https://www.turrentinejacksonmorrow.com/obituaries/edward-liske-jr",
+        "https://www.legacy.com/us/obituaries/sanantonio/name/edward-liske-obituary?id=11222590",
+        "https://ntrs.nasa.gov/api/citations/19710014698/downloads/19710014698.pdf",
+        "https://en.wikipedia.org/wiki/Dysbarism",
+        "https://pubmed.ncbi.nlm.nih.gov/5972727",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9722340",
+        "https://apps.dtic.mil/sti/tr/pdf/ADA410932.pdf"
+      ],
+      "max_results": 8,
+      "search_depth": "advanced",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "NASA abstract index A67-23827 confirms the original journal citation. The McIver and Kronenberg PMID is a distinct article already in the register.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-neurological-archive-liske-pdf",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_scan_identity",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf",
+      "pdf_parser": true,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher returns the three-page journal scan. The downloaded original supplies Tables I and II.",
+    "records": [
+      {
+        "id": "liske-1967",
+        "title": "Altitude Decompression Sickness with Focal Neurological Manifestations",
+        "year": 1967,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf",
+        "locator": "Printed pp. 304–306",
+        "nasa_abstract_accession": "A67-23827"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-neurological-archive-hook-pdf",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "publisher_scan_identity",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf",
+      "pdf_parser": true,
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher returns the four-page follow-up. The original Swedish case is cited in the introduction and reference 2.",
+    "records": [
+      {
+        "id": "hook-1958",
+        "title": "Dysbarism Manifested by Anterior Spinal Artery Syndrome: Further Report of a Case with Recovery",
+        "year": 1958,
+        "pmid": "13563380",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf",
+        "locator": "Printed pp. 540–543"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-neurological-archive-verified",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "clinical_observation_extraction",
+    "params": {
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/32/11/article-p1023.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/13234873/"
+      ],
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Three publisher originals checked against the clinical text, tables and timelines. The first Swedish report was verified bibliographically. Only the follow-up contributes Swedish outcome observations.",
+    "records": [
+      {
+        "id": "liske-1967",
+        "title": "Altitude Decompression Sickness with Focal Neurological Manifestations",
+        "year": 1967,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf",
+        "locator": "Printed pp. 304–306",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/38/3/article-p304.pdf",
+        "sha256": "44fd11ff5220852fc823158a92fa61bcc7774df87dcb2dd84faee5b917b26a26",
+        "nasa_abstract_accession": "A67-23827",
+        "observations": [
+          {
+            "id": "focal-archive",
+            "study_id": "liske-usafsam-focal-dysbarism",
+            "group": "Surviving pilots with neurological dysbarism",
+            "endpoint": "focal_neurological_subset",
+            "cases": 13,
+            "denominator": 37,
+            "denominator_unit": "dcs_case",
+            "locator": "P. 304, Methods",
+            "note": "Archive survivor selection. Exposure denominator unavailable."
+          },
+          {
+            "id": "focal-chamber",
+            "study_id": "liske-usafsam-focal-dysbarism",
+            "group": "Focal neurological cases by exposure setting",
+            "endpoint": "chamber_setting",
+            "cases": 6,
+            "denominator": 13,
+            "denominator_unit": "dcs_case",
+            "locator": "Pp. 304–305, Results and Table I",
+            "note": "Enumerated from the published selected case series."
+          },
+          {
+            "id": "focal-aircraft",
+            "study_id": "liske-usafsam-focal-dysbarism",
+            "group": "Focal neurological cases by exposure setting",
+            "endpoint": "aircraft_setting",
+            "cases": 7,
+            "denominator": 13,
+            "denominator_unit": "dcs_case",
+            "locator": "Pp. 304–305, Results and Table I",
+            "note": "Enumerated from the published selected case series."
+          },
+          {
+            "id": "persistent-focal",
+            "study_id": "liske-usafsam-focal-dysbarism",
+            "group": "Focal neurological cases",
+            "endpoint": "persistent_definite_focal_neurologic_deficit",
+            "cases": 2,
+            "denominator": 13,
+            "denominator_unit": "dcs_case",
+            "locator": "P. 305, Discussion",
+            "note": "Two or more years after dysbarism. Standardized assessment schedule unavailable."
+          }
+        ]
+      },
+      {
+        "id": "hook-1958",
+        "title": "Dysbarism Manifested by Anterior Spinal Artery Syndrome: Further Report of a Case with Recovery",
+        "year": 1958,
+        "pmid": "13563380",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf",
+        "locator": "Printed pp. 540–543",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf",
+        "sha256": "ed5fd0e9243521e09392bf4b9dd87e81728ff3e3b1d3d2275641cd49889e709c",
+        "observations": [
+          {
+            "id": "swedish-1954-chamber-index",
+            "study_id": "hook-swedish-1954-chamber-case",
+            "group": "Royal Swedish Air Force chamber case",
+            "endpoint": "source_reported_spinal_dysbarism",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "year": 1954,
+            "locator": "Pp. 540–543, Case History, Discussion and reference 2",
+            "note": "One episode shared with the 1954 case report. This follow-up describes residual deficits in 1957. Other exposed people were unenumerated."
+          }
+        ]
+      },
+      {
+        "id": "rudolph-1961",
+        "title": "Neurocirculatory Collapse Associated with Reduced Barometric Pressure: Case Report",
+        "year": 1961,
+        "pmid": "14495081",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/32/11/article-p1023.pdf",
+        "locator": "Printed pp. 1023–1025",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/32/11/article-p1023.pdf",
+        "sha256": "668919c8fd4727ee63a2418f8fdf83ac18ced62cdc8afb39b9ba7e7ac5634c06",
+        "observations": [
+          {
+            "id": "t33-postflight-collapse",
+            "study_id": "rudolph-t33-1960-pressure-loss",
+            "group": "Index T-33 pilot",
+            "endpoint": "source_reported_neurocirculatory_collapse",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "year": 1960,
+            "locator": "Pp. 1023–1025, flight history and hospital course",
+            "note": "Two pilots aboard. The other pilot's elbow symptoms lack a comparable medical evaluation. Reported ambient altitude estimates conflict."
+          }
+        ]
+      },
+      {
+        "id": "von-dobeln-hook-1954",
+        "title": "Olycksfall vid undertryckskammarprov",
+        "year": 1954,
+        "pmid": "13234873",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/13234873/",
+        "locator": "Medd Flyg Navalmed Namnd, issue 4, pp. 14–16",
+        "note": "NLM index verified. The 1958 follow-up explicitly cites this as the original case report.",
+        "serial_holdings": "https://libris.kb.se/5ng37g1h225dp2c?_r=library%3AS"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-neurological-archive-adler-reference",
+    "date": "2026-11-20",
+    "provider": "Source page verification",
+    "operation": "archive_citation_lead",
+    "params": {
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf#page=4",
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Höök cites a special report by H. F. Adler dated June 1950. The original was unavailable. The rounded chamber denominator in the secondary account is withheld from outcome tables.",
+    "records": [
+      {
+        "id": "adler-1950",
+        "title": "Neurocirculatory Collapse at Altitude",
+        "year": 1950,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/7/article-p540.pdf#page=4",
+        "locator": "Höök reference 1, printed p. 543",
+        "access": "cited_only"
+      }
+    ]
+  }
+]
