@@ -210,6 +210,7 @@ CHAMBER_NASA_SEX_PREBREATHE = ROOT / "data" / "chamber" / "v1.142"
 CHAMBER_NASA_DOPPLER_ATTRIBUTION = ROOT / "data" / "chamber" / "v1.143"
 CHAMBER_TEMPERATURE_AND_DELAYED_CASE = ROOT / "data" / "chamber" / "v1.144"
 CHAMBER_ALTITUDE_RESIDENCE = ROOT / "data" / "chamber" / "v1.145"
+CHAMBER_WARTIME_CLASSIFICATION = ROOT / "data" / "chamber" / "v1.146"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2028,6 +2029,18 @@ def build(
                     {
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_WARTIME_CLASSIFICATION,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_reported_rate": "reported_rates.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                     },

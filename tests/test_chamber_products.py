@@ -4785,3 +4785,49 @@ def test_altitude_residence_keeps_overlapping_chamber_outcomes_once(release):
             FROM review.review_record
             WHERE record_key='2026-11-21-altitude-residence-verified#roth67_sp117_altitude_residence'
         """).fetchone() == (455, 446)
+
+
+def test_wartime_cadet_results_preserve_native_endpoints_and_conflicts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role
+            FROM publication_observation
+            WHERE source_id IN ('aaf_wartime_dcs_summary','gemmill42_cam_pensacola_classification')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("pensacola-one-hour-classification", 40, 500, "overlap_hold"),
+            ("randolph-four-hour-38000", 283, 723, "denominator_conflict"),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate_percent
+            FROM review.review_search_observation
+            WHERE report_id='report:aaf-c-509-1' AND reported_group='randolph-four-hour-38000'
+        """).fetchall() == [(283, 723, 37.0)]
+        model_rates = db.execute("""
+            SELECT stratum,endpoint,CAST(reported_percent AS REAL),denominator,denominator_unit
+            FROM publication_reported_rate
+            WHERE source_id='aaf_wartime_dcs_summary' AND analysis_role='overlap_hold'
+            ORDER BY stratum,endpoint
+        """).fetchall()
+        assert len(model_rates) == 8
+        assert [row[1:4] for row in model_rates if row[0] == "pensacola-35000"] == [
+            ("chokes_as_reported", 0.8, 500), ("joint_pain_as_reported", 24.0, 500),
+            ("skin_symptoms_as_reported", 15.0, 500),
+        ]
+        assert db.execute("""
+            SELECT reported_group,endpoint,reported_rate_percent,denominator,denominator_unit
+            FROM review.review_search_observation WHERE report_id='report:aaf-c-509-1' AND cases IS NULL
+            ORDER BY reported_group,endpoint
+        """).fetchall() == model_rates
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='legacy:data/chamber/v1.40/search_hits.csv#diagnosis_v40_status:1'
+        """).fetchone() == ("report:aaf-c-509-1",)
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='aaf_wartime_dcs_summary' AND related_source='gray47_selection'
+        """).fetchone() == ("partial_overlap",)
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='aaf_wartime_dcs_summary' AND stratum='wright-1941-91'
+        """).fetchone() == (396, 91)

@@ -1,0 +1,343 @@
+[
+  {
+    "id": "2026-11-21-wartime-classification-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_exercise_and_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_attempts": [
+        {
+          "id": "01a1ff34-2e65-7366-88c2-a79cfc6631b1",
+          "query": "\"Rate of Gaseous Nitrogen Elimination\" Balke 1954 air force archived report",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff34-2e29-7384-a0d8-c29c8d6ab049",
+          "query": "\"Gaseous Nitrogen Elimination\" Boothby Luft Benson 1951 USAF PDF",
+          "returned": 5
+        },
+        {
+          "id": "01a1ff34-2e1b-702b-9099-3c3f0db4de9e",
+          "query": "exercise prebreathe altitude decompression sickness Webb Woodrow early trial 1994 1995 exact groups outcomes",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff34-2e23-742d-814d-d9c8e2d567c1",
+          "query": "exercise during oxygen prebreathing decompression sickness intermittent exercise human hypobaric chamber new trial USAF Germany Russia figures",
+          "returned": 6
+        }
+      ],
+      "scrape_id": "01a1ff34-8281-755a-9738-806b972b72bd",
+      "archive_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness",
+      "http_status": 200
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Archived exercise citations did not produce new count pairs. Firecrawl retrieved the wartime summary preview, including links to printed pages.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-wartime-classification-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Balke USAFSAM 1954 Rate of Gaseous Nitrogen Elimination rest work project 21-1201-0014 full text archive",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The Tavily spending limit prevented the search.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-wartime-classification-verified",
+    "date": "2026-11-21",
+    "provider": "The Wartime Archive and National Library of Medicine",
+    "operation": "verify_public_page_images_and_reconcile_wartime_groups",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Checked public scans of the AAF summary and NLM minutes. Two count pairs and eight rates were extracted once. Related reports supply corroborating descriptions or unresolved overlap, with no reconstructed cases.",
+    "records": [
+      {
+        "id": "aaf_wartime_dcs_summary",
+        "title": "Status of investigations of decompression sickness",
+        "authors": [
+          "Office of the Air Surgeon, Headquarters Army Air Forces"
+        ],
+        "year": null,
+        "url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness",
+        "locator": "Summary Report No. I, public scans of printed pp. 1, 3–5 and 7",
+        "access": "secondary_table",
+        "note": "Public pages were checked against the scan. The report summarizes several referenced series. The bibliography and remaining pages were unavailable in the public preview.",
+        "role_review": "overlap_hold",
+        "verified_page_images": [
+          {
+            "page": 3,
+            "url": "https://wartimearchive.com/img/previews/documents/status-of-investigations-of-decompression-sickness-p003.jpg",
+            "sha256": "18cf5a8140caf0cdaa793d6ef24da728488e08fbe4ea74dea66d89e47458d049"
+          },
+          {
+            "page": 4,
+            "url": "https://wartimearchive.com/img/previews/documents/status-of-investigations-of-decompression-sickness-p004.jpg",
+            "sha256": "87e9cf416a3c44f613a5ce0c394d6c8adfae5ef3be85adf47a122e21436ad942"
+          },
+          {
+            "page": 5,
+            "url": "https://wartimearchive.com/img/previews/documents/status-of-investigations-of-decompression-sickness-p005.jpg",
+            "sha256": "9db8b02d05f304063117d294cd9a5e16c11aa993e215b732fe0bb1ff085d3f35"
+          }
+        ],
+        "observations": [
+          {
+            "id": "randolph-four-hour-38000",
+            "study_id": "wartime-randolph-38000-723",
+            "group": "randolph-four-hour-38000",
+            "endpoint": "altitude_test_failure_as_reported",
+            "cases": 283,
+            "denominator": 723,
+            "denominator_unit": "person",
+            "reported_rate_percent": 37,
+            "printed_count_rate_conflict": true,
+            "locator": "AAF C-509-1, printed p. 3, reference 21",
+            "note": "The source prints 283 failures among 723 cadets alongside 37%. The ratio is 39.14% when calculated from those counts. The original denominator and endpoint definition await reference 21."
+          },
+          {
+            "id": "pensacola-35000-skin_symptoms_as_reported",
+            "study_id": "wartime-pensacola-one-hour-500",
+            "group": "pensacola-35000",
+            "endpoint": "skin_symptoms_as_reported",
+            "cases": null,
+            "denominator": 500,
+            "denominator_unit": "person",
+            "reported_rate_percent": 15,
+            "target_altitude_ft": 35000,
+            "target_duration_min": 60,
+            "protocol": "Pensacola indoctrination chamber test about one hour at 35,000 ft. Prebreathe, activity and case ascertainment after descent are unspecified.",
+            "locator": "AAF C-509-1, printed pp. 3–4, reference 18",
+            "note": "Mostly early in the test. The report gives a percentage without an exact numerator."
+          },
+          {
+            "id": "pensacola-35000-joint_pain_as_reported",
+            "study_id": "wartime-pensacola-one-hour-500",
+            "group": "pensacola-35000",
+            "endpoint": "joint_pain_as_reported",
+            "cases": null,
+            "denominator": 500,
+            "denominator_unit": "person",
+            "reported_rate_percent": 24,
+            "target_altitude_ft": 35000,
+            "target_duration_min": 60,
+            "protocol": "Pensacola indoctrination chamber test about one hour at 35,000 ft. Prebreathe, activity and case ascertainment after descent are unspecified.",
+            "locator": "AAF C-509-1, printed pp. 3–4, reference 18",
+            "note": "Joint pains generally reported late. The percentage is distinct from susceptibility in the meeting minutes."
+          },
+          {
+            "id": "pensacola-35000-chokes_as_reported",
+            "study_id": "wartime-pensacola-one-hour-500",
+            "group": "pensacola-35000",
+            "endpoint": "chokes_as_reported",
+            "cases": null,
+            "denominator": 500,
+            "denominator_unit": "person",
+            "reported_rate_percent": 0.8,
+            "target_altitude_ft": 35000,
+            "target_duration_min": 60,
+            "protocol": "Pensacola indoctrination chamber test about one hour at 35,000 ft. Prebreathe, activity and case ascertainment after descent are unspecified.",
+            "locator": "AAF C-509-1, printed pp. 3–4, reference 18",
+            "note": "Approximate rate as printed. Exact event count and overlap with joint and skin symptoms are unknown."
+          },
+          {
+            "id": "raf-37000-incapacitating_symptoms_as_reported",
+            "study_id": "wartime-raf-37000-48",
+            "group": "raf-37000",
+            "endpoint": "incapacitating_symptoms_as_reported",
+            "cases": null,
+            "denominator": 48,
+            "denominator_unit": "person",
+            "reported_rate_percent": 25,
+            "target_altitude_ft": 37000,
+            "target_duration_min": 30,
+            "protocol": "RAF pilots tested in a chamber for 30 min at 37,000 ft. Oxygen and activity histories unspecified.",
+            "locator": "AAF C-509-1, printed p. 3, reference 26",
+            "note": "Approximate percentage. The original numerator and symptoms of intermediate severity were unavailable."
+          },
+          {
+            "id": "raf-37000-unaffected_as_reported",
+            "study_id": "wartime-raf-37000-48",
+            "group": "raf-37000",
+            "endpoint": "unaffected_as_reported",
+            "cases": null,
+            "denominator": 48,
+            "denominator_unit": "person",
+            "reported_rate_percent": 25,
+            "target_altitude_ft": 37000,
+            "target_duration_min": 30,
+            "protocol": "RAF pilots tested in a chamber for 30 min at 37,000 ft. Oxygen and activity histories unspecified.",
+            "locator": "AAF C-509-1, printed p. 3, reference 26",
+            "note": "Approximate percentage of pilots unaffected. Outcomes between severe and unaffected were not separately enumerated."
+          },
+          {
+            "id": "evelyn-medical-students-did_not_tolerate_30000ft_4h_by_classification",
+            "study_id": "wartime-evelyn-medical-students",
+            "group": "evelyn-medical-students",
+            "endpoint": "did_not_tolerate_30000ft_4h_by_classification",
+            "cases": null,
+            "denominator": 50,
+            "denominator_unit": "person",
+            "reported_rate_percent": 20,
+            "target_altitude_ft": 30000,
+            "target_duration_min": 240,
+            "protocol": "The report describes eight alternate-day runs. Passing allowed grade I pain on at most half the runs and required no pain above grade II.",
+            "locator": "AAF C-509-1, printed p. 4, reference 2",
+            "note": "Historical person-level classification percentage across repeated tests. Exact case count unavailable."
+          },
+          {
+            "id": "evelyn-medical-students-reported_tolerated_30000ft_4h_by_classification",
+            "study_id": "wartime-evelyn-medical-students",
+            "group": "evelyn-medical-students",
+            "endpoint": "reported_tolerated_30000ft_4h_by_classification",
+            "cases": null,
+            "denominator": 50,
+            "denominator_unit": "person",
+            "reported_rate_percent": 50,
+            "target_altitude_ft": 30000,
+            "target_duration_min": 240,
+            "protocol": "The report describes eight alternate-day runs. Passing allowed grade I pain on at most half the runs and required no pain above grade II.",
+            "locator": "AAF C-509-1, printed p. 4, reference 2",
+            "note": "The text reports 50% could tolerate this profile, and separately that 30% could also tolerate the higher profile. The relationship of these categories is not stated explicitly. Do not sum their percentages."
+          },
+          {
+            "id": "evelyn-medical-students-also_tolerated_40000ft_15min_by_classification",
+            "study_id": "wartime-evelyn-medical-students",
+            "group": "evelyn-medical-students",
+            "endpoint": "also_tolerated_40000ft_15min_by_classification",
+            "cases": null,
+            "denominator": 50,
+            "denominator_unit": "person",
+            "reported_rate_percent": 30,
+            "target_altitude_ft": 40000,
+            "target_duration_min": 15,
+            "protocol": "The report describes eight alternate-day runs. Passing allowed grade I pain on at most half the runs and required no pain above grade II.",
+            "locator": "AAF C-509-1, printed p. 4, reference 2",
+            "note": "Reported high-profile tolerance percentage. Relationship with the separate 50% group remains unclear."
+          }
+        ],
+        "additional_reported_values": [
+          {
+            "study_id": "wartime-pensacola-one-hour-500",
+            "locator": "AAF C-509-1, printed pp. 3–4, reference 18",
+            "reported_incapacitating_among_joint_pain_percent": 5,
+            "exact_conditional_denominator": null,
+            "note": "The reported 24% does not establish a verified joint-pain numerator for use as the denominator of a second outcome."
+          },
+          {
+            "study_id": "wartime-wright-1941-91",
+            "locator": "AAF C-509-1, printed p. 5, reference 6",
+            "total_decompressions": 396,
+            "people": 91,
+            "reported_percent_below_30000_ft": 1.6,
+            "reported_percent_above_30000_ft_approximate": 6,
+            "note": "No allocation by altitude. Bronk prints at 30,000 ft for the 1.6%."
+          },
+          {
+            "study_id": "wartime-wright-1942-20",
+            "locator": "AAF C-509-1, p. 4, reference 5",
+            "reported_symptom_free_percent_approximate": 20,
+            "mean_min_at_40000_ft_for_pain": 66,
+            "note": "Bronk's comparator mean of 56 min is explicitly for incapacitating symptoms."
+          },
+          {
+            "related_source_id": "gray47_selection",
+            "locator": "AAF C-509-1, pp. 3 and 5, reference 19",
+            "repeated_cadets": 43,
+            "reported_percent_free_of_serious_symptoms": 44,
+            "note": "This margin matches 19/43 with no failures in Gray Table I to rounding. No duplicate outcome added."
+          }
+        ]
+      },
+      {
+        "id": "gemmill42_cam_pensacola_classification",
+        "title": "Pensacola high-altitude preselection report and discussion",
+        "authors": [
+          "C. L. Gemmill",
+          "NRC Subcommittee on Decompression-Sickness"
+        ],
+        "year": 1942,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=47",
+        "locator": "Second subcommittee meeting, 14 June 1942, item 2, printed p. 49 (PDF p. 47)",
+        "access": "full_text",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "note": "The minutes give 40 classified as susceptible out of 500 cadets in the one-hour test. Diagnostic threshold, target altitude and individual links are unspecified.",
+        "role_review": "overlap_hold",
+        "study_id": "wartime-pensacola-one-hour-500",
+        "observations": [
+          {
+            "id": "pensacola-one-hour-classification",
+            "study_id": "wartime-pensacola-one-hour-500",
+            "group": "pensacola-one-hour-classification",
+            "endpoint": "bends_susceptibility_as_reported",
+            "cases": 40,
+            "denominator": 500,
+            "denominator_unit": "person",
+            "locator": "Second subcommittee meeting, 14 June 1942, item 2, printed p. 49 (PDF p. 47)",
+            "note": "Forty were classified as susceptible. The minutes give no diagnostic threshold. This may be the same group as the AAF symptom summary. The 40 are neither a total joint-pain count nor a count of incapacitating symptoms."
+          }
+        ]
+      },
+      {
+        "id": "bronk42_cam_wright_reports",
+        "title": "Wright and Randolph Fields decompression studies",
+        "authors": [
+          "D. W. Bronk"
+        ],
+        "year": 1942,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=47",
+        "locator": "Second subcommittee meeting, 14 June 1942, item 3, printed pp. 49–50 (PDF pp. 47–48)",
+        "access": "full_text",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "note": "References Wright report dates 1 July 1941 and 12 January 1942. Group counts are available. Denominators for the reported percentages by exact altitude and the timed symptom subsets are unspecified.",
+        "additional_reported_values": [
+          {
+            "study_id": "wartime-wright-1941-91",
+            "original_report_date": "1941-07-01",
+            "people": 91,
+            "reported_incapacitating_percent": 1.6,
+            "threshold_ft": 30000,
+            "threshold_relation": "at",
+            "stratum_denominator": null
+          },
+          {
+            "study_id": "wartime-wright-1942-20",
+            "original_report_date": "1942-01-12",
+            "people": 20,
+            "reported_symptom_free_percent_approximate": 20,
+            "mean_min_incapacitating_symptoms": 56,
+            "prebreathe_exercise_minutes": 40,
+            "mean_control_min_in_comparison": 58,
+            "mean_prebreathe_exercise_min_in_comparison": 92,
+            "timed_events": null
+          }
+        ]
+      },
+      {
+        "id": "evelyn41_nrcc_high_altitude",
+        "title": "The effect of simulated high altitudes on human subjects",
+        "authors": [
+          "K. Evelyn"
+        ],
+        "year": 1941,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf",
+        "locator": "Fulton 1951 bibliography item 493; NRCC proceedings ninth meeting, Appendix A, September 1941",
+        "access": "metadata",
+        "note": "The historical bibliography identifies a relevant Evelyn RCAF report. The AAF preview cites Evelyn as reference 2. The reference list and original report were unavailable, so the identity of that citation remains unconfirmed.",
+        "alternate_archive_entry": "https://lmharchive.ca/wp-content/uploads/2014/02/Ronnie-Shephard-Bibliography.pdf"
+      }
+    ]
+  }
+]

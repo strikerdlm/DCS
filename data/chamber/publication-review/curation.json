@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.146/sources.csv#aaf_wartime_dcs_summary",
+      "report_id": "report:aaf-c-509-1",
+      "basis": "Verified report title and unique citation locator.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
+    {
+      "record_key": "2026-11-21-wartime-classification-verified#aaf_wartime_dcs_summary",
+      "report_id": "report:aaf-c-509-1",
+      "basis": "Matches the same report and locator in the numbered source register.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.146/sources.csv#gemmill42_cam_pensacola_classification",
+      "report_id": "nlm:101085500x233:49:gemmill",
+      "basis": "Verified report title and unique citation locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=47"
+    },
+    {
+      "record_key": "2026-11-21-wartime-classification-verified#gemmill42_cam_pensacola_classification",
+      "report_id": "nlm:101085500x233:49:gemmill",
+      "basis": "Matches the same report and locator in the numbered source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=47"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.146/sources.csv#bronk42_cam_wright_reports",
+      "report_id": "nlm:101085500x233:49:bronk",
+      "basis": "Verified report title and unique citation locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=47"
+    },
+    {
+      "record_key": "2026-11-21-wartime-classification-verified#bronk42_cam_wright_reports",
+      "report_id": "nlm:101085500x233:49:bronk",
+      "basis": "Matches the same report and locator in the numbered source register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=47"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.146/sources.csv#evelyn41_nrcc_high_altitude",
+      "report_id": "report:nrcc-evelyn-1941-high-altitude",
+      "basis": "Verified report title and unique citation locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf"
+    },
+    {
+      "record_key": "2026-11-21-wartime-classification-verified#evelyn41_nrcc_high_altitude",
+      "report_id": "report:nrcc-evelyn-1941-high-altitude",
+      "basis": "Matches the same report and locator in the numbered source register.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.40/search_hits.csv#diagnosis_v40_status:1",
+      "report_id": "report:aaf-c-509-1",
+      "basis": "The previously discovered preview is the verified AAF Summary Report I.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.145/sources.csv#balke59_altitude_residence",
       "report_id": "auqr:1959:11:1:61:balke",
       "basis": "Verified report title, author, publication and locator.",
@@ -15009,6 +15063,42 @@
   ],
   "studies": [
     {
+      "study_id": "wartime-pensacola-one-hour-500",
+      "label": "Pensacola one-hour chamber tests in 500 cadets",
+      "setting": "Two contemporary accounts report the same site, trainee count and one-hour test. The reported susceptibility, pain, skin symptoms and chokes are separate endpoints.",
+      "period": "Reported June 1942 and in undated wartime summary."
+    },
+    {
+      "study_id": "wartime-randolph-38000-723",
+      "label": "Randolph Field four-hour 38,000-ft cadet test",
+      "setting": "The archived summary prints 283 failures, 723 cadets and 37%. The original study cited as reference 21 remains unavailable.",
+      "period": "Undated wartime report."
+    },
+    {
+      "study_id": "wartime-raf-37000-48",
+      "label": "RAF 30-minute 37,000-ft pilot test",
+      "setting": "Archived summary reports 48 pilots and approximate symptom percentages. Original reference 26 and exact numerators were unavailable.",
+      "period": "Undated wartime report."
+    },
+    {
+      "study_id": "wartime-evelyn-medical-students",
+      "label": "Evelyn repeated chamber tests in 50 medical students",
+      "setting": "Archived summary describes eight alternate-day tests and a classification rule based on repeated pain grades and achieved profiles.",
+      "period": "Undated wartime summary; candidate primary citation from 1941."
+    },
+    {
+      "study_id": "wartime-wright-1941-91",
+      "label": "Wright Field July 1941 group",
+      "setting": "NRC and Air Surgeon summaries describe 91 people. The latter also gives 396 decompressions. Denominators by altitude group are unavailable.",
+      "period": "Original report dated 1 July 1941."
+    },
+    {
+      "study_id": "wartime-wright-1942-20",
+      "label": "Wright Field January 1942 staged chamber study",
+      "setting": "NRC and Air Surgeon summaries describe the same staged 40,000-ft profile. The NRC account gives 20 overall participants. The reports differ on mean time to symptoms.",
+      "period": "Original report dated 12 January 1942."
+    },
+    {
       "study_id": "balke-1958-mount-evans-i",
       "label": "Mount Evans I altitude residence and decompression tests",
       "period": "1958",
@@ -16426,6 +16516,66 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "wartime-pensacola-one-hour-500",
+      "report_id": "report:aaf-c-509-1",
+      "role": "secondary_symptom_percentages",
+      "locator": "AAF C-509-1, printed pp. 3–4, reference 18"
+    },
+    {
+      "study_id": "wartime-pensacola-one-hour-500",
+      "report_id": "nlm:101085500x233:49:gemmill",
+      "role": "contemporary_investigator_discussion",
+      "locator": "Second subcommittee meeting, 14 June 1942, item 2, printed p. 49 (PDF p. 47)"
+    },
+    {
+      "study_id": "wartime-randolph-38000-723",
+      "report_id": "report:aaf-c-509-1",
+      "role": "conflicting_summary_count",
+      "locator": "AAF C-509-1, printed p. 3, reference 21"
+    },
+    {
+      "study_id": "wartime-raf-37000-48",
+      "report_id": "report:aaf-c-509-1",
+      "role": "archival_reported_percentages",
+      "locator": "AAF C-509-1, printed p. 3, reference 26"
+    },
+    {
+      "study_id": "wartime-evelyn-medical-students",
+      "report_id": "report:aaf-c-509-1",
+      "role": "archival_classification_percentages",
+      "locator": "AAF C-509-1, printed p. 4, reference 2"
+    },
+    {
+      "study_id": "wartime-evelyn-medical-students",
+      "report_id": "report:nrcc-evelyn-1941-high-altitude",
+      "role": "candidate_original_project",
+      "locator": "Fulton 1951 bibliography item 493; NRCC proceedings ninth meeting, Appendix A, September 1941"
+    },
+    {
+      "study_id": "wartime-wright-1941-91",
+      "report_id": "report:aaf-c-509-1",
+      "role": "secondary_scope",
+      "locator": "AAF C-509-1, printed p. 5, reference 6"
+    },
+    {
+      "study_id": "wartime-wright-1941-91",
+      "report_id": "nlm:101085500x233:49:bronk",
+      "role": "dated_report_summary",
+      "locator": "Second subcommittee meeting, 14 June 1942, item 3, printed pp. 49–50 (PDF pp. 47–48)"
+    },
+    {
+      "study_id": "wartime-wright-1942-20",
+      "report_id": "report:aaf-c-509-1",
+      "role": "staged_profile_summary",
+      "locator": "AAF C-509-1, p. 4, reference 5"
+    },
+    {
+      "study_id": "wartime-wright-1942-20",
+      "report_id": "nlm:101085500x233:49:bronk",
+      "role": "dated_report_summary",
+      "locator": "Second subcommittee meeting, 14 June 1942, item 3, printed pp. 49–50 (PDF pp. 47–48)"
+    },
     {
       "study_id": "balke-1958-mount-evans-i",
       "report_id": "auqr:1959:11:1:61:balke",
@@ -18882,6 +19032,48 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:aaf-c-509-1",
+      "right_report": "nlm:101085500x233:49:gemmill",
+      "relationship": "likely_overlap",
+      "evidence": "Same 500 cadets, Pensacola site and one-hour chamber test. Susceptibility and individual symptom percentages require the original definitions.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
+    {
+      "left_report": "report:aaf-c-509-1",
+      "right_report": "report:cam-88",
+      "relationship": "unresolved",
+      "evidence": "CAM 88 is an existing original report lead for Pensacola classification. The AAF preview's reference 18 could not be verified against its bibliography.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
+    {
+      "left_report": "nlm:101085500x233:49:gemmill",
+      "right_report": "usnmb:40-3-576",
+      "relationship": "unresolved",
+      "evidence": "Same investigator and Pensacola location. The Navy bulletin describes 2,521 trainees and 28,000-ft oxygen indoctrination. The cohort linkage to the one-hour preselection in 500 cadets is unknown.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=47"
+    },
+    {
+      "left_report": "report:aaf-c-509-1",
+      "right_report": "pmid:20287795",
+      "relationship": "partial_overlap",
+      "evidence": "Both report 43 cadets undertaking five four-hour runs at 35,000 ft. Nineteen of 43 in Gray Table I rounds to the AAF summary's 44% free of the reported failure endpoint. The publication detail remains the canonical five-run count.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
+    {
+      "left_report": "report:aaf-c-509-1",
+      "right_report": "nlm:101085500x233:49:bronk",
+      "relationship": "partial_overlap",
+      "evidence": "The 91-subject Wright study matches by site, number tested and 1.6% severe symptom summary, with at-versus-below altitude wording. The separate 40,000-ft profile matches three ascent rates, 120-minute limit and approximately 20% symptom-free. Mean times differ by report and endpoint.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
+    {
+      "left_report": "report:aaf-c-509-1",
+      "right_report": "report:nrcc-evelyn-1941-high-altitude",
+      "relationship": "likely_overlap",
+      "evidence": "Both concern Evelyn's RCAF chamber studies. The preview cites this investigator as reference 2 but omits its bibliography. The original NRCC report is still a retrieval lead.",
+      "evidence_url": "https://wartimearchive.com/document/status-of-investigations-of-decompression-sickness"
+    },
     {
       "left_report": "pmid:13810481",
       "right_report": "auqr:1959:11:1:61:balke",
