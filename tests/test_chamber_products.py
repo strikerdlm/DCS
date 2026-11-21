@@ -4431,3 +4431,32 @@ def test_public_chamber_physiology_keeps_measurements_separate_from_dcs_outcomes
             WHERE url LIKE '%/retro-fitment-of-an-oxygen-system%'
               OR report_id='doi:10.25259/ijasm_28_2021'
         """).fetchone() == (6, 1)
+
+
+def test_bangalore_treadmill_reports_reuse_one_dcs_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='kumar88_treadmill'
+        """).fetchall() == [("kumar88_treadmill:treadmill-chamber-accident", "pmid:3202791", None)]
+        assert db.execute("""
+            SELECT source_id,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id IN ('kumar86_treadmill_case','kumar88_treadmill')
+        """).fetchall() == [("kumar88_treadmill", 1, None, "selected_cluster")]
+        assert db.execute("""
+            SELECT country FROM publication_source
+            WHERE source_id IN ('kumar86_treadmill_case','kumar88_treadmill')
+        """).fetchall() == [("India",), ("India",)]
+        assert db.execute("""
+            SELECT s.report_id, s.onset_min,
+                   json_extract(r.metadata_json,'$.clinical_as_reported.left_elbow_pain_min_as_reported'),
+                   json_extract(r.metadata_json,'$.clinical_as_reported.asymptomatic_by_day'),
+                   json_extract(r.metadata_json,'$.clinical_as_reported.native_symptom_grade')
+            FROM shared_case_evidence s JOIN review.review_record r USING(record_key,report_id)
+            WHERE s.source_id='kumar88_treadmill'
+            ORDER BY s.report_id
+        """).fetchall() == [("article:iam-1986-kumar-92", None, 15, 5, 4), ("pmid:3202791", None, 10, 3, None)]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE source_key='reconciliation_v31_india2:6' OR report_id='article:iam-1986-kumar-92'
+        """).fetchone() == (3, 1)

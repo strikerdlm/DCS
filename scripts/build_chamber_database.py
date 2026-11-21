@@ -201,6 +201,7 @@ CHAMBER_ASMA_2012_CROSSWALK = ROOT / "data" / "chamber" / "v1.133"
 CHAMBER_CHINESE_FLIGHT_INCIDENTS = ROOT / "data" / "chamber" / "v1.134"
 CHAMBER_SYMPTOM_SEVERITY = ROOT / "data" / "chamber" / "v1.135"
 CHAMBER_PUBLIC_PHYSIOLOGY_DATA = ROOT / "data" / "chamber" / "v1.136"
+CHAMBER_TREADMILL_CASE_CROSSWALK = ROOT / "data" / "chamber" / "v1.137"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1928,6 +1929,22 @@ def build(
                     },
                     create_schema=False,
                 )
+                load_version_tables(
+                    db,
+                    CHAMBER_TREADMILL_CASE_CROSSWALK,
+                    {"publication_source": "sources.csv", "publication_overlap": "overlap.csv"},
+                    create_schema=False,
+                )
+                # Retain the original source register and correct the working location
+                # from the verified companion of this same published case.
+                revised_case = db.execute("""
+                    UPDATE publication_source
+                    SET country=(SELECT country FROM publication_source
+                                 WHERE source_id='kumar86_treadmill_case')
+                    WHERE source_id='kumar88_treadmill' AND country='United States'
+                """)
+                if revised_case.rowcount != 1:
+                    raise ValueError("Kumar treadmill case location correction does not reconcile")
             if rojas_supplement:
                 load_supplement(
                     db, ROJAS_DATA, "rojas", extra_tables={"rojas_result": "results.csv"}

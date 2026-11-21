@@ -1,0 +1,143 @@
+[
+  {
+    "id": "2026-11-21-kumar-treadmill-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Kumar 1988 aerospace medicine decompression sickness treadmill 15000 Bangalore Indian chamber report",
+      "search_id": "01a1febd-13a7-76a0-87bc-0d8a1a839571",
+      "returned": 7
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Found both primary reports. Manual inspection established the case link.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-kumar-treadmill-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "decompression sickness altitude chamber clinical outcomes hypobaric military Bangalore Kumar 1988 oxygen treadmill",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Tavily spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-kumar-treadmill-llamaparse",
+    "date": "2026-11-21",
+    "provider": "LlamaParse",
+    "operation": "parse_public_publisher_scan",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 402
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The cloud parser returned HTTP 402. The printed pages were checked visually from the verified publisher scan.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-kumar-treadmill-primary",
+    "date": "2026-11-21",
+    "provider": "Indian Journal of Aerospace Medicine and AsMA",
+    "operation": "verify_sources_and_reconcile_case",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scan_aliases_have_identical_sha256": true
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Both reports by K. V. Kumar match on participant stature and weight, the Bruce treadmill test and 45-minute equilibration at 15,000 ft, the leaking airlock and brief descent to about 6,000 ft, resumed exercise, left-elbow pain after descent, the unavailable hyperbaric chamber and the 65% and 50% packed-cell-volume measurements. The age, symptom timing and recovery wording differ. The 1988 paper identifies the site as the Institute of Aviation Medicine, Bangalore, India.",
+    "records": [
+      {
+        "id": "kumar86_treadmill_case",
+        "title": "Decompression sickness after exercise at 4,572 m (15,000 ft) - a case report",
+        "year": 1986,
+        "authors": [
+          "K. V. Kumar",
+          "Ranjit Kumar",
+          "M. Akhtar",
+          "P. Tyagi",
+          "N. Madan"
+        ],
+        "url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=981620fdef4d6997a6f0f9381d1ac839Bh0fuTf8hc0%3D",
+        "alternate_primary_url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=7318dcc720ac6f913452d6dd44dba5dbT41qZ1xr18c%3D",
+        "source_sha256": "45d1ab8a57b48399c4d5925b8f131229745077e3cf96b28488bda65f9aeaf93d",
+        "locator": "Case Report and Discussion, printed pp. 92–94",
+        "extraction_method": "Visual verification of the publisher scan, printed pp. 92–95",
+        "clinical_as_reported": {
+          "participant_age_years": 31,
+          "sweating_at_ground_level": true,
+          "left_elbow_pain_min_as_reported": 15,
+          "left_elbow_pain_time_origin": "of descent",
+          "pain_still_present_day": 2,
+          "asymptomatic_by_day": 5,
+          "native_symptom_grade": 4,
+          "native_scale": "Allen bends grade 0 to 4",
+          "compatible_exposure_denominator": null
+        },
+        "observations": [
+          {
+            "id": "kumar-1986-treadmill-case",
+            "endpoint": "dcs_symptoms",
+            "group": "Selected treadmill chamber accident",
+            "cases": 1,
+            "denominator": null,
+            "year": 1986,
+            "study_id": "bangalore-treadmill-15000-ft-published-case",
+            "altitude_band": "15,000-ft scheduled peak",
+            "locator": "Case Report and Discussion, printed pp. 92–94",
+            "note": "The authors assigned Allen grade 4 bends. Sweating began on reaching ground level. The paper reports left-elbow pain after 15 minutes of descent, pain remaining on day 2 and complete resolution by day 5. Nine others reportedly completed a similar protocol without the pressure mishap and cannot supply the denominator for this accident. Clinical symptom grade is distinct from Doppler VGE grade."
+          }
+        ]
+      },
+      {
+        "id": "3202791",
+        "title": "Decompression sickness and the role of exercise during decompression",
+        "year": 1988,
+        "authors": [
+          "K. V. Kumar"
+        ],
+        "pmid": "3202791",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/11/article-p1080.pdf",
+        "source_sha256": "f264c87915fb725a9c499f8efd29926edee499388827eec300a48edc384203cd",
+        "locator": "Case Report, Figure 1 and Table I, printed pp. 1080–1081",
+        "extraction_method": "Original publisher PDF text and checked case narrative",
+        "clinical_as_reported": {
+          "participant_age_years": 32,
+          "sweating_at_ground_level": true,
+          "left_elbow_pain_min_as_reported": 10,
+          "left_elbow_pain_time_origin": "after reaching ground level",
+          "pain_absent_by_day": 2,
+          "asymptomatic_by_day": 3,
+          "native_symptom_grade": null,
+          "compatible_exposure_denominator": null
+        },
+        "observations": [
+          {
+            "id": "kumar-1988-treadmill-case",
+            "endpoint": "dcs_symptoms",
+            "group": "Selected treadmill chamber accident",
+            "cases": 1,
+            "denominator": null,
+            "year": 1988,
+            "study_id": "bangalore-treadmill-15000-ft-published-case",
+            "altitude_band": "15,000-ft scheduled peak",
+            "locator": "Case Report, Figure 1 and Table I, printed pp. 1080–1081",
+            "note": "The paper reports sweating on reaching ground level, mild left-elbow pain about 10 minutes later, pain absent on the following day and complete normalization by day 3. The 1988 paper gives a Bangalore affiliation and separately lists a Houston address as the author’s current location. The case timing differs from the 1986 report and remains source-specific."
+          }
+        ]
+      }
+    ]
+  }
+]

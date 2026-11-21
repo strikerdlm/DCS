@@ -14681,6 +14681,24 @@
       "report_id": "doi:10.25259/ijasm_28_2021",
       "evidence_url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
       "basis": "Exact journal URL, title, 2022 byline and DOI as displayed by the publisher."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.137/sources.csv#kumar86_treadmill_case",
+      "report_id": "article:iam-1986-kumar-92",
+      "basis": "Byline, volume, printed pages and publisher scan verified.",
+      "evidence_url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=981620fdef4d6997a6f0f9381d1ac839Bh0fuTf8hc0%3D"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_india2:6",
+      "report_id": "article:iam-1986-kumar-92",
+      "basis": "Earlier hit and current scan match byte-for-byte. Original case includes clinical outcome without an incidence denominator.",
+      "evidence_url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=981620fdef4d6997a6f0f9381d1ac839Bh0fuTf8hc0%3D"
+    },
+    {
+      "record_key": "2026-11-21-kumar-treadmill-primary#kumar86_treadmill_case",
+      "report_id": "article:iam-1986-kumar-92",
+      "basis": "Verified byline, volume, printed pages and SHA-256 for the original scan.",
+      "evidence_url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=981620fdef4d6997a6f0f9381d1ac839Bh0fuTf8hc0%3D"
     }
   ],
   "studies": [
@@ -16057,6 +16075,12 @@
       "label": "Brook 1995 chamber complement experiment",
       "period": "Exposure dates not reported in abstract",
       "setting": "Volunteers exposed during routine chamber runs at 25,000 ft equivalent altitude in an Australian biomarker study. Four experimental controls are separate from the exposed group."
+    },
+    {
+      "study_id": "bangalore-treadmill-15000-ft-published-case",
+      "label": "Bangalore 15,000-ft treadmill chamber accident",
+      "period": "Reported in 1986 and 1988. Accident date unavailable.",
+      "setting": "One selected experimental chamber accident at the Institute of Aviation Medicine, Bangalore, India."
     }
   ],
   "study_reports": [
@@ -18441,6 +18465,18 @@
       "report_id": "pmid:7619033",
       "role": "primary_exposed_volunteer_summary",
       "locator": "Author abstract, Methods and final paragraph, issue pp. 415–417"
+    },
+    {
+      "study_id": "bangalore-treadmill-15000-ft-published-case",
+      "report_id": "article:iam-1986-kumar-92",
+      "role": "same_case_earlier_version",
+      "locator": "Case Report and Discussion, printed pp. 92–94"
+    },
+    {
+      "study_id": "bangalore-treadmill-15000-ft-published-case",
+      "report_id": "pmid:3202791",
+      "role": "published_clinical_case",
+      "locator": "Case Report, Figure 1 and Table I, printed pp. 1080–1081"
     }
   ],
   "relations": [
@@ -22531,6 +22567,13 @@
       "relationship": "describes_same_physiology_dataset",
       "evidence": "The data paper cites Figshare 29947679 as its repository and describes the same 20 analyzed volunteer files. Version 1 is the 2025 data release for the 2026 paper. Both describe one cohort.",
       "evidence_url": "https://www.nature.com/articles/s41597-025-06508-1"
+    },
+    {
+      "left_report": "article:iam-1986-kumar-92",
+      "right_report": "pmid:3202791",
+      "relationship": "same_published_case",
+      "evidence": "Both reports by K. V. Kumar match on participant stature and weight, the Bruce treadmill test and 45-minute equilibration at 15,000 ft, the leaking airlock and brief descent to about 6,000 ft, resumed exercise, left-elbow pain after descent, the unavailable hyperbaric chamber and the 65% and 50% packed-cell-volume measurements. The age, symptom timing and recovery wording differ. The 1988 paper identifies the site as the Institute of Aviation Medicine, Bangalore, India.",
+      "evidence_url": "https://indjaerospacemed.com/?view-pdf=1&embedded=true&article=981620fdef4d6997a6f0f9381d1ac839Bh0fuTf8hc0%3D"
     }
   ],
   "report_titles": {
