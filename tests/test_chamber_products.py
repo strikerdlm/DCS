@@ -1253,6 +1253,43 @@ def test_flinn_history_keeps_subject_scope_control_and_chamber_milestones(releas
         """).fetchone() == (0,)
 
 
+def test_historical_visual_margins_preserve_counting_units_and_source_identity(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,measure,count_as_cited,counting_unit,denominator_as_cited,denominator_unit
+            FROM publication_historical_visual_summary WHERE cited_report_id='pmid:20997673'
+            ORDER BY stratum,measure
+        """).fetchall() == [
+            ("quoted-visual-subset", "chamber_ascents", 15, "chamber_ascent", None, None),
+            ("quoted-visual-subset", "scotoma_observations", 8, "reported_visual_episode", None, None),
+            ("quoted-visual-subset", "subjects_with_scotomas", 6, "person", None, None),
+            ("whole-series", "chamber_ascents", 100, "chamber_ascent", None, None),
+            ("whole-series", "dcs_related_ascent_terminations", 37, "chamber_ascent", 100, "chamber_ascent"),
+            ("whole-series", "enrolled_subjects", 41, "person", None, None),
+        ]
+        assert db.execute("""
+            SELECT count_as_cited,denominator_as_cited,percent_as_cited
+            FROM publication_historical_visual_summary WHERE measure='broad_visual_symptoms'
+            ORDER BY stratum
+        """).fetchall() == [(None, 314, 28.0), (12, 35, None)]
+        assert db.execute("""
+            SELECT count_as_cited,denominator_as_cited
+            FROM publication_historical_visual_summary WHERE measure='prior_typical_migraine_history'
+            ORDER BY denominator_as_cited
+        """).fetchall() == [(11, 16), (10, 102)]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE record_key IN ('legacy:data/chamber/v1.31/sources.csv#engel44_scotomas',
+                'legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_original_sources:4',
+                '2026-11-20-scotoma-firecrawl#engel-bibliography')
+        """).fetchone() == (3, 1, "journal:war-medicine:1944:5:304")
+        assert db.execute("""
+            SELECT endpoint,cases,denominator FROM review.review_search_observation
+            WHERE run_id='2026-11-20-flinn-cited-scotoma-counts'
+            AND endpoint IN ('scotoma_observations','subjects_with_scotomas') ORDER BY endpoint
+        """).fetchall() == [("scotoma_observations", 8, None), ("subjects_with_scotomas", 6, None)]
+
+
 def test_repeat_exposure_report_preserves_joint_counts_and_changed_timing(release):
     with connect_pair(release) as db:
         assert db.execute("""

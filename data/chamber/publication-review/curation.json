@@ -10925,6 +10925,60 @@
       "report_id": "unpublished:scherman-neurologic-dysbarism",
       "basis": "The discussion and bibliography identify Scherman's unpublished case series.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=3"
+    },
+    {
+      "record_key": "2026-11-20-scotoma-firecrawl#whitten-publisher",
+      "report_id": "pmid:20997673",
+      "basis": "The author, printed pages, DOI and PMID match the existing Whitten identity.",
+      "evidence_url": "https://jamanetwork.com/journals/jamaophthalmology/article-abstract/619076"
+    },
+    {
+      "record_key": "2026-11-20-scotoma-firecrawl#engel-bibliography",
+      "report_id": "journal:war-medicine:1944:5:304",
+      "basis": "Government bibliography reference 1294 identifies the same 1944 War Medicine report.",
+      "evidence_url": "https://digitalcollections.lrc.usuhs.edu/digital/api/collection/p16005coll4/id/14565/download"
+    },
+    {
+      "record_key": "2026-11-20-flinn-cited-scotoma-counts#flinn-pp959-960",
+      "report_id": "pmid:14050686",
+      "basis": "This section is in the registered Flinn and Womack journal publication.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf"
+    },
+    {
+      "record_key": "2026-11-20-flinn-cited-scotoma-counts#whitten-exposure-study",
+      "report_id": "pmid:20997673",
+      "basis": "The DOI and publisher citation identify the already indexed primary study.",
+      "evidence_url": "https://jamanetwork.com/journals/jamaophthalmology/article-abstract/619076"
+    },
+    {
+      "record_key": "2026-11-20-flinn-cited-scotoma-counts#adler-report-catalog",
+      "report_id": "citation:adler-1950-neurocirculatory-collapse",
+      "basis": "The title, investigator, publisher and year match the original report referenced by Flinn.",
+      "evidence_url": "https://openlibrary.org/works/OL44641058W/Neurocirculatory_collapse_at_altitude"
+    },
+    {
+      "record_key": "2026-11-20-flinn-cited-scotoma-counts#romano-original-conference-summary",
+      "report_id": "nlm:101085500x234:7:romano",
+      "basis": "Same original abstract and source page as the existing Romano extraction.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-flinn-cited-scotoma-counts#fryer-scotoma-summary",
+      "report_id": "report:ada111509",
+      "basis": "The DTIC accession identifies the existing Fryer monograph.",
+      "evidence_url": "https://archive.org/details/DTIC_ADA111509"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.31/sources.csv#engel44_scotomas",
+      "report_id": "journal:war-medicine:1944:5:304",
+      "evidence_url": "https://digitalcollections.lrc.usuhs.edu/digital/api/collection/p16005coll4/id/14565/download",
+      "basis": "The author list, journal, volume and pages identify the same Engel and colleagues article as the bibliography."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_original_sources:4",
+      "report_id": "journal:war-medicine:1944:5:304",
+      "evidence_url": "https://digitalcollections.lrc.usuhs.edu/digital/api/collection/p16005coll4/id/14565/download",
+      "basis": "The author list, journal, volume and pages identify the same Engel and colleagues article as the bibliography."
     }
   ],
   "studies": [
@@ -11791,6 +11845,12 @@
       "label": "Flinn and Womack one-pilot recurrent altitude dysbarism history",
       "period": "Antecedent dates largely unspecified. One evaluation chamber exposure on October 27, 1961.",
       "setting": "Selected aircraft, suit-chamber and hypobaric chamber exposures."
+    },
+    {
+      "study_id": "berkeley-whitten-1946-repeated-ascents",
+      "label": "Whitten Berkeley experimental scotoma chamber series",
+      "period": "Published in 1946. Individual exposure dates unavailable.",
+      "setting": "Case and exposure margins from an experimental hypobaric chamber series. Primary outcome table pending."
     }
   ],
   "study_reports": [
@@ -13173,6 +13233,18 @@
       "report_id": "faa-horizons:1963-08:17:flinn-womack",
       "role": "same_pilot_condensed_account",
       "locator": "Printed p. 17"
+    },
+    {
+      "study_id": "berkeley-whitten-1946-repeated-ascents",
+      "report_id": "pmid:20997673",
+      "role": "original_report_metadata_and_opening_excerpt",
+      "locator": "Printed pp. 220–224"
+    },
+    {
+      "study_id": "berkeley-whitten-1946-repeated-ascents",
+      "report_id": "pmid:14050686",
+      "role": "explicit_secondary_counts_with_native_units",
+      "locator": "Printed p. 959, Discussion"
     }
   ],
   "relations": [
@@ -14956,7 +15028,7 @@
     },
     {
       "left_report": "nlm:101085500x234:7:romano",
-      "right_report": "record:legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_original_sources:4",
+      "right_report": "journal:war-medicine:1944:5:304",
       "relationship": "likely_overlap",
       "evidence": "Same six collaborators, event type and year. The newsletter gives participant and episode counts for the program presentation. The complete related journal paper was not recovered.",
       "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X234/PDF/101085500X234.pdf#page=8"
@@ -15772,6 +15844,34 @@
       "relationship": "explicit_same_pilot_and_eight_prior_episodes",
       "evidence": "Page 958 footnote explicitly states that the patient reported as having eight episodes in Scherman's case series was the pilot described in this paper.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:14050686",
+      "right_report": "pmid:20997673",
+      "relationship": "cites_original_chamber_margin",
+      "evidence": "Flinn and Womack explicitly attribute 100 ascents in 41 subjects, 37 DCS terminations, and the eight scotoma observations in six subjects to Whitten. Eligibility and ascent linkage require the original.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=4"
+    },
+    {
+      "left_report": "pmid:14050686",
+      "right_report": "citation:adler-1950-neurocirculatory-collapse",
+      "relationship": "cites_selected_collapse_case_margins",
+      "evidence": "Flinn and Womack give a rounded visual-symptom percentage among 314 collapse cases and an exact 12/35 subgroup result.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=4"
+    },
+    {
+      "left_report": "pmid:14050686",
+      "right_report": "nlm:101085500x234:7:romano",
+      "relationship": "recites_same_migraine_like_syndrome_margin",
+      "evidence": "The 17 affected people, 46 episodes, 155 participants and 1,361 exposures match the existing original author summary. The source wording differs and the case count is used once.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=4"
+    },
+    {
+      "left_report": "pmid:14050686",
+      "right_report": "journal:war-medicine:1944:5:304",
+      "relationship": "cites_history_assessed_migraine_subgroups",
+      "evidence": "Flinn and Womack cite the earlier research for migraine-history counts of 11/16 and 10/102. The 16-person denominator is not equated with the 17-person affected margin.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=4"
     }
   ],
   "report_titles": {
@@ -15878,6 +15978,7 @@
     "report:ada111509": "Subatmospheric Decompression Sickness in Man",
     "pmid:14050686": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes",
     "faa-horizons:1963-08:17:flinn-womack": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes (FAA Horizons digest)",
-    "unpublished:scherman-neurologic-dysbarism": "Scherman unpublished neurologic dysbarism case series"
+    "unpublished:scherman-neurologic-dysbarism": "Scherman unpublished neurologic dysbarism case series",
+    "journal:war-medicine:1944:5:304": "A migraine-like syndrome complicating decompression sickness"
   }
 }
