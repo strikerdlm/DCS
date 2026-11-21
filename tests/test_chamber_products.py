@@ -8,6 +8,71 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_soviet_chamber_translation_preserves_units_and_shared_populations(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id='chadov87_staged_jprs' AND analysis_role='overlap_hold'
+            ORDER BY stratum,denominator_unit
+        """).fetchall() == [
+            ("12h-staging", "people_with_altitude_decompression_disorders_as_reported", 6, 27, "person", "overlap_hold"),
+            ("12h-staging", "altitude_decompression_disorders_as_reported", 6, 36, "person_exposure", "overlap_hold"),
+            ("18h-staging", "people_with_altitude_decompression_disorders_as_reported", 1, 30, "person", "overlap_hold"),
+            ("18h-staging", "altitude_decompression_disorders_as_reported", 1, 51, "person_exposure", "overlap_hold"),
+            ("24h-staging", "people_with_altitude_decompression_disorders_as_reported", 0, 37, "person", "overlap_hold"),
+            ("24h-staging", "altitude_decompression_disorders_as_reported", 0, 69, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT stage,planned_duration_min,pressure_hpa,oxygen_percent_lower,oxygen_percent_upper
+            FROM publication_chamber_exposure_stage WHERE stratum='18h-staging' ORDER BY stage
+        """).fetchall() == [
+            (1, 120, 1120.0, None, None), (2, 1080, 733.3, 29.0, 30.0), (3, 360, 293.3, 95.0, 96.0),
+        ]
+        assert db.execute("""
+            SELECT milestone,elapsed FROM publication_case_milestone
+            WHERE source_id='chadov87_staged_jprs' AND elapsed IS NOT NULL ORDER BY milestone
+        """).fetchall() == [("pain_persisted_through_rest", 5.0), ("right_elbow_and_wrist_pain", 75.0)]
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='chadov86_head_down' ORDER BY stratum
+        """).fetchall() == [("180-mmhg", None, None), ("220-mmhg", 22, 12), ("all", 47, 22)]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='chadov86_head_down' ORDER BY stratum
+        """).fetchall() == [
+            ("180-mmhg-head-down", 5, None), ("180-mmhg-seated", 6, None),
+            ("220-mmhg-head-down", 0, None), ("220-mmhg-upright", 2, None),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='iseev88_threshold_original' ORDER BY endpoint
+        """).fetchall() == [
+            ("people_with_disorder_threshold_identified", 28, 40),
+            ("people_with_vge_threshold_identified", 31, 40),
+        ]
+        assert db.execute("""
+            SELECT reported_group,reported_rate_lower,reported_rate_upper,reported_rate_unit,
+                   cases,denominator,reported_rate_percent
+            FROM review.review_search_observation WHERE endpoint='dcs_symptoms_by_vge_grade'
+            ORDER BY reported_group
+        """).fetchall() == [
+            ("grade-1-2", 10, 16, "percent", None, None, None),
+            ("grade-3-4", 50, 75.9, "percent", None, None, None),
+        ]
+        assert db.execute("""
+            SELECT stratum,reported_percent_lower,reported_percent_upper
+            FROM publication_vge_dcs_percent_range ORDER BY stratum
+        """).fetchall() == [("grade-1-2", 10.0, 16.0), ("grade-3-4", 50.0, 75.9)]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:n87-25740' ORDER BY right_report
+        """).fetchall() == [
+            ("ntrs:n88-26074", "possible_overlap_historical_chamber_archive"),
+            ("pmid:3560843", "translation_of"),
+        ]
+
+
 def test_russian_reports_and_connolly_companions_keep_distinct_outcome_units(release):
     with connect_pair(release) as db:
         assert db.execute("""

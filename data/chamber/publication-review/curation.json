@@ -1,6 +1,102 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#chadov-1986-nasa-p816",
+      "report_id": "ntrs:19880016712:p816",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.102/sources.csv#chadov86_head_down",
+      "report_id": "ntrs:19880016712:p816",
+      "basis": "Numbered extraction cites the same verified publication or translation.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#chadov-1986-original-metadata",
+      "report_id": "kaluga:1986:chadov:154",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890016185/downloads/19890016185.pdf"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#chadov-1987-original",
+      "report_id": "pmid:3560843",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3560843/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.102/sources.csv#chadov87_staged_original",
+      "report_id": "pmid:3560843",
+      "basis": "Numbered extraction cites the same verified publication or translation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3560843/"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#chadov-1987-jprs-full",
+      "report_id": "ntrs:n87-25740",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-87-003/jprs-report_jprs-usb-87-003.pdf#page=43"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.102/sources.csv#chadov87_staged_jprs",
+      "report_id": "ntrs:n87-25740",
+      "basis": "Numbered extraction cites the same verified publication or translation.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-87-003/jprs-report_jprs-usb-87-003.pdf#page=43"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#iseev-1988-threshold-original",
+      "report_id": "pmid:3047496",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3047496/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.102/sources.csv#iseev88_threshold_original",
+      "report_id": "pmid:3047496",
+      "basis": "Numbered extraction cites the same verified publication or translation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3047496/"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#iseev-1988-nasa-p871",
+      "report_id": "ntrs:19890002795:p871",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890002795/downloads/19890002795.pdf#page=95"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.102/sources.csv#iseev88_threshold_digest",
+      "report_id": "ntrs:19890002795:p871",
+      "basis": "Numbered extraction cites the same verified publication or translation.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890002795/downloads/19890002795.pdf#page=95"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#chadov-1989-original",
+      "report_id": "pmid:2761213",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2761213/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.102/sources.csv#chadov89_supersaturation",
+      "report_id": "pmid:2761213",
+      "basis": "Numbered extraction cites the same verified publication or translation.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2761213/"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-verified#digest-index-p1102-p1103",
+      "report_id": "ntrs:19900005447",
+      "basis": "Original authors, publication or archive identifier, and locator verified.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900005447/downloads/19900005447.pdf#page=72"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-firecrawl-p816#nasa-digest-issue-18",
+      "report_id": "ntrs:19880016712",
+      "basis": "The title and locator identify the archive container for the recovered evidence.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true"
+    },
+    {
+      "record_key": "2026-11-20-soviet-posture-and-staging-firecrawl-archive#jprs-usb-87-003",
+      "report_id": "jprs:usb-87-003",
+      "basis": "The title and locator identify the archive container for the recovered evidence.",
+      "evidence_url": "https://archive.org/details/jprs-report_jprs-usb-87-003"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.101/sources.csv#filipenkov07_chamber_repeats",
       "report_id": "gmik:2007:filipenkov",
       "basis": "Publication identifiers and source locator match Correlation of anthropometry with risk of altitude decompression sickness and frequency of ultrasound detection of gas bubbles in human blood flow.",
@@ -11997,6 +12093,30 @@
   ],
   "studies": [
     {
+      "study_id": "soviet-chadov-1986-posture-chamber",
+      "label": "Chadov 1986 chamber posture experiments",
+      "period": "Conference 1986; original trial dates unavailable.",
+      "setting": "47 trials among 22 participants across two conditions and repeated postures."
+    },
+    {
+      "study_id": "soviet-chadov-1987-staged-residence",
+      "label": "Chadov 1987 staged normoxic hypobaria study",
+      "period": "Manuscript received January 1985; journal 1987.",
+      "setting": "156 person-tests in 43 volunteers across three residence durations. Native endpoint altitude decompression disorders."
+    },
+    {
+      "study_id": "soviet-iseev-1988-doppler-threshold",
+      "label": "Iseev 1988 repeated Doppler and altitude-disorder threshold study",
+      "period": "Reported 1988; testing dates unavailable.",
+      "setting": "442 experiments in 40 volunteers. Target altitude advanced over repeat tests. The posture subset comprises 16 people."
+    },
+    {
+      "study_id": "soviet-chadov-1989-supersaturation",
+      "label": "Chadov and Iseev 1989 supersaturation experiment series",
+      "period": "Reported 1989; exposure dates unavailable.",
+      "setting": "383 tests in 70 participants. Counts of clinical outcomes are unavailable."
+    },
+    {
       "study_id": "filipenkov-123-volunteer-doppler-chamber",
       "label": "Filipenkov 123-volunteer chamber Doppler and tolerance series",
       "period": "Reported 2007, 2010 and 2015; testing dates unavailable.",
@@ -13036,6 +13156,48 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "soviet-chadov-1986-posture-chamber",
+      "report_id": "kaluga:1986:chadov:154",
+      "role": "original_conference_abstract_metadata",
+      "locator": "Original pp. 154–155, indexed as NASA P816"
+    },
+    {
+      "study_id": "soviet-chadov-1986-posture-chamber",
+      "report_id": "ntrs:19880016712:p816",
+      "role": "detailed_nasa_summary",
+      "locator": "NASA Digest Issue 18 pp. 112–113"
+    },
+    {
+      "study_id": "soviet-chadov-1987-staged-residence",
+      "report_id": "pmid:3560843",
+      "role": "original_author_abstract",
+      "locator": "PubMed PMID 3560843"
+    },
+    {
+      "study_id": "soviet-chadov-1987-staged-residence",
+      "report_id": "ntrs:n87-25740",
+      "role": "full_translation_and_source_counts",
+      "locator": "JPRS pp. 38–42, table p. 40"
+    },
+    {
+      "study_id": "soviet-iseev-1988-doppler-threshold",
+      "report_id": "pmid:3047496",
+      "role": "original_author_abstract",
+      "locator": "PubMed PMID 3047496"
+    },
+    {
+      "study_id": "soviet-iseev-1988-doppler-threshold",
+      "report_id": "ntrs:19890002795:p871",
+      "role": "nasa_digest_threshold_and_symptom_ranges",
+      "locator": "NASA Digest Issue 19 pp. 87–88"
+    },
+    {
+      "study_id": "soviet-chadov-1989-supersaturation",
+      "report_id": "pmid:2761213",
+      "role": "original_author_abstract",
+      "locator": "PubMed PMID 2761213"
+    },
     {
       "study_id": "filipenkov-123-volunteer-doppler-chamber",
       "report_id": "gmik:2007:filipenkov",
@@ -14784,6 +14946,97 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:19880016712:p816",
+      "right_report": "kaluga:1986:chadov:154",
+      "relationship": "summarizes_original_conference_abstract",
+      "evidence": "P816 explicitly gives original authors, conference name and pp. 154–155.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true"
+    },
+    {
+      "left_report": "ntrs:n87-25740",
+      "right_report": "pmid:3560843",
+      "relationship": "translation_of",
+      "evidence": "Official translation of the same authors, journal, volume and original pages. Count the table once.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-87-003/jprs-report_jprs-usb-87-003.pdf#page=43"
+    },
+    {
+      "left_report": "ntrs:19890002795:p871",
+      "right_report": "pmid:3047496",
+      "relationship": "summarizes_original_journal_report",
+      "evidence": "NASA summary names the authors, journal and original pages and confirms 40 men. Treat as a single series.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890002795/downloads/19890002795.pdf#page=95"
+    },
+    {
+      "left_report": "jprs:usb-87-003",
+      "right_report": "ntrs:n87-25740",
+      "relationship": "contains_full_translation",
+      "evidence": "The issue cover identifies JPRS-USB-87-003. The translated Chadov article occupies printed pp. 38–42.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-87-003/jprs-report_jprs-usb-87-003.pdf"
+    },
+    {
+      "left_report": "ntrs:19880016712",
+      "right_report": "ntrs:19880016712:p816",
+      "relationship": "contains_summary_p816",
+      "evidence": "The digest contains the P816 conference summary on printed pp. 112–113.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true"
+    },
+    {
+      "left_report": "ntrs:19880016712:p816",
+      "right_report": "pmid:3047496",
+      "relationship": "possible_overlap_posture_chamber_program",
+      "evidence": "Same research program, overlapping author group, similar chamber ascent rate and posture comparison. The article uses different exposure times and unidentified participants.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19890002795/downloads/19890002795.pdf#page=95"
+    },
+    {
+      "left_report": "ntrs:19880016712:p816",
+      "right_report": "ntrs:n88-26074",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "Published in 1986 within the same group’s 1975–1986 archive dates. Inclusion of these 47 trials remains unverified.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-88-005/jprs-report_jprs-usb-88-005.pdf#page=22"
+    },
+    {
+      "left_report": "ntrs:n87-25740",
+      "right_report": "ntrs:n88-26074",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "Same author team, chamber experiments, manuscript received in 1985 within the known archive interval. No trial or participant identifiers for reconciliation.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-88-005/jprs-report_jprs-usb-88-005.pdf#page=22"
+    },
+    {
+      "left_report": "pmid:3047496",
+      "right_report": "ntrs:n88-26074",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "Closely related research group and timeframe. Eligibility and cross-inclusion in the larger symptom archive are unknown.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-88-005/jprs-report_jprs-usb-88-005.pdf#page=22"
+    },
+    {
+      "left_report": "pmid:3047496",
+      "right_report": "biofizpribor:2015:filipenkov",
+      "relationship": "possible_overlap_historical_doppler_archives",
+      "evidence": "Both report repeated chamber Doppler testing in volunteers with close trial counts but differing participant totals and profiles. Source membership is unavailable.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/3047496/"
+    },
+    {
+      "left_report": "pmid:2761213",
+      "right_report": "ntrs:n88-26074",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "Same authors and experimental field. Dates, sites, risk-set membership and outcomes of the 1989 series are not detailed in the abstract.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-88-005/jprs-report_jprs-usb-88-005.pdf#page=22"
+    },
+    {
+      "left_report": "ntrs:19900005447",
+      "right_report": "pmid:2761212",
+      "relationship": "indexes_later_digest_abstract",
+      "evidence": "The bibliographic index identifies the suited study as P1102 in Issue 24. It supplies no further outcomes.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900005447/downloads/19900005447.pdf#page=72"
+    },
+    {
+      "left_report": "ntrs:19900005447",
+      "right_report": "pmid:2761213",
+      "relationship": "indexes_later_digest_abstract",
+      "evidence": "The bibliographic index identifies the supersaturation study as P1103 in Issue 24. It supplies no further outcomes.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900005447/downloads/19900005447.pdf#page=72"
+    },
     {
       "left_report": "gmik:2007:filipenkov",
       "right_report": "biofizpribor:2015:filipenkov",
@@ -17898,6 +18151,14 @@
     "pmid:39169490": "Brain and Lung Biomarker Responses to Hyperoxic Hypobaric Decompression",
     "patent:ru2387379c1": "Method for assessing operator tolerance to hypobaric decompression in simulated high-altitude flight",
     "doi:10.17816/rmmj73430": "Issues on decompression safety of flight crew",
-    "doi:10.21949/1403478": "Altitude-Induced Decompression Sickness"
+    "doi:10.21949/1403478": "Altitude-Induced Decompression Sickness",
+    "ntrs:19880016712:p816": "Study of the characteristics of decompression gas formation under conditions simulating weightlessness (NASA Digest P816)",
+    "kaluga:1986:chadov:154": "Study of the characteristics of decompression gas formation under conditions simulating weightlessness",
+    "pmid:3560843": "Relation between the probability of development of altitude-decompression disorders and the duration of pre-exposure to a hypobaric atmosphere",
+    "ntrs:n87-25740": "Probability of altitude decompression disorders as a function of duration of pre-exposure to hypobaric atmosphere",
+    "pmid:3047496": "Comparative study of decompression-induced formation of gas bubbles using ultrasonic equipment and the development of altitude-decompression disorders",
+    "ntrs:19890002795:p871": "Comparative study of decompression-induced gas bubble formation and occurrence of high altitude decompression sickness (NASA Digest P871)",
+    "pmid:2761213": "Changes in the maximum permissible supersaturation coefficient in altitude decompression",
+    "ntrs:19900005447": "USSR Space Life Sciences Digest, Index to Issues 21–25"
   }
 }
