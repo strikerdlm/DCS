@@ -1,6 +1,36 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.93/sources.csv#webb91_doppler_resolution",
+      "report_id": "abstract:asma-1991-webb-pilmanis-219",
+      "basis": "Authors, title, issue, page and abstract number match the original publisher scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=37"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.93/sources.csv#olson91_paired_latency",
+      "report_id": "abstract:asma-1991-olson-krutz-045",
+      "basis": "Authors, title, issue, page and abstract number match the original publisher scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-brooks-doppler-original#abstract-219",
+      "report_id": "abstract:asma-1991-webb-pilmanis-219",
+      "basis": "Exact original conference abstract.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=37"
+    },
+    {
+      "record_key": "2026-11-20-brooks-doppler-original#abstract-45",
+      "report_id": "abstract:asma-1991-olson-krutz-045",
+      "basis": "Exact original conference abstract.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-brooks-doppler-original#in-vitro-predecessor",
+      "report_id": "pmid:2031629",
+      "basis": "The PubMed abstract identifies the April journal study with the same authors and a separate in vitro design.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2031629/"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.92/sources.csv#garbino22_ea_pilot",
       "report_id": "ntrs:20220009546",
       "basis": "NTRS accession, printed ICAM abstract identifier and authors match the primary source.",
@@ -11115,6 +11145,18 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-brooks-1980s-high-grade-doppler-resolution",
+      "label": "Brooks altitude chamber high-grade Doppler resolution archive subset",
+      "period": "Mid-1980s, according to the original abstract",
+      "setting": "Selected human hypobaric chamber exposures. Potential overlap with existing USAFSAM archive series."
+    },
+    {
+      "study_id": "usaf-brooks-olson-krutz-paired-altitude-latency",
+      "label": "Olson and Krutz paired chamber DCS latency experiment",
+      "period": "Published in May 1991. Exposure dates unavailable.",
+      "setting": "Research participants at two simulated altitudes. Exact clinical and timing outcomes unavailable."
+    },
+    {
       "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
       "label": "NASA JSC 2022 three-day Exploration Atmosphere pilot",
       "period": "May 9–12, 2022 in Anchondo et al. Campaign rehearsal entry gives March.",
@@ -12010,6 +12052,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-brooks-1980s-high-grade-doppler-resolution",
+      "report_id": "abstract:asma-1991-webb-pilmanis-219",
+      "role": "original_selected_high_grade_subgroup",
+      "locator": "Abstract 219, printed p. 481"
+    },
+    {
+      "study_id": "usaf-brooks-olson-krutz-paired-altitude-latency",
+      "report_id": "abstract:asma-1991-olson-krutz-045",
+      "role": "original_human_paired_experiment",
+      "locator": "Abstract 45, printed p. 452"
+    },
     {
       "study_id": "nasa-exploration-atmosphere-2022-dress-rehearsal",
       "report_id": "ntrs:20220009546",
@@ -13476,6 +13530,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "abstract:asma-1991-webb-pilmanis-219",
+      "right_report": "pmid:15672984",
+      "relationship": "possible_overlap_archive_profiles",
+      "evidence": "Both describe Brooks human chamber tests from the mid-1980s at 22,500, 25,000, 27,500 and 30,000 ft. The 1991 abstract covers 215 reviewed exposures and the 2005 paper reports 109 sessions from May 1983 to August 1987. Individual session correspondence cannot be established.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/1/article-p34.pdf#page=2"
+    },
+    {
+      "left_report": "abstract:asma-1991-olson-krutz-045",
+      "right_report": "pmid:2031629",
+      "relationship": "potential_invoked_in_vitro_predecessor",
+      "evidence": "The human abstract refers to the same authors' earlier in vitro work on growth and latency. The April paper has that experimental design. Separate source identities preserve the human and in vitro evidence.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=8"
+    },
     {
       "left_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
       "right_report": "ntrs:20220009546",

@@ -1,0 +1,189 @@
+[
+  {
+    "id": "2026-11-20-brooks-doppler-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_followup_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA Garbino exploration atmosphere test 6 July 2025 day 15 61 62 person-EVA outcomes attendance chamber clinical DCS",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-doppler-firecrawl-search",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_candidate_search_and_overlap_screen",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "hypobaric decompression sickness altitude chamber volunteers reported prevalence cases 1970 1980 1990 Japanese German Chinese Soviet French experiment human group symptom Decompression Sickness",
+      "returned_count": 15,
+      "ranked_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/2241750/",
+        "https://pubmed.ncbi.nlm.nih.gov/3790029/",
+        "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+        "https://ntrs.nasa.gov/citations/19920072110",
+        "https://www.researchgate.net/publication/8509850_Altitude_decompression_sickness_symptom_resolution_during_descent_to_ground_level",
+        "https://canadahyperbarics.ca/research/altitude-decompression-sickness-hyperbaric-therapy-results-in-528-cases/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/",
+        "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "https://pubmed.ncbi.nlm.nih.gov/15198274/",
+        "https://pubmed.ncbi.nlm.nih.gov/42345225/",
+        "https://pubmed.ncbi.nlm.nih.gov/7928907/",
+        "https://pubmed.ncbi.nlm.nih.gov/33875060/",
+        "https://pubmed.ncbi.nlm.nih.gov/889546/",
+        "https://pubmed.ncbi.nlm.nih.gov/14557320/"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Checked ranked historical reports against the project. The retrieved Brooks, Piwinski and Conkin records include previously indexed study material. New numerical extraction comes from separate original proceedings verification.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-doppler-firecrawl-exact",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_exact_title_and_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"resolution of high bubble grades at altitude\" \"latent period of symptoms\" Webb Pilmanis Olson Krutz 1991 AsMA",
+      "returned_count": 0,
+      "bibliography_mirror_http_status": 404
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The combined exact-title query returned no hits and the bibliography mirror returned a 404. Both original conference abstracts were retrieved via the publisher issue.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-doppler-firecrawl-publisher",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_pdf_attempt",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf",
+      "http_status": 200
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "The response supplies no usable text from the selected proceedings pages. The publisher PDF is independently available and its rendered pages were checked.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-brooks-doppler-original",
+    "date": "2026-11-20",
+    "provider": "AsMA original proceedings and PubMed publisher abstract",
+    "operation": "supplementary_original_abstract_and_overlap_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 3,
+    "status": "observed",
+    "note": "Compared the rendered primary abstracts with their text, identified the high-grade asymptomatic subgroup, verified the in vitro precursor and checked possible cohort overlap with published Brooks series.",
+    "records": [
+      {
+        "id": "abstract-219",
+        "title": "Resolution of high bubble grades at altitude",
+        "year": 1991,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=37",
+        "access": "primary_abstract",
+        "sha256": "e61ee95dc826843dd46906fef2cde148a36924fba98464069988d8461e4ed520",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=37",
+        "locator": "Abstract 219, printed p. 481; PDF p. 37",
+        "source_scope": {
+          "observed_exposures": 215,
+          "duration_hours_source_range": [
+            7,
+            8
+          ],
+          "pressure_mmhg_source_range": [
+            226,
+            314
+          ],
+          "pressure_altitudes_ft": [
+            22500,
+            25000,
+            27500,
+            30000
+          ],
+          "ground_pressure_mmhg": 745,
+          "source_pct_dcs_symptoms_with_early_termination": 66,
+          "exact_clinical_count": null,
+          "participants": null,
+          "doppler_scale": "Spencer"
+        },
+        "observations": [
+          {
+            "id": "selected-high-grade-resolution",
+            "endpoint": "vge_reduced_to_spencer_0_or_1",
+            "group": "Selected Spencer grade 3 or 4 exposures without DCS symptoms",
+            "study_id": "usaf-brooks-1980s-high-grade-doppler-resolution",
+            "cases": 13,
+            "denominator": 35,
+            "denominator_unit": "person_exposure",
+            "locator": "Abstract 219, Results",
+            "note": "Grades gradually reduced to 0 or 1 by the end of exposure. This subgroup is nested in the 215-exposure report. Reuse across earlier Brooks studies remains possible."
+          },
+          {
+            "id": "printed-dcs-termination-percentage",
+            "endpoint": "dcs_symptoms_with_early_termination",
+            "group": "All reviewed exposures",
+            "study_id": "usaf-brooks-1980s-high-grade-doppler-resolution",
+            "cases": null,
+            "denominator": 215,
+            "denominator_unit": "person_exposure",
+            "reported_rate": 66,
+            "reported_rate_unit": "percent",
+            "locator": "Abstract 219, Results",
+            "note": "Rounded source percentage. No exact DCS numerator entered."
+          }
+        ]
+      },
+      {
+        "id": "abstract-45",
+        "title": "Latent period of symptoms in decompression sickness",
+        "year": 1991,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=8",
+        "access": "primary_abstract",
+        "sha256": "e61ee95dc826843dd46906fef2cde148a36924fba98464069988d8461e4ed520",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=8",
+        "locator": "Abstract 45, printed p. 452; PDF p. 8",
+        "source_scope": {
+          "participants": 14,
+          "conditions_ft": [
+            25000,
+            30000
+          ],
+          "exposure_design": "Same participants at each altitude on separate occasions",
+          "prebreathe_min": 60,
+          "prebreathe_oxygen_fraction": 1,
+          "light_exercise_min_per_cycle": 1,
+          "exercise_cycle_min": 16,
+          "ultrasound_interval_min": 16,
+          "clinical_cases_by_altitude": null,
+          "times_to_onset": null,
+          "times_to_resolution": null
+        },
+        "note": "The author abstract describes earlier symptoms at 30,000 ft in most cases and resolution of the reported symptoms during chamber pressure increase. No paired outcome counts or timing values are stated."
+      },
+      {
+        "id": "in-vitro-predecessor",
+        "title": "Significance of delayed symptom onset and bubble growth in altitude decompression sickness",
+        "year": 1991,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/2031629/",
+        "pmid": "2031629",
+        "access": "primary_abstract",
+        "locator": "April author abstract, Methods",
+        "note": "Same authors and mechanism but an in vitro study. This article provides no chamber human outcome data."
+      }
+    ]
+  }
+]
