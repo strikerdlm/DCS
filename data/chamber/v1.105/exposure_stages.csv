@@ -1,0 +1,7 @@
+source_id,stratum,stage,planned_duration_min,printed_nominal_pressure,printed_nominal_unit,printed_alternate_pressure,printed_alternate_unit,oxygen_percent,nitrogen_percent,locator,note
+chadov87_cabin_p910,experiment-1,1,120,1.142,atm,1120,gPa,,,P910 Methods p. 103 and Table p. 105,Oxygen and nitrogen fractions at stage 1 are not specified in Table.
+chadov87_cabin_p910,experiment-1,2,1440,0.58,atm,569,gPa,38,62,P910 Methods p. 103 and Table p. 105,No special exercise in this preliminary stage.
+chadov87_cabin_p910,experiment-1,3,360,0.24,atm,,,95,5,P910 Methods p. 103 and Table p. 105,Reported gas delivered by mask. Graded arm work 40 min/h and 20 min/h rest. Final pressure only printed in source-labeled atm.
+chadov87_cabin_p910,experiment-2,1,120,1.142,atm,1120,gPa,,,P910 Methods p. 103 and Table p. 105,Same first stage as experiment 1.
+chadov87_cabin_p910,experiment-2,2,1440,0.62,atm,608,gPa,36,64,P910 Methods p. 103 and Table p. 105,No special exercise in this preliminary stage.
+chadov87_cabin_p910,experiment-2,3,360,0.25,atm,,,95,5,P910 Methods p. 103 and Table p. 105,"The same gas, work and rest schedule as experiment 1. Final pressure only printed in source-labeled atm."
