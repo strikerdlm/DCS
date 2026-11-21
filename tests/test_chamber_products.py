@@ -4573,3 +4573,41 @@ def test_nasa_serious_dcs_appendix_retains_reported_counts_and_overlap(release):
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='conkin01_serious_archive'
         """).fetchone() == (0,)
+
+
+def test_nasa_serious_references_link_publications_without_merging_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),count(related_source_id),count(ascent_reference_number)
+            FROM publication_nasa_serious_dcs_reference
+        """).fetchone() == (73, 44, 22)
+        assert db.execute("""
+            SELECT count(*) FROM publication_nasa_serious_dcs_group g
+            JOIN publication_nasa_serious_dcs_reference r
+            ON (g.source_id,g.reference_number,g.reference_printed_page) =
+               (r.source_id,r.reference_number,r.printed_reference_page)
+        """).fetchone() == (258,)
+        assert db.execute("""
+            SELECT DISTINCT r.reference_number,a.reference_number,a.reported_outcome_window_min
+            FROM publication_nasa_serious_dcs_reference r JOIN publication_ascent_compilation a
+            ON (r.ascent_source_id,r.ascent_reference_number) = (a.source_id,a.reference_number)
+            WHERE r.reference_number IN (56,57) AND a.analysis_role='overlap_hold'
+            ORDER BY r.reference_number
+        """).fetchall() == [(56, 59, 120), (57, 60, 120)]
+        assert db.execute("""
+            SELECT r.related_source_id,sum(g.serious_cases),sum(g.male_exposures)
+            FROM publication_nasa_serious_dcs_group g
+            JOIN publication_nasa_serious_dcs_reference r USING(source_id,reference_number)
+            WHERE r.reference_number=9 GROUP BY r.related_source_id
+        """).fetchone() == ("barer82_jprs_80323", 0, 74)
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='barer82_jprs_80323' AND stratum='all-trials'
+              AND endpoint='altitude_caisson_disease_as_reported'
+        """).fetchone() == (14, 74)
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='sedov80_waste_gas'
+        """).fetchone() == ("pmid:6102169",)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='sedov80_waste_gas'
+        """).fetchone() == (0,)
