@@ -228,6 +228,7 @@ UCSD_AVIATION_REFERRALS = ROOT / "data" / "chamber" / "v1.160"
 BRADLEY_CHAMBER_DCI = ROOT / "data" / "chamber" / "v1.161"
 OPERATIONAL_FLIGHT_SAFETY = ROOT / "data" / "chamber" / "v1.162"
 INTERNATIONAL_PRESSURE_LOSS = ROOT / "data" / "chamber" / "v1.163"
+CHAMBER_ARCHIVE_FOLLOWUP = ROOT / "data" / "chamber" / "v1.164"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2255,6 +2256,16 @@ def build(
                         "publication_pressure_loss_record": "pressure_loss_records.csv",
                         "publication_overlap": "overlap.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_ARCHIVE_FOLLOWUP,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(
