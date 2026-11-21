@@ -8,6 +8,84 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_hitchcock_and_lockheed_keep_trial_scopes_and_endpoints_distinct(release):
+    with connect_pair(release) as db:
+        sources = {
+            "hitchcock51_fulton_bends": "fulton1951:explosive-decompression",
+            "barron55_lockheed_training": "pmid:13233153",
+        }
+        for model, report in sources.items():
+            model_rows = db.execute("""
+                SELECT stratum,endpoint,numerator,denominator,denominator_unit
+                FROM publication_observation WHERE source_id=? ORDER BY stratum,endpoint
+            """, (model,)).fetchall()
+            review_rows = db.execute("""
+                SELECT reported_group,endpoint,cases,denominator,denominator_unit
+                FROM review.review_search_observation WHERE report_id=? AND cases IS NOT NULL
+                ORDER BY reported_group,endpoint
+            """, (report,)).fetchall()
+            assert model_rows
+            assert review_rows == model_rows
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role
+            FROM publication_observation
+            WHERE source_id='hitchcock51_fulton_bends'
+              AND endpoint='incapacitating_bends_as_reported'
+              AND stratum IN ('group-ii-slow','group-iv-rapid-208','group-iv-slow')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("group-ii-slow", 62, 111, "denominator_conflict"),
+            ("group-iv-rapid-208", 36, 42, "overlap_hold"),
+            ("group-iv-slow", 28, 45, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT stratum,reported_percent,denominator FROM publication_reported_rate
+            WHERE source_id='hitchcock51_fulton_bends'
+              AND (stratum='group-ii-slow'
+                OR (stratum='45000-completed-program-slow' AND endpoint='gas_symptoms_as_reported'))
+            ORDER BY stratum
+        """).fetchall() == [
+            ("45000-completed-program-slow", "6.3", 32), ("group-ii-slow", "55.0", 111),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate_percent
+            FROM review.review_search_observation
+            WHERE report_id='fulton1951:explosive-decompression'
+              AND reported_group='45000-completed-program-slow'
+              AND endpoint='gas_symptoms_as_reported'
+        """).fetchone() == (None, 32, 6.3)
+        assert db.execute("""
+            SELECT stratum,parent_stratum,trial_count FROM publication_chamber_trial_scope
+            WHERE source_id='hitchcock51_fulton_bends' AND stratum LIKE 'group-v-rapid-%'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("group-v-rapid-104", "group-v-rapid-both", 25),
+            ("group-v-rapid-208", "group-v-rapid-both", 25),
+            ("group-v-rapid-both", "group-v", 50),
+        ]
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='barron55_lockheed_training' ORDER BY stratum
+        """).fetchall() == [
+            ("instructor-exposures", 72, 4), ("trainees-20000ft", None, 147),
+            ("trainees-25000ft", None, 234), ("trainees-with-rapid-exercise", None, 381),
+        ]
+        assert db.execute("""
+            SELECT endpoint,denominator_unit FROM publication_observation
+            WHERE source_id='barron55_lockheed_training' ORDER BY endpoint
+        """).fetchall() == [
+            ("dental_discomfort_as_reported", "person"),
+            ("significant_confusion_as_reported", "person_exposure"),
+            ("transient_chest_pain_without_other_reported_findings", "person"),
+            ("tympanic_membrane_perforation_as_reported", "person"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE left_report='pmid:13221521' AND right_report='fulton1951:explosive-decompression'
+              AND relationship='partial_overlap_program_overview'
+        """).fetchone() == (1,)
+
+
 def test_vakar_genin_and_petrukhin_translations_share_only_verified_outcomes(release):
     with connect_pair(release) as db:
         source_map = {
