@@ -8,6 +8,61 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_duke_prebreathe_keeps_ascent_series_and_overlapping_reports_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.ascent_min, p.protocol_code, p.prebreathe_min, o.numerator, o.denominator,
+                   o.denominator_basis, o.analysis_role
+            FROM publication_duke_prebreathe_protocol p
+            JOIN publication_observation o ON p.source_id=o.source_id AND p.protocol_code=o.stratum
+            ORDER BY p.ascent_min,p.protocol_code
+        """).fetchall() == [
+            (9, "HDR", 210, 2, 5, "author_reconstructed", "overlap_hold"),
+            (9, "SE", 210, 0, 6, "author_reconstructed", "overlap_hold"),
+            (9, "SR", 210, 4, 6, "author_reconstructed", "overlap_hold"),
+            (30, "HDR", 210, 1, 10, "source_reported", "overlap_hold"),
+            (30, "SE2", 150, 5, 10, "source_reported", "overlap_hold"),
+            (30, "SE3", 210, 0, 5, "source_reported", "overlap_hold"),
+            (30, "SHR", 210, 1, 7, "source_reported", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT participant_ordinal), COUNT(*), SUM(dcs),
+                   COUNT(dcs_onset_min_approx), COUNT(vge_onset_min_approx)
+            FROM publication_duke_prebreathe_exposure
+        """).fetchone() == (6, 17, 6, 4, 2)
+        assert db.execute("""
+            SELECT e.protocol_code, SUM(e.dcs), COUNT(*), o.numerator, o.denominator
+            FROM publication_duke_prebreathe_exposure e
+            JOIN publication_observation o ON o.source_id=e.source_id AND o.stratum=e.protocol_code
+            GROUP BY e.protocol_code,o.numerator,o.denominator ORDER BY e.protocol_code
+        """).fetchall() == [("HDR", 2, 5, 2, 5), ("SE", 0, 6, 0, 6), ("SR", 4, 6, 4, 6)]
+        assert db.execute("""
+            SELECT participant_ordinal, protocol_code, dcs_onset_min_approx, vge_onset_min_approx
+            FROM publication_duke_prebreathe_exposure WHERE vge_onset_min_approx>dcs_onset_min_approx
+        """).fetchall() == [(2, "HDR", 171, 176)]
+        assert db.execute("""
+            SELECT protocol_code,exercise_rest_min FROM publication_duke_prebreathe_protocol
+            WHERE protocol_code IN ('SE2','SE3') ORDER BY protocol_code
+        """).fetchall() == [("SE2", 40), ("SE3", None)]
+        assert db.execute("""
+            SELECT protocol_code,historical_participants,historical_dcs_percent
+            FROM publication_duke_prebreathe_protocol WHERE phase='historical_summary'
+            ORDER BY protocol_code
+        """).fetchall() == [("prior-exercise", 10, 0), ("prior-rest", 16, 63)]
+        assert db.execute("""
+            SELECT COUNT(*), SUM(o.numerator=r.cases AND o.denominator=r.denominator)
+            FROM publication_observation o
+            JOIN model_report_link l ON l.source_id=o.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON r.report_id=l.report_id
+                AND r.endpoint=o.endpoint AND r.reported_group=o.stratum
+            WHERE o.source_id IN ('vann89_duke_prebreathe_duration','gerth89_duke_nitrogen_workshop')
+        """).fetchone() == (7, 7)
+        assert db.execute("""
+            SELECT COUNT(*) FROM review.review_search_observation
+            WHERE report_id='abstract:asma-1989-duke-gerth-072'
+        """).fetchone() == (0,)
+
+
 def test_usafsam_appendix_editions_and_abstract_denominators(release):
     with connect_pair(release) as db:
         assert db.execute("""
