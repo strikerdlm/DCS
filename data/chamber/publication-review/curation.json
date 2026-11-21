@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-iseev-archive-archive-parse#N88-26074",
+      "report_id": "ntrs:n88-26074",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-88-005/jprs-report_jprs-usb-88-005.pdf#page=22"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-verified#N88-26074",
+      "report_id": "ntrs:n88-26074",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-88-005/jprs-report_jprs-usb-88-005.pdf#page=22"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.103/sources.csv#iseev88_archive_jprs",
+      "report_id": "ntrs:n88-26074",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-88-005/jprs-report_jprs-usb-88-005.pdf#page=22"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-verified#filipenkov-2007",
+      "report_id": "gmik:2007:filipenkov",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://readings.gmik.ru/lecture/2007-KORRELYATSIYA-ANTROPOMETRII-S-RISKOM-VISOTNOY-DEKOMPRESSIONNOY-BOLEZNI-I-CHASTOTOY-OBNARUZHENIYA-GAZOVIH-PUZIRKOV-PRI-ULTRAZVUKOVOM-ISSLEDOVANII-KROVOTOKA-CHELOVEKA"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-review#filipenkov-2007",
+      "report_id": "gmik:2007:filipenkov",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-review#blaginin-emelianov-2012",
+      "report_id": "nrcerm:2012:1:45",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=45"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-review#kazakova-1982",
+      "report_id": "extrem:1982:kazakova:275",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-review#volkov-1994",
+      "report_id": "thesis:1994:volkov",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-review#starovoyt-2011",
+      "report_id": "thesis-abstract:2011:starovoyt",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-starovoyt#starovoyt-2011-dissertation",
+      "report_id": "rsl:01005087415",
+      "basis": "Russian State Library gives the dissertation title and 218-page extent.",
+      "evidence_url": "https://search.rsl.ru/ru/record/01005087415"
+    },
+    {
+      "record_key": "2026-11-21-iseev-archive-starovoyt#starovoyt-2011",
+      "report_id": "thesis-abstract:2011:starovoyt",
+      "basis": "Checked the original title and publication, archive or catalogue locator.",
+      "evidence_url": "https://medical-diss.com/medicina/kliniko-laboratornaya-otsenka-metabolicheskih-narusheniy-pri-vozdeystvii-povyshennogo-i-ponizhennogo-davleniya-i-podhody-"
+    },
+    {
       "record_key": "2026-11-20-soviet-posture-and-staging-verified#chadov-1986-nasa-p816",
       "report_id": "ntrs:19880016712:p816",
       "basis": "Original authors, publication or archive identifier, and locator verified.",
@@ -18004,6 +18070,41 @@
       "relationship": "cites_history_assessed_migraine_subgroups",
       "evidence": "Flinn and Womack cite the earlier research for migraine-history counts of 11/16 and 10/102. The 16-person denominator is not equated with the 17-person affected margin.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=4"
+    },
+    {
+      "left_report": "nrcerm:2012:1:45",
+      "right_report": "thesis:1994:volkov",
+      "relationship": "cites",
+      "evidence": "Bibliography reference 2 on p. 47 of the 2012 issue.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "left_report": "nrcerm:2012:1:45",
+      "right_report": "extrem:1982:kazakova:275",
+      "relationship": "cites",
+      "evidence": "Bibliography reference 4 on p. 47 of the 2012 issue.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "left_report": "nrcerm:2012:1:45",
+      "right_report": "thesis-abstract:2011:starovoyt",
+      "relationship": "cites",
+      "evidence": "Bibliography reference 8 on p. 47 of the 2012 issue.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "left_report": "nrcerm:2012:1:45",
+      "right_report": "gmik:2007:filipenkov",
+      "relationship": "cites",
+      "evidence": "Bibliography reference 10 on p. 47 of the 2012 issue.",
+      "evidence_url": "https://nrcerm.ru/files/gurnalMBP/gurnal_mbp1_2012.pdf#page=47"
+    },
+    {
+      "left_report": "thesis-abstract:2011:starovoyt",
+      "right_report": "rsl:01005087415",
+      "relationship": "author_summary_of",
+      "evidence": "Same author, title, city and year. Reference 8 cites the separately issued 23-page summary.",
+      "evidence_url": "https://search.rsl.ru/ru/record/01005087415"
     }
   ],
   "report_titles": {
