@@ -1,0 +1,352 @@
+[
+  {
+    "id": "2026-11-21-nasa-ea-protocol-denominators-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_nasa_chamber_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ffae-8ce5-7456-b0ba-4830c589f3ad",
+          "query": "\"NASA Prebreathe Study\" Duke \"decompression sickness\" \"results\" NCT06740305",
+          "returned": 5
+        },
+        {
+          "id": "01a1ffae-8d66-73c8-b994-e1242c3e3cfd",
+          "query": "\"decompression sickness\" \"hypobaric chamber\" \"results\" \"2025 MEETING ABSTRACTS\" \"2026\" parabolic oxygen NASA AsMA",
+          "returned": 0
+        },
+        {
+          "id": "01a1ffae-8cd2-755f-b0b7-d9a6287bc7c0",
+          "query": "\"altitude decompression sickness\" chamber clinical trial \"results\" hypobaric \"2025\" \"2026\"",
+          "returned": 2
+        },
+        {
+          "id": "01a1ffb4-a98b-730a-8402-1e47480f3cb1",
+          "query": "\"20250004535\" \"2025_06_04_Garbino_EA_v2\" NASA Exploration Atmosphere Tests 3 and 4",
+          "returned": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "note": "The registry and consent form were identified. The archival presentation was separately retrieved from NTRS.",
+    "records": [
+      {
+        "id": "duke-registry",
+        "title": "NASA Prebreathe Study",
+        "nct": "NCT06740305",
+        "url": "https://clinicaltrials.gov/study/NCT06740305",
+        "rank": 1
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-ea-protocol-denominators-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "supplementary_nasa_chamber_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"NASA Prebreathe Study\" Duke \"decompression sickness\" \"results\" NCT06740305",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "note": "The provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-ea-protocol-denominators-verified",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS and ClinicalTrials.gov",
+    "status": "observed",
+    "operation": "verify_nasa_protocol_counts_and_trial_status",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "note": "Checked the original slide file and registry API. Slide counts are retained with exposure windows and the original abstract identity.",
+    "records": [
+      {
+        "id": "ntrs-ea345-presentation",
+        "title": "NASA Exploration Atmosphere Tests 3 and 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+        "authors": [
+          "Alejandro Garbino",
+          "Monica Hew-Yang",
+          "Patrick Estep",
+          "Brett Siders",
+          "Karina Marshall-Goebel"
+        ],
+        "year": 2025,
+        "url": "https://ntrs.nasa.gov/citations/20250004535",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20250004535/downloads/2025_06_04_Garbino_EA_v2.pptx",
+        "technical_report": "NTRS:20250004535",
+        "source_sha256": "9c7989e5b375e13036a2c9a46a30c7f83a887f1af776d64ad398a2d0c4b38897",
+        "study_id": "nasa-exploration-atmosphere-tests-3-4",
+        "related_studies": [
+          "nasa-exploration-atmosphere-test-5"
+        ],
+        "locator": "Slides 24–29, 34–45, 47",
+        "role_review": "overlap_hold",
+        "note": "The 2025 presentation completes three existing counts and adds the 50-minute EA4/EA5 protocol. The 50-minute arm starts total 21, of which 19 contribute to the reported analysis. Two Type II cases already appear in the abstract. Individual participant identifiers and exact post-exposure follow-up are unavailable.",
+        "observations": [
+          {
+            "id": "completion-90-min-prebreathe",
+            "group": "90-min-prebreathe",
+            "endpoint": "dcs_neurological",
+            "cases": 1,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "study_id": "nasa-exploration-atmosphere-tests-3-4",
+            "previous_source_id": "garbino_ea34",
+            "prebreathe_min": 90,
+            "target_pressure_psia": 4.3,
+            "locator": "Slides 25, 29, 44",
+            "note": "EA3 EVA 1 gave one neurological Type II DCS case in five person-exposures.",
+            "outcome_window": "Author-reported clinical outcome for the specific simulated EVAs. The slides do not give a common fixed post-EVA surveillance window."
+          },
+          {
+            "id": "completion-150-min-prebreathe",
+            "group": "150-min-prebreathe",
+            "endpoint": "dcs",
+            "cases": 0,
+            "denominator": 24,
+            "denominator_unit": "person_exposure",
+            "study_id": "nasa-exploration-atmosphere-tests-3-4",
+            "previous_source_id": "garbino_ea34",
+            "prebreathe_min": 150,
+            "target_pressure_psia": 4.3,
+            "locator": "Slides 29, 44",
+            "note": "Four exposures in each of EA3 EVAs 2–5 and eight in EA4 EVA 1. All five sessions report zero DCS. Participants may repeat.",
+            "outcome_window": "Author-reported clinical outcome for the specific simulated EVAs. The slides do not give a common fixed post-EVA surveillance window."
+          },
+          {
+            "id": "completion-20-min-prebreathe",
+            "group": "20-min-prebreathe",
+            "endpoint": "dcs_type_ii_source",
+            "cases": 1,
+            "denominator": 16,
+            "denominator_unit": "person_exposure",
+            "study_id": "nasa-exploration-atmosphere-tests-3-4",
+            "previous_source_id": "garbino_ea34",
+            "prebreathe_min": 20,
+            "target_pressure_psia": 5.2,
+            "locator": "Slides 36–37, 43–44",
+            "note": "Combined EA4 EVAs 2 and 3, with eight per EVA and one Type II case in EVA 3. The presentation identifies a 5.2-psia protocol. The two inconsistent kPa values in the prior abstract remain in provenance.",
+            "outcome_window": "Author-reported clinical outcome for the specific simulated EVAs. The slides do not give a common fixed post-EVA surveillance window."
+          },
+          {
+            "id": "50-min-5-2-psia-ea4-ea5",
+            "group": "50-min-5-2-psia-ea4-ea5",
+            "endpoint": "dcs",
+            "cases": 0,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "study_id": "nasa-exploration-atmosphere-tests-3-4",
+            "contributing_study_ids": [
+              "nasa-exploration-atmosphere-tests-3-4",
+              "nasa-exploration-atmosphere-test-5"
+            ],
+            "prebreathe_min": 50,
+            "target_pressure_psia": 5.2,
+            "participating_exposures": 21,
+            "evaluated_exposures": 19,
+            "locator": "Slides 42–45",
+            "note": "The authors report zero DCS in the 19 evaluated exposures. EA4 EVA 4 had seven starts and five included exposures. EA4 EVA 5 contributed six and EA5 EVA 1 contributed eight. The pooled result overlaps these session details and the number of distinct people is unavailable.",
+            "outcome_window": "Author-reported clinical outcome for the specific simulated EVAs. The slides do not give a common fixed post-EVA surveillance window."
+          }
+        ],
+        "sessions": [
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 3,
+            "eva_number": 1,
+            "test_month": "2023-11",
+            "prebreathe_min": 90,
+            "target_pressure_psia": 4.3,
+            "participating_exposures": 5,
+            "evaluated_exposures": 5,
+            "endpoint": "dcs_neurological",
+            "cases": 1,
+            "locator": "Slides 25, 29, 44",
+            "note": "One Type II neurological DCS case. The 90-minute protocol was stopped."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 3,
+            "eva_number": 2,
+            "test_month": "2023-11",
+            "prebreathe_min": 150,
+            "target_pressure_psia": 4.3,
+            "participating_exposures": 4,
+            "evaluated_exposures": 4,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 29, 44",
+            "note": "No DCS reported for the included person-exposures."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 3,
+            "eva_number": 3,
+            "test_month": "2023-11",
+            "prebreathe_min": 150,
+            "target_pressure_psia": 4.3,
+            "participating_exposures": 4,
+            "evaluated_exposures": 4,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 29, 44",
+            "note": "No DCS reported for the included person-exposures."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 3,
+            "eva_number": 4,
+            "test_month": "2023-11",
+            "prebreathe_min": 150,
+            "target_pressure_psia": 4.3,
+            "participating_exposures": 4,
+            "evaluated_exposures": 4,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 29, 44",
+            "note": "No DCS reported for the included person-exposures."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 3,
+            "eva_number": 5,
+            "test_month": "2023-11",
+            "prebreathe_min": 150,
+            "target_pressure_psia": 4.3,
+            "participating_exposures": 4,
+            "evaluated_exposures": 4,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 29, 44",
+            "note": "No DCS reported for the included person-exposures."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 4,
+            "eva_number": 1,
+            "test_month": "2024-09",
+            "prebreathe_min": 150,
+            "target_pressure_psia": 4.3,
+            "participating_exposures": 8,
+            "evaluated_exposures": 8,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 29, 44",
+            "note": "No DCS reported for the included person-exposures."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 4,
+            "eva_number": 2,
+            "test_month": "2024-09",
+            "prebreathe_min": 20,
+            "target_pressure_psia": 5.2,
+            "participating_exposures": 8,
+            "evaluated_exposures": 8,
+            "endpoint": "dcs_type_ii_source",
+            "cases": 0,
+            "locator": "Slides 37, 43–44",
+            "note": "No DCS reported."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 4,
+            "eva_number": 3,
+            "test_month": "2024-09",
+            "prebreathe_min": 20,
+            "target_pressure_psia": 5.2,
+            "participating_exposures": 8,
+            "evaluated_exposures": 8,
+            "endpoint": "dcs_type_ii_source",
+            "cases": 1,
+            "locator": "Slides 36–37, 43–44",
+            "note": "One Type II DCS case as classified by the study board. A possible left-ventricular bubble was noted on review, with certainty unresolved."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 4,
+            "eva_number": 4,
+            "test_month": "2024-09",
+            "prebreathe_min": 50,
+            "target_pressure_psia": 5.2,
+            "participating_exposures": 7,
+            "evaluated_exposures": 5,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 42–44",
+            "note": "Seven started, one was removed for flank pain, and a second left as an escort. Five contribute to the analysis. The flank pain is not reported as DCS."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 4,
+            "eva_number": 5,
+            "test_month": "2024-09",
+            "prebreathe_min": 50,
+            "target_pressure_psia": 5.2,
+            "participating_exposures": 6,
+            "evaluated_exposures": 6,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 42–44",
+            "note": "No DCS reported for the included person-exposures."
+          },
+          {
+            "source_id": "garbino_ea345_slides",
+            "test_number": 5,
+            "eva_number": 1,
+            "test_month": "2025-02",
+            "prebreathe_min": 50,
+            "target_pressure_psia": 5.2,
+            "participating_exposures": 8,
+            "evaluated_exposures": 8,
+            "endpoint": "dcs",
+            "cases": 0,
+            "locator": "Slides 42–44",
+            "note": "No DCS reported for the included person-exposures."
+          }
+        ],
+        "nominal_habitat_pressure_psia": 9.6,
+        "nominal_habitat_oxygen_percent": 28.5,
+        "clinical_follow_up_min": null,
+        "vge_grade_iv_150_min": {
+          "cases": 1,
+          "evaluated_exposures": null,
+          "locator": "Slide 45",
+          "note": "Separate ultrasound outcome, not an added DCS case."
+        },
+        "pressure_provenance": {
+          "slides_37_43_44_psia": 5.2,
+          "slide_47_parenthetical_kpa": 30,
+          "abstract_methods_kpa": 35.6,
+          "abstract_results_kpa": 36.5,
+          "note": "Use the protocol's repeatedly reported 5.2 psia. Preserve the contradictory source kPa labels."
+        }
+      },
+      {
+        "id": "duke-nasa-prebreathe-status",
+        "title": "NASA Prebreathe Study",
+        "nct": "NCT06740305",
+        "url": "https://clinicaltrials.gov/study/NCT06740305",
+        "study_id": "duke-nct06740305",
+        "locator": "ClinicalTrials.gov API v2, statusModule and hasResults",
+        "status": "COMPLETED",
+        "actual_completion": "2025-08-21",
+        "last_update_posted": "2026-06-01",
+        "has_results": false,
+        "observed_cases": null,
+        "evaluable_person_exposures": null,
+        "source_sha256": "4b7604be34c9c776deb198fceaafdf1985b6c0bb24e701e1eb36361a45afe3d4",
+        "note": "Independent registry recheck. The existing study still has no posted outcomes."
+      }
+    ]
+  }
+]

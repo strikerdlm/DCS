@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-nasa-ea-protocol-denominators-verified#ntrs-ea345-presentation",
+      "report_id": "ntrs:20250004535",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20250004535",
+      "basis": "Presentation identity and NTRS accession verified."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.155/sources.csv#garbino_ea345_slides",
+      "report_id": "ntrs:20250004535",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20250004535/downloads/2025_06_04_Garbino_EA_v2.pptx",
+      "basis": "Source is the original presentation from the same NTRS accession."
+    },
+    {
+      "record_key": "2026-11-21-nasa-ea-protocol-denominators-verified#duke-nasa-prebreathe-status",
+      "report_id": "nct:NCT06740305",
+      "evidence_url": "https://clinicaltrials.gov/study/NCT06740305",
+      "basis": "Matching registry identifier."
+    },
+    {
+      "record_key": "2026-11-21-nasa-ea-protocol-denominators-firecrawl#duke-registry",
+      "report_id": "nct:NCT06740305",
+      "evidence_url": "https://clinicaltrials.gov/study/NCT06740305",
+      "basis": "Matching registry identifier."
+    },
+    {
       "record_key": "2026-11-21-cabin-decompression-scopes-verified#barron58_12_second_decompression",
       "report_id": "pmid:13575359",
       "basis": "Verified title and source identity or archival citation.",
@@ -15459,6 +15483,12 @@
   ],
   "studies": [
     {
+      "study_id": "nasa-exploration-atmosphere-test-5",
+      "label": "NASA Exploration Atmosphere Test 5",
+      "period": "February 2025 as reported.",
+      "setting": "Slide 44 gives eight evaluated exposures on the first EVA. The report does not enumerate the remainder of EA5."
+    },
+    {
       "study_id": "lockheed-12-second-cabin-decompression-1956",
       "label": "Lockheed 12-second cabin decompression series",
       "period": "Study initiated August 1956. End date unreported.",
@@ -16553,7 +16583,7 @@
     {
       "study_id": "nasa-exploration-atmosphere-tests-3-4",
       "label": "NASA Exploration Atmosphere Tests 3 and 4",
-      "period": "Trial dates unreported in the paired publications",
+      "period": "Test 3 in November 2023 and Test 4 in September 2024, reported on slide 44.",
       "setting": "NASA Johnson Space Center experimental simulated lunar EVA with alternate habitat atmosphere"
     },
     {
@@ -17038,6 +17068,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "nasa-exploration-atmosphere-tests-3-4",
+      "report_id": "ntrs:20250004535",
+      "role": "primary_chamber_denominator_completion",
+      "locator": "Slides 24–29 and 34–45"
+    },
+    {
+      "study_id": "nasa-exploration-atmosphere-test-5",
+      "report_id": "ntrs:20250004535",
+      "role": "primary_limited_eva_scope",
+      "locator": "Slides 41–44"
+    },
     {
       "study_id": "lockheed-12-second-cabin-decompression-1956",
       "report_id": "pmid:13575359",
@@ -19734,6 +19776,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:20250004535",
+      "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
+      "relationship": "partial_overlap",
+      "evidence": "Both reports cover Tests 3 and 4 and describe the same two Type II cases by protocol. The presentation supplies clinical denominators for those strata and additionally reports EA5 EVA 1. The newly completed counts use the existing observation keys.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20250004535"
+    },
     {
       "left_report": "pmid:13575359",
       "right_report": "pmid:13233153",
@@ -24076,6 +24125,7 @@
     }
   ],
   "report_titles": {
+    "ntrs:20250004535": "NASA Exploration Atmosphere Tests 3 and 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
     "pmid:13575359": "Observations on Simulated 12-Second Decompressions to 32,000 Feet",
     "pmid:13723694": "Acute Hypoxia During Rapid Decompression and Emergency Descent in a Commercial Jet Aircraft",
     "report:wadc-5970": "Some factors affecting time of useful consciousness at high altitudes",
