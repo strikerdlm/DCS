@@ -1,0 +1,234 @@
+[
+  {
+    "id": "2026-11-21-nasa-observer-firecrawl-chamber",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "retrieved",
+    "operation": "search",
+    "reported_total": 7,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "site:rosap.ntl.bts.gov altitude chamber \"bends\" \"subjects\" mask pressure FAA oxygen McFadden Lategola",
+      "search_id": "01a1fd84-83f4-776f-9b05-95d7076e6d1d",
+      "additional_result_ranks": {
+        "2": "https://rosap.ntl.bts.gov/view/dot/71288",
+        "3": "https://rosap.ntl.bts.gov/view/dot/71288/dot_71288_DS1.pdf",
+        "4": "https://rosap.ntl.bts.gov/collection_cami",
+        "5": "https://rosap.ntl.bts.gov/collection_faa_tl",
+        "6": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf",
+        "7": "https://rosap.ntl.bts.gov/view/dot/86854"
+      }
+    },
+    "note": "The first result is an original FAA experiment. The other hits comprise two pairs of alternate links and two archive collections. Their URLs and ranks are retained.",
+    "records": [
+      {
+        "id": "faa-catalog",
+        "title": "Effects of Decompression on Operator Performance",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20777",
+        "year": 1966,
+        "rank": 1
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-observer-firecrawl-title",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "no_results",
+    "operation": "search",
+    "reported_total": 0,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"The principle of the space activity suit\" \"NASA CR-973\" \"5302584\" Paul Webb Annis",
+      "search_id": "01a1fd8b-e6ec-7420-b064-9664071c974d"
+    },
+    "note": "This narrow search returned no documents. The NASA archive and PubMed were verified directly.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-observer-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA CAMI historical altitude chamber \"bends\" flight aborted DCS oxygen masks military pressure breathing outcome study",
+      "http_status": 433,
+      "max_results": 10,
+      "search_depth": "advanced"
+    },
+    "note": "The account spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-observer-primary",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS and PubMed",
+    "status": "observed_full_text",
+    "operation": "inspect_primary_publications",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA CR-973 Table I and NAEC-ACEL-498 Results"
+    },
+    "note": "Independently verified the case across the two rendered pages of Table I. The Gemini appendix describes observer symptoms without an exact numerator.",
+    "records": [
+      {
+        "id": "sas-cr973",
+        "title": "The Principle of the Space Activity Suit",
+        "url": "https://ntrs.nasa.gov/api/citations/19680002042/downloads/19680002042.pdf",
+        "year": 1967,
+        "identifier": "NASA-CR-973; N68-11510",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19680002042/downloads/19680002042.pdf#page=26",
+        "source_sha256": "003aeb652427ccd32859d2c16696db612bb61254598baf4f603ab92ccf532d65",
+        "observations": [
+          {
+            "id": "test-13-one-observer-with-bends",
+            "group": "table-i-test-13-observer",
+            "endpoint": "observer_bends_as_reported",
+            "study_id": "webb-associates-sas-arm-tests",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "locator": "Table I, test 13, printed pp. 18–19 (PDF pp. 25–26)",
+            "outcome_window": "The experiment was terminated when the observer developed bends. Exact onset, duration at pressure and delayed follow-up are unavailable.",
+            "note": "The person labeled subject B is the instrumented garment test participant. The adjacent time and pressures for tests 12 and 14 describe their separate exposures. The observer's gas, prebreathe, symptom site, ascertainment and risk-set denominator are unavailable."
+          }
+        ],
+        "reported_case": {
+          "role": "altitude_chamber_observer",
+          "test": 13,
+          "ambient_pressure_mmhg": 155,
+          "instrumented_subject_code": "B",
+          "symptom_onset_min": null,
+          "time_at_pressure_min": null,
+          "observer_gas": null,
+          "observer_denominator": null
+        },
+        "tested_subjects": 2,
+        "altitude_chamber_attempts": 6,
+        "aborted_for_arm_seal_test": 9,
+        "bibliographic_note": "The cover and NTRS date the report December 1967. PubMed indexes it November 1967."
+      },
+      {
+        "id": "sas-ntrs",
+        "title": "The Principle of the Space Activity Suit",
+        "url": "https://ntrs.nasa.gov/citations/19680002042",
+        "year": 1967,
+        "identifier": "NASA-CR-973; NTRS:19680002042"
+      },
+      {
+        "id": "sas-pubmed",
+        "title": "The Principle of the Space Activity Suit",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/5302584/",
+        "year": 1967,
+        "pmid": "5302584"
+      },
+      {
+        "id": "acel-gemini-original",
+        "title": "The Effect of Sequential Exposure to Acceleration and the Gaseous Environment of the Space Capsules upon the Physiologic Adaption of Man",
+        "url": "https://ntrs.nasa.gov/citations/19650004856",
+        "year": 1963,
+        "identifier": "NAEC-ACEL-498; NTRS:19650004856",
+        "date_note": "Appendix D retains the original report cover dated June 14, 1963. The catalog dates the compilation version to 1965."
+      },
+      {
+        "id": "acel-gemini-appendix",
+        "title": "The Effect of Sequential Exposure to Acceleration and the Gaseous Environment of the Space Capsules upon the Physiologic Adaption of Man",
+        "url": "https://ntrs.nasa.gov/api/citations/19650004850/downloads/19650004850.pdf#page=512",
+        "year": 1965,
+        "identifier": "NAEC-ACEL-498",
+        "source_sha256": "026d7635fd0688f4dde808d5afd79d15294f6588f9078e5a471925effa6bcebc",
+        "locator": "NASA TN D-2506 Appendix D, original report cover (PDF p. 503) and Results (PDF p. 512)",
+        "role_review": "Observer bends of the wrists and knees on first exposure. The report attributes them to inadequate preoxygenation. An exact observer count, duration and separately documented ambient pressure at onset are unavailable.",
+        "clinical_dcs_cases": null,
+        "observer_exposure_denominator": null,
+        "symptom_sites_as_reported": [
+          "wrists",
+          "knees"
+        ]
+      },
+      {
+        "id": "nasa-compilation",
+        "title": "Gaseous Environment Considerations and Evaluation Programs Leading to Spacecraft Atmosphere Selection",
+        "url": "https://ntrs.nasa.gov/citations/19650004850",
+        "year": 1965,
+        "identifier": "NASA-TN-D-2506"
+      },
+      {
+        "id": "nasa-history",
+        "title": "The \"Space Activity Suit\" - A Historical Perspective and A Primer on the Physiology of Mechanical Counter-Pressure",
+        "url": "https://ntrs.nasa.gov/api/citations/20190027194/downloads/20190027194.pdf",
+        "year": 2019,
+        "identifier": "ICES-2019-173; NTRS:20190027194",
+        "role_review": "Section IV reviews the earlier Webb and Annis prototype experiments. It supplies no independent count for the CR-973 observer event."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-observer-firecrawl-pdf",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA CR-973 and FAA AM 66-10"
+    },
+    "note": "The NASA table gives one observer case. The separate FAA performance report provides experimental exposure profiles and no verified clinical DCS tally.",
+    "records": [
+      {
+        "id": "sas-pdf-scan",
+        "title": "The Principle of the Space Activity Suit",
+        "url": "https://ntrs.nasa.gov/api/citations/19680002042/downloads/19680002042.pdf",
+        "year": 1967,
+        "scrape_id": "01a1fd85-2d7b-73cf-a417-8c93dd19de6d"
+      },
+      {
+        "id": "faa-performance-pdf",
+        "title": "Effects of Decompression on Operator Performance",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20777/dot_20777_DS1.pdf",
+        "year": 1966,
+        "clinical_dcs_cases": null,
+        "scrape_id": "01a1fd88-b708-726e-9ef4-6d0771b9b1b3"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-observer-llamaparse",
+    "date": "2026-11-21",
+    "provider": "LlamaParse",
+    "status": "access_limited",
+    "operation": "parse_public_table_pages",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA CR-973 PDF pp. 25–26",
+      "http_status": 402
+    },
+    "note": "The upload returned HTTP 402. The original rendered pages and Firecrawl supplied the verified extraction.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-observer-ebsco-unal",
+    "date": "2026-11-21",
+    "provider": "EBSCO via Universidad Nacional de Colombia",
+    "status": "access_limited",
+    "operation": "sign_in_and_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": [
+        "\"hypobaric chamber\" AND (\"decompression sickness\" OR \"bends\")",
+        "\"10.1016/0042-207x(68)90503-4\" OR \"NAEC-ACEL-498\""
+      ],
+      "stage": "sign-in"
+    },
+    "note": "The session stayed on the proxy sign-in host after submission. The configured sign-in did not reach the search page, so the queries were not sent.",
+    "records": []
+  }
+]

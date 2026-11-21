@@ -13163,6 +13163,96 @@
       "report_id": "ntsb:aar7502",
       "basis": "Original NTSB report cover and report number.",
       "evidence_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR7502.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.116/sources.csv#webb67_sas_observer",
+      "report_id": "ntrs:19680002042",
+      "basis": "The primary cover, NTRS and PubMed identify the same contractor report NASA CR-973 by Webb and Annis.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19680002042"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-primary#sas-cr973",
+      "report_id": "ntrs:19680002042",
+      "basis": "The primary cover, NTRS and PubMed identify the same contractor report NASA CR-973 by Webb and Annis.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19680002042"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-primary#sas-ntrs",
+      "report_id": "ntrs:19680002042",
+      "basis": "The primary cover, NTRS and PubMed identify the same contractor report NASA CR-973 by Webb and Annis.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19680002042"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-primary#sas-pubmed",
+      "report_id": "ntrs:19680002042",
+      "basis": "The primary cover, NTRS and PubMed identify the same contractor report NASA CR-973 by Webb and Annis.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19680002042"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-firecrawl-pdf#sas-pdf-scan",
+      "report_id": "ntrs:19680002042",
+      "basis": "The primary cover, NTRS and PubMed identify the same contractor report NASA CR-973 by Webb and Annis.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19680002042"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-primary#acel-gemini-original",
+      "report_id": "ntrs:19650004856",
+      "basis": "Appendix D retains the original NAEC-ACEL-498 title page. The NTRS analytic record indexes that same report.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19650004856"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-primary#acel-gemini-appendix",
+      "report_id": "ntrs:19650004856",
+      "basis": "Appendix D retains the original NAEC-ACEL-498 title page. The NTRS analytic record indexes that same report.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19650004856"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-primary#nasa-compilation",
+      "report_id": "ntrs:19650004850",
+      "basis": "The NASA Technical Note contains several experiments individually identified by appendix and original report number.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19650004850"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-firecrawl-chamber#faa-catalog",
+      "report_id": "dot:20777",
+      "basis": "The FAA PDF and DOT archive identify FAA AM 66-10. The older OpenAlex title and NTL discovery link identify the same experiment.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20777"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-firecrawl-pdf#faa-performance-pdf",
+      "report_id": "dot:20777",
+      "basis": "The FAA PDF and DOT archive identify FAA AM 66-10. The older OpenAlex title and NTL discovery link identify the same experiment.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20777"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.36/search_hits.csv#treated_v36_faas:5",
+      "report_id": "dot:20777",
+      "basis": "The FAA PDF and DOT archive identify FAA AM 66-10. The older OpenAlex title and NTL discovery link identify the same experiment.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20777"
+    },
+    {
+      "record_key": "2026-11-20-rapid-decompression-o-history#W1574315495",
+      "report_id": "dot:20777",
+      "basis": "The FAA PDF and DOT archive identify FAA AM 66-10. The older OpenAlex title and NTL discovery link identify the same experiment.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20777"
+    },
+    {
+      "record_key": "2026-11-21-nasa-observer-primary#nasa-history",
+      "report_id": "ntrs:20190027194",
+      "basis": "The PDF and archive pages identify the same conference report ICES-2019-173.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20190027194"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_spa:6",
+      "report_id": "ntrs:20190027194",
+      "basis": "The PDF and archive pages identify the same conference report ICES-2019-173.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20190027194"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#20190027194",
+      "report_id": "ntrs:20190027194",
+      "basis": "The PDF and archive pages identify the same conference report ICES-2019-173.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20190027194"
     }
   ],
   "studies": [
@@ -14377,6 +14467,18 @@
       "label": "National Airlines Flight 27 in-flight decompression",
       "period": "1973-11-03",
       "setting": "Operational aviation occurrence"
+    },
+    {
+      "study_id": "webb-associates-sas-arm-tests",
+      "label": "Webb Associates 1967 space activity suit arm experiments",
+      "period": "Published December 1967",
+      "setting": "Experimental altitude chamber and separate ground-level arm tests"
+    },
+    {
+      "study_id": "navy-acel-gemini-acceleration-simulation",
+      "label": "Naval ACEL Gemini environmental profile with sequential acceleration",
+      "period": "Original report dated June 1963",
+      "setting": "Experimental Gemini confinement and re-entry simulation"
     }
   ],
   "study_reports": [
@@ -16479,6 +16581,18 @@
       "report_id": "ntsb:aar7502",
       "role": "flight_investigation",
       "locator": "Sections 1.2 and 1.13"
+    },
+    {
+      "study_id": "webb-associates-sas-arm-tests",
+      "report_id": "ntrs:19680002042",
+      "role": "primary_outcome",
+      "locator": "Table I, test 13, printed pp. 18–19 (PDF pp. 25–26)"
+    },
+    {
+      "study_id": "navy-acel-gemini-acceleration-simulation",
+      "report_id": "ntrs:19650004856",
+      "role": "primary_report",
+      "locator": "NASA TN D-2506 Appendix D, PDF pp. 503 and 512"
     }
   ],
   "relations": [
@@ -20100,6 +20214,20 @@
       "relationship": "distinct_chamber_event_participant_overlap_unverified",
       "evidence": "The Cessna experiment describes the safety observer at 30,000 ft. AM 66-7 describes an instrumented participant after a distinct 35,000-ft measurement. Shared personnel across the two 1966 experiments are undocumented.",
       "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM79-13.pdf#page=34"
+    },
+    {
+      "left_report": "ntrs:19650004856",
+      "right_report": "ntrs:19650004850",
+      "relationship": "chapter_in_compilation",
+      "evidence": "The parent reproduces the original NAEC-ACEL-498 report in Appendix D. The separate Appendix A cohort has its own experimental procedures and outcomes.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19650004850/downloads/19650004850.pdf#page=503"
+    },
+    {
+      "left_report": "ntrs:20190027194",
+      "right_report": "ntrs:19680002042",
+      "relationship": "reviews_earlier_experiment",
+      "evidence": "Section IV explicitly summarizes Webb and Annis and identifies NASA CR-973 as the primary report.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190027194/downloads/20190027194.pdf#page=7"
     }
   ],
   "report_titles": {
