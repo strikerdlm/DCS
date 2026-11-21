@@ -5118,6 +5118,73 @@ def test_lee_hay_outcome_checkpoints_link_to_existing_terminal_totals(release):
         """).fetchone() == (1, 4)
 
 
+def test_pressure_breathing_reports_keep_their_native_outcomes_and_counts(release):
+    with connect_pair(release) as db:
+        expected = [
+            ("barron-variable-decompression", "aeroembolism_symptoms_as_reported", 0, 8, "person_exposure", "overlap_hold"),
+            ("marotte-pressure-schedule", "aeroembolism_symptoms_as_reported", 0, None, None, "overlap_hold"),
+            ("marotte-pressure-schedule", "dysbaric_disturbance_analysis_exclusion", 1, 11, "person", "descriptive"),
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id IN (
+                'barron65_variable_decompression','marotte90_pressure_schedule',
+                'marotte90_transport_hypoxia','holness80_phoenix','ernsting60_mask_helmet'
+            ) ORDER BY stratum,endpoint
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-21-pressure-breathing-outcomes-verified'
+            ORDER BY reported_group,endpoint
+        """).fetchall() == [row[:-1] for row in expected]
+        assert db.execute("""
+            SELECT source_id,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE stratum IN ('marotte-rapid-decompression-tests','marotte-pressure-schedule')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("marotte90_pressure_schedule", None, 11),
+            ("marotte90_transport_hypoxia", 105, 10),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:2205195' AND right_report='pmid:2302122'
+        """).fetchone() == ("unresolved",)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE doi='10.1518/001872097778940641' OR pmid='9302882'
+        """).fetchall() == [("doi:10.1518/001872097778940641",)]
+
+
+def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
+    with connect_pair(release) as db:
+        record = db.execute("""
+            SELECT report_id, metadata_json FROM review.review_record
+            WHERE record_key='2026-11-21-pressure-breathing-outcomes-verified#lee_hay01'
+        """).fetchone()
+        assert record[0] == "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3"
+        source = json.loads(record[1])["left_ventricular_onset"]
+        expected = [
+            ("ft20500_o2_56_prebreathe_0", 1, "single_detection", 212, None, "4"),
+            ("ft22500_o2_56_prebreathe_0", 1, "single_detection", 77, None, "3"),
+            ("ft25000_o2_100_prebreathe_0", 1, "single_detection", 195, None, "4"),
+            ("ft25000_o2_63_prebreathe_0", 2, "mean_sd", 63, 24, "4/4"),
+            ("ft35000_o2_100_prebreathe_60", 1, "single_detection", 150, None, "4"),
+        ]
+        assert sorted(
+            (row["stratum"], row["detections_in_existing_stratum"], row["time_basis"],
+             row["onset_min"], row["standard_deviation_min"], row["associated_vge_grades"])
+            for row in source
+        ) == expected
+        assert db.execute("""
+            SELECT n.stratum,o.numerator,n.time_basis,n.onset_min,n.standard_deviation_min,n.associated_vge_grades
+            FROM publication_outcome_onset n
+            JOIN publication_observation o USING (source_id,stratum,endpoint)
+            WHERE n.source_id='lee_hay01' AND n.endpoint='left_ventricular_gas_source'
+            ORDER BY n.stratum
+        """).fetchall() == expected
+
+
 def test_rapid_decompression_zeros_are_limited_to_the_verified_crossover(release):
     with connect_pair(release) as db:
         run_id = "2026-11-21-brief-rapid-decompression-verified"

@@ -1,6 +1,96 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#barron65_variable_decompression",
+      "report_id": "nasa-index:a65-24075",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p425.pdf#page=6"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.153/sources.csv#barron65_variable_decompression",
+      "report_id": "nasa-index:a65-24075",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/36/5/article-p425.pdf#page=6"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#marotte90_pressure_schedule",
+      "report_id": "pmid:2205195",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p690.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.153/sources.csv#marotte90_pressure_schedule",
+      "report_id": "pmid:2205195",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p690.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#2205195",
+      "report_id": "pmid:2205195",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p690.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#marotte90_transport_hypoxia",
+      "report_id": "pmid:2302122",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/1/article-p21.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.153/sources.csv#marotte90_transport_hypoxia",
+      "report_id": "pmid:2302122",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/1/article-p21.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#holness80_phoenix",
+      "report_id": "pmid:6770839",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/51/5/article-p454.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.153/sources.csv#holness80_phoenix",
+      "report_id": "pmid:6770839",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/51/5/article-p454.pdf"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#ernsting60_mask_helmet",
+      "report_id": "pmid:13820682",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/1/article-p40.pdf#page=4"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.153/sources.csv#ernsting60_mask_helmet",
+      "report_id": "pmid:13820682",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/1/article-p40.pdf#page=4"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#lee_hay01",
+      "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_628-altitude-deco-illness.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#lindeis97_performance",
+      "report_id": "doi:10.1518/001872097778940641",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://journals.sagepub.com/doi/10.1518/001872097778940641"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-firecrawl#firecrawl-lindeis",
+      "report_id": "doi:10.1518/001872097778940641",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://journals.sagepub.com/doi/10.1518/001872097778940641"
+    },
+    {
+      "record_key": "2026-11-21-pressure-breathing-outcomes-verified#fraser_ackles95_nawc",
+      "report_id": "report:nawcadwar-95034-4.6",
+      "basis": "Verified bibliographic identity and source locator.",
+      "evidence_url": "https://journals.sagepub.com/doi/10.1518/001872097778940641"
+    },
+    {
       "record_key": "2026-11-21-brief-rapid-decompression-verified#fraser94_rapid_decompression",
       "report_id": "pmid:8185549",
       "basis": "Verified title, authors and publication or report identifier.",
@@ -15327,6 +15417,36 @@
   ],
   "studies": [
     {
+      "study_id": "lockheed-faa-variable-decompression-fa3082",
+      "label": "Lockheed FAA variable-decompression experiment",
+      "period": "Published 1965.",
+      "setting": "Four civilian test pilots and four passenger volunteers made eight experimental exposures. The report explicitly states that none experienced symptoms of aeroembolism. One case of barotitis required myringotomy. The separate 1955 Lockheed training report covers a different protocol and cohort scope."
+    },
+    {
+      "study_id": "bretigny-marotte-pressure-schedule-1990",
+      "label": "Brétigny repeated pressure-breathing schedule experiment",
+      "period": "Published 1990.",
+      "setting": "Eleven participants. One could not complete all tests due to significant dysbaric disturbances and was excluded from the physiological analysis. The protocol reports no observed aeroembolism symptoms. It does not give an outcome-evaluable count of people, sessions or altitude excursions."
+    },
+    {
+      "study_id": "bretigny-marotte-transport-hypoxia-1990",
+      "label": "Brétigny transport cabin hypoxia experiment",
+      "period": "Published 1990.",
+      "setting": "Ten volunteers and 105 rapid-decompression tests, including calibration tests. The exact number of participant exposures used in analysis and the number of clinical DCS events are unavailable."
+    },
+    {
+      "study_id": "dciem-holness-phoenix-gas-exchange",
+      "label": "DCIEM PHOENIX gas-exchange series",
+      "period": "Published 1980.",
+      "setting": "The 60,000-ft experiment reports seven participants and the 80,000-ft experiment reports two. The paper does not establish the number of actual runs or overlap of participants between experiments. DCS and VGE tallies are unavailable."
+    },
+    {
+      "study_id": "raf-iam-ernsting-mask-helmet-1960",
+      "label": "RAF IAM helmet and mask pressure-breathing comparison",
+      "period": "Published 1960.",
+      "setting": "The same five participants made both 56,000-ft chamber runs, one per configuration. Separate ground-level comparisons are outside that count. The paper describes loss of consciousness in two mask exposures. DCS and VGE tallies are unavailable."
+    },
+    {
       "study_id": "dciem-brief-rapid-decompression-fraser",
       "label": "DCIEM rapid decompression garment crossover",
       "period": "Reported 1992 and 1994.",
@@ -16865,6 +16985,36 @@
   ],
   "study_reports": [
     {
+      "study_id": "lockheed-faa-variable-decompression-fa3082",
+      "report_id": "nasa-index:a65-24075",
+      "role": "original_chamber_outcomes",
+      "locator": "Methods pp. 426–427; Table I p. 427; Discussion and Summary p. 430 (PDF p. 6)"
+    },
+    {
+      "study_id": "bretigny-marotte-pressure-schedule-1990",
+      "report_id": "pmid:2205195",
+      "role": "original_chamber_outcomes",
+      "locator": "Subjects and Experimental Protocol p. 691 (PDF p. 2)"
+    },
+    {
+      "study_id": "bretigny-marotte-transport-hypoxia-1990",
+      "report_id": "pmid:2302122",
+      "role": "non_dcs_chamber_scope",
+      "locator": "Subjects and Results pp. 21–22 (PDF pp. 1–2)"
+    },
+    {
+      "study_id": "dciem-holness-phoenix-gas-exchange",
+      "report_id": "pmid:6770839",
+      "role": "non_dcs_chamber_scope",
+      "locator": "Materials and Methods pp. 454–455 (PDF pp. 1–2)"
+    },
+    {
+      "study_id": "raf-iam-ernsting-mask-helmet-1960",
+      "report_id": "pmid:13820682",
+      "role": "non_dcs_chamber_scope",
+      "locator": "Experimental Methods pp. 41–42 and Series 3–4 p. 43 (PDF pp. 2–4)"
+    },
+    {
       "study_id": "dciem-brief-rapid-decompression-fraser",
       "report_id": "pmid:8185549",
       "role": "original_chamber_outcomes",
@@ -16892,7 +17042,7 @@
       "study_id": "lee-hay-dera-sustained-altitude-2001",
       "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
       "role": "original_chamber_figures",
-      "locator": "Table 1 and Figures 4–6, pp. 37-2 and 37-6–37-7 (PDF pp. 3, 7–8)"
+      "locator": "Tables 1 and 3 and Figures 4–6, pp. 37-2 and 37-6–37-8 (PDF pp. 3, 7–9)"
     },
     {
       "study_id": "taiwan-air-force-chamber-training-1959-1986",
@@ -19518,6 +19668,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:2205195",
+      "right_report": "pmid:2302122",
+      "relationship": "unresolved",
+      "evidence": "The same lead authors and Brétigny laboratory are identified in two 1990 reports. The January paper gives rapid decompressions from 8,000 ft and includes calibration runs. The August paper uses repeated climbs above a 35,000-ft baseline after ground denitrogenation. The protocols differ; the publications provide no participant crosswalk and the two scopes are not summed.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p690.pdf#page=2"
+    },
     {
       "left_report": "asma:1992:524",
       "right_report": "pmid:8185549",
@@ -23839,6 +23996,14 @@
     }
   ],
   "report_titles": {
+    "nasa-index:a65-24075": "Effects of Variable Decompressions to 45,000 Feet",
+    "pmid:2205195": "Transport aircraft crew and decompression hazards: study of a positive pressure schedule",
+    "pmid:2302122": "Rapid decompression of a transport aircraft cabin: protection against hypoxia",
+    "pmid:6770839": "Respiratory gas exchange during positive pressure breathing and rapid decompression to simulated altitudes of 18.3 and 24.4 km",
+    "pmid:13820682": "High altitude protection from pressure-breathing mask with trunk and lower limb counterpressure",
+    "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3": "Altitude Decompression Illness - The Operational Risk at Sustained Altitudes up to 35,000 ft",
+    "doi:10.1518/001872097778940641": "Performance during Positive Pressure Breathing after Rapid Decompression Up to 72000 Feet",
+    "report:nawcadwar-95034-4.6": "Cardiovascular responses with TLSS, ATAGS, and EAGLE life support systems during rapid decompression",
     "pmid:8185549": "Cardiovascular responses with standard and extended bladder coverage G-suits during rapid decompression",
     "asma:1992:524": "The effect of increased G-suit coverage on the cardiovascular effects of positive pressure breathing at 60,000 ft",
     "pmid:14131312": "Rapid decompressions up to 60,000 feet wearing the standard oxygen mask",
@@ -24019,7 +24184,6 @@
     "pmid:20994853": "The Incidence and Relation of Syncope to Decompression Sickness",
     "pmid:20994854": "Studies of the Effects of Morphine at Simulated High Altitudes and Its Use for the Relief of Pain of Decompression Sickness",
     "citation:peterson-bornstein-jasper-1945-altitude": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude",
-    "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude",
-    "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3": "Altitude Decompression Illness - The Operational Risk at Sustained Altitudes up to 35,000 ft"
+    "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude"
   }
 }
