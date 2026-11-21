@@ -4869,6 +4869,7 @@ def test_halifax_and_cincinnati_use_original_counts_and_keep_units_separate(rele
         assert db.execute("""
             SELECT count(*) FROM publication_reported_rate
             WHERE source_id='henry_ivy51_preselection' AND endpoint GLOB 'classification_*'
+              AND (stratum GLOB 'cincinnati-*' OR stratum GLOB 'halifax-*')
         """).fetchone() == (0,)
         assert db.execute("""
             SELECT count(*) FROM review.review_search_observation
@@ -4953,3 +4954,66 @@ def test_chamber_retest_paths_reconcile_without_duplicate_clinical_events(releas
                 FROM review.review_record r JOIN json_each(r.metadata_json,'$.observations') o
                 WHERE r.run_id=? AND json_extract(o.value,'$.group')=?
             """, (run_id, group)).fetchall() == [(censoring,)]
+
+
+def test_standard_test_comparisons_keep_rounding_and_denominator_scope(release):
+    with connect_pair(release) as db:
+        run_id = "2026-11-21-standard-test-comparisons-verified"
+        checked = {
+            "california-classification": (53, [50, 15, 17, 7]),
+            "pennsylvania-first-flight": (37, [30, 19, 35, 15]),
+            "yale-first-flight": (92, [9, 12, 61, 18]),
+        }
+        expected = [
+            (group, f"classification_{grade}", pct, count)
+            for group, (count, percentages) in checked.items()
+            for grade, pct in zip("abcd", percentages, strict=True)
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,CAST(reported_percent AS REAL),denominator
+            FROM publication_reported_rate WHERE stratum IN (?,?,?) AND analysis_role='overlap_hold'
+            ORDER BY stratum,endpoint
+        """, tuple(checked)).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,endpoint,reported_rate_percent,denominator
+            FROM review.review_search_observation
+            WHERE run_id=? AND reported_rate_percent IS NOT NULL AND denominator IS NOT NULL
+            ORDER BY reported_group,endpoint
+        """, (run_id,)).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,endpoint,reported_rate_percent
+            FROM review.review_search_observation WHERE run_id=? AND denominator IS NULL
+              AND cases IS NULL AND role_review='overlap_hold' ORDER BY reported_group,endpoint
+        """, (run_id,)).fetchall() == [
+            (f"pennsylvania-retests-first-{first}", f"classification_{grade}", pct)
+            for first, rates in [
+                ("a", [79, 9, 12, 0]), ("all", [48, 13, 28, 11]), ("b", [38, 14, 29, 19]),
+                ("c", [33, 13, 41, 13]), ("d", [39, 17, 28, 17]),
+            ]
+            for grade, pct in zip("abcd", rates, strict=True)
+        ] + [("yale-second-flight-first-ab", "classification_ab", 68),
+             ("yale-second-flight-first-cd", "classification_ab", 23)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_reported_rate
+            WHERE stratum GLOB 'pennsylvania-retests-*' OR stratum GLOB 'yale-second-flight-*'
+        """).fetchone() == (0,)
+
+        expected_counts = [("california-classification", 44, 53), ("cincinnati-seven-test-discussion", 2, 83)]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE stratum IN ('california-classification','cincinnati-seven-test-discussion')
+              AND analysis_role='overlap_hold' AND denominator_unit='person' ORDER BY stratum
+        """).fetchall() == expected_counts
+        assert db.execute("""
+            SELECT reported_group,cases,denominator FROM review.review_search_observation
+            WHERE run_id=? AND cases IS NOT NULL AND role_review='overlap_hold' ORDER BY reported_group
+        """, (run_id,)).fetchall() == expected_counts
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.discrepancies[0].investigator_minutes[0]'),
+                   json_extract(metadata_json,'$.discrepancies[0].later_table_74[0]')
+            FROM review.review_record WHERE run_id=? AND source_key='lawrence43_california_preselection'
+        """, (run_id,)).fetchone() == (50, 60)
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='grenell-1944-yale-preselection' ORDER BY report_id
+        """).fetchall() == [("fulton1951:preselection-tests",), ("report:cam-355",)]

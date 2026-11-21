@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.149/sources.csv#larrabee43_pennsylvania_preselection",
+      "report_id": "nlm:101085500x233:227:larrabee",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226"
+    },
+    {
+      "record_key": "2026-11-21-standard-test-comparisons-verified#larrabee43_pennsylvania_preselection",
+      "report_id": "nlm:101085500x233:227:larrabee",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.149/sources.csv#lawrence43_california_preselection",
+      "report_id": "nlm:101085500x233:227:lawrence",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226"
+    },
+    {
+      "record_key": "2026-11-21-standard-test-comparisons-verified#lawrence43_california_preselection",
+      "report_id": "nlm:101085500x233:227:lawrence",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226"
+    },
+    {
+      "record_key": "2026-11-21-standard-test-comparisons-verified#henry_ivy51_preselection",
+      "report_id": "fulton1951:preselection-tests",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "record_key": "2026-11-21-standard-test-comparisons-verified#ferris43_cincinnati_selection",
+      "report_id": "nlm:101085500x233:220:ferris",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=225"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.149/sources.csv#grenell44_cam355",
+      "report_id": "report:cam-355",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460"
+    },
+    {
+      "record_key": "2026-11-21-standard-test-comparisons-verified#grenell44_cam355",
+      "report_id": "report:cam-355",
+      "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460"
+    },
+    {
       "record_key": "2026-11-21-chamber-retest-paths-verified#ferris43_cincinnati_selection",
       "report_id": "nlm:101085500x233:220:ferris",
       "basis": "Original retest tables on subsequent pages of the same catalogued report.",
@@ -15135,6 +15183,24 @@
   ],
   "studies": [
     {
+      "study_id": "larrabee-1943-pennsylvania-preselection",
+      "label": "Pennsylvania standard-test classification and retests",
+      "period": "Reported 1 July 1943.",
+      "setting": "Thirty-seven people in the program. The first 90 minutes were scored. Exercise continued through pain until incapacitating symptoms."
+    },
+    {
+      "study_id": "lawrence-1943-california-preselection",
+      "label": "California standard-test classification in 53 men",
+      "period": "Reported 1 July 1943.",
+      "setting": "ROTC or Air Corps university students aged 18–21. Forty-four had an earlier, less strenuous classification."
+    },
+    {
+      "study_id": "grenell-1944-yale-preselection",
+      "label": "Yale two-flight standard-test classification in 92 men",
+      "period": "Cited report dated 5 September 1944.",
+      "setting": "The cited CAM Report 355 account reports 92 men taking two flights. The verified 1951 summary gives rounded classifications."
+    },
+    {
       "study_id": "ferris-1942-early-cincinnati-bends",
       "label": "Ferris July 1942 preliminary Cincinnati chamber report",
       "period": "Reported 4 July 1942.",
@@ -16618,6 +16684,42 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "larrabee-1943-pennsylvania-preselection",
+      "report_id": "nlm:101085500x233:227:larrabee",
+      "role": "original_investigator_tables",
+      "locator": "Ninth CAM meeting, item 4, printed p. 227 (PDF p. 226), classification table and discussion on p. 228"
+    },
+    {
+      "study_id": "larrabee-1943-pennsylvania-preselection",
+      "report_id": "fulton1951:preselection-tests",
+      "role": "later_rounded_classification",
+      "locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366)"
+    },
+    {
+      "study_id": "lawrence-1943-california-preselection",
+      "report_id": "nlm:101085500x233:227:lawrence",
+      "role": "original_investigator_summary",
+      "locator": "Ninth CAM meeting, item 3, printed p. 227 (PDF p. 226)"
+    },
+    {
+      "study_id": "lawrence-1943-california-preselection",
+      "report_id": "fulton1951:preselection-tests",
+      "role": "later_conflicting_classification",
+      "locator": "Henry and Ivy, Table 74, printed p. 331 (PDF p. 366)"
+    },
+    {
+      "study_id": "grenell-1944-yale-preselection",
+      "report_id": "fulton1951:preselection-tests",
+      "role": "reported_retest_percentages",
+      "locator": "Henry and Ivy, printed pp. 332–333 (PDF pp. 367–368), cites ref. 348"
+    },
+    {
+      "study_id": "grenell-1944-yale-preselection",
+      "report_id": "report:cam-355",
+      "role": "cited_original_report",
+      "locator": "Fulton bibliography item 348, printed p. 413 (PDF p. 460)"
+    },
     {
       "study_id": "ferris-1942-early-cincinnati-bends",
       "report_id": "nlm:101085500x233:52:ferris-july4",
@@ -19182,6 +19284,48 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "fulton1951:preselection-tests",
+      "right_report": "nlm:101085500x233:227:larrabee",
+      "relationship": "partial_overlap",
+      "evidence": "The same Pennsylvania cohort size of 37 and all four first-test percentages match. The investigator table contributes those outcomes once.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "left_report": "fulton1951:preselection-tests",
+      "right_report": "nlm:101085500x233:227:lawrence",
+      "relationship": "likely_overlap",
+      "evidence": "Both sources describe 53 participants in the same laboratory’s standard test. The two reports disagree for classes A and D. The conflicting later values are recorded as a duplicate-source check.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "left_report": "nlm:101085500x233:227:larrabee",
+      "right_report": "report:cam-137",
+      "relationship": "likely_overlap",
+      "evidence": "Same investigator, era, exercise and standard classification topic. The minutes do not print the peak pressure or name CAM 137. Full standalone text remains unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226"
+    },
+    {
+      "left_report": "nlm:101085500x233:227:larrabee",
+      "right_report": "nlm:101085500x233:140",
+      "relationship": "unresolved",
+      "evidence": "The earlier Berkson table includes a Pennsylvania programme with intermittent exercise. No identifiers establish whether subjects or exposures were reused.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=140"
+    },
+    {
+      "left_report": "nlm:101085500x233:227:lawrence",
+      "right_report": "pmid:21005550",
+      "relationship": "unresolved",
+      "evidence": "Shared Berkeley investigators and chamber testing programme. The 53 studied at the meeting cannot be individually linked to the later 55-person validation or the aircraft incidents.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=226"
+    },
+    {
+      "left_report": "fulton1951:preselection-tests",
+      "right_report": "report:cam-355",
+      "relationship": "partial_overlap",
+      "evidence": "The book cites CAM Report 355 for the Yale first- and second-flight comparison in 92 men. Rates are extracted from the verified book summary only.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=367"
+    },
     {
       "left_report": "nlm:101085500x233:52:ferris-july4",
       "right_report": "nlm:101085500x233:220:ferris",
@@ -23433,6 +23577,9 @@
     }
   ],
   "report_titles": {
+    "nlm:101085500x233:227:larrabee": "Report on the Pennsylvania standard selection procedure and retests",
+    "nlm:101085500x233:227:lawrence": "Report on the California standard selection procedure in 53 men",
+    "report:cam-355": "The reliability of the decompression subcommittee’s 90 minute preselection test",
     "doi:10.25062/9786287818279.12": "Incidencia de enfermedad descompresiva tipo II en entrenamiento hipobárico y evaluación de cámara hiperbárica monoplaza",
     "pmid:2241750": "Altitude Decompression Sickness: Hyperbaric Therapy Results in 528 Cases",
     "report:adp011059": "USAF Experience with Hyperbaric Therapy of Altitude Decompression Sickness (1941–1999)",
