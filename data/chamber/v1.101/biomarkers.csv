@@ -1,0 +1,13 @@
+source_id,analyte,assay,unit,reported_n,baseline_mean,baseline_se,t8_mean,t8_se,t24_mean,t24_se,locator,note
+connolly24_brain_lung_assays,MCP-1,ELISA,pg/mL,,257,18,350,40,258,17,"Table II, Biomarker Data (Mean ± SE)",Table II gives mean and SE and does not print a separate N for this analyte.
+connolly24_brain_lung_assays,BDNF,ELISA,ng/mL,,10.9,1.6,11.4,1.3,19.7,3.3,"Table II, Biomarker Data (Mean ± SE)",Table II gives mean and SE and does not print a separate N for this analyte.
+connolly24_brain_lung_assays,HMGB1,ELISA,ng/mL,,19.2,1.8,22.3,2.7,18.9,1.5,"Table II, Biomarker Data (Mean ± SE)",Table II gives mean and SE and does not print a separate N for this analyte.
+connolly24_brain_lung_assays,UCH-L1,ELISA,pg/mL,14,243,19,205,23,220,23,"Table II, Biomarker Data (Mean ± SE)",One outlier excluded.
+connolly24_brain_lung_assays,NfL,ELISA,pg/mL,10,58.2,16.3,52.8,12.6,59.4,15.2,"Table II, Biomarker Data (Mean ± SE)",Five incomplete series excluded.
+connolly24_brain_lung_assays,CK-BB,ELISA,ng/mL,3,,,,,,,"Table II, Biomarker Data (Mean ± SE)",Qualitatively lower at T8 and recovered at T24. Undetectable at all times in 11 subjects.
+connolly24_brain_lung_assays,Tau,ELISA,pg/mL,1,,,,,,,"Table II, Biomarker Data (Mean ± SE)",Higher at T8 with recovery at T24 in the sole subject with values at all three times.
+connolly24_brain_lung_assays,RAGE,ELISA,ng/mL,14,1.70,0.09,1.56,0.10,1.67,0.09,"Table II, Biomarker Data (Mean ± SE)",One outlier excluded.
+connolly24_brain_lung_assays,CD14,flow cytometry,count/µL,,821,197,2994,1049,2224,590,"Table II, Biomarker Data (Mean ± SE)",Below detection at baseline in two people.
+connolly24_brain_lung_assays,CD324,flow cytometry,count/µL,14,155,47,126,23,194,41,"Table II, Biomarker Data (Mean ± SE)",One T8 outlier excluded.
+connolly24_brain_lung_assays,CD326,flow cytometry,count/µL,14,110,23,98,16,155,39,"Table II, Biomarker Data (Mean ± SE)",Same excluded T8 participant as CD324.
+connolly24_brain_lung_assays,GLAST,flow cytometry,count/µL,,,,,,,,"Table II, Biomarker Data (Mean ± SE)",Below the reliable lower assay sensitivity limit.

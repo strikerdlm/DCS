@@ -8,6 +8,70 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_russian_reports_and_connolly_companions_keep_distinct_outcome_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id='filipenkov89_suit_chamber' ORDER BY denominator
+        """).fetchall() == [
+            (26, 193, "person", "overlap_hold"),
+            (29, 1179, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT repeat_runs,altitude_min_m,altitude_max_m,prebreathe_min_min,prebreathe_max_min
+            FROM publication_repeat_chamber_protocol_count ORDER BY altitude_min_m,prebreathe_min_min
+        """).fetchall() == [
+            (223, 7000, 8000, 30, 30),
+            (14, 7000, 8000, 60, 60),
+            (121, 9000, 12000, 90, 120),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE endpoint='dcs_clinical_outcomes_unenumerated' ORDER BY denominator
+        """).fetchall() == [(None, 14), (None, 121), (None, 223)]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='filipenkov15_doppler' AND stratum='musculoskeletal-no-bubble-signal'
+        """).fetchall() == [(3, None)]
+        assert db.execute("""
+            SELECT report_id,onset_min FROM shared_case_evidence
+            WHERE source_id IN ('dvornikov19_su24m','dvornikov19_academy')
+        """).fetchall() == [("doi:10.17816/rmmj72843", None)]
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE left_report='doi:10.17816/brmma20678'
+        """).fetchall() == [
+            ("doi:10.17816/brmma20678", "doi:10.17816/rmmj72843", "same_published_case"),
+        ]
+        assert db.execute("""
+            SELECT source_id,endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id IN ('connolly23_early_biomarkers','connolly24_brain_lung_assays')
+        """).fetchall() == [
+            ("connolly23_early_biomarkers", "heavy_and_persistent_vge_as_reported", 11, 15),
+        ]
+        assert db.execute("""
+            SELECT COUNT(*),COUNT(baseline_mean),COUNT(t8_mean),COUNT(t24_mean),
+                   COUNT(reported_n) FROM publication_biomarker_summary
+        """).fetchone() == (12, 9, 9, 9, 7)
+        assert db.execute("""
+            SELECT analyte,reported_n,t8_mean,t8_se FROM publication_biomarker_summary
+            WHERE analyte IN ('CD14','RAGE','Tau') ORDER BY analyte
+        """).fetchall() == [
+            ("CD14", None, 2994.0, 1049.0), ("RAGE", 14, 1.56, 0.1), ("Tau", 1, None, None),
+        ]
+        assert db.execute("""
+            SELECT COUNT(DISTINCT report_id),COUNT(*) FROM review.review_record
+            WHERE rtrim(url,'/') LIKE 'https://biofizpribor.ru/%'
+                || 'ultrazvukovaya-diagnostika-ustoichivosti-k-dekompressii-pri-imitatsii-letnoi-deyatelnosti'
+        """).fetchone() == (1, 8)
+        assert db.execute("""
+            SELECT report_id,COUNT(*) FROM review.review_record
+            WHERE report_id IN ('doi:10.17816/rmmj73430','doi:10.21949/1403478')
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [("doi:10.17816/rmmj73430", 9), ("doi:10.21949/1403478", 8)]
+
+
 def test_raf_sortie_year_survey_and_army_case_keep_published_counting_units(release):
     with connect_pair(release) as db:
         assert db.execute("""
@@ -1201,7 +1265,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (121,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (122,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1228,7 +1292,7 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (121,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (122,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -1851,7 +1915,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (121, 121, 121)
+        """).fetchone() == (122, 122, 122)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence

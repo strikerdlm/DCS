@@ -1,0 +1,589 @@
+[
+  {
+    "id": "2026-11-20-russian-chamber-and-dispatcher-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "error_code": 433,
+      "depth": "advanced",
+      "query": "Дворников Волoвик Матюшев Поучительная история одного высотного полета экипажа Су-24М декомпрессионная болезнь полный текст"
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-russian-chamber-and-dispatcher-unal",
+    "date": "2026-11-20",
+    "provider": "UNAL EBSCO Discovery Service",
+    "operation": "supplementary_library_full_text_access",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "planned_queries": [
+        "\"Possibility of the development of decompression sickness during testing of G suits\" OR \"2761212\"",
+        "\"Instructive story of one high-altitude flight\" OR \"10.17816/brmma20678\""
+      ]
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "The browser remained on the UNAL sign-in host after submission. No error text or authenticated search results were returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-russian-chamber-and-dispatcher-llamaparse",
+    "date": "2026-11-20",
+    "provider": "LlamaParse",
+    "operation": "supplementary_public_pdf_parsing_attempt",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://kclpure.kcl.ac.uk/ws/files/233430571/DCS-2_2023.pdf",
+      "error_code": 402
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Parsing credits were exhausted. The original 2023 PDF was verified with local text extraction and the 2024 article was retrieved through Firecrawl.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-russian-chamber-and-dispatcher-firecrawl-ranked",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_russian_chamber_and_flight_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Филипенков 123 высотная декомпрессионная болезнь 223 121 Дворников Волoвик Су-24М высотный полет декомпрессионная болезнь",
+      "limit": 10
+    },
+    "reported_total": 10,
+    "status": "observed",
+    "note": "Original ranked order retained. Opaque search redirect results have no resolved destination.",
+    "records": [
+      {
+        "id": "rank-1",
+        "title": "ВЫСОТНАЯ ДЕКОМПРЕССИОННАЯ БОЛЕЗНЬ: 100- ...",
+        "url": "https://readings.gmik.ru/lecture/2010-VISOTNAYA-DEKOMPRESSIONNAYA-BOLEZN-100-LETIE-ISSLEDOVANIY-SOVREMENNOE-SOSTOYANIE-PROFILAKTIKI-I-LECHENIYA",
+        "note": "В XXI веке актуальна защита экипажей и пассажиров летательных аппаратов (ЛА) от высотной декомпрессионной болезни (ВДБ), вызванной газовыми пузырьками (ГП), ..."
+      },
+      {
+        "id": "rank-2",
+        "title": "Вопросы декомпрессионной безопасности летного состава",
+        "url": "https://journals.eco-vector.com/0026-9050/article/view/73430/ru_RU",
+        "note": "Independently resolved to the original Russian review and verified from its full text. Published estimates refer to prior literature or lack a matched risk set.",
+        "doi": "10.17816/rmmj73430",
+        "year": 2017
+      },
+      {
+        "id": "rank-3",
+        "title": "Декомпрессионная болезнь - Травмы; отравления",
+        "url": null,
+        "note": "The connector returned a search redirect without an exposed destination."
+      },
+      {
+        "id": "rank-4",
+        "title": "Декомпрессионная болезнь",
+        "url": null,
+        "note": "The connector returned a search redirect without an exposed destination."
+      },
+      {
+        "id": "rank-5",
+        "title": "Movement by helicopter of patients with decompression ...",
+        "url": null,
+        "note": "The connector returned a search redirect without an exposed destination."
+      },
+      {
+        "id": "rank-6",
+        "title": "Altitude Induced Decompression Sickness",
+        "url": null,
+        "note": "The connector returned a search redirect without an exposed destination."
+      },
+      {
+        "id": "rank-7",
+        "title": "ПРОФИЛАКТИКА И ЛЕЧЕНИЕ ВЫСОТНОЙ БОЛЕЗНИ",
+        "url": null,
+        "note": "The connector returned a search redirect without an exposed destination."
+      },
+      {
+        "id": "rank-8",
+        "title": "Су-24М - Белорусский авиадневник",
+        "url": null,
+        "note": "The connector returned a search redirect without an exposed destination."
+      },
+      {
+        "id": "rank-9",
+        "title": "Полеты на большой высоте царапают мозг",
+        "url": null,
+        "note": "The connector returned a search redirect without an exposed destination."
+      },
+      {
+        "id": "rank-10",
+        "title": "Altitude-Induced Decompression Sickness - ROSA P",
+        "url": "https://rosap.ntl.bts.gov/view/dot/12769",
+        "note": "Independently resolved to the official FAA pamphlet AM-400-95/2. The publication gives no original outcome risk set.",
+        "doi": "10.21949/1403478",
+        "year": 2010
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-russian-chamber-and-dispatcher-firecrawl-suits",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_suit_full_text_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Филипенков\" \"1179\" \"противоперегрузочных\" декомпрессионной болезни 1989 53 58",
+      "limit": 6
+    },
+    "reported_total": 0,
+    "status": "observed",
+    "note": "The exact-term Russian search returned no ranked hits. The author abstract was checked in PubMed.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-russian-chamber-and-dispatcher-crossref",
+    "date": "2026-11-20",
+    "provider": "Crossref",
+    "operation": "supplementary_identifier_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "lookup": [
+        "10.17816/brmma20678",
+        "10.17816/RMMJ72843"
+      ]
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "The Academy DOI is registered to the flight report. The displayed Military Medical Journal DOI returned 404 in Crossref.",
+    "records": [
+      {
+        "id": "crossref-academy",
+        "title": "Instructive story of one high-altitude flight: decompression sickness in an aircraft crew and its consequences",
+        "year": 2019,
+        "doi": "10.17816/brmma20678",
+        "url": "https://api.crossref.org/works/10.17816/brmma20678",
+        "locator": "Crossref record, DOI, journal title, volume 21 issue 3 and pp. 50–54"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-russian-chamber-and-dispatcher-verified",
+    "date": "2026-11-20",
+    "provider": "Firecrawl, PubMed and original archives",
+    "operation": "supplementary_original_outcome_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "source_types": [
+        "conference_full_text",
+        "primary_abstract",
+        "journal_full_text"
+      ]
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "Original archived conference text, author abstracts, original journal companion article and King's Research Portal PDF verified. The two Dvornikov full-text routes returned no readable article body. The 1989 suited-exposure report was verified from its author abstract.",
+    "records": [
+      {
+        "id": "filipenkov-2007-conference",
+        "title": "Correlation of anthropometry with risk of altitude decompression sickness and frequency of ultrasound detection of gas bubbles in human blood flow",
+        "year": 2007,
+        "url": "https://readings.gmik.ru/lecture/2007-KORRELYATSIYA-ANTROPOMETRII-S-RISKOM-VISOTNOY-DEKOMPRESSIONNOY-BOLEZNI-I-CHASTOTOY-OBNARUZHENIYA-GAZOVIH-PUZIRKOV-PRI-ULTRAZVUKOVOM-ISSLEDOVANII-KROVOTOKA-CHELOVEKA",
+        "identifier": "GMIK:2007:Filipenkov",
+        "access": "full_text",
+        "locator": "Author text, paragraphs beginning Проведена статистическая оценка and Определена эффективность",
+        "sha256": "3fd406e28ea6ba449796d11bc7314ecf4604c72fa66d8b6bf573dbc7e6fedad0",
+        "note": "Reports 123 volunteers ages 20–55, starting and ending parameters only as described, 6–12 km sessions lasting 1–6 h, and three exact repeat-run totals in selected susceptible volunteers. Clinical DCS and Spencer 3–4 VGE triggered early termination. The follow-up narrative gives no exact event totals. The 2015 source prints closely matching anthropometry, age 19–55 and a different overall chamber envelope.",
+        "observations": [
+          {
+            "id": "7-8km-30min",
+            "group": "7-8km-30min",
+            "endpoint": "dcs_clinical_outcomes_unenumerated",
+            "study_id": "filipenkov-123-volunteer-doppler-chamber",
+            "cases": null,
+            "denominator": 223,
+            "denominator_unit": "person_exposure",
+            "locator": "Author text, paragraph beginning Определена эффективность",
+            "note": "The authors give this number of repeat runs and do not give exact per-stratum clinical outcomes, participant counts or case-free follow-up. Testing could stop at first DCS signs or Spencer grades 3–4.",
+            "case_role": "protocol_volume_only",
+            "altitude_min_m": 7000,
+            "altitude_max_m": 8000,
+            "prebreathe_min_min": 30,
+            "prebreathe_max_min": 30,
+            "selected_population": "Repeat tests in selected susceptible volunteers with prior clinical DCS symptoms and detected circulating bubbles"
+          },
+          {
+            "id": "7-8km-60min",
+            "group": "7-8km-60min",
+            "endpoint": "dcs_clinical_outcomes_unenumerated",
+            "study_id": "filipenkov-123-volunteer-doppler-chamber",
+            "cases": null,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "locator": "Author text, paragraph beginning Определена эффективность",
+            "note": "The authors give this number of repeat runs and do not give exact per-stratum clinical outcomes, participant counts or case-free follow-up. Testing could stop at first DCS signs or Spencer grades 3–4.",
+            "case_role": "protocol_volume_only",
+            "altitude_min_m": 7000,
+            "altitude_max_m": 8000,
+            "prebreathe_min_min": 60,
+            "prebreathe_max_min": 60,
+            "selected_population": "Repeat tests in selected susceptible volunteers with prior clinical DCS symptoms and detected circulating bubbles"
+          },
+          {
+            "id": "9-12km-90-120min",
+            "group": "9-12km-90-120min",
+            "endpoint": "dcs_clinical_outcomes_unenumerated",
+            "study_id": "filipenkov-123-volunteer-doppler-chamber",
+            "cases": null,
+            "denominator": 121,
+            "denominator_unit": "person_exposure",
+            "locator": "Author text, paragraph beginning Определена эффективность",
+            "note": "The authors give this number of repeat runs and do not give exact per-stratum clinical outcomes, participant counts or case-free follow-up. Testing could stop at first DCS signs or Spencer grades 3–4.",
+            "case_role": "protocol_volume_only",
+            "altitude_min_m": 9000,
+            "altitude_max_m": 12000,
+            "prebreathe_min_min": 90,
+            "prebreathe_max_min": 120,
+            "selected_population": "Repeat tests in selected susceptible volunteers with prior clinical DCS symptoms and detected circulating bubbles"
+          }
+        ]
+      },
+      {
+        "id": "filipenkov-2010-conference",
+        "title": "Altitude decompression sickness: 100 years of research, current prevention and treatment",
+        "year": 2010,
+        "url": "https://readings.gmik.ru/lecture/2010-VISOTNAYA-DEKOMPRESSIONNAYA-BOLEZN-100-LETIE-ISSLEDOVANIY-SOVREMENNOE-SOSTOYANIE-PROFILAKTIKI-I-LECHENIYA",
+        "identifier": "GMIK:2010:Filipenkov",
+        "access": "full_text",
+        "locator": "Final paragraph on author chamber ultrasound analysis",
+        "sha256": "81ab440cafc236570ec1a5b1747b67c042d8b64018c825a92b52e3ad8414c2b1",
+        "note": "Author cites own chamber ultrasound analysis in 123 people at 2.5–12 km. No reports of clinical endpoints, exposure-level linkage or outcome window are given for this sample. General historical totals and risk estimates elsewhere in the text are context."
+      },
+      {
+        "id": "filipenkov-1989-suit-abstract",
+        "title": "Possibility of the development of decompression sickness during testing of G suits",
+        "year": 1989,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/2761212/",
+        "identifier": "PMID:2761212",
+        "access": "primary_abstract",
+        "locator": "Author abstract, results and decompression conditions",
+        "sha256": null,
+        "note": "Twenty-nine tests with DCS among 1,179 and 26 affected people among 193 describe the same chamber series. The abstract does not assign groups or document clinical criteria, timing, repeat participant identities or fixed follow-up.",
+        "pmid": "2761212",
+        "observations": [
+          {
+            "id": "all-suit-tests",
+            "group": "all-suit-tests",
+            "endpoint": "altitude_dcs_tests_as_reported",
+            "study_id": "filipenkov-1989-suit-validation-chamber",
+            "cases": 29,
+            "denominator": 1179,
+            "denominator_unit": "person_exposure",
+            "locator": "Author abstract",
+            "note": "Twenty-nine tests with DCS. Each denominator unit is a test, and multiple tests per person are possible. Related experimental series cannot be ruled out.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the tests. Postexposure follow-up and ascertainment criteria not stated.",
+            "reported_rate_percent": 2.5
+          },
+          {
+            "id": "all-suit-participants",
+            "group": "all-suit-participants",
+            "endpoint": "altitude_dcs_affected_people_as_reported",
+            "study_id": "filipenkov-1989-suit-validation-chamber",
+            "cases": 26,
+            "denominator": 193,
+            "denominator_unit": "person",
+            "locator": "Author abstract",
+            "note": "Twenty-six affected people in the same series. This person margin overlaps the 29 tests with DCS. Retain the source's printed 13.4% and exact reported counts without substitution.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the tests. Postexposure follow-up and ascertainment criteria not stated.",
+            "reported_rate_percent": 13.4
+          }
+        ]
+      },
+      {
+        "id": "dvornikov-2019-military",
+        "title": "Instructive story of one high-altitude flight: decompression sickness in an aircraft crew and its consequences",
+        "year": 2019,
+        "url": "https://journals.eco-vector.com/0026-9050/article/view/72843/ru_RU",
+        "identifier": "DOI:10.17816/RMMJ72843; EDN:ZALUVF",
+        "access": "primary_abstract",
+        "locator": "Original-language author abstract, pp. 50–54",
+        "sha256": "7d7022007062d5d4bb751086293608ec7f8b291849990a82004fb51e26862a9a",
+        "note": "Publisher-supplied DOI. Crossref returned 404 for this identifier. The public abstract names one pilot with severe altitude DCS after Su-24M cabin depressurization. A separate journal version describes the same event. The abstract does not specify exact flight duration, aircraft or cabin altitude, other clinical cases or the crew at risk.",
+        "doi": "10.17816/RMMJ72843",
+        "digest_scope": "public JATS abstract and metadata",
+        "observations": [
+          {
+            "id": "su24m-pilot-case",
+            "group": "su24m-pilot-case",
+            "endpoint": "severe_altitude_dcs_as_reported",
+            "study_id": "dvornikov-su24m-operational-depressurization",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Author abstract and same-case Academy abstract, both pp. 50–54",
+            "note": "The abstract explicitly describes one severe pilot case. The scope of the title refers to the crew, but the abstract gives no crew count or additional adjudicated cases. The Academy abstract is a second report of this case.",
+            "case_role": "selected_cluster",
+            "outcome_window": "Exact onset, clinical assessment and follow-up times unavailable in the public abstract."
+          }
+        ]
+      },
+      {
+        "id": "dvornikov-2019-academy",
+        "title": "Instructive story of one high-altitude flight: decompression sickness in an aircraft crew and its consequences",
+        "year": 2019,
+        "url": "https://journals.rcsi.science/1682-7392/article/view/20678",
+        "identifier": "DOI:10.17816/brmma20678",
+        "access": "primary_abstract",
+        "locator": "Bilingual author abstract and Crossref journal registration",
+        "sha256": "4183333e42fd8b3ccbf1ea0070562779736992f04570d9f3cbbe6c29dff5c1a7",
+        "note": "Crossref registers the Academy article under this DOI. A parallel publisher landing page maps the DOI to an unrelated paper. Use the RCSI imprint and Crossref metadata for identification. Duplicate clinical account of the same Su-24M incident.",
+        "doi": "10.17816/brmma20678",
+        "digest_scope": "public JATS abstract and metadata"
+      },
+      {
+        "id": "connolly-2023-early-biomarkers",
+        "title": "Early Human Pathophysiological Responses to Exertional Hypobaric Decompression Stress",
+        "year": 2023,
+        "url": "https://kclpure.kcl.ac.uk/ws/files/233430571/DCS-2_2023.pdf",
+        "identifier": "PMID:37726900; DOI:10.3357/AMHP.6247.2023",
+        "access": "full_text",
+        "locator": "Methods and Results pp. 740–741",
+        "sha256": "33e071a254e7d5dd988a84c51fd8f5a880e4a61039306e9fecc3533e280ddeee",
+        "note": "Phase 1 follow-up publication of the 15-person repeated dispatcher chamber trial. It corroborates the three existing DCS cases at 29 and 37 min on ascent 1 and 60 min on ascent 2, and reports the number of participants with heavy persistent VGE across the sequence.",
+        "pmid": "37726900",
+        "doi": "10.3357/AMHP.6247.2023",
+        "observations": [
+          {
+            "id": "phase1-sequence-people",
+            "group": "phase1-sequence-people",
+            "endpoint": "heavy_and_persistent_vge_as_reported",
+            "study_id": "qinetiq-connolly-repeated-dispatcher-chamber",
+            "cases": 11,
+            "denominator": 15,
+            "denominator_unit": "person",
+            "locator": "Subjects and Results pp. 740–741",
+            "note": "Person-level author characterization. No grade-specific count or additional clinical DCS events are inferred. Some participants stopped early.",
+            "case_role": "overlapping_margin",
+            "outcome_window": "During the same-day paired chamber sequence, especially on the first ascent."
+          }
+        ]
+      },
+      {
+        "id": "connolly-2024-brain-lung-assays",
+        "title": "Brain and Lung Biomarker Responses to Hyperoxic Hypobaric Decompression",
+        "year": 2024,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/9/article-p667.pdf",
+        "identifier": "PMID:39169490; DOI:10.3357/AMHP.6391.2024",
+        "access": "full_text",
+        "locator": "Methods, Results and Table II",
+        "sha256": null,
+        "note": "Publisher full text retrieved through Firecrawl. Follow-up assays from the same 15-person Phase 1 series. Three previously reported limb-bend DCS cases recur in the Methods. The paper reports group-level analyte summaries with missing or excluded values for some assays.",
+        "pmid": "39169490",
+        "doi": "10.3357/AMHP.6391.2024",
+        "assay_summary": [
+          {
+            "analyte": "MCP-1",
+            "assay": "ELISA",
+            "unit": "pg/mL",
+            "reported_n": null,
+            "baseline_mean": 257,
+            "baseline_se": 18,
+            "t8_mean": 350,
+            "t8_se": 40,
+            "t24_mean": 258,
+            "t24_se": 17,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Table II gives mean and SE and does not print a separate N for this analyte."
+          },
+          {
+            "analyte": "BDNF",
+            "assay": "ELISA",
+            "unit": "ng/mL",
+            "reported_n": null,
+            "baseline_mean": 10.9,
+            "baseline_se": 1.6,
+            "t8_mean": 11.4,
+            "t8_se": 1.3,
+            "t24_mean": 19.7,
+            "t24_se": 3.3,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Table II gives mean and SE and does not print a separate N for this analyte."
+          },
+          {
+            "analyte": "HMGB1",
+            "assay": "ELISA",
+            "unit": "ng/mL",
+            "reported_n": null,
+            "baseline_mean": 19.2,
+            "baseline_se": 1.8,
+            "t8_mean": 22.3,
+            "t8_se": 2.7,
+            "t24_mean": 18.9,
+            "t24_se": 1.5,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Table II gives mean and SE and does not print a separate N for this analyte."
+          },
+          {
+            "analyte": "UCH-L1",
+            "assay": "ELISA",
+            "unit": "pg/mL",
+            "reported_n": 14,
+            "baseline_mean": 243,
+            "baseline_se": 19,
+            "t8_mean": 205,
+            "t8_se": 23,
+            "t24_mean": 220,
+            "t24_se": 23,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "One outlier excluded."
+          },
+          {
+            "analyte": "NfL",
+            "assay": "ELISA",
+            "unit": "pg/mL",
+            "reported_n": 10,
+            "baseline_mean": 58.2,
+            "baseline_se": 16.3,
+            "t8_mean": 52.8,
+            "t8_se": 12.6,
+            "t24_mean": 59.4,
+            "t24_se": 15.2,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Five incomplete series excluded."
+          },
+          {
+            "analyte": "CK-BB",
+            "assay": "ELISA",
+            "unit": "ng/mL",
+            "reported_n": 3,
+            "baseline_mean": null,
+            "baseline_se": null,
+            "t8_mean": null,
+            "t8_se": null,
+            "t24_mean": null,
+            "t24_se": null,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Qualitatively lower at T8 and recovered at T24. Undetectable at all times in 11 subjects."
+          },
+          {
+            "analyte": "Tau",
+            "assay": "ELISA",
+            "unit": "pg/mL",
+            "reported_n": 1,
+            "baseline_mean": null,
+            "baseline_se": null,
+            "t8_mean": null,
+            "t8_se": null,
+            "t24_mean": null,
+            "t24_se": null,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Higher at T8 with recovery at T24 in the sole subject with values at all three times."
+          },
+          {
+            "analyte": "RAGE",
+            "assay": "ELISA",
+            "unit": "ng/mL",
+            "reported_n": 14,
+            "baseline_mean": 1.7,
+            "baseline_se": 0.09,
+            "t8_mean": 1.56,
+            "t8_se": 0.1,
+            "t24_mean": 1.67,
+            "t24_se": 0.09,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "One outlier excluded."
+          },
+          {
+            "analyte": "CD14",
+            "assay": "flow cytometry",
+            "unit": "count/µL",
+            "reported_n": null,
+            "baseline_mean": 821,
+            "baseline_se": 197,
+            "t8_mean": 2994,
+            "t8_se": 1049,
+            "t24_mean": 2224,
+            "t24_se": 590,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Below detection at baseline in two people."
+          },
+          {
+            "analyte": "CD324",
+            "assay": "flow cytometry",
+            "unit": "count/µL",
+            "reported_n": 14,
+            "baseline_mean": 155,
+            "baseline_se": 47,
+            "t8_mean": 126,
+            "t8_se": 23,
+            "t24_mean": 194,
+            "t24_se": 41,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "One T8 outlier excluded."
+          },
+          {
+            "analyte": "CD326",
+            "assay": "flow cytometry",
+            "unit": "count/µL",
+            "reported_n": 14,
+            "baseline_mean": 110,
+            "baseline_se": 23,
+            "t8_mean": 98,
+            "t8_se": 16,
+            "t24_mean": 155,
+            "t24_se": 39,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Same excluded T8 participant as CD324."
+          },
+          {
+            "analyte": "GLAST",
+            "assay": "flow cytometry",
+            "unit": "count/µL",
+            "reported_n": null,
+            "baseline_mean": null,
+            "baseline_se": null,
+            "t8_mean": null,
+            "t8_se": null,
+            "t24_mean": null,
+            "t24_se": null,
+            "locator": "Table II, Biomarker Data (Mean ± SE)",
+            "note": "Below the reliable lower assay sensitivity limit."
+          }
+        ]
+      },
+      {
+        "id": "filipenkov-2015-existing",
+        "title": "Ultrasonic assessment of tolerance to hypobaric decompression in a chamber simulating high-altitude flight",
+        "year": 2015,
+        "url": "https://biofizpribor.ru/science/yubilejnaya-konferenciya-2015/ultrazvukovaya-diagnostika-ustoichivosti-k-dekompressii-pri-imitatsii-letnoi-deyatelnosti",
+        "access": "full_text",
+        "locator": "Results and Discussion, text immediately after Figure 1",
+        "note": "Existing v1.22 source. Three participants had musculoskeletal DCS symptoms without a detected bubble signal at reported pressures of 225, 245 and 256 mmHg. This subgroup sits within the same study as the 42 affected participants.",
+        "observations": [
+          {
+            "id": "musculoskeletal-no-bubble-signal",
+            "group": "musculoskeletal-no-bubble-signal",
+            "endpoint": "musculoskeletal_dcs_symptoms_without_detected_bubbles_source",
+            "study_id": "filipenkov-123-volunteer-doppler-chamber",
+            "cases": 3,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Results and Discussion, text immediately after Figure 1",
+            "note": "The source reports three people with musculoskeletal DCS symptoms without a detected bubble signal and prints 2%. The denominator for signal-adequate testing is unavailable. This outcome is a clinical-phenotype subgroup within the existing 2015 report, with no extra cases credited to the 42-person margin.",
+            "case_role": "overlapping_margin",
+            "outcome_window": "During the reported chamber experiments. Standard follow-up unavailable.",
+            "reported_rate_percent": 2,
+            "plateau_pressures_mmhg": [
+              225,
+              245,
+              256
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

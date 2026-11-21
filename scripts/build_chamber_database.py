@@ -165,6 +165,7 @@ CHAMBER_NASA_SEVERITY_AND_LUNAR = ROOT / "data" / "chamber" / "v1.97"
 CHAMBER_USAF_TREATMENT_AND_PREBREATHE = ROOT / "data" / "chamber" / "v1.98"
 CHAMBER_JAPANESE_ALTITUDE_CASES = ROOT / "data" / "chamber" / "v1.99"
 CHAMBER_RAF_DISPATCHER_AND_ARMY = ROOT / "data" / "chamber" / "v1.100"
+CHAMBER_RUSSIAN_AND_DISPATCHER_COMPANIONS = ROOT / "data" / "chamber" / "v1.101"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1474,6 +1475,17 @@ def build(
                         "publication_case_milestone": "case_milestones.csv",
                         "publication_altitude_symptom_survey": "symptom_surveys.csv",
                         "publication_altitude_symptom_survey_item": "symptom_survey_items.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_RUSSIAN_AND_DISPATCHER_COMPANIONS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_repeat_chamber_protocol_count": "repeat_protocols.csv",
+                        "publication_biomarker_summary": "biomarkers.csv",
                     },
                 )
             if rojas_supplement:
