@@ -13295,6 +13295,48 @@
       "report_id": "hdl:11447/9961",
       "basis": "The repository abstract gives the same handle and title as the indexed thesis.",
       "evidence_url": "https://hdl.handle.net/11447/9961"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.118/sources.csv#annis71_sas_chamber",
+      "report_id": "ntrs:19720005428",
+      "basis": "The official NASA record, cover and alternate scan give the same report title, contractor number and date.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19720005428"
+    },
+    {
+      "record_key": "2026-11-21-nasa-cr1892-primary#cr1892-original",
+      "report_id": "ntrs:19720005428",
+      "basis": "The official NASA record, cover and alternate scan give the same report title, contractor number and date.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19720005428"
+    },
+    {
+      "record_key": "2026-11-21-nasa-cr1892-primary#cr1892-mirror",
+      "report_id": "ntrs:19720005428",
+      "basis": "The official NASA record, cover and alternate scan give the same report title, contractor number and date.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19720005428"
+    },
+    {
+      "record_key": "2026-11-21-nasa-cr1892-firecrawl-pdf#cr1892-scan",
+      "report_id": "ntrs:19720005428",
+      "basis": "The official NASA record, cover and alternate scan give the same report title, contractor number and date.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19720005428"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#19720005428",
+      "report_id": "ntrs:19720005428",
+      "basis": "The official NASA record, cover and alternate scan give the same report title, contractor number and date.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19720005428"
+    },
+    {
+      "record_key": "2026-11-21-nasa-cr1892-primary#sharpe-retelling",
+      "report_id": "ntrs:20190027194",
+      "basis": "Section VI of the existing ICES 2019 report reproduces the final test.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190027194/downloads/20190027194.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-cr1892-mciver-bibliographic#mciver-1968",
+      "report_id": "pmid:5678082",
+      "basis": "PubMed gives McIver, Aerospace Medicine 39(10), pp. 1084–1086.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/5678082/"
     }
   ],
   "studies": [
@@ -14527,6 +14569,12 @@
       "label": "Chilean Air Force CMAE operational chamber training",
       "period": "March 1972–December 2022 activities, March 1982–December 2022 incident table",
       "setting": "Retrospective institutional training register, with separate hypoxia-recognition and rapid cabin decompression activities."
+    },
+    {
+      "study_id": "ohio-state-sas-whole-body-tests",
+      "label": "Annis and Webb whole-body Space Activity Suit chamber development",
+      "period": "Published November 1971",
+      "setting": "Ohio State University hypobaric chamber tests"
     }
   ],
   "study_reports": [
@@ -16653,6 +16701,18 @@
       "report_id": "fach:cmae-6000-flight-hours-2021",
       "role": "program_throughput",
       "locator": "Hospital announcement body"
+    },
+    {
+      "study_id": "ohio-state-sas-whole-body-tests",
+      "report_id": "ntrs:19720005428",
+      "role": "primary_outcome",
+      "locator": "Test 4-3 Results and Figure 46, printed pp. 91–92 (PDF pp. 98–99)"
+    },
+    {
+      "study_id": "ohio-state-sas-whole-body-tests",
+      "report_id": "ntrs:20190027194",
+      "role": "secondary_case_retelling",
+      "locator": "Section VI and Figure 12"
     }
   ],
   "relations": [
@@ -20309,6 +20369,20 @@
       "relationship": "overlapping_program_scope",
       "evidence": "Both reports draw on the Chilean Air Force CMAE hypoxia-recognition program. The thesis uses records from 2003 to 2018, inside the program surveillance period of the 2023 report. A record-level crosswalk is unavailable.",
       "evidence_url": "https://hdl.handle.net/11447/9961"
+    },
+    {
+      "left_report": "ntrs:20190027194",
+      "right_report": "ntrs:19720005428",
+      "relationship": "same_published_case",
+      "evidence": "Both reports give test subject C, the final phase II trial, foot bends at the 80,000-ft-equivalent plateau after about five minutes, and 42 minutes total. The retrospective report reproduces the pressure plot.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190027194/downloads/20190027194.pdf"
+    },
+    {
+      "left_report": "ntrs:19720005428",
+      "right_report": "ntrs:19680002042",
+      "relationship": "distinct_chamber_event_participant_overlap_unverified",
+      "evidence": "The earlier arm feasibility test under NAS 1-6872 describes an observer at 155 mmHg. The later whole-body test under NAS 1-8018 describes an instrumented subject at the 80,000-ft equivalent plateau. Cross-study personnel linkage is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19720005428/downloads/19720005428.pdf#page=98"
     }
   ],
   "report_titles": {
