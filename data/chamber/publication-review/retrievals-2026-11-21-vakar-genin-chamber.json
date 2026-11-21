@@ -1,0 +1,867 @@
+[
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-combined",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Граменицкий\" \"высотная декомпрессионная болезнь\" 1974 Гeнин OR \"F-15970\" NASA OR \"JPRS-59702\"",
+      "limit": 8,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "A FR: KUDINOV, A. TO: KULAKOV, A.E. - The World Factbook",
+          "url": "https://www.cia.gov/readingroom/docs/CIA-RDP91-00772R000301910009-5.pdf"
+        },
+        {
+          "position": 2,
+          "title": "FR:KSENOVICH I P TO:KUDRYAVTSEV V - The World Factbook",
+          "url": "https://www.cia.gov/readingroom/docs/CIA-RDP91-00403R000100110008-6.pdf"
+        },
+        {
+          "position": 3,
+          "title": "XRISM Observations of The Prototypical Cold Front in Abell 3667",
+          "url": "https://arxiv.org/pdf/2510.26405"
+        },
+        {
+          "position": 4,
+          "title": "I OAK RIDGE NATIONAL LABORATORY - rsicc-docs.ornl.gov",
+          "url": "https://rsicc-docs.ornl.gov/newsletter/1975/news75.september.pdf"
+        },
+        {
+          "position": 5,
+          "title": "FR:GEMBARZHEVSKIY G B TO:GERASKINA L - The World Factbook",
+          "url": "https://www.cia.gov/readingroom/docs/CIA-RDP91-00403R000100170025-1.pdf"
+        },
+        {
+          "position": 6,
+          "title": "FR:KSENOVICH I P TO:KUDRYAVTSEV V | CIA FOIA (foia.cia.gov)",
+          "url": "https://www.cia.gov/readingroom/document/cia-rdp91-00403r000100110008-6"
+        },
+        {
+          "position": 7,
+          "title": "A FR: KAROL KOV, N. V. TO: KOSEV, KIRIL | CIA FOIA (foia.cia.gov)",
+          "url": "https://www.cia.gov/readingroom/document/cia-rdp91-00772r000201070043-1"
+        },
+        {
+          "position": 8,
+          "title": "FR:DINGHER A. TO:DOBOZI I. - The World Factbook",
+          "url": "https://www.cia.gov/readingroom/docs/CIA-RDP91-00929R000200960043-8.pdf"
+        }
+      ],
+      "returned_web_count": 8
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-tt",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"F-15970\" decompression Gramenitskiy",
+      "limit": 6,
+      "ranked_web_hits": [],
+      "returned_web_count": 0
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-russian",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Граменицкий Высотная декомпрессионная болезнь 1974 книга",
+      "limit": 6,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "Обоснование выбора режимов гипербарической оксигенации ...",
+          "url": "https://www.dissercat.com/content/obosnovanie-vybora-rezhimov-giperbaricheskoi-oksigenatsii-dlya-lecheniya-vysotnoi-dekompress"
+        },
+        {
+          "position": 2,
+          "title": "100-ЛЕТИЕ ИССЛЕДОВАНИЙ, СОВРЕМЕННОЕ СОСТОЯНИЕ ...",
+          "url": "https://readings.gmik.ru/lecture/2010-VISOTNAYA-DEKOMPRESSIONNAYA-BOLEZN-100-LETIE-ISSLEDOVANIY-SOVREMENNOE-SOSTOYANIE-PROFILAKTIKI-I-LECHENIYA"
+        },
+        {
+          "position": 3,
+          "title": "Высотная болезнь",
+          "url": "https://ru.wikipedia.org/wiki/%D0%92%D1%8B%D1%81%D0%BE%D1%82%D0%BD%D0%B0%D1%8F_%D0%B1%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D1%8C"
+        },
+        {
+          "position": 4,
+          "title": "Высотная болезнь",
+          "url": "https://medpodgotovka.ru/blog/vysotnaya_bolezn"
+        },
+        {
+          "position": 5,
+          "title": "Медицинская энциклопедия (сводная). Декомпрессионная ...",
+          "url": "https://med.niv.ru/doc/encyclopedia/medicine/articles/2391/dekompressionnaya-bolezn.htm"
+        },
+        {
+          "position": 6,
+          "title": "ГОРНАЯ БОЛЕЗНЬ - учебное пособие, автор Сергей Науменко",
+          "url": "https://risk.ru/blog/214547"
+        }
+      ],
+      "returned_web_count": 6
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-petrukhin",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Petrukhin\" \"Terentyev\" 133 rarefied atmosphere PubMed",
+      "limit": 6,
+      "ranked_web_hits": [],
+      "returned_web_count": 0
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-jprs",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"JPRS-59702\" Genin decompression",
+      "limit": 6,
+      "ranked_web_hits": [],
+      "returned_web_count": 0
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-monograph",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"decompression disorders\" \"Gramenitskii\" translation NASA F-15970",
+      "limit": 6,
+      "ranked_web_hits": [],
+      "returned_web_count": 0
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-rusneb",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Декомпрессионные расстройства\" \"Граменицкий\" site:rusneb.ru OR site:search.rsl.ru OR site:archive.org",
+      "limit": 6,
+      "ranked_web_hits": [],
+      "returned_web_count": 0
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-petr-alternate",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Petrukhin\" \"Terentiev\" \"rarefied atmosphere\" Cherniakov decompression 1975",
+      "limit": 6,
+      "ranked_web_hits": [],
+      "returned_web_count": 0
+    },
+    "reported_total": null,
+    "status": "observed_no_visible_results",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-search-operational",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "hypobaric chamber decompression sickness training incidence altitude chamber historical annual report number flights cases trainees Polish French Italian",
+      "limit": 6,
+      "ranked_web_hits": [
+        {
+          "position": 1,
+          "title": "Incidence of decompression sickness in hypobaric hypoxia training",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32574436/"
+        },
+        {
+          "position": 2,
+          "title": "Incidence of decompression sickness in hypobaric hypoxia training",
+          "url": "https://www.researchgate.net/publication/346659871_Incidence_of_decompression_sickness_in_hypobaric_hypoxia_training"
+        },
+        {
+          "position": 3,
+          "title": "Decompression sickness incidence over 63 months of hypobaric ...",
+          "url": "https://www.semanticscholar.org/paper/d2cc9e02f0ed58bdfcb343821462fd75f5b28b05"
+        },
+        {
+          "position": 4,
+          "title": "Decompression Sickness Rates for Chamber Personnel: Case Series ...",
+          "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf"
+        },
+        {
+          "position": 5,
+          "title": "Case reports - Investigation of a cluster of decompression sickness ...",
+          "url": "https://www.dhmjournal.com/images/IndividArticles/51March/Ata_DCI_HighAltitude_2019-60(584).pdf"
+        },
+        {
+          "position": 6,
+          "title": "Latent Presentation of Decompression Sickness After ...",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28518008/"
+        }
+      ],
+      "returned_web_count": 6
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ranked web hits retained for search reproducibility. Verified records enter the targeted retrievals.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_discovery",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Vakar\" 904290 hypobaric decompression JPRS-69964 Genin Petrukhin NASA full text",
+      "depth": "advanced",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-hathi",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and HathiTrust",
+    "operation": "supplementary_full_text_outcome_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Three JPRS translations verified against full article pages and indexed originals. Follow-up gaps and possible cohort overlap are documented.",
+    "records": [
+      {
+        "id": "N78-18758",
+        "title": "Relationship between onset of altitude-decompression disorders in man and barometric pressure level during intensive physical exercise",
+        "year": 1977,
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=400",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=401",
+        "byline": "Vakar MI, Mazin AN, Tsivilashvili AS, Malchikov VV",
+        "translated_pages": "112–115",
+        "original_pages": "83–85",
+        "submitted": "1975-06-03",
+        "page_urls": [
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=400",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=401",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=402",
+          "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=403"
+        ],
+        "outcomes_discrepancy": {
+          "published_pct": 0.41,
+          "computed_from_counts_pct": 0.460829,
+          "re_reported_pct": 0.46,
+          "re_report_url": "https://ntrs.nasa.gov/api/citations/19800013491/downloads/19800013491.pdf#page=9"
+        },
+        "observations": [
+          {
+            "id": "7000m-altitude_decompression_disorders_as_reported",
+            "study_id": "vakar-1977-no-prebreathe-work",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "7000m",
+            "cases": 2,
+            "denominator": 434,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 0.41,
+            "locator": "JPRS-69964 printed p. 113 (HathiTrust sequence 401)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=401",
+            "protocol": "No preliminary oxygen prebreathe. Oxygen from chamber ascent onward. Six-hour target protocol with 40 minutes work and 20 minutes rest per cycle. Work energy expenditure reported as 400–450 kcal/h by indirect calorimetry.",
+            "outcome_window": "The report describes continuous examination during the test and 24-hour hospitalization for affected volunteers. Fixed surveillance for event-free volunteers after descent is unspecified.",
+            "analysis_role": "overlap_hold",
+            "altitude": 7000,
+            "altitude_unit": "m",
+            "prebreathe_min": 0,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "Results give 0.4 atm and 308 mm Hg as ambient pressure. Methods p. 112 labels 0.3 atm as suit excess pressure. Both cases were mild. Printed 0.41% differs from 2/434 (0.46% when rounded to two decimals). NASA TM-76015 p. 6 (PDF p. 9) repeats 2/434 at 0.4 atm and prints 0.46%."
+          },
+          {
+            "id": "8150m-altitude_decompression_disorders_as_reported",
+            "study_id": "vakar-1977-no-prebreathe-work",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "8150m",
+            "cases": 8,
+            "denominator": 49,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 16.3,
+            "locator": "JPRS-69964 printed p. 113 (HathiTrust sequence 401)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=401",
+            "protocol": "No preliminary oxygen prebreathe. Oxygen from chamber ascent onward. Six-hour target protocol with 40 minutes work and 20 minutes rest per cycle. Work energy expenditure reported as 400–450 kcal/h by indirect calorimetry.",
+            "outcome_window": "The report describes continuous examination during the test and 24-hour hospitalization for affected volunteers. Fixed surveillance for event-free volunteers after descent is unspecified.",
+            "analysis_role": "overlap_hold",
+            "altitude": 8150,
+            "altitude_unit": "m",
+            "prebreathe_min": 0,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "Results give 0.35 atm ambient, and Methods use 0.35 atm as suit excess pressure. Exact mm Hg was not printed for this arm. Some symptoms were more marked. The report does not tabulate severity counts. NASA TM-76015 p. 6 (PDF p. 9) repeats the same arm count and pressure."
+          }
+        ],
+        "trial_scopes": [
+          {
+            "group": "all-trials",
+            "parent_group": null,
+            "tests": 483,
+            "people": 70,
+            "pressure_mmhg": null,
+            "locator": "JPRS-69964 printed p. 113 (HathiTrust sequence 401)",
+            "note": "Seventy men aged 20–40. Exposure-by-person linkage unavailable."
+          },
+          {
+            "group": "7000m",
+            "parent_group": "all-trials",
+            "tests": 434,
+            "people": null,
+            "pressure_mmhg": 308,
+            "locator": "JPRS-69964 printed p. 113 (HathiTrust sequence 401)",
+            "note": "Counts refer to tests. Pressure is the printed ambient mm Hg in Results."
+          },
+          {
+            "group": "8150m",
+            "parent_group": "all-trials",
+            "tests": 49,
+            "people": null,
+            "pressure_mmhg": null,
+            "locator": "JPRS-69964 printed p. 113 (HathiTrust sequence 401)",
+            "note": "Ambient pressure of 0.35 atm as printed. No conversion of this source value to mm Hg."
+          }
+        ],
+        "role_review": "experimental_chamber_overlap_hold"
+      },
+      {
+        "id": "N75-28682",
+        "title": "Hypobaric nitrogen-oxygen atmosphere as a method for preventing high-altitude decompression disease",
+        "year": 1975,
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=411",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=413",
+        "byline": "Genin AM, Chernyakov IN, Maksimov IV, Glazkova VA",
+        "translated_pages": "71–76",
+        "original_pages": "48–52",
+        "submitted": "1973-09-03",
+        "page_urls": [
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=411",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=412",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=413",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=414",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=415",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=416"
+        ],
+        "observations": [
+          {
+            "id": "series-1-high_altitude_decompression_disease_symptoms",
+            "study_id": "genin-1975-hypobaric-nitrogen-oxygen",
+            "endpoint": "high_altitude_decompression_disease_symptoms",
+            "group": "series-1",
+            "cases": 0,
+            "denominator": 20,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 73 (HathiTrust sequence 413)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=413",
+            "protocol": "A six- to eight-hour initial stage at 553 mm Hg with nominal 40% oxygen and 60% nitrogen in the Methods, followed by the 248 mm Hg final stage breathing pure oxygen. Six trials lasted two to three hours and 14 lasted five to six hours at the target.",
+            "outcome_window": "Symptoms during the reported final exposure. Fixed postdescent follow-up is unspecified.",
+            "analysis_role": "overlap_hold",
+            "altitude": 8500,
+            "altitude_unit": "m",
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "No HADD symptoms in 20 tests involving 16 people. Result spans JPRS pp. 73–74. The Methods give 248 mm Hg at the target and the conclusions use 250 mm Hg."
+          },
+          {
+            "id": "series-2-completed-chamber-high_altitude_decompression_disease_symptoms",
+            "study_id": "genin-1975-hypobaric-nitrogen-oxygen",
+            "endpoint": "high_altitude_decompression_disease_symptoms",
+            "group": "series-2-completed-chamber",
+            "cases": 0,
+            "denominator": 15,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 75 (HathiTrust sequence 415)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=415",
+            "protocol": "Eight hours at the preliminary 2.6 km stage, with a nominal 40% oxygen and 60% nitrogen mixture, then pure oxygen during ascent and the nominal 180 mm Hg final chamber stage. Three-hour target exposure in the protocol.",
+            "outcome_window": "Symptoms during the reported final exposure. Fixed postdescent follow-up is unspecified.",
+            "analysis_role": "overlap_hold",
+            "altitude": 10600,
+            "altitude_unit": "m",
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "The Results identify 15 fully executed tests at 10.6 km without HADD symptoms. This is a completion subset within the 18-experiment series."
+          },
+          {
+            "id": "series-2-suited-high_altitude_decompression_disease_symptoms",
+            "study_id": "genin-1975-hypobaric-nitrogen-oxygen",
+            "endpoint": "high_altitude_decompression_disease_symptoms",
+            "group": "series-2-suited",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 76 (HathiTrust sequence 416)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=416",
+            "protocol": "Eight hours at 550 mm Hg breathing nominal 40% oxygen and 60% nitrogen, then three hours wearing a 180 mm Hg pressurized suit in a chamber at 2 mm Hg.",
+            "outcome_window": "Symptoms during the reported final exposure. Fixed postdescent follow-up is unspecified.",
+            "analysis_role": "overlap_hold",
+            "altitude": 40000,
+            "altitude_unit": "m",
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "The p. 75 methods identify two suited tests. P. 76 explicitly reports no HADD symptoms in the suited tests and summarizes 17 experiments. The individual crosswalk to the series is unavailable."
+          },
+          {
+            "id": "series-2-meteorism-episode-high_altitude_meteorism",
+            "study_id": "genin-1975-hypobaric-nitrogen-oxygen",
+            "endpoint": "high_altitude_meteorism",
+            "group": "series-2-meteorism-episode",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 75 (HathiTrust sequence 415)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=415",
+            "protocol": "Eight hours at the preliminary 2.6 km stage, with a nominal 40% oxygen and 60% nitrogen mixture, then pure oxygen during ascent and the nominal 180 mm Hg final chamber stage. Three-hour target exposure in the protocol.",
+            "outcome_window": "Began immediately on reaching the target in a selected altered trial.",
+            "analysis_role": "selected_cluster",
+            "altitude": 10600,
+            "altitude_unit": "m",
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_selected_episode",
+            "note": "Poor tolerance resolved at higher pressure and recurred on re-ascent within the same experiment. The source identifies meteorism and describes a later repeat trial without it. The observation is one described episode, with no comparable risk set assigned."
+          }
+        ],
+        "trial_scopes": [
+          {
+            "group": "all-trials",
+            "parent_group": null,
+            "tests": 38,
+            "people": 21,
+            "pressure_mmhg": null,
+            "locator": "JPRS-65301 printed p. 72 (HathiTrust sequence 412)",
+            "note": "Two series. People participated in both, as indicated by the overlapping person margins. Individual crosswalk unavailable."
+          },
+          {
+            "group": "series-1",
+            "parent_group": "all-trials",
+            "tests": 20,
+            "people": 16,
+            "pressure_mmhg": 248,
+            "locator": "JPRS-65301 printed p. 73 (HathiTrust sequence 413)",
+            "note": "The Methods report target pressure 248 mm Hg. Conclusions describe approximately 250 mm Hg."
+          },
+          {
+            "group": "series-2",
+            "parent_group": "all-trials",
+            "tests": 18,
+            "people": 10,
+            "pressure_mmhg": null,
+            "locator": "JPRS-65301 printed p. 74 (HathiTrust sequence 414)",
+            "note": "The source describes a second-series total and varying final exposure conditions."
+          },
+          {
+            "group": "series-2-completed-chamber",
+            "parent_group": "series-2",
+            "tests": 15,
+            "people": null,
+            "pressure_mmhg": 180,
+            "locator": "JPRS-65301 printed p. 75 (HathiTrust sequence 415)",
+            "note": "Fifteen completed at the 10.6 km chamber target."
+          },
+          {
+            "group": "series-2-suited",
+            "parent_group": "series-2",
+            "tests": 2,
+            "people": null,
+            "pressure_mmhg": 180,
+            "locator": "JPRS-65301 printed p. 76 (HathiTrust sequence 416)",
+            "note": "Pressure is inside the suit. Chamber ambient was 2 mm Hg. The p. 76 summary of 17 matches the 15 completed chamber tests and two suited tests. Primary text does not identify each test."
+          }
+        ],
+        "role_review": "experimental_chamber_overlap_hold"
+      },
+      {
+        "id": "N75-28683",
+        "title": "Effect exerted on the human and animal body by repeated exposure in a rarefied atmosphere",
+        "year": 1975,
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=417",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=420",
+        "byline": "Petrukhin VG, Terentyev VG, Chernyakov IN",
+        "translated_pages": "77–82",
+        "original_pages": "53–56",
+        "submitted": "1973-10-09",
+        "page_urls": [
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=417",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=418",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=419",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=420",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=421",
+          "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=422"
+        ],
+        "observations": [
+          {
+            "id": "human-series-minor_transient_neurological_findings",
+            "study_id": "petrukhin-1975-repeated-chamber-exposures",
+            "endpoint": "minor_transient_neurological_findings",
+            "group": "human-series",
+            "cases": 10,
+            "denominator": 133,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 80 (HathiTrust sequence 420)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=420",
+            "protocol": "Repeated human chamber experiments at 11–12 km on oxygen after heterogeneous 20-minute to four-hour desaturation. Target time was typically two to three hours, ranging up to 24 hours in the longer tests.",
+            "outcome_window": "Examination before, during and after chamber ascent. Affected individuals were hospitalized as indicated. Fixed surveillance duration across the full series is unspecified.",
+            "analysis_role": "overlap_hold",
+            "altitude": null,
+            "altitude_unit": null,
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "Ten experiments with minor functional findings such as fatigue, headache, tremor and autonomic changes. Source-defined neurological observation with heterogeneous clinical findings."
+          },
+          {
+            "id": "human-series-more_pronounced_neurological_findings",
+            "study_id": "petrukhin-1975-repeated-chamber-exposures",
+            "endpoint": "more_pronounced_neurological_findings",
+            "group": "human-series",
+            "cases": 3,
+            "denominator": 133,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 80 (HathiTrust sequence 420)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=420",
+            "protocol": "Repeated human chamber experiments at 11–12 km on oxygen after heterogeneous 20-minute to four-hour desaturation. Target time was typically two to three hours, ranging up to 24 hours in the longer tests.",
+            "outcome_window": "Examination before, during and after chamber ascent. Affected individuals were hospitalized as indicated. Fixed surveillance duration across the full series is unspecified.",
+            "analysis_role": "overlap_hold",
+            "altitude": null,
+            "altitude_unit": null,
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "Three distinct cases with more prominent complaints and neurological changes from the 133-experiment human series. Two narratives report acute decompression disease. The report cannot establish DCS as the cause in the third. No total acute DCS count was given."
+          },
+          {
+            "id": "subject-b-neurological-selected_case_with_neurological_findings",
+            "study_id": "petrukhin-1975-repeated-chamber-exposures",
+            "endpoint": "selected_case_with_neurological_findings",
+            "group": "subject-b-neurological",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 80 (HathiTrust sequence 420)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=420",
+            "protocol": "Repeated human chamber experiments at 11–12 km on oxygen after heterogeneous 20-minute to four-hour desaturation. Target time was typically two to three hours, ranging up to 24 hours in the longer tests.",
+            "outcome_window": "Selected case narrative at altitude and after descent.",
+            "analysis_role": "selected_cluster",
+            "altitude": null,
+            "altitude_unit": null,
+            "prebreathe_min": null,
+            "parent_observation_id": "human-series-more_pronounced_neurological_findings",
+            "role_review": "experimental_chamber_selected_episode",
+            "note": "Chest pain noted in hour six at 12 km in the fifth test. Attribution of the neurological changes to decompression disease could not be established.",
+            "participant_code": "petrukhin-subject-b",
+            "source_classification": "prominent_neurological_findings_uncertain_dcs",
+            "milestones": [
+              {
+                "event": "chest_pain_during_hour_six",
+                "elapsed": null,
+                "unit": null,
+                "reference": null,
+                "locator": "JPRS-65301 printed p. 80 (HathiTrust sequence 420)",
+                "note": "Reached in the sixth hour at 12 km. Exact onset minute unavailable."
+              },
+              {
+                "event": "chest_pain_resolved_after_descent",
+                "elapsed": null,
+                "unit": null,
+                "reference": null,
+                "locator": "JPRS-65301 printed p. 80 (HathiTrust sequence 420)",
+                "note": "Time after descent not specified. Chest heaviness remained."
+              }
+            ]
+          },
+          {
+            "id": "subject-o-acute-dcs-selected_case_with_neurological_findings",
+            "study_id": "petrukhin-1975-repeated-chamber-exposures",
+            "endpoint": "selected_case_with_neurological_findings",
+            "group": "subject-o-acute-dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 80 (HathiTrust sequence 420)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=420",
+            "protocol": "Repeated human chamber experiments at 11–12 km on oxygen after heterogeneous 20-minute to four-hour desaturation. Target time was typically two to three hours, ranging up to 24 hours in the longer tests.",
+            "outcome_window": "Selected case narrative at altitude and after descent.",
+            "analysis_role": "selected_cluster",
+            "altitude": null,
+            "altitude_unit": null,
+            "prebreathe_min": null,
+            "parent_observation_id": "human-series-more_pronounced_neurological_findings",
+            "role_review": "experimental_chamber_selected_episode",
+            "note": "The authors identified sharp knee pain, coughing, facial cyanosis and weakness at 11 km as distinct decompression disease symptoms.",
+            "participant_code": "petrukhin-subject-o",
+            "source_classification": "acute_decompression_disease_as_reported",
+            "milestones": [
+              {
+                "event": "returned_to_initial_status_after_hospital_stay",
+                "elapsed": 7,
+                "unit": "days",
+                "reference": "hospital stay",
+                "locator": "JPRS-65301 printed p. 80 (HathiTrust sequence 420)",
+                "note": "Reported after one week in hospital."
+              }
+            ]
+          },
+          {
+            "id": "subject-m-acute-dcs-selected_case_with_neurological_findings",
+            "study_id": "petrukhin-1975-repeated-chamber-exposures",
+            "endpoint": "selected_case_with_neurological_findings",
+            "group": "subject-m-acute-dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": null,
+            "locator": "JPRS-65301 printed p. 81 (HathiTrust sequence 421)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821919&seq=421",
+            "protocol": "Repeated human chamber experiments at 11–12 km on oxygen after heterogeneous 20-minute to four-hour desaturation. Target time was typically two to three hours, ranging up to 24 hours in the longer tests.",
+            "outcome_window": "Selected case narrative at altitude and after descent.",
+            "analysis_role": "selected_cluster",
+            "altitude": null,
+            "altitude_unit": null,
+            "prebreathe_min": null,
+            "parent_observation_id": "human-series-more_pronounced_neurological_findings",
+            "role_review": "experimental_chamber_selected_episode",
+            "note": "The authors identified right wrist pain followed by sternal pain at altitude as decompression disease. Exact altitude for this case is unspecified.",
+            "participant_code": "petrukhin-subject-m",
+            "source_classification": "acute_decompression_disease_as_reported",
+            "milestones": [
+              {
+                "event": "returned_to_initial_status",
+                "elapsed": 1,
+                "unit": "days",
+                "reference": "reported postdescent course",
+                "locator": "JPRS-65301 printed p. 81 (HathiTrust sequence 421)",
+                "note": "Reported after one day. Exact clock time unavailable."
+              }
+            ]
+          }
+        ],
+        "trial_scopes": [
+          {
+            "group": "human-series",
+            "parent_group": null,
+            "tests": 133,
+            "people": 38,
+            "pressure_mmhg": null,
+            "locator": "JPRS-65301 printed p. 78 (HathiTrust sequence 418)",
+            "note": "Human chamber series alone. Dog tests are separate. No complete acute clinical incidence count."
+          }
+        ],
+        "role_review": "experimental_chamber_overlap_hold"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-identities",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS and PubMed",
+    "operation": "supplementary_report_identity_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Journal originals, parallel translations and secondary outcome sources identified. Each English full-text article has its own report identifier.",
+    "records": [
+      {
+        "id": "original-vakar77",
+        "pmid": "904290",
+        "year": 1977,
+        "title": "Relationship between onset of altitude-decompression disorders in man and barometric pressure level during intensive physical exercise",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/904290/"
+      },
+      {
+        "id": "original-genin75",
+        "pmid": "1152406",
+        "year": 1975,
+        "title": "Hypobaric nitrogen-oxygen atmosphere as a method for preventing high-altitude decompression disease",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1152406/"
+      },
+      {
+        "id": "original-petrukhin75",
+        "pmid": "1152407",
+        "year": 1975,
+        "title": "Effect exerted on the human and animal body by repeated exposure in a rarefied atmosphere",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1152407/"
+      },
+      {
+        "id": "N78-18758",
+        "title": "Relationship between onset of altitude-decompression disorders in man and barometric pressure level during intensive physical exercise",
+        "year": 1977,
+        "url": "https://ntrs.nasa.gov/api/citations/19780019804/downloads/19780019804.pdf#page=30",
+        "translation": "JPRS-69964"
+      },
+      {
+        "id": "N75-28682",
+        "title": "Hypobaric nitrogen-oxygen atmosphere as a method for preventing high-altitude decompression disease",
+        "year": 1975,
+        "url": "https://ntrs.nasa.gov/api/citations/19760006642/downloads/19760006642.pdf",
+        "translation": "JPRS-65301"
+      },
+      {
+        "id": "N75-28683",
+        "title": "Effect exerted on the human and animal body by repeated exposure in a rarefied atmosphere",
+        "year": 1975,
+        "url": "https://ntrs.nasa.gov/api/citations/19760006642/downloads/19760006642.pdf",
+        "translation": "JPRS-65301"
+      },
+      {
+        "id": "N75-13518",
+        "pmid": "4610560",
+        "title": "Decompression disorders",
+        "year": 1974,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/4610560/",
+        "index_url": "https://ntrs.nasa.gov/api/citations/19750016243/downloads/19750016243.pdf",
+        "translation": "NASA TT F-15970",
+        "note": "NASA index confirms Russian edition and English translation. Primary pages 263–268 unavailable."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-vakar-genin-chamber-crosswalk",
+    "date": "2026-11-21",
+    "provider": "NASA rendered scan and Firecrawl HathiTrust",
+    "operation": "supplementary_overlap_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "NASA TM-76015 repeats the 483 Vakar tests, including both exact margins. It supplies a corroborating locator. Gramenitskiy figures are kept on overlap hold.",
+    "records": [
+      {
+        "id": "TM-76015",
+        "title": "Hazards of high altitude decompression sickness during falls in barometric pressure from 1 atm to a fraction thereof",
+        "year": 1980,
+        "url": "https://ntrs.nasa.gov/api/citations/19800013491/downloads/19800013491.pdf",
+        "corroborating_pages": [
+          7,
+          9
+        ],
+        "note": "Rendered p. 9 confirms 0.35 atm, which differs from the OCR reading of 0.33. Same Vakar tests as the 1977 article. No repeated observation rows."
+      },
+      {
+        "id": "ref1-gramenitskiy",
+        "title": "Decompression disorders",
+        "year": 1974,
+        "pmid": "4610560",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/4610560/",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=400",
+        "citing_page": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=400",
+        "bibliography_page": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=403",
+        "primary_text_status": "unverified",
+        "role_review": "experimental_chamber_overlap_hold",
+        "observations": [
+          {
+            "id": "7000m-secondary-altitude_decompression_disorders_as_reported",
+            "study_id": "gramenitskiy-1974-altitude-exercise-series",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "7000m-secondary",
+            "cases": 58,
+            "denominator": 107,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 54,
+            "locator": "JPRS-69964 printed p. 112 (HathiTrust sequence 400)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=400",
+            "protocol": "Six-hour exposure with exercise. Other details are secondary reports in Vakar, with primary risk-set verification pending.",
+            "outcome_window": "Six-hour published exposure. Ascertainment and follow-up details from the original source are unavailable.",
+            "analysis_role": "overlap_hold",
+            "altitude": 7000,
+            "altitude_unit": "m",
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "Vakar attributes the exact count and 54% to Gramenitskiy 1974 pp. 263–268. Re-use in the later Genin unsuited series is unresolved."
+          },
+          {
+            "id": "8100m-secondary-altitude_decompression_disorders_as_reported",
+            "study_id": "gramenitskiy-1974-altitude-exercise-series",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "group": "8100m-secondary",
+            "cases": 44,
+            "denominator": 70,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 63,
+            "locator": "JPRS-69964 printed p. 112 (HathiTrust sequence 400)",
+            "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=coo.31924055139350&seq=400",
+            "protocol": "Six-hour exposure with exercise. Other details are secondary reports in Vakar, with primary risk-set verification pending.",
+            "outcome_window": "Six-hour published exposure. Ascertainment and follow-up details from the original source are unavailable.",
+            "analysis_role": "overlap_hold",
+            "altitude": 8100,
+            "altitude_unit": "m",
+            "prebreathe_min": null,
+            "parent_observation_id": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "note": "Vakar attributes the exact count and 63% to Gramenitskiy 1974 pp. 263–268. Re-use in the later Genin unsuited series is unresolved."
+          }
+        ]
+      }
+    ]
+  }
+]
