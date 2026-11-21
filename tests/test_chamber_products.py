@@ -4874,3 +4874,82 @@ def test_halifax_and_cincinnati_use_original_counts_and_keep_units_separate(rele
             SELECT count(*) FROM review.review_search_observation
             WHERE run_id='2026-11-21-cincinnati-halifax-verified' AND role_review='overlap_hold'
         """).fetchone() == (51,)
+
+
+def test_chamber_retest_paths_reconcile_without_duplicate_clinical_events(release):
+    with connect_pair(release) as db:
+        run_id = "2026-11-21-chamber-retest-paths-verified"
+        review_rows = db.execute("""
+            SELECT report_id,reported_group,endpoint,cases,denominator,denominator_unit,role_review,locator
+            FROM review.review_search_observation WHERE run_id=?
+            ORDER BY report_id,reported_group,endpoint
+        """, (run_id,)).fetchall()
+        assert len(review_rows) == 80
+        assert {row[0] for row in review_rows} == {
+            "nlm:101085500x233:220:ferris", "nlm:101085500x233:228:halifax-validation",
+        }
+        assert {(row[5], row[6]) for row in review_rows} == {("person", "overlap_hold")}
+        assert db.execute("""
+            SELECT DISTINCT m.report_id,p.stratum,p.endpoint,p.numerator,p.denominator,
+                            p.denominator_unit,p.analysis_role,p.locator
+            FROM publication_observation p JOIN model_report_link m USING(source_id)
+            JOIN review.review_search_observation r ON r.report_id=m.report_id
+                 AND r.reported_group=p.stratum AND r.endpoint=p.endpoint
+            WHERE r.run_id=? AND m.source_table='publication_source'
+            ORDER BY m.report_id,p.stratum,p.endpoint
+        """, (run_id,)).fetchall() == review_rows
+
+        groups = {}
+        for _, group, endpoint, count, total, *_ in review_rows:
+            groups.setdefault(group, {})[endpoint] = (count, total)
+
+        for altitude, size, tables in [
+            (38000, 16, {
+                (0, 1): [27, 13, 13, 25], (0, 2): [29, 11, 11, 27],
+                (1, 3): [26, 14, 14, 24], (0, 3): [27, 13, 13, 25],
+            }),
+            (35000, 8, {(0, 1): [32, 7, 8, 31], (0, 2): [28, 11, 11, 28]}),
+        ]:
+            rows = groups[f"cincinnati-retest-{altitude}"]
+            assert len(rows) == size
+            assert {total for _, total in rows.values()} == {78}
+            paths = {key.removeprefix("classification_path_"): count for key, (count, _) in rows.items()}
+            assert sum(paths.values()) == 78
+            for (i, j), counts in tables.items():
+                assert [
+                    sum(count for path, count in paths.items() if (path[i], path[j]) == (first, second))
+                    for first in "pf" for second in "pf"
+                ] == counts
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.discrepancies[0].printed_table[1][0]'),
+                   json_extract(metadata_json,'$.discrepancies[0].diagram[1][0]')
+            FROM review.review_record WHERE run_id=? AND source_key='ferris43_cincinnati_selection'
+        """, (run_id,)).fetchone() == (7, 8)
+
+        for group, total, size, unchanged, crossed in [
+            ("halifax-two-test-path", 136, 16, 53, 54),
+            ("halifax-three-test-pattern", 304, 20, 78, 156),
+        ]:
+            rows = groups[group]
+            margin = "classification_crossed_ab_cd_threshold_as_reported"
+            assert rows[margin] == (crossed, total)
+            assert {denominator for _, denominator in rows.values()} == {total}
+            patterns = {key.split("_")[-1]: count for key, (count, _) in rows.items() if key != margin}
+            assert len(patterns) == size
+            assert sum(patterns.values()) == total
+            assert sum(count for key, count in patterns.items() if len(set(key)) == 1) == unchanged
+            assert sum(
+                count for key, count in patterns.items() if set(key) & {"a", "b"} and set(key) & {"c", "d"}
+            ) == crossed
+
+        assert groups["halifax-three-test-pattern"]["classification_unordered_pattern_bdc"] == (6, 304)
+        for group, counts, total, censoring in [
+            ("halifax-three-test-all-descended", [11, 25, 19, 15, 9, 6, 3, 1, 0], 89, 0),
+            ("halifax-three-test-descent-and-completion", [9, 16, 14, 22, 32, 30, 21, 13, 1], 158, 1),
+        ]:
+            assert list(groups[group].values()) == [(count, total) for count in counts]
+            assert db.execute("""
+                SELECT DISTINCT json_extract(o.value,'$.latest_descent_right_censored')
+                FROM review.review_record r JOIN json_each(r.metadata_json,'$.observations') o
+                WHERE r.run_id=? AND json_extract(o.value,'$.group')=?
+            """, (run_id, group)).fetchall() == [(censoring,)]
