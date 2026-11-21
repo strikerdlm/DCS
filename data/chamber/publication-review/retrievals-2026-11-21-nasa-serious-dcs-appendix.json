@@ -1,0 +1,133 @@
+[
+  {
+    "id": "2026-11-21-nasa-serious-dcs-appendix-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_outcome_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "id": "01a1fedf-ec13-72c1-b918-cf4d046cb7e1",
+          "returned": 8,
+          "query": "site:ntrs.nasa.gov human chamber DCS \"decompression sickness\" \"prebreathe\" participants observed 2025 2026 Artemis pressure research"
+        },
+        {
+          "id": "01a1fee0-8281-7182-a941-7988af66ee85",
+          "returned": 3,
+          "query": "site:ntrs.nasa.gov \"Exploration Atmosphere Test\" 5 7 \"prebreathe\" DCS human chamber"
+        }
+      ],
+      "rechecked_duke_registration": {
+        "id": "NCT06740305",
+        "status": "COMPLETED",
+        "has_results": false,
+        "actual_registered_enrollment": 19
+      },
+      "ntrs_scrape_id": "01a1fee4-7c32-735d-8c82-97537cdb364e"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Available contemporary payloads duplicate existing NASA sources. The Duke registry lists no posted outcomes.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-serious-dcs-appendix-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_outcome_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "site:ntrs.nasa.gov human chamber DCS \"decompression sickness\" \"prebreathe\" participants observed 2025 2026 Artemis pressure research",
+      "search_depth": "advanced",
+      "max_results": 8,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-serious-dcs-appendix-primary",
+    "date": "2026-11-21",
+    "provider": "NASA Technical Reports Server",
+    "operation": "verify_original_appendix_and_report_identity",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "keyed_underlying_references": 73,
+      "prior_report_occurrences_reconciled": 15
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Compared the published table to the rendered primary document, preserving positional row identifiers and source annotations.",
+    "records": [
+      {
+        "id": "conkin01_serious_archive",
+        "title": "Evidence-Based Approach to the Analysis of Serious Decompression Sickness with Application to EVA Astronauts",
+        "authors": [
+          "Johnny Conkin"
+        ],
+        "year": 2001,
+        "url": "https://ntrs.nasa.gov/citations/20010020946",
+        "primary_source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf",
+        "report_number": "NASA/TP-2001-210196",
+        "ntrs_id": "20010020946",
+        "openalex_id": "W44606038",
+        "source_sha256": "601397b25eb54bb50342daf137847fd31bead522858a4aa957f631bc751d1607",
+        "locator": "Appendix C, printed pp. 40–46 (PDF pp. 46–52), and Appendix A, printed pp. 31–36",
+        "extraction_method": "All six rendered Appendix C pages visually transcribed and reconciled to the paper abstract and Tables II and VI.",
+        "evidence_note": "Historical synthesis of 73 cited sources. Appendix C lists source-defined serious DCS by grouped test and labels the denominators male subjects. The report describes their total as altitude exposures, with no unique participant linkage. The modeled cumulative-risk column was omitted. All rows are on overlap hold.",
+        "published_scope": {
+          "group_rows": 258,
+          "cited_references": 73,
+          "male_exposures": 79366,
+          "serious_cases": 918,
+          "analysis_role": "overlap_hold",
+          "annotations": 8,
+          "underlying_independent_cases_added": 0,
+          "followup_uniform": null
+        },
+        "by_printed_page": [
+          {
+            "page": 40,
+            "rows": 39,
+            "exposures": 1674,
+            "serious_cases": 0
+          },
+          {
+            "page": 41,
+            "rows": 45,
+            "exposures": 1178,
+            "serious_cases": 4
+          },
+          {
+            "page": 42,
+            "rows": 45,
+            "exposures": 61896,
+            "serious_cases": 375
+          },
+          {
+            "page": 43,
+            "rows": 45,
+            "exposures": 2891,
+            "serious_cases": 4
+          },
+          {
+            "page": 44,
+            "rows": 45,
+            "exposures": 9551,
+            "serious_cases": 195
+          },
+          {
+            "page": 45,
+            "rows": 39,
+            "exposures": 2176,
+            "serious_cases": 340
+          }
+        ],
+        "citation_correction": "NTRS 20010020946 identifies Conkin 2001. The cited Ferris report CAM 363 has a distinct identity and remains available only as a bibliographic citation."
+      }
+    ]
+  }
+]
