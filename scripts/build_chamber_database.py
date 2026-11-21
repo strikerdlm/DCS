@@ -197,6 +197,7 @@ CHAMBER_MARSEILLE_SURVEILLANCE = ROOT / "data" / "chamber" / "v1.129"
 CHAMBER_BROOK_COMPLEMENT = ROOT / "data" / "chamber" / "v1.130"
 CHAMBER_RUSSIAN_EXPOSURE_SCOPE = ROOT / "data" / "chamber" / "v1.131"
 CHAMBER_DAK_TRAINING_CASE = ROOT / "data" / "chamber" / "v1.132"
+CHAMBER_ASMA_2012_CROSSWALK = ROOT / "data" / "chamber" / "v1.133"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1879,6 +1880,17 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_ASMA_2012_CROSSWALK,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
                     },
                     create_schema=False,
                 )

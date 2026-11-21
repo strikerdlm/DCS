@@ -4296,3 +4296,39 @@ def test_dak_case_links_both_databases_without_imputing_exposure_or_pooling(rele
             WHERE relationship='possible_turkish_chamber_cohort_overlap'
               AND 'pmid:32574436' IN (left_report,right_report)
         """).fetchone() == (1,)
+
+
+def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.endpoint,o.altitude,o.altitude_unit,o.numerator,r.cases,r.denominator,
+                   e.onset_min,r.chamber_role
+            FROM shared_case_evidence e JOIN publication_observation o USING(source_id,stratum,endpoint)
+            JOIN review.review_search_observation r
+              ON (r.record_key,r.observation_id)=(e.record_key,e.observation_id)
+            WHERE e.source_id='manton12_raf_chamber' AND o.denominator IS NULL
+              AND o.analysis_role='case_conditional'
+            ORDER BY o.altitude
+        """).fetchall() == [
+            ("symptomatic_altitude_dcs", 15748.0, "ft", 1, 1, None, None, None),
+            ("reported_decompression_illness", 17500.0, "ft", 1, 1, None, None, "trainee"),
+            ("suspected_arterial_gas_embolism", 25000.0, "ft", 1, 1, None, None, "trainee"),
+        ]
+        assert db.execute("""
+            SELECT o.endpoint,o.numerator,o.denominator,o.denominator_unit,r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r ON (r.report_id,r.endpoint)=(l.report_id,o.endpoint)
+            WHERE o.source_id='hok12_swedish_chamber' ORDER BY o.endpoint
+        """).fetchall() == [
+            ("arterial_bubbles_detected", 0, None, None, 0, None),
+            ("symptomatic_altitude_dcs", 0, 6, "person", 0, 6),
+        ]
+        assert db.execute("""
+            SELECT s.participant_count,s.trial_count,count(o.source_id)
+            FROM publication_chamber_trial_scope s LEFT JOIN publication_observation o USING(source_id)
+            WHERE s.source_id='blackadder12_raf_ent_chamber' GROUP BY s.source_id
+        """).fetchall() == [(41, None, 0)]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='manton12_raf_chamber'
+        """).fetchall() == [("mcloughlin00", "unresolved")]
