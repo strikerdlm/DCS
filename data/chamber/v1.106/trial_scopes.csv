@@ -1,0 +1,10 @@
+source_id,stratum,parent_stratum,evidence_source_id,trial_count,participant_count,pressure_mmhg,locator,note
+vakar77_jprs_69964,all-trials,,vakar77_jprs_69964,483,70,,JPRS-69964 printed p. 113 (HathiTrust sequence 401),Seventy men aged 20–40. Exposure-by-person linkage unavailable.
+vakar77_jprs_69964,7000m,all-trials,vakar77_jprs_69964,434,,308,JPRS-69964 printed p. 113 (HathiTrust sequence 401),Counts refer to tests. Pressure is the printed ambient mm Hg in Results.
+vakar77_jprs_69964,8150m,all-trials,vakar77_jprs_69964,49,,,JPRS-69964 printed p. 113 (HathiTrust sequence 401),Ambient pressure of 0.35 atm as printed. No conversion of this source value to mm Hg.
+genin75_jprs_65301,all-trials,,genin75_jprs_65301,38,21,,JPRS-65301 printed p. 72 (HathiTrust sequence 412),"Two series. People participated in both, as indicated by the overlapping person margins. Individual crosswalk unavailable."
+genin75_jprs_65301,series-1,all-trials,genin75_jprs_65301,20,16,248,JPRS-65301 printed p. 73 (HathiTrust sequence 413),The Methods report target pressure 248 mm Hg. Conclusions describe approximately 250 mm Hg.
+genin75_jprs_65301,series-2,all-trials,genin75_jprs_65301,18,10,,JPRS-65301 printed p. 74 (HathiTrust sequence 414),The source describes a second-series total and varying final exposure conditions.
+genin75_jprs_65301,series-2-completed-chamber,series-2,genin75_jprs_65301,15,,180,JPRS-65301 printed p. 75 (HathiTrust sequence 415),Fifteen completed at the 10.6 km chamber target.
+genin75_jprs_65301,series-2-suited,series-2,genin75_jprs_65301,2,,180,JPRS-65301 printed p. 76 (HathiTrust sequence 416),Pressure is inside the suit. Chamber ambient was 2 mm Hg. The p. 76 summary of 17 matches the 15 completed chamber tests and two suited tests. Primary text does not identify each test.
+petrukhin75_jprs_65301,human-series,,petrukhin75_jprs_65301,133,38,,JPRS-65301 printed p. 78 (HathiTrust sequence 418),Human chamber series alone. Dog tests are separate. No complete acute clinical incidence count.

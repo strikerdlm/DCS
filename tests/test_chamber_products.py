@@ -8,6 +8,76 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_vakar_genin_and_petrukhin_translations_share_only_verified_outcomes(release):
+    with connect_pair(release) as db:
+        source_map = {
+            "vakar77_jprs_69964": "ntrs:n78-18758",
+            "genin75_jprs_65301": "ntrs:n75-28682",
+            "petrukhin75_jprs_65301": "ntrs:n75-28683",
+            "gramenitskiy74_vakar77_citation": "pmid:4610560",
+        }
+        for model_source, review_report in source_map.items():
+            model = db.execute("""
+                SELECT stratum,endpoint,numerator,denominator,denominator_unit
+                FROM publication_observation WHERE source_id=?
+            """, (model_source,)).fetchall()
+            review = db.execute("""
+                SELECT reported_group,endpoint,cases,denominator,denominator_unit
+                FROM review.review_search_observation WHERE report_id=?
+            """, (review_report,)).fetchall()
+            assert model
+            assert sorted(review) == sorted(model)
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate_percent
+            FROM review.review_search_observation WHERE report_id='ntrs:n78-18758'
+            ORDER BY cases
+        """).fetchall() == [(2, 434, 0.41), (8, 49, 16.3)]
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='vakar77_jprs_69964' AND related_source='genin80'
+        """).fetchone() == ("partial_overlap",)
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='openalex:W89590632'
+              AND relationship='re_reports_same_experiment_cells'
+        """).fetchall() == [("ntrs:n78-18758",)]
+        canonical_reports = {
+            "2026-11-20-formal-chamber-openalex#W89590632": "openalex:W89590632",
+            "2026-11-20-formal-chamber-openalex#W2993993201": "pmid:1152407",
+            "legacy:data/chamber/v1.15/sources.csv#gramenitskiy74": "pmid:4610560",
+            "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_ntrs_archives:11":
+                "ntrs:n75-28683",
+        }
+        for record_key, report in canonical_reports.items():
+            assert db.execute("""
+                SELECT report_id FROM review.review_record WHERE record_key=?
+            """, (record_key,)).fetchone() == (report,)
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='genin75_jprs_65301'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("series-1", 0, 20), ("series-2-completed-chamber", 0, 15),
+            ("series-2-meteorism-episode", 1, None), ("series-2-suited", 0, 2),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='petrukhin75_jprs_65301' AND denominator IS NOT NULL
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("minor_transient_neurological_findings", 10, 133),
+            ("more_pronounced_neurological_findings", 3, 133),
+        ]
+        assert db.execute("""
+            SELECT source_classification,count(*) FROM publication_chamber_case_episode
+            WHERE source_id='petrukhin75_jprs_65301' AND parent_stratum='human-series'
+            GROUP BY source_classification ORDER BY source_classification
+        """).fetchall() == [
+            ("acute_decompression_disease_as_reported", 2),
+            ("prominent_neurological_findings_uncertain_dcs", 1),
+        ]
+
+
 def test_chadov_cabin_risk_sets_and_barer_full_text_reconcile(release):
     with connect_pair(release) as db:
         assert db.execute("""
