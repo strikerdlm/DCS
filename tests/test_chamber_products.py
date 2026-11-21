@@ -3594,14 +3594,22 @@ def test_space_activity_suit_observer_pressure_is_distinct_from_subject_timing(r
         """).fetchall() == [("ntrs:19680002042", 1, None)]
         assert db.execute("""
             SELECT report_id,count(*) FROM review.review_record
-            WHERE report_id IN ('ntrs:19680002042','ntrs:19650004856','ntrs:20190027194','dot:20777')
+            WHERE report_id IN ('ntrs:19680002042','ntrs:19650004856','dot:20777')
             GROUP BY report_id ORDER BY report_id
         """).fetchall() == [
             ("dot:20777", 4),
             ("ntrs:19650004856", 2),
             ("ntrs:19680002042", 5),
-            ("ntrs:20190027194", 3),
         ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_spa:6',
+                '2026-11-20-formal-chamber-ntrs-setting#20190027194',
+                '2026-11-21-nasa-observer-primary#nasa-history'
+            )
+            GROUP BY report_id
+        """).fetchall() == [("ntrs:20190027194", 3)]
 
 
 def test_chile_cmae_keeps_incident_and_training_periods_separate(release):
@@ -3649,3 +3657,63 @@ def test_chile_cmae_keeps_incident_and_training_periods_separate(release):
         assert db.execute("""
             SELECT count(*) FROM review.review_record WHERE report_id='fach:cmae-6000-flight-hours-2021'
         """).fetchone() == (2,)
+
+
+def test_cr1892_keeps_one_case_and_preserves_its_three_clock_values(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,altitude,prebreathe_min
+            FROM publication_observation WHERE source_id='annis71_sas_chamber'
+        """).fetchall() == [(1, None, 80000.0, None)]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_reference FROM publication_case_milestone
+            WHERE source_id='annis71_sas_chamber' ORDER BY milestone
+        """).fetchall() == [
+            ("foot_pain_onset_from_target_plateau", 5.0, "approximately after reaching target pressure"),
+            ("foot_pain_onset_from_test_start", 26.0, "after start of test 4-3"),
+            ("pain_subsided_during_repressurization", None, None),
+            ("reported_total_test_duration", 42.0, "after start of test 4-3"),
+        ]
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count,pressure_mmhg
+            FROM publication_chamber_trial_scope WHERE source_id='annis71_sas_chamber' ORDER BY stratum
+        """).fetchall() == [
+            ("altitude-chamber-suit-trials", 8, 2, None),
+            ("phase-i-trials", 5, 2, None),
+            ("phase-ii-trials", 3, 2, None),
+            ("test-2-1", 1, 1, 523.0),
+            ("test-2-2", 1, 1, 141.0),
+            ("test-2-3", 1, 1, 54.4),
+            ("test-2-4", 1, 1, 20.9),
+            ("test-2-5", 1, 1, 15.0),
+            ("test-4-1", 1, 1, 226.0),
+            ("test-4-2", 1, 1, 46.0),
+            ("test-4-3-subject-c-bends", 1, 1, 20.9),
+        ]
+        assert db.execute("""
+            SELECT report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='annis71_sas_chamber'
+        """).fetchall() == [("ntrs:19720005428", None)]
+        assert db.execute("""
+            SELECT report_id,cases,denominator FROM review.review_search_observation
+            WHERE report_id IN ('ntrs:19720005428','ntrs:20190027194','pmid:5678082')
+        """).fetchall() == [("ntrs:19720005428", 1, None)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:20190027194' AND right_report='ntrs:19720005428'
+        """).fetchall() == [("same_published_case",)]
+        assert db.execute("""
+            SELECT record_key,report_id FROM review.review_record
+            WHERE record_key IN ('2026-11-20-formal-chamber-ntrs-setting#19720005428',
+                '2026-11-21-nasa-cr1892-primary#sharpe-retelling')
+            ORDER BY record_key
+        """).fetchall() == [
+            ("2026-11-20-formal-chamber-ntrs-setting#19720005428", "ntrs:19720005428"),
+            ("2026-11-21-nasa-cr1892-primary#sharpe-retelling", "ntrs:20190027194"),
+        ]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.case_details.target_pressure_mmhg'),
+                   json_extract(metadata_json,'$.case_details.prerepressurization_pressure_mmhg'),
+                   json_extract(metadata_json,'$.case_details.repressurized_pressure_mmhg')
+            FROM review.review_record WHERE source_key='cr1892-original'
+        """).fetchall() == [(20.9, 20.8, 62)]

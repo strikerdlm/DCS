@@ -1,0 +1,248 @@
+[
+  {
+    "id": "2026-11-21-nasa-cr1892-firecrawl-search",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "no_results",
+    "operation": "search",
+    "reported_total": 0,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA CR-1892 \"Development of a Space Activity Suit\" \"bends\" foot Sharpe 1971 NASA pressure chamber test 4-3",
+      "search_id": "01a1fda4-2b68-711b-bd57-94564cf327e5",
+      "limit": 8
+    },
+    "note": "The exact-title query returned no documents. The original was retrieved by its NASA archive identifier.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-cr1892-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA CR-1892 Annis Webb subject C bends 80,000 ft original Table II 1971 independent dataset case outcomes",
+      "http_status": 433,
+      "max_results": 8,
+      "search_depth": "advanced"
+    },
+    "note": "The account spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-cr1892-firecrawl-pdf",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA CR-1892 Test 4-3"
+    },
+    "note": "The indexed extract and rendered original agree on the clinical passages. The original cover resolves corrupt OCR in the scan header.",
+    "records": [
+      {
+        "id": "cr1892-scan",
+        "title": "Development of a Space Activity Suit",
+        "url": "https://ntrs.nasa.gov/api/citations/19720005428/downloads/19720005428.pdf",
+        "year": 1971,
+        "scrape_id": "01a1fd9f-d337-7769-9865-8d1b887ad471"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-cr1892-primary",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS and public mirror",
+    "status": "observed_full_text",
+    "operation": "compare_original_and_later_account",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA CR-1892 and ICES-2019-173 chamber case"
+    },
+    "note": "Checked both reports, the eight-test scope, Figure 46 and the later reproduction. The later report describes the same event.",
+    "records": [
+      {
+        "id": "cr1892-original",
+        "title": "Development of a Space Activity Suit",
+        "url": "https://ntrs.nasa.gov/api/citations/19720005428/downloads/19720005428.pdf",
+        "year": 1971,
+        "identifier": "NASA-CR-1892; NTRS:19720005428",
+        "source_sha256": "fddeb8b561c75eccad99a0b18e3bdd9ed3e39339fc1d0be87b8a32e7a1c87aa3",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19720005428/downloads/19720005428.pdf#page=98",
+        "observations": [
+          {
+            "id": "test-4-3-subject-c-foot-bends",
+            "group": "test-4-3-subject-c-bends",
+            "endpoint": "foot_bends_as_reported",
+            "study_id": "ohio-state-sas-whole-body-tests",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "locator": "Test 4-3 Results and Figure 46, printed pp. 91–92 (PDF pp. 98–99)",
+            "outcome_window": "Foot pain began during test 4-3 and subsided during repressurization. The authors report no post-test sequelae. A fixed follow-up duration is unavailable.",
+            "note": "One source-labeled bends event in test subject C. Pain began 26 minutes after test start, approximately five minutes into the target plateau. The report gives 42 minutes for the entire test. Laterality and independent diagnostic adjudication are unavailable."
+          }
+        ],
+        "case_details": {
+          "trial": "4-3",
+          "participant_code": "C",
+          "role": "instrumented_suit_subject",
+          "onset_after_test_start_min": 26,
+          "onset_after_target_approx_min": 5,
+          "target_chamber_altitude_ft_equivalent": 80000,
+          "target_pressure_mmhg": 20.9,
+          "prerepressurization_pressure_mmhg": 20.8,
+          "repressurized_pressure_mmhg": 62,
+          "entire_test_duration_min": 42,
+          "figure_time_axis_end_min": 45,
+          "symptom_site": "foot",
+          "symptom_laterality": null,
+          "reported_relief": "during repressurization",
+          "delayed_follow_up_min": null,
+          "usual_mask_oxygen_min": 120,
+          "usual_additional_oxygen_during_dressing_min": 45,
+          "exact_case_prebreathe_min": null
+        },
+        "reported_trials": [
+          {
+            "trial": "2-1",
+            "subject": "B",
+            "altitude_ft_equivalent": 10000,
+            "ambient_pressure_mmhg": 523,
+            "total_test_duration_min": null,
+            "locator": "Altitude chamber experiments, printed p. 84 (PDF p. 91)",
+            "reported_reason_or_scope": "Equipment checkout and emergency procedure practice."
+          },
+          {
+            "trial": "2-2",
+            "subject": "C",
+            "altitude_ft_equivalent": 40000,
+            "ambient_pressure_mmhg": 141,
+            "total_test_duration_min": null,
+            "locator": "Altitude chamber experiments, printed p. 84 (PDF p. 91)",
+            "reported_reason_or_scope": "Training exposure."
+          },
+          {
+            "trial": "2-3",
+            "subject": "C",
+            "altitude_ft_equivalent": 60000,
+            "ambient_pressure_mmhg": 54.4,
+            "total_test_duration_min": null,
+            "locator": "Altitude chamber experiments, printed p. 84 (PDF p. 91)",
+            "reported_reason_or_scope": "Training exposure."
+          },
+          {
+            "trial": "2-4",
+            "subject": "C",
+            "altitude_ft_equivalent": 80000,
+            "ambient_pressure_mmhg": 20.9,
+            "total_test_duration_min": 51,
+            "locator": "Printed p. 86 (PDF p. 93)",
+            "reported_reason_or_scope": "The report attributes abdominal pain to trapped gastrointestinal gas. Fatigue, heart rate and increased breathing-loop nitrogen also contributed to stopping."
+          },
+          {
+            "trial": "2-5",
+            "subject": "C",
+            "altitude_ft_equivalent": 87000,
+            "ambient_pressure_mmhg": 15,
+            "total_test_duration_min": 25,
+            "locator": "Printed pp. 86, 89 (PDF pp. 93, 96)",
+            "reported_reason_or_scope": "The report attributes the syncope and stop to breathing-system failure and low oxygen partial pressure."
+          },
+          {
+            "trial": "4-1",
+            "subject": "B",
+            "altitude_ft_equivalent": 30000,
+            "ambient_pressure_mmhg": 226,
+            "total_test_duration_min": 73,
+            "locator": "Printed pp. 90–91 (PDF pp. 97–98)",
+            "reported_reason_or_scope": "The trial stopped after loss of the heart-rate signal from telemetry interference."
+          },
+          {
+            "trial": "4-2",
+            "subject": "C",
+            "altitude_ft_equivalent": 63000,
+            "ambient_pressure_mmhg": 46,
+            "total_test_duration_min": 44,
+            "locator": "Printed p. 91 (PDF p. 98)",
+            "reported_reason_or_scope": "The trial stopped after loss of the heart-rate signal from a broken electrode lead."
+          },
+          {
+            "trial": "4-3",
+            "subject": "C",
+            "altitude_ft_equivalent": 80000,
+            "ambient_pressure_mmhg": 20.9,
+            "total_test_duration_min": 42,
+            "locator": "Test 4-3 Results and Figure 46, printed pp. 91–92 (PDF pp. 98–99)",
+            "reported_reason_or_scope": "Foot bends in test subject C. The Results state 20.8 mmHg before repressurization."
+          }
+        ]
+      },
+      {
+        "id": "cr1892-mirror",
+        "title": "Development of a Space Activity Suit",
+        "url": "https://chapters.marssociety.org/winnipeg/sas/DevelopmentOfASpaceActivitySuit.pdf",
+        "year": 1971,
+        "identifier": "NASA-CR-1892"
+      },
+      {
+        "id": "sharpe-retelling",
+        "title": "The \"Space Activity Suit\" - A Historical Perspective and A Primer on the Physiology of Mechanical Counter-Pressure",
+        "url": "https://ntrs.nasa.gov/api/citations/20190027194/downloads/20190027194.pdf",
+        "year": 2019,
+        "identifier": "ICES-2019-173; NTRS:20190027194",
+        "locator": "Final phase II test and Figure 12",
+        "role_review": "The retrospective account reproduces the final test and refers to the same foot bends case. No independent event."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-cr1892-mciver-bibliographic",
+    "date": "2026-11-21",
+    "provider": "PubMed and NASA NTRS",
+    "status": "observed_front_matter",
+    "operation": "check_companion_trial_identity",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "McIver 1968, PMID 5678082 and NASA entry A68-44119"
+    },
+    "note": "The NASA synopsis matches several design features of McIver et al. 1967. The full original and case linkage are unverified.",
+    "records": [
+      {
+        "id": "mciver-1968",
+        "title": "Management of bends arising during space flight",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/5678082/",
+        "year": 1968,
+        "pmid": "5678082",
+        "locator": "PubMed bibliographic record and NASA bibliography A68-44119",
+        "secondary_source": "https://ntrs.nasa.gov/api/citations/19690009685/downloads/19690009685.pdf",
+        "verified_case_count": null,
+        "verified_exposure_count": null
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-cr1892-mciver-full-text",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and publisher",
+    "status": "access_limited",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Management of bends arising during space flight",
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/39/10/article-p1084.pdf",
+      "scrape_id": "01a1fd9d-f364-71e1-9565-3fe5f698b676"
+    },
+    "note": "The parser returned a download footer and the direct route returned HTML. The paper itself was unavailable.",
+    "records": []
+  }
+]

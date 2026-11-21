@@ -182,6 +182,7 @@ CHAMBER_FAA_MASK_HISTORY = ROOT / "data" / "chamber" / "v1.114"
 CHAMBER_FAA_OBSERVER = ROOT / "data" / "chamber" / "v1.115"
 CHAMBER_NASA_OBSERVER = ROOT / "data" / "chamber" / "v1.116"
 CHAMBER_CHILE_CMAE = ROOT / "data" / "chamber" / "v1.117"
+CHAMBER_NASA_CR1892 = ROOT / "data" / "chamber" / "v1.118"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1703,6 +1704,18 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_CR1892,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_case_milestone": "case_milestones.csv",
                     },
                     create_schema=False,
                 )
