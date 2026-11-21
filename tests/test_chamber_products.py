@@ -2339,10 +2339,12 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
         """).fetchone() == (86, 68)
         assert db.execute("SELECT count(*) FROM dcs_case").fetchone() == (103,)
         assert db.execute("SELECT count(*) FROM literature_symptomatic_noncase").fetchone() == (32,)
-        assert db.execute("""
+        cluster_occurrences, cluster_reports, cluster_report = db.execute("""
             SELECT count(*),count(DISTINCT report_id),min(report_id)
             FROM review.review_record WHERE lower(title) LIKE 'investigation of a cluster of decompression%'
-        """).fetchone() == (129, 1, "doi:10.28920/dhm51.1.82-85")
+        """).fetchone()
+        assert cluster_occurrences >= 129
+        assert (cluster_reports, cluster_report) == (1, "doi:10.28920/dhm51.1.82-85")
         assert db.execute("""
             SELECT cases,exposures FROM chamber_group_evidence
             WHERE study_id='usaf-howard-1979-1981' ORDER BY stratum
@@ -3900,6 +3902,11 @@ def test_asma_interim_abstracts_keep_reported_risk_sets_and_overlap(release):
             SELECT DISTINCT report_id FROM review.review_record
             WHERE pmid='12182217' OR url='https://ntrs.nasa.gov/citations/20040088175'
         """).fetchall() == [('pmid:12182217',)]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE run_id IN ('2026-11-21-asma-interim-firecrawl-1','2026-11-21-asma-interim-firecrawl-2')
+              AND url='https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/'
+        """).fetchone() == (2, 1, 'doi:10.28920/dhm51.1.82-85')
         assert db.execute("""
             SELECT count(*) FROM review.review_search_observation
             WHERE report_id='journal:watanabe-yamazaki-1964-amlr-5-4'
