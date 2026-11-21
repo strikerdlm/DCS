@@ -1,0 +1,11 @@
+source_id,case_number,stage_number,setting_as_reported,timing_as_reported,aircraft_altitude_column_ft,cabin_altitude_column_ft,decompression_value,decompression_unit,decompression_missing_reason,exposures_reported,exposures_relation,locator
+kutz23_chamber_referral,1,1,F/18,,29000,8000,26000,ft,,3,=,Table III p. 15
+kutz23_chamber_referral,3,1,F/18,,35000,8000,16000,ft,,10,>,Table III p. 15
+kutz23_chamber_referral,5,1,F/18,,23700,8000,23700,ft,,1,=,Table III p. 15
+kutz23_chamber_referral,12,1,F/18,,1000,1000,33,fsw,,30,=,Table III p. 15
+kutz23_chamber_referral,12,2,F/18,+48 h,22000,8000,33,fsw,,10,=,Table III p. 15
+kutz23_chamber_referral,12,3,F/18,+24 h,22000,8000,,,not_applicable_as_printed,,,Table III p. 15
+kutz23_chamber_referral,13,1,F/18,,22000,8000,20000,ft,,1,=,Table III p. 15
+kutz23_chamber_referral,15,1,Hypobaric chamber with pressure suit,,65000,35000,,,unknown,,,Table III p. 15
+kutz23_chamber_referral,15,2,T/38,+12 h,25000,13000,,,not_applicable_as_printed,,,Table III p. 15
+kutz23_chamber_referral,17,1,F/18,,16000,8000,15000,ft,,1,=,Table III p. 15

@@ -1,6 +1,66 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-ucsd-aviation-referral-exact-search#result-1",
+      "report_id": "pmid:36757235",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf",
+      "basis": "Matching title, authors and article DOI identify Kutz et al., PMID 36757235."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-exact-search#result-2",
+      "report_id": "pmid:36757235",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf",
+      "basis": "Matching title, authors and article DOI identify Kutz et al., PMID 36757235."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-exact-search#result-3",
+      "report_id": "pmid:36757235",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf",
+      "basis": "Matching title, authors and article DOI identify Kutz et al., PMID 36757235."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-chamber-search#result-1",
+      "report_id": "openalex:W2344433097",
+      "evidence_url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?filename=0&article=1171&context=mph&type=additional",
+      "basis": "Same Wright State repository item and USAF case-control thesis."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-chamber-search#result-3",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+      "basis": "Exact PMCID PMC8313775."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-chamber-search#result-4",
+      "report_id": "adf:smart-cable-2004",
+      "evidence_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+      "basis": "Publisher PDF and title identify the extracted 1984–2001 training cohort report."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-chamber-search#result-5",
+      "report_id": "pmid:19522370",
+      "evidence_url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+      "basis": "Same Brandt journal PDF mirror."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-chamber-search#result-7",
+      "report_id": "record:legacy:data/chamber/v1.34/search_hits.csv#paired_v34_prior:7",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/phak/19_phak_ch17.pdf",
+      "basis": "Exact FAA handbook chapter PDF URL."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.34/search_hits.csv#paired_v34_prior:7",
+      "report_id": "record:legacy:data/chamber/v1.34/search_hits.csv#paired_v34_prior:7",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/phak/19_phak_ch17.pdf",
+      "basis": "Exact FAA handbook chapter PDF URL."
+    },
+    {
+      "record_key": "2026-11-21-ucsd-aviation-referral-primary#kutz23_chamber_referral",
+      "report_id": "pmid:36757235",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf",
+      "basis": "Primary publisher PDF matches the existing v1.18 source and printed DOI."
+    },
+    {
       "record_key": "2026-11-21-naval-decompression-series-case-search#result-1",
       "report_id": "pmid:31038172",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/31038172/",
@@ -16539,6 +16599,12 @@
   ],
   "studies": [
     {
+      "study_id": "ucsd-2010-2020-aviation-decompression-referrals",
+      "label": "Aviation Decompression Sickness in Aerospace and Hyperbaric Medicine",
+      "period": "August 2010 to August 2020",
+      "setting": "Selected treated referrals at the UCSD Hyperbaric Medicine Division. The denominator for exposed flight or chamber participants is unavailable."
+    },
+    {
       "study_id": "us-navy-lee-sanou-two-fa18c-dcs-episodes",
       "label": "Decompression Sickness in the F/A-18C After Atypical Cabin Pressure Fluctuations",
       "period": "Published 2018. Event dates unavailable.",
@@ -18166,6 +18232,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "ucsd-2010-2020-aviation-decompression-referrals",
+      "report_id": "pmid:36757235",
+      "role": "original_aviation_referral_series",
+      "locator": "Methods and Figure 1 pp. 12–13; Results p. 13; Table III p. 15; Figure 3 and Table IV p. 16"
+    },
     {
       "study_id": "us-navy-lee-sanou-two-fa18c-dcs-episodes",
       "report_id": "pmid:29673435",
@@ -20928,6 +21000,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:31038172",
+      "right_report": "pmid:36757235",
+      "relationship": "possible_ucsd_navy_case_overlap",
+      "evidence": "Kutz Table III and Andicochea Table II cover overlapping years. No exact match was found by age and aircraft/cabin altitudes. The remaining UCSD episodes lack individual flight profiles and incident dates are unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf"
+    },
+    {
+      "left_report": "pmid:29673435",
+      "right_report": "pmid:36757235",
+      "relationship": "possible_ucsd_navy_case_overlap",
+      "evidence": "Kutz Table III Case 12 and Lee and Sanou Case 1 both report a low-altitude F/18 overpressure episode. Ages, altitudes and profile details differ. No shared identifier or date establishes linkage for either Lee and Sanou case.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf"
+    },
     {
       "left_report": "pmid:29673435",
       "right_report": "pmid:31038172",

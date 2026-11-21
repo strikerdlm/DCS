@@ -1,0 +1,213 @@
+[
+  {
+    "id": "2026-11-21-ucsd-aviation-referral-exact-search",
+    "date": "2026-11-21",
+    "reported_total": null,
+    "status": "observed",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "note": "Retains all ranked occurrences. Author report copies use the existing canonical PMID. EBSCO and publisher issue lists remain discovery links.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1ffeb-0d76-771d-947a-9207878f967c",
+      "query": "\"Aviation Decompression Sickness in Aerospace and Hyperbaric Medicine\" Kutz 6113.2023"
+    },
+    "records": [
+      {
+        "id": "result-1",
+        "title": "Aviation Decompression Sickness in Aerospace and Hyperbaric Medicine",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36757235/"
+      },
+      {
+        "id": "result-2",
+        "title": "Aviation Decompression Sickness in Aerospace and Hyperbaric ...",
+        "url": "https://scispace.com/papers/aviation-decompression-sickness-in-aerospace-and-hyperbaric-bqh1s1i9"
+      },
+      {
+        "id": "result-3",
+        "title": "Aviation Decompression Sickness in Aerospace and Hyperbaric Medicine",
+        "url": "https://www.researchgate.net/publication/366932960_Aviation_Decompression_Sickness_in_Aerospace_and_Hyperbaric_Medicine"
+      },
+      {
+        "id": "result-4",
+        "title": "Works in Aerospace Medicine & Human Performance, 2023, Vol ...",
+        "url": "https://openurl.ebsco.com/c/t4a2lo/results?sid=ebsco:ocu:record&bquery=IS+2375-6314+AND+VI+94+AND+IP+1+AND+DT+2023&link_origin=&searchDescription=Aerospace%20Medicine%20%26%20Human%20Performance%2C%202023%2C%20Vol%2094%2C%20Issue%201"
+      },
+      {
+        "id": "result-5",
+        "title": "Aerospace Medicine and Human Performance Volume 94: Issue 1 ...",
+        "url": "https://asma.kglmeridian.com/view/journals/amhp/94/1/amhp.94.issue-1.xml"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-ucsd-aviation-referral-chamber-search",
+    "date": "2026-11-21",
+    "reported_total": null,
+    "status": "observed",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "note": "Existing Rojas, Karaca, Smart and Cable, and Brandt studies were recovered. The other hits are a proceedings volume, a military news post and an FAA handbook chapter. No new exposure-denominator result was identified in the search hits.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1ffec-645b-7369-96b5-9fc50126107d",
+      "query": "hypobaric altitude chamber training decompression sickness cases incidence flight exposures unique national air force Medicina Aeroespacial descompresión hipobárica aviación cámara incidencia"
+    },
+    "records": [
+      {
+        "id": "result-1",
+        "title": "Decompression Illness in United States Air Force High-Risk ...",
+        "url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?filename=0&article=1171&context=mph&type=additional"
+      },
+      {
+        "id": "result-2",
+        "title": "Operational Medical Issues in Hypo-and Hyperbaric Conditions (les Questions medicales a caractere oprationel liees aux conditions hypobares ou hyperbares)",
+        "url": "https://apps.dtic.mil/sti/tr/pdf/ADA395680.pdf"
+      },
+      {
+        "id": "result-3",
+        "title": "Investigation of a cluster of decompression sickness cases ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+      },
+      {
+        "id": "result-4",
+        "title": "Australian Defence Force hypobaric chamber training, 1984–2001",
+        "url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+      },
+      {
+        "id": "result-5",
+        "title": "Decompression Sickness Rates for Chamber Personnel: Case Series ...",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf"
+      },
+      {
+        "id": "result-6",
+        "title": "How the U.S. military acclimates units to high-altitude operations > Air Force Medical Service > Display",
+        "url": "https://www.airforcemedicine.af.mil/News/Display/Article/3233346/how-the-us-military-acclimates-units-to-high-altitude-operations/"
+      },
+      {
+        "id": "result-7",
+        "title": "PHAK Chapter 17",
+        "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/phak/19_phak_ch17.pdf"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-ucsd-aviation-referral-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "blocked",
+    "note": "HTTP 433. The request exceeded the provider's pay-as-you-go limit. No records were returned.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Kutz Kirby Grover Tanaka Aviation Decompression Sickness 6113.2023 UCSD Navy 21 two reviewers case series"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-ucsd-aviation-referral-primary",
+    "date": "2026-11-21",
+    "reported_total": null,
+    "status": "observed",
+    "provider": "Aerospace Medical Association via Firecrawl",
+    "operation": "verify_public_full_text",
+    "note": "Firecrawl returned all seven pages of the original publisher PDF. The printed tables and figure bars were checked against rendered pages of a locally retained publisher copy.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "firecrawl_scrape_id": "01a1ffeb-6ed2-76d8-97b9-233d534d775d",
+      "source_pdf_pages": 7
+    },
+    "records": [
+      {
+        "id": "kutz23_chamber_referral",
+        "title": "Aviation Decompression Sickness in Aerospace and Hyperbaric Medicine",
+        "author": "Kutz CJ, Kirby IJ, Grover IR, Tanaka HL",
+        "year": 2023,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/1/article-p11.pdf",
+        "pmid": "36757235",
+        "doi": "10.3357/AMHP.6113.2023",
+        "sha256": "a9a7ac8c8f0c2cfbccde639d4dad3f5f81690cf8b2a575aa5897f5a1f54eafd6",
+        "full_text_available": true,
+        "locator": "Methods and Figure 1 pp. 12–13; Results p. 13; Table III p. 15; Figure 3 and Table IV p. 16",
+        "observations": [
+          {
+            "id": "treated-referrals",
+            "group": "ucsd-treated-referrals",
+            "endpoint": "treated_aviation_decompression_referral",
+            "cases": 21,
+            "denominator": null,
+            "locator": "Methods and Figure 1 pp. 12–13; Results p. 13",
+            "outcome_window": "Treatment presentation.",
+            "note": "Count of treated episodes. Initial screening excludes one ground maintenance incident and two gas embolism referrals from diagnostic panel assessment."
+          },
+          {
+            "id": "initial-dcs",
+            "group": "ucsd-treated-referrals",
+            "endpoint": "initial_clinician_dcs_diagnosis",
+            "cases": 18,
+            "denominator": 21,
+            "denominator_unit": "treated_referral",
+            "locator": "Methods and Figure 1 pp. 12–13; Results p. 13",
+            "outcome_window": "At presentation.",
+            "note": "Clinical diagnosis before retrospective review. No denominator for flight exposure or chamber participation."
+          },
+          {
+            "id": "reviewer-supported",
+            "group": "ucsd-initial-dcs-diagnoses",
+            "endpoint": "dcs_favored_by_at_least_one_reviewer",
+            "cases": 7,
+            "denominator": 18,
+            "denominator_unit": "dcs_case",
+            "locator": "Results p. 13; Table III p. 15; Figure 3 p. 16",
+            "outcome_window": "Retrospective review of initial DCS diagnoses.",
+            "note": "The seven include the two unanimous diagnoses."
+          },
+          {
+            "id": "unanimous",
+            "group": "ucsd-initial-dcs-diagnoses",
+            "endpoint": "dcs_favored_unanimously",
+            "cases": 2,
+            "denominator": 18,
+            "denominator_unit": "dcs_case",
+            "locator": "Results p. 13; Table III p. 15; Figure 3 p. 16",
+            "outcome_window": "Retrospective review of initial DCS diagnoses.",
+            "note": "Case 15 is one of the two unanimous diagnoses and appeared in the prior chamber data release."
+          },
+          {
+            "id": "admissions",
+            "group": "ucsd-initial-dcs-diagnoses",
+            "endpoint": "inpatient_admission",
+            "cases": 6,
+            "denominator": 18,
+            "denominator_unit": "dcs_case",
+            "locator": "Discussion p. 16",
+            "outcome_window": "At treatment or continued clinical monitoring.",
+            "note": "Admissions were for residual symptoms or continued monitoring."
+          },
+          {
+            "id": "admitted-reviewer-supported",
+            "group": "ucsd-admitted-initial-dcs-diagnoses",
+            "endpoint": "dcs_favored_by_at_least_one_reviewer",
+            "cases": 3,
+            "denominator": 6,
+            "denominator_unit": "dcs_case",
+            "locator": "Discussion p. 16",
+            "outcome_window": "Retrospective review in the admitted subgroup.",
+            "note": "Overlapping margin within the treated referrals."
+          },
+          {
+            "id": "case-15",
+            "group": "case-15",
+            "endpoint": "reviewer_supported_chamber_linked_dcs_case",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Table III Case 15 p. 15; Figure 3 p. 16",
+            "outcome_window": "Initial symptoms more than one hour after ground return. The same person also reported symptoms at altitude.",
+            "note": "The chamber flight and T/38 flight 12 h later belong to one published referral. No chamber roster or exact onset time was available."
+          }
+        ]
+      }
+    ]
+  }
+]
