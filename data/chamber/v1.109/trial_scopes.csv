@@ -1,0 +1,7 @@
+source_id,stratum,parent_stratum,evidence_source_id,trial_count,participant_count,pressure_mmhg,locator,note
+boothby40_mayo_altitude,mayo-ascents-at-least-30000ft,,boothby40_mayo_altitude,102,,,"Air Corps reprint, printed p. 11 (PDF p. 46)","Ascents to 30,000 ft or higher. Typical plateau 10–30 minutes. Total unique people and person-exposures are unavailable."
+boothby40_mayo_altitude,mayo-ascents-at-least-35000ft,mayo-ascents-at-least-30000ft,boothby40_mayo_altitude,80,,,"Air Corps reprint, printed p. 11 (PDF p. 46)","Ascents to 35,000 ft or higher within the 102. These are nested trial counts."
+boothby40_mayo_altitude,mayo-ascents-to-40000ft,mayo-ascents-at-least-35000ft,boothby40_mayo_altitude,30,,,"Air Corps reprint, printed p. 11 (PDF p. 46)","Ascents to 40,000 ft within the 80."
+boothby40_mayo_altitude,35000ft-135min-two-person-run,mayo-ascents-at-least-35000ft,boothby40_mayo_altitude,1,2,,"Air Corps reprint, printed p. 11 (PDF p. 46)","One selected run at 35,000 ft with two people and a dwell time of 135 minutes."
+boothby40_mayo_altitude,4700ft-per-min-selected-ascent,,boothby40_mayo_altitude,,1,,"Air Corps reprint, printed p. 12 (PDF p. 47)",One subject at the maximum reported ascent rate. Link to other reported scopes unavailable.
+lovelace41_mayo_aeroembolism,40000ft-20min-rest-prebreathe-pair,,lovelace41_mayo_aeroembolism,1,2,,"Scientific Monthly, printed p. 35 (PDF p. 33)","Two subjects observed together. Part of the same research program. Exact run identifier and position within the 30 ascents to 40,000 ft are unavailable."

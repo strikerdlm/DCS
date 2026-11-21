@@ -12629,6 +12629,72 @@
       "report_id": "usnmb:40-2-282",
       "basis": "Verified by author, publication and original printed pages.",
       "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=351"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-extract#july-scan",
+      "report_id": "scimonthly:53-1-30",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://archive.org/details/sim_scientific-monthly_1941-07_53_1"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-extract#streltsov-bibliography",
+      "report_id": "klinmed:1940:18-9-42",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://www.dissercat.com/content/obosnovanie-vybora-rezhimov-giperbaricheskoi-oksigenatsii-dlya-lecheniya-vysotnoi-dekompress"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-fulltext#mayo-part2",
+      "report_id": "doi:10.2514/8.1237",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf#page=46"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-fulltext#scientific-monthly",
+      "report_id": "scimonthly:53-1-30",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf#page=28"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-fulltext#carson-1942",
+      "report_id": "usnmb:40-2-284",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=353"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-identity#part1",
+      "report_id": "doi:10.2514/8.1212",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://doi.org/10.2514/8.1212"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-identity#part2",
+      "report_id": "doi:10.2514/8.1237",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://doi.org/10.2514/8.1237"
+    },
+    {
+      "record_key": "2026-11-21-mayo-streltsov-identity#streltsov-1940",
+      "report_id": "klinmed:1940:18-9-42",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://search.rsl.ru/ru/record/01002400754"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.109/sources.csv#boothby40_mayo_altitude",
+      "report_id": "doi:10.2514/8.1237",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf#page=46"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.109/sources.csv#lovelace41_mayo_aeroembolism",
+      "report_id": "scimonthly:53-1-30",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf#page=28"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.109/sources.csv#carson42_streltsov_joint_pain",
+      "report_id": "usnmb:40-2-284",
+      "basis": "Verified by author, title, publication and issue or exact original and reprint.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=355"
     }
   ],
   "studies": [
@@ -13777,6 +13843,18 @@
       "label": "Korb's Navy patrol aircraft training flight",
       "setting": "Instruction and indoctrination in a multi-engine patrol aircraft",
       "period": "Published 1942. Flight date unspecified."
+    },
+    {
+      "study_id": "mayo-early-altitude-chamber-program",
+      "label": "Mayo Clinic early human altitude chamber program",
+      "setting": "Mayo Clinic Laboratory for Research in Aviation Medicine, hypobaric chamber",
+      "period": "Reported in 1940 and 1941. Exact accrual dates and subject roster are unavailable."
+    },
+    {
+      "study_id": "streltsov-1940-altitude-joint-pain-series",
+      "label": "Streltsov's altitude joint-pain series as quoted by Carson",
+      "setting": "Human barometric exposure, exact exposure setting unverified",
+      "period": "Published in 1940. Exact dates unverified."
     }
   ],
   "study_reports": [
@@ -15741,6 +15819,42 @@
       "report_id": "usnmb:40-2-282",
       "role": "primary_aircraft_bends_cluster",
       "locator": "Printed pp. 282–284"
+    },
+    {
+      "study_id": "mayo-early-altitude-chamber-program",
+      "report_id": "doi:10.2514/8.1212",
+      "role": "companion_bibliographic_report",
+      "locator": "Original J Aeronaut Sci 7(11):461–468"
+    },
+    {
+      "study_id": "mayo-early-altitude-chamber-program",
+      "report_id": "doi:10.2514/8.1237",
+      "role": "primary_scope_and_selected_symptom_absence",
+      "locator": "Air Corps reprint pp. 11–12"
+    },
+    {
+      "study_id": "mayo-early-altitude-chamber-program",
+      "report_id": "scimonthly:53-1-30",
+      "role": "same_program_scope_and_additional_case_details",
+      "locator": "Scientific Monthly pp. 34–35"
+    },
+    {
+      "study_id": "mayo-early-altitude-chamber-program",
+      "report_id": "usnmb:40-2-284",
+      "role": "secondary_restatement_without_added_counts",
+      "locator": "Carson p. 285, reference 13"
+    },
+    {
+      "study_id": "streltsov-1940-altitude-joint-pain-series",
+      "report_id": "klinmed:1940:18-9-42",
+      "role": "cited_original_full_text_unavailable",
+      "locator": "Klin Med 18(9):42–52 as cited in Carson reference 15"
+    },
+    {
+      "study_id": "streltsov-1940-altitude-joint-pain-series",
+      "report_id": "usnmb:40-2-284",
+      "role": "secondary_joint_pain_count",
+      "locator": "Carson pp. 286 and 290"
     }
   ],
   "relations": [
@@ -19124,6 +19238,34 @@
       "relationship": "related_navy_chamber_research",
       "evidence": "The 1941 Bulletin article describes related Navy low-pressure research. Exact episode concordance with the 1947 Table 8 is unverified.",
       "evidence_url": "https://archive.org/download/NavalMedicalBulletin391941/NavalMedicalBulletin391941.pdf#page=194"
+    },
+    {
+      "left_report": "scimonthly:53-1-30",
+      "right_report": "doi:10.2514/8.1237",
+      "relationship": "same_cohort_ascent_counts_and_added_narratives",
+      "evidence": "Both contain the identical 102/80/30 ascent counts, usual 10–30 minutes and maximum 135 minutes at 35,000 ft. The 1941 report adds selected symptom descriptions, with no independent full risk set.",
+      "evidence_url": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf#page=32"
+    },
+    {
+      "left_report": "usnmb:40-2-284",
+      "right_report": "doi:10.2514/8.1237",
+      "relationship": "secondary_restatement_of_program_scope",
+      "evidence": "Carson explicitly cites both Mayo reprints. The 102 ascents and 135-minute two-person run at 35,000 ft match Part II.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=354"
+    },
+    {
+      "left_report": "usnmb:40-2-284",
+      "right_report": "klinmed:1940:18-9-42",
+      "relationship": "secondary_quote_of_count_without_original",
+      "evidence": "Carson p. 286 quotes 55 of 800 men with joint pain from Streltsov. Reference 15 identifies the journal, volume, issue and pages.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=355"
+    },
+    {
+      "left_report": "doi:10.2514/8.1237",
+      "right_report": "joam:9-4-172",
+      "relationship": "related_authors_without_verified_subject_link",
+      "evidence": "The older case and newer Mayo trial descriptions share author names. The 1940 Part II reports no paralysis in its program. No individual roster establishes an overlap.",
+      "evidence_url": "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf#page=47"
     }
   ],
   "report_titles": {

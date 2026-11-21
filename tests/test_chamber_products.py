@@ -1666,7 +1666,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (123,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (124,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1693,7 +1693,7 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (123,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (124,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -2316,7 +2316,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (123, 123, 123)
+        """).fetchone() == (124, 124, 124)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
@@ -3243,3 +3243,48 @@ def test_early_navy_chamber_evidence_keeps_case_and_denominator_boundaries(relea
         assert db.execute("""
             SELECT count(*) FROM publication_case_milestone WHERE source_id='korb42_patrol_indoctrination'
         """).fetchone() == (0,)
+
+def test_mayo_reports_share_one_program_and_keep_streltsov_on_hold(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,parent_stratum,trial_count,participant_count
+            FROM publication_chamber_trial_scope
+            WHERE source_id='boothby40_mayo_altitude' AND trial_count IS NOT NULL
+            ORDER BY trial_count DESC
+        """).fetchall() == [
+            ("mayo-ascents-at-least-30000ft", None, 102, None),
+            ("mayo-ascents-at-least-35000ft", "mayo-ascents-at-least-30000ft", 80, None),
+            ("mayo-ascents-to-40000ft", "mayo-ascents-at-least-35000ft", 30, None),
+            ("35000ft-135min-two-person-run", "mayo-ascents-at-least-35000ft", 1, 2),
+        ]
+        assert db.execute("""
+            SELECT source_id,analysis_role,numerator,denominator,denominator_unit,prebreathe_min
+            FROM publication_observation
+            WHERE endpoint IN ('untoward_symptoms_as_reported','source_reported_joint_or_neuritic_symptoms',
+                               'joint_pain_as_quoted_by_carson')
+              AND source_id IN ('boothby40_mayo_altitude','lovelace41_mayo_aeroembolism',
+                                'carson42_streltsov_joint_pain')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("boothby40_mayo_altitude", "descriptive", 0, 2, "person", None),
+            ("carson42_streltsov_joint_pain", "overlap_hold", 55, 800, "person", None),
+            ("lovelace41_mayo_aeroembolism", "selected_cluster", 2, 2, "person", 20),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT study_id),count(DISTINCT report_id)
+            FROM review.review_study_report
+            WHERE study_id='mayo-early-altitude-chamber-program'
+        """).fetchone() == (1, 4)
+        assert db.execute("""
+            SELECT case_id,source_time_min,recurrence_free_followup_min
+            FROM historical_case_catalog WHERE source_id='lovelace41_mayo_aeroembolism'
+        """).fetchall() == [("lovelace41_mayo_aeroembolism:40000ft-cough-episode", None, None)]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_unit
+            FROM publication_case_milestone
+            WHERE source_id='lovelace41_mayo_aeroembolism' AND stratum='40000ft-cough-episode'
+              AND elapsed IS NOT NULL ORDER BY elapsed
+        """).fetchall() == [
+            ("cough_persisted_after_descent", 2.0, "hours"),
+            ("chest_soreness_duration", 24.0, "hours"),
+        ]
