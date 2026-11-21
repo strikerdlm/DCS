@@ -3819,3 +3819,38 @@ def test_nasa_doppler_margins_and_postdive_adjudication(release):
             "SELECT report_id FROM review.review_study_report "
             "WHERE study_id='nasa-jsc-doppler-516' ORDER BY report_id"
         ).fetchall() == [('pmid:11540992',), ('pmid:9125093',)]
+
+
+def test_prebreathe_measurements_preserve_units_phase_conflict_and_reuse(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT phase_as_printed,linked_phase,estimate_n,measured_n
+            FROM publication_prp_prebreathe_oxygen ORDER BY printed_row
+        """).fetchall() == [
+            ('I', 'I', 49, 19), ('I', None, 47, 19),
+            ('III', 'III', 9, 19), ('IV', 'IV', 62, 19), ('V-1', 'V-1', 9, 18),
+            ('V-2', 'V-2', 3, None), ('V-3', 'V-3', 21, None),
+        ]
+        assert db.execute("""
+            SELECT mean,standard_error,sample_n FROM publication_calibration_workload
+            WHERE source_id='loftin93_task_posture' AND stratum='upright-rope-pull'
+        """).fetchone() == (247.0, 21.7, 4)
+        assert db.execute("""
+            SELECT reporting_group,reported_percent,denominator_as_printed,related_source
+            FROM publication_prebreathe_compilation_rate
+            WHERE stratum='powell-1995' ORDER BY reporting_group
+        """).fetchall() == [
+            ('resting', 27, 11, 'conkin01_lba'), ('seated_combined', 0, 7, 'conkin01_lba')
+        ]
+        assert db.execute("""
+            SELECT count(*),count(reported_percent),count(denominator_as_printed)
+            FROM publication_prebreathe_compilation_rate
+        """).fetchone() == (18, 17, 16)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE study_id='loftin-1997-prebreathe-analysis' AND cases IS NOT NULL
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:20070011616' AND relationship LIKE 'reuses_published%'
+        """).fetchone() == ('reuses_published_prebreathe_model_population',)
