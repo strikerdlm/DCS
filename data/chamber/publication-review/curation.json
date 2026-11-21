@@ -1,6 +1,66 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.147/sources.csv#ferris42_fulton_letter",
+      "report_id": "nlm:101085500x233:52:ferris-july4",
+      "basis": "Verified source author or report designation, title and page locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=51"
+    },
+    {
+      "record_key": "2026-11-21-cincinnati-halifax-verified#ferris42_fulton_letter",
+      "report_id": "nlm:101085500x233:52:ferris-july4",
+      "basis": "Same report and source locator as in the numbered register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=51"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.147/sources.csv#ferris43_cincinnati_selection",
+      "report_id": "nlm:101085500x233:220:ferris",
+      "basis": "Verified source author or report designation, title and page locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=220"
+    },
+    {
+      "record_key": "2026-11-21-cincinnati-halifax-verified#ferris43_cincinnati_selection",
+      "report_id": "nlm:101085500x233:220:ferris",
+      "basis": "Same report and source locator as in the numbered register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=220"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.147/sources.csv#stewart43_halifax_standard_524",
+      "report_id": "nlm:101085500x233:228:halifax-validation",
+      "basis": "Verified source author or report designation, title and page locator.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=229"
+    },
+    {
+      "record_key": "2026-11-21-cincinnati-halifax-verified#stewart43_halifax_standard_524",
+      "report_id": "nlm:101085500x233:228:halifax-validation",
+      "basis": "Same report and source locator as in the numbered register.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=229"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.147/sources.csv#henry_ivy51_preselection",
+      "report_id": "fulton1951:preselection-tests",
+      "basis": "Verified source author or report designation, title and page locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "record_key": "2026-11-21-cincinnati-halifax-verified#henry_ivy51_preselection",
+      "report_id": "fulton1951:preselection-tests",
+      "basis": "Same report and source locator as in the numbered register.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.147/sources.csv#webb44_cam288_preselection",
+      "report_id": "report:cam-288",
+      "basis": "Verified source author or report designation, title and page locator.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf"
+    },
+    {
+      "record_key": "2026-11-21-cincinnati-halifax-verified#webb44_cam288_preselection",
+      "report_id": "report:cam-288",
+      "basis": "Same report and source locator as in the numbered register.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.146/sources.csv#aaf_wartime_dcs_summary",
       "report_id": "report:aaf-c-509-1",
       "basis": "Verified report title and unique citation locator.",
@@ -15063,6 +15123,36 @@
   ],
   "studies": [
     {
+      "study_id": "ferris-1942-early-cincinnati-bends",
+      "label": "Ferris July 1942 preliminary Cincinnati chamber report",
+      "period": "Reported 4 July 1942.",
+      "setting": "Nine participants at 35,000 ft. The postdescent surveillance population is unspecified."
+    },
+    {
+      "study_id": "ferris-1943-cincinnati-preselection",
+      "label": "Cincinnati 90-minute altitude classification program",
+      "period": "Reported 1 July 1943.",
+      "setting": "First flights in 102 people at 38,000 ft. A repeated-testing subset has 78 participants."
+    },
+    {
+      "study_id": "stewart-1943-halifax-standard",
+      "label": "Halifax 38,000-ft standard selection test",
+      "period": "Reported 1 July 1943.",
+      "setting": "524 people made 1,268 chamber person-flights. Planned maximum target dwell was two hours, with exercise through 90 minutes."
+    },
+    {
+      "study_id": "webb-cam288-cincinnati-validation",
+      "label": "Cincinnati 35,000- and 38,000-ft validation comparison",
+      "period": "Reported 1944.",
+      "setting": "The reported result compares all 78 men to a nested 21-person preselected subset. Linkage to the 1943 repeated-test account is unresolved."
+    },
+    {
+      "study_id": "halifax-cross-altitude-validation-286",
+      "label": "Halifax 38,000-ft classification and 35,000-ft validation comparison",
+      "period": "Summarized 1951. Primary test dates unavailable.",
+      "setting": "286 men underwent the comparisons. The reported preselected subgroup of 206 is nested within the full cohort."
+    },
+    {
       "study_id": "wartime-pensacola-one-hour-500",
       "label": "Pensacola one-hour chamber tests in 500 cadets",
       "setting": "Two contemporary accounts report the same site, trainee count and one-hour test. The reported susceptibility, pain, skin symptoms and chokes are separate endpoints.",
@@ -16516,6 +16606,54 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "ferris-1942-early-cincinnati-bends",
+      "report_id": "nlm:101085500x233:52:ferris-july4",
+      "role": "original_investigator_letter",
+      "locator": "Letter heading printed p. 52 (PDF p. 50) and results printed p. 53 (PDF p. 51)"
+    },
+    {
+      "study_id": "ferris-1943-cincinnati-preselection",
+      "report_id": "nlm:101085500x233:220:ferris",
+      "role": "original_investigator_tables",
+      "locator": "Ninth CAM subcommittee meeting, 1 July 1943, section III item 2, printed pp. 220–226 (PDF pp. 219–225)"
+    },
+    {
+      "study_id": "ferris-1943-cincinnati-preselection",
+      "report_id": "fulton1951:preselection-tests",
+      "role": "later_rounded_classification",
+      "locator": "Chapter X p. 331, Table 74"
+    },
+    {
+      "study_id": "stewart-1943-halifax-standard",
+      "report_id": "nlm:101085500x233:228:halifax-validation",
+      "role": "original_investigator_tables",
+      "locator": "Ninth CAM subcommittee meeting, 1 July 1943, Canadian reports, printed pp. 228–231 (PDF pp. 227–230), Tables 1–4"
+    },
+    {
+      "study_id": "stewart-1943-halifax-standard",
+      "report_id": "fulton1951:preselection-tests",
+      "role": "later_rounded_classification",
+      "locator": "Chapter X p. 331, Table 74"
+    },
+    {
+      "study_id": "webb-cam288-cincinnati-validation",
+      "report_id": "fulton1951:preselection-tests",
+      "role": "reported_validation_percentages",
+      "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)"
+    },
+    {
+      "study_id": "webb-cam288-cincinnati-validation",
+      "report_id": "report:cam-288",
+      "role": "cited_original_report",
+      "locator": "Fulton 1951 bibliography item 416 and Chapter X p. 331 (PDF p. 366)"
+    },
+    {
+      "study_id": "halifax-cross-altitude-validation-286",
+      "report_id": "fulton1951:preselection-tests",
+      "role": "reported_validation_percentages",
+      "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)"
+    },
     {
       "study_id": "wartime-pensacola-one-hour-500",
       "report_id": "report:aaf-c-509-1",
@@ -19032,6 +19170,55 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "nlm:101085500x233:52:ferris-july4",
+      "right_report": "nlm:101085500x233:220:ferris",
+      "relationship": "unresolved",
+      "evidence": "Same Cincinnati investigator and program lineage. Dates, group sizes and peak altitude differ. Participant identifiers and exposure-level linkage are unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=51"
+    },
+    {
+      "left_report": "nlm:101085500x233:52:ferris-july4",
+      "right_report": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8",
+      "relationship": "unresolved",
+      "evidence": "The later CAM report covers Cincinnati altitude, exercise and denitrogenation exposures. The early preliminary observations cannot be linked to its published archive rows.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=51"
+    },
+    {
+      "left_report": "fulton1951:preselection-tests",
+      "right_report": "nlm:101085500x233:220:ferris",
+      "relationship": "partial_overlap",
+      "evidence": "Table 74 Cincinnati uses the same 102 first tests and rounded category values as the original first-flight counts. The 78-person comparison is a separate margin with unresolved linkage.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "left_report": "fulton1951:preselection-tests",
+      "right_report": "nlm:101085500x233:228:halifax-validation",
+      "relationship": "partial_overlap",
+      "evidence": "Table 74 Halifax gives the same 524 participants and near-matching first-test category percentages. Original Table 3 counts are entered once. The 286/206-person validation margins cannot be linked to individuals in the 524 group.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "left_report": "fulton1951:preselection-tests",
+      "right_report": "report:cam-288",
+      "relationship": "partial_overlap",
+      "evidence": "Chapter p. 331 attributes the 78/21-person validation comparison to bibliography ref. 416, CAM Report 288. Only the summary was accessible.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366"
+    },
+    {
+      "left_report": "report:cam-288",
+      "right_report": "nlm:101085500x233:220:ferris",
+      "relationship": "likely_overlap",
+      "evidence": "Both reports describe Cincinnati preselection at 35,000 and 38,000 ft with a 78-person comparison. Which repeated flights are reused remains unavailable.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf"
+    },
+    {
+      "left_report": "nlm:101085500x233:228:halifax-validation",
+      "right_report": "nlm:101085500x233:159",
+      "relationship": "unresolved",
+      "evidence": "Both are wartime Halifax or related Canadian repeat chamber records. The protocols, panel sizes and dates differ. Participant linkage is unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=229"
+    },
     {
       "left_report": "report:aaf-c-509-1",
       "right_report": "nlm:101085500x233:49:gemmill",

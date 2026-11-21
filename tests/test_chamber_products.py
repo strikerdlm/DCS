@@ -4831,3 +4831,46 @@ def test_wartime_cadet_results_preserve_native_endpoints_and_conflicts(release):
             SELECT trial_count,participant_count FROM publication_chamber_trial_scope
             WHERE source_id='aaf_wartime_dcs_summary' AND stratum='wright-1941-91'
         """).fetchone() == (396, 91)
+
+
+def test_halifax_and_cincinnati_use_original_counts_and_keep_units_separate(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit
+            FROM publication_observation
+            WHERE source_id='stewart43_halifax_standard_524'
+              AND endpoint IN ('decompression_sickness_as_reported','ever_dcs_as_reported')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("all-flights", 1102, 1268, "person_exposure"), ("all-people", 498, 524, "person"),
+            ("first-flight", 458, 524, "person_exposure"), ("one-run-only", 73, 84, "person"),
+            ("second-flight", 380, 440, "person_exposure"), ("third-flight", 264, 304, "person_exposure"),
+            ("three-runs-only", 296, 304, "person"), ("two-runs-only", 129, 136, "person"),
+        ]
+        assert db.execute("""
+            SELECT stratum,SUM(numerator),MIN(denominator),MAX(denominator)
+            FROM publication_observation
+            WHERE source_id='stewart43_halifax_standard_524' AND endpoint GLOB 'classification_?'
+            GROUP BY stratum ORDER BY stratum
+        """).fetchall() == [
+            ("all-flights", 1268, 1268, 1268), ("first-flight", 524, 524, 524),
+            ("second-flight", 440, 440, 440), ("third-flight", 304, 304, 304),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='ferris43_cincinnati_selection'
+              AND endpoint IN ('bends_grade_iv_descent_as_reported','chokes_severe_descent_as_reported')
+            ORDER BY endpoint
+        """).fetchall() == [("bends_grade_iv_descent_as_reported", 44, 102), ("chokes_severe_descent_as_reported", 2, 102)]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='ferris42_fulton_letter' ORDER BY stratum
+        """).fetchall() == [("delayed-local-pain", 4, None), ("early-35000", 9, 9)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_reported_rate
+            WHERE source_id='henry_ivy51_preselection' AND endpoint GLOB 'classification_*'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE run_id='2026-11-21-cincinnati-halifax-verified' AND role_review='overlap_hold'
+        """).fetchone() == (51,)
