@@ -14579,6 +14579,36 @@
       "report_id": "record:2026-11-20-east-asian-cohorts-t-mainland-cases#http://dianda.cqvip.com/Qikan/Article/Detail?id=28209824&from=Qikan_Article_Detail",
       "basis": "The older index domain and current CQVIP page use article 28209824 and the identical Chinese title.",
       "evidence_url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824"
+    },
+    {
+      "record_key": "2026-11-21-chamber-symptom-grades-primary#kumar91_prior_exercise_abstract",
+      "report_id": "abstract:asma-1991-kumar-182",
+      "basis": "Original AsMA abstract 182, matching title, authors, year and page.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=31"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.135/sources.csv#kumar91_prior_exercise_abstract",
+      "report_id": "abstract:asma-1991-kumar-182",
+      "basis": "Original AsMA abstract 182, matching title, authors, year and page.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=31"
+    },
+    {
+      "record_key": "2026-11-21-chamber-symptom-grades-primary#oniscenko23_prague_gi_barotrauma",
+      "report_id": "abstract:zl-2023-oniscenko-a8",
+      "basis": "Exact Czech congress supplement, title, authors and printed page A8.",
+      "evidence_url": "https://zl.tnuni.sk/fileadmin/Archiv/2023/2023-11.c.2/ZL_11_02_2023_supplement.pdf#page=9"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.135/sources.csv#oniscenko23_prague_gi_barotrauma",
+      "report_id": "abstract:zl-2023-oniscenko-a8",
+      "basis": "Exact Czech congress supplement, title, authors and printed page A8.",
+      "evidence_url": "https://zl.tnuni.sk/fileadmin/Archiv/2023/2023-11.c.2/ZL_11_02_2023_supplement.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-21-chamber-symptom-grades-primary#kumar92_prior_exercise",
+      "report_id": "pmid:1417653",
+      "basis": "Exact journal paper, citation, PMID and trial design.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf#page=3"
     }
   ],
   "studies": [
@@ -22415,6 +22445,13 @@
       "relationship": "likely_same_inflight_rapid_decompression_series",
       "evidence": "Both papers retrospectively describe five Chinese Air Force in-flight rapid decompression incidents and 19 affected person-incident records over about 10 years. Zheng's return-to-flight statement concerns patients who developed illness. Liu describes all 19 records and does not identify which had DCS. Incident dates and participant linkage are unavailable. The series likely overlap.",
       "evidence_url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=28209824"
+    },
+    {
+      "left_report": "abstract:asma-1991-kumar-182",
+      "right_report": "pmid:1417653",
+      "relationship": "same_underlying_crossover_trial",
+      "evidence": "Both reports give 39 participants (29 male, 10 female), two 21,000-ft exposures per participant, the same exercise dose, 3-hour dwell and treatment test. The 1991 wording gives nine cases (four control and five exercise). The 1992 paper explicitly gives 15 symptomatic exposures and identifies nine discordant participant pairs with the same split. The exact reconciliation supports using the 1992 exposure totals and retaining the conference values as reported wording from the same trial.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf#page=3"
     }
   ],
   "report_titles": {

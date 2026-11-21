@@ -1,0 +1,211 @@
+[
+  {
+    "id": "2026-11-21-chamber-symptom-grades-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "\"Effects of prior exercise on decompression sickness during simulated extravehicular activities\" Kumar 1991 182",
+          "search_id": "01a1feaa-d79e-7242-b65d-d0bd13a46206",
+          "returned": 0
+        },
+        {
+          "query": "\"The influence of prior exercise at anaerobic threshold on decompression sickness\" Kumar 15 exposures 1992",
+          "search_id": "01a1feaa-d718-72dd-b638-fd064d0051a3",
+          "returned": 5,
+          "relevant_url": "https://ntrs.nasa.gov/citations/19930026336"
+        },
+        {
+          "query": "\"Barotrauma gastrointestinálního traktu\" \"Onisčenko\" kazuistika 2023",
+          "search_id": "01a1feaa-d713-7239-b1fd-db3c8205fac7",
+          "returned": 2,
+          "relevant_url": "https://zl.tnuni.sk/fileadmin/Archiv/2023/2023-11.c.2/ZL_11_02_2023_supplement.pdf#page=9"
+        },
+        {
+          "query": "JPRS 1977 Soviet space biology aerospace medicine Vol 11 no 1 Chernyakov \"short flights\" PDF 839713",
+          "search_id": "01a1fea7-d69d-7101-9eaa-d46ae7759217",
+          "returned": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Exact-title searches checked the publication identities and led to the university's open supplement and the NASA journal index.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chamber-symptom-grades-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"dekompresní nemoc\" \"podtlaková komora\" hypoxie výcvik Praha pilot",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-chamber-symptom-grades-primary",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association and Zdravotnícke listy",
+    "operation": "verify_original_publications",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Publisher page images were read for the conference and full-paper outcomes. The Prague abstract was checked on printed page A8.",
+    "records": [
+      {
+        "id": "kumar91_prior_exercise_abstract",
+        "title": "Effects of prior exercise on decompression sickness during simulated extravehicular activities",
+        "authors": [
+          "K. V. Kumar",
+          "J. M. Waligora",
+          "D. J. Horrigan",
+          "J. H. Gilbert"
+        ],
+        "year": 1991,
+        "abstract_number": 182,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=31",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=31",
+        "locator": "AsMA abstract 182, printed p. 475 (PDF p. 31)",
+        "pdf_sha256": "e61ee95dc826843dd46906fef2cde148a36924fba98464069988d8461e4ed520",
+        "participants": 39,
+        "male": 29,
+        "female": 10,
+        "exposures_per_participant": 2,
+        "displayed_case_wording_total": 9,
+        "displayed_case_wording_control": 4,
+        "displayed_case_wording_exercise": 5,
+        "note": "Both reports give 39 participants (29 male, 10 female), two 21,000-ft exposures per participant, the same exercise dose, 3-hour dwell and treatment test. The 1991 wording gives nine cases (four control and five exercise). The 1992 paper explicitly gives 15 symptomatic exposures and identifies nine discordant participant pairs with the same split. The exact reconciliation supports using the 1992 exposure totals and retaining the conference values as reported wording from the same trial."
+      },
+      {
+        "id": "kumar92_prior_exercise",
+        "title": "The influence of prior exercise at anaerobic threshold on decompression sickness",
+        "year": 1992,
+        "pmid": "1417653",
+        "ntrs_accession": "19930026336",
+        "authors": [
+          "K. V. Kumar",
+          "J. M. Waligora",
+          "J. H. Gilbert III"
+        ],
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf#page=3",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf#page=3",
+        "locator": "Results p. 901 and Table II/Figure 1 p. 902 (PDF pp. 3–4)",
+        "pdf_sha256": "0697b0ed0c6deedd162826748ff21a2394d269cdaed9839e34c86932e7ddafad",
+        "observed_symptom_exposures": 15,
+        "evaluable_person_exposures": 78,
+        "participants_completing_both_arms": 39,
+        "participants_one_run_only": 3,
+        "screened_candidates": 50,
+        "screened_out_for_shunt": 8,
+        "discordant_pairs": 9,
+        "discordant_control_only": 4,
+        "discordant_prior_exercise_only": 5,
+        "known_delayed_grade_2_onset_approx_hours": 15,
+        "standardized_late_window_min": null,
+        "note": "The PDF watermark differs from the earlier acquisition. The printed results and Table II were checked against the reported trial.",
+        "observations": [
+          {
+            "id": "kumar92_prior_exercise:type_i_grade_1_awareness_without_pain",
+            "group": "all-source-symptomatic-exposures",
+            "endpoint": "type_i_grade_1_awareness_without_pain",
+            "cases": 8,
+            "denominator": 15,
+            "denominator_unit": "dcs_case",
+            "denominator_basis": "source_reported",
+            "locator": "Methods and Results, printed p. 901 (PDF p. 3)",
+            "note": "Grade 1 denotes mild awareness without pain. These eight completed the three-hour exposure and were asymptomatic on descent."
+          },
+          {
+            "id": "kumar92_prior_exercise:type_i_grade_2_mild_pain",
+            "group": "all-source-symptomatic-exposures",
+            "endpoint": "type_i_grade_2_mild_pain",
+            "cases": 3,
+            "denominator": 15,
+            "denominator_unit": "dcs_case",
+            "denominator_basis": "source_reported",
+            "locator": "Methods and Results, printed p. 901 (PDF p. 3)",
+            "note": "Two occurred at altitude and one began about 15 hours post-test. The delayed case received US Navy Treatment Table 5."
+          },
+          {
+            "id": "kumar92_prior_exercise:type_i_grade_3_task_interfering_pain",
+            "group": "all-source-symptomatic-exposures",
+            "endpoint": "type_i_grade_3_task_interfering_pain",
+            "cases": 4,
+            "denominator": 15,
+            "denominator_unit": "dcs_case",
+            "denominator_basis": "source_reported",
+            "locator": "Methods and Results, printed p. 901 (PDF p. 3)",
+            "note": "All four led to forced descent. One required subsequent hyperbaric treatment."
+          },
+          {
+            "id": "kumar92_prior_exercise:type_i_grade_2_or_3_pain",
+            "group": "both-arms",
+            "endpoint": "type_i_grade_2_or_3_pain",
+            "cases": 7,
+            "denominator": 78,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "Results p. 901 and Discussion p. 903 (PDF pp. 3 and 5)",
+            "note": "Seven derives from the printed exact grade counts, 3 + 4. All seven are included in the previously registered 15 symptom exposures.",
+            "numerator_derivation": "sum_of_source_reported_grade_2_and_grade_3_counts"
+          },
+          {
+            "id": "kumar92_prior_exercise:type_i_grade_2_delayed_onset_after_testing",
+            "group": "grade-2-exposures",
+            "endpoint": "type_i_grade_2_delayed_onset_after_testing",
+            "cases": 1,
+            "denominator": 3,
+            "denominator_unit": "dcs_case",
+            "denominator_basis": "source_reported",
+            "locator": "Methods and Results, printed p. 901 (PDF p. 3)",
+            "note": "Nested in the three Grade 2 cases and fifteen inclusive symptom exposures. Exposure arm unavailable."
+          }
+        ]
+      },
+      {
+        "id": "oniscenko23_prague_gi_barotrauma",
+        "title": "Barotrauma gastrointestinálního traktu, kazuistika",
+        "authors": [
+          "Boris Onisčenko",
+          "Jakub Tlapák",
+          "Petr Došel"
+        ],
+        "year": 2023,
+        "url": "https://zl.tnuni.sk/fileadmin/Archiv/2023/2023-11.c.2/ZL_11_02_2023_supplement.pdf#page=9",
+        "primary_source": "https://zl.tnuni.sk/fileadmin/Archiv/2023/2023-11.c.2/ZL_11_02_2023_supplement.pdf#page=9",
+        "locator": "Materials and Methods and Results, printed p. A8 (PDF p. 9)",
+        "pdf_sha256": "e6fd9d8d9b9523b78a69ae73bf39246d175e30661c57a3c6c2d4a0223fe9c952",
+        "endpoint_scope": "gastrointestinal barotrauma",
+        "clinical_dcs_cases": null,
+        "peak_altitude_ft": 25000,
+        "institution": "Institute of Aviation Medicine, Prague",
+        "event_date": null,
+        "note": "After sudden decompression the pilot experienced presyncope, sweating, restlessness and abdominal pressure. Symptoms resolved during a later pressure change. The authors interpret the episode as gastrointestinal barotrauma. The brief report does not enumerate the exposed group or document a cohort DCS outcome.",
+        "observations": [
+          {
+            "id": "oniscenko23_prague_gi_barotrauma:chamber-case",
+            "group": "selected-chamber-case",
+            "endpoint": "gastrointestinal_barotrauma_source",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Materials and Methods and Results, printed p. A8 (PDF p. 9)",
+            "note": "After sudden decompression the pilot experienced presyncope, sweating, restlessness and abdominal pressure. Symptoms resolved during a later pressure change. The authors interpret the episode as gastrointestinal barotrauma. The brief report does not enumerate the exposed group or document a cohort DCS outcome."
+          }
+        ]
+      }
+    ]
+  }
+]
