@@ -187,6 +187,7 @@ CHAMBER_NASA_SURVIVAL = ROOT / "data" / "chamber" / "v1.119"
 CHAMBER_NASA_DOPPLER = ROOT / "data" / "chamber" / "v1.120"
 CHAMBER_PREBREATHE_WORKLOAD = ROOT / "data" / "chamber" / "v1.121"
 CHAMBER_ASMA_INTERIM = ROOT / "data" / "chamber" / "v1.122"
+CHAMBER_DISPATCHER_CROSSWALK = ROOT / "data" / "chamber" / "v1.123"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1765,6 +1766,16 @@ def build(
                         "publication_reported_rate": "reported_rates.csv",
                         "publication_interim_onset_summary": "onset_summaries.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_DISPATCHER_CROSSWALK,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(
