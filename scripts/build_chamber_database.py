@@ -34,6 +34,7 @@ DCS_COLLECTION_OUTPUT = ROOT / "artifacts" / "chamber-zotero-dcs" / "observed.sq
 CITATION_DATA = ROOT / "data" / "chamber" / "v1.5"
 CITATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.5" / "observed.sqlite"
 DISCOVERY_DATA = ROOT / "data" / "chamber" / "v1.6"
+DISCOVERY_EA_CAMPAIGN_DATA = ROOT / "data" / "chamber" / "v1.155"
 DISCOVERY_OUTPUT = ROOT / "artifacts" / "chamber-v1.6" / "observed.sqlite"
 PUBLICATION_DATA = ROOT / "data" / "chamber" / "v1.7"
 PUBLICATION_OUTPUT = ROOT / "artifacts" / "chamber-v1.7" / "observed.sqlite"
@@ -555,6 +556,20 @@ def apply_publication_denominator_completions(db):
             raise ValueError(f"Published denominator completion does not reconcile: {completion[7:10]}")
 
 
+def apply_discovery_denominator_completions(db):
+    for completion in db.execute("""
+        SELECT denominator,locator,note,source_id,stratum,endpoint,numerator
+        FROM discovery_observation_completion
+    """):
+        update = db.execute(
+            "UPDATE discovery_observation SET denominator=?, denominator_unit='person_exposure', locator=?, note=? "
+            "WHERE source_id=? AND stratum=? AND endpoint=? AND numerator=? AND denominator IS NULL",
+            completion,
+        )
+        if update.rowcount != 1:
+            raise ValueError(f"Discovery denominator completion does not reconcile: {completion[3:6]}")
+
+
 def build(
     output,
     *,
@@ -720,6 +735,18 @@ def build(
                     "discovery",
                     extra_tables={"discovery_adjudication": "adjudications.csv"},
                 )
+                load_version_tables(
+                    db,
+                    DISCOVERY_EA_CAMPAIGN_DATA,
+                    {
+                        "discovery_source": "sources.csv",
+                        "discovery_observation": "observations.csv",
+                        "discovery_overlap": "overlap.csv",
+                        "discovery_observation_completion": "denominator_completions.csv",
+                        "discovery_eva_session": "eva_sessions.csv",
+                    },
+                )
+                apply_discovery_denominator_completions(db)
             if include_publications:
                 load_supplement(
                     db,

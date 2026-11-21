@@ -18,7 +18,8 @@ from scripts.build_chamber_database import ROOT, build, sha256
 SOURCE_REGISTERS = {
     "v1": "source", "v1.1": "zotero_source", "v1.2": "web_source",
     "v1.3": "literature_source", "v1.4": "cohort_source", "v1.5": "citation_source",
-    "v1.6": "discovery_source", "sharepoint-2026-11-19": "sharepoint_source",
+    "v1.6": "discovery_source", "v1.155": "discovery_source",
+    "sharepoint-2026-11-19": "sharepoint_source",
     "fac-official": "fac_official_source", "rojas-2015": "rojas_source",
     "attachments-2026-11-19": "attachment_source", "zotero-dcs-2026-11-19": "zotero_dcs_source",
 }
@@ -153,7 +154,7 @@ def export_product(source, path, kind, release):
                 table = SOURCE_REGISTERS.get(version, "publication_source")
                 db.execute("INSERT INTO model_report_link VALUES (?,?,?,?)",
                            (table, source_id, record_key, report_id))
-            for table in (*SOURCE_REGISTERS.values(), "publication_source"):
+            for table in dict.fromkeys((*SOURCE_REGISTERS.values(), "publication_source")):
                 if db.execute(f"SELECT source_id FROM {table} EXCEPT SELECT source_id FROM "
                               "model_report_link WHERE source_table=?", (table,)).fetchone():
                     raise ValueError(f"Missing review provenance for {table}")
