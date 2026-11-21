@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.150/sources.csv#fang99_taiwan_chamber_reactions",
+      "report_id": "isbn:9789572950715:fang-taiwan-aviation-medicine",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf#page=171"
+    },
+    {
+      "record_key": "2026-11-21-historical-taiwan-training-verified#fang99_taiwan_chamber_reactions",
+      "report_id": "isbn:9789572950715:fang-taiwan-aviation-medicine",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf#page=171"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.150/sources.csv#dlr19_protected_registry",
+      "report_id": "drks:00016337",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://drks.de/search/de/trial/DRKS00016337"
+    },
+    {
+      "record_key": "2026-11-21-historical-taiwan-training-verified#dlr19_protected_registry",
+      "report_id": "drks:00016337",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://drks.de/search/de/trial/DRKS00016337"
+    },
+    {
+      "record_key": "2026-11-21-historical-taiwan-training-verified#fang-reprint-volume",
+      "report_id": "isbn:9789572950715",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf"
+    },
+    {
+      "record_key": "2026-11-21-historical-taiwan-training-publisher#lilacs-207282",
+      "report_id": "lilacs:lil-207282",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282"
+    },
+    {
+      "record_key": "2026-11-21-historical-taiwan-training-publisher#lai-chiang-2014",
+      "report_id": "doi:10.7011/jamsroc.201412_28(2).0003",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://www.airitilibrary.com/Article/Detail?DocID=16839595-201412-201601210011-201601210011-105-118"
+    },
+    {
+      "record_key": "2026-11-20-east-asian-cohorts-f-taiwan-exact#https://irvingthofoundation.github.io/drfang_book_full_version.pdf",
+      "report_id": "isbn:9789572950715",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf"
+    },
+    {
+      "record_key": "2026-11-20-regional-tavily-japan-thesis#https://irvingthofoundation.github.io/drfang_book_full_version.pdf",
+      "report_id": "isbn:9789572950715",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.18/search_hits.csv#intl_v18_peng_alt:7",
+      "report_id": "isbn:9789572950715",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.18/search_hits.csv#intl_v18_taiwan_alt:5",
+      "report_id": "isbn:9789572950715",
+      "basis": "Exact public URL and checked chapter, registry, DOI or archive identity.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.149/sources.csv#larrabee43_pennsylvania_preselection",
       "report_id": "nlm:101085500x233:227:larrabee",
       "basis": "Verified original investigator report, bibliographic report designation or identical chapter and locator.",
@@ -15183,6 +15249,18 @@
   ],
   "studies": [
     {
+      "study_id": "taiwan-air-force-chamber-training-1959-1986",
+      "label": "Taiwan Air Force historical chamber training surveillance",
+      "period": "1959–1986 as reported.",
+      "setting": "The available chapter tabulates 15,370 person-exposures in 1,578 low-pressure training sessions. The older 1988 reports are likely overlapping sources."
+    },
+    {
+      "study_id": "dlr-protected-2019-hypobaric-pilot",
+      "label": "German Aerospace Center PROTECTeD chamber pilot",
+      "period": "15 January to 28 February 2019.",
+      "setting": "Registered equipment proof-of-concept with six enrollees and planned clinical symptom monitoring. No posted adverse event results."
+    },
+    {
       "study_id": "larrabee-1943-pennsylvania-preselection",
       "label": "Pennsylvania standard-test classification and retests",
       "period": "Reported 1 July 1943.",
@@ -16684,6 +16762,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "taiwan-air-force-chamber-training-1959-1986",
+      "report_id": "isbn:9789572950715:fang-taiwan-aviation-medicine",
+      "role": "verified_historical_account",
+      "locator": "Section II.1, printed p. 129 (PDF p. 171); original publication provenance on p. 127"
+    },
+    {
+      "study_id": "taiwan-air-force-chamber-training-1959-1986",
+      "report_id": "pmid:3167655",
+      "role": "possibly_overlapping_primary_report",
+      "locator": "Indexed 1988 item, volume 41 issue 2 pp. 103–108"
+    },
+    {
+      "study_id": "taiwan-air-force-chamber-training-1959-1986",
+      "report_id": "record:legacy:data/chamber/v1.18/sources.csv#ho88_taiwan_survey",
+      "role": "possibly_overlapping_companion_report",
+      "locator": "1988 NCL catalogue record A89021168"
+    },
+    {
+      "study_id": "dlr-protected-2019-hypobaric-pilot",
+      "report_id": "drks:00016337",
+      "role": "registered_exposure_protocol",
+      "locator": "DRKS00016337, intervention, recruitment and basic results sections"
+    },
     {
       "study_id": "larrabee-1943-pennsylvania-preselection",
       "report_id": "nlm:101085500x233:227:larrabee",
@@ -19284,6 +19386,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "isbn:9789572950715:fang-taiwan-aviation-medicine",
+      "right_report": "isbn:9789572950715",
+      "relationship": "chapter_in_compilation",
+      "evidence": "Title page and publication footnote identify the available 2014 reprint container.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf#page=169"
+    },
+    {
+      "left_report": "isbn:9789572950715:fang-taiwan-aviation-medicine",
+      "right_report": "pmid:3167655",
+      "relationship": "likely_overlap",
+      "evidence": "The chapter and Wen’s 1988 article describe an approximately 27-year Taiwan Air Force chamber training experience. The older article’s full methods and table have not been verified, so cohort concordance remains unresolved.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf#page=171"
+    },
+    {
+      "left_report": "isbn:9789572950715:fang-taiwan-aviation-medicine",
+      "right_report": "record:legacy:data/chamber/v1.18/sources.csv#ho88_taiwan_survey",
+      "relationship": "likely_overlap",
+      "evidence": "The chapter and the Ho/Wen/Liu publication refer to long-running Taiwan Air Force hypobaric chamber training reactions. Author Ho edited the reprint volume. It is unknown which records or tabulations were reused.",
+      "evidence_url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf#page=171"
+    },
     {
       "left_report": "fulton1951:preselection-tests",
       "right_report": "nlm:101085500x233:227:larrabee",
@@ -23577,6 +23700,9 @@
     }
   ],
   "report_titles": {
+    "isbn:9789572950715:fang-taiwan-aviation-medicine": "台灣航空醫學現況與展望",
+    "isbn:9789572950715": "懷時論集─航空生理一代宗師方懷時院士",
+    "drks:00016337": "Investigation of a new cockpit oxygen mask with improved wearing comfort for long-term use in civil aircraft",
     "nlm:101085500x233:227:larrabee": "Report on the Pennsylvania standard selection procedure and retests",
     "nlm:101085500x233:227:lawrence": "Report on the California standard selection procedure in 53 men",
     "report:cam-355": "The reliability of the decompression subcommittee’s 90 minute preselection test",

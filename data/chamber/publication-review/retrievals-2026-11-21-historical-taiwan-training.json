@@ -1,0 +1,180 @@
+[
+  {
+    "id": "2026-11-21-historical-taiwan-training-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_multilingual_chamber_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ff6f-5615-77be-9240-35f1f1d6f4e9",
+          "query": "« cámara hipobárica » « enfermedad descompresiva » incidencia entrenamiento fuerza aérea casos Chile Argentina México Perú Brasil",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff6f-55ad-70a0-a19c-07e3906ad093",
+          "query": "treinamento câmara hipobárica doença descompressiva  acidentes aviadores incidência centro medicina aeroespacial treinamento FAB foram casos",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff6f-55ac-724d-9486-aa723f4ca860",
+          "query": "\"감압병\" \"저압실\" 공군 비행훈련 통계 발생 증례 항공의학",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff6f-55ab-74ec-9c59-0c9090d710e1",
+          "query": "\"減壓症\" \"低壓艙\" 國軍 低壓艙訓練 發生率 氣壓艙 中國 台灣 飛行員",
+          "returned": 4
+        },
+        {
+          "id": "01a1ff6f-f82d-726e-aa08-5a41a052824e",
+          "query": "\"Incidentes fisiológicos durante entrenamiento en cámara\" hipobárica autor",
+          "returned": 1
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Rediscovered the Fang reprint, an older LILACS lead and previously indexed data for Colombia, Turkey and Brazil.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-historical-taiwan-training-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_multilingual_chamber_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"감압병\" \"저압실\" 공군 비행훈련 통계 발생 증례 항공의학",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-historical-taiwan-training-publisher",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "recheck_publisher_and_index_records",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+          "id": "01a1ff70-7612-7069-8208-efb34ba76c1d",
+          "http_status": 403
+        },
+        {
+          "url": "https://www.airitilibrary.com/Article/Detail?DocID=16839595-201412-201601210011-201601210011-105-118",
+          "id": "01a1ff73-d0e7-7495-870b-8d0775da619e",
+          "http_status": 200
+        },
+        {
+          "url": "https://tpl.ncl.edu.tw/NclService/JournalContentDetail?SysId=A89021168",
+          "status": "invalid_response"
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher returned the equipment article abstract. The LILACS access check was blocked and the older Taiwanese catalogue did not load.",
+    "records": [
+      {
+        "id": "lai-chiang-2014",
+        "title": "Hypobaric chamber training for military aircrews in Taiwan",
+        "doi": "10.7011/jamsroc.201412_28(2).0003",
+        "url": "https://www.airitilibrary.com/Article/Detail?DocID=16839595-201412-201601210011-201601210011-105-118",
+        "year": 2014,
+        "note": "The publisher abstract describes equipment and training. A clinical DCS count and a denominator are unavailable in the inspected abstract."
+      },
+      {
+        "id": "lilacs-207282",
+        "title": "Incidentes fisiológicos durante entrenamiento en cámara hipobárica",
+        "url": "https://pesquisa.bvsalud.org/portal/resource/enebate/lil-207282",
+        "note": "Existing LILACS lead. The full abstract and its counts were unavailable through the public access check."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-historical-taiwan-training-verified",
+    "date": "2026-11-21",
+    "provider": "Publisher PDF and German Clinical Trials Register",
+    "operation": "verify_chamber_counting_units_and_outcome_availability",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The archive page contains a broad physiological reaction tally. The German registry records enrollment and a prospective monitoring plan without posting clinical results.",
+    "records": [
+      {
+        "id": "fang99_taiwan_chamber_reactions",
+        "title": "台灣航空醫學現況與展望",
+        "authors": [
+          "方懷時 (Hwai-shih Fang)"
+        ],
+        "year": 1999,
+        "url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf#page=171",
+        "primary_source": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf#page=171",
+        "source_sha256": "a42394c37e8fc18fdabbfe47582ae72933ecef6d3c2eff908d76883d57affc01",
+        "locator": "Section II.1, printed p. 129 (PDF p. 171); original publication provenance on p. 127",
+        "reprint_year": 2014,
+        "study_id": "taiwan-air-force-chamber-training-1959-1986",
+        "role_review": "overlap_hold",
+        "note": "The source reports 696 all-cause chamber reactions against 15,370 person-exposures and cites 4.5%. The 1,578 chamber sessions are a separate count. No DCS-specific tally, reaction timing, role strata, or unique participant count is supplied.",
+        "chamber_sessions": 1578,
+        "person_exposures": 15370,
+        "clinical_dcs_count": null,
+        "observations": [
+          {
+            "id": "taiwan-1959-1986-training-any_chamber_reaction_as_reported",
+            "group": "taiwan-1959-1986-training",
+            "study_id": "taiwan-air-force-chamber-training-1959-1986",
+            "endpoint": "any_chamber_reaction_as_reported",
+            "cases": 696,
+            "denominator": 15370,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 4.5,
+            "locator": "Section II.1, printed p. 129 (PDF p. 171); original publication provenance on p. 127",
+            "protocol": "Taiwan Air Force hypobaric chamber training during 1959–1986. The chapter discusses four training profiles but supplies only a pooled outcome. Pressure history, prebreathe and activity by exposure are unavailable.",
+            "outcome_window": "Reactions recorded in connection with chamber flights. A fixed follow-up window is unavailable.",
+            "source_numerator_unit_label": "人",
+            "source_denominator_unit_label": "人次",
+            "note": "The source reports 696 all-cause chamber reactions against 15,370 person-exposures and cites 4.5%. The 1,578 chamber sessions are a separate count. No DCS-specific tally, reaction timing, role strata, or unique participant count is supplied. The author labels the numerator 人 and the denominator 人次. Deduplication within affected people cannot be checked."
+          }
+        ]
+      },
+      {
+        "id": "fang-reprint-volume",
+        "title": "懷時論集─航空生理一代宗師方懷時院士",
+        "year": 2014,
+        "url": "https://irvingthofoundation.github.io/drfang_book_full_version.pdf",
+        "editor": "何邦立 (Bon-Li Ho)",
+        "isbn": "978-957-29507-1-5",
+        "source_sha256": "a42394c37e8fc18fdabbfe47582ae72933ecef6d3c2eff908d76883d57affc01",
+        "note": "The volume title and colophon verify that earlier generic PDF search occurrences refer to one publication container."
+      },
+      {
+        "id": "dlr19_protected_registry",
+        "title": "Investigation of a new cockpit oxygen mask with improved wearing comfort for long-term use in civil aircraft",
+        "authors": [
+          "German Aerospace Center"
+        ],
+        "year": 2019,
+        "url": "https://drks.de/search/de/trial/DRKS00016337",
+        "locator": "DRKS00016337, intervention, recruitment and basic results sections",
+        "registry_id": "DRKS00016337",
+        "registry_update_date": "2025-08-20",
+        "study_id": "dlr-protected-2019-hypobaric-pilot",
+        "note": "The official registry records six actual enrollees between January and February 2019. The protocol provides planned symptom monitoring and exposure stages. Completed person-exposures, DCS event status and follow-up are unreported.",
+        "actual_enrolled": 6,
+        "completed_person_exposures": null,
+        "clinical_dcs_count": null,
+        "planned_monitoring": "Clinical signs or symptoms of DCS during the exposure."
+      }
+    ]
+  }
+]
