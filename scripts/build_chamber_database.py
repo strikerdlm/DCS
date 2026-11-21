@@ -178,6 +178,7 @@ ALTITUDE_OCULAR_CASES = ROOT / "data" / "chamber" / "v1.110"
 CHAMBER_NASA_REANALYSIS = ROOT / "data" / "chamber" / "v1.111"
 CHAMBER_NASA_LONG_EXPOSURES = ROOT / "data" / "chamber" / "v1.112"
 CHAMBER_FAA_OXYGEN = ROOT / "data" / "chamber" / "v1.113"
+CHAMBER_FAA_MASK_HISTORY = ROOT / "data" / "chamber" / "v1.114"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1655,6 +1656,18 @@ def build(
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                         "publication_chamber_pressure_trace_audit": "pressure_trace_audit.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_FAA_MASK_HISTORY,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_chamber_case_altitude_stage": "case_altitude_stages.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(

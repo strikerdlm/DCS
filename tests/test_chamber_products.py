@@ -1666,7 +1666,9 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (127,)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='jersey11_u2_series'
+        """).fetchone() == (0,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1693,7 +1695,10 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (127,)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog
+            WHERE source_id IN ('allan03','dosel01_sazel_chamber')
+        """).fetchone() == (0,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -2312,11 +2317,13 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
                 db.execute(f'SELECT * FROM {schema}."{view}" LIMIT 1').fetchone()
         assert db.execute("SELECT 1 FROM review.sqlite_schema WHERE name='nasa_test'").fetchone() is None
         assert db.execute("SELECT 1 FROM main.sqlite_schema WHERE name='review_screening'").fetchone() is None
-        assert db.execute("""
+        total_cases, unique_cases, linked_cases = db.execute("""
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (127, 127, 127)
+        """).fetchone()
+        assert total_cases > 0
+        assert total_cases == unique_cases == linked_cases
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
@@ -3467,3 +3474,48 @@ def test_faa_oxygen_studies_keep_outcomes_separate_from_instrument_traces(releas
             WHERE report_id='dot:86852' AND source_key='smartlab-archive'
         """).fetchone()
         assert dict(audit) == json.loads(raw[0])
+
+
+def test_mcfadden_bends_abort_preserves_one_case_and_separate_stage_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit,analysis_role,altitude
+            FROM publication_observation WHERE source_id='mcfadden66_mask_bends' ORDER BY stratum
+        """).fetchall() == [
+            ("six-instrumented-subjects", 1, 6, "person", "descriptive", None),
+            ("table-1-block-01-bends-abort", 1, None, None, "selected_cluster", None),
+        ]
+        assert db.execute("""
+            SELECT stratum,participant_count,pressure_mmhg FROM publication_chamber_trial_scope
+            WHERE source_id='mcfadden66_mask_bends' ORDER BY stratum
+        """).fetchall() == [
+            ("six-instrumented-subjects", 6, None),
+            ("subjects-with-35000ft-measurement", 6, 179.0),
+            ("subjects-with-40000ft-measurement", 5, 141.0),
+        ]
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft,elapsed FROM publication_case_milestone
+            WHERE source_id='mcfadden66_mask_bends' ORDER BY milestone
+        """).fetchall() == [
+            ("flight_aborted_for_bends", None, None),
+            ("last_explicit_pre_abort_altitude", 35000, None),
+        ]
+        assert db.execute("""
+            SELECT reported_altitude_ft,reported_duration_min FROM publication_chamber_case_altitude_stage
+            WHERE source_id='mcfadden66_mask_bends' ORDER BY stage
+        """).fetchall() == [(altitude, None) for altitude in (10000, 14000, 14000, 14000, 21500, 29000, 35000)]
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='mcfadden66_mask_bends'
+        """).fetchall() == [("mcfadden66_mask_bends:table-1-block-01-bends-abort", "dot:20771", None)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record WHERE report_id='dot:20771'
+        """).fetchone() == (6,)
+        assert db.execute("""
+            SELECT report_id,reported_group,cases,denominator FROM review.review_search_observation
+            WHERE report_id IN ('dot:20771','dot:20821','dot:20989','dot:21252','dtic:ada168832')
+            ORDER BY reported_group
+        """).fetchall() == [
+            ("dot:20771", "six-instrumented-subjects", 1, 6),
+            ("dot:20771", "table-1-block-01-bends-abort", 1, None),
+        ]
