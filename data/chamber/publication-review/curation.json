@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.145/sources.csv#balke59_altitude_residence",
+      "report_id": "auqr:1959:11:1:61:balke",
+      "basis": "Verified report title, author, publication and locator.",
+      "evidence_url": "https://www.airuniversity.af.mil/Portals/10/ASPJ/journals/1959_Vol11_No1-4/1959_Vol11_No1.pdf"
+    },
+    {
+      "record_key": "2026-11-21-altitude-residence-verified#balke59_altitude_residence",
+      "report_id": "auqr:1959:11:1:61:balke",
+      "basis": "Same report, identifier and locator as the numbered register.",
+      "evidence_url": "https://www.airuniversity.af.mil/Portals/10/ASPJ/journals/1959_Vol11_No1-4/1959_Vol11_No1.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.145/sources.csv#clark60_space_medicine_residence",
+      "report_id": "pmid:13810481",
+      "basis": "Verified report title, author, publication and locator.",
+      "evidence_url": "https://spacemedicineassociation.org/download/history/history_files_1960/31070553-1.pdf"
+    },
+    {
+      "record_key": "2026-11-21-altitude-residence-verified#clark60_space_medicine_residence",
+      "report_id": "pmid:13810481",
+      "basis": "Same report, identifier and locator as the numbered register.",
+      "evidence_url": "https://spacemedicineassociation.org/download/history/history_files_1960/31070553-1.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.145/sources.csv#roth67_sp117_altitude_residence",
+      "report_id": "ntrs:19670013549",
+      "basis": "Verified report title, author, publication and locator.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf"
+    },
+    {
+      "record_key": "2026-11-21-altitude-residence-verified#roth67_sp117_altitude_residence",
+      "report_id": "ntrs:19670013549",
+      "basis": "Same report, identifier and locator as the numbered register.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.145/sources.csv#balke59_usaf_ad226473",
+      "report_id": "report:ad226473:balke-man-in-space",
+      "basis": "Verified report title, author, publication and locator.",
+      "evidence_url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/71382"
+    },
+    {
+      "record_key": "2026-11-21-altitude-residence-verified#balke59_usaf_ad226473",
+      "report_id": "report:ad226473:balke-man-in-space",
+      "basis": "Same report, identifier and locator as the numbered register.",
+      "evidence_url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/71382"
+    },
+    {
       "record_key": "2026-11-21-chadov-cabin-digest#P910",
       "report_id": "ntrs:19890006135:p910",
       "basis": "Publication title, identifiers and source locator verified.",
@@ -14961,6 +15009,24 @@
   ],
   "studies": [
     {
+      "study_id": "balke-1958-mount-evans-i",
+      "label": "Mount Evans I altitude residence and decompression tests",
+      "period": "1958",
+      "setting": "Seven participants in a repeated condition program. Standard exercise at 38,000 ft. Only the 48-hour residence outcome has an exact participant pair in the recovered articles."
+    },
+    {
+      "study_id": "balke-morococha-38000",
+      "label": "Morococha altitude residence chamber test",
+      "period": "Reported 1959. Test date unavailable.",
+      "setting": "Ten individuals tested at 38,000 ft from a 14,800-ft site. Residence duration and linkage to other testing unavailable."
+    },
+    {
+      "study_id": "balke-1958-mount-evans-ii",
+      "label": "Mount Evans II terminal tests after ten-day chamber confinement",
+      "period": "1958",
+      "setting": "Two participants from the prior Colorado program. Terminal 40,000-ft and 50,000-ft tests share the same participants, with differing activities and horizons."
+    },
+    {
       "study_id": "rcaf-1942-fraser-rose-temperature",
       "label": "Fraser and Rose chamber-temperature experiment",
       "period": "Reported 1942. Individual dates unavailable.",
@@ -16360,6 +16426,48 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "balke-1958-mount-evans-i",
+      "report_id": "auqr:1959:11:1:61:balke",
+      "role": "investigator_outcomes",
+      "locator": "Air University Quarterly Review 11(1), printed p. 68, Susceptibility to dysbarism"
+    },
+    {
+      "study_id": "balke-morococha-38000",
+      "report_id": "auqr:1959:11:1:61:balke",
+      "role": "investigator_outcomes",
+      "locator": "Air University Quarterly Review 11(1), printed p. 68, Susceptibility to dysbarism"
+    },
+    {
+      "study_id": "balke-1958-mount-evans-ii",
+      "report_id": "auqr:1959:11:1:61:balke",
+      "role": "corroborating_40000_ft_report",
+      "locator": "Printed p. 73, two-hour bends test after ten-day sealed chamber exposure"
+    },
+    {
+      "study_id": "balke-1958-mount-evans-i",
+      "report_id": "pmid:13810481",
+      "role": "investigator_protocol_and_outcomes",
+      "locator": "Printed pp. 567–568"
+    },
+    {
+      "study_id": "balke-1958-mount-evans-ii",
+      "report_id": "pmid:13810481",
+      "role": "investigator_outcomes",
+      "locator": "Aerospace Medicine 31(7), printed pp. 567–568 and 576"
+    },
+    {
+      "study_id": "balke-1958-mount-evans-i",
+      "report_id": "ntrs:19670013549",
+      "role": "secondary_confirmation_and_pressure_discrepancy",
+      "locator": "NASA SP-117, printed p. 64 and references 15 and 99"
+    },
+    {
+      "study_id": "balke-1958-mount-evans-i",
+      "report_id": "report:ad226473:balke-man-in-space",
+      "role": "earlier_usaf_project_report_lead",
+      "locator": "FAA AM63-30, Part 14, printed p. 2421, entry 717. NLM 35721210R."
+    },
     {
       "study_id": "rcaf-1942-fraser-rose-temperature",
       "report_id": "report:nrcc-fraser-rose-1942-low-temperature",
@@ -18774,6 +18882,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:13810481",
+      "right_report": "auqr:1959:11:1:61:balke",
+      "relationship": "overlapping_altitude_residence_results",
+      "evidence": "The investigator reports share the seven-person Mount Evans I program, the 38,000-ft 2/7 slight-pain outcome and the two-person Mount Evans II 40,000-ft two-hour zero-symptom test. Clark additionally describes finger pain on the 50,000-ft test.",
+      "evidence_url": "https://spacemedicineassociation.org/download/history/history_files_1960/31070553-1.pdf"
+    },
+    {
+      "left_report": "ntrs:19670013549",
+      "right_report": "auqr:1959:11:1:61:balke",
+      "relationship": "overlapping_altitude_residence_results",
+      "evidence": "NASA SP-117 repeats the Mount Evans I 2/7 slight-pain outcome. Its printed residence pressure differs from Clark. No duplicate outcome rows were entered.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf"
+    },
+    {
+      "left_report": "report:ad226473:balke-man-in-space",
+      "right_report": "auqr:1959:11:1:61:balke",
+      "relationship": "possible_same_usaf_project",
+      "evidence": "The USAF report citation and historical reference tracing identify the 1958 Mount Evans program. Original numerical pages were unavailable for comparison.",
+      "evidence_url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/71382"
+    },
     {
       "left_report": "ntrs:19880016712:p816",
       "right_report": "kaluga:1986:chadov:154",

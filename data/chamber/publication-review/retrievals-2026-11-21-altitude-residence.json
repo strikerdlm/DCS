@@ -1,0 +1,269 @@
+[
+  {
+    "id": "2026-11-21-altitude-residence-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_public_archive_search_and_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "id": "01a1ff27-1d00-74ef-b38b-f9486e2a2384",
+          "query": "altitude chamber bends 1944 aviation hypobaric decompression sickness report number RCAF RAF \"incidence\" flying chambers subjects 35000",
+          "returned": 7
+        },
+        {
+          "id": "01a1ff27-bc1a-70b8-97de-9013a29ecf0e",
+          "query": "Bruno Balke \"Experimental Studies\" Mount Evans acclimatization 1958 38000 bends Morococha full text DTIC Aerospace Medicine",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff28-66ef-75f9-9da8-a3ddbed70e4e",
+          "query": "AD-226473 AD0226473 Bioastronautics advances in research 1959 Balke Man in Space reports full text",
+          "returned": 6
+        }
+      ],
+      "scrapes": [
+        {
+          "id": "01a1ff29-3dc9-75b7-a5d2-993fe6b717e0",
+          "url": "https://www.airuniversity.af.mil/Portals/10/ASPJ/journals/1959_Vol11_No1-4/1959_Vol11_No1.pdf",
+          "http_status": 200
+        },
+        {
+          "id": "01a1ff29-3ddc-76ed-9ab5-1cb88be92875",
+          "url": "https://spacemedicineassociation.org/download/history/history_files_1960/31070553-1.pdf",
+          "http_status": 404
+        },
+        {
+          "id": "01a1ff28-66eb-73b2-97e3-6fb9f1e95d4d",
+          "url": "https://archive.org/download/DTIC_AD226473/DTIC_AD226473.pdf",
+          "http_status": 503
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Firecrawl retrieved the 1959 USAF article. Direct retrieval of the journal PDF and DTIC copy failed.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-altitude-residence-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search_and_extraction",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search": {
+        "query": "altitude chamber bends incidence case data from hypobaric training or RAF chamber research",
+        "http_status": 433
+      },
+      "extract": {
+        "request_id": "c7a85d0b-9b4a-4dcb-9de4-ec1af9d9186b",
+        "urls": [
+          "https://www.airuniversity.af.mil/Portals/10/ASPJ/journals/1959_Vol11_No1-4/1959_Vol11_No1.pdf",
+          "https://spacemedicineassociation.org/download/history/history_files_1960/31070553-1.pdf"
+        ],
+        "returned": 0
+      }
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The search hit the spending limit. Neither target PDF was returned by direct extraction.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-altitude-residence-verified",
+    "date": "2026-11-21",
+    "provider": "Air University, Aerospace Medicine and NASA Technical Reports Server",
+    "operation": "verify_residence_history_and_reconcile_duplicate_margins",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Compared the publications from the investigators with NASA SP-117. Four source-level outcome groups were extracted once. The underlying original project report has a verified bibliographic citation only.",
+    "records": [
+      {
+        "id": "balke59_altitude_residence",
+        "title": "Experimental studies on the conditioning of man for space flight",
+        "authors": [
+          "Bruno Balke"
+        ],
+        "year": 1959,
+        "url": "https://www.airuniversity.af.mil/Portals/10/ASPJ/journals/1959_Vol11_No1-4/1959_Vol11_No1.pdf",
+        "locator": "Air University Quarterly Review 11(1), printed p. 68, Susceptibility to dysbarism",
+        "access": "full_text",
+        "note": "The investigator reports site-specific outcomes from Colorado and Morococha. The 38,000-ft test is described as standard exercise. The report identifies the number of people tested for these two outcome groups.",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "mount-evans-i-38000-after-48h",
+            "study_id": "balke-1958-mount-evans-i",
+            "endpoint": "slight_bends_pain_as_reported",
+            "group": "mount-evans-i-38000-after-48h",
+            "cases": 2,
+            "denominator": 7,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "reported_residence_altitude_ft": 14000,
+            "residence_duration_hours": 48,
+            "clark_residence_ft": 14160,
+            "clark_reported_pressure_mmhg": 455,
+            "nasa_reported_pressure_mmhg": 446,
+            "target_minutes": 60,
+            "locator": "Air University Quarterly Review 11(1), printed p. 68, Susceptibility to dysbarism",
+            "protocol": "Prior residence described by Balke as 48 hours at 14,000 ft. Clark et al. describe two days at 14,160 ft (their reported 455 mm Hg). Standard exercise at 38,000 ft included repeated deep knee bends.",
+            "outcome_window": "During the one-hour chamber test in Clark et al. Both slight pains resolved by the end of the run.",
+            "note": "Balke reports 2 of 7. Clark et al. and NASA SP-117 describe the same outcome. NASA prints 446 mm Hg for the residence condition. The initial pressure remains source-specific."
+          },
+          {
+            "id": "morococha-38000",
+            "study_id": "balke-morococha-38000",
+            "endpoint": "dysbarism_symptoms_as_reported",
+            "group": "morococha-38000",
+            "cases": 0,
+            "denominator": 10,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "chamber_site_altitude_ft": 14800,
+            "locator": "Air University Quarterly Review 11(1), printed p. 68, Susceptibility to dysbarism",
+            "protocol": "Morococha chamber site at 14,800 ft. The dysbarism section describes the standard exercise test at 38,000 ft. Individual residence duration, acclimatization histories and gas delivery are unavailable.",
+            "outcome_window": "During the reported chamber test. Exact dwell and post-test observation were unspecified.",
+            "note": "The author identifies ten individuals who remained symptom-free. The denominator is people tested. The article does not provide attendance or per-person run histories."
+          }
+        ],
+        "scrape_id": "01a1ff29-3dc9-75b7-a5d2-993fe6b717e0"
+      },
+      {
+        "id": "clark60_space_medicine_residence",
+        "title": "Basic research problems in space medicine: a review",
+        "authors": [
+          "R. T. Clark",
+          "H. G. Clamann",
+          "Bruno Balke",
+          "P. C. Tang",
+          "J. D. Fulton",
+          "A. Graybiel",
+          "J. Vogel"
+        ],
+        "year": 1960,
+        "url": "https://spacemedicineassociation.org/download/history/history_files_1960/31070553-1.pdf",
+        "locator": "Aerospace Medicine 31(7), printed pp. 567–568 and 576",
+        "access": "full_text",
+        "note": "The investigators describe the same seven-person Mount Evans I program and two terminal tests on the same two Mount Evans II participants. The indexed original supplied the relevant pages during this review. Live PDF requests returned 404.",
+        "pmid": "13810481",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "mount-evans-ii-40000",
+            "study_id": "balke-1958-mount-evans-ii",
+            "endpoint": "dysbarism_symptoms_as_reported",
+            "group": "mount-evans-ii-40000",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "target_altitude_ft": 40000,
+            "target_minutes": 120,
+            "confinement_days": 10,
+            "locator": "Clark et al. printed p. 576, two-hour bends test",
+            "protocol": "Two previously acclimatized subjects completed a ten-day sealed chamber exposure with varying effective altitude. On the final day a 40,000-ft decompression immediately followed the carbon dioxide experiment; oxygen masks were put on.",
+            "outcome_window": "Two hours at 40,000 ft. Post-test surveillance is unspecified.",
+            "note": "Clark et al. and Balke describe this same pair and symptom-free test. Their reports are linked to a single outcome group."
+          },
+          {
+            "id": "mount-evans-ii-50000",
+            "study_id": "balke-1958-mount-evans-ii",
+            "endpoint": "grade_i_to_ii_finger_bends_pain_as_reported",
+            "group": "mount-evans-ii-50000",
+            "cases": 1,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "target_altitude_ft": 50000,
+            "reported_start_altitude_ft": 15000,
+            "target_minutes": 40,
+            "confinement_days": 10,
+            "locator": "Clark et al. printed p. 576, pressure-suit exercise",
+            "protocol": "The same two participants donned pressure suits during the separate rapid decompression starting at 15,000 ft. They used helmets and oxygen during the procedure.",
+            "outcome_window": "Forty minutes at 50,000 ft. The reported finger pain disappeared toward the end of the exposure.",
+            "note": "Clark et al. explicitly describe one participant with finger pain. This detailed endpoint qualifies the preceding narrative phrase about a similar experience. The 40,000-ft observation uses the same two people."
+          }
+        ],
+        "additional_reported_history": [
+          {
+            "stratum": "randolph-control",
+            "prior_pressure_mmhg": 747,
+            "outcome": "Third-degree bends or chokes in all control experiments. An average of 18 minutes to severe symptoms. Exact number of control tests unknown."
+          },
+          {
+            "stratum": "mount-evans-i-10000-ft",
+            "prior_pressure_mmhg": 525,
+            "residence_days": [
+              3,
+              4
+            ],
+            "outcome": "No grade III symptoms. Mean time to grade II pain 50 minutes. Exact group and timed event counts unknown."
+          },
+          {
+            "stratum": "mount-evans-i-6000-ft",
+            "prior_pressure_mmhg": 625,
+            "outcome": "Forced descent after a mean of 53 minutes. Exact group and event counts unknown. NASA SP-117 describes this condition as similar to 10,000 ft."
+          },
+          {
+            "stratum": "mount-evans-i-42000-to-56000-ft",
+            "target_altitude_ft": [
+              42000,
+              56000
+            ],
+            "target_minutes": [
+              30,
+              40
+            ],
+            "outcome": "No symptoms in supplemental tests with simulated piloting work following near-14,000-ft residence. Exact number of tests unknown."
+          }
+        ]
+      },
+      {
+        "id": "roth67_sp117_altitude_residence",
+        "title": "Space-Cabin Atmospheres, Part III: Physiological Factors of Inert Gases",
+        "authors": [
+          "Emanuel M. Roth"
+        ],
+        "year": 1967,
+        "url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf",
+        "locator": "NASA SP-117, printed p. 64 and references 15 and 99",
+        "access": "full_text",
+        "source_sha256": "d5ec9146a2352310205e1abbe338f229aeb69285fa8dca59c06e48f7a6ebf7ff",
+        "note": "Corroborates two slight-pain outcomes among seven Mount Evans subjects. Its 446 mm Hg differs from the 455 mm Hg in Clark et al. Its description of the 6,000-ft condition differs from Clark et al. Both values and wordings remain source-specific.",
+        "ntrs": "19670013549",
+        "role_review": "corroborates_existing_outcome",
+        "corroborated_observation": "mount-evans-i-38000-after-48h",
+        "discrepancies": [
+          {
+            "field": "reported_residence_pressure_mmhg",
+            "clark": 455,
+            "roth": 446
+          },
+          {
+            "field": "6000_ft_condition",
+            "clark": "symptom-forced descent after mean of 53 minutes",
+            "roth": "described as similar to the 10,000-ft condition"
+          }
+        ]
+      },
+      {
+        "id": "balke59_usaf_ad226473",
+        "title": "Man in space: experimental studies of physiological aspects of training and selection for manned extraterrestrial flights",
+        "authors": [
+          "Bruno Balke"
+        ],
+        "year": 1959,
+        "url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/71382",
+        "locator": "FAA AM63-30, Part 14, printed p. 2421, entry 717. NLM 35721210R.",
+        "access": "metadata",
+        "note": "FAA bibliography verifies the chapter and report number. The original report pages were unavailable through the checked routes. Historical citation tracing identifies this as the report of the 1958 program.",
+        "technical_report": "AD-226473",
+        "evidence_url": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM63-30pt14.pdf"
+      }
+    ]
+  }
+]

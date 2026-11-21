@@ -4743,3 +4743,45 @@ def test_temperature_sources_and_delayed_case_preserve_outcomes(release):
             ("hypobaric_chamber_exposure", None),
             ("return_to_duties", None),
         ]
+
+
+def test_altitude_residence_keeps_overlapping_chamber_outcomes_once(release):
+    with connect_pair(release) as db:
+        expected = [
+            ("morococha-38000", 0, 10, "person"),
+            ("mount-evans-i-38000-after-48h", 2, 7, "person"),
+            ("mount-evans-ii-40000", 0, 2, "person"),
+            ("mount-evans-ii-50000", 1, 2, "person"),
+        ]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit
+            FROM publication_observation WHERE source_id IN (
+                'balke59_altitude_residence','clark60_space_medicine_residence',
+                'roth67_sp117_altitude_residence','balke59_usaf_ad226473'
+            ) AND analysis_role='overlap_hold' ORDER BY stratum
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-21-altitude-residence-verified' AND role_review='overlap_hold'
+            ORDER BY reported_group
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id IN (
+                'roth67_sp117_altitude_residence','balke59_usaf_ad226473'
+            )
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT report_id,relationship FROM model_report_link JOIN publication_overlap USING(source_id)
+            WHERE related_source='balke59_altitude_residence' ORDER BY report_id
+        """).fetchall() == [
+            ("ntrs:19670013549", "partial_overlap"),
+            ("pmid:13810481", "partial_overlap"),
+            ("report:ad226473:balke-man-in-space", "likely_overlap"),
+        ]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.discrepancies[0].clark'),
+                   json_extract(metadata_json,'$.discrepancies[0].roth')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-altitude-residence-verified#roth67_sp117_altitude_residence'
+        """).fetchone() == (455, 446)
