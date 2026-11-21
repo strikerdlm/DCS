@@ -1,0 +1,544 @@
+[
+  {
+    "id": "2026-11-20-postexposure-exercise-outcome-flow",
+    "date": "2026-11-20",
+    "provider": "Tavily, Firecrawl and rendered original reports",
+    "operation": "supplementary_trial_flow_and_overlap_reconciliation",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        "Altitude DCS Research in Support of Special Operations Forces Pilmanis Webb ADP011093",
+        "Moderate exercise after altitude exposure fails to induce decompression sickness Webb PMID 12234037",
+        "Pilmanis effect of repeated altitude exposures incidence decompression sickness PMID 12056666 Table I"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Original interim and final reports preserve nested populations, allocation and record-specific outcome definitions.",
+    "records": [
+      {
+        "id": "pilmanis-webb-2001-paper-40",
+        "title": "Altitude DCS Research in Support of Special Operations Forces (SOF)",
+        "year": 2001,
+        "identifier": "ADP011093",
+        "url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+        "primary_source": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+        "sha256": "b23caab69d6d0fb058936dc0ca9365a9a02fff2c67bff90362d720149b74fab0",
+        "locator": "Printed pp. 40-3 and 40-6, Table I and Figure 5",
+        "study_id": "afrl-postexposure-exercise-trial",
+        "access": "full_text",
+        "flow": [
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "initial-exposures",
+            "parent_group_id": null,
+            "population_count": 54,
+            "dcs_during_exposure": null,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": null,
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Preliminary total exposures in the figure."
+          },
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "initial-dcs",
+            "parent_group_id": "initial-exposures",
+            "population_count": 30,
+            "dcs_during_exposure": 30,
+            "vge_count_as_reported": 25,
+            "postexposure_dcs": null,
+            "assignment": null,
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "The left branch developed DCS and was recompressed."
+          },
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "initial-no-dcs",
+            "parent_group_id": "initial-exposures",
+            "population_count": 24,
+            "dcs_during_exposure": 0,
+            "vge_count_as_reported": 18,
+            "postexposure_dcs": null,
+            "assignment": null,
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "The right branch completed exposure without DCS."
+          },
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "treated-before-allocation",
+            "parent_group_id": "initial-dcs",
+            "population_count": 6,
+            "dcs_during_exposure": 6,
+            "vge_count_as_reported": 4,
+            "postexposure_dcs": null,
+            "assignment": "excluded_before_allocation",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Six were treated before assignment to either ground-level group."
+          },
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "dcs-resolved-exercise",
+            "parent_group_id": "initial-dcs",
+            "population_count": 12,
+            "dcs_during_exposure": 12,
+            "vge_count_as_reported": 10,
+            "postexposure_dcs": 0,
+            "assignment": "exercise",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Figure 5 prints the observed DCS and VGE counts in this branch."
+          },
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "dcs-resolved-rest",
+            "parent_group_id": "initial-dcs",
+            "population_count": 12,
+            "dcs_during_exposure": 12,
+            "vge_count_as_reported": 11,
+            "postexposure_dcs": 0,
+            "assignment": "rest",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Figure 5 prints the observed DCS and VGE counts in this branch."
+          },
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "no-initial-dcs-exercise",
+            "parent_group_id": "initial-no-dcs",
+            "population_count": 12,
+            "dcs_during_exposure": 0,
+            "vge_count_as_reported": 9,
+            "postexposure_dcs": 0,
+            "assignment": "exercise",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Figure 5 prints the observed DCS and VGE counts in this branch."
+          },
+          {
+            "source_id": "pilmanis01_sof_outcomes",
+            "group_id": "no-initial-dcs-rest",
+            "parent_group_id": "initial-no-dcs",
+            "population_count": 12,
+            "dcs_during_exposure": 0,
+            "vge_count_as_reported": 9,
+            "postexposure_dcs": 1,
+            "assignment": "rest",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "One post-exposure DCS event was reported in this preliminary subgroup."
+          }
+        ],
+        "repeat_timing": [
+          {
+            "preliminary_source_id": "pilmanis01_sof_outcomes",
+            "final_source_id": "pilmanis02",
+            "condition": "A",
+            "endpoint": "dcs",
+            "protocol_sessions": 32,
+            "matched_event_count": 19,
+            "preliminary_mean_min": 70,
+            "preliminary_plus_minus_min": 7,
+            "final_mean_min": 70,
+            "final_plus_minus_min": 29,
+            "preliminary_locator": "Printed p. 40-3, Table I",
+            "final_locator": "Printed p. 529, Table I and Results",
+            "note": "The two reports give the same event and protocol counts. Their printed plus-minus terms are retained without converting them to a common dispersion statistic."
+          },
+          {
+            "preliminary_source_id": "pilmanis01_sof_outcomes",
+            "final_source_id": "pilmanis02",
+            "condition": "B",
+            "endpoint": "dcs",
+            "protocol_sessions": 32,
+            "matched_event_count": 7,
+            "preliminary_mean_min": 54,
+            "preliminary_plus_minus_min": 10,
+            "final_mean_min": 60,
+            "final_plus_minus_min": 34,
+            "preliminary_locator": "Printed p. 40-3, Table I",
+            "final_locator": "Printed p. 529, Table I and Results",
+            "note": "The two reports give the same event and protocol counts. Their printed plus-minus terms are retained without converting them to a common dispersion statistic."
+          },
+          {
+            "preliminary_source_id": "pilmanis01_sof_outcomes",
+            "final_source_id": "pilmanis02",
+            "condition": "C",
+            "endpoint": "dcs",
+            "protocol_sessions": 32,
+            "matched_event_count": 2,
+            "preliminary_mean_min": 40,
+            "preliminary_plus_minus_min": 13,
+            "final_mean_min": 40,
+            "final_plus_minus_min": 18,
+            "preliminary_locator": "Printed p. 40-3, Table I",
+            "final_locator": "Printed p. 529, Table I and Results",
+            "note": "The two reports give the same event and protocol counts. Their printed plus-minus terms are retained without converting them to a common dispersion statistic."
+          },
+          {
+            "preliminary_source_id": "pilmanis01_sof_outcomes",
+            "final_source_id": "pilmanis02",
+            "condition": "A",
+            "endpoint": "any_vge",
+            "protocol_sessions": 32,
+            "matched_event_count": 28,
+            "preliminary_mean_min": 32,
+            "preliminary_plus_minus_min": 5,
+            "final_mean_min": 30,
+            "final_plus_minus_min": 23,
+            "preliminary_locator": "Printed p. 40-3, Table I",
+            "final_locator": "Printed p. 529, Table I and Results",
+            "note": "The two reports give the same event and protocol counts. Their printed plus-minus terms are retained without converting them to a common dispersion statistic."
+          },
+          {
+            "preliminary_source_id": "pilmanis01_sof_outcomes",
+            "final_source_id": "pilmanis02",
+            "condition": "B",
+            "endpoint": "any_vge",
+            "protocol_sessions": 32,
+            "matched_event_count": 21,
+            "preliminary_mean_min": 40,
+            "preliminary_plus_minus_min": 8,
+            "final_mean_min": 41,
+            "final_plus_minus_min": 35,
+            "preliminary_locator": "Printed p. 40-3, Table I",
+            "final_locator": "Printed p. 529, Table I and Results",
+            "note": "The two reports give the same event and protocol counts. Their printed plus-minus terms are retained without converting them to a common dispersion statistic."
+          },
+          {
+            "preliminary_source_id": "pilmanis01_sof_outcomes",
+            "final_source_id": "pilmanis02",
+            "condition": "C",
+            "endpoint": "any_vge",
+            "protocol_sessions": 32,
+            "matched_event_count": 21,
+            "preliminary_mean_min": 43,
+            "preliminary_plus_minus_min": 8,
+            "final_mean_min": 41,
+            "final_plus_minus_min": 37,
+            "preliminary_locator": "Printed p. 40-3, Table I",
+            "final_locator": "Printed p. 529, Table I and Results",
+            "note": "The two reports give the same event and protocol counts. Their printed plus-minus terms are retained without converting them to a common dispersion statistic."
+          }
+        ],
+        "source_notes": {
+          "postexercise": "Figure 5 reports 54 early exposures and one post-exposure resting case among 12 initially asymptomatic participants.",
+          "crossover": "Table I reports the same DCS and VGE totals as the subsequent full paper.",
+          "adrac": "Figure 9 is explicitly generated by ADRAC. It does not contribute human outcome counts."
+        },
+        "observations": [
+          {
+            "id": "interim-all-exposures-dcs",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "group": "All interim exposures",
+            "endpoint": "dcs_during_exposure",
+            "cases": 30,
+            "denominator": 54,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Interim study margin. The final trial publication describes 67 participants."
+          },
+          {
+            "id": "dcs-resolved-exercise",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "group": "dcs-resolved-exercise",
+            "endpoint": "source_postexposure_dcs",
+            "cases": 0,
+            "denominator": 12,
+            "denominator_unit": "person",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Interim allocation branch. This result does not establish the final arm's outcome count."
+          },
+          {
+            "id": "dcs-resolved-rest",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "group": "dcs-resolved-rest",
+            "endpoint": "source_postexposure_dcs",
+            "cases": 0,
+            "denominator": 12,
+            "denominator_unit": "person",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Interim allocation branch. This result does not establish the final arm's outcome count."
+          },
+          {
+            "id": "no-initial-dcs-exercise",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "group": "no-initial-dcs-exercise",
+            "endpoint": "source_postexposure_dcs",
+            "cases": 0,
+            "denominator": 12,
+            "denominator_unit": "person",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Interim allocation branch. This result does not establish the final arm's outcome count."
+          },
+          {
+            "id": "no-initial-dcs-rest",
+            "study_id": "afrl-postexposure-exercise-trial",
+            "group": "no-initial-dcs-rest",
+            "endpoint": "source_postexposure_dcs",
+            "cases": 1,
+            "denominator": 12,
+            "denominator_unit": "person",
+            "locator": "Printed p. 40-6, Figure 5",
+            "note": "Interim allocation branch. This result does not establish the final arm's outcome count."
+          }
+        ]
+      },
+      {
+        "id": "webb-pilmanis-fischer-2002-journal",
+        "title": "Moderate exercise after altitude exposure fails to induce decompression sickness",
+        "year": 2002,
+        "pmid": "12234037",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/9/article-p872.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/9/article-p872.pdf",
+        "sha256": "a0b5722f8c482a4bf72e13e1a5cc3994e9340c70069d5ef4786d93af8f83fd62",
+        "locator": "Printed pp. 872–875, Figure 1, Tables I–III and Results",
+        "study_id": "afrl-postexposure-exercise-trial",
+        "access": "full_text",
+        "flow": [
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "initial-exposures",
+            "parent_group_id": null,
+            "population_count": 67,
+            "dcs_during_exposure": null,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": null,
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Final population entering the exposure."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "initial-dcs",
+            "parent_group_id": "initial-exposures",
+            "population_count": 36,
+            "dcs_during_exposure": 36,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": null,
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Symptomatic during the initial exposure."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "initial-no-dcs",
+            "parent_group_id": "initial-exposures",
+            "population_count": 31,
+            "dcs_during_exposure": 0,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": null,
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "No DCS during the initial exposure."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "excluded-before-allocation",
+            "parent_group_id": "initial-dcs",
+            "population_count": 7,
+            "dcs_during_exposure": 7,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": "excluded_before_allocation",
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "DCS persisted on descent or was serious. Removed before the post-exposure comparison."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "dcs-resolved-on-descent",
+            "parent_group_id": "initial-dcs",
+            "population_count": 29,
+            "dcs_during_exposure": 29,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": null,
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Symptoms resolved during descent."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "dcs-resolved-exercise",
+            "parent_group_id": "dcs-resolved-on-descent",
+            "population_count": 15,
+            "dcs_during_exposure": 15,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": "exercise",
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Final subgroup assignment from Figure 1."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "dcs-resolved-rest",
+            "parent_group_id": "dcs-resolved-on-descent",
+            "population_count": 14,
+            "dcs_during_exposure": 14,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": "rest",
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Final subgroup assignment from Figure 1."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "no-initial-dcs-exercise",
+            "parent_group_id": "initial-no-dcs",
+            "population_count": 16,
+            "dcs_during_exposure": 0,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": "exercise",
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Final subgroup assignment from Figure 1."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "no-initial-dcs-rest",
+            "parent_group_id": "initial-no-dcs",
+            "population_count": 15,
+            "dcs_during_exposure": 0,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": "rest",
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Final subgroup assignment from Figure 1."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "all-assigned-exercise",
+            "parent_group_id": null,
+            "population_count": 31,
+            "dcs_during_exposure": 15,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": 0,
+            "assignment": "exercise",
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Combined assignment margin. The article reports no delayed or recurrent DCS in this arm during reported follow-up."
+          },
+          {
+            "source_id": "webb02_postexercise_journal",
+            "group_id": "all-assigned-rest",
+            "parent_group_id": null,
+            "population_count": 29,
+            "dcs_during_exposure": 14,
+            "vge_count_as_reported": null,
+            "postexposure_dcs": null,
+            "assignment": "rest",
+            "locator": "Printed p. 874, Figure 1 and Results",
+            "note": "Combined assignment margin. The final publication does not present a complete comparable delayed or recurrent DCS count for this arm."
+          }
+        ],
+        "allocation_denominator_discrepancy": {
+          "table_i_exercise_n": 30,
+          "results_and_table_iii_exercise_n": 31,
+          "basis": "The anthropometry table labels 30. Outcome allocation is reported as 31 in Results and Table III."
+        },
+        "comparison_window": {
+          "exercise_dcs_cases": 0,
+          "exercise_allocated": 31,
+          "rest_allocated": 29,
+          "final_rest_arm_total_dcs_cases": null,
+          "resting_symptom_recurrence_in_table_ii": "Table II marks a resting subject with recurring symptoms after recompression. The final paper gives no complete post-exposure rest-arm endpoint count. The interim resting event had no DCS at altitude. Case identity and timing reconciliation between reports are unavailable."
+        },
+        "observations": [
+          {
+            "id": "afrl-delayed-or-recurrent-archive",
+            "study_id": "afrl-delayed-recurrent-dcs-archive-cited-2002",
+            "group": "Historical AFRL database context",
+            "endpoint": "source_delayed_or_recurrent_dcs",
+            "cases": 33,
+            "denominator": 2810,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 872, Introduction",
+            "note": "The final paper cites a separate historical research-database snapshot. It provides no individual exposure linkage, comparable follow-up window, or post-exposure exercise allocation. Archive overlap with later USAF database releases is unresolved."
+          }
+        ]
+      },
+      {
+        "id": "pilmanis-2002-repeated-condition-membership",
+        "title": "The effect of repeated altitude exposures on the incidence of decompression sickness",
+        "year": 2002,
+        "pmid": "12056666",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/6/article-p525.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/6/article-p525.pdf",
+        "sha256": "16ca29bb8d5c9fee42b4b932611359fd38f62058713da1eb440265945534f527",
+        "locator": "Printed p. 529, Table I and Results",
+        "study_id": "afrl-repeated-altitude-exposure-crossover",
+        "access": "full_text",
+        "joint_dcs_counts": [
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 0,
+            "dcs_condition_b": 0,
+            "dcs_condition_c": 0,
+            "participants": 12,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          },
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 0,
+            "dcs_condition_b": 0,
+            "dcs_condition_c": 1,
+            "participants": 1,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          },
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 0,
+            "dcs_condition_b": 1,
+            "dcs_condition_c": 0,
+            "participants": 0,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          },
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 0,
+            "dcs_condition_b": 1,
+            "dcs_condition_c": 1,
+            "participants": 0,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          },
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 1,
+            "dcs_condition_b": 0,
+            "dcs_condition_c": 0,
+            "participants": 12,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          },
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 1,
+            "dcs_condition_b": 0,
+            "dcs_condition_c": 1,
+            "participants": 0,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          },
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 1,
+            "dcs_condition_b": 1,
+            "dcs_condition_c": 0,
+            "participants": 6,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          },
+          {
+            "source_id": "pilmanis02",
+            "dcs_condition_a": 1,
+            "dcs_condition_b": 1,
+            "dcs_condition_c": 1,
+            "participants": 1,
+            "locator": "Printed p. 529, Table I and Results",
+            "reconstruction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition."
+          }
+        ],
+        "subtraction_basis": "Final Results state that all seven B cases also had DCS in A. Of two C cases, one also had DCS in A and B and one had DCS only in C. Table I gives 19 A cases and 32 people completed each condition.",
+        "note": "The joint table is an aggregate reconstruction from explicitly reported cross-condition membership and marginals. No individual records are assigned. The interim report is the same crossover."
+      }
+    ]
+  }
+]

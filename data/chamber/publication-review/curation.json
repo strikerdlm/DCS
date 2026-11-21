@@ -10541,6 +10541,42 @@
       "report_id": "report:adp011061",
       "basis": "Original proceedings title, authors and paper number identify ADP011061.",
       "evidence_url": "https://archive.org/download/DTIC_ADP011061/DTIC_ADP011061.pdf"
+    },
+    {
+      "record_key": "2026-11-20-postexposure-exercise-outcome-flow#pilmanis-webb-2001-paper-40",
+      "report_id": "report:adp011093",
+      "basis": "The DTIC cover identifies the original public chapter as ADP011093, paper 40.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.84/sources.csv#pilmanis01_sof_outcomes",
+      "report_id": "report:adp011093",
+      "basis": "The DTIC chapter matches the primary source.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W239920389",
+      "report_id": "report:adp011093",
+      "basis": "The author list and full title match the official paper 40.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf"
+    },
+    {
+      "record_key": "2026-11-20-postexposure-exercise-outcome-flow#webb-pilmanis-fischer-2002-journal",
+      "report_id": "pmid:12234037",
+      "basis": "The archive citation and publisher version both identify PMID 12234037.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/9/article-p872.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.84/sources.csv#webb02_postexercise_journal",
+      "report_id": "pmid:12234037",
+      "basis": "The publisher edition is the same paper as the existing extraction.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/9/article-p872.pdf"
+    },
+    {
+      "record_key": "2026-11-20-postexposure-exercise-outcome-flow#pilmanis-2002-repeated-condition-membership",
+      "report_id": "pmid:12056666",
+      "basis": "The journal title and pages match PMID 12056666 and the existing outcome extract.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/6/article-p525.pdf"
     }
   ],
   "studies": [
@@ -11365,6 +11401,24 @@
       "label": "Odland and Robie historical fatal aircraft flight case",
       "period": "Reported in 1959 and 1960. Occurrence date unresolved.",
       "setting": "Operational hypobaric flight"
+    },
+    {
+      "study_id": "afrl-postexposure-exercise-trial",
+      "label": "AFRL chamber trial of moderate exercise after recompression",
+      "period": "Interim 2001 and final 2002 reports",
+      "setting": "Experimental hypobaric chamber exposure"
+    },
+    {
+      "study_id": "afrl-repeated-altitude-exposure-crossover",
+      "label": "AFRL three-condition repeated hypobaric exposure crossover",
+      "period": "Preliminary 2001 and peer-reviewed 2002 reports",
+      "setting": "Experimental hypobaric chamber exposure"
+    },
+    {
+      "study_id": "afrl-delayed-recurrent-dcs-archive-cited-2002",
+      "label": "Historical delayed or recurrent DCS context in the AFRL archive",
+      "period": "Cited in 2002. Exposure dates unspecified.",
+      "setting": "Mixed altitude chamber research profiles"
     }
   ],
   "study_reports": [
@@ -12681,6 +12735,36 @@
       "report_id": "aeme:31-11-885",
       "role": "same_case_pathology_followup",
       "locator": "Printed pp. 885–888, Case 1, and Table I"
+    },
+    {
+      "study_id": "afrl-postexposure-exercise-trial",
+      "report_id": "report:adp011093",
+      "role": "interim_postexposure_exercise_results",
+      "locator": "Printed p. 40-6, Figure 5"
+    },
+    {
+      "study_id": "afrl-postexposure-exercise-trial",
+      "report_id": "pmid:12234037",
+      "role": "final_postexposure_exercise_results",
+      "locator": "Printed pp. 872–875, Figure 1, Tables I–III and Results"
+    },
+    {
+      "study_id": "afrl-repeated-altitude-exposure-crossover",
+      "report_id": "report:adp011093",
+      "role": "earlier_repeated_altitude_crossover",
+      "locator": "Printed p. 40-3, Table I"
+    },
+    {
+      "study_id": "afrl-repeated-altitude-exposure-crossover",
+      "report_id": "pmid:12056666",
+      "role": "final_repeated_altitude_crossover",
+      "locator": "Printed p. 529, Table I and Results"
+    },
+    {
+      "study_id": "afrl-delayed-recurrent-dcs-archive-cited-2002",
+      "report_id": "pmid:12234037",
+      "role": "historical_archive_context",
+      "locator": "Printed p. 872, Introduction"
     }
   ],
   "relations": [
@@ -15161,6 +15245,27 @@
       "relationship": "same_published_case",
       "evidence": "Case 1 matches age 36, the approximate 22,000-ft cabin reading, in-flight loss of consciousness, 22-hour postmortem interval, 1,650 g combined lungs, 1,800 g brain and an anatomically patent foramen ovale. Source-specific cough and chest-pain times differ.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/11/article-p885.pdf"
+    },
+    {
+      "left_report": "report:adp011093",
+      "right_report": "pmid:12234037",
+      "relationship": "interim_and_final_same_trial",
+      "evidence": "Both reports use the same target exposure and preoxygenation, post-recompression selection, and ground-level rest/exercise comparison. The 2001 trial has 54 exposures and the 2002 publication has 67. Individual IDs are unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf#page=7"
+    },
+    {
+      "left_report": "report:adp011093",
+      "right_report": "pmid:12056666",
+      "relationship": "earlier_results_same_crossover",
+      "evidence": "The same authors, 32 participants, three conditions, DCS counts of 19/7/2 and VGE counts of 28/21/21 identify the same repeated-exposure crossover. Printed means and plus-minus terms differ.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf#page=4"
+    },
+    {
+      "left_report": "pmid:12234037",
+      "right_report": "report:ada521198",
+      "relationship": "possible_archive_overlap",
+      "evidence": "Webb et al. cite a 2,810-exposure version of the AFRL DCS research database. The later database report includes post-exposure exercise profiles. An exact snapshot or linked case IDs are unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/9/article-p872.pdf"
     }
   ],
   "report_titles": {
@@ -15260,6 +15365,9 @@
     "amc:3740477": "Civilian employee fatality investigation results released",
     "report:adp011061": "Patent Foramen Ovale as a Risk Factor for Altitude Decompression Illness",
     "report:adp011060": "Headache and Decompression Sickness: Type I or Type II?",
-    "pmid:14428293": "Fatal decompression illness at an altitude of 22,000 feet"
+    "pmid:14428293": "Fatal decompression illness at an altitude of 22,000 feet",
+    "report:adp011093": "Altitude DCS Research in Support of Special Operations Forces (SOF)",
+    "pmid:12234037": "Moderate exercise after altitude exposure fails to induce decompression sickness",
+    "pmid:12056666": "The effect of repeated altitude exposures on the incidence of decompression sickness"
   }
 }

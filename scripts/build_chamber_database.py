@@ -148,6 +148,7 @@ CHAMBER_U2_CASE_SERIES = ROOT / "data" / "chamber" / "v1.80"
 CHAMBER_TRAINING_HISTORIES = ROOT / "data" / "chamber" / "v1.81"
 CHAMBER_HALO_AND_USAF_ONSET = ROOT / "data" / "chamber" / "v1.82"
 CHAMBER_PFO_AND_HEADACHE = ROOT / "data" / "chamber" / "v1.83"
+CHAMBER_POSTEXPOSURE_EXERCISE = ROOT / "data" / "chamber" / "v1.84"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1298,6 +1299,17 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_bryce_headache_sequence": "headache_histories.csv",
                         "publication_case_milestone": "case_milestones.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_POSTEXPOSURE_EXERCISE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_postexercise_flow": "postexercise_flow.csv",
+                        "publication_repeated_exposure_timing": "repeat_timing.csv",
+                        "publication_repeated_exposure_joint_count": "repeat_joint_counts.csv",
                     },
                 )
             if rojas_supplement:

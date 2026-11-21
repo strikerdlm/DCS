@@ -994,6 +994,66 @@ def test_odland_and_robie_share_one_fatal_flight_case_with_conflicting_dates(rel
         """).fetchone() == ("1959-10-13", "1959-04-28", None)
 
 
+def test_postexercise_trial_keeps_interim_rest_event_and_final_rest_gap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT parent.source_id,parent.group_id FROM publication_postexercise_flow parent
+            JOIN publication_postexercise_flow child ON child.source_id=parent.source_id
+              AND child.parent_group_id=parent.group_id
+            GROUP BY parent.source_id,parent.group_id
+            HAVING sum(child.population_count) != parent.population_count
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT source_id,population_count FROM publication_postexercise_flow
+            WHERE group_id='initial-exposures' ORDER BY source_id
+        """).fetchall() == [("pilmanis01_sof_outcomes", 54), ("webb02_postexercise_journal", 67)]
+        assert db.execute("""
+            SELECT population_count,postexposure_dcs FROM publication_postexercise_flow
+            WHERE source_id='pilmanis01_sof_outcomes' AND group_id='no-initial-dcs-rest'
+        """).fetchone() == (12, 1)
+        assert db.execute("""
+            SELECT assignment,population_count,postexposure_dcs FROM publication_postexercise_flow
+            WHERE source_id='webb02_postexercise_journal' AND group_id GLOB 'all-assigned-*'
+            ORDER BY assignment
+        """).fetchall() == [("exercise", 31, 0), ("rest", 29, None)]
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='webb02_postexercise_journal' AND stratum='afrl-delayed-or-recurrent-archive'
+        """).fetchone() == (33, 2810, "overlap_hold")
+
+
+def test_repeat_exposure_report_preserves_joint_counts_and_changed_timing(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT dcs_condition_a,dcs_condition_b,dcs_condition_c,participants
+            FROM publication_repeated_exposure_joint_count
+            ORDER BY dcs_condition_a,dcs_condition_b,dcs_condition_c
+        """).fetchall() == [
+            (0, 0, 0, 12), (0, 0, 1, 1), (0, 1, 0, 0), (0, 1, 1, 0),
+            (1, 0, 0, 12), (1, 0, 1, 0), (1, 1, 0, 6), (1, 1, 1, 1),
+        ]
+        assert db.execute("""
+            SELECT t.condition,t.endpoint,t.matched_event_count,t.preliminary_mean_min,
+                   t.preliminary_plus_minus_min,t.final_mean_min,t.final_plus_minus_min
+            FROM publication_repeated_exposure_timing t
+            JOIN web_observation w ON (w.source_id,w.stratum,w.endpoint)=
+                (t.final_source_id,t.condition,t.endpoint)
+            WHERE w.cases=t.matched_event_count AND w.denominator=t.protocol_sessions
+            ORDER BY t.condition,t.endpoint
+        """).fetchall() == [
+            ("A", "any_vge", 28, 32.0, 5.0, 30.0, 23.0),
+            ("A", "dcs", 19, 70.0, 7.0, 70.0, 29.0),
+            ("B", "any_vge", 21, 40.0, 8.0, 41.0, 35.0),
+            ("B", "dcs", 7, 54.0, 10.0, 60.0, 34.0),
+            ("C", "any_vge", 21, 43.0, 8.0, 41.0, 37.0),
+            ("C", "dcs", 2, 40.0, 13.0, 40.0, 18.0),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT study_id)
+            FROM review.review_study_report WHERE report_id='report:adp011093'
+        """).fetchone() == (2,)
+
+
 def test_separate_products_join_without_duplicate_cases_or_strata(release):
     with connect_pair(release) as db:
         for schema in ("main", "review"):
