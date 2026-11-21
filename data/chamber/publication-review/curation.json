@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.168/sources.csv#wen02_taiwan_cloud_seeding",
+      "report_id": "doi:10.7011/jamsrc.200206.0041",
+      "evidence_url": "https://www.airitilibrary.com/Article/Detail/16839595-200206-201012230032-201012230032-41-45",
+      "basis": "Exact original title, author, publication date, pages and DOI."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.168/sources.csv#lee25_taiwan_hypoxia_tolerance",
+      "report_id": "doi:10.7011/jamsroc.202512_39(1_2).0002",
+      "evidence_url": "https://www.airitilibrary.com/Article/Detail/16839595-N202601270004-00002",
+      "basis": "Reuse the journal report already indexed by DOI. The model source records its training scope."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.168/sources.csv#balldin92_swedish_treatment",
+      "report_id": "workshop:ada257612-session-4-discussion-10",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=472",
+      "basis": "Named workshop participant and exact discussion number and page."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.168/sources.csv#lund_history_chamber_case",
+      "report_id": "document:lund-aviation-laboratory-history",
+      "evidence_url": "https://ornhagen.se/old/2020%20Flyg%20och%20navalmedicin%20i%20Lund.pdf#page=2",
+      "basis": "Exact title, same public PDF and selected test described on PDF page 2."
+    },
+    {
+      "record_key": "2026-11-21-taiwan-sweden-verified#wen",
+      "report_id": "doi:10.7011/jamsrc.200206.0041",
+      "evidence_url": "https://www.airitilibrary.com/Article/Detail/16839595-200206-201012230032-201012230032-41-45",
+      "basis": "Exact original title, author, publication date, pages and DOI."
+    },
+    {
+      "record_key": "2026-11-21-taiwan-sweden-firecrawl#wen-society",
+      "report_id": "doi:10.7011/jamsrc.200206.0041",
+      "evidence_url": "https://www.amatw.org.tw/View.aspx?id=242&item=64",
+      "basis": "The aviation medical association reproduces the abstract and identifies the original journal issue and pages."
+    },
+    {
+      "record_key": "2026-11-21-taiwan-sweden-verified#zhang",
+      "report_id": "abstract:ndmc-military-medicine-2024-b-i-001",
+      "evidence_url": "https://wwwndmc.ndmutsgh.edu.tw/files/web/191/file_up/10000/13260/%E7%B5%84%E5%90%88%201.pdf#page=151",
+      "basis": "Conference abstract number B-I-001, year and organizer distinguish it from the later journal report."
+    },
+    {
+      "record_key": "2026-11-21-taiwan-sweden-verified#balldin",
+      "report_id": "workshop:ada257612-session-4-discussion-10",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=472",
+      "basis": "Named workshop participant and exact discussion number and page."
+    },
+    {
+      "record_key": "2026-11-21-taiwan-sweden-verified#lund",
+      "report_id": "document:lund-aviation-laboratory-history",
+      "evidence_url": "https://ornhagen.se/old/2020%20Flyg%20och%20navalmedicin%20i%20Lund.pdf#page=2",
+      "basis": "Exact title, same public PDF and selected test described on PDF page 2."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.37/sources.csv#polaris26_eva",
       "report_id": "doi:10.1109/aero66936.2026.11520147",
       "evidence_url": "https://ieeexplore.ieee.org/document/11520147",
@@ -17085,6 +17139,18 @@
   ],
   "studies": [
     {
+      "study_id": "taiwan-gangshan-initial-recurrent-hypoxia-2016-2023",
+      "label": "Gangshan 25,000-ft initial and recurrent hypoxia training sample",
+      "period": "November 2016 to October 2023",
+      "setting": "Gangshan Aviation Physiology Training Center, Taiwan"
+    },
+    {
+      "study_id": "taiwan-c130-cloud-seeding-2002",
+      "label": "Taiwan C-130 cloud-seeding reported DCS series",
+      "period": "March to May 2002",
+      "setting": "Republic of China Air Force C-130 cloud-seeding flights"
+    },
+    {
       "study_id": "filipenkov-ten-km-training-100",
       "label": "Filipenkov et al. 10-km chamber training, 100 participants",
       "period": "Reported in 2005. Training dates unreported.",
@@ -18772,6 +18838,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "taiwan-gangshan-initial-recurrent-hypoxia-2016-2023",
+      "report_id": "doi:10.7011/jamsroc.202512_39(1_2).0002",
+      "role": "primary_journal_hypoxia_report",
+      "locator": "Chinese author abstract methods and results"
+    },
+    {
+      "study_id": "taiwan-gangshan-initial-recurrent-hypoxia-2016-2023",
+      "report_id": "abstract:ndmc-military-medicine-2024-b-i-001",
+      "role": "conference_abstract_same_training_sample",
+      "locator": "Abstract B-I-001 (PDF p. 151)"
+    },
+    {
+      "study_id": "taiwan-c130-cloud-seeding-2002",
+      "report_id": "doi:10.7011/jamsrc.200206.0041",
+      "role": "operational_flight_case_series",
+      "locator": "Final paragraph of the original author abstract"
+    },
     {
       "study_id": "filipenkov-ten-km-training-100",
       "report_id": "gmik:2005:filipenkov-ten-km",
@@ -21618,6 +21702,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "document:lund-aviation-laboratory-history",
+      "right_report": "pmid:13563380",
+      "relationship": "possible_case_overlap",
+      "evidence": "Both accounts describe a severe hypobaric chamber event in a Swedish aviator. Höök provides an October 1954 date and describes transfer to Stockholm two days later. The undated Lund case history describes acute treatment in Karlskrona. These could be sequential locations. Case date, event profile and identifying clinical details are insufficient to count this as a new case.",
+      "evidence_url": "https://ornhagen.se/old/2020%20Flyg%20och%20navalmedicin%20i%20Lund.pdf#page=2"
+    },
+    {
+      "left_report": "abstract:ndmc-military-medicine-2024-b-i-001",
+      "right_report": "doi:10.7011/jamsroc.202512_39(1_2).0002",
+      "relationship": "same_exposure_sample",
+      "evidence": "The exact Chinese title, 3867 person-exposures, November 2016 to October 2023 collection range, 25000 ft profile, overlapping authors, and 3.67-minute mean time of useful consciousness agree. The reports differ slightly in sex percentages and author lists. Store one exposure total. Neither supplies a DCS outcome count.",
+      "evidence_url": "https://wwwndmc.ndmutsgh.edu.tw/files/web/191/file_up/10000/13260/%E7%B5%84%E5%90%88%201.pdf#page=151"
+    },
     {
       "left_report": "article:kjasem-2001-kim-tuc",
       "right_report": "citation:korea-eom-1974-dysbarism",
