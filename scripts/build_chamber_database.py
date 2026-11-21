@@ -176,6 +176,7 @@ CHAMBER_EARLY_NAVY_ALTITUDE = ROOT / "data" / "chamber" / "v1.108"
 CHAMBER_MAYO_AND_STRELTSOV = ROOT / "data" / "chamber" / "v1.109"
 ALTITUDE_OCULAR_CASES = ROOT / "data" / "chamber" / "v1.110"
 CHAMBER_NASA_REANALYSIS = ROOT / "data" / "chamber" / "v1.111"
+CHAMBER_NASA_LONG_EXPOSURES = ROOT / "data" / "chamber" / "v1.112"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1638,6 +1639,11 @@ def build(
                         "publication_nasa_reanalysis_removal": "analysis_removals.csv",
                         "publication_nasa_reanalysis_vge_margin": "vge_margins.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_LONG_EXPOSURES,
+                    {"publication_nasa_long_exposure": "long_exposures.csv"},
                 )
             if rojas_supplement:
                 load_supplement(

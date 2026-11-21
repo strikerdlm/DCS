@@ -12893,6 +12893,24 @@
       "report_id": "pmid:14620470",
       "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/11/article-p1142.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-long-exposure-firecrawl-f4#nasa-2019",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "basis": "Same NASA report number and PDF as the existing Table F1 source.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/abercromby-suited-chamber-testing-tp220343-2019.pdf#page=61"
+    },
+    {
+      "record_key": "2026-11-21-nasa-long-exposure-firecrawl-f5#nasa-2019",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "basis": "Same NASA report number and PDF as the existing Table F1 source.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/abercromby-suited-chamber-testing-tp220343-2019.pdf#page=61"
+    },
+    {
+      "record_key": "2026-11-21-nasa-long-exposure-primary#nasa-2019-f4-f5",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "basis": "Same NASA report number and PDF as the existing Table F1 source.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/abercromby-suited-chamber-testing-tp220343-2019.pdf#page=61"
     }
   ],
   "studies": [
@@ -19619,6 +19637,62 @@
       "relationship": "equal_size_but_different_composition",
       "evidence": "Both releases have 238 rows. The 2003 analysis has 188 male and 50 female exposures and 51 ambulatory. The public hdsd file has 177 male and 61 female rows and 195 ambulatory. No row-level linkage.",
       "evidence_url": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/man/hdsd.Rd"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_verify:5",
+      "relationship": "reprints_existing_chamber_cohort_rates",
+      "evidence": "F4 groups 41 and 42 match the two 5-psia cabin stages in Allen and Beard Table III.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/40/12/article-p1327.pdf#page=2"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "pmid:3044322",
+      "relationship": "reprints_existing_chamber_cohort_rates",
+      "evidence": "F4 group 256 repeats the 64/82 published Olson flight count.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/7/article-p635.pdf#page=3"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
+      "relationship": "possible_overlap_historical_chamber_archive",
+      "evidence": "F4 groups 260 and 261 match Bends Screening Index pressures and exercise but the two sources count different numbers of exposures.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "pmid:3675514",
+      "relationship": "reprints_existing_chamber_cohort_rates",
+      "evidence": "F4 groups 262 and 263 match Krutz and Dixon's crossover outcomes. The reprint and journal give different pressure and prebreathe values.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA97.pdf"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "ntrs:n87-25740",
+      "relationship": "reprints_existing_chamber_cohort_rates",
+      "evidence": "F5 groups 157 and 158 reproduce the 24- and 18-hour Chadov staging trials. The original endpoint is source-defined altitude decompression disorders.",
+      "evidence_url": "https://archive.org/download/jprs-report_jprs-usb-87-003/jprs-report_jprs-usb-87-003.pdf#page=43"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "pmid:2960317",
+      "relationship": "reprints_chamber_rates_with_conflicting_denominator",
+      "evidence": "F5 groups 237 and 238 reproduce the combined 4/38 six-hour group. F5 group 239 and the related eight-hour prebreathe journal arm use 11 and eight exposures, respectively.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA110.pdf#page=2"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "jprs:71096-kazakova-poleshchuk-34-38",
+      "relationship": "reprints_existing_chamber_cohort_rates",
+      "evidence": "F5 groups 306–309 match the original 25/38 total and combine the primary suited and control arms at 480 minutes.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.c2960236&seq=192"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "pmid:4147599",
+      "relationship": "unresolved_overlap",
+      "evidence": "The indexed original covers a compatible final pressure and duration but its abstract does not identify the F5 group 291 risk set.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19740007667/downloads/19740007667.pdf"
     }
   ],
   "report_titles": {

@@ -3377,3 +3377,46 @@ def test_nasa_reanalysis_preserves_shared_trials_and_selected_censoring(release)
                 SELECT count(*),min(report_id),max(report_id)
                 FROM review.review_record WHERE record_key IN (?,?)
             """, (new, previous)).fetchone() == (2, "record:" + previous, "record:" + previous)
+
+
+def test_nasa_long_exposure_tables_preserve_source_counts_and_overlap(release):
+    with connect_pair(release) as db:
+        db.row_factory = sqlite3.Row
+        rows = db.execute("""
+            SELECT * FROM publication_nasa_long_exposure ORDER BY table_label,reported_group
+        """).fetchall()
+        assert len(rows) == 23
+        assert {row["analysis_role"] for row in rows} == {"overlap_hold"}
+        assert [tuple(row) for row in db.execute("""
+            SELECT table_label,count(*),sum(exposures),sum(dcs_cases),sum(serious_cases)
+            FROM publication_nasa_long_exposure GROUP BY table_label ORDER BY table_label
+        """)] == [("F4", 7, 241, 156, 0), ("F5", 16, 337, 51, 0)]
+        assert [tuple(row) for row in db.execute("""
+            SELECT nasa_test_id,sum(g.dcs_cases),sum(g.exposures),t.dcs_cases,t.dcs_denominator
+            FROM publication_nasa_long_exposure g JOIN nasa_test t ON g.nasa_test_id=t.test_id
+            GROUP BY nasa_test_id ORDER BY nasa_test_id
+        """)] == [
+            ("3a", 6, 28, 6, 28), ("3b", 8, 35, 8, 35), ("3c", 3, 14, 3, 14),
+            ("3d", 2, 12, 2, 12), ("5a", 4, 38, 4, 38), ("5b", 0, 11, 0, 11),
+            ("6", 1, 29, 1, 29),
+        ]
+        indexed = {row["reported_group"]: row for row in rows}
+        assert indexed[212]["prebreathe_as_printed"] == "60"
+        assert "240 min at ground pressure plus 30 min" in indexed[212]["linkage_evidence"]
+        assert indexed[291]["linkage_status"] == "unresolved"
+        assert indexed[291]["nasa_test_id"] is None
+        assert indexed[307]["dcs_percent_as_printed"] == 66.6
+        assert "suited 3/4 and control 1/2" in indexed[307]["linkage_evidence"]
+        report, crosswalk = db.execute("""
+            SELECT report_id,json_extract(metadata_json,'$.group_crosswalk')
+            FROM review.review_record WHERE source_key='nasa-2019-f4-f5'
+        """).fetchone()
+        assert report == "record:legacy:data/chamber/v1/sources.csv#nasa19"
+        assert [dict(row) for row in rows] == json.loads(crosswalk)
+        assert [tuple(row) for row in db.execute("""
+            SELECT endpoint,count(*)
+            FROM review.review_search_observation
+            WHERE record_key='2026-11-21-nasa-long-exposure-primary#nasa-2019-f4-f5'
+            GROUP BY endpoint ORDER BY endpoint
+        """)] == [("dcs_as_compiled_by_nasa", 23), ("serious_dcs_as_compiled_by_nasa", 23)]
+        assert db.execute("SELECT count(*) FROM publication_observation WHERE source_id='nasa19'").fetchone()[0] == 0
