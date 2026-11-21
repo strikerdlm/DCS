@@ -190,6 +190,7 @@ CHAMBER_ASMA_INTERIM = ROOT / "data" / "chamber" / "v1.122"
 CHAMBER_DISPATCHER_CROSSWALK = ROOT / "data" / "chamber" / "v1.123"
 CHAMBER_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.124"
 CHAMBER_WARTIME_REEXPOSURE = ROOT / "data" / "chamber" / "v1.125"
+CHAMBER_DESCENT_AND_TREATED_PAIN = ROOT / "data" / "chamber" / "v1.126"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1800,6 +1801,17 @@ def build(
                         "publication_overlap": "overlap.csv",
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                         "publication_chamber_fatality_crosswalk": "fatality_crosswalk.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_DESCENT_AND_TREATED_PAIN,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_bends_grade_syncope": "syncope_by_bends_grade.csv",
                     },
                 )
             if rojas_supplement:

@@ -14267,6 +14267,48 @@
       "report_id": "pmid:20252835",
       "basis": "Exact DOI and PMID identify both access routes as the same 1947 report.",
       "evidence_url": "https://doi.org/10.1152/ajplegacy.1947.150.1.133"
+    },
+    {
+      "record_key": "2026-11-21-brown-smith-chamber-fire-smith#brown-related-pubmed",
+      "report_id": "pmid:20994853",
+      "basis": "Exact PubMed identifier matches the existing formal discovery record.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20994853/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.126/sources.csv#brown46_chamber_syncope",
+      "report_id": "pmid:20994853",
+      "basis": "Author, title, journal volume and starting page match the indexed report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf"
+    },
+    {
+      "record_key": "2026-11-21-brown-smith-chamber-originals#brown46_chamber_syncope",
+      "report_id": "pmid:20994853",
+      "basis": "Author, title, journal volume and starting page match the indexed report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf"
+    },
+    {
+      "record_key": "2026-11-21-brown-smith-chamber-fire-smith#smith-pubmed",
+      "report_id": "pmid:20994854",
+      "basis": "Exact PubMed identifier matches the existing formal discovery record.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20994854/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.126/sources.csv#smith46_treated_joint_pain",
+      "report_id": "pmid:20994854",
+      "basis": "Author, title, journal volume and starting page match the indexed report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf"
+    },
+    {
+      "record_key": "2026-11-21-brown-smith-chamber-originals#smith46_treated_joint_pain",
+      "report_id": "pmid:20994854",
+      "basis": "Author, title, journal volume and starting page match the indexed report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf"
+    },
+    {
+      "record_key": "2026-11-21-brown-smith-chamber-companion#peterson45_simulated_altitude",
+      "report_id": "citation:peterson-bornstein-jasper-1945-altitude",
+      "basis": "Smith reference 4 gives the author sequence, title, year and starting page.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf#page=5"
     }
   ],
   "studies": [
@@ -15607,6 +15649,18 @@
       "label": "Berkeley B-24 study of chamber and aircraft exposures",
       "period": "Published 1944. Exact exposure dates unavailable.",
       "setting": "Berkeley low-pressure chamber and the Consolidated Vultee B-24 program."
+    },
+    {
+      "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+      "label": "Brown 1946 Berkeley chamber descents and syncopal reactions",
+      "period": "Published 1946. Exact dates unavailable.",
+      "setting": "Donner Laboratory, University of California experimental chamber."
+    },
+    {
+      "study_id": "randolph-1946-smith-treated-altitude-experiments",
+      "label": "Smith 1946 treated decompression symptom experiments",
+      "period": "Published 1946. Exact dates unavailable.",
+      "setting": "AAF School of Aviation Medicine, Randolph Field. The report describes two treatment/observation series."
     }
   ],
   "study_reports": [
@@ -17955,6 +18009,18 @@
       "report_id": "pmid:21005550",
       "role": "later_detailed_publication",
       "locator": "Methods and Results, pp. 290–297"
+    },
+    {
+      "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+      "report_id": "pmid:20994853",
+      "role": "original_experimental_report",
+      "locator": "Printed pp. 257–263, Tables I–VI"
+    },
+    {
+      "study_id": "randolph-1946-smith-treated-altitude-experiments",
+      "report_id": "pmid:20994854",
+      "role": "original_experimental_report",
+      "locator": "Printed pp. 265–269"
     }
   ],
   "relations": [
@@ -21891,6 +21957,48 @@
       "relationship": "potential_prebreathe_cohort_overlap",
       "evidence": "Same lead author and similar altitude and exposure duration in some 1946 arms. The bulletin gives relative protection for 1,800 cadets without arm denominators or a cohort crosswalk.",
       "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=299"
+    },
+    {
+      "left_report": "pmid:20994853",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "possible_berkeley_series_overlap",
+      "evidence": "Same Berkeley institution, 38,000-ft target and 90-min plan. Bridge reports 167 man-runs with five-minute stepping and Brown 225 man-runs with seated arm lifting every 2.5 min. Repeated participant and session linkage is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf#page=2"
+    },
+    {
+      "left_report": "pmid:20994853",
+      "right_report": "pmid:21018673",
+      "relationship": "possible_berkeley_series_overlap",
+      "evidence": "Henry series G and MA combine bar lifting and stepping at 38,000 ft. Brown specifies arm-only work with different subgroup totals. Common participants and exposure dates are unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf#page=2"
+    },
+    {
+      "left_report": "pmid:20994853",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_historic_bibliographies:1",
+      "relationship": "unresolved_historical_exercise_overlap",
+      "evidence": "The earlier wartime exercise report shares the Berkeley program. Bibliographic listings specify CAM 245, but original arms and participant linkage are unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf#page=2"
+    },
+    {
+      "left_report": "pmid:20994854",
+      "right_report": "citation:peterson-bornstein-jasper-1945-altitude",
+      "relationship": "cites_physiological_comparison_with_unresolved_membership",
+      "evidence": "Smith cites Peterson and colleagues for pulse findings only. Smith's original study and the independently indexed War Medicine title describe different protocols. The 1945 original and individual linkage are unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf#page=5"
+    },
+    {
+      "left_report": "pmid:20994854",
+      "right_report": "asb:1944:1:6:5:karpovich",
+      "relationship": "possible_randolph_station_overlap",
+      "evidence": "Both sources describe Randolph Field aviation students and a 38,000-ft chamber target. Different outcomes and exposure profiles are documented. The SAM Research Report 217 cited by Smith is a postflight-reaction report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf#page=1"
+    },
+    {
+      "left_report": "pmid:20994853",
+      "right_report": "citation:masland-1944-collapse",
+      "relationship": "cites_prior_collapse_report",
+      "evidence": "Brown lists this original 1944 article as reference 10. The synopsis does not identify shared exposures or cases.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf#page=8"
     }
   ],
   "report_titles": {
@@ -22059,6 +22167,9 @@
     "asb:1944:1:11:9": "Study of Bends: A Comparison in Low Pressure Chamber and Actual Flight",
     "citation:masland-1944-collapse": "Collapse at High Altitude",
     "asb:1944:1:11:8:gray": "Prevention of Decompression Sickness by Denitrogenation",
-    "asb:1944:1:11:5:york": "A Case of Aeroembolism"
+    "asb:1944:1:11:5:york": "A Case of Aeroembolism",
+    "pmid:20994853": "The Incidence and Relation of Syncope to Decompression Sickness",
+    "pmid:20994854": "Studies of the Effects of Morphine at Simulated High Altitudes and Its Use for the Relief of Pain of Decompression Sickness",
+    "citation:peterson-bornstein-jasper-1945-altitude": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude"
   }
 }

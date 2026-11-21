@@ -1,0 +1,902 @@
+[
+  {
+    "id": "2026-11-21-brown-smith-chamber-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Bruce R Brown 1946 syncope decompression 225 flights Berkeley Cook Report CAM 245 original chamber outcomes",
+      "http_status": 433,
+      "search_depth": "advanced",
+      "max_results": 6
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented a return.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-brown-smith-chamber-fire-brown",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"The incidence and relation of syncope\" Brown \"225\" chamber full text 1946; Cook chamber aviation medicine 1944",
+      "search_id": "01a1fe36-14df-759f-b661-88e71f1ed8a3"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The combined title and cohort search returned no match.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-brown-smith-chamber-fire-smith",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search_and_verify_index",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Studies of the effects of morphine at simulated high altitudes\" Smith PDF 1946",
+      "search_id": "01a1fe2f-412b-7171-8839-a2f942532c2e"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The exact-title search found Smith. Its NLM record led to Brown's publisher article.",
+    "records": [
+      {
+        "id": "smith-pubmed",
+        "title": "Studies of the Effects of Morphine at Simulated High Altitudes and Its Use for the Relief of Pain of Decompression Sickness",
+        "authors": "Smith PK",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20994854/",
+        "year": 1946,
+        "pmid": "20994854"
+      },
+      {
+        "id": "brown-related-pubmed",
+        "title": "The Incidence and Relation of Syncope to Decompression Sickness",
+        "authors": "Brown BR",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20994853/",
+        "year": 1946,
+        "pmid": "20994853"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-brown-smith-chamber-originals",
+    "date": "2026-11-21",
+    "provider": "AsMA publisher and locally rendered PDF pages",
+    "operation": "extract_original_tables",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "firecrawl_pdf_note": "Smith publisher PDF was identified with Firecrawl. Automated text result only contained the watermark.",
+      "llama_parse_http_status": 402,
+      "llama_parse_scope": "Public Smith PDF upload. Local PDF text and renders were used after the service response."
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Verified the public publisher scans and manually checked printed cells. Keep originals outside the repository.",
+    "records": [
+      {
+        "id": "brown46_chamber_syncope",
+        "title": "The Incidence and Relation of Syncope to Decompression Sickness",
+        "authors": "Brown BR",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p257.pdf",
+        "year": 1946,
+        "pmid": "20994853",
+        "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+        "sha256": "e138db3dbb3d352ff120b781b9f9653f142cbf50afa9cdaad5295f479f8a403b",
+        "observations": [
+          {
+            "id": "brown46_chamber_syncope:all-runs:early_descent_any_cause_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "early_descent_any_cause_source",
+            "group": "all-runs",
+            "cases": 134,
+            "denominator": 225,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, text before Table II",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "overlap_hold",
+            "note": "All reported causes. Repeated exposures contributed by the same 100 people."
+          },
+          {
+            "id": "brown46_chamber_syncope:all-runs:early_descent_bends_primary_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "early_descent_bends_primary_source",
+            "group": "all-runs",
+            "cases": 89,
+            "denominator": 225,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 263, Table VI and conclusions",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "overlapping_margin",
+            "note": "Bends was a primary reason for early descent. Nested within the 134 descents. The paper does not enumerate all bends in all exposures."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:bends_alone_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_alone_source",
+            "group": "early-descent-reasons",
+            "cases": 81,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:chokes_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "chokes_source",
+            "group": "early-descent-reasons",
+            "cases": 3,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:abdominal_gas_pain_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "abdominal_gas_pain_source",
+            "group": "early-descent-reasons",
+            "cases": 10,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:chokes_and_bends_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "chokes_and_bends_source",
+            "group": "early-descent-reasons",
+            "cases": 1,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:ear_pain_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "ear_pain_source",
+            "group": "early-descent-reasons",
+            "cases": 1,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:bends_and_faintness_pallor_or_dizziness_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_and_faintness_pallor_or_dizziness_source",
+            "group": "early-descent-reasons",
+            "cases": 7,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:faintness_or_pallor_alone_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "faintness_or_pallor_alone_source",
+            "group": "early-descent-reasons",
+            "cases": 21,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:hyperventilation_and_faintness_pallor_or_dizziness_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "hyperventilation_and_faintness_pallor_or_dizziness_source",
+            "group": "early-descent-reasons",
+            "cases": 4,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:abdominal_gas_pain_and_dizziness_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "abdominal_gas_pain_and_dizziness_source",
+            "group": "early-descent-reasons",
+            "cases": 2,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:loss_of_consciousness_without_evidence_of_anoxia_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "loss_of_consciousness_without_evidence_of_anoxia_source",
+            "group": "early-descent-reasons",
+            "cases": 2,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descent-reasons:advanced_syncopal_state_with_anoxia_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "advanced_syncopal_state_with_anoxia_source",
+            "group": "early-descent-reasons",
+            "cases": 2,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 258, Table I",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Source-classified primary reason among the 134 descents. One printed dizziness–nausea line has no separate numeral. Source attributes these hypoxic events to failed oxygen delivery."
+          },
+          {
+            "id": "brown46_chamber_syncope:syncope-primary-or-contributing:bends_more_than_grade_3_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_more_than_grade_3_source",
+            "group": "syncope-primary-or-contributing",
+            "cases": 18,
+            "denominator": 36,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 259, Table II",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Column A excludes two abdominal-gas precipitated events."
+          },
+          {
+            "id": "brown46_chamber_syncope:syncope-primary-or-contributing:bends_grade_3_or_less_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_grade_3_or_less_source",
+            "group": "syncope-primary-or-contributing",
+            "cases": 10,
+            "denominator": 36,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 259, Table II",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Column A excludes two abdominal-gas precipitated events."
+          },
+          {
+            "id": "brown46_chamber_syncope:syncope-primary-or-contributing:without_bends_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "without_bends_source",
+            "group": "syncope-primary-or-contributing",
+            "cases": 8,
+            "denominator": 36,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 259, Table II",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Column A excludes two abdominal-gas precipitated events."
+          },
+          {
+            "id": "brown46_chamber_syncope:syncope-only-primary:bends_more_than_grade_3_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_more_than_grade_3_source",
+            "group": "syncope-only-primary",
+            "cases": 11,
+            "denominator": 29,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 259, Table II",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Column B further excludes the seven descent reasons already classified as combined bends and syncope. Nested in Column A."
+          },
+          {
+            "id": "brown46_chamber_syncope:syncope-only-primary:bends_grade_3_or_less_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_grade_3_or_less_source",
+            "group": "syncope-only-primary",
+            "cases": 10,
+            "denominator": 29,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 259, Table II",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Column B further excludes the seven descent reasons already classified as combined bends and syncope. Nested in Column A."
+          },
+          {
+            "id": "brown46_chamber_syncope:syncope-only-primary:without_bends_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "without_bends_source",
+            "group": "syncope-only-primary",
+            "cases": 8,
+            "denominator": 29,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 259, Table II",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Column B further excludes the seven descent reasons already classified as combined bends and syncope. Nested in Column A."
+          },
+          {
+            "id": "brown46_chamber_syncope:selected-repeat-syncope:recurrent_primary_descent_syncope_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "recurrent_primary_descent_syncope_source",
+            "group": "selected-repeat-syncope",
+            "cases": 2,
+            "denominator": 15,
+            "denominator_unit": "person",
+            "locator": "Printed pp. 259–260, Table III",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Fifteen repeat participants selected because a syncopal reaction was a primary reason for descent on at least one flight. Prose identifies two with more than one qualifying reaction."
+          },
+          {
+            "id": "brown46_chamber_syncope:selected-repeat-bends-syncope:recurrent_primary_descent_bends_syncope_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "recurrent_primary_descent_bends_syncope_source",
+            "group": "selected-repeat-bends-syncope",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person",
+            "locator": "Printed pp. 260–261, Table IV",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Eight participants selected for a combined bends and syncope primary reason on one flight. The text says none had more than one descent with that combined primary reason. Their relation to Table III's participants is unresolved."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descents:mild_syncope_secondary_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "mild_syncope_secondary_source",
+            "group": "early-descents",
+            "cases": 28,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 262, Table V",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Mild syncopal reaction was mentioned without being listed as a primary reason for descent."
+          },
+          {
+            "id": "brown46_chamber_syncope:early-descents:syncope_major_or_minor_printed_composite",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "syncope_major_or_minor_printed_composite",
+            "group": "early-descents",
+            "cases": 64,
+            "denominator": 134,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 262, Table V text",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Author combines 36 in the earlier analytic group with 28 here. The Table I broad classification includes two further abdominal-gas events. Keep the printed 64."
+          },
+          {
+            "id": "brown46_chamber_syncope:bends-primary-descents:any_syncopal_reaction_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "any_syncopal_reaction_source",
+            "group": "bends-primary-descents",
+            "cases": 32,
+            "denominator": 89,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 263, Table VI",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "24 mild plus eight severe as reported. Denominator is the 89 descents with bends as primary cause."
+          },
+          {
+            "id": "brown46_chamber_syncope:bends-primary-descents:severe_syncopal_reaction_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "severe_syncopal_reaction_source",
+            "group": "bends-primary-descents",
+            "cases": 8,
+            "denominator": 89,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 263, Table VI",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Nested in 32 syncopal reactions. Source definition differs from the seven combined primary reasons printed in Table I."
+          },
+          {
+            "id": "brown46_chamber_syncope:secondary-mild-syncope:bends_with_secondary_syncope_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_with_secondary_syncope_source",
+            "group": "secondary-mild-syncope",
+            "cases": 24,
+            "denominator": 28,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 262, Table V",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Four Table V categories partition the 28 descents with a secondary mild syncopal reaction."
+          },
+          {
+            "id": "brown46_chamber_syncope:secondary-mild-syncope:bends_and_chokes_with_secondary_syncope_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "bends_and_chokes_with_secondary_syncope_source",
+            "group": "secondary-mild-syncope",
+            "cases": 1,
+            "denominator": 28,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 262, Table V",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Four Table V categories partition the 28 descents with a secondary mild syncopal reaction."
+          },
+          {
+            "id": "brown46_chamber_syncope:secondary-mild-syncope:chokes_with_secondary_syncope_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "chokes_with_secondary_syncope_source",
+            "group": "secondary-mild-syncope",
+            "cases": 2,
+            "denominator": 28,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 262, Table V",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Four Table V categories partition the 28 descents with a secondary mild syncopal reaction."
+          },
+          {
+            "id": "brown46_chamber_syncope:secondary-mild-syncope:abdominal_gas_pain_with_secondary_syncope_source",
+            "study_id": "berkeley-1946-brown-arm-exercise-chamber-series",
+            "endpoint": "abdominal_gas_pain_with_secondary_syncope_source",
+            "group": "secondary-mild-syncope",
+            "cases": 1,
+            "denominator": 28,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 262, Table V",
+            "window": "At altitude until descent or early removal, with a postflight interview. Longer follow-up window unavailable.",
+            "analysis_role": "case_conditional",
+            "note": "Four Table V categories partition the 28 descents with a secondary mild syncopal reaction."
+          }
+        ],
+        "participants": 100,
+        "man_runs": 225,
+        "ages_years": [
+          17,
+          25
+        ],
+        "ascent_rate_ft_min": null,
+        "oxygen_start_ft": null,
+        "target_altitude_ft": 38000,
+        "planned_target_min": 90,
+        "exercise_interval_min": 2.5,
+        "protocol": "Donner Laboratory experimental chamber. 100 people, largely Armed Forces, aged 17–25. 225 man-runs to 38,000 ft for up to 90 min or early lock removal. Constant-flow oxygen at altitude. Seated bar lifting every 2.5 min. Ascent rate, oxygen start and individual exposure linkage unavailable.",
+        "table_i": {
+          "locator": "Printed p. 258",
+          "unprinted_count_labels": [
+            "Dizziness–Nausea"
+          ],
+          "broad_syncope_bracket_reported_percent": 29,
+          "non_syncope_bracket_reported_percent": 71,
+          "broad_syncope_count_from_visible_rows": 38,
+          "distinction": "Table II excludes two abdominal-gas events from its 36. The 64 prose composite uses that 36 plus the 28 mild observations."
+        },
+        "table_iii": {
+          "locator": "Printed p. 260",
+          "row_namespace": "Table III only",
+          "rows": [
+            {
+              "row_label": 1,
+              "printed_cells": [
+                "−B5°↓",
+                "+B4°",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 2,
+              "printed_cells": [
+                "−",
+                "+B3°",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 3,
+              "printed_cells": [
+                "−",
+                "+B0°",
+                "−",
+                "B6° & D↓",
+                null
+              ]
+            },
+            {
+              "row_label": 4,
+              "printed_cells": [
+                "−",
+                "+B2°",
+                "−",
+                "−B",
+                null
+              ]
+            },
+            {
+              "row_label": 5,
+              "printed_cells": [
+                "B5° & N↓",
+                "+B3°",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 6,
+              "printed_cells": [
+                "−",
+                "−",
+                "−C↓",
+                "+B5°",
+                null
+              ]
+            },
+            {
+              "row_label": 7,
+              "printed_cells": [
+                "−",
+                "−",
+                "+B0°",
+                "−",
+                null
+              ]
+            },
+            {
+              "row_label": 8,
+              "printed_cells": [
+                "+B5°",
+                "−",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 9,
+              "printed_cells": [
+                "−",
+                "+B0°",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 10,
+              "printed_cells": [
+                "−",
+                "−",
+                "+B4°",
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 11,
+              "printed_cells": [
+                "−B8°↓",
+                "+B6°",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 12,
+              "printed_cells": [
+                "−",
+                "+B3°",
+                "−",
+                "−",
+                null
+              ]
+            },
+            {
+              "row_label": 13,
+              "printed_cells": [
+                "−",
+                "−",
+                "+B5°",
+                "−",
+                "−"
+              ]
+            },
+            {
+              "row_label": 14,
+              "printed_cells": [
+                "+B1°",
+                "−",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 15,
+              "printed_cells": [
+                "−",
+                "−",
+                "+B2°",
+                null,
+                null
+              ]
+            }
+          ],
+          "plus_means": "descent due to a syncopal reaction",
+          "minus_means": "no syncopal reaction",
+          "arrow_means": "descent for another cause"
+        },
+        "table_iv": {
+          "locator": "Printed p. 261",
+          "row_namespace": "Table IV only",
+          "rows": [
+            {
+              "row_label": 1,
+              "printed_cells": [
+                "+B8°",
+                "−B8°↓",
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 2,
+              "printed_cells": [
+                "+B8°",
+                "−B3°",
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 3,
+              "printed_cells": [
+                "+B6°",
+                "−C↓",
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 4,
+              "printed_cells": [
+                "−B8°↓",
+                "+B8°",
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 5,
+              "printed_cells": [
+                "G & S↓",
+                "+B7°",
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 6,
+              "printed_cells": [
+                "−B0°",
+                "+B8°†",
+                null,
+                null
+              ]
+            },
+            {
+              "row_label": 7,
+              "printed_cells": [
+                "−B0°",
+                "D & N B0°↓",
+                "−B0°",
+                "+B6°"
+              ]
+            },
+            {
+              "row_label": 8,
+              "printed_cells": [
+                "+B5°",
+                "D B3°↓",
+                null,
+                null
+              ]
+            }
+          ],
+          "plus_means": "descent due to bends and syncope",
+          "minus_means": "no syncopal reaction",
+          "arrow_means": "descent for another cause",
+          "dagger_means": "loss of consciousness",
+          "case_6_context": "Prose describes the other flight of case 6 as symptom-free. The printed first trial explicitly shows absence of syncope and grade-zero bends. Group membership relative to Table III is unverified."
+        },
+        "table_vi": {
+          "locator": "Printed p. 263",
+          "totals": {
+            "syncope_absent": 57,
+            "mild_syncope": 24,
+            "severe_syncope": 8
+          },
+          "rows": [
+            {
+              "grade": 1,
+              "absence": null,
+              "mild": null,
+              "severe": null,
+              "reported_percent": null,
+              "note": "All cells are blank as printed."
+            },
+            {
+              "grade": 2,
+              "absence": null,
+              "mild": null,
+              "severe": null,
+              "reported_percent": null,
+              "note": "All cells are blank as printed."
+            },
+            {
+              "grade": 3,
+              "absence": 1,
+              "mild": null,
+              "severe": null,
+              "reported_percent": null,
+              "note": "Unprinted syncope cells retained as blank."
+            },
+            {
+              "grade": 4,
+              "absence": 2,
+              "mild": null,
+              "severe": null,
+              "reported_percent": null,
+              "note": "Unprinted syncope cells retained as blank."
+            },
+            {
+              "grade": 5,
+              "absence": 6,
+              "mild": 5,
+              "severe": 1,
+              "reported_percent": 50,
+              "note": ""
+            },
+            {
+              "grade": 6,
+              "absence": 17,
+              "mild": 6,
+              "severe": 1,
+              "reported_percent": 29,
+              "note": ""
+            },
+            {
+              "grade": 7,
+              "absence": 17,
+              "mild": 8,
+              "severe": 1,
+              "reported_percent": 35,
+              "note": ""
+            },
+            {
+              "grade": 8,
+              "absence": 11,
+              "mild": 3,
+              "severe": 5,
+              "reported_percent": 42,
+              "note": ""
+            },
+            {
+              "grade": 9,
+              "absence": 3,
+              "mild": 2,
+              "severe": null,
+              "reported_percent": 66,
+              "note": "Printed 66% differs from 2/5 (40%) using only the displayed counts. Exact reason is unknown. Preserve the blank severe cell and the published percentage."
+            }
+          ]
+        }
+      },
+      {
+        "id": "smith46_treated_joint_pain",
+        "title": "Studies of the Effects of Morphine at Simulated High Altitudes and Its Use for the Relief of Pain of Decompression Sickness",
+        "authors": "Smith PK",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf",
+        "year": 1946,
+        "pmid": "20994854",
+        "study_id": "randolph-1946-smith-treated-altitude-experiments",
+        "sha256": "327004c352a4dec7b3494cba9d5a16935bd8f3f67f174c3052fcbdbbf8e89a38",
+        "observations": [
+          {
+            "id": "smith46_treated_joint_pain:treated-physiology:joint_decompression_pain_source",
+            "study_id": "randolph-1946-smith-treated-altitude-experiments",
+            "endpoint": "joint_decompression_pain_source",
+            "group": "treated-physiology",
+            "cases": 2,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "Printed p. 267, Results and Discussion",
+            "window": "At altitude with approximately 60 min planned. The author reports 24 h of hospital observation after descent.",
+            "analysis_role": "selected_cluster",
+            "note": "Two pain events began about 45 min after administration and immediately after exercise. Both stayed at altitude about 20 more minutes. The exact time from chamber start to administration is unavailable."
+          },
+          {
+            "id": "smith46_treated_joint_pain:treated-physiology:reliable_oximeter_reading_source",
+            "study_id": "randolph-1946-smith-treated-altitude-experiments",
+            "endpoint": "reliable_oximeter_reading_source",
+            "group": "treated-physiology",
+            "cases": 4,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "Printed p. 267, Results and Discussion",
+            "window": "At altitude with approximately 60 min planned. The author reports 24 h of hospital observation after descent.",
+            "analysis_role": "overlapping_margin",
+            "note": "Measurement coverage in the same treated six-person series. Missing readings are not physiological outcomes."
+          }
+        ],
+        "protocol": "Randolph Field aviation students at 38,000 ft following about five minutes from ground. No prior denitrogenation as reported. Knee bends and push-ups every ten minutes. Treated physiological series.",
+        "treated_physiology_participants": 6,
+        "source_symptom_treatment_participants": 15,
+        "combined_unique_participants": null,
+        "untreated_comparator_size": null,
+        "target_altitude_ft": 38000,
+        "planned_physiological_observation_min": 60,
+        "reported_onset_min_from_administration": 45,
+        "reported_hold_min_after_symptom": 20,
+        "reported_hospital_observation_hours": 24,
+        "figures_note": "Figures 2–4 show selected symptom-treatment traces with changing pressure. The paper reports no direct untreated group denominator or time-matched untreated curve.",
+        "sam_217_citation": {
+          "report_system": "US Army School of Aviation Medicine Research Report",
+          "number": 217,
+          "author": "Richard L. Masland",
+          "date": "1943-12-30",
+          "subject": "management of postchamber reactions",
+          "locator": "Printed p. 269, ref. 2"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-brown-smith-chamber-companion",
+    "date": "2026-11-21",
+    "provider": "Public bibliography and Smith reference",
+    "operation": "trace_companion_source",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "firecrawl_search_id": "01a1fe36-c761-70f6-b0f4-b03ce48855fd"
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Smith directly cites the report. Exact-title Firecrawl did not return the original, and the public secondary index contains no verifiable DCS counts.",
+    "records": [
+      {
+        "id": "peterson45_simulated_altitude",
+        "title": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude",
+        "authors": "Peterson EW, Bornstein MB, Jasper HH",
+        "url": "https://cb999b1c-3ce7-4915-8a24-0e7fc229b6b2.eurekamag.com/research/024/552/024552722.php",
+        "year": 1945,
+        "locator": "Smith 1946, p. 269, reference 4",
+        "citation_source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/3/article-p265.pdf#page=5",
+        "printed_reference_pages": "23–28",
+        "index_pages": "23–29",
+        "note": "The index shows conflicting overall and arm totals and physiological endpoints. Original publication unavailable. No clinical outcome extracted."
+      }
+    ]
+  }
+]
