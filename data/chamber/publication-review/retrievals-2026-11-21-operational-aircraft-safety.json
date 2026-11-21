@@ -1,0 +1,257 @@
+[
+  {
+    "id": "2026-11-21-operational-aircraft-safety-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "blocked",
+    "note": "HTTP 433. Spending limit reached before records were returned.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "hypobaric chamber decompression sickness incidence trainees exposures aviation chamber military Denmark Norway Germany India hypoxia training case counts"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-operational-aircraft-safety-files-search",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered results retained. The first two hits identify the same existing PMID.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a20003-bcc7-7106-b3fa-e18656bee69b",
+      "query": "\"Depressurization in military aircraft\" \"1055 incidents\" Files Webb Pilmanis full text altitude decompression sickness"
+    },
+    "records": [
+      {
+        "id": "result-1",
+        "title": "Depressurization in military aircraft: rates, rapidity, and health effects for ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15945394/"
+      },
+      {
+        "id": "result-2",
+        "title": "Depressurization in military aircraft: Rates, rapidity, and health effects for ...",
+        "url": "https://www.researchgate.net/publication/7797813_Depressurization_in_military_aircraft_Rates_rapidity_and_health_effects_for_1055_incidents"
+      },
+      {
+        "id": "result-3",
+        "title": "Schwindel beim Tauchsport — Die Innenohr ... - Springer Nature",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-211-99270-8_21"
+      },
+      {
+        "id": "result-4",
+        "title": "(PDF) Handbook of Aerospace and Operational Physiology",
+        "url": "https://www.academia.edu/69503197/Handbook_of_Aerospace_and_Operational_Physiology"
+      },
+      {
+        "id": "result-5",
+        "title": "Effect of oxygen and heliox breathing on air bubbles in adipose ...",
+        "url": "https://journals.physiology.org/doi/abs/10.1152/japplphysiol.90840.2008"
+      },
+      {
+        "id": "result-6",
+        "title": "Barotrauma Clinical Presentation: History, Physical Examination",
+        "url": "https://emedicine.medscape.com/article/768618-clinical"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-operational-aircraft-safety-files-original",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association via Firecrawl",
+    "operation": "verify_public_full_text",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Full publisher PDF and rendered Table IV support an incident-level denominator.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrape_id": "01a20004-0a26-72a4-a74f-df754108a7c6",
+      "pages": 7
+    },
+    "records": [
+      {
+        "id": "files2005",
+        "title": "Depressurization in Military Aircraft: Rates, Rapidity, and Health Effects for 1055 Incidents",
+        "year": 2005,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p523.pdf",
+        "pmid": "15945394",
+        "sha256": "b1804fd1695b8a4a895585d869bd7155da5de68d27a0b2720e79f2726f129872",
+        "full_text_available": true,
+        "locator": "Methods pp. 524–525; Results and Table II p. 526; Table IV p. 527; Discussion p. 528",
+        "observations": [
+          {
+            "id": "any-dcs",
+            "group": "all-reported-depressurizations",
+            "endpoint": "any_dcs",
+            "cases": 83,
+            "denominator": 1055,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results p. 526; Table IV p. 527; Discussion p. 528",
+            "note": "FY1981–FY2003 Navy and Air Force safety reports. Reported incidents with at least one DCS diagnosis. Individual counts and ascertainment for unreported incidents are unknown."
+          },
+          {
+            "id": "low-cabin-altitude",
+            "group": "maximum-cabin-altitude-below-14000-ft",
+            "endpoint": "any_dcs",
+            "cases": 1,
+            "denominator": 67,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results p. 526 and Figure 2",
+            "note": "Nested within the reported cohort. These are cabin pressure altitudes."
+          },
+          {
+            "id": "high-cabin-altitude",
+            "group": "maximum-cabin-altitude-above-40000-ft",
+            "endpoint": "any_dcs",
+            "cases": 2,
+            "denominator": 16,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results p. 526 and Figure 2; Discussion p. 528",
+            "note": "Nested within the reported cohort. These are cabin pressure altitudes."
+          },
+          {
+            "id": "narrative-conflict",
+            "group": "incidents-with-any-pathology",
+            "endpoint": "any_dcs_as_printed_in_prose",
+            "cases": 8,
+            "denominator": 350,
+            "denominator_unit": "reported_depressurization_incident",
+            "locator": "Results narrative p. 527",
+            "note": "The printed 8 conflicts with Table IV, which reconciles to 83. Preserve both source values."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-operational-aircraft-safety-bason-original",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association",
+    "operation": "verify_public_full_text",
+    "reported_total": null,
+    "status": "observed",
+    "note": "The original distinguishes 225 pressure losses, 12 DCS-affected aircraft and 15 affected crew. Files cites this series. Overlap remains unresolved for 1981–1989.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "pages": 3
+    },
+    "records": [
+      {
+        "id": "bason1991",
+        "title": "Decompression Sickness: USN Operational Experience 1969–1989",
+        "year": 1991,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/10/article-p994.pdf",
+        "pmid": "1764015",
+        "sha256": "680f1d5dbb7c7cc6ff31635a94d6050a90ef674ced6f557fda9e131ba74a8ab7",
+        "full_text_available": true,
+        "locator": "Methods, Results, Tables I–II and Discussion pp. 994–996",
+        "observations": [
+          {
+            "id": "pressure-losses",
+            "group": "reported-cabin-pressure-losses",
+            "endpoint": "pressure_loss_incidents",
+            "cases": 225,
+            "denominator": null,
+            "locator": "Discussion p. 995",
+            "note": "Distinct aggregate from the case-series totals. The original gives no linked members."
+          },
+          {
+            "id": "affected-aircraft",
+            "group": "affected-aircraft",
+            "endpoint": "aircraft_with_reported_dcs",
+            "cases": 12,
+            "denominator": null,
+            "locator": "Results p. 994 and Table I p. 995",
+            "note": "The 12 DCS-affected aircraft include a helicopter case after diving. Membership in the reported pressure-loss set is unresolved."
+          },
+          {
+            "id": "affected-aircrew",
+            "group": "affected-aircrew",
+            "endpoint": "aircrew_with_reported_dcs",
+            "cases": 15,
+            "denominator": null,
+            "locator": "Results p. 994 and Table I p. 995",
+            "note": "Affected aircrew within 12 reported aircraft. This is a separate counting unit."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-operational-aircraft-safety-robinson-original",
+    "date": "2026-11-21",
+    "provider": "CDC Stacks via Firecrawl",
+    "operation": "verify_public_full_text",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Original report from CDC Stacks, including conflicting values verified on rendered p. 741.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrape_id": "01a20002-344f-7501-b8dc-6d5dea4d9278",
+      "pages": 5
+    },
+    "records": [
+      {
+        "id": "robinson2016",
+        "title": "Recurrence of Neurological Deficits in an F/A-18D Pilot Following Loss of Cabin Pressure at Altitude",
+        "year": 2016,
+        "url": "https://stacks.cdc.gov/view/cdc/213663/cdc_213663_DS1.pdf",
+        "pmid": "27634610",
+        "sha256": "0c8e4956620595708b55e028c235f777a2965633b699144cb1eabfb79effa9d0",
+        "full_text_available": true,
+        "locator": "Case Report, Table II and Discussion pp. 741–744",
+        "observations": [
+          {
+            "id": "index-flight",
+            "group": "index-flight",
+            "endpoint": "neurologic_event_suspected_bubble_etiology",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Case Report, Table II and Discussion pp. 741–744",
+            "note": "Selected clinical episode on overlap hold with Kutz Case 3. Diagnostic uncertainty includes AGE and DCS."
+          }
+        ],
+        "doi": "10.3357/AMHP.4520.2016",
+        "source_discrepancies": [
+          {
+            "locator": "p. 741 narrative and Table II",
+            "note": "The first cabin altitude before loss is 10,220 ft in prose and 10,270 ft in Table II. The pre-loss pressure in the second excursion is 0.59 ATA in prose and 0.58 ATA in Table II."
+          },
+          {
+            "locator": "Case Report p. 742 and Discussion p. 743",
+            "note": "The case narrative describes six administrations across the clinical sequence. Discussion summarizes five. No synthesized treatment count was assigned."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-operational-aircraft-safety-meeting",
+    "date": "2026-11-21",
+    "provider": "Undersea and Hyperbaric Medical Society",
+    "operation": "verify_public_program",
+    "reported_total": null,
+    "status": "observed",
+    "note": "The programme title and body were checked on the original PDF page. Firecrawl's preview covered pages 1–20.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "firecrawl_program_search_scrape_id": "01a20002-8cc8-730b-bf80-b1f984ee2329",
+      "pdf_page": 149
+    },
+    "records": [
+      {
+        "id": "f103",
+        "title": "Recurrence of Neurological Deficits in an F/A-18D Pilot Following Loss of Cabin Pressure at Altitude",
+        "year": 2015,
+        "url": "https://uhms.org/images/Events/Annual_Meeting/2015/Program-Abstracts/ASM15_PROGRAM.pdf#page=149",
+        "sha256": "581f3399cdd4e748b7faaae564ff8a297eea735fa6f9663d2506b66da475d626",
+        "locator": "F103, PDF p. 149",
+        "note": "The program entry has the same title and presenter as the later report, but the printed body describes a four-participant sham hyperbaric study. Clinical data attribution to the aviation case is unverified."
+      }
+    ]
+  }
+]

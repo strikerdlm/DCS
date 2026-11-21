@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-operational-aircraft-safety-files-search#result-1",
+      "report_id": "pmid:15945394",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p523.pdf",
+      "basis": "PubMed identifies the original Files et al. report."
+    },
+    {
+      "record_key": "2026-11-21-operational-aircraft-safety-files-search#result-2",
+      "report_id": "pmid:15945394",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p523.pdf",
+      "basis": "Same authors, title and journal citation. The page reproduces the abstract."
+    },
+    {
+      "record_key": "2026-11-21-operational-aircraft-safety-files-original#files2005",
+      "report_id": "pmid:15945394",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p523.pdf",
+      "basis": "Original journal article matches the existing PMID."
+    },
+    {
+      "record_key": "2026-11-21-operational-aircraft-safety-bason-original#bason1991",
+      "report_id": "pmid:1764015",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/10/article-p994.pdf",
+      "basis": "Original journal article matches PMID 1764015 and the operational topic. The separate Navy chamber surveillance report has a different PMID."
+    },
+    {
+      "record_key": "2026-11-21-operational-aircraft-safety-robinson-original#robinson2016",
+      "report_id": "pmid:27634610",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/213663/cdc_213663_DS1.pdf",
+      "basis": "The CDC copy matches the original journal DOI and the existing PMID."
+    },
+    {
+      "record_key": "2026-11-21-operational-aircraft-safety-meeting#f103",
+      "report_id": "abstract:uhms2015:f103",
+      "evidence_url": "https://uhms.org/images/Events/Annual_Meeting/2015/Program-Abstracts/ASM15_PROGRAM.pdf#page=149",
+      "basis": "Conference entry has an independent publication identity. Its title and body conflict."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.162/sources.csv#files05_aircraft_depressurization",
+      "report_id": "pmid:15945394",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p523.pdf",
+      "basis": "The numbered extract uses the original journal article."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.162/sources.csv#bason91_operational_flight",
+      "report_id": "pmid:1764015",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/10/article-p994.pdf",
+      "basis": "The numbered extract uses the original journal article."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.162/sources.csv#robinson16_fa18d_neurologic",
+      "report_id": "pmid:27634610",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/213663/cdc_213663_DS1.pdf",
+      "basis": "The numbered extract uses the original journal article."
+    },
+    {
       "record_key": "2026-11-20-eds-training#wfhl7kw3c5",
       "report_id": "pmid:32176954",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32176954/",
@@ -16617,6 +16671,24 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-usn-fy1981-fy2003-reported-depressurizations",
+      "label": "Depressurization in Military Aircraft: Rates, Rapidity, and Health Effects for 1055 Incidents",
+      "period": "FY1981–FY2003",
+      "setting": "U.S. Navy and Air Force aircraft safety report archives. Reported incidents and clinically coded occupant effects."
+    },
+    {
+      "study_id": "usn-1969-1989-operational-flight-dcs",
+      "label": "Naval Safety Center selected operational flight DCS reports",
+      "period": "1 January 1969 to 30 December 1989",
+      "setting": "U.S. Navy flight accidents and physiological reports. Aircrew case counts are distinct from pressure-loss incident totals."
+    },
+    {
+      "study_id": "ucsd-marine-test-pilot-fa18d-neurological-recurrence",
+      "label": "Recurrence of Neurological Deficits in an F/A-18D Pilot Following Loss of Cabin Pressure at Altitude",
+      "period": "Incident date unavailable. Submitted November 2015.",
+      "setting": "Selected flight episode treated at UCSD. Possible overlap with its later case series."
+    },
+    {
       "study_id": "usaf-bradley-july-2012-altitude-chamber-dci-case",
       "label": "USAF chamber training DCI case with longitudinal cognitive follow-up",
       "period": "Index chamber exposure July 2012. Clinical follow-up into autumn 2018.",
@@ -18256,6 +18328,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-usn-fy1981-fy2003-reported-depressurizations",
+      "report_id": "pmid:15945394",
+      "role": "primary_operational_safety_surveillance",
+      "locator": "Methods pp. 524–525; Results and Table II p. 526; Table IV p. 527; Discussion p. 528"
+    },
+    {
+      "study_id": "usn-1969-1989-operational-flight-dcs",
+      "report_id": "pmid:1764015",
+      "role": "primary_operational_case_series",
+      "locator": "Methods, Results, Tables I–II and Discussion pp. 994–996"
+    },
+    {
+      "study_id": "ucsd-marine-test-pilot-fa18d-neurological-recurrence",
+      "report_id": "pmid:27634610",
+      "role": "primary_flight_case_report",
+      "locator": "Case Report, Table II and Discussion pp. 741–744"
+    },
     {
       "study_id": "usaf-bradley-july-2012-altitude-chamber-dci-case",
       "report_id": "pmid:32176954",
@@ -21030,6 +21120,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:15945394",
+      "right_report": "pmid:1764015",
+      "relationship": "possible_shared_naval_safety_reports",
+      "evidence": "The US Navy source archives and 1981–1989 period overlap. Files cites Bason, but the public reports do not enumerate shared cases.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p523.pdf"
+    },
+    {
+      "left_report": "pmid:15945394",
+      "right_report": "pmid:2241750",
+      "relationship": "possible_shared_usaf_flight_cases",
+      "evidence": "Both reports could include USAF flight cases from 1981–1986. Weien includes treated chamber cases while Files covers selected aircraft safety reports.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p523.pdf"
+    },
+    {
+      "left_report": "pmid:27634610",
+      "right_report": "pmid:36757235",
+      "relationship": "possible_ucsd_case_3_overlap",
+      "evidence": "Kutz Table III Case 3 shares age, 35,000-ft aircraft altitude, 16,000-ft cabin observation, neurological presentation and repeated hyperbaric therapy at the same center. Reported pressure histories and event counts differ. No common case identifier verified.",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/213663/cdc_213663_DS1.pdf"
+    },
+    {
+      "left_report": "pmid:27634610",
+      "right_report": "pmid:31038172",
+      "relationship": "possible_naval_case_series_overlap",
+      "evidence": "Robinson was submitted within the Nevada series window. Andicochea Table II contains no exact match by age, aircraft and pressure profile; the Robinson flight date is unavailable.",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/213663/cdc_213663_DS1.pdf"
+    },
+    {
+      "left_report": "abstract:uhms2015:f103",
+      "right_report": "pmid:27634610",
+      "relationship": "programme_title_matches_body_mismatch",
+      "evidence": "The author and title agree. The abstract body describes a sham hyperbaric protocol and contains no aviation case outcome.",
+      "evidence_url": "https://uhms.org/images/Events/Annual_Meeting/2015/Program-Abstracts/ASM15_PROGRAM.pdf#page=149"
+    },
     {
       "left_report": "pmid:31038172",
       "right_report": "pmid:36757235",
