@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1/sources.csv#nasa19",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "basis": "Original source record for NASA/TP-2019-220343.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "record_key": "2026-11-20-nasa-severity-lunar-primary#nasa-2019-f2-f3",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "basis": "The alternative NTRS PDF bears the same report number and title as the existing source. This retrieval reads a new table.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "record_key": "2026-11-20-eds-training#maiaqbbnfr",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "basis": "NASA Technical Reports result matches the exact title, 2019 date and first authors Abercromby, Anchondo and Blanco.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3166782986",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "basis": "The exact distinctive title and publication year match the NASA report. Preserve the OpenAlex occurrence.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "record_key": "2026-11-20-nasa-severity-lunar-primary#vann-1995-f3",
+      "report_id": "report:duke-vann-gerth-nag9-134-1995",
+      "basis": "Table F3 footnote gives the title, both authors, Duke center and date.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.97/sources.csv#vann95_duke_perfusion",
+      "report_id": "report:duke-vann-gerth-nag9-134-1995",
+      "basis": "Same report title and publication date as the secondary table footnote.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "record_key": "2026-11-20-nasa-severity-lunar-primary#liu-lunar-53060",
+      "report_id": "doi:10.3969/j.issn.1674-5825.2023.01.009",
+      "basis": "Same official author abstract, journal issue and title. DOI and page range independently corroborated by the aerospace journal citation.",
+      "evidence_url": "https://statistics.cmse.gov.cn/dmt/cbw/zrht/2023nian/2023dyq/202303/t20230309_53060.html"
+    },
+    {
+      "record_key": "2026-11-20-nasa-severity-lunar-firecrawl-direct#cmse-53060",
+      "report_id": "doi:10.3969/j.issn.1674-5825.2023.01.009",
+      "basis": "Same official author abstract, journal issue and title. DOI and page range independently corroborated by the aerospace journal citation.",
+      "evidence_url": "https://statistics.cmse.gov.cn/dmt/cbw/zrht/2023nian/2023dyq/202303/t20230309_53060.html"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.97/sources.csv#liu23_lunar_pressure_campaign",
+      "report_id": "doi:10.3969/j.issn.1674-5825.2023.01.009",
+      "basis": "Same official author abstract, journal issue and title. DOI and page range independently corroborated by the aerospace journal citation.",
+      "evidence_url": "https://statistics.cmse.gov.cn/dmt/cbw/zrht/2023nian/2023dyq/202303/t20230309_53060.html"
+    },
+    {
       "record_key": "2026-11-20-duke-prebreathe-firecrawl#nasa-dcs-evidence",
       "report_id": "record:2026-11-20-archival-denominators-f-cadets#https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
       "basis": "Identical NTRS accession and download URL.",
@@ -11289,6 +11343,18 @@
   ],
   "studies": [
     {
+      "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+      "label": "Duke 1995 hypobaric chamber outcomes in NASA Table F3",
+      "period": "Technical report dated March 31, 1995. Exposure dates unavailable.",
+      "setting": "Four selected Duke simulated altitude exposure profiles with serious DCS. Participant linkage unavailable."
+    },
+    {
+      "study_id": "china-lunar-pressure-campaign-liu-2023",
+      "label": "Chinese lunar cabin-pressure regime chamber validation",
+      "period": "Published 2023. Study dates unavailable in the publisher abstract.",
+      "setting": "Four groups in a sealed chamber with repeated simulated lunar extravehicular activities."
+    },
+    {
       "study_id": "duke-1989-prebreathe-thirty-minute-ascent",
       "label": "Duke four-duration and posture chamber outcomes with 30-minute ascent",
       "period": "Published in May 1989. Individual exposure dates unknown.",
@@ -12232,6 +12298,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+      "report_id": "report:duke-vann-gerth-nag9-134-1995",
+      "role": "cited_original_report",
+      "locator": "Cited by NASA/TP-2019-220343, Table F3 and footnote"
+    },
+    {
+      "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "role": "secondary_group_outcomes",
+      "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60)"
+    },
+    {
+      "study_id": "china-lunar-pressure-campaign-liu-2023",
+      "report_id": "doi:10.3969/j.issn.1674-5825.2023.01.009",
+      "role": "author_abstract_of_chamber_trial",
+      "locator": "Publisher author abstract, 9 March 2023, Manned Spaceflight 29(1):61–70"
+    },
     {
       "study_id": "duke-1989-nitrogen-workshop-nine-minute-ascent",
       "report_id": "workshop:uhms38-gerth-vann-nitrogen",
@@ -13776,6 +13860,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:duke-vann-gerth-nag9-134-1995",
+      "right_report": "workshop:uhms38-gerth-vann-nitrogen",
+      "relationship": "possible_duke_program_overlap",
+      "evidence": "Same Duke denitrogenation research and altitude exposure setting. Workshop figures show an approximately nine-minute ascent; the F3 groups do not supply ascent duration.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "left_report": "report:duke-vann-gerth-nag9-134-1995",
+      "right_report": "abstract:asma-1989-duke-vann-071",
+      "relationship": "possible_duke_program_overlap",
+      "evidence": "Same Duke research group and 4.3-psia, four-hour exposure family. Original 1995 protocol-level attributes and participant linkage are unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "pmid:5155138",
+      "relationship": "same_risk_set_collapsed_body_fat_strata",
+      "evidence": "NASA F3 Allen row identifies the original paper. Table I p. 520 shows two 13-exposure body-fat strata at 3.5 psia for three hours after 3.5 hours of oxygen. NASA F3 prints the merged total, with no additional exposures.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "right_report": "report:duke-vann-gerth-nag9-134-1995",
+      "relationship": "secondary_reprint_selected_protocols",
+      "evidence": "Table F3 gives exact all-DCS and serious-DCS counts for four selected Duke protocols and cites the original report by title and date.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60"
+    },
     {
       "left_report": "abstract:asma-1989-duke-gerth-072",
       "right_report": "abstract:asma-1989-duke-vann-071",
@@ -16653,6 +16765,9 @@
     "abstract:asma-1989-baas-co2-prebreathe": "Effect of a carbon dioxide prebreathe gas mixture on the incidence of altitude-induced decompression sickness",
     "abstract:asma-1989-duke-vann-071": "Influence of oxygen prebreathe duration and exercise on the risk of decompression sickness at 4.3 psia",
     "abstract:asma-1989-duke-gerth-072": "The relation of whole-body nitrogen elimination during prebreathe to the incidence of decompression sickness at 4.3 psia",
-    "workshop:uhms38-gerth-vann-nitrogen": "Whole-body nitrogen elimination during oxygen prebreathing and altitude decompression sickness risk"
+    "workshop:uhms38-gerth-vann-nitrogen": "Whole-body nitrogen elimination during oxygen prebreathing and altitude decompression sickness risk",
+    "record:legacy:data/chamber/v1/sources.csv#nasa19": "Suited Ground Vacuum Chamber Testing Decompression Sickness Tiger Team Report",
+    "report:duke-vann-gerth-nag9-134-1995": "Factors affecting tissue perfusion and efficacy of astronaut denitrogenation for extravehicular activity",
+    "doi:10.3969/j.issn.1674-5825.2023.01.009": "载人月球探测任务大气环境压力制度设计与试验验证"
   }
 }

@@ -1,0 +1,276 @@
+[
+  {
+    "id": "2026-11-20-nasa-severity-lunar-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_original_report_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Duke University Vann Gerth NASA NAG 9-134/4 1995 factors affecting tissue perfusion astronaut denitrogenation AD1807",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-nasa-severity-lunar-firecrawl-search",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "10.3969/j.issn.1674-5825.2023.01.009 刘朝霞 载人月球探测任务大气环境压力制度设计与试验验证 全文 pdf"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Eight retrieved results examined. None provided full text of the target.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-nasa-severity-lunar-firecrawl-direct",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_abstract_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://statistics.cmse.gov.cn/dmt/cbw/zrht/2023nian/2023dyq/202303/t20230309_53060.html",
+      "http_status": 200
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Publisher abstract confirmed. No full-text PDF link provided.",
+    "records": [
+      {
+        "id": "cmse-53060",
+        "title": "载人月球探测任务大气环境压力制度设计与试验验证",
+        "year": 2023,
+        "doi": "10.3969/j.issn.1674-5825.2023.01.009",
+        "url": "https://statistics.cmse.gov.cn/dmt/cbw/zrht/2023nian/2023dyq/202303/t20230309_53060.html",
+        "locator": "Publisher author abstract, 9 March 2023, Manned Spaceflight 29(1):61–70",
+        "access": "primary_abstract",
+        "note": "Same publisher abstract as the direct HTML record."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-nasa-severity-lunar-primary",
+    "date": "2026-11-20",
+    "provider": "NASA NTRS and China Manned Space Agency publisher",
+    "operation": "supplementary_table_extraction_and_abstract_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 3,
+    "status": "observed",
+    "note": "Visually checked NASA Appendix F and reconciled its named reprints. Checked the official Chinese abstract and retained missing evaluable exposure denominators.",
+    "records": [
+      {
+        "id": "nasa-2019-f2-f3",
+        "title": "Suited Ground Vacuum Chamber Testing Decompression Sickness Tiger Team Report",
+        "year": 2019,
+        "url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60",
+        "identifier": "NASA/TP-2019-220343",
+        "access": "full_text",
+        "sha256": "170ca34aca488defff1cb048fe4ade5b2ef2389355fb08fca8595950736d3c68",
+        "locator": "NASA/TP-2019-220343, printed p. 48 (PDF p. 60)",
+        "reported_scope": {
+          "f2_case_rows": 7,
+          "table_8b_classification": "Skin mottling alone. Historically classified Type II by the source, with later classification explicitly different.",
+          "f3_study_selection": {
+            "records": 83,
+            "exposures": 1362,
+            "male_exposures": 1306,
+            "female_exposures": 56,
+            "all_dcs": 258,
+            "serious_dcs": 6,
+            "min_prebreathe_min": 180,
+            "min_altitude_exposure_min": 120
+          },
+          "f3_displayed_serious_rows": {
+            "exposures": 105,
+            "all_dcs": 40,
+            "serious_dcs": 6,
+            "reported_any_dcs_percentage": 38.1
+          },
+          "f3_remaining_summary": {
+            "exposures": 1257,
+            "all_dcs": 218,
+            "serious_dcs": 0,
+            "reported_any_dcs_percentage": 17.3,
+            "tr360_mean": 1.68,
+            "tr360_sd": 0.33,
+            "pressure_psia_mean": 4.1,
+            "pressure_psia_sd": 0.52,
+            "plateau_min_mean": 198,
+            "plateau_min_sd": 75
+          }
+        },
+        "note": "Existing nasa19 report, new page. Takes 2b back to the already indexed Table F1 and confirms the Allen Table I profile. F3 Duke rows are attributed to the 1995 report and are selected by presence of serious DCS."
+      },
+      {
+        "id": "vann-1995-f3",
+        "title": "Factors affecting tissue perfusion and efficacy of astronaut denitrogenation for extravehicular activity",
+        "year": 1995,
+        "url": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20190031956/downloads/20190031956.pdf#page=60",
+        "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60)",
+        "identifier": "NASA NAG 9-134/4",
+        "access": "secondary_table",
+        "sha256": "170ca34aca488defff1cb048fe4ade5b2ef2389355fb08fca8595950736d3c68",
+        "archival_finding": "NASA/TP-2001-210196, printed p. 35 and filing note p. 36. Conkin’s local AD1807* means individual subject data exist. This is not a DTIC accession.",
+        "note": "The exact report title, authors and date appear in the NASA bibliography and Table F3 footnote. The original was unavailable. Outcome rows use NASA’s selected serious-case subset.",
+        "observations": [
+          {
+            "id": "f3-row-3-all_dcs_as_reported",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-3",
+            "endpoint": "all_dcs_as_reported",
+            "cases": 8,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 3",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Table cites Vann and Gerth (1995). Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          },
+          {
+            "id": "f3-row-3-serious_dcs_as_classified_by_nasa",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-3",
+            "endpoint": "serious_dcs_as_classified_by_nasa",
+            "cases": 1,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 3",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Table cites Vann and Gerth (1995). Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          },
+          {
+            "id": "f3-row-4-all_dcs_as_reported",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-4",
+            "endpoint": "all_dcs_as_reported",
+            "cases": 8,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 4",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Later Vann row under the same table citation. Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          },
+          {
+            "id": "f3-row-4-serious_dcs_as_classified_by_nasa",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-4",
+            "endpoint": "serious_dcs_as_classified_by_nasa",
+            "cases": 1,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 4",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Later Vann row under the same table citation. Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          },
+          {
+            "id": "f3-row-5-all_dcs_as_reported",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-5",
+            "endpoint": "all_dcs_as_reported",
+            "cases": 2,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 5",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Later Vann row under the same table citation. Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          },
+          {
+            "id": "f3-row-5-serious_dcs_as_classified_by_nasa",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-5",
+            "endpoint": "serious_dcs_as_classified_by_nasa",
+            "cases": 1,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 5",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Later Vann row under the same table citation. Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          },
+          {
+            "id": "f3-row-6-all_dcs_as_reported",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-6",
+            "endpoint": "all_dcs_as_reported",
+            "cases": 5,
+            "denominator": 15,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 6",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Later Vann row under the same table citation. Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          },
+          {
+            "id": "f3-row-6-serious_dcs_as_classified_by_nasa",
+            "study_id": "duke-1995-pressure-perfusion-nasa-severity",
+            "group": "f3-row-6",
+            "endpoint": "serious_dcs_as_classified_by_nasa",
+            "cases": 1,
+            "denominator": 15,
+            "denominator_unit": "person_exposure",
+            "locator": "Table F3, NASA/TP-2019-220343, printed p. 48 (PDF p. 60), row 6",
+            "outcome_window": "240-minute altitude exposure as compiled by NASA. Delayed clinical surveillance is unavailable.",
+            "note": "Later Vann row under the same table citation. Serious-case selected row. The original protocol and exposure crosswalk are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "liu-lunar-53060",
+        "title": "载人月球探测任务大气环境压力制度设计与试验验证",
+        "translated_title": "Design and experimental verification of atmospheric pressure regime for manned lunar exploration mission",
+        "year": 2023,
+        "doi": "10.3969/j.issn.1674-5825.2023.01.009",
+        "url": "https://statistics.cmse.gov.cn/dmt/cbw/zrht/2023nian/2023dyq/202303/t20230309_53060.html",
+        "primary_source": "https://statistics.cmse.gov.cn/dmt/cbw/zrht/2023nian/2023dyq/202303/t20230309_53060.html",
+        "locator": "Publisher author abstract, 9 March 2023, Manned Spaceflight 29(1):61–70",
+        "access": "primary_abstract",
+        "sha256": "818ba2b0310c8778b2ab8edc058c7ff42bc58c390d3b42d023465bd9b1f10d4f",
+        "reported_scope": {
+          "volunteers_selected": 19,
+          "groups": 4,
+          "cycles": 7,
+          "days_per_cycle": 9,
+          "simulated_eva_days_per_cycle": 4,
+          "scheduled_hours_per_eva_day": 8,
+          "pressure_regimes": 2,
+          "completed_person_evas": null,
+          "evaluable_dcs_person_evas": null,
+          "evaluable_vge_person_evas": null
+        },
+        "note": "Publisher abstract reports no DCS or detected bubbles in either pressure strategy. The 19 volunteers were selected for the campaign. The numbers at risk per procedure, monitoring coverage and delayed ascertainment are unavailable.",
+        "observations": [
+          {
+            "id": "dcs_as_reported",
+            "study_id": "china-lunar-pressure-campaign-liu-2023",
+            "group": "both_pressure_regimes",
+            "endpoint": "dcs_as_reported",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Publisher author abstract, 9 March 2023, Manned Spaceflight 29(1):61–70",
+            "outcome_window": "Reported chamber campaign. Per-exposure timing and delayed surveillance are unavailable.",
+            "note": "Publisher abstract reports no DCS or detected bubbles in either pressure strategy. The 19 volunteers were selected for the campaign. The numbers at risk per procedure, monitoring coverage and delayed ascertainment are unavailable."
+          },
+          {
+            "id": "detected_returning_venous_bubbles",
+            "study_id": "china-lunar-pressure-campaign-liu-2023",
+            "group": "both_pressure_regimes",
+            "endpoint": "detected_returning_venous_bubbles",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Publisher author abstract, 9 March 2023, Manned Spaceflight 29(1):61–70",
+            "outcome_window": "Reported chamber campaign. Per-exposure timing and delayed surveillance are unavailable.",
+            "note": "Publisher abstract reports no DCS or detected bubbles in either pressure strategy. The 19 volunteers were selected for the campaign. The numbers at risk per procedure, monitoring coverage and delayed ascertainment are unavailable."
+          }
+        ]
+      }
+    ]
+  }
+]

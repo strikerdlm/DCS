@@ -8,6 +8,60 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_nasa_severity_reprints_and_lunar_missing_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT exposures,all_dcs,serious_dcs,tr360,pressure_psia,altitude_exposure_min
+            FROM publication_nasa_f3_stratum WHERE cited_source_id='vann95_duke_perfusion'
+            ORDER BY table_row
+        """).fetchall() == [
+            (14, 8, 1, 1.77, 4.3, 240),
+            (18, 8, 1, 1.77, 4.3, 240),
+            (10, 2, 1, 1.70, 4.3, 240),
+            (15, 5, 1, 1.77, 4.3, 240),
+        ]
+        assert db.execute("""
+            SELECT f.exposures,f.all_dcs,f.serious_dcs,t.dcs_denominator,t.dcs_cases,
+                   (SELECT COUNT(*) FROM publication_nasa_f2_case c WHERE c.nasa_test_id=t.test_id)
+            FROM publication_nasa_f3_stratum f JOIN nasa_test t ON t.test_id=f.nasa_test_id
+        """).fetchall() == [(22, 6, 1, 22, 6, 1)]
+        assert db.execute("""
+            SELECT COUNT(*),SUM(classification='historical_skin_mottling'),SUM(prescribed_prebreathe_exercise)
+            FROM publication_nasa_f2_case
+        """).fetchone() == (7, 1, 2)
+        assert db.execute("""
+            SELECT nasa_test_id FROM publication_nasa_f2_case
+            WHERE classification='historical_skin_mottling'
+        """).fetchall() == [("8b",)]
+        assert db.execute("""
+            SELECT exposures,all_dcs,serious_dcs FROM publication_nasa_f3_stratum
+            WHERE cited_source_id='allen71_body_fat'
+        """).fetchall() == [(26, 11, 1)]
+        assert db.execute("""
+            SELECT volunteers_selected,groups_reported,pressure_regimes,test_cycles_reported,
+                   planned_eva_days_per_cycle,evaluable_dcs_person_evas,evaluable_vge_person_evas
+            FROM publication_lunar_pressure_campaign
+        """).fetchall() == [(19, 4, 2, 7, 4, None, None)]
+        assert db.execute("""
+            SELECT COUNT(*),SUM(o.numerator=r.cases AND o.denominator IS r.denominator),
+                   SUM(o.denominator IS NULL),SUM(o.analysis_role='overlap_hold')
+            FROM publication_observation o
+            JOIN model_report_link l ON l.source_id=o.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON r.report_id=l.report_id
+                AND r.endpoint=o.endpoint AND r.reported_group=o.stratum
+            WHERE o.source_id IN ('vann95_duke_perfusion','liu23_lunar_pressure_campaign')
+        """).fetchone() == (10, 10, 2, 10)
+        assert db.execute("""
+            SELECT COUNT(*),COUNT(DISTINCT report_id) FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1/sources.csv#nasa19',
+                '2026-11-20-nasa-severity-lunar-primary#nasa-2019-f2-f3',
+                '2026-11-20-eds-training#maiaqbbnfr',
+                '2026-11-20-formal-chamber-openalex#W3166782986'
+            )
+        """).fetchone() == (4, 1)
+
+
 def test_duke_prebreathe_keeps_ascent_series_and_overlapping_reports_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
