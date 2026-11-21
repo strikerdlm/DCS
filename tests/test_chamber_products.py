@@ -1163,6 +1163,48 @@ def test_nasa_rehearsals_preserve_published_roles_and_outcome_scope(release):
         """).fetchone() == (0,)
 
 
+def test_brooks_abstracts_keep_conditional_doppler_and_unreported_dcs_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT s.reported_exposures,s.reported_protocol_hours_min,s.reported_protocol_hours_max,s.grading_scale,
+                   s.reported_pct_dcs_symptoms_with_early_termination,o.numerator,o.denominator,
+                   o.analysis_role,r.cases,r.denominator
+            FROM publication_brooks91_doppler_scope s JOIN publication_observation o USING(source_id)
+            JOIN model_report_link l ON l.source_id=s.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON r.report_id=l.report_id AND r.endpoint=o.endpoint
+            WHERE s.source_id='webb91_doppler_resolution' AND o.endpoint='vge_reduced_to_spencer_0_or_1'
+        """).fetchall() == [(215, 7, 8, "Spencer", 66.0, 13, 35, "overlap_hold", 13, 35)]
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate,reported_rate_unit
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-20-brooks-doppler-original'
+              AND observation_id='printed-dcs-termination-percentage'
+        """).fetchall() == [(None, 215, 66, "percent")]
+        assert db.execute("""
+            SELECT participants,altitude_ft_lower,altitude_ft_upper,oxygen_prebreathe_min,
+                   exercise_min_per_cycle,exercise_cycle_min,ultrasound_interval_min
+            FROM publication_olson91_paired_protocol WHERE source_id='olson91_paired_latency'
+        """).fetchone() == (14, 25000, 30000, 60, 1, 16, 16)
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE left_report IN ('abstract:asma-1991-olson-krutz-045',
+                                  'abstract:asma-1991-webb-pilmanis-219')
+              AND relationship IN ('potential_invoked_in_vitro_predecessor','possible_overlap_archive_profiles')
+            ORDER BY left_report
+        """).fetchall() == [
+            ("abstract:asma-1991-olson-krutz-045", "pmid:2031629", "potential_invoked_in_vitro_predecessor"),
+            ("abstract:asma-1991-webb-pilmanis-219", "pmid:15672984", "possible_overlap_archive_profiles"),
+        ]
+        assert db.execute("""
+            SELECT endpoint FROM publication_observation
+            WHERE source_id IN ('olson91_paired_latency','webb91_doppler_resolution') ORDER BY endpoint
+        """).fetchall() == [("vge_reduced_to_spencer_0_or_1",)]
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence
+            WHERE report_id IN ('abstract:asma-1991-olson-krutz-045','abstract:asma-1991-webb-pilmanis-219')
+        """).fetchone() == (0,)
+
+
 def test_crowell_keeps_chamber_runs_and_overlapping_exposure_counts(release):
     with connect_pair(release) as db:
         assert db.execute("""
