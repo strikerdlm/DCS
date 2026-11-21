@@ -1,0 +1,303 @@
+[
+  {
+    "id": "2026-11-21-naval-decompression-series-case-search",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered search hits retained as occurrences.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1ffdd-e202-760e-8a64-f358b9bb7f06",
+      "query": "\"Elevated Environmental Carbon Dioxide Exposure Confounding Physiologic Events in Aviators\" usz092 Andicochea"
+    },
+    "records": [
+      {
+        "id": "result-1",
+        "title": "Elevated Environmental Carbon Dioxide Exposure Confounding ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31038172/"
+      },
+      {
+        "id": "result-2",
+        "title": "Elevated Environmental Carbon Dioxide Exposure Confounding ...",
+        "url": "https://academic.oup.com/milmed/article-abstract/184/11-12/e863/5481854"
+      },
+      {
+        "id": "result-3",
+        "title": "CO2 Breathing Prior to Simulated Diving Increases ...",
+        "url": "https://ouci.dntb.gov.ua/works/7WAmO8al/"
+      },
+      {
+        "id": "result-4",
+        "title": "Effects of CO2 on the occurrence of decompression sickness - PMC - NIH",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11444918/"
+      },
+      {
+        "id": "result-5",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk ...",
+        "url": "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0"
+      },
+      {
+        "id": "result-6",
+        "title": "Fifty Years of Decompression Sickness Research at Brooks AFB ...",
+        "url": "https://discovery.researcher.life/article/fifty-years-of-decompression-sickness-research-at-brooks-afb-tx-1960-2010/c164d34952b638ff89340b584125d228"
+      },
+      {
+        "id": "result-7",
+        "title": "CO2 Breathing Prior to Simulated Diving Increases Decompression ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11431549/"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-naval-decompression-series-chamber-search",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Ordered search hits retained as occurrences.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a1ffdd-e201-70f8-8ef6-6799686b2544",
+      "query": "\"hypobaric chamber\" \"decompression sickness\" \"incidence\" trainee cohort report national training aviation"
+    },
+    "records": [
+      {
+        "id": "result-1",
+        "title": "Oxidative stress response to simulated altitude training",
+        "url": "https://militaryhealth.bmj.com/content/early/2026/03/25/military-2025-003189"
+      },
+      {
+        "id": "result-2",
+        "title": "Decompression Sickness Risk Assessment and Awareness in ...",
+        "url": "https://www.researchgate.net/publication/350336776_Decompression_Sickness_Risk_Assessment_and_Awareness_in_General_Aviation"
+      },
+      {
+        "id": "result-3",
+        "title": "INSULIN TREATED DIABETES - REGULATORY AND IN-FLIGHT ...",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/96/8/article-p682.pdf"
+      },
+      {
+        "id": "result-4",
+        "title": "INSULIN TREATED DIABETES - REGULATORY AND IN-FLIGHT ...",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/96/8/article-p682.pdf"
+      },
+      {
+        "id": "result-5",
+        "title": "decompression sickness: Topics by ...",
+        "url": "https://www.science.gov/topicpages/d/decompression+sickness"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-naval-decompression-series-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented retrieval.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 433,
+      "search_depth": "advanced",
+      "max_results": 8,
+      "query": "Andicochea usz092 physiological events aviators navy full text case series hypobaric DCS"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-naval-decompression-series-publisher-pdf-access",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "verify_public_source",
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The DOI PDF endpoint returned an access notice.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://academic.oup.com/milmed/article-pdf/184/11-12/e863/31510094/usz092.pdf",
+      "scrape_id": "01a1ffdf-d435-707b-8926-3e210ecc2746"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-naval-decompression-series-navy-primary",
+    "date": "2026-11-21",
+    "provider": "Oxford Academic",
+    "operation": "verify_primary_indexed_table",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Indexed source table and Case Series excerpt matched common title, authors, counts and original units.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "abstract_url": "https://academic.oup.com/milmed/article-abstract/184/11-12/e863/5481854",
+      "table_query": "\"usz092\" \"26\" \"41\" \"29 to 41\" \"Table II\" planning room seven"
+    },
+    "records": [
+      {
+        "id": "andicochea19_naval_events",
+        "title": "Elevated Environmental Carbon Dioxide Exposure Confounding Physiologic Events in Aviators?",
+        "author": "Andicochea CT, Henriques ME, Fulkerson J, Jay S, Chen H, Deaton T",
+        "year": 2019,
+        "url": "https://academic.oup.com/milmed/article-pdf/184/11-12/e863/31510094/usz092.pdf",
+        "pmid": "31038172",
+        "doi": "10.1093/milmed/usz092",
+        "locator": "Abstract, Case Series, Table II and pp. e864–e865",
+        "full_text_available": false,
+        "evidence_access": "Primary journal Table II and Case Series recovered in public indexed PDF excerpts plus publisher abstract.",
+        "event_count": 7,
+        "selected_aviator_count": 9,
+        "source_symptom_compatible_count": 6,
+        "hyperbaric_treatment_count": 4,
+        "reported_case_series_age_range_years": [
+          29,
+          41
+        ],
+        "table_ii_age_range_years": [
+          26,
+          41
+        ],
+        "exact_personal_briefing_co2_available": false,
+        "actual_cabin_pressure_trace_available": false,
+        "observations": [
+          {
+            "id": "all-selected-aviators",
+            "group": "all-selected-aviators",
+            "endpoint": "physiological_event_symptoms_compatible_with_type_ii_dcs",
+            "cases": 6,
+            "denominator": 9,
+            "denominator_unit": "person",
+            "locator": "Abstract, Case Series, Table II and pp. e864–e865",
+            "outcome_window": "Reported after the selected aircraft incidents. Follow-up duration and ascertainment of asymptomatic aviators were incomplete.",
+            "note": "The native symptom endpoint was reported for the selected records. The asymptomatic records did not have systematic surveillance."
+          },
+          {
+            "id": "planning-room",
+            "group": "planning-room",
+            "endpoint": "physiological_event_symptoms_compatible_with_type_ii_dcs",
+            "cases": 6,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "Abstract, Case Series, Table II and pp. e864–e865",
+            "outcome_window": "Reported after the selected aircraft incidents. Follow-up duration and ascertainment of asymptomatic aviators were incomplete.",
+            "note": "Counted from Table II. These are the selected symptomatic aviators included in the overall row."
+          },
+          {
+            "id": "staging-room",
+            "group": "staging-room",
+            "endpoint": "physiological_event_symptoms_compatible_with_type_ii_dcs",
+            "cases": 0,
+            "denominator": 3,
+            "denominator_unit": "person",
+            "locator": "Abstract, Case Series, Table II and pp. e864–e865",
+            "outcome_window": "Reported after the selected aircraft incidents. Follow-up duration and ascertainment of asymptomatic aviators were incomplete.",
+            "note": "Counted from Table II. These are the three asymptomatic aviators included in the overall row."
+          },
+          {
+            "id": "symptomatic-aviators",
+            "group": "symptomatic-aviators",
+            "endpoint": "hyperbaric_treatment_reported",
+            "cases": 4,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "Abstract, Case Series, Table II and pp. e864–e865",
+            "outcome_window": "Reported after the selected aircraft incidents. Follow-up duration and ascertainment of asymptomatic aviators were incomplete.",
+            "note": "Four received hyperbaric treatment. This treatment margin refers to the same six symptomatic aviators."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-naval-decompression-series-navy-preview",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "verify_public_source",
+    "reported_total": null,
+    "status": "observed",
+    "note": "The preview reproduces original text and identifies its limits.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrape_id": "01a1ffdf-d339-712f-9522-f042395d7b13"
+    },
+    "records": [
+      {
+        "id": "paperity",
+        "title": "Elevated Environmental Carbon Dioxide Exposure Confounding Physiologic Events in Aviators?",
+        "year": 2019,
+        "url": "https://paperity.org/p/229871649/elevated-environmental-carbon-dioxide-exposure-confounding-physiologic-events-in-aviators",
+        "doi": "10.1093/milmed/usz092",
+        "locator": "Public preview of the Abstract and start of Case Series",
+        "full_text_available": false
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-naval-decompression-series-lee-primary",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association",
+    "operation": "verify_public_full_text",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Publisher PDF verified against Firecrawl. The two case histories retain distinct pressure profiles and timing origins.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "firecrawl_scrape_id": "01a1ffdf-d33e-77ba-be3e-b3406d563037"
+    },
+    "records": [
+      {
+        "id": "lee18_sanou_aircraft_cases",
+        "title": "Decompression Sickness in the F/A-18C After Atypical Cabin Pressure Fluctuations",
+        "author": "Lee KJ, Sanou AZ",
+        "year": 2018,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/5/article-p478.pdf",
+        "pmid": "29673435",
+        "doi": "10.3357/amhp.5027.2018",
+        "locator": "Case Reports 1 and 2, pp. 479–480 and Figure 2",
+        "sha256": "4394dc5c02a36013530b5c6060b81cb84e361c560be2bfb83f6f0837f9ed22d1",
+        "full_text_available": true,
+        "case_facts": [
+          {
+            "case": "carrier-approach-case-1",
+            "age_years": 33,
+            "first_assessment_min": null,
+            "source_aircraft_altitude_ft": 600,
+            "case_notes": "Aircraft altitude at the event was 600 ft on a carrier approach. The cabin was overpressurized before abrupt decompression. The peak cabin overpressure was not quantified."
+          },
+          {
+            "case": "cabin-fluctuations-case-2",
+            "age_years": 35,
+            "first_assessment_min": 90,
+            "source_aircraft_altitude_ft": 30000,
+            "case_notes": "Aircraft at 30,000 ft. Cabin pressure altitude fluctuated from 11,000 to 18,000 ft and then to 9,000 ft. The figure provides a trace illustration and no machine-readable trace."
+          }
+        ],
+        "observations": [
+          {
+            "id": "carrier-approach-case-1",
+            "group": "carrier-approach-case-1",
+            "endpoint": "type_ii_dcs_clinician_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Case 1, p. 479",
+            "outcome_window": "Substernal discomfort and cough five minutes after landing. Reevaluation at 20 hours after the event led to hyperbaric treatment. No recurrence was reported during a 14-day grounding period.",
+            "note": "Two selected clinician-diagnosed Type II DCS episodes. The affected exposure population and incident dates were not given."
+          },
+          {
+            "id": "cabin-fluctuations-case-2",
+            "group": "cabin-fluctuations-case-2",
+            "endpoint": "type_ii_dcs_clinician_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Case 2 and Figure 2, pp. 479–480",
+            "outcome_window": "Initial in-flight chest symptoms. First flight-surgeon evaluation 90 minutes after the event. Later neurological deficits off oxygen prompted confirmation of the clinical DCS diagnosis. Return to flying after 14 days of observation.",
+            "note": "Two selected clinician-diagnosed Type II DCS episodes. The affected exposure population and incident dates were not given."
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -4490,6 +4490,45 @@ def test_historical_flight_case_sources_preserve_certainty_and_time_origins(rele
         """).fetchall() == [("pmid:14557320",)]
 
 
+def test_naval_event_series_keeps_cluster_membership_and_native_symptom_endpoint(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),count(cabin_altitude_after_ft),min(aircraft_altitude_ft),max(aircraft_altitude_ft)
+            FROM publication_naval_decompression_event WHERE source_id='andicochea19_naval_events'
+        """).fetchone() == (7, 5, 30000, 41000)
+        assert db.execute("""
+            SELECT event_number,count(*),sum(symptomatic_as_reported),sum(hyperbaric_treatment_reported)
+            FROM publication_naval_decompression_aviator WHERE source_id='andicochea19_naval_events'
+            GROUP BY event_number ORDER BY event_number
+        """).fetchall() == [(n, 1, 1, 1) for n in range(1, 5)] + [(5, 2, 2, 0), (6, 1, 0, 0), (7, 2, 0, 0)]
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='andicochea19_naval_events' AND stratum='all-selected-aviators'
+              AND endpoint='physiological_event_symptoms_compatible_with_type_ii_dcs'
+        """).fetchall() == [(6, 9, "selected_cluster")]
+        assert db.execute("""
+            SELECT briefing_room,age_years FROM publication_naval_decompression_aviator
+            WHERE source_id='andicochea19_naval_events' AND aviator_number=9
+        """).fetchall() == [("staging", 26)]
+        assert db.execute("""
+            SELECT stratum,first_assessment_min,report_id FROM shared_case_evidence
+            WHERE source_id='lee18_sanou_aircraft_cases' ORDER BY stratum
+        """).fetchall() == [
+            ("cabin-fluctuations-case-2", 90, "pmid:29673435"),
+            ("carrier-approach-case-1", None, "pmid:29673435"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='andicochea19_naval_events'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='lee18_sanou_aircraft_cases' AND related_source='andicochea19_naval_events'
+        """).fetchall() == [("unresolved",)]
+        assert db.execute("""
+            SELECT distinct report_id FROM review.review_record WHERE url LIKE '%/PMC11444918%'
+        """).fetchall() == [("pmid:38870953",)]
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""

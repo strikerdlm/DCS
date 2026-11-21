@@ -223,6 +223,7 @@ CHAMBER_CABIN_DECOMPRESSION_STUDIES = ROOT / "data" / "chamber" / "v1.154"
 POLISH_FLIGHT_DCS_CASE = ROOT / "data" / "chamber" / "v1.156"
 BAKER_FLIGHT_DCS_CASE = ROOT / "data" / "chamber" / "v1.157"
 HISTORICAL_FLIGHT_DCS_CASES = ROOT / "data" / "chamber" / "v1.158"
+NAVAL_AVIATOR_EVENT_SERIES = ROOT / "data" / "chamber" / "v1.159"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2194,6 +2195,18 @@ def build(
                         "publication_overlap": "overlap.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    NAVAL_AVIATOR_EVENT_SERIES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_naval_decompression_event": "events.csv",
+                        "publication_naval_decompression_aviator": "aviators.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(
