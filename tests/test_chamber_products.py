@@ -1666,7 +1666,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (122,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (123,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1693,7 +1693,7 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (122,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (123,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -3207,3 +3207,39 @@ def test_mixed_or_edited_files_rejected(release, tmp_path):
         publish_pair(folder)
     with sqlite3.connect(folder / PRODUCTS["review"]) as db:
         assert db.execute("SELECT release_id FROM dataset_release").fetchone() == ("different",)
+
+def test_early_navy_chamber_evidence_keeps_case_and_denominator_boundaries(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),count(onset_min)
+            FROM shared_case_evidence WHERE source_id='boothby_lovelace38_chamber'
+        """).fetchone() == (2, 2, 0)
+        assert db.execute("""
+            SELECT case_id,source_time_min,recurrence_free_followup_min
+            FROM historical_case_catalog WHERE source_id='boothby_lovelace38_chamber'
+        """).fetchall() == [("boothby_lovelace38_chamber:35000ft-neurologic-episode", None, None)]
+        assert db.execute("""
+            SELECT stratum,setting,reported_altitude_ft,reported_duration_min,gas_as_reported
+            FROM publication_chamber_case_altitude_stage
+            WHERE source_id='behnke47_navy_altitude'
+              AND ((stratum='navy-1940-11-11' AND stage=1) OR (stratum='navy-1940-12-06' AND stage=3))
+            ORDER BY stratum
+        """).fetchall() == [
+            ("navy-1940-11-11", "surface", None, 45, "Oxygen inhalation, fraction unspecified"),
+            ("navy-1940-12-06", "chamber", 37000, None, None),
+        ]
+        assert db.execute("""
+            SELECT source_id,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE endpoint IN ('loss_of_consciousness_as_reported','source_reported_aircraft_bends',
+                               'group_2_collapse_with_aeroembolism_symptoms_before_descent')
+              AND source_id IN ('behnke47_navy_altitude','gemmill42_pensacola','korb42_patrol_indoctrination')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("behnke47_navy_altitude", 14, 55, "symptom_report", "case_conditional"),
+            ("gemmill42_pensacola", 34, 208, "person", "case_conditional"),
+            ("korb42_patrol_indoctrination", 3, None, None, "selected_cluster"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_case_milestone WHERE source_id='korb42_patrol_indoctrination'
+        """).fetchone() == (0,)

@@ -12569,6 +12569,66 @@
       "report_id": "nlm:101085500x147",
       "basis": "Matched publication identity by author, title, accession or source pages.",
       "evidence_url": "https://findingaids.nlm.nih.gov/repositories/4/archival_objects/60905"
+    },
+    {
+      "record_key": "2026-11-21-early-navy-altitude-fulltext#boothby-1938",
+      "report_id": "joam:9-4-172",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/9/4/article-p172.pdf#page=12"
+    },
+    {
+      "record_key": "2026-11-21-early-navy-altitude-fulltext#fulton-1948",
+      "report_id": "nlm:32430610rx1:fulton-xxv",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/dw/32430610RX1/PDF/32430610RX1.pdf#page=394"
+    },
+    {
+      "record_key": "2026-11-21-early-navy-altitude-fulltext#behnke-1947",
+      "report_id": "nlm:101085500x147",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X147/PDF/101085500X147.pdf"
+    },
+    {
+      "record_key": "2026-11-21-early-navy-altitude-fulltext#gemmill-1942",
+      "report_id": "usnmb:40-3-576",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=681"
+    },
+    {
+      "record_key": "2026-11-21-early-navy-altitude-fulltext#korb-1942",
+      "report_id": "usnmb:40-2-282",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=351"
+    },
+    {
+      "record_key": "2026-11-21-early-navy-altitude-fulltext#behnke-willmon-1941",
+      "report_id": "usnmb:39-2-163",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin391941/NavalMedicalBulletin391941.pdf#page=194"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.108/sources.csv#boothby_lovelace38_chamber",
+      "report_id": "joam:9-4-172",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/9/4/article-p172.pdf#page=12"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.108/sources.csv#behnke47_navy_altitude",
+      "report_id": "nlm:101085500x147",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X147/PDF/101085500X147.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.108/sources.csv#gemmill42_pensacola",
+      "report_id": "usnmb:40-3-576",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=681"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.108/sources.csv#korb42_patrol_indoctrination",
+      "report_id": "usnmb:40-2-282",
+      "basis": "Verified by author, publication and original printed pages.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=351"
     }
   ],
   "studies": [
@@ -13687,6 +13747,36 @@
       "label": "Lockheed civilian aircrew rapid-decompression indoctrination",
       "period": "Twenty-four months after the January 1952 exercise introduction; exact end date unverified.",
       "setting": "Lockheed civilian occupational operational hypobaric training"
+    },
+    {
+      "study_id": "early-1938-chamber-neurological-episode",
+      "label": "Early Mayo chamber neurological episode",
+      "setting": "Human low-pressure chamber ascent",
+      "period": "Exposure date unspecified. First published in 1938."
+    },
+    {
+      "study_id": "behnke-1940-selected-altitude-symptoms",
+      "label": "Behnke's seven dated low-pressure chamber symptom reports",
+      "setting": "US Navy experimental low-pressure chamber",
+      "period": "18 October to 12 December 1940"
+    },
+    {
+      "study_id": "masland-1943-multisite-altitude-collapse",
+      "label": "Masland's wartime collapse reports",
+      "setting": "Multiple low-pressure chamber training units",
+      "period": "Publication 1943. Exact case accrual window unverified."
+    },
+    {
+      "study_id": "gemmill-pensacola-navy-chamber-indoctrination",
+      "label": "Gemmill's Pensacola chamber oxygen indoctrination program",
+      "setting": "Pensacola Naval Air Station low-pressure chamber training",
+      "period": "Reported in 1942. Accrual dates unspecified."
+    },
+    {
+      "study_id": "korb-navy-patrol-indoctrination-flight",
+      "label": "Korb's Navy patrol aircraft training flight",
+      "setting": "Instruction and indoctrination in a multi-engine patrol aircraft",
+      "period": "Published 1942. Flight date unspecified."
     }
   ],
   "study_reports": [
@@ -15603,6 +15693,54 @@
       "report_id": "asma:1954:lockheed-barron-cook",
       "role": "conference_program_for_article",
       "locator": "March 30, 1954 program and journal article front matter"
+    },
+    {
+      "study_id": "early-1938-chamber-neurological-episode",
+      "report_id": "joam:9-4-172",
+      "role": "original_suspected_neurological_case",
+      "locator": "Printed p. 183 and reference 23"
+    },
+    {
+      "study_id": "early-1938-chamber-neurological-episode",
+      "report_id": "nlm:32430610rx1:fulton-xxv",
+      "role": "secondary_account_of_same_episode",
+      "locator": "Printed pp. 318–319"
+    },
+    {
+      "study_id": "behnke-1940-selected-altitude-symptoms",
+      "report_id": "nlm:101085500x147",
+      "role": "seven_dated_symptom_trajectories",
+      "locator": "Table 8 and low-pressure chamber context"
+    },
+    {
+      "study_id": "behnke-1940-selected-altitude-symptoms",
+      "report_id": "doi:10.1093/milmed/90.1.9",
+      "role": "original_cited_for_table_8",
+      "locator": "Behnke 1947 Table 8, citation 50"
+    },
+    {
+      "study_id": "masland-1943-multisite-altitude-collapse",
+      "report_id": "report:nrc-cam179",
+      "role": "original_collapse_series_report",
+      "locator": "Masland CAM 179"
+    },
+    {
+      "study_id": "masland-1943-multisite-altitude-collapse",
+      "report_id": "nlm:101085500x147",
+      "role": "secondary_summary_of_preexisting_collapse_reports",
+      "locator": "PDF pp. 19–21, reference 52"
+    },
+    {
+      "study_id": "gemmill-pensacola-navy-chamber-indoctrination",
+      "report_id": "usnmb:40-3-576",
+      "role": "primary_chamber_differential_outcomes",
+      "locator": "Printed pp. 576–579"
+    },
+    {
+      "study_id": "korb-navy-patrol-indoctrination-flight",
+      "report_id": "usnmb:40-2-282",
+      "role": "primary_aircraft_bends_cluster",
+      "locator": "Printed pp. 282–284"
     }
   ],
   "relations": [
@@ -18965,6 +19103,27 @@
       "relationship": "summarizes_preexisting_case_series",
       "evidence": "The review attributes all 55 collapse cases discussed to Masland and supplies his 1943 report in reference 52.",
       "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X147/PDF/101085500X147.pdf#page=19"
+    },
+    {
+      "left_report": "nlm:32430610rx1:fulton-xxv",
+      "right_report": "joam:9-4-172",
+      "relationship": "same_published_case",
+      "evidence": "Both accounts describe sudden lower-body paralysis on ascent to a reported 35,000-ft chamber altitude despite oxygen, with recovery as pressure returned. The later account identifies the physiologist who supplied the personal communication in the original.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/dw/32430610RX1/PDF/32430610RX1.pdf#page=394"
+    },
+    {
+      "left_report": "usnmb:40-3-576",
+      "right_report": "report:cam-88",
+      "relationship": "possible_overlap_same_facility",
+      "evidence": "Both sources describe operations at Pensacola. Participant and exposure correspondence between the oxygen indoctrination and classification reports cannot be established.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=681"
+    },
+    {
+      "left_report": "usnmb:39-2-163",
+      "right_report": "nlm:101085500x147",
+      "relationship": "related_navy_chamber_research",
+      "evidence": "The 1941 Bulletin article describes related Navy low-pressure research. Exact episode concordance with the 1947 Table 8 is unverified.",
+      "evidence_url": "https://archive.org/download/NavalMedicalBulletin391941/NavalMedicalBulletin391941.pdf#page=194"
     }
   ],
   "report_titles": {
