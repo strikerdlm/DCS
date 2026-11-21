@@ -4232,3 +4232,34 @@ def test_brook_preserves_exposed_denominator_and_hall_unifies_two_pmids(release)
             SELECT DISTINCT report_id FROM review.review_record
             WHERE pmid IN ('14131303','14166642') OR source_key='hall63_43000'
         """).fetchall() == [("report:usn-mr005-13-1002-subtask-9-report-3",)]
+
+
+def test_russian_chamber_scope_keeps_unmatched_proportions_out_of_clinical_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id IN ('chadov97_sae_pcc270','kalyuzhny76_h_reflex') ORDER BY source_id
+        """).fetchall() == [("chadov97_sae_pcc270", 1828, 123), ("kalyuzhny76_h_reflex", None, 15)]
+        assert db.execute("""
+            SELECT stratum,reported_percent_lower,reported_percent_upper
+            FROM publication_chamber_proportion_without_counts
+            WHERE source_id='chadov97_staged' AND endpoint='doppler_venous_bubbles_as_reported'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("24-h-stage-550-mmhg", 6.0, 6.0),
+            ("24-h-stage-600-mmhg", 12.0, 12.0),
+            ("nominal-30-min-prebreathe", 49.0, 49.0),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate_lower,reported_rate_upper
+            FROM review.review_search_observation
+            WHERE report_id='pmid:966672' AND endpoint='h_reflex_stable_or_reduced_before_leg_pain_source'
+        """).fetchall() == [(None, None, 65, 75)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_overlap
+            WHERE source_id='chadov97_sae_pcc270' AND relationship='unresolved'
+        """).fetchone() == (3,)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('chadov97_sae_pcc270','kalyuzhny76_h_reflex')
+        """).fetchone() == (0,)
