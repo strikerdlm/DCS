@@ -1,0 +1,764 @@
+[
+  {
+    "id": "2026-11-20-soviet-posture-and-staging-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "error_code": 433,
+      "depth": "advanced",
+      "query": "Iseev Poliakov Chadov 3047496 442 altitude experiments decompression gas bubbles Table 5 1988 JPRS"
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-soviet-posture-and-staging-firecrawl-exact",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_chamber_full_text_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Iseyev Polyakov Chadov decompression gas bubble formation P871 1988 75 82 3047496 JPRS Table 5",
+      "limit": 6
+    },
+    "reported_total": 6,
+    "status": "observed",
+    "note": "Six ranked discovery results preserved. The original journal tables were not among the results.",
+    "records": [
+      {
+        "id": "rank-1",
+        "title": "Real‐time Imaging of Decompression Gas Bubble Growth in ...",
+        "url": "https://deepblue.lib.umich.edu/bitstreams/6fcba2a0-1a8e-4280-b444-359df11d0ba3/download",
+        "query_excerpt": "by R Alvarado · 2024 · Cited by 4 — Abstract. Purpose: To observe the growth and resolution of decompression gas bubbles in the spinal cord of live rats in real time using MRI.",
+        "note": "Discovery excerpt. No chamber outcome data adopted."
+      },
+      {
+        "id": "rank-2",
+        "title": "Pathophysiology of Decompression.pdf",
+        "url": "https://www.omao.noaa.gov/sites/default/files/documents/Pathophysiology%20of%20Decompression.pdf",
+        "query_excerpt": "## Bubble Formation\n The type of dive has a significant bearing on where and when bubble formation takes place\n\nin the fast tissues (only fast tissues on‐gas enough N2 to form bubbles on ascent) [Image: Im8]\n\n$$ N_{2} $$\n\ntissues (fast tissues elimi",
+        "note": "Discovery excerpt. No chamber outcome data adopted."
+      },
+      {
+        "id": "rank-3",
+        "title": "Extended lifetimes of bubbles at hyperbaric pressure may ...",
+        "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_903-extended-lifetimes-bubble-hyperbaric-pressure-may-contribute-inner-ear-deco-sickness.pdf",
+        "query_excerpt": "by DJ Doolette · 2022 · Cited by 10 — Extended lifetimes of bubbles at hyperbaric pressure may contribute to inner ear decompression sickness during saturation diving. IEDCS is ...",
+        "note": "Discovery excerpt. No chamber outcome data adopted."
+      },
+      {
+        "id": "rank-4",
+        "title": "Decompression Sickness - StatPearls - NCBI Bookshelf",
+        "url": null,
+        "query_excerpt": "by JS Cooper · 2023 · Cited by 49 — Decompression sickness (DCS) is a potentially life-threatening condition that occurs when dissolved gases (commonly nitrogen) form bubbles ...",
+        "note": "Connector returned an opaque redirect. No chamber outcome was verified from the excerpt."
+      },
+      {
+        "id": "rank-5",
+        "title": "History of decompression research and development",
+        "url": null,
+        "query_excerpt": "The immediate goal of controlled decompression is to avoid development of symptoms of bubble formation in the tissues of the diver, and the long-term goal is to ...",
+        "note": "Connector returned an opaque redirect. No chamber outcome was verified from the excerpt."
+      },
+      {
+        "id": "rank-6",
+        "title": "Decompression Sickness and Arterial Gas Embolism",
+        "url": null,
+        "query_excerpt": "by SJ Mitchell · 2022 · Cited by 203 — Bubble formation is presumed to be the primary mechanism of injury in decompression sickness. Divers absorb inert gas (nitrogen when air breath-.",
+        "note": "Connector returned an opaque redirect. No chamber outcome was verified from the excerpt."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-soviet-posture-and-staging-firecrawl-jprs-index",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_translation_bibliography_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"JPRS-USB-87-003\" \"Space Biology and Aerospace Medicine\" 1987 archive.org",
+      "limit": 5
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "The NASA bibliography independently confirms the translation report number JPRS-USB-87-003.",
+    "records": [
+      {
+        "id": "rank-1",
+        "title": "space Medicine & Biology A m I e ...",
+        "url": "https://ntrs.nasa.gov/api/citations/19880001985/downloads/19880001985.pdf?attachment=true",
+        "query_excerpt": "1987 96 p (JPRS-USB-87-003) Various topics in the fields of space biology and aerospace medicine are discussed. Aviation physiology, work capacity, pilot ...",
+        "note": "Discovery excerpt. No chamber outcome data adopted."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-soviet-posture-and-staging-firecrawl-p816",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_digest_pdf_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true"
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Retrieved the digest, but the parser returned only the heading for the target P816 entry. Counts were verified in the official PDF using its embedded text and the publisher page.",
+    "records": [
+      {
+        "id": "nasa-digest-issue-18",
+        "title": "USSR Space Life Sciences Digest Issue 18",
+        "year": 1988,
+        "url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true",
+        "matched_report": "ntrs:19880016712"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-soviet-posture-and-staging-firecrawl-archive",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_container_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://archive.org/details/jprs-report_jprs-usb-87-003"
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Retrieved the public Archive issue and confirmed the cover authorship and 29 April 1987 date. Exact table values were checked in the source PDF.",
+    "records": [
+      {
+        "id": "jprs-usb-87-003",
+        "title": "USSR Report: Space Biology and Aerospace Medicine Vol 21, No 1, January–February 1987",
+        "year": 1987,
+        "url": "https://archive.org/details/jprs-report_jprs-usb-87-003",
+        "matched_report": "jprs:usb-87-003"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-soviet-posture-and-staging-verified",
+    "date": "2026-11-20",
+    "provider": "Internet Archive, NASA NTRS and PubMed",
+    "operation": "supplementary_source_table_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 8,
+    "status": "observed",
+    "note": "Verified the 1987 JPRS table against the rendered scan and checked narrative outcomes and pressure units. NASA summaries supply the 1986 posture counts and 1988 percentage ranges. Full original outcome tables for the 1986, 1988 and 1989 reports were unavailable.",
+    "records": [
+      {
+        "id": "chadov-1986-nasa-p816",
+        "title": "Study of the characteristics of decompression gas formation under conditions simulating weightlessness (NASA Digest P816)",
+        "year": 1988,
+        "url": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19880016712/downloads/19880016712.pdf?attachment=true",
+        "locator": "P816, printed pp. 112–113",
+        "note": "Extended English NASA summary of a 1986 conference abstract. Reports 47 trials in 22 people and four clinical counts by experiment and posture. Neither posture has a printed matched denominator. The same program may contribute to the 1975–1986 archive.",
+        "identifier": "NTRS:19880016712:P816",
+        "access": "secondary_table",
+        "sha256": "a1bd3d0d6e3a63892887e5aa979068a07a3308b42b668c56ea4c553c20c32b4a",
+        "model_source_id": "chadov86_head_down",
+        "observations": [
+          {
+            "id": "all:reported_chamber_trial_volume",
+            "group": "all",
+            "study_id": "soviet-chadov-1986-posture-chamber",
+            "endpoint": "reported_chamber_trial_volume",
+            "cases": null,
+            "denominator": 47,
+            "denominator_unit": "person_exposure",
+            "locator": "P816, p. 112",
+            "note": "Same participants tested seated and tilted. The source does not identify posture-specific trial denominators.",
+            "case_role": "trial_volume_only",
+            "participant_count": 22,
+            "parent_scope": null,
+            "pressure_mmhg": null
+          },
+          {
+            "id": "220-mmhg:reported_chamber_trial_volume",
+            "group": "220-mmhg",
+            "study_id": "soviet-chadov-1986-posture-chamber",
+            "endpoint": "reported_chamber_trial_volume",
+            "cases": null,
+            "denominator": 22,
+            "denominator_unit": "person_exposure",
+            "locator": "P816, p. 112",
+            "note": "Both postures in the first experiment. Subset of the 47 reported trials.",
+            "case_role": "trial_volume_only",
+            "participant_count": 12,
+            "parent_scope": "all",
+            "pressure_mmhg": 220
+          },
+          {
+            "id": "220-mmhg-upright:altitude_dcs_case_count_as_reported",
+            "group": "220-mmhg-upright",
+            "study_id": "soviet-chadov-1986-posture-chamber",
+            "endpoint": "altitude_dcs_case_count_as_reported",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "P816, printed p. 113",
+            "note": "Posture-specific case count in the NASA summary. The posture-specific denominator and repeated-participant crosswalk are unavailable.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the experimental chamber run. Fixed clinical follow-up not described.",
+            "pressure_mmhg": 220,
+            "posture": "upright"
+          },
+          {
+            "id": "220-mmhg-head-down:altitude_dcs_case_count_as_reported",
+            "group": "220-mmhg-head-down",
+            "study_id": "soviet-chadov-1986-posture-chamber",
+            "endpoint": "altitude_dcs_case_count_as_reported",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "P816, printed p. 113",
+            "note": "Posture-specific case count in the NASA summary. The posture-specific denominator and repeated-participant crosswalk are unavailable.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the experimental chamber run. Fixed clinical follow-up not described.",
+            "pressure_mmhg": 220,
+            "posture": "head-down"
+          },
+          {
+            "id": "180-mmhg-seated:altitude_dcs_case_count_as_reported",
+            "group": "180-mmhg-seated",
+            "study_id": "soviet-chadov-1986-posture-chamber",
+            "endpoint": "altitude_dcs_case_count_as_reported",
+            "cases": 6,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "P816, printed p. 113",
+            "note": "Posture-specific case count in the NASA summary. The posture-specific denominator and repeated-participant crosswalk are unavailable.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the experimental chamber run. Fixed clinical follow-up not described.",
+            "pressure_mmhg": 180,
+            "posture": "seated"
+          },
+          {
+            "id": "180-mmhg-head-down:altitude_dcs_case_count_as_reported",
+            "group": "180-mmhg-head-down",
+            "study_id": "soviet-chadov-1986-posture-chamber",
+            "endpoint": "altitude_dcs_case_count_as_reported",
+            "cases": 5,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "P816, printed p. 113",
+            "note": "Posture-specific case count in the NASA summary. The posture-specific denominator and repeated-participant crosswalk are unavailable.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the experimental chamber run. Fixed clinical follow-up not described.",
+            "pressure_mmhg": 180,
+            "posture": "head-down"
+          }
+        ]
+      },
+      {
+        "id": "chadov-1986-original-metadata",
+        "title": "Study of the characteristics of decompression gas formation under conditions simulating weightlessness",
+        "year": 1986,
+        "url": "https://ntrs.nasa.gov/api/citations/19890016185/downloads/19890016185.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19890016185/downloads/19890016185.pdf",
+        "locator": "NASA Digest index p. 106, P816, original Kaluga proceedings pp. 154–155",
+        "note": "Index confirms original conference, authors and pages. Clinical data are available in the longer NASA summary."
+      },
+      {
+        "id": "chadov-1987-original",
+        "title": "Relation between the probability of development of altitude-decompression disorders and the duration of pre-exposure to a hypobaric atmosphere",
+        "year": 1987,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3560843/",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/3560843/",
+        "locator": "PubMed author abstract",
+        "note": "The English abstract gives pressure units as GPa. The JPRS translation explicitly resolves the original unit to hPa. The abstract omits the tabulated outcomes.",
+        "identifier": "PMID:3560843",
+        "access": "primary_abstract",
+        "pmid": "3560843",
+        "model_source_id": "chadov87_staged_original"
+      },
+      {
+        "id": "chadov-1987-jprs-full",
+        "title": "Probability of altitude decompression disorders as a function of duration of pre-exposure to hypobaric atmosphere",
+        "year": 1987,
+        "url": "https://archive.org/download/jprs-report_jprs-usb-87-003/jprs-report_jprs-usb-87-003.pdf#page=43",
+        "primary_source": "https://archive.org/download/jprs-report_jprs-usb-87-003/jprs-report_jprs-usb-87-003.pdf#page=43",
+        "locator": "JPRS cover and printed pp. 38–42 (PDF pp. 43–47), incidence table p. 40 (PDF p. 45)",
+        "note": "Full translation of PMID 3560843. The printed table distinguishes altitude decompression disorders (ADD) per test and people with ADD. The methods report 156 person-tests in 43 people. The study manuscript was received 9 January 1985. The cover dates the translation 29 April 1987 despite conflicting host metadata.",
+        "identifier": "N87-25740; JPRS-USB-87-003",
+        "access": "full_text",
+        "translation_date": "1987-04-29",
+        "received_date": "1985-01-09",
+        "unit_resolution": "The translator explicitly identifies Russian gPa as hPa on p. 38. Methods and table note use hPa.",
+        "sha256": "75e982e8659d4f6fe080b010f5aecf78cdca9fa654789c6f9cc675b34fc805bf",
+        "model_source_id": "chadov87_staged_jprs",
+        "overall_trial_count": 156,
+        "overall_participant_count": 43,
+        "observations": [
+          {
+            "id": "24h-staging:altitude_decompression_disorders_as_reported",
+            "group": "24h-staging",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "cases": 0,
+            "denominator": 69,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40",
+            "note": "Tabulated person-tests and ADD count. The source includes subjective sensations and objective clinical symptoms under the ADD definition.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the final chamber stage. Fixed postexposure surveillance was not reported.",
+            "hypobaric_staging_hours": 24
+          },
+          {
+            "id": "24h-staging:people_with_altitude_decompression_disorders_as_reported",
+            "group": "24h-staging",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "people_with_altitude_decompression_disorders_as_reported",
+            "cases": 0,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40",
+            "note": "Person-level outcome from the same row as the test-level result. Participant membership overlaps between protocol series.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the final chamber stage. Fixed postexposure surveillance was not reported.",
+            "hypobaric_staging_hours": 24
+          },
+          {
+            "id": "18h-staging:altitude_decompression_disorders_as_reported",
+            "group": "18h-staging",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "cases": 1,
+            "denominator": 51,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40",
+            "note": "Tabulated person-tests and ADD count. The source includes subjective sensations and objective clinical symptoms under the ADD definition.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the final chamber stage. Fixed postexposure surveillance was not reported.",
+            "hypobaric_staging_hours": 18,
+            "single_published_onset_min": 75
+          },
+          {
+            "id": "18h-staging:people_with_altitude_decompression_disorders_as_reported",
+            "group": "18h-staging",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "people_with_altitude_decompression_disorders_as_reported",
+            "cases": 1,
+            "denominator": 30,
+            "denominator_unit": "person",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40",
+            "note": "Person-level outcome from the same row as the test-level result. Participant membership overlaps between protocol series.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the final chamber stage. Fixed postexposure surveillance was not reported.",
+            "hypobaric_staging_hours": 18
+          },
+          {
+            "id": "12h-staging:altitude_decompression_disorders_as_reported",
+            "group": "12h-staging",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "cases": 6,
+            "denominator": 36,
+            "denominator_unit": "person_exposure",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40",
+            "note": "Tabulated person-tests and ADD count. The source includes subjective sensations and objective clinical symptoms under the ADD definition.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the final chamber stage. Fixed postexposure surveillance was not reported.",
+            "hypobaric_staging_hours": 12
+          },
+          {
+            "id": "12h-staging:people_with_altitude_decompression_disorders_as_reported",
+            "group": "12h-staging",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "people_with_altitude_decompression_disorders_as_reported",
+            "cases": 6,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40",
+            "note": "Person-level outcome from the same row as the test-level result. Participant membership overlaps between protocol series.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the final chamber stage. Fixed postexposure surveillance was not reported.",
+            "hypobaric_staging_hours": 12
+          },
+          {
+            "id": "12h-add-cases:joint_pain_as_reported",
+            "group": "12h-add-cases",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "joint_pain_as_reported",
+            "cases": 3,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "JPRS Results p. 41 (PDF p. 46)",
+            "note": "Six is the number with source-defined ADD in this series. Symptom and resolution outcomes can describe the same events.",
+            "case_role": "case_conditional",
+            "outcome_window": "During the final chamber stage.",
+            "clinical_case_definition": "source-defined ADD"
+          },
+          {
+            "id": "12h-add-cases:pruritus_as_reported",
+            "group": "12h-add-cases",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "pruritus_as_reported",
+            "cases": 1,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "JPRS Results p. 41 (PDF p. 46)",
+            "note": "Six is the number with source-defined ADD in this series. Symptom and resolution outcomes can describe the same events.",
+            "case_role": "case_conditional",
+            "outcome_window": "During the final chamber stage.",
+            "clinical_case_definition": "source-defined ADD"
+          },
+          {
+            "id": "12h-add-cases:scratchy_throat_and_cough_as_reported",
+            "group": "12h-add-cases",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "scratchy_throat_and_cough_as_reported",
+            "cases": 1,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "JPRS Results p. 41 (PDF p. 46)",
+            "note": "Six is the number with source-defined ADD in this series. Symptom and resolution outcomes can describe the same events.",
+            "case_role": "case_conditional",
+            "outcome_window": "During the final chamber stage.",
+            "clinical_case_definition": "source-defined ADD"
+          },
+          {
+            "id": "12h-add-cases:general_weakness_as_reported",
+            "group": "12h-add-cases",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "general_weakness_as_reported",
+            "cases": 1,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "JPRS Results p. 41 (PDF p. 46)",
+            "note": "Six is the number with source-defined ADD in this series. Symptom and resolution outcomes can describe the same events.",
+            "case_role": "case_conditional",
+            "outcome_window": "During the final chamber stage.",
+            "clinical_case_definition": "source-defined ADD"
+          },
+          {
+            "id": "12h-add-cases:symptoms_abated_after_rest_as_reported",
+            "group": "12h-add-cases",
+            "study_id": "soviet-chadov-1987-staged-residence",
+            "endpoint": "symptoms_abated_after_rest_as_reported",
+            "cases": 2,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "JPRS Results p. 41 (PDF p. 46)",
+            "note": "Six is the number with source-defined ADD in this series. Symptom and resolution outcomes can describe the same events.",
+            "case_role": "case_conditional",
+            "outcome_window": "During the final chamber stage.",
+            "clinical_case_definition": "source-defined ADD"
+          }
+        ],
+        "exposure_stages": [
+          {
+            "stratum": "24h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 1,
+            "planned_duration_min": 120,
+            "pressure_hpa": 1120,
+            "oxygen_percent_lower": null,
+            "oxygen_percent_upper": null,
+            "gas_as_described": "Air",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "24h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 2,
+            "planned_duration_min": 1440,
+            "pressure_hpa": 733.3,
+            "oxygen_percent_lower": 29,
+            "oxygen_percent_upper": 30,
+            "gas_as_described": "Hypobaric normoxic atmosphere",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "24h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 3,
+            "planned_duration_min": 360,
+            "pressure_hpa": 293.3,
+            "oxygen_percent_lower": 95,
+            "oxygen_percent_upper": 96,
+            "gas_as_described": "Oxygen and nitrogen mixture",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "18h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 1,
+            "planned_duration_min": 120,
+            "pressure_hpa": 1120,
+            "oxygen_percent_lower": null,
+            "oxygen_percent_upper": null,
+            "gas_as_described": "Air",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "18h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 2,
+            "planned_duration_min": 1080,
+            "pressure_hpa": 733.3,
+            "oxygen_percent_lower": 29,
+            "oxygen_percent_upper": 30,
+            "gas_as_described": "Hypobaric normoxic atmosphere",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "18h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 3,
+            "planned_duration_min": 360,
+            "pressure_hpa": 293.3,
+            "oxygen_percent_lower": 95,
+            "oxygen_percent_upper": 96,
+            "gas_as_described": "Oxygen and nitrogen mixture",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "12h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 1,
+            "planned_duration_min": 120,
+            "pressure_hpa": 1120,
+            "oxygen_percent_lower": null,
+            "oxygen_percent_upper": null,
+            "gas_as_described": "Air",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "12h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 2,
+            "planned_duration_min": 720,
+            "pressure_hpa": 733.3,
+            "oxygen_percent_lower": 29,
+            "oxygen_percent_upper": 30,
+            "gas_as_described": "Hypobaric normoxic atmosphere",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          },
+          {
+            "stratum": "12h-staging",
+            "endpoint": "altitude_decompression_disorders_as_reported",
+            "stage": 3,
+            "planned_duration_min": 360,
+            "pressure_hpa": 293.3,
+            "oxygen_percent_lower": 95,
+            "oxygen_percent_upper": 96,
+            "gas_as_described": "Oxygen and nitrogen mixture",
+            "locator": "JPRS Methods pp. 39–40, incidence table p. 40"
+          }
+        ],
+        "single_case_timeline": [
+          {
+            "milestone": "right_elbow_and_wrist_pain",
+            "elapsed": 75,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "arrival at the final 293.3 hPa stage",
+            "locator": "JPRS Results p. 40 (PDF p. 45)",
+            "note": "One documented source-defined ADD event in the 18-hour staging series."
+          },
+          {
+            "milestone": "pain_persisted_through_rest",
+            "elapsed": 5,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "start of relative rest",
+            "locator": "JPRS Results p. 40 (PDF p. 45)",
+            "note": "Persistent pain led to termination."
+          },
+          {
+            "milestone": "pain_resolved_during_recompression",
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "locator": "JPRS Results p. 40 (PDF p. 45)",
+            "note": "Pain disappeared at 472 hPa. Elapsed time was not given."
+          },
+          {
+            "milestone": "post_descent_examination",
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "locator": "JPRS Results pp. 40–41",
+            "note": "The participant reported no symptoms and examination found no deviations."
+          }
+        ]
+      },
+      {
+        "id": "iseev-1988-threshold-original",
+        "title": "Comparative study of decompression-induced formation of gas bubbles using ultrasonic equipment and the development of altitude-decompression disorders",
+        "year": 1988,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3047496/",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/3047496/",
+        "locator": "PubMed author abstract, Results",
+        "note": "Forty volunteers contributed 442 experiments. Bubble and altitude-decompression-disorder thresholds were established in 31 and 28 people respectively. Threshold ascertainment is a different outcome from a clinical incidence risk set.",
+        "identifier": "PMID:3047496",
+        "access": "primary_abstract",
+        "pmid": "3047496",
+        "model_source_id": "iseev88_threshold_original",
+        "observations": [
+          {
+            "id": "all:reported_chamber_trial_volume",
+            "group": "all",
+            "study_id": "soviet-iseev-1988-doppler-threshold",
+            "endpoint": "reported_chamber_trial_volume",
+            "cases": null,
+            "denominator": 442,
+            "denominator_unit": "person_exposure",
+            "locator": "Author abstract",
+            "note": "Repeat threshold-testing protocols. The number of clinical DCS-positive tests is unavailable.",
+            "case_role": "trial_volume_only",
+            "participant_count": 40,
+            "parent_scope": null,
+            "pressure_mmhg": null
+          },
+          {
+            "id": "all-enrolled:people_with_vge_threshold_identified",
+            "group": "all-enrolled",
+            "study_id": "soviet-iseev-1988-doppler-threshold",
+            "endpoint": "people_with_vge_threshold_identified",
+            "cases": 31,
+            "denominator": 40,
+            "denominator_unit": "person",
+            "locator": "PubMed abstract and NASA Digest P871 pp. 87–88",
+            "note": "Numerator counts people with an identified threshold. The denominator is volunteers enrolled, and all-chamber clinical DCS event incidence is unavailable.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the repeated experimental series. Fixed follow-up beyond sessions unavailable."
+          },
+          {
+            "id": "all-enrolled:people_with_disorder_threshold_identified",
+            "group": "all-enrolled",
+            "study_id": "soviet-iseev-1988-doppler-threshold",
+            "endpoint": "people_with_disorder_threshold_identified",
+            "cases": 28,
+            "denominator": 40,
+            "denominator_unit": "person",
+            "locator": "PubMed abstract and NASA Digest P871 pp. 87–88",
+            "note": "Numerator counts people with an identified threshold. The denominator is volunteers enrolled, and all-chamber clinical DCS event incidence is unavailable.",
+            "case_role": "overlap_hold",
+            "outcome_window": "During the repeated experimental series. Fixed follow-up beyond sessions unavailable."
+          }
+        ]
+      },
+      {
+        "id": "iseev-1988-nasa-p871",
+        "title": "Comparative study of decompression-induced gas bubble formation and occurrence of high altitude decompression sickness (NASA Digest P871)",
+        "year": 1988,
+        "url": "https://ntrs.nasa.gov/api/citations/19890002795/downloads/19890002795.pdf#page=95",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19890002795/downloads/19890002795.pdf#page=95",
+        "locator": "P871, printed pp. 87–88 (PDF pp. 95–96)",
+        "note": "Detailed English summary of the same 40-person experiment as PMID 3047496. Gives 16 selected volunteers in posture testing, adaptive target altitudes, Doppler timing, and conditional symptom percentage ranges. The original tables and their denominators are unavailable.",
+        "identifier": "NTRS:19890002795:P871",
+        "access": "secondary_table",
+        "sha256": "5947375e3bca8ebf9cef27a576a816d4fa5a003f200ed784037b6a6e3246a1e0",
+        "model_source_id": "iseev88_threshold_digest",
+        "posture_subset_participants": 16,
+        "doppler_method": {
+          "scale": "source 0–4 auditory grades",
+          "interval_min": [
+            10,
+            15
+          ],
+          "bubble_threshold_altitude_m": [
+            6530,
+            9100
+          ],
+          "initial_detection_after_arrival_min": [
+            5,
+            260
+          ],
+          "disappearance_after_arrival_min": [
+            25,
+            360
+          ],
+          "supersaturation_coefficient": [
+            1.7,
+            2.4
+          ]
+        },
+        "observations": [
+          {
+            "id": "grade-1-2:dcs_symptoms_by_vge_grade",
+            "group": "grade-1-2",
+            "study_id": "soviet-iseev-1988-doppler-threshold",
+            "endpoint": "dcs_symptoms_by_vge_grade",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "NASA Digest Issue 19 P871, p. 88 (PDF p. 96); original Table 5 referenced",
+            "note": "Reported symptom frequency range by source Doppler grade. The counts and denominators behind the range, and criteria used to select observations, are unavailable.",
+            "case_role": "source_reported_range",
+            "reported_rate_lower": 10,
+            "reported_rate_upper": 16,
+            "reported_rate_unit": "percent",
+            "bubble_grade_lower": 1,
+            "bubble_grade_upper": 2
+          },
+          {
+            "id": "grade-3-4:dcs_symptoms_by_vge_grade",
+            "group": "grade-3-4",
+            "study_id": "soviet-iseev-1988-doppler-threshold",
+            "endpoint": "dcs_symptoms_by_vge_grade",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "NASA Digest Issue 19 P871, p. 88 (PDF p. 96); original Table 5 referenced",
+            "note": "Reported symptom frequency range by source Doppler grade. The counts and denominators behind the range, and criteria used to select observations, are unavailable.",
+            "case_role": "source_reported_range",
+            "reported_rate_lower": 50,
+            "reported_rate_upper": 75.9,
+            "reported_rate_unit": "percent",
+            "bubble_grade_lower": 3,
+            "bubble_grade_upper": 4
+          }
+        ]
+      },
+      {
+        "id": "chadov-1989-original",
+        "title": "Changes in the maximum permissible supersaturation coefficient in altitude decompression",
+        "year": 1989,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/2761213/",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/2761213/",
+        "locator": "PubMed author abstract",
+        "note": "Reports 383 experimental chamber tests in 70 people. Clinical events, exact profiles and follow-up are not enumerated. NASA Digest index P1103 identifies a longer summary in Issue 24, which was not retrieved.",
+        "identifier": "PMID:2761213",
+        "access": "primary_abstract",
+        "pmid": "2761213",
+        "model_source_id": "chadov89_supersaturation",
+        "observations": [
+          {
+            "id": "all:reported_chamber_trial_volume",
+            "group": "all",
+            "study_id": "soviet-chadov-1989-supersaturation",
+            "endpoint": "reported_chamber_trial_volume",
+            "cases": null,
+            "denominator": 383,
+            "denominator_unit": "person_exposure",
+            "locator": "Author abstract",
+            "note": "Tests simulated transition from the orbital-station atmosphere to suit pressure. Clinical outcomes are unenumerated.",
+            "case_role": "trial_volume_only",
+            "participant_count": 70,
+            "parent_scope": null,
+            "pressure_mmhg": null
+          }
+        ]
+      },
+      {
+        "id": "digest-index-p1102-p1103",
+        "title": "USSR Space Life Sciences Digest, Index to Issues 21–25",
+        "year": 1990,
+        "url": "https://ntrs.nasa.gov/api/citations/19900005447/downloads/19900005447.pdf#page=72",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19900005447/downloads/19900005447.pdf#page=72",
+        "locator": "Printed p. 63 (PDF p. 72), P1102(24/89) and P1103(24/89)",
+        "note": "Identifies longer summaries of Filipenkov 1989 and Chadov and Iseev 1989 in Issue 24. The index has no additional outcome cells.",
+        "indexed_issue": "NASA-CR-3922(28); accession N90-12152",
+        "sha256": "d8ef0819d5fbfb86a9c2fce634aa1fd8f19947ebbf82791877a88147e120c0d4"
+      }
+    ]
+  }
+]

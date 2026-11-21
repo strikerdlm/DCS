@@ -126,7 +126,9 @@ CREATE VIEW review_search_observation AS
            json_extract(o.value,'$.altitude_band') AS altitude_band,
            json_extract(o.value,'$.chamber_role') AS chamber_role,
            json_extract(o.value,'$.reported_rate') AS reported_rate,
-           json_extract(o.value,'$.reported_rate_unit') AS reported_rate_unit
+           json_extract(o.value,'$.reported_rate_unit') AS reported_rate_unit,
+           json_extract(o.value,'$.reported_rate_lower') AS reported_rate_lower,
+           json_extract(o.value,'$.reported_rate_upper') AS reported_rate_upper
     FROM review_record AS r
     JOIN json_each(r.metadata_json,'$.observations') AS o
     WHERE r.run_id IS NOT NULL;
