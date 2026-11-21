@@ -1,0 +1,265 @@
+[
+  {
+    "id": "2026-11-21-air-surgeons-bulletin-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Air Surgeon's Bulletin June 1944 Guest incidence bends Karpovich fitness 38,000 Las Vegas San Antonio 197",
+      "http_status": 433,
+      "max_results": 10,
+      "search_depth": "advanced"
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented a search return.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-air-surgeons-bulletin-firecrawl-title",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Karpovich\" \"Relation Between Bends and Physical Fitness\" \"Guest\" altitude chamber 1944 CAM 217",
+      "search_id": "01a1fe11-8e15-767e-a363-852ec216b039"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The exact multi-title query returned no indexed web result.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-air-surgeons-bulletin-guest-citation",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"The incidence of bends during different periods of the day\" Guest 1944 Air Surgeon Bulletin",
+      "search_id": "01a1fe0b-d909-720b-a3dc-2d3e0fa44653"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The indexed bibliography independently locates Guest's report in issue 6, p. 5.",
+    "records": [
+      {
+        "id": "1",
+        "rank": 1,
+        "title": "Full text of \"Military medicine\"",
+        "url": "https://archive.org/stream/58730190R.nlm.nih.gov/58730190R_djvu.txt"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-air-surgeons-bulletin-primary",
+    "date": "2026-11-21",
+    "provider": "Firecrawl and HathiTrust",
+    "operation": "verify_original_publication",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "source_view": "public page text from two copies",
+      "discovery_search_id": "01a1fe0b-d909-720b-a3dc-2d3e0fa44653",
+      "visual_access": "The public viewer listed the correct scan but its facsimile did not render. Direct single-page PDF request returned HTTP 403.",
+      "toc_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=150",
+      "toc_scrape_id": "01a1fe0e-d091-759c-ab22-760e95677e7f",
+      "osu_june_scrape_id": "01a1fe0e-d095-709b-acd6-d548cd0d0476",
+      "michigan_june_scrape_id": "01a1fe0e-d0bc-72d9-946a-1aea208240a8",
+      "july_p8_scrape_id": "01a1fe0e-d053-7549-b49f-418d60fbad61",
+      "july_p9_scrape_id": "01a1fe0f-b316-76dd-8ef8-7588e7d6d1e5"
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Original publication pages accessed in the public text view. Two separately digitized copies of the June page agree on the extracted values.",
+    "records": [
+      {
+        "id": "guest44_diurnal_bends",
+        "title": "The Incidence of Bends During Different Periods of the Day",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155",
+        "year": 1944,
+        "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155",
+        "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153)",
+        "author": "M. M. Guest",
+        "role_review": "historical_overlap_hold",
+        "target_altitude_ft": 38000,
+        "planned_target_min": 180,
+        "observations": [
+          {
+            "id": "guest44_diurnal_bends-morning",
+            "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+            "endpoint": "bends_as_reported",
+            "group": "morning",
+            "cases": null,
+            "denominator": 2693,
+            "denominator_unit": "trainee_record",
+            "reported_rate_percent": 30.0,
+            "clock_start": "07:00",
+            "clock_end": "12:00",
+            "ends_next_day": false,
+            "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153), time-of-day chart",
+            "outcome_window": "During the planned three-hour chamber exposure. Follow-up after chamber exit unavailable.",
+            "note": "Role as printed was trainee. Event numerators, individual memberships and disjointness are unverified."
+          },
+          {
+            "id": "guest44_diurnal_bends-afternoon",
+            "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+            "endpoint": "bends_as_reported",
+            "group": "afternoon",
+            "cases": null,
+            "denominator": 2593,
+            "denominator_unit": "trainee_record",
+            "reported_rate_percent": 15.4,
+            "clock_start": "13:00",
+            "clock_end": "18:00",
+            "ends_next_day": false,
+            "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153), time-of-day chart",
+            "outcome_window": "During the planned three-hour chamber exposure. Follow-up after chamber exit unavailable.",
+            "note": "Role as printed was trainee. Event numerators, individual memberships and disjointness are unverified."
+          },
+          {
+            "id": "guest44_diurnal_bends-evening",
+            "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+            "endpoint": "bends_as_reported",
+            "group": "evening",
+            "cases": null,
+            "denominator": 1341,
+            "denominator_unit": "trainee_record",
+            "reported_rate_percent": 20.7,
+            "clock_start": "18:00",
+            "clock_end": "23:00",
+            "ends_next_day": false,
+            "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153), time-of-day chart",
+            "outcome_window": "During the planned three-hour chamber exposure. Follow-up after chamber exit unavailable.",
+            "note": "Role as printed was trainee. Event numerators, individual memberships and disjointness are unverified."
+          },
+          {
+            "id": "guest44_diurnal_bends-night",
+            "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+            "endpoint": "bends_as_reported",
+            "group": "night",
+            "cases": null,
+            "denominator": 210,
+            "denominator_unit": "trainee_record",
+            "reported_rate_percent": 11.9,
+            "clock_start": "22:00",
+            "clock_end": "04:00",
+            "ends_next_day": true,
+            "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153), time-of-day chart",
+            "outcome_window": "During the planned three-hour chamber exposure. Follow-up after chamber exit unavailable.",
+            "note": "Role as printed was trainee. Event numerators, individual memberships and disjointness are unverified."
+          }
+        ]
+      },
+      {
+        "id": "karpovich44_fitness_bends",
+        "title": "Relation Between Bends and Physical Fitness",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155",
+        "year": 1944,
+        "study_id": "us-aaf-san-antonio-fitness-38000ft",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=155",
+        "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153)",
+        "author": "Peter V. Karpovich",
+        "role_review": "historical_overlap_hold",
+        "target_altitude_ft": 38000,
+        "planned_target_min": 180,
+        "ascent_ft_per_min": 2000,
+        "oxygen_used_above_ft": 10000,
+        "fitness": {
+          "test": "San Antonio Pre-Flight School Physical Fitness Test",
+          "unaffected_n": 167,
+          "affected_n": 30,
+          "unaffected_mean": 49.2,
+          "affected_mean": 47.63,
+          "difference": 1.57,
+          "critical_ratio": 1.3
+        },
+        "observations": [
+          {
+            "id": "karpovich44-early-descent",
+            "study_id": "us-aaf-san-antonio-fitness-38000ft",
+            "group": "All students",
+            "endpoint": "bends_requiring_early_descent",
+            "cases": 30,
+            "denominator": 197,
+            "denominator_unit": "person",
+            "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153)",
+            "outcome_window": "During the three-hour protocol.",
+            "note": "Thirty were brought down before the planned three hours due to bends. The author reports that 167 completed three hours and describes them as the group without bends. Detailed diagnostic criteria, contact after descent and dates are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "asb44_cincinnati_migraine",
+        "title": "A Migraine-Like Syndrome Complicating Decompression Sickness",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=186",
+        "year": 1944,
+        "study_id": "cincinnati-repeated-migraine-syndrome",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=186",
+        "continuation_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=187",
+        "locator": "Vol. 1 no. 7, printed pp. 8–9 (OSU scans 186–187)",
+        "role_review": "previously_registered_cohort",
+        "clinical_companion": "romano44_ana",
+        "report_bases": [
+          "CAM Report 127",
+          "CAM Report 227",
+          "May 1944 American Neurological Association presentation"
+        ],
+        "observations": [
+          {
+            "id": "asb44-migraine-severe-headache",
+            "study_id": "cincinnati-repeated-migraine-syndrome",
+            "group": "Affected people",
+            "endpoint": "severe_headache_with_associated_symptoms_as_reported",
+            "cases": 5,
+            "denominator": 17,
+            "denominator_unit": "person",
+            "locator": "July 1944, printed p. 8 (OSU scan 186)",
+            "note": "Nested symptom severity among the 17 previously indexed patients with the syndrome."
+          }
+        ],
+        "narrative": "A described subject lost consciousness at 35,000 ft on a repeat flight 72 hours after a previous syndrome episode. Exact prior case linkage is unresolved."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-air-surgeons-bulletin-alternate-copies",
+    "date": "2026-11-21",
+    "provider": "HathiTrust",
+    "operation": "verify_manifestations",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "The alternate scans and continuation resolve to the same printed articles. Store the extracted outcomes once.",
+    "records": [
+      {
+        "id": "guest-michigan",
+        "title": "The Incidence of Bends During Different Periods of the Day",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=153",
+        "year": 1944,
+        "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+        "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153)"
+      },
+      {
+        "id": "karpovich-michigan",
+        "title": "Relation Between Bends and Physical Fitness",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=153",
+        "year": 1944,
+        "study_id": "us-aaf-san-antonio-fitness-38000ft",
+        "locator": "Vol. 1 no. 6, printed p. 5 (OSU scan 155, Michigan scan 153)"
+      },
+      {
+        "id": "migraine-continuation",
+        "title": "A Migraine-Like Syndrome Complicating Decompression Sickness",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=187",
+        "year": 1944,
+        "study_id": "cincinnati-repeated-migraine-syndrome",
+        "locator": "Vol. 1 no. 7, printed pp. 8–9 (OSU scans 186–187)"
+      }
+    ]
+  }
+]

@@ -3952,3 +3952,47 @@ def test_qinetiq_dispatcher_counts_link_one_event_to_two_publications(release):
             ('doi:10.3357/amhp.6973.2026', 'same_chamber_experiment'),
             ('pmid:37587625', 'distinct_reported_exposure_schedules_participant_overlap_unresolved'),
         ]
+
+
+def test_air_surgeons_bulletin_retains_counts_rates_and_cohort_links(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='karpovich44_fitness_bends' AND endpoint='bends_requiring_early_descent'
+        """).fetchone() == (30, 197, 'overlap_hold')
+        assert db.execute("""
+            SELECT unaffected_mean_points,affected_mean_points,reported_mean_difference_points,reported_critical_ratio
+            FROM publication_cadet_fitness_comparison
+            WHERE source_id='karpovich44_fitness_bends'
+        """).fetchone() == (49.2, 47.63, 1.57, 1.3)
+        assert db.execute("""
+            SELECT stratum,reported_percent,denominator,denominator_unit,analysis_role
+            FROM publication_reported_rate WHERE source_id='guest44_diurnal_bends'
+            ORDER BY stratum
+        """).fetchall() == [
+            ('afternoon', '15.4', 2593, 'trainee_record', 'overlap_hold'),
+            ('evening', '20.7', 1341, 'trainee_record', 'overlap_hold'),
+            ('morning', '30', 2693, 'trainee_record', 'overlap_hold'),
+            ('night', '11.9', 210, 'trainee_record', 'overlap_hold'),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(cases),sum(denominator) FROM review.review_search_observation
+            WHERE report_id='asb:1944:1:6:5:guest'
+        """).fetchone() == (4, 0, 6837)
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE report_id IN ('asb:1944:1:6:5:guest','asb:1944:1:6:5:karpovich')
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [('asb:1944:1:6:5:guest', 3), ('asb:1944:1:6:5:karpovich', 3)]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE report_id='asb:1944:1:7:8:cincinnati-migraine'
+        """).fetchall() == [(5, 17)]
+        assert db.execute("""
+            SELECT related_source FROM publication_overlap
+            WHERE source_id='asb44_cincinnati_migraine' AND relationship='same_cohort'
+        """).fetchone() == ('romano44_ana',)
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='guest44_diurnal_bends' AND related_source='gray51_constitutional_book'
+        """).fetchone() == ('unresolved',)
