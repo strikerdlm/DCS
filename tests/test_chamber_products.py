@@ -4874,6 +4874,53 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_polaris_and_philomel_reuse_report_identity_without_pooling_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.stratum,o.numerator,o.denominator,o.denominator_unit,o.analysis_role,l.report_id
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            WHERE o.source_id='polaris26_eva' AND o.endpoint='dcs_symptoms'
+            ORDER BY o.stratum
+        """).fetchall() == [
+            ("flight-profile-crew", 0, 4, "person", "descriptive", "doi:10.1109/aero66936.2026.11520147"),
+            ("ground-validation", 0, 8, "person", "descriptive", "doi:10.1109/aero66936.2026.11520147"),
+        ]
+        assert db.execute("""
+            SELECT o.source_id,o.numerator,o.denominator,r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (r.report_id,r.endpoint,r.reported_group)=(l.report_id,o.endpoint,o.stratum)
+            WHERE (o.source_id,o.stratum) IN
+              (('polaris26_eva','flight-profile-crew'),('sutherland90_philomel','rnzaf-aviator'))
+            ORDER BY o.source_id
+        """).fetchall() == [
+            ("polaris26_eva", 0, 4, 0, 4),
+            ("sutherland90_philomel", 1, None, 1, None),
+        ]
+        assert db.execute("""
+            SELECT left_report,right_report,relationship
+            FROM review.review_report_relation
+            WHERE left_report IN ('doi:10.1109/aero66936.2026.11520147','spumsj:1990:20:1:4')
+            ORDER BY left_report
+        """).fetchall() == [
+            ("doi:10.1109/aero66936.2026.11520147", "asma:2024-abstract-14", "overlapping_ground_cohort"),
+            ("spumsj:1990:20:1:4", "workshop:ada257612-harding", "likely_overlap"),
+        ]
+        assert db.execute("""
+            SELECT o.endpoint,o.analysis_role,p.related_source,p.relationship
+            FROM publication_observation o JOIN publication_overlap p USING(source_id)
+            WHERE o.source_id='sutherland90_philomel'
+        """).fetchall() == [
+            ("training_discontinuation_after_reported_air_embolus", "overlap_hold",
+             "v1.6/harding92", "likely_overlap"),
+        ]
+        assert db.execute("""
+            SELECT r.report_id
+            FROM review.review_record r JOIN model_report_link l USING(report_id)
+            WHERE l.source_id='hancock20' AND r.record_key='2026-11-21-polaris-rnzaf-tavily#hancock'
+        """).fetchone() == ("record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#hancock20",)
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""

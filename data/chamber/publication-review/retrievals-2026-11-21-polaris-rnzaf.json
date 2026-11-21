@@ -1,0 +1,123 @@
+[
+  {
+    "id": "2026-11-21-polaris-rnzaf-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Confirmed the indexed USAF report identity and recovered the Rosenberg and Sutherland texts. Published abstract only for Polaris.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "usaf_query": "AFRL-RH-WP-TR-2020-0101 AD1116650 Hancock Butler Johanson full text pdf",
+      "usaf_search_request_id": "1de3ea4e-3f19-48b3-a5a9c1fec25a",
+      "polaris_extract_request_id": "bb384c20-8436-4598-83d2-940f9b17aa90",
+      "rnzaf_extract_request_id": "6f5a882f-3012-4453-9e26-b75dccc28886"
+    },
+    "records": [
+      {
+        "id": "hancock",
+        "title": "Decompression sickness rates in USAF altitude chamber training before and after changing the peak altitude from 43,000 feet to 35,000 feet",
+        "year": 2020,
+        "url": "https://apps.dtic.mil/sti/pdfs/AD1116650.pdf",
+        "identifier": "AFRL-RH-WP-TR-2020-0101; DTIC AD1116650",
+        "indexed_report_match": true,
+        "live_full_text_retrieved": false,
+        "note": "Indexer returns title, authors and report number. Live PDF requests returned an access error or maintenance redirect. Existing observations are from the matching SharePoint and Zotero PDF."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-polaris-rnzaf-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Recovered the published Rosenberg abstract via NASA ADS. The live DTIC URL redirected to a maintenance page.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "polaris_abstract_url": "https://ui.adsabs.harvard.edu/abs/2026aero.conf20147R/abstract",
+      "dtic_url": "https://apps.dtic.mil/sti/pdfs/AD1116650.pdf",
+      "polaris_scrape_id": "01a2004d-8fbd-75f8-bc79-6c5d494219d5",
+      "dtic_scrape_id": "01a2004c-a172-74dd-8c3b-e2bfb7698e8c"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-polaris-rnzaf-verified",
+    "date": "2026-11-21",
+    "provider": "IEEE/NASA ADS and SPUMS Journal",
+    "operation": "supplementary_source_verification",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the Polaris flight count and extracted disposition evidence for a likely overlapping RNZAF arterial gas embolism. These are descriptive sources.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "rosenberg",
+        "title": "Development of a Novel Decompression Profile and Physiological Response to Polaris Dawn’s EVA",
+        "doi": "10.1109/AERO66936.2026.11520147",
+        "year": 2026,
+        "url": "https://ieeexplore.ieee.org/document/11520147",
+        "alternate_abstract_url": "https://ui.adsabs.harvard.edu/abs/2026aero.conf20147R/abstract",
+        "access": "Published author abstract",
+        "full_text_available": false,
+        "observation_context": {
+          "crew_also_in_ground_validation": 4,
+          "ground_validation_people": 8,
+          "flight_vge_cases": null,
+          "post_flight_followup": null
+        },
+        "observations": [
+          {
+            "id": "flight-profile-crew",
+            "group": "flight-profile-crew",
+            "endpoint": "dcs_symptoms",
+            "cases": 0,
+            "denominator": 4,
+            "denominator_unit": "person",
+            "locator": "Author abstract, in-flight physiology and final outcome paragraphs",
+            "evidence_url": "https://ui.adsabs.harvard.edu/abs/2026aero.conf20147R/abstract",
+            "note": "No DCS symptoms observed across both evaluations. Four crew participated in flight and were also among the eight ground participants. The in-flight profile was revised and time-specific clinical follow-up after flight is unreported. Chamber exposure count and flight VGE count are unreported."
+          }
+        ]
+      },
+      {
+        "id": "sutherland",
+        "title": "Diving accident cases treated at the H.M.Z.N.S. Philomel recompression chamber in 1988",
+        "year": 1990,
+        "url": "https://www.dhmjournal.com/images/20/SPUMSJ_March1990.pdf",
+        "identifier": "SPUMSJ:1990:20:1:4",
+        "locator": "Printed pp. 4–5 (PDF pp. 8–9), Cases treated and The worst cases",
+        "sha256": "61f05d9fbcf56ca1a82033d9e5176787690ed945677d95cd7600899646abe1e0",
+        "full_text_available": true,
+        "comparison_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=469",
+        "observation_context": {
+          "year": 1988,
+          "treatment": "Recompression at Philomel. Regimen unreported.",
+          "source_diagnosis": "Air embolus after rapid decompression",
+          "follow_up": "No individual follow-up possible",
+          "persistent_deficit": "Suspected by the treating report, without documented follow-up or confirmation",
+          "aircrew_exposure_denominator": null,
+          "overlap": "Likely same event as Harding 1992 p. 469. Shared program, year, rapid decompression and AGE. No matching date, profile or case identifier is provided by Sutherland."
+        },
+        "observations": [
+          {
+            "id": "rnzaf-aviator",
+            "group": "rnzaf-aviator",
+            "endpoint": "training_discontinuation_after_reported_air_embolus",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 5 (PDF p. 9), The worst cases",
+            "evidence_url": "https://www.dhmjournal.com/images/20/SPUMSJ_March1990.pdf#page=9",
+            "note": "Reported unfit to continue flying training. Store disposition without incrementing the 1988 AGE event count. The series size relates to patients treated after multiple different causes."
+          }
+        ]
+      }
+    ]
+  }
+]

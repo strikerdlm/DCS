@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.37/sources.csv#polaris26_eva",
+      "report_id": "doi:10.1109/aero66936.2026.11520147",
+      "evidence_url": "https://ieeexplore.ieee.org/document/11520147",
+      "basis": "The J-GLOBAL catalog and publisher agree on the exact title, first author, conference and publication year. Use the existing DOI identity."
+    },
+    {
+      "record_key": "2026-11-20-eds-training#ffpkpa7m3v",
+      "report_id": "doi:10.1109/aero66936.2026.11520147",
+      "evidence_url": "https://ieeexplore.ieee.org/document/11520147",
+      "basis": "Indexed DOI, title, publication year and first author match the publisher record."
+    },
+    {
+      "record_key": "2026-11-21-polaris-rnzaf-verified#rosenberg",
+      "report_id": "doi:10.1109/aero66936.2026.11520147",
+      "evidence_url": "https://ieeexplore.ieee.org/document/11520147",
+      "basis": "The publisher and NASA ADS carry the same DOI and author abstract."
+    },
+    {
+      "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#hancock20",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#hancock20",
+      "evidence_url": "https://apps.dtic.mil/sti/pdfs/AD1116650.pdf",
+      "basis": "The previously ingested full text has the same title, authors, date and report number as the DTIC index."
+    },
+    {
+      "record_key": "2026-11-21-polaris-rnzaf-tavily#hancock",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#hancock20",
+      "evidence_url": "https://apps.dtic.mil/sti/pdfs/AD1116650.pdf",
+      "basis": "Indexed title, authors, date and report number AFRL-RH-WP-TR-2020-0101 match the PDF already ingested from SharePoint and Zotero. The live DTIC PDF could not be retrieved on this run."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.167/sources.csv#sutherland90_philomel",
+      "report_id": "spumsj:1990:20:1:4",
+      "evidence_url": "https://www.dhmjournal.com/images/20/SPUMSJ_March1990.pdf",
+      "basis": "The publisher issue confirms author, title, volume, issue and pages of the Philomel treatment report."
+    },
+    {
+      "record_key": "2026-11-21-polaris-rnzaf-verified#sutherland",
+      "report_id": "spumsj:1990:20:1:4",
+      "evidence_url": "https://www.dhmjournal.com/images/20/SPUMSJ_March1990.pdf",
+      "basis": "Full-text verification of the registered Philomel report, printed pp. 4–5."
+    },
+    {
       "record_key": "2026-11-21-regional-chamber-source-scope-tavily#filipenkov",
       "report_id": "gmik:2005:filipenkov-ten-km",
       "evidence_url": "https://readings.gmik.ru/lecture/2005-RISK-DEKOMPRESSIONNOY-BOLEZNI-PO-DANNIM-TRENIROVOK-NA-PERENOSIMOST-BOLSHIH-STEPENEY-RAZREZHENIYA-ATMOSFERI-I-NATURNIM-ISPITANIYAM-VISOTNOGO-OBORUDOVANIYA",
@@ -19973,6 +20015,12 @@
       "locator": "Discussion, p. 469"
     },
     {
+      "study_id": "rnzaf-1988-reported-chamber-events",
+      "report_id": "spumsj:1990:20:1:4",
+      "role": "potentially_overlapping_treatment_report",
+      "locator": "Cases treated and The worst cases, pp. 4–5"
+    },
+    {
       "study_id": "cf-amtu-1977-1981",
       "report_id": "pmid:6651730",
       "role": "primary_surveillance_report",
@@ -22549,6 +22597,13 @@
       "relationship": "likely_overlap",
       "evidence": "Both papers describe the Israeli Air Force chamber program at the same center. The 2022 report covers January 2015 to December 2019 and the 2026 report covers January 2015 to December 2022. The later paper cites the earlier one in reference 13. The earlier table uniquely implies seven trainee and two instructor cases from rounded risks. The later table has seven non-instructor and four instructor chamber cases, with no dates per case and no role-specific denominator. Shared cases and separate post-2019 risk sets cannot be established from the published reports.",
       "evidence_url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf"
+    },
+    {
+      "left_report": "spumsj:1990:20:1:4",
+      "right_report": "workshop:ada257612-harding",
+      "relationship": "likely_overlap",
+      "evidence": "Sutherland pp. 4–5 and Harding p. 469 describe RNZAF training, rapid decompression, and an arterial air embolism in 1988. Sutherland adds the recompression site, removal from flying training and lack of individual follow-up. Harding provides the chamber profile. Neither report provides a case identifier or exact date, so treat them as likely the same case and retain the existing AGE count.",
+      "evidence_url": "https://www.dhmjournal.com/images/20/SPUMSJ_March1990.pdf"
     },
     {
       "left_report": "doi:10.1109/aero66936.2026.11520147",
