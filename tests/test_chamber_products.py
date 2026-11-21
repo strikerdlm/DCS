@@ -1666,7 +1666,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (124,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (127,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1693,7 +1693,7 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (124,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (127,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -2316,7 +2316,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (124, 124, 124)
+        """).fetchone() == (127, 127, 127)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence
@@ -3288,3 +3288,40 @@ def test_mayo_reports_share_one_program_and_keep_streltsov_on_hold(release):
             ("cough_persisted_after_descent", 2.0, "hours"),
             ("chest_soreness_duration", 24.0, "hours"),
         ]
+
+def test_ocular_cases_keep_distinct_exposures_and_canonical_citations(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,report_id,source_time_min,first_assessment_min,recurrence_report_day
+            FROM historical_case_catalog
+            WHERE source_id IN ('butler91_parachute_optic','pokroy09_f16_optic','steig03_optic')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("butler91_parachute_optic", "pmid:2031639", None, None, None),
+            ("pokroy09_f16_optic", "pmid:19817243", None, None, None),
+            ("steig03_optic", "pmid:14503679", None, None, 21),
+        ]
+        assert db.execute("""
+            SELECT reported_altitude_ft,reported_duration_min,gas_as_reported
+            FROM publication_chamber_case_altitude_stage WHERE source_id='steig03_optic'
+        """).fetchall() == [(25000, 9, None)]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_unit,chamber_altitude_ft FROM publication_case_milestone
+            WHERE source_id='pokroy09_f16_optic'
+              AND milestone IN ('presentation_as_described_in_abstract','documented_ophthalmic_exam',
+                                'in_flight_cabin_reading_after_suspected_leak')
+            ORDER BY milestone
+        """).fetchall() == [
+            ("documented_ophthalmic_exam", 3.0, "days", None),
+            ("in_flight_cabin_reading_after_suspected_leak", 10.0, "seconds", None),
+            ("presentation_as_described_in_abstract", 2.0, "days", None),
+        ]
+        assert db.execute("""
+            SELECT pmid,min(report_id),count(DISTINCT report_id)
+            FROM review.review_record WHERE pmid IN ('14503679','7980334')
+            GROUP BY pmid ORDER BY pmid
+        """).fetchall() == [("14503679", "pmid:14503679", 1), ("7980334", "pmid:7980334", 1)]
+        assert db.execute("""
+            SELECT relationship FROM publication_overlap
+            WHERE source_id='butler91_parachute_optic' AND related_source='fitz94_visual'
+        """).fetchone() == ("unresolved",)
