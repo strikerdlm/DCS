@@ -4207,3 +4207,28 @@ def test_marseille_separates_reported_subjects_sessions_and_hypoxic_events(relea
             SELECT relationship FROM review.review_report_relation
             WHERE left_report='abstract:coulange-2022-bmsh-32-30' AND right_report='journal:coulange-2014-bmsh-24-89'
         """).fetchone() == ("distinct_exposure_modalities",)
+
+
+def test_brook_preserves_exposed_denominator_and_hall_unifies_two_pmids(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role,altitude,prebreathe_min
+            FROM publication_observation WHERE source_id='brook95_hypobaric_complement'
+        """).fetchall() == [(0, 13, "person", "overlap_hold", 25000.0, None)]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='brook95_hypobaric_complement'
+        """).fetchall() == [("smart04", "unresolved")]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE pmid='7619033' OR source_key='brook95_hypobaric_complement'
+        """).fetchall() == [("pmid:7619033",)]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),count(DISTINCT pmid)
+            FROM review.review_record
+            WHERE report_id='report:usn-mr005-13-1002-subtask-9-report-3'
+        """).fetchone() == (9, 1, 2)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE pmid IN ('14131303','14166642') OR source_key='hall63_43000'
+        """).fetchall() == [("report:usn-mr005-13-1002-subtask-9-report-3",)]

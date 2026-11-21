@@ -14399,6 +14399,66 @@
       "report_id": "abstract:coulange-2022-bmsh-32-30",
       "basis": "Same printed title, author list, issue and pages in the public proceedings.",
       "evidence_url": "https://www.medsubhyp.fr/wp-content/uploads/2024/10/Bulletin-MSH-2022-tome-32-1.pdf#page=34"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/sources.csv#hall63_43000",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/search_hits.csv#rd_v20_web_target:3",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/search_hits.csv#rd_v20_web_target:7",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/search_hits.csv#rd_v20_web_follow:1",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/search_hits.csv#rd_v20_extract_initial:4",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/search_hits.csv#rd_v20_web_initial:4",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.20/search_hits.csv#rd_v20_web_initial:5",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "2026-11-21-brook-complement-hall-identity-hall-verified#14166642",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "2026-11-21-brook-complement-hall-identity-hall-verified#14131303",
+      "report_id": "report:usn-mr005-13-1002-subtask-9-report-3",
+      "basis": "Both NLM records give A. L. Hall, September 1, 1963, the same Naval School of Aviation Medicine serial and pp. 1–9, and project MR005.13-1002, subtask 9, report 3. 'Stimulated' and 'simulated' are title variants.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14166642/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.130/sources.csv#brook95_hypobaric_complement",
+      "report_id": "pmid:7619033",
+      "basis": "Exact PMID, author list, title and journal issue identify the existing abstract.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/7619033/"
     }
   ],
   "studies": [
@@ -15769,6 +15829,12 @@
       "label": "Marseille APHM–COMEX hypobaric testing surveillance",
       "period": "2008–2022",
       "setting": "Marseille APHM then COMEX hypobaric test program. Mixed aircrew hypoxia familiarization, smoke protection equipment testing and oxygen-system evaluations. Individual and protocol-specific exposure histories unavailable."
+    },
+    {
+      "study_id": "brook95-hypobaric-complement-volunteers",
+      "label": "Brook 1995 chamber complement experiment",
+      "period": "Exposure dates not reported in abstract",
+      "setting": "Volunteers exposed during routine chamber runs at 25,000 ft equivalent altitude in an Australian biomarker study. Four experimental controls are separate from the exposed group."
     }
   ],
   "study_reports": [
@@ -18147,6 +18213,12 @@
       "report_id": "abstract:coulange-2022-bmsh-32-30",
       "role": "primary_mixed_chamber_surveillance",
       "locator": "Printed pp. 30–31 (PDF pp. 34–35), Methods and Results"
+    },
+    {
+      "study_id": "brook95-hypobaric-complement-volunteers",
+      "report_id": "pmid:7619033",
+      "role": "primary_exposed_volunteer_summary",
+      "locator": "Author abstract, Methods and final paragraph, issue pp. 415–417"
     }
   ],
   "relations": [
@@ -22174,6 +22246,13 @@
       "relationship": "distinct_exposure_modalities",
       "evidence": "The 2014 article describes a ten-person normobaric feasibility study and gives context on the Mont-de-Marsan DMAO program. The 2022 abstract enumerates mixed hypobaric tests in Marseille at APHM and COMEX. The earlier feasibility sample supplies no chamber denominator.",
       "evidence_url": "https://www.medsubhyp.fr/wp-content/uploads/2024/10/Bulletin-MSH-2022-tome-32-1.pdf#page=34"
+    },
+    {
+      "left_report": "pmid:7619033",
+      "right_report": "adf:smart-cable-2004",
+      "relationship": "possible_australian_chamber_overlap",
+      "evidence": "The authors list a Melbourne affiliation and describe routine runs. The publication falls within the ADF surveillance era. No chamber site, exposure dates or roster links establish whether these exposed volunteers contribute to Smart and Cable.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/7619033/"
     }
   ],
   "report_titles": {
@@ -22345,6 +22424,7 @@
     "asb:1944:1:11:5:york": "A Case of Aeroembolism",
     "pmid:20994853": "The Incidence and Relation of Syncope to Decompression Sickness",
     "pmid:20994854": "Studies of the Effects of Morphine at Simulated High Altitudes and Its Use for the Relief of Pain of Decompression Sickness",
-    "citation:peterson-bornstein-jasper-1945-altitude": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude"
+    "citation:peterson-bornstein-jasper-1945-altitude": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude",
+    "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude"
   }
 }
