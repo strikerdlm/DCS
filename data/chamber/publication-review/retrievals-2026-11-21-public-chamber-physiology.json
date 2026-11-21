@@ -1,0 +1,382 @@
+[
+  {
+    "id": "2026-11-21-public-chamber-physiology-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "\"10.1038/s41597-025-06508-1\" high altitude pilot dataset oxygen DCS adverse results",
+          "search_id": "01a1feb2-76a6-70a7-a28d-2fc86b63ed9b",
+          "returned": 1
+        },
+        {
+          "query": "\"High-Altitude Pilot Physiological Monitoring Dataset\" \"recruited\" \"high-altitude\" DCS",
+          "search_id": "01a1feb3-9617-706f-b91a-f5eb9cf3fa6c",
+          "returned": 5,
+          "relevant_url": "https://figshare.com/articles/dataset/High-Altitude_Pilot_Physiological_Monitoring_Dataset_Respiratory_Performance_and_SpO_Analysis/29947679"
+        },
+        {
+          "query": "\"航空生理訓練\" \"高空減壓症\" \"發生\" 2001 2018 低壓艙",
+          "search_id": "01a1feb2-7843-700e-8dbf-453759edc3c9",
+          "returned": 1,
+          "existing_report": "abstract:ndmc-2019-a-i-003",
+          "note": "Neither the conference result nor the appended sponsor summary gives a verified DCS case count."
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located the original paper and Figshare data release. The Taiwan search recovered the already registered proceedings version.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-public-chamber-physiology-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Matos\" \"Howard\" \"Sheffield\" \"LaHood\" \"decompression\" Medical Service Digest 1982 pdf",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The spending limit prevented retrieval of archive search results.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-public-chamber-physiology-primary",
+    "date": "2026-11-21",
+    "provider": "Scientific Data, Figshare and Indian Journal of Aerospace Medicine",
+    "operation": "verify_sources_and_data",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Dataset checks used public versioned repository bytes. The repeated participant and separate hypoxia outcome were checked against the trial narrative.",
+    "records": [
+      {
+        "id": "jia26_chamber_physiology",
+        "title": "High-Altitude Pilot Physiological Monitoring Dataset: Respiratory Performance and SpO₂ Analysis",
+        "year": 2026,
+        "authors": [
+          "Chunyang Jia",
+          "M. Yang",
+          "C. Zhao"
+        ],
+        "pmid": "41588022",
+        "openalex_id": "W7125680348",
+        "doi": "10.1038/s41597-025-06508-1",
+        "url": "https://www.nature.com/articles/s41597-025-06508-1",
+        "locator": "Publisher Methods, participant recruitment, acquisition and preprocessing, and Data Records",
+        "scrape_id": "01a1feb4-7fee-774c-bd98-f2a35b7c262d",
+        "recruited_volunteers": 30,
+        "volunteers_with_data_released": 20,
+        "nominal_followup_hours": 48,
+        "followup_completed": null,
+        "clinical_dcs_cases": null,
+        "reporting_note": "Thirty healthy male volunteers were recruited and 20 retained in the published analytic dataset. The paper describes a 48-hour phone follow-up procedure. Event counts, follow-up completion and DCS outcomes are unreported. The sampled gases are from inside the mask. The data contain time, equivalent altitude and physiological variables.",
+        "gas_measurement_location": "inside mask",
+        "mask_gases": [
+          "O2",
+          "N2",
+          "CO2",
+          "other"
+        ],
+        "described_preprocessing": "forward fill",
+        "pressure_history_measure": "recorded equivalent altitude",
+        "indexing_note": "Article date is 2026. Its DOI string and the data release contain 2025.",
+        "listed_altitude_sequence_m": [
+          7500,
+          7000,
+          6500,
+          6000,
+          5500,
+          5000,
+          4500
+        ],
+        "preprocessing_text_altitude_group_count": 6,
+        "altitude_protocol_note": "Methods list seven levels including 4,500 m, with conditional stopping before lower levels. The preprocessing paragraph refers to six groups without specifying which counted toward exclusion."
+      },
+      {
+        "id": "jia25_figshare_chamber_data_v1",
+        "title": "High-Altitude Pilot Physiological Monitoring Dataset: Respiratory Performance and SpO₂ Analysis",
+        "year": 2025,
+        "authors": [
+          "Chunyang Jia"
+        ],
+        "doi": "10.6084/m9.figshare.29947679.v1",
+        "url": "https://figshare.com/articles/dataset/High-Altitude_Pilot_Physiological_Monitoring_Dataset_Respiratory_Performance_and_SpO_Analysis/29947679",
+        "version_link": "https://doi.org/10.6084/m9.figshare.29947679.v1",
+        "primary_source": "https://api.figshare.com/v2/articles/29947679/versions/1",
+        "locator": "Figshare 29947679, version 1, repository file inventory and audited CSV contents",
+        "scrape_id": "01a1feb4-20c3-752d-ab26-a54ce30a5028",
+        "data_inventory": {
+          "doi": "10.6084/m9.figshare.29947679.v1",
+          "version": 1,
+          "license": "CC BY 4.0",
+          "file_count": 24,
+          "verified_file_count": 24,
+          "data_file_count": 20,
+          "distinct_data_digests": 20,
+          "data_rows": 158580,
+          "header_counts": [
+            {
+              "fields": [
+                "Altitude",
+                "Time",
+                "SPO2",
+                "Heart rate",
+                "Respiratory rate",
+                "O2",
+                "N2",
+                "CO2",
+                "other"
+              ],
+              "files": 20
+            }
+          ],
+          "file_checks": [
+            {
+              "file_id": 57303830,
+              "bytes": 343539,
+              "md5_as_published": "0f107f209da5523d8f2c8b9407e54e11",
+              "sha256": "3be9fcc49cdfb22d3918c994f4873644e1e391b7599a11f8b3b851d3a19bceb7",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303833,
+              "bytes": 309340,
+              "md5_as_published": "62e41f18b4e20d7c641bba5544c51207",
+              "sha256": "06cca5f5c5c6ce926f4433833d540162a6716b9982c04572723f6b52e4425049",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303836,
+              "bytes": 447671,
+              "md5_as_published": "ffb57c13160aec154e392eb3ee2f8d3e",
+              "sha256": "b982f232825e83f99ad9dcd4b082a14eebb987f4bc5ff7795dfcb3244f78a1ef",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303839,
+              "bytes": 297587,
+              "md5_as_published": "06dbd2713689f3ae3cc406e119c09095",
+              "sha256": "5e1709858169cd1a52c191cc7057f56e8c98508c7bb5dcd9079b87b207e73ec2",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303842,
+              "bytes": 386990,
+              "md5_as_published": "20ad187a4f87abc0a631a20fef8f20f0",
+              "sha256": "5d00882bd5f5107adbf3353b679ce21b23dab10295d0550c41899153761a7c64",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303845,
+              "bytes": 378356,
+              "md5_as_published": "0392bfadce426ec6274a8a18699845fa",
+              "sha256": "85352db9cf8d66154ba68bf008a0c9f0f36e1068d06d2e26990e6337ccd4f19e",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303848,
+              "bytes": 336376,
+              "md5_as_published": "8a7437600bccd94641428007ae953b46",
+              "sha256": "7ae234643e8cdb2222e27b284353200f7dc5fe2c788b92717dbc5d3e85c6b99a",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303851,
+              "bytes": 363952,
+              "md5_as_published": "cdad3a47e0444ffb08091abf97d89392",
+              "sha256": "841ff9dec51bfa49ed8abd17617de9bde63b4db3b1a1782f508e59da4e1ce497",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303854,
+              "bytes": 321358,
+              "md5_as_published": "14b19ecfdc45118a299ffa65119c7aa1",
+              "sha256": "cd85c99f31c6bf275a80012e4663bf478b40630f47907a633a3a4f95c2a220d9",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303857,
+              "bytes": 350832,
+              "md5_as_published": "3406d6a0d4f8f3f07e8a7fbecac81ca2",
+              "sha256": "fadb2adcb584633071d91299519e2f29fd4f93eab0a82b7024fb53d00d360039",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303860,
+              "bytes": 310340,
+              "md5_as_published": "8ba2cb0a6d738bee4fbaa2081038506f",
+              "sha256": "9864f6ce55e0ec577ec52cd9d5970c1c2c77cec2be8b3b7c308621f4cac36820",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303863,
+              "bytes": 302408,
+              "md5_as_published": "d304ef294a2f4026b1874250a7a037b2",
+              "sha256": "0a63b5c6bcd22f9731445c63f5a3623844b50bbc5611d1ab731c21e1c8ae07d9",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303866,
+              "bytes": 344885,
+              "md5_as_published": "b114142022139784a7607877641d8d82",
+              "sha256": "98ef03aa4a485d196d9c922e7c821b6b0dd18af476c6b13a49ff5c6c008f0e13",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303869,
+              "bytes": 280790,
+              "md5_as_published": "d25c537a49504549921f5098bec4747e",
+              "sha256": "beb9267131fdc7dfef4e4e21280049316ceb681026536122894954b14bc11574",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303872,
+              "bytes": 336298,
+              "md5_as_published": "fd5de165a346d9b7b49f0f82cfac04f6",
+              "sha256": "8b11fe9476a9b0b824d02f34ee92a2eccd3144d2fa2004bae02af060ed1a8acf",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303875,
+              "bytes": 388074,
+              "md5_as_published": "ddede47bc85bdf0e22cddc8c85cead96",
+              "sha256": "7f59db47ce5a8222ffc3a1a719deaa1c318036ce69a471373a652d429ebb62e9",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303878,
+              "bytes": 293809,
+              "md5_as_published": "9172d814e5173d179397353dbe046843",
+              "sha256": "44e5582f6dccbf7f95ed22a45ae5897758aeb09577c9ebe8a3f666986bcf2aa5",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303881,
+              "bytes": 333959,
+              "md5_as_published": "ace5f34ee7a9458863d82ab56f552f71",
+              "sha256": "c5b37ab9f65ecb579e254856eaeef7c2d5a5129985c9bab2f386a871d3da1432",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303884,
+              "bytes": 267936,
+              "md5_as_published": "e0f48e773c817274635662331090cf82",
+              "sha256": "0f6f90c67cfcdb97ff7206e7144a962fb1ff38d674cbe86afa20e388e83a4f63",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303887,
+              "bytes": 376596,
+              "md5_as_published": "36cf7e074f53d879f9fbc1b2a3d6d88f",
+              "sha256": "8a6399de9d25333f5c40bc9cf37493a99bcf32cc7d15928b29ef4215a532bef1",
+              "media_type": "text/csv"
+            },
+            {
+              "file_id": 57303893,
+              "bytes": 1540,
+              "md5_as_published": "2e75b2a0169b007387f797aa35027885",
+              "sha256": "3e8a03927f0b2fe256d3ba84b9a07742ceea19e64171ee573ca37fc04b367d45",
+              "media_type": "text/plain"
+            },
+            {
+              "file_id": 57303896,
+              "bytes": 720,
+              "md5_as_published": "e230a0a58a74e469141e9e190fc345b0",
+              "sha256": "e77841ddc41aaf4860b3b0bae42560ce15571f942bc233e1b1134eb19f01d4f0",
+              "media_type": "text/plain"
+            },
+            {
+              "file_id": 57303899,
+              "bytes": 481,
+              "md5_as_published": "fa64b1216d7cbedb4434a7a11fde671f",
+              "sha256": "b84705e676dfd711e4953cbc022a88fa3e5ad62fd05b9b410236db3985c94871",
+              "media_type": "text/plain"
+            },
+            {
+              "file_id": 57303902,
+              "bytes": 1485,
+              "md5_as_published": "764e6882e8d1f7be221faa5cb60757b4",
+              "sha256": "ce26c54c8821032c4067d2f960280e725c3ffdf3719e536de7724f1cb91b78cf",
+              "media_type": "text/plain"
+            }
+          ],
+          "recorded_altitude_m": [
+            4500.0,
+            5000.0,
+            5500.0,
+            6000.0,
+            6500.0,
+            7000.0,
+            7500.0
+          ],
+          "rows_at_4500_m": 3742,
+          "data_files_with_4500_m": 16,
+          "recorded_4500_m_role": "listed in the published Methods and present in 16 files",
+          "clinical_dcs_outcomes_present": false,
+          "followup_outcomes_present": false
+        },
+        "note": "Version 1 contains 20 distinct volunteer CSVs with 158,580 data rows and four analysis scripts. Every file matched the provider's checksum. There are nine columns and no endpoint labels. The series is processed and the paper describes forward filling of gaps. The files do not flag filled values."
+      },
+      {
+        "id": "raju22_iaf_oxygen_trial",
+        "title": "Retro-fitment of an oxygen system in a transport aircraft of Indian Air Force: Decompression chamber trials to assess system functionality",
+        "year": 2022,
+        "doi": "10.25259/ijasm_28_2021",
+        "authors": [
+          "A. V. K. Raju",
+          "Ranjan Sarkar",
+          "Vijay V. Joshi",
+          "N. K. Tripathy"
+        ],
+        "url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+        "primary_source": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+        "locator": "Trial Protocol, Experiments 1 and 2, and Discussion, pp. 44–46",
+        "participants": 1,
+        "equipment_experiments": 3,
+        "described_symptom_profiles": 2,
+        "clinical_dcs_cases": null,
+        "note": "A single healthy male volunteer participated in the equipment tests. The authors report no subjective or objective hypoxia symptoms in two monitored profiles. No DCS-specific ascertainment or standardized delayed follow-up is reported.",
+        "observations": [
+          {
+            "id": "raju22_iaf_oxygen_trial:experiment-1-15000-ft",
+            "group": "experiment-1-15000-ft",
+            "endpoint": "observed_hypoxia_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 1,
+            "denominator_unit": "person_exposure",
+            "peak_altitude_ft": 15000,
+            "planned_duration_sec": 1500,
+            "protocol": "Single equipment-test participant at 15,000 ft for 25 minutes. The trial included a short voluntary hyperventilation segment.",
+            "locator": "Trial Protocol, Experiments 1 and 2, and Discussion, pp. 44–46",
+            "note": "A single healthy male volunteer participated in the equipment tests. The authors report no subjective or objective hypoxia symptoms in two monitored profiles. No DCS-specific ascertainment or standardized delayed follow-up is reported."
+          },
+          {
+            "id": "raju22_iaf_oxygen_trial:experiment-2-7000-to-15000-ft",
+            "group": "experiment-2-7000-to-15000-ft",
+            "endpoint": "observed_hypoxia_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 1,
+            "denominator_unit": "person_exposure",
+            "peak_altitude_ft": 15000,
+            "planned_duration_sec": null,
+            "protocol": "The same volunteer underwent simulated rapid decompression from 7,000 to 15,000 ft. The full exposure interval is unavailable in the outcome paragraph.",
+            "locator": "Trial Protocol, Experiments 1 and 2, and Discussion, pp. 44–46",
+            "note": "A single healthy male volunteer participated in the equipment tests. The authors report no subjective or objective hypoxia symptoms in two monitored profiles. No DCS-specific ascertainment or standardized delayed follow-up is reported."
+          }
+        ]
+      }
+    ]
+  }
+]

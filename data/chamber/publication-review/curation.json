@@ -14609,6 +14609,78 @@
       "report_id": "pmid:1417653",
       "basis": "Exact journal paper, citation, PMID and trial design.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf#page=3"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.136/sources.csv#jia26_chamber_physiology",
+      "report_id": "pmid:41588022",
+      "evidence_url": "https://www.nature.com/articles/s41597-025-06508-1",
+      "basis": "Exact Scientific Data title, DOI, PubMed record and 2026 publication date."
+    },
+    {
+      "record_key": "2026-11-21-public-chamber-physiology-primary#jia26_chamber_physiology",
+      "report_id": "pmid:41588022",
+      "evidence_url": "https://www.nature.com/articles/s41597-025-06508-1",
+      "basis": "Exact Scientific Data title, DOI, PubMed record and 2026 publication date."
+    },
+    {
+      "record_key": "2026-11-20-east-asian-cohorts-o-china#W7125680348",
+      "report_id": "pmid:41588022",
+      "evidence_url": "https://www.nature.com/articles/s41597-025-06508-1",
+      "basis": "Exact Scientific Data title, DOI, PubMed record and 2026 publication date."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W7125680348",
+      "report_id": "pmid:41588022",
+      "evidence_url": "https://www.nature.com/articles/s41597-025-06508-1",
+      "basis": "Exact Scientific Data title, DOI, PubMed record and 2026 publication date."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.136/sources.csv#jia25_figshare_chamber_data_v1",
+      "report_id": "doi:10.6084/m9.figshare.29947679.v1",
+      "evidence_url": "https://figshare.com/articles/dataset/High-Altitude_Pilot_Physiological_Monitoring_Dataset_Respiratory_Performance_and_SpO_Analysis/29947679",
+      "basis": "Exact Figshare data DOI with version suffix and repository accession."
+    },
+    {
+      "record_key": "2026-11-21-public-chamber-physiology-primary#jia25_figshare_chamber_data_v1",
+      "report_id": "doi:10.6084/m9.figshare.29947679.v1",
+      "evidence_url": "https://figshare.com/articles/dataset/High-Altitude_Pilot_Physiological_Monitoring_Dataset_Respiratory_Performance_and_SpO_Analysis/29947679",
+      "basis": "Exact Figshare data DOI with version suffix and repository accession."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.136/sources.csv#raju22_iaf_oxygen_trial",
+      "report_id": "doi:10.25259/ijasm_28_2021",
+      "evidence_url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+      "basis": "Exact journal URL, title, 2022 byline and DOI as displayed by the publisher."
+    },
+    {
+      "record_key": "2026-11-21-public-chamber-physiology-primary#raju22_iaf_oxygen_trial",
+      "report_id": "doi:10.25259/ijasm_28_2021",
+      "evidence_url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+      "basis": "Exact journal URL, title, 2022 byline and DOI as displayed by the publisher."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_morant:2",
+      "report_id": "doi:10.25259/ijasm_28_2021",
+      "evidence_url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+      "basis": "Exact journal URL, title, 2022 byline and DOI as displayed by the publisher."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_india_extract:2",
+      "report_id": "doi:10.25259/ijasm_28_2021",
+      "evidence_url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+      "basis": "Exact journal URL, title, 2022 byline and DOI as displayed by the publisher."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.31/search_hits.csv#reconciliation_v31_india2:2",
+      "report_id": "doi:10.25259/ijasm_28_2021",
+      "evidence_url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+      "basis": "Exact journal URL, title, 2022 byline and DOI as displayed by the publisher."
+    },
+    {
+      "record_key": "2026-11-20-india-followup-f-journal#https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+      "report_id": "doi:10.25259/ijasm_28_2021",
+      "evidence_url": "https://indjaerospacemed.com/retro-fitment-of-an-oxygen-system-in-a-transport-aircraft-of-indian-air-force-decompression-chamber-trials-to-assess-system-functionality/",
+      "basis": "Exact journal URL, title, 2022 byline and DOI as displayed by the publisher."
     }
   ],
   "studies": [
@@ -22452,6 +22524,13 @@
       "relationship": "same_underlying_crossover_trial",
       "evidence": "Both reports give 39 participants (29 male, 10 female), two 21,000-ft exposures per participant, the same exercise dose, 3-hour dwell and treatment test. The 1991 wording gives nine cases (four control and five exercise). The 1992 paper explicitly gives 15 symptomatic exposures and identifies nine discordant participant pairs with the same split. The exact reconciliation supports using the 1992 exposure totals and retaining the conference values as reported wording from the same trial.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf#page=3"
+    },
+    {
+      "left_report": "pmid:41588022",
+      "right_report": "doi:10.6084/m9.figshare.29947679.v1",
+      "relationship": "describes_same_physiology_dataset",
+      "evidence": "The data paper cites Figshare 29947679 as its repository and describes the same 20 analyzed volunteer files. Version 1 is the 2025 data release for the 2026 paper. Both describe one cohort.",
+      "evidence_url": "https://www.nature.com/articles/s41597-025-06508-1"
     }
   ],
   "report_titles": {

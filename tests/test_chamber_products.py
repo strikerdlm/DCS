@@ -4398,3 +4398,36 @@ def test_chamber_severity_reuses_the_kumar_trial_and_preserves_prague_barotrauma
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='kumar91_prior_exercise_abstract'
         """).fetchone() == (0,)
+
+
+def test_public_chamber_physiology_keeps_measurements_separate_from_dcs_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT participant_count,trial_count,evidence_source_id
+            FROM publication_chamber_trial_scope WHERE source_id='jia26_chamber_physiology'
+        """).fetchall() == [(20, None, "jia25_figshare_chamber_data_v1")]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.data_inventory.data_rows'),
+                   json_array_length(metadata_json,'$.data_inventory.file_checks'),
+                   json_extract(metadata_json,'$.data_inventory.clinical_dcs_outcomes_present'),
+                   json_extract(metadata_json,'$.data_inventory.data_files_with_4500_m')
+            FROM review.review_record WHERE source_key='jia25_figshare_chamber_data_v1' AND run_id IS NOT NULL
+        """).fetchall() == [(158580, 24, 0, 16)]
+        assert db.execute("""
+            SELECT a.source_id,b.source_id,r.relationship FROM review.review_report_relation r
+            JOIN model_report_link a ON a.report_id=r.left_report
+            JOIN model_report_link b ON b.report_id=r.right_report
+            WHERE r.relationship='describes_same_physiology_dataset'
+        """).fetchall() == [("jia26_chamber_physiology", "jia25_figshare_chamber_data_v1",
+                              "describes_same_physiology_dataset")]
+        assert db.execute("""
+            SELECT source_id,endpoint,numerator,denominator
+            FROM publication_observation
+            WHERE source_id IN ('jia26_chamber_physiology','jia25_figshare_chamber_data_v1','raju22_iaf_oxygen_trial')
+            ORDER BY stratum
+        """).fetchall() == [("raju22_iaf_oxygen_trial", "observed_hypoxia_symptoms_as_reported", 0, 1)] * 2
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE url LIKE '%/retro-fitment-of-an-oxygen-system%'
+              OR report_id='doi:10.25259/ijasm_28_2021'
+        """).fetchone() == (6, 1)
