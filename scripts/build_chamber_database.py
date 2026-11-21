@@ -200,6 +200,7 @@ CHAMBER_DAK_TRAINING_CASE = ROOT / "data" / "chamber" / "v1.132"
 CHAMBER_ASMA_2012_CROSSWALK = ROOT / "data" / "chamber" / "v1.133"
 CHAMBER_CHINESE_FLIGHT_INCIDENTS = ROOT / "data" / "chamber" / "v1.134"
 CHAMBER_SYMPTOM_SEVERITY = ROOT / "data" / "chamber" / "v1.135"
+CHAMBER_PUBLIC_PHYSIOLOGY_DATA = ROOT / "data" / "chamber" / "v1.136"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1913,6 +1914,17 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_PUBLIC_PHYSIOLOGY_DATA,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
                     },
                     create_schema=False,
                 )
