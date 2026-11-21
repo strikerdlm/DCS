@@ -368,7 +368,8 @@ def test_publication_register_build(tmp_path):
         ).fetchone() == (18, 92)
         assert db.execute(
             "SELECT report_id, cases, denominator, chamber_role, role_review "
-            "FROM review_search_observation WHERE run_id LIKE '2026-11-20-russian-%' ORDER BY report_id"
+            "FROM review_search_observation JOIN review_retrieval USING(run_id) "
+            "WHERE snapshot LIKE '%/retrievals-2026-11-20-russian.json' ORDER BY report_id"
         ).fetchall() == [
             ("ntrs:n88-26074", 250, 2444, None, "experimental_volunteers_no_operational_role_comparison"),
             ("pmid:11385985", 0, 24, None, "experimental_eva_abstract_only"),
