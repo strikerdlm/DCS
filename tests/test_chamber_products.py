@@ -1222,8 +1222,8 @@ def test_lunar_case_timelines_link_to_existing_nasa_trial_outcomes(release):
             WHERE p.source_id='lam26_nasa_neuro' AND p.trial_source_id='garbino_ea34'
             ORDER BY p.case_number
         """).fetchall() == [
-            (1, "90-min-prebreathe", "dcs_neurological", "likely_same_episode", 4.3, 90, 1, None, 29.6),
-            (2, "20-min-prebreathe", "dcs_type_ii_source", "likely_same_episode", 5.2, 20, 1, None, None),
+            (1, "90-min-prebreathe", "dcs_neurological", "likely_same_episode", 4.3, 90, 1, 5, 29.6),
+            (2, "20-min-prebreathe", "dcs_type_ii_source", "likely_same_episode", 5.2, 20, 1, 16, None),
         ]
         assert db.execute("""
             SELECT case_number,count(*) FROM publication_trial_case_milestone
@@ -1249,10 +1249,61 @@ def test_lunar_case_timelines_link_to_existing_nasa_trial_outcomes(release):
         assert db.execute("""
             SELECT count(*),sum(numerator),count(denominator) FROM discovery_observation
             WHERE source_id='garbino_ea34'
-        """).fetchone() == (3, 2, 0)
+        """).fetchone() == (3, 2, 3)
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='lam26_nasa_neuro'
         """).fetchone() == (0,)
+
+
+def test_nasa_ea_presentation_completes_original_risk_sets_and_exposes_attrition(release):
+    with connect_pair(release) as db:
+        source = "garbino_ea345_slides"
+        expected = [
+            (20, 5.2, 16, 16, 1, 2), (50, 5.2, 21, 19, 0, 3),
+            (90, 4.3, 5, 5, 1, 1), (150, 4.3, 24, 24, 0, 5),
+        ]
+        assert db.execute("""
+            SELECT prebreathe_min,target_pressure_psia,
+                   sum(participating_exposures),sum(evaluated_exposures),sum(cases),count(*)
+            FROM discovery_eva_session WHERE source_id=?
+            GROUP BY prebreathe_min,target_pressure_psia ORDER BY prebreathe_min
+        """, (source,)).fetchall() == expected
+        assert db.execute("""
+            SELECT participating_exposures,evaluated_exposures,cases
+            FROM discovery_eva_session WHERE source_id=? AND test_number=4 AND eva_number=4
+        """, (source,)).fetchone() == (7, 5, 0)
+        assert db.execute("""
+            SELECT o.stratum,o.endpoint,o.numerator,o.denominator,c.target_pressure_psia
+            FROM discovery_observation o
+            JOIN discovery_observation_completion c USING (source_id,stratum,endpoint)
+            WHERE o.source_id='garbino_ea34' AND c.evidence_source_id=?
+            ORDER BY o.stratum
+        """, (source,)).fetchall() == [
+            ("150-min-prebreathe", "dcs", 0, 24, 4.3),
+            ("20-min-prebreathe", "dcs_type_ii_source", 1, 16, 5.2),
+            ("90-min-prebreathe", "dcs_neurological", 1, 5, 4.3),
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,analysis_role
+            FROM discovery_observation WHERE source_id=?
+        """, (source,)).fetchall() == [("50-min-5-2-psia-ea4-ea5", "dcs", 0, 19, "overlapping_margin")]
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-21-nasa-ea-protocol-denominators-verified'
+                AND report_id='ntrs:20250004535'
+            ORDER BY reported_group
+        """).fetchall() == [
+            ("150-min-prebreathe", "dcs", 0, 24, "person_exposure", "overlap_hold"),
+            ("20-min-prebreathe", "dcs_type_ii_source", 1, 16, "person_exposure", "overlap_hold"),
+            ("50-min-5-2-psia-ea4-ea5", "dcs", 0, 19, "person_exposure", "overlap_hold"),
+            ("90-min-prebreathe", "dcs_neurological", 1, 5, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:20250004535'
+                AND right_report='record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34'
+        """).fetchone() == ("partial_overlap",)
 
 
 def test_nasa_prp_counts_preserve_three_overlapping_analysis_populations(release):

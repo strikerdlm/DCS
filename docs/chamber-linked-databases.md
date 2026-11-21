@@ -16,6 +16,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_lewis_case_profile`, `publication_overlap` | Selected aviation surveillance cases and source differences |
 | `dcs-model.sqlite` | `publication_trial_case_profile`, `publication_trial_case_milestone` | Case narratives linked to existing experimental chamber outcomes |
 | `dcs-model.sqlite` | `publication_prp_analysis_counts` | Overlapping analysis populations for seven NASA prebreathe phases |
+| `dcs-model.sqlite` | `discovery_observation_completion`, `discovery_eva_session` | NASA EA3–5 source revisions, simulated EVA counts and session-level differences between participation and evaluated exposures |
 | `dcs-model.sqlite` | `publication_left_heart_gas_case` | Armstrong ultrasound detections with clinical details, venous grades and paired report values |
 | `dcs-model.sqlite` | `publication_outcome_onset` | Lee and Hay left-ventricular gas detection times and summaries linked to existing profile outcomes |
 | `dcs-model.sqlite` | `publication_argo_phase_i_arm`, `publication_argo_phase_i_doppler`, `publication_argo_phase_i_clinical` | Original ARGO crossover Doppler roster, protocol crosswalk and linked clinical findings |
