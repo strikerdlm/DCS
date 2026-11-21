@@ -13337,6 +13337,48 @@
       "report_id": "pmid:5678082",
       "basis": "PubMed gives McIver, Aerospace Medicine 39(10), pp. 1084–1086.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/5678082/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.119/sources.csv#conkin98_vge_dcs_archive",
+      "report_id": "pmid:9451528",
+      "basis": "Publisher and PubMed agree on authors, title, journal and page range.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9451528/"
+    },
+    {
+      "record_key": "2026-11-21-nasa-survival-cohort-primary#conkin-1998",
+      "report_id": "pmid:9451528",
+      "basis": "Publisher and PubMed agree on authors, title, journal and page range.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9451528/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.119/sources.csv#thompson03_dcs_survival",
+      "report_id": "ntrs:20030019353",
+      "basis": "NASA official report and indexed title identify NASA/TP-2003-210791.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20030019353"
+    },
+    {
+      "record_key": "2026-11-21-nasa-survival-cohort-primary#thompson-2003",
+      "report_id": "ntrs:20030019353",
+      "basis": "NASA official report and indexed title identify NASA/TP-2003-210791.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20030019353"
+    },
+    {
+      "record_key": "2026-11-21-nasa-survival-cohort-firecrawl-cox#cox-scan",
+      "report_id": "ntrs:20030019353",
+      "basis": "NASA official report and indexed title identify NASA/TP-2003-210791.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20030019353"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2143038161",
+      "report_id": "ntrs:20030019353",
+      "basis": "NASA official report and indexed title identify NASA/TP-2003-210791.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20030019353"
+    },
+    {
+      "record_key": "2026-11-21-nasa-survival-cohort-archive-finding-aid#jsc-1988-investigation",
+      "report_id": "utmb:ms100:26-13",
+      "basis": "UTMB archive identifies title, 22 January 1988 and collection MS 100, Box 26, Folder 13.",
+      "evidence_url": "https://txarchives.org/utmb/finding_aids/00212.xml"
     }
   ],
   "studies": [
@@ -14575,6 +14617,12 @@
       "label": "Annis and Webb whole-body Space Activity Suit chamber development",
       "period": "Published November 1971",
       "setting": "Ohio State University hypobaric chamber tests"
+    },
+    {
+      "study_id": "hdsd-vge-complete-1322",
+      "label": "HDSD VGE-complete chamber cohort with one-record Cox reanalysis exclusion",
+      "period": "1975–1994",
+      "setting": "Historical hypobaric research, principally EVA simulation. Original report identifies NASA JSC and Brooks AFB."
     }
   ],
   "study_reports": [
@@ -16713,6 +16761,18 @@
       "report_id": "ntrs:20190027194",
       "role": "secondary_case_retelling",
       "locator": "Section VI and Figure 12"
+    },
+    {
+      "study_id": "hdsd-vge-complete-1322",
+      "report_id": "pmid:9451528",
+      "role": "primary_outcome",
+      "locator": "Methods and Table I, printed pp. 8–9 (PDF pp. 1–2) and Table II"
+    },
+    {
+      "study_id": "hdsd-vge-complete-1322",
+      "report_id": "ntrs:20030019353",
+      "role": "subset_reanalysis",
+      "locator": "Section 3 and Tables 1a–1b, printed pp. 3–5 (PDF pp. 13–15)"
     }
   ],
   "relations": [
@@ -20383,6 +20443,27 @@
       "relationship": "distinct_chamber_event_participant_overlap_unverified",
       "evidence": "The earlier arm feasibility test under NAS 1-6872 describes an observer at 155 mmHg. The later whole-body test under NAS 1-8018 describes an instrumented subject at the 80,000-ft equivalent plateau. Cross-study personnel linkage is unavailable.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19720005428/downloads/19720005428.pdf#page=98"
+    },
+    {
+      "left_report": "ntrs:20030019353",
+      "right_report": "pmid:9451528",
+      "relationship": "reanalysis_excluding_one_record",
+      "evidence": "Thompson Section 3 explicitly identifies the original 1,322 Conkin records and one exclusion for statistical influence. The reported uncensored count falls from 168 to 167 and the right-censored count remains 1,154. Conkin identifies two contributing centers and Thompson describes JSC. The site assignment of individual records is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20030019353/downloads/20030019353.pdf#page=13"
+    },
+    {
+      "left_report": "pmid:9451528",
+      "right_report": "pmid:1524540",
+      "relationship": "selected_historical_database_records",
+      "evidence": "Methods identify HDSD as the data source and select records with VGE details. Crosswalk to the dataset's other research publications remains unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/1/article-p8.pdf#page=1"
+    },
+    {
+      "left_report": "pmid:9451528",
+      "right_report": "pmid:8280036",
+      "relationship": "possible_shared_hdsd_exposures",
+      "evidence": "JSC chamber research years in Kumar et al. 1993 overlap the Conkin et al. archive selection. Reported purposes and criteria differ, and row-level membership is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/1/article-p8.pdf#page=1"
     }
   ],
   "report_titles": {

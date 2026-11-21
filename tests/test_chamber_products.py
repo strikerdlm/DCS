@@ -3717,3 +3717,63 @@ def test_cr1892_keeps_one_case_and_preserves_its_three_clock_values(release):
                    json_extract(metadata_json,'$.case_details.repressurized_pressure_mmhg')
             FROM review.review_record WHERE source_key='cr1892-original'
         """).fetchall() == [(20.9, 20.8, 62)]
+
+
+def test_hdsd_reanalysis_preserves_two_partitions_and_original_vge_discrepancy(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,numerator,denominator,analysis_role
+            FROM publication_observation
+            WHERE (source_id,stratum) IN (
+                ('conkin98_vge_dcs_archive','selected-vge-available-records'),
+                ('thompson03_dcs_survival','analysis-records'))
+            ORDER BY source_id
+        """).fetchall() == [
+            ("conkin98_vge_dcs_archive", 168, 1322, "overlap_hold"),
+            ("thompson03_dcs_survival", 167, 1321, "overlap_hold"),
+        ]
+        for table, expected in [
+            ("table-1a", [(2, 64), (5, 278), (1, 91), (13, 276), (11, 63), (66, 325), (13, 45), (56, 179)]),
+            ("table-1b", [(16, 110), (69, 387), (11, 46), (36, 130), (0, 68), (34, 336), (0, 39), (1, 205)]),
+        ]:
+            extracted = db.execute("""
+                SELECT numerator,denominator FROM publication_observation
+                WHERE source_id='thompson03_dcs_survival' AND stratum GLOB ?
+                  AND endpoint='type_i_dcs_symptoms_as_reported' AND analysis_role='overlap_hold'
+                ORDER BY stratum
+            """, (f"{table}-bin-*-exer-*",)).fetchall()
+            assert extracted == expected
+            assert tuple(map(sum, zip(*extracted))) == (167, 1321)
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='conkin98_vge_dcs_archive' AND endpoint='any_grade_vge_as_reported'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("table-i-vge-detected", 480, 1322, "denominator_conflict"),
+            ("table-ii-vge-detected", 479, 1322, "denominator_conflict"),
+        ]
+        assert dict(db.execute("""
+            SELECT stratum,printf('%d/%d',numerator,denominator)
+            FROM publication_observation WHERE source_id='conkin98_vge_dcs_archive'
+              AND endpoint='dcs_by_maximum_vge_grade_as_reported'
+        """).fetchall()) == {
+            "table-ii-grade-0": "13/843", "table-ii-grade-i": "5/45",
+            "table-ii-grade-ii": "6/67", "table-ii-grade-iii": "23/118",
+            "table-ii-grade-iv": "121/249",
+        }
+        assert db.execute("""
+            SELECT report_id,role FROM review.review_study_report
+            WHERE study_id='hdsd-vge-complete-1322' ORDER BY report_id
+        """).fetchall() == [
+            ("ntrs:20030019353", "subset_reanalysis"), ("pmid:9451528", "primary_outcome"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-formal-chamber-openalex#W2143038161'
+        """).fetchone() == ("ntrs:20030019353",)
+        assert db.execute("""
+            SELECT report_id,cases,denominator FROM review.review_search_observation
+            WHERE study_id='hdsd-vge-complete-1322'
+              AND reported_group IN ('analysis-records','selected-vge-available-records')
+            ORDER BY report_id
+        """).fetchall() == [("ntrs:20030019353", 167, 1321), ("pmid:9451528", 168, 1322)]
