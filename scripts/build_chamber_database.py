@@ -180,6 +180,7 @@ CHAMBER_NASA_LONG_EXPOSURES = ROOT / "data" / "chamber" / "v1.112"
 CHAMBER_FAA_OXYGEN = ROOT / "data" / "chamber" / "v1.113"
 CHAMBER_FAA_MASK_HISTORY = ROOT / "data" / "chamber" / "v1.114"
 CHAMBER_FAA_OBSERVER = ROOT / "data" / "chamber" / "v1.115"
+CHAMBER_NASA_OBSERVER = ROOT / "data" / "chamber" / "v1.116"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1680,6 +1681,17 @@ def build(
                         "publication_case_milestone": "case_milestones.csv",
                         "publication_chamber_case_altitude_stage": "case_altitude_stages.csv",
                         "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_OBSERVER,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_case_milestone": "case_milestones.csv",
                     },
                     create_schema=False,
                 )

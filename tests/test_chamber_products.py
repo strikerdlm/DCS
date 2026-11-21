@@ -3565,3 +3565,40 @@ def test_cessna_observer_case_uses_abort_time_and_keeps_observer_denominator_unk
                OR source_key IN ('mask66-catalog','mask66-scan','methods67-catalog')
             GROUP BY report_id ORDER BY report_id
         """).fetchall() == [("dot:20789", 3), ("faa:am67-03", 2)]
+
+
+def test_space_activity_suit_observer_pressure_is_distinct_from_subject_timing(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,altitude,prebreathe_min
+            FROM publication_observation WHERE source_id='webb67_sas_observer'
+        """).fetchall() == [("table-i-test-13-observer", 1, None, None, None)]
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count,pressure_mmhg
+            FROM publication_chamber_trial_scope WHERE source_id='webb67_sas_observer' ORDER BY stratum
+        """).fetchall() == [
+            ("altitude-chamber-garment-trials", 6, 2, None),
+            ("table-i-test-13-observer", 1, None, 155.0),
+        ]
+        assert db.execute("""
+            SELECT elapsed,chamber_altitude_ft FROM publication_case_milestone
+            WHERE source_id='webb67_sas_observer'
+        """).fetchall() == [(None, None)]
+        assert db.execute("""
+            SELECT report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='webb67_sas_observer'
+        """).fetchall() == [("ntrs:19680002042", None)]
+        assert db.execute("""
+            SELECT report_id,cases,denominator FROM review.review_search_observation
+            WHERE report_id IN ('ntrs:19680002042','ntrs:19650004856','ntrs:20190027194','dot:20777')
+        """).fetchall() == [("ntrs:19680002042", 1, None)]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE report_id IN ('ntrs:19680002042','ntrs:19650004856','ntrs:20190027194','dot:20777')
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [
+            ("dot:20777", 4),
+            ("ntrs:19650004856", 2),
+            ("ntrs:19680002042", 5),
+            ("ntrs:20190027194", 3),
+        ]
