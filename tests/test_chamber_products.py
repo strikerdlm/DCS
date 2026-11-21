@@ -1179,6 +1179,36 @@ def test_fryer_fatalities_preserve_chamber_scope_and_case_identity(release):
         """).fetchone() == (14,)
 
 
+def test_moon_accessions_link_existing_fatalities_with_original_time_origins(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT m.pathology_accession,f.case_number,m.listed_time_to_death_hours,
+                   f.table_time_to_death_hours_min,m.narrative_time_to_death_hours,m.narrative_time_origin
+            FROM publication_moon48_chamber_case m JOIN publication_fryer69_chamber_fatality f
+                ON (m.fryer_source_id,m.fryer_case_number)=(f.source_id,f.case_number)
+            JOIN review.review_report r ON r.report_id=m.report_id
+            WHERE r.report_id='pmid:18904642' ORDER BY f.case_number
+        """).fetchall() == [
+            (95412, 1, 10, 8.5, None, None),
+            (100893, 2, 47, 71.0, 45, "after_hospital_admission"),
+            (103767, 3, 17, 16.75, None, None),
+            (100822, 4, 24, 17.25, 24, "after_chamber_test"),
+            (127451, 7, 55, 55.5, None, None),
+        ]
+        assert db.execute("""
+            SELECT m.pathology_accession,c.cited_case_label FROM publication_moon48_chamber_case m
+            JOIN publication_fryer69_fatality_citation c
+                ON (m.fryer_source_id,m.fryer_case_number)=(c.source_id,c.case_number)
+            WHERE c.cited_report_id='pmid:15401759' ORDER BY m.fryer_case_number
+        """).fetchall() == [(95412, "1"), (100893, "5"), (103767, "2"), (100822, "3"), (127451, "4")]
+        assert db.execute("""
+            SELECT report_id,json_extract(metadata_json,'$.excluded_endpoint.source_section'),
+                   json_extract(metadata_json,'$.excluded_endpoint.accession')
+            FROM review.review_record WHERE record_key=
+                '2026-11-20-moon-original-pathology-scans#moon-original-p248-p251'
+        """).fetchone() == ("pmid:18904642", "Anoxia", 83172)
+
+
 def test_repeat_exposure_report_preserves_joint_counts_and_changed_timing(release):
     with connect_pair(release) as db:
         assert db.execute("""

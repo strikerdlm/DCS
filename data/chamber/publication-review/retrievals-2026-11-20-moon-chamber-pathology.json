@@ -1,0 +1,138 @@
+[
+  {
+    "id": "2026-11-20-moon-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_source_search",
+    "status": "failed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Moon 1948 pathology of secondary shock 100822 100893 hypobaric chamber accession case DCS Masland altitude collapse",
+      "error_code": 433
+    },
+    "note": "The provider returned a spending-limit response. No search results were available.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-moon-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_primary_pdf_and_scan_access",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requested_pdf_pages": 18
+    },
+    "note": "The direct PDF extraction returned the five-case table and both representative case texts. The PubMed Central HTML exposed the public page image links. Original NIH scans were used to verify all values.",
+    "records": [
+      {
+        "id": "moon-pmc-extract",
+        "title": "The Pathology of Secondary Shock",
+        "pmid": "18904642",
+        "year": 1948,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1942710/pdf/amjpathol00604-0003.pdf",
+        "access": "full_text"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-moon-original-pathology-scans",
+    "date": "2026-11-20",
+    "provider": "NIH PubMed Central scans and archival Fryer report",
+    "operation": "supplementary_accession_link_and_time_origin_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Five low-pressure fatalities were matched to five existing Fryer cases using explicit accession numbers in both reports.",
+    "records": [
+      {
+        "id": "moon-original-p248-p251",
+        "title": "The Pathology of Secondary Shock",
+        "pmid": "18904642",
+        "year": 1948,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1942710/",
+        "access": "verified_full_text_pages",
+        "scanned_pages": [
+          {
+            "page": 248,
+            "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5ba8/1942710/730ec2306275/amjpathol00604-0016.png",
+            "sha256": "6d67126dad726e8c099fe1baa832a7fa3e68dd70ce1fdb7a2c1843a8516d51d7"
+          },
+          {
+            "page": 249,
+            "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5ba8/1942710/dc932c958e12/amjpathol00604-0017.png",
+            "sha256": "a4cee1e1fec65a833ff6cbb2cb700afaf5252a61d9428935e6ae4a6c2ebc86cc"
+          },
+          {
+            "page": 250,
+            "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5ba8/1942710/511835a75856/amjpathol00604-0018.png",
+            "sha256": "847e03ea6c0e77fc44e3e2912b55b951b602e4c17a81e537d032f9b2667c6ab2"
+          },
+          {
+            "page": 251,
+            "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5ba8/1942710/59f615f86ba4/amjpathol00604-0019.png",
+            "sha256": "ecd5e519aaed6eb45b71f353ee02701e1c2a0d07b0f0d5882655d96a82711992"
+          }
+        ],
+        "locator": "Printed pp. 248–251, Anoxia and Low Atmospheric Pressure",
+        "study_id": "agard-fryer-selected-chamber-fatalities",
+        "source_classification": "shock from low atmospheric pressure",
+        "case_crosswalk": [
+          {
+            "accession": 95412,
+            "fryer_case": 1,
+            "moon_listed_death_hours": 10,
+            "moon_narrative_time_hours": null,
+            "moon_narrative_time_origin": null
+          },
+          {
+            "accession": 100893,
+            "fryer_case": 2,
+            "moon_listed_death_hours": 47,
+            "moon_narrative_time_hours": 45,
+            "moon_narrative_time_origin": "after_hospital_admission"
+          },
+          {
+            "accession": 103767,
+            "fryer_case": 3,
+            "moon_listed_death_hours": 17,
+            "moon_narrative_time_hours": null,
+            "moon_narrative_time_origin": null
+          },
+          {
+            "accession": 100822,
+            "fryer_case": 4,
+            "moon_listed_death_hours": 24,
+            "moon_narrative_time_hours": 24,
+            "moon_narrative_time_origin": "after_chamber_test"
+          },
+          {
+            "accession": 127451,
+            "fryer_case": 7,
+            "moon_listed_death_hours": 55,
+            "moon_narrative_time_hours": null,
+            "moon_narrative_time_origin": null
+          }
+        ],
+        "excluded_endpoint": {
+          "accession": 83172,
+          "source_section": "Anoxia",
+          "setting": "Low-pressure chamber at 36,500 ft",
+          "locator": "Printed p. 248, first anoxia listing",
+          "basis": "The paper classifies the death under anoxia following oxygen-mask removal. This is a separate source category from the five low-pressure shock cases."
+        },
+        "scope": {
+          "reported_low_pressure_cases": 5,
+          "linked_existing_fryer_cases": 5,
+          "representative_clinical_histories": 2,
+          "exposure_denominator": null
+        },
+        "note": "The summary listing provides times to death and no standardized origin. Separate narrative values use the end of the chamber test or hospital admission. The listed times and Fryer's times remain source-specific."
+      }
+    ]
+  }
+]
