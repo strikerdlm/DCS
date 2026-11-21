@@ -173,6 +173,7 @@ CHAMBER_CHADOV_CABIN_EXPERIMENTS = ROOT / "data" / "chamber" / "v1.105"
 CHAMBER_VAKAR_GENIN_EXPERIMENTS = ROOT / "data" / "chamber" / "v1.106"
 CHAMBER_HITCHCOCK_AND_LOCKHEED = ROOT / "data" / "chamber" / "v1.107"
 CHAMBER_EARLY_NAVY_ALTITUDE = ROOT / "data" / "chamber" / "v1.108"
+CHAMBER_MAYO_AND_STRELTSOV = ROOT / "data" / "chamber" / "v1.109"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1597,6 +1598,19 @@ def build(
                         "publication_case_milestone": "case_milestones.csv",
                         "publication_chamber_case_altitude_stage": "case_altitude_stages.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_MAYO_AND_STRELTSOV,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_chamber_case_altitude_stage": "case_altitude_stages.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(

@@ -1,0 +1,617 @@
+[
+  {
+    "id": "2026-11-21-mayo-streltsov-search-1",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "status": "observed_no_visible_results",
+    "note": "No ranked web results visible for this query.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Aeroembolism\" \"1938\" \"Lovelace\" \"Scientific Monthly\" 53 30 1941 JSTOR",
+      "limit": 5,
+      "returned_web_count": 0
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-search-2",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "status": "observed_no_visible_results",
+    "note": "No ranked web results visible for this query.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"The Scientific Monthly\" \"July 1941\" \"Vol. 53\" JSTOR 1941 No. 1",
+      "limit": 5,
+      "returned_web_count": 0
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-search-3",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "status": "observed_no_visible_results",
+    "note": "No ranked web results visible for this query.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"О природе болей, возникающих у летчиков\" Стрельцов медицина 1940 оцифрованный номер",
+      "limit": 5,
+      "returned_web_count": 0
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-search-4",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_discovery",
+    "status": "observed_no_visible_results",
+    "note": "No ranked web results visible for this query.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Streltsov\" \"aeroembolism\" 800 decompression 197",
+      "limit": 5,
+      "returned_web_count": 0
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_discovery",
+    "status": "failed",
+    "note": "Provider returned spending-limit code 433.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "error_code": 433,
+      "query": "\"Aeroembolism\" \"Lovelace\" \"Scientific Monthly\" 53 30 \"1941\" chamber primary full text",
+      "search_depth": "advanced",
+      "max_results": 8
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-archive",
+    "date": "2026-11-21",
+    "provider": "Internet Archive",
+    "operation": "supplementary_journal_issue_search",
+    "status": "observed",
+    "note": "Provider reported 19 matching records. Three pertinent candidates are recorded here. The exact July issue supplied the public PDF used for extraction.",
+    "reported_total": 19,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "title:\"The Scientific Monthly\" AND year:1941",
+      "url": "https://archive.org/advancedsearch.php?q=title%3A%22The+Scientific+Monthly%22+AND+year%3A1941&fl%5B%5D=identifier&fl%5B%5D=title&rows=20&output=json"
+    },
+    "records": [
+      {
+        "id": "july-1941",
+        "title": "The Scientific Monthly 1941-07: Vol 53 Iss 1",
+        "url": "https://archive.org/details/sim_scientific-monthly_1941-07_53_1",
+        "locator": "Volume 53, July 1941, number 1",
+        "journal_issue_pdf": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf"
+      },
+      {
+        "id": "volume-dli-232257",
+        "title": "The Scientific Monthly Vol - Liii (1941)",
+        "url": "https://archive.org/details/in.ernet.dli.2015.232257",
+        "note": "Potential alternate digitization of the containing volume. No independent extraction."
+      },
+      {
+        "id": "volume-dli-25828",
+        "title": "The Scientific Monthly Vol - Liii (1941)",
+        "url": "https://archive.org/details/in.ernet.dli.2015.25828",
+        "note": "Potential alternate digitization of the containing volume. No independent extraction."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-extract",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_and_reference_extraction",
+    "status": "observed",
+    "note": "Extracted the July 1941 archive identity and Streltsov's citation. Numeric evidence is verified from the rendered PDFs in the separate full-text operation.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "urls": [
+        "https://archive.org/details/sim_scientific-monthly_1941-07_53_1",
+        "https://www.dissercat.com/content/obosnovanie-vybora-rezhimov-giperbaricheskoi-oksigenatsii-dlya-lecheniya-vysotnoi-dekompress"
+      ]
+    },
+    "records": [
+      {
+        "id": "july-scan",
+        "title": "Aeroembolism: A Medical Problem in Aviation at High Altitude",
+        "year": 1941,
+        "url": "https://archive.org/details/sim_scientific-monthly_1941-07_53_1",
+        "full_text_url": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf",
+        "volume": 53,
+        "issue": 1,
+        "locator": "Internet Archive issue metadata and link under Download Options"
+      },
+      {
+        "id": "streltsov-bibliography",
+        "title": "О природе болей, возникающих у летчиков при высотных полетах",
+        "year": 1940,
+        "url": "https://www.dissercat.com/content/obosnovanie-vybora-rezhimov-giperbaricheskoi-oksigenatsii-dlya-lecheniya-vysotnoi-dekompress",
+        "author": "В. В. Стрельцов",
+        "journal": "Клиническая медицина",
+        "volume": 18,
+        "issue": 9,
+        "pages": "42–52",
+        "locator": "Emelyanov 2012 bibliography reference 106",
+        "note": "Citation only. The bibliographic page is not the primary outcome report."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-fulltext",
+    "date": "2026-11-21",
+    "provider": "Internet Archive public scans",
+    "operation": "supplementary_full_text_outcome_verification",
+    "status": "observed_full_text",
+    "note": "Compared the rendered Mayo originals and the secondary citation. Repeated totals and selected outcomes were credited to one study with a single reporting source per quantitative observation.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "urls": [
+        "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf",
+        "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf",
+        "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf"
+      ]
+    },
+    "records": [
+      {
+        "id": "mayo-part2",
+        "title": "High Altitude and Its Effect on the Human Body. II",
+        "year": 1940,
+        "doi": "10.2514/8.1237",
+        "url": "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf#page=46",
+        "publication_url": "https://doi.org/10.2514/8.1237",
+        "source_sha256": "895bf270f5b8f1c4ae70b6b79d032ccfdecac46b4eb1cbb019d748b91b050369",
+        "locator": "January 1941 Air Corps News Letter reprint pp. 11–12 (PDF pp. 46–47)",
+        "observations": [
+          {
+            "id": "mayo-ascents-at-least-30000ft-paralysis_unconsciousness_or_alarming_symptoms_as_reported",
+            "study_id": "mayo-early-altitude-chamber-program",
+            "endpoint": "paralysis_unconsciousness_or_alarming_symptoms_as_reported",
+            "group": "mayo-ascents-at-least-30000ft",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "experimental_chamber_overlap_hold",
+            "locator": "Air Corps reprint, printed p. 12 (PDF p. 47)",
+            "evidence_url": "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf#page=47",
+            "note": "The authors report no paralysis, loss of consciousness or symptom severity considered alarming in the series. Some less severe symptoms occurred, with their count unstated.",
+            "altitude_ft": null,
+            "prebreathe_min": null,
+            "protocol": "Mayo experimental chamber series with variable ascent rate and prebreathe. Across 102 nested ascents to at least 30,000 ft, the total participants and person-exposures are unknown.",
+            "outcome_window": "During described chamber runs. The authors report halting ascent when suggestive symptoms began. Postexposure monitoring is unspecified."
+          },
+          {
+            "id": "35000ft-135min-two-person-run-untoward_symptoms_as_reported",
+            "study_id": "mayo-early-altitude-chamber-program",
+            "endpoint": "untoward_symptoms_as_reported",
+            "group": "35000ft-135min-two-person-run",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "role_review": "experimental_chamber_descriptive",
+            "locator": "Air Corps reprint, printed p. 11 (PDF p. 46)",
+            "evidence_url": "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf#page=46",
+            "note": "Both subjects had no reported untoward symptoms. One nested example within the overall Mayo scope.",
+            "altitude_ft": 35000,
+            "prebreathe_min": null,
+            "protocol": "One selected chamber run with two subjects at 35,000 ft for two hours and fifteen minutes. Prebreathe and activity for this run are unspecified.",
+            "outcome_window": "During the described 135-minute plateau. Postdescent follow-up was not reported.",
+            "reported_dwell_min": 135,
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 135,
+                "gas_as_reported": null,
+                "locator": "Air Corps reprint, printed p. 11 (PDF p. 46)"
+              }
+            ]
+          },
+          {
+            "id": "4700ft-per-min-selected-ascent-aeroembolism_symptoms_as_reported",
+            "study_id": "mayo-early-altitude-chamber-program",
+            "endpoint": "aeroembolism_symptoms_as_reported",
+            "group": "4700ft-per-min-selected-ascent",
+            "cases": 0,
+            "denominator": 1,
+            "denominator_unit": "person",
+            "role_review": "experimental_chamber_descriptive",
+            "locator": "Air Corps reprint, printed p. 12 (PDF p. 47)",
+            "evidence_url": "https://archive.org/download/AirCorpsNewsLetter19410101-nsia/AirCorpsNewsLetter19410101.pdf#page=47",
+            "note": "One symptom-free subject described under the source endpoint. Linkage to the two-person prolonged run and position among the 102 ascents are unverified.",
+            "altitude_ft": null,
+            "prebreathe_min": 30,
+            "protocol": "Selected maximum-rate example. The subject walked at 2 mph for 30 minutes before ascent while continuously inhaling pure oxygen. Reported ascent rate was 4,700 ft/min. Peak altitude and dwell time in this example are unspecified.",
+            "outcome_window": "Symptoms reported with this ascent. Follow-up window unspecified.",
+            "ascent_rate_ft_min": 4700,
+            "prebreathe_oxygen_percent": 100,
+            "prebreathe_activity": "treadmill walking",
+            "prebreathe_speed_mph": 2,
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 30,
+                "gas_as_reported": "Pure oxygen throughout treadmill walking",
+                "locator": "Air Corps reprint, printed p. 12 (PDF p. 47)"
+              }
+            ]
+          }
+        ],
+        "trial_scope": [
+          {
+            "group": "mayo-ascents-at-least-30000ft",
+            "trial_count": 102,
+            "altitude_ft_lower": 30000,
+            "relation": "at_least",
+            "usual_dwell_min": [
+              10,
+              30
+            ]
+          },
+          {
+            "group": "mayo-ascents-at-least-35000ft",
+            "trial_count": 80,
+            "parent": "mayo-ascents-at-least-30000ft",
+            "altitude_ft_lower": 35000,
+            "relation": "at_least"
+          },
+          {
+            "group": "mayo-ascents-to-40000ft",
+            "trial_count": 30,
+            "parent": "mayo-ascents-at-least-35000ft",
+            "altitude_ft": 40000,
+            "relation": "reported_target"
+          },
+          {
+            "group": "35000ft-135min-two-person-run",
+            "trial_count": 1,
+            "participant_count": 2,
+            "parent": "mayo-ascents-at-least-35000ft",
+            "altitude_ft": 35000,
+            "dwell_min": 135
+          }
+        ],
+        "qualitative_findings": [
+          {
+            "locator": "Air Corps reprint, printed p. 11 (PDF p. 46)",
+            "endpoint": "suggestive_aeroembolism_symptoms",
+            "statement": "Present in some early ascents; numerator unknown."
+          },
+          {
+            "locator": "Air Corps reprint, printed p. 12 (PDF p. 47)",
+            "endpoint": "similar_symptoms_despite_oxygen_prebreathe",
+            "prebreathe_duration_min": [
+              40,
+              45
+            ],
+            "altitude_range_ft": [
+              30000,
+              40000
+            ],
+            "activity": "seated rest",
+            "statement": "Some similar symptoms reported after oxygen at rest for forty to forty-five minutes. Exact duration in symptomatic subjects is unavailable."
+          }
+        ]
+      },
+      {
+        "id": "scientific-monthly",
+        "title": "Aeroembolism: A Medical Problem in Aviation at High Altitude",
+        "year": 1941,
+        "url": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf#page=28",
+        "ads_bibcode": "1941SciMo..53...30R",
+        "source_sha256": "ed6447b339a62c155c37950da62bfbd312d13894e0b1b4a1da7db1f9552f2ba4",
+        "locator": "Printed pp. 30–37 (PDF pp. 28–35), series p. 34 and outcomes p. 35",
+        "observations": [
+          {
+            "id": "40000ft-20min-rest-prebreathe-pair-source_reported_joint_or_neuritic_symptoms",
+            "study_id": "mayo-early-altitude-chamber-program",
+            "endpoint": "source_reported_joint_or_neuritic_symptoms",
+            "group": "40000ft-20min-rest-prebreathe-pair",
+            "cases": 2,
+            "denominator": 2,
+            "denominator_unit": "person",
+            "role_review": "experimental_chamber_selected_cluster",
+            "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)",
+            "evidence_url": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf#page=33",
+            "note": "One subject had severe right-hand joint pain. The other had neuritic arm pain and fatigue that stopped exercise. Both are symptomatic in this selected example. No separate trial roster or standardized clinical adjudication was reported.",
+            "altitude_ft": 40000,
+            "prebreathe_min": 20,
+            "protocol": "Two subjects in one selected chamber run. Each breathed pure oxygen at rest for 20 minutes. The source reports reaching 40,000 ft in 54 minutes at 722 ft/min. Start altitude and dwell time are unspecified.",
+            "outcome_window": "Symptoms at 40,000 ft, with partial relief at 30,000 ft and subsequent recovery of remaining arm symptoms soon after reaching ground level.",
+            "ascent_rate_ft_min": 722,
+            "ascent_duration_min": 54,
+            "prebreathe_oxygen_percent": 100,
+            "prebreathe_activity": "rest",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 20,
+                "gas_as_reported": "Pure oxygen at rest",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 40000,
+                "reported_duration_min": null,
+                "gas_as_reported": null,
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "ascent_reached_target_altitude",
+                "reported_altitude_ft": 40000,
+                "elapsed_value": 54,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of ascent",
+                "note": "Reported ascent rate 722 ft/min. Source does not state altitude at start.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              },
+              {
+                "event": "first_subject_severe_right_hand_joint_pain",
+                "reported_altitude_ft": 40000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "note": "Third and fourth interphalangeal and metacarpophalangeal joints.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              },
+              {
+                "event": "second_subject_neuritic_arm_pain_and_exercise_stopped",
+                "reported_altitude_ft": 40000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "note": "Arm side and exercise dose were not specified. Exercise ceased because of excessive fatigue.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              },
+              {
+                "event": "partial_relief_after_descent",
+                "reported_altitude_ft": 30000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "note": "Arm weakness persisted in the second subject. Other described symptoms disappeared.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              },
+              {
+                "event": "remaining_arm_symptoms_subsided",
+                "reported_altitude_ft": null,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "note": "Soon after reaching ground level. No exact interval or subsequent monitoring.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              }
+            ]
+          },
+          {
+            "id": "40000ft-cough-episode-source_reported_paroxysmal_nonproductive_cough_at_altitude",
+            "study_id": "mayo-early-altitude-chamber-program",
+            "endpoint": "source_reported_paroxysmal_nonproductive_cough_at_altitude",
+            "group": "40000ft-cough-episode",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "experimental_chamber_selected_cluster",
+            "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)",
+            "evidence_url": "https://archive.org/download/sim_scientific-monthly_1941-07_53_1/sim_scientific-monthly_1941-07_53_1.pdf#page=33",
+            "note": "A selected respiratory presentation discussed as characteristic of aeroembolism by the authors. The other subjects, denominator and clinical adjudication were not reported. Neither follow-up duration nor onset minute can be established.",
+            "altitude_ft": 40000,
+            "prebreathe_min": null,
+            "protocol": "Separate chamber experiment to 40,000 ft. The authors describe inadequate preliminary denitrogenation without a duration and report the cough after an alveolar air sample.",
+            "outcome_window": "Cough appeared at altitude and lasted about two hours after descent. Chest soreness was reported for the next twenty-four hours.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 40000,
+                "reported_duration_min": null,
+                "gas_as_reported": null,
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "cough_following_alveolar_air_sampling",
+                "reported_altitude_ft": 40000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "note": "Source reports a paroxysmal, nonproductive cough. Exact interval from chamber ascent and sample to onset unspecified.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              },
+              {
+                "event": "cough_persisted_after_descent",
+                "reported_altitude_ft": null,
+                "elapsed_value": 2,
+                "elapsed_unit": "hours",
+                "reference_event": "descent as reported",
+                "note": "Approximately two hours after descent. This is a duration of persistent symptoms.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              },
+              {
+                "event": "chest_soreness_duration",
+                "reported_altitude_ft": null,
+                "elapsed_value": 24,
+                "elapsed_unit": "hours",
+                "reference_event": "reported period of chest soreness",
+                "note": "Described for the next 24 hours. Exact onset timestamp unreported.",
+                "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)"
+              }
+            ]
+          }
+        ],
+        "reported_program_scope": {
+          "source_location": "Scientific Monthly, printed p. 34 (PDF p. 32)",
+          "shared_with": "doi:10.2514/8.1237",
+          "reported_ascents": [
+            102,
+            80,
+            30
+          ],
+          "reported_altitudes_ft": [
+            30000,
+            35000,
+            40000
+          ],
+          "ascent_rate_range_ft_min": [
+            350,
+            4700
+          ],
+          "typical_dwell_min": [
+            10,
+            30
+          ],
+          "maximum_reported_dwell_min": 135,
+          "maximum_dwell_altitude_ft": 35000,
+          "additional_independent_trials": null
+        },
+        "qualitative_findings": [
+          {
+            "locator": "Scientific Monthly, printed p. 33 (PDF p. 31)",
+            "endpoint": "mild_symptoms_suggestive_of_air_embolism",
+            "altitude_ft": 18000,
+            "approximate_ascent_rate_ft_min": 400,
+            "counts": null
+          },
+          {
+            "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)",
+            "endpoint": "premonitory_symptoms",
+            "altitude_ft": 20000,
+            "prebreathe_min": 0,
+            "counts": null
+          },
+          {
+            "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)",
+            "endpoint": "aeroembolism_symptoms_as_reported",
+            "reported_absence": true,
+            "prebreathe_oxygen_percent": 100,
+            "prebreathe_activity": "rest",
+            "prebreathe_minimum_min": 45,
+            "altitude_ft_upper": 40000,
+            "counts": null
+          },
+          {
+            "locator": "Scientific Monthly, printed p. 35 (PDF p. 33)",
+            "endpoint": "aeroembolism_symptoms_as_reported",
+            "reported_absence": true,
+            "prebreathe_oxygen_percent": 100,
+            "prebreathe_activity": "treadmill walking",
+            "prebreathe_minimum_min": 20,
+            "prebreathe_speed_mph": 2,
+            "altitude_ft_upper": 40000,
+            "counts": null
+          }
+        ],
+        "note": "The 40–45 minute observation in the earlier Part II and the symptom-free 45-minutes-or-longer description cannot be reconciled at the 45-minute boundary without run-level data. Both printed observations are preserved. The Figure on p. 34 credits Behnke for the nitrogen elimination data."
+      },
+      {
+        "id": "carson-1942",
+        "title": "A Critical Evaluation of Recent Investigations of the Phenomenon of Aero-Embolism",
+        "year": 1942,
+        "author": "Leon D. Carson",
+        "url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=353",
+        "source_sha256": "7b0383133e023863c3e3b52bfa3e57e5928aea0f71a53c003c220fa8079d67a9",
+        "locator": "Printed pp. 284–290 (PDF pp. 353–359)",
+        "observations": [
+          {
+            "id": "pressure-at-or-below-197mmhg-joint_pain_as_quoted_by_carson",
+            "study_id": "streltsov-1940-altitude-joint-pain-series",
+            "endpoint": "joint_pain_as_quoted_by_carson",
+            "group": "pressure-at-or-below-197mmhg",
+            "cases": 55,
+            "denominator": 800,
+            "denominator_unit": "person",
+            "role_review": "secondary_symptom_pair_on_hold",
+            "locator": "Navy Bulletin, printed p. 286 (PDF p. 355)",
+            "evidence_url": "https://archive.org/download/NavalMedicalBulletin401942/NavalMedicalBulletin401942.pdf#page=355",
+            "note": "Carson attributes 55 of 800 men and about 7 percent to Streltsov. The primary source is unavailable. Person-exposure count, diagnostic criteria and overlap with other series remain unresolved.",
+            "altitude_ft": null,
+            "prebreathe_min": null,
+            "protocol": "Secondary quotation gives pressure at or below 197 mmHg and a reported altitude range of 10 to 14.5 km. The human exposure setting and individual pressure–gas histories are unspecified.",
+            "outcome_window": "Joint pain described with low barometric pressure and relief after descent or pressure increase. Formal observation window unspecified.",
+            "reported_rate_percent": 7,
+            "reported_rate_precision": "approximate",
+            "pressure_mmhg_upper": 197,
+            "altitude_km_lower": 10,
+            "altitude_km_upper": 14.5
+          }
+        ],
+        "note": "Printed p. 285 reports the already catalogued Mayo 102 ascents and the 135-minute two-person run. Printed p. 286 quotes Streltsov. Remaining animal and diving observations do not enter the altitude human outcomes."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-mayo-streltsov-identity",
+    "date": "2026-11-21",
+    "provider": "Crossref and Russian State Library",
+    "operation": "supplementary_primary_report_identity",
+    "status": "observed",
+    "note": "Verified the two Mayo DOI identities and the serial record for Streltsov. The original 1940 Streltsov paper was not retrieved.",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "part1",
+        "title": "High Altitude and Its Effect on the Human Body. I",
+        "year": 1940,
+        "doi": "10.2514/8.1212",
+        "url": "https://doi.org/10.2514/8.1212",
+        "bibliographic_locator": "Journal of the Aeronautical Sciences 7(11):461–468",
+        "note": "Companion report. It has no independently counted chamber group in this intake."
+      },
+      {
+        "id": "part2",
+        "title": "High Altitude and Its Effect on the Human Body. II",
+        "year": 1940,
+        "doi": "10.2514/8.1237",
+        "url": "https://doi.org/10.2514/8.1237",
+        "bibliographic_locator": "Journal of the Aeronautical Sciences 7(12):524–530"
+      },
+      {
+        "id": "streltsov-1940",
+        "title": "О природе болей, возникающих у летчиков при высотных полетах",
+        "year": 1940,
+        "author": "В. В. Стрельцов",
+        "url": "https://search.rsl.ru/ru/record/01002400754",
+        "journal_issn": "0023-2149",
+        "journal": "Клиническая медицина",
+        "volume": 18,
+        "issue": 9,
+        "pages": "42–52",
+        "locator": "Citation in Carson p. 290, reference 15. Original Russian title in Emelyanov bibliography 106.",
+        "primary_full_text_available": null,
+        "note": "The serial record was located. Issue-level full text was not verified."
+      }
+    ]
+  }
+]
