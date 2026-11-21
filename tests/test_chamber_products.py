@@ -1141,6 +1141,44 @@ def test_vann_preflight_cases_stay_outside_existing_flight_outcomes(release):
         """).fetchone() == (2, 1)
 
 
+def test_fryer_fatalities_preserve_chamber_scope_and_case_identity(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT country_as_reported,count(*),count(case_date_as_reported)
+            FROM publication_fryer69_chamber_fatality
+            GROUP BY country_as_reported ORDER BY country_as_reported
+        """).fetchall() == [("Canada", 1, 0), ("UK", 2, 2), ("USA", 7, 7)]
+        assert db.execute("""
+            SELECT case_date_as_reported,table_peak_altitude_ft,narrative_symptom_onset_min,
+                   table_time_to_death_hours_min,table_lucid_interval_as_reported
+            FROM publication_fryer69_chamber_fatality WHERE case_number=10
+        """).fetchone() == (None, 35000, 110, 17.0, "2¼ h")
+        assert db.execute("""
+            SELECT case_number,table_time_to_death_hours_min,table_time_to_death_hours_max
+            FROM publication_fryer69_chamber_fatality WHERE case_number IN (1,3,4,5,6,7,9)
+            ORDER BY case_number
+        """).fetchall() == [
+            (1, 8.5, 8.5), (3, 16.75, 16.75), (4, 17.25, 17.25), (5, 13.0, 14.0),
+            (6, 38.5, 38.5), (7, 55.5, 55.5), (9, 5.25, 5.25),
+        ]
+        assert db.execute("""
+            SELECT case_number,cited_case_label FROM publication_fryer69_fatality_citation
+            WHERE cited_report_id='pmid:15401759' AND linkage_basis='fryer_identifies_same_case'
+            ORDER BY case_number
+        """).fetchall() == [(1, "1"), (2, "5"), (3, "2"), (4, "3"), (7, "4")]
+        assert db.execute("""
+            SELECT case_number,cited_report_id FROM publication_fryer69_fatality_citation
+            WHERE linkage_basis='possible_same_case'
+        """).fetchall() == [(10, "pmid:6651730")]
+        assert db.execute("""
+            SELECT count(*),count(r.report_id) FROM publication_fryer69_fatality_citation f
+            LEFT JOIN review.review_report r ON r.report_id=f.cited_report_id
+        """).fetchone() == (37, 37)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record WHERE report_id='report:ada111509'
+        """).fetchone() == (14,)
+
+
 def test_repeat_exposure_report_preserves_joint_counts_and_changed_timing(release):
     with connect_pair(release) as db:
         assert db.execute("""

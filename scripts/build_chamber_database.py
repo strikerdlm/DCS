@@ -151,6 +151,7 @@ CHAMBER_PFO_AND_HEADACHE = ROOT / "data" / "chamber" / "v1.83"
 CHAMBER_POSTEXPOSURE_EXERCISE = ROOT / "data" / "chamber" / "v1.84"
 CHAMBER_GROUND_OXYGEN = ROOT / "data" / "chamber" / "v1.85"
 CHAMBER_INCIDENTS_AND_PREFLIGHT = ROOT / "data" / "chamber" / "v1.86"
+CHAMBER_FRYER_FATALITIES = ROOT / "data" / "chamber" / "v1.87"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1329,6 +1330,14 @@ def build(
                         "publication_crowell83_chamber_incidents": "chamber_incidents.csv",
                         "publication_vann04_preflight_group": "preflight_groups.csv",
                         "publication_vann04_preflight_case": "preflight_cases.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_FRYER_FATALITIES,
+                    {
+                        "publication_fryer69_chamber_fatality": "chamber_fatalities.csv",
+                        "publication_fryer69_fatality_citation": "case_citations.csv",
                     },
                 )
             if rojas_supplement:

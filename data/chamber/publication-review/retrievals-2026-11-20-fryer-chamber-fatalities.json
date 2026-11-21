@@ -1,0 +1,736 @@
+[
+  {
+    "id": "2026-11-20-chamber-fatality-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_source_search_and_retrieval",
+    "reported_total": null,
+    "status": "observed",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "Haymaker J Aviat Med 27 2-17 decompression sickness 1956 altitude fatal pathology PubMed",
+          "ranked_urls": [
+            "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-a_66-comparison-high-and-altitude-high%20pressure-syndromes.pdf",
+            "https://journals.sagepub.com/doi/abs/10.1177/002580246200200206",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053",
+            "https://pubmed.ncbi.nlm.nih.gov/3240220",
+            "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+            "https://www.faa.gov/about/office_org/headquarters_offices/avs/offices/aam/cami/library/online_libraries/aerospace_medicine/media/77013861.pdf",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11168797",
+            "https://en.wikipedia.org/wiki/Decompression_sickness"
+          ]
+        },
+        {
+          "query": "Fatal Decompression Sickness during Jet Aircraft Flight Haymaker clinicopathologic study two cases 1956 pdf",
+          "ranked_urls": [
+            "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC7661127",
+            "https://pubmed.ncbi.nlm.nih.gov/13244384",
+            "https://pubmed.ncbi.nlm.nih.gov/15401759",
+            "https://ntrs.nasa.gov/api/citations/19690004637/downloads/19690004637.pdf",
+            "https://goflightmedicine.com/blog/decompression-illness-in-aviation",
+            "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf",
+            "https://www.atsb.gov.au/sites/default/files/media/32876/b20060142.pdf"
+          ]
+        }
+      ]
+    },
+    "note": "The source search surfaced Haymaker and Davison. An exact-title follow-up reached the search spending limit. Archive.org metadata extraction succeeded.",
+    "records": [
+      {
+        "id": "fryer-archive",
+        "title": "Subatmospheric Decompression Sickness in Man",
+        "identifier": "DTIC:ADA111509",
+        "url": "https://archive.org/details/DTIC_ADA111509",
+        "year": 1969
+      },
+      {
+        "id": "haymaker-pubmed",
+        "title": "Fatalities resulting from exposure to simulated high altitudes in decompression chambers",
+        "pmid": "15401759",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15401759/",
+        "year": 1950
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-chamber-fatality-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_source_search_and_retrieval",
+    "reported_total": null,
+    "status": "observed",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "ranked_urls": [
+            "https://journals.sagepub.com/doi/abs/10.1177/002580246200200206",
+            "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf",
+            "https://digitalcommons.unl.edu/dissertations/",
+            "http://downloads.cs.stanford.edu/nlp/data/jiwei/data/vocab_wiki.txt",
+            "https://www.scribd.com/doc/135321602/sci006-lev-11"
+          ]
+        },
+        {
+          "ranked_urls": [
+            "https://pubmed.ncbi.nlm.nih.gov/15401759/",
+            "https://pubmed.ncbi.nlm.nih.gov/18106823/",
+            "https://www.jns-journal.com/article/0022-510X(78)90224-1/fulltext",
+            "https://jamanetwork.com/journals/jamaneurology/fullarticle/589387",
+            "https://www.acpjournals.org/doi/10.7326/0003-4819-78-3-421",
+            "https://link.springer.com/chapter/10.1007/978-1-4757-6645-5_23",
+            "https://www.researchgate.net/publication/11454385_Arterial_Gas_Embolism_and_Decompression_Sickness",
+            "https://www.jns-journal.com/article/0022-510X(78)90224-1/abstract"
+          ]
+        },
+        {
+          "ranked_urls": [
+            "https://archive.org/stream/58730190R.nlm.nih.gov/58730190R_djvu.txt"
+          ]
+        }
+      ]
+    },
+    "note": "Search identified previously cited reports. The attempted 1950 PubMed scrape failed. The archived AGARD PDF supplied the numbered-case source.",
+    "records": [
+      {
+        "id": "haymaker-pubmed",
+        "title": "Fatalities resulting from exposure to simulated high altitudes in decompression chambers",
+        "pmid": "15401759",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15401759/",
+        "year": 1950
+      },
+      {
+        "id": "fryer-pathology",
+        "title": "Pathological Findings in Fatal Sub-Atmospheric Decompression Sickness",
+        "doi": "10.1177/002580246200200206",
+        "url": "https://journals.sagepub.com/doi/abs/10.1177/002580246200200206",
+        "year": 1962
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-original-agard-fatalities",
+    "date": "2026-11-20",
+    "provider": "Archived AGARD report and original publisher/registry records",
+    "operation": "supplementary_case_number_and_report_identity_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Only Fryer's ten chamber cases are transcribed. Chapter references and printed case numbers are evidence for the explicit author crosswalk. The other reports remain distinct publications.",
+    "records": [
+      {
+        "id": "fryer-1969-chapter-8",
+        "title": "Subatmospheric Decompression Sickness in Man",
+        "identifier": "DTIC:ADA111509; AGARDograph 125",
+        "year": 1969,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf",
+        "primary_source": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf",
+        "access": "full_text",
+        "sha256": "cb7a216891a203b06ac4f8d9ab3acb4f5924c4f400aad1c53fe8481faee03000",
+        "locator": "Printed pp. 144–161 and Tables 8-2 and 8-3 pp. 186–187",
+        "study_id": "agard-fryer-selected-chamber-fatalities",
+        "source_coverage": {
+          "numbered_chamber_cases": 10,
+          "numbered_aircraft_cases": 7,
+          "cohort_exposure_denominator": null
+        },
+        "cases": [
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "1",
+            "country_as_reported": "USA",
+            "case_date_as_reported": "1943-04-22",
+            "age_years": "25",
+            "table_peak_altitude_ft": "38000",
+            "table_altitude_and_time": "38,000 ft for 72 min",
+            "narrative_symptom_onset_min": "72",
+            "narrative_onset_reference": "time at 38000 ft",
+            "table_time_to_death_hours_min": "8.5",
+            "table_time_to_death_hours_max": "8.5",
+            "table_lucid_interval_as_reported": "1–1½ h",
+            "report_case_summary": "Nausea and dyspnoea at altitude. Shock developed after descent. Chapter history and its printed clock times do not establish a reliable common time origin.",
+            "locator": "Printed p. 145 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "2",
+            "country_as_reported": "USA",
+            "case_date_as_reported": "1943-06-15",
+            "age_years": "26",
+            "table_peak_altitude_ft": "38000",
+            "table_altitude_and_time": "38,000 ft for 35 min",
+            "narrative_symptom_onset_min": "",
+            "narrative_onset_reference": "",
+            "table_time_to_death_hours_min": "71",
+            "table_time_to_death_hours_max": "71",
+            "table_lucid_interval_as_reported": "Brief",
+            "report_case_summary": "The narrative records early abdominal discomfort before wrist pain at 35 minutes. Fryer reports subsequent hemiparesis and coma.",
+            "locator": "Printed p. 148 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "3",
+            "country_as_reported": "USA",
+            "case_date_as_reported": "1943-09-16",
+            "age_years": "22",
+            "table_peak_altitude_ft": "38000",
+            "table_altitude_and_time": "38,000 ft for 85 min",
+            "narrative_symptom_onset_min": "85",
+            "narrative_onset_reference": "time at 38000 ft",
+            "table_time_to_death_hours_min": "16.75",
+            "table_time_to_death_hours_max": "16.75",
+            "table_lucid_interval_as_reported": "Approx. 1–6 h",
+            "report_case_summary": "Dizziness and diplopia preceded descent. Visual symptoms and weakness followed. Fryer describes later profound shock.",
+            "locator": "Printed p. 149 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "4",
+            "country_as_reported": "USA",
+            "case_date_as_reported": "1943-10-28",
+            "age_years": "38",
+            "table_peak_altitude_ft": "38000",
+            "table_altitude_and_time": "30,000 ft for 60 min and 38,000 ft for seconds",
+            "narrative_symptom_onset_min": "29",
+            "narrative_onset_reference": "upper bound for knee symptoms at 30000 ft",
+            "table_time_to_death_hours_min": "17.25",
+            "table_time_to_death_hours_max": "17.25",
+            "table_lucid_interval_as_reported": "1 h",
+            "report_case_summary": "An asymptomatic morning exposure preceded the afternoon run. Knee pain began no later than 29 minutes at 30,000 ft. Severe symptoms began during ascent towards 38,000 ft. The table labels the peak 38,000 ft.",
+            "locator": "Printed p. 153 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "5",
+            "country_as_reported": "UK",
+            "case_date_as_reported": "1944-05-30",
+            "age_years": "28",
+            "table_peak_altitude_ft": "37000",
+            "table_altitude_and_time": "37,000 ft for 120 min",
+            "narrative_symptom_onset_min": "",
+            "narrative_onset_reference": "",
+            "table_time_to_death_hours_min": "13",
+            "table_time_to_death_hours_max": "14",
+            "table_lucid_interval_as_reported": "¼ h",
+            "report_case_summary": "The chapter attributes the fatal chamber exposure to decompression sickness and references Sproull and Fryer reports.",
+            "locator": "Printed p. 154 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "6",
+            "country_as_reported": "USA",
+            "case_date_as_reported": "1944-06-28",
+            "age_years": "22",
+            "table_peak_altitude_ft": "30000",
+            "table_altitude_and_time": "30,000 ft for 19 min",
+            "narrative_symptom_onset_min": "",
+            "narrative_onset_reference": "",
+            "table_time_to_death_hours_min": "38.5",
+            "table_time_to_death_hours_max": "38.5",
+            "table_lucid_interval_as_reported": "Partial 1–2 h",
+            "report_case_summary": "Table 8-3 marks pulmonary and CNS symptoms with collapse at altitude.",
+            "locator": "Printed p. 156 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "7",
+            "country_as_reported": "USA",
+            "case_date_as_reported": "1944-12-15",
+            "age_years": "23",
+            "table_peak_altitude_ft": "30000",
+            "table_altitude_and_time": "30,000 ft for 23 min",
+            "narrative_symptom_onset_min": "",
+            "narrative_onset_reference": "",
+            "table_time_to_death_hours_min": "55.5",
+            "table_time_to_death_hours_max": "55.5",
+            "table_lucid_interval_as_reported": "Brief",
+            "report_case_summary": "Table 8-3 marks pulmonary symptoms and collapse at altitude.",
+            "locator": "Printed p. 156 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "8",
+            "country_as_reported": "USA",
+            "case_date_as_reported": "1950-01-06",
+            "age_years": "33",
+            "table_peak_altitude_ft": "40000",
+            "table_altitude_and_time": "40,000 ft for 8 min",
+            "narrative_symptom_onset_min": "",
+            "narrative_onset_reference": "",
+            "table_time_to_death_hours_min": "45",
+            "table_time_to_death_hours_max": "45",
+            "table_lucid_interval_as_reported": "Nil",
+            "report_case_summary": "Table 8-3 marks joint and CNS symptoms and impending collapse at altitude.",
+            "locator": "Printed p. 157 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "9",
+            "country_as_reported": "UK",
+            "case_date_as_reported": "1951-10-24",
+            "age_years": "37",
+            "table_peak_altitude_ft": "40000",
+            "table_altitude_and_time": "25,000 ft for 25 min and 40,000 ft for 1–2 min",
+            "narrative_symptom_onset_min": "",
+            "narrative_onset_reference": "",
+            "table_time_to_death_hours_min": "5.25",
+            "table_time_to_death_hours_max": "5.25",
+            "table_lucid_interval_as_reported": "½ h",
+            "report_case_summary": "Rapid progression to chest symptoms and collapse after reaching 40,000 ft. The narrative reports about 35 minutes of initial recovery after return to ground level and the table gives ½ hour.",
+            "locator": "Printed pp. 160–161 and Tables 8-2 and 8-3 pp. 186–187"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": "10",
+            "country_as_reported": "Canada",
+            "case_date_as_reported": "",
+            "age_years": "28",
+            "table_peak_altitude_ft": "35000",
+            "table_altitude_and_time": "35,000 ft for 120 min",
+            "narrative_symptom_onset_min": "110",
+            "narrative_onset_reference": "time at 35000 ft",
+            "table_time_to_death_hours_min": "17",
+            "table_time_to_death_hours_max": "17",
+            "table_lucid_interval_as_reported": "2¼ h",
+            "report_case_summary": "Joint symptoms with possible pulmonary symptoms. The report states that descent followed ten minutes after initial symptoms. Respiratory and visual disturbances and shock followed a 2¼-hour lucid interval. The case date is uncertain and treatment details are unavailable.",
+            "locator": "Printed p. 161 and Tables 8-2 and 8-3 pp. 186–187"
+          }
+        ],
+        "case_crosswalk": [
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 1,
+            "cited_report_id": "report:nrc-cam179",
+            "cited_case_label": "1",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 145, chamber fatality 1"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 1,
+            "cited_report_id": "citation:masland-1944-collapse",
+            "cited_case_label": "1",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 145, chamber fatality 1"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 1,
+            "cited_report_id": "citation:goggio-houck-1945-war-medicine",
+            "cited_case_label": "5",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 145, chamber fatality 1"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 1,
+            "cited_report_id": "pmid:15401759",
+            "cited_case_label": "1",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 145, chamber fatality 1"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 1,
+            "cited_report_id": "citation:adler-1950-neurocirculatory-collapse",
+            "cited_case_label": "1",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 145, chamber fatality 1"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 1,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "1",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 145, chamber fatality 1"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 2,
+            "cited_report_id": "report:nrc-cam179",
+            "cited_case_label": "11",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 148, chamber fatality 2"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 2,
+            "cited_report_id": "report:usaaf-masland-project481-1",
+            "cited_case_label": "7",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 148, chamber fatality 2"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 2,
+            "cited_report_id": "pmid:18879785",
+            "cited_case_label": "3",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 148, chamber fatality 2"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 2,
+            "cited_report_id": "pmid:18904642",
+            "cited_case_label": null,
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 148, chamber fatality 2"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 2,
+            "cited_report_id": "pmid:15401759",
+            "cited_case_label": "5",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 148, chamber fatality 2"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 2,
+            "cited_report_id": "citation:adler-1950-neurocirculatory-collapse",
+            "cited_case_label": "2",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 148, chamber fatality 2"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 2,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "5",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 148, chamber fatality 2"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 3,
+            "cited_report_id": "pmid:15401759",
+            "cited_case_label": "2",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 149, chamber fatality 3"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 3,
+            "cited_report_id": "citation:adler-1950-neurocirculatory-collapse",
+            "cited_case_label": "3",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 149, chamber fatality 3"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 3,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "2",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 149, chamber fatality 3"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 4,
+            "cited_report_id": "report:nrc-cam179",
+            "cited_case_label": "12",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 153, chamber fatality 4"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 4,
+            "cited_report_id": "pmid:18904642",
+            "cited_case_label": null,
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 153, chamber fatality 4"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 4,
+            "cited_report_id": "pmid:15401759",
+            "cited_case_label": "3",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 153, chamber fatality 4"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 4,
+            "cited_report_id": "citation:adler-1950-neurocirculatory-collapse",
+            "cited_case_label": "4",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 153, chamber fatality 4"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 4,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "3",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 153, chamber fatality 4"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 5,
+            "cited_report_id": "report:fprc-memo25",
+            "cited_case_label": null,
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 154, chamber fatality 5"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 5,
+            "cited_report_id": "citation:fryer-1956-fatal-post-decompression-shock",
+            "cited_case_label": null,
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 154, chamber fatality 5"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 5,
+            "cited_report_id": "doi:10.1177/002580246200200206",
+            "cited_case_label": null,
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 154, chamber fatality 5"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 6,
+            "cited_report_id": "pmid:18879785",
+            "cited_case_label": "fatal case 1",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 156, chamber fatality 6"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 6,
+            "cited_report_id": "citation:adler-1950-neurocirculatory-collapse",
+            "cited_case_label": "5",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 156, chamber fatality 6"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 6,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "6",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 156, chamber fatality 6"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 7,
+            "cited_report_id": "pmid:18879785",
+            "cited_case_label": "fatal case 2",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 156, chamber fatality 7"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 7,
+            "cited_report_id": "citation:adler-1950-neurocirculatory-collapse",
+            "cited_case_label": "6",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 156, chamber fatality 7"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 7,
+            "cited_report_id": "pmid:15401759",
+            "cited_case_label": "4",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 156, chamber fatality 7"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 7,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "4",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 156, chamber fatality 7"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 8,
+            "cited_report_id": "citation:adler-1950-neurocirculatory-collapse",
+            "cited_case_label": "7",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 157, chamber fatality 8"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 8,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "7",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 157, chamber fatality 8"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 9,
+            "cited_report_id": "citation:cotes-1953-raf-post-decompression-collapse",
+            "cited_case_label": "3",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 160, chamber fatality 9"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 9,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "9",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 160, chamber fatality 9"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 10,
+            "cited_report_id": "chapter:haymaker-1957-decompression-sickness",
+            "cited_case_label": "10",
+            "linkage_basis": "fryer_identifies_same_case",
+            "locator": "Fryer p. 161, chamber fatality 10"
+          },
+          {
+            "source_id": "fryer69_raf",
+            "case_number": 10,
+            "cited_report_id": "pmid:6651730",
+            "cited_case_label": null,
+            "linkage_basis": "possible_same_case",
+            "locator": "Fryer p. 161, chamber fatality 10 and Crowell p. 1035, Discussion"
+          }
+        ],
+        "canadian_date": {
+          "fryer_case": 10,
+          "haymaker_case": 10,
+          "fryer_date": null,
+          "crowell_year": 1954,
+          "linkage": "possible_same_case",
+          "note": "Same national setting and cited 1957 chapter. Case identity and date remain uncertain."
+        },
+        "note": "Cases were selected for a historical fatality series. The author reexamined available material for the series and also incorporated published and correspondence-based histories."
+      },
+      {
+        "id": "masland43",
+        "title": "Review of cases of collapse occurring in altitude chambers",
+        "year": 1943,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=320",
+        "identifier": "NRC CAM 179",
+        "access": "bibliography"
+      },
+      {
+        "id": "masland44",
+        "title": "Collapse at high altitude",
+        "year": 1944,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=320",
+        "identifier": null,
+        "access": "bibliography"
+      },
+      {
+        "id": "goggio45",
+        "title": "Physiologic abnormalities and pathologic changes following exposure to simulated high altitudes",
+        "year": 1945,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=310",
+        "identifier": null,
+        "access": "bibliography"
+      },
+      {
+        "id": "haymaker50",
+        "title": "Fatalities resulting from exposure to simulated high altitudes in decompression chambers",
+        "year": 1950,
+        "url": "https://academic.oup.com/jnen/article-abstract/9/1/29/1852061",
+        "identifier": "PMID:15401759; DOI:10.1097/00005072-195001000-00003",
+        "access": "publisher_metadata"
+      },
+      {
+        "id": "adler50",
+        "title": "Neurocirculatory collapse at altitude",
+        "year": 1950,
+        "url": "https://openlibrary.org/works/OL44641058W/Neurocirculatory_collapse_at_altitude",
+        "identifier": "OL44641058W",
+        "access": "catalog_metadata"
+      },
+      {
+        "id": "haymaker57",
+        "title": "Decompression sickness",
+        "year": 1957,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=157",
+        "identifier": null,
+        "access": "bibliography_and_case_reference"
+      },
+      {
+        "id": "masland46",
+        "title": "Injury of the central nervous system resulting from decompression to simulated high altitude",
+        "year": 1946,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=320",
+        "identifier": "Project 481 Report 1",
+        "access": "bibliography"
+      },
+      {
+        "id": "masland48",
+        "title": "Injury of the central nervous system resulting from decompression to simulated high altitudes",
+        "year": 1948,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18879785/",
+        "identifier": "PMID:18879785; DOI:10.1001/archneurpsyc.1948.02300390002001",
+        "access": "author_metadata"
+      },
+      {
+        "id": "moon48",
+        "title": "The Pathology of Secondary Shock",
+        "year": 1948,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1942710/",
+        "identifier": "PMID:18904642; PMCID:PMC1942710",
+        "access": "archive_full_text_available"
+      },
+      {
+        "id": "sproull51",
+        "title": "Report of a fatality following exposure to high altitude with a review of the pathological aspects of decompression sickness",
+        "year": 1951,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=328",
+        "identifier": "FPRC Memo 25",
+        "access": "bibliography"
+      },
+      {
+        "id": "fryer56",
+        "title": "Fatal post-decompression shock",
+        "year": 1956,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=308",
+        "identifier": null,
+        "access": "bibliography"
+      },
+      {
+        "id": "fryer62",
+        "title": "Pathological Findings in Fatal Sub-Atmospheric Decompression Sickness",
+        "year": 1962,
+        "url": "https://journals.sagepub.com/doi/abs/10.1177/002580246200200206",
+        "identifier": "DOI:10.1177/002580246200200206",
+        "access": "publisher_metadata_and_references"
+      },
+      {
+        "id": "cotes53",
+        "title": "Decompression sickness with post-decompression collapse. An account of three cases",
+        "year": 1953,
+        "url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf",
+        "identifier": "FPRC Report 825",
+        "access": "bibliography"
+      },
+      {
+        "id": "haymaker48-meeting",
+        "title": "A clinicopathologic study of five fatalities resulting from exposure to simulated high altitudes in decompression chambers",
+        "year": 1948,
+        "pmid": "18106823",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18106823/",
+        "access": "database_metadata",
+        "note": "Haymaker-only item in Journal of Nervous and Mental Disease. Case-level equality with the later five-case report requires verification."
+      },
+      {
+        "id": "davison50-military",
+        "title": "Clinicopathologic study of 5 fatalities resulting from exposure to simulated high altitudes in decompression chambers",
+        "year": 1950,
+        "pmid": "15426442",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15426442/",
+        "access": "database_metadata",
+        "note": "Distinct journal item with the same authors and five-case title. Case-level equality with the January journal article requires verification."
+      }
+    ]
+  }
+]
