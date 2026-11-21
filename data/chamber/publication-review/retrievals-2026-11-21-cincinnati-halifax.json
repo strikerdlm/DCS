@@ -1,0 +1,788 @@
+[
+  {
+    "id": "2026-11-21-cincinnati-halifax-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ff3f-d701-747d-9fb8-56013c7b16ae",
+          "query": "Ferris Fulton 1942 July 4 35,000 feet bends 45 minutes subjects painful tender low pressure decompression aviation",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff3f-d8f6-775e-a402-09e31946b72e",
+          "query": "\"Ferris\" \"decompression sickness\" early data 1942 1943 35000 Cleveland Cincinnati report original PDF",
+          "returned": 4
+        },
+        {
+          "id": "01a1ff3f-d6fd-724c-a154-3a3fd3d72052",
+          "query": "Eugene Ferris Webb Engel \"A comparative study of decompression sickness\" CAM 363 1944 full text",
+          "returned": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The indexed Fulton scan led to a secondary classification comparison. The final CAM 363 original remained unavailable.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-cincinnati-halifax-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Ferris July 4 1942 Fulton 35,000 feet bends 45 minutes chamber National Research Council hypobaric",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Search exceeded the provider spending limit.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-cincinnati-halifax-verified",
+    "date": "2026-11-21",
+    "provider": "National Library of Medicine and Internet Archive",
+    "operation": "verify_original_chamber_tables_and_duplicate_summaries",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Read the original investigator pages and compared the two first-test distributions with Table 74. Extracted the exact counts only once and retained the distinct validation percentages.",
+    "records": [
+      {
+        "id": "ferris42_fulton_letter",
+        "title": "Aero-embolism: letter from Eugene B. Ferris to J. F. Fulton, 4 July 1942",
+        "authors": [
+          "Eugene B. Ferris"
+        ],
+        "year": 1942,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=51",
+        "locator": "Letter heading printed p. 52 (PDF p. 50) and results printed p. 53 (PDF p. 51)",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "note": "Preliminary investigator letter. Nine people had source-defined bends within 45 minutes at 35,000 ft without prebreathe. Four delayed local-pain observations have no verified follow-up denominator.",
+        "study_id": "ferris-1942-early-cincinnati-bends",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "early-35000-bends_within_45_min_as_reported",
+            "study_id": "ferris-1942-early-cincinnati-bends",
+            "group": "early-35000",
+            "endpoint": "bends_within_45_min_as_reported",
+            "cases": 9,
+            "denominator": 9,
+            "denominator_unit": "person",
+            "target_altitude_ft": 35000,
+            "locator": "Letter heading printed p. 52 (PDF p. 50) and results printed p. 53 (PDF p. 51)",
+            "note": "The letter prints 100% of nine subjects. Sampling and links to later Cincinnati reports are unavailable."
+          },
+          {
+            "id": "delayed-local-pain-delayed_local_pain_and_tenderness_as_reported",
+            "study_id": "ferris-1942-early-cincinnati-bends",
+            "group": "delayed-local-pain",
+            "endpoint": "delayed_local_pain_and_tenderness_as_reported",
+            "cases": 4,
+            "denominator": null,
+            "denominator_unit": null,
+            "target_altitude_ft": null,
+            "locator": "Letter heading printed p. 52 (PDF p. 50) and results printed p. 53 (PDF p. 51)",
+            "note": "Three affected subjects reported a location different from their prior bends site. The four are a descriptive group. Exact linkage with the nine-person count is unavailable."
+          }
+        ]
+      },
+      {
+        "id": "ferris43_cincinnati_selection",
+        "title": "Ferris report of the Cincinnati 90-minute altitude preselection test",
+        "authors": [
+          "Eugene B. Ferris"
+        ],
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=220",
+        "locator": "Ninth CAM subcommittee meeting, 1 July 1943, section III item 2, printed pp. 220–226 (PDF pp. 219–225)",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "note": "First-flight counts in 102 subjects, then analyses of repeated tests in 78 subjects. First-flight symptom classes can overlap between symptoms. Table 2 descent timing and lock totals are retained as different source measures.",
+        "study_id": "ferris-1943-cincinnati-preselection",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "cincinnati-first-flight-classification_a",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "classification_a",
+            "cases": 43,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Classification A reached the 90-minute classification threshold. This outcome is based on flight time."
+          },
+          {
+            "id": "cincinnati-first-flight-classification_b",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "classification_b",
+            "cases": 6,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Classification B descended at 60–89 minutes. This outcome is based on flight time."
+          },
+          {
+            "id": "cincinnati-first-flight-classification_c",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "classification_c",
+            "cases": 23,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Classification C descended at 30–59 minutes. This outcome is based on flight time."
+          },
+          {
+            "id": "cincinnati-first-flight-classification_d",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "classification_d",
+            "cases": 30,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Classification D descended before 30 minutes. This outcome is based on flight time."
+          },
+          {
+            "id": "cincinnati-first-flight-bends_none_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "bends_none_as_reported",
+            "cases": 16,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-bends_grades_i_ii_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "bends_grades_i_ii_as_reported",
+            "cases": 28,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-bends_grade_iii_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "bends_grade_iii_as_reported",
+            "cases": 14,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-bends_grade_iv_descent_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "bends_grade_iv_descent_as_reported",
+            "cases": 44,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-chokes_none_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "chokes_none_as_reported",
+            "cases": 88,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-chokes_mild_moderate_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "chokes_mild_moderate_as_reported",
+            "cases": 12,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-chokes_severe_descent_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "chokes_severe_descent_as_reported",
+            "cases": 2,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-faintness_none_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "faintness_none_as_reported",
+            "cases": 82,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-faintness_mild_moderate_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "faintness_mild_moderate_as_reported",
+            "cases": 10,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-faintness_severe_descent_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "faintness_severe_descent_as_reported",
+            "cases": 10,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-distension_none_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "distension_none_as_reported",
+            "cases": 63,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-distension_mild_moderate_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "distension_mild_moderate_as_reported",
+            "cases": 33,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          },
+          {
+            "id": "cincinnati-first-flight-distension_severe_descent_as_reported",
+            "study_id": "ferris-1943-cincinnati-preselection",
+            "group": "cincinnati-first-flight",
+            "endpoint": "distension_severe_descent_as_reported",
+            "cases": 6,
+            "denominator": 102,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, section III item 2, printed p. 221 (PDF p. 220)",
+            "note": "Counts partition the indicated symptom type. People can contribute to more than one symptom type. Only the source's labeled categories were extracted."
+          }
+        ],
+        "descent_table_context": {
+          "locator": "Printed p. 221, item 2 (PDF p. 220)",
+          "timing_cells": [
+            5,
+            10,
+            15,
+            9,
+            9,
+            5,
+            4,
+            3,
+            0
+          ],
+          "printed_subject_descents": 42,
+          "reported_lock_descents": 51,
+          "reported_lock_descents_with_ear_complications": 18,
+          "note": "The timing cells sum to 60 and have different scope from the printed 42 subject descents and 51 lock descents. The source does not reconcile them."
+        }
+      },
+      {
+        "id": "stewart43_halifax_standard_524",
+        "title": "Validation of the preselection test for high altitude operation recommended by the United States Subcommittee on Decompression-Sickness",
+        "authors": [
+          "C. B. Stewart",
+          "G. L. Bateman",
+          "D. J. Milne"
+        ],
+        "year": 1943,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=229",
+        "locator": "Ninth CAM subcommittee meeting, 1 July 1943, Canadian reports, printed pp. 228–231 (PDF pp. 227–230), Tables 1–4",
+        "source_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "note": "The bulletin prints Steward for C. B. Stewart. It separates 524 people, 1,268 person-flights, symptoms and time-to-descent classes. Referrals and participants cannot be linked to related Halifax reports. Participant- and flight-level margins overlap.",
+        "study_id": "stewart-1943-halifax-standard",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "first-flight-decompression_sickness_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "first-flight",
+            "endpoint": "decompression_sickness_as_reported",
+            "cases": 458,
+            "denominator": 524,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 1",
+            "note": "Source-defined symptomatic outcome. The all-flights row sums the three repeated run columns. Person-exposures are dependent across columns."
+          },
+          {
+            "id": "first-flight-classification_a",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "first-flight",
+            "endpoint": "classification_a",
+            "cases": 202,
+            "denominator": 524,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category A reached the 90-minute classification threshold. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "first-flight-classification_b",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "first-flight",
+            "endpoint": "classification_b",
+            "cases": 62,
+            "denominator": 524,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category B descended at 60–89 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "first-flight-classification_c",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "first-flight",
+            "endpoint": "classification_c",
+            "cases": 167,
+            "denominator": 524,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category C descended at 30–59 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "first-flight-classification_d",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "first-flight",
+            "endpoint": "classification_d",
+            "cases": 93,
+            "denominator": 524,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category D descended before 30 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "second-flight-decompression_sickness_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "second-flight",
+            "endpoint": "decompression_sickness_as_reported",
+            "cases": 380,
+            "denominator": 440,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 1",
+            "note": "Source-defined symptomatic outcome. The all-flights row sums the three repeated run columns. Person-exposures are dependent across columns."
+          },
+          {
+            "id": "second-flight-classification_a",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "second-flight",
+            "endpoint": "classification_a",
+            "cases": 178,
+            "denominator": 440,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category A reached the 90-minute classification threshold. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "second-flight-classification_b",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "second-flight",
+            "endpoint": "classification_b",
+            "cases": 60,
+            "denominator": 440,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category B descended at 60–89 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "second-flight-classification_c",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "second-flight",
+            "endpoint": "classification_c",
+            "cases": 130,
+            "denominator": 440,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category C descended at 30–59 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "second-flight-classification_d",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "second-flight",
+            "endpoint": "classification_d",
+            "cases": 72,
+            "denominator": 440,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category D descended before 30 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "third-flight-decompression_sickness_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "third-flight",
+            "endpoint": "decompression_sickness_as_reported",
+            "cases": 264,
+            "denominator": 304,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 1",
+            "note": "Source-defined symptomatic outcome. The all-flights row sums the three repeated run columns. Person-exposures are dependent across columns."
+          },
+          {
+            "id": "third-flight-classification_a",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "third-flight",
+            "endpoint": "classification_a",
+            "cases": 134,
+            "denominator": 304,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category A reached the 90-minute classification threshold. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "third-flight-classification_b",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "third-flight",
+            "endpoint": "classification_b",
+            "cases": 39,
+            "denominator": 304,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category B descended at 60–89 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "third-flight-classification_c",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "third-flight",
+            "endpoint": "classification_c",
+            "cases": 90,
+            "denominator": 304,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category C descended at 30–59 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "third-flight-classification_d",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "third-flight",
+            "endpoint": "classification_d",
+            "cases": 41,
+            "denominator": 304,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category D descended before 30 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "all-flights-decompression_sickness_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "all-flights",
+            "endpoint": "decompression_sickness_as_reported",
+            "cases": 1102,
+            "denominator": 1268,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 1",
+            "note": "Source-defined symptomatic outcome. The all-flights row sums the three repeated run columns. Person-exposures are dependent across columns."
+          },
+          {
+            "id": "all-flights-classification_a",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "all-flights",
+            "endpoint": "classification_a",
+            "cases": 514,
+            "denominator": 1268,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category A reached the 90-minute classification threshold. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "all-flights-classification_b",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "all-flights",
+            "endpoint": "classification_b",
+            "cases": 161,
+            "denominator": 1268,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category B descended at 60–89 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "all-flights-classification_c",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "all-flights",
+            "endpoint": "classification_c",
+            "cases": 387,
+            "denominator": 1268,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category C descended at 30–59 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "all-flights-classification_d",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "all-flights",
+            "endpoint": "classification_d",
+            "cases": 206,
+            "denominator": 1268,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 3",
+            "note": "Category D descended before 30 minutes. Classification A includes some people with symptoms. The total row reuses numbered flights."
+          },
+          {
+            "id": "one-run-only-ever_dcs_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "one-run-only",
+            "endpoint": "ever_dcs_as_reported",
+            "cases": 73,
+            "denominator": 84,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 2",
+            "note": "This is a person-level margin. The attendance strata partition the all-people group, which overlaps the per-run estimates."
+          },
+          {
+            "id": "two-runs-only-ever_dcs_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "two-runs-only",
+            "endpoint": "ever_dcs_as_reported",
+            "cases": 129,
+            "denominator": 136,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 2",
+            "note": "This is a person-level margin. The attendance strata partition the all-people group, which overlaps the per-run estimates."
+          },
+          {
+            "id": "three-runs-only-ever_dcs_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "three-runs-only",
+            "endpoint": "ever_dcs_as_reported",
+            "cases": 296,
+            "denominator": 304,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 2",
+            "note": "This is a person-level margin. The attendance strata partition the all-people group, which overlaps the per-run estimates."
+          },
+          {
+            "id": "all-people-ever_dcs_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "all-people",
+            "endpoint": "ever_dcs_as_reported",
+            "cases": 498,
+            "denominator": 524,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, printed p. 230 (PDF p. 229), Table 2",
+            "note": "This is a person-level margin. The attendance strata partition the all-people group, which overlaps the per-run estimates."
+          },
+          {
+            "id": "two-runs-only-classification_unchanged_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "two-runs-only",
+            "endpoint": "classification_unchanged_as_reported",
+            "cases": 53,
+            "denominator": 136,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, Table 4, printed p. 231 (PDF p. 230)",
+            "note": "The same classification on every completed test. This is a reproducibility outcome distinct from symptoms."
+          },
+          {
+            "id": "three-runs-only-classification_unchanged_as_reported",
+            "study_id": "stewart-1943-halifax-standard",
+            "group": "three-runs-only",
+            "endpoint": "classification_unchanged_as_reported",
+            "cases": 78,
+            "denominator": 304,
+            "denominator_unit": "person",
+            "target_altitude_ft": 38000,
+            "locator": "Ninth CAM meeting, Canadian reports, Table 4, printed p. 231 (PDF p. 230)",
+            "note": "The same classification on every completed test. This is a reproducibility outcome distinct from symptoms."
+          }
+        ]
+      },
+      {
+        "id": "henry_ivy51_preselection",
+        "title": "Preselection tests",
+        "authors": [
+          "Franklin M. Henry",
+          "A. C. Ivy"
+        ],
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=366",
+        "locator": "Chapter X, printed pp. 331, 336 (PDF pp. 366, 371), Table 74 and Figure 73",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "note": "Page 331 supplies six published validation percentages. Table 74 reproduces approximate first-test classification margins for Halifax and Cincinnati. The model uses exact counts from the earlier investigators' tables for those margins.",
+        "role_review": "overlap_hold",
+        "table74_reused": [
+          "Cincinnati classification of 102",
+          "Halifax classification of 524"
+        ],
+        "observations": [
+          {
+            "id": "cincinnati-validation-all-forced_descent_as_reported",
+            "study_id": "webb-cam288-cincinnati-validation",
+            "group": "cincinnati-validation-all",
+            "endpoint": "forced_descent_as_reported",
+            "cases": null,
+            "denominator": 78,
+            "denominator_unit": "person",
+            "reported_rate_percent": 54,
+            "target_altitude_ft": 38000,
+            "protocol": "Exercise validation at 38,000 ft after a 35,000-ft classification test. At validation the report describes three knee bends and three arm movements each ten minutes.",
+            "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)",
+            "note": "All men in the reported comparison. The source publishes a whole-number percentage."
+          },
+          {
+            "id": "cincinnati-validation-selected-forced_descent_as_reported",
+            "study_id": "webb-cam288-cincinnati-validation",
+            "group": "cincinnati-validation-selected",
+            "endpoint": "forced_descent_as_reported",
+            "cases": null,
+            "denominator": 21,
+            "denominator_unit": "person",
+            "reported_rate_percent": 14,
+            "target_altitude_ft": 38000,
+            "protocol": "Same 38,000-ft validation in men who passed classification at 35,000 ft.",
+            "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)",
+            "note": "Outcome-selected subgroup nested in the full 78-person denominator."
+          },
+          {
+            "id": "halifax-validation-all-decompression_symptoms_as_reported",
+            "study_id": "halifax-cross-altitude-validation-286",
+            "group": "halifax-validation-all",
+            "endpoint": "decompression_symptoms_as_reported",
+            "cases": null,
+            "denominator": 286,
+            "denominator_unit": "person",
+            "reported_rate_percent": 36,
+            "target_altitude_ft": 35000,
+            "protocol": "Validation at 35,000 ft without exercise after a 38,000-ft test with exercise.",
+            "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)",
+            "note": "Published percentage. Exact numerator and dwell unavailable."
+          },
+          {
+            "id": "halifax-validation-all-forced_descent_as_reported",
+            "study_id": "halifax-cross-altitude-validation-286",
+            "group": "halifax-validation-all",
+            "endpoint": "forced_descent_as_reported",
+            "cases": null,
+            "denominator": 286,
+            "denominator_unit": "person",
+            "reported_rate_percent": 10,
+            "target_altitude_ft": 35000,
+            "protocol": "Validation at 35,000 ft without exercise after a 38,000-ft test with exercise.",
+            "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)",
+            "note": "Published percentage. Exact numerator and dwell unavailable."
+          },
+          {
+            "id": "halifax-validation-selected-decompression_symptoms_as_reported",
+            "study_id": "halifax-cross-altitude-validation-286",
+            "group": "halifax-validation-selected",
+            "endpoint": "decompression_symptoms_as_reported",
+            "cases": null,
+            "denominator": 206,
+            "denominator_unit": "person",
+            "reported_rate_percent": 15,
+            "target_altitude_ft": 35000,
+            "protocol": "Same 35,000-ft validation among people who passed the 38,000-ft classification.",
+            "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)",
+            "note": "Outcome-selected subgroup nested in the full 286-person denominator."
+          },
+          {
+            "id": "halifax-validation-selected-forced_descent_as_reported",
+            "study_id": "halifax-cross-altitude-validation-286",
+            "group": "halifax-validation-selected",
+            "endpoint": "forced_descent_as_reported",
+            "cases": null,
+            "denominator": 206,
+            "denominator_unit": "person",
+            "reported_rate_percent": 3,
+            "target_altitude_ft": 35000,
+            "protocol": "Same 35,000-ft validation among people who passed the 38,000-ft classification.",
+            "locator": "Henry and Ivy, printed p. 331 (PDF p. 366)",
+            "note": "Outcome-selected subgroup nested in the full 286-person denominator."
+          }
+        ]
+      },
+      {
+        "id": "webb44_cam288_preselection",
+        "title": "Preselection tests at 35,000 and 38,000 feet",
+        "authors": [
+          "J. P. Webb",
+          "E. B. Ferris",
+          "G. L. Engel",
+          "E. Brown"
+        ],
+        "year": 1944,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf",
+        "locator": "Fulton 1951 bibliography item 416 and Chapter X p. 331 (PDF p. 366)",
+        "note": "Henry and Ivy cite this report for the Cincinnati validation comparison. Standalone report unavailable. The report cannot establish participant-level linkage to the 1943 minutes.",
+        "technical_report": "CAM 288"
+      }
+    ]
+  }
+]
