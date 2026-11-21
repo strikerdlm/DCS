@@ -8,6 +8,74 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_iseev_archive_completes_one_risk_set_and_keeps_nested_findings(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.source_id,p.numerator,p.denominator,p.denominator_unit,p.denominator_basis,
+                   p.analysis_role,l.report_id
+            FROM publication_observation p JOIN publication_observation_denominator_completion c
+                USING(source_id,stratum,endpoint)
+            JOIN model_report_link l ON l.source_id=c.evidence_source_id AND l.source_table='publication_source'
+            WHERE p.source_id='iseev88_chamber'
+        """).fetchall() == [(
+            "iseev88_chamber", 250, 2444, "person_exposure", "source_reported", "overlap_hold", "ntrs:n88-26074"
+        )]
+        assert db.execute("""
+            SELECT source_id FROM publication_observation
+            WHERE source_id IN ('iseev88_chamber','iseev88_archive_jprs') AND denominator=2444
+        """).fetchall() == [("iseev88_chamber",)]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE study_id='iseev-1975-1986-experimental-chamber' AND denominator=2444
+        """).fetchall() == [(250, 2444)]
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='iseev88_chamber'
+        """).fetchall() == [(2444, 130)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='iseev88_archive_jprs' AND analysis_role='case_conditional' ORDER BY endpoint
+        """).fetchall() == [
+            ("cutaneous_primary_category", 22, 250), ("cutaneous_with_musculo_articular_features", 3, 22),
+            ("musculo_articular_primary_category", 219, 250), ("neurocirculatory_primary_category", 4, 250),
+            ("pulmonary_primary_category", 5, 250),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE endpoint='musculo_articular_other_cases_mentioned' AND report_id='ntrs:n88-26074'
+        """).fetchall() == [(221, None)]
+        assert db.execute("""
+            SELECT count(DISTINCT stratum),count(*) FROM publication_case_milestone
+            WHERE source_id='iseev88_archive_jprs'
+        """).fetchone() == (7, 26)
+        assert db.execute("""
+            SELECT stratum,elapsed,elapsed_reference FROM publication_case_milestone
+            WHERE source_id='iseev88_archive_jprs' AND milestone IN ('bradycardia_observed','vertigo_reported')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("precollapse-neurocirculatory", 20.0, "time at chamber altitude"),
+            ("repeated-ascent-neurocirculatory", 5.0, "start of step exercise on day four"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='iseev88_archive_jprs'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role FROM publication_observation
+            WHERE source_id='filipenkov07_chamber_repeats'
+        """).fetchall() == [(0, 123, "person", "overlap_hold")]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='nrcerm:2012:1:45' AND relationship='cites' ORDER BY right_report
+        """).fetchall() == [
+            ("extrem:1982:kazakova:275",), ("gmik:2007:filipenkov",),
+            ("thesis-abstract:2011:starovoyt",), ("thesis:1994:volkov",),
+        ]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='thesis-abstract:2011:starovoyt' AND relationship='author_summary_of'
+        """).fetchall() == [("rsl:01005087415",)]
+
+
 def test_soviet_chamber_translation_preserves_units_and_shared_populations(release):
     with connect_pair(release) as db:
         assert db.execute("""

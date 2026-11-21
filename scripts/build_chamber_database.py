@@ -167,6 +167,7 @@ CHAMBER_JAPANESE_ALTITUDE_CASES = ROOT / "data" / "chamber" / "v1.99"
 CHAMBER_RAF_DISPATCHER_AND_ARMY = ROOT / "data" / "chamber" / "v1.100"
 CHAMBER_RUSSIAN_AND_DISPATCHER_COMPANIONS = ROOT / "data" / "chamber" / "v1.101"
 CHAMBER_SOVIET_POSTURE_AND_STAGING = ROOT / "data" / "chamber" / "v1.102"
+CHAMBER_ISEEV_ARCHIVE = ROOT / "data" / "chamber" / "v1.103"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -485,6 +486,22 @@ def apply_publication_revisions(db):
         )
         if update.rowcount != 1:
             raise ValueError(f"Published observation revision does not reconcile: {revision[4:7]}")
+
+
+def apply_publication_denominator_completions(db):
+    for completion in db.execute("""
+        SELECT denominator, denominator_unit, period, protocol, outcome_window, locator, note,
+               source_id, stratum, endpoint, numerator
+        FROM publication_observation_denominator_completion
+    """):
+        update = db.execute(
+            "UPDATE publication_observation SET denominator=?, denominator_unit=?, "
+            "denominator_basis='source_reported', period=?, protocol=?, outcome_window=?, locator=?, note=? "
+            "WHERE source_id=? AND stratum=? AND endpoint=? AND numerator=? AND denominator IS NULL",
+            completion,
+        )
+        if update.rowcount != 1:
+            raise ValueError(f"Published denominator completion does not reconcile: {completion[7:10]}")
 
 
 def build(
@@ -1502,6 +1519,19 @@ def build(
                         "publication_vge_dcs_percent_range": "vge_dcs_ranges.csv",
                     },
                 )
+                load_version_tables(
+                    db,
+                    CHAMBER_ISEEV_ARCHIVE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_observation_denominator_completion": "denominator_completions.csv",
+                    },
+                )
+                apply_publication_denominator_completions(db)
             if rojas_supplement:
                 load_supplement(
                     db, ROJAS_DATA, "rojas", extra_tables={"rojas_result": "results.csv"}
