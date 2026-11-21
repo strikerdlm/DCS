@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-cabin-decompression-scopes-verified#barron58_12_second_decompression",
+      "report_id": "pmid:13575359",
+      "basis": "Verified title and source identity or archival citation.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/8/article-p563.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.154/sources.csv#barron58_12_second_decompression",
+      "report_id": "pmid:13575359",
+      "basis": "Verified title and source identity or archival citation.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/8/article-p563.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-21-cabin-decompression-scopes-verified#donaldson60_cabin_descent",
+      "report_id": "pmid:13723694",
+      "basis": "Verified title and source identity or archival citation.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/10/article-p842.pdf#page=9"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.154/sources.csv#donaldson60_cabin_descent",
+      "report_id": "pmid:13723694",
+      "basis": "Verified title and source identity or archival citation.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/31/10/article-p842.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-21-cabin-decompression-scopes-firecrawl#barron58-publisher",
+      "report_id": "pmid:13575359",
+      "basis": "Verified title and source identity or archival citation.",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/joam/29/8/article-p563.xml"
+    },
+    {
+      "record_key": "2026-11-21-cabin-decompression-scopes-verified#cam-meeting14-existing",
+      "report_id": "nlm:101085500x796:meeting-14",
+      "basis": "Verified title and source identity or archival citation.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X796/PDF/101085500X796.pdf#page=10"
+    },
+    {
+      "record_key": "2026-11-21-cabin-decompression-scopes-verified#comfort-wilson-5970-cited",
+      "report_id": "report:wadc-5970",
+      "basis": "Verified title and source identity or archival citation.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/8/article-p563.pdf#page=8"
+    },
+    {
       "record_key": "2026-11-21-pressure-breathing-outcomes-verified#barron65_variable_decompression",
       "report_id": "nasa-index:a65-24075",
       "basis": "Verified bibliographic identity and source locator.",
@@ -15417,6 +15459,18 @@
   ],
   "studies": [
     {
+      "study_id": "lockheed-12-second-cabin-decompression-1956",
+      "label": "Lockheed 12-second cabin decompression series",
+      "period": "Study initiated August 1956. End date unreported.",
+      "setting": "Twenty-nine flights and 154 exposure records in Table II. Distinct headcount and whether a repeat instructor is included in the table are unresolved. Hypoxia reactions appear as 88 in the text and sum to 89 in Table V. The paper gives no clinical DCS tally or systematic DCS follow-up."
+    },
+    {
+      "study_id": "ohio-state-donaldson-cabin-descent-1960",
+      "label": "Ohio State simulated cabin decompression and descent",
+      "period": "Published 1960.",
+      "setting": "The four oxygen conditions gave 35 chamber exposures in ten people. Two of seven no-oxygen tests did not complete the planned profile, one following severe hypoxia and the other following severe ear pain. The report separately describes repeat tests in three of the same people after alcohol. No clinical DCS tally is given."
+    },
+    {
       "study_id": "lockheed-faa-variable-decompression-fa3082",
       "label": "Lockheed FAA variable-decompression experiment",
       "period": "Published 1965.",
@@ -16984,6 +17038,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "lockheed-12-second-cabin-decompression-1956",
+      "report_id": "pmid:13575359",
+      "role": "non_dcs_chamber_scope",
+      "locator": "Introduction p. 563, Results pp. 566 and 568–570, Tables II–V (PDF pp. 7–8), Summary p. 574"
+    },
+    {
+      "study_id": "ohio-state-donaldson-cabin-descent-1960",
+      "report_id": "pmid:13723694",
+      "role": "non_dcs_chamber_scope",
+      "locator": "Results pp. 844–848 and Summary p. 850 (PDF pp. 3–7 and 9)"
+    },
     {
       "study_id": "lockheed-faa-variable-decompression-fa3082",
       "report_id": "nasa-index:a65-24075",
@@ -19668,6 +19734,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:13575359",
+      "right_report": "pmid:13233153",
+      "relationship": "unresolved",
+      "evidence": "The 1958 paper explicitly distinguishes the new 12-second schedule from the earlier 0.7-second, 25,000-ft program. Their exposure records represent different protocols and periods. Personnel overlap is unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/8/article-p563.pdf#page=8"
+    },
+    {
+      "left_report": "pmid:13575359",
+      "right_report": "nasa-index:a65-24075",
+      "relationship": "unresolved",
+      "evidence": "The same Lockheed investigators report a distinct eight-run FAA experiment with higher peak pressure altitudes. The publication does not map participants to the 1958 series.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/29/8/article-p563.pdf#page=8"
+    },
     {
       "left_report": "pmid:2205195",
       "right_report": "pmid:2302122",
@@ -23996,6 +24076,9 @@
     }
   ],
   "report_titles": {
+    "pmid:13575359": "Observations on Simulated 12-Second Decompressions to 32,000 Feet",
+    "pmid:13723694": "Acute Hypoxia During Rapid Decompression and Emergency Descent in a Commercial Jet Aircraft",
+    "report:wadc-5970": "Some factors affecting time of useful consciousness at high altitudes",
     "nasa-index:a65-24075": "Effects of Variable Decompressions to 45,000 Feet",
     "pmid:2205195": "Transport aircraft crew and decompression hazards: study of a positive pressure schedule",
     "pmid:2302122": "Rapid decompression of a transport aircraft cabin: protection against hypoxia",
