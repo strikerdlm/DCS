@@ -1,0 +1,214 @@
+[
+  {
+    "id": "2026-11-21-faa-mask-history-firecrawl-catalog",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "retrieved",
+    "operation": "search",
+    "reported_total": 5,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "McFadden 1966 FAA disposable passenger oxygen mask rosap 20771",
+      "search_id": "01a1fd6a-a728-746e-9437-61d95a9bc0a2",
+      "limit": 5,
+      "other_results": {
+        "4": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS81809/pdf/GOVPUB-TD4_200-PURL-LPS81809.pdf"
+      }
+    },
+    "note": "Three references resolve to AM 66-7 and one to the separate 1972 mask test. The unrelated respiratory systems document is recorded by URL.",
+    "records": [
+      {
+        "id": "dot-1966",
+        "title": "Evaluation of the physiological protective efficiency of a new prototype disposable passenger oxygen mask",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20771",
+        "year": 1966
+      },
+      {
+        "id": "faa-1966",
+        "title": "Evaluation of the physiological protective efficiency of a new prototype disposable passenger oxygen mask",
+        "url": "https://www.faa.gov/data_research/research/med_humanfacs/oamtechreports/1960s/1966/196607",
+        "year": 1966
+      },
+      {
+        "id": "dtic-1966",
+        "title": "Evaluation of the physiological protective efficiency of a new prototype disposable passenger oxygen mask",
+        "url": "https://apps.dtic.mil/sti/html/tr/AD0644118/",
+        "year": 1966
+      },
+      {
+        "id": "dot-1972",
+        "title": "Physiological evaluation of a modified jet transport passenger oxygen mask",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20989/dot_20989_DS1.pdf",
+        "year": 1972
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-mask-history-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA AM 66-7 McFadden 1966 \"flight aborted\" bends passenger oxygen mask chamber six",
+      "http_status": 433,
+      "max_results": 10,
+      "search_depth": "advanced"
+    },
+    "note": "The account spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-faa-mask-history-primary",
+    "date": "2026-11-21",
+    "provider": "FAA and US DOT",
+    "status": "observed_full_text",
+    "operation": "compare_original_tables",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA AM 66-7 Methods and Table 1"
+    },
+    "note": "Visually verified the original table, including the continuation sheet and the 40,000-ft footnote.",
+    "records": [
+      {
+        "id": "mcfadden-1966",
+        "title": "Evaluation of the physiological protective efficiency of a new prototype disposable passenger oxygen mask",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20771/dot_20771_DS1.pdf",
+        "year": 1966,
+        "identifier": "AM 66-7; AD0644118; DOT:20771",
+        "primary_source": "https://rosap.ntl.bts.gov/view/dot/20771/dot_20771_DS1.pdf#page=16",
+        "source_sha256": "ae90574a99f2781bcb2009e4a15816e37bb1ac630b5384c81cbc65d7cb6473d2",
+        "locator": "Methods printed p. 2 (PDF p. 4), Table 1 printed pp. 14–15 (PDF pp. 16–17)",
+        "role_review": "Descriptive experimental chamber observation. The selected case and the six-subject margin share the same event.",
+        "observations": [
+          {
+            "id": "six-subject-bends-abort-margin",
+            "group": "six-instrumented-subjects",
+            "endpoint": "bends_related_abort_as_reported",
+            "study_id": "faa-cami-mcfadden-1966-mask",
+            "cases": 1,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "analysis_role": "descriptive",
+            "locator": "Methods printed p. 2 (PDF p. 4), Table 1 printed pp. 14–15 (PDF pp. 16–17)",
+            "outcome_window": "During the documented altitude chamber flight through the reported abort or the end of table observations. Delayed follow-up is unavailable.",
+            "note": "One bends-related abort is identified among six subject blocks. All six have a recorded 35,000-ft observation and five have a 40,000-ft row. The remaining subjects do not supply a standardized clinical non-event count."
+          },
+          {
+            "id": "table-1-bends-abort-case",
+            "group": "table-1-block-01-bends-abort",
+            "endpoint": "bends_related_abort_as_reported",
+            "study_id": "faa-cami-mcfadden-1966-mask",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "locator": "Table 1, first subject block, printed p. 14 (PDF p. 16)",
+            "outcome_window": "The abort is reported during the chamber flight. Onset, exact abort pressure and delayed follow-up are unavailable.",
+            "note": "This case is the one event in the six-subject margin. The last explicit altitude before the abort remark is 35,000 ft at 179 mmHg. The abort remark gives no altitude. Case type and diagnostic adjudication are unavailable."
+          }
+        ],
+        "exposure_scope": {
+          "instrumented_subjects": 6,
+          "subjects_with_35000ft_row": 6,
+          "subjects_with_40000ft_row": 5,
+          "observer_person_count": null
+        },
+        "case_timing": {
+          "last_explicit_stage_altitude_ft": 35000,
+          "last_explicit_stage_pressure_mmhg": 179,
+          "onset_altitude_ft": null,
+          "abort_altitude_ft": null,
+          "onset_min": null,
+          "site": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-mask-history-firecrawl-scan",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_pdf",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA AM 66-7 Table 1",
+      "scrape_id": "01a1fd62-ec94-7349-a374-ac56ab748980"
+    },
+    "note": "Parsed the public scan and identified the original abort remark. Counts and stage margins were checked against both rendered Table 1 pages.",
+    "records": [
+      {
+        "id": "mcfadden-1966-scan",
+        "title": "Evaluation of the physiological protective efficiency of a new prototype disposable passenger oxygen mask",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20771/dot_20771_DS1.pdf",
+        "year": 1966
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-faa-mask-history-companion-scans",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_full_text",
+    "operation": "scrape_and_scope_full_text",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "FAA-AM-67-9, FAA-AM-72-10, FAA-AM-80-18, USAFSAM-TR-85-102; ADA168832; N86-33021"
+    },
+    "note": "Confirmed the adjacent FAA and USAF experimental reports. Their physiological and hypoxia endpoints are retained as source metadata.",
+    "records": [
+      {
+        "id": "mcfadden-1967",
+        "title": "Performance characteristics of constant-flow phase dilution oxygen mask designs for general aviation",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20821/dot_20821_DS1.pdf",
+        "year": 1967,
+        "identifier": "FAA-AM-67-9",
+        "primary_source": "https://rosap.ntl.bts.gov/view/dot/20821/dot_20821_DS1.pdf",
+        "scrape_id": "01a1fd66-223e-707b-bfc9-8a9ac735cd1f",
+        "role_review": "Rest and light exercise at several pressure stages to 34,000 ft. Gas measurement tables lack a verified clinical DCS count.",
+        "reported_people": null
+      },
+      {
+        "id": "mcfadden-1972",
+        "title": "Physiological evaluation of a modified jet transport passenger oxygen mask",
+        "url": "https://rosap.ntl.bts.gov/view/dot/20989/dot_20989_DS1.pdf",
+        "year": 1972,
+        "identifier": "FAA-AM-72-10",
+        "primary_source": "https://rosap.ntl.bts.gov/view/dot/20989/dot_20989_DS1.pdf",
+        "scrape_id": "01a1fd62-ec92-7078-9f3b-868a9bd47a9b",
+        "role_review": "Six subjects used a new mask each. The abstract describes an emergency-use ceiling of 41,000 ft and Methods give measurement at 40,000 ft. Results discuss physiological measurements. Clinical DCS counts and delayed follow-up are unavailable.",
+        "reported_people": 6,
+        "source_sha256": "72f8668cf6e419141422126c09761eabb3092b09de524e5a5eaa2b7d09158e6d"
+      },
+      {
+        "id": "desteiguer-1980",
+        "title": "Evaluation of the protective efficiency of a new oxygen mask for aircraft passenger use to 40,000 feet",
+        "url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM80-18.pdf",
+        "year": 1980,
+        "identifier": "FAA-AM-80-18",
+        "primary_source": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM80-18.pdf",
+        "scrape_id": "01a1fd62-ec8f-75eb-8309-676b3b5b3f46",
+        "role_review": "The Methods describe ten people and mask gas measurements at pressure altitude. Observed signs or absence of hypoxia have separate definitions. A clinical DCS count is unavailable.",
+        "reported_people": 10,
+        "source_sha256": "beeafb67509940c35c2b1644914b8e5661f76c7f0df2d0e95e8c17666a9dfa65"
+      },
+      {
+        "id": "holden-1986",
+        "title": "Effect of Oxygen Flow on Passenger Face Mask Performance",
+        "url": "https://archive.org/download/DTIC_ADA168832/DTIC_ADA168832.pdf",
+        "year": 1986,
+        "identifier": "USAFSAM-TR-85-102; ADA168832; N86-33021",
+        "primary_source": "https://archive.org/download/DTIC_ADA168832/DTIC_ADA168832.pdf",
+        "scrape_id": "01a1fd67-c5c3-741e-b87e-41ad0ce717e1",
+        "role_review": "Fourteen USAF volunteers. The separate Brooks protocol reports loss of consciousness and test stops attributed to hypoxia. The report does not give an aggregate clinical DCS count.",
+        "reported_people": 14
+      }
+    ]
+  }
+]

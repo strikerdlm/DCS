@@ -13007,6 +13007,72 @@
       "report_id": "doi:10.48321/d1caaba6e8",
       "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86853",
       "basis": "Matched the named report, data or plan against the DOT record and its bibliographic identifiers."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.114/sources.csv#mcfadden66_mask_bends",
+      "report_id": "dot:20771",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20771"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-primary#mcfadden-1966",
+      "report_id": "dot:20771",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20771"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-firecrawl-catalog#dot-1966",
+      "report_id": "dot:20771",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20771"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-firecrawl-catalog#faa-1966",
+      "report_id": "dot:20771",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20771"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-firecrawl-catalog#dtic-1966",
+      "report_id": "dot:20771",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20771"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-firecrawl-scan#mcfadden-1966-scan",
+      "report_id": "dot:20771",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20771"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-companion-scans#mcfadden-1967",
+      "report_id": "dot:20821",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20821"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-companion-scans#mcfadden-1972",
+      "report_id": "dot:20989",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20989"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-firecrawl-catalog#dot-1972",
+      "report_id": "dot:20989",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/20989"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-companion-scans#desteiguer-1980",
+      "report_id": "dot:21252",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://rosap.ntl.bts.gov/view/dot/21252"
+    },
+    {
+      "record_key": "2026-11-21-faa-mask-history-companion-scans#holden-1986",
+      "report_id": "dtic:ada168832",
+      "basis": "Original title and agency report number verified against the issuing agency or archive.",
+      "evidence_url": "https://archive.org/details/DTIC_ADA168832"
     }
   ],
   "studies": [
@@ -14203,6 +14269,12 @@
       "label": "FAA CAMI Garner 40,000-ft oxygen mask tests",
       "period": "Reported February 1996",
       "setting": "FAA CAMI hypobaric chamber mask performance experiment"
+    },
+    {
+      "study_id": "faa-cami-mcfadden-1966-mask",
+      "label": "FAA CAMI McFadden 1966 prototype mask chamber test",
+      "period": "Published April 1966, enrollment dates unavailable",
+      "setting": "FAA CAMI hypobaric chamber"
     }
   ],
   "study_reports": [
@@ -16281,6 +16353,12 @@
       "report_id": "dot:21429",
       "role": "primary_outcome",
       "locator": "Participants and Methods, Discussion p. 10 (PDF p. 11)"
+    },
+    {
+      "study_id": "faa-cami-mcfadden-1966-mask",
+      "report_id": "dot:20771",
+      "role": "primary_outcome",
+      "locator": "Methods printed p. 2 (PDF p. 4), Table 1 printed pp. 14–15 (PDF pp. 16–17)"
     }
   ],
   "relations": [
@@ -19846,6 +19924,34 @@
       "relationship": "cites_earlier_distinct_chamber_experiment",
       "evidence": "Appendix A3 cites Garner's earlier oxygen mask study as an example. The 1996 and 2025 cohorts have distinct enrolled groups, protocols and reporting windows.",
       "evidence_url": "https://rosap.ntl.bts.gov/view/dot/86854/dot_86854_DS1.pdf#page=49"
+    },
+    {
+      "left_report": "dot:21429",
+      "right_report": "dot:20771",
+      "relationship": "cites_earlier_mask_experiment",
+      "evidence": "Garner 1996 references the named original as previous oxygen mask application work. The citation does not establish shared participants or clinical risk sets.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf#page=15"
+    },
+    {
+      "left_report": "dot:21429",
+      "right_report": "dot:20821",
+      "relationship": "cites_earlier_mask_experiment",
+      "evidence": "Garner 1996 references the named original as previous oxygen mask application work. The citation does not establish shared participants or clinical risk sets.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf#page=15"
+    },
+    {
+      "left_report": "dot:21429",
+      "right_report": "dot:20989",
+      "relationship": "cites_earlier_mask_experiment",
+      "evidence": "Garner 1996 references the named original as previous oxygen mask application work. The citation does not establish shared participants or clinical risk sets.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf#page=15"
+    },
+    {
+      "left_report": "dot:21429",
+      "right_report": "dot:21252",
+      "relationship": "cites_earlier_mask_experiment",
+      "evidence": "Garner 1996 references the named original as previous oxygen mask application work. The citation does not establish shared participants or clinical risk sets.",
+      "evidence_url": "https://www.faa.gov/sites/faa.gov/files/data_research/research/med_humanfacs/oamtechreports/AM96-04.pdf#page=15"
     }
   ],
   "report_titles": {
