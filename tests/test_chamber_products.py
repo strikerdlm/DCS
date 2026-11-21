@@ -1283,7 +1283,7 @@ def test_nasa_prp_counts_preserve_three_overlapping_analysis_populations(release
         assert tuple(db.execute("""
             SELECT count(*),count(DISTINCT report_id) FROM review.review_record
             WHERE url LIKE '%20040191712%' OR openalex_id='W118136854'
-        """).fetchone()) == (5, 1)
+        """).fetchone()) == (6, 1)
         assert db.execute("SELECT count(*) FROM chamber_group_evidence WHERE report_id=?", (report_id,)).fetchone()[0] == 0
 
 
@@ -3325,3 +3325,55 @@ def test_ocular_cases_keep_distinct_exposures_and_canonical_citations(release):
             SELECT relationship FROM publication_overlap
             WHERE source_id='butler91_parachute_optic' AND related_source='fitz94_visual'
         """).fetchone() == ("unresolved",)
+
+def test_nasa_reanalysis_preserves_shared_trials_and_selected_censoring(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT nasa_test_id,linkage_status,pure_oxygen_total_min,ascent_min,mixed_gas_min,
+                   type_ii_dcs_as_reported
+            FROM publication_nasa_reanalysis_test ORDER BY test_number
+        """).fetchall() == [
+            ("P I", "documented_program_group", 150, 30, 30, 0),
+            ("P II", "documented_program_group", 150, 30, 30, 0),
+            ("P III", "documented_program_group", 150, 30, 30, 1),
+            ("P IV", "documented_program_group", 150, 30, 30, 0),
+            ("2a", "documented_protocol", 240, 30, None, 0),
+            ("3a", "documented_protocol", 270, 30, None, 0),
+            ("11a", "likely_same_test", 186, 6, None, 0),
+        ]
+        assert db.execute("""
+            SELECT endpoint,count(*),sum(numerator),sum(denominator),min(analysis_role)
+            FROM publication_observation WHERE source_id='conkin03_age_vge'
+            GROUP BY endpoint ORDER BY endpoint
+        """).fetchall() == [
+            ("any_spencer_vge_during_exposure", 7, 97, 238, "overlap_hold"),
+            ("dcs_as_reported_in_2003_reanalysis", 7, 33, 238, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT symptom_report_min,chamber_removal_min,maximum_spencer_grade
+            FROM publication_nasa_reanalysis_removal WHERE dcs_reported=0
+            ORDER BY chamber_removal_min
+        """).fetchall() == [(None, 76, 0), (None, 148, 0), (None, 153, 3)]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_reported),sum(chamber_removal_min<180),
+                   sum(chamber_removal_min<240),sum(source_marks_end_of_test)
+            FROM publication_nasa_reanalysis_removal
+        """).fetchone() == (36, 33, 19, 22, 13)
+        assert db.execute("""
+            SELECT exposures,grade_iv FROM publication_nasa_reanalysis_vge_margin
+            ORDER BY mean_time_min
+        """).fetchall() == [(235, 6), (218, 10), (224, 20), (208, 20), (238, 36)]
+        assert db.execute("""
+            SELECT DISTINCT report_id
+            FROM review.review_record WHERE pmid='14620470'
+        """).fetchall() == [("pmid:14620470",)]
+        for new, previous in [
+            ("2026-11-21-conkin-nasa-timing-fulltext#nasa-1987",
+             "legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2"),
+            ("2026-11-21-conkin-nasa-timing-catalog#hdsd",
+             "legacy:data/chamber/v1/sources.csv#hdsd"),
+        ]:
+            assert db.execute("""
+                SELECT count(*),min(report_id),max(report_id)
+                FROM review.review_record WHERE record_key IN (?,?)
+            """, (new, previous)).fetchone() == (2, "record:" + previous, "record:" + previous)

@@ -12827,6 +12827,72 @@
       "report_id": "pmid:7980334",
       "basis": "Matched by explicit PMID or source PDF, verified authors and title.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/8/article-p736.pdf"
+    },
+    {
+      "record_key": "2026-11-21-conkin-nasa-timing-fulltext#conkin-2003",
+      "report_id": "pmid:14620470",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/11/article-p1142.pdf"
+    },
+    {
+      "record_key": "2026-11-21-conkin-nasa-timing-fulltext#nesc-2008",
+      "report_id": "ntrs:20080021669",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20080021669/downloads/20080021669.pdf#page=39"
+    },
+    {
+      "record_key": "2026-11-21-conkin-nasa-timing-fulltext#nasa-2004",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf#page=33"
+    },
+    {
+      "record_key": "2026-11-21-conkin-nasa-timing-fulltext#nasa-1987",
+      "report_id": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19870019681/downloads/19870019681.pdf#page=48"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "report_id": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "basis": "Same NASA TM-100456 report as the appendix used for the protocol crosswalk.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19870019681"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.38/sources.csv#conkin87_tm100456",
+      "report_id": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "basis": "Same NASA TM-100456 report as the appendix used for the protocol crosswalk.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19870019681"
+    },
+    {
+      "record_key": "2026-11-21-conkin-nasa-timing-fulltext#nasa-2011",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf#page=18"
+    },
+    {
+      "record_key": "2026-11-21-conkin-nasa-timing-catalog#ntrs-conkin-2003",
+      "report_id": "pmid:14620470",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040087477"
+    },
+    {
+      "record_key": "2026-11-21-conkin-nasa-timing-catalog#hdsd",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#hdsd",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/man/hdsd.Rd"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1/sources.csv#hdsd",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#hdsd",
+      "basis": "Same publicly released thregI hdsd individual-record dataset.",
+      "evidence_url": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/man/hdsd.Rd"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.111/sources.csv#conkin03_age_vge",
+      "report_id": "pmid:14620470",
+      "basis": "Verified in the journal or identified NASA report, with an explicit report number or PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/11/article-p1142.pdf"
     }
   ],
   "studies": [
@@ -14005,6 +14071,12 @@
       "label": "Steigleman Navy chamber case with delayed visual symptoms",
       "setting": "Operational hypobaric chamber training",
       "period": "Chamber exposure 14 May 2002. Last reported normal examination 11 July 2002."
+    },
+    {
+      "study_id": "conkin-2003-seven-test-nasa-reanalysis",
+      "label": "Conkin et al. 2003 selected NASA seven-test reanalysis",
+      "setting": "Experimental hypobaric simulated EVA with pulmonary artery Doppler monitoring",
+      "period": "Reanalysis published in 2003 of historical NASA database tests. Overlap with named PRP and other tests is recorded."
     }
   ],
   "study_reports": [
@@ -16023,6 +16095,42 @@
       "report_id": "pmid:14503679",
       "role": "primary_selected_case",
       "locator": "Journal printed p. 985 (PDF p. 1)"
+    },
+    {
+      "study_id": "conkin-2003-seven-test-nasa-reanalysis",
+      "report_id": "pmid:14620470",
+      "role": "selected_reanalysis_primary",
+      "locator": "Table I, printed p. 1143 (PDF p. 2); Table III, printed p. 1145 (PDF p. 4); Supplemental Table A (PDF p. 10)"
+    },
+    {
+      "study_id": "conkin-2003-seven-test-nasa-reanalysis",
+      "report_id": "ntrs:20080021669",
+      "role": "shared_prp_test_group_totals",
+      "locator": "NASA/TM-2008-215124 Table 1, printed p. 35 (PDF p. 39)"
+    },
+    {
+      "study_id": "conkin-2003-seven-test-nasa-reanalysis",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "role": "alternate_reporting_and_selection",
+      "locator": "NASA/TP-2004-213158 Table 6, printed p. 25 (PDF p. 33)"
+    },
+    {
+      "study_id": "conkin-2003-seven-test-nasa-reanalysis",
+      "report_id": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "role": "underlying_older_protocol_descriptions",
+      "locator": "NASA/TM-100456 Appendix A, printed p. 42 (PDF p. 48)"
+    },
+    {
+      "study_id": "conkin-2003-seven-test-nasa-reanalysis",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "role": "named_historical_test_comparison",
+      "locator": "NASA/TP-2011-216147 Table 2, printed pp. 8–9 (PDF pp. 18–19)"
+    },
+    {
+      "study_id": "conkin-2003-seven-test-nasa-reanalysis",
+      "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "role": "later_nasa_group_catalog",
+      "locator": "Table F1"
     }
   ],
   "relations": [
@@ -19469,6 +19577,48 @@
       "relationship": "possible_overlap_with_selected_referral_series",
       "evidence": "The earlier case's July 1986 dates overlap the referral series. Source hospital and case histories are insufficient to establish roster concordance.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/8/article-p736.pdf#page=2"
+    },
+    {
+      "left_report": "pmid:14620470",
+      "right_report": "ntrs:20080021669",
+      "relationship": "same_prp_groups_with_reporting_differences",
+      "evidence": "PRP I–IV have the same four completed counts, 47/45/10/57. The Phase I DCS count differs and ambiguous classifications are recorded separately.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20080021669/downloads/20080021669.pdf#page=39"
+    },
+    {
+      "left_report": "pmid:14620470",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "relationship": "overlapping_prp_groups_distinct_analysis_sets",
+      "evidence": "Phase I footnote b explicitly gives two cases reported after exposure. Report totals and DCS definitions change across the 2004 analysis columns.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20040191712/downloads/20040191712.pdf#page=33"
+    },
+    {
+      "left_report": "pmid:14620470",
+      "right_report": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "relationship": "same_two_documented_older_protocols",
+      "evidence": "Appendix A procedures 4 and 6 match dose, pressure, duration, upper body activity and cohort sizes for Tests 5 and 6.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19870019681/downloads/19870019681.pdf#page=48"
+    },
+    {
+      "left_report": "pmid:14620470",
+      "right_report": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "relationship": "historical_test_crosswalk_with_vge_disagreement",
+      "evidence": "The 2011 11a count of nine VGE differs from the likely corresponding 2003 test's seven. Tests 2a and 3a match counts. Individual overlap is not independently auditable.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf#page=18"
+    },
+    {
+      "left_report": "pmid:14620470",
+      "right_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "relationship": "test_reanalysis_of_overlapping_nasa_archive",
+      "evidence": "Six group identities supported and Test 7 remains likely. Denominator and endpoint differences prohibit addition across reports.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/abercromby-suited-chamber-testing-tp220343-2019.pdf#page=59"
+    },
+    {
+      "left_report": "pmid:14620470",
+      "right_report": "record:legacy:data/chamber/v1/sources.csv#hdsd",
+      "relationship": "equal_size_but_different_composition",
+      "evidence": "Both releases have 238 rows. The 2003 analysis has 188 male and 50 female exposures and 51 ambulatory. The public hdsd file has 177 male and 61 female rows and 195 ambulatory. No row-level linkage.",
+      "evidence_url": "https://raw.githubusercontent.com/cran/thregI/11919e13da5be6412dde3184c814ffd3fb4f1873/man/hdsd.Rd"
     }
   ],
   "report_titles": {
