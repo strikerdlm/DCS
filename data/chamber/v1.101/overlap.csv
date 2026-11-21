@@ -1,0 +1,8 @@
+source_id,related_source,relationship,evidence
+filipenkov07_chamber_repeats,filipenkov15_doppler,likely_overlap,"The same author reports 123 participants with matching age mean and dispersion, height, mass, estimated fat and nearly identical nitrogen estimates. Reported age minima and chamber scope differ. Exact nesting of the repeat tests in the 447-run total is unresolved."
+filipenkov10_gmik,filipenkov15_doppler,likely_overlap,The author describes his own 123-person chamber Doppler experience. The 2010 note gives a broader simulated altitude span and omits participant/run identifiers.
+filipenkov89_suit_chamber,barer79_suit,unresolved,"Filipenkov participated in both publications about suited chamber tests, with intersecting test pressure and participant scope. The 1989 abstract gives no sites or testing dates needed to determine overlap."
+filipenkov89_suit_chamber,filipenkov15_doppler,unresolved,Same investigator and historical chamber testing programs. The periods and participant identifiers are unavailable. These aggregates have different populations and should not be pooled on the available documentation.
+dvornikov19_academy,dvornikov19_su24m,same_cohort,"Identical authors, title, pages and case narrative for one Su-24M event, with separate journal volume and identifier metadata."
+connolly23_early_biomarkers,connolly23,partial_overlap,"Explicitly linked Phase 1, with 15 participants and identical per-ascent DCS outcomes and onset times."
+connolly24_brain_lung_assays,connolly23_early_biomarkers,same_cohort,"2024 Methods cite the earlier work. Profile, participant count, age distribution, sampling times and three DCS interruptions agree."

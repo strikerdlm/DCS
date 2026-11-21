@@ -34,6 +34,8 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_bryce_headache_sequence` | Three research exposure histories across two published subjects, with source-relative headache timing |
 | `dcs-model.sqlite` | `publication_postexercise_flow` | Interim and final experimental populations, exclusions, allocations, and outcome reporting |
 | `dcs-model.sqlite` | `publication_repeated_exposure_timing`, `publication_repeated_exposure_joint_count` | Source-specific onset summaries and paired DCS counts across three conditions |
+| `dcs-model.sqlite` | `publication_repeat_chamber_protocol_count` | Repeat-run counts and pressure-altitude and prebreathe ranges for selected volunteers |
+| `dcs-model.sqlite` | `publication_biomarker_summary` | Published analyte means, standard errors and assay-level missingness for the repeated dispatcher chamber study |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 ## Build and use a release
@@ -76,6 +78,8 @@ Ferris and Engel supply seven case-conditional margins for the previously catalo
 The 1946 Operation Everest diary supplies two dated staff cerebral bends reports. Eleven contextual entries retain the lock activity, staffing, recorded symptoms and resident follow-up. The study register links the investigator and diary reports to one experiment. [Operation Everest I supplement](chamber-operation-everest-i-supplement.md)
 
 The 2026 AsMA familiarization case adds six source-reported milestones. The study register also links the EA-6 meeting abstract and original NASA slides to their shared cohort. [AsMA chamber case supplement](chamber-asma-chamber-case-supplement.md)
+
+Filipenkov’s 1989 abstract supplies 29 DCS-positive tests in 1,179 suited chamber tests and 26 affected participants among 193 people. Both margins describe one study and remain on overlap hold. His 2007 archive supplies 223, 14 and 121 repeat runs with exact altitude bands and prebreathe ranges but no corresponding case counts. Two Dvornikov publications describe one Su-24M pilot case. The Connolly companion reports link to Phase 1 of the existing dispatcher study and supply a person-level VGE characterization and twelve analyte rows, including three with qualitative or below-detection results. [Evidence extracts](../data/chamber/v1.101) · [Filipenkov author abstract](https://pubmed.ncbi.nlm.nih.gov/2761212/) · [Dvornikov author abstract](https://journals.eco-vector.com/0026-9050/article/view/72843/ru_RU) · [Connolly biomarker paper](https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/9/article-p667.pdf)
 
 The aircraft incident supplement links the original military depressurization reports from Johnston and Mancini to two distinct studies. It preserves passenger and occupant denominators, one presumptive diagnosis, and an unreconciled symptom count. These aircraft counts are descriptive aviation evidence. [v1.65 source extractions](../data/chamber/v1.65/counts.csv)
 
