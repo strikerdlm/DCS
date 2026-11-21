@@ -10577,6 +10577,78 @@
       "report_id": "pmid:12056666",
       "basis": "The journal title and pages match PMID 12056666 and the existing outcome extract.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/6/article-p525.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10685583",
+      "report_id": "openalex:W93154131",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf",
+      "basis": "The identical PMID, title, authors, journal and first page identify the same Krause and Pilmanis report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.85/sources.csv#krause00_full",
+      "report_id": "openalex:W93154131",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf",
+      "basis": "The full-text publisher record matches the existing PMID 10685583 and OpenAlex work."
+    },
+    {
+      "record_key": "2026-11-20-ground-oxygen-source-verification#krause-2000-original",
+      "report_id": "openalex:W93154131",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf",
+      "basis": "Same original Krause and Pilmanis report, now checked against Figure 1."
+    },
+    {
+      "record_key": "2026-11-20-ground-oxygen-source-verification#rudge-1992-original",
+      "report_id": "pmid:1456923",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+      "basis": "Same original Rudge paper as v1.28/rudge92_chamber_onset, now checked against both tables and Results."
+    },
+    {
+      "record_key": "2026-11-20-ground-oxygen-tavily#b8c2b4-04",
+      "report_id": "pmid:1456923",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+      "basis": "Tavily website result gives the same PMID as the original Rudge paper."
+    },
+    {
+      "record_key": "2026-11-20-ground-oxygen-tavily#c44008-03",
+      "report_id": "ntrs:19940029137",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940029137",
+      "basis": "The retrieved NTRS accession matches the earlier Armstrong archive report."
+    },
+    {
+      "record_key": "2026-11-20-ground-oxygen-firecrawl#web-1",
+      "report_id": "ntrs:19940029137",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940029137",
+      "basis": "The returned NTRS accession matches the earlier Armstrong archive report."
+    },
+    {
+      "record_key": "2026-11-20-ground-oxygen-firecrawl#publisher-pdf-rudge",
+      "report_id": "pmid:1456923",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+      "basis": "The publisher PDF link, title and pages identify the original Rudge paper."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/sources.csv#krause00",
+      "report_id": "openalex:W93154131",
+      "basis": "The Krause and Pilmanis title, journal citation and PMID 10685583 identify the same 2000 paper.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/references.csv#mahon2014:124",
+      "report_id": "openalex:W93154131",
+      "basis": "The Krause and Pilmanis title, journal citation and PMID 10685583 identify the same 2000 paper.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#10685583",
+      "report_id": "openalex:W93154131",
+      "basis": "The Krause and Pilmanis title, journal citation and PMID 10685583 identify the same 2000 paper.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W93154131",
+      "report_id": "openalex:W93154131",
+      "basis": "The Krause and Pilmanis title, journal citation and PMID 10685583 identify the same 2000 paper.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
     }
   ],
   "studies": [
@@ -11419,6 +11491,18 @@
       "label": "Historical delayed or recurrent DCS context in the AFRL archive",
       "period": "Cited in 2002. Exposure dates unspecified.",
       "setting": "Mixed altitude chamber research profiles"
+    },
+    {
+      "study_id": "brooks-krause-1983-1998",
+      "label": "Brooks AFRL research archive treatment snapshot",
+      "period": "January 1983 to July 1998",
+      "setting": "Experimental hypobaric chamber exposures"
+    },
+    {
+      "study_id": "brooks-rudge-chamber-treatment-1989-1991",
+      "label": "Brooks chamber clinical treatment and consultation series",
+      "period": "1989-01-01 to 1991-12-31",
+      "setting": "Operational training and research hypobaric chamber DCS case series"
     }
   ],
   "study_reports": [
@@ -12765,6 +12849,18 @@
       "report_id": "pmid:12234037",
       "role": "historical_archive_context",
       "locator": "Printed p. 872, Introduction"
+    },
+    {
+      "study_id": "brooks-krause-1983-1998",
+      "report_id": "openalex:W93154131",
+      "role": "source_archive_snapshot_and_treatment_flow",
+      "locator": "Printed p. 116, Figure 1 and Results"
+    },
+    {
+      "study_id": "brooks-rudge-chamber-treatment-1989-1991",
+      "report_id": "pmid:1456923",
+      "role": "source_case_series_treatment_flow",
+      "locator": "Printed pp. 1103–1104, Table II and Results"
     }
   ],
   "relations": [
@@ -15266,6 +15362,41 @@
       "relationship": "possible_archive_overlap",
       "evidence": "Webb et al. cite a 2,810-exposure version of the AFRL DCS research database. The later database report includes post-exposure exercise profiles. An exact snapshot or linked case IDs are unavailable.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/9/article-p872.pdf"
+    },
+    {
+      "left_report": "openalex:W93154131",
+      "right_report": "ntrs:19940029137",
+      "relationship": "possible_archive_overlap",
+      "evidence": "Krause cites the preliminary lab report and includes the same site and the earlier 1983–1993 period. Eligibility differs and individual or protocol matching is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "left_report": "openalex:W93154131",
+      "right_report": "pmid:1456923",
+      "relationship": "possible_archive_overlap",
+      "evidence": "Krause compares the same site's previously published series. Rudge's 56 Armstrong research cases are within the 1983–1998 timeframe. Linkage to Krause's archive is unavailable. Rudge's training and attendant cases remain separately labelled.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "left_report": "openalex:W93154131",
+      "right_report": "pmid:9025822",
+      "relationship": "possible_archive_overlap",
+      "evidence": "Krause references Ryles for symptomatology. The Brooks research archive periods overlap, but the series have distinct exposure and symptom margins.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "left_report": "openalex:W93154131",
+      "right_report": "pmid:15198274",
+      "relationship": "possible_archive_overlap",
+      "evidence": "Both analyze descent or subsequent resolution in the Brooks archive. Muehlberger's later analysis counts symptom reports using a broader source interval. There are no linked exposure IDs.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
+    },
+    {
+      "left_report": "openalex:W93154131",
+      "right_report": "report:ada521198",
+      "relationship": "possible_archive_overlap",
+      "evidence": "The same Brooks/Air Force research program appears in the later database report. Matching cohort and treatment identifiers are unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf"
     }
   ],
   "report_titles": {

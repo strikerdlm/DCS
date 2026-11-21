@@ -149,6 +149,7 @@ CHAMBER_TRAINING_HISTORIES = ROOT / "data" / "chamber" / "v1.81"
 CHAMBER_HALO_AND_USAF_ONSET = ROOT / "data" / "chamber" / "v1.82"
 CHAMBER_PFO_AND_HEADACHE = ROOT / "data" / "chamber" / "v1.83"
 CHAMBER_POSTEXPOSURE_EXERCISE = ROOT / "data" / "chamber" / "v1.84"
+CHAMBER_GROUND_OXYGEN = ROOT / "data" / "chamber" / "v1.85"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1310,6 +1311,14 @@ def build(
                         "publication_postexercise_flow": "postexercise_flow.csv",
                         "publication_repeated_exposure_timing": "repeat_timing.csv",
                         "publication_repeated_exposure_joint_count": "repeat_joint_counts.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_GROUND_OXYGEN,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_ground_oxygen_flow": "treatment_flow.csv",
                     },
                 )
             if rojas_supplement:

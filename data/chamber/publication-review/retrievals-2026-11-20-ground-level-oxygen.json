@@ -1,0 +1,145 @@
+[
+  {
+    "id": "2026-11-20-ground-oxygen-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_source_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Rudge 1992 The role of ground level oxygen in the treatment of altitude chamber decompression sickness 1102 Demboski Pilmanis 1994 454",
+      "provider_returned_links": [
+        "https://www.science.gov/topicpages/a/altitude+decompression+sickness",
+        "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "https://www.hbo.co.za/decompression-sickness.html",
+        "https://ntrs.nasa.gov/citations/19940029137",
+        "https://pubmed.ncbi.nlm.nih.gov/1456923",
+        "https://www.semanticscholar.org/paper/The-role-of-ground-level-oxygen-in-the-treatment-of-Rudge/8ccc8478a60e54b5c0bceb98e3b1f72958d4a70d"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Six ranked hits. Extraction verified the NASA report metadata and did not retrieve the Rudge PubMed page.",
+    "records": [
+      {
+        "id": "b8c2b4-04",
+        "title": "The role of ground level oxygen in the treatment of altitude chamber decompression sickness",
+        "pmid": "1456923",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1456923/"
+      },
+      {
+        "id": "c44008-03",
+        "title": "The effectiveness of ground level post-flight 100 percent oxygen breathing as therapy for pain-only altitude decompression sickness",
+        "identifier": "NTRS:19940029137",
+        "url": "https://ntrs.nasa.gov/citations/19940029137"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-ground-oxygen-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_source_search_and_pdf_access",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Demboski Pilmanis 1994 Effectiveness of ground level oxygen as therapy for pain-only altitude decompression sickness 454",
+      "provider_returned_links": [
+        "https://ntrs.nasa.gov/citations/19940029137",
+        "https://www.semanticscholar.org/paper/The-effectiveness-of-ground-level-post-flight-100-Demboski-Pilmanis/188fbf449241217d88d746cddeb376b7c45354e8",
+        "https://www.ncbi.nlm.nih.gov/books/NBK448160/",
+        "https://www.science.gov/topicpages/a/altitude+decompression+sickness",
+        "https://apps.dtic.mil/sti/pdfs/ADA426861.pdf",
+        "https://research.wright.edu/en/publications/altitude-decompression-sickness-symptom-resolution-during-descent/"
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Six ranked hits. The attempted publisher PDF scrape for Rudge returned the publication metadata and watermark, with no table text.",
+    "records": [
+      {
+        "id": "web-1",
+        "title": "The effectiveness of ground level post-flight 100 percent oxygen breathing as therapy for pain-only altitude decompression sickness",
+        "identifier": "NTRS:19940029137",
+        "url": "https://ntrs.nasa.gov/citations/19940029137"
+      },
+      {
+        "id": "publisher-pdf-rudge",
+        "title": "The role of ground level oxygen in the treatment of altitude chamber decompression sickness",
+        "pmid": "1456923",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+        "access": "publisher_metadata_and_watermark"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-ground-oxygen-source-verification",
+    "date": "2026-11-20",
+    "provider": "Original publisher PDFs",
+    "operation": "supplementary_original_treatment_flow_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Original scanned figures and tables checked against text extraction. Both original papers describe selected and potentially overlapping historical DCS case series.",
+    "records": [
+      {
+        "id": "krause-2000-original",
+        "title": "The effectiveness of ground level oxygen treatment for altitude decompression sickness in human research subjects",
+        "pmid": "10685583",
+        "year": 2000,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p115.pdf",
+        "sha256": "4fb884a386484222c49ac3878f88191caa527cac25ee59b099ab3f0ce58d3819",
+        "access": "full_text",
+        "locator": "Printed p. 116, Figure 1 and Results",
+        "study_id": "brooks-krause-1983-1998",
+        "existing_incidence": {
+          "source_id": "krause00",
+          "numerator": 801,
+          "denominator": 2001,
+          "unit": "person_exposure",
+          "role": "overlap_hold"
+        },
+        "participants": 399,
+        "history_trace_count": 0,
+        "standardized_followup_completeness": null,
+        "outcome_clarification": {
+          "existing_endpoint": "complete_resolution_without_further_treatment",
+          "source_success_count": 739,
+          "recurrent_or_delayed_count": 10,
+          "hbo_after_glo_count": 9,
+          "resolved_without_further_treatment_after_recurrence_or_delayed_onset": 1
+        },
+        "rate_discrepancy": {
+          "p118_discussion_percent": 95.6,
+          "p116_results_numerator": 734,
+          "p116_results_denominator": 774
+        }
+      },
+      {
+        "id": "rudge-1992-original",
+        "title": "The role of ground level oxygen in the treatment of altitude chamber decompression sickness",
+        "pmid": "1456923",
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+        "sha256": "ce7ae0f0ec5452ffdec7bd3675673565997db328dc34121f8c1b49aed7e7ce13",
+        "access": "full_text",
+        "locator": "Printed pp. 1103–1104, Table II and Results",
+        "study_id": "brooks-rudge-chamber-treatment-1989-1991",
+        "discordant_counts": {
+          "type_i_cases": 221,
+          "abstract_initial_glo": 175,
+          "tables_initial_glo": 176,
+          "abstract_initial_hbo": 46,
+          "tables_initial_hbo": 45,
+          "abstract_no_initial_resolution": 40,
+          "tables_no_initial_resolution": 41
+        },
+        "standardized_followup_completeness": null,
+        "full_exposure_denominator": null,
+        "note": "Table II and Results distinguish 45 initially resolved cases, four who received hyperbaric oxygen while asymptomatic, and five recurrences among the remaining 41."
+      }
+    ]
+  }
+]
