@@ -14459,6 +14459,36 @@
       "report_id": "pmid:7619033",
       "basis": "Exact PMID, author list, title and journal issue identify the existing abstract.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/7619033/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.131/sources.csv#chadov97_sae_pcc270",
+      "report_id": "doi:10.4271/972317",
+      "basis": "Exact DOI and SAE paper number.",
+      "evidence_url": "https://saemobilus.sae.org/papers/hypobaric-atmosphere-a-prophylactic-measure-decompression-sickness-repetitive-eva-972317"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.131/sources.csv#kalyuzhny76_h_reflex",
+      "report_id": "pmid:966672",
+      "basis": "NASA catalogue item and primary abstract identify the same authors, issue, and page span.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/966672/"
+    },
+    {
+      "record_key": "2026-11-21-russian-chamber-exposure-scope-verified#chadov97_staged",
+      "report_id": "record:legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:5",
+      "basis": "Same JA1 symposium byline and printed p. 206, in the previously catalogued NTRS session.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19980024361/downloads/19980024361.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/sources.csv#chadov97_staged",
+      "report_id": "record:legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:5",
+      "basis": "Same JA1 symposium byline and printed p. 206, in the previously catalogued NTRS session.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19980024361/downloads/19980024361.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:5",
+      "report_id": "record:legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:5",
+      "basis": "Same JA1 symposium byline and printed p. 206, in the previously catalogued NTRS session.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19980024361/downloads/19980024361.pdf#page=2"
     }
   ],
   "studies": [
@@ -22253,6 +22283,27 @@
       "relationship": "possible_australian_chamber_overlap",
       "evidence": "The authors list a Melbourne affiliation and describe routine runs. The publication falls within the ADF surveillance era. No chamber site, exposure dates or roster links establish whether these exposed volunteers contribute to Smart and Cable.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/7619033/"
+    },
+    {
+      "left_report": "doi:10.4271/972317",
+      "right_report": "record:legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:5",
+      "relationship": "possible_pcc270_program_overlap",
+      "evidence": "Shared PCC-270 facility, authors, year and repetitive EVA program. The symposium abstract has seven authors and no arm counts. Membership and stratum linkage to the SAE paper are unresolved.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19980024361/downloads/19980024361.pdf#page=2"
+    },
+    {
+      "left_report": "doi:10.4271/972317",
+      "right_report": "biofizpribor:2015:filipenkov",
+      "relationship": "possible_pcc270_program_overlap",
+      "evidence": "Both reports describe 123 participants with a shared investigator. The 2015 series gives 447 tests and a different age envelope. Exact nesting within the 1,828 person-runs is unresolved.",
+      "evidence_url": "https://saemobilus.sae.org/papers/hypobaric-atmosphere-a-prophylactic-measure-decompression-sickness-repetitive-eva-972317"
+    },
+    {
+      "left_report": "doi:10.4271/972317",
+      "right_report": "pmid:11496423",
+      "relationship": "possible_pcc270_program_overlap",
+      "evidence": "Shared authors and staged normoxic EVA simulation. The 2001 report specifies 115 experiments. Protocol-specific linkage to the SAE abstract's broader scope is unavailable.",
+      "evidence_url": "https://saemobilus.sae.org/papers/hypobaric-atmosphere-a-prophylactic-measure-decompression-sickness-repetitive-eva-972317"
     }
   ],
   "report_titles": {

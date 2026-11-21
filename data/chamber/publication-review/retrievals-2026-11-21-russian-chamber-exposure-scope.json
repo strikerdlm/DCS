@@ -1,0 +1,161 @@
+[
+  {
+    "id": "2026-11-21-russian-chamber-exposure-scope-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_attempts": [
+        {
+          "query": "\"hypobaric\" \"no symptoms of decompression sickness\" chamber volunteers altitude",
+          "id": "01a1fe75-8cb5-7069-9ca2-59ab26209a63",
+          "hits": 6
+        },
+        {
+          "query": "\"10.4271/972317\" pdf download Chadov Filipenkov Isseev repeated EVA",
+          "id": "01a1fe79-16e6-76c4-8b4b-38ad4b680c74",
+          "hits": 0
+        },
+        {
+          "query": "\"966672\" \"Kalyuzhny\" Kazakh Russian journal full text",
+          "id": "01a1fe79-173a-779f-917e-f86e943e6722",
+          "hits": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Search led to historical original abstracts and rediscovered registered NASA chamber work. Exact-title full-text search did not return an accessible full study.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-russian-chamber-exposure-scope-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "http_status": 433,
+      "query": "\"hypobaric\" \"no signs of decompression sickness\" exposure volunteers chamber"
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "Provider spending limit prevented search.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-russian-chamber-exposure-scope-verified",
+    "date": "2026-11-21",
+    "provider": "SAE, PubMed and NASA NTRS",
+    "operation": "verify_author_abstracts_and_bibliographic_scope",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "sae_scrape_id": "01a1fe79-16cf-76c0-84ba-d362a12ef718",
+      "jstor_bibliographic_lead": "https://www.jstor.org/stable/44650434"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Rendered NASA pages verified the printed figures and catalogue subjects. No new clinical animal or human case totals were extracted.",
+    "records": [
+      {
+        "id": "chadov97_sae_pcc270",
+        "title": "Hypobaric atmosphere as a prophylactic measure against decompression sickness during repetitive EVA",
+        "year": 1997,
+        "doi": "10.4271/972317",
+        "openalex_id": "W2246887642",
+        "author": "Chadov VI, Filipenkov SN, Isseev LR",
+        "url": "https://saemobilus.sae.org/papers/hypobaric-atmosphere-a-prophylactic-measure-decompression-sickness-repetitive-eva-972317",
+        "primary_source": "https://saemobilus.sae.org/papers/hypobaric-atmosphere-a-prophylactic-measure-decompression-sickness-repetitive-eva-972317",
+        "locator": "Publisher abstract, opening paragraph",
+        "reported_person_runs": 1828,
+        "reported_subjects": 123,
+        "reported_man_rated_test_runs": 15,
+        "age_min": 19,
+        "age_max": 54,
+        "clinical_cases": null,
+        "note": "The paper abstract gives 1,828 person-runs and 123 subjects. The separately reported 15 man-rated test runs have an unspecified relationship to the person-runs. The abstract supplies no clinical case numerator."
+      },
+      {
+        "id": "chadov97_staged",
+        "title": "The staged decompression to the hypobaric atmosphere as a prophylactic measure against decompression sickness during repetitive EVA",
+        "year": 1997,
+        "url": "https://ntrs.nasa.gov/api/citations/19980024361/downloads/19980024361.pdf#page=2",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19980024361/downloads/19980024361.pdf#page=2",
+        "locator": "Session JA1, author abstract, printed p. 206 (PDF p. 2)",
+        "sha256": "1af9d6cfd68f0f651c7737ab815fb047ac4204d5abc08ccecdcd5475896bc936",
+        "observations": [
+          {
+            "id": "chadov97_staged:nominal-30-min-prebreathe:doppler_venous_bubbles_as_reported",
+            "group": "nominal-30-min-prebreathe",
+            "endpoint": "doppler_venous_bubbles_as_reported",
+            "cases": null,
+            "denominator": null,
+            "reported_rate_unit": "percent",
+            "reported_rate_lower": 49,
+            "reported_rate_upper": 49,
+            "reported_rate_percent": 49,
+            "locator": "Session JA1, author abstract, printed p. 206 (PDF p. 2)",
+            "note": "Reported Doppler proportion. Arm-specific numerator, denominator and grading threshold unavailable."
+          },
+          {
+            "id": "chadov97_staged:24-h-stage-550-mmhg:doppler_venous_bubbles_as_reported",
+            "group": "24-h-stage-550-mmhg",
+            "endpoint": "doppler_venous_bubbles_as_reported",
+            "cases": null,
+            "denominator": null,
+            "reported_rate_unit": "percent",
+            "reported_rate_lower": 6,
+            "reported_rate_upper": 6,
+            "reported_rate_percent": 6,
+            "locator": "Session JA1, author abstract, printed p. 206 (PDF p. 2)",
+            "note": "Reported Doppler proportion. Arm-specific numerator, denominator and grading threshold unavailable."
+          },
+          {
+            "id": "chadov97_staged:24-h-stage-600-mmhg:doppler_venous_bubbles_as_reported",
+            "group": "24-h-stage-600-mmhg",
+            "endpoint": "doppler_venous_bubbles_as_reported",
+            "cases": null,
+            "denominator": null,
+            "reported_rate_unit": "percent",
+            "reported_rate_lower": 12,
+            "reported_rate_upper": 12,
+            "reported_rate_percent": 12,
+            "locator": "Session JA1, author abstract, printed p. 206 (PDF p. 2)",
+            "note": "Reported Doppler proportion. Arm-specific numerator, denominator and grading threshold unavailable."
+          }
+        ]
+      },
+      {
+        "id": "kalyuzhny76_h_reflex",
+        "title": "Changes in human monosynaptic H-reflex during altitude decompression",
+        "year": 1976,
+        "pmid": "966672",
+        "author": "Kalyuzhny LV, Zakharova IN",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/966672/",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/966672/",
+        "participant_scope_source": "https://ntrs.nasa.gov/api/citations/19770012801/downloads/19770012801.pdf#page=24",
+        "participant_scope_sha256": "a79466d11c854a60a1dc2e8c5b403e515fb220961c0cffe71d261a5a537e968a",
+        "locator": "Author abstract and NASA SP-7011(164), printed p. 15 (PDF p. 24), A77-11407",
+        "reported_subjects": 15,
+        "clinical_cases": null,
+        "note": "Fifteen people appear in NASA's bibliography. The indexed author abstract's percentage describes a reflex pattern preceding pain. It has no matched denominator or exact clinical case count.",
+        "observations": [
+          {
+            "id": "kalyuzhny76_h_reflex:reflex-in-leg-before-pain:h_reflex_stable_or_reduced_before_leg_pain_source",
+            "group": "reflex-in-leg-before-pain",
+            "endpoint": "h_reflex_stable_or_reduced_before_leg_pain_source",
+            "cases": null,
+            "denominator": null,
+            "reported_rate_unit": "percent",
+            "reported_rate_lower": 65,
+            "reported_rate_upper": 75,
+            "reported_rate_percent": null,
+            "locator": "Author abstract, Results statement",
+            "note": "Fifteen people appear in NASA's bibliography. The indexed author abstract's percentage describes a reflex pattern preceding pain. It has no matched denominator or exact clinical case count."
+          }
+        ]
+      }
+    ]
+  }
+]
