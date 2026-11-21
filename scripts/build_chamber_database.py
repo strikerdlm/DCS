@@ -221,6 +221,7 @@ CHAMBER_RAPID_DECOMPRESSION_STUDIES = ROOT / "data" / "chamber" / "v1.152"
 CHAMBER_PRESSURE_BREATHING_STUDIES = ROOT / "data" / "chamber" / "v1.153"
 CHAMBER_CABIN_DECOMPRESSION_STUDIES = ROOT / "data" / "chamber" / "v1.154"
 POLISH_FLIGHT_DCS_CASE = ROOT / "data" / "chamber" / "v1.156"
+BAKER_FLIGHT_DCS_CASE = ROOT / "data" / "chamber" / "v1.157"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2168,6 +2169,16 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    BAKER_FLIGHT_DCS_CASE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                     },
                     create_schema=False,

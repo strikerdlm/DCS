@@ -4396,6 +4396,50 @@ def test_polish_flight_case_links_three_reports_without_counting_three_cases(rel
         ]
 
 
+def test_verified_chamber_mirrors_and_baker_case_reuse_existing_reports(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(url) LIKE '%/brandt_umo_decompression_sic.pdf'
+        """).fetchall() == [("pmid:19522370",)]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='legacy:data/chamber/v1.7/search_hits.csv#tavily_general:10'
+        """).fetchone() == ("pmid:19522370",)
+        assert db.execute("""
+            SELECT numerator,denominator,altitude,altitude_unit,analysis_role
+            FROM publication_observation WHERE source_id='baker26_f35c_flight'
+        """).fetchall() == [(1, None, 26000.0, "ft", "case_conditional")]
+        assert db.execute("""
+            SELECT report_id,source_time_min,first_assessment_min FROM historical_case_catalog
+            WHERE source_id='baker26_f35c_flight'
+        """).fetchall() == [("abstract:asma-2026-baker-188", None, None)]
+        assert db.execute("""
+            SELECT elapsed,elapsed_reference,aircraft_altitude_ft
+            FROM publication_aircraft_case_milestone
+            WHERE source_id='baker26_f35c_flight' AND milestone='descent_and_cabin_repressurization'
+        """).fetchall() == [(2.0, "controlled_descent_start", 16000)]
+        assert db.execute("""
+            SELECT json_extract(r.metadata_json,'$.case_facts.cabin_altitude_after_repressurization_ft'),
+                   json_extract(r.metadata_json,'$.case_facts.aircraft_altitude_at_depressurization_ft')
+            FROM review.review_record r JOIN shared_case_evidence e USING(record_key)
+            WHERE e.source_id='baker26_f35c_flight'
+        """).fetchall() == [(8000, None)]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key IN ('2026-11-20-asma-chamber-case-pages#baker-188',
+                '2026-11-21-brandt-baker-imae-baker-primary#baker-188',
+                '2026-11-21-brandt-baker-imae-imae-official#imae-34980',
+                '2026-11-21-brandt-baker-imae-imae-mirror#imae-defesanet')
+            ORDER BY record_key
+        """).fetchall() == [("abstract:asma-2026-baker-188",)] * 2 + [("web:fab:34980",)] * 2
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id IN ('web:fab:34980','pmid:11740422','doi:10.56083/rcv3n4-015')
+              AND record_key GLOB '2026-11-21-brandt-baker-imae-*'
+        """).fetchone() == (0,)
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
