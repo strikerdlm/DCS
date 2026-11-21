@@ -4692,3 +4692,54 @@ def test_nasa_shuttle_doppler_counting_unit_revision_preserves_existing_rows(rel
             SELECT relationship FROM review.review_report_relation
             WHERE left_report='openalex:W920476218' AND right_report='report:ada151800'
         """).fetchall() == [("same_altitude_counts_by_doppler_grade",)]
+
+
+def test_temperature_sources_and_delayed_case_preserve_outcomes(release):
+    with connect_pair(release) as db:
+        grades = db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit
+            FROM publication_observation WHERE source_id='fraser42_rose_thermal'
+              AND analysis_role='overlapping_margin' AND denominator_basis='author_reconstructed'
+            ORDER BY stratum,endpoint
+        """).fetchall()
+        assert [(group, count, denominator) for group, _, count, denominator, _ in grades] == [
+            ("cold", 23, 94), ("cold", 17, 94), ("cold", 14, 94), ("cold", 40, 94),
+            ("warm", 46, 93), ("warm", 17, 93), ("warm", 11, 93), ("warm", 19, 93),
+        ]
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE report_id='report:nrcc-fraser-rose-1942-low-temperature'
+              AND role_review='overlapping_margin'
+            ORDER BY reported_group,endpoint
+        """).fetchall() == grades
+        assert db.execute("""
+            SELECT reported_group,cases,reported_rate_percent,denominator,denominator_unit
+            FROM review.review_search_observation WHERE report_id='report:cam-352'
+              AND role_review='overlapping_margin'
+            ORDER BY reported_group
+        """).fetchall() == [
+            ("paired-control", None, 61.8, 34, "person"),
+            ("paired-left-leg-diathermy", None, 14.7, 34, "person"),
+        ]
+        assert db.execute("""
+            SELECT stratum,reported_percent,denominator
+            FROM publication_reported_rate WHERE source_id='tobias44_cam352_thermal'
+            ORDER BY stratum
+        """).fetchall() == [("paired-control", "61.8", 34), ("paired-left-leg-diathermy", "14.7", 34)]
+        assert db.execute("""
+            SELECT e.report_id,e.onset_min,r.cases,r.denominator,o.analysis_role
+            FROM shared_case_evidence e
+            JOIN review.review_search_observation r USING(record_key,observation_id,report_id)
+            JOIN publication_observation o USING(source_id,stratum,endpoint)
+            WHERE e.source_id='laverdiere25_chamber_case' AND r.role_review='selected_cluster'
+        """).fetchall() == [("abstract:asma-2025-laverdiere-208", None, 1, None, "selected_cluster")]
+        assert db.execute("""
+            SELECT milestone,elapsed FROM publication_case_milestone
+            WHERE source_id='laverdiere25_chamber_case' ORDER BY milestone
+        """).fetchall() == [
+            ("delayed_symptom_report_after_exercise", None),
+            ("hyperbaric_treatment_adverse_event", None),
+            ("hypobaric_chamber_exposure", None),
+            ("return_to_duties", None),
+        ]

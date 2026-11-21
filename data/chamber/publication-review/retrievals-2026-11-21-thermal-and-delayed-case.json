@@ -1,0 +1,323 @@
+[
+  {
+    "id": "2026-11-21-thermal-and-delayed-case-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_search_and_pdf_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ff13-c982-77d8-96e9-ce8d4d77df3c",
+          "query": "Public abstracts and case reports on decompression sickness from altitude chamber training",
+          "returned": 4
+        },
+        {
+          "id": "01a1ff13-c986-740f-93dc-5178f1bd3d0d",
+          "query": "Historical chamber temperature and decompression sickness experiments by Anthony and colleagues",
+          "returned": 1
+        },
+        {
+          "id": "01a1ff13-c9ad-7498-9c16-3e54d77d8b2d",
+          "query": "Early RCAF altitude chamber outcome reports",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff13-c9a9-72de-9188-61bae257ff61",
+          "query": "Horrigan and colleagues 1984 original Doppler meeting abstract",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff16-d356-73b4-a1b9-c7a1ea5ce04f",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/96/8/article-p682.pdf",
+          "http_status": 200,
+          "pdf_pages": 48
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Two search hits for abstract 208 supplied one report. The PDF extraction verified the authors and case text. Search labels describe the query topics.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-thermal-and-delayed-case-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_targeted_extraction",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search": {
+        "query": "Horrigan 1984 original NASA Doppler abstract",
+        "http_status": 433
+      },
+      "extract": {
+        "request_id": "2b03a27d-5142-45ce-8bd1-429a86314ab4",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/96/8/article-p682.pdf",
+        "returned": 0
+      }
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The search hit the provider spending limit. Direct extraction returned a URL-fetch failure.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-thermal-and-delayed-case-verified",
+    "date": "2026-11-21",
+    "provider": "AsMA publisher via Firecrawl, Internet Archive and PubMed",
+    "operation": "verify_case_and_transcribe_thermal_archive",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Visually transcribed the archival symptom cells and checked the printed percentages. The primary AsMA abstract supplies one selected case. Anthony CAM 136 is already referenced in NASA TP-2001-210196, Appendix A ref. 5 and Appendix C p. 45. Its existing serious-DCS groups were retained without a second extraction.",
+    "records": [
+      {
+        "id": "fraser42_rose_thermal",
+        "title": "The effect of low temperature on decompression sickness",
+        "authors": [
+          "A. M. Fraser",
+          "B. Rose"
+        ],
+        "year": 1942,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=260",
+        "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table",
+        "access": "secondary_table",
+        "study_id": "rcaf-1942-fraser-rose-temperature",
+        "role_review": "overlapping_margin",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "note": "Visual check of the archived table supplies eight man-run cells across two conditions. The 93 and 94 graded runs are column sums. Participant linkage, exposure duration and the disposition of unlisted sessions are unavailable. The standalone original was unavailable.",
+        "archive_references": [
+          498,
+          499
+        ],
+        "participant_count": 25,
+        "weekly_decompressions_as_reported": 8,
+        "observations": [
+          {
+            "id": "fraser-thermal-warm-0",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "warm",
+            "endpoint": "historical_symptom_grade_0",
+            "cases": 46,
+            "denominator": 93,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, warm grade 0",
+            "altitude_ft": 35000,
+            "temperature_f": 70,
+            "clothing": "standard winter clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          },
+          {
+            "id": "fraser-thermal-warm-i",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "warm",
+            "endpoint": "historical_symptom_grade_i",
+            "cases": 17,
+            "denominator": 93,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, warm grade I",
+            "altitude_ft": 35000,
+            "temperature_f": 70,
+            "clothing": "standard winter clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          },
+          {
+            "id": "fraser-thermal-warm-ii",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "warm",
+            "endpoint": "historical_symptom_grade_ii",
+            "cases": 11,
+            "denominator": 93,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, warm grade II",
+            "altitude_ft": 35000,
+            "temperature_f": 70,
+            "clothing": "standard winter clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          },
+          {
+            "id": "fraser-thermal-warm-iii",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "warm",
+            "endpoint": "historical_symptom_grade_iii",
+            "cases": 19,
+            "denominator": 93,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, warm grade III",
+            "altitude_ft": 35000,
+            "temperature_f": 70,
+            "clothing": "standard winter clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          },
+          {
+            "id": "fraser-thermal-cold-0",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "cold",
+            "endpoint": "historical_symptom_grade_0",
+            "cases": 23,
+            "denominator": 94,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, cold grade 0",
+            "altitude_ft": 35000,
+            "temperature_f": -10,
+            "clothing": "special heavy-duty clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          },
+          {
+            "id": "fraser-thermal-cold-i",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "cold",
+            "endpoint": "historical_symptom_grade_i",
+            "cases": 17,
+            "denominator": 94,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, cold grade I",
+            "altitude_ft": 35000,
+            "temperature_f": -10,
+            "clothing": "special heavy-duty clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          },
+          {
+            "id": "fraser-thermal-cold-ii",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "cold",
+            "endpoint": "historical_symptom_grade_ii",
+            "cases": 14,
+            "denominator": 94,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, cold grade II",
+            "altitude_ft": 35000,
+            "temperature_f": -10,
+            "clothing": "special heavy-duty clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          },
+          {
+            "id": "fraser-thermal-cold-iii",
+            "study_id": "rcaf-1942-fraser-rose-temperature",
+            "group": "cold",
+            "endpoint": "historical_symptom_grade_iii",
+            "cases": 40,
+            "denominator": 94,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "sum_of_four_source_cells",
+            "locator": "Fulton 1951, printed p. 235 (PDF p. 260), symptom-grade table, cold grade III",
+            "altitude_ft": 35000,
+            "temperature_f": -10,
+            "clothing": "special heavy-duty clothing",
+            "note": "The four grade cells partition this condition. The sum of the four printed cells supplies the condition denominator. The historical grading definitions are unavailable in this summary."
+          }
+        ]
+      },
+      {
+        "id": "tobias44_cam352_thermal",
+        "title": "Circulation and decompression sickness II",
+        "authors": [
+          "C. A. Tobias",
+          "J. H. Lawrence",
+          "H. B. Jones",
+          "W. R. Lyons"
+        ],
+        "year": 1944,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=261",
+        "locator": "Fulton 1951, printed p. 236 (PDF p. 261), diathermy paragraph",
+        "access": "secondary_table",
+        "study_id": "tobias-1944-left-leg-diathermy",
+        "role_review": "overlapping_margin",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "note": "Fulton summarizes two rounded percentages for a specific symptom location in the same 34 subjects. The standalone CAM report and within-person cross-tabulation were unavailable.",
+        "archive_reference": 412,
+        "observations": [
+          {
+            "id": "tobias-thermal-paired-control",
+            "study_id": "tobias-1944-left-leg-diathermy",
+            "group": "paired-control",
+            "endpoint": "left_leg_bends_symptoms_as_reported",
+            "cases": null,
+            "denominator": 34,
+            "denominator_unit": "person",
+            "reported_rate_percent": 61.8,
+            "locator": "Fulton 1951, printed p. 236 (PDF p. 261), diathermy paragraph",
+            "altitude_ft": 38000,
+            "exposure_minutes": 120,
+            "note": "Rounded source-reported percent. Exact numerator is unavailable. Each subject contributes to both conditions."
+          },
+          {
+            "id": "tobias-thermal-paired-left-leg-diathermy",
+            "study_id": "tobias-1944-left-leg-diathermy",
+            "group": "paired-left-leg-diathermy",
+            "endpoint": "left_leg_bends_symptoms_as_reported",
+            "cases": null,
+            "denominator": 34,
+            "denominator_unit": "person",
+            "reported_rate_percent": 14.7,
+            "locator": "Fulton 1951, printed p. 236 (PDF p. 261), diathermy paragraph",
+            "altitude_ft": 38000,
+            "exposure_minutes": 120,
+            "note": "Rounded source-reported percent. Exact numerator is unavailable. Each subject contributes to both conditions."
+          }
+        ]
+      },
+      {
+        "id": "laverdiere25_chamber_case",
+        "title": "Navigating the depths: a case study of decompression sickness and oxygen toxicity in a pilot subjected to hypobaric and hyperbaric chamber exposures",
+        "authors": [
+          "Jesse Laverdiere",
+          "Emily Hawker"
+        ],
+        "year": 2025,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/96/8/article-p682.pdf",
+        "locator": "2025 AsMA Scientific Sessions, abstract 208, Case Presentation",
+        "access": "primary_abstract",
+        "study_id": "us-army-laverdiere-2025-delayed-chamber-case",
+        "role_review": "selected_cluster",
+        "note": "The presenting symptoms were described as consistent with DCS. Oxygen toxicity during hyperbaric treatment is a distinct subsequent event. The published case does not supply a training exposure denominator.",
+        "case_comparison": "Gentry 2017 reports first symptoms at three hours and describes subsequent recurrent symptoms. Belmonte 2024 describes evening wrist symptoms and resolution with first recompression. Neither matches the delayed symptom report and treatment complication sequence in abstract 208. Participant linkage is unavailable.",
+        "scrape_id": "01a1ff16-d356-73b4-a1b9-c7a1ea5ce04f",
+        "observations": [
+          {
+            "id": "delayed-chamber-case-208",
+            "study_id": "us-army-laverdiere-2025-delayed-chamber-case",
+            "group": "Military pilot after a hypobaric chamber profile",
+            "endpoint": "symptoms_consistent_with_altitude_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "2025 AsMA Scientific Sessions, abstract 208, Case Presentation",
+            "altitude_ft": 25000,
+            "exact_onset_min": null,
+            "symptom_report_more_than_hours_after_exposure": 24,
+            "note": "Symptoms reported after physical exercise more than 24 hours after the chamber exposure. Exact onset, assessment and last follow-up times are unavailable. The presenting symptoms were described as consistent with DCS. Oxygen toxicity during hyperbaric treatment is a distinct subsequent event. The published case does not supply a training exposure denominator."
+          }
+        ]
+      },
+      {
+        "id": "tobias47_skin_temperature",
+        "title": "Studies on skin temperature and circulation in decompression sickness",
+        "authors": [
+          "C. A. Tobias",
+          "W. F. Loomis",
+          "J. H. Lawrence"
+        ],
+        "year": 1947,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20251066/",
+        "locator": "PubMed citation; Fulton 1951, printed p. 237 (PDF p. 262), reference 272",
+        "access": "metadata",
+        "note": "The original article was unavailable. The archive and NMRI review describe different altitudes for the skin-temperature work. Scope and linkage to CAM 352 remain unconfirmed.",
+        "pmid": "20251066",
+        "doi": "10.1152/ajplegacy.1947.149.3.626",
+        "archive_reference": 272,
+        "conflicting_secondary_summary": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_10-effect-temperature-on-deco-and-deco-sickness.pdf"
+      }
+    ]
+  }
+]
