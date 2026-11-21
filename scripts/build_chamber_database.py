@@ -189,6 +189,7 @@ CHAMBER_PREBREATHE_WORKLOAD = ROOT / "data" / "chamber" / "v1.121"
 CHAMBER_ASMA_INTERIM = ROOT / "data" / "chamber" / "v1.122"
 CHAMBER_DISPATCHER_CROSSWALK = ROOT / "data" / "chamber" / "v1.123"
 CHAMBER_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.124"
+CHAMBER_WARTIME_REEXPOSURE = ROOT / "data" / "chamber" / "v1.125"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1787,6 +1788,18 @@ def build(
                         "publication_reported_rate": "reported_rates.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_cadet_fitness_comparison": "fitness_comparisons.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_WARTIME_REEXPOSURE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_reported_rate": "reported_rates.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_chamber_fatality_crosswalk": "fatality_crosswalk.csv",
                     },
                 )
             if rojas_supplement:

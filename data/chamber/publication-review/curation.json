@@ -14183,6 +14183,90 @@
       "report_id": "asb:1944:1:7:8:cincinnati-migraine",
       "basis": "Same printed contribution from another holding or the continuation of the same article.",
       "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=187"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-primary#rodbard44_kingman_reflight",
+      "report_id": "asb:1944:1:11:6:rodbard",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=296"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-primary#tobias44_bends_primary",
+      "report_id": "asb:1944:1:11:9",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=300"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-primary#masland44_altitude_collapse",
+      "report_id": "citation:masland-1944-collapse",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=291"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-primary#gray44_pb_protection",
+      "report_id": "asb:1944:1:11:8:gray",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=298"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-primary#york44_aeroembolism",
+      "report_id": "asb:1944:1:11:5:york",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=293"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.125/sources.csv#rodbard44_kingman_reflight",
+      "report_id": "asb:1944:1:11:6:rodbard",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=296"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.125/sources.csv#tobias44_bends_primary",
+      "report_id": "asb:1944:1:11:9",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=300"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.125/sources.csv#masland44_altitude_collapse",
+      "report_id": "citation:masland-1944-collapse",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=291"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.125/sources.csv#gray44_pb_protection",
+      "report_id": "asb:1944:1:11:8:gray",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=298"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-manifestations#rodbard-p6-alt",
+      "report_id": "asb:1944:1:11:6:rodbard",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=294"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-manifestations#rodbard-p7-alt",
+      "report_id": "asb:1944:1:11:6:rodbard",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=295"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-manifestations#tobias-p10-alt",
+      "report_id": "asb:1944:1:11:9",
+      "basis": "Matched article by exact issue, heading and credited author. Printed page and holding identify the retrieved manifestation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=298"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-firecrawl-journal#rodbard47_reascent",
+      "report_id": "pmid:20252835",
+      "basis": "Exact DOI and PMID identify both access routes as the same 1947 report.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20252835/"
+    },
+    {
+      "record_key": "2026-11-21-november-chamber-reexposure-publisher#pdf-route",
+      "report_id": "pmid:20252835",
+      "basis": "Exact DOI and PMID identify both access routes as the same 1947 report.",
+      "evidence_url": "https://doi.org/10.1152/ajplegacy.1947.150.1.133"
     }
   ],
   "studies": [
@@ -15511,6 +15595,18 @@
       "label": "University of Cincinnati repeated chamber exposures and migraine-like syndrome",
       "period": "Published 1944. Exposure dates unavailable.",
       "setting": "1944 University of Cincinnati chamber research on repeated simulated altitude exposures."
+    },
+    {
+      "study_id": "kingman-post-bends-chamber-reflight",
+      "label": "Kingman chamber reflight after prior decompression symptoms",
+      "period": "Published 1944. Exact exposure dates unavailable.",
+      "setting": "Kingman Army Air Field. Flying personnel and chamber crew. Symptom-selected re-exposures."
+    },
+    {
+      "study_id": "berkeley-liberator-chamber-flight-experiments",
+      "label": "Berkeley B-24 study of chamber and aircraft exposures",
+      "period": "Published 1944. Exact exposure dates unavailable.",
+      "setting": "Berkeley low-pressure chamber and the Consolidated Vultee B-24 program."
     }
   ],
   "study_reports": [
@@ -17841,6 +17937,24 @@
       "report_id": "fulton1951:clinical-nature",
       "role": "later_symptom_timing_summary",
       "locator": "Chapter II, Cincinnati subgroup"
+    },
+    {
+      "study_id": "kingman-post-bends-chamber-reflight",
+      "report_id": "asb:1944:1:11:6:rodbard",
+      "role": "original_experimental_summary",
+      "locator": "November 1944, printed pp. 6–7"
+    },
+    {
+      "study_id": "berkeley-liberator-chamber-flight-experiments",
+      "report_id": "asb:1944:1:11:9",
+      "role": "original_experimental_summary",
+      "locator": "November 1944, printed p. 10"
+    },
+    {
+      "study_id": "berkeley-liberator-chamber-flight-experiments",
+      "report_id": "pmid:21005550",
+      "role": "later_detailed_publication",
+      "locator": "Methods and Results, pp. 290–297"
     }
   ],
   "relations": [
@@ -21742,6 +21856,41 @@
       "relationship": "potential_las_vegas_training_overlap",
       "evidence": "Gray Table 41 gives 575 severe-symptom outcomes among 2,312 Las Vegas trainees in a three-hour profile. Guest gives four different time-stratified denominators and uses reported bends. Neither report provides dates, participant linkage or equivalent outcome ascertainment.",
       "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=210"
+    },
+    {
+      "left_report": "asb:1944:1:11:6:rodbard",
+      "right_report": "pmid:20252835",
+      "relationship": "unresolved_reflight_cohort_overlap",
+      "evidence": "Same investigator and a closely matching title. The 1947 journal article is access restricted and exact participant overlap is unverified.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20252835/"
+    },
+    {
+      "left_report": "asb:1944:1:11:6:rodbard",
+      "right_report": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:3",
+      "relationship": "potential_kingman_overlap",
+      "evidence": "Kingman Field also appears in Gray's density table as 99 severe-symptom outcomes among 2,217 at 38,000 ft for three hours. Recruitment dates and identifiers are absent and this is a different protocol and outcome.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=210"
+    },
+    {
+      "left_report": "asb:1944:1:11:9",
+      "right_report": "pmid:21005550",
+      "relationship": "same_b24_program",
+      "evidence": "Both reports describe the same 25 aircraft flights, 72 duty-crew man-flights and 10 bends outcomes, with two requiring descent. Subject selection and published subject denominators differ.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=300"
+    },
+    {
+      "left_report": "citation:masland-1944-collapse",
+      "right_report": "report:ada111509",
+      "relationship": "shared_fatality_and_wartime_tally",
+      "evidence": "Fryer cites Masland directly for case 1, quotes the historical serious-collapse tally and describes a highly concordant case 2 with discrepant age, altitude and time to death. Keep counts and cases separate.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=294"
+    },
+    {
+      "left_report": "asb:1944:1:11:8:gray",
+      "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:3",
+      "relationship": "potential_prebreathe_cohort_overlap",
+      "evidence": "Same lead author and similar altitude and exposure duration in some 1946 arms. The bulletin gives relative protection for 1,800 cadets without arm denominators or a cohort crosswalk.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=299"
     }
   ],
   "report_titles": {
@@ -21905,6 +22054,11 @@
     "abstract:asma-2026-connolly-253": "High Altitude Parachuting Training and Trials at 25,000 Ft",
     "asb:1944:1:6:5:guest": "The Incidence of Bends During Different Periods of the Day",
     "asb:1944:1:6:5:karpovich": "Relation Between Bends and Physical Fitness",
-    "asb:1944:1:7:8:cincinnati-migraine": "A Migraine-Like Syndrome Complicating Decompression Sickness"
+    "asb:1944:1:7:8:cincinnati-migraine": "A Migraine-Like Syndrome Complicating Decompression Sickness",
+    "asb:1944:1:11:6:rodbard": "Recurrence of Decompression Sickness on Reascent to High Altitudes",
+    "asb:1944:1:11:9": "Study of Bends: A Comparison in Low Pressure Chamber and Actual Flight",
+    "citation:masland-1944-collapse": "Collapse at High Altitude",
+    "asb:1944:1:11:8:gray": "Prevention of Decompression Sickness by Denitrogenation",
+    "asb:1944:1:11:5:york": "A Case of Aeroembolism"
   }
 }
