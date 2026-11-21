@@ -4349,6 +4349,53 @@ def test_dak_case_links_both_databases_without_imputing_exposure_or_pooling(rele
         """).fetchone() == (1,)
 
 
+def test_polish_flight_case_links_three_reports_without_counting_three_cases(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role,altitude,altitude_unit
+            FROM publication_observation WHERE source_id GLOB 'siewiera*'
+        """).fetchall() == [(1, None, "case_conditional", 28000.0, "ft")]
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min,first_assessment_min FROM historical_case_catalog
+            WHERE source_id='siewiera20_polish_flight'
+        """).fetchall() == [("siewiera20_polish_flight:flight-index-case", "pmid:31980050", None, None)]
+        assert db.execute("""
+            SELECT report_id FROM shared_case_evidence
+            WHERE source_id='siewiera20_polish_flight' ORDER BY report_id
+        """).fetchall() == [("abstract:tricon2018:d17",), ("gumed:96430",), ("pmid:31980050",)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE pmid='31980050'
+        """).fetchall() == [("pmid:31980050",)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE relationship='same_published_case' AND 'pmid:31980050' IN (left_report,right_report)
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_reference,aircraft_altitude_ft
+            FROM publication_aircraft_case_milestone WHERE source_id='siewiera20_polish_flight'
+            AND milestone IN ('in_flight_symptom_onset','warsaw_emergency_department',
+                'journal_ecmo_last_marked','journal_ecmo_discontinued') ORDER BY milestone
+        """).fetchall() == [
+            ("in_flight_symptom_onset", None, None, 28000),
+            ("journal_ecmo_discontinued", 7.0, "ordinal_day_in_journal_case_narrative", None),
+            ("journal_ecmo_last_marked", 9.0, "ordinal_treatment_day_in_journal_table_i", None),
+            ("warsaw_emergency_department", 6.0, "emergency_landing", None),
+        ]
+        assert db.execute("""
+            SELECT json_extract(r.metadata_json,'$.case_facts.vv_ecmo_start_ordinal_day_of_treatment')
+            FROM review.review_record r JOIN shared_case_evidence e USING(record_key)
+            WHERE e.source_id='siewiera20_polish_flight' AND e.report_id='abstract:tricon2018:d17'
+        """).fetchall() == [(2,)]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key GLOB '2026-11-21-polish-flight-dcs-case-firecrawl-regional#*'
+              AND (pmid IS NOT NULL OR doi IS NOT NULL) ORDER BY report_id
+        """).fetchall() == [
+            ("doi:10.28920/dhm51.1.82-85",), ("pmid:19522370",), ("pmid:32574436",),
+            ("pmid:39518919",), ("pmid:42345225",),
+        ]
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""

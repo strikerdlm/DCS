@@ -1,6 +1,84 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-polish-flight-dcs-case-firecrawl-regional#http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+      "report_id": "pmid:19522370",
+      "basis": "The UHMS copy gives the Brandt, Morrison and Butler citation at volume 80, pages 570–573.",
+      "evidence_url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf"
+    },
+    {
+      "record_key": "2026-11-20-east-asian-cohorts-f-cases#http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+      "report_id": "pmid:19522370",
+      "basis": "Same UHMS PDF used in the new retrieval.",
+      "evidence_url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf"
+    },
+    {
+      "record_key": "2026-11-21-polish-flight-dcs-case-firecrawl-regional#https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "basis": "PMC8313775 identifies the journal article by DOI and PMID 33761546.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/"
+    },
+    {
+      "record_key": "2026-11-21-polish-flight-dcs-case-firecrawl-regional#https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "report_id": "pmid:42345225",
+      "basis": "The result URL is the indexed PubMed record for this paper.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/"
+    },
+    {
+      "record_key": "2026-11-20-russian-fire-exact#https://pubmed.ncbi.nlm.nih.gov/42345225/",
+      "report_id": "pmid:42345225",
+      "basis": "The result URL is the indexed PubMed record for this paper.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/"
+    },
+    {
+      "record_key": "2026-11-20-fort-rucker-tav-howard#https://pubmed.ncbi.nlm.nih.gov/42345225",
+      "report_id": "pmid:42345225",
+      "basis": "The URL without the trailing slash resolves to the same PubMed record.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/42345225/"
+    },
+    {
+      "record_key": "2026-11-21-polish-flight-dcs-case-firecrawl-regional#https://www.mdpi.com/1422-0067/25/21/11367",
+      "report_id": "pmid:39518919",
+      "basis": "The journal identifies the existing technical-diving report by DOI 10.3390/ijms252111367.",
+      "evidence_url": "https://www.mdpi.com/1422-0067/25/21/11367"
+    },
+    {
+      "record_key": "2026-11-21-polish-flight-dcs-case-primary-journal#siewiera20_polish_flight",
+      "report_id": "pmid:31980050",
+      "basis": "Source identity verified at Case Report pp. 107–108 and Table I p. 108 (PDF pp. 2–3).",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/2/article-p106.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.156/sources.csv#siewiera20_polish_flight",
+      "report_id": "pmid:31980050",
+      "basis": "Source identity verified at Case Report pp. 107–108 and Table I p. 108 (PDF pp. 2–3).",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/2/article-p106.pdf"
+    },
+    {
+      "record_key": "2026-11-21-polish-flight-dcs-case-siewiera18_tricon_case#siewiera18_tricon_case",
+      "report_id": "abstract:tricon2018:d17",
+      "basis": "Source identity verified at TRICON2018 abstract D-17, printed p. 48 (PDF p. 49).",
+      "evidence_url": "https://www.eubs.org/wp-content/uploads/2019/03/EUBS2018%20AbstractBook.pdf#page=49"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.156/sources.csv#siewiera18_tricon_case",
+      "report_id": "abstract:tricon2018:d17",
+      "basis": "Source identity verified at TRICON2018 abstract D-17, printed p. 48 (PDF p. 49).",
+      "evidence_url": "https://www.eubs.org/wp-content/uploads/2019/03/EUBS2018%20AbstractBook.pdf#page=49"
+    },
+    {
+      "record_key": "2026-11-21-polish-flight-dcs-case-siewiera23_autoreferat_case#siewiera23_autoreferat_case",
+      "report_id": "gumed:96430",
+      "basis": "Source identity verified at Publication list and Omówienie osiągnięć, printed pp. 17–18.",
+      "evidence_url": "https://doktoratyihabilitacje.gumed.edu.pl/attachment/attachment/96430/AUTOREFERAT.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.156/sources.csv#siewiera23_autoreferat_case",
+      "report_id": "gumed:96430",
+      "basis": "Source identity verified at Publication list and Omówienie osiągnięć, printed pp. 17–18.",
+      "evidence_url": "https://doktoratyihabilitacje.gumed.edu.pl/attachment/attachment/96430/AUTOREFERAT.pdf"
+    },
+    {
       "record_key": "2026-11-21-nasa-ea-protocol-denominators-verified#ntrs-ea345-presentation",
       "report_id": "ntrs:20250004535",
       "evidence_url": "https://ntrs.nasa.gov/citations/20250004535",
@@ -15483,6 +15561,12 @@
   ],
   "studies": [
     {
+      "study_id": "poland-siewiera-2018-jet-flight-dcs",
+      "label": "2018 Polish jet flight severe altitude DCS case",
+      "period": "2018 per the 2023 account",
+      "setting": "Single in-flight case in Poland. In-flight dyspnea began at a reported aircraft altitude of 28,000 ft after ascent and cabin depressurization. The 2023 author account identifies the 2018 MiG-29 incident. Cabin pressure history and exposed denominator are unavailable."
+    },
+    {
       "study_id": "nasa-exploration-atmosphere-test-5",
       "label": "NASA Exploration Atmosphere Test 5",
       "period": "February 2025 as reported.",
@@ -17068,6 +17152,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "poland-siewiera-2018-jet-flight-dcs",
+      "report_id": "pmid:31980050",
+      "role": "primary_journal_case",
+      "locator": "Case Report pp. 107–108 and Table I p. 108 (PDF pp. 2–3)"
+    },
+    {
+      "study_id": "poland-siewiera-2018-jet-flight-dcs",
+      "report_id": "abstract:tricon2018:d17",
+      "role": "earlier_conference_case",
+      "locator": "TRICON2018 abstract D-17, printed p. 48 (PDF p. 49)"
+    },
+    {
+      "study_id": "poland-siewiera-2018-jet-flight-dcs",
+      "report_id": "gumed:96430",
+      "role": "treating_author_case_context",
+      "locator": "Publication list and Omówienie osiągnięć, printed pp. 17–18"
+    },
     {
       "study_id": "nasa-exploration-atmosphere-tests-3-4",
       "report_id": "ntrs:20250004535",
@@ -19776,6 +19878,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "abstract:tricon2018:d17",
+      "right_report": "pmid:31980050",
+      "relationship": "same_published_case",
+      "evidence": "The conference and journal accounts share the patient age, Warsaw clinician team, six-hour post-landing interval, matching lactate and potassium, emergency recompression followed by renal support and VV-ECMO, and day-19 discharge.",
+      "evidence_url": "https://www.eubs.org/wp-content/uploads/2019/03/EUBS2018%20AbstractBook.pdf#page=49"
+    },
+    {
+      "left_report": "pmid:31980050",
+      "right_report": "gumed:96430",
+      "relationship": "same_published_case",
+      "evidence": "The treating author explicitly names and cites the 2020 article, identifies the MiG-29 incident in 2018, and describes the same severe flight presentation, recompression, organ support and recovery.",
+      "evidence_url": "https://doktoratyihabilitacje.gumed.edu.pl/attachment/attachment/96430/AUTOREFERAT.pdf"
+    },
     {
       "left_report": "ntrs:20250004535",
       "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea34",
