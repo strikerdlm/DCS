@@ -175,6 +175,7 @@ CHAMBER_HITCHCOCK_AND_LOCKHEED = ROOT / "data" / "chamber" / "v1.107"
 CHAMBER_EARLY_NAVY_ALTITUDE = ROOT / "data" / "chamber" / "v1.108"
 CHAMBER_MAYO_AND_STRELTSOV = ROOT / "data" / "chamber" / "v1.109"
 ALTITUDE_OCULAR_CASES = ROOT / "data" / "chamber" / "v1.110"
+CHAMBER_NASA_REANALYSIS = ROOT / "data" / "chamber" / "v1.111"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1624,6 +1625,19 @@ def build(
                         "publication_chamber_case_altitude_stage": "case_altitude_stages.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_REANALYSIS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_nasa_reanalysis_test": "analysis_tests.csv",
+                        "publication_nasa_reanalysis_removal": "analysis_removals.csv",
+                        "publication_nasa_reanalysis_vge_margin": "vge_margins.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(
