@@ -1,0 +1,133 @@
+[
+  {
+    "id": "2026-11-20-flinn-womack-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_source_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Flinn Womack neurological manifestations dysbarism 1963 14050686 USAF pilot repeated chamber exposure conference abstract",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-flinn-womack-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_source_search_and_faa_digest_access",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Flinn Womack neurological manifestations dysbarism 1963 14050686 USAF pilot repeated chamber exposure conference abstract",
+      "ranked_urls": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK537266/",
+        "https://www.google.com/goto?url=CAESZgHEIkXXWnoQx4aYstayFZ82tktHAEqLx8zgUOSgRVcxBo5LXriphOGayabq1aIjFxC9IjhNYpKZtFRBqzODy3OXyQYnLrdzBiX9R7zfIjkbtpPZUTRQz4FzBDBTGR4BjIsJlxh7EQ&gsessionid=8VzwU7Ym6xxh3OUQ-7DZmBUP9tHuBpvIAYe5ETzt8pwo_w0-Yavm3w",
+        "https://www.google.com/goto?url=CAESjwEBxCJF10k4C9MX6-52Jm17bSG6E4ntiShuPD4ZDlHn_GnSTWMAxLqa2r_P8xD7DZn2L0_czQdFoyjdN-goovrpjxKLFGzwcU3tEOEo6-x9Pq1u28CY3su5Lhwxlow6DJawfN1KPslsVkyNT2UAT9YEesMsvUThopwyEjcz7WMpXazAo2c2NU662Lyy3_OiSw&gsessionid=8VzwU7Ym6xxh3OUQ-7DZmBUP9tHuBpvIAYe5ETzt8pwo_w0-Yavm3w",
+        "https://www.google.com/goto?url=CAESjgEBxCJF18hvFyP9HULDTK5r7aIYGagc6VY-F92lPIPY0uK_yhfBxFAu7S_lfaVtQZBMJrV3C-72-R34B_4iPAxoPBvcvYA-nb5o0Cho40VCfZisAFrBh52tvek3JOItTpDpnAQ5rzbQlJB9xT0GF34uJxRWuAJhOvo-5fqpM_CP9kB2vnn07TpWG1T74w4L&gsessionid=8VzwU7Ym6xxh3OUQ-7DZmBUP9tHuBpvIAYe5ETzt8pwo_w0-Yavm3w",
+        "https://www.google.com/goto?url=CAEScwHEIkXX-VtioMCWwzvgCiEJzg6lJN6J2znaOVdn0FPPKjiP57EMAy_AzuGBGzsfjRJ1I3UAOXTTHjZP1TMWJAC4ZSCktYSaliOEcxYqzZC6NMrKjnf3PwvvC5PdwcWPiDjImdx24UX2ELIGKlHjeAj5G8k&gsessionid=8VzwU7Ym6xxh3OUQ-7DZmBUP9tHuBpvIAYe5ETzt8pwo_w0-Yavm3w",
+        "https://www.google.com/goto?url=CAESaQHEIkXXt5I7CGJFmKHozRJSE7s_0KT62JoWHQnPi6EBvrXACfr-XJ9W9y0lzjBttkIulBA95YLr6a-POpLUdlxES0JCdG8ngXvPRAtDyQU_4IiVmxYwfAq_5vZlQgr84X9QbYF5AAChFw&gsessionid=8VzwU7Ym6xxh3OUQ-7DZmBUP9tHuBpvIAYe5ETzt8pwo_w0-Yavm3w",
+        "https://www.google.com/goto?url=CAESnQEBxCJF17ipbEeC21DvR1rZArZnAbC1us2RVz-5R_c5z3QnD0aTVH1nuFsvZ-HkmpgoYscCrRoDDJJLMQdVSsRcYTq877Nv2AqQPXaxC0TxS5QG5VBQwC7lI17ZsMBteQQ7QtiG_C92Qf9sgE9E3Ht1q9CaTip2h8--ISZMynGwXOqeUOVwYHF12_-TyXAkzo9DgW2dKi8jKD9A9TP5&gsessionid=8VzwU7Ym6xxh3OUQ-7DZmBUP9tHuBpvIAYe5ETzt8pwo_w0-Yavm3w",
+        "https://www.google.com/goto?url=CAESxQEBxCJF1wEtdbIE-DWUeeNv5MrpgxCVckc9Y649hDT7RBM21ojo4-3o2M_qNwb7AgIfH37OPWr0gUJLERxR5JZenljfWnjEyThUZOtT-rcgWZps5bMROi7DJP8c5pWvWc0Xuw-xK_C-hEkcnDexahVRb3HRU4J3RVaQQcMtKJmUYOPOaq4LlwRYk8zHb9bb_JkGHNb-4s_lBVtIIzwvb1kkmwgzCUBbDF7TAWuOYAcrRvnPATjsfUr3smYdFho2AZfuj4-Qog&gsessionid=8VzwU7Ym6xxh3OUQ-7DZmBUP9tHuBpvIAYe5ETzt8pwo_w0-Yavm3w"
+      ],
+      "conference_program_source": "https://spacemedicineassociation.org/download/history/history_files_1963/Program%201963.pdf",
+      "conference_program_http_status": 404
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The FAA digest was accessible, and the separately located annual conference program URL returned 404.",
+    "records": [
+      {
+        "id": "faa-digest-p17",
+        "title": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes",
+        "year": 1963,
+        "url": "https://rosap.ntl.bts.gov/view/dot/90556/dot_90556_DS1.pdf",
+        "access": "full_text",
+        "locator": "Printed p. 17"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-flinn-womack-original-and-digest",
+    "date": "2026-11-20",
+    "provider": "Original Aerospace Medicine article and FAA Horizons scan",
+    "operation": "supplementary_selected_exposure_and_duplicate_case_verification",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Original journal narrative provides one pilot's selected exposure history. The authored FAA digest and an unpublished case aggregate reuse the same subject.",
+    "records": [
+      {
+        "id": "journal-original",
+        "title": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes",
+        "pmid": "14050686",
+        "year": 1963,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf",
+        "access": "full_text",
+        "sha256": "68c7673f9f6a5c945a6c93f3549165efb17689a71ec585a6ca509ae0c0d2a98f",
+        "locator": "Printed pp. 956–958, Case Report, Figure 1 and Table I",
+        "study_id": "usaf-flinn-womack-single-pilot-recurrent-dysbarism",
+        "source_scope": {
+          "pilots": 1,
+          "selected_exposure_histories": 12,
+          "antecedent_neurologic_episodes": 8,
+          "additional_antecedent_non_neurologic_episode": 1,
+          "sham_chamber_exposures": 1,
+          "subsequent_evaluation_exposures": 2,
+          "population_exposure_denominator": null,
+          "dated_workup_preflight_sample_without_trace": {
+            "date": "1961-10-21",
+            "locator": "Printed p. 958, Table I"
+          }
+        },
+        "journal_laboratory_values": {
+          "hematocrit_percent": [
+            {
+              "date": "1961-10-17",
+              "value": 51,
+              "context": "baseline"
+            },
+            {
+              "date": "1961-10-27",
+              "value": 54,
+              "context": "postflight"
+            }
+          ]
+        },
+        "scherman_case_reference": "The footnote identifies the person credited with eight episodes as this report's pilot.",
+        "source_counting_note": "Episode-level visual and neurologic classifications are separate. The 12 rows are selected histories for one pilot."
+      },
+      {
+        "id": "faa-digest-original",
+        "title": "Neurological manifestations of dysbarism: a review and report of a case with multiple episodes",
+        "year": 1963,
+        "url": "https://rosap.ntl.bts.gov/view/dot/90556/dot_90556_DS1.pdf",
+        "access": "full_text",
+        "sha256": "b63d291d5ed863bf024e2e5a8f117163270e3ad747c8e76c0b3bea2d811ab3e9",
+        "locator": "Printed p. 17, PDF page 9",
+        "study_id": "usaf-flinn-womack-single-pilot-recurrent-dysbarism",
+        "note": "The August FAA digest describes the same 36-year-old USAF pilot, three-year neurological history and monitored chamber symptom sequence. Its eight visual occasions do not replace the original journal's eight neurologic episodes."
+      },
+      {
+        "id": "scherman-unpublished",
+        "title": "Scherman unpublished neurologic dysbarism case series cited by Flinn and Womack",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/34/10/article-p956.pdf#page=3",
+        "locator": "Printed p. 958, footnote, and p. 962, reference 34",
+        "access": "secondary_citation_of_unpublished_data",
+        "reported_patients": 24,
+        "reported_neurologic_episodes": 35,
+        "patients_with_visual_symptoms": 22,
+        "known_overlap": {
+          "pilots": 1,
+          "episodes": 8
+        },
+        "exposure_denominator": null,
+        "note": "The original data remain unavailable. The reference explicitly links one patient with eight episodes to the Flinn and Womack pilot."
+      }
+    ]
+  }
+]
