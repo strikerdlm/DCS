@@ -8,6 +8,49 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_japanese_training_reports_and_flight_case_preserve_risk_sets(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,analysis_role,numerator,denominator,denominator_unit
+            FROM publication_observation
+            WHERE source_id IN ('ito15_chamber_dcs_pair','ito14_chamber_dcs_abstract',
+                                'ishiyama16_shizuoka_referrals','inuzuka22_operational_dci',
+                                'inuzuka23_japanese_translation')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("inuzuka22_operational_dci", "selected_cluster", 1, None, None),
+            ("ishiyama16_shizuoka_referrals", "case_conditional", 2, 173, "treated_referral"),
+            ("ito15_chamber_dcs_pair", "overlap_hold", 2, None, None),
+        ]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_qualifier,aircraft_altitude_ft,altitude_qualifier
+            FROM publication_aircraft_case_milestone
+            WHERE milestone IN ('exposure_above_18000_ft','chest_pain_and_paresthesia')
+            ORDER BY milestone
+        """).fetchall() == [
+            ("chest_pain_and_paresthesia", None, None, None, None),
+            ("exposure_above_18000_ft", 3.0, "less_than", 18000, "above_threshold"),
+        ]
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE left_report IN ('jshm:58-2-44','jachod:11-2-106','minder:17-2-ishiyama')
+            ORDER BY left_report
+        """).fetchall() == [
+            ("jachod:11-2-106", "jachod:12-1-20", "likely_prior_report_of_same_case_pair"),
+            ("jshm:58-2-44", "pmid:35690900", "same_published_case"),
+            ("minder:17-2-ishiyama", "jachod:12-1-20", "possible_overlap_hospital_referrals"),
+        ]
+        assert db.execute("""
+            SELECT report_id,onset_min FROM shared_case_evidence
+            WHERE source_id='inuzuka22_operational_dci'
+        """).fetchall() == [("pmid:35690900", None)]
+        assert db.execute("""
+            SELECT COUNT(*) FROM review.review_search_observation
+            WHERE study_id IN ('jasdf-inuzuka-jet-rapid-decompression','shizuoka-ito-chamber-dcs-pair',
+                               'shizuoka-ishiyama-recompression-series')
+        """).fetchone() == (3,)
+
+
 def test_usaf_table8_and_webb_interim_outcomes_keep_source_scope(release):
     with connect_pair(release) as db:
         assert db.execute("""
@@ -1110,7 +1153,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (119,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (120,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1137,7 +1180,7 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (119,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (120,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -1760,7 +1803,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (119, 119, 119)
+        """).fetchone() == (120, 120, 120)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence

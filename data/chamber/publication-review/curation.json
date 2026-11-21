@@ -1,6 +1,102 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.99/sources.csv#inuzuka22_operational_dci",
+      "report_id": "pmid:35690900",
+      "basis": "Exact author title and bibliographic locator.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9201989/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.99/sources.csv#inuzuka23_japanese_translation",
+      "report_id": "jshm:58-2-44",
+      "basis": "Exact author title and bibliographic locator.",
+      "evidence_url": "https://journal.jshm.net/lib/2023/582002.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.99/sources.csv#ito15_chamber_dcs_pair",
+      "report_id": "jachod:12-1-20",
+      "basis": "Exact author title and bibliographic locator.",
+      "evidence_url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&nu=1&vo=12&ye=2015"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.99/sources.csv#ito14_chamber_dcs_abstract",
+      "report_id": "jachod:11-2-106",
+      "basis": "Exact author title and bibliographic locator.",
+      "evidence_url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&ye=2014&vo=11&issue=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.99/sources.csv#ishiyama16_shizuoka_referrals",
+      "report_id": "minder:17-2-ishiyama",
+      "basis": "Exact author title and bibliographic locator.",
+      "evidence_url": "https://npominder.justhpbs.jp/newpage2.17th.2.ishiyama.html"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-verified#inuzuka-2022-original",
+      "report_id": "pmid:35690900",
+      "basis": "Identity checked against the article, abstract or original programme.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9201989/"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-verified#inuzuka-2023-translation",
+      "report_id": "jshm:58-2-44",
+      "basis": "Identity checked against the article, abstract or original programme.",
+      "evidence_url": "https://journal.jshm.net/lib/2023/582002.pdf"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-verified#ito-2015-journal",
+      "report_id": "jachod:12-1-20",
+      "basis": "Identity checked against the article, abstract or original programme.",
+      "evidence_url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&nu=1&vo=12&ye=2015"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-verified#ito-2014-abstract",
+      "report_id": "jachod:11-2-106",
+      "basis": "Identity checked against the article, abstract or original programme.",
+      "evidence_url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&ye=2014&vo=11&issue=2"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-verified#ishiyama-2016-seminar",
+      "report_id": "minder:17-2-ishiyama",
+      "basis": "Identity checked against the article, abstract or original programme.",
+      "evidence_url": "https://npominder.justhpbs.jp/newpage2.17th.2.ishiyama.html"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-verified#ishiyama-2016-journal-abstract",
+      "report_id": "jshm:51-3-139-ishiyama",
+      "basis": "Identity checked against the article, abstract or original programme.",
+      "evidence_url": "https://journal.juhms.net/lib/2016/513-07.pdf"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-verified#jachod-2014-program",
+      "report_id": "jachod:2014-program",
+      "basis": "Identity checked against the article, abstract or original programme.",
+      "evidence_url": "http://www.procomu.jp/jachod2014/pdf/jachod2014_timetable.pdf"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-firecrawl-title#ito-journal-hit",
+      "report_id": "jachod:12-1-20",
+      "basis": "Same source title and issue or programme.",
+      "evidence_url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&nu=1&vo=12&ye=2015"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-firecrawl-title#jachod-timetable-hit",
+      "report_id": "jachod:2014-program",
+      "basis": "Same source title and issue or programme.",
+      "evidence_url": "http://www.procomu.jp/jachod2014/pdf/jachod2014_timetable.pdf"
+    },
+    {
+      "record_key": "2026-11-20-japan-case-reconciliation-firecrawl-title#ito-conference-abstract-hit",
+      "report_id": "jachod:11-2-106",
+      "basis": "Same source title and issue or programme.",
+      "evidence_url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&ye=2014&vo=11&issue=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.40/search_hits.csv#diagnosis_v40_jp:3",
+      "report_id": "jachod:2014-program",
+      "basis": "Exact symposium programme PDF URL and presentation number II-3.",
+      "evidence_url": "http://www.procomu.jp/jachod2014/pdf/jachod2014_timetable.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.98/sources.csv#butler02_usaf_tt8",
       "report_id": "pmid:11817619",
       "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
@@ -11439,6 +11535,24 @@
   ],
   "studies": [
     {
+      "study_id": "jasdf-inuzuka-jet-rapid-decompression",
+      "label": "Japan Air Self-Defense Force operational jet DCI case",
+      "period": "Event date unspecified. Original 2022 and translation 2023.",
+      "setting": "Selected DCI case after rapid aircraft decompression. Separate hyperbaric treatment setting."
+    },
+    {
+      "study_id": "shizuoka-ito-chamber-dcs-pair",
+      "label": "Shizuoka Saiseikai two hypobaric aviation-physiology training cases",
+      "period": "Event dates unavailable. Conference presentation 2014 and journal report 2015.",
+      "setting": "Two published people with altitude DCS after hypobaric chamber training. At-risk exposure count and protocol unavailable."
+    },
+    {
+      "study_id": "shizuoka-ishiyama-recompression-series",
+      "label": "Shizuoka Saiseikai selected recompression recipients",
+      "period": "April or May 2004 through October 2015, depending on report.",
+      "setting": "173 recipients with diagnosed or suspected DCS in an all-cause referral series. Two after pilot training in the longer author account."
+    },
+    {
       "study_id": "usaf-brooks-tt8-pilot-1985-1989",
       "label": "Davis Hyperbaric Laboratory USAF Table 8 treatment pilot",
       "period": "Patient enrollment 1985–1989; initial abstract 1989 and full report 2002.",
@@ -12406,6 +12520,48 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "jasdf-inuzuka-jet-rapid-decompression",
+      "report_id": "pmid:35690900",
+      "role": "primary_case_description",
+      "locator": "Case Report and Discussion, PDF pp. 2–4"
+    },
+    {
+      "study_id": "jasdf-inuzuka-jet-rapid-decompression",
+      "report_id": "jshm:58-2-44",
+      "role": "translated_second_publication",
+      "locator": "Printed p. 48, second-publication footnote and case presentation pp. 45–46"
+    },
+    {
+      "study_id": "shizuoka-ito-chamber-dcs-pair",
+      "report_id": "jachod:12-1-20",
+      "role": "primary_case_report_title_only",
+      "locator": "Journal issue listing, article title and pp. 20–23 citation"
+    },
+    {
+      "study_id": "shizuoka-ito-chamber-dcs-pair",
+      "report_id": "jachod:11-2-106",
+      "role": "prior_conference_abstract_title_only",
+      "locator": "2014 issue listing, abstract II-3, p. 106"
+    },
+    {
+      "study_id": "shizuoka-ito-chamber-dcs-pair",
+      "report_id": "jachod:2014-program",
+      "role": "conference_programme",
+      "locator": "p. 1, symposium II, item II-3"
+    },
+    {
+      "study_id": "shizuoka-ishiyama-recompression-series",
+      "report_id": "minder:17-2-ishiyama",
+      "role": "primary_seminar_summary",
+      "locator": "Author's seminar summary, first series description after the introduction"
+    },
+    {
+      "study_id": "shizuoka-ishiyama-recompression-series",
+      "report_id": "jshm:51-3-139-ishiyama",
+      "role": "parallel_short_abstract",
+      "locator": "Printed p. 139, study subjects"
+    },
     {
       "study_id": "usaf-brooks-webb-exercise-preoxygenation-paired",
       "report_id": "openalex:W2399739399",
@@ -13998,6 +14154,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "jshm:58-2-44",
+      "right_report": "pmid:35690900",
+      "relationship": "same_published_case",
+      "evidence": "Printed p. 48 of the Japanese article explicitly identifies English e935534 as the original. Both publications describe the same 34-year-old aviator, aircraft timeline, treatment and follow-up.",
+      "evidence_url": "https://journal.jshm.net/lib/2023/582002.pdf#page=5"
+    },
+    {
+      "left_report": "jachod:11-2-106",
+      "right_report": "jachod:12-1-20",
+      "relationship": "likely_prior_report_of_same_case_pair",
+      "evidence": "The identical Japanese title names two chamber DCS patients. First and senior authors and Shizuoka Saiseikai affiliation agree. The later article adds Iwasaki. Timing and case-level matching await full text.",
+      "evidence_url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&nu=1&vo=12&ye=2015"
+    },
+    {
+      "left_report": "jachod:2014-program",
+      "right_report": "jachod:11-2-106",
+      "relationship": "conference_programme_for_abstract",
+      "evidence": "The organiser's programme lists the same title, presenter, hospital and item II-3 later indexed as a 2014 abstract on p. 106.",
+      "evidence_url": "http://www.procomu.jp/jachod2014/pdf/jachod2014_timetable.pdf"
+    },
+    {
+      "left_report": "minder:17-2-ishiyama",
+      "right_report": "jachod:12-1-20",
+      "relationship": "possible_overlap_hospital_referrals",
+      "evidence": "Same treating hospital, two shared authors, compatible period and exactly two pilot-training altitude DCS referrals. The longer summary does not give dates or identities for those two. The hospital and chamber risk sets cannot be merged.",
+      "evidence_url": "https://npominder.justhpbs.jp/newpage2.17th.2.ishiyama.html"
+    },
+    {
+      "left_report": "jshm:51-3-139-ishiyama",
+      "right_report": "minder:17-2-ishiyama",
+      "relationship": "parallel_abstract_of_same_referral_series",
+      "evidence": "Both accounts present the same seminar title, hospital, 173 treated patients and 66 spinal cases selected for analysis. The journal abstract starts in April, while the seminar summary starts in May. The journal abstract does not state the altitude subgroup.",
+      "evidence_url": "https://journal.juhms.net/lib/2016/513-07.pdf"
+    },
     {
       "left_report": "ntrs:19940029133",
       "right_report": "openalex:W2399739399",
@@ -16938,6 +17129,13 @@
     "pmid:11817619": "USAF treatment table 8: treatment for altitude decompression sickness",
     "abstract:asma-1989-topper-073": "USAF Table 8: treatment of altitude decompression sickness",
     "pmid:9561289": "Towards new paradigms for the treatment of hypobaric decompression sickness",
-    "ntrs:19940029133": "Exercise with prebreathe appears to increase protection from decompression sickness: preliminary findings"
+    "ntrs:19940029133": "Exercise with prebreathe appears to increase protection from decompression sickness: preliminary findings",
+    "pmid:35690900": "Decompression Illness Treated with the Hart-Kindwall Protocol in a Monoplace Chamber",
+    "jshm:58-2-44": "第1種装置を用いてHart-Kindwall治療表により加療した減圧障害の1例",
+    "jachod:12-1-20": "航空生理訓練用低圧室にて2名が発症した Altitude DCS (高度減圧症) の症例報告",
+    "jachod:11-2-106": "II-3 航空生理訓練用低圧室にて2名が発症したAltitude DCS (高度減圧症) の症例報告",
+    "minder:17-2-ishiyama": "脊髄型減圧症の重症度および治療時期と予後との関係",
+    "jshm:51-3-139-ishiyama": "脊髄型減圧症の重症度および治療時期と予後との関係 [journal abstract]",
+    "jachod:2014-program": "第11回日本臨床高気圧酸素・潜水医学会学術集会・総会 第5回日本高気圧酸素医療技術学会 学術集会日程表"
   }
 }

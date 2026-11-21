@@ -1,0 +1,249 @@
+[
+  {
+    "id": "2026-11-20-japan-case-reconciliation-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_regional_chamber_outcome_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "hypobaric chamber altitude decompression sickness chamber training case series rate aeromedical safety Denmark Germany Brazil India Czech Russia France military historical trainees",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-japan-case-reconciliation-firecrawl-title",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_original_japanese_title_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"航空生理訓練用低圧室\" \"伊藤\" \"石山\" 低圧室 Altitude DCS",
+      "limit": 8
+    },
+    "reported_total": 3,
+    "status": "observed",
+    "note": "Three ranked hits. The programme and abstract refer to the same presentation and the later case article uses the same title.",
+    "records": [
+      {
+        "id": "ito-journal-hit",
+        "title": "航空生理訓練用低圧室にて2名が発症した Altitude DCS (高度減圧症) の症例報告",
+        "year": 2015,
+        "url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&ye=2015&vo=12&issue=1"
+      },
+      {
+        "id": "jachod-timetable-hit",
+        "title": "第11回日本臨床高気圧酸素・潜水医学会学術集会・総会 第5回日本高気圧酸素医療技術学会 学術集会日程表",
+        "year": 2014,
+        "url": "http://www.procomu.jp/jachod2014/pdf/jachod2014_timetable.pdf"
+      },
+      {
+        "id": "ito-conference-abstract-hit",
+        "title": "II-3 航空生理訓練用低圧室にて2名が発症したAltitude DCS (高度減圧症) の症例報告",
+        "year": 2014,
+        "url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&ye=2014&vo=11&issue=2"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-japan-case-reconciliation-firecrawl-timetable",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_conference_document_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "http://www.procomu.jp/jachod2014/pdf/jachod2014_timetable.pdf",
+      "http_status": 200
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Firecrawl parsed the original one-page symposium programme and confirmed institution and title in session II-3.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-japan-case-reconciliation-firecrawl-minder",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_author_summary_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://npominder.justhpbs.jp/newpage2.17th.2.ishiyama.html",
+      "error_code": "SCRAPE_SITE_ERROR"
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Live retrieval failed with a proxy error. Indexed original author text supplied the count.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-japan-case-reconciliation-firecrawl-translation",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_journal_translation_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://journal.jshm.net/lib/2023/582002.pdf",
+      "http_status": 404
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Direct publisher download also returned 404. Indexed publisher text includes the second-publication statement and original journal reference.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-japan-case-reconciliation-verified",
+    "date": "2026-11-20",
+    "provider": "MedicalOnline, PubMed Central, JSHM and MINDER",
+    "operation": "supplementary_source_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scope": "Sources checked by exact title and DOI or journal/volume/page, with publisher text, program or citation access as indicated."
+    },
+    "reported_total": 7,
+    "status": "observed",
+    "note": "The original flight report was verified against the PDF and the publisher text. The German, Indian and French-language search candidates yielded no additional outcomes in this supplement. Paid Japanese articles were not accessed.",
+    "records": [
+      {
+        "id": "inuzuka-2022-original",
+        "title": "Decompression Illness Treated with the Hart-Kindwall Protocol in a Monoplace Chamber",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9201989/",
+        "year": 2022,
+        "identifier": "PMID:35690900; DOI:10.12659/AJCR.935534",
+        "access": "full_text",
+        "locator": "Case Report and Discussion, PDF pp. 2–4",
+        "note": "The authors clinically diagnosed severe altitude DCI during actual aircraft operation and discuss pulmonary barotrauma with micro-AGE as a possible explanation. The exposure and later monoplace treatment took place in different settings.",
+        "sha256": "16a6ca4b2900b653037b2b02d9abe2d094f5851f4bdd4b7d175539d521367645",
+        "doi": "10.12659/ajcr.935534",
+        "pmid": "35690900",
+        "pmcid": "PMC9201989",
+        "pdf_mirror": "https://pdfs.semanticscholar.org/0e3f/8d7cdf124d29302b3b86dabbb14a3b693198.pdf",
+        "pressure_history": {
+          "aircraft_altitude_at_decompression_ft": 33000,
+          "cabin_altitude_before_ft": null,
+          "cabin_pressure_after": null,
+          "post_decompression_pure_oxygen": "reported, time and flow not specified",
+          "elapsed_after_decompression_above_18000_ft": {
+            "minutes": 3,
+            "qualifier": "less_than"
+          }
+        },
+        "observations": [
+          {
+            "id": "rapid-decompression-jet-case",
+            "group": "rapid-decompression-jet-case",
+            "endpoint": "severe_altitude_dci_as_reported",
+            "study_id": "jasdf-inuzuka-jet-rapid-decompression",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "outcome_window": "Symptoms documented on descent and immediately after landing. Emergency treatment roughly four hours after decompression, two follow-up treatment days, and return to flight duty at two weeks.",
+            "locator": "Case Report and Discussion, PDF pp. 2–4",
+            "note": "Clinical DCI diagnosis. Authors considered pulmonary barotrauma with micro-arterial gas embolism. No definite DCS subtype or eligible flight denominator. The 2023 translation describes the same episode.",
+            "case_role": "selected_cluster"
+          }
+        ]
+      },
+      {
+        "id": "inuzuka-2023-translation",
+        "title": "第1種装置を用いてHart-Kindwall治療表により加療した減圧障害の1例",
+        "url": "https://journal.jshm.net/lib/2023/582002.pdf",
+        "year": 2023,
+        "identifier": "JSHM:58(2):44–48",
+        "access": "full_text",
+        "locator": "Printed p. 48, second-publication footnote and case presentation pp. 45–46",
+        "note": "The footnote explicitly identifies the English article e935534 as the original. The indexed publisher text was accessible. Direct PDF download returned HTTP 404. The translation describes the same patient and adds no count. The Japanese Discussion says three minutes or less above 18,000 ft, while the English original specifies less than three minutes. Prefer the original's stated bound and retain the translation's wording.",
+        "translated_high_altitude_duration": {
+          "minutes": 3,
+          "qualifier": "less_than_or_equal",
+          "locator": "Printed p. 47, Discussion"
+        }
+      },
+      {
+        "id": "ito-2015-journal",
+        "title": "航空生理訓練用低圧室にて2名が発症した Altitude DCS (高度減圧症) の症例報告",
+        "url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&nu=1&vo=12&ye=2015",
+        "year": 2015,
+        "identifier": "MedicalOnline:cz9jchod/2015/001201/004",
+        "access": "metadata",
+        "locator": "Journal issue listing, article title and pp. 20–23 citation",
+        "note": "Article title explicitly reports two people with altitude DCS in a low-pressure chamber used for aviation physiology training. Abstract and PDF require access. The number of chamber sessions, exposed people, roles and clinical timing are unavailable.",
+        "access_status": "public title and citation; linked abstract and article require authentication or payment",
+        "observations": [
+          {
+            "id": "two-published-chamber-patients",
+            "group": "two-published-chamber-patients",
+            "endpoint": "altitude_dcs_as_reported",
+            "study_id": "shizuoka-ito-chamber-dcs-pair",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": null,
+            "outcome_window": "Case onset timing and observation window unavailable.",
+            "locator": "2015 journal issue listing, article title and pp. 20–23 citation",
+            "note": "Count of people reported in the author title. The conference abstract has the same title, first and senior authors, hospital and count. Possible overlap with Ishiyama's hospital case mix. Eligible exposure denominator unavailable.",
+            "case_role": "overlap_hold"
+          }
+        ]
+      },
+      {
+        "id": "ito-2014-abstract",
+        "title": "II-3 航空生理訓練用低圧室にて2名が発症したAltitude DCS (高度減圧症) の症例報告",
+        "url": "https://mol.medicalonline.jp/archive/search?jo=cz9jchod&ye=2014&vo=11&issue=2",
+        "year": 2014,
+        "identifier": "MedicalOnline:cz9jchod:11(2):106",
+        "access": "metadata",
+        "locator": "2014 issue listing, abstract II-3, p. 106",
+        "note": "Same title, first and senior authors, hospital and count as the later article. Kept as a distinct report linked to the same candidate case pair. The abstract body requires access.",
+        "access_status": "public title and citation; linked abstract body requires access"
+      },
+      {
+        "id": "ishiyama-2016-seminar",
+        "title": "脊髄型減圧症の重症度および治療時期と予後との関係",
+        "url": "https://npominder.justhpbs.jp/newpage2.17th.2.ishiyama.html",
+        "year": 2016,
+        "identifier": "MINDER:17:2",
+        "access": "primary_abstract",
+        "locator": "Author's seminar summary, first series description after the introduction",
+        "note": "Public search-index copy of the author text reports two pilot-training altitude DCS referrals among 173 suspected or diagnosed DCS patients treated with recompression. The source does not explicitly identify these as the Ito pair or describe a chamber exposure denominator. Live URL timed out.",
+        "reported_source_period": "May 2004 through October 2015",
+        "observations": [
+          {
+            "id": "pilot-training-altitude-dcs-referrals",
+            "group": "pilot-training-altitude-dcs-referrals",
+            "endpoint": "altitude_dcs_after_pilot_training_as_reported",
+            "study_id": "shizuoka-ishiyama-recompression-series",
+            "cases": 2,
+            "denominator": 173,
+            "denominator_unit": "treated_referral",
+            "outcome_window": "Recruitment period given. Episode-specific onset and follow-up unavailable.",
+            "locator": "Author's 17th Marine Medicine Seminar summary, series description",
+            "note": "Hospital case mix. The shorter journal abstract reports the same 173 recipients and 66 selected spinal cases but starts the series in April 2004 and does not repeat this altitude subgroup. Membership in the Ito report remains unresolved.",
+            "case_role": "case_conditional"
+          }
+        ]
+      },
+      {
+        "id": "ishiyama-2016-journal-abstract",
+        "title": "脊髄型減圧症の重症度および治療時期と予後との関係 [journal abstract]",
+        "year": 2016,
+        "url": "https://journal.juhms.net/lib/2016/513-07.pdf",
+        "identifier": "JSHM:51(3):139–140",
+        "access": "primary_abstract",
+        "locator": "Printed p. 139, study subjects",
+        "reported_source_period": "April 2004 through October 2015",
+        "note": "Author's shorter journal abstract for the same seminar. The 173 treated and 66 selected spinal DCS cases agree with the longer account. The start month differs. The altitude referral count appears only in the longer account and is not repeated here."
+      },
+      {
+        "id": "jachod-2014-program",
+        "title": "第11回日本臨床高気圧酸素・潜水医学会学術集会・総会 第5回日本高気圧酸素医療技術学会 学術集会日程表",
+        "year": 2014,
+        "url": "http://www.procomu.jp/jachod2014/pdf/jachod2014_timetable.pdf",
+        "access": "metadata",
+        "locator": "p. 1, symposium II, item II-3",
+        "note": "Conference programme confirms the same Ito presentation title, hospital and two reported cases. Bibliographic corroboration for the 2014 abstract. No independent outcomes."
+      }
+    ]
+  }
+]
