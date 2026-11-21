@@ -8,6 +8,66 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_usaf_table8_and_webb_interim_outcomes_keep_source_scope(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT dcs_label,COUNT(*),COUNT(DISTINCT participant_ordinal),SUM(tt8_outcome='success')
+            FROM publication_tt8_episode GROUP BY dcs_label ORDER BY dcs_label
+        """).fetchall() == [("I", 11, 10, 10), ("II", 2, 2, 1)]
+        assert db.execute("""
+            SELECT episode_number,exposure_year,recurrence_reported,tt8_outcome
+            FROM publication_tt8_episode WHERE participant_ordinal=10 ORDER BY episode_number
+        """).fetchall() == [(1, 1988, 0, "success"), (2, 1989, 1, "failure")]
+        assert db.execute("""
+            SELECT COUNT(*),COUNT(altitude_ft),SUM(treatment_delay_relation='less_than'),
+                   COUNT(resolution_min),COUNT(tt6_conversion_documented)
+            FROM publication_tt8_episode
+        """).fetchone() == (13, 12, 10, 8, 1)
+        assert db.execute("""
+            SELECT resolution_min,unresolved_at_assessment_min,tt8_outcome
+            FROM publication_tt8_episode WHERE tt6_conversion_documented=1
+        """).fetchone() == (None, 30, "failure")
+        assert db.execute("""
+            SELECT type_i_participants,resolved_without_reported_recurrence,reprint_source_id,completed_source_id
+            FROM publication_tt8_interim_tally
+        """).fetchall() == [(10, 10, "dart98_usaf_tt8_review", "butler02_usaf_tt8")]
+        assert db.execute("""
+            SELECT COUNT(*) FROM publication_observation
+            WHERE source_id IN ('topper89_usaf_tt8_interim','dart98_usaf_tt8_review')
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT arm,exposures,marked_dcs_cases,abstract_dcs_percent,results_dcs_percent,
+                   resolved_on_recompression,respiratory_dcs_cases
+            FROM publication_webb94_interim_group ORDER BY arm
+        """).fetchall() == [
+            ("exercise10_rest50", 22, 8, 38, 36, 8, None),
+            ("rest60", 22, None, 76, 77, None, 2),
+        ]
+        assert db.execute("""
+            SELECT e.final_participant_ordinal,c.hbo_marked,c.symptom_text
+            FROM publication_webb94_case_link e
+            JOIN citation_participant_cell c
+                ON (c.source_id,c.study_participant,c.arm)=(e.final_source_id,e.final_participant_ordinal,e.final_arm)
+        """).fetchall() == [(14, 1, "Chokes")]
+        assert db.execute("""
+            SELECT COUNT(*),SUM(o.numerator=r.cases AND o.denominator=r.denominator)
+            FROM publication_observation o
+            JOIN model_report_link l ON l.source_id=o.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON r.report_id=l.report_id
+                AND r.endpoint=o.endpoint AND r.reported_group=o.stratum
+            WHERE o.source_id IN ('butler02_usaf_tt8','webb94_brooks_prebreathe_interim')
+        """).fetchone() == (4, 4)
+        assert db.execute("""
+            SELECT COUNT(*),COUNT(DISTINCT report_id) FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1.5/sources.csv#webb96_preoxygenation',
+                '2026-11-20-formal-chamber-pubmed#8830940',
+                '2026-11-20-formal-chamber-europe-pmc#MED:8830940',
+                'legacy:data/chamber/v1.13/search_hits.csv#clinical_series_tavily_comparison:2'
+            )
+        """).fetchone() == (4, 1)
+
+
 def test_nasa_severity_reprints_and_lunar_missing_denominators(release):
     with connect_pair(release) as db:
         assert db.execute("""

@@ -1,6 +1,102 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.98/sources.csv#butler02_usaf_tt8",
+      "report_id": "pmid:11817619",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p46.pdf"
+    },
+    {
+      "record_key": "2026-11-20-usaf-treatment-prebreathe-originals#butler-2002-final",
+      "report_id": "pmid:11817619",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p46.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.98/sources.csv#topper89_usaf_tt8_interim",
+      "report_id": "abstract:asma-1989-topper-073",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13"
+    },
+    {
+      "record_key": "2026-11-20-usaf-treatment-prebreathe-originals#topper-1989-abstract-73",
+      "report_id": "abstract:asma-1989-topper-073",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/5/article-p477.pdf#page=13"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.98/sources.csv#dart98_usaf_tt8_review",
+      "report_id": "pmid:9561289",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/4/article-p403.pdf"
+    },
+    {
+      "record_key": "2026-11-20-usaf-treatment-prebreathe-originals#dart-butler-1998",
+      "report_id": "pmid:9561289",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/4/article-p403.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.98/sources.csv#webb94_brooks_prebreathe_interim",
+      "report_id": "ntrs:19940029133",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940029133/downloads/19940029133.pdf"
+    },
+    {
+      "record_key": "2026-11-20-usaf-treatment-prebreathe-originals#webb-1994-ntrs-19940029133",
+      "report_id": "ntrs:19940029133",
+      "basis": "Title, authors, year, and page or NTRS accession checked from the original scan.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940029133/downloads/19940029133.pdf"
+    },
+    {
+      "record_key": "2026-11-20-usaf-treatment-prebreathe-firecrawl-ntrs#webb-ntrs",
+      "report_id": "ntrs:19940029133",
+      "basis": "Exact NTRS report accession and NASA paper title.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940029133/downloads/19940029133.pdf"
+    },
+    {
+      "record_key": "2026-11-20-fulltext-access-consensus-korea#w:8daa0e42-f61a-47a9-a2b9-37e2f1eff6e4",
+      "report_id": "pmid:11817619",
+      "basis": "Distinctive title and publication year match the original 2002 article and PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p46.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/sources.csv#webb96_preoxygenation",
+      "report_id": "openalex:W2399739399",
+      "basis": "The final journal publication, matched by PMID 8830940 or exact publisher title and scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/7/article-p618.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/references.csv#mahon2014:221",
+      "report_id": "openalex:W2399739399",
+      "basis": "The final journal publication, matched by PMID 8830940 or exact publisher title and scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/7/article-p618.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#8830940",
+      "report_id": "openalex:W2399739399",
+      "basis": "The final journal publication, matched by PMID 8830940 or exact publisher title and scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/7/article-p618.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2399739399",
+      "report_id": "openalex:W2399739399",
+      "basis": "The final journal publication, matched by PMID 8830940 or exact publisher title and scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/7/article-p618.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8830940",
+      "report_id": "openalex:W2399739399",
+      "basis": "The final journal publication, matched by PMID 8830940 or exact publisher title and scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/7/article-p618.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/search_hits.csv#clinical_series_tavily_comparison:2",
+      "report_id": "openalex:W2399739399",
+      "basis": "The final journal publication, matched by PMID 8830940 or exact publisher title and scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/7/article-p618.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1/sources.csv#nasa19",
       "report_id": "record:legacy:data/chamber/v1/sources.csv#nasa19",
       "basis": "Original source record for NASA/TP-2019-220343.",
@@ -11343,6 +11439,18 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-brooks-tt8-pilot-1985-1989",
+      "label": "Davis Hyperbaric Laboratory USAF Table 8 treatment pilot",
+      "period": "Patient enrollment 1985–1989; initial abstract 1989 and full report 2002.",
+      "setting": "Selected altitude DCS treatment episodes. Exposure mode and evaluable at-risk population are unavailable."
+    },
+    {
+      "study_id": "usaf-brooks-webb-exercise-preoxygenation-paired",
+      "label": "Brooks repeated exercise-enhanced oxygen prebreathe trial",
+      "period": "Preliminary tally as of August 1, 1993. Final journal report published 1996.",
+      "setting": "Repeated experimental chamber tests at 4.3 psia with preoxygenation and different prescribed activity schedules."
+    },
+    {
       "study_id": "duke-1995-pressure-perfusion-nasa-severity",
       "label": "Duke 1995 hypobaric chamber outcomes in NASA Table F3",
       "period": "Technical report dated March 31, 1995. Exposure dates unavailable.",
@@ -12298,6 +12406,36 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-brooks-webb-exercise-preoxygenation-paired",
+      "report_id": "openalex:W2399739399",
+      "role": "primary_completed_paired_trial",
+      "locator": "Printed pp. 621–622, Results and Tables III–VI"
+    },
+    {
+      "study_id": "usaf-brooks-webb-exercise-preoxygenation-paired",
+      "report_id": "ntrs:19940029133",
+      "role": "primary_interim_paired_trial",
+      "locator": "Printed pp. 497–498, abstract, methods, results and Figure 1"
+    },
+    {
+      "study_id": "usaf-brooks-tt8-pilot-1985-1989",
+      "report_id": "pmid:9561289",
+      "role": "secondary_reprint_of_preliminary_tally",
+      "locator": "Table I and discussion, printed pp. 406–407"
+    },
+    {
+      "study_id": "usaf-brooks-tt8-pilot-1985-1989",
+      "report_id": "abstract:asma-1989-topper-073",
+      "role": "primary_preliminary_treatment_tally",
+      "locator": "1989 AsMA abstract 73, printed p. 489 (PDF p. 13)"
+    },
+    {
+      "study_id": "usaf-brooks-tt8-pilot-1985-1989",
+      "report_id": "pmid:11817619",
+      "role": "primary_completed_treatment_series",
+      "locator": "Methods pp. 46–47, Results p. 47 and Table I p. 48 (PDF p. 3)"
+    },
     {
       "study_id": "duke-1995-pressure-perfusion-nasa-severity",
       "report_id": "report:duke-vann-gerth-nag9-134-1995",
@@ -13860,6 +13998,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:19940029133",
+      "right_report": "openalex:W2399739399",
+      "relationship": "interim_snapshot_of_paired_trial",
+      "evidence": "Same investigators, 4.3-psia plateau for up to four hours, 60-minute resting and 10/50 active schedules. The interim 22 volunteers preceded the final group of 26. Final 15-minute arm is separately defined.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940029133/downloads/19940029133.pdf"
+    },
+    {
+      "left_report": "pmid:9561289",
+      "right_report": "pmid:1456923",
+      "relationship": "reprints_treatment_counts_with_scope_discrepancy",
+      "evidence": "Dart Table I lists 78/104 and 12/26 under a treatment pressure. Rudge Table I and text report 78 resolving on descent and 12 responding among the 20 with symptoms persisting after descent who actually received oxygen as first therapy.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/4/article-p403.pdf"
+    },
+    {
+      "left_report": "pmid:9561289",
+      "right_report": "abstract:asma-1989-topper-073",
+      "relationship": "reprints_preliminary_treatment_tally",
+      "evidence": "Table I and its discussion repeat the same ten participants, outcomes and original reference (30).",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/4/article-p403.pdf"
+    },
+    {
+      "left_report": "pmid:11817619",
+      "right_report": "abstract:asma-1989-topper-073",
+      "relationship": "completed_report_of_preliminary_study",
+      "evidence": "Discussion p. 48 and reference 9 explicitly link the earlier pilot presentation. The full paper has the later 13-episode cohort.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/1/article-p46.pdf#page=3"
+    },
     {
       "left_report": "report:duke-vann-gerth-nag9-134-1995",
       "right_report": "workshop:uhms38-gerth-vann-nitrogen",
@@ -16768,6 +16934,10 @@
     "workshop:uhms38-gerth-vann-nitrogen": "Whole-body nitrogen elimination during oxygen prebreathing and altitude decompression sickness risk",
     "record:legacy:data/chamber/v1/sources.csv#nasa19": "Suited Ground Vacuum Chamber Testing Decompression Sickness Tiger Team Report",
     "report:duke-vann-gerth-nag9-134-1995": "Factors affecting tissue perfusion and efficacy of astronaut denitrogenation for extravehicular activity",
-    "doi:10.3969/j.issn.1674-5825.2023.01.009": "载人月球探测任务大气环境压力制度设计与试验验证"
+    "doi:10.3969/j.issn.1674-5825.2023.01.009": "载人月球探测任务大气环境压力制度设计与试验验证",
+    "pmid:11817619": "USAF treatment table 8: treatment for altitude decompression sickness",
+    "abstract:asma-1989-topper-073": "USAF Table 8: treatment of altitude decompression sickness",
+    "pmid:9561289": "Towards new paradigms for the treatment of hypobaric decompression sickness",
+    "ntrs:19940029133": "Exercise with prebreathe appears to increase protection from decompression sickness: preliminary findings"
   }
 }
