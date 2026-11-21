@@ -3777,3 +3777,45 @@ def test_hdsd_reanalysis_preserves_two_partitions_and_original_vge_discrepancy(r
               AND reported_group IN ('analysis-records','selected-vge-available-records')
             ORDER BY report_id
         """).fetchall() == [("ntrs:20030019353", 167, 1321), ("pmid:9451528", 168, 1322)]
+
+
+def test_nasa_doppler_margins_and_postdive_adjudication(release):
+    with connect_pair(release) as db:
+        margins = db.execute(
+            """
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='powell93_cmb125' AND endpoint='type_i_pain_dcs_as_reported'
+            """
+        ).fetchall()
+        rows = {stratum: (events, people) for stratum, events, people in margins}
+        assert rows['all-subjects'] == (22, 125)
+        for partition in (
+            ('cmb-detected', 'cmb-undetected'),
+            ('men', 'women'),
+            ('upper-test-altitude', 'lower-test-altitude'),
+            ('prebreathe-nil', 'prebreathe-3-5-h', 'prebreathe-4-h', 'prebreathe-6-h'),
+        ):
+            counts = zip(*(rows[group] for group in partition), strict=True)
+            assert tuple(map(sum, counts)) == (22, 125)
+        assert db.execute(
+            "SELECT sensitivity_percent,specificity_percent,false_positive_percent "
+            "FROM publication_doppler_diagnostic_threshold ORDER BY minimum_grade"
+        ).fetchall() == [(96, 68, 32), (91, 70, 30), (85, 80, 20), (73, 86, 14)]
+        assert db.execute(
+            "SELECT DISTINCT cases,denominator FROM review.review_search_observation "
+            "WHERE study_id='nasa-jsc-cmb-time-81'"
+        ).fetchall() == [(17, 81)]
+        assert db.execute(
+            "SELECT numerator,denominator,analysis_role FROM publication_observation "
+            "WHERE source_id='norfleet93_postdive' AND endpoint='dcs_as_reported'"
+        ).fetchone() == (0, 19, 'denominator_conflict')
+        assert db.execute(
+            "SELECT dcs_cases,dcs_denominator FROM nasa_test WHERE test_id='10'"
+        ).fetchone() == (1, 19)
+        assert db.execute(
+            "SELECT case_id,source_time_min FROM historical_case_catalog WHERE case_id='nasa03:81'"
+        ).fetchall() == [('nasa03:81', 158)]
+        assert db.execute(
+            "SELECT report_id FROM review.review_study_report "
+            "WHERE study_id='nasa-jsc-doppler-516' ORDER BY report_id"
+        ).fetchall() == [('pmid:11540992',), ('pmid:9125093',)]
