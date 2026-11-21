@@ -4440,6 +4440,56 @@ def test_verified_chamber_mirrors_and_baker_case_reuse_existing_reports(release)
         """).fetchone() == (0,)
 
 
+def test_historical_flight_case_sources_preserve_certainty_and_time_origins(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,endpoint,numerator,denominator,altitude FROM publication_observation
+            WHERE source_id IN ('rudge90_b52_flight','voge89_naval_flight','wolf89_commercial_flight')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("rudge90_b52_flight", "presumptive_altitude_dcs_as_reported", 1, None, None),
+            ("voge89_naval_flight", "probable_altitude_bends_as_reported", 1, None, 14000.0),
+            ("wolf89_commercial_flight", "severe_altitude_dcs_author_attributed", 1, None, 29000.0),
+        ]
+        assert db.execute("""
+            SELECT report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id IN ('rudge90_b52_flight','voge89_naval_flight','wolf89_commercial_flight')
+            ORDER BY source_id
+        """).fetchall() == [("pmid:2256876", None), ("pmid:2818403", None), ("pmid:2803166", None)]
+        assert db.execute("""
+            SELECT elapsed,elapsed_unit,elapsed_reference FROM publication_aircraft_case_milestone
+            WHERE milestone IN ('transient_cabin_pressure_altitude','right_knee_pain_at_altitude',
+                                'abstract_collapse_and_edema','narrative_waking_with_dyspnea')
+              AND source_id IN ('rudge90_b52_flight','voge89_naval_flight','wolf89_commercial_flight')
+            ORDER BY source_id,milestone
+        """).fetchall() == [
+            (0.5, "minutes", "duration_of_reported_cabin_excursion"),
+            (40.0, "minutes", "start_of_flight_at_14000_ft"),
+            (8.0, "hours", "landing_in_abstract"),
+            (8.0, "hours", "duration_asleep_in_case_narrative"),
+        ]
+        assert db.execute("""
+            SELECT json_extract(r.metadata_json,'$.case_facts.cabin_altitude_at_onset_ft'),
+                   json_extract(r.metadata_json,'$.case_facts.cabin_transient_altitude_ft'),
+                   json_extract(r.metadata_json,'$.case_facts.case_narrative_prior_dive_elapsed_days')
+            FROM review.review_record r JOIN shared_case_evidence e USING(record_key)
+            WHERE e.source_id='rudge90_b52_flight'
+        """).fetchall() == [(None, 10000, 10)]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap WHERE source_id='rudge90_b52_flight'
+        """).fetchall() == [("weien90", "unresolved")]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE record_key GLOB '2026-11-21-historical-flight-case-sources-context-*'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE pmid='20296024'
+        """).fetchall() == [("pmid:20296024",)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE url LIKE '%/PMC203284%'
+        """).fetchall() == [("pmid:14557320",)]
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
