@@ -4762,6 +4762,45 @@ def test_international_pressure_loss_preserves_reported_zeroes_and_risk_sets(rel
         """).fetchall() == [("report:atsb-b2006-0142",)]
 
 
+def test_chamber_archive_counts_preserve_risk_sets_and_avoid_duplicate_reports(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.stratum, o.analysis_role, o.numerator, o.denominator, o.denominator_unit,
+                   r.cases, r.denominator, r.denominator_unit
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (l.report_id, o.stratum, o.endpoint) = (r.report_id, r.reported_group, r.endpoint)
+            WHERE o.source_id IN ('horrigan90_backup_pressure', 'shaw92_faa_cami_surveillance')
+            ORDER BY o.stratum
+        """).fetchall() == [
+            ("all-chamber-runs", "overlap_hold", 15, 51, "person_exposure", 15, 51, "person_exposure"),
+            ("all-chamber-runs-before-60-min", "overlap_hold", 0, 51, "person_exposure", 0, 51,
+             "person_exposure"),
+            ("cami-all-reported-reactions", "overlap_hold", 11, None, None, 11, None, None),
+            ("cami-trainees", "overlap_hold", 4, 15412, "person", 4, 15412, "person"),
+            ("reported-dcs-cases", "case_conditional", 7, 15, "dcs_case", 7, 15, "dcs_case"),
+            ("student-knee-reaction", "case_conditional", 1, None, None, 1, None, None),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT prebreathe_min FROM publication_observation
+            WHERE source_id = 'horrigan90_backup_pressure'
+        """).fetchall() == [(None,)]
+        assert db.execute("""
+            SELECT source_id, related_source, relationship FROM publication_overlap
+            WHERE source_id IN ('shaw92_faa_cami_surveillance','mohler00_faa_cami_surveillance')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("mohler00_faa_cami_surveillance", "shaw92_faa_cami_surveillance", "same_cohort"),
+            ("shaw92_faa_cami_surveillance", "faa90", "partial_overlap"),
+        ]
+        assert db.execute("""
+            SELECT source_id FROM publication_observation WHERE source_id = 'mohler00_faa_cami_surveillance'
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE url LIKE '%/fasb597/43.htm'
+        """).fetchall() == [("report:faa-shaw-cami-training",)]
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""

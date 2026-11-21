@@ -1,0 +1,200 @@
+[
+  {
+    "id": "2026-11-21-chamber-archive-denominators-tavily-search",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Targeted searches returned the older FAA study and the agency program. No independent new chamber cohort was confirmed from these searches.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "15,412 suspected decompression sickness FAA altitude chamber 1965 1992",
+      "request_id": "9da2aff9-4ea1-41ea-9ebc-d5400a0c0caa",
+      "followup_query": "Rogers V Shaw Training of Civilian Aircrews in Altitude Chambers 15412 participants 1965 1992 Federal Air Surgeon FAA",
+      "followup_request_id": "55283ab7-ce0b-49cb-b466-cb64f55e8e4f"
+    },
+    "records": [
+      {
+        "id": "valdez",
+        "title": "The FAA Altitude Chamber Training Flight Profile: A Survey of Altitude Reactions, 1965–1989",
+        "url": "https://rosap.ntl.bts.gov/view/dot/21318"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chamber-archive-denominators-tavily-extract",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "targeted_pdf_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Targeted extraction returned narrative source counts from both public PDFs.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_id": "7041dd0e-5d70-4e37-a830-85ba89478a2c"
+    },
+    "records": [
+      {
+        "id": "nasa",
+        "title": "Selection of a Space Suit Emergency Backup Pressure by Analysis of the Rate-of-Onset of Decompression Sickness",
+        "url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+      },
+      {
+        "id": "mohler",
+        "title": "Quick Response by Pilots Remains Key to Surviving Cabin Decompression",
+        "url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chamber-archive-denominators-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "targeted_pdf_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Page-limited extraction located the NASA chapter and Flight Safety Foundation Table 2. The source pages were subsequently checked against the published scans.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "nasa_scrape_id": "01a2001d-faaa-7278-ae6b-8ea58a50cc55",
+      "mohler_scrape_id": "01a2001d-faaa-7019-a627-b6375ea9fa3d"
+    },
+    "records": [
+      {
+        "id": "nasa",
+        "title": "Selection of a Space Suit Emergency Backup Pressure by Analysis of the Rate-of-Onset of Decompression Sickness",
+        "url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+      },
+      {
+        "id": "mohler",
+        "title": "Quick Response by Pilots Remains Key to Surviving Cabin Decompression",
+        "url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-chamber-archive-denominators-originals",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS, archived FAA bulletin, GovInfo, Flight Safety Foundation",
+    "operation": "verify_public_full_text",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Inspected both NASA chapter pages, the archived original FAA article, Mohler’s Table 2 and reference 29, and Valdez Tables 1–2. Three FAA student descriptions repeat Valdez. No repeated student outcome is added as a new case.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "archived_faa_captures": [
+        "19970808123032",
+        "20000526041938",
+        "20010306085628",
+        "20021217081252"
+      ],
+      "original_faa_url": "https://www.faa.gov/avr/AAM/FASB597/43.htm"
+    },
+    "records": [
+      {
+        "id": "nasa",
+        "title": "Selection of a Space Suit Emergency Backup Pressure by Analysis of the Rate-of-Onset of Decompression Sickness",
+        "url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25",
+        "year": 1990,
+        "identifier": "NTRS:19900012405; MS 5",
+        "locator": "Reference MS 5, printed pp. 17–18 (PDF pp. 25–26)",
+        "sha256": "662450d5f0dc6adcfa5b4ed930a0dd764e75cab0b704fc4e280ef59acd9c72ca",
+        "full_text_available": true,
+        "observations": [
+          {
+            "id": "first-hour",
+            "group": "all-chamber-runs-before-60-min",
+            "endpoint": "dcs_as_reported",
+            "cases": 0,
+            "denominator": 51,
+            "denominator_unit": "person_exposure",
+            "locator": "Reference MS 5, printed p. 17 (PDF p. 25)",
+            "note": "The first symptom was described at 60 minutes. This count covers the first hour as defined by the narrative."
+          },
+          {
+            "id": "observed-dcs",
+            "group": "all-chamber-runs",
+            "endpoint": "dcs_as_reported",
+            "cases": 15,
+            "denominator": 51,
+            "denominator_unit": "person_exposure",
+            "locator": "Reference MS 5, printed p. 17 (PDF p. 25)",
+            "note": "Crude count per subject-run, with no 180-minute risk set or post-chamber follow-up. The prebreathing duration is unspecified, and the pressure was 6.5 psia."
+          },
+          {
+            "id": "grade3-abort",
+            "group": "reported-dcs-cases",
+            "endpoint": "grade_3_dcs_requiring_test_abort",
+            "cases": 7,
+            "denominator": 15,
+            "denominator_unit": "dcs_case",
+            "locator": "Reference MS 5, printed p. 17 (PDF p. 25)",
+            "note": "Nested source-defined severe-exercise-interfering cases."
+          }
+        ]
+      },
+      {
+        "id": "shaw",
+        "title": "Training of Civilian Aircrews in Altitude Chambers",
+        "url": "https://web.archive.org/web/19970808123032/http://www.faa.gov:80/AVR/AAM/FASB597/43.htm",
+        "year": 1992,
+        "year_basis": "Mohler 2000, reference 29. The archival HTML omits the edition date.",
+        "locator": "Paragraphs before Students’ Reactions and the Students’ Reactions list",
+        "sha256": "53927ad355487e3f49b5a17a91288dbe22a6055285d5e56d6e24e8cb3cfb789a",
+        "full_text_available": true,
+        "observations": [
+          {
+            "id": "trainee-suspected-dcs",
+            "group": "cami-trainees",
+            "endpoint": "suspected_dcs",
+            "cases": 4,
+            "denominator": 15412,
+            "denominator_unit": "person",
+            "locator": "Paragraphs before Students’ Reactions and the Students’ Reactions list",
+            "note": "Shaw reports 15,412 students. Repeat attendance unknown. Mohler Table 2 gives 1965–1992. Three reactions match Valdez on symptom, altitude and relief."
+          },
+          {
+            "id": "all-suspected-dcs",
+            "group": "cami-all-reported-reactions",
+            "endpoint": "suspected_dcs",
+            "cases": 11,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Paragraphs before Students’ Reactions and the Students’ Reactions list",
+            "note": "Includes the four trainee reactions. The combined denominator is unknown."
+          },
+          {
+            "id": "student-knee",
+            "group": "student-knee-reaction",
+            "endpoint": "suspected_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Students’ Reactions, fourth item",
+            "note": "Knee pain at 25,000 ft resolving there on oxygen. Nested in the four trainee reactions. No individual date or confirmed diagnosis."
+          }
+        ]
+      },
+      {
+        "id": "mohler",
+        "title": "Quick Response by Pilots Remains Key to Surviving Cabin Decompression",
+        "url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6",
+        "year": 2000,
+        "locator": "Table 2 and training discussion, p. 6; reference 29, p. 7",
+        "sha256": "b738e33c4359ac23cd8bac43ad24b5df4a7d0747c51cc63ec49193da8f4d7ed7",
+        "full_text_available": true
+      },
+      {
+        "id": "valdez",
+        "title": "The FAA Altitude Chamber Training Flight Profile: A Survey of Altitude Reactions, 1965–1989",
+        "url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS83855/pdf/GOVPUB-TD4_200-PURL-LPS83855.pdf#page=7",
+        "year": 1990,
+        "identifier": "DOT/FAA/AM-90/12",
+        "locator": "Tables 1–2, pp. 4–5 (PDF pp. 6–7)",
+        "sha256": "187d5aa04066d3c0840596ab12eaf5bf9ef10e16d204694f8046e06e9180c486",
+        "full_text_available": true
+      }
+    ]
+  }
+]

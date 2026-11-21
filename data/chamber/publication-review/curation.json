@@ -1,6 +1,78 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-chamber-archive-denominators-tavily-search#valdez",
+      "report_id": "report:dot-faa-am-90-12",
+      "basis": "Exact report title and DOT/FAA/AM-90/12 report number.",
+      "evidence_url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS83855/pdf/GOVPUB-TD4_200-PURL-LPS83855.pdf#page=7"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-tavily-extract#nasa",
+      "report_id": "ntrs:19900012405:ms5",
+      "basis": "Title, investigator byline and Reference MS 5 match the published NASA chapter.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-tavily-extract#mohler",
+      "report_id": "article:fsf-2000-mohler",
+      "basis": "Exact article title, issue and Table 2 match the publisher PDF.",
+      "evidence_url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-firecrawl#nasa",
+      "report_id": "ntrs:19900012405:ms5",
+      "basis": "Title, investigator byline and Reference MS 5 match the published NASA chapter.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-firecrawl#mohler",
+      "report_id": "article:fsf-2000-mohler",
+      "basis": "Exact article title, issue and Table 2 match the publisher PDF.",
+      "evidence_url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-originals#nasa",
+      "report_id": "ntrs:19900012405:ms5",
+      "basis": "Title, investigator byline and Reference MS 5 match the published NASA chapter.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-originals#shaw",
+      "report_id": "report:faa-shaw-cami-training",
+      "basis": "Exact byline, article title and FAA bulletin path from Mohler reference 29.",
+      "evidence_url": "https://web.archive.org/web/19970808123032/http://www.faa.gov:80/AVR/AAM/FASB597/43.htm"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-originals#mohler",
+      "report_id": "article:fsf-2000-mohler",
+      "basis": "Exact article title, issue and Table 2 match the publisher PDF.",
+      "evidence_url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6"
+    },
+    {
+      "record_key": "2026-11-21-chamber-archive-denominators-originals#valdez",
+      "report_id": "report:dot-faa-am-90-12",
+      "basis": "Exact report title and DOT/FAA/AM-90/12 report number.",
+      "evidence_url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS83855/pdf/GOVPUB-TD4_200-PURL-LPS83855.pdf#page=7"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.164/sources.csv#horrigan90_backup_pressure",
+      "report_id": "ntrs:19900012405:ms5",
+      "basis": "Title, investigator byline and Reference MS 5 match the published NASA chapter.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.164/sources.csv#shaw92_faa_cami_surveillance",
+      "report_id": "report:faa-shaw-cami-training",
+      "basis": "Exact byline, article title and FAA bulletin path from Mohler reference 29.",
+      "evidence_url": "https://web.archive.org/web/19970808123032/http://www.faa.gov:80/AVR/AAM/FASB597/43.htm"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.164/sources.csv#mohler00_faa_cami_surveillance",
+      "report_id": "article:fsf-2000-mohler",
+      "basis": "Exact article title, issue and Table 2 match the publisher PDF.",
+      "evidence_url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6"
+    },
+    {
       "record_key": "2026-11-21-international-pressure-loss-tavily#c05521-00",
       "report_id": "pmid:3579812",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/3/article-p268.pdf",
@@ -16809,6 +16881,12 @@
   ],
   "studies": [
     {
+      "study_id": "nasa-jsc-backup-pressure-51",
+      "label": "NASA JSC 6.5-psia backup-pressure experiment, 51 subject-runs",
+      "period": "Exposure dates unreported (March 1990 report)",
+      "setting": "Experimental hypobaric chamber"
+    },
+    {
       "study_id": "canadian-forces-transport-pressure-loss-1963-84",
       "label": "Loss of Cabin Pressure in Canadian Forces Transport Aircraft, 1963–1984",
       "period": "1963–1984",
@@ -18484,6 +18562,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "nasa-jsc-backup-pressure-51",
+      "report_id": "ntrs:19900012405:ms5",
+      "role": "primary_outcome",
+      "locator": "Reference MS 5, printed pp. 17–18"
+    },
     {
       "study_id": "canadian-forces-transport-pressure-loss-1963-84",
       "report_id": "pmid:3579812",
@@ -21294,6 +21378,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "article:fsf-2000-mohler",
+      "right_report": "report:faa-shaw-cami-training",
+      "relationship": "same_cohort",
+      "evidence": "Mohler reproduces Shaw’s 4/15,412 trainee margin and other trainee reaction totals, and explicitly cites the FAA original. Counts are recorded under Shaw only.",
+      "evidence_url": "https://flightsafety.org/hf/hf_jan-feb00.pdf#page=6"
+    },
+    {
+      "left_report": "report:faa-shaw-cami-training",
+      "right_report": "report:dot-faa-am-90-12",
+      "relationship": "overlapping_surveillance",
+      "evidence": "Three trainee reports match on symptom, onset altitude and relief altitude or surface. The fourth trainee description has no date. The 12,759 students in Valdez are not added to the 15,412 in Shaw.",
+      "evidence_url": "https://web.archive.org/web/19970808123032/http://www.faa.gov:80/AVR/AAM/FASB597/43.htm"
+    },
+    {
+      "left_report": "ntrs:19900012405:ms5",
+      "right_report": "ntrs:19950010323",
+      "relationship": "possible_overlap",
+      "evidence": "Shared investigator, approximately 6.5 psia and three-hour simulated EVA test. Exposure identifiers are unavailable for both published totals.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+    },
+    {
+      "left_report": "ntrs:19900012405:ms5",
+      "right_report": "ntrs:20010020946",
+      "relationship": "possible_overlap",
+      "evidence": "The March 1990 study comes from the historic JSC research program. The later source compilation does not establish a mapping to the 51 runs.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+    },
     {
       "left_report": "pmid:1599378",
       "right_report": "pmid:1764015",
@@ -25741,6 +25853,9 @@
     }
   ],
   "report_titles": {
+    "ntrs:19900012405:ms5": "Selection of a Space Suit Emergency Backup Pressure by Analysis of the Rate-of-Onset of Decompression Sickness",
+    "report:faa-shaw-cami-training": "Training of Civilian Aircrews in Altitude Chambers",
+    "article:fsf-2000-mohler": "Quick Response by Pilots Remains Key to Surviving Cabin Decompression",
     "ntrs:20250004535": "NASA Exploration Atmosphere Tests 3 and 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
     "pmid:13575359": "Observations on Simulated 12-Second Decompressions to 32,000 Feet",
     "pmid:13723694": "Acute Hypoxia During Rapid Decompression and Emergency Descent in a Commercial Jet Aircraft",
