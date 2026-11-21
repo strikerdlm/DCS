@@ -3519,3 +3519,49 @@ def test_mcfadden_bends_abort_preserves_one_case_and_separate_stage_denominators
             ("dot:20771", "six-instrumented-subjects", 1, 6),
             ("dot:20771", "table-1-block-01-bends-abort", 1, None),
         ]
+
+
+def test_cessna_observer_case_uses_abort_time_and_keeps_observer_denominator_unknown(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,analysis_role,altitude,prebreathe_min
+            FROM publication_observation WHERE source_id='mcfadden79_cessna_observer'
+        """).fetchall() == [("observer_bends_as_reported", 1, None, "selected_cluster", None, None)]
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft,elapsed,elapsed_unit,elapsed_reference
+            FROM publication_case_milestone WHERE source_id='mcfadden79_cessna_observer'
+        """).fetchall() == [
+            ("flight_aborted_with_observer_bends", 30000, 32.0, "minutes", "after reaching 30,000 ft"),
+        ]
+        assert db.execute("""
+            SELECT reported_altitude_ft,reported_duration_min,gas_as_reported
+            FROM publication_chamber_case_altitude_stage WHERE source_id='mcfadden79_cessna_observer'
+        """).fetchall() == [(30000, 32.0, None)]
+        assert db.execute("""
+            SELECT report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='mcfadden79_cessna_observer'
+        """).fetchall() == [("faa:aac-119-77-8s", None)]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='mcfadden79_cessna_observer'
+        """).fetchall() == [("mcfadden66_mask_bends", "unresolved")]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE report_id IN ('faa:aac-119-77-8s','dot:21164','faa:am79-13-flight27','ntsb:aar7502')
+        """).fetchall() == [(1, None)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.reported_outcome.source_characterizations[0].source_descriptor'),
+                   json_extract(metadata_json,'$.reported_outcome.source_characterizations[1].source_descriptor')
+            FROM review.review_record WHERE source_key='cessna-chapter'
+        """).fetchall() == [("light", "moderate")]
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='national-airlines-flight27-1973' ORDER BY report_id
+        """).fetchall() == [("faa:am79-13-flight27",), ("ntsb:aar7502",)]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE record_key IN ('2026-11-20-rapid-decompression-o-history#W1597299230',
+                'legacy:data/chamber/v1.20/search_hits.csv#rd_v20_web_rcaf_iam:1')
+               OR source_key IN ('mask66-catalog','mask66-scan','methods67-catalog')
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [("dot:20789", 3), ("faa:am67-03", 2)]
