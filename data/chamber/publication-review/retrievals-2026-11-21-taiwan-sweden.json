@@ -1,0 +1,173 @@
+[
+  {
+    "id": "2026-11-21-taiwan-sweden-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located the Taiwan cloud-seeding report, the later Taiwan training abstract and Swedish sources. The exact 2024 conference abstract was verified from the publicly hosted proceedings.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_query": "\"低壓艙\" \"減壓症\" site:airitilibrary.com 低壓 訓練 低壓艙 病例",
+      "search_request_id": "ecd2c32b-87da-4734-8b93-615a9c3a456c",
+      "taiwan_and_sweden_extract_request_id": "5c77941f-7126-42e3-a8a0-b78abdc695da",
+      "taiwan_journal_extract_request_id": "d7fdd387-0873-4123-b572-992c8e305253",
+      "wen_reprint_extract_request_id": "d0b669c4-56bc-47e7-9a23-f90ae2364c4a"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-taiwan-sweden-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "The journal and aviation medical association returned matching versions of Wen's abstract. The Taiwan hypoxia journal abstract verified the original training date range and measurement unit.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "wen_journal_scrape_id": "01a2005d-756e-778f-a075-c391b84771e8",
+      "wen_society_scrape_id": "01a2005f-9bcf-77ca-aa17-ba7c3f980333",
+      "lee25_training_scrape_id": "01a2005b-8e6a-700d-b7b0-a4385380902b"
+    },
+    "records": [
+      {
+        "id": "wen-society",
+        "title": "The Flight Safety of Artificial Rain Operation",
+        "doi": "10.7011/JAMSRC.200206.0041",
+        "year": 2002,
+        "url": "https://www.amatw.org.tw/View.aspx?id=242&item=64",
+        "access": "Public republication of the author abstract",
+        "note": "The association posted this copy in 2013. The copy gives 1 June 2002 as the original issue date and the same four DCS cases. It supplies no additional event or denominator."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-taiwan-sweden-verified",
+    "date": "2026-11-21",
+    "provider": "Airiti, National Defense Medical Center and public Swedish historical sources",
+    "operation": "supplementary_source_verification",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the scope, date and counting basis of each observation. The Taiwan flight cases, the chamber exposure sample and the Swedish reports describe distinct observation types.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "wen",
+        "title": "The Flight Safety of Artificial Rain Operation",
+        "doi": "10.7011/JAMSRC.200206.0041",
+        "year": 2002,
+        "url": "https://www.airitilibrary.com/Article/Detail/16839595-200206-201012230032-201012230032-41-45",
+        "full_text_available": false,
+        "alternate_author_abstract_url": "https://www.amatw.org.tw/View.aspx?id=242&item=64",
+        "observation_context": {
+          "setting": "C-130 cloud-seeding flights",
+          "reported_period": "March to May (of the 2002 publication year)",
+          "mission_count": null,
+          "exposed_crew": null,
+          "follow_up": null
+        },
+        "observations": [
+          {
+            "id": "c130-cloud-seeding",
+            "group": "c130-cloud-seeding",
+            "endpoint": "altitude_dcs_as_reported",
+            "cases": 4,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Author abstract final paragraph",
+            "evidence_url": "https://www.airitilibrary.com/Article/Detail/16839595-200206-201012230032-201012230032-41-45",
+            "note": "Four source-reported DCS cases during several in-flight cloud-seeding missions. Number of missions, crew counts, unique people, individual diagnostic detail and follow-up are unreported.",
+            "study_id": "taiwan-c130-cloud-seeding-2002"
+          }
+        ]
+      },
+      {
+        "id": "zhang",
+        "title": "國軍空勤人員低壓艙訓練缺氧耐受力評估及分析",
+        "title_english": "The evaluation of aircrew hypoxia tolerance in hypobaric chamber training in Taiwan",
+        "year": 2024,
+        "url": "https://wwwndmc.ndmutsgh.edu.tw/files/web/191/file_up/10000/13260/%E7%B5%84%E5%90%88%201.pdf#page=151",
+        "pdf_sha256": "f62e220c51316e405ada20df39f5e301bf061f1a727154d1ad850b0655ac2fe7",
+        "locator": "Abstract B-I-001 (PDF p. 151), Methods and Results",
+        "presenting_author": "張壹婷",
+        "scope": {
+          "counting_unit": "person_exposure",
+          "reported_count": 3867,
+          "reported_unique_people": null,
+          "profile_altitude_ft": 25000,
+          "period_start": "2016-11",
+          "period_end": "2023-10",
+          "mean_tuc_min": 3.67,
+          "dcs_cases": null
+        },
+        "note": "Same training scope as the 2025 journal report. The conference gives 92.1% male and 7.9% female. The journal gives 92.2% and 7.8%, respectively. The percentages stay in their original reports and exact counts are unavailable. The 2025 Chinese abstract gives the same start and end months. Its English abstract abbreviates the years as 2017 to 2023."
+      },
+      {
+        "id": "balldin",
+        "title": "DCS Incidence and Reporting. Session Four Discussion #10: Swedish chamber training",
+        "year": 1992,
+        "url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=472",
+        "parent_pdf_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf",
+        "pdf_sha256": "2ea57a144b092eb3233fa44a84546cf4ce3a62958ec45b34b047a70f8e482b90",
+        "locator": "Printed p. 473 (PDF p. 472), Balldin response and reply to Harding",
+        "observation_context": {
+          "earlier_training_ceiling_m": 12000,
+          "later_training_ceiling_m": 9000,
+          "preoxygenation": "No for the shorter profile",
+          "exact_duration_min": null,
+          "exposures": null,
+          "change_date": null,
+          "all_symptomatic_dcs_cases": null
+        },
+        "observations": [
+          {
+            "id": "after-lower-training-ceiling",
+            "group": "after-lower-training-ceiling",
+            "endpoint": "hbo_treated_dcs_as_reported",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Session Four Discussion #10, printed p. 473 (PDF p. 472)",
+            "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=472",
+            "note": "Balldin reports zero DCS cases treated in a hyperbaric chamber after the training change and acknowledges possible unreported symptoms. No exposure denominator, treatment catchment or formal observation window is available."
+          }
+        ]
+      },
+      {
+        "id": "lund",
+        "title": "Kort resumé om tillkomst och nedläggning av Flyg och navalmedicinska laboratoriet vid Lunds Universitet",
+        "url": "https://ornhagen.se/old/2020%20Flyg%20och%20navalmedicin%20i%20Lund.pdf#page=2",
+        "parent_pdf_url": "https://ornhagen.se/old/2020%20Flyg%20och%20navalmedicin%20i%20Lund.pdf",
+        "pdf_sha256": "af4894a8dcff8371a4adb5a8b9204082733dd26ad04aa56e805890e70824cbd4",
+        "locator": "PDF p. 2, paragraph beginning Även övertryckskammaren",
+        "full_text_available": true,
+        "underlying_source": "Summary of Fysiologi i Lund under 100 år (Lund, 1997)",
+        "observation_context": {
+          "exact_altitude": null,
+          "onset_min": null,
+          "treatment": "Urgent transfer to Karlskrona naval station and recompression",
+          "immediate_outcome": "Survived according to the historical report",
+          "later_follow_up": null,
+          "case_overlap": "Unresolved with the 1954 Swedish chamber case described by Höök (PMID 13563380). The reports supply no matchable date or shared treatment profile."
+        },
+        "observations": [
+          {
+            "id": "routine-hypobaric-test-case",
+            "group": "routine-hypobaric-test-case",
+            "endpoint": "life_threatening_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "PDF p. 2, paragraph on the origin of the hyperbaric chamber",
+            "evidence_url": "https://ornhagen.se/old/2020%20Flyg%20och%20navalmedicin%20i%20Lund.pdf#page=2",
+            "note": "One aviator developed life-threatening DCS on a routine chamber test. The historical account supplies no underlying chart, exact date, altitude, timing or long-term outcome."
+          }
+        ]
+      }
+    ]
+  }
+]

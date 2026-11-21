@@ -4874,6 +4874,48 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_taiwan_and_sweden_join_only_matching_source_observations(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT o.source_id,o.analysis_role,o.numerator,o.denominator,r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (r.report_id,r.endpoint,r.reported_group)=(l.report_id,o.endpoint,o.stratum)
+            WHERE o.source_id IN
+              ('wen02_taiwan_cloud_seeding','balldin92_swedish_treatment','lund_history_chamber_case')
+            ORDER BY o.source_id
+        """).fetchall() == [
+            ("balldin92_swedish_treatment", "descriptive", 0, None, 0, None),
+            ("lund_history_chamber_case", "overlap_hold", 1, None, 1, None),
+            ("wen02_taiwan_cloud_seeding", "selected_cluster", 4, None, 4, None),
+        ]
+        assert db.execute("""
+            SELECT s.trial_count,s.participant_count,count(o.source_id),l.report_id
+            FROM publication_chamber_trial_scope s JOIN model_report_link l USING(source_id)
+            LEFT JOIN publication_observation o USING(source_id)
+            WHERE s.source_id='lee25_taiwan_hypoxia_tolerance'
+            GROUP BY s.trial_count,s.participant_count,l.report_id
+        """).fetchall() == [(3867, None, 0, "doi:10.7011/jamsroc.202512_39(1_2).0002")]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='abstract:ndmc-military-medicine-2024-b-i-001'
+        """).fetchall() == [("doi:10.7011/jamsroc.202512_39(1_2).0002", "same_exposure_sample")]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='document:lund-aviation-laboratory-history'
+        """).fetchall() == [("pmid:13563380", "possible_case_overlap")]
+        assert db.execute("""
+            SELECT o.related_source,o.relationship FROM publication_overlap o
+            WHERE o.source_id IN ('lee25_taiwan_hypoxia_tolerance','lund_history_chamber_case')
+            ORDER BY o.source_id
+        """).fetchall() == [("lee21_taiwan_training", "unresolved"), ("hook58_swedish_chamber", "unresolved")]
+        assert db.execute("""
+            SELECT case_id
+            FROM historical_case_catalog
+            WHERE source_id IN ('wen02_taiwan_cloud_seeding','lund_history_chamber_case','hook58_swedish_chamber')
+        """).fetchall() == [("hook58_swedish_chamber:swedish-1954-chamber-index",)]
+
+
 def test_polaris_and_philomel_reuse_report_identity_without_pooling_outcomes(release):
     with connect_pair(release) as db:
         assert db.execute("""
