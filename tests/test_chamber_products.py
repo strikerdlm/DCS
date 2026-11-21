@@ -5116,3 +5116,51 @@ def test_lee_hay_outcome_checkpoints_link_to_existing_terminal_totals(release):
                 '2026-11-21-lee-hay-outcome-timing-verified#lee_hay01'
             )
         """).fetchone() == (1, 4)
+
+
+def test_rapid_decompression_zeros_are_limited_to_the_verified_crossover(release):
+    with connect_pair(release) as db:
+        run_id = "2026-11-21-brief-rapid-decompression-verified"
+        expected = [
+            (arm, endpoint, 0, 8, "person_exposure", "overlap_hold")
+            for arm in ("fraser-combat-edge", "fraser-tlss")
+            for endpoint in ("dcs_symptoms_as_reported", "doppler_any_vge_as_reported")
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='fraser94_rapid_decompression'
+              AND altitude=60000 AND altitude_unit='ft' AND prebreathe_min IS NULL
+            ORDER BY stratum,endpoint
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation WHERE run_id=? ORDER BY reported_group,endpoint
+        """, (run_id,)).fetchall() == expected
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id IN ('fraser94_rapid_decompression','fraser92_rapid_abstract') ORDER BY stratum
+        """).fetchall() == [
+            ("fraser-combat-edge", 8, 8), ("fraser-familiarization", None, 8),
+            ("fraser-preliminary-abstract", None, 6), ("fraser-randomized-comparison", 16, 8),
+            ("fraser-tlss", 8, 8),
+        ]
+        assert db.execute("""
+            SELECT json_type(metadata_json,'$.dcs_follow_up_min'),
+                   json_extract(metadata_json,'$.vge_follow_up_min'),
+                   json_extract(metadata_json,'$.observations[0].prebreathe_min_lower_bound')
+            FROM review.review_record WHERE run_id=? AND report_id='pmid:8185549'
+        """, (run_id,)).fetchone() == ("null", 120, 60)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='asma:1992:524' AND right_report='pmid:8185549'
+        """).fetchone() == ("likely_overlap",)
+        assert db.execute("""
+            SELECT source_id,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id IN ('bancroft64_rapid_decompression','connolly13_rapid_decompression') ORDER BY source_id
+        """).fetchall() == [("bancroft64_rapid_decompression", 7, 5), ("connolly13_rapid_decompression", 12, 6)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id IN (
+                'fraser92_rapid_abstract','bancroft64_rapid_decompression',
+                'connolly13_rapid_decompression','gradwell93_thesis'
+            )
+        """).fetchone() == (0,)

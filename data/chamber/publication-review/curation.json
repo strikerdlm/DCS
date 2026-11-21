@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-brief-rapid-decompression-verified#fraser94_rapid_decompression",
+      "report_id": "pmid:8185549",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/3/article-p209.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.152/sources.csv#fraser94_rapid_decompression",
+      "report_id": "pmid:8185549",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/3/article-p209.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-21-brief-rapid-decompression-verified#fraser92_rapid_abstract",
+      "report_id": "asma:1992:524",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19950010345/downloads/19950010345.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.152/sources.csv#fraser92_rapid_abstract",
+      "report_id": "asma:1992:524",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19950010345/downloads/19950010345.pdf"
+    },
+    {
+      "record_key": "2026-11-21-brief-rapid-decompression-verified#bancroft64_rapid_decompression",
+      "report_id": "pmid:14131312",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/35/3/article-p203.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.152/sources.csv#bancroft64_rapid_decompression",
+      "report_id": "pmid:14131312",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/35/3/article-p203.pdf"
+    },
+    {
+      "record_key": "2026-11-21-brief-rapid-decompression-verified#connolly13_rapid_decompression",
+      "report_id": "doi:10.3357/asem.3533.2013",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/6/article-p551.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.152/sources.csv#connolly13_rapid_decompression",
+      "report_id": "doi:10.3357/asem.3533.2013",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/6/article-p551.pdf"
+    },
+    {
+      "record_key": "2026-11-21-brief-rapid-decompression-verified#gradwell93_thesis",
+      "report_id": "thesis:gradwell:1993:positive-pressure-breathing",
+      "basis": "Verified title, authors and publication or report identifier.",
+      "evidence_url": "https://kclpure.kcl.ac.uk/portal/en/persons/david-gradwell/"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.14/sources.csv#lee_hay01",
       "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
       "basis": "The extracted source has the verified authors, article title and DTIC accession ADP011091.",
@@ -15273,6 +15327,24 @@
   ],
   "studies": [
     {
+      "study_id": "dciem-brief-rapid-decompression-fraser",
+      "label": "DCIEM rapid decompression garment crossover",
+      "period": "Reported 1992 and 1994.",
+      "setting": "Eight people in the later report made 16 experimental chamber flights. The earlier six-person account likely overlaps."
+    },
+    {
+      "study_id": "brooks-bancroft-rapid-decompression-1964",
+      "label": "USAFSAM Bancroft and Simmons rapid decompressions",
+      "period": "Published 1964.",
+      "setting": "Five people made seven decompressions under standard oxygen-mask conditions. The source supplies hypoxia findings and no DCS risk set."
+    },
+    {
+      "study_id": "qinetiq-connolly-rapid-decompression-2013",
+      "label": "QinetiQ rapid decompression regulator crossover",
+      "period": "Published 2013.",
+      "setting": "Six people made 12 chamber flights. The reported clinical finding concerns hypoxia."
+    },
+    {
       "study_id": "lee-hay-dera-sustained-altitude-2001",
       "label": "DERA sustained hypobaric exposure comparisons",
       "period": "Published 2001.",
@@ -16792,6 +16864,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "dciem-brief-rapid-decompression-fraser",
+      "report_id": "pmid:8185549",
+      "role": "original_chamber_outcomes",
+      "locator": "Subjects p. 209; Procedures and Results p. 210 (PDF p. 2)"
+    },
+    {
+      "study_id": "dciem-brief-rapid-decompression-fraser",
+      "report_id": "asma:1992:524",
+      "role": "likely_overlapping_preliminary_report",
+      "locator": "AsMA abstract 524, Methods; NASA NTRS 19950010345"
+    },
+    {
+      "study_id": "brooks-bancroft-rapid-decompression-1964",
+      "report_id": "pmid:14131312",
+      "role": "non_dcs_chamber_scope",
+      "locator": "Methods and summary, pp. 204–205 and 211"
+    },
+    {
+      "study_id": "qinetiq-connolly-rapid-decompression-2013",
+      "report_id": "doi:10.3357/asem.3533.2013",
+      "role": "non_dcs_chamber_scope",
+      "locator": "Abstract p. 551; Methods p. 552"
+    },
     {
       "study_id": "lee-hay-dera-sustained-altitude-2001",
       "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
@@ -19422,6 +19518,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "asma:1992:524",
+      "right_report": "pmid:8185549",
+      "relationship": "likely_overlap",
+      "evidence": "The same DCIEM investigators describe the two named garments and brief exposure at 60,000 ft. The abstract has six people and the journal article has eight. Participant identifiers are absent. Treat the abstracts as likely overlapping reports without adding their exposure or participant counts.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19950010345/downloads/19950010345.pdf"
+    },
     {
       "left_report": "isbn:9789572950715:fang-taiwan-aviation-medicine",
       "right_report": "isbn:9789572950715",
@@ -23736,6 +23839,11 @@
     }
   ],
   "report_titles": {
+    "pmid:8185549": "Cardiovascular responses with standard and extended bladder coverage G-suits during rapid decompression",
+    "asma:1992:524": "The effect of increased G-suit coverage on the cardiovascular effects of positive pressure breathing at 60,000 ft",
+    "pmid:14131312": "Rapid decompressions up to 60,000 feet wearing the standard oxygen mask",
+    "doi:10.3357/asem.3533.2013": "Lung volumes, pulmonary ventilation, and hypoxia following rapid decompression to 60,000 ft (18,288 m)",
+    "thesis:gradwell:1993:positive-pressure-breathing": "Human physiological responses to positive pressure breathing for high altitude protection",
     "isbn:9789572950715:fang-taiwan-aviation-medicine": "台灣航空醫學現況與展望",
     "isbn:9789572950715": "懷時論集─航空生理一代宗師方懷時院士",
     "drks:00016337": "Investigation of a new cockpit oxygen mask with improved wearing comfort for long-term use in civil aircraft",

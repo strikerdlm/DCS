@@ -1,0 +1,268 @@
+[
+  {
+    "id": "2026-11-21-brief-rapid-decompression-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_rapid_decompression_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "attempts": [
+        {
+          "id": "01a1ff89-0495-7387-9b18-79526600b91c",
+          "query": "hypobaric rapid decompression \"135\" Gradwell \"decompression illness\" human study 1993 France UK",
+          "returned": 1
+        },
+        {
+          "id": "01a1ff89-04ba-71ac-8c61-80610d1e2aec",
+          "query": "\"Fraser\" \"60,000 ft\" \"decompression illness\" altitude chamber eight subjects 1994 Gradwell",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff89-d9ef-77bc-8a7f-c1605ab9284a",
+          "query": "\"Human physiological responses to positive pressure breathing for high altitude protection\" Gradwell thesis PDF",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff89-d98e-766f-9930-59c665b1212c",
+          "query": "\"Cardiovascular responses with standard and extended bladder coverage G-suits\" Fraser Goodman 1994",
+          "returned": 0
+        },
+        {
+          "id": "01a1ff8c-2194-728f-959c-488d206091b0",
+          "query": "\"Cardiovascular responses with TLSS, ATAGS, and EAGLE\" Fraser Ackles",
+          "returned": 6
+        },
+        {
+          "id": "01a1ff8c-218c-75b4-84f8-c928a61db6ab",
+          "query": "\"NAWCADWAR-95034\" Fraser rapid decompression report",
+          "returned": 1
+        }
+      ],
+      "publisher_pdf_scrape": {
+        "id": "01a1ff8a-2b82-7390-ad8f-c279190de96a",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/3/article-p209.pdf",
+        "status": "no_article_text"
+      }
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Located references to the Gradwell thesis and DCIEM follow-up. The Fraser publisher PDF was retrieved separately.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-brief-rapid-decompression-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_rapid_decompression_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "hypobaric rapid decompression \"135\" Gradwell \"decompression illness\" human study 1993 France UK",
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The provider spending limit prevented retrieval.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-brief-rapid-decompression-verified",
+    "date": "2026-11-21",
+    "provider": "AsMA publisher, NASA NTRS and King’s College London",
+    "operation": "verify_primary_chamber_outcomes_and_comparator_scope",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the Fraser journal zero outcomes and distinguished the earlier abstract, equipment studies, and unretrieved thesis.",
+    "records": [
+      {
+        "id": "fraser94_rapid_decompression",
+        "title": "Cardiovascular responses with standard and extended bladder coverage G-suits during rapid decompression",
+        "authors": [
+          "W. D. Fraser",
+          "L. S. Goodman",
+          "K. N. Ackles",
+          "D. Mohn",
+          "M. Pecaric"
+        ],
+        "year": 1994,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/3/article-p209.pdf#page=2",
+        "pmid": "8185549",
+        "identifier": "PMID:8185549",
+        "country": "Canada",
+        "access": "full_text",
+        "source_sha256": "d1fecb5f09669357c04c7f83e191f5014dcaf12b130dccc603fa52464f4ca015",
+        "locator": "Subjects p. 209; Procedures and Results p. 210 (PDF p. 2)",
+        "note": "Eight participants were tested in both garment conditions on separate days at least 48 h apart. The authors report no DCS symptoms and no Doppler VGE during the two test series. Practice runs are outside the measured comparison.",
+        "study_id": "dciem-brief-rapid-decompression-fraser",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/3/article-p209.pdf#page=2",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "fraser-combat-edge-dcs_symptoms_as_reported",
+            "group": "fraser-combat-edge",
+            "study_id": "dciem-brief-rapid-decompression-fraser",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 60000,
+            "prebreathe_min_lower_bound": 60,
+            "planned_peak_duration_max_min": 3,
+            "protocol": "Combat Edge condition. Randomized crossover, seated under positive-pressure oxygen. At least 60 min breathing 100% oxygen at ground level. After a 22,500-ft control, a brief excursion to 35,000 ft and return to 22,500 ft preceded rapid decompression to 60,000 ft in less than 0.6 s. Planned peak dwell up to 3 min. The same eight people underwent both conditions.",
+            "outcome_window": "During the published study observation. Fixed clinical follow-up was not specified.",
+            "locator": "Subjects p. 209; Procedures and Results p. 210 (PDF p. 2)",
+            "note": "The zero applies to the published test series. Exact clinical surveillance duration and delayed follow-up are unspecified."
+          },
+          {
+            "id": "fraser-combat-edge-doppler_any_vge_as_reported",
+            "group": "fraser-combat-edge",
+            "study_id": "dciem-brief-rapid-decompression-fraser",
+            "endpoint": "doppler_any_vge_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 60000,
+            "prebreathe_min_lower_bound": 60,
+            "planned_peak_duration_max_min": 3,
+            "protocol": "Combat Edge condition. Randomized crossover, seated under positive-pressure oxygen. At least 60 min breathing 100% oxygen at ground level. After a 22,500-ft control, a brief excursion to 35,000 ft and return to 22,500 ft preceded rapid decompression to 60,000 ft in less than 0.6 s. Planned peak dwell up to 3 min. The same eight people underwent both conditions.",
+            "outcome_window": "Doppler monitoring for 2 h following the decompression.",
+            "locator": "Subjects p. 209; Procedures and Results p. 210 (PDF p. 2)",
+            "note": "The zero applies to Doppler monitoring after the study decompressions. Exam intervals and longer follow-up are unspecified."
+          },
+          {
+            "id": "fraser-tlss-dcs_symptoms_as_reported",
+            "group": "fraser-tlss",
+            "study_id": "dciem-brief-rapid-decompression-fraser",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 60000,
+            "prebreathe_min_lower_bound": 60,
+            "planned_peak_duration_max_min": 3,
+            "protocol": "Tactical Life Support System condition. Randomized crossover, seated under positive-pressure oxygen. At least 60 min breathing 100% oxygen at ground level. After a 22,500-ft control, a brief excursion to 35,000 ft and return to 22,500 ft preceded rapid decompression to 60,000 ft in less than 0.6 s. Planned peak dwell up to 3 min. The same eight people underwent both conditions.",
+            "outcome_window": "During the published study observation. Fixed clinical follow-up was not specified.",
+            "locator": "Subjects p. 209; Procedures and Results p. 210 (PDF p. 2)",
+            "note": "The zero applies to the published test series. Exact clinical surveillance duration and delayed follow-up are unspecified."
+          },
+          {
+            "id": "fraser-tlss-doppler_any_vge_as_reported",
+            "group": "fraser-tlss",
+            "study_id": "dciem-brief-rapid-decompression-fraser",
+            "endpoint": "doppler_any_vge_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "target_altitude_ft": 60000,
+            "prebreathe_min_lower_bound": 60,
+            "planned_peak_duration_max_min": 3,
+            "protocol": "Tactical Life Support System condition. Randomized crossover, seated under positive-pressure oxygen. At least 60 min breathing 100% oxygen at ground level. After a 22,500-ft control, a brief excursion to 35,000 ft and return to 22,500 ft preceded rapid decompression to 60,000 ft in less than 0.6 s. Planned peak dwell up to 3 min. The same eight people underwent both conditions.",
+            "outcome_window": "Doppler monitoring for 2 h following the decompression.",
+            "locator": "Subjects p. 209; Procedures and Results p. 210 (PDF p. 2)",
+            "note": "The zero applies to Doppler monitoring after the study decompressions. Exam intervals and longer follow-up are unspecified."
+          }
+        ],
+        "subjects": 8,
+        "analysed_exposures": 16,
+        "additional_familiarization_exposures": null,
+        "dcs_follow_up_min": null,
+        "vge_follow_up_min": 120
+      },
+      {
+        "id": "fraser92_rapid_abstract",
+        "title": "The effect of increased G-suit coverage on the cardiovascular effects of positive pressure breathing at 60,000 ft",
+        "authors": [
+          "W. D. Fraser",
+          "L. S. Goodman",
+          "K. N. Ackles"
+        ],
+        "year": 1992,
+        "url": "https://ntrs.nasa.gov/api/citations/19950010345/downloads/19950010345.pdf",
+        "identifier": "ASMA:1992:524",
+        "country": "Canada",
+        "access": "primary_abstract",
+        "locator": "AsMA abstract 524, Methods; NASA NTRS 19950010345",
+        "note": "Preliminary report with six participants and the same two garments and 60,000-ft profile. Participant linkage to the later eight-person article is unavailable. The abstract supplies no DCS or VGE count.",
+        "study_id": "dciem-brief-rapid-decompression-fraser",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19950010345/downloads/19950010345.pdf",
+        "clinical_dcs_count": null,
+        "vge_count": null,
+        "scope": {
+          "participants": 6,
+          "person_exposures": null
+        }
+      },
+      {
+        "id": "bancroft64_rapid_decompression",
+        "title": "Rapid decompressions up to 60,000 feet wearing the standard oxygen mask",
+        "authors": [
+          "R. W. Bancroft",
+          "D. G. Simmons"
+        ],
+        "year": 1964,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/35/3/article-p203.pdf",
+        "pmid": "14131312",
+        "identifier": "PMID:14131312",
+        "country": "United States",
+        "access": "full_text",
+        "source_sha256": "b7eed33f0bc56bd846b2ff71b215a4a10e51da0d95eb4dfdcbcffd230753e057",
+        "locator": "Methods and summary, pp. 204–205 and 211",
+        "note": "The Brooks report describes seven rapid decompressions above 50,000 ft in five people. It reports acute oxygenation and hypoxia effects. Systematic DCS ascertainment and any DCS numerator are unavailable for this scope.",
+        "study_id": "brooks-bancroft-rapid-decompression-1964",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/35/3/article-p203.pdf",
+        "clinical_dcs_count": null,
+        "vge_count": null,
+        "scope": {
+          "participants": 5,
+          "person_exposures": 7
+        }
+      },
+      {
+        "id": "connolly13_rapid_decompression",
+        "title": "Lung volumes, pulmonary ventilation, and hypoxia following rapid decompression to 60,000 ft (18,288 m)",
+        "authors": [
+          "D. M. Connolly",
+          "T. J. D’Oyly",
+          "A. S. McGown",
+          "V. M. Lee"
+        ],
+        "year": 2013,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/6/article-p551.pdf",
+        "doi": "10.3357/asem.3533.2013",
+        "identifier": "DOI:10.3357/ASEM.3533.2013",
+        "country": "United Kingdom",
+        "access": "full_text",
+        "source_sha256": "b633cfe22a9b18bc4dc1c988c38070569d796878c19f7ce5bf555a548c5d780b",
+        "locator": "Abstract p. 551; Methods p. 552",
+        "note": "Six people made 12 rapid decompressions with two regulator conditions. One person developed severe hypoxia. The authors discuss spacing runs to limit DCS risk. A systematic DCS outcome tally and VGE assessments are unavailable.",
+        "study_id": "qinetiq-connolly-rapid-decompression-2013",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/6/article-p551.pdf",
+        "clinical_dcs_count": null,
+        "vge_count": null,
+        "scope": {
+          "participants": 6,
+          "person_exposures": 12
+        }
+      },
+      {
+        "id": "gradwell93_thesis",
+        "title": "Human physiological responses to positive pressure breathing for high altitude protection",
+        "authors": [
+          "David P. Gradwell"
+        ],
+        "year": 1993,
+        "url": "https://kclpure.kcl.ac.uk/portal/en/persons/david-gradwell/",
+        "locator": "King’s College London staff profile, Education; Lee and Hay discussion and bibliography",
+        "note": "Thesis identity verified. Lee and Hay describe 135 rapid decompressions with no reported DCI in their secondary discussion. The thesis, risk sets and surveillance window remain unverified. The secondary zero was kept out of the outcome tables.",
+        "secondary_account": {
+          "url": "https://diving-rov-specialists.com/index_htm_files/scient-c_628-altitude-deco-illness.pdf",
+          "reported_trials": 135,
+          "reported_dci_cases": 0,
+          "verified_primary_outcomes": null
+        }
+      }
+    ]
+  }
+]
