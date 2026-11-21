@@ -8,6 +8,54 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_raf_sortie_year_survey_and_army_case_keep_published_counting_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,analysis_role,numerator,denominator,denominator_unit
+            FROM publication_observation
+            WHERE source_id IN ('posselt19_raf_sortie','hodkinson19_raf_revision',
+                                'connolly24_raf_mri','mciver24_raf_dispatcher')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("2017-dispatcher-series", "overlap_hold", 3, None, None),
+            ("2017-neurological-component", "case_conditional", 2, 3, "dcs_case"),
+            ("2017-respiratory-component", "case_conditional", 1, 3, "dcs_case"),
+            ("affected-sortie", "selected_cluster", 2, None, None),
+            ("c130-dispatcher-case", "overlap_hold", 1, None, None),
+            ("phase2-research-mri-subgroup", "overlapping_margin", 0, 6, "person"),
+        ]
+        assert db.execute("""
+            SELECT respondent_count,altitude_cutoff_ft,COUNT(*),
+                   COUNT(above_item_denominator),COUNT(below_item_denominator)
+            FROM publication_altitude_symptom_survey
+            JOIN publication_altitude_symptom_survey_item USING(source_id)
+            GROUP BY source_id
+        """).fetchall() == [(64, 16000, 9, 0, 0)]
+        assert db.execute("""
+            SELECT reported_group,reported_rate_percent,cases,denominator
+            FROM review.review_search_observation WHERE endpoint='survey_visual_disturbance'
+            ORDER BY reported_group
+        """).fetchall() == [("above-16000-ft", 10.2, None, None), ("below-16000-ft", 1.75, None, None)]
+        assert db.execute("""
+            SELECT report_id,onset_min,first_assessment_min FROM shared_case_evidence
+            WHERE source_id='belmonte24_army_chamber'
+        """).fetchall() == [("abstract:asma-2024-belmonte-292", None, None)]
+        assert db.execute("""
+            SELECT COUNT(*),COUNT(elapsed) FROM publication_case_milestone
+            WHERE source_id='belmonte24_army_chamber'
+        """).fetchone() == (5, 0)
+        assert db.execute("""
+            SELECT COUNT(*),COUNT(DISTINCT report_id),MIN(report_id) FROM review.review_record
+            WHERE record_key='legacy:data/chamber/v1.6/sources.csv#connolly23'
+               OR record_key GLOB 'legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#connolly23:*'
+        """).fetchone() == (6, 1, "pmid:37587625")
+        assert db.execute("""
+            SELECT COUNT(*) FROM review.review_report_relation
+            WHERE right_report='abstract:asma-2019-posselt-100'
+              AND relationship GLOB 'possible_overlap_*'
+        """).fetchone() == (3,)
+
+
 def test_japanese_training_reports_and_flight_case_preserve_risk_sets(release):
     with connect_pair(release) as db:
         assert db.execute("""
@@ -1153,7 +1201,7 @@ def test_u2_case_series_rows_reconcile_footnotes_and_preserve_case_overlap(relea
             SELECT count(*),count(DISTINCT report_id)
             FROM review.review_record WHERE report_id='pmid:21748904'
         """).fetchone() == (7, 1)
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (120,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (121,)
 
 
 def test_chamber_training_histories_use_original_peak_and_preserve_denominator(release):
@@ -1180,7 +1228,7 @@ def test_chamber_training_histories_use_original_peak_and_preserve_denominator(r
             FROM publication_source s JOIN model_report_link l USING(source_id)
             WHERE s.source_id='dosel01_sazel_chamber'
         """).fetchone() == ("report:dtic-adp011075", "full_text")
-        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (120,)
+        assert db.execute("SELECT count(*) FROM historical_case_catalog").fetchone() == (121,)
 
 
 def test_halo_nested_counts_and_usaf_timing_margin_remain_source_specific(release):
@@ -1803,7 +1851,7 @@ def test_separate_products_join_without_duplicate_cases_or_strata(release):
             SELECT count(*), count(DISTINCT c.case_id), count(r.record_key)
             FROM historical_case_catalog c LEFT JOIN review.review_record r
             ON (r.record_key,r.report_id)=(c.record_key,c.report_id)
-        """).fetchone() == (120, 120, 120)
+        """).fetchone() == (121, 121, 121)
         assert db.execute("""
             SELECT source_id,onset_min,first_assessment_min,recurrence_report_day,recurrence_free_followup_min
             FROM shared_case_evidence

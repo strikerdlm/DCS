@@ -1,0 +1,556 @@
+[
+  {
+    "id": "2026-11-20-raf-dispatcher-and-army-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_operational_overlap_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "RAF parachutist dispatcher two severe decompression sickness 2017 Bonnie Posselt Peter Hodkinson Nicholas Green safety investigation type II Ian McIver case",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-raf-dispatcher-and-army-firecrawl-title",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_exact_title_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Medical lessons from a safety investigation\" Posselt Hodkinson decompression \"two\" 2019 RAF parachute",
+      "limit": 6
+    },
+    "reported_total": 0,
+    "status": "observed",
+    "note": "The exact-title search returned no ranked hits.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-raf-dispatcher-and-army-firecrawl-issue",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_abstract_bundle_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/3/article-p187.pdf#page=3"
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Retrieved the original March 2019 Tuesday abstracts in the publisher PDF. Source counts and page locations checked against the locally downloaded PDF.",
+    "records": [
+      {
+        "id": "asma-2019-tuesday-bundle",
+        "title": "Meeting Abstracts 95-207 Tuesday",
+        "year": 2019,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/3/article-p187.pdf",
+        "pmid": "30880668",
+        "locator": "Bundle pp. 187–226; relevant abstracts at pp. 189–190",
+        "sha256": "c4fa35f061795be62e4dec960dda81a5e5594ea25f6edff2954542e369fa608a"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-raf-dispatcher-and-army-verified",
+    "date": "2026-11-20",
+    "provider": "AsMA, King's Research Portal and PubMed",
+    "operation": "supplementary_original_raf_and_army_report_verification",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scope": "Primary case abstracts, RAF investigation summaries, journal articles, and related bibliographic lead."
+    },
+    "reported_total": 9,
+    "status": "observed",
+    "note": "Verified original case content from publisher PDFs and checked outcome and risk-set scope. The related BMJ letter is metadata only.",
+    "records": [
+      {
+        "id": "posselt-2019-100",
+        "title": "Medical lessons from a safety investigation following two cases of decompression sickness during high altitude parachuting",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/3/article-p187.pdf#page=3",
+        "year": 2019,
+        "identifier": "AsMA:2019:100",
+        "access": "primary_abstract",
+        "locator": "Abstract 100, printed p. 189 (PDF p. 3)",
+        "sha256": "c4fa35f061795be62e4dec960dda81a5e5594ea25f6edff2954542e369fa608a",
+        "note": "RAF investigators report two cases from one sortie despite compliance with then-current preoxygenation guidance. Connolly 2023 supplies 2017, dispatcher roles and 25,000 ft. The RAF investigation report and individual case linkage are unavailable.",
+        "observations": [
+          {
+            "id": "affected-sortie",
+            "group": "affected-sortie",
+            "endpoint": "severe_dcs_as_reported",
+            "study_id": "raf-dispatchers-affected-2017-sortie",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": null,
+            "outcome_window": "Author describes cases during the same sortie. Exact symptom onset and follow-up unavailable.",
+            "locator": "Abstract 100, printed p. 189 (PDF p. 3); abstract 102 pp. 189–190; Connolly 2023 Introduction p. 666",
+            "note": "Two cases recorded once for the sortie. The later paper reports three cases across 2017. Individual membership of the two reports remains unverified.",
+            "case_role": "selected_cluster"
+          }
+        ]
+      },
+      {
+        "id": "hodkinson-2019-102",
+        "title": "Evidence based revision of pre-oxygenation and altitude exposure guidelines for high altitude parachuting",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/3/article-p187.pdf#page=3",
+        "year": 2019,
+        "identifier": "AsMA:2019:102",
+        "access": "primary_abstract",
+        "locator": "Abstract 102, printed pp. 189–190 (PDF pp. 3–4)",
+        "sha256": "c4fa35f061795be62e4dec960dda81a5e5594ea25f6edff2954542e369fa608a",
+        "note": "Policy update after the same two-case investigation. Calls the cases severe. ADRAC outputs discussed in the abstract are modeled estimates.",
+        "numbers_are_modeled": true
+      },
+      {
+        "id": "rollo-2019-103",
+        "title": "Survey of DCS-like symptoms in high altitude parachuting populations",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/3/article-p187.pdf#page=4",
+        "year": 2019,
+        "identifier": "AsMA:2019:103",
+        "access": "primary_abstract",
+        "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+        "sha256": "c4fa35f061795be62e4dec960dda81a5e5594ea25f6edff2954542e369fa608a",
+        "note": "The retrospective operational questionnaire enrolled 64 exposed respondents. Two reported DCS cases were excluded from the symptom summary. The abstract supplies neither a count of exposures nor item-level survey denominators.",
+        "respondent_count": 64,
+        "altitude_cutoff_ft": 16000,
+        "observations": [
+          {
+            "id": "questionnaire-dcs-exclusions",
+            "group": "questionnaire-dcs-exclusions",
+            "endpoint": "self_reported_dcs_cases_excluded",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": null,
+            "outcome_window": "Recall period and exposure-based follow-up are unavailable.",
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Two prior reported DCS cases were excluded from the symptom summary. The full 64 respondents are not assigned as a denominator for this tally. Possible overlap with the investigated sortie is unresolved.",
+            "case_role": "overlap_hold"
+          },
+          {
+            "id": "headache-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_headache",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 20,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "headache-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_headache",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 10.5,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "altered-sensation-or-tingling-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_altered_sensation_or_tingling",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 19,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "altered-sensation-or-tingling-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_altered_sensation_or_tingling",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 7,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "inappropriate-fatigue-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_inappropriate_fatigue",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 16,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "inappropriate-fatigue-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_inappropriate_fatigue",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 5.3,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "skin-itch-and-rash-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_skin_itch_and_rash",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 15,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "skin-itch-and-rash-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_skin_itch_and_rash",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 5.3,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "dizziness-and-disorientation-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_dizziness_and_disorientation",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 15,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "dizziness-and-disorientation-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_dizziness_and_disorientation",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 3.5,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "lower-limb-pain-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_lower_limb_pain",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 13.3,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "lower-limb-pain-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_lower_limb_pain",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 1.8,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "nausea-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_nausea",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 11.9,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "nausea-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_nausea",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 8.8,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "visual-disturbance-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_visual_disturbance",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 10.2,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "visual-disturbance-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_visual_disturbance",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 1.75,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "confusion-slowed-thought-or-forgetfulness-above",
+            "group": "above-16000-ft",
+            "endpoint": "survey_confusion_slowed_thought_or_forgetfulness",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 8.3,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          },
+          {
+            "id": "confusion-slowed-thought-or-forgetfulness-below",
+            "group": "below-16000-ft",
+            "endpoint": "survey_confusion_slowed_thought_or_forgetfulness",
+            "study_id": "raf-high-altitude-dcs-like-symptom-survey",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 0,
+            "locator": "Abstract 103, printed p. 190 (PDF p. 4)",
+            "note": "Printed retrospective symptom frequency. No item-level denominator or DCS adjudication.",
+            "case_role": "source_reported_symptom_percentage"
+          }
+        ]
+      },
+      {
+        "id": "connolly-2024-mri",
+        "title": "Brain Magnetic Resonance Imaging Responses to Nonhypoxic Hypobaric Decompression",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/10/article-p733.pdf",
+        "year": 2024,
+        "identifier": "PMID:39431704; DOI:10.3357/AMHP.6445.2024",
+        "access": "full_text",
+        "locator": "Introduction and Methods p. 734, Results pp. 735–736 and Discussion p. 737",
+        "sha256": "6fa5bb750b64306bfffb7ede2d162aa0a4237273d940a605a3f5525c7a9d1cb1",
+        "note": "The Introduction describes three severe UK military dispatcher cases in 2017. The MRI component is a nested subgroup of six from the already-indexed repeated chamber study, with a day-after imaging endpoint.",
+        "pmid": "39431704",
+        "doi": "10.3357/AMHP.6445.2024",
+        "nested_subgroup": {
+          "participants": 6,
+          "parent_study": "pmid:37587625",
+          "parent_phase": "Phase 2",
+          "left_heart_bubbles": "None reported. A separate count of cardiac assessments is unavailable.",
+          "no_venous_gas_emboli_people": 2,
+          "scope": "Two younger MRI participants, Discussion p. 737."
+        },
+        "observations": [
+          {
+            "id": "2017-dispatcher-series",
+            "group": "2017-dispatcher-series",
+            "endpoint": "severe_dcs_as_reported",
+            "study_id": "raf-dispatchers-2017-severe-overview",
+            "cases": 3,
+            "denominator": null,
+            "denominator_unit": null,
+            "outcome_window": "2017. Exact onset and ascertainment window unavailable.",
+            "locator": "Introduction p. 734",
+            "note": "The 2019 investigation concerns one affected sortie. The 2024 source does not identify or map the three cases to sorties. Preserve both scopes without summing cases.",
+            "case_role": "overlap_hold"
+          },
+          {
+            "id": "2017-neurological-component",
+            "group": "2017-neurological-component",
+            "endpoint": "neurological_dcs_as_reported",
+            "study_id": "raf-dispatchers-2017-severe-overview",
+            "cases": 2,
+            "denominator": 3,
+            "denominator_unit": "dcs_case",
+            "outcome_window": "2017. Exact onset and ascertainment window unavailable.",
+            "locator": "Introduction p. 734",
+            "note": "Component of the three severe cases. Patient-level membership in the same-sortie report is unknown.",
+            "case_role": "case_conditional"
+          },
+          {
+            "id": "2017-respiratory-component",
+            "group": "2017-respiratory-component",
+            "endpoint": "respiratory_dcs_as_reported",
+            "study_id": "raf-dispatchers-2017-severe-overview",
+            "cases": 1,
+            "denominator": 3,
+            "denominator_unit": "dcs_case",
+            "outcome_window": "2017. Exact onset and ascertainment window unavailable.",
+            "locator": "Introduction p. 734",
+            "note": "Component of the three severe cases. Patient-level membership in the same-sortie report is unknown.",
+            "case_role": "case_conditional"
+          },
+          {
+            "id": "phase2-research-mri-subgroup",
+            "group": "phase2-research-mri-subgroup",
+            "endpoint": "postexposure_subcortical_dwi_lesions",
+            "study_id": "qinetiq-connolly-repeated-dispatcher-chamber",
+            "cases": 0,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "outcome_window": "Research MRI on the day after exposure.",
+            "locator": "Abstract p. 733, Methods p. 734 and Results",
+            "note": "Observed imaging endpoint. The MRI subgroup reuses the parent trial and supplies no new assessment of clinical DCS.",
+            "case_role": "overlapping_margin"
+          }
+        ]
+      },
+      {
+        "id": "mciver-2024-146",
+        "title": "Type II decompression sickness in a parachutist dispatcher",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/8/article-p1.pdf#page=72",
+        "year": 2024,
+        "identifier": "AsMA:2024:146",
+        "access": "primary_abstract",
+        "locator": "Abstract 146, printed p. 490 (PDF p. 72)",
+        "sha256": "f531f189491b7ede5929decb2156954e5169702bba083d6f9a30e9441f456d70",
+        "note": "One clinical Type II case following an RAF C-130 operational training flight. The event date and number exposed are unavailable. Identity with cases in the 2017 reports remains unresolved.",
+        "chronology": {
+          "age_years": 36,
+          "sex_as_reported": "male",
+          "aircraft": "C-130",
+          "depressurized_altitude_ft": 25000,
+          "depressurized_duration_min": 40,
+          "prebreathe_duration_min": null,
+          "exposure_date": null,
+          "recent_repeated_training": true,
+          "symptom_onset": "Shortly after landing",
+          "treatment": "US Navy Table 6",
+          "next_day": "Reported difficulty recalling the events."
+        },
+        "observations": [
+          {
+            "id": "c130-dispatcher-case",
+            "group": "c130-dispatcher-case",
+            "endpoint": "type_ii_dcs_as_reported",
+            "study_id": "raf-mciver-dispatcher-selected-case",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "outcome_window": "Symptoms described shortly after landing. Resolution after TT6. On reassessment the following day the patient reported poor recall of the events.",
+            "locator": "Abstract 146, printed p. 490 (PDF p. 72)",
+            "note": "Confirmed as a published case report. Event date or sortie identifiers unavailable, so unique membership relative to the 2017 reports is unresolved.",
+            "case_role": "overlap_hold"
+          }
+        ]
+      },
+      {
+        "id": "belmonte-2024-292",
+        "title": "Decompression sickness in a flight surgeon course student",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/8/article-p534.pdf#page=10",
+        "year": 2024,
+        "identifier": "AsMA:2024:292",
+        "access": "primary_abstract",
+        "locator": "Abstract 292, printed p. 543 (PDF p. 10)",
+        "sha256": "d14801c6bb9296ea240a2b3f2093076b4d103d22afd81939f7ae93b7d215d323",
+        "note": "One author-diagnosed Type II case after aviation-physiology chamber training. The abstract summary and case discussion describe different timing. Exact elapsed time and the exposed cohort are unavailable.",
+        "chronology": {
+          "documented_altitude_ft": 25000,
+          "exposure_date": null,
+          "exposure_protocol": "Type IV",
+          "wrist_onset": "Evening of training in Discussion",
+          "presentation": "Following afternoon",
+          "exact_elapsed_min": null,
+          "initial_treatment": "US Navy Table 6 with reported resolution",
+          "later_treatment": "US Navy Table 5 next day"
+        },
+        "observations": [
+          {
+            "id": "course-student-case",
+            "group": "course-student-case",
+            "endpoint": "type_ii_dcs_as_reported",
+            "study_id": "fort-novosel-belmonte-chamber-selected-case",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "outcome_window": "Discussion places wrist pain the evening of training and presentation the next afternoon. The Case Presentation summarizes symptoms as developing the following day.",
+            "locator": "Abstract 292, printed p. 543 (PDF p. 10)",
+            "note": "Dates and exact elapsed onset unknown. Bilateral wrist pain and anterior elbow paresthesia. Symptoms resolved after TT6; TT5 was administered the following day.",
+            "case_role": "selected_cluster"
+          }
+        ]
+      },
+      {
+        "id": "connolly-2023-existing-study",
+        "title": "Decompression Sickness Risk in Parachutist Dispatchers Exposed Repeatedly to High Altitude",
+        "year": 2023,
+        "url": "https://kclpure.kcl.ac.uk/portal/files/233430858/DCS_2023.pdf",
+        "identifier": "PMID:37587625",
+        "doi": "10.3357/amhp.6231.2023",
+        "pmid": "37587625",
+        "access": "full_text",
+        "locator": "Introduction p. 666, Methods, and Table III",
+        "note": "Introduction dates the investigated event to 2017 and gives two severe cases on one 25,000-ft sortie. This cites abstract 102. The five observed DCS cases in the experimental chamber cohort are already represented in v1.6."
+      },
+      {
+        "id": "posselt-2019-letter",
+        "title": "Aviation medicine considerations in parachuting operations",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30429293/",
+        "identifier": "PMID:30429293",
+        "doi": "10.1136/jramc-2018-001090",
+        "pmid": "30429293",
+        "access": "metadata",
+        "locator": "Public bibliographic record",
+        "note": "Related RAF letter. The publisher full-text route was unavailable and the author-uploaded copy could not be read. No overlapping case or numeric outcome assigned from the letter."
+      },
+      {
+        "id": "connolly-2024-abstract-468",
+        "title": "Acute responses to non-hypoxic hypobaria on brain magnetic resonance imaging",
+        "year": 2024,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/95/8/article-p1.pdf#page=189",
+        "locator": "Abstract 468, pp. 607–608 (PDF pp. 189–190)",
+        "identifier": "AsMA:2024:468",
+        "access": "primary_abstract",
+        "sha256": "f531f189491b7ede5929decb2156954e5169702bba083d6f9a30e9441f456d70",
+        "note": "Same six MRI volunteers and results as the completed 2024 article. The abstract summarizes three two-hour ascents. The final Methods give distinct altitude plateaus and denitrogenation portions. No second MRI outcome is counted."
+      }
+    ]
+  }
+]

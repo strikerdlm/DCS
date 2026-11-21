@@ -10,6 +10,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `historical_case_catalog`, `dcs_case`, `publication_observation_revision` | Selected historical case histories and source corrections |
 | `dcs-model.sqlite` | `publication_aircraft_incident`, `publication_aircraft_incident_count` | Aircraft incident profiles and source-reported outcomes |
 | `dcs-model.sqlite` | `publication_aircraft_case_milestone` | Selected aircraft case timelines with source-relative times, bounds and aircraft altitudes |
+| `dcs-model.sqlite` | `publication_altitude_symptom_survey`, `publication_altitude_symptom_survey_item` | Survey respondent counts and published symptom percentages with item-level denominators where reported |
 | `dcs-model.sqlite` | `publication_aviation_group`, `publication_meader_reported_flight` | Descriptive historical flight groups and case-selected affected flights |
 | `dcs-model.sqlite` | `publication_liske_case_profile`, `publication_case_milestone` | Selected neurological case profiles and source-reported chronology |
 | `dcs-model.sqlite` | `publication_lewis_case_profile`, `publication_overlap` | Selected aviation surveillance cases and source differences |
