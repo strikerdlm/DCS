@@ -229,6 +229,7 @@ BRADLEY_CHAMBER_DCI = ROOT / "data" / "chamber" / "v1.161"
 OPERATIONAL_FLIGHT_SAFETY = ROOT / "data" / "chamber" / "v1.162"
 INTERNATIONAL_PRESSURE_LOSS = ROOT / "data" / "chamber" / "v1.163"
 CHAMBER_ARCHIVE_FOLLOWUP = ROOT / "data" / "chamber" / "v1.164"
+NASA_CROSSOVER_RECONCILIATION = ROOT / "data" / "chamber" / "v1.165"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2266,6 +2267,15 @@ def build(
                         "publication_overlap": "overlap.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    NASA_CROSSOVER_RECONCILIATION,
+                    {
+                        "publication_nasa_crossover_link": "crossover_links.csv",
+                        "literature_case_report_timing": "report_timing.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(

@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-nasa-crossover-scopes-tavily#archive",
+      "report_id": "record:legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#conkin03:all_research:dcs",
+      "basis": "Case report series, authors and NTRS document number 20030063917 match.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-tavily#history",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "Report title, pagination and number NASA/TP-2011-216147 match.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-tavily#snapshot",
+      "report_id": "ntrs:19900012405:ms5",
+      "basis": "NASA TM-102161 Reference MS 5 and original title match.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-firecrawl#everest",
+      "report_id": "report:ada168595",
+      "basis": "Original DTIC accession, six authors and Table 2 match the indexed report.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA168595/DTIC_ADA168595.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-firecrawl#history",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "Report title, pagination and number NASA/TP-2011-216147 match.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-firecrawl#journal",
+      "report_id": "pmid:1417653",
+      "basis": "Original journal article gives the exact title, journal pages and PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-originals#archive",
+      "report_id": "record:legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#conkin03:all_research:dcs",
+      "basis": "Case report series, authors and NTRS document number 20030063917 match.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-originals#history",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "Report title, pagination and number NASA/TP-2011-216147 match.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-originals#journal",
+      "report_id": "pmid:1417653",
+      "basis": "Original journal article gives the exact title, journal pages and PMID.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-originals#conference",
+      "report_id": "ntrs:19950010323",
+      "basis": "Conference authors, year and NTRS number match.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19950010323"
+    },
+    {
+      "record_key": "2026-11-21-nasa-crossover-scopes-originals#everest",
+      "report_id": "report:ada168595",
+      "basis": "Original DTIC accession, six authors and Table 2 match the indexed report.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA168595/DTIC_ADA168595.pdf"
+    },
+    {
       "record_key": "2026-11-21-chamber-archive-denominators-tavily-search#valdez",
       "report_id": "report:dot-faa-am-90-12",
       "basis": "Exact report title and DOT/FAA/AM-90/12 report number.",
@@ -18436,9 +18502,9 @@
     },
     {
       "study_id": "nasa-jsc-cmb-time-81",
-      "label": "NASA 81-exposure single-altitude microbubble timing conference analysis",
-      "period": "Presented May 1992",
-      "setting": "Single nominal altitude chamber research. Overlap with the 125-person study is unresolved."
+      "label": "NASA JSC Bends 8 crossover and related microbubble timing analysis",
+      "period": "1989–1990 in the NASA case archive",
+      "setting": "Three-hour 6.5-psia chamber crossover. The conference abstract is a likely match to the archive scope. The separate 125-person analysis remains on overlap hold."
     },
     {
       "study_id": "hdsd-vge-time-comparisons",
@@ -18562,6 +18628,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "nasa-jsc-cmb-time-81",
+      "report_id": "pmid:1417653",
+      "role": "paired_crossover_completers",
+      "locator": "Methods, Results and Table II, printed pp. 900–902"
+    },
+    {
+      "study_id": "nasa-jsc-cmb-time-81",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "role": "named_test_group_counts",
+      "locator": "Printed pp. 21–23 and reference 137 p. 43"
+    },
+    {
+      "study_id": "nasa-jsc-cmb-time-81",
+      "report_id": "record:legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#conkin03:all_research:dcs",
+      "role": "clinical_case_archive_for_tests_8a_and_8b",
+      "locator": "Table I p. 10, cases 58–74 pp. 46–54 and procedures 16–17 pp. 93–94"
+    },
     {
       "study_id": "nasa-jsc-backup-pressure-51",
       "report_id": "ntrs:19900012405:ms5",
@@ -21151,7 +21235,7 @@
     {
       "study_id": "nasa-jsc-cmb-time-81",
       "report_id": "ntrs:19950010323",
-      "role": "primary_outcome",
+      "role": "conference_analysis_probable_overlap",
       "locator": "NTRS author abstract"
     },
     {
@@ -21378,6 +21462,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:1417653",
+      "right_report": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "relationship": "same_experiment_different_analysis_sets",
+      "evidence": "NASA names the journal article as the clinical publication for Tests 8a and 8b. Journal complete pairs are 15/78. The archive total is 17/81 and includes a historical Type II case.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+    },
+    {
+      "left_report": "pmid:1417653",
+      "right_report": "record:legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#conkin03:all_research:dcs",
+      "relationship": "same_experiment_different_analysis_sets",
+      "evidence": "The 2011 linkage to Tests 8a and 8b plus procedures 16 and 17 matching the journal crossover establish experiment identity. The public reports do not identify individual exclusions.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf"
+    },
+    {
+      "left_report": "ntrs:19950010323",
+      "right_report": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "relationship": "likely_overlap",
+      "evidence": "The same 17/81 total, pressure and three-hour duration are reported. The conference abstract does not name the NASA test IDs.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19950010323"
+    },
+    {
+      "left_report": "ntrs:19900012405:ms5",
+      "right_report": "record:legacy:data/chamber/intake-2026-11-19/outcome_sources.csv#conkin03:all_research:dcs",
+      "relationship": "possible_overlap",
+      "evidence": "The 51-run annual report and archive share the JSC 6.5-psia context. The archive includes a first report before 60 minutes and test dates later than the annual report. The overlap of individual runs is unresolved.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf"
+    },
     {
       "left_report": "article:fsf-2000-mohler",
       "right_report": "report:faa-shaw-cami-training",

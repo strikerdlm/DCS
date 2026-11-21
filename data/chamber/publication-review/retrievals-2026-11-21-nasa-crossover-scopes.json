@@ -1,0 +1,194 @@
+[
+  {
+    "id": "2026-11-21-nasa-crossover-scopes-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Related NASA technical reports and the earlier backup-pressure snapshot were read to test study identity.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_query": "hypobaric decompression sickness decompression stress tests 6.5 psia NASA Horrigan Conkin backup pressure 51 exposures 925 data JSC NA9-17720",
+      "search_request_id": "4bd0fd5c-4fa4-44ae-b3d5-8b41605704a8",
+      "extract_request_id": "d693f4e2-edb8-4d45-bf36-a689bb83893e"
+    },
+    "records": [
+      {
+        "id": "archive",
+        "url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf",
+        "title": "Description of 103 Cases of Hypobaric Sickness from NASA-Sponsored Research (1982–1999)"
+      },
+      {
+        "id": "history",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "title": "Preventing Decompression Sickness Over Three Decades of Extravehicular Activity"
+      },
+      {
+        "id": "snapshot",
+        "url": "https://ntrs.nasa.gov/api/citations/19900012405/downloads/19900012405.pdf#page=25",
+        "title": "Selection of a Space Suit Emergency Backup Pressure by Analysis of the Rate-of-Onset of Decompression Sickness"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-crossover-scopes-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Firecrawl surfaced the Army report and extracted the NASA program history and the original journal PDF. The PDFs were compared at the source locators.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a2002a-4ef3-7237-a875-f44a4c652993",
+      "history_scrape_id": "01a2002d-9561-72fc-a5ba-219d35ca03ee",
+      "journal_scrape_id": "01a2002d-95ac-7583-bac7-93835c17fd4a"
+    },
+    "records": [
+      {
+        "id": "everest",
+        "url": "https://archive.org/download/DTIC_ADA168595/DTIC_ADA168595.pdf",
+        "title": "Operation Everest II: Altitude Decompression Sickness During Repeated Altitude Exposure"
+      },
+      {
+        "id": "history",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "title": "Preventing Decompression Sickness Over Three Decades of Extravehicular Activity"
+      },
+      {
+        "id": "journal",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf",
+        "title": "The Influence of Prior Exercise at Anaerobic Threshold on Decompression Sickness"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-nasa-crossover-scopes-originals",
+    "date": "2026-11-21",
+    "provider": "NASA NTRS, NASA public repository, publisher PDF, DTIC archive",
+    "operation": "verify_public_full_text",
+    "reported_total": null,
+    "status": "observed",
+    "note": "Verified the same crossover experiment in the case archive, program history and journal article. Confirmed the technical Everest edition and its denominator conflict were already cataloged. Neither archive adds an independent model cohort.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "archive",
+        "url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf",
+        "title": "Description of 103 Cases of Hypobaric Sickness from NASA-Sponsored Research (1982–1999)",
+        "year": 2003,
+        "identifier": "NASA/TM-2003-212052; NTRS:20030063917",
+        "locator": "Table I, printed p. 10; Cases 58–74, pp. 46–54; Appendix A Procedures 16–17, pp. 93–94",
+        "sha256": "6516041edb206ca83050e79c59b7e1fa828aa47f05b9b155b862858e6435ee45",
+        "full_text_available": true,
+        "case_timing_verified": [
+          {
+            "published_case_number": 58,
+            "noticed_min": [
+              42,
+              42
+            ],
+            "reported_min": 54
+          },
+          {
+            "published_case_number": 66,
+            "noticed_min": [
+              117,
+              117
+            ],
+            "reported_min": 120
+          },
+          {
+            "published_case_number": 71,
+            "noticed_min": [
+              105,
+              110
+            ],
+            "reported_min": 120
+          },
+          {
+            "published_case_number": 72,
+            "noticed_min": [
+              40,
+              40
+            ],
+            "reported_min": 60
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+        "title": "Preventing Decompression Sickness Over Three Decades of Extravehicular Activity",
+        "year": 2011,
+        "identifier": "NASA/TP-2011-216147",
+        "locator": "Printed pp. 21–23, Table 2 and footnote; reference 137 p. 43",
+        "sha256": "fdba679d5363d5680f8ad5f1d3cf8ce894fba40c734dfd5c9d0d0fd0e6ba37e4",
+        "full_text_available": true,
+        "observations": [
+          {
+            "id": "table2-test8a",
+            "group": "NASA-test-8a",
+            "endpoint": "dcs_as_reported",
+            "cases": 7,
+            "denominator": 40,
+            "denominator_unit": "person_exposure",
+            "locator": "Table 2, printed p. 22",
+            "note": "The denominator is the sum of 29 male and 11 female runs. The row is the archive control condition, already represented by NASA test 8a."
+          },
+          {
+            "id": "table2-test8b",
+            "group": "NASA-test-8b",
+            "endpoint": "dcs_as_reported",
+            "cases": 10,
+            "denominator": 41,
+            "denominator_unit": "person_exposure",
+            "locator": "Table 2, printed pp. 22–23, including footnote",
+            "note": "The denominator is the sum of 30 male and 11 female runs. The test includes one historical Type II case. It is already represented by NASA test 8b."
+          }
+        ]
+      },
+      {
+        "id": "journal",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/10/article-p899.pdf",
+        "title": "The Influence of Prior Exercise at Anaerobic Threshold on Decompression Sickness",
+        "year": 1992,
+        "pmid": "1417653",
+        "locator": "Methods and Results pp. 900–902 and Table II p. 902",
+        "sha256": "0697b0ed0c6deedd162826748ff21a2394d269cdaed9839e34c86932e7ddafad",
+        "full_text_available": true,
+        "cohort_screening": {
+          "considered": 50,
+          "excluded_right_to_left_shunt": 8,
+          "completed_one_run_only": 3,
+          "completed_both": 39
+        },
+        "scope_note": "The analysis contains 78 paired runs and 15 symptomatic Type I events. The paper does not link the three excluded single runs to NASA case or session codes."
+      },
+      {
+        "id": "conference",
+        "url": "https://ntrs.nasa.gov/citations/19950010323",
+        "title": "The Effect of Differences in Time to Detection of Circulating Microbubbles on the Risk of Decompression Sickness",
+        "year": 1992,
+        "identifier": "NTRS:19950010323",
+        "locator": "Author abstract",
+        "full_text_available": false,
+        "scope_note": "The abstract’s total 17/81 and its 6.5-psia three-hour profile match Tests 8a and 8b jointly. Exact membership remains unverified."
+      },
+      {
+        "id": "everest",
+        "url": "https://archive.org/download/DTIC_ADA168595/DTIC_ADA168595.pdf",
+        "title": "Operation Everest II: Altitude Decompression Sickness During Repeated Altitude Exposure",
+        "year": 1986,
+        "identifier": "USARIEM M34/86; DTIC ADA168595",
+        "locator": "Results PDF pp. 8–9 and Table 2 PDF p. 16",
+        "sha256": "1e526a9246f0306680986119045cb64713859b469fb759b9319870777997555c",
+        "full_text_available": true,
+        "scope_note": "Already retrieved and reconciled to the journal. Detailed cells and abstract total 274 flights. Results text’s 275 is already recorded as a conflicting figure."
+      }
+    ]
+  }
+]
