@@ -1,0 +1,216 @@
+[
+  {
+    "id": "2026-11-21-asma-2012-chamber-crosswalk-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_attempts": [
+        {
+          "query": "\"ASMA 2012 MEETING ABSTRACTS\" \"decompression sickness\" \"hypobaric\" Atlanta altitude aviation 83 March 2012",
+          "result_id": "01a1fe90-b715-760e-8686-036d5f09506d",
+          "publisher_hit": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p169.pdf",
+          "publisher_schedule_sha256": "a3ee4a1df17befe9f88e58911305c389b9df840b00fcdeff8b7a2de7ce0c35e0"
+        },
+        {
+          "query": "\"15748 ft\" \"chamber\" \"decompression sickness\" RAF hypobaric",
+          "result_id": "01a1fe92-536c-7021-8749-0bf701a65f53",
+          "returned": 0
+        },
+        {
+          "query": "\"15,748 feet\" case decompression sickness British hypobaric chamber Henlow research",
+          "result_id": "01a1fe92-58a8-77ad-89b1-1ec5af8834b5",
+          "returned": 0
+        },
+        {
+          "query": "\"8000\" \"25000\" \"12 seconds\" Manton chamber arterial gas embolism RAF",
+          "result_id": "01a1fe92-52ca-7293-af7e-22f913bbc892",
+          "returned": 1,
+          "match": "Search hit reprints the same 2012 journal issue."
+        },
+        {
+          "query": "\"Wetterholm\" \"Lemming\" \"hypobaric\" \"8000\" Air Force echocardiography",
+          "result_id": "01a1fe92-5278-7419-9486-530085ad043f",
+          "returned": 0
+        }
+      ]
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The publisher's schedule established the journal issue and led to the separately published full abstracts. Exact profile queries found no independent matching case reports.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-asma-2012-chamber-crosswalk-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_web_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"ASMA 2012 MEETING ABSTRACTS\" \"decompression sickness\" \"hypobaric\" Atlanta altitude aviation 83 March 2012",
+      "search_depth": "advanced",
+      "max_results": 6,
+      "http_status": 433
+    },
+    "reported_total": null,
+    "status": "access_limited",
+    "note": "The spending limit prevented this search.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-asma-2012-chamber-crosswalk-primary",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association journal",
+    "operation": "verify_original_abstracts",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": null,
+    "status": "observed_full_text",
+    "note": "Original PDF pages 41–43 and 58 checked. Existing symptomatic observations are linked by canonical report and original observation keys.",
+    "records": [
+      {
+        "id": "manton12_raf_chamber",
+        "title": "Three Incidents of Decompression Illness at the RAF Centre of Aviation Medicine",
+        "year": 2012,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=42",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=42",
+        "locator": "AsMA abstract 141, Methods and Results, printed p. 250 (PDF p. 42)",
+        "pdf_sha256": "426612c7c80e355443aa5a15530570cd0dd73660d968bed8eaf96485dd6c9010",
+        "authors": [
+          "A. Manton"
+        ],
+        "abstract_number": 141,
+        "study_id": "raf-cam-manton-case-series",
+        "note": "Three selected hypobaric incidents at RAF CAM with distinct profiles and presentations. All received hyperbaric treatment. Case dates, exposure totals, exact symptom onset intervals, delivered gas measurements and late follow-up are unavailable.",
+        "prior_extraction_record": "2026-11-20-raf-asma-2012#asma2012-141",
+        "case_profiles": [
+          {
+            "observation_id": "manton12-student-dci",
+            "group": "rotary-student",
+            "endpoint": "reported_decompression_illness",
+            "role": "trainee",
+            "peak_altitude_ft": 17500,
+            "off_oxygen_min": 30,
+            "off_oxygen_above_ft": 10000,
+            "received_hyperbaric_treatment": true,
+            "onset_min": null,
+            "pressure_gas_history_available": false
+          },
+          {
+            "observation_id": "manton12-student-suspected-age",
+            "group": "medical-officer-trainee",
+            "endpoint": "suspected_arterial_gas_embolism",
+            "role": "trainee",
+            "profile_start_ft": 8000,
+            "peak_altitude_ft": 25000,
+            "ascent_transition_seconds": 12,
+            "received_hyperbaric_treatment": true,
+            "onset_min": null,
+            "pressure_gas_history_available": false
+          },
+          {
+            "observation_id": "manton12-research-dcs",
+            "group": "research-volunteer",
+            "endpoint": "symptomatic_altitude_dcs",
+            "role": "research_participant",
+            "peak_altitude_ft": 15748,
+            "off_oxygen_min": 165,
+            "received_hyperbaric_treatment": true,
+            "onset_min": null,
+            "pressure_gas_history_available": false
+          }
+        ]
+      },
+      {
+        "id": "hok12_swedish_chamber",
+        "title": "DCS in the Swedish Air Force. A Survey and Experimental Study",
+        "year": 2012,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=41",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=41",
+        "locator": "AsMA abstract 140, Methods and Results, printed pp. 249–250 (PDF pp. 41–42)",
+        "pdf_sha256": "426612c7c80e355443aa5a15530570cd0dd73660d968bed8eaf96485dd6c9010",
+        "authors": [
+          "L. G. Hök",
+          "R. Wetterholm",
+          "B. Wall",
+          "D. R. Lemming"
+        ],
+        "abstract_number": 140,
+        "study_id": "swedish-air-force-hok-experimental",
+        "note": "The 8,000-m chamber experiment and the C-130 in-flight questionnaire are distinct. The latter reports symptoms qualitatively without case or response counts. The experiment reports no DCS symptoms, qualitative venous bubbles and no detected arterial bubbles.",
+        "prior_extraction_record": "2026-11-20-raf-asma-2012#asma2012-140",
+        "experimental_participants": 6,
+        "experimental_altitude_m": 8000,
+        "venous_bubbles": "reported qualitatively",
+        "venous_bubble_count": null,
+        "c130_survey_respondents": null,
+        "c130_survey_cases": null,
+        "observations": [
+          {
+            "id": "hok12-experimental-arterial-bubbles",
+            "group": "Experimental participants",
+            "endpoint": "arterial_bubbles_detected",
+            "study_id": "swedish-air-force-hok-experimental",
+            "cases": 0,
+            "denominator": null,
+            "locator": "AsMA abstract 140, Methods and Results, printed pp. 249–250 (PDF pp. 41–42)",
+            "note": "No arterial bubbles detected as reported. The evaluable count for transcranial Doppler is not separately supplied."
+          }
+        ]
+      },
+      {
+        "id": "blackadder12_raf_ent_chamber",
+        "title": "A Review of Clinical ENT Assessments Conducted in the RAF Centre of Aviation Medicine Hypobaric Chamber",
+        "year": 2012,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=58",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=58",
+        "locator": "AsMA abstract 198, Methods and Results, printed p. 266 (PDF p. 58)",
+        "pdf_sha256": "426612c7c80e355443aa5a15530570cd0dd73660d968bed8eaf96485dd6c9010",
+        "authors": [
+          "J. C. Blackadder-Coward",
+          "M. J. Trudgill"
+        ],
+        "abstract_number": 198,
+        "clinical_dcs_cases": null,
+        "referrals_reviewed": 55,
+        "chamber_assessed": 41,
+        "typical_maximum_altitude_ft": 18000,
+        "note": "Retrospective ENT referral audit from 1 January 2005 to 1 August 2011. Forty-one of 55 reviewed referral cases underwent chamber assessment. The abstract gives generic symptom percentages and no clinical DCS case count."
+      },
+      {
+        "id": "asma12-143",
+        "title": "Validity of Tissue Ratio to Estimate Decompression Sickness Risk",
+        "year": 2012,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=42",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=42",
+        "locator": "AsMA abstract 143, printed pp. 250–251 (PDF pp. 42–43)",
+        "pdf_sha256": "426612c7c80e355443aa5a15530570cd0dd73660d968bed8eaf96485dd6c9010",
+        "authors": [
+          "J. T. Webb"
+        ],
+        "abstract_number": 143,
+        "context_only": true,
+        "note": "Secondary analysis of previously reported four-hour exposures. No source-specific paired clinical outcome counts."
+      },
+      {
+        "id": "asma12-144",
+        "title": "Physiological Experiments on Extreme High Altitude",
+        "year": 2012,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=43",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=43",
+        "locator": "AsMA abstract 144, printed p. 251 (PDF p. 43)",
+        "pdf_sha256": "426612c7c80e355443aa5a15530570cd0dd73660d968bed8eaf96485dd6c9010",
+        "authors": [
+          "A. M. Ospina-Obando",
+          "C. Bernal",
+          "L. Sanchez"
+        ],
+        "abstract_number": 144,
+        "context_only": true,
+        "note": "Colombian Air Force CEMAE work exposed solutions and isolated human fluid samples. No participants or clinical DCS outcomes."
+      }
+    ]
+  }
+]

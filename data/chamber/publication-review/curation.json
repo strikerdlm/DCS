@@ -14507,6 +14507,42 @@
       "report_id": "record:legacy:data/chamber/v1.132/sources.csv#dak19_pulmonary_training_case",
       "basis": "Exact 2019 congress and same printed pp. 82–87 byline, case and official proceedings.",
       "evidence_url": "https://web.shgm.gov.tr/documents/sivilhavacilik/files/havaalanlari/5.pdf#page=94"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.133/sources.csv#manton12_raf_chamber",
+      "report_id": "abstract:asma-2012-manton-141",
+      "basis": "2012 AsMA original abstract 141, exact title, author line and publication locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=42"
+    },
+    {
+      "record_key": "2026-11-21-asma-2012-chamber-crosswalk-primary#manton12_raf_chamber",
+      "report_id": "abstract:asma-2012-manton-141",
+      "basis": "2012 AsMA original abstract 141, exact title, author line and publication locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=42"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.133/sources.csv#hok12_swedish_chamber",
+      "report_id": "abstract:asma-2012-hok-140",
+      "basis": "2012 AsMA original abstract 140, exact title, author line and publication locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=41"
+    },
+    {
+      "record_key": "2026-11-21-asma-2012-chamber-crosswalk-primary#hok12_swedish_chamber",
+      "report_id": "abstract:asma-2012-hok-140",
+      "basis": "2012 AsMA original abstract 140, exact title, author line and publication locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=41"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.133/sources.csv#blackadder12_raf_ent_chamber",
+      "report_id": "abstract:asma-2012-blackadder-coward-198",
+      "basis": "2012 AsMA original abstract 198, exact title, author line and publication locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=58"
+    },
+    {
+      "record_key": "2026-11-21-asma-2012-chamber-crosswalk-primary#blackadder12_raf_ent_chamber",
+      "report_id": "abstract:asma-2012-blackadder-coward-198",
+      "basis": "2012 AsMA original abstract 198, exact title, author line and publication locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/83/3/article-p209.pdf#page=58"
     }
   ],
   "studies": [
@@ -22329,6 +22365,13 @@
       "relationship": "possible_turkish_chamber_cohort_overlap",
       "evidence": "Ercan and Demir are coauthors on both reports. Ercan et al., Table 1 (p. 206), reports zero DCS events among 79 female trainees in the 2011-01-01 to 2018-10-01 archive. The case report omits the exposure date, chamber site, participant role and archive membership. The finding cannot be assigned to that risk set or used to revise its numerator.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32574436/"
+    },
+    {
+      "left_report": "abstract:asma-2012-manton-141",
+      "right_report": "report:adp011069",
+      "relationship": "possible_raf_cam_training_case_overlap",
+      "evidence": "Manton and McLoughlin concern RAF CAM hypobaric training. McLoughlin reports one DCS case from the year preceding the 2000 presentation. Manton's undated training DCI and suspected AGE descriptions cannot be linked to that episode. The research participant has a separate setting from McLoughlin's training surveillance.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011069/DTIC_ADP011069.pdf#page=4"
     }
   ],
   "report_titles": {
