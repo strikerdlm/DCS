@@ -4595,6 +4595,59 @@ def test_ucsd_referrals_keep_review_votes_and_link_existing_chamber_case(release
         """).fetchall() == [("pmid:36757235",)]
 
 
+def test_bradley_chamber_dci_keeps_single_episode_and_source_categories(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,altitude,altitude_unit,prebreathe_min
+            FROM publication_observation WHERE source_id='bradley20_chamber_dci'
+        """).fetchall() == [("chamber_training_dci_as_reported", 1, None, 25000, "ft", None)]
+        assert db.execute("""
+            SELECT count(*),min(recurrence_report_day),max(source_time_min),max(first_assessment_min)
+            FROM historical_case_catalog WHERE source_id='bradley20_chamber_dci'
+        """).fetchone() == (1, 6, None, None)
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_unit,elapsed_reference
+            FROM publication_chamber_case_milestone
+            WHERE source_id='bradley20_chamber_dci' AND milestone IN (
+                'transfer_duration_to_hyperbaric_facility','hyperbaric_specialist_referral','late_clinical_followup'
+            ) ORDER BY milestone
+        """).fetchall() == [
+            ("hyperbaric_specialist_referral", 14, "months", "index_training_exposure"),
+            ("late_clinical_followup", 5, "years", "completion_of_later_hyperbaric_course"),
+            ("transfer_duration_to_hyperbaric_facility", 2, "hours", "transfer_to_treatment_facility"),
+        ]
+        assert db.execute("""
+            SELECT m.assessment_date,count(*),sum(a.normative_category='average_or_above'),
+                   sum(a.normative_category='below_average'),sum(a.normative_category='clearly_below'),
+                   count(a.baseline_comparison_as_printed)
+            FROM publication_case_anam a JOIN publication_chamber_case_milestone m
+                USING(source_id,stratum,endpoint,milestone)
+            WHERE a.source_id='bradley20_chamber_dci'
+            GROUP BY m.assessment_date ORDER BY m.assessment_date
+        """).fetchall() == [
+            ("2012-03-20", 7, 7, 0, 0, 0),
+            ("2013-06-25", 7, 0, 1, 6, 0),
+            ("2013-10-10", 7, 4, 3, 0, 7),
+            ("2013-11-05", 7, 5, 1, 1, 7),
+        ]
+        assert db.execute("""
+            SELECT normative_category,baseline_comparison_as_printed FROM publication_case_anam
+            WHERE source_id='bradley20_chamber_dci' AND milestone='anam_after_58_sessions'
+              AND subtest='simple_reaction_time_repeat'
+        """).fetchall() == [("clearly_below", -4)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(title) LIKE 'chronic decompression illness cognitive dysfunction improved with%'
+               OR lower(doi)='10.22462/01.03.2020.14'
+        """).fetchall() == [("pmid:32176954",)]
+        assert db.execute("""
+            SELECT record_key,report_id,recurrence_report_day FROM shared_case_evidence
+            WHERE source_id='bradley20_chamber_dci'
+        """).fetchall() == [
+            ("2026-11-21-bradley-chamber-dci-eds-primary#wfhl7kw3c5", "pmid:32176954", 6),
+        ]
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""

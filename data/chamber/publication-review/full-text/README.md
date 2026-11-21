@@ -13,6 +13,7 @@ These articles were available for extraction. Their publisher PDFs remain availa
 
 | Report | Source and access status |
 | --- | --- |
+| Bradley et al., altitude chamber DCI with longitudinal ANAM assessments | [PubMed citation](https://pubmed.ncbi.nlm.nih.gov/32176954/) and [UNAL EBSCO record](https://researchs.unalproxy.elogim.com/c/ernpho/search/details/wfhl7kw3c5). The subscription copy was checked locally against pp. 132–136 and retained under the journal’s rights notice. |
 | Halbouty and Heisler chamber case and Berry and King follow-up | [1955 HathiTrust issue](https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104083990;seq=451) and [1959 Internet Archive issue](https://archive.org/details/in.ernet.dli.2015.71422/page/n6/mode/1up). The original case and its follow-up have verified page locators. |
 | Berry, 1957 Stockholm paper and 1958 chamber surveillance article | [University manuscript](https://utmb-ir.tdl.org/items/64e001c1-e5f6-4ffd-b6f4-1d8ebdf2d467) and [HathiTrust journal view](https://babel.hathitrust.org/cgi/ssd?id=uiug.30112104084048;seq=7). The manuscript and journal page images were reviewed locally. |
 | Kannan, Raychaudhuri and Pilmanis, loglogistic model | [Publisher PDF](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/10/article-p965.pdf). A watermarked copy was retained locally. |
