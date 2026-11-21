@@ -1,0 +1,224 @@
+[
+  {
+    "id": "2026-11-20-usafsam-appendix-a-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "USAFSAM-TP-88-10 ADA201274 ADA231355 Appendix A historical chamber decompression sickness outcomes",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-usafsam-appendix-a-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "USAFSAM-TP-88-10 ADA201274 ADA231355 Appendix A historical chamber decompression sickness outcomes"
+    },
+    "reported_total": 0,
+    "status": "observed",
+    "note": "Search returned no records. The prior Firecrawl PDF retrieval for ADA231355 is recorded in the Olson intake.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-usafsam-appendix-a-primary",
+    "date": "2026-11-20",
+    "provider": "USAF School of Aerospace Medicine original DTIC reports",
+    "operation": "supplementary_visual_table_extraction_and_abstract_reconciliation",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 5,
+    "status": "observed",
+    "note": "Both archived originals inspected, including rotated tables and literal note definitions. The three reprinted primary abstracts were checked across headings and page breaks.",
+    "records": [
+      {
+        "id": "ada201274-appendix-a",
+        "title": "An annotated bibliography of hypobaric decompression sickness research conducted at the Crew Technology Division, USAF School of Aerospace Medicine, Brooks AFB, Texas from 1983 to 1988",
+        "year": 1988,
+        "url": "https://archive.org/download/DTIC_ADA201274/DTIC_ADA201274.pdf#page=21",
+        "identifier": "ADA201274",
+        "locator": "Appendix A, printed pp. 18–19 (PDF pp. 21–22)",
+        "access": "full_text",
+        "sha256": "02b1792cadf6068665dbb4cd6408dd78410d4aa90b152766aa090289a82edf5e",
+        "note": "20 visually verified table rows. Study 8 is in progress and 120 is the planned exposure total. The table has two participant-level clinical percentage columns and provides no exposure-level percentage."
+      },
+      {
+        "id": "ada231355-appendix-a",
+        "title": "An annotated bibliography of hypobaric decompression sickness research conducted at the Crew Technology Division, USAF School of Aerospace Medicine, Brooks AFB, Texas from 1983 to 1988",
+        "year": 1990,
+        "url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=22",
+        "identifier": "ADA231355",
+        "locator": "Appendix A, printed pp. 18–19 (PDF pp. 22–23)",
+        "access": "full_text",
+        "sha256": "42f3b34372e31e5d1558412d2b696707c16b83bca717644f0d9076310165c109",
+        "physical_units": {
+          "exercise_codes": {
+            "A": "EVA exercises",
+            "B": "Bends Screening exercise",
+            "C": "joint flexion only"
+          },
+          "onset": "Grade 2 DCS mean in minutes among affected exposures, excluding delayed onset",
+          "vge": "Highest recorded grade on any exposure per participant",
+          "oxygen": "Oxygen percentage during exposure. The notes describe nitrogen balance for concentrations below 100%. The CO₂ prebreathe experiment has its own assigned gas mixtures."
+        },
+        "reconciliation": [
+          {
+            "rows": "1–3 and 7–21",
+            "finding": "18 rows match all comparable 1988 table cells. The revision adds exposure-level Grade 2 DCS percentages."
+          },
+          {
+            "rows": "6",
+            "finding": "25,000-ft BSI revision reports 27 participants and 28 exposures versus 29 participants and 30 exposures in 1988. The numerator and reason for recategorization are not given."
+          },
+          {
+            "rows": "4–5",
+            "finding": "CO₂ study three-hour stage has 77 exposures and 12% Grade 2 DCS. Six-hour stage has 49 exposures and 86%. Baas interim abstract gives 8/78. The 2010 archive describes 71 earlier and 50 longer exposures. Timepoints and case accounting remain distinct."
+          },
+          {
+            "rows": "3",
+            "finding": "27,500-ft BSI row has 83 exposures and 73% Grade 2 DCS, with 144-minute conditional mean onset. The workshop gives 80% and 142 minutes on 83 exposures. NEDU compilation gives 66/83 at 27,600 ft. Olson gives 64/82 with a distinct clinical definition. The risk sets cannot be equated."
+          },
+          {
+            "rows": "14",
+            "finding": "The 9.00-psia participant maximum VGE groups sum to 101% at printed precision. Values retained as published."
+          }
+        ]
+      },
+      {
+        "id": "adams-1984-bsi-pilot",
+        "title": "Bends susceptibility",
+        "year": 1984,
+        "url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=7",
+        "primary_source": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=7",
+        "locator": "Printed p. 3 (PDF p. 7)",
+        "access": "primary_abstract",
+        "sha256": "42f3b34372e31e5d1558412d2b696707c16b83bca717644f0d9076310165c109",
+        "identifier": "ASEM 55(5):452",
+        "note": "Original author abstract reprinted under Study 1, BSI VAX 17. The same 10 men each flew once at each altitude. Exposure-level identity and post-exit follow-up are unavailable.",
+        "observations": [
+          {
+            "id": "25000_ft-reported_bends_symptoms",
+            "endpoint": "reported_bends_symptoms",
+            "study_id": "usaf-brooks-bsi-adams-pilot",
+            "group": "25000_ft",
+            "cases": 8,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 3 (PDF p. 7)",
+            "outcome_window": "At altitude. Scheduled maximum 8 hours. Continuous symptoms triggered removal. Post-exit surveillance unavailable.",
+            "note": "Repeated participants across all three groups and nested under BSI VAX 17."
+          },
+          {
+            "id": "27500_ft-reported_bends_symptoms",
+            "endpoint": "reported_bends_symptoms",
+            "study_id": "usaf-brooks-bsi-adams-pilot",
+            "group": "27500_ft",
+            "cases": 6,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 3 (PDF p. 7)",
+            "outcome_window": "At altitude. Scheduled maximum 8 hours. Continuous symptoms triggered removal. Post-exit surveillance unavailable.",
+            "note": "Repeated participants across all three groups and nested under BSI VAX 17."
+          },
+          {
+            "id": "30000_ft-reported_bends_symptoms",
+            "endpoint": "reported_bends_symptoms",
+            "study_id": "usaf-brooks-bsi-adams-pilot",
+            "group": "30000_ft",
+            "cases": 10,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 3 (PDF p. 7)",
+            "outcome_window": "At altitude. Scheduled maximum 8 hours. Continuous symptoms triggered removal. Post-exit surveillance unavailable.",
+            "note": "Repeated participants across all three groups and nested under BSI VAX 17."
+          }
+        ]
+      },
+      {
+        "id": "smead-1987-bsi-preliminary",
+        "title": "Preliminary findings: Bends Screening Index Study",
+        "year": 1987,
+        "url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=8",
+        "primary_source": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=8",
+        "locator": "Printed pp. 4–5 (PDF pp. 8–9)",
+        "access": "primary_abstract",
+        "sha256": "42f3b34372e31e5d1558412d2b696707c16b83bca717644f0d9076310165c109",
+        "identifier": "Space Life Sciences Symposium 1987 unpaginated addendum",
+        "note": "The archived abstract heading is on printed p. 4 and the quantitative outcomes on p. 5. This Smead report is distinct from the preceding Krutz et al. 1986 abstract and reuses the parent BSI experiment.",
+        "observations": [
+          {
+            "id": "all_reported_flights-grade2_limb_bends",
+            "endpoint": "grade2_limb_bends",
+            "study_id": "usaf-brooks-bsi-smead-preliminary",
+            "group": "all_reported_flights",
+            "cases": 126,
+            "denominator": 190,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed pp. 4–5 (PDF pp. 8–9)",
+            "outcome_window": "During chamber exposure scheduled for up to 8 hours. Grade 2 limb bends could trigger descent.",
+            "note": "The abstract gives 126 flights with limb bends and 64 without. Grade 2 was constant moderate pain that resolved on descent."
+          },
+          {
+            "id": "flights_with_limb_bends-bubbles_preceded_bends",
+            "endpoint": "bubbles_preceded_bends",
+            "study_id": "usaf-brooks-bsi-smead-preliminary",
+            "group": "flights_with_limb_bends",
+            "cases": 93,
+            "denominator": 126,
+            "denominator_unit": "dcs_case",
+            "locator": "Printed pp. 4–5 (PDF pp. 8–9)",
+            "outcome_window": "During chamber exposure scheduled for up to 8 hours. Grade 2 limb bends could trigger descent.",
+            "note": "Conditional on limb bends. The outcome requires bubbling before symptoms and cannot be used as an all-flight incidence rate."
+          },
+          {
+            "id": "flights_without_limb_bends-no_significant_vge",
+            "endpoint": "no_significant_vge",
+            "study_id": "usaf-brooks-bsi-smead-preliminary",
+            "group": "flights_without_limb_bends",
+            "cases": 31,
+            "denominator": 64,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed pp. 4–5 (PDF pp. 8–9)",
+            "outcome_window": "During chamber exposure scheduled for up to 8 hours. Grade 2 limb bends could trigger descent.",
+            "note": "Conditional on absence of limb bends. Significant bubbling was Neuman grades 3–4. The two conditional summaries use different event definitions."
+          }
+        ]
+      },
+      {
+        "id": "baas-1989-co2-interim",
+        "title": "Effect of a carbon dioxide prebreathe gas mixture on the incidence of altitude-induced decompression sickness",
+        "year": 1989,
+        "url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=18",
+        "primary_source": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=18",
+        "locator": "Printed p. 14 (PDF p. 18)",
+        "access": "primary_abstract",
+        "sha256": "42f3b34372e31e5d1558412d2b696707c16b83bca717644f0d9076310165c109",
+        "identifier": "ASEM 60(5):506",
+        "note": "Same interim abstract as the in-press reprint in ADA201274, printed pp. 13–14. This 78-flight snapshot is an earlier analysis from the Study 8 / VAX 23 program. Arm denominators are unavailable.",
+        "observations": [
+          {
+            "id": "september_1988_interim-persistent_dcs_as_reported",
+            "endpoint": "persistent_dcs_as_reported",
+            "study_id": "usaf-brooks-co2-vax23",
+            "group": "september_1988_interim",
+            "cases": 8,
+            "denominator": 78,
+            "denominator_unit": "person_exposure",
+            "locator": "Printed p. 14 (PDF p. 18)",
+            "outcome_window": "At altitude through persistent symptoms or scheduled 3-hour end. Delayed surveillance is unavailable.",
+            "note": "Four cases in each arm. Per-arm denominators are unstated. The revision gives 77 exposures for the three-hour stage, with no exposure crosswalk."
+          }
+        ]
+      }
+    ]
+  }
+]
