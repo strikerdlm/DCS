@@ -5118,6 +5118,60 @@ def test_lee_hay_outcome_checkpoints_link_to_existing_terminal_totals(release):
         """).fetchone() == (1, 4)
 
 
+def test_barron_cabin_decompression_counts_preserve_the_printed_disagreement(release):
+    with connect_pair(release) as db:
+        model = db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='barron58_12_second_decompression'
+            ORDER BY stratum
+        """).fetchall()
+        review = db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-21-cabin-decompression-scopes-verified' AND report_id='pmid:13575359'
+            ORDER BY reported_group
+        """).fetchall()
+        assert review == [row[:-1] for row in model]
+        assert len(model) == 24
+        assert {row[1] for row in model} == {"hypoxia_reactions_as_reported"}
+        assert {row[-1] for row in model} == {"denominator_conflict"}
+        assert model[-1][0] == "barron58-printed-overall"
+        assert model[-1][2:4] == (88, 154)
+        assert tuple(map(sum, zip(*(row[2:4] for row in model[:-1])))) == (89, 154)
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='barron58_12_second_decompression' AND stratum='barron58-combined-flights'
+        """).fetchone() == (154, None)
+        assert db.execute("""
+            SELECT count(*) FROM publication_overlap
+            WHERE source_id='barron58_12_second_decompression' AND relationship='unresolved'
+        """).fetchone() == (2,)
+
+
+def test_donaldson_cabin_protocols_count_repeat_exposures_once(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='donaldson60_cabin_descent'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("donaldson60-alcohol-repeat", 3, 3),
+            ("donaldson60-four-oxygen-conditions", 35, 10),
+            ("donaldson60-oxygen-15-second-delay", 10, 10),
+            ("donaldson60-oxygen-30-second-delay", 9, 9),
+            ("donaldson60-oxygen-immediate", 9, 9),
+            ("donaldson60-oxygen-none", 7, 4),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator
+            FROM publication_observation WHERE source_id='donaldson60_cabin_descent'
+        """).fetchall() == [("protocol_noncompletion_as_reported", 2, 7)]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator FROM review.review_search_observation
+            WHERE run_id='2026-11-21-cabin-decompression-scopes-verified' AND report_id='pmid:13723694'
+        """).fetchall() == [("protocol_noncompletion_as_reported", 2, 7)]
+
+
 def test_pressure_breathing_reports_keep_their_native_outcomes_and_counts(release):
     with connect_pair(release) as db:
         expected = [
