@@ -152,6 +152,7 @@ CHAMBER_POSTEXPOSURE_EXERCISE = ROOT / "data" / "chamber" / "v1.84"
 CHAMBER_GROUND_OXYGEN = ROOT / "data" / "chamber" / "v1.85"
 CHAMBER_INCIDENTS_AND_PREFLIGHT = ROOT / "data" / "chamber" / "v1.86"
 CHAMBER_FRYER_FATALITIES = ROOT / "data" / "chamber" / "v1.87"
+CHAMBER_MOON_PATHOLOGY = ROOT / "data" / "chamber" / "v1.88"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1339,6 +1340,11 @@ def build(
                         "publication_fryer69_chamber_fatality": "chamber_fatalities.csv",
                         "publication_fryer69_fatality_citation": "case_citations.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_MOON_PATHOLOGY,
+                    {"publication_moon48_chamber_case": "chamber_cases.csv"},
                 )
             if rojas_supplement:
                 load_supplement(

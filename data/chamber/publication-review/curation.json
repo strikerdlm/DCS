@@ -10883,6 +10883,18 @@
       "report_id": "citation:cotes-1953-raf-post-decompression-collapse",
       "basis": "The catalogue entry or citation in AGARDograph 125 identifies this report.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf"
+    },
+    {
+      "record_key": "2026-11-20-moon-firecrawl#moon-pmc-extract",
+      "report_id": "pmid:18904642",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1942710/",
+      "basis": "The PDF title and PMCID identify Moon's original report."
+    },
+    {
+      "record_key": "2026-11-20-moon-original-pathology-scans#moon-original-p248-p251",
+      "report_id": "pmid:18904642",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1942710/",
+      "basis": "The scanned article pages are from the same Moon report as the case citation in Fryer."
     }
   ],
   "studies": [
@@ -13107,6 +13119,12 @@
       "report_id": "report:ada111509",
       "role": "numbered_chamber_fatality_series",
       "locator": "Printed pp. 145–161 and Tables 8-2 and 8-3 pp. 186–187"
+    },
+    {
+      "study_id": "agard-fryer-selected-chamber-fatalities",
+      "report_id": "pmid:18904642",
+      "role": "original_accession_linked_subset",
+      "locator": "Printed pp. 249–251, Low Atmospheric Pressure"
     }
   ],
   "relations": [
@@ -15678,6 +15696,20 @@
       "relationship": "possible_repeated_five_case_report",
       "evidence": "Closely matched five-fatality title in a different journal. Source case rows unavailable to confirm equality.",
       "evidence_url": "https://academic.oup.com/jnen/article-abstract/9/1/29/1852061"
+    },
+    {
+      "left_report": "pmid:18904642",
+      "right_report": "report:ada111509",
+      "relationship": "same_five_accession_linked_cases",
+      "evidence": "The five Moon low-pressure cases match Fryer entries I, II, III, IV and VII by pathology accession. Fryer cites Moon in II and IV. The other links use exact accession numbers.",
+      "evidence_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5ba8/1942710/511835a75856/amjpathol00604-0018.png"
+    },
+    {
+      "left_report": "pmid:18904642",
+      "right_report": "pmid:15401759",
+      "relationship": "same_selected_five_chamber_cases_via_fryer",
+      "evidence": "Exact accession links identify all five Moon cases in Fryer. Fryer maps those same five cases to Haymaker and Davison case numbers 1, 5, 2, 3 and 4. The identity is linked through the AGARDograph case references.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=141"
     }
   ],
   "report_titles": {
