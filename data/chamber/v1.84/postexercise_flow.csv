@@ -1,0 +1,20 @@
+source_id,group_id,parent_group_id,population_count,dcs_during_exposure,vge_count_as_reported,postexposure_dcs,assignment,locator,note
+pilmanis01_sof_outcomes,initial-exposures,,54,,,,,"Printed p. 40-6, Figure 5",Preliminary total exposures in the figure.
+pilmanis01_sof_outcomes,initial-dcs,initial-exposures,30,30,25,,,"Printed p. 40-6, Figure 5",The left branch developed DCS and was recompressed.
+pilmanis01_sof_outcomes,initial-no-dcs,initial-exposures,24,0,18,,,"Printed p. 40-6, Figure 5",The right branch completed exposure without DCS.
+pilmanis01_sof_outcomes,treated-before-allocation,initial-dcs,6,6,4,,excluded_before_allocation,"Printed p. 40-6, Figure 5",Six were treated before assignment to either ground-level group.
+pilmanis01_sof_outcomes,dcs-resolved-exercise,initial-dcs,12,12,10,0,exercise,"Printed p. 40-6, Figure 5",Figure 5 prints the observed DCS and VGE counts in this branch.
+pilmanis01_sof_outcomes,dcs-resolved-rest,initial-dcs,12,12,11,0,rest,"Printed p. 40-6, Figure 5",Figure 5 prints the observed DCS and VGE counts in this branch.
+pilmanis01_sof_outcomes,no-initial-dcs-exercise,initial-no-dcs,12,0,9,0,exercise,"Printed p. 40-6, Figure 5",Figure 5 prints the observed DCS and VGE counts in this branch.
+pilmanis01_sof_outcomes,no-initial-dcs-rest,initial-no-dcs,12,0,9,1,rest,"Printed p. 40-6, Figure 5",One post-exposure DCS event was reported in this preliminary subgroup.
+webb02_postexercise_journal,initial-exposures,,67,,,,,"Printed p. 874, Figure 1 and Results",Final population entering the exposure.
+webb02_postexercise_journal,initial-dcs,initial-exposures,36,36,,,,"Printed p. 874, Figure 1 and Results",Symptomatic during the initial exposure.
+webb02_postexercise_journal,initial-no-dcs,initial-exposures,31,0,,,,"Printed p. 874, Figure 1 and Results",No DCS during the initial exposure.
+webb02_postexercise_journal,excluded-before-allocation,initial-dcs,7,7,,,excluded_before_allocation,"Printed p. 874, Figure 1 and Results",DCS persisted on descent or was serious. Removed before the post-exposure comparison.
+webb02_postexercise_journal,dcs-resolved-on-descent,initial-dcs,29,29,,,,"Printed p. 874, Figure 1 and Results",Symptoms resolved during descent.
+webb02_postexercise_journal,dcs-resolved-exercise,dcs-resolved-on-descent,15,15,,,exercise,"Printed p. 874, Figure 1 and Results",Final subgroup assignment from Figure 1.
+webb02_postexercise_journal,dcs-resolved-rest,dcs-resolved-on-descent,14,14,,,rest,"Printed p. 874, Figure 1 and Results",Final subgroup assignment from Figure 1.
+webb02_postexercise_journal,no-initial-dcs-exercise,initial-no-dcs,16,0,,,exercise,"Printed p. 874, Figure 1 and Results",Final subgroup assignment from Figure 1.
+webb02_postexercise_journal,no-initial-dcs-rest,initial-no-dcs,15,0,,,rest,"Printed p. 874, Figure 1 and Results",Final subgroup assignment from Figure 1.
+webb02_postexercise_journal,all-assigned-exercise,,31,15,,0,exercise,"Printed p. 874, Figure 1 and Results",Combined assignment margin. The article reports no delayed or recurrent DCS in this arm during reported follow-up.
+webb02_postexercise_journal,all-assigned-rest,,29,14,,,rest,"Printed p. 874, Figure 1 and Results",Combined assignment margin. The final publication does not present a complete comparable delayed or recurrent DCS count for this arm.
