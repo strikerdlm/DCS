@@ -1,0 +1,5 @@
+source_id,stratum,endpoint,excursion_number,source_section,aircraft_altitude_ft,cabin_start_altitude_ft,cabin_end_altitude_ft,cabin_start_ata,cabin_end_ata,locator,note
+robinson16_fa18d_neurologic,index-flight,neurologic_event_suspected_bubble_etiology,1,case_narrative,27000,10220,16000,0.68,0.54,Case Report p. 741,First reported pressure loss.
+robinson16_fa18d_neurologic,index-flight,neurologic_event_suspected_bubble_etiology,1,pressure_table,27000,10270,16000,0.68,,Table II p. 741,Alternative printed value for the initial cabin altitude. The pressure change column gives 0.14 ATA.
+robinson16_fa18d_neurologic,index-flight,neurologic_event_suspected_bubble_etiology,2,case_narrative,35000,14390,18000,0.59,0.50,Case Report p. 741,In-flight disorientation followed this second pressure loss.
+robinson16_fa18d_neurologic,index-flight,neurologic_event_suspected_bubble_etiology,2,pressure_table,35000,14390,18000,0.58,,Table II p. 741,Alternative printed value for the initial cabin pressure. The pressure change column gives 0.08 ATA.

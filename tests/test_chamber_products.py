@@ -4648,6 +4648,63 @@ def test_bradley_chamber_dci_keeps_single_episode_and_source_categories(release)
         ]
 
 
+def test_operational_flight_counts_keep_incident_units_and_possible_case_overlap(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,counting_unit FROM publication_flight_safety_count
+            WHERE source_id='files05_aircraft_depressurization' AND endpoint='any_dcs' ORDER BY stratum
+        """).fetchall() == [
+            ("all-reported-depressurizations", 83, 1055, "reported_depressurization_incident"),
+            ("maximum-cabin-altitude-above-40000-ft", 2, 16, "reported_depressurization_incident"),
+            ("maximum-cabin-altitude-below-14000-ft", 1, 67, "reported_depressurization_incident"),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),sum(CASE WHEN endpoint LIKE '%dcs%' THEN numerator ELSE 0 END)
+            FROM publication_flight_safety_count WHERE source_id='files05_aircraft_depressurization'
+              AND stratum='incidents-with-any-pathology' AND scope='table_partition'
+        """).fetchone() == (7, 350, 83)
+        assert db.execute("""
+            SELECT numerator,denominator,scope FROM publication_flight_safety_count
+            WHERE source_id='files05_aircraft_depressurization' AND endpoint='any_dcs_as_printed_in_prose'
+        """).fetchall() == [(8, 350, "source_conflict")]
+        assert db.execute("""
+            SELECT numerator,denominator,counting_unit FROM publication_flight_safety_count
+            WHERE source_id='bason91_operational_flight' AND scope='reported_cohort' ORDER BY numerator
+        """).fetchall() == [
+            (12, None, "dcs_affected_aircraft"),
+            (15, None, "dcs_affected_aircrew"),
+            (225, None, "reported_depressurization_incident"),
+        ]
+        assert db.execute("""
+            SELECT excursion_number,cabin_start_altitude_ft,cabin_end_altitude_ft,cabin_start_ata,cabin_end_ata
+            FROM publication_aircraft_pressure_excursion
+            WHERE source_id='robinson16_fa18d_neurologic' ORDER BY excursion_number,source_section
+        """).fetchall() == [
+            (1, 10220, 16000, 0.68, 0.54),
+            (1, 10270, 16000, 0.68, None),
+            (2, 14390, 18000, 0.59, 0.50),
+            (2, 14390, 18000, 0.58, None),
+        ]
+        assert db.execute("""
+            SELECT analysis_role,numerator,denominator FROM publication_observation
+            WHERE source_id='robinson16_fa18d_neurologic'
+        """).fetchall() == [("overlap_hold", 1, None)]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE source_id='robinson16_fa18d_neurologic'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id='pmid:15945394' AND observation_id='any-dcs'
+        """).fetchall() == [(83, 1055, "reported_depressurization_incident")]
+        assert db.execute("""
+            SELECT left_report,right_report FROM review.review_report_relation
+            WHERE relationship='possible_ucsd_case_3_overlap'
+        """).fetchall() == [("pmid:27634610", "pmid:36757235")]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id='abstract:uhms2015:f103'
+        """).fetchone() == (0,)
+
+
 def test_asma_2012_reuses_existing_review_outcomes_and_keeps_endpoints_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
