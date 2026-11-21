@@ -1,0 +1,11 @@
+source_id,related_source,relationship,evidence
+kumar97_doppler516,kumar95_doppler516,likely_overlap,"The two reports share NASA JSC, simulated EVA, precordial Doppler, two authors and 516 exposures. The record-level crosswalk is unavailable."
+kumar97_doppler516,kumar93,likely_overlap,Methods name the earlier JSC source in reference 11 and describe expanding the database. The exact overlap is unavailable.
+kumar95_doppler516,conkin98_vge_dcs_archive,unresolved,"Both studies analyze historical chamber experiments with JSC Doppler data. The 1,322-report archive has a wider two-center scope."
+powell93_cmb125,kumar93_cmb,unresolved,"NASA direct-ascent and CMB time analyses have overlapping setting, authors and profiles. The earlier 125-person and 126-person sample identities differ and cannot be linked at record level."
+powell93_cmb125,conkin98_vge_dcs_archive,unresolved,NASA JSC tests with VGE data may be present in the larger archive. Subject and exposure linkage are unavailable.
+kumar92_asm_cmb81,powell93_cmb125,unresolved,Shared authors and direct-ascent testing with lower nominal altitude. The conference abstract gives 81 exposures; the lower-altitude partition of the 125-person study gives 25 people. The samples cannot be nested on that evidence.
+conkin96_vge_time,conkin98_vge_dcs_archive,unresolved,"Both articles explicitly analyze the NASA HDSD, but with different clinical endpoints or selection. Rows and linkage are unavailable."
+norfleet93_postdive,nasa19,same_cohort,2003 archive Procedure 21 (Test 10) gives the same 19-person prior-pressure profile. Test 10 in the 2019 NASA analysis records 1 clinical event; 2003 case 81 is the same left-elbow symptom reported at 158 minutes in the workshop account. Original chapter reports zero. Retain source-specific labels.
+norfleet93_postdive,nasa03,partial_overlap,The 19-person profile is Test 10. NASA case 81 (192-01) is the same left-elbow event reported at 158 minutes and is already present in the historical clinical series.
+conkin98_evolved_gas,conkin98_vge_dcs_archive,unresolved,Two distinct historical analyses by the same group with different selection and analytic sample sizes. Individual membership is unavailable.

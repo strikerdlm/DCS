@@ -1,0 +1,692 @@
+[
+  {
+    "id": "2026-11-21-nasa-doppler-cohorts-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "status": "access_limited",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Account spending limit prevented search results.",
+    "records": [],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA hypobaric decompression sickness Kumar Waligora 516 Doppler Powell 125 1445159 chamber data",
+      "http_status": 433,
+      "max_results": 10,
+      "search_depth": "advanced"
+    }
+  },
+  {
+    "id": "2026-11-21-nasa-doppler-cohorts-firecrawl-cmb",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Ranks 1–2 are relevant author or agency records. Other hits are retained as discovery records.",
+    "records": [
+      {
+        "id": "1",
+        "title": "Time to detection of circulating microbubbles as a risk factor for ...",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1445159/",
+        "rank": 1,
+        "pmid": "1445159"
+      },
+      {
+        "id": "2",
+        "title": "The effect of differences in time to detection of circulating ...",
+        "url": "https://ntrs.nasa.gov/citations/19950010323",
+        "rank": 2
+      },
+      {
+        "id": "3",
+        "title": "Decompression sickness risk model: Development and validation by 150 ...",
+        "url": "https://www.researchgate.net/publication/8254212_Decompression_sickness_risk_model_Development_and_validation_by_150_prospective_hypobaric_exposures",
+        "rank": 3
+      },
+      {
+        "id": "4",
+        "title": "Submarine 'safe to escape' studies in man | Request PDF",
+        "url": "https://www.researchgate.net/publication/264628141_Submarine_'safe_to_escape'_studies_in_man",
+        "rank": 4
+      },
+      {
+        "id": "5",
+        "title": "The physiology and pathophysiology of the hyperbaric and diving ...",
+        "url": "https://www.researchgate.net/publication/23487029_The_physiology_and_pathophysiology_of_the_hyperbaric_and_diving_environments",
+        "rank": 5
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"Time to detection of circulating microbubbles\" Kumar 125 Waligora Powell NASA hypobaric",
+      "search_id": "01a1fdbe-05f1-772e-a4e5-28898f186361",
+      "limit": 6
+    }
+  },
+  {
+    "id": "2026-11-21-nasa-doppler-cohorts-firecrawl-postdive",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "search",
+    "reported_total": null,
+    "note": "Identified a workshop proceedings chapter for the former NASA dry-chamber experiment. Other results are discovery only.",
+    "records": [
+      {
+        "id": "1",
+        "title": "(PDF) NASA flying after diving procedures",
+        "url": "https://www.researchgate.net/publication/371037317_NASA_flying_after_diving_procedures",
+        "rank": 1
+      },
+      {
+        "id": "2",
+        "title": "Shallow-Water Nitrox Diving, the NASA Experience",
+        "url": "https://ntrs.nasa.gov/citations/20090019135",
+        "rank": 2
+      },
+      {
+        "id": "3",
+        "title": "Regulations.gov",
+        "url": "https://www.regulations.gov/document/NASA-2026-0265-0001",
+        "rank": 3
+      },
+      {
+        "id": "4",
+        "title": "Federal Register :: Name of Information Collection: JSC Form 1830-Report of Medical Examination",
+        "url": "https://www.federalregister.gov/documents/2023/06/13/2023-12561/name-of-information-collection-jsc-form-1830-report-of-medical-examination",
+        "rank": 4
+      },
+      {
+        "id": "5",
+        "title": "https://www.federalregister.gov/documents/2026/08/21/2026-17136/nasa-neutral-buoyancy-laboratory-operations-contract-grant-of-permanent-variance",
+        "url": "https://www.federalregister.gov/documents/2026/08/21/2026-17136/nasa-neutral-buoyancy-laboratory-operations-contract-grant-of-permanent-variance",
+        "rank": 5
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "NASA Norfleet verification methods permit flying after diving neutral buoyancy NASA 192-01 Pollock Fitzpatrick 19",
+      "search_id": "01a1fdbf-500e-7419-a61c-bbd69bacbbf2",
+      "limit": 5
+    }
+  },
+  {
+    "id": "2026-11-21-nasa-doppler-cohorts-firecrawl-asm",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "status": "observed_primary_abstract",
+    "operation": "scrape",
+    "reported_total": null,
+    "note": "Verified the 17/81 conference outcome and 6,400 m test profile.",
+    "records": [
+      {
+        "id": "kumar-1992-asm",
+        "title": "The effect of differences in time to detection of circulating microbubbles on the risk of decompression sickness",
+        "url": "https://ntrs.nasa.gov/citations/19950010323",
+        "year": 1992
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrape_id": "01a1fdbf-5097-7114-9b9c-039bcc64bcc2"
+    }
+  },
+  {
+    "id": "2026-11-21-nasa-doppler-cohorts-primary",
+    "date": "2026-11-21",
+    "provider": "NASA, NLM and Aerospace Medical Association",
+    "status": "observed_full_text",
+    "operation": "compare_public_sources",
+    "reported_total": null,
+    "note": "The NASA annual report page 125 was rendered and read directly. The 1997 publisher PDF supplies Table I. The 1992, 1995, 1996 and 1998 author abstracts provide the evidence specified per record.",
+    "records": [
+      {
+        "id": "kumar95_doppler516",
+        "title": "Efficacy of Doppler ultrasound for screening symptoms of decompression sickness during simulated extravehicular activities",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11540992/",
+        "year": 1995,
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/11540992/",
+        "access": "primary_abstract",
+        "note": "Exact clinical and Doppler margins. Joint cells are unavailable.",
+        "observations": [
+          {
+            "id": "kumar95_doppler516-nasa-jsc-simulated-eva-dcs_symptoms_as_reported",
+            "group": "nasa-jsc-simulated-eva",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "nasa-jsc-doppler-516",
+            "cases": 81,
+            "denominator": 516,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlap_hold",
+            "locator": "Author abstract",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "The author abstract reports 81/516 exposures with symptoms."
+          },
+          {
+            "id": "kumar95_doppler516-nasa-jsc-simulated-eva-any_grade_doppler_cmb_as_reported",
+            "group": "nasa-jsc-simulated-eva",
+            "endpoint": "any_grade_doppler_cmb_as_reported",
+            "study_id": "nasa-jsc-doppler-516",
+            "cases": 218,
+            "denominator": 516,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlap_hold",
+            "locator": "Author abstract",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "Precordial Doppler-positive marginal count. The exact symptom-by-Doppler cells are unavailable."
+          }
+        ],
+        "pmid": "11540992",
+        "doi": "10.1016/0094-5765(95)00146-8"
+      },
+      {
+        "id": "kumar97_doppler516",
+        "title": "Utility of Doppler-detectable microbubbles in the diagnosis and treatment of decompression sickness",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/2/article-p151.pdf",
+        "year": 1997,
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/2/article-p151.pdf",
+        "access": "full_text",
+        "note": "Preserve Table I thresholds. Adjacent Results prose reverses the grade I and IV sensitivity endpoints.",
+        "observations": [
+          {
+            "id": "kumar97_doppler516-reported_diagnostic_sample",
+            "group": "historical-nasa-jsc",
+            "endpoint": "reported_diagnostic_sample",
+            "study_id": "nasa-jsc-doppler-516",
+            "denominator": 516,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Methods, printed p. 152 (PDF p. 2)",
+            "note": "Probably the same 516 exposures as the 1995 study. Threshold-specific class denominators are unavailable."
+          },
+          {
+            "id": "kumar97_doppler516-grade-1-sensitivity",
+            "group": "grade-1-threshold",
+            "endpoint": "doppler_sensitivity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 96,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-1-specificity",
+            "group": "grade-1-threshold",
+            "endpoint": "doppler_specificity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 68,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-1-false_positive_rate",
+            "group": "grade-1-threshold",
+            "endpoint": "doppler_false_positive_rate_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 32,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-2-sensitivity",
+            "group": "grade-2-threshold",
+            "endpoint": "doppler_sensitivity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 91,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-2-specificity",
+            "group": "grade-2-threshold",
+            "endpoint": "doppler_specificity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 70,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-2-false_positive_rate",
+            "group": "grade-2-threshold",
+            "endpoint": "doppler_false_positive_rate_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 30,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-3-sensitivity",
+            "group": "grade-3-threshold",
+            "endpoint": "doppler_sensitivity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 85,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-3-specificity",
+            "group": "grade-3-threshold",
+            "endpoint": "doppler_specificity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 80,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-3-false_positive_rate",
+            "group": "grade-3-threshold",
+            "endpoint": "doppler_false_positive_rate_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 20,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-4-sensitivity",
+            "group": "grade-4-threshold",
+            "endpoint": "doppler_sensitivity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 73,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-4-specificity",
+            "group": "grade-4-threshold",
+            "endpoint": "doppler_specificity_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 86,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          },
+          {
+            "id": "kumar97_doppler516-grade-4-false_positive_rate",
+            "group": "grade-4-threshold",
+            "endpoint": "doppler_false_positive_rate_against_dcs_symptoms",
+            "study_id": "nasa-jsc-doppler-516",
+            "reported_rate_percent": 14,
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 153 (PDF p. 3)",
+            "note": "Accuracy against any DCS symptom coded during exposure. Adjacent prose reverses the grade I and IV sensitivity endpoints. Table I supplies no class denominators."
+          }
+        ],
+        "pmid": "9125093"
+      },
+      {
+        "id": "powell93_cmb125",
+        "title": "Time to Detection of Circulating Microbubbles as a Risk Factor for Decompression Sickness",
+        "url": "https://ntrs.nasa.gov/api/citations/19940023490/downloads/19940023490.pdf#page=124",
+        "year": 1993,
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19940023490/downloads/19940023490.pdf#page=124",
+        "access": "full_text",
+        "note": "Table 1 rendered and reviewed. Some printed values are displaced vertically from labels. Table 2 header counts 30/19 are reversed relative to the row totals of 19/30, and 30 exceeds the 22 symptomatic participants in the parent group. Exact subgroup symptom cells withheld.",
+        "observations": [
+          {
+            "id": "powell93_cmb125-all-subjects-type_i_pain_dcs_as_reported",
+            "group": "all-subjects",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 22,
+            "denominator": 125,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlap_hold",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "22 symptomatic and 103 asymptomatic. All DCS symptoms were Type I bends pain."
+          },
+          {
+            "id": "powell93_cmb125-all-subjects-any_grade_doppler_cmb_as_reported",
+            "group": "all-subjects",
+            "endpoint": "any_grade_doppler_cmb_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 52,
+            "denominator": 125,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "Numerator sums 22 symptomatic and 30 asymptomatic with CMB. The separate timing subgroup includes 49 people."
+          },
+          {
+            "id": "powell93_cmb125-cmb-detected-type_i_pain_dcs_as_reported",
+            "group": "cmb-detected",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 22,
+            "denominator": 52,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "22 symptomatic and 30 asymptomatic with CMB detected. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-cmb-undetected-type_i_pain_dcs_as_reported",
+            "group": "cmb-undetected",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 0,
+            "denominator": 73,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "Zero symptomatic and 73 asymptomatic without detected CMB. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-men-type_i_pain_dcs_as_reported",
+            "group": "men",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 20,
+            "denominator": 100,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "20 symptomatic and 80 asymptomatic men. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-women-type_i_pain_dcs_as_reported",
+            "group": "women",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 2,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "2 symptomatic and 23 asymptomatic women. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-upper-test-altitude-type_i_pain_dcs_as_reported",
+            "group": "upper-test-altitude",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 18,
+            "denominator": 100,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "Methods confirm the altitude and 80% sample share. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-lower-test-altitude-type_i_pain_dcs_as_reported",
+            "group": "lower-test-altitude",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 4,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "Table 1 prints 6,440 m. Methods use 6,400 m and 21,000 ft. Numeric altitude withheld. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-prebreathe-nil-type_i_pain_dcs_as_reported",
+            "group": "prebreathe-nil",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 4,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "4 symptomatic and 21 asymptomatic. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-prebreathe-3-5-h-type_i_pain_dcs_as_reported",
+            "group": "prebreathe-3-5-h",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 10,
+            "denominator": 34,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "10 symptomatic and 24 asymptomatic. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-prebreathe-4-h-type_i_pain_dcs_as_reported",
+            "group": "prebreathe-4-h",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 5,
+            "denominator": 28,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "5 symptomatic and 23 asymptomatic. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-prebreathe-6-h-type_i_pain_dcs_as_reported",
+            "group": "prebreathe-6-h",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 3,
+            "denominator": 38,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "Table 1, Medical and Life Sciences p. 16 (PDF p. 125)",
+            "outcome_window": "During the reported chamber tests. Fixed post-exposure surveillance unavailable.",
+            "note": "3 symptomatic and 35 asymptomatic. This is one of several margins of the same 125 people."
+          },
+          {
+            "id": "powell93_cmb125-selected_cmb_timing_subgroup",
+            "group": "cmb-time-analysis",
+            "endpoint": "selected_cmb_timing_subgroup",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "denominator": 49,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "locator": "Methods and Table 2, section pp. 15–16 (PDF pp. 124–125)",
+            "note": "Table 2 header and cells disagree. The exact subgroup symptom cells are withheld."
+          }
+        ]
+      },
+      {
+        "id": "kumar92_asm_cmb81",
+        "title": "The effect of differences in time to detection of circulating microbubbles on the risk of decompression sickness",
+        "url": "https://ntrs.nasa.gov/citations/19950010323",
+        "year": 1992,
+        "primary_source": "https://ntrs.nasa.gov/citations/19950010323",
+        "access": "primary_abstract",
+        "note": "Single-altitude conference sample. Participant and exposure overlap with the other NASA studies is unresolved.",
+        "observations": [
+          {
+            "id": "kumar92_asm_cmb81-three-hour-6400-m-dcs_symptoms_as_reported",
+            "group": "three-hour-6400-m",
+            "endpoint": "dcs_symptoms_as_reported",
+            "study_id": "nasa-jsc-cmb-time-81",
+            "cases": 17,
+            "denominator": 81,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlap_hold",
+            "locator": "NTRS author abstract",
+            "outcome_window": "Three hours at simulated altitude.",
+            "note": "The 125-person analysis includes only 25 people in its lower-altitude stratum. Source linkage and repeat exposure are unknown."
+          }
+        ]
+      },
+      {
+        "id": "conkin96_vge_time",
+        "title": "Relationship of the time course of venous gas bubbles to altitude decompression illness",
+        "url": "https://ntrs.nasa.gov/citations/20040173148",
+        "year": 1996,
+        "primary_source": "https://ntrs.nasa.gov/citations/20040173148",
+        "access": "primary_abstract",
+        "note": "Separate activity and VGE-positive comparisons from the historical archive. Their intersection is unknown.",
+        "observations": [
+          {
+            "id": "conkin96_vge_time-selected-vge-positive-dci_as_reported",
+            "group": "selected-vge-positive",
+            "endpoint": "dci_as_reported",
+            "study_id": "hdsd-vge-time-comparisons",
+            "cases": 61,
+            "denominator": 171,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlapping_margin",
+            "locator": "NTRS author abstract",
+            "outcome_window": "At altitude. Common fixed horizon unavailable.",
+            "note": "Denominator sums 61 VGE plus DCI and 110 VGE without DCI. This selected comparison has a different risk set from the activity comparison."
+          },
+          {
+            "id": "conkin96_vge_time-exercising_subjects",
+            "group": "activity-comparison",
+            "endpoint": "exercising_subjects",
+            "study_id": "hdsd-vge-time-comparisons",
+            "denominator": 322,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "locator": "NTRS author abstract",
+            "note": "Source calls them subjects. Unique membership and intersection with the VGE-positive comparison are unavailable."
+          },
+          {
+            "id": "conkin96_vge_time-inactive_doppler_technicians",
+            "group": "activity-comparison",
+            "endpoint": "inactive_doppler_technicians",
+            "study_id": "hdsd-vge-time-comparisons",
+            "denominator": 133,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "locator": "NTRS author abstract",
+            "note": "Source calls them technicians. Unique membership and intersection with the VGE-positive comparison are unavailable."
+          }
+        ],
+        "pmid": "8931281"
+      },
+      {
+        "id": "norfleet93_postdive",
+        "title": "Verification of Methods to Permit Flying after Diving in Neutral Buoyancy Facilities",
+        "url": "https://ntrs.nasa.gov/api/citations/19940023490/downloads/19940023490.pdf#page=126",
+        "year": 1993,
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19940023490/downloads/19940023490.pdf#page=126",
+        "access": "full_text",
+        "note": "Original account reports zero DCS despite a later logged Type I diagnosis in NASA Test 10. Only 16 maximum grade values among 19 volunteers appear in the grade inventory.",
+        "observations": [
+          {
+            "id": "norfleet93_postdive-test-10-original-account-dcs_as_reported",
+            "group": "test-10-original-account",
+            "endpoint": "dcs_as_reported",
+            "study_id": "nasa-flying-after-diving-test-10",
+            "cases": 0,
+            "denominator": 19,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "analysis_role": "denominator_conflict",
+            "locator": "Abstract and Results, Medical and Life Sciences pp. 17–18 (PDF pp. 126–127)",
+            "outcome_window": "Through the hypobaric excursion. Fixed subsequent clinical surveillance unavailable.",
+            "note": "Original outcome statement. The later NASA clinical archive classifies case 81 as Grade 1 Type I DCS. Existing NASA Test 10 is 1/19. Both reports refer to one cohort."
+          },
+          {
+            "id": "norfleet93_postdive-test-10-original-account-doppler_grade_iii_or_iv_as_reported",
+            "group": "test-10-original-account",
+            "endpoint": "doppler_grade_iii_or_iv_as_reported",
+            "study_id": "nasa-flying-after-diving-test-10",
+            "cases": 4,
+            "denominator": 19,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "analysis_role": "denominator_conflict",
+            "locator": "Abstract and Conclusions, Medical and Life Sciences pp. 17–18 (PDF pp. 126–127)",
+            "outcome_window": "During the three-hour hypobaric excursion.",
+            "note": "Results list only 16 volunteers: 9 grade 0, 3 grade I, 3 grade II and 1 grade III. Grade IV count is withheld here. The later NASA analysis reports 6 any-grade and 3 grade IV using its own outcome definitions."
+          }
+        ]
+      },
+      {
+        "id": "conkin98_evolved_gas",
+        "title": "Evolved gas, pain, the power law, and probability of hypobaric decompression sickness",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/9561282/",
+        "year": 1998,
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/9561282/",
+        "access": "primary_abstract",
+        "note": "The author abstract supplies no exact event numerator or exposure membership.",
+        "observations": [
+          {
+            "id": "conkin98_evolved_gas-reported_analysis_exposures",
+            "group": "survival-analysis-sample",
+            "endpoint": "reported_analysis_exposures",
+            "study_id": "hdsd-evolved-gas-survival-1085",
+            "denominator": 1085,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Author abstract",
+            "note": "Published sample size without an exact observed event numerator."
+          }
+        ],
+        "pmid": "9561282"
+      },
+      {
+        "id": "kumar-1992-journal",
+        "title": "Time to detection of circulating microbubbles as a risk factor for symptoms of altitude decompression sickness",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1445159/",
+        "pmid": "1445159",
+        "year": 1992,
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/1445159/",
+        "note": "Same five authors, 125 direct-ascent participants and a 49-person CMB subgroup as the NASA technical chapter. Journal abstract reports 29.59 versus NASA report 29.56 with identical confidence bounds."
+      },
+      {
+        "id": "pollock-fitzpatrick-workshop",
+        "title": "NASA Flying After Diving Procedures",
+        "url": "https://www.scuba-doc.com/fad_web.pdf",
+        "year": 2004,
+        "primary_source": "https://www.scuba-doc.com/fad_web.pdf",
+        "note": "Printed pp. 59–60. Same 19-person dry-chamber profile and left-elbow joint awareness at 158 minutes. The workshop specifies a modified Doppler scale with different grade 2/3 definitions. No new clinical case."
+      },
+      {
+        "id": "conkin-2014-treatment",
+        "title": "Probabilistic Assessment of Treatment Success for Hypobaric Decompression Sickness",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-case-description-research-tp218561-2014.pdf",
+        "year": 2014,
+        "primary_source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-case-description-research-tp218561-2014.pdf",
+        "note": "Procedure 21, case 81, printed p. 154. Repeats the Grade 1 Type I DCS label and chronology of the existing case 192-01 in the 2003 clinical archive."
+      },
+      {
+        "id": "conkin-2003-test-10",
+        "title": "Description of 103 Cases of Hypobaric Sickness from NASA-Sponsored Research (1982–1999)",
+        "url": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf",
+        "year": 2003,
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20030063917/downloads/20030063917.pdf",
+        "note": "Case 81 p. 58 and Appendix A Procedure 21 (Test 10). Source assessment is Grade 1 Type I DCS with first report at 158 min. Case n=19 and pressure history make a match to the original trial."
+      }
+    ],
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Resolve exact chamber outcomes, risk-set units, likely duplicates and conflicting source counts."
+    }
+  }
+]
