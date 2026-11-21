@@ -8,6 +8,65 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_katuntsev_component_keeps_first_pain_and_recurrence_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='katuntsev74_chamber_pain_jprs' AND analysis_role='overlap_hold'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("all-research-ascents", 284, None, None),
+            ("previous-pain-resolved", 44, 52, "person_exposure"),
+            ("previously-symptom-free", 29, 142, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='katuntsev74_chamber_pain_jprs' ORDER BY stratum
+        """).fetchall() == [
+            ("all-research-ascents", 357, 61), ("previous-pain-resolved", 52, 29),
+            ("previously-symptom-free", 142, 42), ("selected-additional-ascent", 194, None),
+            ("selected-local-compression", 49, 24),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='katuntsev74_chamber_pain_jprs' AND analysis_role='overlapping_margin'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("first_pain_at_additional_target", 13, 142), ("first_pain_during_additional_ascent", 16, 142),
+            ("pain_recurrence_at_additional_target", 8, 52), ("pain_recurrence_during_additional_ascent", 36, 52),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_basis FROM publication_observation
+            WHERE source_id='katuntsev74_chamber_pain_jprs' AND denominator_unit='symptom_report'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("pain_eliminated_as_reported", 6, 57, "author_reconstructed"),
+            ("pain_reappeared_after_cuff_removal", 19, 57, "author_reconstructed"),
+            ("pain_reappeared_during_pressure_release", 32, 57, "author_reconstructed"),
+            ("pain_resolved_during_local_compression", 57, 62, "source_reported"),
+        ]
+        assert db.execute("""
+            SELECT hour_at_altitude,reported_percent,denominator FROM publication_chamber_pain_onset_percentage
+            ORDER BY hour_at_altitude
+        """).fetchall() == [(1, 30.4, None), (2, 32.3, None), (3, 20.4, None),
+                             (4, 11.6, None), (5, 2.4, None), (6, 2.9, None)]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE study_id='katuntsev-imbp-altitude-experimental-program' AND endpoint='dcs_symptoms_source'
+        """).fetchall() == [(931, 1778)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_study_report
+            WHERE study_id='katuntsev-imbp-altitude-experimental-program'
+              AND report_id IN ('ntrs:n74-33560','kosmbio:1974:8:4:66')
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id='ntrs:n74-33560'
+        """).fetchone() == (17,)
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap WHERE source_id='katuntsev74_chamber_pain_jprs'
+        """).fetchall() == [("katuntsev96_human", "likely_overlap")]
+
+
 def test_iseev_archive_completes_one_risk_set_and_keeps_nested_findings(release):
     with connect_pair(release) as db:
         assert db.execute("""

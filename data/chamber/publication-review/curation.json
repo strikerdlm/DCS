@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-katuntsev-1974-hathi#N74-33560",
+      "report_id": "ntrs:n74-33560",
+      "basis": "HathiTrust matches the authors, issue, original pages and JPRS article.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821984&seq=693"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-bibliography#N74-33560",
+      "report_id": "ntrs:n74-33560",
+      "basis": "NASA gives the same JPRS article, authors and pagination.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19750010806/downloads/19750010806.pdf"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-bibliography#original-1974",
+      "report_id": "kosmbio:1974:8:4:66",
+      "basis": "The Soviet bibliography directly indexes the original article.",
+      "evidence_url": "https://dspace.nplg.gov.ge/bitstream/1234/544810/1/Jurnalnaia_Letopis_1975_N9.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.104/sources.csv#katuntsev74_chamber_pain_jprs",
+      "report_id": "ntrs:n74-33560",
+      "basis": "Versioned extraction cites the verified translation.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821984&seq=693"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-thesis-components#katuntsev96-existing-summary",
+      "report_id": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "basis": "The existing author summary matches author, title, year and locator.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-thesis-components#work75",
+      "report_id": "kaluga:1975:katuntsev:149",
+      "basis": "Author summary bibliography identifies this published item.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-thesis-components#prevention76",
+      "report_id": "gmik:1976:katuntsev:124",
+      "basis": "Author summary bibliography identifies this published item.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-thesis-components#low-altitude82",
+      "report_id": "extrem:1982:kazakova:275",
+      "basis": "Author summary bibliography identifies this published item.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-thesis-components#work82",
+      "report_id": "kaluga:1982:katuntsev:190",
+      "basis": "Author summary bibliography identifies this published item.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-thesis-components#doppler91",
+      "report_id": "imbp:1991:katuntsev:36",
+      "basis": "Author summary bibliography identifies this published item.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "record_key": "2026-11-21-katuntsev-1974-thesis-components#suit91",
+      "report_id": "imbp:1991:katuntsev:16",
+      "basis": "Author summary bibliography identifies this published item.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
       "record_key": "2026-11-21-iseev-archive-archive-parse#N88-26074",
       "report_id": "ntrs:n88-26074",
       "basis": "Checked the original title and publication, archive or catalogue locator.",
@@ -15009,6 +15075,18 @@
       "report_id": "pmid:14050686",
       "role": "explicit_secondary_counts_with_native_units",
       "locator": "Printed p. 959, Discussion"
+    },
+    {
+      "study_id": "katuntsev-imbp-altitude-experimental-program",
+      "report_id": "ntrs:n74-33560",
+      "role": "nested_additional_ascent_and_local_pain_component",
+      "locator": "JPRS 63175, pp. 97–102"
+    },
+    {
+      "study_id": "katuntsev-imbp-altitude-experimental-program",
+      "report_id": "kosmbio:1974:8:4:66",
+      "role": "nested_original_pain_component",
+      "locator": "Original journal 8(4):66–70; listed in author summary item 1"
     }
   ],
   "relations": [
@@ -18105,6 +18183,62 @@
       "relationship": "author_summary_of",
       "evidence": "Same author, title, city and year. Reference 8 cites the separately issued 23-page summary.",
       "evidence_url": "https://search.rsl.ru/ru/record/01005087415"
+    },
+    {
+      "left_report": "ntrs:n74-33560",
+      "right_report": "kosmbio:1974:8:4:66",
+      "relationship": "translation_of",
+      "evidence": "Same title, authors, original Russian issue and pages verified.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uc1.31822041821984&seq=693"
+    },
+    {
+      "left_report": "kosmbio:1974:8:4:66",
+      "right_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "relationship": "likely_nested_experimental_component",
+      "evidence": "The 1996 thesis author identifies the paper as an output based on dissertation material. Its discussion cites the cuff observations and reproduces the additional-ascent mechanism. Exact membership in the 1778-test aggregate remains unverified.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "kaluga:1975:katuntsev:149",
+      "relationship": "cites_dissertation_component",
+      "evidence": "Author lists this experiment report as item 2 among works based on dissertation material. No cross-report trial identifiers or matched outcomes are available.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "gmik:1976:katuntsev:124",
+      "relationship": "cites_dissertation_component",
+      "evidence": "Author lists this experiment report as item 3 among works based on dissertation material. No cross-report trial identifiers or matched outcomes are available.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "extrem:1982:kazakova:275",
+      "relationship": "cites_dissertation_component",
+      "evidence": "Author lists this experiment report as item 5 among works based on dissertation material. No cross-report trial identifiers or matched outcomes are available.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "kaluga:1982:katuntsev:190",
+      "relationship": "cites_dissertation_component",
+      "evidence": "Author lists this experiment report as item 7 among works based on dissertation material. No cross-report trial identifiers or matched outcomes are available.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "imbp:1991:katuntsev:36",
+      "relationship": "cites_dissertation_component",
+      "evidence": "Author lists this experiment report as item 13 among works based on dissertation material. No cross-report trial identifiers or matched outcomes are available.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.21/search_hits.csv#prog_v21_russian_author:1",
+      "right_report": "imbp:1991:katuntsev:16",
+      "relationship": "cites_dissertation_component",
+      "evidence": "Author lists this experiment report as item 14 among works based on dissertation material. No cross-report trial identifiers or matched outcomes are available.",
+      "evidence_url": "https://medical-diss.com/medicina/vysotnaya-dekompressionnaya-bolezn-eksperimentalnoe-issledovanie-patogeneza-i-putey-profilaktiki"
     }
   ],
   "report_titles": {
