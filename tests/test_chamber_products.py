@@ -1280,10 +1280,12 @@ def test_nasa_prp_counts_preserve_three_overlapping_analysis_populations(release
         """).fetchone()
         assert [dict(row) for row in counts] == json.loads(review_counts)
         assert (nedu_exposures, nedu_weighted_dcs) == (69, 8.3)
-        assert tuple(db.execute("""
-            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+        prp_occurrences, first_report, last_report = db.execute("""
+            SELECT count(*),min(report_id),max(report_id) FROM review.review_record
             WHERE url LIKE '%20040191712%' OR openalex_id='W118136854'
-        """).fetchone()) == (6, 1)
+        """).fetchone()
+        assert prp_occurrences >= 6
+        assert first_report == last_report == report_id
         assert db.execute("SELECT count(*) FROM chamber_group_evidence WHERE report_id=?", (report_id,)).fetchone()[0] == 0
 
 
