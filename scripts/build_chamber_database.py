@@ -156,6 +156,7 @@ CHAMBER_MOON_PATHOLOGY = ROOT / "data" / "chamber" / "v1.88"
 CHAMBER_FLINN_WOMACK = ROOT / "data" / "chamber" / "v1.89"
 CHAMBER_HISTORICAL_VISUAL_SUMMARIES = ROOT / "data" / "chamber" / "v1.90"
 CHAMBER_REGIONAL_ECCENTRIC_EXERCISE = ROOT / "data" / "chamber" / "v1.91"
+CHAMBER_NASA_REHEARSALS = ROOT / "data" / "chamber" / "v1.92"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1370,6 +1371,16 @@ def build(
                         "publication_gottschalk24_protocol": "protocols.csv",
                         "publication_gottschalk24_vge_peak": "vge_peaks.csv",
                         "publication_gottschalk24_safety_stop": "safety_stops.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_NASA_REHEARSALS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_ea_rehearsal_pilot": "pilot_profiles.csv",
+                        "publication_ea_rehearsal_summary": "campaign_rehearsals.csv",
                     },
                 )
             if rojas_supplement:

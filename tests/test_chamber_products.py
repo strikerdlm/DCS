@@ -1117,6 +1117,52 @@ def test_regional_exercise_keeps_ultrasound_grades_and_unlinked_stops(release):
         """).fetchone() == (0,)
 
 
+def test_nasa_rehearsals_preserve_published_roles_and_outcome_scope(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.volunteer_count,p.technician_count,p.simulated_eva_sessions,p.planned_eva_min,
+                   p.eva_pressure_pilot_methods_kpa,p.eva_pressure_medical_overview_psia,
+                   p.peak_doppler_grade_as_reported,p.peak_eftedal_brubakk_score,p.pressure_status
+            FROM publication_ea_rehearsal_pilot p WHERE p.source_id='garbino22_ea_pilot'
+        """).fetchone() == (6, 2, 1, 360, 34.0, 4.3, "II", 5, "conflicting_reports")
+        assert db.execute("""
+            SELECT rehearsal_year,campaign_month,facility_start_date,reported_attendance,
+                   reported_dcs_cases,outcome_denominator,pilot_source_id
+            FROM publication_ea_rehearsal_summary
+            WHERE campaign_source_id='garbino_ea12' ORDER BY rehearsal_year
+        """).fetchall() == [
+            (2022, "2022-03", "2022-05-09", 8, 1, None, "garbino22_ea_pilot"),
+            (2023, "2023-03", "2023-05-01", 8, 0, None, None),
+        ]
+        assert db.execute("""
+            SELECT o.endpoint,o.numerator,o.denominator,o.denominator_unit,o.altitude,
+                   r.cases,r.denominator,r.chamber_role,o.analysis_role
+            FROM publication_observation o
+            JOIN model_report_link l ON o.source_id=l.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON l.report_id=r.report_id AND o.endpoint=r.endpoint
+            WHERE o.source_id='garbino22_ea_pilot' ORDER BY o.endpoint
+        """).fetchall() == [
+            ("dcs_diagnosed", 0, 6, "person", None, 0, 6, "research_volunteer", "descriptive"),
+            ("vge_any_grade", 3, 6, "person", None, 3, 6, "research_volunteer", "descriptive"),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1.6/sources.csv#garbino_ea12',
+                'legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_originals:4',
+                '2026-11-20-nasa-rehearsals-primary#garbino-campaign-full-slides'
+            )
+        """).fetchone() == (3, 1)
+        assert db.execute("""
+            SELECT numerator,denominator FROM discovery_observation
+            WHERE source_id='garbino_ea12' AND stratum='volunteer-evas' AND endpoint='dcs_type_i'
+        """).fetchone() == (2, 50)
+        assert db.execute("""
+            SELECT count(*) FROM chamber_group_evidence
+            WHERE study_id LIKE 'nasa-exploration-atmosphere-%-dress-rehearsal'
+        """).fetchone() == (0,)
+
+
 def test_crowell_keeps_chamber_runs_and_overlapping_exposure_counts(release):
     with connect_pair(release) as db:
         assert db.execute("""
