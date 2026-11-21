@@ -1,6 +1,36 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.94/sources.csv#olson88_precordial",
+      "report_id": "pmid:3044322",
+      "basis": "Publisher's original title, four authors, issue and pages match PMID 3044322.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/7/article-p635.pdf"
+    },
+    {
+      "record_key": "2026-11-20-olson-bsi-primary#olson-table-i-ii",
+      "report_id": "pmid:3044322",
+      "basis": "Same publisher's full text and PMID as the formal bibliographic records.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/7/article-p635.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.94/sources.csv#webb90_protocol_bibliography_revised",
+      "report_id": "report:ada231355",
+      "basis": "The revised original bears report number USAFSAM-TP-88-10R and accession ADA231355.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf"
+    },
+    {
+      "record_key": "2026-11-20-olson-bsi-firecrawl#ada231355",
+      "report_id": "report:ada231355",
+      "basis": "Exact accession and archived PDF URL.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf"
+    },
+    {
+      "record_key": "2026-11-20-olson-bsi-primary#ada231355-archived-pdf",
+      "report_id": "report:ada231355",
+      "basis": "Exact accession and archived PDF URL.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.93/sources.csv#webb91_doppler_resolution",
       "report_id": "abstract:asma-1991-webb-pilmanis-219",
       "basis": "Authors, title, issue, page and abstract number match the original publisher scan.",
@@ -11145,6 +11175,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-brooks-bsi-olson-1988-precordial",
+      "label": "Olson Brooks BSI precordial ultrasound experiment",
+      "period": "Dates of the 82 individual sessions are unavailable. The parent BSI protocol ran from May 1983 to August 1987.",
+      "setting": "Repeated experimental hypobaric chamber flights at Brooks AFB. Participant linkage is scoped to the cited journal Table I."
+    },
+    {
       "study_id": "usaf-brooks-1980s-high-grade-doppler-resolution",
       "label": "Brooks altitude chamber high-grade Doppler resolution archive subset",
       "period": "Mid-1980s, according to the original abstract",
@@ -12052,6 +12088,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-brooks-bsi-olson-1988-precordial",
+      "report_id": "pmid:3044322",
+      "role": "original_exposure_table",
+      "locator": "Tables I–II, printed pp. 636–637"
+    },
+    {
+      "study_id": "usaf-brooks-bsi-olson-1988-precordial",
+      "report_id": "report:ada231355",
+      "role": "archive_protocol_link_and_reprinted_abstract",
+      "locator": "Printed pp. 3 and 5, PDF pp. 7 and 9"
+    },
     {
       "study_id": "usaf-brooks-1980s-high-grade-doppler-resolution",
       "report_id": "abstract:asma-1991-webb-pilmanis-219",
@@ -13530,6 +13578,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:ada231355",
+      "right_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
+      "relationship": "revised_version_of",
+      "evidence": "The June 1990 USAFSAM-TP-88-10R title page and revision note identify the preceding USAFSAM-TP-88-10 as the prior report. Distinct accession numbers and editions are retained.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf"
+    },
+    {
+      "left_report": "report:ada231355",
+      "right_report": "pmid:3044322",
+      "relationship": "same_published_exposure_subset_in_archive",
+      "evidence": "The BSI section reproduces the Olson 1988 abstract, including the same 32 participants, 82 flights and 27,500-ft plateau. This source adds the archive identifier without adding 82 more flights.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf#page=9"
+    },
+    {
+      "left_report": "pmid:3044322",
+      "right_report": "workshop:ada257612-webb-337",
+      "relationship": "possible_overlap_archive_profiles",
+      "evidence": "The workshop gives 83 exposures in the 27,500-ft arm with a similar oxygen and activity protocol. The journal has 82 exposures with reported data. The individual session crosswalk is unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=352"
+    },
+    {
+      "left_report": "pmid:3044322",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#gerth18",
+      "relationship": "possible_overlap_archive_profiles",
+      "evidence": "NEDU lists the related BSI-C 83-exposure arm at 27,600 ft. The journal reports 82 at 27,500 ft. Treat the risk-set and altitude differences as unresolved pending exposure linkage.",
+      "evidence_url": "https://apps.dtic.mil/sti/pdfs/AD1101527.pdf"
+    },
+    {
+      "left_report": "pmid:3044322",
+      "right_report": "abstract:asma-1991-webb-pilmanis-219",
+      "relationship": "possible_overlap_archive_profiles",
+      "evidence": "The 1991 archive abstract describes earlier Brooks exposures across four altitudes including 27,500 ft. The selected Doppler outcome subgroup has no public identifier crosswalk to the published 82-flight Olson cohort.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p445.pdf#page=37"
+    },
     {
       "left_report": "abstract:asma-1991-webb-pilmanis-219",
       "right_report": "pmid:15672984",

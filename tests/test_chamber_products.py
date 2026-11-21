@@ -1205,6 +1205,53 @@ def test_brooks_abstracts_keep_conditional_doppler_and_unreported_dcs_outcomes(r
         """).fetchone() == (0,)
 
 
+def test_olson_flights_keep_joint_outcomes_timing_and_ambiguous_link(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT reported_participants,reported_exposures,vax_title_code,target_altitude_ft,
+                   target_pressure_psia,scheduled_max_min,prebreathe_min,doppler_check_interval_min
+            FROM publication_olson88_protocol WHERE source_id='olson88_precordial'
+        """).fetchone() == (32, 82, 17, 27500, 4.892, 480, 60, 15)
+        assert db.execute("""
+            SELECT outcome_column,bubble_detection_min IS NOT NULL,count(*)
+            FROM publication_olson88_exposure
+            WHERE source_id='olson88_precordial' GROUP BY 1,2 ORDER BY 1,2
+        """).fetchall() == [
+            ("with_bends", 0, 15), ("with_bends", 1, 49),
+            ("without_bends", 0, 11), ("without_bends", 1, 7),
+        ]
+        assert db.execute("""
+            SELECT count(linked_participant_ordinal),count(DISTINCT linked_participant_ordinal),
+                   count(bends_onset_min)+count(bubble_detection_min),
+                   sum(bubble_detection_min>bends_onset_min),sum(intermittent_pain_only_marked),
+                   max(bends_onset_min)
+            FROM publication_olson88_exposure WHERE source_id='olson88_precordial'
+        """).fetchone() == (81, 32, 120, 5, 3, 344)
+        assert db.execute("""
+            SELECT table_subject_code,outcome_column,linked_participant_ordinal,bends_onset_min,bubble_detection_min
+            FROM publication_olson88_exposure
+            WHERE source_id='olson88_precordial' AND participant_link_status='narrative_conflict'
+        """).fetchall() == [("SK", "without_bends", None, None, None)]
+        assert db.execute("""
+            SELECT o.endpoint,o.numerator,o.denominator,o.analysis_role,r.cases,r.denominator
+            FROM publication_observation o
+            JOIN model_report_link l ON l.source_id=o.source_id AND l.source_table='publication_source'
+            JOIN review.review_search_observation r ON l.report_id=r.report_id AND r.endpoint=o.endpoint
+            WHERE o.source_id='olson88_precordial' ORDER BY o.endpoint
+        """).fetchall() == [
+            ("bends_as_reported", 64, 82, "overlap_hold", 64, 82),
+            ("vge_above_ignored_grade_i", 56, 82, "overlap_hold", 56, 82),
+        ]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='report:ada231355'
+            ORDER BY right_report
+        """).fetchall() == [
+            ("pmid:3044322", "same_published_exposure_subset_in_archive"),
+            ("record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1", "revised_version_of"),
+        ]
+
+
 def test_crowell_keeps_chamber_runs_and_overlapping_exposure_counts(release):
     with connect_pair(release) as db:
         assert db.execute("""

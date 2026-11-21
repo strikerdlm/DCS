@@ -1,0 +1,140 @@
+[
+  {
+    "id": "2026-11-20-olson-bsi-tavily",
+    "date": "2026-11-20",
+    "provider": "Tavily",
+    "operation": "supplementary_publication_and_overlap_search",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Olson Krutz Dixon Smead 3044322 precordial ultrasonic monitoring avoid bends altitude 82 flights Bends Screening Index VAX 17 1988 chamber Patrick",
+      "error_code": 433
+    },
+    "reported_total": null,
+    "status": "failed",
+    "note": "Provider spending limit reached.",
+    "records": []
+  },
+  {
+    "id": "2026-11-20-olson-bsi-firecrawl",
+    "date": "2026-11-20",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_pdf_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf",
+      "http_status": 200
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Read the revised annotated bibliography. VAX code 17 and the Olson abstract occur in the same protocol section.",
+    "records": [
+      {
+        "id": "ada231355",
+        "title": "An annotated bibliography of hypobaric decompression sickness research conducted at the Crew Technology Division, USAF School of Aerospace Medicine, Brooks AFB, Texas from 1983 to 1988",
+        "year": 1990,
+        "url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf",
+        "locator": "Printed pp. 3 and 5 (PDF pp. 7 and 9)",
+        "access": "full_text",
+        "identifier": "ADA231355",
+        "note": "The technical report is a revised edition and lists the journal article under the Bends Screening Index. Its journal abstract excerpt reuses the 82 flights."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-20-olson-bsi-primary",
+    "date": "2026-11-20",
+    "provider": "Aerospace Medical Association publisher PDF and USAFSAM report",
+    "operation": "supplementary_exposure_table_and_protocol_reconciliation",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "reported_total": 2,
+    "status": "observed",
+    "note": "Visually checked both original tables and all 120 numeric time values against independent PDF text extraction. The companion archive report confirms nesting in BSI. Source-specific discrepancies are kept with their locators.",
+    "records": [
+      {
+        "id": "olson-table-i-ii",
+        "title": "An evaluation of precordial ultrasonic monitoring to avoid bends at altitude",
+        "year": 1988,
+        "pmid": "3044322",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/7/article-p635.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/7/article-p635.pdf",
+        "locator": "Tables I–II, printed pp. 636–637",
+        "access": "full_text",
+        "sha256": "c2d833dd73d39509ae1cd0218c0d15d139dbbb52f664802f241a4a52a5d73f1b",
+        "source_scope": {
+          "reported_participants": 32,
+          "table_exposures": 82,
+          "linkable_exposures": 81,
+          "linked_population_scope": "Within-publication table ordinal, with one right-column exposure link held",
+          "with_bends_and_doppler": 49,
+          "with_bends_without_doppler": 15,
+          "without_bends_with_doppler": 7,
+          "with_neither": 11,
+          "intermittent_only_marked": 3,
+          "doppler_first_detected_after_bends": 5,
+          "nominal_target_altitude_ft": 27500,
+          "nominal_target_pressure_psia": 4.892,
+          "nominal_max_min": 480,
+          "prebreathe_min": 60,
+          "prebreathe_oxygen_fraction": 1,
+          "doppler_nominal_interval_min": 15,
+          "spencer_grade_i_included": false,
+          "individual_flight_end_times": null,
+          "protocol_date_range": null
+        },
+        "source_discrepancies": [
+          {
+            "field": "participant_link",
+            "table": "Table I includes a right-column dash within the first subject block.",
+            "narrative": "The Results prose reports that the subject developed bends on each of three exposures.",
+            "disposition": "Preserve the table cell with no linked participant ordinal.",
+            "locator": "Printed pp. 636–637, Table I and Results"
+          },
+          {
+            "field": "onset_after_300_minutes",
+            "table": "Table I gives a 344-minute bends onset in one exposure.",
+            "narrative": "The Results narrative describes onset by 300 minutes.",
+            "disposition": "Preserve the original 344-minute cell and flag the incompatible narrative limit.",
+            "locator": "Printed pp. 636–637, Table I and Fig. 1 discussion"
+          }
+        ],
+        "observations": [
+          {
+            "id": "reported-bends-all-flights",
+            "endpoint": "bends_as_reported",
+            "study_id": "usaf-brooks-bsi-olson-1988-precordial",
+            "group": "All repeated person-flights in the journal analysis",
+            "cases": 64,
+            "denominator": 82,
+            "denominator_unit": "person_exposure",
+            "locator": "Table II p. 637",
+            "note": "Includes the three marked intermittent-pain-only rows. Experimental study. Possible reuse in broader BSI summaries."
+          },
+          {
+            "id": "doppler-recorded-above-ignored-grade",
+            "endpoint": "vge_above_ignored_grade_i",
+            "study_id": "usaf-brooks-bsi-olson-1988-precordial",
+            "group": "All repeated person-flights in the journal analysis",
+            "cases": 56,
+            "denominator": 82,
+            "denominator_unit": "person_exposure",
+            "locator": "Table II p. 637 and Methods p. 636",
+            "note": "Grade I signals were ignored. At least five bubble-positive symptomatic flights registered the Doppler finding after bends onset."
+          }
+        ]
+      },
+      {
+        "id": "ada231355-archived-pdf",
+        "title": "An annotated bibliography of hypobaric decompression sickness research conducted at the Crew Technology Division, USAF School of Aerospace Medicine, Brooks AFB, Texas from 1983 to 1988",
+        "year": 1990,
+        "url": "https://archive.org/download/DTIC_ADA231355/DTIC_ADA231355.pdf",
+        "access": "full_text",
+        "sha256": "42f3b34372e31e5d1558412d2b696707c16b83bca717644f0d9076310165c109",
+        "locator": "Printed pp. 3 and 5, protocol 1 and the abstract excerpt",
+        "identifier": "ADA231355",
+        "note": "June 1990 revision of USAFSAM-TP-88-10. The excerpt identifies Olson's 82-flight precordial study as a BSI publication. The larger BSI archive is not an additional cohort."
+      }
+    ]
+  }
+]
