@@ -203,6 +203,7 @@ CHAMBER_SYMPTOM_SEVERITY = ROOT / "data" / "chamber" / "v1.135"
 CHAMBER_PUBLIC_PHYSIOLOGY_DATA = ROOT / "data" / "chamber" / "v1.136"
 CHAMBER_TREADMILL_CASE_CROSSWALK = ROOT / "data" / "chamber" / "v1.137"
 CHAMBER_INDIAN_CASE_CHRONOLOGY = ROOT / "data" / "chamber" / "v1.138"
+CHAMBER_ITALY_TAIWAN_TRAINING = ROOT / "data" / "chamber" / "v1.139"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -1953,6 +1954,17 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_case_milestone": "case_milestones.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_ITALY_TAIWAN_TRAINING,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_reported_rate": "reported_rates.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
                     },
                     create_schema=False,
                 )

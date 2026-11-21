@@ -4498,3 +4498,41 @@ def test_majumdar_chamber_milestones_reuse_the_original_review_case(release):
             SELECT period FROM review.review_study
             WHERE study_id='iaf-new-delhi-june-1957-preconversion-chamber-case'
         """).fetchone() == ("1957-06-05",)
+
+
+def test_italian_rate_and_taiwan_training_margins_reuse_existing_reports(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT l.report_id,p.reported_percent,p.denominator,p.denominator_unit,p.analysis_role,
+                   o.related_source,o.relationship
+            FROM publication_reported_rate p JOIN model_report_link l USING(source_id)
+            JOIN publication_overlap o USING(source_id)
+            WHERE p.source_id='biselli16_itaf_training'
+        """).fetchall() == [
+            ("proceedings:kindelan-25-biselli", "0.1", 1777, "trainee_record", "overlap_hold",
+             "morgagni10", "unresolved")
+        ]
+        assert db.execute("""
+            SELECT l.report_id,s.stratum,s.parent_stratum,s.trial_count,s.participant_count
+            FROM publication_chamber_trial_scope s JOIN model_report_link l USING(source_id)
+            WHERE s.source_id='huang26_taiwan_training' ORDER BY s.stratum
+        """).fetchall() == [
+            ("pmid:41881514", "all-enrolled", None, 5, 47),
+            ("pmid:41881514", "inside-observers", "all-enrolled", None, 10),
+            ("pmid:41881514", "trainees", "all-enrolled", None, 37),
+            ("pmid:41881514", "type-i-35000-ft", "all-enrolled", 3, 31),
+            ("pmid:41881514", "type-v-25000-ft", "all-enrolled", 2, 16),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('biselli16_itaf_training','huang26_taiwan_training')
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE report_id='proceedings:kindelan-25-biselli' AND observation_id='itaf-dcs-rounded'
+        """).fetchall() == [(None, 1777)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(title) LIKE '%oxidative stress response to simulated altitude training%'
+               OR url LIKE '%military-2025-003189%'
+        """).fetchall() == [("pmid:41881514",)]
