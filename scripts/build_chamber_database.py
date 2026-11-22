@@ -279,6 +279,7 @@ CHAMBER_1995_THRESHOLD_AND_AGE = ROOT / "data" / "chamber" / "v1.211"
 FARNBOROUGH_1995_ABSTRACTS = ROOT / "data" / "chamber" / "v1.212"
 USAF_EXERCISE_TRIAL = ROOT / "data" / "chamber" / "v1.213"
 HDSD_RISK_SET_RECONCILIATION = ROOT / "data" / "chamber" / "v1.214"
+NASA_SOAR_REPEAT_EXPOSURE = ROOT / "data" / "chamber" / "v1.215"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2860,6 +2861,17 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_hdsd_calibration_bin": "calibration_bins.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    NASA_SOAR_REPEAT_EXPOSURE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_repeat_exposure_participant_cell": "participant_cells.csv",
+                        "publication_repeat_exposure_odds_ratio": "odds_ratios.csv",
                     },
                 )
                 load_register(db, ROOT)

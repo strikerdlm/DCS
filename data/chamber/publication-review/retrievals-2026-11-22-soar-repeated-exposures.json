@@ -1,0 +1,500 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-soar-repeated-exposures-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_soar_repeat_exposure_discovery_and_overlap_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "1a5b62ee-c87f-4079-ba6a-9607357ff630",
+          "query": "NASA proceedings case-control study with 126 chamber subjects"
+        },
+        {
+          "request_id": "30fec25c-0f0f-4226-b1b6-b5c1fdde1025",
+          "query": "Kumar Horrigan Waligora Gilbert report identity and original PDF"
+        },
+        {
+          "request_id": "7e1d3ec8-1974-4f81-9fc5-3196a0ab2ece",
+          "query": "Standalone source Tables III–IV"
+        },
+        {
+          "request_id": "a1303b94-e650-411d-9950-2ad6bdf09312",
+          "query": "Repeated-exposure 56/345 outcomes and companion literature"
+        },
+        {
+          "request_id": "d0c9c6e3-739d-4423-8539-3377e24949b5",
+          "query": "126-person Doppler study and expansion of NASA JSC clinical cohort"
+        },
+        {
+          "request_id": "41015475-5626-457b-b516-316202aa5d45",
+          "query": "OpenAlex landing PDF and 1993 JSC full text overlap check"
+        }
+      ]
+    },
+    "note": "The OpenAlex occurrence links directly to NASA NTRS 19910011409. The search found no participant crosswalk between reports.",
+    "records": [
+      {
+        "id": "kumar91_soar_repeated_exposures",
+        "title": "Analysis of the individual risk of altitude decompression sickness under repeated exposures",
+        "authors": [
+          "K V Kumar",
+          "D J Horrigan",
+          "J M Waligora",
+          "J H Gilbert"
+        ],
+        "year": 1991,
+        "url": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf",
+        "openalex_id": "W757732385",
+        "accession": "N91-20722",
+        "source_sha256": "dc8719a5cf6de9d554ff60cc18052055748c655c738d7bd0fa0c02666eea9ab9",
+        "access": "full_text",
+        "locator": "Methods and Results and Tables I–IV, printed pp. 633–635 (PDF pp. 1–3)",
+        "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+        "role_review": "duplicate_retrieval_same_report"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-soar-repeated-exposures-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_soar_original_report_cell_verification",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf",
+          "scrape_id": "01a20354-5005-737a-a6df-cc6768a817ed"
+        },
+        {
+          "url": "https://ntrs.nasa.gov/citations/19910011409",
+          "scrape_id": "01a20355-8f10-7135-8a7d-f93744a79fa2"
+        },
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/19940007074/downloads/19940007074.pdf",
+          "scrape_id": "01a20354-f994-75f3-8ffa-e7bc1f803a70"
+        }
+      ]
+    },
+    "note": "Verified the rendered standalone NASA PDF, retaining original tabular counts and agreement checks.",
+    "records": [
+      {
+        "id": "kumar91_soar_repeated_exposures",
+        "title": "Analysis of the individual risk of altitude decompression sickness under repeated exposures",
+        "authors": [
+          "K V Kumar",
+          "D J Horrigan",
+          "J M Waligora",
+          "J H Gilbert"
+        ],
+        "year": 1991,
+        "url": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf",
+        "openalex_id": "W757732385",
+        "accession": "N91-20722",
+        "source_sha256": "dc8719a5cf6de9d554ff60cc18052055748c655c738d7bd0fa0c02666eea9ab9",
+        "access": "full_text",
+        "locator": "Methods and Results and Tables I–IV, printed pp. 633–635 (PDF pp. 1–3)",
+        "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+        "role_review": "overlap_hold",
+        "observed_exposures": 345,
+        "observed_subjects": 126,
+        "observations": [
+          {
+            "id": "all-chamber-exposures",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "all-chamber-exposures",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 56,
+            "denominator": 345,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Methods and Results, printed pp. 633–634 (PDF pp. 1–2)",
+            "outcome_window": "Symptoms recorded during the historical chamber exposures. Fixed post-exposure follow-up is unreported.",
+            "analysis_role": "overlap_hold",
+            "note": "56 symptomatic exposures among 345 chamber exposures in 126 participants."
+          },
+          {
+            "id": "symptomatic-exposures",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "symptomatic-exposures",
+            "endpoint": "severe_or_type_ii_dcs_among_symptomatic_exposures",
+            "cases": 2,
+            "denominator": 56,
+            "denominator_unit": "dcs_case",
+            "chamber_role": "research_subject",
+            "locator": "Methods and Results, printed pp. 633–634 (PDF pp. 1–2)",
+            "outcome_window": "Symptoms recorded during the historical chamber exposures. Fixed post-exposure follow-up is unreported.",
+            "analysis_role": "case_conditional",
+            "note": "The source classifies two events as severe or Type II and describes the rest as pain-only. The denominator is restricted to symptomatic exposures."
+          },
+          {
+            "id": "all-participants",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "all-participants",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 42,
+            "denominator": 126,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Methods and Results, printed pp. 633–634 (PDF pp. 1–2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlap_hold",
+            "note": "42 affected people among 126 who made 345 exposures."
+          },
+          {
+            "id": "affected-participants-1-symptomatic-exposures",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "affected-participants-1-symptomatic-exposures",
+            "endpoint": "reported_dcs_episode_count_among_affected_participants",
+            "cases": 30,
+            "denominator": 42,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Methods and Results, printed pp. 633–634 (PDF pp. 1–2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "case_conditional",
+            "note": "30 affected individuals experienced exactly 1 symptomatic exposure(s). All three categories describe the same 42 people."
+          },
+          {
+            "id": "affected-participants-2-symptomatic-exposures",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "affected-participants-2-symptomatic-exposures",
+            "endpoint": "reported_dcs_episode_count_among_affected_participants",
+            "cases": 10,
+            "denominator": 42,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Methods and Results, printed pp. 633–634 (PDF pp. 1–2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "case_conditional",
+            "note": "10 affected individuals experienced exactly 2 symptomatic exposure(s). All three categories describe the same 42 people."
+          },
+          {
+            "id": "affected-participants-3-symptomatic-exposures",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "affected-participants-3-symptomatic-exposures",
+            "endpoint": "reported_dcs_episode_count_among_affected_participants",
+            "cases": 2,
+            "denominator": 42,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Methods and Results, printed pp. 633–634 (PDF pp. 1–2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "case_conditional",
+            "note": "2 affected individuals experienced exactly 3 symptomatic exposure(s). All three categories describe the same 42 people."
+          },
+          {
+            "id": "male",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "male",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 40,
+            "denominator": 101,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table I, printed p. 634 (PDF p. 2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "Table I cases and noncases are summed for the denominator. Sex and self-rated fitness are different margins within the same participants."
+          },
+          {
+            "id": "female",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "female",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 2,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table I, printed p. 634 (PDF p. 2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "Table I cases and noncases are summed for the denominator. Sex and self-rated fitness are different margins within the same participants."
+          },
+          {
+            "id": "self-rated-fitness-at-most-5",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "self-rated-fitness-at-most-5",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 19,
+            "denominator": 67,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table I, printed p. 634 (PDF p. 2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "Table I cases and noncases are summed for the denominator. Sex and self-rated fitness are different margins within the same participants."
+          },
+          {
+            "id": "self-rated-fitness-more-than-5",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "self-rated-fitness-more-than-5",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 23,
+            "denominator": 59,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table I, printed p. 634 (PDF p. 2)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "Table I cases and noncases are summed for the denominator. Sex and self-rated fitness are different margins within the same participants."
+          },
+          {
+            "id": "none:all:at_most_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "none:all:at_most_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 27,
+            "denominator": 100,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table III, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The outcome is cumulative participant-ever DCS observed over different numbers of chamber exposures. Sequence-specific hazards are unavailable."
+          },
+          {
+            "id": "none:all:more_than_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "none:all:more_than_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 15,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table III, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The outcome is cumulative participant-ever DCS observed over different numbers of chamber exposures. Sequence-specific hazards are unavailable."
+          },
+          {
+            "id": "sex:male:at_most_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "sex:male:at_most_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 25,
+            "denominator": 75,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The two exposure-count bands are represented among men."
+          },
+          {
+            "id": "sex:male:more_than_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "sex:male:more_than_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 15,
+            "denominator": 26,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The two exposure-count bands are represented among men."
+          },
+          {
+            "id": "sex:female:at_most_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "sex:female:at_most_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 2,
+            "denominator": 25,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The higher-exposure female cell has zero participants. No odds ratio for women is estimable."
+          },
+          {
+            "id": "cmb_runs:once:at_most_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "cmb_runs:once:at_most_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 11,
+            "denominator": 79,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The source prints once. How it handled zero CMB-positive runs is unspecified even though the printed strata exhaust the sample."
+          },
+          {
+            "id": "cmb_runs:once:more_than_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "cmb_runs:once:more_than_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 2,
+            "denominator": 9,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The source prints once. How it handled zero CMB-positive runs is unspecified even though the printed strata exhaust the sample."
+          },
+          {
+            "id": "cmb_runs:> once:at_most_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "cmb_runs:> once:at_most_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 16,
+            "denominator": 21,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The count describes CMB-positive runs observed during exposure."
+          },
+          {
+            "id": "cmb_runs:> once:more_than_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "cmb_runs:> once:more_than_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 13,
+            "denominator": 17,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "The count describes CMB-positive runs observed during exposure."
+          },
+          {
+            "id": "tr360:≤1.5:at_most_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "tr360:≤1.5:at_most_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 4,
+            "denominator": 47,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "360-minute half-time tissue ratio, as categorized by the authors."
+          },
+          {
+            "id": "tr360:≤1.5:more_than_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "tr360:≤1.5:more_than_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 5,
+            "denominator": 13,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "360-minute half-time tissue ratio, as categorized by the authors."
+          },
+          {
+            "id": "tr360:>1.5:at_most_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "tr360:>1.5:at_most_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 23,
+            "denominator": 53,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "360-minute half-time tissue ratio, as categorized by the authors."
+          },
+          {
+            "id": "tr360:>1.5:more_than_3",
+            "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+            "group": "tr360:>1.5:more_than_3",
+            "endpoint": "dcs_ever_in_repeated_exposure_record",
+            "cases": 10,
+            "denominator": 13,
+            "denominator_unit": "person",
+            "chamber_role": "research_subject",
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "outcome_window": "At least one episode during the participant’s complete observed series of chamber exposures.",
+            "analysis_role": "overlapping_margin",
+            "note": "360-minute half-time tissue ratio, as categorized by the authors."
+          }
+        ],
+        "effects": [
+          {
+            "stratification": "none",
+            "method": "crude_cross_product",
+            "odds_ratio": 3.7,
+            "ci95_lower": 1.8,
+            "ci95_upper": 8.7,
+            "marked_chi_square_p_lt_005": null,
+            "locator": "Table III, printed p. 635 (PDF p. 3)",
+            "note": "The outcome is cumulative participant-ever DCS observed over different numbers of chamber exposures. Sequence-specific hazards are unavailable.",
+            "contrast": "more_than_3 versus at_most_3",
+            "outcome": "dcs_ever_in_repeated_exposure_record",
+            "eligibility": "overlap_hold"
+          },
+          {
+            "stratification": "sex",
+            "method": "mantel_haenszel",
+            "odds_ratio": 2.7,
+            "ci95_lower": 0.9,
+            "ci95_upper": 7.5,
+            "marked_chi_square_p_lt_005": 1,
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "note": "The authors marked chi-square p<0.05 although the reported 95% interval spans 1. Women have no participants above three exposures.",
+            "contrast": "more_than_3 versus at_most_3",
+            "outcome": "dcs_ever_in_repeated_exposure_record",
+            "eligibility": "overlap_hold"
+          },
+          {
+            "stratification": "cmb_runs",
+            "method": "mantel_haenszel",
+            "odds_ratio": 1.3,
+            "ci95_lower": 0.01,
+            "ci95_upper": 137.5,
+            "marked_chi_square_p_lt_005": null,
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "note": "This stratification uses CMB observed during exposure. Different exposure counts allow different numbers of bubble-detection opportunities.",
+            "contrast": "more_than_3 versus at_most_3",
+            "outcome": "dcs_ever_in_repeated_exposure_record",
+            "eligibility": "overlap_hold"
+          },
+          {
+            "stratification": "tr360",
+            "method": "mantel_haenszel",
+            "odds_ratio": 5.2,
+            "ci95_lower": 1.8,
+            "ci95_upper": 14.7,
+            "marked_chi_square_p_lt_005": 1,
+            "locator": "Table IV, printed p. 635 (PDF p. 3)",
+            "note": "Separate stratification by tissue ratio. This is not a jointly adjusted estimate.",
+            "contrast": "more_than_3 versus at_most_3",
+            "outcome": "dcs_ever_in_repeated_exposure_record",
+            "eligibility": "overlap_hold"
+          }
+        ],
+        "design_as_reported": "Retrospective case-control analysis of research participants.",
+        "empty_exposure_cell": {
+          "stratification": "sex",
+          "stratum": "female",
+          "cumulative_exposure_band": "more_than_3",
+          "with_dcs": 0,
+          "without_dcs": 0,
+          "locator": "Table IV, printed p. 635 (PDF p. 3)"
+        },
+        "review_eligibility": "Descriptive research evidence. The participant-ever comparison has different lengths of exposure opportunity. Overlap with other research reports is unresolved."
+      }
+    ]
+  }
+]

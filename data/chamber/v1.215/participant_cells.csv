@@ -1,0 +1,15 @@
+source_id,stratification,stratum,cumulative_exposure_band,without_dcs,with_dcs,locator,note
+kumar91_soar_repeated_exposures,none,all,at_most_3,73,27,"Table III, printed p. 635 (PDF p. 3)",The outcome is cumulative participant-ever DCS observed over different numbers of chamber exposures. Sequence-specific hazards are unavailable.
+kumar91_soar_repeated_exposures,none,all,more_than_3,11,15,"Table III, printed p. 635 (PDF p. 3)",The outcome is cumulative participant-ever DCS observed over different numbers of chamber exposures. Sequence-specific hazards are unavailable.
+kumar91_soar_repeated_exposures,sex,male,at_most_3,50,25,"Table IV, printed p. 635 (PDF p. 3)",The two exposure-count bands are represented among men.
+kumar91_soar_repeated_exposures,sex,male,more_than_3,11,15,"Table IV, printed p. 635 (PDF p. 3)",The two exposure-count bands are represented among men.
+kumar91_soar_repeated_exposures,sex,female,at_most_3,23,2,"Table IV, printed p. 635 (PDF p. 3)",The higher-exposure female cell has zero participants. No odds ratio for women is estimable.
+kumar91_soar_repeated_exposures,sex,female,more_than_3,0,0,"Table IV, printed p. 635 (PDF p. 3)",The higher-exposure female cell has zero participants. No odds ratio for women is estimable.
+kumar91_soar_repeated_exposures,cmb_runs,once,at_most_3,68,11,"Table IV, printed p. 635 (PDF p. 3)",The source prints once. How it handled zero CMB-positive runs is unspecified even though the printed strata exhaust the sample.
+kumar91_soar_repeated_exposures,cmb_runs,once,more_than_3,7,2,"Table IV, printed p. 635 (PDF p. 3)",The source prints once. How it handled zero CMB-positive runs is unspecified even though the printed strata exhaust the sample.
+kumar91_soar_repeated_exposures,cmb_runs,> once,at_most_3,5,16,"Table IV, printed p. 635 (PDF p. 3)",The count describes CMB-positive runs observed during exposure.
+kumar91_soar_repeated_exposures,cmb_runs,> once,more_than_3,4,13,"Table IV, printed p. 635 (PDF p. 3)",The count describes CMB-positive runs observed during exposure.
+kumar91_soar_repeated_exposures,tr360,≤1.5,at_most_3,43,4,"Table IV, printed p. 635 (PDF p. 3)","360-minute half-time tissue ratio, as categorized by the authors."
+kumar91_soar_repeated_exposures,tr360,≤1.5,more_than_3,8,5,"Table IV, printed p. 635 (PDF p. 3)","360-minute half-time tissue ratio, as categorized by the authors."
+kumar91_soar_repeated_exposures,tr360,>1.5,at_most_3,30,23,"Table IV, printed p. 635 (PDF p. 3)","360-minute half-time tissue ratio, as categorized by the authors."
+kumar91_soar_repeated_exposures,tr360,>1.5,more_than_3,3,10,"Table IV, printed p. 635 (PDF p. 3)","360-minute half-time tissue ratio, as categorized by the authors."

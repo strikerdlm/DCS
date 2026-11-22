@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.215/sources.csv#kumar91_soar_repeated_exposures",
+      "report_id": "openalex:W757732385",
+      "basis": "OpenAlex W757732385 points to the same NASA NTRS 19910011409 PDF. Title, four authors and proceedings details agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19910011409"
+    },
+    {
+      "record_key": "2026-11-22-soar-repeated-exposures-tavily#kumar91_soar_repeated_exposures",
+      "report_id": "openalex:W757732385",
+      "basis": "OpenAlex W757732385 points to the same NASA NTRS 19910011409 PDF. Title, four authors and proceedings details agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19910011409"
+    },
+    {
+      "record_key": "2026-11-22-soar-repeated-exposures-firecrawl#kumar91_soar_repeated_exposures",
+      "report_id": "openalex:W757732385",
+      "basis": "OpenAlex W757732385 points to the same NASA NTRS 19910011409 PDF. Title, four authors and proceedings details agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19910011409"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.214/sources.csv#conkin_powell95_asma_fit",
       "report_id": "asma:1995:491:168",
       "basis": "The original publisher scan verifies the authors, exact title and distinct meeting abstract number.",
@@ -19143,6 +19161,12 @@
   ],
   "studies": [
     {
+      "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+      "label": "NASA JSC SOAR 90 repeated hypobaric exposure analysis in 126 participants",
+      "period": "Historical test dates unreported. Proceedings published in 1991.",
+      "setting": "NASA Johnson Space Center experimental hypobaric research"
+    },
+    {
       "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
       "label": "HDSD 66-test modified tissue-ratio derivation",
       "period": "Approximately 1975–1990",
@@ -21076,6 +21100,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "nasa-jsc-soar90-repeated-exposure-126",
+      "report_id": "openalex:W757732385",
+      "role": "primary_case_control_outcomes_and_strata",
+      "locator": "Methods and Results and Tables I–IV, printed pp. 633–635 (PDF pp. 1–3)"
+    },
     {
       "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
       "report_id": "asma:1995:491:168",
@@ -24330,6 +24360,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "openalex:W757732385",
+      "right_report": "record:legacy:data/chamber/v1.41/search_hits.csv#vge_review_v41_tables:1",
+      "relationship": "likely_overlap",
+      "evidence": "Kumar and Powell select 59 CMB-positive men from 126 individuals with direct and staged 3–6 h simulated EVA exposures and precordial Doppler. The repeated-exposure paper reports 126 participants in the same research program. Individual linkage is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf"
+    },
+    {
+      "left_report": "openalex:W757732385",
+      "right_report": "pmid:8280036",
+      "relationship": "likely_overlap",
+      "evidence": "The 1993 journal analysis covers 164 participants and 426 exposures from NASA JSC with direct and staged simulated EVA profiles lasting 3–6 h. Its discussion at p. 1038 explicitly cites the 1991 SOAR report in reference 22 (p. 1039). The source does not establish individual nesting of the 126-person cohort.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf"
+    },
+    {
+      "left_report": "openalex:W757732385",
+      "right_report": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "relationship": "likely_overlap",
+      "evidence": "Methods specifically cites NASA TM-58259 for details of the chamber profiles. The original exposure identifiers and exact degree of reuse are unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf"
+    },
+    {
+      "left_report": "openalex:W757732385",
+      "right_report": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "relationship": "likely_overlap",
+      "evidence": "Methods cites NASA TM-100456 for details of profiles and the tissue-ratio representation. Cohort membership is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19910011409/downloads/19910011409.pdf"
+    },
     {
       "left_report": "asma:1995:491:168",
       "right_report": "pmid:8834946",
