@@ -1,6 +1,66 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-cam-pressure-controls-lockheed-verified#ivy-pressure",
+      "report_id": "report:oemcmr-241:sup3:1",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-787/full/1600,/0/default.jpg",
+      "basis": "Original primary archive image identifies the report contract and date."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.200/sources.csv#ivy44_pressure_breathing_supp3",
+      "report_id": "report:oemcmr-241:sup3:1",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-787/full/1600,/0/default.jpg",
+      "basis": "The model source was transcribed from the same archival report."
+    },
+    {
+      "record_key": "2026-11-22-cam-pressure-controls-lockheed-verified#ivy-1943-progress",
+      "report_id": "report:oemcmr-241:4",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-784/full/1600,/0/default.jpg",
+      "basis": "Original primary archive image identifies the report contract and date."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.200/sources.csv#ivy43_diet_progress4",
+      "report_id": "report:oemcmr-241:4",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-784/full/1600,/0/default.jpg",
+      "basis": "The model source was transcribed from the same archival report."
+    },
+    {
+      "record_key": "2026-11-22-cam-pressure-controls-lockheed-verified#ivy-1944-diet",
+      "report_id": "report:oemcmr-241:1944-06-21",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-785/full/1600,/0/default.jpg",
+      "basis": "Original primary archive image identifies the report contract and date."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.200/sources.csv#ivy44_diet_aeroembolism",
+      "report_id": "report:oemcmr-241:1944-06-21",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-785/full/1600,/0/default.jpg",
+      "basis": "The model source was transcribed from the same archival report."
+    },
+    {
+      "record_key": "2026-11-22-cam-pressure-controls-lockheed-verified#hitchcock-1944-regulator",
+      "report_id": "report:oemcmr-74:18",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-760/full/1600,/0/default.jpg",
+      "basis": "Original primary archive image identifies the report contract and date."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.200/sources.csv#hitchcock44_progress18",
+      "report_id": "report:oemcmr-74:18",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-760/full/1600,/0/default.jpg",
+      "basis": "The model source was transcribed from the same archival report."
+    },
+    {
+      "record_key": "2026-11-22-cam-pressure-controls-lockheed-verified#lawrence-lockheed",
+      "report_id": "report:oemcmr-111:2",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-853/full/1600,/0/default.jpg",
+      "basis": "Original primary archive image identifies the report contract and date."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.200/sources.csv#lawrence42_lockheed_gas_exchange",
+      "report_id": "report:oemcmr-111:2",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-853/full/1600,/0/default.jpg",
+      "basis": "The model source was transcribed from the same archival report."
+    },
+    {
       "record_key": "2026-11-22-cam-cincinnati-exploratory-retest-verified#progress-6",
       "report_id": "report:oemcmr-36:6",
       "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-496/full/1600,/0/default.jpg",
@@ -18513,6 +18573,18 @@
   ],
   "studies": [
     {
+      "study_id": "ivy-atkinson-oemcmr-241-experimental-chamber",
+      "label": "Ivy and Atkinson repeated chamber work on diet, exercise and pressure breathing",
+      "period": "May 1943 through August 1944 as reported",
+      "setting": "Ivy–Atkinson OEMcmr-241 experimental chamber program"
+    },
+    {
+      "study_id": "lawrence-hamilton-1942-lockheed-gas-exchange-pilot",
+      "label": "Lawrence and Hamilton's Lockheed chamber gas-exchange subgroup",
+      "period": "Reported June 1, 1942",
+      "setting": "Lockheed low-pressure chamber, Burbank"
+    },
+    {
       "study_id": "cincinnati-1942-35000-ft-activity-series",
       "label": "Cincinnati 35,000-ft posture, exercise and preoxygenation series",
       "period": "Reported August 31, 1942",
@@ -20320,6 +20392,36 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "ivy-atkinson-oemcmr-241-experimental-chamber",
+      "report_id": "report:oemcmr-241:sup3:1",
+      "role": "primary_pressure_breathing_and_historical_controls",
+      "locator": "Report 1, Supplement 3, protocol p. 1, denominator p. 2 and Table I p. 3 (NLM images 787–789)"
+    },
+    {
+      "study_id": "ivy-atkinson-oemcmr-241-experimental-chamber",
+      "report_id": "report:oemcmr-241:4",
+      "role": "earlier_diet_and_exercise_summary",
+      "locator": "Progress Report 4, printed table (NLM image 784)"
+    },
+    {
+      "study_id": "ivy-atkinson-oemcmr-241-experimental-chamber",
+      "report_id": "report:oemcmr-241:1944-06-21",
+      "role": "primary_repeated_diet_comparison",
+      "locator": "June 21 progress report, protocol p. 1 and Table I p. 2 (NLM images 785–786)"
+    },
+    {
+      "study_id": "hitchcock-ohio-state-experimental-chamber",
+      "report_id": "report:oemcmr-74:18",
+      "role": "contemporary_regulator_comparison",
+      "locator": "Progress Report 18, human chamber section (NLM image 760)"
+    },
+    {
+      "study_id": "lawrence-hamilton-1942-lockheed-gas-exchange-pilot",
+      "report_id": "report:oemcmr-111:2",
+      "role": "primary_selected_gas_exchange_chamber_observations",
+      "locator": "Monthly Progress Report 2, chamber results paragraph (NLM image 853)"
+    },
     {
       "study_id": "cincinnati-1942-35000-ft-activity-series",
       "report_id": "report:oemcmr-36:6",
@@ -23370,6 +23472,55 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:oemcmr-241:sup3:1",
+      "right_report": "report:oemcmr-241:4",
+      "relationship": "likely_overlap",
+      "evidence": "The same investigators and contract report earlier controls at 38,000 ft with exercise. Later controls combine dietary series. Individual run linkage is unavailable.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-784/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-241:sup3:1",
+      "right_report": "report:oemcmr-241:1944-06-21",
+      "relationship": "likely_overlap",
+      "evidence": "The same contract reports a repeated diet experiment at 38,000 ft before the pressure-breathing comparison. The later control heading pools control diets. None of the earlier arms is identified as a documented component of the 218 runs.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-788/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-241:1944-06-21",
+      "right_report": "report:oemcmr-241:4",
+      "relationship": "likely_overlap",
+      "evidence": "Both reports describe six previously studied people in the same diet program. Earlier control counts differ from the June 1944 controls, with no run-level correspondence.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-785/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-241:sup3:1",
+      "right_report": "doi:10.1001/jama.1947.02880060015004",
+      "relationship": "unresolved",
+      "evidence": "The JAMA title and author team match the research program. The preview gives no original tables or risk-set counts to establish overlap.",
+      "evidence_url": "https://jamanetwork.com/journals/jama/fullarticle/291560"
+    },
+    {
+      "left_report": "report:oemcmr-241:sup3:1",
+      "right_report": "ntrs:20010020946",
+      "relationship": "unresolved",
+      "evidence": "NASA reference 37 concerns Ivy CAM Report 370 at 47,500 ft without exercise and contributes three serious cases in 50 tests. The current 38,000-ft exercise comparison is a different protocol. The participant history cannot be linked.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20010020946"
+    },
+    {
+      "left_report": "report:oemcmr-74:18",
+      "right_report": "fulton1951:explosive-decompression",
+      "relationship": "likely_overlap",
+      "evidence": "Both reports use the Ohio State chamber under Hitchcock. Slow exposure controls at 38,000 ft may recur in the 1951 chapter. Actual regulator stipulations and membership cannot be matched.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-760/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-74:18",
+      "right_report": "report:oemcmr-74:14",
+      "relationship": "unresolved",
+      "evidence": "These sequential reports share the contract and a slow 38,000-ft comparison. The earlier 37-person study does not identify regulator mode or correspondence with the 1944 groups.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-760/full/1600,/0/default.jpg"
+    },
     {
       "left_report": "report:oemcmr-36:6",
       "right_report": "report:oemcmr-36:7",

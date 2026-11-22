@@ -264,6 +264,7 @@ MAYO_CHAMBER_INDOCTRINATION = ROOT / "data" / "chamber" / "v1.196"
 MAYO_REPEAT_CHAMBER_PROFILES = ROOT / "data" / "chamber" / "v1.197"
 CAM_CHAMBER_PROGRESS = ROOT / "data" / "chamber" / "v1.198"
 CINCINNATI_EXPLORATORY_AND_RETEST = ROOT / "data" / "chamber" / "v1.199"
+CAM_PRESSURE_AND_CONTROLS = ROOT / "data" / "chamber" / "v1.200"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2636,6 +2637,18 @@ def build(
                 load_version_tables(
                     db,
                     CINCINNATI_EXPLORATORY_AND_RETEST,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    CAM_PRESSURE_AND_CONTROLS,
                     {
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
