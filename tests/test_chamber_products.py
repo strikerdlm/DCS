@@ -9,6 +9,67 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_berkeley_arm_groups_keep_the_two_reported_scopes_and_no_inferred_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,reported_runs,approximate_people,reported_group_count,nominal_target_altitude_ft
+            FROM publication_arm_exercise_scope ORDER BY source_id
+        """).fetchall() == [
+            ("cook51_arm_exercise", None, 70, 6, 38000),
+            ("lawrence45_cmr196_report24", 398, None, None, None),
+        ]
+        rows = db.execute("""
+            SELECT exercise_as_printed,number_of_subjects_as_printed,work_foot_pounds,
+                   weight_multiplied_by_jerks_as_printed,mild_symptoms_percent,moderate_symptoms_percent,
+                   incapacitation_percent,analysis_role
+            FROM publication_arm_exercise_group ORDER BY exercise_as_printed
+        """).fetchall()
+        assert rows == [
+            ("I", 77, 380, 256, 72.4, 55.3, 40.8, "overlap_hold"),
+            ("II", 62, 204, 128, 70.5, 54.1, 27.9, "overlap_hold"),
+            ("III", 61, 190, 128, 74.1, 44.9, 22.4, "overlap_hold"),
+            ("IV", 65, 101, 64, 53.1, 34.4, 10.9, "overlap_hold"),
+            ("V", 69, 7, 36, 59.8, 29.9, 13.4, "overlap_hold"),
+            ("VI", 56, 97, 576, 43.6, 27.3, 14.5, "overlap_hold"),
+        ]
+        assert sum(row[1] for row in rows) == 390
+        assert db.execute("""
+            SELECT count(*),count(cases),count(denominator) FROM review.review_search_observation
+            WHERE report_id='fulton1951:role-of-exercise' AND role_review='overlap_hold'
+        """).fetchone() == (18, 0, 0)
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='berkeley-arm-work-and-strain-1945' ORDER BY report_id
+        """).fetchall() == [
+            ("doi:10.1152/ajplegacy.1946.145.3.279",), ("fulton1951:role-of-exercise",),
+            ("nlm:101085500x267:893:lawrence-hamilton",),
+        ]
+
+
+def test_fulton_visit_resolves_duplicate_catalog_records_and_reuses_the_flight_study(release):
+    fulton = "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE record_key IN ('legacy:data/chamber/v1.26/search_hits.csv#timing_v26_nlm_archives:1',
+                                 'legacy:data/chamber/v1.30/sources.csv#fulton44_california',
+                                 'legacy:data/chamber/v1.226/sources.csv#fulton44_california_full_text')
+        """).fetchall() == [(fulton,)]
+        assert db.execute("""
+            SELECT study_id FROM review.review_study_report WHERE report_id=?
+        """, (fulton,)).fetchall() == [("berkeley-liberator-chamber-flight-experiments",)]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report=? AND relationship='likely_overlap' ORDER BY right_report
+        """, (fulton,)).fetchall() == [("asb:1944:1:11:9",), ("pmid:21005550",)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id=?
+        """, (fulton,)).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_fraser_exact_counts_reconcile_repeated_runs_and_preserve_printed_discrepancy(release):
     with connect_pair(release) as db:
         assert db.execute("""
