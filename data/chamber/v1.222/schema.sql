@@ -1,0 +1,22 @@
+CREATE TABLE publication_descent_case_detail (
+    source_id TEXT NOT NULL,
+    stratum TEXT NOT NULL,
+    endpoint TEXT NOT NULL,
+    published_case_number INTEGER NOT NULL CHECK(published_case_number > 0),
+    symptoms_at_target TEXT NOT NULL,
+    symptoms_at_onset TEXT NOT NULL,
+    onset_reference TEXT NOT NULL CHECK(onset_reference IN ('descent','at_ground','minutes_at_ground')),
+    onset_altitude_ft INTEGER CHECK(onset_altitude_ft > 0),
+    minutes_at_ground INTEGER CHECK(minutes_at_ground > 0),
+    onset_context TEXT,
+    symptom_duration_as_printed TEXT NOT NULL,
+    symptom_duration_min INTEGER CHECK(symptom_duration_min > 0),
+    bulletin_source_id TEXT NOT NULL REFERENCES publication_source,
+    bulletin_locator TEXT NOT NULL,
+    journal_locator TEXT NOT NULL,
+    PRIMARY KEY(source_id,stratum,endpoint),
+    UNIQUE(source_id,published_case_number),
+    FOREIGN KEY(source_id,stratum,endpoint) REFERENCES publication_observation(source_id,stratum,endpoint),
+    CHECK((onset_reference='descent') = (onset_altitude_ft IS NOT NULL)),
+    CHECK((onset_reference='minutes_at_ground') = (minutes_at_ground IS NOT NULL))
+) STRICT;

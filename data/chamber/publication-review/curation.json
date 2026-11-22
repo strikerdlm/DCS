@@ -1,6 +1,66 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-lansing-rodbard-tavily#rodbard44_descent_bulletin",
+      "report_id": "nlm:22330650RX8:rodbard",
+      "basis": "Matching author, article and page span across the scans and retrieval records.",
+      "evidence_url": "https://archive.org/download/22330650RX8.nlm.nih.gov/22330650RX8.pdf#page=26"
+    },
+    {
+      "record_key": "2026-11-22-lansing-rodbard-firecrawl#rodbard44_descent_bulletin",
+      "report_id": "nlm:22330650RX8:rodbard",
+      "basis": "Matching author, article and page span across the scans and retrieval records.",
+      "evidence_url": "https://archive.org/download/22330650RX8.nlm.nih.gov/22330650RX8.pdf#page=26"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.222/sources.csv#rodbard44_descent_bulletin",
+      "report_id": "nlm:22330650RX8:rodbard",
+      "basis": "Matching author, article and page span across the scans and retrieval records.",
+      "evidence_url": "https://archive.org/download/22330650RX8.nlm.nih.gov/22330650RX8.pdf#page=26"
+    },
+    {
+      "record_key": "2026-11-22-lansing-rodbard-tavily#lansing44_symptom_relief",
+      "report_id": "nlm:22330650RX3:lansing",
+      "basis": "Matching author, article and page span across the scans and retrieval records.",
+      "evidence_url": "https://archive.org/download/22330650RX3.nlm.nih.gov/22330650RX3.pdf#page=4"
+    },
+    {
+      "record_key": "2026-11-22-lansing-rodbard-firecrawl#lansing44_symptom_relief",
+      "report_id": "nlm:22330650RX3:lansing",
+      "basis": "Matching author, article and page span across the scans and retrieval records.",
+      "evidence_url": "https://archive.org/download/22330650RX3.nlm.nih.gov/22330650RX3.pdf#page=4"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.222/sources.csv#lansing44_symptom_relief",
+      "report_id": "nlm:22330650RX3:lansing",
+      "basis": "Matching author, article and page span across the scans and retrieval records.",
+      "evidence_url": "https://archive.org/download/22330650RX3.nlm.nih.gov/22330650RX3.pdf#page=4"
+    },
+    {
+      "record_key": "2026-11-22-lansing-rodbard-firecrawl#rodbard46",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "basis": "Same 1946 author, title, year and article pages across the public registry and preserved scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p89.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "basis": "Same 1946 author, title, year and article pages across the public registry and preserved scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p89.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_tavily_primary:6",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "basis": "Same 1946 author, title, year and article pages across the public registry and preserved scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p89.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/sources.csv#rodbard46",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "basis": "Same 1946 author, title, year and article pages across the public registry and preserved scan.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p89.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.221/sources.csv#guest44_original_diurnal_chamber",
       "report_id": "nlm:22330650RX3:guest",
       "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
@@ -19515,6 +19575,18 @@
   ],
   "studies": [
     {
+      "study_id": "us-aaf-davis-monthan-rodbard-selected-descent",
+      "label": "Rodbard selected Davis-Monthan chamber descent cases",
+      "period": "First reported November–December 1944",
+      "setting": "Fifth Altitude Training Unit, Davis-Monthan, Tucson."
+    },
+    {
+      "study_id": "us-aaf-lansing-selected-extremity-bends",
+      "label": "Lansing selected altitude chamber extremity-bends series",
+      "period": "First reported January 1944",
+      "setting": "Selected symptomatic participants in a 38,000-ft exposure."
+    },
+    {
       "study_id": "us-aaf-ray-three-station-classification",
       "label": "Ray three-station AAF chamber classification",
       "period": "Bulletin March–April 1945. Exact enrollment dates unavailable.",
@@ -21526,6 +21598,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "us-aaf-davis-monthan-rodbard-selected-descent",
+      "report_id": "nlm:22330650RX8:rodbard",
+      "role": "earliest_numbered_case_report",
+      "locator": "No. 8 pp. 26–29, Tables 1–2 pp. 26–28 and signed byline p. 29"
+    },
+    {
+      "study_id": "us-aaf-davis-monthan-rodbard-selected-descent",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "role": "journal_republication_same_numbered_cases",
+      "locator": "Journal pp. 89–91, Tables I–II on pp. 90–91 (PDF pp. 2–3)"
+    },
+    {
+      "study_id": "us-aaf-lansing-selected-extremity-bends",
+      "report_id": "nlm:22330650RX3:lansing",
+      "role": "selected_case_response_series",
+      "locator": "No. 3 pp. 4–6, counts pp. 4–5 and signed byline p. 6"
+    },
     {
       "study_id": "us-aaf-las-vegas-diurnal-38000ft",
       "report_id": "nlm:22330650RX3:guest",
@@ -24876,6 +24966,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "nlm:22330650RX8:rodbard",
+      "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "relationship": "same_published_case",
+      "evidence": "The bulletin and journal give the same 14 numbered rows, with matching site, symptoms, onset and duration. Use the existing rodbard46 source identifier for each detailed episode and retain the two aggregate margins. The bulletin is separate evidence for the same published cases.",
+      "evidence_url": "https://archive.org/download/22330650RX8.nlm.nih.gov/22330650RX8.pdf#page=26"
+    },
     {
       "left_report": "nlm:22330650RX3:guest",
       "right_report": "asb:1944:1:6:5:guest",
