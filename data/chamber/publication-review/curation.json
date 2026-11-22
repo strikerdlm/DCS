@@ -20675,6 +20675,60 @@
       "report_id": "pmid:20251066",
       "basis": "Same source citation and locator as in the numbered supplement.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20251066/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#3675475",
+      "report_id": "pmid:3675475",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3675475",
+      "report_id": "pmid:3675475",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2415989400",
+      "report_id": "pmid:3675475",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-22-vann-gerth-hypobaric-archives-tavily#vann87_likelihood_archive",
+      "report_id": "pmid:3675475",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.234/sources.csv#vann87_likelihood_archive",
+      "report_id": "pmid:3675475",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-22-vann-gerth-hypobaric-archives-tavily#vann92_workshop_archive",
+      "report_id": "workshop:ada257612-vann-247",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=274"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.234/sources.csv#vann92_workshop_archive",
+      "report_id": "workshop:ada257612-vann-247",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=274"
+    },
+    {
+      "record_key": "2026-11-22-vann-gerth-hypobaric-archives-firecrawl#gerth95_usafal_archive",
+      "report_id": "report:ada297456",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA297456/DTIC_ADA297456.pdf#page=27"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.234/sources.csv#gerth95_usafal_archive",
+      "report_id": "report:ada297456",
+      "basis": "Matching authors, title, and stable identifier or chapter locator.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA297456/DTIC_ADA297456.pdf#page=27"
     }
   ],
   "studies": [
@@ -22777,6 +22831,24 @@
       "label": "Boscombe Down prospective chamber MRI study",
       "period": "February to November 2017",
       "setting": "MOD Boscombe Down, UK"
+    },
+    {
+      "study_id": "vann-1987-nasa-usaf-archive-fit",
+      "label": "Vann RD, Gerth WA, Leatherman NE, Feezor MD. A likelihood analysis of experiments to test altitude decompression protocols for shuttle operations. Aviat Space Environ Med. 1987;58(9 Pt 2):A106–A109. PMID:3675475.",
+      "period": "Prior to September 1987",
+      "setting": "Historical hypobaric model-development archive snapshot."
+    },
+    {
+      "study_id": "vann-1990-workshop-nasa-usaf-archive-fit",
+      "label": "Vann RD, Gerth WA, Southerland DG. Modeling and Validation. In: Pilmanis AA, ed. Proceedings of the 1990 Hypobaric Decompression Sickness Workshop. AL-SR-1992-0005. 1992, pp. 247–257.",
+      "period": "Reported at the 1990 workshop",
+      "setting": "Historical hypobaric model-development archive snapshot."
+    },
+    {
+      "study_id": "gerth-1995-usafal-chamber-archive-fit",
+      "label": "Gerth WA, Vann RD. Statistical Bubble Dynamics Algorithms for Assessment of Altitude Decompression Sickness Incidence. Armstrong Laboratory AL/CF-TR-1995-0037. July 1995.",
+      "period": "1983 to report snapshot",
+      "setting": "Historical hypobaric model-development archive snapshot."
     }
   ],
   "study_reports": [
@@ -26289,6 +26361,24 @@
       "report_id": "doi:10.3357/amhp.5730.2021",
       "role": "prospective_exposure_scope_without_clinical_dcs_tally",
       "locator": "Methods p. 216, Results p. 218, and Table II p. 219"
+    },
+    {
+      "study_id": "vann-1987-nasa-usaf-archive-fit",
+      "report_id": "pmid:3675475",
+      "role": "source_reported_archive_summary",
+      "locator": "Employment of Maximum Likelihood, printed p. A107 (PDF p. 2), and Figure 2, p. A108"
+    },
+    {
+      "study_id": "vann-1990-workshop-nasa-usaf-archive-fit",
+      "report_id": "workshop:ada257612-vann-247",
+      "role": "source_reported_archive_summary",
+      "locator": "Data Analysis and Risk Estimation, printed p. 252 (PDF p. 274)"
+    },
+    {
+      "study_id": "gerth-1995-usafal-chamber-archive-fit",
+      "report_id": "report:ada297456",
+      "role": "source_reported_archive_summary",
+      "locator": "Table 1, printed p. 18 (PDF p. 27), plus printed pp. 19–20 and 22"
     }
   ],
   "relations": [
@@ -32220,6 +32310,62 @@
       "relationship": "possible_case_overlap",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf#page=3",
       "evidence": "The older DERA/QinetiQ study includes prolonged chamber exposures in the broader historical setting. The historical MRI cohort is selected from prior research and instructor roles. Neither paper identifies shared participants or episodes."
+    },
+    {
+      "left_report": "workshop:ada257612-vann-247",
+      "right_report": "pmid:3675475",
+      "relationship": "related_archive_membership_unresolved",
+      "evidence": "Same lead authors, collaborating NASA and USAF laboratories, and matching published low-pressure, suited and staged profile examples. The older report has 30 profiles and 58 mild-symptom outcomes in 548 exposures. The later chapter has 49 profiles and 201 mild-to-moderate pain-only cases in 923 exposures. Exposure linkage and exact nesting remain unverified.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2"
+    },
+    {
+      "left_report": "pmid:3675475",
+      "right_report": "record:legacy:data/chamber/v1.38/search_hits.csv#threshold_v38_primary:2",
+      "relationship": "related_archive_membership_unresolved",
+      "evidence": "Contemporaneous NASA modeling report and corresponding chamber program. The TM and the Vann article give different model sample descriptions and do not provide a person-exposure crosswalk.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19870019681/downloads/19870019681.pdf"
+    },
+    {
+      "left_report": "pmid:3675475",
+      "right_report": "openalex:W826972704",
+      "relationship": "related_archive_membership_unresolved",
+      "evidence": "Both reports give 548 exposures. The Vann report pools NASA and USAF and counts 58 mild-symptom cases. Wessel and Conkin describe the NASA historical archive with 84 DCS cases during 1982–1998. The populations and clinical endpoints differ.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20080013529"
+    },
+    {
+      "left_report": "workshop:ada257612-vann-247",
+      "right_report": "workshop:ada257612-webb-337",
+      "relationship": "related_archive_membership_unresolved",
+      "evidence": "Two independent chapters of the same workshop volume. The Vann pool includes USAF tests. Webb reports named USAFSAM experimental group margins. A session-level crosswalk is unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=351"
+    },
+    {
+      "left_report": "report:ada297456",
+      "right_report": "workshop:ada257612-vann-247",
+      "relationship": "related_archive_membership_unresolved",
+      "evidence": "The later Duke technical report extracts the USAFAL archive from 1983. The older pooled chapter combines NASA and USAF tests. Common authors and site context support possible reuse, with no enrollment key shared.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=274"
+    },
+    {
+      "left_report": "report:ada297456",
+      "right_report": "ntrs:19940029137",
+      "relationship": "related_archive_membership_unresolved",
+      "evidence": "Both examine the Armstrong Laboratory chamber archive from 1983. Demboski and Pilmanis report 1,163 exposures and 309 DCS cases over 1983–1993. Gerth and Vann report 1,194 and raw percentages under a separate modeling selection.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19940029137"
+    },
+    {
+      "left_report": "report:ada297456",
+      "right_report": "report:ada521198",
+      "relationship": "related_archive_membership_unresolved",
+      "evidence": "Same Armstrong Laboratory and USAFSAM archive. Later documentation includes multiple collections and conflicting historical cohort slices. The 1995 report gives no public participant or exposure keys.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA521198/DTIC_ADA521198.pdf"
+    },
+    {
+      "left_report": "workshop:ada257612-vann-247",
+      "right_report": "record:2026-11-20-navy-outbreaks-tav-extract#https://apps.dtic.mil/sti/pdfs/ADA257612.pdf",
+      "relationship": "contained_in",
+      "evidence": "Separate chapter title, byline and printed pagination within the workshop proceedings.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=269"
     }
   ],
   "report_titles": {
