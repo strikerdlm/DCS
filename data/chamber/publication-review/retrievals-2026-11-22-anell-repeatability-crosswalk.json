@@ -1,0 +1,1169 @@
+[
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-anell-reuse-tavily",
+    "provider": "Tavily",
+    "operation": "supplementary_original_chamber_and_reanalysis_lookup",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "receipt_ids": [
+        "2959769a-0b29-494d-af37-25dba87eac89",
+        "6d512acc-22fe-4c2f-9b8b-b2fa7fcba533",
+        "92d76de5-5f59-4d3b-aabb-0496a0dea0db",
+        "26047ca3-c2ff-42d9-bc35-9a3d06f7f284"
+      ],
+      "target_pmids": [
+        "31852568",
+        "35063055",
+        "32327022"
+      ]
+    },
+    "note": "Located the original 2020 crossover, its distinct reply, and the 2022 secondary repeatability report. Publisher PDF passages supplied original clinical results and data definitions.",
+    "records": []
+  },
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-anell-reuse-firecrawl",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_and_table_verification",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "receipt_ids": [
+        "01a202a3-39ca-743d-a6d5-c73f9bbb9502",
+        "01a202a3-b607-72aa-8c2d-36f22263f838",
+        "01a202a4-e4ff-73b1-96e4-d11f22ca1e76"
+      ],
+      "pdfs": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/1/article-p11.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/1/article-p46.pdf"
+      ]
+    },
+    "note": "Publisher abstracts and the 2020 PDF were checked through Firecrawl. Exact cells and Figure 1 were verified from the primary publisher PDFs.",
+    "records": [
+      {
+        "id": "anell-2020-original",
+        "title": "Evolution and Preservation of Venous Gas Emboli at Alternating High and Moderate Altitude Exposures",
+        "year": 2020,
+        "pmid": "31852568",
+        "doi": "10.3357/amhp.5447.2020",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/1/article-p11.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/1/article-p11.pdf",
+        "full_text_available": true,
+        "file_sha256": "93cfdb0022604831d317b9df78f4f2e10db971ad96749c8961923764b61502b7",
+        "study_id": "anell-2020-normoxic-altitude-alternation",
+        "role_review": "overlap_hold",
+        "locator": "Methods and Results, printed pp. 12-15, and Tables I-II, printed p. 15",
+        "note": "Eight participants completed all three conditions. Participant linkage to other publications is unresolved.",
+        "protocol_scope": {
+          "cohort_participants": 8,
+          "completed_person_exposures": 24,
+          "crossover": true,
+          "hours_between_visits_at_least": 72,
+          "methods": "The rebreather targeted inspired PO2 of 21 kPa at plateaus. On initial ascent and final descent participants breathed chamber air below 10,000 ft. Above 10,000 ft on transitions they breathed 46.5% O2/53.5% N2. The target pressure change rate was 5,000 ft/min, with one-minute VGE stops at successive 5,000-ft increments on initial ascent and final descent.",
+          "plateau_inspired_po2_target_kpa": 21,
+          "initial_rebreather_oxygen_percent_at_24000_ft": 53.3,
+          "initial_rebreather_oxygen_percent_at_15000_ft": 36.7,
+          "plateaus": {
+            "high": [
+              {
+                "altitude_ft": 24000,
+                "duration_min": 90
+              }
+            ],
+            "high_low": [
+              {
+                "altitude_ft": 24000,
+                "duration_min": 30
+              },
+              {
+                "altitude_ft": 15000,
+                "duration_min": 30
+              },
+              {
+                "altitude_ft": 24000,
+                "duration_min": 30
+              },
+              {
+                "altitude_ft": 15000,
+                "duration_min": 30
+              },
+              {
+                "altitude_ft": 24000,
+                "duration_min": 30
+              }
+            ],
+            "low": [
+              {
+                "altitude_ft": 15000,
+                "duration_min": 90
+              }
+            ]
+          },
+          "rest_observation_interval_min": 5,
+          "knee_bend_interval_min": 15,
+          "clinical_follow_up_after_chamber": null,
+          "low_dwell_person_maximum_grade_counts": {
+            "0": 5,
+            "1": 2,
+            "2": 1
+          }
+        },
+        "stage_summaries": [
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 1,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 1,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 0,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 1,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 2,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 1,
+            "maximum_grade": 2,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 1,
+            "maximum_grade": 2,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 1,
+            "p_less_than_vs_final_descent_24000": 0.001,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 0,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 1,
+            "p_less_than_vs_final_descent_24000": 0.001,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "ascent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 1,
+            "median_grade": 2,
+            "maximum_grade": 4,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 1,
+            "maximum_grade": 4,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 4,
+            "p_less_than_vs_final_descent_24000": 0.05,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 4,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high",
+            "phase": "descent",
+            "altitude_ft": 0,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "ascent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 24000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 2,
+            "median_grade": 3,
+            "maximum_grade": 4,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 20000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 2,
+            "median_grade": 3,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 1,
+            "median_grade": 3,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 3,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 1,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "high_low",
+            "phase": "descent",
+            "altitude_ft": 0,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 3,
+            "p_less_than_vs_final_descent_24000": 0.01,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "ascent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "ascent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "ascent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 0,
+            "participants_as_reported": 8,
+            "measurement_context": "rest",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table I, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "ascent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "ascent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "ascent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 15000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 10000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 5000,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          },
+          {
+            "condition": "low",
+            "phase": "descent",
+            "altitude_ft": 0,
+            "participants_as_reported": 8,
+            "measurement_context": "after_knee_bends",
+            "grade_scale": "Eftedal-Brubakk (0-4 as used)",
+            "minimum_grade": 0,
+            "median_grade": 0,
+            "maximum_grade": 0,
+            "p_less_than_vs_final_descent_24000": null,
+            "locator": "Table II, printed p. 15"
+          }
+        ],
+        "observations": [
+          {
+            "id": "high-dcs_during_chamber_trial_as_reported",
+            "study_id": "anell-2020-normoxic-altitude-alternation",
+            "group": "high",
+            "endpoint": "dcs_during_chamber_trial_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results, printed p. 13",
+            "note": "The paper reports no DCS in any of the completed experiments. The outcome window is the chamber trial. Eight participants completed all three conditions. Participant linkage to other publications is unresolved."
+          },
+          {
+            "id": "high-any_right_ventricular_vge_during_chamber_trial_as_reported",
+            "study_id": "anell-2020-normoxic-altitude-alternation",
+            "group": "high",
+            "endpoint": "any_right_ventricular_vge_during_chamber_trial_as_reported",
+            "cases": 8,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results, printed p. 13",
+            "note": "Right-ventricular VGE detected in all eight within 45 min at 24,000 ft. Eight participants completed all three conditions. Participant linkage to other publications is unresolved."
+          },
+          {
+            "id": "high_low-dcs_during_chamber_trial_as_reported",
+            "study_id": "anell-2020-normoxic-altitude-alternation",
+            "group": "high_low",
+            "endpoint": "dcs_during_chamber_trial_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results, printed p. 13",
+            "note": "The paper reports no DCS in any of the completed experiments. The outcome window is the chamber trial. Eight participants completed all three conditions. Participant linkage to other publications is unresolved."
+          },
+          {
+            "id": "high_low-any_right_ventricular_vge_during_chamber_trial_as_reported",
+            "study_id": "anell-2020-normoxic-altitude-alternation",
+            "group": "high_low",
+            "endpoint": "any_right_ventricular_vge_during_chamber_trial_as_reported",
+            "cases": 7,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results, printed p. 13",
+            "note": "Seven had right-ventricular VGE within the first 30 min at 24,000 ft. One had no VGE in the entire experiment. Eight participants completed all three conditions. Participant linkage to other publications is unresolved."
+          },
+          {
+            "id": "low-dcs_during_chamber_trial_as_reported",
+            "study_id": "anell-2020-normoxic-altitude-alternation",
+            "group": "low",
+            "endpoint": "dcs_during_chamber_trial_as_reported",
+            "cases": 0,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results, printed p. 13",
+            "note": "The paper reports no DCS in any of the completed experiments. The outcome window is the chamber trial. Eight participants completed all three conditions. Participant linkage to other publications is unresolved."
+          },
+          {
+            "id": "low-any_right_ventricular_vge_during_chamber_trial_as_reported",
+            "study_id": "anell-2020-normoxic-altitude-alternation",
+            "group": "low",
+            "endpoint": "any_right_ventricular_vge_during_chamber_trial_as_reported",
+            "cases": 3,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results, printed p. 13",
+            "note": "During the 90 min at 15,000 ft, two reached grade 1 and one grade 2. Five had no detected VGE. Eight participants completed all three conditions. Participant linkage to other publications is unresolved."
+          }
+        ]
+      },
+      {
+        "id": "anell-2022-reanalysis",
+        "title": "Intra-Individual Test-Retest Variation Regarding Venous Gas Bubble Formation During High Altitude Exposures",
+        "year": 2022,
+        "pmid": "35063055",
+        "doi": "10.3357/amhp.5938.2022",
+        "url": "https://asma.kglmeridian.com/view/journals/amhp/93/1/article-p46.xml",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/1/article-p46.pdf",
+        "full_text_available": true,
+        "file_sha256": "07ca02bc4b5b9633e87d2acffd522c9653107702379d212c1fa13a13602c96b7",
+        "study_id": "anell-2022-vge-repeatability-reanalysis",
+        "role_review": "overlap_hold",
+        "locator": "Methods, Results and Fig. 1, printed pp. 47-48",
+        "note": "Exposures with DCS were excluded from the repeatability comparisons. The reported participant history and paired analysis populations have different scopes.",
+        "cohort_scope": {
+          "participants": 19,
+          "participants_in_both_short_gas_groups": 7,
+          "participants_with_dcs_in_original_experiments": 5,
+          "symptomatic_exposures": null,
+          "dcs_exposures_excluded_from_repeatability": true,
+          "contributing_reports": [
+            {
+              "report_id": "pmid:31101137",
+              "reference_number": 1
+            },
+            {
+              "report_id": "pmid:31852568",
+              "reference_number": 2
+            },
+            {
+              "report_id": "pmid:33752785",
+              "reference_number": 3
+            }
+          ]
+        },
+        "comparisons": [
+          {
+            "comparison": "54_pct_70_min",
+            "participants": 7,
+            "nominal_altitude_ft": 24000,
+            "oxygen_percent": 54,
+            "observation_min_lower": 70,
+            "observation_min_upper": 70,
+            "minimum_grade_difference": 0,
+            "median_grade_difference": 1,
+            "maximum_grade_difference": 2,
+            "icc": 0.32,
+            "icc_lower": -0.51,
+            "icc_upper": 0.86,
+            "threshold_grade": 3,
+            "participants_crossing_threshold": 2,
+            "crossing_percent_reported": 28.6,
+            "crossing_ci_lower": 5.1,
+            "crossing_ci_upper": 69.8,
+            "locator": "Results, printed p. 47",
+            "note": "Two 70-minute runs per participant. Seven participants also took part in the short 54% group."
+          },
+          {
+            "comparison": "54_pct_initial_20_to_30_min",
+            "participants": 13,
+            "nominal_altitude_ft": 24000,
+            "oxygen_percent": 54,
+            "observation_min_lower": 20,
+            "observation_min_upper": 30,
+            "minimum_grade_difference": 0,
+            "median_grade_difference": 1,
+            "maximum_grade_difference": 3,
+            "icc": 0.34,
+            "icc_lower": -0.24,
+            "icc_upper": 0.75,
+            "threshold_grade": 3,
+            "participants_crossing_threshold": null,
+            "crossing_percent_reported": null,
+            "crossing_ci_lower": null,
+            "crossing_ci_upper": null,
+            "locator": "Results, printed p. 47",
+            "note": "Ten participants had 30-minute windows and three had 20-minute windows."
+          },
+          {
+            "comparison": "90_pct_initial_30_min",
+            "participants": 13,
+            "nominal_altitude_ft": 24000,
+            "oxygen_percent": 90,
+            "observation_min_lower": 30,
+            "observation_min_upper": 30,
+            "minimum_grade_difference": 0,
+            "median_grade_difference": 1,
+            "maximum_grade_difference": 4,
+            "icc": -0.05,
+            "icc_lower": -0.58,
+            "icc_upper": 0.51,
+            "threshold_grade": 3,
+            "participants_crossing_threshold": null,
+            "crossing_percent_reported": null,
+            "crossing_ci_lower": null,
+            "crossing_ci_upper": null,
+            "locator": "Results, printed p. 47",
+            "note": "Seven participants also took part in the 54% group."
+          },
+          {
+            "comparison": "combined_initial_20_to_30_min",
+            "participants": 19,
+            "nominal_altitude_ft": 24000,
+            "oxygen_percent": null,
+            "observation_min_lower": 20,
+            "observation_min_upper": 30,
+            "minimum_grade_difference": 0,
+            "median_grade_difference": 1,
+            "maximum_grade_difference": 4,
+            "icc": null,
+            "icc_lower": null,
+            "icc_upper": null,
+            "threshold_grade": 3,
+            "participants_crossing_threshold": 8,
+            "crossing_percent_reported": 42.1,
+            "crossing_ci_lower": 23.2,
+            "crossing_ci_upper": 66.18,
+            "locator": "Results, printed p. 48 and Figure 1",
+            "note": "Overlapping gas groups combined once per participant. The source reports median maximum variation within person."
+          }
+        ],
+        "grade_range_groups": [
+          {
+            "minimum_grade": 0,
+            "maximum_grade": 0,
+            "participants": 2,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 0,
+            "maximum_grade": 1,
+            "participants": 3,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 0,
+            "maximum_grade": 2,
+            "participants": 1,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 0,
+            "maximum_grade": 3,
+            "participants": 3,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 0,
+            "maximum_grade": 4,
+            "participants": 1,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 1,
+            "maximum_grade": 1,
+            "participants": 1,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 1,
+            "maximum_grade": 3,
+            "participants": 3,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 2,
+            "maximum_grade": 3,
+            "participants": 1,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 3,
+            "maximum_grade": 3,
+            "participants": 3,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          },
+          {
+            "minimum_grade": 3,
+            "maximum_grade": 4,
+            "participants": 1,
+            "locator": "Figure 1, printed p. 48",
+            "extraction_method": "Independent visual trace and embedded-raster line check. Unordered minima and maxima for 19 people. Source text confirms eight threshold crossers."
+          }
+        ],
+        "reported_grade_difference_percentages": [
+          32,
+          26,
+          21,
+          16,
+          5
+        ],
+        "observations": [
+          {
+            "id": "54_pct_70_min-crosses-3",
+            "study_id": "anell-2022-vge-repeatability-reanalysis",
+            "group": "54_pct_70_min",
+            "endpoint": "person_vge_grade_range_crosses_3_between_observations",
+            "cases": 2,
+            "denominator": 7,
+            "denominator_unit": "person",
+            "reported_rate_percent": 28.6,
+            "locator": "Results, printed p. 47",
+            "note": "Two 70-minute runs per participant. Seven participants also took part in the short 54% group. This represents within-person VGE-grade variation."
+          },
+          {
+            "id": "combined_initial_20_to_30_min-crosses-3",
+            "study_id": "anell-2022-vge-repeatability-reanalysis",
+            "group": "combined_initial_20_to_30_min",
+            "endpoint": "person_vge_grade_range_crosses_3_between_observations",
+            "cases": 8,
+            "denominator": 19,
+            "denominator_unit": "person",
+            "reported_rate_percent": 42.1,
+            "locator": "Results, printed p. 48 and Figure 1",
+            "note": "Overlapping gas groups combined once per participant. The source reports median maximum variation within person. This represents within-person VGE-grade variation."
+          }
+        ]
+      }
+    ]
+  }
+]
