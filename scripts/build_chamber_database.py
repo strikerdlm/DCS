@@ -250,6 +250,7 @@ NASA_EA6_VGE_PANELS = ROOT / "data" / "chamber" / "v1.182"
 IAF_CHAMBER_PROTOCOL = ROOT / "data" / "chamber" / "v1.183"
 FAA_NTSB_DC8_CASE = ROOT / "data" / "chamber" / "v1.184"
 KADENA_HYPOBARIC_PROGRAM = ROOT / "data" / "chamber" / "v1.185"
+INDIA_FIELD_SYMPTOM_EVIDENCE = ROOT / "data" / "chamber" / "v1.186"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2472,6 +2473,15 @@ def build(
                 load_version_tables(
                     db,
                     KADENA_HYPOBARIC_PROGRAM,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    INDIA_FIELD_SYMPTOM_EVIDENCE,
                     {
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",

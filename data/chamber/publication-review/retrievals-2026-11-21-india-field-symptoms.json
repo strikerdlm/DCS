@@ -1,0 +1,144 @@
+[
+  {
+    "id": "2026-11-21-india-field-symptoms-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_regional_primary_source_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_ids": [
+        "27c834c9-7c43-4fe2-a33b-9fec8f957be2",
+        "7e6f9220-4136-4b2a-96cd-9f49b88f886f",
+        "6d8b9034-de99-4623-b1fb-b264f00b8ee1",
+        "8904cdbc-3446-4c77-83fb-fb3bdfac7b01",
+        "de6d0313-a798-47b0-bbd3-b679f7e51e06",
+        "b4582794-2ef7-4533-8e72-4a1dff602ff9"
+      ],
+      "query_scope": "Indian altitude chamber DCS records, field clinical outcomes and original author reports"
+    },
+    "note": "Identified the public field report and publisher PDF. Compared related records to existing extractions for Sharma otitic barotrauma, Kumar low-altitude DCS and Majumdar historical post-decompression shock. No additional independent chamber DCS count with an exposure total was verified.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-india-field-symptoms-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publication_full_text_and_copy_check",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "sannigrahi_scrape_id": "01a20181-59c3-7058-99b4-649621fcda7d",
+      "sharma_scrape_id": "01a20185-36db-730e-974e-af7591d4427e",
+      "kumar_catalog_scrape_id": "01a20184-f909-71f9-809f-90f7acd84e24"
+    },
+    "note": "The publisher HTML matches the PDF for the field report and the article citation metadata. Related publisher pages already belong to separate reports in the review database.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-india-field-symptoms-llamaparse",
+    "date": "2026-11-21",
+    "provider": "LlamaParse",
+    "operation": "supplementary_original_pdf_parse_attempt",
+    "status": "unavailable",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://indjaerospacemed.com/content/110/2018/62/2/pdf/IJASM-62-016.pdf",
+      "stage": "upload",
+      "http_status": 402
+    },
+    "note": "The service returned HTTP 402 at PDF upload. The source was extracted directly from the publisher PDF and checked against its rendered page.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-india-field-symptoms-archive-gap",
+    "date": "2026-11-21",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_conference_proceedings_access_check",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "tavily_request_ids": [
+        "c00bc42e-0a29-469e-8179-b42f15274827",
+        "162d4923-1451-4201-91d8-591249d5aae8",
+        "1ff59d71-9dde-4781-8825-a98b382c68e7",
+        "3c90ab7a-cdd1-4749-9830-0a521d1d6f00"
+      ],
+      "iaasm_scrape_id": "01a20186-13ee-76d6-b27d-07ee1acc9dac",
+      "archive_url": "https://www.iaasm.org/about-us/publications",
+      "previous_report_id": "conference:icasm-2004-joshi-iaf-1998-2003"
+    },
+    "note": "The official online abstracts list includes the 51st and 53rd congresses and skips the 52nd meeting. The 2004 Joshi abstract and its underlying counts were not retrieved. The 2005 refresher feedback sample does not identify the six-year case-free chamber surveillance denominator.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-india-field-symptoms-verified",
+    "date": "2026-11-21",
+    "provider": "Original publisher PDF and HTML",
+    "operation": "supplementary_original_field_outcome_verification",
+    "status": "observed",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Printed p. 17 checked against a rendered PDF. Early significant clinical findings and diagnosed clinical DCS are distinct endpoints. The two reported hypoxia events describe another group during flight.",
+    "records": [
+      {
+        "id": "sannigrahi-dolma-sampa-original",
+        "title": "Aeromedical Concerns and Lessons Learnt during Oxygen Jump at Dolma Sampa",
+        "authors": [
+          "P. Sannigrahi",
+          "S. K. Sushree",
+          "A. Agarwal"
+        ],
+        "year": 2018,
+        "openalex_id": "W3190281512",
+        "url": "https://indjaerospacemed.com/aeromedical-concerns-and-lessons-learnt-during-oxygen-jump-at-dolma-sampa/",
+        "primary_source": "https://indjaerospacemed.com/content/110/2018/62/2/pdf/IJASM-62-016.pdf",
+        "pdf_sha256": "1aefe41e49392e745a795e92e7e55dea88f4a54d4669b0b974d9b46134296704",
+        "full_text_available": true,
+        "locator": "Summary of Events, printed p. 17 (PDF p. 2)",
+        "role_review": "descriptive",
+        "clinical_scope": {
+          "setting": "operational aviation",
+          "people_completing_jump_and_assessed": 9,
+          "significant_ent_or_other_clinical_findings_after_return": 0,
+          "symptomatic_dispatcher_hypoxia_events_in_flight": 2,
+          "dispatcher_oximetry_below_percent_as_reported": 60,
+          "dispatcher_oximetry_recovery_above_percent_as_reported": 90,
+          "dispatcher_evaluable_exposure_denominator": null,
+          "clinical_dcs_case_count": null,
+          "clinical_dcs_risk_set": null,
+          "delayed_follow_up": null
+        },
+        "note": "Public original field report. Two descriptive findings cover separate groups and time windows. Published clinical DCS adjudication, individual histories and delayed follow-up are unavailable. The SHA-256 identifies the publisher PDF.",
+        "observations": [
+          {
+            "id": "sannigrahi-jumpers-assessed-after-return",
+            "group": "jumpers-assessed-after-return",
+            "endpoint": "significant_ent_or_other_clinical_findings_as_reported",
+            "cases": 0,
+            "denominator": 9,
+            "denominator_unit": "person",
+            "locator": "Summary of Events, printed p. 17 (PDF p. 2)",
+            "note": "Nine completed participants were assessed. Authors report no significant ENT or other clinical findings. The assessment included a history of joint, ear and sinus pain and otoscopic findings. This clinical screen did not specify a DCS case definition."
+          },
+          {
+            "id": "sannigrahi-dispatchers-during-flight",
+            "group": "dispatchers-during-flight",
+            "endpoint": "symptomatic_hypoxia_as_reported",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Summary of Events, printed p. 17 (PDF p. 2)",
+            "note": "Two dispatchers reported uneasiness with pulse oximetry readings below 60% and subsequent readings above 90%. The authors describe these complaints as hypoxia. The number of dispatchers with comparable oximetry and symptom surveillance is unavailable."
+          }
+        ]
+      }
+    ]
+  }
+]

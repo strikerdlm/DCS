@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-india-field-symptoms-verified#sannigrahi-dolma-sampa-original",
+      "report_id": "openalex:W3190281512",
+      "evidence_url": "https://indjaerospacemed.com/aeromedical-concerns-and-lessons-learnt-during-oxygen-jump-at-dolma-sampa/",
+      "basis": "Publisher title, author line and 2018 volume, issue and pages match the existing OpenAlex work."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.186/sources.csv#sannigrahi18_dolma_field_report",
+      "report_id": "openalex:W3190281512",
+      "evidence_url": "https://indjaerospacemed.com/aeromedical-concerns-and-lessons-learnt-during-oxygen-jump-at-dolma-sampa/",
+      "basis": "Model source is the same article verified from the original PDF."
+    },
+    {
+      "record_key": "2026-11-20-india-followup-f-journal#https://indjaerospacemed.com/aeromedical-concerns-and-lessons-learnt-during-oxygen-jump-at-dolma-sampa/",
+      "report_id": "openalex:W3190281512",
+      "evidence_url": "https://indjaerospacemed.com/aeromedical-concerns-and-lessons-learnt-during-oxygen-jump-at-dolma-sampa/",
+      "basis": "Prior truncated discovery title and identical publisher article URL identify this publication."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_jp:6",
       "report_id": "usaf:kadena:419919",
       "evidence_url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
