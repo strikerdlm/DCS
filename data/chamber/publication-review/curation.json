@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-usaf-occupational-ndcs-verified#mcguire-2014-occupational",
+      "report_id": "pmid:25164539",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
+      "basis": "The primary article title, PMID and DOI identify the same report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.190/sources.csv#mcguire14_usaf_occupational_ndcs",
+      "report_id": "pmid:25164539",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
+      "basis": "The primary article title, PMID and DOI identify the same report."
+    },
+    {
+      "record_key": "2026-11-22-usaf-occupational-ndcs-verified#mcguire-2016-u2-dti",
+      "report_id": "pmid:28323582",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455142/",
+      "basis": "The primary article title, PMID and DOI identify the same report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.190/sources.csv#mcguire16_u2_dti_followup",
+      "report_id": "pmid:28323582",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455142/",
+      "basis": "The primary article title, PMID and DOI identify the same report."
+    },
+    {
       "record_key": "2026-11-22-uk-chamber-exposure-history-verified#connolly-2018-retrospective",
       "report_id": "pmid:30126509",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf",
@@ -18123,6 +18147,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
+      "label": "USAF chamber operations staff and U-2 pilot occupational hypobaria MRI study",
+      "period": "Reported in 2014; exposure history dates unavailable",
+      "setting": "USAF occupational altitude chamber and U-2 aircraft"
+    },
+    {
       "study_id": "taiwan-wen-1999-hypoxia-study",
       "label": "Taiwan flight surgeon and student pilot chamber hypoxia study",
       "period": "Reported in 1999; study dates unreported",
@@ -19852,6 +19882,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
+      "report_id": "pmid:25164539",
+      "role": "primary_occupational_history_and_mri",
+      "locator": "Subjects, MRI analysis of clinical NDCS, and Table 2"
+    },
+    {
+      "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
+      "report_id": "pmid:28323582",
+      "role": "likely_overlapping_pilot_mri_analysis",
+      "locator": "Methods, Subjects, and Abstract"
+    },
     {
       "study_id": "taiwan-wen-1999-hypoxia-study",
       "report_id": "doi:10.7011/tamaroc.199912.0051",
@@ -22764,6 +22806,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:28323582",
+      "right_report": "pmid:25164539",
+      "relationship": "likely_overlap",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455142/",
+      "evidence": "Both primary reports describe volunteers recruited from all active-duty U-2 pilots with greater than 90% participation. The later report uses the same previously documented pilot imaging work. Cohort membership and symptom definitions cannot be matched at participant level."
+    },
+    {
+      "left_report": "pmid:25164539",
+      "right_report": "pmid:23960192",
+      "relationship": "likely_overlap",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
+      "evidence": "The 2014 Methods cite the earlier U-2 MRI study alongside recruitment and comparison details. The 2013 and 2014 pilot samples are potentially overlapping. The papers supply no participant-level linkage."
+    },
+    {
+      "left_report": "pmid:25164539",
+      "right_report": "pmid:23316539",
+      "relationship": "likely_overlap",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3723460/",
+      "evidence": "The smaller USAF occupational imaging report gives 12 pilots with clinical NDCS of 50. It draws from the same active-duty U-2 population and shares investigators. Individual membership and mapping to the larger report are unverified."
+    },
+    {
+      "left_report": "pmid:30126509",
+      "right_report": "pmid:25164539",
+      "relationship": "partial_overlap",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf",
+      "evidence": "The UK MRI paper explicitly age-matches 55 from the original U.S. group of 83 physiologists for its MRI comparison. The historical UK DCS cases belong to the separate UK group."
+    },
     {
       "left_report": "usaf:kadena:417171",
       "right_report": "usaf:kadena:419919",
