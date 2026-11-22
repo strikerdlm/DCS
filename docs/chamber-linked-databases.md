@@ -46,6 +46,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_repeat_chamber_protocol_count` | Repeat-run counts and pressure-altitude and prebreathe ranges for selected volunteers |
 | `dcs-model.sqlite` | `publication_biomarker_summary` | Published analyte means, standard errors and assay-level missingness for the repeated dispatcher chamber study |
 | `dcs-model.sqlite` | `publication_chamber_trial_scope`, `publication_chamber_exposure_stage` | Reported participant and trial totals, nested groups, and pressure, gas and duration of planned staging |
+| `dcs-model.sqlite` | `publication_chamber_activity_tally` | Wartime chamber activity, with counting units and qualifiers for cumulative and selected-session tallies |
 | Both files | `publication_vge_dcs_percent_range` (model), `review_search_observation` (review) | Published clinical symptom frequency ranges by Doppler grade |
 | Both files | `publication_powell_doppler_margin`, `publication_dervay_doppler_visit` (model), `review_search_observation` (review) | NASA Doppler margins and paired crossover visits, plus source-located clinical summaries and overlap evidence |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |

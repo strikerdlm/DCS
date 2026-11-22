@@ -258,6 +258,7 @@ USAF_OCCUPATIONAL_NDCS_HISTORY = ROOT / "data" / "chamber" / "v1.190"
 RYUKYU_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.191"
 JASDF_CHAMBER_AND_FLIGHT_CASES = ROOT / "data" / "chamber" / "v1.192"
 USAF_DIGEST_AND_FLIGHT_DCS = ROOT / "data" / "chamber" / "v1.193"
+WARTIME_AAF_CHAMBER_TRAINING = ROOT / "data" / "chamber" / "v1.194"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2572,6 +2573,15 @@ def build(
                         "publication_flight_safety_count": "flight_safety_counts.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    WARTIME_AAF_CHAMBER_TRAINING,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_chamber_activity_tally": "activity_tallies.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(

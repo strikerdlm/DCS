@@ -8,6 +8,51 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_wartime_aaf_tallies_and_faa_mirror_preserve_source_identity(release):
+    history_report = "report:link-coleman-1955-aaf-medical-support"
+    verified_run = "2026-11-22-wartime-aaf-training-verified"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT counting_unit,reported_count,count_qualifier,through_date
+            FROM publication_chamber_activity_tally
+            WHERE source_id='link55_aaf_training' ORDER BY counting_unit
+        """).fetchall() == [
+            ("chamber_run", 42000, "approximate", "1944-11-01"),
+            ("distinct_people", 622894, "as_printed", "1944-11-01"),
+            ("person_exposure", 841066, "as_printed", "1944-11-01"),
+        ]
+        assert db.execute("""
+            SELECT counting_unit,reported_count,altitude_ft FROM publication_chamber_activity_tally
+            WHERE source_id='aaf44_santa_ana_qualification' ORDER BY counting_unit
+        """).fetchall() == [
+            ("attendee", 15, 38000), ("symptom_prompted_chamber_descent", 3, 38000),
+        ]
+        assert db.execute("""
+            SELECT reported_count,count_qualifier,through_date FROM publication_chamber_activity_tally
+            WHERE source_id='wigodsky44_aaf_training'
+        """).fetchone() == (200000, "greater_than", None)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE url LIKE '%gpo128900.pdf%'
+        """).fetchall() == [(history_report,)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE url='https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf'
+        """).fetchall() == [("report:faa-am-77-4",)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.reported_counts.person_exposures'),
+                   json_type(metadata_json,'$.reported_counts.dcs_cases')
+            FROM review.review_record WHERE report_id=? AND run_id=?
+        """, (history_report, verified_run)).fetchone() == (841066, "null")
+        assert db.execute("""
+            SELECT COUNT(*) FROM review.review_search_observation WHERE run_id=?
+        """, (verified_run,)).fetchone() == (0,)
+        assert db.execute("""
+            SELECT COUNT(*) FROM publication_observation WHERE source_id IN (
+                'link55_aaf_training','wigodsky44_aaf_training','aaf44_santa_ana_qualification'
+            )
+        """).fetchone() == (0,)
+
+
 def test_hitchcock_and_lockheed_keep_trial_scopes_and_endpoints_distinct(release):
     with connect_pair(release) as db:
         sources = {
