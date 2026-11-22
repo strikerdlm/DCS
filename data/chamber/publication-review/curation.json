@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-peterson-campout-source-reconciliation-verified#butler-peterson-case-iv",
+      "report_id": "pmid:12182221",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p798.pdf?download=1",
+      "basis": "Title, author, journal and PMID match the existing Butler report."
+    },
+    {
+      "record_key": "2026-11-20-undermind-references#But02",
+      "report_id": "pmid:12182221",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p798.pdf?download=1",
+      "basis": "Matching article title, sole author W. Butler and journal identify the exact indexed publication."
+    },
+    {
+      "record_key": "2026-11-21-peterson-campout-source-reconciliation-verified#sheffield-workshop-discussion",
+      "report_id": "workshop:ada257612-sheffield-cadets",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=372",
+      "basis": "Author and location in the proceedings identify the firsthand remarks."
+    },
+    {
+      "record_key": "2026-11-21-peterson-campout-source-reconciliation-verified#cliff-branch-baseline-2020",
+      "report_id": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf",
+      "basis": "The archived NASA PDF identifies the baseline 2020 finding form, distinct from ICL39."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.179/sources.csv#nasa20_cliff_eva_dcs",
+      "report_id": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf",
+      "basis": "The versioned source and verified record are the same PDF."
+    },
+    {
+      "record_key": "2026-11-21-peterson-campout-source-reconciliation-verified#campout-protocol-history",
+      "report_id": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "basis": "The exact NASA technical report and checksum match the existing Conkin 2011 report."
+    },
+    {
+      "record_key": "2026-11-20-adrac-proceedings-f-training#https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf?emrc=7db8fc",
+      "report_id": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf",
+      "basis": "The query-string URL points to the same NASA document."
+    },
+    {
+      "record_key": "2026-11-20-citation-audit-tavily-wirjo#https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf?emrc=7db8fc",
+      "report_id": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf",
+      "basis": "The query-string URL points to the same NASA document."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.22/search_hits.csv#flight_v22_mir:1",
+      "report_id": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf",
+      "basis": "This earlier search hit names the same NASA document."
+    },
+    {
       "record_key": "2026-11-21-butler-onset-altitude-reconciliation-verified#butler-printed-case-margins",
       "report_id": "report:adp011059",
       "evidence_url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=6",
@@ -22296,6 +22350,48 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:12182221",
+      "right_report": "doi:10.21236/ada360821",
+      "relationship": "scope_overlap_unresolved",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p798.pdf?download=1#page=3",
+      "evidence": "Both report Academy cadets at Peterson AFB. Butler's 18-month selected cluster gives 14/1686 and Bassett's broader-era survey gives 12/1654. The source periods, ascertainment and case crosswalk remain unresolved."
+    },
+    {
+      "left_report": "pmid:12182221",
+      "right_report": "report:usafsam-sheffield-dunn-mciver-cadets-1978",
+      "relationship": "summarizes_historical_cadet_study",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p798.pdf?download=1#page=6",
+      "evidence": "Case IV cites reference 32, a 1978 USAFSAM special study group report. Author bibliography adds McIver and the originally cited title has variants."
+    },
+    {
+      "left_report": "workshop:ada257612-sheffield-cadets",
+      "right_report": "report:usafsam-sheffield-dunn-mciver-cadets-1978",
+      "relationship": "firsthand_retrospective_account",
+      "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=372",
+      "evidence": "Sheffield describes his 1977 investigation and later changes at Peterson. The workshop account does not provide the original cohort counts."
+    },
+    {
+      "left_report": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "right_report": "ntrs:20010020946",
+      "relationship": "repeats_archive_sample_with_separate_scenario_probability",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf#page=4",
+      "evidence": "The form repeats Conkin's 918 serious events across 79,366 exposures in 258 tests. Its 0.0011 value is explicitly attributed to Campout on pp. 5 and 8. It is not the fraction of observed cases in the compilation."
+    },
+    {
+      "left_report": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "right_report": "record:2026-11-20-case-verification-t-olson#https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf",
+      "relationship": "campout_probability_scope_crosscheck",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf#page=17",
+      "evidence": "NASA's Campout history describes protocol adoption without separate empirical ground validation. Its approximate 140 operational person-EVAs cannot supply a denominator of 936."
+    },
+    {
+      "left_report": "report:nasa-cliff-dcs-secondary-eva-2020",
+      "right_report": "report:nasa-cliff-icl39",
+      "relationship": "distinct_clinical_finding_form_versions",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf",
+      "evidence": "The 2020 Branch Baseline form differs from ICL39 in title, scenario inputs and underlying evidence. Both are modeled-source documents with separately identifiable historical claims."
+    },
     {
       "left_report": "report:adp011059",
       "right_report": "pmid:889546",
