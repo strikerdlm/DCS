@@ -1,6 +1,42 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.243/sources.csv#tonawanda68_nasa_archive",
+      "report_id": "ntrs:19680021743",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf",
+      "basis": "Exact NTRS accession, original title-page document and report number under contract NAS 9-6978."
+    },
+    {
+      "record_key": "2026-11-22-tonawanda-archive-outcomes-verified#tonawanda68_nasa_archive",
+      "report_id": "ntrs:19680021743",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf",
+      "basis": "Exact NTRS accession, original title-page document and report number under contract NAS 9-6978."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.243/sources.csv#schreiner70_tonawanda_supp_a",
+      "report_id": "ntrs:19700018125",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf",
+      "basis": "Exact NTRS accession, original title-page document and report number under contract NAS 9-6978."
+    },
+    {
+      "record_key": "2026-11-22-tonawanda-archive-outcomes-verified#schreiner70_tonawanda_supp_a",
+      "report_id": "ntrs:19700018125",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf",
+      "basis": "Exact NTRS accession, original title-page document and report number under contract NAS 9-6978."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.243/sources.csv#schreiner70_tonawanda_supp_b",
+      "report_id": "ntrs:19700018126",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700018126/downloads/19700018126.pdf",
+      "basis": "Exact NTRS accession, original title-page document and report number under contract NAS 9-6978."
+    },
+    {
+      "record_key": "2026-11-22-tonawanda-archive-outcomes-verified#schreiner70_tonawanda_supp_b",
+      "report_id": "ntrs:19700018126",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700018126/downloads/19700018126.pdf",
+      "basis": "Exact NTRS accession, original title-page document and report number under contract NAS 9-6978."
+    },
+    {
       "record_key": "2026-11-22-fryer-chamber-case-histories-verified#fryer69_raf",
       "report_id": "report:ada111509",
       "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf",
@@ -21117,6 +21153,18 @@
   ],
   "studies": [
     {
+      "study_id": "tonawanda-original-388-flight-records",
+      "label": "Tonawanda original archive reanalysis",
+      "period": "Before May 1968",
+      "setting": "US Navy ACEL and USAFSAM chamber experiments"
+    },
+    {
+      "study_id": "tonawanda-extension-1553-flight-records",
+      "label": "Tonawanda extended nitrogen archive",
+      "period": "Before February 1970",
+      "setting": "USAFSAM and US Navy source records with a reused 1968 nitrogen subset"
+    },
+    {
       "study_id": "fryer69-raf-chamber-case-25",
       "label": "Fryer chamber Case 25",
       "period": "Not reported",
@@ -23332,6 +23380,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "tonawanda-original-388-flight-records",
+      "report_id": "ntrs:19680021743",
+      "role": "archive_reanalysis_source",
+      "locator": "Printed pp. 11–12 and 19–20 (PDF pp. 13–14 and 21–22), Appendix II Analyses 4, 10 and 11 (PDF pp. 44–45 and 57–61)"
+    },
+    {
+      "study_id": "tonawanda-extension-1553-flight-records",
+      "report_id": "ntrs:19700018125",
+      "role": "extended_archive_reanalysis_source",
+      "locator": "Printed pp. 1, 4 and 12–13 (PDF pp. 5, 8 and 16–17), Table III and Appendix II Analysis 16"
+    },
+    {
+      "study_id": "tonawanda-extension-1553-flight-records",
+      "report_id": "ntrs:19700018126",
+      "role": "computed_schedule_derivation",
+      "locator": "Printed p. 1 (PDF p. 4), Introduction and Summary"
+    },
     {
       "study_id": "fryer69-raf-chamber-case-25",
       "report_id": "report:ada111509",
@@ -26976,6 +27042,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:19700018125",
+      "right_report": "ntrs:19680021743",
+      "relationship": "partial_overlap",
+      "evidence": "Supplement A printed p. 4 explicitly merges 315 nitrogen–oxygen records from the 1968 report with 1,238 additional records. The complete 388-record 1968 archive includes 73 helium–oxygen records. Do not add the 315 twice.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf#page=8"
+    },
+    {
+      "left_report": "ntrs:19700018126",
+      "right_report": "ntrs:19700018125",
+      "relationship": "derived_from",
+      "evidence": "Supplement B cites the M-values from Supplement A and the same 1,553 analyzed records to construct computed dive-fly tables.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700018126/downloads/19700018126.pdf#page=4"
+    },
+    {
+      "left_report": "ntrs:19680021743",
+      "right_report": "record:legacy:data/chamber/v1.8/search_hits.csv#historical_validation:3",
+      "relationship": "unresolved",
+      "evidence": "The 1968 report's Table V and Beard et al. both describe USAFSAM simulated MOL profiles including helium and nitrogen conditions. Table V cites McIver et al. in the 1967 lectures. Exact study-to-flight linkage to the 388-record analysis is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf#page=19"
+    },
+    {
+      "left_report": "ntrs:19680021743",
+      "right_report": "pmid:6053164",
+      "relationship": "unresolved",
+      "evidence": "The 1968 report cites a separate McIver et al. USAFSAM lecture in its 12-profile comparison. The journal treatment paper and the 388-record archive lack a shared flight identifier. A shared programme does not establish cohort identity.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf#page=17"
+    },
     {
       "left_report": "pmid:13829253",
       "right_report": "citation:roxburgh-1951-air-ministry-dgms",

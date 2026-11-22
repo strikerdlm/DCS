@@ -9,6 +9,61 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_tonawanda_archive_keeps_nested_counts_conflicts_and_withdrawals(release):
+    with connect_pair(release) as db:
+        selected = db.execute("""
+            SELECT p.stratum,p.endpoint,p.numerator,p.denominator,l.report_id
+            FROM publication_observation p JOIN model_report_link l USING(source_id)
+            WHERE p.source_id IN ('tonawanda68_nasa_archive','schreiner70_tonawanda_supp_a')
+            ORDER BY 1,2
+        """).fetchall()
+        assert len(selected) == 142
+        assert selected == db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,report_id
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-tonawanda-archive-outcomes-verified'
+            ORDER BY 1,2
+        """).fetchall()
+        assert [(endpoint, n, d) for group, endpoint, n, d, _ in selected
+                if group == "analysis-04-ratio-all"] == [
+            ("source_reported_dcs_grade_2_5", 199, 388),
+            ("source_reported_dcs_grade_3_5", 173, 388),
+            ("source_reported_dcs_grade_4_5", 108, 388),
+            ("source_reported_dcs_grade_5", 35, 388),
+        ]
+        participants = db.execute("""
+            SELECT count(*),sum(numerator),sum(denominator),group_concat(DISTINCT analysis_role)
+            FROM publication_observation WHERE source_id='tonawanda68_nasa_archive'
+            AND stratum LIKE 'analysis-11-%'
+        """).fetchone()
+        assert participants == (54, 153, 388, "denominator_conflict")
+        counts = db.execute("""
+            SELECT endpoint,count(*),sum(numerator),count(denominator),group_concat(DISTINCT analysis_role)
+            FROM publication_observation WHERE source_id='schreiner70_tonawanda_supp_a'
+            GROUP BY endpoint ORDER BY endpoint
+        """).fetchall()
+        assert counts == [
+            ("qualifying_dcs_hit_in_time_bin", 15, 6, 0, "overlap_hold"),
+            ("withdrawal_without_qualifying_dcs_hit_in_time_bin", 15, 187, 0, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE left_report IN ('ntrs:19700018125','ntrs:19700018126') ORDER BY 1
+        """).fetchall() == [
+            ("ntrs:19700018125", "ntrs:19680021743", "partial_overlap"),
+            ("ntrs:19700018126", "ntrs:19700018125", "derived_from"),
+        ]
+        assert db.execute("""
+            SELECT source_id,profile_count,profile_count_unit
+            FROM publication_hypobaric_model_archive_scope
+            WHERE source_id IN ('tonawanda68_nasa_archive','schreiner70_tonawanda_supp_a')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("schreiner70_tonawanda_supp_a", 1553, "individual_profile_record"),
+            ("tonawanda68_nasa_archive", 388, "individual_profile_record"),
+        ]
+
+
 def test_fryer_neurological_cases_and_roxburgh_cited_margins_preserve_scope(release):
     with connect_pair(release) as db:
         cases = db.execute("""
@@ -425,7 +480,9 @@ def test_vann_gerth_archives_preserve_exact_counts_and_raw_rates(release):
         assert rates == [(1194, "33.59"), (1052, "37.26"), (142, "6.34")]
         assert db.execute("""
             SELECT source_id,profile_count,profile_count_unit
-            FROM publication_hypobaric_model_archive_scope ORDER BY source_id
+            FROM publication_hypobaric_model_archive_scope
+            WHERE source_id IN ('vann87_likelihood_archive','vann92_workshop_archive','gerth95_usafal_archive')
+            ORDER BY source_id
         """).fetchall() == [
             ("gerth95_usafal_archive", 1194, "individual_profile_record"),
             ("vann87_likelihood_archive", 30, "experimental_pressure_profile"),
