@@ -1,0 +1,9 @@
+source_id,stratum,parent_stratum,evidence_source_id,trial_count,participant_count,pressure_mmhg,locator,note
+mcguire14_usaf_occupational_ndcs,phy-enrolled,,mcguire14_usaf_occupational_ndcs,,83,,"Subjects, MRI analysis of clinical NDCS, and Table 2",First 83 eligible active-duty altitude chamber operations staff who responded.
+mcguire14_usaf_occupational_ndcs,phy-mri-without-clinical-ndcs,phy-enrolled,mcguire14_usaf_occupational_ndcs,,81,,"Table 2, All minus NDCS","MRI subgroup. Two removed, derived from 83 minus 81."
+mcguire14_usaf_occupational_ndcs,u2p-enrolled,,mcguire14_usaf_occupational_ndcs,,105,,"Subjects, MRI analysis of clinical NDCS, and Table 2",Active-duty U-2 pilot volunteers.
+mcguire14_usaf_occupational_ndcs,u2p-mri-without-clinical-ndcs,u2p-enrolled,mcguire14_usaf_occupational_ndcs,,83,,"Table 2, All minus NDCS","MRI subgroup. Twenty-two removed, derived from 105 minus 83. Table 2 provides no participant mapping to the 16 histories in Methods."
+mcguire14_usaf_occupational_ndcs,doc-controls,,mcguire14_usaf_occupational_ndcs,,148,,"Subjects, MRI analysis of clinical NDCS, and Table 2",Doctorate-degree comparison participants.
+mcguire14_usaf_occupational_ndcs,doc-qualification-training,doc-controls,mcguire14_usaf_occupational_ndcs,,14,,"Subjects, aircrew qualification exposure",Controls with a single qualification chamber exposure. No source-specific clinical risk set or common ascertainment window for qualification training is reported.
+mcguire16_u2_dti_followup,u2-dti-volunteers,,mcguire16_u2_dti_followup,,106,,"Methods, Subjects, and Abstract",Active-duty pilots who accepted recruitment.
+mcguire16_u2_dti_followup,u2-dti-analyzed,u2-dti-volunteers,mcguire16_u2_dti_followup,,102,,"Methods, Subjects, and Abstract",Four volunteer pilot scans were excluded. The paper does not place the reported 22 NDCS histories relative to those exclusions.

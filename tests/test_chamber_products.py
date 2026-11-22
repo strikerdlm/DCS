@@ -6368,6 +6368,64 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_usaf_occupational_ndcs_preserves_source_specific_history_and_mri_groups(release):
+    primary, companion = "pmid:25164539", "pmid:28323582"
+    endpoint = "people_reporting_mission_related_ndcs_symptoms"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id IN ('mcguire14_usaf_occupational_ndcs','mcguire16_u2_dti_followup')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("phy-mission-history", endpoint, 2, 83, "person", "overlap_hold"),
+            ("u2p-mission-history", endpoint, 16, 105, "person", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT report_id,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE report_id IN (?,?) ORDER BY observation_id
+        """, (primary, companion)).fetchall() == [
+            (primary, endpoint, 2, 83, "person"),
+            (primary, endpoint, 16, 105, "person"),
+        ]
+        scopes = dict(db.execute("""
+            SELECT stratum,participant_count
+            FROM publication_chamber_trial_scope
+            WHERE source_id IN ('mcguire14_usaf_occupational_ndcs','mcguire16_u2_dti_followup')
+              AND trial_count IS NULL
+        """))
+        assert scopes == {
+            "phy-enrolled": 83, "phy-mri-without-clinical-ndcs": 81,
+            "u2p-enrolled": 105, "u2p-mri-without-clinical-ndcs": 83,
+            "doc-controls": 148, "doc-qualification-training": 14,
+            "u2-dti-volunteers": 106, "u2-dti-analyzed": 102,
+        }
+        metadata = {
+            record_key.split("#")[1]: json.loads(record)["cohort_scope"]
+            for record_key, record in db.execute("""
+                SELECT record_key,metadata_json FROM review.review_record
+                WHERE record_key LIKE '2026-11-22-usaf-occupational-ndcs-verified#%'
+            """)
+        }
+        primary_scope = metadata["mcguire-2014-occupational"]
+        assert primary_scope["pilots"]["mission_symptom_histories"] == 16
+        assert primary_scope["pilots"]["mri_exclusions_by_subtraction"] == 22
+        assert primary_scope["pilots"]["classification_crosswalk"] is None
+        assert primary_scope["periodic_qualification"] == {
+            "ndcs_events_as_reported": 0, "person_exposures": None, "surveillance_window": None,
+        }
+        later = metadata["mcguire-2016-u2-dti"]
+        assert later["mission_symptom_histories_as_reported"] == 22
+        assert later["denominator_for_reported_history_count"] is None
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation WHERE left_report=? AND right_report=?
+        """, (companion, primary)).fetchall() == [("likely_overlap",)]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE report_id IN (?,?)
+        """, (primary, companion)).fetchone() == (0,)
+
+
 def test_uk_chamber_history_keeps_episodes_people_and_exposure_margins_distinct(release):
     retrospective_id = "pmid:30126509"
     prospective_id = "doi:10.3357/amhp.5730.2021"

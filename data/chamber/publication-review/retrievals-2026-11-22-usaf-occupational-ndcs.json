@@ -1,0 +1,179 @@
+[
+  {
+    "id": "2026-11-22-usaf-occupational-ndcs-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_occupational_ndcs_full_text_and_discrepancy_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_ids": [
+        "ea38d942-82a1-4630-9cfc-1418e779bade",
+        "a6fcb0d4-feb0-4a58-ab1f-c41c3c221e46",
+        "61a416ce-c195-4a20-92a5-59acbfdcc9fb",
+        "c9ddfd5a-2b6b-4d26-9946-b9b4b9594d37"
+      ],
+      "search": "McGuire 10.1002/ana.24264 White Matter Hyperintensities Hypobaric Exposure table 2 16 22 105 pilots erratum clinical NDCS",
+      "extract_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455142/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3723460/"
+      ]
+    },
+    "note": "Located primary occupational MRI studies and checked for a public correction or participant linkage. No correction resolving the two pilot counts was located.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-usaf-occupational-ndcs-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_primary_subjects_and_mri_subgroups",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
+          "id": "01a201ad-79e4-70f0-a01a-63f946be5889"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455142/",
+          "id": "01a201ac-39eb-7551-8a53-d1bf0452524d"
+        }
+      ]
+    },
+    "note": "Retrieved the two original author manuscripts from PubMed Central. The count units, clinical history text and MRI subgroup sizes were reviewed against the original sections.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-usaf-occupational-ndcs-verified",
+    "date": "2026-11-22",
+    "provider": "Primary journal articles in PubMed Central",
+    "operation": "supplementary_occupational_count_and_overlap_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Two historical person counts. The additional MRI subgroup counts and later pilot history are retained as source context.",
+    "records": [
+      {
+        "id": "mcguire-2014-occupational",
+        "title": "White Matter Hyperintensities and Hypobaric Exposure",
+        "authors": [
+          "Stephen A McGuire",
+          "Paul M Sherman",
+          "S Andrea Wijtenburg",
+          "Laura M Rowland",
+          "Patrick M Grogan",
+          "John H Sladky",
+          "Andrew Y Robinson",
+          "Peter V Kochunov"
+        ],
+        "year": 2014,
+        "pmid": "25164539",
+        "doi": "10.1002/ana.24264",
+        "pmcid": "PMC4219408",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
+        "full_text_available": true,
+        "locator": "Subjects, MRI analysis of clinical NDCS, and Table 2",
+        "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
+        "firecrawl_excerpt_sha256": "ec3566ebfb134ba62bd844be9e9ba94aa4ce6eadfbc7f2e0150b1c6f7baf82c4",
+        "role_review": "overlap_hold",
+        "note": "Two of 83 selected altitude chamber operations staff reported a history of mission-related neurological DCS symptoms. None of the study subjects reported NDCS from periodic qualification chamber training. The paper supplies no count of qualification exposures and no common clinical surveillance window. Sixteen of 105 selected U-2 pilots reported mission-related neurological DCS symptoms in Methods. Table 2 separately excludes 22 pilots by subtraction for its MRI analysis without clinical NDCS. The publication gives no participant crosswalk explaining the difference.",
+        "cohort_scope": {
+          "clinical_history_locator": "Subjects",
+          "mri_exclusion_locator": "Table 2, All minus NDCS",
+          "staff": {
+            "enrolled": 83,
+            "mission_symptom_histories": 2,
+            "mri_without_clinical_ndcs": 81,
+            "mri_exclusions_by_subtraction": 2
+          },
+          "pilots": {
+            "enrolled": 105,
+            "mission_symptom_histories": 16,
+            "mri_without_clinical_ndcs": 83,
+            "mri_exclusions_by_subtraction": 22,
+            "classification_crosswalk": null
+          },
+          "doctorate_controls": {
+            "enrolled": 148,
+            "with_qualification_chamber_training": 14
+          },
+          "periodic_qualification": {
+            "ndcs_events_as_reported": 0,
+            "person_exposures": null,
+            "surveillance_window": null
+          }
+        },
+        "observations": [
+          {
+            "id": "mcguire-2014-phy-ndcs-history",
+            "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
+            "group": "phy-mission-history",
+            "endpoint": "people_reporting_mission_related_ndcs_symptoms",
+            "cases": 2,
+            "denominator": 83,
+            "denominator_unit": "person",
+            "locator": "Subjects, recruitment and self-reported mission-related neurological DCS",
+            "note": "Two of 83 selected altitude chamber operations staff reported a history of mission-related neurological DCS symptoms. None of the study subjects reported NDCS from periodic qualification chamber training. The paper supplies no count of qualification exposures and no common clinical surveillance window."
+          },
+          {
+            "id": "mcguire-2014-u2p-ndcs-history",
+            "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
+            "group": "u2p-mission-history",
+            "endpoint": "people_reporting_mission_related_ndcs_symptoms",
+            "cases": 16,
+            "denominator": 105,
+            "denominator_unit": "person",
+            "locator": "Subjects, recruitment and self-reported mission-related neurological DCS",
+            "note": "Sixteen of 105 selected U-2 pilots reported mission-related neurological DCS symptoms in Methods. Table 2 separately excludes 22 pilots by subtraction for its MRI analysis without clinical NDCS. The publication gives no participant crosswalk explaining the difference."
+          }
+        ]
+      },
+      {
+        "id": "mcguire-2016-u2-dti",
+        "title": "White Matter Integrity in High-Altitude Pilots Exposed to Hypobaria",
+        "authors": [
+          "Stephen A McGuire",
+          "Goldie RE Boone",
+          "Paul M Sherman",
+          "David F Tate",
+          "Joe D Wood",
+          "Beenish Patel",
+          "George Eskandar",
+          "S Andrea Wijtenburg",
+          "Laura M Rowland",
+          "Geoffrey D Clarke",
+          "Patrick M Grogan",
+          "John H Sladky",
+          "Peter V Kochunov"
+        ],
+        "year": 2016,
+        "pmid": "28323582",
+        "doi": "10.3357/amhp.4585.2016",
+        "pmcid": "PMC5455142",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455142/",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5455142/",
+        "full_text_available": true,
+        "locator": "Methods, Subjects, and Abstract",
+        "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
+        "firecrawl_excerpt_sha256": "471891fb3ee8b7529dd292b88a093a44f4f251f6511b9501ff6974298664986e",
+        "role_review": "overlap_hold",
+        "note": "Of 106 pilots who accepted, four were excluded from the DTI analysis and 102 were analyzed. The report gives 22 pilots (21%) with mission-related neurological DCS symptom history. The scope of that numerator relative to the DTI exclusions and the individual overlap with the 2014 report are unresolved.",
+        "cohort_scope": {
+          "pilots_recruited": 106,
+          "pilots_analyzed": 102,
+          "mission_symptom_histories_as_reported": 22,
+          "mission_symptom_percentage_as_reported": 21,
+          "denominator_for_reported_history_count": null,
+          "individual_linkage_to_2014": null
+        }
+      }
+    ]
+  }
+]
