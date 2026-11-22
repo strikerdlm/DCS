@@ -289,6 +289,7 @@ AAF_CLASSIFICATION_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.221"
 AAF_DESCENT_CASE_REPORTS = ROOT / "data" / "chamber" / "v1.222"
 BERKELEY_COUNTS_AND_CABLE_CASE = ROOT / "data" / "chamber" / "v1.223"
 BERKELEY_CHEST_VISUAL_AND_RUDGE_CASE = ROOT / "data" / "chamber" / "v1.224"
+HISTORICAL_PROGRAM_AND_STEPWISE_ASCENT = ROOT / "data" / "chamber" / "v1.225"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2990,6 +2991,18 @@ def build(
                         "publication_berkeley_visual_episode": "visual_episodes.csv",
                         "publication_berkeley_discrepant_margin": "discrepant_margins.csv",
                         "publication_case_milestone": "case_milestones.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    HISTORICAL_PROGRAM_AND_STEPWISE_ASCENT,
+                    "publication",
+                    extra_tables={
+                        "publication_historical_program_population": "program_populations.csv",
+                        "publication_historical_program_rate": "program_rates.csv",
+                        "publication_berkeley_interim_group": "berkeley_interim_groups.csv",
+                        "publication_fraser_ascent_group": "fraser_groups.csv",
+                        "publication_fraser_ascent_score": "fraser_scores.csv",
                     },
                 )
                 load_register(db, ROOT)
