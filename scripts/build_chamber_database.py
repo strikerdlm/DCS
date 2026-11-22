@@ -244,6 +244,7 @@ ANDEAN_CHAMBER_SOURCE_SCOPE = ROOT / "data" / "chamber" / "v1.176"
 CANADIAN_CASE_AND_BERRY_SYMPTOMS = ROOT / "data" / "chamber" / "v1.177"
 BUTLER_CASE_MARGIN_RECONCILIATION = ROOT / "data" / "chamber" / "v1.178"
 PETERSON_AND_NASA_CAMPOUT = ROOT / "data" / "chamber" / "v1.179"
+NASA_EXPLORATION_PREBREATHE_TIMING = ROOT / "data" / "chamber" / "v1.180"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2420,6 +2421,14 @@ def build(
                         "sharepoint_overlap": "peterson_overlap.csv",
                         "publication_nasa_cliff_probability": "cliff_probabilities.csv",
                         "publication_nasa_cliff_eva_history": "cliff_eva_history.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    NASA_EXPLORATION_PREBREATHE_TIMING,
+                    {
+                        "publication_source": "sources.csv",
+                        "discovery_eva_prebreathe_timing": "prebreathe_timings.csv",
                     },
                 )
             if rojas_supplement:

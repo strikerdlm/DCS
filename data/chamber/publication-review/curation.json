@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-nasa-exploration-role-and-prebreathe-verified#crucian-immune-analysis",
+      "report_id": "pmid:40995513",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+      "basis": "Full text, DOI and PMID resolve to the previously indexed immune analysis."
+    },
+    {
+      "record_key": "2026-11-21-nasa-exploration-role-and-prebreathe-verified#fincke-metabolic-analysis",
+      "report_id": "pmid:42775249",
+      "evidence_url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2026.1839091/full",
+      "basis": "Version of record, DOI and PMID match the indexed metabolic analysis."
+    },
+    {
+      "record_key": "2026-11-21-nasa-exploration-role-and-prebreathe-verified#ea12-session-prebreathe",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf",
+      "basis": "Exact PDF bytes and NASA accession match the existing clinical source."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.180/sources.csv#crucian25_ea_immunity",
+      "report_id": "pmid:40995513",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+      "basis": "Model crosswalk cites the same immune analysis."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.180/sources.csv#fincke26_ea_metabolic",
+      "report_id": "pmid:42775249",
+      "evidence_url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2026.1839091/full",
+      "basis": "Model crosswalk cites the same metabolic analysis."
+    },
+    {
+      "record_key": "2026-11-20-east-asian-cohorts-t-vargo#https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2025.1637834/full",
+      "report_id": "pmid:40995513",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+      "basis": "Publisher DOI matches the NLM copy."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.23/search_hits.csv#archive_v23_independent:5",
+      "report_id": "pmid:40995513",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+      "basis": "The search URL is the NLM full text."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_wal:2",
+      "report_id": "pmid:40995513",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+      "basis": "The search URL is the NLM full text."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_wal:3",
+      "report_id": "pmid:40995513",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+      "basis": "The manuscript page names the exact immune analysis."
+    },
+    {
       "record_key": "2026-11-21-peterson-campout-source-reconciliation-verified#butler-peterson-case-iv",
       "report_id": "pmid:12182221",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p798.pdf?download=1",
@@ -22350,6 +22404,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:42775249",
+      "right_report": "pmid:40995513",
+      "relationship": "companion_analysis_same_chamber_missions",
+      "evidence_url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2026.1839091/full",
+      "evidence": "Three 11-day JSC missions, 24 person-mission enrollments, 20 unique people, four repeat subjects, the same role allocation and the same atmospheres. The papers analyze different biomarkers in shared participants."
+    },
+    {
+      "left_report": "pmid:40995513",
+      "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "relationship": "companion_analysis_shared_missions",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf#page=21",
+      "evidence": "Missions 1 and 2 match two 11-day tests, the 8.2 psia and 34% oxygen habitat, the 4.3 psia and 85% oxygen EVA and the same repeated campaign structure. The 23 biomarker analysis slots span three missions. The clinical 50-EVA risk set spans the first two."
+    },
+    {
+      "left_report": "pmid:42775249",
+      "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "relationship": "companion_analysis_shared_missions",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf#page=29",
+      "evidence": "Biomarker missions 1 and 2 match the EA1 and EA2 clinical tests in time, duration, pressure, gas, 20-minute prebreathe and five simulated EVA days."
+    },
+    {
+      "left_report": "pmid:40995513",
+      "right_report": "ntrs:20250004535",
+      "relationship": "companion_analysis_shared_mission",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20250004535/downloads/2025_06_04_Garbino_EA_v2.pptx",
+      "evidence": "Mission 3 matches the November 2023 EA3 11-day mission at 9.6 psia with 28.5% oxygen and nominal EVA 4.3 psia with 95% oxygen. Later clinical tests in the same presentation fall outside the three biomarker missions."
+    },
+    {
+      "left_report": "pmid:42775249",
+      "right_report": "ntrs:20250004535",
+      "relationship": "clinical_session_details_refine_biomarker_methods",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20250004535/downloads/2025_06_04_Garbino_EA_v2.pptx",
+      "evidence": "Fincke states 150 minutes for mission 3 in aggregate. The source outcome presentation identifies EA3 EVA1 at 90 minutes and EVAs 2–5 at 150 minutes. The campaign-wide description cannot supply exposure-specific timing for EVA1."
+    },
     {
       "left_report": "pmid:12182221",
       "right_report": "doi:10.21236/ada360821",
