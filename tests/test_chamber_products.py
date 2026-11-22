@@ -4874,6 +4874,66 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_butler_case_margins_keep_reprint_conflicts_and_unknown_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT panel,case_period,exposure_setting,sum(cases_as_printed),
+                   count(*)-count(cases_as_printed)
+            FROM publication_butler_case_margin
+            WHERE source_id='butler_usaf'
+            GROUP BY panel,case_period,exposure_setting ORDER BY panel,case_period,exposure_setting
+        """).fetchall() == [
+            ("maximum_altitude", "1941-1976", "pooled", 145, 0),
+            ("maximum_altitude", "1977-1986", "pooled", None, 6),
+            ("maximum_altitude", "1987-1999", "chamber", 438, 0),
+            ("maximum_altitude", "1987-1999", "operations", 42, 0),
+            ("onset", "1941-1976", "pooled", 145, 0),
+            ("onset", "1977-1986", "pooled", 521, 1),
+            ("onset", "1987-1999", "chamber", 447, 0),
+            ("onset", "1987-1999", "operations", 42, 1),
+        ]
+        assert db.execute("""
+            SELECT m.cases_as_printed,p.numerator,p.denominator
+            FROM publication_butler_case_margin m
+            JOIN publication_observation p ON p.source_id='weien90'
+              AND p.stratum='surface-under-2h'
+              AND p.endpoint='symptom_onset_among_hbo_treated_dcs'
+            WHERE m.source_id='butler_usaf' AND m.panel='onset'
+              AND m.case_period='1977-1986' AND m.category_as_printed='Ground < 2 hours'
+        """).fetchone() == (173, 178, 526)
+        assert db.execute("""
+            SELECT case_period,reported_percent,case_denominator_as_printed
+            FROM publication_butler_case_percentage
+            WHERE source_id='butler_usaf' AND panel='onset_narrative'
+            ORDER BY case_period,reported_percent
+        """).fetchall() == [
+            ("1941-1999", 60, 1137),
+            ("1987-1999", 61, None),
+            ("1987-1999", 83, None),
+            ("1987-1999", 94, None),
+            ("1987-1999", 97, None),
+        ]
+        assert db.execute("""
+            SELECT r.report_id,json_extract(r.metadata_json,'$.context.onset_printed_count_sum')
+            FROM review.review_record r JOIN model_report_link l USING(report_id)
+            WHERE r.record_key='2026-11-21-butler-onset-altitude-reconciliation-verified#butler-printed-case-margins'
+              AND l.source_id='butler_usaf'
+        """).fetchone() == ("report:adp011059", 1155)
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='report:adp011059'
+              AND relationship IN ('reprints_matching_case_margins','reprints_conflicting_onset_count')
+            ORDER BY right_report
+        """).fetchall() == [
+            ("pmid:2241750", "reprints_conflicting_onset_count"),
+            ("pmid:889546", "reprints_matching_case_margins"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE record_key LIKE '2026-11-21-butler-onset-altitude-reconciliation-%'
+        """).fetchone() == (0,)
+
+
 def test_canadian_case_and_berry_rates_preserve_case_identity_and_counting_units(release):
     with connect_pair(release) as db:
         assert db.execute("""

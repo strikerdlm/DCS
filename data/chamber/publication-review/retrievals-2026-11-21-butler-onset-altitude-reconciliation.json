@@ -1,0 +1,232 @@
+[
+  {
+    "id": "2026-11-21-butler-onset-altitude-reconciliation-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Followed the original case papers, errata and the Brooks role counts. The latter search repeated the existing chapter. The 2026 meeting abstracts already have records.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "usaf_series_search_request_id": "aa9dbdc5-df34-4636-86da-e1a982073093",
+      "alternative_publication_search_request_id": "5246f420-f346-49ca-a8f1-22a74808c060",
+      "brooks_role_denominator_search_request_id": "98df5f32-42ee-4549-a199-813a3d7fc4cf",
+      "new_chamber_cohort_search_request_id": "349f7795-30e5-48fc-9da9-a2d9fae4b140",
+      "original_tables_extract_request_id": "0500e218-f731-402b-b5db-9a6593c8c1cf",
+      "additional_primary_onset_search_ids": [
+        "fef79370-43ad-4688-b2c1-f1bcb0775459",
+        "618b742c-6e9f-47ff-90a0-d19cc8a4392f",
+        "53e52fbe-bf27-488e-8a2a-a460d59ea46e"
+      ],
+      "urls": [
+        "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1#page=5",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/9/article-p833.pdf#page=2"
+      ]
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-butler-onset-altitude-reconciliation-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "The archived PDF returned the original Butler tables. The Weien scrape returned only a footer, so the archived publisher page and existing source extraction were used for its table.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "primary_butler_search_id": "01a20118-2ee4-7329-a9fc-e3154a2508b5",
+      "brooks_exposure_search_id": "01a20118-2eca-71fc-99ee-bb4b5a47511b",
+      "contemporary_case_search_id": "01a20118-2eac-70ec-b99a-a36516ce34ae",
+      "butler_pdf_scrape_id": "01a2011a-dbe7-7274-8392-15fb080c79f3",
+      "weien_pdf_footer_scrape_id": "01a2011a-dd62-7424-8c2d-2cb62147a5b9"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-butler-onset-altitude-reconciliation-verified",
+    "date": "2026-11-21",
+    "provider": "Public original source verification",
+    "operation": "publisher_pdf_and_table_reconciliation",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read the rendered source tables and cross-checked the 1977 and 1990 antecedent reports against their original table images.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "butler-printed-case-margins",
+        "title": "USAF Experience with Hyperbaric Therapy of Altitude Decompression Sickness (1941-1999)",
+        "author": "William P. Butler; E. George Wolf Jr.; Larry P. Krock",
+        "year": 2001,
+        "url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=6",
+        "report_number": "ADP011059",
+        "primary_source": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf",
+        "full_text_available": true,
+        "pdf_sha256": "7fa83d0954286ff4c500397c445940380e70eaed29fa15d709e7893d479e4986",
+        "locator": "Printed pp. 1-2, 1-3 and 1-5 (PDF pp. 3, 4 and 6)",
+        "note": "Treated altitude DCS cases, with clinical selection and repeated historical publications. The onset table sums to 1,155 and the narrative states 1,137. Within 1987-1999, 447 onset-table chamber cases and 438 maximum-altitude-table chamber cases differ from the 437 in the exposure-origin table. Retain all printed values, nulls and scope. No independent cohort, person-exposure risk set or individual event times result from these margins.",
+        "context": {
+          "model_source_id": "butler_usaf",
+          "onset_columns_as_printed": [
+            "at Altitude",
+            "Ground < 2 hours",
+            "Ground > 2 hours",
+            "unclear"
+          ],
+          "maximum_altitude_ft_columns_as_printed": [
+            "< 20,000",
+            "20-25,000",
+            "25-30,000",
+            "30-35,000",
+            "> 35,000",
+            "unclear"
+          ],
+          "rows": [
+            {
+              "period": "1941-1976",
+              "exposure_setting": "pooled",
+              "onset_case_counts": [
+                72,
+                43,
+                23,
+                7
+              ],
+              "maximum_altitude_case_counts": [
+                5,
+                14,
+                11,
+                51,
+                63,
+                1
+              ]
+            },
+            {
+              "period": "1977-1986",
+              "exposure_setting": "pooled",
+              "onset_case_counts": [
+                123,
+                173,
+                225,
+                null
+              ],
+              "maximum_altitude_case_counts": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "period": "1987-1999",
+              "exposure_setting": "chamber",
+              "onset_case_counts": [
+                94,
+                158,
+                186,
+                9
+              ],
+              "maximum_altitude_case_counts": [
+                11,
+                118,
+                61,
+                147,
+                87,
+                14
+              ]
+            },
+            {
+              "period": "1987-1999",
+              "exposure_setting": "operations",
+              "onset_case_counts": [
+                23,
+                12,
+                7,
+                null
+              ],
+              "maximum_altitude_case_counts": [
+                10,
+                12,
+                9,
+                4,
+                4,
+                3
+              ]
+            }
+          ],
+          "onset_totals_percent_as_printed": [
+            27,
+            33,
+            38,
+            1
+          ],
+          "maximum_altitude_totals_percent_as_printed": [
+            4,
+            23,
+            16,
+            32,
+            24,
+            3
+          ],
+          "clinical_series_total_as_methods": 1153,
+          "onset_case_count_as_narrative": 1137,
+          "onset_printed_count_sum": 1155,
+          "onset_printed_count_sum_minus_explicitly_unclear": 1139,
+          "within_two_hours_percent_as_full_narrative": 60,
+          "latest_scope": {
+            "case_count_as_methods": 480,
+            "exposure_origin_chamber_cases": 437,
+            "exposure_origin_operations_cases": 42,
+            "exposure_origin_unclear_cases": 1,
+            "onset_chamber_cell_sum": 447,
+            "onset_operations_cell_sum": 42,
+            "max_altitude_chamber_cell_sum": 438,
+            "max_altitude_operations_cell_sum": 42,
+            "onset_narrative_percents": {
+              "2": 61,
+              "10": 83,
+              "20": 94,
+              "25": 97
+            },
+            "onset_narrative_denominator": null
+          },
+          "antecedents": [
+            {
+              "report_id": "pmid:889546",
+              "period": "1941-1976",
+              "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf?download=1#page=5",
+              "locator": "Printed p. 726, Tables III-IV",
+              "role": "Both reprinted sets of counts match. The exact altitude band boundaries are expressed differently.",
+              "maximum_altitude_bands_ft_as_printed": [
+                "18,001 - 20,000",
+                "20,001 - 25,000",
+                "25,001 - 30,000",
+                "30,001 - 35,000",
+                "Above 35,000",
+                "Unknown"
+              ]
+            },
+            {
+              "report_id": "pmid:2241750",
+              "period": "1977-1986",
+              "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/9/article-p833.pdf#page=2",
+              "locator": "Printed p. 834, Table I and note",
+              "role": "Primary source takes precedence. Retain the Butler cell as a conflicting reprint.",
+              "ground_onset_less_than_two_hours_original": 178,
+              "ground_onset_less_than_two_hours_reprint": 173,
+              "original_cases_with_known_onset": 526,
+              "original_cases_with_missing_onset": 2
+            }
+          ],
+          "brooks_role_rates_existing_review_record": true,
+          "verified_clinical_person_exposure_pair": null
+        }
+      }
+    ]
+  }
+]

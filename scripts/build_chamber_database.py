@@ -242,6 +242,7 @@ RCAF_CHAMBER_SYMPTOM_CURVE = ROOT / "data" / "chamber" / "v1.174"
 FAA_PROFILE_REACTION_RECONCILIATION = ROOT / "data" / "chamber" / "v1.175"
 ANDEAN_CHAMBER_SOURCE_SCOPE = ROOT / "data" / "chamber" / "v1.176"
 CANADIAN_CASE_AND_BERRY_SYMPTOMS = ROOT / "data" / "chamber" / "v1.177"
+BUTLER_CASE_MARGIN_RECONCILIATION = ROOT / "data" / "chamber" / "v1.178"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2399,6 +2400,14 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_berry_trapped_gas_rate": "trapped_gas_rates.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    BUTLER_CASE_MARGIN_RECONCILIATION,
+                    {
+                        "publication_butler_case_margin": "case_margins.csv",
+                        "publication_butler_case_percentage": "case_percentages.csv",
                     },
                 )
             if rojas_supplement:
