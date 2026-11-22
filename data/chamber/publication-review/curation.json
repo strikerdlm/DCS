@@ -1,6 +1,42 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-rcaf-c3050-symptom-curve-verified#rcaf-c3050",
+      "report_id": "report:rcaf-c3050",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=5",
+      "basis": "Same numbered technical report C-3050 / B167, authors and 1945 publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.174/sources.csv#stewart_smith45_rcaf_c3050",
+      "report_id": "report:rcaf-c3050",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=5",
+      "basis": "The model source is the numbered RCAF study cited in Webb's reference 10."
+    },
+    {
+      "record_key": "2026-11-21-rcaf-c3050-symptom-curve-verified#webb-figure-1",
+      "report_id": "pmid:11396555",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=3",
+      "basis": "Same title, PMID, date, authors and PDF identified in the repository's earlier source extraction."
+    },
+    {
+      "record_key": "2026-11-21-rcaf-c3050-symptom-curve-verified#pilmanis-webb-references",
+      "report_id": "report:adp011093",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+      "basis": "Same RTO-MP-062 paper 40 and public DTIC chapter ADP011093."
+    },
+    {
+      "record_key": "2026-11-21-rcaf-c3050-symptom-curve-verified#rcaf-c2691",
+      "report_id": "report:rcaf-c2691",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+      "basis": "Distinct title, report number and 1943 date in reference 8."
+    },
+    {
+      "record_key": "2026-11-21-rcaf-c3050-symptom-curve-verified#history-volume-1",
+      "report_id": "book:canadian-medical-services-1956-volume-1",
+      "evidence_url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1956-medical-services-1-en.pdf#page=523",
+      "basis": "Official cover, volume number, editor, year and source pages match."
+    },
+    {
       "record_key": "2026-11-21-halifax-wartime-chamber-verified#visit",
       "report_id": "nlm:101085500x233:260:ferris-nims",
       "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=274",
@@ -22092,6 +22128,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:11396555",
+      "right_report": "report:rcaf-c3050",
+      "relationship": "reproduces_cited_symptom_curve",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=3",
+      "evidence": "Reference 10 identifies C-3050 / B167. The introduction and Figure 1 report the historical 35,000-ft resting arm. The 2001 Table I population is different."
+    },
+    {
+      "left_report": "report:adp011093",
+      "right_report": "report:rcaf-c3050",
+      "relationship": "cites_archival_source",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+      "evidence": "Printed p. 40-10 reference 17 identifies C-3050, 1945, and 10 pages."
+    },
+    {
+      "left_report": "report:adp011093",
+      "right_report": "report:rcaf-c2691",
+      "relationship": "cites_archival_source",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+      "evidence": "Printed p. 40-10 reference 8 identifies the 1943 seven-page recurrence report."
+    },
+    {
+      "left_report": "report:rcaf-c3050",
+      "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",
+      "relationship": "scope_overlap_unresolved",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=5",
+      "evidence": "The distinct RCAF reports share Stewart as an author and include 35,000-ft results. C-2683 concerns Halifax and its reported totals do not identify the C-3050 sample. Identity, overlap and outcome definitions are unresolved."
+    },
+    {
+      "left_report": "book:canadian-medical-services-1956-volume-1",
+      "right_report": "nlm:101085500x233:260:ferris-nims",
+      "relationship": "describes_program_and_afterward",
+      "evidence_url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1956-medical-services-1-en.pdf#page=523",
+      "evidence": "Printed pp. 457–458 describe the same Halifax Y Depot high-altitude screening and equipment dispersion after closure. Facility continuity does not establish separate participants, observations or denominator linkage."
+    },
     {
       "left_report": "nlm:101085500x233:260:ferris-nims",
       "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",

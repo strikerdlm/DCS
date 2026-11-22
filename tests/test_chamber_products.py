@@ -4874,6 +4874,51 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_rcaf_c3050_curve_keeps_printed_rate_and_reprint_with_one_source(release):
+    with connect_pair(release) as db:
+        source = "stewart_smith45_rcaf_c3050"
+        assert db.execute("""
+            SELECT series,count(*),min(minute_at_altitude),max(minute_at_altitude),
+                   count(printed_percent),max(printed_percent),min(digitized_percent),
+                   max(digitized_percent)
+            FROM publication_chamber_time_curve
+            WHERE source_id=? GROUP BY series ORDER BY series
+        """, (source,)).fetchall() == [
+            ("all", 6, 30, 180, 1, 51.0, 19.5, 51.0),
+            ("mild", 6, 30, 180, 0, None, 12.6, 26.2),
+            ("moderate", 6, 30, 180, 0, None, 5.6, 17.5),
+            ("severe", 6, 30, 180, 0, None, 0.5, 6.7),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT c.target_altitude_ft,c.prebreathe_min,c.activity,l.report_id
+            FROM publication_chamber_time_curve c JOIN model_report_link l USING(source_id)
+            WHERE c.source_id=?
+        """, (source,)).fetchall() == [(35000, 0, "rest", "report:rcaf-c3050")]
+        assert db.execute("""
+            SELECT digitized_percent FROM publication_chamber_time_curve
+            WHERE source_id=? AND series='all' AND minute_at_altitude=180 AND printed_percent=51
+        """, (source,)).fetchone() == (51.0,)
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id=?
+        """, (source,)).fetchone() == (0,)
+        assert db.execute("""
+            SELECT left_report,right_report FROM review.review_report_relation
+            WHERE relationship='reproduces_cited_symptom_curve' AND right_report='report:rcaf-c3050'
+        """).fetchall() == [("pmid:11396555", "report:rcaf-c3050")]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='report:rcaf-c3050'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT
+              json_extract(metadata_json,'$.context.halifax_equipment_count'),
+              json_array_length(metadata_json,'$.context.named_followup_sites'),
+              json_extract(metadata_json,'$.context.site_level_exposures')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-rcaf-c3050-symptom-curve-verified#history-volume-1'
+        """).fetchone() == (12, 14, None)
+
+
 def test_halifax_reported_rates_and_overlapping_groups_preserve_source_units(release):
     with connect_pair(release) as db:
         report = "nlm:101085500x233:260:ferris-nims"
