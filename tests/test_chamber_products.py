@@ -4874,6 +4874,56 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_halifax_reported_rates_and_overlapping_groups_preserve_source_units(release):
+    with connect_pair(release) as db:
+        report = "nlm:101085500x233:260:ferris-nims"
+        source = "ferris_nims43_halifax_visit"
+        assert db.execute("""
+            SELECT measure,reported_value,upper_value,value_basis,unit
+            FROM publication_halifax_program_metric
+            WHERE source_id=? ORDER BY measure
+        """, (source,)).fetchall() == [
+            ("daily_bends_or_chokes", 18.0, 45.0, "range", "percent"),
+            ("group_a_after_three_flights", 40.0, None, "approximate", "percent"),
+            ("mean_bends_or_chokes", 35.0, None, "approximate", "percent"),
+            ("mean_forced_descents", 15.0, None, "approximate", "percent"),
+            ("people_tested", 15000.0, None, "approximate", "person"),
+            ("person_flights", 50000.0, None, "approximate", "person_exposure"),
+            ("validation_people", 40.0, None, "approximate", "person"),
+        ]
+        assert db.execute("""
+            SELECT reported_value,value_basis,unit
+            FROM publication_halifax_program_metric
+            WHERE source_id='canada53_medical_history' AND measure='ascents'
+        """).fetchone() == (20000.0, "strict_lower_bound", "ascent")
+        assert db.execute("""
+            SELECT o.endpoint,o.numerator,o.denominator,o.analysis_role,r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (r.report_id,r.endpoint,r.reported_group)=(l.report_id,o.endpoint,o.stratum)
+            WHERE o.source_id=? AND l.report_id=? ORDER BY o.endpoint
+        """, (source, report)).fetchall() == [
+            ("mastoiditis", 1, None, "overlap_hold", 1, None),
+            ("purulent_otitis_media", 4, None, "overlap_hold", 4, None),
+        ]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report=? AND relationship='reuses_reported_groups'
+            ORDER BY right_report
+        """, (report,)).fetchall() == [
+            ("nlm:101085500x233:220:ferris",),
+            ("nlm:101085500x233:228:halifax-validation",),
+        ]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='archive:dalhousie-ms-13-61' AND relationship='possible_archival_route'
+        """).fetchone() == ("record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",)
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.context.halifax_exercise_validation.counted_as_additional_cohort')
+            FROM review.review_record WHERE record_key='2026-11-21-halifax-wartime-chamber-verified#visit'
+        """).fetchone() == (0,)
+
+
 def test_nasa_2020_table_profiles_reuse_test_counts_and_expose_rate_disagreements(release):
     with connect_pair(release) as db:
         assert db.execute("""

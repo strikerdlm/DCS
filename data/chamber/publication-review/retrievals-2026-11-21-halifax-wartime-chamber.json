@@ -1,0 +1,180 @@
+[
+  {
+    "id": "2026-11-21-halifax-wartime-chamber-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Searched the cited Halifax population, original report numbers and archives. Extracted the federal history and Dalhousie finding-aid leads. The NLM result was a distinct 1941 RCAF circular. Original C-2683, D-1, D-4 and D.S. 5 full texts were not located.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "c2683_search_query": "Royal Canadian Air Force Halifax \"C-2683\" Stewart decompression sickness",
+      "c2683_search_request_id": "b0f64d5f-2b60-4059-8145-b99f3ef93c78",
+      "16293_search_request_id": "b21dbd38-976f-438a-b7e9-7c47bf691151",
+      "dalhousie_search_request_id": "0fc9b1d1-0a93-415e-a445-9a6423b35a8d",
+      "dalhousie_pdf_extract_request_id": "53dea792-3884-4e4d-aadd-5aead2e042c2",
+      "canadian_history_extract_request_id": "8d7c7a1a-e46e-4839-b69b-a9c99d61f5f6",
+      "fpms_d1_search_request_id": "12e7780a-f7c4-4724-94a1-baa646a00402",
+      "fpms_d4_search_request_id": "20ae6c9b-0973-434a-aecf-5916591cc4f0",
+      "warwick_archive_search_request_id": "5121bc22-504a-4753-b1e9-4aac4ffdcdf0",
+      "nlm_circular_extract_request_id": "c48e08dd-00eb-4c84-9391-0e018cce11c4",
+      "verified_d1_title_search_request_id": "bf5a82a2-17f0-49c1-9228-e9c0004e850c",
+      "ds5_title_search_request_id": "90fc61d8-1df3-4c1f-9073-470085214b3a"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-halifax-wartime-chamber-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Verified the Dalhousie collection and its downloadable finding aid. The C-2683 search returned leads without a copy of the original.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "c2683_search_query": "Halifax \"C-2683\" hypobaric decompression Stewart 1943 original report",
+      "c2683_search_id": "01a200a4-8a68-766f-a524-49e88e60b285",
+      "dalhousie_collection_scrape_id": "01a200a1-298d-7769-968e-376323a2d1f0",
+      "dalhousie_finding_aid_scrape_id": "01a200a2-ace2-738f-923b-6ab0c144fa9f"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-halifax-wartime-chamber-verified",
+    "date": "2026-11-21",
+    "provider": "National Library of Medicine, Canadian Department of National Defence and Dalhousie University Archives",
+    "operation": "supplementary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Verified a contemporary Halifax site-visit report and three separate archival citations. Rechecked the already catalogued 1953 official history and assessed cohort overlap against existing extractions.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "visit",
+        "title": "A report to the chairman of the Subcommittee on Decompression-Sickness of a visit of E. B. Ferris, Jr. and L. F. Nims to the Flying Personnel Medical Section of the Royal Canadian Air Force at the Y Depot in Halifax, N.S.",
+        "year": 1943,
+        "author": "Ferris EB Jr, Nims LF",
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=274",
+        "full_text_available": true,
+        "pdf_sha256": "fe4b609df39c5fae5a9a372f663dc655d184a48a6447188147f8a1f608844069",
+        "locator": "Bulletin printed pp. 260–265 (PDF pp. 274–279)",
+        "context": {
+          "routine_profile": {
+            "simulated_altitude_ft": 35000,
+            "planned_plateau_minutes": 120,
+            "planned_successive_days": 3,
+            "approx_ascent_rate_ft_per_min": 1200,
+            "posture": "seated",
+            "planned_physical_activity": false,
+            "prebreathe_min": null,
+            "postflight_followup": null
+          },
+          "model_metrics_source_id": "ferris_nims43_halifax_visit",
+          "clinical_case_count": null,
+          "clinical_denominator": null,
+          "halifax_exercise_validation": {
+            "simulated_altitude_ft": 38000,
+            "two_run_analysis_people": 286,
+            "three_run_analysis_people_already_catalogued": 304,
+            "full_validation_people_already_catalogued": 524,
+            "full_validation_person_exposures_already_catalogued": 1268,
+            "two_run_subset_membership": null,
+            "possible_overlapping_validation_report_id": "fulton1951:preselection-tests",
+            "counted_as_additional_cohort": false
+          },
+          "cincinnati_comparator": {
+            "three_run_people_already_catalogued": 78
+          },
+          "numbered_comparison_tables_in_public_scan": false,
+          "c2683_counts_reconciled": false
+        },
+        "observations": [
+          {
+            "id": "purulent_otitis_media",
+            "group": "halifax-wartime-ear-complications",
+            "endpoint": "purulent_otitis_media",
+            "cases": 4,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 263 (PDF p. 277), Otitic and sinus barotrauma",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=277",
+            "note": "The investigators report people affected within a program of about 15,000 people and 50,000 person-flights. Exact at-risk population, membership across these two conditions and attribution to altitude are unknown."
+          },
+          {
+            "id": "mastoiditis",
+            "group": "halifax-wartime-ear-complications",
+            "endpoint": "mastoiditis",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 263 (PDF p. 277), Otitic and sinus barotrauma",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=277",
+            "note": "The investigators report people affected within a program of about 15,000 people and 50,000 person-flights. Exact at-risk population, membership across these two conditions and attribution to altitude are unknown."
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "title": "Official History of the Canadian Medical Services, 1939–1945. Volume II, Clinical Subjects",
+        "year": 1953,
+        "editor": "Feasby WR",
+        "url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1953-medical-services-2-en.pdf#page=387",
+        "full_text_available": true,
+        "pdf_sha256": "4ce558ae8a59b813ab00d59a646900f27fd07edf8ce051e8156edf8fff5a8b32",
+        "locator": "Chapter 29, printed p. 368 (PDF p. 387), Decompression sickness",
+        "note": "The table of contents and chapter opening verify Chapter 29, correcting the chapter number in the sealed v1.10 locator. This is the same official volume and passage already catalogued. The text gives approximate subjects and a lower bound on ascents for mixed Canadian research and aircrew tests without site-specific counts."
+      },
+      {
+        "id": "dal",
+        "title": "Chester Stewart fonds",
+        "repository": "Dalhousie University Archives",
+        "reference_code": "MS-13-61",
+        "url": "https://findingaids.library.dal.ca/chester-stewart-fonds",
+        "finding_aid_url": "https://findingaids.library.dal.ca/downloads/chester-stewart-fonds.pdf",
+        "full_text_available": true,
+        "locator": "Collection description and access conditions",
+        "note": "The public finding aid lists aviation medicine and decompression sickness research notes. The collection is available in the reading room. The finding aid does not identify report C-2683 at item level."
+      },
+      {
+        "id": "fpms-d1",
+        "title": "Altitude selection and training at the F.P.M.S.",
+        "year": 1943,
+        "author": "Stewart CB, Warwick OH",
+        "report_number": "F.P.M.S. D-1",
+        "institution": "Flying Personnel Medical Section, No. 1 Y Depot, RCAF",
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+        "full_text_available": false,
+        "locator": "References, printed p. 265 (PDF p. 279), February 1943",
+        "note": "Identified by title, authors, date and report number in the site-visit bibliography. The reported title and number differ from C-2683. Its scope and relationship to C-2683 remain unverified."
+      },
+      {
+        "id": "fpms-d4",
+        "title": "Further studies on the relationship of fluid balance to decompression sickness",
+        "year": 1943,
+        "author": "Warwick OH",
+        "report_number": "F.P.M.S. D-4",
+        "institution": "Flying Personnel Medical Section, No. 1 Y Depot, RCAF",
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+        "full_text_available": false,
+        "locator": "References, printed p. 265 (PDF p. 279), July 1943",
+        "note": "Identified by title, author, date and report number in the site-visit bibliography. No independent cohort or hydration effect can be recovered from the citation."
+      },
+      {
+        "id": "ds5",
+        "title": "The apparent relationship of fluid balance to the incidence of decompression-sickness",
+        "year": 1942,
+        "author": "Warwick OH",
+        "report_number": "D.S. 5",
+        "institution": "No. 2 Clinical Investigation Unit, No. 2 I.T.S., RCAF",
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+        "full_text_available": false,
+        "locator": "References, printed p. 265 (PDF p. 279), April 1942",
+        "note": "Earlier report with a distinct title, number, institution and date. Whether exposures or participants were repeated in D-4 is unknown."
+      }
+    ]
+  }
+]

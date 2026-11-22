@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-halifax-wartime-chamber-verified#visit",
+      "report_id": "nlm:101085500x233:260:ferris-nims",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=274",
+      "basis": "Matches the contemporaneous visit heading, Ferris and Nims signatures, and bulletin pagination."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.173/sources.csv#ferris_nims43_halifax_visit",
+      "report_id": "nlm:101085500x233:260:ferris-nims",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=274",
+      "basis": "Same report authors, visit heading and printed pp. 260–265."
+    },
+    {
+      "record_key": "2026-11-21-halifax-wartime-chamber-verified#history",
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_full_source_verification:4",
+      "evidence_url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1953-medical-services-2-en.pdf#page=387",
+      "basis": "Identical publisher PDF and printed p. 368. The table of contents identifies the chapter as 29."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.10/search_hits.csv#expedition_full_source_verification:4",
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_full_source_verification:4",
+      "evidence_url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1953-medical-services-2-en.pdf#page=387",
+      "basis": "Preserves the existing report identifier for this official volume while linking its newly verified locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.10/sources.csv#canada53_medical_history",
+      "report_id": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_full_source_verification:4",
+      "evidence_url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1953-medical-services-2-en.pdf#page=387",
+      "basis": "The prior model source lists the same volume, publisher PDF and passage on printed p. 368."
+    },
+    {
+      "record_key": "2026-11-21-halifax-wartime-chamber-verified#dal",
+      "report_id": "archive:dalhousie-ms-13-61",
+      "evidence_url": "https://findingaids.library.dal.ca/chester-stewart-fonds",
+      "basis": "Official Dalhousie collection title and fonds reference MS-13-61."
+    },
+    {
+      "record_key": "2026-11-21-halifax-wartime-chamber-verified#fpms-d1",
+      "report_id": "report:rcaf-fpms-d1",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+      "basis": "Distinct cited report with authors, title, February 1943 date and D-1 number."
+    },
+    {
+      "record_key": "2026-11-21-halifax-wartime-chamber-verified#fpms-d4",
+      "report_id": "report:rcaf-fpms-d4",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+      "basis": "Distinct cited report with author, title, July 1943 date and D-4 number."
+    },
+    {
+      "record_key": "2026-11-21-halifax-wartime-chamber-verified#ds5",
+      "report_id": "report:rcaf-ds5",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+      "basis": "Distinct cited report with title, author, April 1942 date and D.S. 5 number."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_spa:4",
       "report_id": "ntrs:20200004317",
       "evidence_url": "https://ntrs.nasa.gov/citations/20200004317",
@@ -22038,6 +22092,69 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",
+      "relationship": "likely_program_overlap",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=276",
+      "evidence": "Both publications concern Halifax's wartime 35,000-ft program. The visit estimates broad program scale. The earlier C-2683 nominal size comes from citations, with no membership or case-count reconciliation."
+    },
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "nlm:101085500x233:228:halifax-validation",
+      "relationship": "reuses_reported_groups",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=275",
+      "evidence": "Printed pp. 260–261 cite the Halifax validation draft and repeat the published 304 three-run group and 524 people across 1,268 flights. Membership of the 286 two-run analysis is unresolved."
+    },
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "nlm:101085500x233:220:ferris",
+      "relationship": "reuses_reported_groups",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=275",
+      "evidence": "Printed pp. 260–261 reuse the Cincinnati 78-person three-run comparison. This is a component of the Cincinnati report."
+    },
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "fulton1951:preselection-tests",
+      "relationship": "scope_overlap_unresolved",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=275",
+      "evidence": "The visit's two-run analysis and the later chapter's follow-on validation both report 286 people. The reports describe different test phases. An exact participant match has not been verified."
+    },
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_full_source_verification:4",
+      "relationship": "scope_overlap_unresolved",
+      "evidence_url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1953-medical-services-2-en.pdf#page=387",
+      "evidence": "The 1953 history describes mixed wartime Canadian testing at 30,000–40,000 ft. The link between that scope and the Halifax visit's broader site totals is unresolved."
+    },
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "report:rcaf-fpms-d1",
+      "relationship": "cites_archival_source",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+      "evidence": "Printed p. 265 cites the distinct D-1 title and number for the Flying Personnel Medical Section."
+    },
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "report:rcaf-fpms-d4",
+      "relationship": "cites_archival_source",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+      "evidence": "Printed p. 265 cites the distinct D-4 fluid-balance report."
+    },
+    {
+      "left_report": "nlm:101085500x233:260:ferris-nims",
+      "right_report": "report:rcaf-ds5",
+      "relationship": "cites_archival_source",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=279",
+      "evidence": "Printed p. 265 cites the earlier fluid-balance study by Warwick as D.S. 5, April 1942."
+    },
+    {
+      "left_report": "archive:dalhousie-ms-13-61",
+      "right_report": "record:legacy:data/chamber/v1.10/sources.csv#stewart_halifax_c2683",
+      "relationship": "possible_archival_route",
+      "evidence_url": "https://findingaids.library.dal.ca/chester-stewart-fonds",
+      "evidence": "The fonds lists aviation medicine and decompression sickness research notes. No item-level finding identifies C-2683."
+    },
     {
       "left_report": "ntrs:20200004317",
       "right_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
