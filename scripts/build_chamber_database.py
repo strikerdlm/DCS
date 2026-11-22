@@ -292,6 +292,7 @@ BERKELEY_CHEST_VISUAL_AND_RUDGE_CASE = ROOT / "data" / "chamber" / "v1.224"
 HISTORICAL_PROGRAM_AND_STEPWISE_ASCENT = ROOT / "data" / "chamber" / "v1.225"
 BERKELEY_ARM_EXERCISE = ROOT / "data" / "chamber" / "v1.226"
 FRASER_DATED_ASCENT_SCORES = ROOT / "data" / "chamber" / "v1.227"
+USAFSAM_DOPPLER_REPOSITORY = ROOT / "data" / "chamber" / "v1.228"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3021,6 +3022,18 @@ def build(
                     db,
                     FRASER_DATED_ASCENT_SCORES,
                     {"publication_fraser_ascent_run_score": "dated_scores.csv"},
+                )
+                load_supplement(
+                    db,
+                    USAFSAM_DOPPLER_REPOSITORY,
+                    "publication",
+                    include_observations=False,
+                    extra_tables={
+                        "publication_usafsam_repository_snapshot": "repository_snapshots.csv",
+                        "publication_usafsam_repeated_vge": "repeated_vge.csv",
+                        "publication_usafsam_threshold_vge": "threshold_vge.csv",
+                        "publication_usafsam_threshold_symptom": "threshold_symptoms.csv",
+                    },
                 )
                 load_register(db, ROOT)
                 db.commit()
