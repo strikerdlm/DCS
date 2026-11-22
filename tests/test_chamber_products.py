@@ -9,6 +9,72 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_bassett_post_dive_profiles_preserve_case_certainty_and_stage_risk_sets(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT series,participants_before_exclusions,participants_in_report,participants_in_abstract,
+                   lower_altitude_ft,upper_altitude_ft
+            FROM publication_post_dive_series ORDER BY series
+        """).fetchall() == [
+            ("FAD-I", 63, 59, 20, 10000, 16000),
+            ("FAD-II", None, 28, 20, 8500, 14250),
+        ]
+        assert db.execute("""
+            SELECT f.series,count(*),sum(o.denominator),sum(o.numerator),sum(f.vge_abort_flights),
+                   sum(f.vge_completed_flights),sum(f.no_vge_flights),sum(f.upper_stage_entries_reconstructed),
+                   sum(f.reported_skin_itches),o.endpoint
+            FROM publication_post_dive_flight_profile f
+            JOIN publication_observation o
+              ON o.source_id=f.source_id AND o.stratum=f.stratum AND o.endpoint=f.clinical_endpoint
+            GROUP BY f.series,o.endpoint ORDER BY f.series
+        """).fetchall() == [
+            ("FAD-I", 6, 110, 5, 7, 14, 84, 103, 45, "pain_only_bends_causing_flight_abort_as_reported"),
+            ("FAD-II", 3, 57, 1, 2, 16, 38, 57, 12, "possible_type_i_bends_causing_flight_abort_as_reported"),
+        ]
+        assert db.execute("""
+            SELECT f.stratum FROM publication_post_dive_flight_profile f
+            JOIN publication_observation o
+              ON o.source_id=f.source_id AND o.stratum=f.stratum AND o.endpoint=f.clinical_endpoint
+            WHERE o.denominator<>o.numerator+f.vge_abort_flights+f.vge_completed_flights+f.no_vge_flights
+               OR o.numerator<>f.lower_stage_clinical_aborts+f.upper_stage_clinical_aborts
+               OR f.upper_stage_entries_reconstructed<>
+                  o.denominator-f.lower_stage_clinical_aborts-f.lower_stage_vge_aborts
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT mean_dive_descent_min,mean_bottom_exposure_min FROM publication_post_dive_flight_profile
+            WHERE dive_schedule_as_printed='10.75/1440'
+        """).fetchone() == (None, 1440)
+
+
+def test_bassett_later_editions_and_vann_mirrors_keep_one_source_of_outcomes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT report_id,endpoint,count(*),sum(cases),sum(denominator)
+            FROM review.review_search_observation
+            WHERE report_id IN ('report:ada132039','asma:1992:411:158')
+            GROUP BY report_id,endpoint ORDER BY report_id,endpoint
+        """).fetchall() == [
+            ("report:ada132039", "pain_only_bends_causing_flight_abort_as_reported", 6, 5, 110),
+            ("report:ada132039", "possible_type_i_bends_causing_flight_abort_as_reported", 3, 1, 57),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*)
+            FROM review.review_record
+            WHERE url LIKE '%scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf%'
+            GROUP BY report_id
+        """).fetchall() == [("pmid:15686274", 76)]
+        assert db.execute("""
+            SELECT left_report,relationship FROM review.review_report_relation WHERE right_report='report:ada132039'
+            ORDER BY left_report
+        """).fetchall() == [
+            ("asma:1992:411:158", "same_cohort"),
+            ("pmid:15686274", "cites_historical_outcomes_with_discrepancy"),
+        ]
+        assert db.execute("""
+            SELECT source_id FROM publication_observation WHERE source_id='bassett92_fad_abstract'
+        """).fetchall() == []
+
+
 def test_armstrong_calibration_and_development_counts_keep_source_grain(release):
     with connect_pair(release) as db:
         assert db.execute("""
