@@ -1,0 +1,247 @@
+[
+  {
+    "id": "2026-11-21-nasa-exploration-role-and-prebreathe-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "NASA Crucian 11 day chamber exploration atmosphere 3 missions decompression sickness 8.2 9.6 4.3 85% nitrogen Doppler technicians results study 23 Garbino",
+          "request_id": "4d2170e3-f439-4f47-87d5-93c19065b6a6"
+        },
+        {
+          "query": "NASA \"11-day\" \"hypobaric chamber\" \"decompression sickness\" exploration atmosphere 9.6 8.2 five simulated EVAs Garrett Barratt results VGE",
+          "request_id": "491f89ad-e18c-491e-8084-2ca1d0098fed"
+        },
+        {
+          "query": "NASA Anchondo C 2024 exploration atmosphere hypobaric chamber experience three 11-day missions 2022 2023 9.6 psia decompression sickness 150 mins outcome",
+          "request_id": "fbb76e29-09f1-4051-8ac3-0809f1285561"
+        }
+      ],
+      "extract_request_ids": [
+        "5f1a2a89-a633-40fe-bd86-17d0ff0e2896",
+        "cc135483-217b-4227-a18f-31ff2809636f"
+      ]
+    },
+    "note": "Recovered the two companion papers and the original NASA reporting series. The papers help define the populations but do not enumerate observed clinical DCS.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-exploration-role-and-prebreathe-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_full_text",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a20138-389c-7503-8008-055fefb47923",
+      "scrapes": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+          "scrape_id": "01a20139-2cbe-719b-ab51-1a225a141e52"
+        },
+        {
+          "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2026.1839091/full",
+          "scrape_id": "01a2013a-0dc7-7438-a262-cc9a0cced3c1"
+        }
+      ]
+    },
+    "note": "Retrieved full text for the immune and metabolic biomarker analyses and cross-checked their design against the clinical reports.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-exploration-role-and-prebreathe-verified",
+    "date": "2026-11-21",
+    "provider": "Original NASA and publisher PDFs",
+    "operation": "supplementary_full_text_and_study_overlap_verification",
+    "status": "observed",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Verified the companion publications, the 2024 NASA presentation and campaign-specific timing. Supplementary sources for the same missions add zero clinical cases and zero outcome denominators.",
+    "records": [
+      {
+        "id": "crucian-immune-analysis",
+        "title": "Effects of hypoxia/hyperoxia exposure on immune function – results from a spacecraft-relevant hypobaric chamber study",
+        "pmid": "40995513",
+        "doi": "10.3389/fphys.2025.1637834",
+        "year": 2025,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
+        "full_text_available": true,
+        "pdf_sha256": "8e6401dcec25b74ceb14698abc24c19aa67a27445cd0022ef2969add42ae065b",
+        "locator": "Methods: Subjects and Chamber and atmosphere, p. 3; Figure 1, p. 5",
+        "source_scope": {
+          "missions": 3,
+          "planned_mission_days": 11,
+          "enrollment_slots": 24,
+          "unique_people": 20,
+          "people_repeated": 4,
+          "active_volunteers_per_mission": 6,
+          "resident_doppler_technicians_per_mission": 2,
+          "clinical_technician_exposure_denominator": null,
+          "immune_analysis_slots": 23,
+          "active_analysis_slots": 17,
+          "technician_analysis_slots": 6
+        },
+        "note": "The three 11-day missions enrolled 24 person-mission slots across 20 unique people with four repeat participants. Each mission enrolled six active volunteers and two resident Doppler technicians. One volunteer withdrew in mission 3, leaving 17 volunteer and six technician slots for the immune analysis. These counts do not enumerate evaluable clinical or staff time at risk. The clinical slides identify an external replacement technician and a technician sitting out one EVA."
+      },
+      {
+        "id": "fincke-metabolic-analysis",
+        "title": "Characterization of metabolic changes and adaptive remodeling during a hypobaric hypoxic exploration atmosphere environment",
+        "pmid": "42775249",
+        "doi": "10.3389/fphys.2026.1839091",
+        "year": 2026,
+        "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2026.1839091/full",
+        "full_text_available": true,
+        "pdf_sha256": "30bb1ef855ef8e68be6e3d17a282a9063f9df58764892e2d32ee6ecd0db056e0",
+        "locator": "Materials and methods, pp. 2–3",
+        "source_scope": {
+          "missions": 3,
+          "planned_mission_days": 11,
+          "enrollment_slots": 24,
+          "unique_people": 20,
+          "people_repeated": 4,
+          "active_volunteers_per_mission": 6,
+          "resident_doppler_technicians_per_mission": 2,
+          "clinical_technician_exposure_denominator": null
+        },
+        "clinical_session_comparison": {
+          "outcome_report_id": "ntrs:20250004535",
+          "outcome_report_locator": "Slides 25, 29 and 44",
+          "ea3_eva_1_prebreathe_min": 90,
+          "ea3_eva_2_through_5_prebreathe_min": 150
+        },
+        "note": "This metabolic biomarker report reuses the same three 11-day missions in 2022–2023. The publication gives mission 3 a 150-minute prebreathe in its overview. The clinical outcomes presentation documents a 90-minute prebreathe for EA3 EVA1 and 150 minutes for EA3 EVAs 2–5. The biomarker report supplies no additional adjudicated clinical risk set."
+      },
+      {
+        "id": "ea12-session-prebreathe",
+        "title": "Development, Validation and Approval of A Planetary Extravehicular Activity Prebreathe Protocol: NASA Exploration Atmosphere Tests 1 & 2",
+        "year": 2024,
+        "url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf",
+        "full_text_available": true,
+        "pdf_sha256": "a936ef610d7c38ea52152265a13698f7618c8fcb2371ede524e39738454946c6",
+        "locator": "Slides 21, 29, 43–44, 57 and 74",
+        "linked_model_source_id": "garbino_ea12",
+        "session_prebreathe_timings": [
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea1-eva-1-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 14 sec",
+            "reported_duration_seconds": 1214,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 57"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea1-eva-2-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 21 sec",
+            "reported_duration_seconds": 1221,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 57"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea1-eva-3-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 01 sec",
+            "reported_duration_seconds": 1201,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 57"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea1-eva-4-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 04 sec",
+            "reported_duration_seconds": 1204,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 57"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea1-eva-5-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 10 sec",
+            "reported_duration_seconds": 1210,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 57"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea2-eva-1-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "19min 56 sec",
+            "reported_duration_seconds": 1196,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 74"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea2-eva-2-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 01 sec",
+            "reported_duration_seconds": 1201,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 74"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea2-eva-3-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 00 sec",
+            "reported_duration_seconds": 1200,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 74"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea2-eva-4-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min 01 sec",
+            "reported_duration_seconds": 1201,
+            "reported_resolution_seconds": 1,
+            "locator": "Slide 74"
+          },
+          {
+            "source_id": "garbino_ea12",
+            "stratum": "ea2-eva-5-campaign-analysis",
+            "endpoint": "dcs_type_i",
+            "duration_as_printed": "20min",
+            "reported_duration_seconds": 1200,
+            "reported_resolution_seconds": 60,
+            "locator": "Slide 74"
+          }
+        ],
+        "pressure_transition_context": "Slides 57 and 74 separately describe approximately 80–90 s to move from 6.2 to 5.4 psia. No per-person gas delivery is reported. The listed prebreathe durations are recorded as printed.",
+        "technician_case_context": {
+          "outcome_margin": "discovery_observation:garbino_ea12/doppler-technicians/dcs_type_i",
+          "clinical_cases_already_counted": 2,
+          "clinical_denominator": null,
+          "ea1": {
+            "published_case_number": 1,
+            "eva_number": 2,
+            "prebreathe_min": null,
+            "onset_min": null,
+            "comment": "Sat out EVA3 on ground-level oxygen after the event. Exact onset minute is unreported (slides 29 and 43)."
+          },
+          "ea2": {
+            "published_case_number": 2,
+            "eva_number": null,
+            "prebreathe_min": 270,
+            "onset_min": null,
+            "comment": "External replacement technician. Left knee pain at the end of an EVA. The EVA number is not given (slides 21 and 44)."
+          }
+        },
+        "note": "Ten session-level timings accompany the ten previously curated active-volunteer margins. The technician cases remain in their existing two-case margin with an unresolved person-exposure denominator."
+      }
+    ]
+  }
+]

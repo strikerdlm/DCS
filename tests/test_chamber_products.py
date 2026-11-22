@@ -6368,6 +6368,53 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_nasa_exploration_timings_extend_existing_eva_outcomes(release):
+    with connect_pair(release) as db:
+        rows = db.execute("""
+            SELECT t.stratum,t.reported_duration_seconds,t.reported_resolution_seconds,
+                   o.numerator,o.denominator
+            FROM discovery_eva_prebreathe_timing t
+            JOIN discovery_observation o USING (source_id,stratum,endpoint)
+            WHERE t.source_id='garbino_ea12' ORDER BY t.stratum
+        """).fetchall()
+        assert [(seconds, resolution) for _, seconds, resolution, _, _ in rows] == [
+            (1214, 1), (1221, 1), (1201, 1), (1204, 1), (1210, 1),
+            (1196, 1), (1201, 1), (1200, 1), (1201, 1), (1200, 60),
+        ]
+        assert sum(row[3] for row in rows) == 2
+        assert sum(row[4] for row in rows) == 50
+        assert db.execute("""
+            SELECT numerator,denominator FROM discovery_observation
+            WHERE source_id='garbino_ea12' AND stratum='doppler-technicians'
+        """).fetchall() == [(2, None)]
+        assert db.execute("""
+            SELECT eva_number,prebreathe_min FROM discovery_eva_session
+            WHERE source_id='garbino_ea345_slides' AND test_number=3 ORDER BY eva_number
+        """).fetchall() == [(1, 90), (2, 150), (3, 150), (4, 150), (5, 150)]
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE source_id IN ('crucian25_ea_immunity','fincke26_ea_metabolic') ORDER BY source_id
+        """).fetchall() == [
+            ("crucian25_ea_immunity", "pmid:40995513"), ("fincke26_ea_metabolic", "pmid:42775249"),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE lower(title) LIKE 'effects of hypoxia/hyperoxia exposure on immune function%'
+               OR lower(url) LIKE '%10.3389/fphys.2025.1637834%'
+        """).fetchall() == [("pmid:40995513",)]
+        metadata = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE record_key='2026-11-21-nasa-exploration-role-and-prebreathe-verified#crucian-immune-analysis'
+        """).fetchone()
+        scope = json.loads(metadata[0])["source_scope"]
+        assert (scope["enrollment_slots"], scope["unique_people"], scope["immune_analysis_slots"]) == (24, 20, 23)
+        assert scope["clinical_technician_exposure_denominator"] is None
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE run_id='2026-11-21-nasa-exploration-role-and-prebreathe-verified'
+        """).fetchone() == (0,)
+
+
 def test_peterson_overlap_and_nasa_campout_probabilities_stay_out_of_benchmark(release):
     cliff_report = "report:nasa-cliff-dcs-secondary-eva-2020"
     with connect_pair(release) as db:
