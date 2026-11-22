@@ -9,6 +9,75 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_webb_ssr_keeps_nested_exposures_and_participants_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT s.sample_id,s.parent_sample_id,s.participants,s.exposures,s.profiles,
+                   s.minimum_exposures_per_participant,o.numerator,o.denominator,o.reported_percent
+            FROM citation_ssr_sample AS s
+            LEFT JOIN citation_observation AS o
+            ON (o.source_id,o.stratum,o.endpoint)=(s.source_id,s.outcome_stratum,s.outcome_endpoint)
+            WHERE s.source_id='webb05_susceptibility' ORDER BY s.sample_id
+        """).fetchall() == [
+            ("archive", None, None, 2980, None, None, None, None, None),
+            ("repeat_block_comparison", "repeat_volunteers", 99, None, None, 8, None, None, None),
+            ("repeat_volunteers", "selected_profiles", 240, 1879, None, 4, None, 1879, 46.5),
+            ("selected_profiles", "archive", 407, 2210, 70, None, None, 2210, 47.5),
+        ]
+        assert db.execute("""
+            SELECT participant_count FROM citation_ssr_bin WHERE source_id='webb05_susceptibility'
+            ORDER BY bin_order
+        """).fetchall() == [(value,) for value in (35, 13, 27, 27, 23, 30, 34, 17, 12, 10, 5, 4, 3)]
+        assert db.execute("""
+            SELECT count(*), count(mean_as_reported) FROM citation_ssr_covariate
+            WHERE source_id='webb05_susceptibility'
+        """).fetchone() == (18, 12)
+        assert db.execute("""
+            SELECT sex_as_reported, participants_in_group, participants_in_regression, mean_as_reported,
+                   slope_as_printed, r_squared, p_value
+            FROM citation_ssr_covariate WHERE source_id='webb05_susceptibility' AND covariate='vo2max'
+            ORDER BY sex_as_reported
+        """).fetchall() == [
+            ("All", 240, 173, None, "-0.018", 0.048, 0.004),
+            ("Men", 193, 130, 41.6, "-0.019", 0.048, 0.013),
+            ("Women", 47, 43, 35.9, "-0.037", 0.126, 0.020),
+        ]
+        assert db.execute("""
+            SELECT sample_id,exposures_per_block,mean_ssr_change_second_minus_first,sd_ssr_change,
+                   min_ssr_change,max_ssr_change,profile_dcs_change_percent_as_reported
+            FROM citation_ssr_repeat_contrast WHERE source_id='webb05_susceptibility'
+        """).fetchall() == [("repeat_block_comparison", 4, -0.018, 0.79, -3.52, 1.43, 1.1)]
+
+
+def test_webb_ssr_review_deduplicates_companion_and_keeps_archive_overlap(release):
+    with connect_pair(release) as db:
+        comparison = "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex"
+        assert db.execute("""
+            SELECT right_report, relationship FROM review.review_report_relation
+            WHERE left_report='pmid:15945398' AND right_report=?
+        """, (comparison,)).fetchall() == [(comparison, "contains_overlapping_groups")]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE pmid='12546293' OR record_key LIKE '%W1579637220'
+                OR record_key='2026-11-20-formal-chamber-ntrs-setting#20040087881'
+        """).fetchone() == (10, 1, comparison)
+        assert db.execute("""
+            SELECT report_id, json_array_length(metadata_json,'$.ssr_regressions_and_means'),
+                   json_extract(metadata_json,'$.analysis_notes.altitude_ft_range_described[0]'),
+                   json_extract(metadata_json,'$.analysis_notes.altitude_ft_range_procedure[0]'),
+                   json_type(metadata_json,'$.analysis_notes.resolved_altitude_ft_min')
+            FROM review.review_record
+            WHERE run_id='2026-11-22-webb-repeat-susceptibility-firecrawl'
+        """).fetchall() == [("pmid:15945398", 18, 18000, 21200, "null")]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE run_id LIKE '2026-11-22-webb-repeat-susceptibility-%'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_sulaiman_age_figures_link_matching_archive_denominators(release):
     with connect_pair(release) as db:
         assert db.execute("""

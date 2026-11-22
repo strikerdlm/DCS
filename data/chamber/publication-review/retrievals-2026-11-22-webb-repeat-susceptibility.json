@@ -1,0 +1,680 @@
+[
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-webb-repeat-susceptibility-tavily",
+    "provider": "Tavily",
+    "operation": "supplementary_susceptibility_and_cohort_overlap_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "Webb Pilmanis Balldin Fischer 2005 15945398 altitude decompression sickness susceptibility anthropometric physiologic variables subject study ratio cohort sex 2003",
+          "filters": {
+            "search_depth": "advanced",
+            "max_results": 6
+          },
+          "receipt_id": "43c4e2b6-5276-4fe6-9db1-caa151508a38",
+          "returned_results": [
+            {
+              "position": 1,
+              "id": "772abd-00",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/15945398",
+              "title": "Altitude decompression sickness susceptibility: influence of anthropometric and physiologic variables."
+            },
+            {
+              "position": 2,
+              "id": "db4e1e-01",
+              "url": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+              "title": "ALTITUDE DECOMPRESSION SICKNESS (DCS) RISK FACTORS ..."
+            },
+            {
+              "position": 3,
+              "id": "242d3f-02",
+              "url": "https://www.semanticscholar.org/paper/Decompression-sickness-risk-model%3A-development-and-Pilmanis-Petropoulos/9bce6b2a366a576fe7ec71f0ffa3f64b1ae9a672",
+              "title": "Decompression sickness risk model: development and validation by ..."
+            },
+            {
+              "position": 4,
+              "id": "7b7798-03",
+              "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+              "title": "Evidence Report: Risk of Decompression Sickness (DCS)"
+            },
+            {
+              "position": 5,
+              "id": "1c2a6f-04",
+              "url": "https://www.researchgate.net/publication/6264859_Altitude_decompression_sickness_susceptibility",
+              "title": "Altitude decompression sickness susceptibility"
+            },
+            {
+              "position": 6,
+              "id": "58fc3e-05",
+              "url": "https://scispace.com/authors/andrew-a-pilmanis-463k86irnp",
+              "title": "Andrew A. Pilmanis | Air Force Research Laboratory | 56 Publications"
+            }
+          ]
+        },
+        {
+          "query": "Gender not a factor for altitude decompression sickness Webb Kannan Pilmanis subjects exposure",
+          "filters": {
+            "search_depth": "advanced",
+            "max_results": 5
+          },
+          "receipt_id": "6a69fcd9-c3ad-41c9-bd50-d0ab79ea9ce2",
+          "returned_results": [
+            {
+              "position": 1,
+              "id": "455306-00",
+              "url": "https://ntrs.nasa.gov/api/citations/20050041819/downloads/20050041819.pdf",
+              "title": "Gender and Decompression Sickness: A Critical Review and ..."
+            },
+            {
+              "position": 2,
+              "id": "919504-01",
+              "url": "https://ntrs.nasa.gov/api/citations/20100017618/downloads/20100017618.pdf?attachment=true",
+              "title": "Individual Susceptibility to Hypobaric Environments: An Update"
+            },
+            {
+              "position": 3,
+              "id": "906944-02",
+              "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p2.pdf",
+              "title": "Gender Not a Factor for Altitude Decompression Sickness Risk - AsMA"
+            },
+            {
+              "position": 4,
+              "id": "0aa574-03",
+              "url": "https://apps.dtic.mil/sti/tr/pdf/ADA530698.pdf",
+              "title": "Air Break During Preoxygenation and Risk of Altitude Decompression ..."
+            },
+            {
+              "position": 5,
+              "id": "152525-04",
+              "url": "https://journals.physiology.org/doi/abs/10.1152/japplphysiol.91099.2008",
+              "title": "Decompression to altitude: assumptions, experimental ..."
+            }
+          ]
+        }
+      ],
+      "retrievals": [
+        {
+          "receipt_id": "5f41efd3-3011-46f4-9a65-5f92af861a45",
+          "urls": [
+            "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p2.pdf"
+          ],
+          "failed_urls": [
+            "https://pubmed.ncbi.nlm.nih.gov/12546293/"
+          ]
+        },
+        {
+          "receipt_id": "e21f5071-8cde-4a82-aac8-5f177d88089f",
+          "urls": [
+            "https://ntrs.nasa.gov/citations/20040087881"
+          ],
+          "failed_urls": []
+        }
+      ],
+      "earlier_original_pdf_extraction_receipt": "c343879c-2187-4d88-9d5c-1aacf7e24651"
+    },
+    "note": "Verified the already indexed 2005 paper and its 2003 citation. The NTRS entry explicitly identifies the 2003 journal reprint. Direct publisher PDF copies are accessible. The 2003 archive's identities are reconciled by bibliographic evidence.",
+    "records": []
+  },
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-webb-repeat-susceptibility-firecrawl",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_and_local_pdf_verification",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "original_publisher_html": {
+        "scrape_id": "01a202ec-3f48-7165-8cf2-7a21e2249248",
+        "url": "https://asma.kglmeridian.com/view/journals/asem/76/6/article-p547.xml",
+        "status_code": 200
+      }
+    },
+    "note": "The publisher HTML establishes bibliographic identity and provides the source PDF link. The structured statistics come from the directly saved and rendered original PDF.",
+    "records": [
+      {
+        "id": "webb2005-repeat-susceptibility-original",
+        "title": "Altitude decompression sickness susceptibility: influence of anthropometric and physiologic variables",
+        "pmid": "15945398",
+        "year": 2005,
+        "url": "https://asma.kglmeridian.com/view/journals/asem/76/6/article-p547.xml",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p547.pdf",
+        "file_sha256": "e2200e11edf46526adf78e0c890025f9e8b5352ac110a080d941dbbc50f095a0",
+        "full_text_available": true,
+        "study_id": "afrl-webb-2005-repeat-susceptibility",
+        "role_review": "overlap_hold",
+        "locator": "Methods and Results, printed pp. 547–550 (PDF pp. 1–4), including Figure 1 and Table I",
+        "endpoint_window": "Chamber observation until planned completion, symptomatic DCS or left-ventricular gas detection. Article does not establish a separate post-exposure follow-up window.",
+        "subject_study_ratio": "The subject's symptomatic DCS frequency divided by the incidence among all exposures with the same profiles, using the authors' definition.",
+        "ssr_samples": [
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "archive",
+            "parent_sample_id": null,
+            "participants": null,
+            "exposures": 2980,
+            "profiles": null,
+            "minimum_exposures_per_participant": null,
+            "outcome_stratum": null,
+            "outcome_endpoint": null,
+            "locator": "Introduction, printed p. 547 (PDF p. 1)",
+            "note": "The archive frame has no DCS incidence for this entire sample in this article."
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "selected_profiles",
+            "parent_sample_id": "archive",
+            "participants": 407,
+            "exposures": 2210,
+            "profiles": 70,
+            "minimum_exposures_per_participant": null,
+            "outcome_stratum": "All 70 selected profiles",
+            "outcome_endpoint": "dcs",
+            "locator": "Methods and Results, printed p. 548 (PDF p. 2)",
+            "note": "Profiles were selected at 5–95% symptomatic DCS and at least ten participants per profile."
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "parent_sample_id": "selected_profiles",
+            "participants": 240,
+            "exposures": 1879,
+            "profiles": null,
+            "minimum_exposures_per_participant": 4,
+            "outcome_stratum": "Volunteers with four or more exposures",
+            "outcome_endpoint": "dcs",
+            "locator": "Methods and Results, printed p. 548 (PDF p. 2)",
+            "note": "Includes 47 women and 193 men. The paper does not tabulate age, fitness or activity for each exposure."
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_block_comparison",
+            "parent_sample_id": "repeat_volunteers",
+            "participants": 99,
+            "exposures": null,
+            "profiles": null,
+            "minimum_exposures_per_participant": 8,
+            "outcome_stratum": null,
+            "outcome_endpoint": null,
+            "locator": "Methods and Results, printed p. 548 (PDF p. 2)",
+            "note": "The comparison uses each person's first and second four exposures. Total exposures for these 99 people are unspecified."
+          }
+        ],
+        "ssr_regressions_and_means": [
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Women",
+            "covariate": "age",
+            "participants_in_group": 47,
+            "participants_in_regression": 47,
+            "mean_as_reported": 29.6,
+            "mean_unit": "year",
+            "slope_as_printed": "-0.012",
+            "r_squared": 0.012,
+            "p_value": 0.465,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Women",
+            "covariate": "weight",
+            "participants_in_group": 47,
+            "participants_in_regression": 47,
+            "mean_as_reported": 63.9,
+            "mean_unit": "kg",
+            "slope_as_printed": "0.014",
+            "r_squared": 0.033,
+            "p_value": 0.22,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Women",
+            "covariate": "height",
+            "participants_in_group": 47,
+            "participants_in_regression": 47,
+            "mean_as_reported": 1.65,
+            "mean_unit": "m",
+            "slope_as_printed": "-0.000",
+            "r_squared": 0.0,
+            "p_value": 0.988,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Women",
+            "covariate": "bmi",
+            "participants_in_group": 47,
+            "participants_in_regression": 47,
+            "mean_as_reported": 23.3,
+            "mean_unit": "kg_per_m2",
+            "slope_as_printed": "0.061",
+            "r_squared": 0.055,
+            "p_value": 0.113,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Women",
+            "covariate": "body_fat_percent",
+            "participants_in_group": 47,
+            "participants_in_regression": 42,
+            "mean_as_reported": 22.7,
+            "mean_unit": "percent",
+            "slope_as_printed": "0.039",
+            "r_squared": 0.076,
+            "p_value": 0.076,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Women",
+            "covariate": "vo2max",
+            "participants_in_group": 47,
+            "participants_in_regression": 43,
+            "mean_as_reported": 35.9,
+            "mean_unit": "mL_per_kg_per_min",
+            "slope_as_printed": "-0.037",
+            "r_squared": 0.126,
+            "p_value": 0.02,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Men",
+            "covariate": "age",
+            "participants_in_group": 193,
+            "participants_in_regression": 193,
+            "mean_as_reported": 30.4,
+            "mean_unit": "year",
+            "slope_as_printed": "0.019",
+            "r_squared": 0.027,
+            "p_value": 0.024,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Men",
+            "covariate": "weight",
+            "participants_in_group": 193,
+            "participants_in_regression": 193,
+            "mean_as_reported": 83.2,
+            "mean_unit": "kg",
+            "slope_as_printed": "0.013",
+            "r_squared": 0.049,
+            "p_value": 0.002,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Men",
+            "covariate": "height",
+            "participants_in_group": 193,
+            "participants_in_regression": 193,
+            "mean_as_reported": 1.78,
+            "mean_unit": "m",
+            "slope_as_printed": "0.010",
+            "r_squared": 0.011,
+            "p_value": 0.138,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Men",
+            "covariate": "bmi",
+            "participants_in_group": 193,
+            "participants_in_regression": 193,
+            "mean_as_reported": 26.1,
+            "mean_unit": "kg_per_m2",
+            "slope_as_printed": "0.048",
+            "r_squared": 0.04,
+            "p_value": 0.005,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Men",
+            "covariate": "body_fat_percent",
+            "participants_in_group": 193,
+            "participants_in_regression": 145,
+            "mean_as_reported": 17.9,
+            "mean_unit": "percent",
+            "slope_as_printed": "0.009",
+            "r_squared": 0.008,
+            "p_value": 0.299,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "Men",
+            "covariate": "vo2max",
+            "participants_in_group": 193,
+            "participants_in_regression": 130,
+            "mean_as_reported": 41.6,
+            "mean_unit": "mL_per_kg_per_min",
+            "slope_as_printed": "-0.019",
+            "r_squared": 0.048,
+            "p_value": 0.013,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": "Methods and Results, printed p. 548 (PDF p. 2)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "All",
+            "covariate": "age",
+            "participants_in_group": 240,
+            "participants_in_regression": 240,
+            "mean_as_reported": null,
+            "mean_unit": null,
+            "slope_as_printed": "0.014",
+            "r_squared": 0.015,
+            "p_value": 0.06,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": null
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "All",
+            "covariate": "weight",
+            "participants_in_group": 240,
+            "participants_in_regression": 240,
+            "mean_as_reported": null,
+            "mean_unit": null,
+            "slope_as_printed": "0.010",
+            "r_squared": 0.041,
+            "p_value": 0.002,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": null
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "All",
+            "covariate": "height",
+            "participants_in_group": 240,
+            "participants_in_regression": 240,
+            "mean_as_reported": null,
+            "mean_unit": null,
+            "slope_as_printed": "0.007",
+            "r_squared": 0.01,
+            "p_value": 0.132,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": null
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "All",
+            "covariate": "bmi",
+            "participants_in_group": 240,
+            "participants_in_regression": 240,
+            "mean_as_reported": null,
+            "mean_unit": null,
+            "slope_as_printed": "0.047",
+            "r_squared": 0.043,
+            "p_value": 0.001,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": null
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "All",
+            "covariate": "body_fat_percent",
+            "participants_in_group": 240,
+            "participants_in_regression": 187,
+            "mean_as_reported": null,
+            "mean_unit": null,
+            "slope_as_printed": "0.009",
+            "r_squared": 0.008,
+            "p_value": 0.216,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": null
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "sex_as_reported": "All",
+            "covariate": "vo2max",
+            "participants_in_group": 240,
+            "participants_in_regression": 173,
+            "mean_as_reported": null,
+            "mean_unit": null,
+            "slope_as_printed": "-0.018",
+            "r_squared": 0.048,
+            "p_value": 0.004,
+            "regression_locator": "Table I, printed p. 549 (PDF p. 3)",
+            "mean_locator": null
+          }
+        ],
+        "ssr_distribution": [
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 1,
+            "label_as_printed": "0.00-0.19",
+            "participant_count": 35,
+            "count_basis": "stated_in_text",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 2,
+            "label_as_printed": "0.20-0.39",
+            "participant_count": 13,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 3,
+            "label_as_printed": "0.40-0.59",
+            "participant_count": 27,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 4,
+            "label_as_printed": "0.60-0.79",
+            "participant_count": 27,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 5,
+            "label_as_printed": "0.80-0.99",
+            "participant_count": 23,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 6,
+            "label_as_printed": "1.00-1.19",
+            "participant_count": 30,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 7,
+            "label_as_printed": "1.20-1.39",
+            "participant_count": 34,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 8,
+            "label_as_printed": "1.40-1.59",
+            "participant_count": 17,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 9,
+            "label_as_printed": "1.60-1.79",
+            "participant_count": 12,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 10,
+            "label_as_printed": "1.80-1.99",
+            "participant_count": 10,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 11,
+            "label_as_printed": "2.00-2.19",
+            "participant_count": 5,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 12,
+            "label_as_printed": "2.20-2.39",
+            "participant_count": 4,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          },
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_volunteers",
+            "bin_order": 13,
+            "label_as_printed": "2.40+",
+            "participant_count": 3,
+            "count_basis": "digitized_from_graph",
+            "locator": "Figure 1 and Results, printed p. 549 (PDF p. 3)"
+          }
+        ],
+        "ssr_repeat_contrast": [
+          {
+            "source_id": "webb05_susceptibility",
+            "sample_id": "repeat_block_comparison",
+            "exposures_per_block": 4,
+            "mean_ssr_change_second_minus_first": -0.018,
+            "sd_ssr_change": 0.79,
+            "min_ssr_change": -3.52,
+            "max_ssr_change": 1.43,
+            "profile_dcs_change_percent_as_reported": 1.1,
+            "significance_as_reported": "n.s. for both reported changes",
+            "locator": "Methods and Results, printed p. 548 (PDF p. 2)",
+            "note": "The 1.1% increase refers to all subjects in the profiles. The SSR difference refers to the same 99 repeat volunteers."
+          }
+        ],
+        "analysis_notes": {
+          "figure_method": "Read against the integer participant axis after rendering the original Figure 1 at 2x. The first bar is corroborated by the prose. All bins sum to 240.",
+          "means": "The values and units are reported for the 47 women's and 193 men's exposure groups. Variable-specific sample sizes in Table I apply to regressions. The number of measurements used for each mean is unspecified.",
+          "slope_units": "Table I does not print units for slopes. Units stored in mean_unit apply to the source means.",
+          "altitude_ft_range_described": [
+            18000,
+            40000
+          ],
+          "altitude_ft_range_procedure": [
+            21200,
+            40000
+          ],
+          "resolved_altitude_ft_min": null,
+          "prebreathe_min_range_described": [
+            0,
+            240
+          ],
+          "duration_min_range_described": [
+            90,
+            480
+          ],
+          "original_clinical_rows": "citation_observation:webb05_susceptibility"
+        },
+        "published_worked_example": {
+          "subject_as_printed": "#85",
+          "subject_dcs_exposures": 5,
+          "subject_exposure_profiles": 8,
+          "comparison_dcs_as_printed": 189,
+          "comparison_denominator_as_printed": 379,
+          "comparison_unit_as_printed": "subjects exposed to those same profiles",
+          "reported_subject_study_ratio": 1.25,
+          "note": "Worked example from p. 548. The comparator's unique-person versus person-exposure basis and inclusion of the index subject are unresolved. No exposure or case histories are supplied."
+        },
+        "reported_stepwise_fits": [
+          {
+            "sex_as_reported": "Women",
+            "participants": 41,
+            "variables": [
+              "vo2max"
+            ],
+            "r_squared": 0.13
+          },
+          {
+            "sex_as_reported": "Men",
+            "participants": 122,
+            "variables": [
+              "weight",
+              "age"
+            ],
+            "r_squared": 0.11
+          },
+          {
+            "sex_as_reported": "All",
+            "participants": 163,
+            "variables": [
+              "vo2max",
+              "weight"
+            ],
+            "r_squared": 0.085,
+            "intercept": 0.85,
+            "vo2max_coefficient": -0.018,
+            "weight_coefficient": 0.01
+          }
+        ]
+      }
+    ]
+  }
+]
