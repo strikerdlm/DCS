@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.37/search_hits.csv#detail_v37_eva:5",
+      "report_id": "ntrs:20220015737",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx",
+      "basis": "The historical search hit links to the exact publicly verified NASA document."
+    },
+    {
+      "record_key": "2026-11-21-nasa-ea1-checkout-verified#author-abstract-ea1",
+      "report_id": "ntrs:20220015737",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx",
+      "basis": "NASA accession, document title, byline and source bytes identify the conference abstract."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.181/sources.csv#garbino23_ea1_checkout",
+      "report_id": "ntrs:20220015737",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx",
+      "basis": "The model source record cites the verified NASA abstract."
+    },
+    {
       "record_key": "2026-11-21-nasa-exploration-role-and-prebreathe-verified#crucian-immune-analysis",
       "report_id": "pmid:40995513",
       "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12454438/",
@@ -22404,6 +22422,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:20220015737",
+      "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+      "relationship": "earlier_report_of_same_ea1_cohort",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf#page=21",
+      "evidence": "Matched the initial 2022 11-day JSC study, six active volunteers plus separately described staff, five simulated EVAs, oxygen and prebreathe protocol, and two clinical DCS cases. The 2024 deck adds EA2 and supplies a campaign analysis. EA1 grades shown on slides 23 and 24 differ from the earlier abstract summaries."
+    },
+    {
+      "left_report": "ntrs:20220015737",
+      "right_report": "record:legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_originals:2",
+      "relationship": "shared_ea1_cohort_with_different_denominator_reporting",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20230013523/downloads/Evidence%20Report%20Draft%20Hypoxia%20and%20DCS_20230918.pdf#page=31",
+      "evidence": "This 2023 evidence report describes the initial 2022 test with two cases and 30 exposures. The author abstract separately prints 8% without giving its exposure denominator. The later evaluated EA1 risk set contains 25 exposures."
+    },
     {
       "left_report": "pmid:42775249",
       "right_report": "pmid:40995513",
