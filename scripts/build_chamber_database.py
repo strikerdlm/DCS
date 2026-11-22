@@ -298,6 +298,7 @@ ARMSTRONG_METHODS_LINEAGE = ROOT / "data" / "chamber" / "v1.230"
 BASSETT_POST_DIVE = ROOT / "data" / "chamber" / "v1.231"
 BALLDIN_SPORRONG_VIBRATION = ROOT / "data" / "chamber" / "v1.232"
 NASA_2007_ARCHIVE = ROOT / "data" / "chamber" / "v1.233"
+HISTORICAL_MODEL_ARCHIVES = ROOT / "data" / "chamber" / "v1.234"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3086,6 +3087,15 @@ def build(
                     "publication",
                     extra_tables={
                         "publication_nasa_archive_chart_cell": "chart_cells.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    HISTORICAL_MODEL_ARCHIVES,
+                    "publication",
+                    extra_tables={
+                        "publication_hypobaric_model_archive_scope": "archive_scope.csv",
+                        "publication_reported_rate": "reported_rates.csv",
                     },
                 )
                 load_register(db, ROOT)

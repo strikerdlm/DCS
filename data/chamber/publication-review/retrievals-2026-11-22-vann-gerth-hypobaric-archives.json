@@ -1,0 +1,201 @@
+[
+  {
+    "id": "2026-11-22-vann-gerth-hypobaric-archives-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily and original reports",
+    "status": "observed",
+    "operation": "supplementary_primary_source_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "cd5f43fc-aeb9-4679-a286-fcdd10f02491",
+          "query": "Vann Gerth Southerland 923 exposures and 201 cases"
+        },
+        {
+          "request_id": "5aa013e4-c0f5-4ea7-9a0c-3cb97420fde9",
+          "query": "Vann, Gerth, NASA and USAF archives and marginal cases"
+        },
+        {
+          "request_id": "ca1886df-7496-4c02-910b-21211ec958d6",
+          "query": "A likelihood analysis of experiments to test altitude decompression protocols for shuttle operations"
+        },
+        {
+          "request_id": "47510fc4-dda3-4ec4-b2ee-2fde111f1377",
+          "query": "Exact counts in the 1987 Vann publisher PDF"
+        }
+      ]
+    },
+    "note": "Tavily located both original reports. Numerators, denominators and experimental profile counts were verified in the published PDFs.",
+    "records": [
+      {
+        "id": "vann87_likelihood_archive",
+        "title": "A likelihood analysis of experiments to test altitude decompression protocols for shuttle operations",
+        "year": 1987,
+        "pmid": "3675475",
+        "identifier": "PMID:3675475",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/9/article-pA106.pdf#page=2",
+        "access": "full_text",
+        "source_sha256": "3d0e2ef15a2ddced9e8f81b3fe1070fd0dbaf9f46f094bd886faa19463f2a196",
+        "locator": "Employment of Maximum Likelihood, printed p. A107 (PDF p. 2), and Figure 2, p. A108",
+        "study_id": "vann-1987-nasa-usaf-archive-fit",
+        "role_review": "overlap_hold",
+        "note": "Observed mild-symptom outcomes in the combined NASA JSC and USAF School of Aerospace Medicine modeling sample. Figure 2 repeats the overall margin and illustrates sample profiles. No complete group-by-outcome table or linkable exposure identities.",
+        "archive_scope": {
+          "profile_count": 30,
+          "profile_count_unit": "experimental_pressure_profile",
+          "note": "The article describes 30 pressure profiles tested over 548 individual exposures."
+        },
+        "observations": [
+          {
+            "id": "vann87_likelihood_archive-combined-nasa-usaf-training-sample",
+            "group": "combined-nasa-usaf-training-sample",
+            "endpoint": "mild_dcs_symptoms_as_reported",
+            "cases": 58,
+            "denominator": 548,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 10.6,
+            "locator": "Employment of Maximum Likelihood, printed p. A107 (PDF p. 2), and Figure 2, p. A108",
+            "study_id": "vann-1987-nasa-usaf-archive-fit",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Pooled historical experimental outcomes. A common per-profile surveillance and follow-up window is unavailable.",
+            "note": "Observed mild-symptom outcomes in the combined NASA JSC and USAF School of Aerospace Medicine modeling sample. Figure 2 repeats the overall margin and illustrates sample profiles. No complete group-by-outcome table or linkable exposure identities."
+          }
+        ]
+      },
+      {
+        "id": "vann92_workshop_archive",
+        "title": "Modeling and Validation",
+        "year": 1992,
+        "identifier": "DTIC:ADA257612:pp247-257",
+        "url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=274",
+        "primary_source": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=274",
+        "access": "full_text",
+        "source_sha256": "2ea57a144b092eb3233fa44a84546cf4ce3a62958ec45b34b047a70f8e482b90",
+        "locator": "Data Analysis and Risk Estimation, printed p. 252 (PDF p. 274)",
+        "study_id": "vann-1990-workshop-nasa-usaf-archive-fit",
+        "role_review": "overlap_hold",
+        "note": "Exact observed pain-only clinical outcomes for a pooled NASA and USAF model-development sample. Figure 5 reports a fitted risk. The source does not report linkage to the prior archive slice or each pressure-profile outcome.",
+        "archive_scope": {
+          "profile_count": 49,
+          "profile_count_unit": "experimental_pressure_profile",
+          "note": "The workshop chapter describes 49 pressure profiles tested over 923 individual exposures."
+        },
+        "observations": [
+          {
+            "id": "vann92_workshop_archive-combined-nasa-usaf-training-sample",
+            "group": "combined-nasa-usaf-training-sample",
+            "endpoint": "mild_to_moderate_pain_only_dcs_as_reported",
+            "cases": 201,
+            "denominator": 923,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 22,
+            "locator": "Data Analysis and Risk Estimation, printed p. 252 (PDF p. 274)",
+            "study_id": "vann-1990-workshop-nasa-usaf-archive-fit",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Pooled historical experimental outcomes. A common per-profile surveillance and follow-up window is unavailable.",
+            "note": "Exact observed pain-only clinical outcomes for a pooled NASA and USAF model-development sample. Figure 5 reports a fitted risk. The source does not report linkage to the prior archive slice or each pressure-profile outcome."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-vann-gerth-hypobaric-archives-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl, Tavily and original technical report",
+    "status": "observed",
+    "operation": "supplementary_primary_source_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "01a204bd-1ddf-7604-89b8-fa4a44d9910d",
+          "query": "ADA297456 report discovery"
+        },
+        {
+          "request_id": "01a204bd-b8fb-7426-9d3d-71e2d3d3910d",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA297456.pdf",
+          "status": "maintenance_page"
+        },
+        {
+          "request_id": "01a204be-8a02-74ff-91b7-b647c62edf1f",
+          "query": "Find the public author PDF link from indexed report metadata"
+        },
+        {
+          "request_id": "5aa013e4-c0f5-4ea7-9a0c-3cb97420fde9",
+          "query": "Extract DTIC Table 1"
+        }
+      ]
+    },
+    "note": "The DTIC text was indexed by Tavily. The Archive.org scan independently confirms all USAFAL percentages and the exact positions of the footnote stars.",
+    "records": [
+      {
+        "id": "gerth95_usafal_archive",
+        "title": "Statistical Bubble Dynamics Algorithms for Assessment of Altitude Decompression Sickness Incidence",
+        "year": 1995,
+        "identifier": "DTIC:ADA297456; AL/CF-TR-1995-0037",
+        "url": "https://archive.org/download/DTIC_ADA297456/DTIC_ADA297456.pdf#page=27",
+        "primary_source": "https://archive.org/download/DTIC_ADA297456/DTIC_ADA297456.pdf#page=27",
+        "access": "full_text",
+        "source_sha256": "0b7dcf1b903109d14fbac2564b7358c0e566d5478ee87af45219276f277a7173",
+        "locator": "Table 1, printed p. 18 (PDF p. 27), plus printed pp. 19–20 and 22",
+        "study_id": "gerth-1995-usafal-chamber-archive-fit",
+        "role_review": "overlap_hold",
+        "note": "Section 3.1 describes the raw rates in Table 1. The 75 marginal cases weighted at 0.1 apply to the starred USN/NMRI and combined rates only. Exact USAFAL case counts and exposure identifiers are unavailable in Table 1. Downloaded histories had no explicit onset time, some ended at DCS, and gas-switch nodes could be interpolated.",
+        "archive_scope": {
+          "profile_count": 1194,
+          "profile_count_unit": "individual_profile_record",
+          "note": "Table 1 sets the model-input profile count equal to the person-exposure count. Similar experimental pressure protocols recur across the individual profiles."
+        },
+        "observations": [
+          {
+            "id": "gerth95_usafal_archive-all-usafal-person-exposures",
+            "group": "all-usafal-person-exposures",
+            "endpoint": "raw_dcs_incidence_as_reported",
+            "cases": null,
+            "denominator": 1194,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 33.59,
+            "locator": "Table 1, printed p. 18 (PDF p. 27), plus printed pp. 19–20 and 22",
+            "study_id": "gerth-1995-usafal-chamber-archive-fit",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Pooled historical experimental outcomes. A common per-profile surveillance and follow-up window is unavailable.",
+            "note": "Overall USAFAL rate. Its sex strata are nested and exhaust this exposure denominator. Section 3.1 describes the raw rates in Table 1. The 75 marginal cases weighted at 0.1 apply to the starred USN/NMRI and combined rates only. Exact USAFAL case counts and exposure identifiers are unavailable in Table 1. Downloaded histories had no explicit onset time, some ended at DCS, and gas-switch nodes could be interpolated."
+          },
+          {
+            "id": "gerth95_usafal_archive-male-person-exposures",
+            "group": "male-person-exposures",
+            "endpoint": "raw_dcs_incidence_as_reported",
+            "cases": null,
+            "denominator": 1052,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 37.26,
+            "locator": "Table 1, printed p. 18 (PDF p. 27), plus printed pp. 19–20 and 22",
+            "study_id": "gerth-1995-usafal-chamber-archive-fit",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Pooled historical experimental outcomes. A common per-profile surveillance and follow-up window is unavailable.",
+            "note": "Male exposure stratum within the USAFAL total. Section 3.1 describes the raw rates in Table 1. The 75 marginal cases weighted at 0.1 apply to the starred USN/NMRI and combined rates only. Exact USAFAL case counts and exposure identifiers are unavailable in Table 1. Downloaded histories had no explicit onset time, some ended at DCS, and gas-switch nodes could be interpolated."
+          },
+          {
+            "id": "gerth95_usafal_archive-female-person-exposures",
+            "group": "female-person-exposures",
+            "endpoint": "raw_dcs_incidence_as_reported",
+            "cases": null,
+            "denominator": 142,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 6.34,
+            "locator": "Table 1, printed p. 18 (PDF p. 27), plus printed pp. 19–20 and 22",
+            "study_id": "gerth-1995-usafal-chamber-archive-fit",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Pooled historical experimental outcomes. A common per-profile surveillance and follow-up window is unavailable.",
+            "note": "Female exposure stratum within the USAFAL total. Section 3.1 describes the raw rates in Table 1. The 75 marginal cases weighted at 0.1 apply to the starred USN/NMRI and combined rates only. Exact USAFAL case counts and exposure identifiers are unavailable in Table 1. Downloaded histories had no explicit onset time, some ended at DCS, and gas-switch nodes could be interpolated."
+          }
+        ]
+      }
+    ]
+  }
+]

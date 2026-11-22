@@ -9,6 +9,51 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_vann_gerth_archives_preserve_exact_counts_and_raw_rates(release):
+    with connect_pair(release) as db:
+        counts = db.execute("""
+            SELECT source_id,endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id IN ('vann87_likelihood_archive','vann92_workshop_archive','gerth95_usafal_archive')
+            ORDER BY source_id
+        """).fetchall()
+        assert counts == [
+            ("vann87_likelihood_archive", "mild_dcs_symptoms_as_reported", 58, 548),
+            ("vann92_workshop_archive", "mild_to_moderate_pain_only_dcs_as_reported", 201, 923),
+        ]
+        rates = db.execute("""
+            SELECT denominator,reported_percent FROM publication_reported_rate
+            WHERE source_id='gerth95_usafal_archive' AND analysis_role='overlap_hold'
+            ORDER BY denominator DESC
+        """).fetchall()
+        assert rates == [(1194, "33.59"), (1052, "37.26"), (142, "6.34")]
+        assert db.execute("""
+            SELECT source_id,profile_count,profile_count_unit
+            FROM publication_hypobaric_model_archive_scope ORDER BY source_id
+        """).fetchall() == [
+            ("gerth95_usafal_archive", 1194, "individual_profile_record"),
+            ("vann87_likelihood_archive", 30, "experimental_pressure_profile"),
+            ("vann92_workshop_archive", 49, "experimental_pressure_profile"),
+        ]
+        assert db.execute("""
+            SELECT report_id,endpoint,cases,denominator,reported_rate_percent,role_review
+            FROM review.review_search_observation
+            WHERE run_id LIKE '2026-11-22-vann-gerth-hypobaric-archives-%'
+            ORDER BY report_id,denominator DESC
+        """).fetchall() == [
+            ("pmid:3675475", counts[0][1], 58, 548, 10.6, "overlap_hold"),
+            *[("report:ada297456", "raw_dcs_incidence_as_reported", None, n, float(rate), "overlap_hold")
+              for n, rate in rates],
+            ("workshop:ada257612-vann-247", counts[1][1], 201, 923, 22, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE pmid='3675475'
+        """).fetchall() == [("pmid:3675475",)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='workshop:ada257612-vann-247' AND right_report='pmid:3675475'
+        """).fetchall() == [("related_archive_membership_unresolved",)]
+
+
 def test_nasa_2007_archive_preserves_denominators_and_report_identity(release):
     with connect_pair(release) as db:
         observed = db.execute("""
