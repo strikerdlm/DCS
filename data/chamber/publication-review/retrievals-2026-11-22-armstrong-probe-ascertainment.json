@@ -1,0 +1,197 @@
+[
+  {
+    "id": "2026-11-22-armstrong-probe-ascertainment-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_primary_source_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "b6150da5-4e3d-4f11-bd8a-4442fedb212e",
+          "operation": "search for 1989 Webb probe comparison original"
+        },
+        {
+          "request_id": "d49b4df4-bb94-4113-ac9a-c7fcb0f03857",
+          "operation": "search for source correction and follow-up"
+        },
+        {
+          "request_id": "9c3bd518-6e19-4653-8ca0-f3ac2c72711a",
+          "urls": [
+            "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf"
+          ]
+        },
+        {
+          "request_id": "fba06e07-e8e4-4922-b1f7-7064c62f0ebc",
+          "urls": [
+            "https://uhms.org/uhm-search/undersea-biomedical-research-volume-16/supplement-1989.html"
+          ]
+        }
+      ]
+    },
+    "note": "Recovered the primary abstract within the archival technical report and located the publisher supplement. The public reprint supplied the source margins.",
+    "records": [
+      {
+        "id": "webb89_probe_comparison",
+        "title": "Bubble detection with an echo-image/Doppler combined probe versus separate probes: A comparison of results",
+        "year": 1989,
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33",
+        "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90",
+        "source_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "access": "primary_abstract",
+        "note": "Pooled 22,500- and 25,000-ft subject-exposures. The 1993 Armstrong report reprints the 1989 investigator abstract. The separate-probe fractions use denominators of 39 and 27, totaling 66 against the stated 65. The original proceedings download requires publisher sign-in. Participant and protocol linkage is unreported.",
+        "parent_proceedings": "pmid:2718277",
+        "study_id": "armstrong-1989-probe-ascertainment",
+        "reprint_report": "report:ada268229"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-armstrong-probe-ascertainment-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and primary report scans",
+    "status": "observed",
+    "operation": "supplementary_outcomes_reconciliation",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "search_id": "01a2045a-3c63-7297-85c0-875f4c8d102c",
+          "operation": "search exact 1989 abstract title"
+        },
+        {
+          "search_id": "01a2045c-3e67-7190-a5d5-535888e52ecc",
+          "operation": "find publisher supplement"
+        },
+        {
+          "scrape_id": "01a2045d-07f5-77f9-b4d2-d45134324551",
+          "url": "https://uhms.org/uhm-search/undersea-biomedical-research-volume-16/supplement-1989.html"
+        }
+      ]
+    },
+    "note": "Verified publisher access and checked the primary archival scans. PubMed identifies the complete proceedings. The probe fractions were transcribed exactly, and the imaging report supplied participant scope.",
+    "records": [
+      {
+        "id": "webb89_probe_comparison-combined_echo_doppler",
+        "title": "Bubble detection with an echo-image/Doppler combined probe versus separate probes: A comparison of results",
+        "year": 1989,
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33",
+        "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90",
+        "source_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "access": "primary_abstract",
+        "note": "Pooled 22,500- and 25,000-ft subject-exposures. The 1993 Armstrong report reprints the 1989 investigator abstract. The separate-probe fractions use denominators of 39 and 27, totaling 66 against the stated 65. The original proceedings download requires publisher sign-in. Participant and protocol linkage is unreported.",
+        "parent_proceedings": "pmid:2718277",
+        "study_id": "armstrong-1989-probe-ascertainment",
+        "reprint_report": "report:ada268229",
+        "role_review": "overlap_hold",
+        "reported_subject_exposures": 112,
+        "sum_of_endpoint_denominators": 112,
+        "observations": [
+          {
+            "id": "webb89-combined_echo_doppler-vge-with-dcs",
+            "endpoint": "dcs_with_detected_vge_as_reported",
+            "group": "combined_echo_doppler",
+            "cases": 36,
+            "denominator": 40,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "reported_rate_percent": 90,
+            "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90",
+            "study_id": "armstrong-1989-probe-ascertainment",
+            "note": "Denominator is the authors' DCS-positive stratum."
+          },
+          {
+            "id": "webb89-combined_echo_doppler-bubble-free-without-dcs",
+            "endpoint": "no_dcs_without_detected_vge_as_reported",
+            "group": "combined_echo_doppler",
+            "cases": 22,
+            "denominator": 72,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "reported_rate_percent": 31,
+            "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90",
+            "study_id": "armstrong-1989-probe-ascertainment",
+            "note": "Denominator is the authors' DCS-negative stratum."
+          }
+        ]
+      },
+      {
+        "id": "webb89_probe_comparison-separate_probes",
+        "title": "Bubble detection with an echo-image/Doppler combined probe versus separate probes: A comparison of results",
+        "year": 1989,
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33",
+        "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90",
+        "source_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "access": "primary_abstract",
+        "note": "Pooled 22,500- and 25,000-ft subject-exposures. The 1993 Armstrong report reprints the 1989 investigator abstract. The separate-probe fractions use denominators of 39 and 27, totaling 66 against the stated 65. The original proceedings download requires publisher sign-in. Participant and protocol linkage is unreported.",
+        "parent_proceedings": "pmid:2718277",
+        "study_id": "armstrong-1989-probe-ascertainment",
+        "reprint_report": "report:ada268229",
+        "role_review": "denominator_conflict",
+        "reported_subject_exposures": 65,
+        "sum_of_endpoint_denominators": 66,
+        "observations": [
+          {
+            "id": "webb89-separate_probes-vge-with-dcs",
+            "endpoint": "dcs_with_detected_vge_as_reported",
+            "group": "separate_probes",
+            "cases": 31,
+            "denominator": 39,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "reported_rate_percent": 79,
+            "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90",
+            "study_id": "armstrong-1989-probe-ascertainment",
+            "note": "Denominator is the authors' DCS-positive stratum."
+          },
+          {
+            "id": "webb89-separate_probes-bubble-free-without-dcs",
+            "endpoint": "no_dcs_without_detected_vge_as_reported",
+            "group": "separate_probes",
+            "cases": 9,
+            "denominator": 27,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "reported_rate_percent": 33,
+            "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90",
+            "study_id": "armstrong-1989-probe-ascertainment",
+            "note": "Denominator is the authors' DCS-negative stratum."
+          }
+        ]
+      },
+      {
+        "id": "olson94_echo_size",
+        "title": "Echo Imaging Techniques Determine the Size of Intravascular Bubbles in Decompression Sickness",
+        "year": 1994,
+        "url": "https://archive.org/download/DTIC_ADA284849/DTIC_ADA284849.pdf#page=12",
+        "identifier": "ADA284849",
+        "openalex_id": "W307569229",
+        "primary_source": "https://archive.org/download/DTIC_ADA284849/DTIC_ADA284849.pdf#page=12",
+        "locator": "Subject Protocol, printed pp. 2 and 6 (PDF pp. 8 and 12)",
+        "source_sha256": "be255453a4decd849e5c9f61949a9e772c54bfb1c85718cfc7368cb7a1edad81",
+        "access": "full_text",
+        "note": "Ten healthy men aged 21–35 were monitored in an ongoing study with Sonos 1000 at 29,500 ft. Reported protocol includes a 60-minute 100% oxygen prebreathe, oxygen during flight and repeated light lower-limb exercise. The planned exposure was up to four hours with early termination for DCS. The number of chamber runs and the clinical event count for the monitored group are unavailable.",
+        "participant_count": 10,
+        "actual_exposure_count": null,
+        "clinical_event_count": null,
+        "altitude_ft": 29500
+      },
+      {
+        "id": "uhms1989_meeting_proceedings",
+        "title": "Undersea and Hyperbaric Medical Society annual scientific meeting. June 6–11, 1989, Honolulu, Hawaii. Abstracts.",
+        "year": 1989,
+        "pmid": "2718277",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/2718277/",
+        "publisher_url": "https://uhms.org/uhm-search/undersea-biomedical-research-volume-16/supplement-1989.html",
+        "access": "metadata_only",
+        "note": "PubMed indexes the complete proceedings. UHMS lists the abstract collection and gates the PDF download."
+      }
+    ]
+  }
+]

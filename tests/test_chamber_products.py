@@ -9,6 +9,59 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_armstrong_probe_margins_preserve_conflict_and_shared_report(release):
+    report = "abstract:uhms-1989-webb-probes"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT probe_type,reported_subject_exposures,dcs_with_bubbles,dcs_total,
+                   non_dcs_without_bubbles,non_dcs_total,sensitivity_percent_as_printed,
+                   specificity_percent_as_printed,analysis_role
+            FROM publication_armstrong_probe_comparison ORDER BY probe_type
+        """).fetchall() == [
+            ("combined_echo_doppler", 112, 36, 40, 22, 72, 90, 31, "overlap_hold"),
+            ("separate_probes", 65, 31, 39, 9, 27, 79, 33, "denominator_conflict"),
+        ]
+        assert db.execute("""
+            SELECT reported_group,cases,denominator,role_review
+            FROM review.review_search_observation WHERE report_id=? ORDER BY reported_group,cases
+        """, (report,)).fetchall() == [
+            ("combined_echo_doppler", 22, 72, "overlap_hold"),
+            ("combined_echo_doppler", 36, 40, "overlap_hold"),
+            ("separate_probes", 9, 27, "denominator_conflict"),
+            ("separate_probes", 31, 39, "denominator_conflict"),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE source_key LIKE 'webb89_probe_comparison%'
+        """).fetchall() == [(report,)]
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE (left_report='report:ada268229' AND right_report=?) OR right_report='pmid:2718277'
+            ORDER BY relationship
+        """, (report,)).fetchall() == [
+            (report, "pmid:2718277", "published_in_meeting_supplement"),
+            ("report:ada268229", report, "reprints_primary_abstract"),
+        ]
+        assert db.execute("""
+            SELECT source_id FROM publication_observation
+            WHERE source_id IN ('webb89_probe_comparison','olson94_echo_size')
+        """).fetchall() == []
+
+
+def test_armstrong_imaging_scope_preserves_existing_report_and_unknown_flight_count(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT trial_count,participant_count,pressure_mmhg FROM publication_chamber_trial_scope
+            WHERE source_id='olson94_echo_size'
+        """).fetchall() == [(None, 10, None)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE source_key='olson94_echo_size' OR record_key='2026-11-20-formal-chamber-openalex#W307569229'
+        """).fetchall() == [("openalex:W307569229",)]
+        assert db.execute("""
+            SELECT observation_id FROM review.review_search_observation WHERE report_id='openalex:W307569229'
+        """).fetchall() == []
+
+
 def test_usafsam_repository_snapshots_preserve_count_precision_and_report_identity(release):
     with connect_pair(release) as db:
         assert db.execute("""
