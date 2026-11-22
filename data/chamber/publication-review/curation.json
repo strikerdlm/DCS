@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.220/sources.csv#bachrach44_b17_questionnaire",
+      "report_id": "nlm:22330650RX7:bachrach",
+      "basis": "The NLM and the mirrored issue agree on title, pagination and September 1944.",
+      "evidence_url": "https://archive.org/details/22330650RX7.nlm.nih.gov"
+    },
+    {
+      "record_key": "2026-11-22-b17-bends-survey-tavily#bachrach44_b17_questionnaire",
+      "report_id": "nlm:22330650RX7:bachrach",
+      "basis": "The NLM and the mirrored issue agree on title, pagination and September 1944.",
+      "evidence_url": "https://archive.org/details/22330650RX7.nlm.nih.gov"
+    },
+    {
+      "record_key": "2026-11-22-b17-bends-survey-firecrawl#bachrach44_b17_questionnaire",
+      "report_id": "nlm:22330650RX7:bachrach",
+      "basis": "The NLM and the mirrored issue agree on title, pagination and September 1944.",
+      "evidence_url": "https://archive.org/details/22330650RX7.nlm.nih.gov"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.220/sources.csv#tobias51_wartime_flight_surveys",
+      "report_id": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "basis": "Chapter XI, Tobias, 1951 and the Fulton volume agree with Mahon reference 200.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=395"
+    },
+    {
+      "record_key": "2026-11-22-b17-bends-survey-tavily#tobias51_wartime_flight_surveys",
+      "report_id": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "basis": "Chapter XI, Tobias, 1951 and the Fulton volume agree with Mahon reference 200.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=395"
+    },
+    {
+      "record_key": "2026-11-22-b17-bends-survey-firecrawl#tobias51_wartime_flight_surveys",
+      "report_id": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "basis": "Chapter XI, Tobias, 1951 and the Fulton volume agree with Mahon reference 200.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=395"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "report_id": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "basis": "Mahon reference 200 names Tobias's Chapter XI in the same Fulton book and year.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=395"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.15/sources.csv#kenyon72_hast",
       "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
       "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
@@ -19401,6 +19443,24 @@
   ],
   "studies": [
     {
+      "study_id": "bachrach-1944-combat-flight-questionnaire",
+      "label": "Bachrach wartime B-17 questionnaire",
+      "period": "Published September 1944",
+      "setting": "Retrospective interviews about European-theater operational flights."
+    },
+    {
+      "study_id": "tobias-1951-b17-summary",
+      "label": "Tobias B-17 crew survey summary",
+      "period": "Published 1951. Survey dates unavailable.",
+      "setting": "Historical retrospective flight survey with unresolved overlap with Bachrach."
+    },
+    {
+      "study_id": "tobias-1951-fighter-summary",
+      "label": "Tobias fighter pilot survey summary",
+      "period": "Published 1951. Survey dates unavailable.",
+      "setting": "Historical operational flight symptom reports."
+    },
+    {
       "study_id": "royal-navy-hast-1950-1962-course-registry",
       "label": "Royal Navy 37,000-ft selection courses",
       "period": "1950–1962",
@@ -21376,6 +21436,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "bachrach-1944-combat-flight-questionnaire",
+      "report_id": "nlm:22330650RX7:bachrach",
+      "role": "primary_questionnaire",
+      "locator": "Material p. 2, Question 18 and Table XII pp. 9–10, signed byline p. 12 (PDF pp. 2, 9–10 and 12)"
+    },
+    {
+      "study_id": "tobias-1951-b17-summary",
+      "report_id": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "role": "secondary_summary_overlap_hold",
+      "locator": "Text and Table 81, pp. 360–361 (PDF pp. 395–396)"
+    },
+    {
+      "study_id": "tobias-1951-fighter-summary",
+      "report_id": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "role": "secondary_summary_overlap_hold",
+      "locator": "Text below Table 83, p. 361 (PDF p. 396)"
+    },
     {
       "study_id": "royal-navy-hast-1950-1962-course-registry",
       "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
@@ -24684,6 +24762,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
+      "right_report": "nlm:22330650RX7:bachrach",
+      "relationship": "likely_overlap",
+      "evidence": "Tobias Table 81 cites Bachrach's September 1944 bulletin at reference 3b. The chapter gives 24 people reporting bends among 97 questioned, while the bulletin's seven Table XII rows sum to 39 among 215. The 97-person set and repeated mission denominators cannot be linked to the 215-person set. Treat the counts as differing reports with unresolved overlap.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=396"
+    },
     {
       "left_report": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
       "right_report": "pmid:14080600",
@@ -30407,6 +30492,7 @@
     "sto:mp-hfm-309:22p": "Aircrew Training Hypoxic Hypobaria Elevated Cerebral Blood Flow – When Does it Return to Normal?",
     "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1": "Verification of an Altitude Decompression Sickness Prevention Protocol for Shuttle Operations Utilizing a 10.2-psi Pressure Stage",
     "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1": "Predictive Modeling of Altitude Decompression Sickness in Humans",
-    "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy": "A review of the high-altitude selection test, 1961–1962"
+    "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy": "A review of the high-altitude selection test, 1961–1962",
+    "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200": "Decompression Sickness in Actual Flights"
   }
 }

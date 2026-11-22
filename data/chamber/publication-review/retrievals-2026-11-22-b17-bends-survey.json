@@ -1,0 +1,387 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-b17-bends-survey-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_wartime_survey_retrieval",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "29425475-80c0-4f8d-9026-29da3d848c25",
+          "url": "https://collections.nlm.nih.gov/ocr/nlm:nlmuid-22330650RX7-leaf"
+        },
+        {
+          "request_id": "1885323c-fc61-428d-9f10-7c964b86872a",
+          "query": "Seek the original reported 97-person risk set"
+        },
+        {
+          "request_id": "5b82d833-871a-4176-a269-f268a9339a9c",
+          "url": "https://archive.org/details/in.ernet.dli.2015.116475"
+        }
+      ]
+    },
+    "note": "Verified the NLM OCR and the archive chapter reference. The 97-person set could not be linked to the larger original table.",
+    "records": [
+      {
+        "id": "bachrach44_b17_questionnaire",
+        "title": "Information obtained from high altitude combat veterans",
+        "year": 1944,
+        "url": "https://archive.org/download/22330650RX7.nlm.nih.gov/22330650RX7.pdf",
+        "primary_source": "https://archive.org/download/22330650RX7.nlm.nih.gov/22330650RX7.pdf",
+        "nlm_id": "22330650RX7",
+        "source_sha256": "e796d04c9697cdf4df8ebf635f211666fad1687dc015510f543fd7a5dc085e17",
+        "access": "full_text",
+        "locator": "Material p. 2, Question 18 and Table XII pp. 9–10, signed byline p. 12 (PDF pp. 2, 9–10 and 12)",
+        "role_review": "operational_flight_self_report",
+        "study_id": "bachrach-1944-combat-flight-questionnaire"
+      },
+      {
+        "id": "tobias51_wartime_flight_surveys",
+        "title": "Decompression Sickness in Actual Flights",
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=396",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=396",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "access": "secondary_table",
+        "locator": "Chapter XI pp. 360–361 (PDF pp. 395–396), Table 81 and reference 3b",
+        "role_review": "overlap_hold",
+        "study_id": "tobias-1951-b17-summary"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-b17-bends-survey-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_wartime_survey_archive_authorities",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a203a5-d686-719c-8916-6d727b99ed09",
+          "url": "https://archive.org/details/22330650RX7.nlm.nih.gov"
+        },
+        {
+          "scrape_id": "01a203a6-8761-77b9-872f-9517f4fd16a5",
+          "url": "https://archive.org/details/in.ernet.dli.2015.116475"
+        },
+        {
+          "scrape_id": "01a203a1-3d69-735b-bd79-5ffd985dd7af",
+          "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-22330650R-root"
+        }
+      ]
+    },
+    "note": "Verified catalogue identities and the public-domain bulletin scan, then checked counts from the rendered pages.",
+    "records": [
+      {
+        "id": "bachrach44_b17_questionnaire",
+        "title": "Information obtained from high altitude combat veterans",
+        "year": 1944,
+        "url": "https://archive.org/download/22330650RX7.nlm.nih.gov/22330650RX7.pdf",
+        "primary_source": "https://archive.org/download/22330650RX7.nlm.nih.gov/22330650RX7.pdf",
+        "nlm_id": "22330650RX7",
+        "source_sha256": "e796d04c9697cdf4df8ebf635f211666fad1687dc015510f543fd7a5dc085e17",
+        "access": "full_text",
+        "locator": "Material p. 2, Question 18 and Table XII pp. 9–10, signed byline p. 12 (PDF pp. 2, 9–10 and 12)",
+        "role_review": "operational_flight_self_report",
+        "study_id": "bachrach-1944-combat-flight-questionnaire",
+        "questionnaire": {
+          "questionnaires_received": 291,
+          "questionnaires_excluded": 60,
+          "people_retained": 231,
+          "minimum_combat_altitude_ft": 20000,
+          "minimum_missions_with_demand_oxygen": 5,
+          "sorties_approx_as_printed": 3100,
+          "crewmate_symptom_reports": 16,
+          "conditional_sorties_per_case_as_printed": 80,
+          "locator": "Material p. 2 and Question 18 pp. 9–10 (PDF pp. 2 and 9–10)",
+          "note": "Retrospective wartime survey of completed questionnaires. The question concerned pain recalled by the crew member. Diagnostic confirmation, severity grading and individual surveillance windows are unavailable. The 16 crewmate reports may reuse the same episodes. The author gives one per 80 sorties under an explicit assumption of true aeroembolism. About 3,100 sorties describes the retained sample. It supplies no exact flight denominator for the people in Table XII."
+        },
+        "role_measurements": [
+          {
+            "crew_position": "pilots",
+            "people_retained": 19,
+            "people_questioned_about_bends": 19,
+            "people_reporting_pain": 4,
+            "reported_pain_occurrences": 8,
+            "reported_symptom_altitude_min_ft": 18000,
+            "reported_symptom_altitude_max_ft": 30000,
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)"
+          },
+          {
+            "crew_position": "bombardiers",
+            "people_retained": 0,
+            "people_questioned_about_bends": null,
+            "people_reporting_pain": null,
+            "reported_pain_occurrences": null,
+            "reported_symptom_altitude_min_ft": null,
+            "reported_symptom_altitude_max_ft": null,
+            "locator": "Material p. 2 (PDF p. 2)"
+          },
+          {
+            "crew_position": "navigators",
+            "people_retained": 7,
+            "people_questioned_about_bends": 7,
+            "people_reporting_pain": 2,
+            "reported_pain_occurrences": 2,
+            "reported_symptom_altitude_min_ft": 18000,
+            "reported_symptom_altitude_max_ft": 25000,
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)"
+          },
+          {
+            "crew_position": "top_turret",
+            "people_retained": 45,
+            "people_questioned_about_bends": 45,
+            "people_reporting_pain": 4,
+            "reported_pain_occurrences": 6,
+            "reported_symptom_altitude_min_ft": 24000,
+            "reported_symptom_altitude_max_ft": 32000,
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)"
+          },
+          {
+            "crew_position": "radio_operator",
+            "people_retained": 31,
+            "people_questioned_about_bends": 31,
+            "people_reporting_pain": 6,
+            "reported_pain_occurrences": 13,
+            "reported_symptom_altitude_min_ft": 18000,
+            "reported_symptom_altitude_max_ft": 31000,
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)"
+          },
+          {
+            "crew_position": "ball_turret",
+            "people_retained": 27,
+            "people_questioned_about_bends": 27,
+            "people_reporting_pain": 7,
+            "reported_pain_occurrences": 22,
+            "reported_symptom_altitude_min_ft": 20000,
+            "reported_symptom_altitude_max_ft": 33000,
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)"
+          },
+          {
+            "crew_position": "waist_gunner",
+            "people_retained": 52,
+            "people_questioned_about_bends": 52,
+            "people_reporting_pain": 9,
+            "reported_pain_occurrences": 29,
+            "reported_symptom_altitude_min_ft": 20000,
+            "reported_symptom_altitude_max_ft": 28000,
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)"
+          },
+          {
+            "crew_position": "tail_gunner",
+            "people_retained": 34,
+            "people_questioned_about_bends": 34,
+            "people_reporting_pain": 7,
+            "reported_pain_occurrences": 10,
+            "reported_symptom_altitude_min_ft": 15000,
+            "reported_symptom_altitude_max_ft": 31000,
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)"
+          },
+          {
+            "crew_position": "mixed_position_gunner",
+            "people_retained": 16,
+            "people_questioned_about_bends": null,
+            "people_reporting_pain": null,
+            "reported_pain_occurrences": null,
+            "reported_symptom_altitude_min_ft": null,
+            "reported_symptom_altitude_max_ft": null,
+            "locator": "Material p. 2 (PDF p. 2)"
+          }
+        ],
+        "observations": [
+          {
+            "id": "pilots",
+            "study_id": "bachrach-1944-combat-flight-questionnaire",
+            "group": "pilots",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 4,
+            "denominator": 19,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable.",
+            "analysis_role": "operational_flight_self_report",
+            "reported_occurrences": 8,
+            "symptom_altitude_min_ft": 18000,
+            "symptom_altitude_max_ft": 30000,
+            "note": "Question 18 records the number of people reporting pain and the number of reported occurrences separately."
+          },
+          {
+            "id": "navigators",
+            "study_id": "bachrach-1944-combat-flight-questionnaire",
+            "group": "navigators",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 2,
+            "denominator": 7,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable.",
+            "analysis_role": "operational_flight_self_report",
+            "reported_occurrences": 2,
+            "symptom_altitude_min_ft": 18000,
+            "symptom_altitude_max_ft": 25000,
+            "note": "Question 18 records the number of people reporting pain and the number of reported occurrences separately."
+          },
+          {
+            "id": "top_turret",
+            "study_id": "bachrach-1944-combat-flight-questionnaire",
+            "group": "top_turret",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 4,
+            "denominator": 45,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable.",
+            "analysis_role": "operational_flight_self_report",
+            "reported_occurrences": 6,
+            "symptom_altitude_min_ft": 24000,
+            "symptom_altitude_max_ft": 32000,
+            "note": "Question 18 records the number of people reporting pain and the number of reported occurrences separately."
+          },
+          {
+            "id": "radio_operator",
+            "study_id": "bachrach-1944-combat-flight-questionnaire",
+            "group": "radio_operator",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 6,
+            "denominator": 31,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable.",
+            "analysis_role": "operational_flight_self_report",
+            "reported_occurrences": 13,
+            "symptom_altitude_min_ft": 18000,
+            "symptom_altitude_max_ft": 31000,
+            "note": "Question 18 records the number of people reporting pain and the number of reported occurrences separately."
+          },
+          {
+            "id": "ball_turret",
+            "study_id": "bachrach-1944-combat-flight-questionnaire",
+            "group": "ball_turret",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 7,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable.",
+            "analysis_role": "operational_flight_self_report",
+            "reported_occurrences": 22,
+            "symptom_altitude_min_ft": 20000,
+            "symptom_altitude_max_ft": 33000,
+            "note": "Question 18 records the number of people reporting pain and the number of reported occurrences separately."
+          },
+          {
+            "id": "waist_gunner",
+            "study_id": "bachrach-1944-combat-flight-questionnaire",
+            "group": "waist_gunner",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 9,
+            "denominator": 52,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable.",
+            "analysis_role": "operational_flight_self_report",
+            "reported_occurrences": 29,
+            "symptom_altitude_min_ft": 20000,
+            "symptom_altitude_max_ft": 28000,
+            "note": "Question 18 records the number of people reporting pain and the number of reported occurrences separately."
+          },
+          {
+            "id": "tail_gunner",
+            "study_id": "bachrach-1944-combat-flight-questionnaire",
+            "group": "tail_gunner",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 7,
+            "denominator": 34,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Material p. 2 and Table XII p. 9 (PDF pp. 2 and 9)",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable.",
+            "analysis_role": "operational_flight_self_report",
+            "reported_occurrences": 10,
+            "symptom_altitude_min_ft": 15000,
+            "symptom_altitude_max_ft": 31000,
+            "note": "Question 18 records the number of people reporting pain and the number of reported occurrences separately."
+          }
+        ],
+        "note": "Retrospective wartime survey of completed questionnaires. The question concerned pain recalled by the crew member. Diagnostic confirmation, severity grading and individual surveillance windows are unavailable. The 16 crewmate reports may reuse the same episodes. The author gives one per 80 sorties under an explicit assumption of true aeroembolism. About 3,100 sorties describes the retained sample. It supplies no exact flight denominator for the people in Table XII."
+      },
+      {
+        "id": "tobias51_wartime_flight_surveys",
+        "title": "Decompression Sickness in Actual Flights",
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=396",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=396",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "access": "secondary_table",
+        "locator": "Chapter XI pp. 360–361 (PDF pp. 395–396), Table 81 and reference 3b",
+        "role_review": "overlap_hold",
+        "study_id": "tobias-1951-b17-summary",
+        "survey_summaries": [
+          {
+            "survey_group": "b17_crew",
+            "people_questioned": 97,
+            "people_reporting_bends": 24,
+            "missions_flown_as_printed": 2497,
+            "minimum_man_flights_per_case_as_printed": 123,
+            "recurring_symptoms_percent_as_printed": 8,
+            "locator": "Text and Table 81, pp. 360–361 (PDF pp. 395–396)",
+            "note": "Tobias Table 81 cites Bachrach's September 1944 bulletin at reference 3b. The chapter gives 24 people reporting bends among 97 questioned, while the bulletin's seven Table XII rows sum to 39 among 215. The 97-person set and repeated mission denominators cannot be linked to the 215-person set. Treat the counts as differing reports with unresolved overlap. The 24 refers to people. The chapter's minimum rate and repeat-symptom percentage are retained as printed. The precise event denominator and any linking records are unavailable."
+          },
+          {
+            "survey_group": "fighter_pilots",
+            "people_questioned": 64,
+            "people_reporting_bends": 12,
+            "missions_flown_as_printed": null,
+            "minimum_man_flights_per_case_as_printed": null,
+            "recurring_symptoms_percent_as_printed": null,
+            "locator": "Text below Table 83, p. 361 (PDF p. 396)",
+            "note": "The chapter describes symptom reports in fighter pilots. Flight counts, the underlying article, and the sampling period are unavailable. Retain as a separate descriptive risk set."
+          }
+        ],
+        "observations": [
+          {
+            "id": "b17_crew",
+            "study_id": "tobias-1951-b17-summary",
+            "group": "b17_crew",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 24,
+            "denominator": 97,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Text and Table 81, pp. 360–361 (PDF pp. 395–396)",
+            "note": "Tobias Table 81 cites Bachrach's September 1944 bulletin at reference 3b. The chapter gives 24 people reporting bends among 97 questioned, while the bulletin's seven Table XII rows sum to 39 among 215. The 97-person set and repeated mission denominators cannot be linked to the 215-person set. Treat the counts as differing reports with unresolved overlap. The 24 refers to people. The chapter's minimum rate and repeat-symptom percentage are retained as printed. The precise event denominator and any linking records are unavailable.",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable."
+          },
+          {
+            "id": "fighter_pilots",
+            "study_id": "tobias-1951-fighter-summary",
+            "group": "fighter_pilots",
+            "endpoint": "self_reported_bends_pain_as_reported",
+            "cases": 12,
+            "denominator": 64,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Text below Table 83, p. 361 (PDF p. 396)",
+            "note": "The chapter describes symptom reports in fighter pilots. Flight counts, the underlying article, and the sampling period are unavailable. Retain as a separate descriptive risk set.",
+            "analysis_role": "overlap_hold",
+            "outcome_window": "Prior combat flights recalled at questionnaire. Person-specific follow-up unavailable."
+          }
+        ],
+        "note": "Tobias Table 81 cites Bachrach's September 1944 bulletin at reference 3b. The chapter gives 24 people reporting bends among 97 questioned, while the bulletin's seven Table XII rows sum to 39 among 215. The 97-person set and repeated mission denominators cannot be linked to the 215-person set. Treat the counts as differing reports with unresolved overlap."
+      }
+    ]
+  }
+]
