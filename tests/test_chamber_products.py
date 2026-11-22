@@ -9,6 +9,93 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_anell_original_exposure_counts_and_transition_windows(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='anell20_altitude_alternation'
+            ORDER BY stratum,endpoint
+        """).fetchall() == [
+            row for condition, count in (("high", 8), ("high_low", 7), ("low", 3))
+            for row in (
+                (condition, "any_right_ventricular_vge_during_chamber_trial_as_reported", count, 8, "person_exposure", "overlap_hold"),
+                (condition, "dcs_during_chamber_trial_as_reported", 0, 8, "person_exposure", "overlap_hold"),
+            )
+        ]
+        assert db.execute("""
+            SELECT condition,measurement_context,count(*),min(participants_as_reported),max(participants_as_reported)
+            FROM publication_pressure_stage_vge_range WHERE source_id='anell20_altitude_alternation'
+            GROUP BY condition,measurement_context ORDER BY condition,measurement_context
+        """).fetchall() == [
+            (condition, context, count, 8, 8)
+            for condition, count in (("high", 11), ("high_low", 11), ("low", 7))
+            for context in ("after_knee_bends", "rest")
+        ]
+        assert db.execute("""
+            SELECT phase,altitude_ft,minimum_grade,median_grade,maximum_grade,p_less_than_vs_final_descent_24000
+            FROM publication_pressure_stage_vge_range WHERE source_id='anell20_altitude_alternation'
+              AND condition='high_low' AND measurement_context='after_knee_bends'
+              AND (altitude_ft=24000 OR altitude_ft=5000 AND phase='descent')
+            ORDER BY phase,altitude_ft DESC
+        """).fetchall() == [("ascent", 24000, 0, 0, 0, None), ("descent", 24000, 2, 3, 4, None),
+                            ("descent", 5000, 0, 1, 3, 0.01)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_pressure_stage_vge_range
+            WHERE source_id='anell20_altitude_alternation' AND condition='low' AND altitude_ft>15000
+        """).fetchone() == (0,)
+
+
+def test_anell_repeatability_keeps_overlapping_groups_and_person_grade_ranges(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT participants,participants_in_both_short_gas_groups,
+                   participants_with_dcs_in_contributing_experiments
+            FROM literature_vge_repeatability_cohort WHERE source_id='anell22'
+        """).fetchone() == (19, 7, 5)
+        assert db.execute("""
+            SELECT participants,observation_min_lower,observation_min_upper,icc,icc_lower,icc_upper,
+                   participants_crossing_threshold,crossing_ci_lower,crossing_ci_upper
+            FROM literature_vge_repeatability WHERE source_id='anell22' ORDER BY comparison
+        """).fetchall() == [
+            (7, 70, 70, 0.32, -0.51, 0.86, 2, 5.1, 69.8),
+            (13, 20, 30, 0.34, -0.24, 0.75, None, None, None),
+            (13, 30, 30, -0.05, -0.58, 0.51, None, None, None),
+            (19, 20, 30, None, None, None, 8, 23.2, 66.18),
+        ]
+        assert db.execute("""
+            SELECT minimum_grade,maximum_grade,participants FROM literature_vge_repeatability_grade_range
+            WHERE source_id='anell22' ORDER BY minimum_grade,maximum_grade
+        """).fetchall() == [(0,0,2), (0,1,3), (0,2,1), (0,3,3), (0,4,1),
+                            (1,1,1), (1,3,3), (2,3,1), (3,3,3), (3,4,1)]
+        assert db.execute("""
+            SELECT count(*) FROM literature_observation WHERE source_id='anell22'
+        """).fetchone() == (0,)
+
+
+def test_anell_evidence_retains_primary_and_secondary_report_identities(release):
+    with connect_pair(release) as db:
+        for pmid, doi in (("31852568", "10.3357/amhp.5447.2020"), ("35063055", "10.3357/amhp.5938.2022")):
+            rows = db.execute("""
+                SELECT DISTINCT report_id FROM review.review_record WHERE pmid=? OR doi=?
+            """, (pmid, doi)).fetchall()
+            assert rows == [(f"pmid:{pmid}",)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='literature_source' AND source_id='anell22'
+        """).fetchone() == ("pmid:35063055",)
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='pmid:35063055' AND relationship='reuses_exposures' ORDER BY right_report
+        """).fetchall() == [("pmid:31101137",), ("pmid:31852568",), ("pmid:33752785",)]
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id='pmid:35063055' ORDER BY denominator
+        """).fetchall() == [(2, 7, "person"), (8, 19, "person")]
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id='pmid:31852568' AND endpoint='dcs_during_chamber_trial_as_reported'
+        """).fetchall() == [(0, 8, "person_exposure")] * 3
+
+
 def test_tuci_vge_stages_keep_ascent_and_descent_separate(release):
     with connect_pair(release) as db:
         assert db.execute("""

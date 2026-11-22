@@ -268,6 +268,7 @@ CAM_PRESSURE_AND_CONTROLS = ROOT / "data" / "chamber" / "v1.200"
 BURKHARDT_CHAMBER_RADIOGRAPHY = ROOT / "data" / "chamber" / "v1.201"
 ELIA_ULTRASOUND = ROOT / "data" / "chamber" / "v1.202"
 TUCI_NORMOXIC_CROSSOVER = ROOT / "data" / "chamber" / "v1.203"
+ANELL_CHAMBER_VGE = ROOT / "data" / "chamber" / "v1.204"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2694,6 +2695,19 @@ def build(
                         "publication_chamber_vge_protocol": "protocols.csv",
                         "publication_pressure_stage_vge_mean": "stage_means.csv",
                         "publication_chamber_vge_detection_summary": "dwell_vge.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    ANELL_CHAMBER_VGE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_pressure_stage_vge_range": "stage_ranges.csv",
+                        "literature_overlap": "repeatability_overlap.csv",
+                        "literature_vge_repeatability_cohort": "repeatability_cohort.csv",
+                        "literature_vge_repeatability": "repeatability.csv",
+                        "literature_vge_repeatability_grade_range": "repeatability_grade_ranges.csv",
                     },
                 )
             if rojas_supplement:
