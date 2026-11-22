@@ -1,0 +1,215 @@
+[
+  {
+    "id": "2026-11-22-jasdf-chamber-and-flight-cases-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_original_case_and_identity_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_ids": [
+        "315607f4-61ff-4f5e-a266-fe5635999d01",
+        "75752d4d-8038-46ca-8816-8e097b9ce7a1",
+        "6ffb64ca-06bd-45c9-8ce0-f437c8ce45c8"
+      ],
+      "urls": [
+        "https://journal.juhms.net/lib/2000/354-06.pdf",
+        "https://ci.nii.ac.jp/naid/10013225318",
+        "https://pubmed.ncbi.nlm.nih.gov/9681378/"
+      ],
+      "query": "Ogata case A-1 A-2 A-3 B-1 B-2 22000 30000 pressure chamber Kusano cases cites later report"
+    },
+    "note": "Located the original text and the matching CiNii record. No public full text for the 1994 separate-volume citation was located.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-jasdf-chamber-and-flight-cases-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_primary_pdf_ocr_and_unrelated_abstract_check",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://journal.juhms.net/lib/2000/354-06.pdf",
+          "id": "01a201bf-1d2a-7525-b3db-45e2ee76cc06"
+        },
+        {
+          "url": "https://mol.medicalonline.jp/archive/search?issue=2&jo=cz9jchod&vo=6&ye=2009",
+          "id": "01a201bf-1d2d-758e-9153-7089d65061a7"
+        }
+      ]
+    },
+    "note": "Used OCR to locate the individual case passages and the complete bibliographic reference. Original scan inspection resolved line-order errors and preserved source timing. The 2009 abstract is a separate access lead.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-jasdf-chamber-and-flight-cases-verified",
+    "date": "2026-11-22",
+    "provider": "Original society PDF and bibliographic metadata",
+    "operation": "supplementary_case_scope_and_citation_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "openalex_record": "https://api.openalex.org/works/W403143322",
+      "cinii_record": "https://ci.nii.ac.jp/naid/10013225318"
+    },
+    "note": "Verified the clinical descriptions and the duplicate OpenAlex citation. The existing surveillance counts remain represented by their earlier occurrence.",
+    "records": [
+      {
+        "id": "ogata-numbered-cases",
+        "title": "航空機による減圧症 — Altitude Decompression Sickness",
+        "authors": [
+          "緒方克彦",
+          "井手祐一",
+          "草野浩幸"
+        ],
+        "year": 2001,
+        "publication_date": "2001-03-30",
+        "url": "https://journal.juhms.net/lib/2000/354-06.pdf",
+        "primary_source": "https://journal.juhms.net/lib/2000/354-06.pdf",
+        "pdf_sha256": "e74d4df613d9b80d06b99bb0b3e42962a2c17e486587518e058120df27cbf948",
+        "full_text_available": true,
+        "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+        "locator": "Section 4, pp. 226–228 and reference 5, p. 230",
+        "note": "Section 4 introduces three aircraft and three chamber examples. It names A-1 through A-3 and B-1 through B-2. It reports two chamber cases treated by recompression, with only one treated chamber vignette described. Individual membership in Table 2 remains unverified.",
+        "role_review": "selected_numbered_cases_with_mixed_diagnostic_certainty",
+        "case_source_scope": {
+          "aircraft_vignettes_announced": 3,
+          "aircraft_vignettes_described": 3,
+          "chamber_vignettes_announced": 3,
+          "chamber_vignettes_described": 2,
+          "chamber_recompressions_reported": 2,
+          "chamber_recompressions_described": 1,
+          "chamber_table_2_record_key": "2026-11-20-digest-japan-ogata-reports#ogata-ide-kusano-2001-article",
+          "chamber_table_2_observation_id": "ogata-fy1960-1999-suspected_altitude_dcs"
+        },
+        "case_details": {
+          "a-1": {
+            "setting": "aircraft",
+            "aircraft_altitude_at_symptoms_ft": 30000,
+            "indicated_cabin_altitude_at_symptoms_ft": 30000,
+            "planned_reascent_target_ft": 31000,
+            "cabin_altitude_before_pressure_change_ft": null,
+            "severity": "suspected"
+          },
+          "a-2": {
+            "setting": "aircraft",
+            "aircraft_altitude_at_failure_ft": 22000,
+            "cabin_start_altitude_ft": 6000,
+            "cabin_end_altitude_ft": 22000,
+            "chest_pain_onset": "a few minutes after landing",
+            "recompression_site": "Etajima",
+            "related_unretrieved_report": "ndmj:1994:41:44:kusano"
+          },
+          "a-3": {
+            "setting": "aircraft",
+            "aircraft_altitude_at_failure_ft": 33000,
+            "cabin_start_altitude_ft": 10000,
+            "cabin_end_altitude_low_ft": 26000,
+            "cabin_end_altitude_high_ft": 28000,
+            "related_unretrieved_report": "ndmj:1994:41:44:kusano"
+          },
+          "b-1": {
+            "setting": "chamber",
+            "age_years_as_reported": 52,
+            "chamber_altitude_at_onset_ft": 22000,
+            "reported_prior_scuba_days": 3,
+            "prior_dive_interval_hours": null,
+            "table_2_membership": null,
+            "possible_parent_observation_id": "ogata-fy1960-1999-suspected_altitude_dcs"
+          },
+          "b-2": {
+            "setting": "chamber",
+            "reported_chamber_profile_altitude_ft": 30000,
+            "onset_altitude_ft": null,
+            "prior_strenuous_exercise": "the day before training",
+            "table_2_membership": null,
+            "possible_parent_observation_id": "ogata-fy1960-1999-suspected_altitude_dcs"
+          }
+        },
+        "observations": [
+          {
+            "id": "a-1",
+            "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+            "group": "F-15J flight pilot",
+            "endpoint": "suspected_mild_bends_with_hypoxia_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Section 4(1)(1), A-1, pp. 226–227",
+            "note": "Heat sensation, heaviness and narrowed vision. The authors suspected hypoxia and mild bends. Observation followed recovery after descent."
+          },
+          {
+            "id": "a-2",
+            "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+            "group": "US Marine Corps pilot, pulmonary DCS",
+            "endpoint": "pulmonary_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Section 4(1)(1), A-2, p. 227",
+            "note": "An aviation physician diagnosed pulmonary DCS. Chest imaging showed no pneumothorax or pleural effusion, and no subcutaneous emphysema was recorded. Recovery followed recompression at Etajima."
+          },
+          {
+            "id": "a-3",
+            "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+            "group": "US Marine Corps pilot, type I DCS",
+            "endpoint": "type_i_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Section 4(1)(1), A-3, p. 227; ref. 5, p. 230",
+            "note": "The aviation physician found no neurological abnormality, diagnosed Type I DCS and reported recovery following recompression. The text cites Kusano et al. after this vignette."
+          },
+          {
+            "id": "b-1",
+            "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+            "group": "Transport pilot with infraclavicular paresthesia",
+            "endpoint": "cutaneous_symptoms_suspected_altitude_dcs",
+            "chamber_role": "trainee",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Section 4(1)(2), B-1, pp. 227–228",
+            "note": "Observation only after improvement and unremarkable blood gas, pulmonary-function and chest X-ray findings. Exact time from final dive to test and a definitive DCS diagnosis are unavailable. Membership in the 243-case aggregate is unverified."
+          },
+          {
+            "id": "b-2",
+            "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+            "group": "Chamber trainee with left shoulder pain",
+            "endpoint": "treated_post_chamber_joint_pain_as_reported",
+            "chamber_role": "trainee",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Section 4(1)(2), B-2, p. 228",
+            "note": "The aviation physician referred the participant to the naval Undersea Medical Laboratory. Symptoms improved after recompression. Membership in the 243-case aggregate and the exact onset relative to landing remain unverified."
+          }
+        ]
+      },
+      {
+        "id": "kusano-1994-supplement-citation",
+        "title": "自衛隊江田島病院において再圧治療を実施した米軍人の航空減圧症の2例",
+        "authors": [
+          "草野浩幸",
+          "池田知純",
+          "永吉広和"
+        ],
+        "year": 1994,
+        "journal": "防衛衛生 (National Defense Medical Journal)",
+        "volume": "41",
+        "issue": "separate volume",
+        "pages": "44",
+        "url": "https://journal.juhms.net/lib/2000/354-06.pdf#page=6",
+        "locator": "Ogata et al., p. 230, reference 5",
+        "full_text_available": false,
+        "note": "The reproduced citation identifies the separate volume. A-2 describes Etajima and reference 5 follows A-3. The 1994 source itself has not been recovered. Both vignettes are potentially the two cited military cases. No independent observation is added under the 1994 citation."
+      }
+    ]
+  }
+]

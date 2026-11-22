@@ -6368,6 +6368,57 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_ogata_case_vignettes_reuse_report_and_leave_surveillance_totals_intact(release):
+    report_id = "report:ogata-ide-kusano-jasdf-altitude-dcs-2001"
+    kusano_id = "ndmj:1994:41:44:kusano"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='ogata01_jasdf_case_histories' ORDER BY stratum
+        """).fetchall() == [
+            ("a-1", "suspected_mild_bends_with_hypoxia_as_reported", 1, None, "case_conditional"),
+            ("a-2", "pulmonary_altitude_dcs_as_reported", 1, None, "overlap_hold"),
+            ("a-3", "type_i_altitude_dcs_as_reported", 1, None, "overlap_hold"),
+            ("b-1", "cutaneous_symptoms_suspected_altitude_dcs", 1, None, "overlap_hold"),
+            ("b-2", "treated_post_chamber_joint_pain_as_reported", 1, None, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-formal-chamber-openalex#W403143322'
+        """).fetchone() == (report_id,)
+        assert db.execute("""
+            SELECT observation_id,cases,denominator FROM review.review_search_observation
+            WHERE report_id=? AND denominator IS NOT NULL ORDER BY observation_id
+        """, (report_id,)).fetchall() == [
+            ("ogata-fy1960-1999-bends_as_reported", 236, 30763),
+            ("ogata-fy1960-1999-neurologic_dcs_as_reported", 6, 30763),
+            ("ogata-fy1960-1999-skin_bends_as_reported", 1, 30763),
+            ("ogata-fy1960-1999-suspected_altitude_dcs", 243, 30763),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM historical_case_catalog
+            WHERE report_id IN (?,?) GROUP BY report_id
+        """, (report_id, kusano_id)).fetchall() == [(report_id, 5)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation WHERE left_report=? AND right_report=?
+        """, (report_id, kusano_id)).fetchall() == [("likely_reproduces_etajima_cases_primary_unretrieved",)]
+        for table, size in (("publication_aircraft_case_milestone", 9), ("publication_chamber_case_milestone", 6)):
+            assert db.execute(f"""
+                SELECT count(*),count(elapsed) FROM {table} WHERE source_id='ogata01_jasdf_case_histories'
+            """).fetchone() == (size, 0)
+        metadata, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE record_key='2026-11-22-jasdf-chamber-and-flight-cases-verified#ogata-numbered-cases'
+        """).fetchone()
+        source = json.loads(metadata)
+        assert source["case_source_scope"]["chamber_vignettes_announced"] == 3
+        assert source["case_source_scope"]["chamber_vignettes_described"] == 2
+        assert source["case_details"]["b-1"]["table_2_membership"] is None
+        assert source["case_details"]["b-2"]["onset_altitude_ft"] is None
+        assert source["case_details"]["a-3"]["cabin_end_altitude_low_ft"] == 26000
+        assert source["case_details"]["a-3"]["cabin_end_altitude_high_ft"] == 28000
+
+
 def test_ryukyu_cases_link_to_existing_report_and_keep_timing_references(release):
     report_id = "abstract:ryukyu-yusa-sukahara-2000"
     endpoint = "military_aviation_altitude_dcs_as_reported"
