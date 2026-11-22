@@ -9,6 +9,69 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_balldin_sporrong_preserves_paired_signals_and_pressure_conflict(release):
+    with connect_pair(release) as db:
+        observed = db.execute("""
+            SELECT subject_number,starting_condition,vibration_signal_seconds,non_vibration_signal_seconds
+            FROM publication_doppler_vibration_pair ORDER BY subject_number
+        """).fetchall()
+        assert observed == [
+            (1, "non_vibration", 4, 7),
+            (2, "non_vibration", 30, 103),
+            (3, "non_vibration", 33, 32),
+            (4, "non_vibration", 2911, 2527),
+            (5, "non_vibration", 154, 103),
+            (6, "vibration", 13, 12),
+            (7, "vibration", 1915, 2179),
+            (8, "vibration", 115, 165),
+            (9, "vibration", 209, 300),
+            (10, "vibration", 1118, 1334),
+        ]
+        assert db.execute("""
+            SELECT participants,max_surface_interval_min,exposure_altitude_m,exposure_duration_min,
+                   interval_duration_min,primary_vibration_hz,prophylaxis_duration_min,
+                   prophylaxis_pressure_methods_kpa,prophylaxis_pressure_figure_kpa,prophylaxis_pressure_adjudicated_kpa
+            FROM publication_doppler_vibration_protocol
+        """).fetchall() == [(10, 5, 3000, 120, 15, 15, 30, 200, 220, None)]
+        assert db.execute("""
+            SELECT p.value ->> '$.subject_number',p.value ->> '$.starting_condition',
+                   p.value ->> '$.vibration_seconds',p.value ->> '$.non_vibration_seconds'
+            FROM review.review_record r JOIN json_each(r.metadata_json,'$.pair_measure.paired_values') p
+            WHERE r.report_id='pmid:7243924' ORDER BY p.value ->> '$.subject_number'
+        """).fetchall() == observed
+        assert db.execute("""
+            SELECT case_id FROM historical_case_catalog WHERE source_id='balldin80_sporrong_vibration'
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT observation_id FROM review.review_search_observation WHERE report_id='pmid:7243924'
+        """).fetchall() == []
+
+
+def test_balldin_related_reports_preserve_identity_and_exposure_distinctions(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE pmid='7243924' OR source_key='balldin80_sporrong_vibration'
+        """).fetchall() == [("pmid:7243924",)]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='pmid:7243924' AND right_report IN ('pmid:718575','pmid:7417128')
+            ORDER BY right_report
+        """).fetchall() == [
+            ("pmid:718575", "related_distinct_profile_participant_linkage_unresolved"),
+            ("pmid:7417128", "related_distinct_profile_participant_linkage_unresolved"),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE url LIKE '%asem/49/10/article-p1229.pdf' GROUP BY report_id
+        """).fetchall() == [("pmid:708353", 9)]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE lower(title) LIKE 'movement by helicopter of patients with decompression sickness%'
+            GROUP BY report_id
+        """).fetchall() == [("pmid:708353", 17)]
+
+
 def test_bassett_post_dive_profiles_preserve_case_certainty_and_stage_risk_sets(release):
     with connect_pair(release) as db:
         assert db.execute("""
