@@ -283,6 +283,7 @@ NASA_SOAR_REPEAT_EXPOSURE = ROOT / "data" / "chamber" / "v1.215"
 NASA_JSC_EPIDEMIOLOGY = ROOT / "data" / "chamber" / "v1.216"
 NASA_CMB_TIMING = ROOT / "data" / "chamber" / "v1.217"
 NASA_NITROGEN_WASHOUT = ROOT / "data" / "chamber" / "v1.218"
+ROYAL_NAVY_SELECTION_COURSES = ROOT / "data" / "chamber" / "v1.219"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2919,6 +2920,18 @@ def build(
                         "publication_washout_response_group": "response_groups.csv",
                         "publication_washout_mean_difference": "mean_differences.csv",
                         "publication_hydration_washout_subject": "hydration_subjects.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    ROYAL_NAVY_SELECTION_COURSES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_selection_course_role_year": "role_year_categories.csv",
+                        "publication_selection_course_attendance": "course_attendance.csv",
+                        "publication_selection_course_protocol": "course_protocol.csv",
                     },
                 )
                 load_register(db, ROOT)

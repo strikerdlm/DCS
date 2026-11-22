@@ -9,6 +9,101 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_royal_navy_hast_cross_tab_reconciles_existing_course_margins(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(category_a),sum(category_b),sum(category_c)
+            FROM publication_selection_course_role_year
+        """).fetchone() == (65, 1667, 764, 134)
+        assert db.execute("""
+            SELECT grouping,stratum,category_a,category_b,category_c
+            FROM publication_selection_course
+            WHERE source_id='kenyon72_hast' AND grouping IN ('year','role')
+            ORDER BY grouping,stratum
+        """).fetchall() == db.execute("""
+            SELECT 'role',role,sum(category_a),sum(category_b),sum(category_c)
+            FROM publication_selection_course_role_year GROUP BY role
+            UNION ALL
+            SELECT 'year','year_' || course_year,sum(category_a),sum(category_b),sum(category_c)
+            FROM publication_selection_course_role_year GROUP BY course_year
+            ORDER BY 1,2
+        """).fetchall()
+        assert db.execute("""
+            SELECT category_a,category_b,category_c,printed_dash_categories
+            FROM publication_selection_course_role_year
+            WHERE (course_year,role) IN ((1957,'pilots'),(1950,'observers')) ORDER BY course_year
+        """).fetchall() == [(0, 0, 0, "ABC"), (63, 38, 1, "none")]
+        assert db.execute("""
+            SELECT sum(people),sum(courses_per_person*people)
+            FROM publication_selection_course_attendance
+        """).fetchone() == (2135, 2565)
+        assert db.execute("""
+            SELECT peak_altitude_ft,ascent_within_min,planned_dwell_per_run_min,planned_consecutive_runs,
+                   preoxygenation_min FROM publication_selection_course_protocol
+        """).fetchone() == (37000, 10, 60, 3, 0)
+
+
+def test_royal_navy_hast_aliases_and_comparison_keep_counting_units(release):
+    with connect_pair(release) as db:
+        for key in ("kenyon72_hast_table_iv", "gould-1963"):
+            record, = db.execute("""
+                SELECT report_id FROM review.review_record
+                WHERE run_id='2026-11-22-royal-navy-hast-firecrawl' AND source_key=?
+            """, (key,)).fetchone()
+            count, = db.execute("""
+                SELECT count(*) FROM review.review_record WHERE report_id=?
+            """, (record,)).fetchone()
+            assert count == {"kenyon72_hast_table_iv": 12, "gould-1963": 7}[key]
+        raw, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE run_id='2026-11-22-royal-navy-hast-firecrawl' AND source_key='kenyon72_hast_table_iv'
+        """).fetchone()
+        metadata = json.loads(raw)
+        assert (metadata["year_1957_table_iii_total_as_printed"], metadata["year_1957_verified_total"]) == (177, 174)
+        assert len(metadata["role_year_category_cells"]) == 65
+        assert metadata["comparison_years_1961_1962"] == {
+            "unit": "course", "n": 371, "category_a": 228, "category_b": 119, "category_c": 24,
+        }
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role FROM publication_observation
+            WHERE source_id='cannon64_aviators' AND stratum='hast-365' ORDER BY endpoint
+        """).fetchall() == [(238, 365, "person", "overlap_hold"), (109, 365, "person", "overlap_hold"),
+                            (18, 365, "person", "overlap_hold")]
+        assert not db.execute("""
+            SELECT 1 FROM publication_observation WHERE source_id='kenyon72_hast_table_iv'
+        """).fetchall()
+        gould = [
+            ("first_time_hast_subjects", 223, 357, "person", "overlap_hold"),
+            ("hast_category_a_source", 224, 357, "person", "overlap_hold"),
+            ("hast_category_b_source", 115, 357, "person", "overlap_hold"),
+            ("hast_category_c_source", 18, 357, "person", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role FROM publication_observation
+            WHERE source_id='gould63_hast_preview' ORDER BY endpoint
+        """).fetchall() == gould
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit,role_review FROM review.review_search_observation
+            WHERE study_id='royal-navy-gould-1961-1962-357-people' ORDER BY endpoint
+        """).fetchall() == gould
+        rates = db.execute("""
+            SELECT reported_rate_percent,evidence_url FROM review.review_search_observation
+            WHERE study_id='royal-navy-gould-1961-1962-357-people' ORDER BY endpoint
+        """).fetchall()
+        assert rates == [(percent, "https://jrnms.bmj.com/content/49/2/93") for percent in (None, 61.7, 33.2, 5.1)]
+        raw, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE run_id='2026-11-22-royal-navy-hast-firecrawl' AND source_key='gould-1963'
+        """).fetchone()
+        gould_metadata = json.loads(raw)
+        assert gould_metadata["access"] == "publisher_first_page"
+        assert gould_metadata["reported_category_percentages"] == {"a": 61.7, "b": 33.2, "c": 5.1}
+        assert "alternate mornings" in gould_metadata["source_protocol"]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_nasa_washout_links_existing_chamber_series_without_recounting(release):
     with connect_pair(release) as db:
         pooled = "edwards85_pooled_n2_washout"
