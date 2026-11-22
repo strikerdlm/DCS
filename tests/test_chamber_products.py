@@ -8,6 +8,104 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_cincinnati_exploratory_participant_counts_keep_flight_unit_unresolved(release):
+    with connect_pair(release) as db:
+        expected = [
+            ("descent_for_pulmonary_manifestations_occurrence_as_reported", 6, None, None),
+            ("participant_at_least_one_bends_as_reported", 17, 19, "person"),
+            ("participant_descent_for_pulmonary_manifestations_as_reported", 3, 19, "person"),
+            ("participant_pulmonary_manifestations_as_reported", 6, 19, "person"),
+            ("participant_syncopal_like_reaction_as_reported", 6, 19, "person"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='blankenhorn42_progress6' AND analysis_role='overlap_hold'
+            ORDER BY endpoint
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id='report:oemcmr-36:6' AND study_id='cincinnati-1942-35000-ft-activity-series'
+            ORDER BY endpoint
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='blankenhorn42_progress6'
+        """).fetchall() == [(73, 19)]
+        assert db.execute("""
+            SELECT json_type(metadata_json,'$.source_scope.standardized_flights_counting_unit')
+            FROM review.review_record WHERE report_id='report:oemcmr-36:6'
+              AND run_id='2026-11-22-cam-cincinnati-exploratory-retest-verified'
+        """).fetchall() == [("null",)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:oemcmr-36:6' AND right_report='report:oemcmr-36:7'
+        """).fetchall() == [("likely_overlap",)]
+
+
+def test_cincinnati_preselection_attendance_does_not_replace_analysis_scopes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE (source_id='blankenhorn43_progress13'
+              OR source_id='ferris43_cincinnati_selection' AND stratum IN (
+                 'cincinnati-first-flight','cincinnati-repeated-program','cincinnati-seven-test-discussion'))
+            ORDER BY stratum
+        """).fetchall() == [
+            ("cincinnati-august-seven-flight-completers", 560, 80),
+            ("cincinnati-first-flight", None, 102),
+            ("cincinnati-preselection-enrolled", None, 102),
+            ("cincinnati-repeated-program", None, 78),
+            ("cincinnati-seven-test-discussion", None, 83),
+        ]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id='report:oemcmr-36:13'
+        """).fetchall() == [("completed_all_seven_planned_chamber_flights", 80, 102, "person")]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:oemcmr-36:13' AND right_report='nlm:101085500x233:220:ferris'
+        """).fetchall() == [("partial_overlap",)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='report:oemcmr-36:14'
+        """).fetchone() == (0,)
+
+
+def test_cincinnati_table_4_preserves_both_methods_and_printed_column_discrepancies(release):
+    with connect_pair(release) as db:
+        model = db.execute("""
+            SELECT stratum,endpoint,CAST(reported_percent AS REAL),denominator
+            FROM publication_reported_rate WHERE source_id='ferris43_cincinnati_selection'
+              AND denominator_unit='person' AND analysis_role='overlap_hold'
+            ORDER BY stratum,endpoint
+        """).fetchall()
+        review = db.execute("""
+            SELECT reported_group,endpoint,reported_rate_percent,denominator
+            FROM review.review_search_observation
+            WHERE report_id='nlm:101085500x233:220:ferris' AND cases IS NULL
+              AND run_id='2026-11-22-cam-cincinnati-exploratory-retest-verified'
+            ORDER BY reported_group,endpoint
+        """).fetchall()
+        assert len(model) == 56
+        assert model == review
+        assert {row[-1] for row in model} == {78}
+        assert db.execute("""
+            SELECT count(*) FROM publication_reported_rate WHERE source_id='ferris43_cincinnati_selection'
+              AND endpoint='score_classification_b_as_reported' AND protocol LIKE 'Class B1 %'
+        """).fetchone() == (7,)
+        totals = db.execute("""
+            SELECT stratum,endpoint GLOB 'score_*' AS score_method,
+                   round(sum(CAST(reported_percent AS REAL)),1) AS printed_total
+            FROM publication_reported_rate WHERE source_id='ferris43_cincinnati_selection'
+            GROUP BY stratum,score_method HAVING abs(printed_total-100)>0.2
+            ORDER BY stratum,score_method
+        """).fetchall()
+        assert totals == [
+            ("cincinnati-7flight-38000-flight-4", 0, 116.7),
+            ("cincinnati-7flight-38000-flight-4", 1, 87.2),
+        ]
+
+
 def test_cincinnati_1942_exact_condition_counts_keep_repeated_people_separate(release):
     with connect_pair(release) as db:
         expected = [
