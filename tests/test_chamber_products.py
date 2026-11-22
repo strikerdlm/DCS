@@ -8,6 +8,54 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_mayo_crew_training_reconciles_logs_without_replacing_source_totals(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='mayo42_307th_indoctrination'
+        """).fetchall() == [(23, 203, "person", "overlap_hold")]
+        assert db.execute("""
+            SELECT distinct_crews,chamber_crew_runs,reported_person_exposures,
+                   jeopardized_crew_runs,other_crew_runs
+            FROM publication_chamber_crew_training WHERE source_id='mayo42_307th_indoctrination'
+        """).fetchall() == [(21, 44, 380, 20, 24)]
+        assert db.execute("""
+            SELECT run_number FROM publication_chamber_crew_run
+            WHERE source_id='mayo42_307th_indoctrination' ORDER BY run_number
+        """).fetchall() == [(n,) for n in range(23, 67)]
+        assert db.execute("""
+            SELECT runs,COUNT(*) FROM (
+                SELECT COUNT(*) AS runs FROM publication_chamber_crew_run
+                WHERE source_id='mayo42_307th_indoctrination' GROUP BY squadron,crew_number
+            ) GROUP BY runs ORDER BY runs
+        """).fetchall() == [(1, 1), (2, 17), (3, 3)]
+        assert db.execute("""
+            SELECT log_assessment,COUNT(*) FROM publication_chamber_crew_run
+            WHERE source_id='mayo42_307th_indoctrination'
+            GROUP BY log_assessment ORDER BY log_assessment
+        """).fetchall() == [
+            ("incapacitation_with_mission_effect", 17),
+            ("no_serious_bends_effect_reported", 22),
+            ("other_or_qualified_mission_effect", 4),
+            ("pain_forced_descent_mission_unrated", 1),
+        ]
+        assert db.execute("""
+            SELECT report_id,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation
+            WHERE study_id='mayo-307th-indoctrination-october-1942'
+            ORDER BY denominator
+        """).fetchall() == [
+            ("report:mayo-1942-series-a-2-307th", 20, 44, "chamber_crew_run", "overlap_hold"),
+            ("report:mayo-1942-series-a-2-307th", 23, 203, "person", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='mayo-307th-indoctrination-october-1942' ORDER BY report_id
+        """).fetchall() == [
+            ("report:mayo-1942-monthly-progress-6",), ("report:mayo-1942-series-a-2-307th",),
+        ]
+
+
 def test_diagnostic_case_and_berkeley_figure_keep_their_existing_counting_units(release):
     with connect_pair(release) as db:
         assert db.execute("""
