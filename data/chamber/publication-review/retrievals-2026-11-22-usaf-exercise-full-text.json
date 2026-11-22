@@ -1,0 +1,374 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-usaf-exercise-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_exercise_citation_and_full_text_lookup",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "query": "Exercise-induced altitude DCS Table II original publisher PDF and related records",
+          "request_id": "fd128b73-ec3f-430f-913e-5536a11beb46",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/1/article-p22.pdf"
+        },
+        {
+          "query": "Olson Pilmanis Fischer Webb isometric isotonic exercise altitude decompression sickness USAFSAM protocol 87-15 chamber participant alternative publications rest 29500",
+          "request_id": "f4d773af-91e7-4df6-b422-fe4f95af7650"
+        },
+        {
+          "query": "Pilmanis 9895017 and Olson Abstract 167 and ADA268221 archive metadata",
+          "request_id": "067172a1-0f40-4205-bb57-4983854edb1c",
+          "status": "abstract and archive metadata retrieved, PubMed fetch unavailable"
+        },
+        {
+          "query": "Metabolic Monitoring of Hypobaric Subjects DTIC direct PDF",
+          "request_id": "1a5e03b2-067f-4c28-9c9e-e89131459a16",
+          "status": "fetch failed"
+        }
+      ]
+    },
+    "note": "Verified the original journal and meeting abstract on the rendered publisher scans. Abstract percentages cannot be back-converted to exact counts.",
+    "records": [
+      {
+        "id": "pilmanis99_exercise_fulltext",
+        "title": "Exercise-induced altitude decompression sickness",
+        "authors": [
+          "A A Pilmanis",
+          "R M Olson",
+          "M D Fischer",
+          "J F Wiegman",
+          "J T Webb"
+        ],
+        "year": 1999,
+        "pmid": "9895017",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/1/article-p22.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/1/article-p22.pdf",
+        "source_sha256": "fc69bd9a3733334b2a6c0ee86a939bbf5e7ac02c83983b998028fd8d96b1dca5",
+        "access": "full_text",
+        "locator": "Table II, printed p. 26 (PDF p. 5)",
+        "study_id": "usaf-brooks-exercise-altitude-dcs",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "rest-dcs_symptoms_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "rest",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 0,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "rest-any_vge_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "rest",
+            "endpoint": "any_vge_as_reported",
+            "cases": 16,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 50,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "rest-spencer_3_4_vge",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "rest",
+            "endpoint": "spencer_3_4_vge",
+            "cases": 12,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 38,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "dynamic_arm-dcs_symptoms_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "dynamic_arm",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 16,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 50,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "dynamic_arm-any_vge_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "dynamic_arm",
+            "endpoint": "any_vge_as_reported",
+            "cases": 17,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 53,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "dynamic_arm-spencer_3_4_vge",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "dynamic_arm",
+            "endpoint": "spencer_3_4_vge",
+            "cases": 14,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 44,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "dynamic_leg-dcs_symptoms_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "dynamic_leg",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 12,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 38,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "dynamic_leg-any_vge_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "dynamic_leg",
+            "endpoint": "any_vge_as_reported",
+            "cases": 20,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 63,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "dynamic_leg-spencer_3_4_vge",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "dynamic_leg",
+            "endpoint": "spencer_3_4_vge",
+            "cases": 13,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 41,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "isometric_arm-dcs_symptoms_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_arm",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 13,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 41,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "isometric_arm-any_vge_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_arm",
+            "endpoint": "any_vge_as_reported",
+            "cases": 15,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 47,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "isometric_arm-spencer_3_4_vge",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_arm",
+            "endpoint": "spencer_3_4_vge",
+            "cases": 11,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 34,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "isometric_leg-dcs_symptoms_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_leg",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 10,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 31,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "isometric_leg-any_vge_as_reported",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_leg",
+            "endpoint": "any_vge_as_reported",
+            "cases": 21,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 66,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          },
+          {
+            "id": "isometric_leg-spencer_3_4_vge",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_leg",
+            "endpoint": "spencer_3_4_vge",
+            "cases": 18,
+            "denominator": 32,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 56,
+            "chamber_role": "research_subject",
+            "locator": "Table II, printed p. 26 (PDF p. 5)",
+            "note": "Count read from individual Table II markings. All five columns repeat the same 32 people. Rest was selected for absence of symptoms."
+          }
+        ],
+        "individual_outcome_table": "data/chamber/v1.213/participant_exposures.csv",
+        "repeated_participants": 32,
+        "altitudes_at_ceiling": 22,
+        "dcs_without_detected_vge": 12,
+        "all_table_exposures": 160,
+        "study_design": "Participant-specific, selected event-free resting altitude followed by four randomized exercise conditions. The summary includes 51 endpoint DCS exposures. The two texts conflict on how many all-arm noncases were tested at the 29,500 ft ceiling. Table II has ten such participants and one additional all-arm noncase at 27,500 ft.",
+        "workload_note": "Arm-level whole-body oxygen consumption over 12 min with 4 min exercise and 8 min at rest. Methods describes the workload-matching test. Individual altitude-flight VO2 and one-minute peaks are unavailable."
+      },
+      {
+        "id": "olson95_asma_exercise",
+        "title": "Decompression sickness risk and the mode of exercise at altitude",
+        "authors": [
+          "R M Olson",
+          "A A Pilmanis",
+          "J T Webb"
+        ],
+        "year": 1995,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29",
+        "source_sha256": "e877d408f75279603de254e0089099f8e543e558fa51ab099f1dc2110c9dd0c0",
+        "access": "primary_abstract",
+        "locator": "Abstract 167, printed p. 491 (PDF p. 29)",
+        "study_id": "usaf-brooks-exercise-altitude-dcs",
+        "role_review": "overlap_hold",
+        "study_participants": 26,
+        "workload_as_reported": "Approximately 15% of maximal oxygen consumption. Window unspecified.",
+        "observations": [
+          {
+            "id": "isotonic_arm-dcs-as-printed",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isotonic_arm",
+            "endpoint": "dcs_symptoms_as_reported",
+            "reported_rate_percent": 48,
+            "chamber_role": "research_subject",
+            "locator": "Abstract 167, printed p. 491 (PDF p. 29)",
+            "note": "The abstract reports 26 subjects overall. Exact event counts and arm-specific denominators were not reported."
+          },
+          {
+            "id": "isotonic_leg-dcs-as-printed",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isotonic_leg",
+            "endpoint": "dcs_symptoms_as_reported",
+            "reported_rate_percent": 33,
+            "chamber_role": "research_subject",
+            "locator": "Abstract 167, printed p. 491 (PDF p. 29)",
+            "note": "The abstract reports 26 subjects overall. Exact event counts and arm-specific denominators were not reported."
+          },
+          {
+            "id": "isometric_arm-dcs-as-printed",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_arm",
+            "endpoint": "dcs_symptoms_as_reported",
+            "reported_rate_percent": 37,
+            "chamber_role": "research_subject",
+            "locator": "Abstract 167, printed p. 491 (PDF p. 29)",
+            "note": "The abstract reports 26 subjects overall. Exact event counts and arm-specific denominators were not reported."
+          },
+          {
+            "id": "isometric_leg-dcs-as-printed",
+            "study_id": "usaf-brooks-exercise-altitude-dcs",
+            "group": "isometric_leg",
+            "endpoint": "dcs_symptoms_as_reported",
+            "reported_rate_percent": 33,
+            "chamber_role": "research_subject",
+            "locator": "Abstract 167, printed p. 491 (PDF p. 29)",
+            "note": "The abstract reports 26 subjects overall. Exact event counts and arm-specific denominators were not reported."
+          }
+        ],
+        "note": "The Brooks reports share Olson, Pilmanis and Webb, the FL295 symptom-free resting-altitude selection design and the same four repeated arm and leg conditions. The preliminary abstract reports 26 men and the article 32. The participant crosswalk is unavailable."
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-usaf-exercise-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_usaf_workload_methods_full_text",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://archive.org/download/DTIC_ADA268221/DTIC_ADA268221.pdf",
+          "scrape_id": "01a20336-66d0-71ab-aa89-104739f61f0c",
+          "status": "PDF retrieved"
+        },
+        {
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA268221.pdf",
+          "scrape_id": "01a20332-bb24-7443-9a03-ae3b656e9863",
+          "status": "maintenance page"
+        }
+      ]
+    },
+    "note": "Archive mirror supplies the released original, verified on the rendered pages. Representative pretest measurements supply workload methods and no clinical event data.",
+    "records": [
+      {
+        "id": "wiegman93_metabolic_monitoring",
+        "title": "Metabolic Monitoring of Hypobaric Subjects",
+        "authors": [
+          "J F Wiegman",
+          "S A McLean",
+          "R W Olson",
+          "A A Pilmanis"
+        ],
+        "year": 1993,
+        "url": "https://archive.org/download/DTIC_ADA268221/DTIC_ADA268221.pdf",
+        "primary_source": "https://archive.org/download/DTIC_ADA268221/DTIC_ADA268221.pdf",
+        "source_sha256": "3aaa216e778714e01013b40d06e882f1682ec7e71214f52c84d358f7d611d51b",
+        "access": "full_text",
+        "locator": "Representative Results, Tables 1 and 2, printed pp. 10 and 14 (PDF pp. 16 and 20)",
+        "accession": "ADA268221",
+        "report_number": "AL-TR-1991-0057",
+        "study_id": "usaf-brooks-exercise-altitude-dcs",
+        "role_review": "metabolic_methods_without_clinical_outcomes",
+        "protocol_reference": "USAFSAM 87-15",
+        "representative_pretest_participants": 4,
+        "workload_records": 8,
+        "participant_crosswalk": null,
+        "note": "Reference 22 of the journal cites this equipment and exercise calibration report, which identifies USAFSAM protocol 87-15. Its A–D labels belong to the four representative upper-body pretests. Linkage to the numbered clinical participants is unavailable."
+      }
+    ]
+  }
+]

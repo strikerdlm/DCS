@@ -144,6 +144,7 @@ SOURCE_REGISTERS = (
     "v1.210",
     "v1.211",
     "v1.212",
+    "v1.213",
     "sharepoint-2026-11-19",
     "fac-official",
     "rojas-2015",

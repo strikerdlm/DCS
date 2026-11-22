@@ -9,6 +9,78 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_usaf_exercise_table_reproduces_outcomes_within_participant(release):
+    with connect_pair(release) as db:
+        counts = db.execute("""
+            SELECT arm,count(*),sum(dcs_endpoint_observed),sum(vge_band!='none_detected'),
+                   sum(vge_band='spencer_3_4'),sum(dcs_endpoint_observed AND vge_band='none_detected')
+            FROM publication_exercise_participant_exposure GROUP BY arm ORDER BY arm
+        """).fetchall()
+        assert counts == [
+            ("dynamic_arm", 32, 16, 17, 14, 4), ("dynamic_leg", 32, 12, 20, 13, 2),
+            ("isometric_arm", 32, 13, 15, 11, 4), ("isometric_leg", 32, 10, 21, 18, 2),
+            ("rest", 32, 0, 16, 12, 0),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT study_participant),sum(selected_altitude_ft=29500)
+            FROM publication_exercise_participant_exposure WHERE arm='rest'
+        """).fetchone() == (32, 32, 22)
+        assert db.execute("""
+            SELECT study_participant FROM publication_exercise_participant_exposure
+            GROUP BY study_participant HAVING count(*) != 5 OR count(DISTINCT selected_altitude_ft) != 1
+        """).fetchall() == []
+        assert db.execute("""
+            SELECT participants,prebreathe_min,planned_altitude_duration_min,exercise_min_per_cycle,
+                   exercise_cycle_min,analysis_role FROM publication_exercise_trial
+        """).fetchone() == (32, 60, 240, 4, 20, "overlap_hold")
+        review_counts = db.execute("""
+            SELECT reported_group,denominator,MAX(CASE WHEN endpoint='dcs_symptoms_as_reported' THEN cases END),
+                   MAX(CASE WHEN endpoint='any_vge_as_reported' THEN cases END),
+                   MAX(CASE WHEN endpoint='spencer_3_4_vge' THEN cases END)
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-usaf-exercise-tavily' AND report_id='pmid:9895017'
+              AND role_review='overlap_hold' AND denominator_unit='person_exposure'
+            GROUP BY reported_group,denominator ORDER BY reported_group
+        """).fetchall()
+        assert review_counts == [row[:5] for row in counts]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
+def test_usaf_exercise_abstract_and_pretests_keep_separate_provenance(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM model_report_link WHERE source_id IN ('pilmanis99','pilmanis99_exercise_fulltext')
+        """).fetchall() == [("pmid:9895017",)]
+        assert db.execute("""
+            SELECT reported_group,reported_rate_percent,cases,denominator FROM review.review_search_observation
+            WHERE report_id='asma:1995:491:167' AND role_review='overlap_hold' ORDER BY reported_group
+        """).fetchall() == [
+            ("isometric_arm", 37, None, None), ("isometric_leg", 33, None, None),
+            ("isotonic_arm", 48, None, None), ("isotonic_leg", 33, None, None),
+        ]
+        assert db.execute("""
+            SELECT left_report,relationship FROM review.review_report_relation
+            WHERE right_report='pmid:9895017' AND left_report IN ('asma:1995:491:167','report:ada268221')
+            ORDER BY left_report
+        """).fetchall() == [("asma:1995:491:167", "likely_overlap"), ("report:ada268221", "related_metabolic_methods")]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT pretest_participant) FROM publication_exercise_pretest_vo2
+        """).fetchone() == (8, 4)
+        assert db.execute("""
+            SELECT rest_4min_mean_ml_min,work_4min_mean_ml_min,recovery_4min_mean_ml_min,overall_12min_mean_ml_min
+            FROM publication_exercise_pretest_vo2 WHERE pretest_participant='A' AND arm='isometric_arm'
+        """).fetchone() == (204, 577, 337, 370)
+        assert db.execute("""
+            SELECT vo2_mean_ml_kg_min,vo2_sd_ml_kg_min,vo2_min_ml_kg_min,vo2_max_ml_kg_min
+            FROM publication_exercise_arm WHERE arm='isometric_arm'
+        """).fetchone() == (4.4, 0.7, 3.1, 6.2)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id='report:ada268221'
+        """).fetchone() == (0,)
+
+
 def test_farnborough_counts_and_schedules_keep_their_native_risk_sets(release):
     with connect_pair(release) as db:
         expected = [
