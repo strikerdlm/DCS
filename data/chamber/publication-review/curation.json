@@ -20903,6 +20903,36 @@
       "report_id": "report:cam-137",
       "basis": "Retrieval attempt for CAM 137, already identified in the original bibliography and retained under its canonical report number.",
       "evidence_url": "https://archive.org/details/in.ernet.dli.2015.116475/page/n461/mode/1up"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.238/sources.csv#gray44_sam216_denitrogenation",
+      "report_id": "report:sam-216-1",
+      "basis": "Original Air Force report number on the cover.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997614&seq=1"
+    },
+    {
+      "record_key": "2026-11-22-sam-216-253-archive-firecrawl#gray44_sam216_denitrogenation",
+      "report_id": "report:sam-216-1",
+      "basis": "Original Air Force report number on the cover.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997614&seq=1"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.238/sources.csv#mahady44_sam253_cardiovascular",
+      "report_id": "report:sam-253-1",
+      "basis": "Original Air Force report number on the cover.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997770&seq=1"
+    },
+    {
+      "record_key": "2026-11-22-sam-216-253-archive-firecrawl#mahady44_sam253_cardiovascular",
+      "report_id": "report:sam-253-1",
+      "basis": "Original Air Force report number on the cover.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997770&seq=1"
+    },
+    {
+      "record_key": "2026-11-22-sam-216-253-archive-tavily#nasa_tm_100472",
+      "report_id": "ntrs:19890012936",
+      "basis": "Exact NTRS document number and title",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19890012936"
     }
   ],
   "studies": [
@@ -32589,6 +32619,20 @@
       "relationship": "candidate_overlap",
       "evidence": "The already transcribed 1946 journal Table II gives a 204-flight group with 0.5% bends and chokes and 1.5% chokes-only descents and a 950-flight comparison. HDSD records 90 and 93 share the denominators and two-hour 38,000-ft profile. The 2.0% historical serious DCS entry is consistent with the two rounded chokes categories for row 90. Source identifiers and individual exposure histories are not available.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p606.pdf#page=3"
+    },
+    {
+      "left_report": "report:sam-216-1",
+      "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:3",
+      "relationship": "partial_overlap",
+      "evidence": "Seven group denominators and core rates appear in the later journal, which also includes additional experiments. Methods and p. 2 identify the 727 as the same 331 and 396 classification flights, assessed through 135 minutes.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997614&seq=8"
+    },
+    {
+      "left_report": "report:sam-253-1",
+      "right_report": "report:sam-248-1",
+      "relationship": "partial_overlap",
+      "evidence": "Report 253 directly cites Report 248 and reproduces 221 eight-inch flights and six endpoint counts. The 180 demand flights have no row-level crosswalk to the prior 239.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997770&seq=17"
     }
   ],
   "report_titles": {
@@ -32802,6 +32846,8 @@
     "report:sam-248-1": "The effects of pressure breathing on decompression sickness and circulatory reaction in cadets",
     "report:sam-252-1": "The prevention of aeroembolism in cadets at 45,000 feet by denitrogenation",
     "report:sam-409-1": "The effect of breathing carbon dioxide in oxygen on altitude decompression sickness",
-    "report:sam-458-1": "Present status of the problem of decompression sickness"
+    "report:sam-458-1": "Present status of the problem of decompression sickness",
+    "report:sam-216-1": "Effect of denitrogenation at various altitudes on aeroembolism in cadets",
+    "report:sam-253-1": "The effect of positive pressure breathing upon the blood and cardiovascular system"
   }
 }

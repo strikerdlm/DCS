@@ -302,6 +302,7 @@ HISTORICAL_MODEL_ARCHIVES = ROOT / "data" / "chamber" / "v1.234"
 HDSD_ARCHIVE_LINEAGE = ROOT / "data" / "chamber" / "v1.235"
 GRAY_MASLAND_DESCENT = ROOT / "data" / "chamber" / "v1.236"
 GRAY_SAM_REPORTS = ROOT / "data" / "chamber" / "v1.237"
+GRAY_MAHADY_SOURCE_TABLES = ROOT / "data" / "chamber" / "v1.238"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3124,6 +3125,18 @@ def build(
                     "publication",
                     create_schema=False,
                     extra_tables={"publication_reported_rate": "reported_rates.csv"},
+                )
+                load_supplement(
+                    db,
+                    GRAY_MAHADY_SOURCE_TABLES,
+                    "publication",
+                    extra_tables={
+                        "publication_reported_rate": "reported_rates.csv",
+                        "publication_sam216_group": "denitrogenation_groups.csv",
+                        "publication_sam216_group_membership": "group_membership.csv",
+                        "publication_sam253_postflight_pressure": "postflight_pressure.csv",
+                        "publication_sam253_postflight_lab": "postflight_labs.csv",
+                    },
                 )
                 load_register(db, ROOT)
                 db.commit()

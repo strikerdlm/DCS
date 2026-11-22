@@ -9,6 +9,54 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_gray_mahady_primary_tables_link_reused_chamber_groups(release):
+    with connect_pair(release) as db:
+        group = db.execute("""
+            SELECT g.person_exposures,g.planned_peak_min,g.descent_window_min,r.target_duration_min
+            FROM publication_sam216_group g JOIN publication_reported_rate r
+              ON (r.source_id,r.stratum,r.endpoint) =
+                 (g.linked_rate_source_id,g.linked_rate_stratum,g.linked_rate_endpoint)
+            WHERE g.stratum='classification_727_first_135'
+        """).fetchone()
+        assert group == (727, 180, 135, 120)
+        assert db.execute("""
+            SELECT e.pooled_stratum,p.person_exposures,sum(m.person_exposures),count(*)
+            FROM publication_sam216_group_membership e
+            JOIN publication_sam216_group p ON (p.source_id,p.stratum)=(e.source_id,e.pooled_stratum)
+            JOIN publication_sam216_group m ON (m.source_id,m.stratum)=(e.source_id,e.member_stratum)
+            GROUP BY e.pooled_stratum,p.person_exposures ORDER BY e.pooled_stratum
+        """).fetchall() == [
+            ("classification_727_first_135", 727, 727, 2),
+            ("control_950_first_120", 950, 950, 3),
+        ]
+        assert db.execute("""
+            SELECT bends_or_chokes_descent_percent,reported_se_percentage_points,narrative_comparison_percent
+            FROM publication_sam216_group WHERE stratum='control_950_first_120'
+        """).fetchone() == (24.4, 0.7, 22.4)
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='mahady44_sam253_cardiovascular' AND stratum='positive_pressure'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("descent_bends_with_vasomotor_reaction", 20, 221),
+            ("descent_bends_without_vasomotor_reaction", 18, 221),
+            ("descent_due_to_other_causes", 6, 221),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(cases IS NOT NULL) FROM review.review_search_observation
+            WHERE run_id='2026-11-22-sam-216-253-archive-firecrawl'
+        """).fetchone() == (38, 12)
+        assert db.execute("""
+            SELECT positive_pressure_n,demand_n,difference_as_printed_mm_hg,probability_lower
+            FROM publication_sam253_postflight_pressure
+            WHERE historical_bends_grade=3 AND minutes_after_descent=105
+        """).fetchone() == (6, 2, None, None)
+        assert db.execute("""
+            SELECT sample_count,printed_mean FROM publication_sam253_postflight_lab
+            WHERE stratum='printed_total' AND analyte_as_printed='WBC' AND minutes_after_descent=240
+        """).fetchone() == (31, 9250.0)
+
+
 def test_gray_air_force_reports_preserve_outcomes_and_archive_overlap(release):
     with connect_pair(release) as db:
         model_counts = db.execute("""
