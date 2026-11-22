@@ -307,6 +307,7 @@ TAIWAN_TRAINING_SYMPTOMS = ROOT / "data" / "chamber" / "v1.239"
 HYPOBARIC_SYNCOPE_ASCERTAINMENT = ROOT / "data" / "chamber" / "v1.240"
 RAF_NEUROLOGICAL_CASES = ROOT / "data" / "chamber" / "v1.241"
 FRYER_CHAMBER_CASES = ROOT / "data" / "chamber" / "v1.242"
+TONAWANDA_ARCHIVE = ROOT / "data" / "chamber" / "v1.243"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3177,6 +3178,17 @@ def build(
                     {
                         "publication_observation": "observations.csv",
                         "publication_case_milestone": "case_milestones.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    TONAWANDA_ARCHIVE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_hypobaric_model_archive_scope": "archive_scope.csv",
                     },
                     create_schema=False,
                 )
