@@ -271,6 +271,7 @@ TUCI_NORMOXIC_CROSSOVER = ROOT / "data" / "chamber" / "v1.203"
 ANELL_CHAMBER_VGE = ROOT / "data" / "chamber" / "v1.204"
 ANELL_2019_CHAMBER_TRIAL = ROOT / "data" / "chamber" / "v1.205"
 ANELL_2021_CHAMBER_CASES = ROOT / "data" / "chamber" / "v1.206"
+ANELL_EARLY_EXCURSION = ROOT / "data" / "chamber" / "v1.207"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2737,6 +2738,16 @@ def build(
                         "web_chamber_case_onset_claim": "onset_claims.csv",
                         "web_chamber_vge_analysis_scope": "vge_analysis_scopes.csv",
                         "web_chamber_vge_condition_summary": "vge_condition_summaries.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    ANELL_EARLY_EXCURSION,
+                    {
+                        "web_chamber_source_extract": "source_extracts.csv",
+                        "web_chamber_protocol_plateau": "plateaus.csv",
+                        "web_chamber_stage_vge_summary": "stage_vge.csv",
+                        "web_chamber_hemodynamic_summary": "hemodynamics.csv",
                     },
                 )
             if rojas_supplement:

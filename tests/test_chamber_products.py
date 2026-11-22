@@ -9,6 +9,69 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_early_excursion_grade_cells_preserve_the_reported_altitude_conflict(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT condition,measurement_context,phase,count(*),min(participants_as_reported),max(participants_as_reported)
+            FROM web_chamber_stage_vge_summary WHERE source_id='anell21_excursion'
+            GROUP BY condition,measurement_context,phase ORDER BY condition,measurement_context,phase
+        """).fetchall() == [
+            (condition, context, phase, 6, 10, 10)
+            for condition in ("H", "H-L-H")
+            for context in ("after_knee_bends", "rest")
+            for phase in ("ascent", "descent")
+        ]
+        assert db.execute("""
+            SELECT phase,column_in_phase,altitude_label_as_printed,altitude_ft_as_printed,altitude_ft_per_methods,
+                   resolved_altitude_ft,altitude_status
+            FROM web_chamber_stage_vge_summary WHERE source_id='anell21_excursion' AND resolved_altitude_ft IS NULL
+        """).fetchall() == [("descent",5,"0.5 kft",500,5000,None,"unresolved_source_conflict")] * 4
+        assert db.execute("""
+            SELECT phase,minimum_grade,median_grade,maximum_grade FROM web_chamber_stage_vge_summary
+            WHERE source_id='anell21_excursion' AND condition='H' AND measurement_context='after_knee_bends'
+              AND resolved_altitude_ft=24000 ORDER BY phase
+        """).fetchall() == [("ascent",0,0,1), ("descent",0,3,4)]
+
+
+def test_early_excursion_hemodynamic_cells_keep_dashes_and_source_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT availability,count(*),count(mean),count(standard_deviation) FROM web_chamber_hemodynamic_summary
+            WHERE source_id='anell21_excursion' GROUP BY availability ORDER BY availability
+        """).fetchall() == [("dash_as_printed",4,0,0), ("summary_as_printed",28,28,28)]
+        assert db.execute("""
+            SELECT condition,measure,unit,source_elapsed_min,participants_as_reported
+            FROM web_chamber_hemodynamic_summary WHERE source_id='anell21_excursion' AND availability='dash_as_printed'
+            ORDER BY measure,source_elapsed_min
+        """).fetchall() == [("H",measure,unit,minute,None)
+                            for measure,unit in (("cardiac_output","L_per_min"),("heart_rate","beats_per_min"))
+                            for minute in (100,115)]
+        assert db.execute("""
+            SELECT mean,standard_deviation,participants_as_reported FROM web_chamber_hemodynamic_summary
+            WHERE source_id='anell21_excursion' AND condition='H-L-H' AND measure='heart_rate' AND source_elapsed_min=70
+        """).fetchone() == (63,11,10)
+
+
+def test_early_excursion_tables_enrich_existing_paired_crossover_without_duplicate_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,cases,denominator FROM web_observation
+            WHERE source_id='anell21_excursion' ORDER BY stratum
+        """).fetchall() == [("H","dcs",0,10), ("H-L-H","dcs",0,10)]
+        assert db.execute("""
+            SELECT source_table,source_id FROM model_report_link WHERE report_id='pmid:34410475'
+        """).fetchall() == [("web_source","anell21_excursion")]
+        assert db.execute("""
+            SELECT distinct report_id FROM review.review_record WHERE pmid='34410475' OR doi='10.1007/s00421-021-04794-2'
+        """).fetchall() == [("pmid:34410475",)]
+        assert db.execute("""
+            SELECT json_array_length(metadata_json,'$.table_1_stage_vge'),json_array_length(metadata_json,'$.table_2_hemodynamics'),
+                   json_extract(metadata_json,'$.table_1_header_conflict.resolved_altitude_ft')
+            FROM review.review_record WHERE record_key=
+                '2026-11-22-early-excursion-table-verification-firecrawl#anell-2021-verified-tables-1-and-2'
+        """).fetchone() == (48,32,None)
+
+
 def test_anell_2021_cases_link_to_existing_exposure_counts_and_report(release):
     with connect_pair(release) as db:
         assert db.execute("""

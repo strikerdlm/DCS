@@ -1,6 +1,12 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-early-excursion-table-verification-firecrawl#anell-2021-verified-tables-1-and-2",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "The publisher's DOI and PubMed identify this full-text occurrence as the existing early-excursion report."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.2/sources.csv#anell21_hyperoxic",
       "report_id": "pmid:33752785",
       "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
@@ -18825,6 +18831,12 @@
   ],
   "studies": [
     {
+      "study_id": "anell-2021-early-excursion-oxygen-crossover",
+      "label": "Ånell early-excursion crossover while breathing oxygen",
+      "period": "Reported 2021",
+      "setting": "KTH experimental hypobaric chamber"
+    },
+    {
       "study_id": "anell-2021-hyperoxic-altitude-alternation",
       "label": "Ånell 2021 hyperoxic altitude alternation crossover",
       "period": "Reported 2021",
@@ -20692,6 +20704,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "anell-2021-early-excursion-oxygen-crossover",
+      "report_id": "pmid:34410475",
+      "role": "primary_experimental_crossover",
+      "locator": "Methods pp. 3226-3227, VGE Results pp. 3227-3228, Tables 1 and 2 p. 3228"
+    },
     {
       "study_id": "anell-2021-hyperoxic-altitude-alternation",
       "report_id": "pmid:33752785",
