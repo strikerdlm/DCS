@@ -1,6 +1,78 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.221/sources.csv#guest44_original_diurnal_chamber",
+      "report_id": "nlm:22330650RX3:guest",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX3.nlm.nih.gov/22330650RX3.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-tavily#guest44_original_diurnal_chamber",
+      "report_id": "nlm:22330650RX3:guest",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX3.nlm.nih.gov/22330650RX3.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-firecrawl#guest44_original_diurnal_chamber",
+      "report_id": "nlm:22330650RX3:guest",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX3.nlm.nih.gov/22330650RX3.pdf#page=9"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.221/sources.csv#ray45_classification_chamber_descents",
+      "report_id": "nlm:22330650RX10:ray",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=18"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-tavily#ray45_classification_chamber_descents",
+      "report_id": "nlm:22330650RX10:ray",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=18"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-firecrawl#ray45_classification_chamber_descents",
+      "report_id": "nlm:22330650RX10:ray",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=18"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.221/sources.csv#bricker45_staff_surveillance",
+      "report_id": "nlm:22330650RX9:bricker",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX9.nlm.nih.gov/22330650RX9.pdf#page=11"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-tavily#bricker45_staff_surveillance",
+      "report_id": "nlm:22330650RX9:bricker",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX9.nlm.nih.gov/22330650RX9.pdf#page=11"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-firecrawl#bricker45_staff_surveillance",
+      "report_id": "nlm:22330650RX9:bricker",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX9.nlm.nih.gov/22330650RX9.pdf#page=11"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.221/sources.csv#bricker45_staff_medical_removals",
+      "report_id": "nlm:22330650RX10:bricker",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=14"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-tavily#bricker45_staff_medical_removals",
+      "report_id": "nlm:22330650RX10:bricker",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=14"
+    },
+    {
+      "record_key": "2026-11-22-aaf-chamber-originals-firecrawl#bricker45_staff_medical_removals",
+      "report_id": "nlm:22330650RX10:bricker",
+      "basis": "Same original article on title, byline, issue and pages in the NLM archive scan.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=14"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.220/sources.csv#bachrach44_b17_questionnaire",
       "report_id": "nlm:22330650RX7:bachrach",
       "basis": "The NLM and the mirrored issue agree on title, pagination and September 1944.",
@@ -19443,6 +19515,24 @@
   ],
   "studies": [
     {
+      "study_id": "us-aaf-ray-three-station-classification",
+      "label": "Ray three-station AAF chamber classification",
+      "period": "Bulletin March–April 1945. Exact enrollment dates unavailable.",
+      "setting": "Ellington, Harlingen and San Antonio classification chamber flights."
+    },
+    {
+      "study_id": "us-aaf-bricker-chamber-staff-surveillance",
+      "label": "Bricker AAF chamber technician periodic examinations",
+      "period": "Bulletin January–February 1945. Person-specific follow-up unavailable.",
+      "setting": "Periodic occupational physical examinations across ten AAF altitude training units."
+    },
+    {
+      "study_id": "us-aaf-bricker-selected-staff-removals",
+      "label": "Bricker selected chamber technician medical removals",
+      "period": "Bulletin March–April 1945. Exact dates for linkage unavailable.",
+      "setting": "Technicians selected on medical removal from chamber duty."
+    },
+    {
       "study_id": "bachrach-1944-combat-flight-questionnaire",
       "label": "Bachrach wartime B-17 questionnaire",
       "period": "Published September 1944",
@@ -21436,6 +21526,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "us-aaf-las-vegas-diurnal-38000ft",
+      "report_id": "nlm:22330650RX3:guest",
+      "role": "primary_historical_counts",
+      "locator": "No. 3 pp. 9–10, table p. 9 and byline p. 10 (PDF pp. 9–10)"
+    },
+    {
+      "study_id": "us-aaf-ray-three-station-classification",
+      "report_id": "nlm:22330650RX10:ray",
+      "role": "primary_historical_cross_tabs",
+      "locator": "No. 10 pp. 52–55 (PDF pp. 18–21)"
+    },
+    {
+      "study_id": "us-aaf-bricker-chamber-staff-surveillance",
+      "report_id": "nlm:22330650RX9:bricker",
+      "role": "workforce_surveillance",
+      "locator": "No. 9 pp. 11–17, Neurological p. 14 and conclusion p. 17 (PDF pp. 11–17)"
+    },
+    {
+      "study_id": "us-aaf-bricker-selected-staff-removals",
+      "report_id": "nlm:22330650RX10:bricker",
+      "role": "selected_case_series",
+      "locator": "No. 10 pp. 48–51, cases 3b and 3c on p. 49 (PDF pp. 14–17)"
+    },
     {
       "study_id": "bachrach-1944-combat-flight-questionnaire",
       "report_id": "nlm:22330650RX7:bachrach",
@@ -24762,6 +24876,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "nlm:22330650RX3:guest",
+      "right_report": "asb:1944:1:6:5:guest",
+      "relationship": "same_cohort",
+      "evidence": "January and June reports share author, 32nd Altitude Training Unit in Las Vegas, 38,000 ft for three hours, four clock windows and identical denominators. January adds source counts and two symptom endpoints to the same risk sets.",
+      "evidence_url": "https://archive.org/download/22330650RX3.nlm.nih.gov/22330650RX3.pdf#page=9"
+    },
+    {
+      "left_report": "nlm:22330650RX10:ray",
+      "right_report": "asb:1944:1:6:5:karpovich",
+      "relationship": "unresolved",
+      "evidence": "The 29th San Antonio unit also contributed to the Karpovich fitness report. Source records lack participant identifiers and enrollment dates needed to exclude overlap with that report or later historical compilations.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=18"
+    },
+    {
+      "left_report": "nlm:22330650RX10:bricker",
+      "right_report": "nlm:22330650RX9:bricker",
+      "relationship": "likely_overlap",
+      "evidence": "Same author and training-unit staff setting, with no identifiers or dates for linking individuals. The age-35 mention in the earlier report differs from the two age-24 mentions in the selected case series. Age for the earlier 28th-flight mention is unavailable.",
+      "evidence_url": "https://archive.org/download/22330650RX10.nlm.nih.gov/22330650RX10.pdf#page=14"
+    },
     {
       "left_report": "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200",
       "right_report": "nlm:22330650RX7:bachrach",

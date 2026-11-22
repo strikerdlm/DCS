@@ -285,6 +285,7 @@ NASA_CMB_TIMING = ROOT / "data" / "chamber" / "v1.217"
 NASA_NITROGEN_WASHOUT = ROOT / "data" / "chamber" / "v1.218"
 ROYAL_NAVY_SELECTION_COURSES = ROOT / "data" / "chamber" / "v1.219"
 WARTIME_FLIGHT_QUESTIONNAIRES = ROOT / "data" / "chamber" / "v1.220"
+AAF_CLASSIFICATION_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.221"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2944,6 +2945,19 @@ def build(
                         "publication_flight_questionnaire": "questionnaire_scope.csv",
                         "publication_flight_questionnaire_role": "questionnaire_roles.csv",
                         "publication_historical_flight_survey_summary": "flight_survey_summaries.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    AAF_CLASSIFICATION_CHAMBER_REPORTS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_diurnal_chamber_outcome": "diurnal_outcomes.csv",
+                        "publication_classification_chamber_descent": "classification_descents.csv",
+                        "publication_classification_symptom_hour": "symptom_hours.csv",
+                        "publication_staff_chamber_followup": "staff_followup.csv",
+                        "publication_staff_chamber_case_mention": "staff_case_mentions.csv",
                     },
                 )
                 load_register(db, ROOT)
