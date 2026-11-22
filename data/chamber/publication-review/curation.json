@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-mayo-307th-indoctrination-verified#mayo-memo-a2",
+      "report_id": "report:mayo-1942-series-a-2-307th",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX4-pgimg-48/full/1600,/0/default.jpg",
+      "basis": "Title with the archival 307th correction, report number and October 1942 date identify the original memorandum."
+    },
+    {
+      "record_key": "2026-11-22-mayo-307th-indoctrination-verified#mayo-progress-6",
+      "report_id": "report:mayo-1942-monthly-progress-6",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX2-pgimg-38/full/1600,/0/default.jpg",
+      "basis": "Separate December progress report, explicit cross-reference to Series A No. 2."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.196/sources.csv#mayo42_307th_indoctrination",
+      "report_id": "report:mayo-1942-series-a-2-307th",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX4-pgimg-48/full/1600,/0/default.jpg",
+      "basis": "The model aggregate and run details are from the same October memorandum and attachments."
+    },
+    {
       "record_key": "2026-11-22-berry-diagnostic-chamber-verified#berry-king-1958-case-12",
       "report_id": "report:berry-king-1958-diagnostic-chamber",
       "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112101589437&seq=21",
@@ -18375,6 +18393,12 @@
   ],
   "studies": [
     {
+      "study_id": "mayo-307th-indoctrination-october-1942",
+      "label": "Mayo 307th Bombardment Group chamber indoctrination",
+      "period": "1942-10-05 to 1942-10-17",
+      "setting": "Mayo Aero Medical Unit, Rochester, Minnesota"
+    },
+    {
       "study_id": "usaf-berry-king-diagnostic-chamber-case-12",
       "label": "Berry and King Case 12, selected diagnostic chamber runs",
       "period": "Reported 1958, exact dates unreported",
@@ -20152,6 +20176,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "mayo-307th-indoctrination-october-1942",
+      "report_id": "report:mayo-1942-series-a-2-307th",
+      "role": "primary_chamber_training_memo",
+      "locator": "Series A No. 2, Factual Data B.1–4, image 48. Flight logs 23–66, images 50–93."
+    },
+    {
+      "study_id": "mayo-307th-indoctrination-october-1942",
+      "report_id": "report:mayo-1942-monthly-progress-6",
+      "role": "overlapping_progress_summary",
+      "locator": "Progress Report No. 6, Part III, vol. 2, printed p. 2 and image 38."
+    },
     {
       "study_id": "usaf-berry-king-diagnostic-chamber-case-12",
       "report_id": "report:berry-king-1958-diagnostic-chamber",
@@ -23124,6 +23160,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:mayo-1942-monthly-progress-6",
+      "right_report": "report:mayo-1942-series-a-2-307th",
+      "relationship": "same_cohort",
+      "evidence": "Part III explicitly summarizes Series A No. 2 and repeats the crew, person and outcome counts. It clarifies that the bends percentage is by individual.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX2-pgimg-38/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:mayo-1942-series-a-2-307th",
+      "right_report": "report:link-coleman-1955-aaf-medical-support",
+      "relationship": "possible_wartime_aggregate_overlap",
+      "evidence": "The training dates fit within the later wartime count, but the cumulative AAF Training Command history has no matching Mayo location, dates or crew list. Inclusion of these runs in that count is unverified.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX4-pgimg-48/full/1600,/0/default.jpg"
+    },
     {
       "left_report": "report:berry-king-1958-diagnostic-chamber",
       "right_report": "asb:1944:1:11:1:heath",

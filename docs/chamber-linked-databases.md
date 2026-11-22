@@ -48,11 +48,14 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `dcs-model.sqlite` | `publication_chamber_trial_scope`, `publication_chamber_exposure_stage` | Reported participant and trial totals, nested groups, and pressure, gas and duration of planned staging |
 | `dcs-model.sqlite` | `publication_chamber_activity_tally` | Wartime chamber activity, with counting units and qualifiers for cumulative and selected-session tallies |
 | `dcs-model.sqlite` | `publication_chamber_diagnostic_run` | Actual and sham pressure exposures, prebreathe and symptom course linked to one selected diagnostic case |
+| `dcs-model.sqlite` | `publication_chamber_crew_training`, `publication_chamber_crew_run` | Published crew-level training totals and original run logs, with repeated crews identified by squadron and crew number |
 | Both files | `publication_vge_dcs_percent_range` (model), `review_search_observation` (review) | Published clinical symptom frequency ranges by Doppler grade |
 | Both files | `publication_powell_doppler_margin`, `publication_dervay_doppler_visit` (model), `review_search_observation` (review) | NASA Doppler margins and paired crossover visits, plus source-located clinical summaries and overlap evidence |
 | Both files | `shared_case_evidence`, `dataset_release`, `frozen_input` | Case-to-occurrence evidence, release and input provenance |
 
 Berry and King's Case 12 links a sham chamber run and two symptomatic diagnostic runs to one referred patient. Tobias's Figure 2 gives the three paired chamber classifications behind the existing 17 failures in 36 B-24 subject flights. Both extracts preserve their original counting units. [Versioned extracts](../data/chamber/v1.195) · [Berry and King, p. 19](https://babel.hathitrust.org/cgi/pt?id=uiug.30112101589437&seq=21&view=1up) · [Tobias, Figure 2](https://babel.hathitrust.org/cgi/pt?id=osu.32436001888930&seq=300&view=1up)
+
+Mayo's 1942 memo reports 23 of 203 people incapacitated by bends and 20 of 44 crew chamber runs judged jeopardized. Its 380 person-exposures lack a matching episode count. The 44 numbered logs identify 21 crews and clarify the distribution of repeated runs. The authors' 20/44 margin remains separate from the mission assessments in the individual logs. [Versioned extracts](../data/chamber/v1.196) · [October memo](https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX4-pgimg-48/full/1600,/0/default.jpg) · [December progress report](https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX2-pgimg-38/full/1600,/0/default.jpg)
 
 ## Build and use a release
 

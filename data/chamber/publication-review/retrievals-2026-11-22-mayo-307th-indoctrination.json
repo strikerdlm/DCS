@@ -1,0 +1,216 @@
+[
+  {
+    "id": "2026-11-22-mayo-307th-indoctrination-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_mayo_cohort_source_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "query": "\"Indoctrination of 21 crews\" Mayo 307th bombardment October 1942 bends",
+          "request_id": "196139b5-dc42-4eeb-b90a-fdf1c9753da4"
+        },
+        {
+          "query": "\"23 men\" \"bends\" \"380\" Mayo 307th bombardment chamber",
+          "request_id": "c1dc8d5c-594e-4861-a2cf-c849c0115298"
+        },
+        {
+          "query": "\"Mayo Aero Medical Unit\" \"neurocirculatory\" \"380\" altitude bends",
+          "request_id": "1ded4ec0-4b78-4eba-956a-763ce03b7dea"
+        }
+      ]
+    },
+    "note": "The result lists provided historical context and no independent outcome paper. The primary report and its overlapping progress summary were verified through the National Library of Medicine.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-mayo-307th-indoctrination-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_public_archive_lookup_and_ocr",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-35720540R-mvset",
+          "id": "01a20200-50ff-741b-aa69-5e35283dfbc9"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/ocr/nlm:nlmuid-35720540RX4-mvpart",
+          "id": "01a20201-bd2a-7113-96b1-0ac53787750a"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/ocr/nlm:nlmuid-35720540RX2-mvpart",
+          "id": "01a20201-bd5a-7032-8071-00550460bb47"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/search/nlm:nlmuid-35720540RX4-mvpart?q=MAMU%20FLIGHT%20NO",
+          "id": "01a20206-7d98-762b-b13a-796b83235dea"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/search/nlm:nlmuid-35720540RX2-mvpart?q=23%20men%20were%20incapacitated",
+          "id": "01a20208-bd38-70b9-a83e-905b8f12f1da"
+        }
+      ]
+    },
+    "note": "Whole-volume OCR and the page search located the source reports. Original NLM images were then used to check aggregates, recurring crew identifiers and the log summaries. Historic names in the log pages were omitted from the structured extraction.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-mayo-307th-indoctrination-verified",
+    "date": "2026-11-22",
+    "provider": "National Library of Medicine original page images",
+    "operation": "supplementary_training_outcomes_and_attendance_reconciliation",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Two publications report one Mayo cohort. The primary source contributes two distinct counting units and 44 supporting logs. The progress report verifies the individual denominator.",
+    "records": [
+      {
+        "id": "mayo-memo-a2",
+        "title": "Indoctrination of 21 Crews of the 307th Bombardment Group",
+        "authors": [
+          "Walter M. Boothby"
+        ],
+        "year": 1942,
+        "publication_date": "1942-10-30",
+        "report_number": "W535ac-25829:A:2",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-35720540RX4-mvpart",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX4-pgimg-48/full/1600,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "mayo-307th-indoctrination-october-1942",
+        "role_review": "overlap_hold",
+        "locator": "Series A No. 2, Factual Data B.1–4, image 48. Flight logs 23–66, images 50–93.",
+        "source_scope": {
+          "exposure_start": "1942-10-05",
+          "exposure_end": "1942-10-17",
+          "distinct_crews_reported": 21,
+          "trainees_reported": 203,
+          "crew_runs_reported": 44,
+          "person_exposures_reported": 380,
+          "crew_runs_without_serious_interference_from_bends_reported": 24,
+          "peak_threshold_ft": 35000,
+          "fixed_post_run_followup_minutes": null
+        },
+        "crew_repeat_counts": {
+          "as_printed": {
+            "one_run": 1,
+            "two_runs": 16,
+            "three_runs": 4
+          },
+          "as_printed_implied_total_runs": 45,
+          "by_squadron_and_crew_number_in_44_logs": {
+            "one_run": 1,
+            "two_runs": 17,
+            "three_runs": 3
+          }
+        },
+        "log_assessment_counts": {
+          "incapacitation_with_mission_effect": 17,
+          "pain_forced_descent_mission_unrated": 1,
+          "other_or_qualified_mission_effect": 4,
+          "no_serious_bends_effect_reported": 22
+        },
+        "note": "The roster categories directly reconcile all 44 numbered chamber logs. The printed crew-repeat histogram implies 45 runs and remains documented. The log assessment counts use the written summaries and do not reproduce the authors' independently reported 20/44 margin. Other causes, mixed symptoms and conditional mission assessments remain identifiable.",
+        "observations": [
+          {
+            "id": "trainees-incapacitated",
+            "study_id": "mayo-307th-indoctrination-october-1942",
+            "group": "Individuals across the training series",
+            "endpoint": "person_incapacitated_by_bends_as_reported",
+            "cases": 23,
+            "denominator": 203,
+            "denominator_unit": "person",
+            "reported_rate_percent": 11,
+            "locator": "B.1–3, image 48, and Progress Report 6 Part III, image 38.",
+            "note": "The summary identifies people as the denominator. A matching count of incapacitating episodes among the 380 man-flights is unavailable."
+          },
+          {
+            "id": "crew-runs-jeopardized",
+            "study_id": "mayo-307th-indoctrination-october-1942",
+            "group": "Repeated crew runs",
+            "endpoint": "crew_run_jeopardized_by_bends_as_reported",
+            "cases": 20,
+            "denominator": 44,
+            "denominator_unit": "chamber_crew_run",
+            "reported_rate_percent": 46,
+            "locator": "B.1–3, image 48.",
+            "note": "A crew run counts at most once regardless of the number of incapacitated members. Retain the printed percentage and exact counts. This endpoint measures the authors' assessment of simulated mission interference."
+          }
+        ],
+        "image_sha256": {
+          "48": "b2632d9bec8e223058395a5611e9b25c1b8385eae3665a8473b0f1779f6c3e0b",
+          "50": "74fd975d97b1356820807da5d9d0fcf5f285d5068ad28ffd0511523bd80a12ac",
+          "51": "92b6c3de9833d7de8fb733db58a0415d3658367299d1f550449edd385685f97f",
+          "52": "acf00b9e4f4053348275eeaf0e75c371fb7d8401dcab73a6b5e7bed0c03a07c6",
+          "53": "a59e9f2a7209a7b631979715c6225c2e0aa24eb719ce9d83d430df006d00c06a",
+          "54": "1180ee74f5b735c7c8b703f5db39a569176491e25b7ba72a6a38c98d89ad93dd",
+          "55": "68731d3b28cc9d46614aafbaafc0b1f87d7933a4dde5f3b3e7064c9ed1a1dbc1",
+          "56": "1c03ed5ed6649164f17fe275754a6854daccf1b73ac2bcaeeb4395119e207d07",
+          "57": "4ec7d38e96838b955296bfc0d6646b4d353f0ea1bf61b083d300aa2f9b2f008d",
+          "58": "17bf4b32784f0bda506fbad4c3a182e8b3a04f6a7359e34288dc9f5acc72b767",
+          "59": "461b359146555a1c6f30fec4cb8f72bc15d887bbb59a51fc48948faaac1ccdc3",
+          "60": "3d77a8be8e094da74752341425e2c699559f642594ae374cb81dafe5f13fef40",
+          "61": "db8cf6859299a6e82297ead8bdbc08415772a623fe5dc85337eadf5b9bb26a29",
+          "62": "6d287d10d44d72d4302d2e326c536234220817b30d4e879c6a8c1029cde6b34a",
+          "63": "ffa8223ee6f8bacf5b3c0aebee90f106dd1716ea2f1a02e1f257ab5ce1113565",
+          "64": "19cbb98a33dde121e5818d06e324de6555787ac0f8bfb860957cf896e46224c4",
+          "65": "1d05a6298d38c0af193f5225266fd7ce1d7bd9fb12a1308168c51769f29fe592",
+          "66": "ecc73b4e76315cedfc57b3207f4d214ee9a0d4a18f2295e1172b262d3b6bffa5",
+          "67": "a4896d4f6f18882a50f93f1ec3191d48e0a0271f40c499a7fb4e4ce6a52535c2",
+          "68": "076c351cb890dbf9d2a74e595562895c8bf24bb83300a8a05a580e2cf463117d",
+          "69": "988af40c6acace8fa4c79159a72e2436d63cfafea70886138cb0a6110c14cf10",
+          "70": "a9222c97277b8f7336d5782e21c9359dfb2d44e0629f0496ed3ed622b1308bf4",
+          "71": "0417c7f55924cc552aef27259fc5757911426b20054eca90639be784a5cba2dd",
+          "72": "6bba1e530f0b41d9bcdb1bd0437e25ffc19a012a2d19dac5308a551abaeba0f8",
+          "73": "7dc5d674e706d6c2a56110c7206357661c3d5f8e84eb8b3c8d64804f1079cf0c",
+          "74": "37755554639d279862320896eabd43374542287e12016e91155227817a6261af",
+          "75": "76c73de45bab5d8aed28312328c192df387beb7da2c9fc02011c9ce22110e90c",
+          "76": "00231cb48294ff5c47e47dd0c1a5ce6459aea7fcb4a625f39202aa91f6a5d4d8",
+          "77": "4adcf03ef19221afeb90043ef063af0b7748885496b0075ad5eab69d2356e0bd",
+          "78": "ea0a5e5514066aea4cc604439d5b6d366d3ade50559f854681f6085acf2cdf62",
+          "79": "1a33e452f2923a73cc92601924caa48abf91112aec1ae00424df11e605d1da4f",
+          "80": "cf5f43ec1c27d369418f6fe8b0c395b6508ebaeb2d030910289df27c0fbd3c4f",
+          "81": "586f1370da3f61104dad9baa7af8452f773ecce7ae5863b84700b9c8658295cf",
+          "82": "7d62c30e382e96b106c75ecc011c4494e7dd2e72075fca17b415096625fae80b",
+          "83": "50c8412cf5d873645b1e77f582413fd52791a97a41745b5b88f44b577d659081",
+          "84": "b1d778fa5c45aed550965fa8e7238387cfd8681d64134f4c1470cad0794ffc8f",
+          "85": "631802f41d80a27d975920d9a4c67c6330ab5dc6062dc993641e24d4e0bdf4fe",
+          "86": "cf417ec5065295fd57e88237279597ad24e5e5177acdc16f147e3a5022405b60",
+          "87": "098cb9036c144b792f7e1434b9eb25dfbb69c4f18dce6402aa60b43a7950ea8a",
+          "88": "0a201ff3b57b3fd8f6f75e0327248857e14b1e1cd78529aab2ac66bc3ff6be0b",
+          "89": "c9a04106d4e7d652a4d38ae91dd36b6c0aeb67cfc2f7e7620fa94d4800dcb172",
+          "90": "abbf3286847c593a8b710c5dc5a77d4125cc45fc2bc1c9d8e5d6dfd09d791264",
+          "91": "262242dd3dcbbc845aa135864ebc8acb5f7e4ab8de4219feaacb164cff23d77f",
+          "92": "2cb20848f139420d0172744d4c4611c6a0fe962186b266bbada37b81107ee1ec",
+          "93": "bee8f933fe0c161a76bf01535b72534177c592b68b0cca607337e83608f17e83"
+        }
+      },
+      {
+        "id": "mayo-progress-6",
+        "title": "Mayo Aero Medical Unit Monthly Progress Report No. 6, Part III",
+        "authors": [
+          "Walter M. Boothby",
+          "E. J. Baldes",
+          "Charles F. Code"
+        ],
+        "year": 1942,
+        "publication_date": "1942-12-15",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-35720540RX2-mvpart",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX2-pgimg-38/full/1600,/0/default.jpg",
+        "page_image_sha256": "6976fe637c2096c99c9a6868334a37ddf21405a3789cfedc9af05a0f69727c19",
+        "full_text_available": true,
+        "study_id": "mayo-307th-indoctrination-october-1942",
+        "locator": "Progress Report No. 6, Part III, vol. 2, printed p. 2 and image 38.",
+        "note": "Explicit summary of Series A No. 2. It repeats the same 21 crews, 203 people, 44 crew flights and both outcome numerators. The summary labels 11 percent as a percentage of individuals. The primary memorandum contributes the outcome rows once."
+      }
+    ]
+  }
+]
