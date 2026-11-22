@@ -1,0 +1,375 @@
+[
+  {
+    "id": "2026-11-22-hdsd-scope-and-lineage-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily and original public PDFs",
+    "status": "observed",
+    "operation": "supplementary_source_lineage_verification",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "371cd644-5314-42bb-941d-3cafe88f6c22",
+          "query": "1992 HDSD paper and downloadable original diskette"
+        },
+        {
+          "request_id": "19624762-6918-4a68-baaa-c6323dc3c56f",
+          "query": "HDSD Table II and lineage to the 2001 HDSD and 1996 forced-descent subset"
+        },
+        {
+          "request_id": "d6b07b19-da57-43c9-a552-5b8d68d73715",
+          "query": "Van Liew forced-descent input cohorts"
+        },
+        {
+          "request_id": "fd07a774-5509-4208-8b60-a8821e433833",
+          "query": "SUNY Buffalo primary manuscript or archive"
+        },
+        {
+          "request_id": "640e3e83-1f72-425c-b4ed-259e51a0986a",
+          "query": "Beard and Allen original man-flight total and cabin-stage settings"
+        }
+      ]
+    },
+    "note": "Tables I and II were visually checked against the publisher PDF. The two Van Liew abstracts supply scope and lineage only.",
+    "records": [
+      {
+        "id": "hdsd92_original_tables",
+        "title": "A computerized databank of decompression sickness incidence in altitude chambers",
+        "pmid": "1524540",
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf",
+        "access": "full_text",
+        "source_sha256": "b4b6b303c8787c050083474632248c34c90203c1168c26005f498c7a609817ed",
+        "archive_scope": {
+          "dated_subtotal": {
+            "record_count": 376,
+            "male_person_exposures": 129645,
+            "female_person_exposures": 321,
+            "reported_percent": "99.9"
+          },
+          "period_basis": "Publication years. Repeated exposures in the same person are possible.",
+          "full_archive": {
+            "record_count": 378,
+            "person_exposures": 130012,
+            "report_count": 80
+          },
+          "source_categories": [
+            {
+              "source_id": "conkin92",
+              "category": "Aviation journals",
+              "report_count": 26,
+              "locator": "Table I, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "category": "Other scientific journals",
+              "report_count": 11,
+              "locator": "Table I, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "category": "Government reports",
+              "report_count": 14,
+              "locator": "Table I, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "category": "Chapters in books",
+              "report_count": 6,
+              "locator": "Table I, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "category": "National Research Council reports",
+              "report_count": 11,
+              "locator": "Table I, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "category": "U.S. Committee on Aviation Medicine reports",
+              "report_count": 12,
+              "locator": "Table I, printed p. 820 (PDF p. 2)"
+            }
+          ],
+          "publication_bands": [
+            {
+              "source_id": "conkin92",
+              "band_id": "1942-1950",
+              "first_publication_year": 1942,
+              "last_publication_year": 1950,
+              "record_count": 164,
+              "male_person_exposures": 123554,
+              "female_person_exposures": 69,
+              "reported_percent": "95.0",
+              "locator": "Table II, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "band_id": "1951-1958",
+              "first_publication_year": 1951,
+              "last_publication_year": 1958,
+              "record_count": 18,
+              "male_person_exposures": 465,
+              "female_person_exposures": 0,
+              "reported_percent": "0.3",
+              "locator": "Table II, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "band_id": "1959-1966",
+              "first_publication_year": 1959,
+              "last_publication_year": 1966,
+              "record_count": 22,
+              "male_person_exposures": 581,
+              "female_person_exposures": 0,
+              "reported_percent": "0.4",
+              "locator": "Table II, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "band_id": "1967-1974",
+              "first_publication_year": 1967,
+              "last_publication_year": 1974,
+              "record_count": 47,
+              "male_person_exposures": 1593,
+              "female_person_exposures": 0,
+              "reported_percent": "1.2",
+              "locator": "Table II, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "band_id": "1975-1982",
+              "first_publication_year": 1975,
+              "last_publication_year": 1982,
+              "record_count": 39,
+              "male_person_exposures": 2074,
+              "female_person_exposures": 0,
+              "reported_percent": "1.6",
+              "locator": "Table II, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "band_id": "1983-1990",
+              "first_publication_year": 1983,
+              "last_publication_year": 1990,
+              "record_count": 86,
+              "male_person_exposures": 1378,
+              "female_person_exposures": 252,
+              "reported_percent": "1.3",
+              "locator": "Table II, printed p. 820 (PDF p. 2)"
+            },
+            {
+              "source_id": "conkin92",
+              "band_id": "undated",
+              "first_publication_year": null,
+              "last_publication_year": null,
+              "record_count": 2,
+              "male_person_exposures": 46,
+              "female_person_exposures": 0,
+              "reported_percent": null,
+              "locator": "Table II, printed p. 820 (PDF p. 2), undated-groups footnote"
+            }
+          ],
+          "appendix_c_group_links": [
+            {
+              "source_id": "conkin92",
+              "report_number": 325,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 44,
+              "serious_row_on_page": 25,
+              "original_source_id": "motley45",
+              "relationship": "same_source_group",
+              "evidence": "Original Table I training group 1. Both NASA summaries agree with 7,664 records and its printed 1.9% serious DCS rate. The 2001 source gives 145 cases and explicitly identifies Motley, reference 49."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 326,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 42,
+              "serious_row_on_page": 45,
+              "original_source_id": "motley45",
+              "relationship": "same_source_group",
+              "evidence": "Original Table I training group 2. The 46,683 denominator and 0.7% serious rate match. The later archive gives 327 serious outcomes and identifies Motley, reference 49."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 327,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 42,
+              "serious_row_on_page": 44,
+              "original_source_id": "motley45",
+              "relationship": "same_source_group",
+              "evidence": "Original Table I training group 3. The 4,337 denominator and 0.6% serious rate match. The later archive gives 26 serious outcomes and identifies Motley, reference 49."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 328,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 42,
+              "serious_row_on_page": 28,
+              "original_source_id": "motley45",
+              "relationship": "same_source_group",
+              "evidence": "Original Table I training group 4. The 9,738 denominator and 0.2% serious rate match. The later archive gives 19 serious outcomes and identifies Motley, reference 49."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 190,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 42,
+              "serious_row_on_page": 6,
+              "original_source_id": "smedal46",
+              "relationship": "same_source_group",
+              "evidence": "Smedal Table I has 245 exposures, 10.6% with any pain, exercise at 26,000 ft, about 5.2 psia, and 20 min. NASA Appendix C cites Smedal, reference 60, with zero serious outcomes. Smedal prints 0.4% requiring descent and the classification differs from serious DCS."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 196,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 40,
+              "serious_row_on_page": 26,
+              "original_source_id": "smedal46",
+              "relationship": "same_source_group",
+              "evidence": "Smedal Table I has 379 resting exposures at 26,000 ft and 20 min, with 1.3% any pain. NASA Appendix C cites that report, reference 60. Both compilations give zero serious outcomes."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 343,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 43,
+              "serious_row_on_page": 42,
+              "original_source_id": "vakar77_jprs_69964",
+              "relationship": "same_source_group",
+              "evidence": "NASA Appendix C cites Vakar, reference 64. The translation reports exactly 434 exposures at 7,000 m and two mild disorders with six hours of exercise. The printed 0.41%, HDSD 0.4% and the rate calculated from 2/434 remain distinct."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 347,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 43,
+              "serious_row_on_page": 41,
+              "original_source_id": "sedov80_waste_gas",
+              "relationship": "candidate_overlap",
+              "evidence": "The groups have 585 exposures and zero serious outcomes. NASA Appendix C cites Sedov, reference 59. The original counts by gas condition and independent protocol identifiers are unavailable."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 109,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 40,
+              "serious_row_on_page": 6,
+              "original_source_id": "beard67",
+              "relationship": "candidate_overlap",
+              "evidence": "The HDSD and Appendix C list 343 exposures and zero serious outcomes. Appendix C cites Beard, reference 11. The original gives a matching 5.0 psia, 2.5-hour cabin stage and 334 simulated flights overall. It does not specify a 343-exposure risk set for that stage."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 78,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 45,
+              "serious_row_on_page": 6,
+              "original_source_id": "gray_masland46",
+              "relationship": "same_source_group",
+              "evidence": "Gray and Masland Table I identifies 223 resting exposures at 38,000 ft for two hours, matching the HDSD profile. Its chokes-only and combined bends-and-chokes percentages are 4.5% and 0.45%. The HDSD prints 5.0% serious DCS, and Appendix C gives 11/223 (4.93%) from Gray Report 458. Preserve all percentages and the distinct all-cause descent endpoint."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 90,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 44,
+              "serious_row_on_page": 44,
+              "original_source_id": null,
+              "relationship": "candidate_overlap",
+              "evidence": "Both compilations give 204 exposures, and 4/204 rounds to the HDSD's 2.0%. Appendix C cites Gray Report 458, reference 32. A separate 204-exposure row also exists, and original group identifiers are missing."
+            },
+            {
+              "source_id": "conkin92",
+              "report_number": 352,
+              "serious_source_id": "conkin01_serious_archive",
+              "serious_printed_page": 45,
+              "serious_row_on_page": 38,
+              "original_source_id": "larrabee43_cam137",
+              "relationship": "candidate_overlap",
+              "evidence": "The HDSD reports 6.0% serious DCS at 3.0 psia with exercise in 204 exposures. Appendix C cites CAM 137, a 38,000-ft exercise report, and gives 12/204 (5.88%). The standalone report was unavailable and the percentages differ."
+            }
+          ]
+        },
+        "locator": "Tables I–III and Explanation of Certain Items, printed pp. 820–821",
+        "note": "The dated tally is a subtotal. The undated footnote completes the record and exposure totals. Table III outcome rows are already present."
+      },
+      {
+        "id": "conkin01_expanded_hdsd",
+        "title": "Evidence-Based Approach to the Analysis of Serious Decompression Sickness with Application to EVA Astronauts",
+        "year": 2001,
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf",
+        "identifier": "NTRS:20010020946",
+        "access": "full_text",
+        "source_sha256": "601397b25eb54bb50342daf137847fd31bead522858a4aa957f631bc751d1607",
+        "locator": "Data on printed p. 3 (PDF p. 9); Appendices A and C",
+        "note": "The source explicitly draws 258 qualifying tests from an expanded 456-test HDSD. Clinical counts in Appendix C were curated previously."
+      },
+      {
+        "id": "van_liew94_forced_descent",
+        "title": "Probabilistic model of altitude decompression sickness based on mechanistic premises",
+        "pmid": "7928907",
+        "doi": "10.1152/jappl.1994.76.6.2726",
+        "year": 1994,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7928907/",
+        "access": "primary_abstract",
+        "reported_sample_size": 7023,
+        "reported_sample_description": "Exercising oxygen-breathing men in published one-step hypobaric tests.",
+        "locator": "Author abstract",
+        "note": "The sample unit cannot be verified beyond the author abstract. The numerator and original inclusion sources were unavailable. The publisher full text requires access."
+      },
+      {
+        "id": "van_liew96_ascent_subset",
+        "title": "Testing of hypotheses about altitude decompression sickness by statistical analyses",
+        "pmid": "8989853",
+        "year": 1996,
+        "url": "https://ntrs.nasa.gov/citations/20040173090",
+        "access": "primary_abstract",
+        "identifier": "NTRS:20040173090",
+        "locator": "Author abstract",
+        "note": "The follow-up explicitly analyzes a smaller subset of the 1994 forced-descent data with known ascent rates. No public full text was attached to the NTRS record."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-hdsd-scope-and-lineage-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_archive_access_check",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "01a204ce-b536-71a0-882a-6a658bed2270",
+          "query": "HDSD diskette or source files"
+        },
+        {
+          "request_id": "01a204cf-baad-7305-a346-74e57646313a",
+          "url": "https://ntrs.nasa.gov/citations/19920072110"
+        },
+        {
+          "request_id": "01a204c9-3f60-754f-8de1-cea21e0f4db7",
+          "query": "Van Liew 1994 publisher PDF or repository copy"
+        }
+      ]
+    },
+    "note": "The NTRS journal record gives the archive dimensions and has no available downloads.",
+    "records": [
+      {
+        "id": "hdsd92_ntrs_catalog",
+        "title": "A computerized databank of decompression sickness incidence in altitude chambers",
+        "year": 1992,
+        "identifier": "NTRS:19920072110",
+        "access": "catalog",
+        "url": "https://ntrs.nasa.gov/citations/19920072110",
+        "note": "Catalogue for the same journal article. No downloadable file is listed."
+      }
+    ]
+  }
+]
