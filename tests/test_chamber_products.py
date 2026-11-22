@@ -9,6 +9,63 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_hdsd_scope_and_serious_archive_links_preserve_the_published_rows(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(report_count)
+            FROM literature_hdsd_source_category WHERE source_id='conkin92'
+        """).fetchone() == (6, 80)
+        assert db.execute("""
+            SELECT count(*),sum(record_count),sum(male_person_exposures),sum(female_person_exposures)
+            FROM literature_hdsd_publication_band WHERE source_id='conkin92'
+        """).fetchone() == (7, 378, 129691, 321)
+        assert db.execute("""
+            SELECT first_publication_year,last_publication_year,record_count,
+                   male_person_exposures,female_person_exposures,reported_percent
+            FROM literature_hdsd_publication_band WHERE source_id='conkin92' AND band_id='undated'
+        """).fetchone() == (None, None, 2, 46, 0, None)
+        assert db.execute("""
+            SELECT h.report_number,h.person_exposures,h.serious_dcs_pct,n.male_exposures,n.serious_cases,
+                   l.original_source_id,l.relationship
+            FROM literature_hdsd_serious_group_link l
+            JOIN literature_hdsd_compilation h USING(source_id,report_number)
+            JOIN publication_nasa_serious_dcs_group n
+              ON (n.source_id,n.printed_page,n.row_on_page)=
+                 (l.serious_source_id,l.serious_printed_page,l.serious_row_on_page)
+            WHERE l.source_id='conkin92' ORDER BY h.report_number
+        """).fetchall() == [
+            (78, 223, 5.0, 223, 11, "gray_masland46", "same_source_group"),
+            (90, 204, 2.0, 204, 4, None, "candidate_overlap"),
+            (109, 343, 0.0, 343, 0, "beard67", "candidate_overlap"),
+            (190, 245, 0.0, 245, 0, "smedal46", "same_source_group"),
+            (196, 379, 0.0, 379, 0, "smedal46", "same_source_group"),
+            (325, 7664, 1.9, 7664, 145, "motley45", "same_source_group"),
+            (326, 46683, 0.7, 46683, 327, "motley45", "same_source_group"),
+            (327, 4337, 0.6, 4337, 26, "motley45", "same_source_group"),
+            (328, 9738, 0.2, 9738, 19, "motley45", "same_source_group"),
+            (343, 434, 0.0, 434, 0, "vakar77_jprs_69964", "same_source_group"),
+            (347, 585, 0.0, 585, 0, "sedov80_waste_gas", "candidate_overlap"),
+            (352, 204, 6.0, 204, 12, "larrabee43_cam137", "candidate_overlap"),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE pmid='1524540'
+            OR lower(title) LIKE '%computerized databank of decompression sickness incidence in altitude chambers%'
+        """).fetchall() == [("pmid:1524540",)]
+        assert db.execute("""
+            SELECT json_array_length(metadata_json,'$.archive_scope.appendix_c_group_links')
+            FROM review.review_record
+            WHERE source_key='hdsd92_original_tables'
+        """).fetchone() == (12,)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:8989853' AND right_report='pmid:7928907'
+        """).fetchall() == [("analyzes_subset",)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE run_id LIKE '2026-11-22-hdsd-scope-and-lineage-%'
+        """).fetchone() == (0,)
+
+
 def test_vann_gerth_archives_preserve_exact_counts_and_raw_rates(release):
     with connect_pair(release) as db:
         counts = db.execute("""

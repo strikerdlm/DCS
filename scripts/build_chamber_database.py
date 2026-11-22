@@ -299,6 +299,7 @@ BASSETT_POST_DIVE = ROOT / "data" / "chamber" / "v1.231"
 BALLDIN_SPORRONG_VIBRATION = ROOT / "data" / "chamber" / "v1.232"
 NASA_2007_ARCHIVE = ROOT / "data" / "chamber" / "v1.233"
 HISTORICAL_MODEL_ARCHIVES = ROOT / "data" / "chamber" / "v1.234"
+HDSD_ARCHIVE_LINEAGE = ROOT / "data" / "chamber" / "v1.235"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3096,6 +3097,15 @@ def build(
                     extra_tables={
                         "publication_hypobaric_model_archive_scope": "archive_scope.csv",
                         "publication_reported_rate": "reported_rates.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    HDSD_ARCHIVE_LINEAGE,
+                    {
+                        "literature_hdsd_source_category": "source_categories.csv",
+                        "literature_hdsd_publication_band": "publication_bands.csv",
+                        "literature_hdsd_serious_group_link": "serious_group_links.csv",
                     },
                 )
                 load_register(db, ROOT)

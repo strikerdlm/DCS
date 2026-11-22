@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-formal-chamber-pubmed#1524540",
+      "report_id": "pmid:1524540",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1524540",
+      "report_id": "pmid:1524540",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W265620341",
+      "report_id": "pmid:1524540",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#19920072110",
+      "report_id": "pmid:1524540",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-scope-and-lineage-tavily#hdsd92_original_tables",
+      "report_id": "pmid:1524540",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-scope-and-lineage-firecrawl#hdsd92_ntrs_catalog",
+      "report_id": "pmid:1524540",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19920072110"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-scope-and-lineage-tavily#conkin01_expanded_hdsd",
+      "report_id": "ntrs:20010020946",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-scope-and-lineage-tavily#van_liew94_forced_descent",
+      "report_id": "pmid:7928907",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/7928907/"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-scope-and-lineage-tavily#van_liew96_ascent_subset",
+      "report_id": "pmid:8989853",
+      "basis": "Same primary publication, matched by author and title with the PMID or NASA report identifier.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040173090"
+    },
+    {
       "record_key": "2026-11-20-formal-chamber-openalex#W826972704",
       "report_id": "openalex:W826972704",
       "basis": "Exact title and archive years match the Wessel–Conkin work on the official NASA landing page.",
@@ -32366,6 +32420,20 @@
       "relationship": "contained_in",
       "evidence": "Separate chapter title, byline and printed pagination within the workshop proceedings.",
       "evidence_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=269"
+    },
+    {
+      "left_report": "ntrs:20010020946",
+      "right_report": "pmid:1524540",
+      "relationship": "selected_from_later_archive_revision",
+      "evidence": "The 2001 Data section selects 258 tests from the expanded 456-test HDSD and cites the 1992 report. The 1992 publication describes 378 records. The associated crosswalk retains exact primary matches and uncertain group candidates.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf"
+    },
+    {
+      "left_report": "pmid:8989853",
+      "right_report": "pmid:7928907",
+      "relationship": "analyzes_subset",
+      "evidence": "The 1996 author abstract explicitly describes the 1994 analysis and specifies that the new sample is a smaller subset with ascent rate available.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040173090"
     }
   ],
   "report_titles": {
