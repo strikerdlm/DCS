@@ -9,6 +9,79 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_nasa_washout_links_existing_chamber_series_without_recounting(release):
+    with connect_pair(release) as db:
+        pooled = "edwards85_pooled_n2_washout"
+        assert db.execute("""
+            SELECT chamber_source_id,series_count,reused_person_exposures,linked_washout_people,
+                   symptom_percent_as_printed,vge_percent_as_printed,comparison_interval_min,
+                   estimated_power_min_percent,estimated_power_max_percent
+            FROM publication_washout_archive_context WHERE source_id=?
+        """, (pooled,)).fetchone() == ("waligora84_shuttle", 3, 173, 27, 26.0, 54.0, 5, 8.0, 30.0)
+        assert db.execute("""
+            SELECT count(*),sum(people) FROM publication_washout_response_group
+            WHERE source_id=? AND group_basis='source_partition'
+        """, (pooled,)).fetchone() == (5, 27)
+        assert db.execute("""
+            SELECT people,plotted_group FROM publication_washout_response_group
+            WHERE source_id=? AND group_basis='overlapping_pool'
+        """, (pooled,)).fetchone() == (14, "IV")
+        assert not db.execute("""
+            SELECT 1 FROM publication_observation WHERE source_id IN (?, 'conkin83_hydration_n2_washout')
+        """, (pooled,)).fetchall()
+        aliases = db.execute("""
+            SELECT count(*),count(DISTINCT report_id)
+            FROM review.review_record WHERE record_key IN (
+                'legacy:data/chamber/v1.17/sources.csv#waligora84_shuttle',
+                '2026-11-20-formal-chamber-openalex#W760264680',
+                '2026-11-20-formal-chamber-ntrs-setting#19840020323'
+            )
+        """).fetchone()
+        assert aliases == (3, 1)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:19850017967' AND right_report='openalex:W829208838'
+        """).fetchone() == ("measurement_reference_without_participant_linkage",)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
+def test_nasa_washout_preserves_printed_measurements_and_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(baseline_washouts),sum(hydrated_washouts)
+            FROM publication_hydration_washout_subject
+        """).fetchone() == (5, 9, 5)
+        assert db.execute("""
+            SELECT estimated_tissue_n2_ml,mean_measured_tissue_n2_removed_ml,baseline_washouts,hydrated_washouts,
+                   total_exhaled_o2_l,n2_concentration_after_3_hours_percent
+            FROM publication_hydration_washout_subject WHERE study_local_subject=4
+        """).fetchone() == (937.0, 606.0, 1, 1, 1769.0, 0.008)
+        model_differences = db.execute("""
+            SELECT washout_min,measurement,unit_as_printed,mean_difference_as_printed
+            FROM publication_washout_mean_difference ORDER BY washout_min,measurement
+        """).fetchall()
+        assert len(model_differences) == 9
+        assert (70, "n2_expiration_rate", "mL/min", -0.000622) in model_differences
+        review_differences = db.execute("""
+            SELECT json_extract(point.value,'$.washout_min'),json_extract(point.value,'$.measurement'),
+                   json_extract(point.value,'$.unit_as_printed'),json_extract(point.value,'$.mean_difference_as_printed')
+            FROM review.review_record r JOIN json_each(r.metadata_json,'$.mean_differences') point
+            WHERE r.run_id='2026-11-22-nasa-washout-firecrawl' AND r.report_id='ntrs:19850017967'
+            ORDER BY 1,2
+        """).fetchall()
+        assert review_differences == model_differences
+        raw, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE run_id='2026-11-22-nasa-washout-firecrawl' AND report_id='openalex:W829208838'
+        """).fetchone()
+        source = json.loads(raw)
+        assert source["fluid_as_printed"] == {"methods": "tap water", "abstract": "distilled water"}
+        assert source["ambient_pressure_basis"] == "atmospheric"
+        assert source["role_review"] == "physiology_only"
+
+
 def test_kumar_cmb_timing_reconciles_one_cohort_across_reports(release):
     with connect_pair(release) as db:
         parent = db.execute("""
