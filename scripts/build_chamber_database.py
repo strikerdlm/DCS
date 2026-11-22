@@ -251,6 +251,7 @@ IAF_CHAMBER_PROTOCOL = ROOT / "data" / "chamber" / "v1.183"
 FAA_NTSB_DC8_CASE = ROOT / "data" / "chamber" / "v1.184"
 KADENA_HYPOBARIC_PROGRAM = ROOT / "data" / "chamber" / "v1.185"
 INDIA_FIELD_SYMPTOM_EVIDENCE = ROOT / "data" / "chamber" / "v1.186"
+NATO_LUPA_PAIRED_CHAMBER = ROOT / "data" / "chamber" / "v1.187"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2485,6 +2486,16 @@ def build(
                     {
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    NATO_LUPA_PAIRED_CHAMBER,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "chamber_trial_scope.csv",
                     },
                     create_schema=False,
                 )

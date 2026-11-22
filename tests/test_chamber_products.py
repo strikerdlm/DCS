@@ -6368,6 +6368,56 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_lupa_proceedings_preserve_pairing_and_reconcile_secondary_values(release):
+    report_id = "doi:10.14339/rto-mp-hfm-124-16-pdf"
+    chapter_id = "doi:10.5772/intechopen.74231"
+    expected = [
+        (stratum, endpoint, 0, 10, "person_exposure")
+        for stratum in ("peak_17500_ft", "peak_35000_ft")
+        for endpoint in ("dcs_signs_or_symptoms_source", "vge_any")
+    ]
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE source_id IN ('lupa05','lupa05_nato_primary') ORDER BY source_id
+        """).fetchall() == [("lupa05", report_id), ("lupa05_nato_primary", report_id)]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit
+            FROM publication_observation WHERE source_id IN ('lupa05','lupa05_nato_primary')
+            ORDER BY stratum,endpoint
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation WHERE report_id=? ORDER BY reported_group,endpoint
+        """, (report_id,)).fetchall() == expected
+        assert db.execute("""
+            SELECT stratum,parent_stratum,participant_count,trial_count,evidence_source_id
+            FROM publication_chamber_trial_scope WHERE source_id='lupa05' ORDER BY stratum
+        """).fetchall() == [
+            ("paired-study-participants", None, 10, None, "lupa05_nato_primary"),
+            ("peak_17500_ft", "paired-study-participants", 10, None, "lupa05_nato_primary"),
+            ("peak_35000_ft", "paired-study-participants", 10, None, "lupa05_nato_primary"),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE lower(title) LIKE '%acute and chronic effects of hypobaric exposure%'
+            GROUP BY report_id
+        """).fetchall() == [(chapter_id, 18)]
+        metadata, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE record_key='2026-11-21-lupa-paired-chamber-verified#sherman-sladky-cross-reference'
+        """).fetchone()
+        discrepancies = json.loads(metadata)["source_discrepancies"]
+        assert [(row["secondary_value"], row["secondary_unit"], row["primary_value"],
+                 row["primary_unit"], row["primary_report"]) for row in discrepancies] == [
+            (40, "lb", 40, "kg", report_id),
+            (35000, "ft", 30000, "ft", "pmid:12234037"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id=?
+        """, (chapter_id,)).fetchone() == (0,)
+
+
 def test_dolma_field_observations_keep_distinct_populations_and_endpoints(release):
     report_id = "openalex:W3190281512"
     expected = [
