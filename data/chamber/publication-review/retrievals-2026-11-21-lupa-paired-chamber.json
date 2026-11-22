@@ -1,0 +1,182 @@
+[
+  {
+    "id": "2026-11-21-lupa-paired-chamber-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_original_report_retrieval",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_ids": [
+        "e5e36437-61f1-41b1-aa17-76b1e96c4db5",
+        "606b79da-f352-4e09-9215-f3270af2b824",
+        "c7ae8708-9124-4911-bd26-6bd612aef045",
+        "6bc575d9-c3ca-4361-8769-cd77daf3fa8f",
+        "aa87f52e-027b-42fd-956f-502ee8dae19e"
+      ],
+      "urls": [
+        "https://www.sto.nato.int/document/exercise-following-simulated-parachuting-from-35000-feet-is-tolerance-reduced-and-is-the-probability-of-post-descent-decompression-sickness-increased",
+        "https://publications.sto.nato.int/publications/STO%20Meeting%20Proceedings/RTO-MP-HFM-124/MP-HFM-124-16.pdf",
+        "https://www.intechopen.com/chapters/59500",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/9/article-p872.pdf"
+      ]
+    },
+    "note": "Original publisher proceedings and the Webb journal copy were read. The official report and prior mirror describe the same paired participants. No independent clinical cohort was verified in this citation check.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-lupa-paired-chamber-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_and_citation_identity",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a2018e-2c50-7148-ba5b-6660bdc0507e",
+      "catalogue_scrape_id": "01a2018a-1225-774f-8af9-96b2ebf718ee",
+      "original_pdf_scrape_id": "01a2018b-1b76-714b-ac8f-5d3252a5520d",
+      "secondary_scrape_id": "01a20189-97b6-701d-86f6-51d84529c7f8",
+      "urls": [
+        "https://www.sto.nato.int/document/exercise-following-simulated-parachuting-from-35000-feet-is-tolerance-reduced-and-is-the-probability-of-post-descent-decompression-sickness-increased",
+        "https://publications.sto.nato.int/publications/STO%20Meeting%20Proceedings/RTO-MP-HFM-124/MP-HFM-124-16.pdf",
+        "https://www.intechopen.com/chapters/59500"
+      ]
+    },
+    "note": "Publisher PDF and chapter text returned HTTP 200 in the connector. The unmediated PDF download timed out. The captured Markdown checksum documents the parsed copy.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-lupa-paired-chamber-verified",
+    "date": "2026-11-21",
+    "provider": "Original publisher proceedings and journal sources",
+    "operation": "supplementary_paired_outcome_and_workload_reconciliation",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "The review gains source-verified observations for the previously indexed study. The existing model risk sets and outcomes are reused. Methods and Table III of Webb et al. give 30,000 ft.",
+    "records": [
+      {
+        "id": "lupa-nato-proceedings",
+        "title": "Exercise Following Simulated Parachuting from 35,000 Feet: Is Tolerance Reduced and is the Probability of Post Descent Decompression Sickness Increased?",
+        "authors": [
+          "Henry Lupa",
+          "Tim D’Oyly"
+        ],
+        "year": 2005,
+        "doi": "10.14339/rto-mp-hfm-124-16-pdf",
+        "url": "https://www.sto.nato.int/document/exercise-following-simulated-parachuting-from-35000-feet-is-tolerance-reduced-and-is-the-probability-of-post-descent-decompression-sickness-increased",
+        "primary_source": "https://publications.sto.nato.int/publications/STO%20Meeting%20Proceedings/RTO-MP-HFM-124/MP-HFM-124-16.pdf",
+        "report_number": "RTO-MP-HFM-124 paper 16",
+        "full_text_available": true,
+        "firecrawl_markdown_sha256": "e35716883cc254b80ec5b2f74124d6b72f318cf0a70e0bec12fbd013e8b28967",
+        "locator": "Methods and Results, printed p. 16-3; Discussion, p. 16-4",
+        "role_review": "descriptive",
+        "study_id": "uk-qinetiq-lupa-2005-paired-chamber",
+        "study_scope": {
+          "participants": 10,
+          "profiles_per_participant": 2,
+          "paired": true,
+          "follow_up_ground_exercise_min": 45,
+          "later_follow_up": null,
+          "exercise_load_kg_as_reported": 40,
+          "rounded_equivalent_lb_as_reported": 88,
+          "exercise_load_locator": "Methods, printed p. 16-3",
+          "publisher_catalogue_author_order": [
+            "Tim D’Oyly",
+            "Henry Lupa"
+          ],
+          "workload_measure": "The authors measured oxygen uptake during ground exercise. The text gives group comparison tests and no numerical group means for oxygen uptake."
+        },
+        "note": "Official proceedings copy of lupa05. The manuscript byline gives Lupa first. The SHA-256 identifies the Firecrawl Markdown extraction from the publisher PDF. The ten participants contributed two paired profiles and the observation window ended with the immediate 45-minute post-descent assessment. The Methods report a 40 kg exercise load, compared with 40 lb in Sherman and Sladky's later chapter. The existing model outcome rows are retained once.",
+        "observations": [
+          {
+            "id": "lupa05-peak_17500_ft-dcs_signs_or_symptoms_source",
+            "study_id": "uk-qinetiq-lupa-2005-paired-chamber",
+            "group": "peak_17500_ft",
+            "endpoint": "dcs_signs_or_symptoms_source",
+            "cases": 0,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Methods and Results, printed p. 16-3; Discussion, p. 16-4",
+            "note": "Signs and symptoms described by the authors as consistent with DCS. Assessment covered the chamber exposure and immediate 45-minute ground exercise. Later surveillance is unavailable. Both profiles used the same ten people. The four outcomes correspond to existing model rows in v1.14."
+          },
+          {
+            "id": "lupa05-peak_17500_ft-vge_any",
+            "study_id": "uk-qinetiq-lupa-2005-paired-chamber",
+            "group": "peak_17500_ft",
+            "endpoint": "vge_any",
+            "cases": 0,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Methods and Results, printed p. 16-3; Discussion, p. 16-4",
+            "note": "Precordial two-dimensional and Doppler echocardiography with Spencer grading. Assessment covered the chamber exposure and immediate 45-minute ground exercise. Later surveillance is unavailable. Both profiles used the same ten people. The four outcomes correspond to existing model rows in v1.14."
+          },
+          {
+            "id": "lupa05-peak_35000_ft-dcs_signs_or_symptoms_source",
+            "study_id": "uk-qinetiq-lupa-2005-paired-chamber",
+            "group": "peak_35000_ft",
+            "endpoint": "dcs_signs_or_symptoms_source",
+            "cases": 0,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Methods and Results, printed p. 16-3; Discussion, p. 16-4",
+            "note": "Signs and symptoms described by the authors as consistent with DCS. Assessment covered the chamber exposure and immediate 45-minute ground exercise. Later surveillance is unavailable. Both profiles used the same ten people. The four outcomes correspond to existing model rows in v1.14."
+          },
+          {
+            "id": "lupa05-peak_35000_ft-vge_any",
+            "study_id": "uk-qinetiq-lupa-2005-paired-chamber",
+            "group": "peak_35000_ft",
+            "endpoint": "vge_any",
+            "cases": 0,
+            "denominator": 10,
+            "denominator_unit": "person_exposure",
+            "locator": "Methods and Results, printed p. 16-3; Discussion, p. 16-4",
+            "note": "Precordial two-dimensional and Doppler echocardiography with Spencer grading. Assessment covered the chamber exposure and immediate 45-minute ground exercise. Later surveillance is unavailable. Both profiles used the same ten people. The four outcomes correspond to existing model rows in v1.14."
+          }
+        ]
+      },
+      {
+        "id": "sherman-sladky-cross-reference",
+        "title": "Acute and Chronic Effects of Hypobaric Exposure upon the Brain",
+        "authors": [
+          "Paul Sherman",
+          "John Sladky"
+        ],
+        "year": 2018,
+        "doi": "10.5772/intechopen.74231",
+        "url": "https://www.intechopen.com/chapters/59500",
+        "primary_source": "https://www.intechopen.com/chapters/59500",
+        "full_text_available": true,
+        "locator": "Section preceding 2.11 and references 96–97",
+        "role_review": "secondary_source_comparison",
+        "source_discrepancies": [
+          {
+            "reference": 96,
+            "field": "ground_exercise_load",
+            "secondary_value": 40,
+            "secondary_unit": "lb",
+            "primary_value": 40,
+            "primary_unit": "kg",
+            "primary_report": "doi:10.14339/rto-mp-hfm-124-16-pdf",
+            "primary_locator": "Methods, p. 16-3"
+          },
+          {
+            "reference": 97,
+            "field": "chamber_altitude",
+            "secondary_value": 35000,
+            "secondary_unit": "ft",
+            "primary_value": 30000,
+            "primary_unit": "ft",
+            "primary_report": "pmid:12234037",
+            "primary_locator": "Methods and Table III, pp. 873–874"
+          }
+        ],
+        "note": "Cites the same paired QinetiQ study and a distinct Brooks study. Its two source-specific discrepancies are retained as secondary statements. No clinical counts are added from the chapter."
+      }
+    ]
+  }
+]
