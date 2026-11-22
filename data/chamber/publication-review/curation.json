@@ -23191,7 +23191,7 @@
   {
     "study_id": "soesterberg-protocol-a-severe-hypoxia",
     "report_id": "pmid:9143751",
-    "role": "primary",
+      "role": "hypoxic_outcome_source",
     "locator": "Protocol A and Study A, p. 411"
   },
   {
@@ -23203,25 +23203,25 @@
   {
     "study_id": "soesterberg-protocol-b-anp-pilot",
     "report_id": "pmid:9143751",
-    "role": "primary",
+      "role": "hypoxic_outcome_source",
     "locator": "Protocol B, p. 411, and Study B, p. 412"
   },
   {
     "study_id": "westendorp-anp-main-study-1993",
     "report_id": "doi:10.1164/ajrccm/148.2.304",
-    "role": "primary",
+      "role": "gas_exchange_context",
     "locator": "Author abstract, Methods and Results, PMID 8393637"
   },
   {
     "study_id": "eskisehir-hypobaric-asystole-2012",
     "report_id": "doi:10.5152/akd.2012.163",
-    "role": "primary",
+      "role": "hypoxic_outcome_source",
     "locator": "Case Report pp. 520–521, Fig. 1, and official erratum p. 619"
   },
   {
     "study_id": "norwegian-simulated-airdrop-hypoxic-syncope",
     "report_id": "pmid:28839003",
-    "role": "primary",
+      "role": "hypoxic_outcome_source",
     "locator": "Methods, Participants and Exposure, and Results, first paragraph"
   },
     {

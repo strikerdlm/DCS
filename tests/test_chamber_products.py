@@ -33,6 +33,18 @@ def test_hypoxic_reactions_and_asma_locators_preserve_explicit_source_identity(r
             WHERE left_report='asma:1992:421:simons-valk-219' AND right_report='pmid:9143751'
         """).fetchone() == ("likely_overlap",)
         assert db.execute("""
+            SELECT report_id, role FROM review.review_study_report
+            WHERE report_id IN ('pmid:9143751','doi:10.1164/ajrccm/148.2.304',
+                                'doi:10.5152/akd.2012.163','pmid:28839003')
+            ORDER BY 1,2
+        """).fetchall() == [
+            ("doi:10.1164/ajrccm/148.2.304", "gas_exchange_context"),
+            ("doi:10.5152/akd.2012.163", "hypoxic_outcome_source"),
+            ("pmid:28839003", "hypoxic_outcome_source"),
+            ("pmid:9143751", "hypoxic_outcome_source"),
+            ("pmid:9143751", "hypoxic_outcome_source"),
+        ]
+        assert db.execute("""
             SELECT report_id FROM review.review_record
             WHERE source_key='https://journals.physiology.org/doi/abs/10.1152/japplphysiol.00169.2017'
         """).fetchall() == [("pmid:28839003",)]
