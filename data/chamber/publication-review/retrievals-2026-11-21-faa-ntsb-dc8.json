@@ -1,0 +1,128 @@
+[
+  {
+    "id": "2026-11-21-faa-ntsb-dc8-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_case_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_request_ids": [
+        "65383bca-5a50-4734-bcfa-ffe73f3e01ec",
+        "9775c46e-0a61-44a7-9281-2cd622ed8013",
+        "4ca2742f-6a8e-4988-ad62-92cca1554607",
+        "68fa3429-f18b-4691-bee4-1390a7883828"
+      ],
+      "extract_request_id": "a400f241-c76a-4878-a514-a48b0ce66e00",
+      "chamber_repository_search_id": "1ac2241e-23dd-41f7-8c22-1f8faa392aab",
+      "query": "DC-8 decompression captain Cincinnati NTSB incapacitated oxygen",
+      "urls": [
+        "https://www.faa.gov/data_research/research/med_humanfacs/aeromedical/aircraftaccident/dc8",
+        "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf"
+      ]
+    },
+    "note": "Located the public NTSB final report and linked it to the FAA clinical narrative. The repository check returned already indexed studies and a restricted NASA test log.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-faa-ntsb-dc8-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_and_docket",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "faa_scrape_id": "01a20168-4ded-77f8-ae56-71576afd5ce5",
+      "ntsb_scrape_id": "01a20169-8dc4-741a-be96-b52e74afd4cd",
+      "docket_scrape_id": "01a20169-f9d0-7538-811a-bc92055aad58",
+      "urls": [
+        "https://www.faa.gov/data_research/research/med_humanfacs/aeromedical/aircraftaccident/dc8",
+        "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf",
+        "https://data.ntsb.gov/Docket?ProjectID=38740"
+      ]
+    },
+    "note": "The public case narrative and final report were readable. The public docket says that it has not been released.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-faa-ntsb-dc8-verified",
+    "date": "2026-11-21",
+    "provider": "Original FAA and NTSB reports",
+    "operation": "supplementary_case_identity_and_chronology_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Same aircraft type, captain, climb and cruise durations, final cruise level, airport diversion and FAA investigator cross-reference. One operational flight event, no validated onset time or clinical incidence denominator.",
+    "records": [
+      {
+        "id": "dc8-faa-case",
+        "title": "A Case of Mixed Decompression Illness Manifestations in a Commercial DC-8 Cargo Jet Pilot",
+        "author": "Stephen J. H. Veronneau; Andrew A. Pilmanis; Stanley R. Mohler",
+        "year": null,
+        "url": "https://www.faa.gov/data_research/research/med_humanfacs/aeromedical/aircraftaccident/dc8",
+        "primary_source": "https://www.faa.gov/data_research/research/med_humanfacs/aeromedical/aircraftaccident/dc8",
+        "html_sha256": "a913e0afd25a6a485304805bfd58d6f69f8962b94c3ce15c7107955fa21403e9",
+        "full_text_available": true,
+        "locator": "FAA case, Sequence of Events, Medical Findings and Discussion",
+        "role_review": "case_conditional",
+        "aircraft": "DC-8-61",
+        "incident_date": "1994-03-15",
+        "date_source": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf#page=1",
+        "page_last_updated": "2009-03-02",
+        "ntsb_id": "NYC94LA062",
+        "case_certainty": "reported_mixed_decompression_illness",
+        "note": "One clinically described pilot from a selected commercial cargo incident. The FAA medical authors describe mixed DCS and arterial gas embolism features. The NTSB investigation attributes incapacitation to decompression sickness. The clinical case is indexed once as mixed decompression illness. No inception cohort or independent exposure denominator is available. NTSB crew statements place radio nonresponse near FL290 while climbing. The FAA narrative places rapid incapacitation after about four minutes at FL330. These are different observations of impairment. First clinical symptom time and cabin pressure history are unknown.",
+        "observations": [
+          {
+            "id": "dc8-faa-one-selected-case",
+            "group": "Captain on index flight",
+            "endpoint": "mixed_decompression_illness_faa_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "FAA case, Sequence of Events, Medical Findings and Discussion",
+            "note": "One clinically described pilot from a selected commercial cargo incident. The FAA medical authors describe mixed DCS and arterial gas embolism features. The NTSB investigation attributes incapacitation to decompression sickness. The clinical case is indexed once as mixed decompression illness. No inception cohort or independent exposure denominator is available. NTSB crew statements place radio nonresponse near FL290 while climbing. The FAA narrative places rapid incapacitation after about four minutes at FL330. These are different observations of impairment. First clinical symptom time and cabin pressure history are unknown."
+          }
+        ]
+      },
+      {
+        "id": "dc8-ntsb-final",
+        "title": "Aviation Investigation Final Report, NYC94LA062",
+        "author": "National Transportation Safety Board",
+        "year": null,
+        "url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf",
+        "primary_source": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf",
+        "pdf_sha256": "5805fab7a2ccf620653257bce4a5b52b782c0e7793d248548abf69f8429086ab",
+        "full_text_available": true,
+        "locator": "NTSB NYC94LA062 final report, pp. 1, 3, 5 and 6, Analysis and Factual Information",
+        "role_review": "case_conditional",
+        "incident_date": "1994-03-15",
+        "case_number": "NYC94LA062",
+        "docket_access": "unreleased",
+        "docket_url": "https://data.ntsb.gov/Docket?ProjectID=38740",
+        "aircraft": "DC-8-61",
+        "fdr_context": {
+          "takeoff_to_fl330_min": 18,
+          "level_at_fl330_min_approx": 4,
+          "level_at_10000_ft_min": 2,
+          "later_level_altitude_ft": 8000
+        },
+        "note": "Same event as the FAA case. On March 15, 1994 the DC-8-61 diverted to Greater Cincinnati at Covington after the captain became incapacitated. The final report counts one serious crew injury. This is an investigator attribution, with the FAA clinical source retaining mixed DCI.",
+        "observations": [
+          {
+            "id": "dc8-ntsb-one-reported-case",
+            "group": "Captain on the same index flight",
+            "endpoint": "reported_altitude_dcs_ntsb",
+            "cases": 1,
+            "denominator": null,
+            "locator": "NTSB NYC94LA062 final report, pp. 1, 3, 5 and 6, Analysis and Factual Information",
+            "note": "Same event as the FAA case. On March 15, 1994 the DC-8-61 diverted to Greater Cincinnati at Covington after the captain became incapacitated. The final report counts one serious crew injury. This is an investigator attribution, with the FAA clinical source retaining mixed DCI."
+          }
+        ]
+      }
+    ]
+  }
+]
