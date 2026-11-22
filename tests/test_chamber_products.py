@@ -4874,6 +4874,41 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_faa_profile_reactions_keep_students_flights_and_mixed_role_counts_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.profile,p.year_first,p.year_last,p.student_count_as_reported,
+                   p.chamber_flight_count,count(r.endpoint),sum(r.reaction_count)
+            FROM publication_faa90_profile p
+            JOIN publication_faa90_reaction r USING(source_id,profile)
+            GROUP BY p.source_id,p.profile ORDER BY p.profile
+        """).fetchall() == [
+            ("A", 1965, 1971, 3034, 479, 10, 347),
+            ("B", 1973, 1989, 9725, 1024, 10, 814),
+        ]
+        assert db.execute("""
+            SELECT profile,reaction_count,role_basis FROM publication_faa90_reaction
+            WHERE source_id='faa90' AND endpoint='suspected_decompression_sickness'
+            ORDER BY profile
+        """).fetchall() == [("A", 2, "mixed_series"), ("B", 8, "mixed_series")]
+        assert db.execute("""
+            SELECT stratum,cases,denominator FROM literature_observation
+            WHERE source_id='faa90' AND endpoint='suspected_dcs' ORDER BY stratum
+        """).fetchall() == [("all-roles-reported", 10, None), ("student-suspected", 3, 12759)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.context.profile_b_conflict.earlier_count'),
+                   json_extract(metadata_json,'$.context.profile_b_conflict.later_count'),
+                   json_extract(metadata_json,'$.context.profile_b_conflict.resolution')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-faa-profile-reactions-verified#valdez1977-table1'
+        """).fetchone() == (4, 0, None)
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='report:faa-aviation-physiology-education-2002'
+              AND relationship='reprises_reported_civilian_training_counts'
+        """).fetchall() == [("report:dot-faa-am-90-12",)]
+
+
 def test_rcaf_c3050_curve_keeps_printed_rate_and_reprint_with_one_source(release):
     with connect_pair(release) as db:
         source = "stewart_smith45_rcaf_c3050"

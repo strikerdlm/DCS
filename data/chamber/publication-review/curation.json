@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-faa-profile-reactions-verified#valdez1990-table1",
+      "report_id": "report:dot-faa-am-90-12",
+      "evidence_url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS83855/pdf/GOVPUB-TD4_200-PURL-LPS83855.pdf#page=6",
+      "basis": "Same author, FAA report number, Table 1 and file identified in the earlier intake."
+    },
+    {
+      "record_key": "2026-11-21-faa-profile-reactions-verified#valdez1977-table1",
+      "report_id": "pmid:889545",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p718.pdf#page=3",
+      "basis": "Same author, PMID, journal pages and original Table I."
+    },
+    {
+      "record_key": "2026-11-21-faa-profile-reactions-verified#faa-advisory-2002",
+      "report_id": "report:faa-aviation-physiology-education-2002",
+      "evidence_url": "https://www.faa.gov/regulations_policies/rulemaking/committees/documents/media/APEARC-7122001.pdf#page=7",
+      "basis": "Official FAA PDF and cover of the September 2002 committee final report."
+    },
+    {
       "record_key": "2026-11-21-rcaf-c3050-symptom-curve-verified#rcaf-c3050",
       "report_id": "report:rcaf-c3050",
       "evidence_url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=5",
@@ -22128,6 +22146,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:faa-aviation-physiology-education-2002",
+      "right_report": "report:dot-faa-am-90-12",
+      "relationship": "reprises_reported_civilian_training_counts",
+      "evidence_url": "https://www.faa.gov/regulations_policies/rulemaking/committees/documents/media/APEARC-7122001.pdf#page=18",
+      "evidence": "Printed p. 12 matches Valdez's 1965–1989 reporting scope, 12,759 students, 882 aerotitis reactions, 200 aerosinusitis reactions and one student with loss of consciousness. This does not identify the population behind its separate military risk range."
+    },
+    {
+      "left_report": "pmid:889545",
+      "right_report": "report:dot-faa-am-90-12",
+      "relationship": "overlapping_reaction_surveillance",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p718.pdf#page=3",
+      "evidence": "The same CAMI Profile A calendar period, 3,034 students, 479 flights and six non-DCS category counts are reproduced. The earlier 1973–1975 Profile B span is inside the 1990 calendar scope. The 1977 Table I records four claustrophobia reactions in 1,725 Profile B students in 1973–1975. The 1990 Table 1 prints zero for the longer Profile B reporting span. No report resolves the difference in coding, eligibility or survival of records."
+    },
     {
       "left_report": "pmid:11396555",
       "right_report": "report:rcaf-c3050",

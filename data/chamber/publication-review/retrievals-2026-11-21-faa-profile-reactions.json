@@ -1,0 +1,314 @@
+[
+  {
+    "id": "2026-11-21-faa-profile-reactions-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Extracted the FAA advisory text and the already indexed FSF article. Searches for the underlying military rate did not identify a matching primary denominator.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_depth": "advanced",
+      "max_results": 10,
+      "supplemental_results_search_request_id": "e6fc3423-7f91-4364-a2e0-e740888a0984",
+      "supplemental_results_query": "\"altitude chamber\" \"0.15\" \"0.31\" decompression sickness altitude human factors 63 months survey inside observers counts rulemaking FAA DCI",
+      "military_rate_search_request_id": "8ca7c6af-dfb9-4f3e-8fbb-6e5311fc1be5",
+      "military_rate_query": "\"0.15-0.31\" \"decompression sickness\" Air Force altitude chamber training incidence",
+      "faa_and_fsf_extract_request_id": "72057480-7800-4a17-a76c-fa6659204173",
+      "faa_and_fsf_extraction_query": "altitude chamber 0.15 to 0.31 percent decompression sickness denominators exact counts inside observer 63 month references original safety data",
+      "urls": [
+        "https://www.faa.gov/regulations_policies/rulemaking/committees/documents/media/APEARC-7122001.pdf",
+        "https://flightsafety.org/hf/hf_nov-dec92.pdf"
+      ],
+      "ranked_provider_snapshots": [
+        {
+          "id": "e6fc3423-7f91-4364-a2e0-e740888a0984",
+          "records": [
+            {
+              "position": 1,
+              "result_id": "8fda30-00",
+              "title": "human factors & aviation medicine - Flight Safety Foundation",
+              "url": "https://flightsafety.org/hf/hf_nov-dec92.pdf"
+            },
+            {
+              "position": 2,
+              "result_id": "1b8104-01",
+              "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775"
+            },
+            {
+              "position": 3,
+              "result_id": "0da35e-02",
+              "title": "Altitude-Induced Decompression Sickness - FAA",
+              "url": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf"
+            },
+            {
+              "position": 4,
+              "result_id": "2895a2-03",
+              "title": "Regulations.gov",
+              "url": "https://www.regulations.gov/document/FAA-2026-12145-0001"
+            },
+            {
+              "position": 5,
+              "result_id": "eeab96-04",
+              "title": "The FAA Altitude Chamber Training Flight Profile: A Survey of Altitude Reactions, 1965–1989",
+              "url": "https://rosap.ntl.bts.gov/view/dot/21318"
+            },
+            {
+              "position": 6,
+              "result_id": "c3c15b-05",
+              "title": "On Thin Air",
+              "url": "https://medium.com/faa/on-thin-air-47bd73297cbf"
+            },
+            {
+              "position": 7,
+              "result_id": "438a68-06",
+              "title": "CASE REPORT",
+              "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf"
+            },
+            {
+              "position": 8,
+              "result_id": "c359e4-07",
+              "title": "Ten-year survey of altitude chamber reactions using the FAA training ...",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/889545"
+            },
+            {
+              "position": 9,
+              "result_id": "c0b8d9-08",
+              "title": "Altitude Chamber for Civil Aviation Training and Research - ETC Aircrew Training Systems",
+              "url": "https://www.etcaircrewtraining.com/altitude-chamber-civil-aviation-training.html"
+            },
+            {
+              "position": 10,
+              "result_id": "121040-09",
+              "title": "AIM § 8-1-2 Effects of Altitude | Aeronautical Information Manual | FAR/AIM.org",
+              "url": "https://faraim.org/faa/aim/chapter-8/section-8-1-2.html"
+            }
+          ]
+        },
+        {
+          "id": "8ca7c6af-dfb9-4f3e-8fbb-6e5311fc1be5",
+          "records": [
+            {
+              "position": 1,
+              "result_id": "866118-00",
+              "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor. - R Discovery",
+              "url": "https://discovery.researcher.life/article/decompression-sickness-not-only-in-divers-altitude-as-a-risk-factor/ae10e063f4c83e82b8659dd1282e22f0"
+            },
+            {
+              "position": 2,
+              "result_id": "97b7a2-01",
+              "title": "Australian Defence Force hypobaric chamber training, 1984–2001",
+              "url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+            },
+            {
+              "position": 3,
+              "result_id": "10514d-02",
+              "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775"
+            },
+            {
+              "position": 4,
+              "result_id": "7a59b6-03",
+              "title": "Decompression Illness in United States Air Force: High Risk Occupations",
+              "url": "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph"
+            },
+            {
+              "position": 5,
+              "result_id": "5d7edc-04",
+              "title": "Altitude-Induced Decompression Sickness - FAA",
+              "url": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf"
+            },
+            {
+              "position": 6,
+              "result_id": "60c852-05",
+              "title": "CASE REPORT",
+              "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf"
+            },
+            {
+              "position": 7,
+              "result_id": "4aeb05-06",
+              "title": "FAA-AM-77-4",
+              "url": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf"
+            },
+            {
+              "position": 8,
+              "result_id": "46c5f1-07",
+              "title": "Altitude Chamber for Military Hypoxia Training and Research - ETC Aircrew Training Systems",
+              "url": "https://www.etcaircrewtraining.com/altitude-chamber-military-training.html"
+            },
+            {
+              "position": 9,
+              "result_id": "497295-08",
+              "title": "In the air, on the ground: training in the chamber  > Laughlin Air Force Base > Display",
+              "url": "https://www.laughlin.af.mil/News/News/Display/Article/3509507/in-the-air-on-the-ground-training-in-the-chamber"
+            },
+            {
+              "position": 10,
+              "result_id": "e6eabf-09",
+              "title": "ClusterBalloon.com: High Altitude Chamber Flight",
+              "url": "https://clusterballoon.com/HighAltitudeChamber.asp"
+            }
+          ]
+        }
+      ]
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-faa-profile-reactions-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read the FAA advisory sections describing the military rate and the civilian trainee counts.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://www.faa.gov/regulations_policies/rulemaking/committees/documents/media/APEARC-7122001.pdf",
+      "pdf_scrape_id": "01a200d6-ca02-735e-ac21-8abad823b735"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-faa-profile-reactions-verified",
+    "date": "2026-11-21",
+    "provider": "FAA, GovInfo and AsMA",
+    "operation": "supplementary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Verified scans of the original 1990 and earlier 1977 tables and read the advisory report separately. Report identity and overlap were checked against the existing review catalogue.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "valdez1990-table1",
+        "title": "The FAA Altitude Chamber Training Flight Profile: A Survey of Altitude Reactions, 1965–1989",
+        "year": 1990,
+        "author": "Valdez CD",
+        "report_number": "DOT/FAA/AM-90/12",
+        "url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS83855/pdf/GOVPUB-TD4_200-PURL-LPS83855.pdf#page=6",
+        "alternative_catalogue_url": "https://rosap.ntl.bts.gov/view/dot/21318",
+        "full_text_available": true,
+        "pdf_sha256": "187d5aa04066d3c0840596ab12eaf5bf9ef10e16d204694f8046e06e9180c486",
+        "locator": "Technical documentation abstract and printed pp. 4–5 (PDF pp. 6–7), Tables 1–2",
+        "context": {
+          "model_source_id": "faa90",
+          "profile_a": {
+            "period": "1965–1971",
+            "students": 3034,
+            "training_flights": 479,
+            "reactions": 347,
+            "suspected_dcs_all_reported_roles": 2
+          },
+          "profile_b": {
+            "period": "1973–1989",
+            "students": 9725,
+            "training_flights": 1024,
+            "reactions": 814,
+            "suspected_dcs_all_reported_roles": 8
+          },
+          "excluded_calendar_data": [
+            1972,
+            1985
+          ],
+          "total_reactions_as_table1": 1161,
+          "abstract_unit_as_printed": "trainees",
+          "incomplete_role_allocation": true,
+          "observer_denominator": null,
+          "profile_specific_student_dcs_cases": null,
+          "existing_all_profiles_suspected_trainee_cases": 3,
+          "existing_all_profiles_suspected_mixed_role_reactions": 10,
+          "profile_b_unconsciousness": {
+            "numerator": 1,
+            "role": "student",
+            "during_hypoxia_demonstration": true,
+            "altitude_ft": 22500,
+            "onset_seconds": 114,
+            "regained_consciousness_altitude_ft": 8000
+          }
+        },
+        "note": "Table 1 totals 1,161 reaction counts including suspected reactions involving students and inside observers. The abstract describes the numerator as trainees. No unique-person deduplication is possible and no all-role denominator is supplied."
+      },
+      {
+        "id": "valdez1977-table1",
+        "title": "Ten-year survey of altitude chamber reactions using the FAA training chamber flight profiles",
+        "year": 1977,
+        "author": "Valdez CD",
+        "pmid": "889545",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p718.pdf#page=3",
+        "full_text_available": true,
+        "pdf_sha256": "6514003d2a1e5036227e98ac878287763782259072b4caced6b47df037bac39a",
+        "locator": "Journal printed p. 720 (PDF p. 3), Table I and Results",
+        "context": {
+          "profile_a_matching_1990_report": {
+            "period": "1965–1971",
+            "student_count": 3034,
+            "flights": 479,
+            "reaction_counts": {
+              "aerotitis_media": 248,
+              "aerosinusitis": 81,
+              "aerodontalgia": 6,
+              "hyperventilation": 3,
+              "abdominal_distress": 5,
+              "claustrophobia": 2
+            }
+          },
+          "profile_b_earlier_nested_scope": {
+            "period": "1973–1975",
+            "student_count": 1725,
+            "flights": 194,
+            "reaction_counts": {
+              "aerotitis_media": 106,
+              "aerosinusitis": 19,
+              "aerodontalgia": 0,
+              "hyperventilation": 3,
+              "abdominal_distress": 1,
+              "claustrophobia": 4
+            }
+          },
+          "profile_b_conflict": {
+            "endpoint": "claustrophobia",
+            "earlier_count": 4,
+            "later_count": 0,
+            "resolution": null
+          },
+          "technician_bends_in_earlier_window": 2,
+          "individual_episode_crosswalk": null
+        },
+        "note": "The 1977 Table I records four claustrophobia reactions in 1,725 Profile B students in 1973–1975. The 1990 Table 1 prints zero for the longer Profile B reporting span. No report resolves the difference in coding, eligibility or survival of records."
+      },
+      {
+        "id": "faa-advisory-2002",
+        "title": "Aviation Physiology Education Rulemaking Advisory Committee Final Report",
+        "year": 2002,
+        "author": "Aviation Physiology Education Rulemaking Advisory Committee",
+        "url": "https://www.faa.gov/regulations_policies/rulemaking/committees/documents/media/APEARC-7122001.pdf#page=17",
+        "full_text_available": true,
+        "pdf_sha256": "b8e5034463eb89f76f45c83c78793593c86ef732ec76f840df9eed6d35a7aede",
+        "locator": "Final report title page (PDF p. 7), Dangers of altitude chamber training and Training Facilities printed pp. 11–12 (PDF pp. 17–18)",
+        "context": {
+          "military_source_attribution": "Air Force",
+          "military_dcs_percent_range_as_printed": [
+            0.15,
+            0.31
+          ],
+          "military_dcs_numerator": null,
+          "military_dcs_denominator": null,
+          "military_reporting_period": null,
+          "military_outcome_definition": null,
+          "military_ear_sinus_percent_as_printed": 3.5,
+          "civilian_report_id": "report:dot-faa-am-90-12",
+          "civilian_students_as_printed": 12759,
+          "civilian_aerotitis_as_printed": 882,
+          "civilian_aerosinusitis_as_printed": 200,
+          "civilian_unconsciousness_as_printed": 1,
+          "referenced_tab_d_in_public_pdf": false
+        },
+        "note": "The cover dates the final report September 2002. The published URL includes 2001. The military rate has no identified primary risk set. The civilian counts match Valdez 1990 and do not establish an additional cohort."
+      }
+    ]
+  }
+]
