@@ -294,6 +294,7 @@ BERKELEY_ARM_EXERCISE = ROOT / "data" / "chamber" / "v1.226"
 FRASER_DATED_ASCENT_SCORES = ROOT / "data" / "chamber" / "v1.227"
 USAFSAM_DOPPLER_REPOSITORY = ROOT / "data" / "chamber" / "v1.228"
 ARMSTRONG_PROBE_COMPARISON = ROOT / "data" / "chamber" / "v1.229"
+ARMSTRONG_METHODS_LINEAGE = ROOT / "data" / "chamber" / "v1.230"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3044,6 +3045,17 @@ def build(
                     extra_tables={
                         "publication_armstrong_probe_comparison": "probe_comparison.csv",
                         "publication_chamber_trial_scope": "imaging_scope.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    ARMSTRONG_METHODS_LINEAGE,
+                    "publication",
+                    include_observations=False,
+                    extra_tables={
+                        "publication_chamber_trial_scope": "imaging_scope.csv",
+                        "publication_exercise_bout_vo2": "workload.csv",
+                        "publication_model_development_scope": "development_scope.csv",
                     },
                 )
                 load_register(db, ROOT)

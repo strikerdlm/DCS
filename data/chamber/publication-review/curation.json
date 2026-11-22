@@ -1,6 +1,84 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-armstrong-methods-lineage-tavily#fischer93_workload_verification",
+      "report_id": "safe:1993:fischer-exercise-calibration",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=21"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-methods-lineage-tavily#webb92_safe_endpoints",
+      "report_id": "safe:1992:webb-pilmanis-endpoints",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=34"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-methods-lineage-tavily#nesthus93_anam",
+      "report_id": "nasa:cp3187:n94-11533",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-methods-lineage-firecrawl#scoggins92_model_development",
+      "report_id": "asma:1992:386:scoggins-model",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-methods-lineage-firecrawl#olson92_asma_echo",
+      "report_id": "asma:1992:386:olson-echo",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-methods-lineage-firecrawl#olson92_safe_echo",
+      "report_id": "safe:1992:olson-echo",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-methods-lineage-firecrawl#webb92_oxygen_suit",
+      "report_id": "asma:1992:386:webb-oxygen-suit",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-methods-lineage-firecrawl#kumar92_asm_cmb81",
+      "report_id": "ntrs:19950010323",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.230/sources.csv#fischer93_workload_verification",
+      "report_id": "safe:1993:fischer-exercise-calibration",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=21"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.230/sources.csv#scoggins92_model_development",
+      "report_id": "asma:1992:386:scoggins-model",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.230/sources.csv#olson92_asma_echo",
+      "report_id": "asma:1992:386:olson-echo",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.230/sources.csv#olson92_safe_echo",
+      "report_id": "safe:1992:olson-echo",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.230/sources.csv#webb92_oxygen_suit",
+      "report_id": "asma:1992:386:webb-oxygen-suit",
+      "basis": "Matched byline, title, year and original pagination against the cited publisher or archival reprint.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
       "record_key": "2026-11-22-armstrong-probe-ascertainment-tavily#webb89_probe_comparison",
       "report_id": "abstract:uhms-1989-webb-probes",
       "basis": "Matched investigator title, authors, year and supplement pages to the official reprint.",
@@ -22061,6 +22139,12 @@
   ],
   "study_reports": [
     {
+      "study_id": "usaf-brooks-exercise-altitude-dcs",
+      "report_id": "safe:1993:fischer-exercise-calibration",
+      "role": "workload_calibration_methods",
+      "locator": "Armstrong reprint, printed pp. 15–16 (PDF pp. 21–22)"
+    },
+    {
       "study_id": "armstrong-1989-probe-ascertainment",
       "report_id": "abstract:uhms-1989-webb-probes",
       "role": "original_probe_comparison",
@@ -25518,6 +25602,132 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:ada268229",
+      "right_report": "safe:1993:fischer-exercise-calibration",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report gives the citation and reproduces the investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=21"
+    },
+    {
+      "left_report": "report:ada268229",
+      "right_report": "asma:1992:386:scoggins-model",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report gives the citation and reproduces the investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=29"
+    },
+    {
+      "left_report": "report:ada268229",
+      "right_report": "asma:1992:386:olson-echo",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report gives the citation and reproduces the investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25"
+    },
+    {
+      "left_report": "report:ada268229",
+      "right_report": "safe:1992:olson-echo",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report gives the citation and reproduces the investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25"
+    },
+    {
+      "left_report": "report:ada268229",
+      "right_report": "asma:1992:386:webb-oxygen-suit",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report gives the citation and reproduces the investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=35"
+    },
+    {
+      "left_report": "report:ada268229",
+      "right_report": "safe:1992:webb-pilmanis-endpoints",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report gives the citation and reproduces the investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=34"
+    },
+    {
+      "left_report": "report:ada268229",
+      "right_report": "nasa:cp3187:n94-11533",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report gives the citation and reproduces the investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=23"
+    },
+    {
+      "left_report": "asma:1992:386:scoggins-model",
+      "right_report": "pmid:1350901",
+      "relationship": "published_in_meeting_supplement",
+      "evidence": "Individual abstract on printed p. 386. PubMed indexes the entire meeting proceedings.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "left_report": "asma:1992:386:olson-echo",
+      "right_report": "pmid:1350901",
+      "relationship": "published_in_meeting_supplement",
+      "evidence": "Individual abstract on printed p. 386. PubMed indexes the entire meeting proceedings.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "left_report": "asma:1992:386:webb-oxygen-suit",
+      "right_report": "pmid:1350901",
+      "relationship": "published_in_meeting_supplement",
+      "evidence": "Individual abstract on printed p. 386. PubMed indexes the entire meeting proceedings.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "left_report": "ntrs:19950010323",
+      "right_report": "pmid:1350901",
+      "relationship": "published_in_meeting_supplement",
+      "evidence": "Individual abstract on printed p. 386. PubMed indexes the entire meeting proceedings.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "left_report": "safe:1993:fischer-exercise-calibration",
+      "right_report": "pmid:9895017",
+      "relationship": "preparatory_workload_calibration",
+      "evidence": "Thirteen participants were reported for workload selection. Four additional sessions verified work loads over repeated 12-minute bouts. A separate count of verification participants and dispersion for the four means are unavailable. The 1999 paper cites this method and reports its own 370 mL/min overall mean in Table I. Individual linkage is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/1/article-p22.pdf#page=8"
+    },
+    {
+      "left_report": "asma:1992:386:scoggins-model",
+      "right_report": "report:alcf-sr-1994-0032",
+      "relationship": "possible_archive_subset",
+      "evidence": "The earlier experiment set predates the later 1,076-exposure archive snapshot. Exact profile or record inclusion is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2"
+    },
+    {
+      "left_report": "asma:1992:386:olson-echo",
+      "right_report": "safe:1992:olson-echo",
+      "relationship": "unresolved",
+      "evidence": "Three male participants at 29,500 ft with heart and inferior vena cava imaging. The reported 5–100 micrometre estimate concerns the vena cava and hepatic veins. Flight count, clinical event totals and crosswalk to the four-person and later ten-person reports are unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25"
+    },
+    {
+      "left_report": "asma:1992:386:olson-echo",
+      "right_report": "openalex:W307569229",
+      "relationship": "unresolved",
+      "evidence": "Three male participants at 29,500 ft with heart and inferior vena cava imaging. The reported 5–100 micrometre estimate concerns the vena cava and hepatic veins. Flight count, clinical event totals and crosswalk to the four-person and later ten-person reports are unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25"
+    },
+    {
+      "left_report": "safe:1992:olson-echo",
+      "right_report": "openalex:W307569229",
+      "relationship": "unresolved",
+      "evidence": "The SAFE summary gives four examined decompressed participants. There is no complete flight or symptom count and no identifiers to verify overlap with the three-person AsMA or ten-person technical report samples.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25"
+    },
+    {
+      "left_report": "asma:1992:386:webb-oxygen-suit",
+      "right_report": "pmid:8216141",
+      "relationship": "partial_overlap",
+      "evidence": "The preliminary three male groups use the same pressure, planned time, gas, prebreathe, activity and severe VGE margins as the three published journal groups. NEDU Appendix E lists 11 male exposures for the 7.3-psia profile, compared with 10 in the meeting abstract and journal. Membership of the additional compiled exposure is unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/64/9/article-p808.pdf#page=4"
+    },
+    {
+      "left_report": "nasa:cp3187:n94-11533",
+      "right_report": "safe:1992:webb-pilmanis-endpoints",
+      "relationship": "repeats_archive_estimate",
+      "evidence": "Both link their approximate 65 percent statement to the Armstrong hypobaric archive. Neither supplies a risk set or case matrix.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=34"
+    },
     {
       "left_report": "report:ada268229",
       "right_report": "abstract:uhms-1989-webb-probes",

@@ -1,0 +1,314 @@
+[
+  {
+    "id": "2026-11-22-armstrong-methods-lineage-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_primary_source_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "b809781a-56c0-42e4-a15d-0f177092342c",
+          "query": "Decompression sickness protection using a 100% oxygen pressure suit environment Webb Pilmanis 1992 386"
+        },
+        {
+          "request_id": "74498df6-a350-4186-9fd4-1db272502654",
+          "query": "Evaluation of four different exercise types for use in altitude decompression sickness studies Fischer Wiegman McLean 1993"
+        },
+        {
+          "request_id": "b449b943-9082-48ab-93f6-6c2cbc92d78a",
+          "urls": [
+            "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/64/9/article-p808.pdf#page=4"
+          ]
+        },
+        {
+          "request_id": "ba140ad4-e0c2-4d85-9a4b-235eb2609c44",
+          "urls": [
+            "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf",
+            "https://pubmed.ncbi.nlm.nih.gov/9895017/"
+          ]
+        },
+        {
+          "request_id": "e72674cd-bdb0-4dfb-a581-e825f0996bbb",
+          "urls": [
+            "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf",
+            "https://pubmed.ncbi.nlm.nih.gov/1350901/"
+          ],
+          "result": "Connector did not retrieve contents"
+        },
+        {
+          "request_id": "8dfa5ce8-f543-4048-8c5d-97a609c25764",
+          "urls": [
+            "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf",
+            "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/1/article-p34.pdf"
+          ]
+        },
+        {
+          "request_id": "b2f092b1-5a37-4c6b-b5cc-978c05696192",
+          "urls": [
+            "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf"
+          ]
+        }
+      ]
+    },
+    "note": "Tavily located relevant reports, original citations and the reprints. The local Armstrong scan verified the numerical workload and imaging extraction.",
+    "records": [
+      {
+        "id": "fischer93_workload_verification",
+        "title": "Evaluation of four different exercise types for use in altitude decompression sickness studies",
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=21",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=21",
+        "authors": "Fischer MD, Wiegman JF, McLean SA, Olson RM, Pilmanis AA",
+        "year": 1993,
+        "identifier": "SAFE:1993:102–105",
+        "locator": "Armstrong reprint, printed pp. 15–16 (PDF pp. 21–22)",
+        "access": "primary_abstract",
+        "reprint_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=21",
+        "reprint_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "note": "Thirteen participants were reported for workload selection. Four additional sessions verified work loads over repeated 12-minute bouts. A separate count of verification participants and dispersion for the four means are unavailable. The 1999 paper cites this method and reports its own 370 mL/min overall mean in Table I. Individual linkage is unavailable.",
+        "workload_selection_participants": 13,
+        "verification_participants": null,
+        "average_interval_min": 12,
+        "units": "mL/min",
+        "verification_means": [
+          {
+            "mode": "isometric",
+            "limb": "arm",
+            "mean": 388
+          },
+          {
+            "mode": "isometric",
+            "limb": "leg",
+            "mean": 388
+          },
+          {
+            "mode": "isotonic",
+            "limb": "arm",
+            "mean": 385
+          },
+          {
+            "mode": "isotonic",
+            "limb": "leg",
+            "mean": 392
+          }
+        ],
+        "study_id": "usaf-brooks-exercise-altitude-dcs"
+      },
+      {
+        "id": "webb92_safe_endpoints",
+        "title": "Venous gas emboli detection and endpoints for decompression sickness research",
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=34",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=34",
+        "year": 1992,
+        "access": "primary_abstract",
+        "reprint_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "locator": "Armstrong reprint, printed pp. 28–29 (PDF pp. 34–35)",
+        "note": "The authors give about 65 percent agreement for a retrospective Armstrong archive comparison of Doppler VGE and clinical DCS. The abstract supplies no denominator, confusion matrix or independent validation. A proposed joint-pain and function scale is described. The two SAFE outlets are cited under the same title in the reprint.",
+        "archive_agreement": {
+          "value": 65,
+          "unit": "percent",
+          "precision": "approximate",
+          "denominator": null
+        }
+      },
+      {
+        "id": "nesthus93_anam",
+        "title": "Monitoring cognitive function and need with the automated neuropsychological assessment metrics in decompression sickness research",
+        "url": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19940007055/downloads/19940007055.pdf",
+        "year": 1993,
+        "access": "primary_abstract",
+        "identifier": "N94-11533",
+        "locator": "SOAR proceedings, printed p. 498, N94-11533. Armstrong reprint, printed pp. 17–18 (PDF pp. 23–24)",
+        "note": "The original NASA page uses Need in its title. The Armstrong reprint uses Mood. Authors, year, printed page and body identify the same abstract. Methods concern cognitive and mood monitoring for a four-hour simulated 30,000-ft protocol. Participants and clinical outcomes are unreported. The same approximate Armstrong archive agreement is repeated as background.",
+        "altitude_ft": 30000,
+        "protocol_duration_hour": 4,
+        "participants": null,
+        "clinical_events": null
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-armstrong-methods-lineage-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl, publisher index and archival scans",
+    "status": "observed",
+    "operation": "supplementary_outcomes_reconciliation",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "search_id": "01a2046f-201d-76a8-9650-0b523187b81a",
+          "query": "venous gas emboli detection and end-points for decompression sickness research Webb Pilmanis 1992 SAFE"
+        },
+        {
+          "search_id": "01a2046f-bc58-7598-8330-fa49d12bd85a",
+          "query": "Development of an altitude decompression sickness model 395 Scoggins Ripley Bauer Pilmanis 1992"
+        },
+        {
+          "search_id": "01a2046f-bbe5-71ad-9266-ee699fac1410",
+          "query": "Use of echo imaging in decompression sickness model development Olson Pilmanis Scoggins 1992"
+        },
+        {
+          "scrape_id": "01a20473-d149-74fc-8cda-3afba9547e42",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf",
+          "result": "Watermark text retrieved. Abstract text was recovered from the publisher-indexed PDF separately."
+        }
+      ]
+    },
+    "note": "Firecrawl's exact-title searches did not locate separate papers. Publisher-indexed text verified AsMA printed page 386. The public archive supplied the byte-hashed reprints. PubMed indexes the whole proceedings.",
+    "records": [
+      {
+        "id": "scoggins92_model_development",
+        "title": "Development of an altitude decompression sickness model",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "authors": "Scoggins TE, Ripley EP, Bauer DH, Pilmanis AA",
+        "year": 1992,
+        "identifier": "ASMA:1992:386:8",
+        "locator": "AsMA abstract 8, printed p. 386 (PDF p. 2). Armstrong reprint, printed p. 23 (PDF p. 29)",
+        "access": "primary_abstract",
+        "reprint_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=29",
+        "reprint_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "note": "The authors used previously collected outcomes for 12 profiles with 395 subjects as reported. The abstract supplies no clinical numerator, individual linkage or exposure-level profile table. Reported classification percentages describe model performance. Independent test-set membership is unreported.",
+        "source_population": {
+          "profiles": 12,
+          "subjects_as_reported": 395,
+          "lower_altitude_ft": 9000,
+          "upper_altitude_ft": 30000,
+          "dcs_cases": null
+        },
+        "method": "Hill equation fitted using tissue ratio or bubble volume variables",
+        "performance": {
+          "role": "development_summary_test_set_unreported",
+          "counts": null,
+          "percent_correct_classification": [
+            {
+              "parameter": "tissue_ratio",
+              "no_dcs": 96,
+              "dcs": 74
+            },
+            {
+              "parameter": "maximum_bubble_volume",
+              "no_dcs": 96,
+              "dcs": 74
+            },
+            {
+              "parameter": "bubble_volume_at_dcs_onset",
+              "no_dcs": 80,
+              "dcs": 67
+            }
+          ]
+        }
+      },
+      {
+        "id": "olson92_asma_echo",
+        "title": "Use of echo imaging in decompression model development",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "authors": "Olson RM, Pilmanis AA, Scoggins TE",
+        "year": 1992,
+        "identifier": "ASMA:1992:386:9",
+        "locator": "AsMA abstract 9, printed p. 386 (PDF p. 2). Armstrong reprint, printed pp. 19–20 (PDF pp. 25–26)",
+        "access": "primary_abstract",
+        "reprint_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25",
+        "reprint_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "note": "Three male participants at 29,500 ft with heart and inferior vena cava imaging. The reported 5–100 micrometre estimate concerns the vena cava and hepatic veins. Flight count, clinical event totals and crosswalk to the four-person and later ten-person reports are unavailable.",
+        "altitude_ft": 29500,
+        "participants": 3,
+        "flight_count": null,
+        "clinical_events": null,
+        "bubble_size_estimate": {
+          "lower": 5,
+          "upper": 100,
+          "unit": "micrometre",
+          "site": "inferior vena cava and hepatic veins"
+        }
+      },
+      {
+        "id": "olson92_safe_echo",
+        "title": "Echo imaging in decompression sickness research",
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25",
+        "authors": "Olson RM, Pilmanis AA, Scoggins TE",
+        "year": 1992,
+        "identifier": "SAFE:1992:22(2):26–29",
+        "locator": "Armstrong reprint, printed p. 19 (PDF p. 25)",
+        "access": "primary_abstract",
+        "reprint_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=25",
+        "reprint_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "note": "The SAFE summary gives four examined decompressed participants. There is no complete flight or symptom count and no identifiers to verify overlap with the three-person AsMA or ten-person technical report samples.",
+        "participants": 4,
+        "altitude_ft": null,
+        "flight_count": null,
+        "clinical_events": null
+      },
+      {
+        "id": "webb92_oxygen_suit",
+        "title": "Decompression sickness protection using a 100% oxygen pressure suit environment",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "authors": "Webb JT, Pilmanis AA",
+        "year": 1992,
+        "identifier": "ASMA:1992:386:6",
+        "locator": "AsMA abstract 6, printed p. 386 (PDF p. 2). Armstrong reprint, printed p. 29 (PDF p. 35)",
+        "access": "primary_abstract",
+        "reprint_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=35",
+        "reprint_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "note": "The preliminary three male groups use the same pressure, planned time, gas, prebreathe, activity and severe VGE margins as the three published journal groups. NEDU Appendix E lists 11 male exposures for the 7.3-psia profile, compared with 10 in the meeting abstract and journal. Membership of the additional compiled exposure is unresolved.",
+        "role_review": "overlap_hold",
+        "arms_as_printed": [
+          {
+            "pressure_psia": 8.3,
+            "subjects": 10,
+            "dcs_cases": 0,
+            "severe_vge_percent": 0,
+            "later_article_n": 10,
+            "nedu_profile": "100% Suit-A",
+            "nedu_n": 10
+          },
+          {
+            "pressure_psia": 7.8,
+            "subjects": 10,
+            "dcs_cases": 0,
+            "severe_vge_percent": 10,
+            "later_article_n": 10,
+            "nedu_profile": "100% Suit-B",
+            "nedu_n": 10
+          },
+          {
+            "pressure_psia": 7.3,
+            "subjects": 10,
+            "dcs_cases": 0,
+            "severe_vge_percent": 20,
+            "later_article_n": 10,
+            "nedu_profile": "100% Suit-C",
+            "nedu_n": 11
+          }
+        ]
+      },
+      {
+        "id": "kumar92_asm_cmb81",
+        "title": "The effect of differences in time to detection of circulating microbubbles on the risk of decompression sickness",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "year": 1992,
+        "access": "primary_abstract",
+        "locator": "AsMA abstract 7, printed p. 386 (PDF p. 2)",
+        "note": "The publisher version matches the NTRS title, byline, protocol and 17 symptomatic exposures among 81 already recorded in v1.120. This occurrence verifies the original meeting edition and contributes no separately counted observations."
+      },
+      {
+        "id": "asma1992_meeting_proceedings",
+        "title": "63rd annual scientific meeting of the Aerospace Medical Association. Miami Beach, Florida, May 10–14, 1992. Abstracts.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1350901/",
+        "pmid": "1350901",
+        "year": 1992,
+        "access": "metadata_only",
+        "note": "PubMed indexes the full meeting supplement. The meeting's individual abstracts have their own report records."
+      }
+    ]
+  }
+]
