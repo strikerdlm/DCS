@@ -1,6 +1,132 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.15/sources.csv#kenyon72_hast",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_earlyNTRS:8",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_ken2:1",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_miv:6",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.37/search_hits.csv#detail_v37_con:7",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "2026-11-20-canada-can-archive#https://ntrs.nasa.gov/citations/19730007339",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W599478413",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#19730007339",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.219/sources.csv#kenyon72_hast_table_iv",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "2026-11-22-royal-navy-hast-tavily#kenyon72_hast_table_iv",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "2026-11-22-royal-navy-hast-firecrawl#kenyon72_hast_table_iv",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "basis": "Same NASA CR-114550 and NTRS accession 19730007339, title and original PDF.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19730007339"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "basis": "Gould 1963, Royal Naval Medical Service 49(2):93–96 and DOI 10.1136/jrnms-49-93 agree.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:5",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "basis": "Gould 1963, Royal Naval Medical Service 49(2):93–96 and DOI 10.1136/jrnms-49-93 agree.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.13/search_hits.csv#clinical_series_local_verification:12",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "basis": "Gould 1963, Royal Naval Medical Service 49(2):93–96 and DOI 10.1136/jrnms-49-93 agree.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:5",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "basis": "Gould 1963, Royal Naval Medical Service 49(2):93–96 and DOI 10.1136/jrnms-49-93 agree.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_ntrs_archives:8",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "basis": "Gould 1963, Royal Naval Medical Service 49(2):93–96 and DOI 10.1136/jrnms-49-93 agree.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "record_key": "2026-11-22-royal-navy-hast-firecrawl#gould-1963",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "basis": "Gould 1963, Royal Naval Medical Service 49(2):93–96 and DOI 10.1136/jrnms-49-93 agree.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.219/sources.csv#gould63_hast_preview",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "basis": "Gould 1963, Royal Naval Medical Service 49(2):93–96 and DOI 10.1136/jrnms-49-93 agree.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "record_key": "2026-11-22-royal-navy-hast-tavily#cannon-gould-365",
+      "report_id": "pmid:14080600",
+      "basis": "Published citation and PMID 14080600 agree.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/"
+    },
+    {
+      "record_key": "2026-11-22-royal-navy-hast-firecrawl#cannon-gould-365",
+      "report_id": "pmid:14080600",
+      "basis": "Published citation and PMID 14080600 agree.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.218/sources.csv#edwards85_pooled_n2_washout",
       "report_id": "ntrs:19850017967",
       "basis": "The NASA report number, primary PDF, title and date agree.",
@@ -19275,6 +19401,24 @@
   ],
   "studies": [
     {
+      "study_id": "royal-navy-hast-1950-1962-course-registry",
+      "label": "Royal Navy 37,000-ft selection courses",
+      "period": "1950–1962",
+      "setting": "Royal Navy Air Medical School, recorded course classifications."
+    },
+    {
+      "study_id": "royal-navy-cannon-gould-hast-365-people",
+      "label": "Cannon and Gould's 365-subject selection summary",
+      "period": "Publication 1964. Cohort dates unavailable.",
+      "setting": "Royal Navy 37,000-ft selection program."
+    },
+    {
+      "study_id": "royal-navy-gould-1961-1962-357-people",
+      "label": "Gould's 357-subject selection summary",
+      "period": "1961–1962",
+      "setting": "Royal Navy 37,000-ft selection program. Subject summary with unresolved course links."
+    },
+    {
       "study_id": "nasa-shuttle-tm58259-three-series",
       "label": "NASA Shuttle pressure-stage validation, three chamber series",
       "period": "Published 1984–1985",
@@ -21232,6 +21376,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "royal-navy-hast-1950-1962-course-registry",
+      "report_id": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "role": "original_course_registry",
+      "locator": "Introduction pp. 2–3, Tables I–IV pp. 4–7 and Criteria p. 11 (PDF pp. 4–9 and 13)"
+    },
+    {
+      "study_id": "royal-navy-gould-1961-1962-357-people",
+      "report_id": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "role": "person_summary_overlap_hold",
+      "locator": "Table 1 and adjacent Results, printed p. 93, publisher first-page preview"
+    },
+    {
+      "study_id": "royal-navy-cannon-gould-hast-365-people",
+      "report_id": "pmid:14080600",
+      "role": "person_summary_overlap_hold",
+      "locator": "Discussion, printed p. 280"
+    },
     {
       "study_id": "nasa-shuttle-tm58259-three-series",
       "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
@@ -24522,6 +24684,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "right_report": "pmid:14080600",
+      "relationship": "likely_overlap",
+      "evidence": "The same 37,000-ft Royal Navy selection program uses three planned runs and A/B/C categories. Cannon and Gould p. 280 gives 238/109/18 among 365 subjects with no explicit cohort dates in that passage. Kenyon's 1961–1962 partition gives 228/119/24 among 371 courses. Differences in the unit and A count leave subject-to-course linkage and possible reclassification unresolved.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1",
+      "right_report": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "relationship": "likely_overlap",
+      "evidence": "Gould's p. 93 gives 224/115/18 across 357 subjects in 1961–1962. Kenyon gives 228/119/24 across 371 courses for those years. The same program and dates support likely overlap. Exact participant-to-course links are unavailable. Gould describes alternate mornings, whereas Kenyon describes consecutive days.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy",
+      "right_report": "pmid:14080600",
+      "relationship": "likely_overlap",
+      "evidence": "Gould p. 93 gives 224/115/18 among 357 subjects in 1961–1962. Cannon and Gould p. 280 gives 238/109/18 among 365 subjects with no enrollment dates in that passage. The shared program and author support an overlap hold. No record linkage establishes that any cases or participants are the same.",
+      "evidence_url": "https://jrnms.bmj.com/content/49/2/93"
+    },
     {
       "left_report": "ntrs:19850017967",
       "right_report": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
@@ -30222,6 +30405,8 @@
     "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude",
     "doi:10.14339/rto-mp-hfm-124-16-pdf": "Exercise Following Simulated Parachuting from 35,000 Feet: Is Tolerance Reduced and is the Probability of Post Descent Decompression Sickness Increased?",
     "sto:mp-hfm-309:22p": "Aircrew Training Hypoxic Hypobaria Elevated Cerebral Blood Flow – When Does it Return to Normal?",
-    "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1": "Verification of an Altitude Decompression Sickness Prevention Protocol for Shuttle Operations Utilizing a 10.2-psi Pressure Stage"
+    "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1": "Verification of an Altitude Decompression Sickness Prevention Protocol for Shuttle Operations Utilizing a 10.2-psi Pressure Stage",
+    "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1": "Predictive Modeling of Altitude Decompression Sickness in Humans",
+    "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy": "A review of the high-altitude selection test, 1961–1962"
   }
 }

@@ -1,0 +1,842 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-royal-navy-hast-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_royal_navy_course_crosswalk",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "ee65eacc-0fa1-4ee3-ad1a-97fce5d2eb93",
+          "query": "Locate primary Royal Navy altitude selection cohort reports"
+        },
+        {
+          "request_id": "741aee28-bbf7-4852-a4fd-d6a5aa4d837f",
+          "url": "https://ntrs.nasa.gov/api/citations/19730007339/downloads/19730007339.pdf"
+        },
+        {
+          "request_id": "981a3684-69f1-44d5-8472-f0b1aea0c9ef",
+          "query": "Locate Gould's original programme reports and exact category counts"
+        },
+        {
+          "request_id": "5cddc82d-f698-41a7-b555-8a144db51eb1",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/"
+        }
+      ]
+    },
+    "note": "Retrieved the public contractor report and the companion BMJ case series record. Neither search yielded original person-run data.",
+    "records": [
+      {
+        "id": "kenyon72_hast_table_iv",
+        "title": "Predictive Modeling of Altitude Decompression Sickness in Humans",
+        "year": 1972,
+        "url": "https://ntrs.nasa.gov/api/citations/19730007339/downloads/19730007339.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19730007339/downloads/19730007339.pdf",
+        "ntrs_id": "19730007339",
+        "openalex_id": "W599478413",
+        "source_sha256": "5c9aa4ccc60f08ebd9a52c05840a5a0f3ab78e4724ad76f2c7ddbad5ba505184",
+        "access": "full_text",
+        "locator": "Introduction pp. 2–3, Tables I–IV pp. 4–7 and Criteria p. 11 (PDF pp. 4–9 and 13)",
+        "study_id": "royal-navy-hast-1950-1962-course-registry",
+        "related_model_source": "kenyon72_hast"
+      },
+      {
+        "id": "cannon-gould-365",
+        "title": "Treatment of Severe Decompression Sickness in Aviators",
+        "year": 1964,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/",
+        "pmid": "14080600",
+        "doi": "10.1136/bmj.1.5378.278",
+        "access": "full_text",
+        "locator": "Discussion, printed p. 280",
+        "study_id": "royal-navy-cannon-gould-hast-365-people",
+        "role_review": "overlap_hold"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-royal-navy-hast-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_royal_navy_report_authority",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a20390-caec-76a5-9cac-e03d7315b245",
+          "url": "https://ntrs.nasa.gov/citations/19730007339"
+        },
+        {
+          "scrape_id": "01a20391-e44b-73f4-9339-984a557fc5ae",
+          "url": "https://jrnms.bmj.com/content/49/2/93"
+        },
+        {
+          "scrape_id": "01a20393-cd04-7276-9bd8-3e574f735cb2",
+          "url": "https://jrnms.bmj.com/content/49/2/93",
+          "locator": "Table 1 and adjacent Results, printed p. 93, publisher first-page preview"
+        },
+        {
+          "scrape_id": "01a20392-716a-734d-9eb8-aa1beb896707",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/"
+        }
+      ]
+    },
+    "note": "The rendered contractor report supplied Table IV. The publisher first-page preview and the BMJ p. 280 scan verify the 357- and 365-person comparisons.",
+    "records": [
+      {
+        "id": "kenyon72_hast_table_iv",
+        "title": "Predictive Modeling of Altitude Decompression Sickness in Humans",
+        "year": 1972,
+        "url": "https://ntrs.nasa.gov/api/citations/19730007339/downloads/19730007339.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19730007339/downloads/19730007339.pdf",
+        "ntrs_id": "19730007339",
+        "openalex_id": "W599478413",
+        "source_sha256": "5c9aa4ccc60f08ebd9a52c05840a5a0f3ab78e4724ad76f2c7ddbad5ba505184",
+        "access": "full_text",
+        "locator": "Introduction pp. 2–3, Tables I–IV pp. 4–7 and Criteria p. 11 (PDF pp. 4–9 and 13)",
+        "study_id": "royal-navy-hast-1950-1962-course-registry",
+        "related_model_source": "kenyon72_hast",
+        "role_review": "course_classification_only",
+        "people": 2135,
+        "courses": 2565,
+        "role_year_category_cells": [
+          {
+            "course_year": 1950,
+            "role": "pilots",
+            "category_a": 32,
+            "category_b": 13,
+            "category_c": 5,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1950,
+            "role": "observers",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1950,
+            "role": "r_aircrew",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1950,
+            "role": "civilians",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1950,
+            "role": "others",
+            "category_a": 5,
+            "category_b": 2,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1951,
+            "role": "pilots",
+            "category_a": 54,
+            "category_b": 20,
+            "category_c": 3,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1951,
+            "role": "observers",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1951,
+            "role": "r_aircrew",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1951,
+            "role": "civilians",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1951,
+            "role": "others",
+            "category_a": 7,
+            "category_b": 2,
+            "category_c": 2,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1952,
+            "role": "pilots",
+            "category_a": 72,
+            "category_b": 24,
+            "category_c": 4,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1952,
+            "role": "observers",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1952,
+            "role": "r_aircrew",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1952,
+            "role": "civilians",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1952,
+            "role": "others",
+            "category_a": 0,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "AC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1953,
+            "role": "pilots",
+            "category_a": 108,
+            "category_b": 50,
+            "category_c": 11,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1953,
+            "role": "observers",
+            "category_a": 5,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1953,
+            "role": "r_aircrew",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1953,
+            "role": "civilians",
+            "category_a": 0,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "AC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1953,
+            "role": "others",
+            "category_a": 1,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "BC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1954,
+            "role": "pilots",
+            "category_a": 156,
+            "category_b": 71,
+            "category_c": 14,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1954,
+            "role": "observers",
+            "category_a": 23,
+            "category_b": 7,
+            "category_c": 2,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1954,
+            "role": "r_aircrew",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1954,
+            "role": "civilians",
+            "category_a": 1,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1954,
+            "role": "others",
+            "category_a": 1,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "BC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1955,
+            "role": "pilots",
+            "category_a": 176,
+            "category_b": 85,
+            "category_c": 14,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1955,
+            "role": "observers",
+            "category_a": 24,
+            "category_b": 6,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1955,
+            "role": "r_aircrew",
+            "category_a": 9,
+            "category_b": 2,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1955,
+            "role": "civilians",
+            "category_a": 8,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1955,
+            "role": "others",
+            "category_a": 1,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "BC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1956,
+            "role": "pilots",
+            "category_a": 119,
+            "category_b": 50,
+            "category_c": 9,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1956,
+            "role": "observers",
+            "category_a": 16,
+            "category_b": 19,
+            "category_c": 3,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1956,
+            "role": "r_aircrew",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1956,
+            "role": "civilians",
+            "category_a": 2,
+            "category_b": 0,
+            "category_c": 1,
+            "printed_dash_categories": "B",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1956,
+            "role": "others",
+            "category_a": 1,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "BC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1957,
+            "role": "pilots",
+            "category_a": 63,
+            "category_b": 38,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1957,
+            "role": "observers",
+            "category_a": 33,
+            "category_b": 27,
+            "category_c": 2,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1957,
+            "role": "r_aircrew",
+            "category_a": 1,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "BC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1957,
+            "role": "civilians",
+            "category_a": 4,
+            "category_b": 0,
+            "category_c": 1,
+            "printed_dash_categories": "B",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1957,
+            "role": "others",
+            "category_a": 3,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1958,
+            "role": "pilots",
+            "category_a": 91,
+            "category_b": 50,
+            "category_c": 8,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1958,
+            "role": "observers",
+            "category_a": 45,
+            "category_b": 14,
+            "category_c": 5,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1958,
+            "role": "r_aircrew",
+            "category_a": 3,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "BC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1958,
+            "role": "civilians",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1958,
+            "role": "others",
+            "category_a": 9,
+            "category_b": 4,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1959,
+            "role": "pilots",
+            "category_a": 173,
+            "category_b": 59,
+            "category_c": 10,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1959,
+            "role": "observers",
+            "category_a": 18,
+            "category_b": 10,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1959,
+            "role": "r_aircrew",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1959,
+            "role": "civilians",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 1,
+            "printed_dash_categories": "AB",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1959,
+            "role": "others",
+            "category_a": 11,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1960,
+            "role": "pilots",
+            "category_a": 126,
+            "category_b": 62,
+            "category_c": 8,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1960,
+            "role": "observers",
+            "category_a": 25,
+            "category_b": 16,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1960,
+            "role": "r_aircrew",
+            "category_a": 5,
+            "category_b": 3,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1960,
+            "role": "civilians",
+            "category_a": 6,
+            "category_b": 3,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1960,
+            "role": "others",
+            "category_a": 2,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1961,
+            "role": "pilots",
+            "category_a": 84,
+            "category_b": 31,
+            "category_c": 7,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1961,
+            "role": "observers",
+            "category_a": 18,
+            "category_b": 11,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1961,
+            "role": "r_aircrew",
+            "category_a": 9,
+            "category_b": 3,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1961,
+            "role": "civilians",
+            "category_a": 4,
+            "category_b": 5,
+            "category_c": 1,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1961,
+            "role": "others",
+            "category_a": 0,
+            "category_b": 0,
+            "category_c": 0,
+            "printed_dash_categories": "ABC",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1962,
+            "role": "pilots",
+            "category_a": 88,
+            "category_b": 53,
+            "category_c": 11,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1962,
+            "role": "observers",
+            "category_a": 19,
+            "category_b": 10,
+            "category_c": 4,
+            "printed_dash_categories": "none",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1962,
+            "role": "r_aircrew",
+            "category_a": 3,
+            "category_b": 4,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1962,
+            "role": "civilians",
+            "category_a": 2,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          },
+          {
+            "course_year": 1962,
+            "role": "others",
+            "category_a": 1,
+            "category_b": 1,
+            "category_c": 0,
+            "printed_dash_categories": "C",
+            "locator": "Table IV, p. 7 (PDF p. 9)"
+          }
+        ],
+        "attendance": [
+          {
+            "courses_per_person": 1,
+            "people": 1734,
+            "locator": "Introduction, p. 3 (PDF p. 5)"
+          },
+          {
+            "courses_per_person": 2,
+            "people": 372,
+            "locator": "Introduction, p. 3 (PDF p. 5)"
+          },
+          {
+            "courses_per_person": 3,
+            "people": 29,
+            "locator": "Introduction, p. 3 (PDF p. 5)"
+          }
+        ],
+        "protocol": {
+          "peak_altitude_ft": 37000,
+          "ascent_within_min": 10,
+          "planned_dwell_per_run_min": 60,
+          "planned_consecutive_runs": 3,
+          "preoxygenation_min": 0,
+          "oxygen_delivery_as_reported": "Oxygen by mask during ascent and at altitude.",
+          "category_a_definition": "No high-altitude flying restriction.",
+          "category_b_definition": "Bends require early return to ground before the end of one hour. Flying above 30,000 ft in an unpressurized aircraft is restricted.",
+          "category_c_definition": "Severe decompression sickness. Flying above 30,000 ft is restricted.",
+          "locator": "Introduction pp. 2–3 and Criteria for Decompression Incidents p. 11 (PDF pp. 4–5 and 13)",
+          "note": "Three planned runs on consecutive days. Planned dwell is nominal. Actual flights completed, participant-level gas measurements and systematic post-course follow-up are unavailable."
+        },
+        "year_1957_table_iii_total_as_printed": 177,
+        "year_1957_verified_total": 174,
+        "comparison_years_1961_1962": {
+          "unit": "course",
+          "n": 371,
+          "category_a": 228,
+          "category_b": 119,
+          "category_c": 24
+        },
+        "note": "The identical NASA CR-114550 PDF extends the existing v1.15 extraction. Table IV is a partition of the same 2,565 course completions. Count each course in only one partition per analysis."
+      },
+      {
+        "id": "cannon-gould-365",
+        "title": "Treatment of Severe Decompression Sickness in Aviators",
+        "year": 1964,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/",
+        "pmid": "14080600",
+        "doi": "10.1136/bmj.1.5378.278",
+        "access": "full_text",
+        "locator": "Discussion, printed p. 280",
+        "study_id": "royal-navy-cannon-gould-hast-365-people",
+        "role_review": "overlap_hold",
+        "source_categories": {
+          "unit": "person",
+          "n": 365,
+          "category_a": 238,
+          "category_b": 109,
+          "category_c": 18
+        },
+        "distinct_exposure_linkage_available": false,
+        "note": "The same 37,000-ft Royal Navy selection program uses three planned runs and A/B/C categories. Cannon and Gould p. 280 gives 238/109/18 among 365 subjects with no explicit cohort dates in that passage. Kenyon's 1961–1962 partition gives 228/119/24 among 371 courses. Differences in the unit and A count leave subject-to-course linkage and possible reclassification unresolved."
+      },
+      {
+        "id": "gould-1963",
+        "title": "A review of the high-altitude selection test, 1961–1962",
+        "year": 1963,
+        "url": "https://jrnms.bmj.com/content/49/2/93",
+        "primary_source": "https://jrnms.bmj.com/content/49/2/93",
+        "doi": "10.1136/jrnms-49-93",
+        "access": "publisher_first_page",
+        "source_capture_sha256": "c9703eb16a9bfab921dedabbecacb54de14a8db48e89060ff4330ab96e559e83",
+        "locator": "Table 1 and adjacent Results, printed p. 93, publisher first-page preview",
+        "study_id": "royal-navy-gould-1961-1962-357-people",
+        "role_review": "overlap_hold",
+        "note": "Gould's p. 93 gives 224/115/18 across 357 subjects in 1961–1962. Kenyon gives 228/119/24 across 371 courses for those years. The same program and dates support likely overlap. Exact participant-to-course links are unavailable. Gould describes alternate mornings, whereas Kenyon describes consecutive days.",
+        "reported_category_percentages": {
+          "a": 61.7,
+          "b": 33.2,
+          "c": 5.1
+        },
+        "percentage_discrepancy": "The three printed counts sum to 357. The printed percentages disagree with the ratios of those counts to 357. Counts are primary. The source defines category A to include minor symptoms and describes no retesting of category C.",
+        "source_protocol": "Three planned one-hour periods at 37,000 ft on alternate mornings during a week.",
+        "model_source_id": "gould63_hast_preview",
+        "observations": [
+          {
+            "id": "hast_category_a_source",
+            "study_id": "royal-navy-gould-1961-1962-357-people",
+            "group": "hast-1961-1962",
+            "endpoint": "hast_category_a_source",
+            "cases": 224,
+            "denominator": 357,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Table 1 and adjacent Results, printed p. 93, publisher first-page preview",
+            "outcome_window": "During the selection course. Standardized delayed follow-up is unavailable.",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 61.7,
+            "note": "Printed rate 61.7%. The category can include minor symptoms."
+          },
+          {
+            "id": "hast_category_b_source",
+            "study_id": "royal-navy-gould-1961-1962-357-people",
+            "group": "hast-1961-1962",
+            "endpoint": "hast_category_b_source",
+            "cases": 115,
+            "denominator": 357,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Table 1 and adjacent Results, printed p. 93, publisher first-page preview",
+            "outcome_window": "During the selection course. Standardized delayed follow-up is unavailable.",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 33.2,
+            "note": "Printed rate 33.2%. The category requires descent within the hour."
+          },
+          {
+            "id": "hast_category_c_source",
+            "study_id": "royal-navy-gould-1961-1962-357-people",
+            "group": "hast-1961-1962",
+            "endpoint": "hast_category_c_source",
+            "cases": 18,
+            "denominator": 357,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Table 1 and adjacent Results, printed p. 93, publisher first-page preview",
+            "outcome_window": "During the selection course. Standardized delayed follow-up is unavailable.",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": 5.1,
+            "note": "Printed rate 5.1%. The category requires immediate descent."
+          },
+          {
+            "id": "first_time_hast_subjects",
+            "study_id": "royal-navy-gould-1961-1962-357-people",
+            "group": "hast-1961-1962",
+            "endpoint": "first_time_hast_subjects",
+            "cases": 223,
+            "denominator": 357,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Table 1 and adjacent Results, printed p. 93, publisher first-page preview",
+            "outcome_window": "During the selection course. Standardized delayed follow-up is unavailable.",
+            "analysis_role": "overlap_hold",
+            "reported_rate_percent": null,
+            "note": "The paper refers to Table 2 for the outcomes in these subjects. The preview supplies the denominator only."
+          }
+        ]
+      }
+    ]
+  }
+]
