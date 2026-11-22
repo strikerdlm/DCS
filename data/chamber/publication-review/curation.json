@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-hypobaric-osteonecrosis-verified#workshop",
+      "report_id": "workshop:cdc-179890-allen-davis-hodgson",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=33",
+      "basis": "Same chapter authors, report, and page sequence. The workshop republishes two existing flight narratives."
+    },
+    {
+      "record_key": "2026-11-21-hypobaric-osteonecrosis-verified#ratnoff",
+      "report_id": "report:usaaf-project-201-report-1-ratnoff",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=34",
+      "basis": "The workshop and Hodgson 1968 cite the same November 1943 Project 201 Report 1."
+    },
+    {
+      "record_key": "2026-11-21-hypobaric-osteonecrosis-verified#hodgson",
+      "report_id": "pmid:5658347",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/39/4/article-p417.pdf?download=1#page=4",
+      "basis": "The original report p. 420 provides the B-29 case. The same publication provides the previously curated operator survey."
+    },
+    {
+      "record_key": "2026-11-21-hypobaric-osteonecrosis-verified#fryer",
+      "report_id": "report:ada111509",
+      "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=272",
+      "basis": "The original Fryer report and Case 28 identify the pilot summarized in the 1974 workshop."
+    },
+    {
+      "record_key": "2026-11-21-hypobaric-osteonecrosis-verified#kim",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://koreascience.kr/article/JAKO201231434069438.pdf",
+      "basis": "Original full text confirms KCI publication identity, authors and training sample."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.170/sources.csv#allen74_hypobaric_radiography",
+      "report_id": "workshop:cdc-179890-allen-davis-hodgson",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=33",
+      "basis": "Same chapter authors, report, and page sequence. The workshop republishes two existing flight narratives."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.170/sources.csv#kim_jeon12_rokaf_blood",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://koreascience.kr/article/JAKO201231434069438.pdf",
+      "basis": "Matching KoreaScience or KCI publisher record, authors, journal issue, pages and Korean title."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.25/search_hits.csv#case_v25_kr:3",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://koreascience.kr/article/JAKO201231434069438.pdf",
+      "basis": "Matching KoreaScience or KCI publisher record, authors, journal issue, pages and Korean title."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.39/search_hits.csv#bubble_v39_ko:2",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://koreascience.kr/article/JAKO201231434069438.pdf",
+      "basis": "Matching KoreaScience or KCI publisher record, authors, journal issue, pages and Korean title."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.39/search_hits.csv#bubble_v39_ko:5",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://koreascience.kr/article/JAKO201231434069438.pdf",
+      "basis": "Matching KoreaScience or KCI publisher record, authors, journal issue, pages and Korean title."
+    },
+    {
+      "record_key": "2026-11-20-trainee-cohorts-f-korea#https://koreascience.kr/article/JAKO201231434069438.pub?&lang=ko&orgId=ksafo",
+      "report_id": "kci:ART001678746",
+      "evidence_url": "https://koreascience.kr/article/JAKO201231434069438.pdf",
+      "basis": "Matching KoreaScience or KCI publisher record, authors, journal issue, pages and Korean title."
+    },
+    {
       "record_key": "2026-11-21-taiwan-training-links-verified#tong19-scope",
       "report_id": "abstract:ndmc-2019-a-i-003",
       "evidence_url": "https://wwwndmc.ndmutsgh.edu.tw/files/web/191/file_up/10000/6194/%E5%9C%8B%E9%98%B2%E9%86%AB%E5%AD%B8%E9%99%A2%E5%BB%BA%E6%A0%A1118%E5%B9%B4%E6%A0%A1%E6%85%B6%E5%A4%A7%E6%9C%83%E6%9A%A8%E7%AC%AC46%E5%B1%86%E5%9C%8B%E8%BB%8D%E8%BB%8D%E9%86%AB%E5%AD%B8%E8%A1%93%E7%A0%94%E8%A8%8E%E6%9C%83-%E5%B0%88%E5%88%8A.pdf#page=147",
@@ -21816,6 +21882,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "workshop:cdc-179890-allen-davis-hodgson",
+      "right_report": "report:usaaf-project-201-report-1-ratnoff",
+      "relationship": "reports_secondary_radiographic_outcome",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=33",
+      "evidence": "The Ratnoff paragraph p. 17 reports the 21-person result and the references on p. 18 identify the original."
+    },
+    {
+      "left_report": "workshop:cdc-179890-allen-davis-hodgson",
+      "right_report": "report:ada111509",
+      "relationship": "summarizes_published_flight_case",
+      "evidence_url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=33",
+      "evidence": "The workshop pilot narrative matches Fryer's Case 28 on the first flight in an unpressurized aircraft at 27000 ft, repeated bends, and later humeral head pathology."
+    },
     {
       "left_report": "doi:10.7011/jamsrc.200406.0049",
       "right_report": "pmid:3240220",

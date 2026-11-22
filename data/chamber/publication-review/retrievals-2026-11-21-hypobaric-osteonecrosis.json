@@ -1,0 +1,186 @@
+[
+  {
+    "id": "2026-11-21-hypobaric-osteonecrosis-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Checked the CDC workshop, traced the referenced 1943 report, and located the KCI and KoreaScience copies.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "cdc_extract_request_id": "af24cb18-eba4-4aaf-93bf-9af6070e3ff0",
+      "ratnoff_search_request_id": "ff53d21b-8540-491e-9320-85d6e2064eaa",
+      "ratnoff_search_query": "\"The absence of roentgenographically demonstrable bony changes\" \"Ratnoff\" project 201 1943 altitude low pressure",
+      "korean_extract_request_id": "3f48450f-022c-487a-b06e-9b06a56d7088"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-hypobaric-osteonecrosis-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read the original Korean paper and checked bibliography and digitized index entries for the 1943 USAAF report.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "korea_science_pdf_scrape_id": "01a2007b-5f78-7515-b798-0da223b528e7",
+      "kci_scrape_id": "01a2007a-a37d-753b-a0da-3afc08f6c853",
+      "hathi_index_scrape_id": "01a2007c-e705-737f-9d92-43bd9ee1f78c",
+      "hathi_index_url": "https://catalog.hathitrust.org/Record/002138752"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-hypobaric-osteonecrosis-verified",
+    "date": "2026-11-21",
+    "provider": "CDC Stacks, Aerospace Medical Association, DTIC and KoreaScience",
+    "operation": "supplementary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Reconciled two workshop narratives with the original flight histories and verified the denominators and endpoints for chamber radiography and postflight examination.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "workshop",
+        "title": "U.S. Air Force Experience in Hypobaric Osteonecrosis",
+        "author": "Allen TH, Davis JC, Hodgson CJ",
+        "year": 1974,
+        "url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=33",
+        "alternate_url": "https://stacks.cdc.gov/view/cdc/179890",
+        "full_text_available": true,
+        "pdf_sha256": "88151dd1168d593ca2594fcfc7919e119fef5f225232f9c9887768a46481f8ad",
+        "locator": "Printed p. 17 (PDF p. 33), Ratnoff paragraph; p. 18, References",
+        "underlying_report_id": "report:usaaf-project-201-report-1-ratnoff",
+        "related_published_cases": [
+          "pmid:5658347#b29-crew-1953-hip-necrosis",
+          "report:ada111509#photo-survey-pilot-case-28"
+        ],
+        "observations": [
+          {
+            "id": "ratnoff-1943-hip-radiography",
+            "group": "ratnoff-1943-hip-radiography",
+            "endpoint": "caisson_pattern_hip_radiographic_changes_as_reported",
+            "cases": 0,
+            "denominator": 21,
+            "denominator_unit": "person",
+            "locator": "Printed p. 17 (PDF p. 33), Ratnoff paragraph",
+            "evidence_url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=33",
+            "note": "Both hips were radiographed in 21 people after repeated simulated exposures at 35000 and 40000 ft. The report found no changes matching those described in caisson workers. Two equivocal findings occurred in people with no known history of bends. The acute DCS numerator, exposure count and follow-up interval are unavailable."
+          }
+        ],
+        "note": "Secondary reporting of Ratnoff's screening result. The chapter also summarizes the two separately published osteonecrosis cases and the Hodgson operator survey. These accounts do not add cases or a denominator."
+      },
+      {
+        "id": "ratnoff",
+        "title": "The Absence of Roentgenographically Demonstrable Bony Changes at the Hip Joint in Subjects Exposed to Simulated High Altitude",
+        "author": "Ratnoff OD",
+        "year": 1943,
+        "report_number": "Project 201, Report 1",
+        "report_month": "November",
+        "institution": "U.S. Army Air Forces School of Aviation Medicine, Randolph Field, Texas",
+        "url": "https://stacks.cdc.gov/view/cdc/46867/cdc_46867_DS1.pdf#page=34",
+        "alternate_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/39/4/article-p417.pdf?download=1#page=5",
+        "full_text_available": false,
+        "locator": "Allen et al., workshop reference list p. 18 and Hodgson et al. 1968 p. 421 ref. 3",
+        "note": "The available URLs document the citation. The original report was not recovered. Hodgson et al. 1968 p. 417 corroborates 21 people and no lesions, and describes 35000 ft and 5 to 100 hours. The 1974 workshop additionally describes 40000 ft and uses a different duration summary. The observation takes the explicit radiographic pattern and observations of equivocal findings from the workshop, with no attempt to harmonize duration."
+      },
+      {
+        "id": "hodgson",
+        "title": "Seven Year Follow-up X-ray Survey for Bone Changes in Low Pressure Chamber Operators",
+        "year": 1968,
+        "pmid": "5658347",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/39/4/article-p417.pdf?download=1#page=4",
+        "full_text_available": true,
+        "pdf_sha256": "dcb06693629d5e95fed4a05c55d7860c660f215e8c1ef7f5f17fa0a1316e1bc6",
+        "locator": "Printed p. 420, retrospective hospital case and Fig. 4",
+        "context": {
+          "setting": "B-29 operating flight",
+          "index_year": 1953,
+          "reported_symptomatic_episodes": 2,
+          "reported_altitudes_ft": [
+            35000,
+            45000
+          ],
+          "affected_people": 1,
+          "clinical_milestones": {
+            "persistent_hip_pain": "After second episode",
+            "incapacitating_by": 1960,
+            "retired_with_left_hip_necrosis": 1962,
+            "femoral_head_replacement": 1965
+          }
+        },
+        "observations": [
+          {
+            "id": "b29-crew-1953-hip-necrosis",
+            "group": "b29-crew-1953-hip-necrosis",
+            "endpoint": "femoral_head_osteonecrosis_after_reported_altitude_bends",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 420, retrospective hospital case and Fig. 4",
+            "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/39/4/article-p417.pdf?download=1#page=4",
+            "note": "One crew member reported two episodes in one week, each with at least one hour at altitude. The hospital narrative is separate from the operator survey and was summarized in the 1974 workshop."
+          }
+        ]
+      },
+      {
+        "id": "fryer",
+        "title": "Subatmospheric Decompression Sickness in Man",
+        "year": 1969,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=272",
+        "full_text_available": true,
+        "pdf_sha256": "cb7a216891a203b06ac4f8d9ab3acb4f5924c4f400aad1c53fe8481faee03000",
+        "locator": "Printed p. 278 (PDF p. 272), Case 28 and Figs. 13-1 and 13-2",
+        "context": {
+          "setting": "Unpressurized operational flight",
+          "index_year_approximate": 1955,
+          "index_altitude_ft": 27000,
+          "affected_people": 1,
+          "abnormal_humeral_head_radiograph": "May 1967",
+          "fragment_separation_on_repeat": "Six weeks later"
+        },
+        "observations": [
+          {
+            "id": "photo-survey-pilot-case-28",
+            "group": "photo-survey-pilot-case-28",
+            "endpoint": "humeral_head_osteonecrosis_after_reported_altitude_bends",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 278 (PDF p. 272), Case 28 and Figs. 13-1 and 13-2",
+            "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=272",
+            "note": "One pilot acting as camera operator, with symptoms on several flights. The report states no diving or compressed-air exposure. The 1974 workshop summarizes the same person."
+          }
+        ]
+      },
+      {
+        "id": "kim",
+        "title": "Alterations in hematological parameters in Republic of Korea Air Force pilots during altitude chamber flight",
+        "author": "Kim HS, Jeon E",
+        "year": 2012,
+        "kci_id": "ART001678746",
+        "url": "https://koreascience.kr/article/JAKO201231434069438.pdf",
+        "alternate_url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/artiPreView.kci?sereArticleSearchBean.artiId=ART001678746",
+        "full_text_available": true,
+        "locator": "Methods §§2.1.1–2.1.2 p. 59 and Table 1 p. 60",
+        "scope": {
+          "reported_people": 60,
+          "rechecked_after_flight": 60,
+          "completed_person_exposures": null,
+          "oxygen_prebreathe_min": 30,
+          "peak_altitude_ft": 35000,
+          "hypoxia_demonstration_ft": 25000,
+          "night_vision_demonstration_ft": 18000,
+          "dcs_cases": null,
+          "delayed_follow_up": null
+        },
+        "note": "The full text reports that a flight surgeon checked all pilots for symptoms and physical abnormalities after flight. The paper reports blood outcomes and does not enumerate DCS cases or delayed follow-up."
+      }
+    ]
+  }
+]
