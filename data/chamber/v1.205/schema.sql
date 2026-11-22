@@ -15,6 +15,7 @@ CREATE TABLE web_chamber_protocol_plateau (
     target_inspired_po2_kpa REAL CHECK(target_inspired_po2_kpa > 0),
     breathing_gas TEXT NOT NULL,
     locator TEXT NOT NULL,
+    oxygen_percent REAL CHECK(oxygen_percent BETWEEN 0 AND 100),
     PRIMARY KEY(source_id,condition,stage)
 ) STRICT;
 
@@ -23,13 +24,14 @@ CREATE TABLE web_chamber_clinical_case (
     stratum TEXT NOT NULL,
     endpoint TEXT NOT NULL,
     condition TEXT NOT NULL,
-    source_onset_stage INTEGER NOT NULL CHECK(source_onset_stage > 0),
+    source_onset_stage INTEGER CHECK(source_onset_stage > 0),
     source_onset_description TEXT NOT NULL,
     symptom TEXT NOT NULL,
     diagnosis_as_reported TEXT NOT NULL,
     treatment TEXT NOT NULL,
     immediate_outcome TEXT NOT NULL,
     locator TEXT NOT NULL,
+    source_time_basis TEXT,
     PRIMARY KEY(source_id,stratum,endpoint),
     FOREIGN KEY(source_id,condition,source_onset_stage) REFERENCES web_chamber_protocol_plateau(source_id,condition,stage)
 ) STRICT;

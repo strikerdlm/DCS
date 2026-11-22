@@ -1,0 +1,490 @@
+[
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-anell2021-firecrawl",
+    "provider": "Firecrawl",
+    "operation": "supplementary_clinical_case_and_source_table_verification",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "receipt_ids": [
+        "01a202b4-80fc-7634-8ae9-9b3462d91e2d",
+        "01a202ba-4160-768c-9a60-f92ed2c2653c",
+        "01a202b6-834a-71ba-8afc-93e1e19a9ddd"
+      ],
+      "original_pdf": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p223.pdf"
+    },
+    "note": "Verified by the publisher PDF and clinical Table I. Maintained a distinct uncertain ALT-HYP timing scope.",
+    "records": [
+      {
+        "id": "anell-2021-verified-table-i",
+        "title": "Hyperoxic Effects on Decompression Strain During Alternating High and Moderate Altitude Exposures",
+        "doi": "10.3357/amhp.5707.2021",
+        "pmid": "33752785",
+        "year": 2021,
+        "url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p223.pdf",
+        "file_sha256": "12980a6243ba3e74fc92dd0588a614aee9d5d1b8d72d4320fe841e1904d69d06",
+        "full_text_available": true,
+        "study_id": "anell-2021-hyperoxic-altitude-alternation",
+        "locator": "Methods and Results pp. 224-226, Table I p. 226, and Discussion pp. 226-228",
+        "role_review": "overlap_hold",
+        "note": "Individual clinical records attach to the existing crossover source and clinical condition counts. The original ALT-HYP onset reports conflict.",
+        "clinical_scope": {
+          "condition_counts_model_source": "anell21_hyperoxic",
+          "source_population_note": "Six episodes in four participants across the existing crossover. The source preserves three clinical conditions and an overlapping combined total.",
+          "pain_at_ground_for_table_i": 0,
+          "bubble_clearance_on_ground_oxygen_min_range": [
+            3,
+            21
+          ],
+          "bubble_clearance_scope": "Reported across affected subjects. Individual clearance times are unavailable.",
+          "onset_conflict": "One ALT-HYP episode. Table I gives 80 min, Results gives 30 min before first recompression, and the follow-on paper supports the initial window at condition level.",
+          "vge_grade_at_first_symptoms_range": [
+            3,
+            4
+          ]
+        },
+        "pressure_plateaus": [
+          {
+            "condition": "H-NOR",
+            "stage": 1,
+            "altitude_ft": 24000,
+            "planned_duration_min": 90,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "Reported 54% O2 and 46% N2 from ascent through the experiment.",
+            "locator": "Methods and Figure 1, printed pp. 224-225",
+            "oxygen_percent": 54
+          },
+          {
+            "condition": "H-HYP",
+            "stage": 1,
+            "altitude_ft": 24000,
+            "planned_duration_min": 90,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "Reported 90% O2 and 10% N2 from ascent through the experiment.",
+            "locator": "Methods and Figure 1, printed pp. 224-225",
+            "oxygen_percent": 90
+          },
+          {
+            "condition": "ALT-HYP",
+            "stage": 1,
+            "altitude_ft": 24000,
+            "planned_duration_min": 30,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "Reported 90% O2 and 10% N2 from ascent through the experiment.",
+            "locator": "Methods and Figure 1, printed pp. 224-225",
+            "oxygen_percent": 90
+          },
+          {
+            "condition": "ALT-HYP",
+            "stage": 2,
+            "altitude_ft": 18000,
+            "planned_duration_min": 30,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "Reported 90% O2 and 10% N2 from ascent through the experiment.",
+            "locator": "Methods and Figure 1, printed pp. 224-225",
+            "oxygen_percent": 90
+          },
+          {
+            "condition": "ALT-HYP",
+            "stage": 3,
+            "altitude_ft": 24000,
+            "planned_duration_min": 30,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "Reported 90% O2 and 10% N2 from ascent through the experiment.",
+            "locator": "Methods and Figure 1, printed pp. 224-225",
+            "oxygen_percent": 90
+          },
+          {
+            "condition": "ALT-HYP",
+            "stage": 4,
+            "altitude_ft": 18000,
+            "planned_duration_min": 30,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "Reported 90% O2 and 10% N2 from ascent through the experiment.",
+            "locator": "Methods and Figure 1, printed pp. 224-225",
+            "oxygen_percent": 90
+          },
+          {
+            "condition": "ALT-HYP",
+            "stage": 5,
+            "altitude_ft": 24000,
+            "planned_duration_min": 30,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "Reported 90% O2 and 10% N2 from ascent through the experiment.",
+            "locator": "Methods and Figure 1, printed pp. 224-225",
+            "oxygen_percent": 90
+          }
+        ],
+        "individual_cases": [
+          {
+            "stratum": "h-hyp-participant-13-visit-1",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "condition": "H-HYP",
+            "source_onset_stage": 1,
+            "source_onset_description": "Table I reports onset 35 min after reaching the initial 24,000-ft level.",
+            "symptom": "Pain in left knee.",
+            "diagnosis_as_reported": "DCS symptoms, as reported in Table I.",
+            "treatment": "Chamber exposure terminated and pressure returned to ground; post-exposure oxygen reported at cohort level.",
+            "immediate_outcome": "Pain score zero at ground per Table I.",
+            "locator": "Table I, printed p. 226",
+            "source_time_basis": "minutes_since_reaching_24000ft",
+            "participant_ordinal": 13,
+            "experiment_order": 1,
+            "pain_at_altitude": 3,
+            "pain_at_ground": 0,
+            "selected_onset_min": 35
+          },
+          {
+            "stratum": "h-hyp-participant-01-visit-2",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "condition": "H-HYP",
+            "source_onset_stage": 1,
+            "source_onset_description": "Table I reports onset 65 min after reaching the initial 24,000-ft level.",
+            "symptom": "Pain in right shoulder.",
+            "diagnosis_as_reported": "DCS symptoms, as reported in Table I.",
+            "treatment": "Chamber exposure terminated and pressure returned to ground; post-exposure oxygen reported at cohort level.",
+            "immediate_outcome": "Pain score zero at ground per Table I.",
+            "locator": "Table I, printed p. 226",
+            "source_time_basis": "minutes_since_reaching_24000ft",
+            "participant_ordinal": 1,
+            "experiment_order": 2,
+            "pain_at_altitude": 3,
+            "pain_at_ground": 0,
+            "selected_onset_min": 65
+          },
+          {
+            "stratum": "h-nor-participant-04-visit-1",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "condition": "H-NOR",
+            "source_onset_stage": 1,
+            "source_onset_description": "Table I reports onset 35 min after reaching the initial 24,000-ft level.",
+            "symptom": "Pain in right hip.",
+            "diagnosis_as_reported": "DCS symptoms, as reported in Table I.",
+            "treatment": "Chamber exposure terminated and pressure returned to ground; post-exposure oxygen reported at cohort level.",
+            "immediate_outcome": "Pain score zero at ground per Table I.",
+            "locator": "Table I, printed p. 226",
+            "source_time_basis": "minutes_since_reaching_24000ft",
+            "participant_ordinal": 4,
+            "experiment_order": 1,
+            "pain_at_altitude": 3,
+            "pain_at_ground": 0,
+            "selected_onset_min": 35
+          },
+          {
+            "stratum": "h-nor-participant-13-visit-2",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "condition": "H-NOR",
+            "source_onset_stage": 1,
+            "source_onset_description": "Table I reports onset 70 min after reaching the initial 24,000-ft level.",
+            "symptom": "Pain in right hip.",
+            "diagnosis_as_reported": "DCS symptoms, as reported in Table I.",
+            "treatment": "Chamber exposure terminated and pressure returned to ground; post-exposure oxygen reported at cohort level.",
+            "immediate_outcome": "Pain score zero at ground per Table I.",
+            "locator": "Table I, printed p. 226",
+            "source_time_basis": "minutes_since_reaching_24000ft",
+            "participant_ordinal": 13,
+            "experiment_order": 2,
+            "pain_at_altitude": 3,
+            "pain_at_ground": 0,
+            "selected_onset_min": 70
+          },
+          {
+            "stratum": "h-nor-participant-03-visit-2",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "condition": "H-NOR",
+            "source_onset_stage": 1,
+            "source_onset_description": "Table I reports onset 30 min after reaching the initial 24,000-ft level.",
+            "symptom": "Pain in right knee.",
+            "diagnosis_as_reported": "DCS symptoms, as reported in Table I.",
+            "treatment": "Chamber exposure terminated and pressure returned to ground; post-exposure oxygen reported at cohort level.",
+            "immediate_outcome": "Pain score zero at ground per Table I.",
+            "locator": "Table I, printed p. 226",
+            "source_time_basis": "minutes_since_reaching_24000ft",
+            "participant_ordinal": 3,
+            "experiment_order": 2,
+            "pain_at_altitude": 5,
+            "pain_at_ground": 0,
+            "selected_onset_min": 30
+          },
+          {
+            "stratum": "alt-hyp-participant-04-visit-3",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "condition": "ALT-HYP",
+            "source_onset_stage": null,
+            "source_onset_description": "Table I gives 80 min. The Results give 30 min and termination before the first recompression. The authors' follow-on paper supports the initial 30-min window. The selected time and stage are unspecified.",
+            "symptom": "Pain in right hip.",
+            "diagnosis_as_reported": "DCS symptoms, as reported in Table I.",
+            "treatment": "Chamber exposure terminated and pressure returned to ground; post-exposure oxygen reported at cohort level.",
+            "immediate_outcome": "Pain score zero at ground per Table I.",
+            "locator": "Table I, printed p. 226",
+            "source_time_basis": null,
+            "participant_ordinal": 4,
+            "experiment_order": 3,
+            "pain_at_altitude": 5,
+            "pain_at_ground": 0,
+            "selected_onset_min": null
+          }
+        ],
+        "onset_claims": [
+          {
+            "stratum": "h-hyp-participant-13-visit-1",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "table-i",
+            "report_id": "pmid:33752785",
+            "support_scope": "individual_table_row",
+            "onset_min_lower": 35,
+            "onset_min_upper": 35,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "DCS symptom time printed in Table I.",
+            "locator": "Table I, printed p. 226"
+          },
+          {
+            "stratum": "h-hyp-participant-01-visit-2",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "table-i",
+            "report_id": "pmid:33752785",
+            "support_scope": "individual_table_row",
+            "onset_min_lower": 65,
+            "onset_min_upper": 65,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "DCS symptom time printed in Table I.",
+            "locator": "Table I, printed p. 226"
+          },
+          {
+            "stratum": "h-nor-participant-04-visit-1",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "table-i",
+            "report_id": "pmid:33752785",
+            "support_scope": "individual_table_row",
+            "onset_min_lower": 35,
+            "onset_min_upper": 35,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "DCS symptom time printed in Table I.",
+            "locator": "Table I, printed p. 226"
+          },
+          {
+            "stratum": "h-nor-participant-13-visit-2",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "table-i",
+            "report_id": "pmid:33752785",
+            "support_scope": "individual_table_row",
+            "onset_min_lower": 70,
+            "onset_min_upper": 70,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "DCS symptom time printed in Table I.",
+            "locator": "Table I, printed p. 226"
+          },
+          {
+            "stratum": "h-nor-participant-03-visit-2",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "table-i",
+            "report_id": "pmid:33752785",
+            "support_scope": "individual_table_row",
+            "onset_min_lower": 30,
+            "onset_min_upper": 30,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "DCS symptom time printed in Table I.",
+            "locator": "Table I, printed p. 226"
+          },
+          {
+            "stratum": "alt-hyp-participant-04-visit-3",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "table-i",
+            "report_id": "pmid:33752785",
+            "support_scope": "individual_table_row",
+            "onset_min_lower": 80,
+            "onset_min_upper": 80,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "DCS symptom time printed in Table I.",
+            "locator": "Table I, printed p. 226"
+          },
+          {
+            "stratum": "alt-hyp-participant-04-visit-3",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "results",
+            "report_id": "pmid:33752785",
+            "support_scope": "same_condition_narrative",
+            "onset_min_lower": 30,
+            "onset_min_upper": 30,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "Results place symptoms after 30 min with termination before the first recompression to 18,000 ft. No study-local participant number is given in this passage.",
+            "locator": "Results, printed p. 225"
+          },
+          {
+            "stratum": "alt-hyp-participant-04-visit-3",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "discussion",
+            "report_id": "pmid:33752785",
+            "support_scope": "same_condition_narrative",
+            "onset_min_lower": null,
+            "onset_min_upper": null,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "Discussion associates the shortest onset with ALT-HYP and gives an overall observed onset range of 30-80 min.",
+            "locator": "Discussion, printed p. 228"
+          },
+          {
+            "stratum": "alt-hyp-participant-04-visit-3",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "claim_id": "follow-on-introduction",
+            "report_id": "pmid:34410475",
+            "support_scope": "companion_condition_narrative",
+            "onset_min_lower": 0,
+            "onset_min_upper": 30,
+            "timing_basis": "minutes_since_reaching_24000ft",
+            "source_description": "The follow-on paper cites the original hyperoxic crossover and places DCS during the initial 30-min phase before the first excursion. The passage supplies no individual crosswalk.",
+            "locator": "Introduction, paragraph on iterative excursions"
+          }
+        ],
+        "vge_analysis_scope": {
+          "scope_id": "three-condition-vge-comparison",
+          "participants": 12,
+          "imputed_grade_after_dcs": 4,
+          "locator": "Results p. 225 and Fig. 2 caption p. 226",
+          "note": "The VGE comparisons exclude the early ALT-HYP termination. In included trials, the study assigned grade 4 to missing post-DCS observations through planned completion."
+        },
+        "vge_condition_summaries": [
+          {
+            "scope_id": "three-condition-vge-comparison",
+            "condition": "H-NOR",
+            "minimum_last_30_min_peak_grade": 1,
+            "median_last_30_min_peak_grade": 3,
+            "maximum_last_30_min_peak_grade": 4,
+            "first_positive_mean_min": 23.0,
+            "first_positive_spread_min": 15.5,
+            "first_positive_after_initial_30_mean_min": 40,
+            "first_positive_after_initial_30_spread_min": 6.9,
+            "locator": "Results, printed p. 226",
+            "note": "Onset summaries run from first reaching 24,000 ft. The analysis population was 12. Exact first-detection denominators for these summaries are unspecified."
+          },
+          {
+            "scope_id": "three-condition-vge-comparison",
+            "condition": "H-HYP",
+            "minimum_last_30_min_peak_grade": 1,
+            "median_last_30_min_peak_grade": 3,
+            "maximum_last_30_min_peak_grade": 4,
+            "first_positive_mean_min": 27.5,
+            "first_positive_spread_min": 13.0,
+            "first_positive_after_initial_30_mean_min": 39,
+            "first_positive_after_initial_30_spread_min": 4.7,
+            "locator": "Results, printed p. 226",
+            "note": "Onset summaries run from first reaching 24,000 ft. The analysis population was 12. Exact first-detection denominators for these summaries are unspecified."
+          },
+          {
+            "scope_id": "three-condition-vge-comparison",
+            "condition": "ALT-HYP",
+            "minimum_last_30_min_peak_grade": 0,
+            "median_last_30_min_peak_grade": 1,
+            "maximum_last_30_min_peak_grade": 4,
+            "first_positive_mean_min": 47.0,
+            "first_positive_spread_min": 54.3,
+            "first_positive_after_initial_30_mean_min": 107,
+            "first_positive_after_initial_30_spread_min": 43.0,
+            "locator": "Results, printed p. 226",
+            "note": "Onset summaries run from first reaching 24,000 ft. The analysis population was 12. Exact first-detection denominators for these summaries are unspecified."
+          }
+        ],
+        "alt_hyp_first_positive_without_18000ft_time": {
+          "reported_mean_min": 58,
+          "reported_spread_min": 24.1,
+          "locator": "Results, printed p. 226"
+        },
+        "observations": [
+          {
+            "id": "h-hyp-participant-13-visit-1",
+            "study_id": "anell-2021-hyperoxic-altitude-alternation",
+            "group": "H-HYP",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Table I, printed p. 226",
+            "note": "Table I reports onset 35 min after reaching the initial 24,000-ft level."
+          },
+          {
+            "id": "h-hyp-participant-01-visit-2",
+            "study_id": "anell-2021-hyperoxic-altitude-alternation",
+            "group": "H-HYP",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Table I, printed p. 226",
+            "note": "Table I reports onset 65 min after reaching the initial 24,000-ft level."
+          },
+          {
+            "id": "h-nor-participant-04-visit-1",
+            "study_id": "anell-2021-hyperoxic-altitude-alternation",
+            "group": "H-NOR",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Table I, printed p. 226",
+            "note": "Table I reports onset 35 min after reaching the initial 24,000-ft level."
+          },
+          {
+            "id": "h-nor-participant-13-visit-2",
+            "study_id": "anell-2021-hyperoxic-altitude-alternation",
+            "group": "H-NOR",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Table I, printed p. 226",
+            "note": "Table I reports onset 70 min after reaching the initial 24,000-ft level."
+          },
+          {
+            "id": "h-nor-participant-03-visit-2",
+            "study_id": "anell-2021-hyperoxic-altitude-alternation",
+            "group": "H-NOR",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Table I, printed p. 226",
+            "note": "Table I reports onset 30 min after reaching the initial 24,000-ft level."
+          },
+          {
+            "id": "alt-hyp-participant-04-visit-3",
+            "study_id": "anell-2021-hyperoxic-altitude-alternation",
+            "group": "ALT-HYP",
+            "endpoint": "dcs_symptoms_during_exposure_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Table I, printed p. 226",
+            "note": "Table I gives 80 min. The Results give 30 min and termination before the first recompression. The authors' follow-on paper supports the initial 30-min window. The selected time and stage are unspecified."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-anell2021-tavily",
+    "provider": "Tavily",
+    "operation": "supplementary_corrections_search_and_companion_timing_context",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "receipt_ids": [
+        "f9a81363-8076-43c9-a1e0-dbdfe941fbd8",
+        "933e052d-4455-40e2-9243-aa8f60e15373",
+        "6620e7cf-c2fe-4a24-b3d3-120259883e28"
+      ]
+    },
+    "note": "Located the follow-on article and verified its citation to the original study for pre-excursion timing. The original Table I and Results report conflicting times.",
+    "records": [
+      {
+        "id": "anell-2021-early-excursion-timing-context",
+        "title": "High-altitude decompression strain can be reduced by an early excursion to moderate altitude while breathing oxygen",
+        "doi": "10.1007/s00421-021-04794-2",
+        "pmid": "34410475",
+        "year": 2021,
+        "url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+        "primary_source": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+        "full_text_available": true,
+        "locator": "Introduction, paragraph on iterative excursions",
+        "note": "The authors describe earlier pre-excursion DCS during the initial 30 min when citing the hyperoxic crossover. The passage describes a condition and has no individually linked clinical observation."
+      }
+    ]
+  }
+]

@@ -9,6 +9,83 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_anell_2021_cases_link_to_existing_exposure_counts_and_report(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,cases,denominator FROM web_observation WHERE source_id='anell21_hyperoxic' AND endpoint='dcs'
+            ORDER BY stratum
+        """).fetchall() == [("ALT-HYP",1,13), ("H-HYP",2,13), ("H-NOR",3,13), ("all-conditions",6,39)]
+        cases = db.execute("""
+            SELECT c.condition,m.participant_ordinal,m.experiment_order,c.symptom,m.pain_at_altitude,m.pain_at_ground,
+                   h.source_time_min,h.time_basis
+            FROM web_chamber_clinical_case c JOIN web_chamber_case_measurement m USING(source_id,stratum,endpoint)
+            JOIN historical_case_catalog h ON h.case_id=c.source_id || ':' || c.stratum
+            WHERE c.source_id='anell21_hyperoxic' ORDER BY c.condition,m.participant_ordinal
+        """).fetchall()
+        basis = "minutes_since_reaching_24000ft"
+        assert cases == [
+            ("ALT-HYP",4,3,"Pain in right hip.",5,0,None,None),
+            ("H-HYP",1,2,"Pain in right shoulder.",3,0,65,basis),
+            ("H-HYP",13,1,"Pain in left knee.",3,0,35,basis),
+            ("H-NOR",3,2,"Pain in right knee.",5,0,30,basis),
+            ("H-NOR",4,1,"Pain in right hip.",3,0,35,basis),
+            ("H-NOR",13,2,"Pain in right hip.",3,0,70,basis),
+        ]
+        assert db.execute("""
+            SELECT source_table,source_id FROM model_report_link WHERE report_id='pmid:33752785'
+        """).fetchall() == [("web_source", "anell21_hyperoxic")]
+        assert db.execute("""
+            SELECT count(*),sum(cases),count(denominator) FROM review.review_search_observation
+            WHERE report_id='pmid:33752785' AND endpoint='dcs_symptoms_during_exposure_as_reported'
+        """).fetchone() == (6,6,0)
+
+
+def test_anell_2021_conflicting_onsets_keep_scope_and_avoid_a_second_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT claim_id,report_id,support_scope,onset_min_lower,onset_min_upper
+            FROM web_chamber_case_onset_claim WHERE source_id='anell21_hyperoxic'
+              AND stratum='alt-hyp-participant-04-visit-3' ORDER BY claim_id
+        """).fetchall() == [
+            ("discussion","pmid:33752785","same_condition_narrative",None,None),
+            ("follow-on-introduction","pmid:34410475","companion_condition_narrative",0,30),
+            ("results","pmid:33752785","same_condition_narrative",30,30),
+            ("table-i","pmid:33752785","individual_table_row",80,80),
+        ]
+        assert db.execute("""
+            SELECT source_onset_stage,source_time_basis FROM web_chamber_clinical_case
+            WHERE source_id='anell21_hyperoxic' AND condition='ALT-HYP'
+        """).fetchall() == [(None,None)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:34410475' AND right_report='pmid:33752785'
+        """).fetchall() == [("timing_context_for_prior_experiment",)]
+        assert db.execute("""
+            SELECT count(*) FROM shared_case_evidence WHERE report_id='pmid:34410475'
+        """).fetchone() == (0,)
+
+
+def test_anell_2021_vge_summary_stays_with_its_analysis_population(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT participants,imputed_grade_after_dcs FROM web_chamber_vge_analysis_scope
+            WHERE source_id='anell21_hyperoxic'
+        """).fetchall() == [(12,4)]
+        assert db.execute("""
+            SELECT condition,minimum_last_30_min_peak_grade,median_last_30_min_peak_grade,maximum_last_30_min_peak_grade,
+                   first_positive_mean_min,first_positive_spread_min,first_positive_after_initial_30_mean_min,
+                   first_positive_after_initial_30_spread_min
+            FROM web_chamber_vge_condition_summary WHERE source_id='anell21_hyperoxic' ORDER BY condition
+        """).fetchall() == [("ALT-HYP",0,1,4,47,54.3,107,43), ("H-HYP",1,3,4,27.5,13,39,4.7),
+                            ("H-NOR",1,3,4,23,15.5,40,6.9)]
+        assert db.execute("""
+            SELECT stage,altitude_ft,planned_duration_min,oxygen_percent,target_inspired_po2_kpa
+            FROM web_chamber_protocol_plateau WHERE source_id='anell21_hyperoxic' AND condition='ALT-HYP'
+            ORDER BY stage
+        """).fetchall() == [(stage, altitude, 30, 90, None)
+                            for stage, altitude in enumerate((24000,18000,24000,18000,24000), 1)]
+
+
 def test_anell_2019_condition_count_and_reported_rate_have_distinct_scopes(release):
     with connect_pair(release) as db:
         assert db.execute("""
