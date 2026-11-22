@@ -1,0 +1,3 @@
+source_id,scenario,endpoint,probability_as_reported,ratio_numerator,ratio_denominator,locator,note
+nasa20_cliff_eva_dcs,campout_worst_case,type_ii_dcs,0.0011,1,936,"PDF pp. 5 and 8, alternative incidence and worst-case rationale",The document explicitly calls this a scenario probability. It cites Conkin but no original calculation or observed matched cohort was found.
+nasa20_cliff_eva_dcs,in_suit_and_campout_maximum,total_dcs,0.0471,,,"PDF p. 8, worst-case rationale",Maximum total DCS probability used in scenario calculations. The value is outside the observed outcomes.

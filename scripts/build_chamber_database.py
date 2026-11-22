@@ -243,6 +243,7 @@ FAA_PROFILE_REACTION_RECONCILIATION = ROOT / "data" / "chamber" / "v1.175"
 ANDEAN_CHAMBER_SOURCE_SCOPE = ROOT / "data" / "chamber" / "v1.176"
 CANADIAN_CASE_AND_BERRY_SYMPTOMS = ROOT / "data" / "chamber" / "v1.177"
 BUTLER_CASE_MARGIN_RECONCILIATION = ROOT / "data" / "chamber" / "v1.178"
+PETERSON_AND_NASA_CAMPOUT = ROOT / "data" / "chamber" / "v1.179"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2408,6 +2409,17 @@ def build(
                     {
                         "publication_butler_case_margin": "case_margins.csv",
                         "publication_butler_case_percentage": "case_percentages.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    PETERSON_AND_NASA_CAMPOUT,
+                    {
+                        "publication_source": "sources.csv",
+                        "sharepoint_observation": "peterson_observation.csv",
+                        "sharepoint_overlap": "peterson_overlap.csv",
+                        "publication_nasa_cliff_probability": "cliff_probabilities.csv",
+                        "publication_nasa_cliff_eva_history": "cliff_eva_history.csv",
                     },
                 )
             if rojas_supplement:

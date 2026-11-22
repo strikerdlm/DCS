@@ -6368,6 +6368,52 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_peterson_overlap_and_nasa_campout_probabilities_stay_out_of_benchmark(release):
+    cliff_report = "report:nasa-cliff-dcs-secondary-eva-2020"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT events,denominator,denominator_unit,analysis_role
+            FROM sharepoint_observation WHERE source_id='butler02'
+              AND stratum='peterson-freshman-cadet-cluster'
+        """).fetchone() == (14, 1686, "cadet_exposure_as_reported", "overlap_hold")
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit FROM citation_observation
+            WHERE source_id='bassett_survey' AND stratum='Peterson Academy cadets all'
+        """).fetchone() == (12, 1654, "student_exposure")
+        assert db.execute("""
+            SELECT relationship FROM sharepoint_overlap
+            WHERE source_id='butler02' AND related_source='bassett_survey'
+        """).fetchone() == ("possible_overlap",)
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit,role_review FROM review.review_search_observation
+            WHERE run_id='2026-11-21-peterson-campout-source-reconciliation-verified'
+        """).fetchall() == [(14, 1686, "cadet_exposure_as_reported", "overlap_hold")]
+        assert db.execute("""
+            SELECT scenario,endpoint,probability_as_reported,ratio_numerator,ratio_denominator
+            FROM publication_nasa_cliff_probability ORDER BY scenario
+        """).fetchall() == [
+            ("campout_worst_case", "type_ii_dcs", 0.0011, 1, 936),
+            ("in_suit_and_campout_maximum", "total_dcs", 0.0471, None, None),
+        ]
+        assert db.execute("""
+            SELECT documented_dcs_cases,eva_count,unit_as_printed
+            FROM publication_nasa_cliff_eva_history
+        """).fetchall() == [(0, 247, "total EVAs")]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record WHERE report_id=?
+        """, (cliff_report,)).fetchone() == (5,)
+        assert db.execute("""
+            SELECT source_table,source_id FROM model_report_link WHERE report_id=?
+        """, (cliff_report,)).fetchall() == [("publication_source", "nasa20_cliff_eva_dcs")]
+        assert db.execute("""
+            SELECT record_key FROM review.review_record
+            WHERE report_id='pmid:12182221' AND record_key='2026-11-20-undermind-references#But02'
+        """).fetchone() is not None
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_rapid_decompression_zeros_are_limited_to_the_verified_crossover(release):
     with connect_pair(release) as db:
         run_id = "2026-11-21-brief-rapid-decompression-verified"

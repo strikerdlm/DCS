@@ -1,0 +1,197 @@
+[
+  {
+    "id": "2026-11-21-peterson-campout-source-reconciliation-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "The cadet sources corroborate a common venue without linking case records. NASA sources distinguish archived data, scenario estimates and flight history.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "campout_search_request_ids": [
+        "77faf583-3aef-43b7-a2f0-206fdf80ed6d",
+        "eb5353cd-dc89-4e28-b478-c3d56d2fbe17"
+      ],
+      "campout_and_trials_extract_request_id": "1efdfc71-1ad2-4951-89cb-432724d90d44",
+      "primary_cadet_search_request_ids": [
+        "8c630bf3-5b09-4179-ae36-655aed279d13",
+        "4a8df5cf-dcfc-4825-b3fe-b88a99e18087",
+        "633a424a-c1c7-4298-8b38-ef2c3d227666"
+      ],
+      "butler_archive_extract_request_id": "97c43abd-9815-46ef-8950-2f0ca2ce49b2",
+      "trials_search_request_id": "0f42d69b-6c24-4d00-926d-03d583a82b0f",
+      "urls": [
+        "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p798.pdf?download=1",
+        "https://archive.org/download/DTIC_ADA360821/DTIC_ADA360821.pdf",
+        "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=372",
+        "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf",
+        "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf"
+      ]
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-peterson-campout-source-reconciliation-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "NASA's PDF supplied both the historical scope and the Campout scenario. Exact cadet study title search did not return the 1978 report.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "campout_search_id": "01a20127-6fd8-77cf-b89e-982c21e19162",
+      "cadet_search_id": "01a20127-6fd7-7684-9d36-1e77ad289ff9",
+      "trials_search_id": "01a20127-6fda-718d-925e-1673109a537d",
+      "cliff_pdf_scrape_id": "01a20120-c611-7393-867d-fb71250a87b2",
+      "butler_publisher_scrape_id": "01a20121-7f45-727c-8600-c6062565f347"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-peterson-campout-source-reconciliation-verified",
+    "date": "2026-11-21",
+    "provider": "Public original source verification",
+    "operation": "publisher_pdf_and_cohort_scope",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read the publisher and archival PDFs and confirmed availability of results using the official trial registry API.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "official_trial_registry_status": [
+        {
+          "registration": "NCT06740305",
+          "current_status": "COMPLETED",
+          "last_update_posted": "2026-06-01",
+          "has_results": false,
+          "sha256": "4b7604be34c9c776deb198fceaafdf1985b6c0bb24e701e1eb36361a45afe3d4",
+          "url": "https://clinicaltrials.gov/api/v2/studies/NCT06740305"
+        },
+        {
+          "registration": "NCT07702539",
+          "current_status": "RECRUITING",
+          "last_update_posted": "2026-10-05",
+          "has_results": false,
+          "sha256": "91d6ded18b1cc2964a5d1ce53ef1f7dd9cff6906454184efea6a11d69263b4be",
+          "url": "https://clinicaltrials.gov/api/v2/studies/NCT07702539"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "butler-peterson-case-iv",
+        "title": "Epidemic decompression sickness: case report, literature review, and clinical commentary",
+        "author": "William P. Butler",
+        "year": 2002,
+        "pmid": "12182221",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p798.pdf?download=1#page=3",
+        "full_text_available": true,
+        "pdf_sha256": "c60658b5138a86066c83b24b0a57c6b70908cd663f9410b99b1b8d939ad11dc7",
+        "locator": "Table I, Case IV and reference 32, pp. 799-800 and 803 (PDF pp. 2-3 and 6)",
+        "role_review": "overlap_hold",
+        "note": "Published report of a selected DCS cluster among freshman USAF Academy cadets. The text states 14 cases in 1,686 exposures over 18 months. Table I labels the episode 1977 and gives 540 days. The source cites a 1978 internal report. Overlaps are unresolved with the 12 cases and 1,654 exposures in Bassett's separately scoped survey.",
+        "context": {
+          "model_source_id": "butler02",
+          "case_definition": "reported DCS",
+          "site": "Peterson AFB, CO",
+          "trainees": "freshman USAF Academy cadets",
+          "table_year_label": 1977,
+          "reported_duration_months": 18,
+          "table_duration_days": 540,
+          "primary_title": "Report of the Special Study Group on Altitude Decompression Sickness Among US Air Force Academy Cadets",
+          "primary_date_year": 1978,
+          "primary_full_text_available": false,
+          "comparator": {
+            "report_id": "doi:10.21236/ada360821",
+            "cases": 12,
+            "exposures": 1654,
+            "case_linkage": null
+          }
+        },
+        "observations": [
+          {
+            "id": "peterson-cadet-cluster-margin",
+            "group": "Freshman Academy cadets",
+            "endpoint": "reported_dcs",
+            "cases": 14,
+            "denominator": 1686,
+            "denominator_unit": "cadet_exposure_as_reported",
+            "chamber_role": "trainee",
+            "locator": "Butler pp. 799-800, Table I and Case IV",
+            "note": "Published report of a selected DCS cluster among freshman USAF Academy cadets. The text states 14 cases in 1,686 exposures over 18 months. Table I labels the episode 1977 and gives 540 days. The source cites a 1978 internal report. Overlaps are unresolved with the 12 cases and 1,654 exposures in Bassett's separately scoped survey."
+          }
+        ]
+      },
+      {
+        "id": "sheffield-workshop-discussion",
+        "title": "DCS Incidence and Reporting, Session Four Discussion #2: Sheffield remarks on Academy cadets",
+        "author": "Paul J. Sheffield",
+        "year": 1992,
+        "url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=372",
+        "full_text_available": true,
+        "pdf_sha256": "2ea57a144b092eb3233fa44a84546cf4ce3a62958ec45b34b047a70f8e482b90",
+        "locator": "AL-SR-1992-0005, printed p. 361 (PDF p. 372), Sheffield's remarks",
+        "note": "Firsthand recollection of the 1977 investigation. Sheffield reports subsequent restrictions on cadet chamber altitude, keeping trainees at Peterson after training and ultimately removing freshman cadets from chamber training. The discussion gives no exact exposure total, counts or evaluation of the effects of these changes.",
+        "context": {
+          "investigation_year": 1977,
+          "exact_cases": null,
+          "exact_exposures": null,
+          "post_change_outcomes": null
+        }
+      },
+      {
+        "id": "cliff-branch-baseline-2020",
+        "title": "Decompression Sickness Secondary to Extravehicular Activity CliFF (2020)",
+        "year": 2020,
+        "author": "NASA",
+        "url": "https://www.nasa.gov/wp-content/uploads/2026/08/decompression-sickness-secondary-to-extravehicular-activity-cliff.pdf#page=5",
+        "full_text_available": true,
+        "pdf_sha256": "3ceb51997dee2f7c4dd3e07492a031756b7e77956709518e40c4b78b9a264bdc",
+        "locator": "PDF pp. 2, 4-5, 8, Branch Baseline and Worst Case",
+        "note": "Historical NASA clinical-finding form. PDF p. 2 gives a historical zero-documented-case summary using total EVAs. PDF pp. 5 and 8 attribute 0.0011 and its 1/936 expression to a Campout scenario, without a validating observed cohort. The separate 918 serious cases and 79,366 exposures on p. 4 are from the existing Conkin archive.",
+        "context": {
+          "model_source_id": "nasa20_cliff_eva_dcs",
+          "scenario_probabilities": {
+            "type_ii_campout_maximum": 0.0011,
+            "type_ii_campout_probability_expression": "1/936",
+            "total_dcs_in_suit_or_campout_maximum": 0.0471,
+            "observed_campout_case_count": null,
+            "observed_campout_exposure_count": null
+          },
+          "existing_compilation": {
+            "report_id": "ntrs:20010020946",
+            "reported_serious_dcs": 918,
+            "reported_exposures": 79366,
+            "tests": 258
+          },
+          "historical_eva_summary": {
+            "documented_dcs_cases": 0,
+            "count": 247,
+            "unit_as_printed": "total EVAs",
+            "person_eva_equivalence": null
+          },
+          "related_form_report_id": "report:nasa-cliff-icl39"
+        }
+      },
+      {
+        "id": "campout-protocol-history",
+        "title": "Preventing Decompression Sickness Over Three Decades of Extravehicular Activity",
+        "year": 2011,
+        "author": "Johnny Conkin",
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-prebreathe-overview-tp216147-2011.pdf#page=17",
+        "full_text_available": true,
+        "pdf_sha256": "fdba679d5363d5680f8ad5f1d3cf8ce894fba40c734dfd5c9d0d0fd0e6ba37e4",
+        "locator": "NASA/TP-2011-216147, printed p. 7 (PDF p. 17), International Space Station Campout",
+        "note": "The historical account describes about 140 Campout person-EVAs through the end of 2010. This approximate milestone is within the era of already registered 2013 and 2016 operational snapshots and cannot be added to them. The history states the Campout protocol did not undergo a separate empirical validation, so it does not establish 1 observed event in 936 exposures.",
+        "context": {
+          "model_source_id": "nasa11_eva",
+          "approximate_person_evas_end_of_2010": 140,
+          "ground_validation_of_campout_separately_reported": false,
+          "observed_case_exposure_pair": null
+        }
+      }
+    ]
+  }
+]
