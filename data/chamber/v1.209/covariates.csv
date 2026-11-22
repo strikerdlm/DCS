@@ -1,0 +1,19 @@
+source_id,sample_id,sex_as_reported,covariate,participants_in_group,participants_in_regression,mean_as_reported,mean_unit,slope_as_printed,r_squared,p_value,regression_locator,mean_locator
+webb05_susceptibility,repeat_volunteers,Women,age,47,47,29.6,year,-0.012,0.012,0.465,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Women,weight,47,47,63.9,kg,0.014,0.033,0.22,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Women,height,47,47,1.65,m,-0.000,0.0,0.988,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Women,bmi,47,47,23.3,kg_per_m2,0.061,0.055,0.113,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Women,body_fat_percent,47,42,22.7,percent,0.039,0.076,0.076,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Women,vo2max,47,43,35.9,mL_per_kg_per_min,-0.037,0.126,0.02,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Men,age,193,193,30.4,year,0.019,0.027,0.024,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Men,weight,193,193,83.2,kg,0.013,0.049,0.002,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Men,height,193,193,1.78,m,0.010,0.011,0.138,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Men,bmi,193,193,26.1,kg_per_m2,0.048,0.04,0.005,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Men,body_fat_percent,193,145,17.9,percent,0.009,0.008,0.299,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,Men,vo2max,193,130,41.6,mL_per_kg_per_min,-0.019,0.048,0.013,"Table I, printed p. 549 (PDF p. 3)","Methods and Results, printed p. 548 (PDF p. 2)"
+webb05_susceptibility,repeat_volunteers,All,age,240,240,,,0.014,0.015,0.06,"Table I, printed p. 549 (PDF p. 3)",
+webb05_susceptibility,repeat_volunteers,All,weight,240,240,,,0.010,0.041,0.002,"Table I, printed p. 549 (PDF p. 3)",
+webb05_susceptibility,repeat_volunteers,All,height,240,240,,,0.007,0.01,0.132,"Table I, printed p. 549 (PDF p. 3)",
+webb05_susceptibility,repeat_volunteers,All,bmi,240,240,,,0.047,0.043,0.001,"Table I, printed p. 549 (PDF p. 3)",
+webb05_susceptibility,repeat_volunteers,All,body_fat_percent,240,187,,,0.009,0.008,0.216,"Table I, printed p. 549 (PDF p. 3)",
+webb05_susceptibility,repeat_volunteers,All,vo2max,240,173,,,-0.018,0.048,0.004,"Table I, printed p. 549 (PDF p. 3)",

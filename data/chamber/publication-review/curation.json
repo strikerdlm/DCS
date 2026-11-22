@@ -1,6 +1,78 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "Retain the existing model-linked report identity while reconciling the newly verified journal occurrences.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546293/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/references.csv#mahon2014:222",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "The citation identifies the 2003 journal article and its author manuscript.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546293/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/sources.csv#webb03_sex",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "Retain the model source link to the existing reviewed journal article and author manuscript cluster.",
+      "evidence_url": "https://archive.org/details/DTIC_ADA408816"
+    },
+    {
+      "record_key": "2026-11-22-webb-repeat-susceptibility-firecrawl#webb2005-repeat-susceptibility-original",
+      "report_id": "pmid:15945398",
+      "basis": "The publisher and PubMed match authors, full title and pages 547–551.",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/asem/76/6/article-p547.xml"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12546293",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://europepmc.org/article/MED/12546293"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#20040087881",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20040087881"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1579637220",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://openalex.org/W1579637220"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#12546293",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546293/"
+    },
+    {
+      "record_key": "2026-11-20-fort-rucker-und-info#Web03",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546293/"
+    },
+    {
+      "record_key": "2026-11-20-fort-rucker-und-related#Web03",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12546293/"
+    },
+    {
+      "record_key": "2026-11-20-openalex-training#W1579637220",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://doi.org/10.21236/ada408816"
+    },
+    {
+      "record_key": "2026-11-20-survey-operators-o-rudge#W1579637220",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "basis": "This occurrence refers to Webb, Kannan and Pilmanis's 2003 journal article or its linked author manuscript. Journal citation, PMID 12546293 and the ADA408816 author report verify the match.",
+      "evidence_url": "https://doi.org/10.21236/ada408816"
+    },
+    {
       "record_key": "2026-11-22-sulaiman-age-firecrawl#sulaiman-1997-age-figures",
       "report_id": "pmid:9262810",
       "basis": "Publisher PDF title, pagination and PMID identify the existing 1997 article.",
@@ -18837,6 +18909,12 @@
   ],
   "studies": [
     {
+      "study_id": "afrl-webb-2005-repeat-susceptibility",
+      "label": "AFRL repeat-volunteer subject/study ratio",
+      "period": "Approximately 20 years of data as described in the 2005 paper",
+      "setting": "AFRL Brooks City-Base altitude chambers"
+    },
+    {
       "study_id": "armstrong-1983-1994-age-archive",
       "label": "Armstrong Laboratory chamber age analysis",
       "period": "1983–1994",
@@ -20716,6 +20794,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "afrl-webb-2005-repeat-susceptibility",
+      "report_id": "pmid:15945398",
+      "role": "primary_repeat_volunteer_analysis",
+      "locator": "Methods and Results, pp. 547–550 including Figure 1 and Table I"
+    },
     {
       "study_id": "armstrong-1983-1994-age-archive",
       "report_id": "pmid:9262810",
@@ -23862,6 +23946,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:15945398",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "relationship": "contains_overlapping_groups",
+      "evidence": "The 2005 paper (Methods, p. 548, reference 18) says many records coincide with the 2003 paper. The 2003 comparison selects 859 exposures from 20 profiles. The 2005 study selects 2,210 exposures across 70 profiles and further restricts its main analysis to repeat volunteers. Overlap size and individual links are unspecified.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/6/article-p547.pdf#page=2"
+    },
     {
       "left_report": "pmid:9262810",
       "right_report": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:1",

@@ -1,0 +1,5 @@
+source_id,sample_id,parent_sample_id,participants,exposures,profiles,minimum_exposures_per_participant,outcome_stratum,outcome_endpoint,locator,note
+webb05_susceptibility,archive,,,2980,,,,,"Introduction, printed p. 547 (PDF p. 1)",The archive frame has no DCS incidence for this entire sample in this article.
+webb05_susceptibility,selected_profiles,archive,407,2210,70,,All 70 selected profiles,dcs,"Methods and Results, printed p. 548 (PDF p. 2)",Profiles were selected at 5–95% symptomatic DCS and at least ten participants per profile.
+webb05_susceptibility,repeat_volunteers,selected_profiles,240,1879,,4,Volunteers with four or more exposures,dcs,"Methods and Results, printed p. 548 (PDF p. 2)","Includes 47 women and 193 men. The paper does not tabulate age, fitness or activity for each exposure."
+webb05_susceptibility,repeat_block_comparison,repeat_volunteers,99,,,8,,,"Methods and Results, printed p. 548 (PDF p. 2)",The comparison uses each person's first and second four exposures. Total exposures for these 99 people are unspecified.
