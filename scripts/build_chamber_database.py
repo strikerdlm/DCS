@@ -259,6 +259,7 @@ RYUKYU_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.191"
 JASDF_CHAMBER_AND_FLIGHT_CASES = ROOT / "data" / "chamber" / "v1.192"
 USAF_DIGEST_AND_FLIGHT_DCS = ROOT / "data" / "chamber" / "v1.193"
 WARTIME_AAF_CHAMBER_TRAINING = ROOT / "data" / "chamber" / "v1.194"
+BERRY_DIAGNOSTIC_CHAMBER_CASE = ROOT / "data" / "chamber" / "v1.195"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2581,6 +2582,15 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_chamber_activity_tally": "activity_tallies.csv",
                         "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    BERRY_DIAGNOSTIC_CHAMBER_CASE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_diagnostic_run": "diagnostic_runs.csv",
                     },
                 )
             if rojas_supplement:
