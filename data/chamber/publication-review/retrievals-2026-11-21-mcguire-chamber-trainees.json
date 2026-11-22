@@ -1,0 +1,153 @@
+[
+  {
+    "id": "2026-11-21-mcguire-chamber-trainees-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_chamber_primary_outcome_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_ids": [
+        "f65bff38-1e6b-4e7d-b586-729dc28b1609",
+        "c0a06192-ba2e-4570-9e0c-2af6a9387955",
+        "ec7bb3fe-f11c-45f7-a5b8-d08a097879a5",
+        "dd5ee792-017d-4d73-89d6-454ec1f7f055",
+        "b5781d07-7df7-4617-98df-2650b2cb9d9d",
+        "482a155c-d963-42af-be5d-6ba3ef3eda6d",
+        "7db6f1f1-ab62-4353-84db-eb99ae59e5cd",
+        "8da2b930-bf05-4372-8160-d7b4c475f514"
+      ],
+      "urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
+        "https://www.sto.nato.int/document/aircrew-training-hypoxic-hypobaria-elevated-cerebral-blood-flow-when-does-it-return-to-normal-presentation",
+        "https://publications.sto.nato.int/publications/STO%20Meeting%20Proceedings/STO-MP-HFM-309/MP-HFM-309-22P.pdf",
+        "https://www.intechopen.com/chapters/59500"
+      ]
+    },
+    "note": "Followed the imaging study to the primary article and checked the clinical symptom clause, the full exposed sample and related report groups. The cohorts are related and must not contribute duplicate clinical observations.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-mcguire-chamber-trainees-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_and_presentation_scope",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "journal_scrape_id": "01a20196-e264-741d-b8d9-a82837a1889b",
+      "presentation_scrape_id": "01a20197-9e0b-7258-a099-0701ee8dd222",
+      "urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
+        "https://publications.sto.nato.int/publications/STO%20Meeting%20Proceedings/STO-MP-HFM-309/MP-HFM-309-22P.pdf"
+      ]
+    },
+    "note": "Read the journal's PMC copy and full presentation. Direct PMC PDF retrieval returned content that could not be parsed as a PDF, so the primary article was verified from PMC HTML.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-mcguire-chamber-trainees-verified",
+    "date": "2026-11-21",
+    "provider": "Primary journal and official NATO proceedings",
+    "operation": "supplementary_denominator_and_overlap_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Added one new source-defined trainee outcome cell. The abstract's 64 exposed men are a nested subset. The conference and secondary accounts remain context for sample reconciliation.",
+    "records": [
+      {
+        "id": "mcguire-full-text",
+        "title": "White matter and hypoxic hypobaria in humans",
+        "authors": [
+          "Stephen A. McGuire",
+          "Meghann C. Ryan",
+          "Paul M. Sherman",
+          "John H. Sladky",
+          "Laura M. Rowland",
+          "S. Andrea Wijtenburg",
+          "L. Elliot Hong",
+          "Peter V. Kochunov"
+        ],
+        "year": 2019,
+        "pmid": "30927318",
+        "doi": "10.1002/hbm.24587",
+        "pmcid": "PMC6592734",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
+        "full_text_available": true,
+        "locator": "Sections 2.1–2.3, Discussion limitations, and Tables 5–6",
+        "study_id": "usaf-afc-single-exposure-mri-2014-2017",
+        "firecrawl_excerpt_sha256": "ffb3e47ff5f0ee27c1361136e258d594ce63af8e3ee5e16ffc85013fc4debf04",
+        "role_review": "descriptive",
+        "note": "The article reports no DCS symptoms in the study. The exact exposed denominator is reconstructed from 64 men and 32 women in the post-hoc exposed group. The unexposed controls and inside safety monitors are outside this risk set. MRI timing does not establish a standardized DCS surveillance window.",
+        "cohort_scope": {
+          "exposed_men": 64,
+          "exposed_women": 32,
+          "unexposed_men": 60,
+          "unexposed_women": 5,
+          "exposures_per_trainee": 1,
+          "symptom_ascertainment_window": null,
+          "mri_follow_up_hours": [
+            24,
+            72
+          ],
+          "denominator_reconstruction": "Sum of mutually exclusive exposed sex strata in the journal Discussion and Tables 5–6, confirmed as 96 trainees in the NATO presentation.",
+          "vge_outcome": null
+        },
+        "observations": [
+          {
+            "id": "mcguire-2019-dcs-symptoms-96-afc-trainees",
+            "study_id": "usaf-afc-single-exposure-mri-2014-2017",
+            "group": "afc-exposed-all",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "trainee",
+            "cases": 0,
+            "denominator": 96,
+            "denominator_unit": "person_exposure",
+            "locator": "Sections 2.1–2.3, Discussion limitations, and Tables 5–6",
+            "note": "The article reports no DCS symptoms in the study. The exact exposed denominator is reconstructed from 64 men and 32 women in the post-hoc exposed group. The unexposed controls and inside safety monitors are outside this risk set. MRI timing does not establish a standardized DCS surveillance window."
+          }
+        ]
+      },
+      {
+        "id": "sherman-nato-presentation",
+        "title": "Aircrew Training Hypoxic Hypobaria Elevated Cerebral Blood Flow – When Does it Return to Normal?",
+        "authors": [
+          "Paul Sherman",
+          "John Sladky",
+          "Bianca Cerqueira"
+        ],
+        "year": 2019,
+        "url": "https://www.sto.nato.int/document/aircrew-training-hypoxic-hypobaria-elevated-cerebral-blood-flow-when-does-it-return-to-normal-presentation",
+        "primary_source": "https://publications.sto.nato.int/publications/STO%20Meeting%20Proceedings/STO-MP-HFM-309/MP-HFM-309-22P.pdf",
+        "report_number": "STO-MP-HFM-309:22P",
+        "full_text_available": true,
+        "locator": "2019 NATO presentation, slides 15–16 and Duration of Effects section; MRI analysis slides",
+        "study_id": "usaf-afc-single-exposure-mri-2014-2017",
+        "firecrawl_excerpt_sha256": "b05a5927280139a508356ccca2c138c254bce0fe99433479fe12df2dfd88839c",
+        "role_review": "overlap_hold",
+        "note": "The presentation reports 96 exposed trainees, 65 normal-pressure controls, 14 hypobaric inside safety monitors and 3 normobaric hypoxia participants across the broader study. Its interim duration-of-effects study gives 30 imaged and 21 analyzed to date. No group-specific DCS tally is reported in the presentation. The chapter reports 96 trainees and 68 comparison subjects in its preliminary MRI account. The journal gives 65 unexposed participants across its post-hoc sex strata. The presentation gives 65 unexposed controls and 3 normobaric hypoxia participants. The chapter does not state an exact participant crosswalk.",
+        "cohort_scope": {
+          "single_exposure_study_as_reported": {
+            "start_month": "2014-09",
+            "end_month": "2017-08",
+            "afc_hypobaric_trainees": 96,
+            "hypobaric_inside_safety_monitors": 14,
+            "normobaric_hypoxia": 3,
+            "normal_pressure_controls": 65,
+            "dcs_counts_by_group": null
+          },
+          "duration_of_effects_interim_as_reported": {
+            "imaged": 30,
+            "analyzed": 21,
+            "dcs_count": null
+          }
+        }
+      }
+    ]
+  }
+]

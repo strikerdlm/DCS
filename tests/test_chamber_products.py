@@ -6368,6 +6368,57 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_mcguire_chamber_zero_includes_full_trainee_sample_once(release):
+    journal_id = "pmid:30927318"
+    presentation_id = "sto:mp-hfm-309:22p"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,denominator_basis
+            FROM publication_observation
+            WHERE source_id IN ('mcguire19_chamber_trainees','sherman19_nato_single_exposure_mri')
+        """).fetchall() == [
+            ("afc-exposed-all", "dcs_symptoms_as_reported", 0, 96, "person_exposure", "author_reconstructed"),
+        ]
+        assert db.execute("""
+            SELECT report_id,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation WHERE report_id IN (?,?)
+        """, (journal_id, presentation_id)).fetchall() == [
+            (journal_id, "dcs_symptoms_as_reported", 0, 96, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT stratum,parent_stratum,participant_count
+            FROM publication_chamber_trial_scope WHERE source_id='mcguire19_chamber_trainees'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("afc-exposed-all", None, 96),
+            ("afc-exposed-men", "afc-exposed-all", 64),
+            ("afc-exposed-women", "afc-exposed-all", 32),
+            ("nor-unexposed-controls", None, 65),
+        ]
+        assert db.execute("""
+            SELECT stratum,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='sherman19_nato_single_exposure_mri' ORDER BY stratum
+        """).fetchall() == [
+            ("duration-study-analyzed-to-date", 21),
+            ("duration-study-imaged-to-date", 30),
+            ("single-study-afc-trainees", 96),
+            ("single-study-inside-safety-monitors", 14),
+            ("single-study-nor-controls", 65),
+            ("single-study-normobaric-hypoxia", 3),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation WHERE left_report=? AND right_report=?
+        """, (journal_id, presentation_id)).fetchall() == [("likely_overlap",)]
+        record, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE record_key='2026-11-21-mcguire-chamber-trainees-verified#mcguire-full-text'
+        """).fetchone()
+        scope = json.loads(record)["cohort_scope"]
+        assert scope["mri_follow_up_hours"] == [24, 72]
+        assert scope["symptom_ascertainment_window"] is None
+        assert scope["vge_outcome"] is None
+
+
 def test_lupa_proceedings_preserve_pairing_and_reconcile_secondary_values(release):
     report_id = "doi:10.14339/rto-mp-hfm-124-16-pdf"
     chapter_id = "doi:10.5772/intechopen.74231"
