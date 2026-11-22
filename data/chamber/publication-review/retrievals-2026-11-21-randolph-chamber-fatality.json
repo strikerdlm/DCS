@@ -1,0 +1,211 @@
+[
+  {
+    "id": "2026-11-21-randolph-chamber-fatality-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Located the later government history and read the archived United Press story. The Abilene OCR-specific URL returned an access error. Its public issue page was separately read.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "case_search_request_id": "1a6fa614-9a61-4bd1-9881-5ec0ecdaea70",
+      "case_search_query": "\"Rhamy\" (\"pressure chamber\" OR \"Randolph Field\" OR \"altitude chamber\") 1952 1953 died",
+      "unit_history_search_request_id": "a817596b-b89e-42f7-8536-2c2a551bfcc6",
+      "newspaper_extract_request_id": "6d5046f9-76e0-46e9-a38a-83e64b13df16",
+      "wire_search_request_id": "4ec8d2a7-f054-45c9-b266-fb536a063496"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-randolph-chamber-fatality-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read the official history and United Press clipping. The Texas Tech PDF and the UNT OCR-only URL did not return usable full text from this provider.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "wing_history_scrape_id": "01a2008a-d683-7699-8325-d6d6f14cc49b",
+      "albany_ocr_scrape_id": "01a2008d-f162-70d0-be5d-74ce5e8dfd1c",
+      "abilene_ocr_access_attempt_id": "01a2008b-4bb6-709f-8f77-a6b60b57f38f",
+      "midland_pdf_access_attempt_id": "01a2008c-1cad-759b-a74d-27643db1886f",
+      "nasa_catalog_scrape_id": "01a20090-9e9d-753e-81e2-9993cb511ad1"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-randolph-chamber-fatality-verified",
+    "date": "2026-11-21",
+    "provider": "37th Training Wing, University of North Texas Libraries and Historic Oregon Newspapers",
+    "operation": "supplementary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Linked three named accounts of one death and identified the cited unit history and a likely corresponding anonymous autopsy summary. Historical volume claims are retained without using them as risk sets.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "wing-history",
+        "title": "The Untold History of Aerospace Medicine at Randolph Air Force Base in San Antonio, Texas from 1951–1957",
+        "year": 2017,
+        "author": "Pick J, English T",
+        "institution": "37th Training Wing Office of History and Research",
+        "url": "https://www.37trw.af.mil/Portals/57/Aerospace%20Med%20Report%20Nov%20%2017.pdf#page=17",
+        "full_text_available": true,
+        "locator": "Printed pp. 17–18 and footnote 37",
+        "context": {
+          "event_key": "randolph-student-medical-officer-1953",
+          "role": "student medical officer (contemporary reporting)",
+          "age_years": 24,
+          "event_month": "1953-07",
+          "event_date_confirmed": null,
+          "date_inferred_from_up_weekday": "1953-07-01",
+          "death_timing_as_reported": "In chamber",
+          "first_death_claim_scope": "The history calls this the first U.S. Air Force altitude chamber death. This is the source's attribution and differs in apparent scope from wartime Army Air Forces accounts.",
+          "historical_population_claim": {
+            "basis": "more than",
+            "value": 10000,
+            "unit": "officers and airmen",
+            "window": null,
+            "analytic_denominator": null
+          },
+          "autopsy_result": null,
+          "peak_altitude_ft": null,
+          "planned_person_exposures": null,
+          "completed_person_exposures": null,
+          "causative_diagnosis": null,
+          "clinical_source_match": "Likely, unconfirmed. Roth describes a 24-year-old man with fatal rapid decompression at the USAF School of Aviation Medicine and cites a Brooke autopsy finalized in August 1953. Roth provides neither a name nor an incident date.",
+          "possible_clinical_report_id": "openalex:W1556443047"
+        },
+        "observations": [
+          {
+            "id": "randolph-student-medical-officer-1953",
+            "group": "randolph-student-medical-officer-1953",
+            "endpoint": "fatal_altitude_chamber_event_cause_unconfirmed",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed pp. 17–18 and footnote 37",
+            "evidence_url": "https://www.37trw.af.mil/Portals/57/Aerospace%20Med%20Report%20Nov%20%2017.pdf#page=17",
+            "note": "Death during or shortly after a simulated high-altitude test. The later Air Force history and both contemporary dispatches describe the same officer. The likely matching anonymous case has published postmortem findings, but the link and cause for this named event remain unconfirmed."
+          }
+        ]
+      },
+      {
+        "id": "albany-up",
+        "title": "Simulated Flight Test Kills Medical Officer",
+        "year": 1953,
+        "publication_date": "1953-07-04",
+        "publisher": "Albany Democrat-Herald",
+        "agency": "United Press",
+        "url": "https://oregonnews.uoregon.edu/lccn/sn96088460/1953-07-04/ed-1/seq-10/",
+        "full_text_available": true,
+        "locator": "Image 10, article headed Simulated Flight Test Kills Medical Officer",
+        "context": {
+          "event_key": "randolph-student-medical-officer-1953",
+          "role": "student medical officer",
+          "age_years": 24,
+          "death_timing_as_reported": "A few minutes after removal",
+          "date_as_reported": "Wednesday",
+          "date_inferred_from_weekday": "1953-07-01",
+          "historical_test_claim": {
+            "basis": "more than",
+            "value": 1000000,
+            "unit": "tests as reported",
+            "window": null,
+            "analytic_denominator": null
+          },
+          "dcs_diagnosis": null
+        },
+        "note": "The relative weekday and time relative to chamber removal are wording from the dispatch. The historical number of unspecified tests lacks a defined population, period, and surveillance."
+      },
+      {
+        "id": "abilene-ap",
+        "title": "Med Student Dies in Air Force Test",
+        "year": 1953,
+        "publication_date": "1953-07-04",
+        "publisher": "The Abilene Reporter-News",
+        "url": "https://texashistory.unt.edu/ark:/67531/metapth1649238/m1/18/",
+        "full_text_available": true,
+        "locator": "Issue image 18, article headed Med Student Dies in Air Force Test",
+        "context": {
+          "event_key": "randolph-student-medical-officer-1953",
+          "role": "student medical officer",
+          "age_years": 24,
+          "facility": "USAF School of Aviation Medicine, Randolph Air Force Base",
+          "death_timing_as_reported": "In altitude testing pressure chamber",
+          "date_as_reported": "Yesterday, relative to the dispatch date",
+          "dispatch_date": null,
+          "autopsy_reported_performed": true,
+          "autopsy_result": null
+        },
+        "note": "The newspaper issue date does not establish the dispatch date. The report refers to several other student medical officers taking the test without giving an exact run denominator. The autopsy conclusion is unavailable."
+      },
+      {
+        "id": "usaf-history-vol17",
+        "title": "USAF School of Aviation Medicine History, volume 17, 1 July–31 December 1953",
+        "year": 1953,
+        "institution": "USAF School of Aviation Medicine",
+        "url": "https://www.37trw.af.mil/Portals/57/Aerospace%20Med%20Report%20Nov%20%2017.pdf#page=17",
+        "archive_research_url": "https://www.dafhistory.af.mil/Our-Research/",
+        "full_text_available": false,
+        "access": "Exact source located in a published citation. Original volume and autopsy report not recovered.",
+        "locator": "p. 40, as cited by Pick and English, printed p. 18 note 37",
+        "note": "Cited unit history. Content of the original page remains unverified and is separate from the 2017 retrospective."
+      },
+      {
+        "id": "roth-autopsy-summary",
+        "title": "Rapid (Explosive) Decompression Emergencies in Pressure-Suited Subjects",
+        "author": "Roth EM",
+        "year": 1968,
+        "report_number": "NASA CR-1223",
+        "ntrs_id": "19690004637",
+        "openalex_id": "W1556443047",
+        "url": "https://ntrs.nasa.gov/api/citations/19690004637/downloads/19690004637.pdf#page=116",
+        "alternate_url": "https://ntrs.nasa.gov/citations/19690004637",
+        "full_text_available": true,
+        "pdf_sha256": "9fc5e7afe24fec334f6c078349964fe5514edd57354f72fa17f3df3ead0eea97",
+        "locator": "Printed p. 44, p. 97 ref. 119 and Appendix III pp. 110–115 (PDF pp. 116–121)",
+        "context": {
+          "autopsy_accession": "42428 (A-241-53)",
+          "autopsy_report_date": "1953-08-18",
+          "event_date": null,
+          "facility": "USAF School of Aviation Medicine, main text p. 44",
+          "age_years": 24,
+          "start_altitude_ft": 8000,
+          "end_altitude_ft": 30000,
+          "rapid_decompression_seconds_approx": 1,
+          "immediate_cough_after_decompression": true,
+          "loss_of_consciousness": "Shortly after decompression",
+          "return_to_ground_minutes_as_reported": [
+            2,
+            3
+          ],
+          "bilateral_pneumothorax": true,
+          "reported_causative_interpretation": "Acute cardiorespiratory failure attributed tentatively to bilateral pneumothorax.",
+          "gas_bubbles_as_reported": "Observed in vessels. Pulmonary air entry was suspected. The presence of dynamic embolism and the nature of the gas remained uncertain.",
+          "dcs_diagnosis": null,
+          "linked_incident_confidence": "likely, identity unconfirmed",
+          "counted_as_additional_fatality": false
+        },
+        "note": "Roth reproduces the accident and postmortem summary. The findings apply to the anonymous report. Age, facility, chronology and fatal chamber setting support a likely match to Randolph, while the exact incident date and identity are absent from Roth's text. The 1953 report date is not the incident date."
+      },
+      {
+        "id": "brooke-autopsy-index",
+        "title": "Report of Autopsy, accession 42428 (A-241-53)",
+        "author": "Lind CJ, Sulak MH, Carter ET",
+        "year": 1953,
+        "report_date": "1953-08-18",
+        "institution": "Brooke Army Medical Center, Fort Sam Houston, Texas",
+        "url": "https://ntrs.nasa.gov/api/citations/19690004637/downloads/19690004637.pdf#page=103",
+        "alternate_url": "https://ntrs.nasa.gov/api/citations/19690003264/downloads/19690003264.pdf#page=53",
+        "locator": "Roth 1968 p. 97 ref. 119 and Appendix III, pp. 110–115",
+        "full_text_available": false,
+        "note": "Original report identified by an accession and date. Roth reproduces a summary. No new death is counted from the citation."
+      }
+    ]
+  }
+]
