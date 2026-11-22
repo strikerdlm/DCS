@@ -1,5 +1,77 @@
 {
   "aliases": [
+    {
+      "record_key": "2026-11-22-raf-neurological-cases-collapse-lineage-verified#fryer69_raf",
+      "report_id": "report:ada111509",
+      "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=128",
+      "basis": "Source title or accession and the original printed locator were checked against this report."
+    },
+    {
+      "record_key": "2026-11-22-raf-neurological-cases-collapse-lineage-verified#gribble60_cited_raf_collapse",
+      "report_id": "pmid:13829253",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Source title or accession and the original printed locator were checked against this report."
+    },
+    {
+      "record_key": "2026-11-22-raf-neurological-cases-collapse-lineage-verified#roxburgh51_dgms",
+      "report_id": "citation:roxburgh-1951-air-ministry-dgms",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Source title or accession and the original printed locator were checked against this report."
+    },
+    {
+      "record_key": "2026-11-22-raf-neurological-cases-collapse-lineage-verified#roxburgh53_med_press",
+      "report_id": "pmid:13036578",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/13036578/",
+      "basis": "Source title or accession and the original printed locator were checked against this report."
+    },
+    {
+      "record_key": "2026-11-22-raf-neurological-cases-collapse-lineage-verified#cotes53_fprc825",
+      "report_id": "citation:cotes-1953-raf-post-decompression-collapse",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf",
+      "basis": "Source title or accession and the original printed locator were checked against this report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.241/sources.csv#gribble60_cited_raf_collapse",
+      "report_id": "pmid:13829253",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Matching source citation, provenance and original or secondary locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.241/sources.csv#roxburgh51_dgms",
+      "report_id": "citation:roxburgh-1951-air-ministry-dgms",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Matching source citation, provenance and original or secondary locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.241/sources.csv#roxburgh53_med_press",
+      "report_id": "pmid:13036578",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/13036578/",
+      "basis": "Matching source citation, provenance and original or secondary locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.10/search_hits.csv#expedition_rcaf_archive_firecrawl:4",
+      "report_id": "pmid:13829253",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Exact PMCID or verified scan of Gribble 1960, pp. 181–186. Original occurrence metadata remains available."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_motley:5",
+      "report_id": "pmid:13829253",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Exact PMCID or verified scan of Gribble 1960, pp. 181–186. Original occurrence metadata remains available."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.19/search_hits.csv#archival_v19_cook:6",
+      "report_id": "pmid:13829253",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Exact PMCID or verified scan of Gribble 1960, pp. 181–186. Original occurrence metadata remains available."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.21/search_hits.csv#prog_v21_post:1",
+      "report_id": "pmid:13829253",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+      "basis": "Exact PMCID or verified scan of Gribble 1960, pp. 181–186. Original occurrence metadata remains available."
+    },
   {
     "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#bassett92_fad_abstract",
     "report_id": "asma:1992:411:158",
@@ -21038,6 +21110,30 @@
     }
   ],
   "studies": [
+    {
+      "study_id": "raf-farnborough-1941-neurological-case-17",
+      "label": "Fryer neurological Case 17",
+      "period": "1941",
+      "setting": "RAF Farnborough hypobaric chamber"
+    },
+    {
+      "study_id": "raf-1957-neurological-case-18",
+      "label": "Fryer neurological Case 18",
+      "period": "1957-09-23",
+      "setting": "RAF hypobaric chamber training"
+    },
+    {
+      "study_id": "raf-roxburgh-cited-large-collapse-series",
+      "label": "Roxburgh large collapse series as cited by Gribble",
+      "period": "unreported",
+      "setting": "RAF historical chamber records, as cited"
+    },
+    {
+      "study_id": "raf-roxburgh-cited-older-collapse-series",
+      "label": "Roxburgh further older collapse series as cited by Gribble",
+      "period": "unreported",
+      "setting": "RAF historical chamber records, as cited"
+    },
   {
     "study_id": "soesterberg-protocol-a-severe-hypoxia",
     "label": "Severe hypoxia chamber crossover, Soesterberg",
@@ -23188,6 +23284,42 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "raf-farnborough-1941-neurological-case-17",
+      "report_id": "report:ada111509",
+      "role": "selected_neurological_case_source",
+      "locator": "Fryer 1969, printed pp. 130–131 (PDF pp. 127–128), neurological Case 17"
+    },
+    {
+      "study_id": "raf-1957-neurological-case-18",
+      "report_id": "report:ada111509",
+      "role": "selected_neurological_case_source",
+      "locator": "Fryer 1969, printed pp. 131–134 (PDF pp. 128–131), neurological Case 18"
+    },
+    {
+      "study_id": "raf-roxburgh-cited-large-collapse-series",
+      "report_id": "pmid:13829253",
+      "role": "secondary_collapse_tallies_overlap_hold",
+      "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column"
+    },
+    {
+      "study_id": "raf-roxburgh-cited-large-collapse-series",
+      "report_id": "citation:roxburgh-1951-air-ministry-dgms",
+      "role": "cited_unavailable_original",
+      "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column"
+    },
+    {
+      "study_id": "raf-roxburgh-cited-older-collapse-series",
+      "report_id": "pmid:13829253",
+      "role": "secondary_collapse_tallies_overlap_hold",
+      "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column"
+    },
+    {
+      "study_id": "raf-roxburgh-cited-older-collapse-series",
+      "report_id": "citation:roxburgh-1951-air-ministry-dgms",
+      "role": "cited_unavailable_original",
+      "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column"
+    },
   {
     "study_id": "soesterberg-protocol-a-severe-hypoxia",
     "report_id": "pmid:9143751",
@@ -26754,6 +26886,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:13829253",
+      "right_report": "citation:roxburgh-1951-air-ministry-dgms",
+      "relationship": "cites",
+      "evidence": "The original review attributes both severe-collapse tallies to the unnamed 1951 Air Ministry communication.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/"
+    },
+    {
+      "left_report": "pmid:13829253",
+      "right_report": "report:ada111509",
+      "relationship": "possible_overlap",
+      "evidence": "The RAF aggregate tallies lack fatality identifiers, cohort dates and linked decompressions. No known membership links to Fryer's indexed RAF cases.",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/"
+    },
+    {
+      "left_report": "report:ada111509",
+      "right_report": "pmid:13036578",
+      "relationship": "possible_case_overlap",
+      "evidence": "Fryer explicitly attributes neurological Case 17 to Roxburgh (1953). The indexed journal article is a candidate. Full text is needed to confirm the exact citation.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=128"
+    },
   {
     "left_report": "asma:1992:421:simons-valk-219",
     "right_report": "pmid:9143751",

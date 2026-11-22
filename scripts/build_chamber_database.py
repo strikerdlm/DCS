@@ -305,6 +305,7 @@ GRAY_SAM_REPORTS = ROOT / "data" / "chamber" / "v1.237"
 GRAY_MAHADY_SOURCE_TABLES = ROOT / "data" / "chamber" / "v1.238"
 TAIWAN_TRAINING_SYMPTOMS = ROOT / "data" / "chamber" / "v1.239"
 HYPOBARIC_SYNCOPE_ASCERTAINMENT = ROOT / "data" / "chamber" / "v1.240"
+RAF_NEUROLOGICAL_CASES = ROOT / "data" / "chamber" / "v1.241"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3156,6 +3157,17 @@ def build(
                     extra_tables={
                         "publication_chamber_trial_scope": "trial_scope.csv",
                         "publication_asma_abstract_locator_revision": "abstract_locators.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    RAF_NEUROLOGICAL_CASES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_cited_collapse_series": "collapse_series.csv",
                     },
                 )
                 load_register(db, ROOT)

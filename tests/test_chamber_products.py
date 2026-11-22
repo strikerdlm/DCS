@@ -9,6 +9,66 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_fryer_neurological_cases_and_roxburgh_cited_margins_preserve_scope(release):
+    with connect_pair(release) as db:
+        cases = db.execute("""
+            SELECT h.case_id,h.report_id,h.source_time_min,o.period,o.altitude,o.denominator
+            FROM historical_case_catalog h JOIN publication_observation o
+              ON (h.case_id,h.endpoint)=(o.source_id || ':' || o.stratum,o.endpoint)
+            WHERE h.source_id='fryer69_raf' AND o.stratum LIKE 'neurological-case-%'
+            ORDER BY h.case_id
+        """).fetchall()
+        assert cases == [
+            ("fryer69_raf:neurological-case-17", "report:ada111509", None, "1941", None, None),
+            ("fryer69_raf:neurological-case-18", "report:ada111509", None, "1957-09-23", 37000.0, None),
+        ]
+        timings = db.execute("""
+            SELECT stratum,milestone,elapsed,elapsed_unit,elapsed_reference
+            FROM publication_case_milestone
+            WHERE source_id='fryer69_raf' AND stratum IN ('neurological-case-17','neurological-case-18')
+            ORDER BY stratum,milestone
+        """).fetchall()
+        assert len(timings) == 18
+        assert ("neurological-case-17", "delayed_neurological_deterioration", 60.0,
+                "minutes", "after_ground_return") in timings
+        assert ("neurological-case-18", "upper_stage_symptoms_chamber_operator_timing", 30.0,
+                "seconds", "after_oxygen_removed_at_37000_ft") in timings
+        assert ("neurological-case-18", "upper_stage_symptoms_medical_officer_timing", 2.0,
+                "minutes", "after_oxygen_removed_at_37000_ft") in timings
+
+        series = db.execute("""
+            SELECT stratum,decompressions_as_cited,severe_collapses_as_cited,fatal_subset_as_cited,
+                   severe_collapse_percent_as_cited,analysis_role
+            FROM publication_cited_collapse_series
+            WHERE citing_source_id='gribble60_cited_raf_collapse'
+            ORDER BY stratum
+        """).fetchall()
+        assert series == [
+            ("further-older-series", 61, 4, 1, 6.5, "overlap_hold"),
+            ("large-decompression-series", 20000, 9, 2, 0.045, "overlap_hold"),
+        ]
+        observed = db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit,reported_rate_percent
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-raf-neurological-cases-collapse-lineage-verified'
+              AND report_id='pmid:13829253' ORDER BY 1,2
+        """).fetchall()
+        assert observed == [
+            (stratum, outcome, count, denominator, "decompression_as_reported", rate)
+            for stratum, denominator, severe, fatal, percent, _ in series
+            for outcome, count, rate in [
+                ("fatal_subset_of_severe_collapse", fatal, None),
+                ("severe_post_decompression_collapse", severe, percent),
+            ]
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_identity_assignment
+            WHERE report_id='pmid:13829253' AND (record_key LIKE '%#expedition_rcaf_archive_firecrawl:4'
+                OR record_key LIKE '%#cadet_motley:5' OR record_key LIKE '%#archival_v19_cook:6'
+                OR record_key LIKE '%#prog_v21_post:1')
+        """).fetchone() == (4,)
+
+
 def test_hypoxic_reactions_and_asma_locators_preserve_explicit_source_identity(release):
     with connect_pair(release) as db:
         outcomes = db.execute("""
