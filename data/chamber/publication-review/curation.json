@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-ryukyu-altitude-dcs-verified#ryukyu-2000-original",
+      "report_id": "abstract:ryukyu-yusa-sukahara-2000",
+      "evidence_url": "https://journal.juhms.net/lib/2000/352-25.pdf",
+      "basis": "Society-host scan matches the existing archived abstract's authors, title, issue, page, and presentation number."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.191/sources.csv#yusa00_ryukyu_aviation_dcs",
+      "report_id": "abstract:ryukyu-yusa-sukahara-2000",
+      "evidence_url": "https://journal.juhms.net/lib/2000/352-25.pdf",
+      "basis": "The model supplement references the same original journal scan and presentation number."
+    },
+    {
+      "record_key": "2026-11-22-ryukyu-altitude-dcs-verified#kusano-1994-etajima-citation",
+      "report_id": "ndmj:1994:41:44:kusano",
+      "evidence_url": "https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=200902107075678097",
+      "basis": "The JST citation supplies title, first author, year, volume and page. Full text is unavailable."
+    },
+    {
       "record_key": "2026-11-22-usaf-occupational-ndcs-verified#mcguire-2014-occupational",
       "report_id": "pmid:25164539",
       "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4219408/",
@@ -18147,6 +18165,12 @@
   ],
   "studies": [
     {
+      "study_id": "ryukyu-treated-military-aviation-dcs-2000",
+      "label": "Two treated military aviation DCS cases at the University of the Ryukyus",
+      "period": "Reported in 2000; dates of exposure unavailable",
+      "setting": "Military aviation exposure and hospital referrals via Kadena, Japan"
+    },
+    {
       "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
       "label": "USAF chamber operations staff and U-2 pilot occupational hypobaria MRI study",
       "period": "Reported in 2014; exposure history dates unavailable",
@@ -19882,6 +19906,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "ryukyu-treated-military-aviation-dcs-2000",
+      "report_id": "abstract:ryukyu-yusa-sukahara-2000",
+      "role": "primary_numbered_flight_cases",
+      "locator": "Vol. 35, no. 2, p. 115, abstract 30, right column"
+    },
     {
       "study_id": "usaf-selected-occupational-hypobaria-mri-2014",
       "report_id": "pmid:25164539",
@@ -22806,6 +22836,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "abstract:ryukyu-yusa-sukahara-2000",
+      "right_report": "usaf:kadena:419919",
+      "relationship": "potential_overlap_mixed_referral_records",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+      "evidence": "The 2000 clinical cases were treated at the University of the Ryukyus. Both describe Kadena in a return or transport sequence. The USAF article counts patients treated by the Kadena hyperbaric service since 1995, including chamber, flight and diving referrals. Neither source provides case dates or a patient crosswalk. Do not add the two institutional counts."
+    },
+    {
+      "left_report": "jglobal:200902107075678097",
+      "right_report": "ndmj:1994:41:44:kusano",
+      "relationship": "cites_unretrieved_altitude_dcs_case_report",
+      "evidence_url": "https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=200902107075678097",
+      "evidence": "The public JST reference list gives the 1994 Etajima case report. The citation supplies no patient crosswalk to the JASDF or Ryukyu history."
+    },
     {
       "left_report": "pmid:28323582",
       "right_report": "pmid:25164539",

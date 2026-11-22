@@ -255,6 +255,7 @@ NATO_LUPA_PAIRED_CHAMBER = ROOT / "data" / "chamber" / "v1.187"
 USAF_MCGUIRE_CHAMBER_COHORT = ROOT / "data" / "chamber" / "v1.188"
 UK_RETROSPECTIVE_CHAMBER_HISTORY = ROOT / "data" / "chamber" / "v1.189"
 USAF_OCCUPATIONAL_NDCS_HISTORY = ROOT / "data" / "chamber" / "v1.190"
+RYUKYU_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.191"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2532,6 +2533,17 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_chamber_trial_scope": "chamber_trial_scope.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    RYUKYU_AVIATION_DCS_CASES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                     },
                     create_schema=False,
                 )
