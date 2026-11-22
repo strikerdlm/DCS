@@ -4895,7 +4895,7 @@ def test_halifax_reported_rates_and_overlapping_groups_preserve_source_units(rel
             SELECT reported_value,value_basis,unit
             FROM publication_halifax_program_metric
             WHERE source_id='canada53_medical_history' AND measure='ascents'
-        """).fetchone() == (20000.0, "strict_lower_bound", "person_exposure")
+        """).fetchone() == (20000.0, "strict_lower_bound", "ascent")
         assert db.execute("""
             SELECT o.endpoint,o.numerator,o.denominator,o.analysis_role,r.cases,r.denominator
             FROM publication_observation o JOIN model_report_link l USING(source_id)

@@ -6,7 +6,7 @@ CREATE TABLE publication_halifax_program_metric (
     reported_value REAL NOT NULL CHECK(reported_value > 0),
     upper_value REAL,
     value_basis TEXT NOT NULL CHECK(value_basis IN ('approximate', 'strict_lower_bound', 'range')),
-    unit TEXT NOT NULL CHECK(unit IN ('person', 'person_exposure', 'percent')),
+    unit TEXT NOT NULL CHECK(unit IN ('person', 'person_exposure', 'ascent', 'percent')),
     locator TEXT NOT NULL,
     note TEXT NOT NULL,
     PRIMARY KEY(source_id, stratum, measure),
