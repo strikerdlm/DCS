@@ -185,7 +185,8 @@ def export_product(source, path, kind, release):
                 FROM dcs_case
                 UNION ALL
                 SELECT e.source_id || ':' || e.stratum,e.source_id,e.endpoint,e.report_id,e.record_key,
-                       t.onset_min,CASE WHEN t.onset_min IS NOT NULL THEN 'symptom_onset_after_exposure' END,
+                       t.onset_min,CASE WHEN t.onset_min IS NOT NULL
+                            THEN coalesce(c.source_time_basis,'symptom_onset_after_exposure') END,
                        e.extraction_locator,t.first_assessment_min,t.recurrence_report_day,t.recurrence_free_followup_min
                 FROM shared_case_evidence e JOIN (
                     SELECT source_id,stratum,endpoint,min(record_key) AS record_key,max(onset_min) AS onset_min,
@@ -193,6 +194,7 @@ def export_product(source, path, kind, release):
                            max(recurrence_free_followup_min) AS recurrence_free_followup_min
                     FROM shared_case_evidence GROUP BY source_id,stratum,endpoint
                 ) t USING(source_id,stratum,endpoint,record_key)
+                LEFT JOIN web_chamber_clinical_case c ON (c.source_id,c.stratum,c.endpoint)=(e.source_id,e.stratum,e.endpoint)
                 GROUP BY e.source_id,e.stratum,e.endpoint
             """)
             if db.execute("SELECT 1 FROM historical_case_catalog GROUP BY case_id HAVING count(*)>1").fetchone():

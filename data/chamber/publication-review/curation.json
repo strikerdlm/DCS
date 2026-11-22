@@ -1,6 +1,84 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.2/sources.csv#anell21_hyperoxic",
+      "report_id": "pmid:33752785",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-archival-openalex-davis-cites#W3137726746",
+      "report_id": "pmid:33752785",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#33752785",
+      "report_id": "pmid:33752785",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33752785",
+      "report_id": "pmid:33752785",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3137726746",
+      "report_id": "pmid:33752785",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-22-anell2021-firecrawl#anell-2021-verified-table-i",
+      "report_id": "pmid:33752785",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/92/4/article-p223.xml",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.2/sources.csv#anell21_excursion",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_harding:5",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#34410475",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:34410475",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3196062834",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-20-eds-training#54qmfosyhn",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
+      "record_key": "2026-11-22-anell2021-tavily#anell-2021-early-excursion-timing-context",
+      "report_id": "pmid:34410475",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
+      "basis": "Primary title, DOI and PubMed identifier verify this occurrence as the existing report."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.2/sources.csv#anell19",
       "report_id": "pmid:31101137",
       "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/90/6/article-p524.xml",
@@ -18747,6 +18825,12 @@
   ],
   "studies": [
     {
+      "study_id": "anell-2021-hyperoxic-altitude-alternation",
+      "label": "Ånell 2021 hyperoxic altitude alternation crossover",
+      "period": "Reported 2021",
+      "setting": "Swedish experimental hypobaric chamber"
+    },
+    {
       "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
       "label": "Ånell 2019 normoxic crossover with simulated 24,000-ft cabin pressure",
       "period": "Reported 2019",
@@ -20608,6 +20692,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "anell-2021-hyperoxic-altitude-alternation",
+      "report_id": "pmid:33752785",
+      "role": "primary_chamber_crossover",
+      "locator": "Methods and Results pp. 224-226, Table I p. 226, and Discussion pp. 226-228"
+    },
     {
       "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
       "report_id": "pmid:31101137",
@@ -23730,6 +23820,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:34410475",
+      "right_report": "pmid:33752785",
+      "relationship": "timing_context_for_prior_experiment",
+      "evidence": "Introduction cites the hyperoxic crossover and describes pre-excursion timing within 30 minutes. Individual identity is unavailable.",
+      "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2"
+    },
     {
       "left_report": "pmid:31101137",
       "right_report": "pmid:31852568",
