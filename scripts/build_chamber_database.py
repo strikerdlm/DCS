@@ -293,6 +293,7 @@ HISTORICAL_PROGRAM_AND_STEPWISE_ASCENT = ROOT / "data" / "chamber" / "v1.225"
 BERKELEY_ARM_EXERCISE = ROOT / "data" / "chamber" / "v1.226"
 FRASER_DATED_ASCENT_SCORES = ROOT / "data" / "chamber" / "v1.227"
 USAFSAM_DOPPLER_REPOSITORY = ROOT / "data" / "chamber" / "v1.228"
+ARMSTRONG_PROBE_COMPARISON = ROOT / "data" / "chamber" / "v1.229"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3033,6 +3034,16 @@ def build(
                         "publication_usafsam_repeated_vge": "repeated_vge.csv",
                         "publication_usafsam_threshold_vge": "threshold_vge.csv",
                         "publication_usafsam_threshold_symptom": "threshold_symptoms.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    ARMSTRONG_PROBE_COMPARISON,
+                    "publication",
+                    include_observations=False,
+                    extra_tables={
+                        "publication_armstrong_probe_comparison": "probe_comparison.csv",
+                        "publication_chamber_trial_scope": "imaging_scope.csv",
                     },
                 )
                 load_register(db, ROOT)

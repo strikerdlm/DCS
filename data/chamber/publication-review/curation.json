@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-armstrong-probe-ascertainment-tavily#webb89_probe_comparison",
+      "report_id": "abstract:uhms-1989-webb-probes",
+      "basis": "Matched investigator title, authors, year and supplement pages to the official reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-probe-ascertainment-firecrawl#webb89_probe_comparison-combined_echo_doppler",
+      "report_id": "abstract:uhms-1989-webb-probes",
+      "basis": "First probe stratum in the reprinted investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-probe-ascertainment-firecrawl#webb89_probe_comparison-separate_probes",
+      "report_id": "abstract:uhms-1989-webb-probes",
+      "basis": "Second probe stratum in the same investigator abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.229/sources.csv#webb89_probe_comparison",
+      "report_id": "abstract:uhms-1989-webb-probes",
+      "basis": "Versioned transcription of the archival reprint.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.229/sources.csv#olson94_echo_size",
+      "report_id": "openalex:W307569229",
+      "basis": "Matching Olson title, year and DTIC accession.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA284849/DTIC_ADA284849.pdf#page=12"
+    },
+    {
+      "record_key": "2026-11-22-armstrong-probe-ascertainment-firecrawl#olson94_echo_size",
+      "report_id": "openalex:W307569229",
+      "basis": "Matching Olson title, year and DTIC accession.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA284849/DTIC_ADA284849.pdf#page=12"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W307569229",
+      "report_id": "openalex:W307569229",
+      "basis": "Preserved the formal OpenAlex record after matching the report scan.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA284849/DTIC_ADA284849.pdf#page=12"
+    },
+    {
       "record_key": "2026-11-22-usafsam-hypob-threshold-tavily#eshaghian87_hypob",
       "report_id": "asma:1987:490:43",
       "basis": "Matched the original byline, report or conference identifier and year.",
@@ -19941,6 +19983,12 @@
   ],
   "studies": [
     {
+      "study_id": "armstrong-1989-probe-ascertainment",
+      "label": "Armstrong comparison of echo/Doppler probe configurations",
+      "period": "Published 1989",
+      "setting": "Pooled archival chamber observations at 22,500 and 25,000 ft. Both probe groups remain on overlap hold."
+    },
+    {
       "study_id": "usafsam-7p8-psia-male-three-day",
       "label": "USAFSAM repeated 7.8-psia male chamber study",
       "period": "Published 1986 and 1988",
@@ -22012,6 +22060,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "armstrong-1989-probe-ascertainment",
+      "report_id": "abstract:uhms-1989-webb-probes",
+      "role": "original_probe_comparison",
+      "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90"
+    },
+    {
+      "study_id": "armstrong-1989-probe-ascertainment",
+      "report_id": "report:ada268229",
+      "role": "reprints_primary_abstract",
+      "locator": "Reprinted abstract, pp. 27–28 (PDF pp. 33–34). Original 1989 supplement, pp. 89–90"
+    },
     {
       "study_id": "usafsam-7p8-psia-male-three-day",
       "report_id": "pmid:3964151",
@@ -25458,6 +25518,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:ada268229",
+      "right_report": "abstract:uhms-1989-webb-probes",
+      "relationship": "reprints_primary_abstract",
+      "evidence": "The Armstrong report identifies the 1989 supplement and reprints the abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33"
+    },
+    {
+      "left_report": "abstract:uhms-1989-webb-probes",
+      "right_report": "pmid:2718277",
+      "relationship": "published_in_meeting_supplement",
+      "evidence": "Original pages and publication year in the reprint. PubMed indexes the parent meeting proceedings.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2718277/"
+    },
+    {
+      "left_report": "abstract:uhms-1989-webb-probes",
+      "right_report": "pmid:3044322",
+      "relationship": "different_reported_altitude",
+      "evidence": "Olson et al. report a nominal altitude of 27,500 ft in Methods and Table II. The 1989 probe abstract reports 22,500 and 25,000 ft. These are distinct nominal test conditions.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/7/article-p635.pdf#page=3"
+    },
+    {
+      "left_report": "abstract:uhms-1989-webb-probes",
+      "right_report": "abstract:asma-1991-webb-pilmanis-219",
+      "relationship": "unresolved",
+      "evidence": "Abstract 219 reviews 215 Brooks exposures across 22,500–30,000 ft and uses selected Spencer grade 3 or 4 risk sets. The altitude range includes the probe comparison's settings. Neither abstract identifies matching exposures.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=33"
+    },
+    {
+      "left_report": "openalex:W307569229",
+      "right_report": "ntrs:19940007071",
+      "relationship": "unresolved",
+      "evidence": "The 1993 workshop paper and the 1994 protocol describe Armstrong echocardiography at 29,500 ft. ADA284849 identifies an ongoing parent study without flight IDs or a participant mapping.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA284849/DTIC_ADA284849.pdf#page=12"
+    },
     {
       "left_report": "doi:10.21236/ada222626",
       "right_report": "asma:1987:490:43",
