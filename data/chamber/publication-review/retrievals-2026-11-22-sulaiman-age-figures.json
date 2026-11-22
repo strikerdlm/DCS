@@ -1,0 +1,498 @@
+[
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-sulaiman-age-tavily",
+    "provider": "Tavily",
+    "operation": "supplementary_journal_and_technical_report_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "earlier_search_receipt_id": "944acd36-4eb3-4b00-ad99-6fb2c3eb39d8",
+      "search": {
+        "query": "Sulaiman Pilmanis O Connor 1997 age susceptibility altitude decompression sickness Figure 2 25000 9262810 and Armstrong Laboratory ADA297023 1995",
+        "filters": {
+          "search_depth": "advanced",
+          "max_results": 6
+        },
+        "receipt_id": "c511287d-40bd-4a24-be88-af9c55f5a624",
+        "returned_results": [
+          {
+            "position": 1,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9262810",
+            "title": "Relationship between age and susceptibility to altitude decompression sickness.",
+            "provider_result_id": "8a614d-00"
+          },
+          {
+            "position": 2,
+            "url": "https://en.wikipedia.org/wiki/Decompression_sickness",
+            "title": "Decompression sickness - Wikipedia",
+            "provider_result_id": "09942f-01"
+          },
+          {
+            "position": 3,
+            "url": "https://ntrs.nasa.gov/api/citations/20100017618/downloads/20100017618.pdf?attachment=true",
+            "title": "Individual Susceptibility to Hypobaric Environments: An Update",
+            "provider_result_id": "6f9bc6-02"
+          },
+          {
+            "position": 4,
+            "url": "https://apps.dtic.mil/sti/tr/pdf/ADA297023.pdf",
+            "title": "Relationship between Age and Susceptibility to Decompression ...",
+            "provider_result_id": "a38883-03"
+          },
+          {
+            "position": 5,
+            "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf",
+            "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+            "provider_result_id": "349587-04"
+          },
+          {
+            "position": 6,
+            "url": "https://www.rma.gov.au/assets/Other/183-02-Reference-list-decompression-sickness-as-at-10-December-2014.pdf",
+            "title": "decompression sickness - Repatriation Medical Authority",
+            "provider_result_id": "549611-05"
+          }
+        ]
+      },
+      "earlier_pdf_extraction_receipt_id": "5ec91bce-6801-4d2b-9d1b-7df8b3f6cd01",
+      "unsuccessful_pdf_extraction_receipt_id": "1f041f54-77b3-4d5d-895a-93b4397d5fc9",
+      "publisher_pdf": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/8/article-p695.pdf",
+      "technical_report_pdf": "https://archive.org/download/DTIC_ADA297023/DTIC_ADA297023.pdf"
+    },
+    "note": "The search located the existing journal article and technical-report evidence. The repeat extraction failed, so chart values were transcribed from a locally rendered copy of the publisher PDF.",
+    "records": []
+  },
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-sulaiman-age-firecrawl",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_record_and_local_figure_verification",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "publisher_html_receipt_id": "01a202d8-8ede-73cc-9d5b-8ffdd7e7b154",
+      "publisher_pdf_challenge_receipt_id": "01a202d2-d9bb-7431-b8b6-59127eb3702b"
+    },
+    "note": "Firecrawl verified the publisher article record. Labels and approximate bar heights were checked using the rendered publisher PDF retrieved separately.",
+    "records": [
+      {
+        "id": "sulaiman-1997-age-figures",
+        "title": "Relationship between age and susceptibility to altitude decompression sickness",
+        "pmid": "9262810",
+        "year": 1997,
+        "url": "https://asma.kglmeridian.com/view/journals/asem/68/8/article-p695.xml",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/8/article-p695.pdf",
+        "file_sha256": "30026bfe3306e3a34e2322b1a28315cf16fbc6a455bb28b23216dbf465585b84",
+        "full_text_available": true,
+        "study_id": "armstrong-1983-1994-age-archive",
+        "role_review": "overlap_hold",
+        "locator": "Figures 1–3, printed p. 696 (PDF p. 2)",
+        "figure_groups": [
+          {
+            "figure_number": 1,
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "18-21",
+            "printed_n": 119,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-18-21",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 1, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 4."
+          },
+          {
+            "figure_number": 1,
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "22-25",
+            "printed_n": 287,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-22-25",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 1, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 4."
+          },
+          {
+            "figure_number": 1,
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "26-29",
+            "printed_n": 359,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-26-29",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 1, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 4."
+          },
+          {
+            "figure_number": 1,
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "30-33",
+            "printed_n": 239,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-30-33",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 1, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 4."
+          },
+          {
+            "figure_number": 1,
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "34-37",
+            "printed_n": 145,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-34-37",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 1, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 4."
+          },
+          {
+            "figure_number": 1,
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "38-41",
+            "printed_n": 110,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-38-41",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 1, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 4."
+          },
+          {
+            "figure_number": 1,
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": ">42",
+            "printed_n": 40,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-above-42",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 1, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 4."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "below_25000_ft",
+            "age_label_as_printed": "18-21",
+            "printed_n": 10,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 15,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "below_25000_ft",
+            "age_label_as_printed": "22-25",
+            "printed_n": 20,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 13,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "below_25000_ft",
+            "age_label_as_printed": "26-29",
+            "printed_n": 21,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 12,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "below_25000_ft",
+            "age_label_as_printed": "30-33",
+            "printed_n": 28,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 23,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "below_25000_ft",
+            "age_label_as_printed": "34-37",
+            "printed_n": 11,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 18,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "below_25000_ft",
+            "age_label_as_printed": "38-41",
+            "printed_n": 10,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 18,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "below_25000_ft",
+            "age_label_as_printed": "42-49",
+            "printed_n": 9,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 38,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "above_25000_ft",
+            "age_label_as_printed": "18-21",
+            "printed_n": 18,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 36,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "above_25000_ft",
+            "age_label_as_printed": "22-25",
+            "printed_n": 58,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 44,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "above_25000_ft",
+            "age_label_as_printed": "26-29",
+            "printed_n": 109,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 61,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "above_25000_ft",
+            "age_label_as_printed": "30-33",
+            "printed_n": 61,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 56,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "above_25000_ft",
+            "age_label_as_printed": "34-37",
+            "printed_n": 45,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 53,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "above_25000_ft",
+            "age_label_as_printed": "38-41",
+            "printed_n": 33,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 62,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 2,
+            "altitude_scope": "above_25000_ft",
+            "age_label_as_printed": "42-49",
+            "printed_n": 16,
+            "n_basis": "unresolved_figure_n_label",
+            "plotted_percent_approx": 100,
+            "archive_source_id": null,
+            "archive_stratum": null,
+            "archive_endpoint": null,
+            "locator": "Figure 2, printed p. 696 (PDF p. 2)",
+            "note": "Bar height digitized to a whole percentage point. The meaning of the printed N and handling of exactly 25,000 ft are unresolved."
+          },
+          {
+            "figure_number": 3,
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "18-21",
+            "printed_n": 10,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-18-21",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 3, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 7."
+          },
+          {
+            "figure_number": 3,
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "22-25",
+            "printed_n": 34,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-22-25",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 3, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 7."
+          },
+          {
+            "figure_number": 3,
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "26-29",
+            "printed_n": 32,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-26-29",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 3, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 7."
+          },
+          {
+            "figure_number": 3,
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "30-33",
+            "printed_n": 14,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-30-33",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 3, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 7."
+          },
+          {
+            "figure_number": 3,
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "34-37",
+            "printed_n": 11,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-34-37",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 3, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 7."
+          },
+          {
+            "figure_number": 3,
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "38-41",
+            "printed_n": 7,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-38-41",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 3, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 7."
+          },
+          {
+            "figure_number": 3,
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": ">42",
+            "printed_n": 3,
+            "n_basis": "subject_exposure_denominator",
+            "plotted_percent_approx": null,
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-above-42",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Figure 3, printed p. 696 (PDF p. 2)",
+            "note": "The printed exposure denominator agrees with the corresponding age stratum in 1995 Table 7."
+          }
+        ],
+        "figure_2_digitization": {
+          "axis_label": "Percent with DCS",
+          "resolution_percentage_points": 1,
+          "method": "A four-times raster of the Figure 2 region on PDF page 2 was used. The distance from baseline to bar top was divided by the 0–100 axis span and rounded to the nearest whole percentage point.",
+          "printed_n_totals_below_above_25000_ft": [
+            109,
+            340
+          ],
+          "printed_n_age_totals": [
+            28,
+            78,
+            130,
+            89,
+            56,
+            43,
+            25
+          ],
+          "counting_unit": null,
+          "assignment_of_exactly_25000_ft": null
+        },
+        "technical_report_comparison": {
+          "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:1",
+          "accession": "ADA297023",
+          "primary_source": "https://archive.org/download/DTIC_ADA297023/DTIC_ADA297023.pdf",
+          "file_sha256": "f0db87b1de8042e9caaf6db71c4c25dd8062e98b1db54606cc518b264ebafd19",
+          "locator": "Tables 4–7, printed pp. 6–9 (PDF pp. 11–14)",
+          "tables_5_and_6_dcs_cases_combined_by_age": [
+            28,
+            79,
+            134,
+            88,
+            53,
+            42,
+            25
+          ],
+          "note": "The totals across both documents are 449, with five different age totals and different altitude splits. The oldest bin label also differs. Journal duration is 3–8 h. Report duration is 4–8 h. The comparison supports a shared archive and preserves each document's scope."
+        }
+      }
+    ]
+  }
+]

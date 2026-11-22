@@ -272,6 +272,7 @@ ANELL_CHAMBER_VGE = ROOT / "data" / "chamber" / "v1.204"
 ANELL_2019_CHAMBER_TRIAL = ROOT / "data" / "chamber" / "v1.205"
 ANELL_2021_CHAMBER_CASES = ROOT / "data" / "chamber" / "v1.206"
 ANELL_EARLY_EXCURSION = ROOT / "data" / "chamber" / "v1.207"
+SULAIMAN_JOURNAL_AGE_FIGURES = ROOT / "data" / "chamber" / "v1.208"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2749,6 +2750,11 @@ def build(
                         "web_chamber_stage_vge_summary": "stage_vge.csv",
                         "web_chamber_hemodynamic_summary": "hemodynamics.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    SULAIMAN_JOURNAL_AGE_FIGURES,
+                    {"literature_age_figure_group": "age_figure_groups.csv"},
                 )
             if rojas_supplement:
                 load_supplement(
