@@ -277,6 +277,7 @@ WEBB_AFRL_REPEAT_SUSCEPTIBILITY = ROOT / "data" / "chamber" / "v1.209"
 WEBB_PREBREATHE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.210"
 CHAMBER_1995_THRESHOLD_AND_AGE = ROOT / "data" / "chamber" / "v1.211"
 FARNBOROUGH_1995_ABSTRACTS = ROOT / "data" / "chamber" / "v1.212"
+USAF_EXERCISE_TRIAL = ROOT / "data" / "chamber" / "v1.213"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2834,6 +2835,20 @@ def build(
                         "publication_overlap": "overlap.csv",
                         "publication_chamber_planned_exposure": "planned_exposures.csv",
                         "publication_chamber_onset_mean_sem": "onset_summaries.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    USAF_EXERCISE_TRIAL,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_exercise_trial": "trial.csv",
+                        "publication_exercise_arm": "arms.csv",
+                        "publication_exercise_participant_exposure": "participant_exposures.csv",
+                        "publication_exercise_preliminary_rate": "preliminary_rates.csv",
+                        "publication_exercise_pretest_subject": "pretest_subjects.csv",
+                        "publication_exercise_pretest_vo2": "pretest_vo2.csv",
                     },
                 )
                 load_register(db, ROOT)

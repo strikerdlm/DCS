@@ -1,6 +1,42 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.213/sources.csv#pilmanis99_exercise_fulltext",
+      "report_id": "pmid:9895017",
+      "basis": "The journal original and PMID 9895017 identify the existing article.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/1/article-p22.pdf"
+    },
+    {
+      "record_key": "2026-11-22-usaf-exercise-tavily#pilmanis99_exercise_fulltext",
+      "report_id": "pmid:9895017",
+      "basis": "The journal original and PMID 9895017 identify the existing article.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/1/article-p22.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.213/sources.csv#olson95_asma_exercise",
+      "report_id": "asma:1995:491:167",
+      "basis": "Publisher issue p. 491 verifies the separate numbered abstract.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29"
+    },
+    {
+      "record_key": "2026-11-22-usaf-exercise-tavily#olson95_asma_exercise",
+      "report_id": "asma:1995:491:167",
+      "basis": "Publisher issue p. 491 verifies the separate numbered abstract.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.213/sources.csv#wiegman93_metabolic_monitoring",
+      "report_id": "report:ada268221",
+      "basis": "The cover and report documentation page identify DTIC ADA268221.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268221/DTIC_ADA268221.pdf"
+    },
+    {
+      "record_key": "2026-11-22-usaf-exercise-firecrawl#wiegman93_metabolic_monitoring",
+      "report_id": "report:ada268221",
+      "basis": "The cover and report documentation page identify DTIC ADA268221.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268221/DTIC_ADA268221.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.212/sources.csv#lee_weien95_farnborough_subjects",
       "report_id": "asma:1995:497:203",
       "basis": "The original printed page verifies the authors, title and distinct abstract number.",
@@ -19059,6 +19095,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-brooks-exercise-altitude-dcs",
+      "label": "Brooks AFB within-participant exercise at simulated altitude",
+      "period": "Clinical exposure dates unspecified. Preliminary report published in 1995.",
+      "setting": "USAF experimental research chamber"
+    },
+    {
       "study_id": "dera-farnborough-1995-research-chamber",
       "label": "Farnborough DRA subject and inside-observer research exposures",
       "period": "Reported in 1995. Exposure dates unspecified.",
@@ -20968,6 +21010,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-brooks-exercise-altitude-dcs",
+      "report_id": "pmid:9895017",
+      "role": "full_text_repeated_exposure_outcomes",
+      "locator": "Table II, printed p. 26 (PDF p. 5)"
+    },
+    {
+      "study_id": "usaf-brooks-exercise-altitude-dcs",
+      "report_id": "asma:1995:491:167",
+      "role": "likely_overlapping_preliminary_abstract",
+      "locator": "Abstract 167, printed p. 491 (PDF p. 29)"
+    },
+    {
+      "study_id": "usaf-brooks-exercise-altitude-dcs",
+      "report_id": "report:ada268221",
+      "role": "metabolic_protocol_companion",
+      "locator": "Representative Results, Tables 1 and 2, printed pp. 10 and 14 (PDF pp. 16 and 20)"
+    },
     {
       "study_id": "dera-farnborough-1995-research-chamber",
       "report_id": "asma:1995:497:203",
@@ -24168,6 +24228,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "asma:1995:491:167",
+      "right_report": "pmid:9895017",
+      "relationship": "likely_overlap",
+      "evidence": "The Brooks reports share Olson, Pilmanis and Webb, the FL295 symptom-free resting-altitude selection design and the same four repeated arm and leg conditions. The preliminary abstract reports 26 men and the article 32. The participant crosswalk is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29"
+    },
+    {
+      "left_report": "report:ada268221",
+      "right_report": "pmid:9895017",
+      "relationship": "related_metabolic_methods",
+      "evidence": "Reference 22 of the journal cites this equipment and exercise calibration report, which identifies USAFSAM protocol 87-15. Its A–D labels belong to the four representative upper-body pretests. Linkage to the numbered clinical participants is unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268221/DTIC_ADA268221.pdf"
+    },
     {
       "left_report": "asma:1995:497:203",
       "right_report": "asma:1995:497:204",
