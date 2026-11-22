@@ -9,6 +9,65 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_armstrong_calibration_and_development_counts_keep_source_grain(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT exercise_mode,limb,average_interval_min,mean_vo2_ml_min,
+                   workload_selection_participants,verification_participants
+            FROM publication_exercise_bout_vo2 ORDER BY exercise_mode,limb
+        """).fetchall() == [
+            ("isometric", "arm", 12, 388, 13, None),
+            ("isometric", "leg", 12, 388, 13, None),
+            ("isotonic", "arm", 12, 385, 13, None),
+            ("isotonic", "leg", 12, 392, 13, None),
+        ]
+        assert db.execute("""
+            SELECT profile_count,subjects_as_reported,lower_altitude_ft,upper_altitude_ft,dcs_case_count
+            FROM publication_model_development_scope
+        """).fetchall() == [(12, 395, 9000, 30000, None)]
+        assert db.execute("""
+            SELECT source_id,participant_count,trial_count FROM publication_chamber_trial_scope
+            WHERE source_id IN ('olson92_asma_echo','olson92_safe_echo','olson94_echo_size')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("olson92_asma_echo", 3, None),
+            ("olson92_safe_echo", 4, None),
+            ("olson94_echo_size", 10, None),
+        ]
+        assert db.execute("""
+            SELECT role FROM review.review_study_report
+            WHERE study_id='usaf-brooks-exercise-altitude-dcs'
+              AND report_id='safe:1993:fischer-exercise-calibration'
+        """).fetchone() == ("workload_calibration_methods",)
+
+
+def test_armstrong_meeting_abstracts_link_existing_counts_and_keep_denominator_difference(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE source_key='kumar92_asm_cmb81'
+        """).fetchall() == [("ntrs:19950010323",)]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE report_id='ntrs:19950010323'
+        """).fetchall() == [(17, 81)]
+        assert db.execute("""
+            SELECT j.value ->> '$.pressure_psia',j.value ->> '$.subjects',j.value ->> '$.later_article_n',
+                   n.exposures,n.exact_cases
+            FROM review.review_record r JOIN json_each(r.metadata_json,'$.arms_as_printed') j
+            JOIN a1309_profile n ON n.profile=j.value ->> '$.nedu_profile'
+            WHERE r.report_id='asma:1992:386:webb-oxygen-suit'
+            ORDER BY j.value ->> '$.pressure_psia'
+        """).fetchall() == [(7.3, 10, 10, 11, 0), (7.8, 10, 10, 10, 0), (8.3, 10, 10, 10, 0)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='asma:1992:386:webb-oxygen-suit' AND right_report='pmid:8216141'
+        """).fetchone() == ("partial_overlap",)
+        assert db.execute("""
+            SELECT DISTINCT source_id FROM publication_observation
+            WHERE source_id IN ('webb92_oxygen_suit','scoggins92_model_development')
+        """).fetchall() == []
+
+
 def test_armstrong_probe_margins_preserve_conflict_and_shared_report(release):
     report = "abstract:uhms-1989-webb-probes"
     with connect_pair(release) as db:
