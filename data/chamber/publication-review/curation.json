@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-uk-chamber-exposure-history-verified#connolly-2018-retrospective",
+      "report_id": "pmid:30126509",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf",
+      "basis": "Original DOI and article title identify the same publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.189/sources.csv#connolly18_uk_chamber_history",
+      "report_id": "pmid:30126509",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf",
+      "basis": "Original DOI and article title identify the same publication."
+    },
+    {
+      "record_key": "2026-11-22-uk-chamber-exposure-history-verified#connolly-lupa-2021-prospective",
+      "report_id": "doi:10.3357/amhp.5730.2021",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p215.pdf",
+      "basis": "Original DOI and article title identify the same publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.189/sources.csv#connolly_lupa21_uk_mri_followup",
+      "report_id": "doi:10.3357/amhp.5730.2021",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p215.pdf",
+      "basis": "Original DOI and article title identify the same publication."
+    },
+    {
       "record_key": "2026-11-21-mcguire-chamber-trainees-verified#mcguire-full-text",
       "report_id": "pmid:30927318",
       "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
@@ -19813,6 +19837,18 @@
       "label": "USAF AFC single-exposure trainee and MRI study",
       "period": "2014–2017 in the companion presentation",
       "setting": "San Antonio, USAF altitude chamber training"
+    },
+    {
+      "study_id": "uk-qinetiq-raf-selected-chamber-history-2018",
+      "label": "Selected UK chamber research and instructor history",
+      "period": "Reported 2018",
+      "setting": "QinetiQ and RAF historical chamber exposures"
+    },
+    {
+      "study_id": "uk-boscombe-down-prospective-mri-2017",
+      "label": "Boscombe Down prospective chamber MRI study",
+      "period": "February to November 2017",
+      "setting": "MOD Boscombe Down, UK"
     }
   ],
   "study_reports": [
@@ -22713,6 +22749,18 @@
       "report_id": "doi:10.5772/intechopen.74231",
       "role": "likely_overlapping_preliminary_mri_analysis",
       "locator": "Preliminary analysis, section 3"
+    },
+    {
+      "study_id": "uk-qinetiq-raf-selected-chamber-history-2018",
+      "report_id": "pmid:30126509",
+      "role": "retrospective_selected_dcs_history",
+      "locator": "Methods p. 778, UKP Decompression Experience p. 779, and Table II p. 780"
+    },
+    {
+      "study_id": "uk-boscombe-down-prospective-mri-2017",
+      "report_id": "doi:10.3357/amhp.5730.2021",
+      "role": "prospective_exposure_scope_without_clinical_dcs_tally",
+      "locator": "Methods p. 216, Results p. 218, and Table II p. 219"
     }
   ],
   "relations": [
@@ -27671,6 +27719,27 @@
       "relationship": "cites_historical_rate_from_distinct_setting",
       "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
       "evidence": "The journal cites Rice et al. as historical incidence context. Rice studied U.S. Navy chamber exposure, whereas the imaging study describes USAF trainee volunteers. The cited incidence is not the local study outcome."
+    },
+    {
+      "left_report": "pmid:30126509",
+      "right_report": "doi:10.3357/amhp.5730.2021",
+      "relationship": "partial_participant_overlap",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p215.pdf#page=4",
+      "evidence": "The 2021 study explicitly identifies three of its eleven completers as participants in the earlier MRI survey. Baseline MRIs were reused. The 160 decompressions belong to the later prospective program, and the paper supplies no exposure- or episode-level crosswalk to the historical study."
+    },
+    {
+      "left_report": "pmid:30126509",
+      "right_report": "pmid:21197850",
+      "relationship": "possible_case_overlap",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf#page=3",
+      "evidence": "The earlier 2010 QinetiQ research involved prolonged mid-altitude exposures and single-site limb-pain DCS. The 2018 historical study includes prior QinetiQ research and describes similar episodes, but no flight dates or identifiers link these cases. Do not add these counts together."
+    },
+    {
+      "left_report": "pmid:30126509",
+      "right_report": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "relationship": "possible_case_overlap",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf#page=3",
+      "evidence": "The older DERA/QinetiQ study includes prolonged chamber exposures in the broader historical setting. The historical MRI cohort is selected from prior research and instructor roles. Neither paper identifies shared participants or episodes."
     }
   ],
   "report_titles": {

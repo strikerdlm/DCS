@@ -6368,6 +6368,68 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_uk_chamber_history_keeps_episodes_people_and_exposure_margins_distinct(release):
+    retrospective_id = "pmid:30126509"
+    prospective_id = "doi:10.3357/amhp.5730.2021"
+    expected = [
+        ("prolonged-medium-altitude-research", "limb_pain_altitude_dcs_episodes_as_reported",
+         10, None, None, "overlap_hold"),
+        ("uk-selected-mri-cohort", "people_with_history_of_altitude_dcs", 5, 20, "person", "overlap_hold"),
+    ]
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id IN ('connolly18_uk_chamber_history','connolly_lupa21_uk_mri_followup')
+            ORDER BY stratum
+        """).fetchall() == expected
+        review_record_key = "2026-11-20-eds-role#3vpymjds3r"
+        assert db.execute("""
+            SELECT record_key,observation_id,cases,denominator,denominator_unit
+            FROM review.review_search_observation WHERE report_id IN (?,?) ORDER BY observation_id
+        """, (retrospective_id, prospective_id)).fetchall() == [
+            (review_record_key, "uk-research-dcs-episodes", 10, None, None),
+            (review_record_key, "uk-research-dcs-person", 5, 20, "selected people"),
+        ]
+        metadata, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE record_key='2026-11-22-uk-chamber-exposure-history-verified#connolly-2018-retrospective'
+        """).fetchone()
+        links = json.loads(metadata)["existing_observation_links"]
+        assert {(row["record_key"], row["observation_id"], row["model_stratum"], row["model_endpoint"])
+                for row in links} == {
+            (review_record_key, "uk-research-dcs-episodes", expected[0][0], expected[0][1]),
+            (review_record_key, "uk-research-dcs-person", expected[1][0], expected[1][1]),
+        }
+        assert dict(db.execute("""
+            SELECT stratum,trial_count FROM publication_chamber_trial_scope
+            WHERE source_id='connolly18_uk_chamber_history' AND trial_count IS NOT NULL
+        """)) == {
+            "uk-retrospective-history": 1417,
+            "historical-rapid-decompressions": 751,
+            "historical-rapid-decompressions-pressure-breathing": 326,
+            "historical-decompressions-over-one-hour": 93,
+            "historical-personal-hypoxia-familiarizations": 46,
+        }
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='connolly_lupa21_uk_mri_followup' ORDER BY stratum
+        """).fetchall() == [
+            ("prospective-at-least-18000ft", 160, 11),
+            ("prospective-below-10000ft-margin", 56, None),
+            ("prospective-inside-observers", 42, 6),
+            ("prospective-research-participants", 118, 5),
+            ("prospective-reused-baseline-mri", None, 3),
+        ]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='connolly18_uk_chamber_history' ORDER BY related_source
+        """).fetchall() == [("v1.14/lee_hay01", "unresolved"), ("v1.2/connolly10", "unresolved")]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE report_id IN (?,?)
+        """, (retrospective_id, prospective_id)).fetchone() == (0,)
+
+
 def test_mcguire_chamber_zero_includes_full_trainee_sample_once(release):
     journal_id = "pmid:30927318"
     presentation_id = "sto:mp-hfm-309:22p"

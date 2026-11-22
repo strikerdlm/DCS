@@ -253,6 +253,7 @@ KADENA_HYPOBARIC_PROGRAM = ROOT / "data" / "chamber" / "v1.185"
 INDIA_FIELD_SYMPTOM_EVIDENCE = ROOT / "data" / "chamber" / "v1.186"
 NATO_LUPA_PAIRED_CHAMBER = ROOT / "data" / "chamber" / "v1.187"
 USAF_MCGUIRE_CHAMBER_COHORT = ROOT / "data" / "chamber" / "v1.188"
+UK_RETROSPECTIVE_CHAMBER_HISTORY = ROOT / "data" / "chamber" / "v1.189"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2503,6 +2504,17 @@ def build(
                 load_version_tables(
                     db,
                     USAF_MCGUIRE_CHAMBER_COHORT,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "chamber_trial_scope.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    UK_RETROSPECTIVE_CHAMBER_HISTORY,
                     {
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
