@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_jp:6",
+      "report_id": "usaf:kadena:419919",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+      "basis": "Prior search hit names the same article and carries the same Air Force article ID."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.37/search_hits.csv#detail_v37_vag:7",
+      "report_id": "usaf:kadena:419919",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+      "basis": "Prior search hit names the same article and carries the same Air Force article ID."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.41/search_hits.csv#vge_review_v41_ohr:6",
+      "report_id": "usaf:kadena:419919",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+      "basis": "Prior search hit names the same article and carries the same Air Force article ID."
+    },
+    {
+      "record_key": "2026-11-21-kadena-chamber-program-verified#kadena-hyperbaric-caseload",
+      "report_id": "usaf:kadena:419919",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+      "basis": "Same 2007-03-08 Air Force article and article ID as the official publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.185/sources.csv#ivacic07_kadena_hyperbaric",
+      "report_id": "usaf:kadena:419919",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+      "basis": "Same 2007-03-08 Air Force article and article ID as the official publication."
+    },
+    {
+      "record_key": "2026-11-21-kadena-chamber-program-verified#kadena-altitude-program-transition",
+      "report_id": "usaf:kadena:417171",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/417171/kadena-altitude-chamber-conducts-final-operations",
+      "basis": "Same 2013-06-11 Air Force article and article ID as the official publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.185/sources.csv#davis13_kadena_altitude",
+      "report_id": "usaf:kadena:417171",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/417171/kadena-altitude-chamber-conducts-final-operations",
+      "basis": "Same 2013-06-11 Air Force article and article ID as the official publication."
+    },
+    {
+      "record_key": "2026-11-21-kadena-chamber-program-verified#gk304-possible-dcs-after-diving",
+      "report_id": "usaf:kadena:2808083",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/2808083/18th-aes-members-answer-the-call",
+      "basis": "Same 2021-10-12 Air Force article and article ID as the official publication."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.184/sources.csv#ntsb_nyc94la062",
       "report_id": "ntsb:nyc94la062:final",
       "evidence_url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf",
@@ -22476,6 +22524,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "usaf:kadena:417171",
+      "right_report": "usaf:kadena:419919",
+      "relationship": "same_location_distinct_risk_sets",
+      "evidence_url": "https://www.kadena.af.mil/News/Article/417171/kadena-altitude-chamber-conducts-final-operations",
+      "evidence": "The 2007 source describes a referral service treating chamber, flight and diving patients. The 2013 program announcement describes closure of the co-located hypobaric training chamber. It gives no count of chamber trainees or clinically observed DCS. The mixed referral total cannot be assigned to the training program."
+    },
     {
       "left_report": "faa:cami:dc8-mixed-dci",
       "right_report": "ntsb:nyc94la062:final",

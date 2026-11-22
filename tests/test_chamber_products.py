@@ -6368,6 +6368,52 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_kadena_mixed_referrals_cannot_supply_training_incidence(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE url LIKE 'https://www.kadena.af.mil/News/Article/419919/%'
+            GROUP BY report_id
+        """).fetchall() == [("usaf:kadena:419919", 5)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,altitude,analysis_role
+            FROM publication_observation
+            WHERE source_id IN ('ivacic07_kadena_hyperbaric','davis13_kadena_altitude')
+        """).fetchall() == [("dcs_treated_mixed_exposure_contexts", 167, None, None, "descriptive")]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,reported_rate FROM review.review_search_observation
+            WHERE run_id='2026-11-21-kadena-chamber-program-verified'
+        """).fetchall() == [("dcs_treated_mixed_exposure_contexts", 167, None, None)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.report_scope.operational_share_approx_percent_as_reported'),
+                   json_type(metadata_json,'$.report_scope.chamber_dcs_cases')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-kadena-chamber-program-verified#kadena-hyperbaric-caseload'
+        """).fetchone() == (50, "null")
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.program_scope.final_operations_by'),
+                   json_extract(metadata_json,'$.program_scope.training_altitude_ft_as_reported_in_photo_caption'),
+                   json_type(metadata_json,'$.program_scope.chamber_exposure_denominator')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-kadena-chamber-program-verified#kadena-altitude-program-transition'
+        """).fetchone() == ("2013-06-11", 25000, "null")
+        assert db.execute("""
+            SELECT report_id,json_extract(metadata_json,'$.event_scope.endpoint_certainty')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-kadena-chamber-program-verified#gk304-possible-dcs-after-diving'
+        """).fetchone() == ("usaf:kadena:2808083", "suspected_by_onboard_responders")
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE report_id GLOB 'usaf:kadena:*' ORDER BY source_id
+        """).fetchall() == [
+            ("davis13_kadena_altitude", "usaf:kadena:417171"),
+            ("ivacic07_kadena_hyperbaric", "usaf:kadena:419919"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog WHERE report_id GLOB 'usaf:kadena:*'
+        """).fetchone() == (0,)
+
+
 def test_faa_and_ntsb_dc8_reports_link_to_one_case_with_unknown_onset(release):
     with connect_pair(release) as db:
         assert db.execute("""
