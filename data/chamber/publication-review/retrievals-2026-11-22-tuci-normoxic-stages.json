@@ -1,0 +1,602 @@
+[
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-tuci-normoxic-firecrawl",
+    "provider": "Firecrawl",
+    "operation": "supplementary_institutional_metadata_verification",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://kth.diva-portal.org/smash/record.jsf?pid=diva2:1444004",
+          "request_id": "01a20297-6d58-70e5-a1a3-36355f75bacf",
+          "disposition": "Institutional thesis metadata and PDF link verified."
+        },
+        {
+          "url": "https://kth.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+          "disposition": "PDF scrape timed out. Tavily delivered the primary-text table."
+        }
+      ]
+    },
+    "note": "Confirmed title, author, institution, publication year, DiVA identifier and permanent URN at the university.",
+    "records": [
+      {
+        "title": "The Effect of Whole-Body Vibration Preconditioning on High-Altitude-Induced Venous Gas Emboli",
+        "year": 2020,
+        "authors": [
+          "Tommaso Tuci"
+        ],
+        "openalex_id": "W3099410942",
+        "urn": "urn:nbn:se:kth:diva-276956",
+        "primary_source": "https://kth.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+        "full_text_available": true,
+        "study_id": "tuci-kth-normoxic-vibration-crossover",
+        "id": "kth-diva-catalog",
+        "url": "https://kth.diva-portal.org/smash/record.jsf?pid=diva2:1444004",
+        "file_sha512_as_listed_by_repository": "0237187a85875379e1123c320fa4eece0748ddd7e782ada2976e98171007cafc78696b819a4c92d7cc66048c71b84783168009b96fc54c7722c391d6f6cf5d37"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-tuci-normoxic-tavily",
+    "provider": "Tavily",
+    "operation": "supplementary_thesis_table_and_dwell_verification",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "query": "Tommaso Tuci whole-body vibration preconditioning on high-altitude-induced VGE, KTH DiVA 276956",
+          "request_id": "86cd7c1f-3da7-4982-94f7-175dd6a77bf1"
+        }
+      ],
+      "extracts": [
+        {
+          "url": "https://www.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+          "request_id": "ede3e996-0bde-44bf-9a4e-12ab6e85d3be",
+          "section": "Initial Table 3.1 extraction"
+        },
+        {
+          "url": "https://www.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+          "request_id": "e86bf8b0-623b-40af-9957-e95715401ded",
+          "section": "Table 3.1 cells and heading"
+        },
+        {
+          "url": "https://www.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+          "request_id": "2a037b57-2520-4da9-9095-9f901032c3d6",
+          "section": "Grade definitions and Figure 3.1 normalization"
+        },
+        {
+          "url": "https://www.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+          "request_id": "6930a6d5-bc64-477a-a667-f1d038af9acc",
+          "section": "Dwell VGE counts, highest grades and time to first VGE"
+        },
+        {
+          "url": "https://www.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+          "request_id": "36329af2-22a5-48ef-b7f5-9758e10d7486",
+          "section": "Chamber protocol and gas"
+        },
+        {
+          "url": "https://www.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+          "request_id": "ff901e04-3b48-47f8-9d04-573e24d14938",
+          "section": "Symptom checks and termination criteria"
+        }
+      ]
+    },
+    "note": "Table 3.1 contains 36 protocol-stage means in each of two measurement contexts. Dwell detection and highest-grade summaries use separate outcome scopes.",
+    "records": [
+      {
+        "title": "The Effect of Whole-Body Vibration Preconditioning on High-Altitude-Induced Venous Gas Emboli",
+        "year": 2020,
+        "authors": [
+          "Tommaso Tuci"
+        ],
+        "openalex_id": "W3099410942",
+        "urn": "urn:nbn:se:kth:diva-276956",
+        "primary_source": "https://kth.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+        "full_text_available": true,
+        "study_id": "tuci-kth-normoxic-vibration-crossover",
+        "id": "tuci-original-thesis-table-3-1",
+        "url": "https://www.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf",
+        "role_review": "overlap_hold",
+        "locator": "Methods pp. 5-9, Results pp. 10-13, Table 3.1 and Figures 3.1, 3.3 and 3.4",
+        "method_scope": {
+          "participants_in_crossover": 3,
+          "target_inspired_po2_kpa": 21,
+          "target_altitude_ft": 24000,
+          "dwell_minutes": 90,
+          "pressure_change_ft_min": 5000,
+          "rest_dwell_interval_minutes": 5,
+          "knee_bend_dwell_interval_minutes": 15,
+          "grade_method_definition_range": [
+            0,
+            4
+          ],
+          "grade_figure_3_1_normalization_ceiling": 5,
+          "figure_3_1_scope": "Percentages are continuous summaries of highest grades relative to the stated normalization grade.",
+          "clinical_dcs_count": null,
+          "clinical_note": "The Methods describe DCS signs and symptoms surveillance. Exact clinical counts and fixed post-exposure follow-up remain unverified.",
+          "timing_note": "Source-reported mean and spread. The text does not specify the denominator for timing or how visits with no detected VGE were handled.",
+          "cross_report_overlap": "Tuci's three participants used a normoxic mixture at inspired PO2 21 kPa. Elia's eight participants used 100% oxygen. The protocols identify different exposure series. The thesis names Elia as supervisor. Cross-study participant linkage is unavailable."
+        },
+        "stage_grade_means": [
+          {
+            "condition": "control",
+            "phase": "ascent",
+            "stage_index": 1,
+            "altitude_ft": 0,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "ascent",
+            "stage_index": 2,
+            "altitude_ft": 5000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "ascent",
+            "stage_index": 3,
+            "altitude_ft": 10000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "ascent",
+            "stage_index": 4,
+            "altitude_ft": 15000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "ascent",
+            "stage_index": 5,
+            "altitude_ft": 20000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "ascent",
+            "stage_index": 6,
+            "altitude_ft": 24000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "ascent",
+            "stage_index": 1,
+            "altitude_ft": 0,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "ascent",
+            "stage_index": 2,
+            "altitude_ft": 5000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "ascent",
+            "stage_index": 3,
+            "altitude_ft": 10000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "ascent",
+            "stage_index": 4,
+            "altitude_ft": 15000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "ascent",
+            "stage_index": 5,
+            "altitude_ft": 20000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "ascent",
+            "stage_index": 6,
+            "altitude_ft": 24000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "ascent",
+            "stage_index": 1,
+            "altitude_ft": 0,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "ascent",
+            "stage_index": 2,
+            "altitude_ft": 5000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "ascent",
+            "stage_index": 3,
+            "altitude_ft": 10000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "ascent",
+            "stage_index": 4,
+            "altitude_ft": 15000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "ascent",
+            "stage_index": 5,
+            "altitude_ft": 20000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "ascent",
+            "stage_index": 6,
+            "altitude_ft": 24000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "descent",
+            "stage_index": 1,
+            "altitude_ft": 24000,
+            "mean_rest_grade": 1.3,
+            "mean_after_knee_bends_grade": 1.7,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "descent",
+            "stage_index": 2,
+            "altitude_ft": 20000,
+            "mean_rest_grade": 1.0,
+            "mean_after_knee_bends_grade": 1.3,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "descent",
+            "stage_index": 3,
+            "altitude_ft": 15000,
+            "mean_rest_grade": 0.7,
+            "mean_after_knee_bends_grade": 1.3,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "descent",
+            "stage_index": 4,
+            "altitude_ft": 10000,
+            "mean_rest_grade": 0.7,
+            "mean_after_knee_bends_grade": 1.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "descent",
+            "stage_index": 5,
+            "altitude_ft": 5000,
+            "mean_rest_grade": 0.3,
+            "mean_after_knee_bends_grade": 1.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "control",
+            "phase": "descent",
+            "stage_index": 6,
+            "altitude_ft": 0,
+            "mean_rest_grade": 0.3,
+            "mean_after_knee_bends_grade": 0.7,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "descent",
+            "stage_index": 1,
+            "altitude_ft": 24000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "descent",
+            "stage_index": 2,
+            "altitude_ft": 20000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "descent",
+            "stage_index": 3,
+            "altitude_ft": 15000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "descent",
+            "stage_index": 4,
+            "altitude_ft": 10000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "descent",
+            "stage_index": 5,
+            "altitude_ft": 5000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "vibration",
+            "phase": "descent",
+            "stage_index": 6,
+            "altitude_ft": 0,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "descent",
+            "stage_index": 1,
+            "altitude_ft": 24000,
+            "mean_rest_grade": 0.3,
+            "mean_after_knee_bends_grade": 1.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "descent",
+            "stage_index": 2,
+            "altitude_ft": 20000,
+            "mean_rest_grade": 0.3,
+            "mean_after_knee_bends_grade": 0.3,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "descent",
+            "stage_index": 3,
+            "altitude_ft": 15000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.3,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "descent",
+            "stage_index": 4,
+            "altitude_ft": 10000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.3,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "descent",
+            "stage_index": 5,
+            "altitude_ft": 5000,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          },
+          {
+            "condition": "squats",
+            "phase": "descent",
+            "stage_index": 6,
+            "altitude_ft": 0,
+            "mean_rest_grade": 0.0,
+            "mean_after_knee_bends_grade": 0.0,
+            "locator": "Table 3.1, printed p. 13"
+          }
+        ],
+        "dwell_summaries": [
+          {
+            "condition": "control",
+            "figure_3_1_highest_grade_summary": {
+              "mean_highest_grade": 2.7,
+              "spread_highest_grade": 1.2,
+              "mean_percent_of_normalization_grade": 53,
+              "spread_percentage_points": 23,
+              "normalization_grade_as_reported": 5,
+              "locator": "Results section 3.1, printed p. 10, Figure 3.1"
+            },
+            "dwell_contexts": [
+              {
+                "context": "rest",
+                "highest_observed_grade": 3,
+                "first_detection_min": {
+                  "mean": 37,
+                  "spread": 15,
+                  "analytic_n": null
+                },
+                "locator": "Results section 3.1.1, printed p. 11"
+              },
+              {
+                "context": "after_knee_bends",
+                "highest_observed_grade": 4,
+                "first_detection_min": {
+                  "mean": 35,
+                  "spread": 23,
+                  "analytic_n": null
+                },
+                "locator": "Results section 3.1.2, printed p. 11"
+              }
+            ]
+          },
+          {
+            "condition": "vibration",
+            "figure_3_1_highest_grade_summary": {
+              "mean_highest_grade": 1.0,
+              "spread_highest_grade": 1.0,
+              "mean_percent_of_normalization_grade": 20,
+              "spread_percentage_points": 20,
+              "normalization_grade_as_reported": 5,
+              "locator": "Results section 3.1, printed p. 10, Figure 3.1"
+            },
+            "dwell_contexts": [
+              {
+                "context": "rest",
+                "highest_observed_grade": 1,
+                "first_detection_min": {
+                  "mean": 80,
+                  "spread": 10,
+                  "analytic_n": null
+                },
+                "locator": "Results section 3.1.1, printed p. 11"
+              },
+              {
+                "context": "after_knee_bends",
+                "highest_observed_grade": 2,
+                "first_detection_min": {
+                  "mean": 65,
+                  "spread": 31,
+                  "analytic_n": null
+                },
+                "locator": "Results section 3.1.2, printed p. 11"
+              }
+            ]
+          },
+          {
+            "condition": "squats",
+            "figure_3_1_highest_grade_summary": {
+              "mean_highest_grade": 1.3,
+              "spread_highest_grade": 0.6,
+              "mean_percent_of_normalization_grade": 27,
+              "spread_percentage_points": 12,
+              "normalization_grade_as_reported": 5,
+              "locator": "Results section 3.1, printed p. 10, Figure 3.1"
+            },
+            "dwell_contexts": [
+              {
+                "context": "rest",
+                "highest_observed_grade": 1,
+                "first_detection_min": {
+                  "mean": 55,
+                  "spread": 49,
+                  "analytic_n": null
+                },
+                "locator": "Results section 3.1.1, printed p. 11"
+              },
+              {
+                "context": "after_knee_bends",
+                "highest_observed_grade": 2,
+                "first_detection_min": {
+                  "mean": 50,
+                  "spread": 17,
+                  "analytic_n": null
+                },
+                "locator": "Results section 3.1.2, printed p. 11"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "id": "control-rest",
+            "group": "control",
+            "endpoint": "any_eftedal_brubakk_vge_rest_during_dwell",
+            "study_id": "tuci-kth-normoxic-vibration-crossover",
+            "cases": 3,
+            "denominator": 3,
+            "denominator_unit": "person_exposure",
+            "locator": "Results section 3.1.1, printed p. 11",
+            "note": "Three participants in one crossover. The cohort count applies across conditions. Counts are participants with observed VGE in the specified context during their condition visit."
+          },
+          {
+            "id": "control-after_knee_bends",
+            "group": "control",
+            "endpoint": "any_eftedal_brubakk_vge_after_knee_bends_during_dwell",
+            "study_id": "tuci-kth-normoxic-vibration-crossover",
+            "cases": 3,
+            "denominator": 3,
+            "denominator_unit": "person_exposure",
+            "locator": "Results section 3.1.2, printed p. 11",
+            "note": "Three participants in one crossover. The cohort count applies across conditions. Counts are participants with observed VGE in the specified context during their condition visit."
+          },
+          {
+            "id": "vibration-after_knee_bends",
+            "group": "vibration",
+            "endpoint": "any_eftedal_brubakk_vge_after_knee_bends_during_dwell",
+            "study_id": "tuci-kth-normoxic-vibration-crossover",
+            "cases": 2,
+            "denominator": 3,
+            "denominator_unit": "person_exposure",
+            "locator": "Results section 3.1.2, printed p. 11",
+            "note": "Three participants in one crossover. The cohort count applies across conditions. Counts are participants with observed VGE in the specified context during their condition visit."
+          },
+          {
+            "id": "squats-after_knee_bends",
+            "group": "squats",
+            "endpoint": "any_eftedal_brubakk_vge_after_knee_bends_during_dwell",
+            "study_id": "tuci-kth-normoxic-vibration-crossover",
+            "cases": 3,
+            "denominator": 3,
+            "denominator_unit": "person_exposure",
+            "locator": "Results section 3.1.2, printed p. 11",
+            "note": "Three participants in one crossover. The cohort count applies across conditions. Counts are participants with observed VGE in the specified context during their condition visit."
+          }
+        ]
+      }
+    ]
+  }
+]

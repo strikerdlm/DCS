@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3099410942",
+      "report_id": "openalex:W3099410942",
+      "evidence_url": "https://kth.diva-portal.org/smash/record.jsf?pid=diva2:1444004",
+      "basis": "The university catalog and the linked PDF identify Tommaso Tuci's 2020 thesis. The exact unique title and year match the existing OpenAlex occurrence."
+    },
+    {
+      "record_key": "2026-11-22-tuci-normoxic-firecrawl#kth-diva-catalog",
+      "report_id": "openalex:W3099410942",
+      "evidence_url": "https://kth.diva-portal.org/smash/record.jsf?pid=diva2:1444004",
+      "basis": "The university catalog and the linked PDF identify Tommaso Tuci's 2020 thesis. The exact unique title and year match the existing OpenAlex occurrence."
+    },
+    {
+      "record_key": "2026-11-22-tuci-normoxic-tavily#tuci-original-thesis-table-3-1",
+      "report_id": "openalex:W3099410942",
+      "evidence_url": "https://kth.diva-portal.org/smash/record.jsf?pid=diva2:1444004",
+      "basis": "The university catalog and the linked PDF identify Tommaso Tuci's 2020 thesis. The exact unique title and year match the existing OpenAlex occurrence."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.203/sources.csv#tuci20_normoxic_vibration",
+      "report_id": "openalex:W3099410942",
+      "evidence_url": "https://kth.diva-portal.org/smash/record.jsf?pid=diva2:1444004",
+      "basis": "The university catalog and the linked PDF identify Tommaso Tuci's 2020 thesis. The exact unique title and year match the existing OpenAlex occurrence."
+    },
+    {
       "record_key": "2026-11-22-elia-ultrasound-firecrawl#elia-2021-table-1",
       "report_id": "pmid:34142740",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/34142740/",
@@ -18633,6 +18657,12 @@
   ],
   "studies": [
     {
+      "study_id": "tuci-kth-normoxic-vibration-crossover",
+      "label": "Tuci's KTH normoxic whole-body vibration chamber crossover",
+      "period": "Reported 2020",
+      "setting": "KTH altitude chamber"
+    },
+    {
       "study_id": "elia-high-altitude-vibration-crossover",
       "label": "Elia and colleagues, whole-body vibration and chamber VGE crossover",
       "period": "Reported 2021",
@@ -20470,6 +20500,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "tuci-kth-normoxic-vibration-crossover",
+      "report_id": "openalex:W3099410942",
+      "role": "primary_thesis_for_normoxic_chamber_crossover",
+      "locator": "Methods pp. 5-9, Results pp. 10-13, Table 3.1 and Figures 3.1, 3.3 and 3.4"
+    },
     {
       "study_id": "elia-high-altitude-vibration-crossover",
       "report_id": "pmid:34142740",
@@ -23568,6 +23604,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "openalex:W3099410942",
+      "right_report": "pmid:34142740",
+      "relationship": "unresolved",
+      "evidence": "Tuci's three participants used a normoxic mixture at inspired PO2 21 kPa. Elia's eight participants used 100% oxygen. The protocols identify different exposure series. The thesis names Elia as supervisor. Cross-study participant linkage is unavailable.",
+      "evidence_url": "https://kth.diva-portal.org/smash/get/diva2:1444004/FULLTEXT01.pdf"
+    },
     {
       "left_report": "pmid:20273606",
       "right_report": "report:oemcmr-241:sup3:1",

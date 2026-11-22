@@ -9,6 +9,81 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_tuci_vge_stages_keep_ascent_and_descent_separate(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT condition,cohort_participants,nominal_altitude_ft,nominal_dwell_min,
+                   nominal_pressure_change_ft_min,target_inspired_po2_kpa,analysis_role
+            FROM publication_chamber_vge_protocol WHERE source_id='tuci20_normoxic_vibration'
+            ORDER BY condition
+        """).fetchall() == [
+            (condition, 3, 24000, 90, 5000, 21.0, "overlap_hold")
+            for condition in ("control", "squats", "vibration")
+        ]
+        ascending = (0, 5000, 10000, 15000, 20000, 24000)
+        descent = {
+            "control": [(1.3, 1.7), (1.0, 1.3), (0.7, 1.3), (0.7, 1.0), (0.3, 1.0), (0.3, 0.7)],
+            "squats": [(0.3, 1.0), (0.3, 0.3), (0, 0.3), (0, 0.3), (0, 0), (0, 0)],
+            "vibration": [(0, 0)] * 6,
+        }
+        for condition, descent_means in descent.items():
+            rows = db.execute("""
+                SELECT phase,stage_index,altitude_ft,mean_rest_grade,mean_after_knee_bends_grade
+                FROM publication_pressure_stage_vge_mean
+                WHERE source_id='tuci20_normoxic_vibration' AND condition=?
+                ORDER BY phase,stage_index
+            """, (condition,)).fetchall()
+            assert rows == [
+                *(("ascent", i, alt, 0, 0) for i, alt in enumerate(ascending, 1)),
+                *(("descent", i, alt, *means) for i, (alt, means) in
+                  enumerate(zip(reversed(ascending), descent_means), 1)),
+            ]
+
+
+def test_tuci_dwell_results_enrich_one_report_without_clinical_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='tuci20_normoxic_vibration'
+            ORDER BY stratum,endpoint
+        """).fetchall() == [
+            ("control", "any_eftedal_brubakk_vge_after_knee_bends_during_dwell", 3, 3, "overlap_hold"),
+            ("control", "any_eftedal_brubakk_vge_rest_during_dwell", 3, 3, "overlap_hold"),
+            ("squats", "any_eftedal_brubakk_vge_after_knee_bends_during_dwell", 3, 3, "overlap_hold"),
+            ("vibration", "any_eftedal_brubakk_vge_after_knee_bends_during_dwell", 2, 3, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT condition,measurement_context,highest_observed_grade,first_detection_mean_min,
+                   first_detection_spread_min
+            FROM publication_chamber_vge_detection_summary
+            WHERE source_id='tuci20_normoxic_vibration' ORDER BY condition,measurement_context
+        """).fetchall() == [
+            ("control", "after_knee_bends", 4, 35, 23), ("control", "rest", 3, 37, 15),
+            ("squats", "after_knee_bends", 2, 50, 17), ("squats", "rest", 1, 55, 49),
+            ("vibration", "after_knee_bends", 2, 65, 31), ("vibration", "rest", 1, 80, 10),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE openalex_id='W3099410942' OR lower(url) LIKE '%1444004%' OR lower(url) LIKE '%276956%'
+        """).fetchone() == (4, 1, "openalex:W3099410942")
+        assert db.execute("""
+            SELECT count(*),sum(denominator_unit='person_exposure') FROM review.review_search_observation
+            WHERE report_id='openalex:W3099410942' AND study_id='tuci-kth-normoxic-vibration-crossover'
+              AND endpoint LIKE 'any_eftedal_brubakk_vge_%_during_dwell'
+        """).fetchone() == (4, 4)
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.method_scope.grade_figure_3_1_normalization_ceiling'),
+                   json_extract(metadata_json,'$.dwell_summaries[0].figure_3_1_highest_grade_summary.mean_percent_of_normalization_grade'),
+                   json_array_length(metadata_json,'$.stage_grade_means')
+            FROM review.review_record WHERE record_key=
+                '2026-11-22-tuci-normoxic-tavily#tuci-original-thesis-table-3-1'
+        """).fetchone() == (5, 53, 36)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='openalex:W3099410942' AND right_report='pmid:34142740'
+        """).fetchone() == ("unresolved",)
+
+
 def test_elia_ultrasound_preserves_the_paired_maxima_and_source_medians(release):
     with connect_pair(release) as db:
         contexts = db.execute("""

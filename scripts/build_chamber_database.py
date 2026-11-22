@@ -267,6 +267,7 @@ CINCINNATI_EXPLORATORY_AND_RETEST = ROOT / "data" / "chamber" / "v1.199"
 CAM_PRESSURE_AND_CONTROLS = ROOT / "data" / "chamber" / "v1.200"
 BURKHARDT_CHAMBER_RADIOGRAPHY = ROOT / "data" / "chamber" / "v1.201"
 ELIA_ULTRASOUND = ROOT / "data" / "chamber" / "v1.202"
+TUCI_NORMOXIC_CROSSOVER = ROOT / "data" / "chamber" / "v1.203"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2681,6 +2682,18 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_ultrasound_vge_context": "contexts.csv",
                         "publication_ultrasound_vge_maximum": "maximum_grades.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    TUCI_NORMOXIC_CROSSOVER,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_vge_protocol": "protocols.csv",
+                        "publication_pressure_stage_vge_mean": "stage_means.csv",
+                        "publication_chamber_vge_detection_summary": "dwell_vge.csv",
                     },
                 )
             if rojas_supplement:
