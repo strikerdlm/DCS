@@ -20783,6 +20783,66 @@
       "report_id": "report:ada297456",
       "basis": "Matching authors, title, and stable identifier or chapter locator.",
       "evidence_url": "https://archive.org/download/DTIC_ADA297456/DTIC_ADA297456.pdf#page=27"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20273608",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2398707270",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#20273608",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/search_hits.csv#cadet_tavily_primary:1",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.11/sources.csv#gray_masland46",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.27/search_hits.csv#archive_v27_gray46exercise:1",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "2026-11-22-gray-masland-descent-outcomes-tavily#gray46_original_gas_pain",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "2026-11-22-gray-masland-descent-outcomes-firecrawl#gray46_publisher_access",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf"
+    },
+    {
+      "record_key": "2026-11-22-gray-masland-descent-outcomes-tavily#hdsd92_row77_endpoint_discrepancy",
+      "report_id": "pmid:1524540",
+      "basis": "Publisher title, authors, year and journal pages match the established report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf#page=3"
     }
   ],
   "studies": [
@@ -32434,6 +32494,13 @@
       "relationship": "analyzes_subset",
       "evidence": "The 1996 author abstract explicitly describes the 1994 analysis and specifies that the new sample is a smaller subset with ascent rate available.",
       "evidence_url": "https://ntrs.nasa.gov/citations/20040173090"
+    },
+    {
+      "left_report": "pmid:1524540",
+      "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:2",
+      "relationship": "same_profile_and_denominator_endpoint_conflict",
+      "evidence": "The 1992 HDSD Table III and the 1946 Table I share the 429-flight denominator, resting protocol, two-hour dwell and corresponding 35,000-ft or 3.5-psia altitude. The HDSD prints 2.3% serious DCS. The identical 2.3% in the original is gas-pain descent. Bends with chokes and chokes alone are printed separately at 0.93% and 1.6%. The historical category difference cannot be adjudicated and supplies no new serious DCS count.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf#page=2"
     }
   ],
   "report_titles": {

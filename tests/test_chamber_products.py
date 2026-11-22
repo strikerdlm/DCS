@@ -9,6 +9,56 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_gray_masland_gas_pains_reconcile_hdsd_without_counting_dcs(release):
+    with connect_pair(release) as db:
+        report_id, = db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='gray_masland46'
+        """).fetchone()
+        assert db.execute("""
+            SELECT h.person_exposures,h.serious_dcs_pct,p.denominator,p.reported_percent,
+                   l.archive_endpoint,l.primary_endpoint,l.relationship
+            FROM literature_hdsd_primary_rate_link l
+            JOIN literature_hdsd_compilation h USING(source_id,report_number)
+            JOIN publication_reported_rate p
+              ON (p.source_id,p.stratum,p.endpoint)=(l.primary_source_id,l.primary_stratum,l.primary_endpoint)
+            WHERE l.source_id='conkin92' AND l.report_number=77
+        """).fetchall() == [(429,2.3,429,"2.3","serious_dcs_pct","descent_due_to_gas_pains",
+                              "same_profile_and_denominator_endpoint_conflict")]
+        assert db.execute("""
+            SELECT endpoint,reported_percent FROM publication_reported_rate
+            WHERE source_id='gray_masland46' AND stratum='35000_rest_120'
+            AND endpoint IN ('descent_bends_and_chokes','descent_chokes_only','descent_due_to_gas_pains')
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("descent_bends_and_chokes", "0.93"),
+            ("descent_chokes_only", "1.6"),
+            ("descent_due_to_gas_pains", "2.3"),
+        ]
+        new_rates = db.execute("""
+            SELECT stratum,endpoint,denominator,reported_percent FROM publication_reported_rate
+            WHERE source_id='gray_masland46' AND analysis_role='descriptive'
+            ORDER BY stratum,endpoint
+        """).fetchall()
+        assert len(new_rates) == 29
+        assert db.execute("""
+            SELECT reported_group,endpoint,denominator,printf('%s',json_extract(o.value,'$.reported_rate_text'))
+            FROM review.review_search_observation AS s
+            JOIN review.review_record AS r USING(record_key)
+            JOIN json_each(r.metadata_json,'$.observations') AS o ON json_extract(o.value,'$.id')=s.observation_id
+            WHERE s.report_id=? AND s.run_id LIKE '2026-11-22-gray-masland-descent-outcomes-%'
+            AND s.cases IS NULL ORDER BY reported_group,endpoint
+        """,(report_id,)).fetchall() == new_rates
+        assert db.execute("""
+            SELECT count(*) FROM publication_reported_rate WHERE source_id='gray_masland46'
+            AND stratum IN ('33000_rest_120','27000_exercise15_120')
+            AND endpoint='descent_due_to_gas_pains' AND locator LIKE '%Table I,%Table II,%'
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE pmid='20273608' OR url LIKE '%/17/5/article-p483.pdf%'
+        """).fetchall() == [(report_id,)]
+
+
 def test_hdsd_scope_and_serious_archive_links_preserve_the_published_rows(release):
     with connect_pair(release) as db:
         assert db.execute("""
