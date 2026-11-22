@@ -53,6 +53,15 @@ def test_tonawanda_archive_keeps_nested_counts_conflicts_and_withdrawals(release
             ("ntrs:19700018125", "ntrs:19680021743", "partial_overlap"),
             ("ntrs:19700018126", "ntrs:19700018125", "derived_from"),
         ]
+        assert db.execute("""
+            SELECT source_id,profile_count,profile_count_unit
+            FROM publication_hypobaric_model_archive_scope
+            WHERE source_id IN ('tonawanda68_nasa_archive','schreiner70_tonawanda_supp_a')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("schreiner70_tonawanda_supp_a", 1553, "individual_profile_record"),
+            ("tonawanda68_nasa_archive", 388, "individual_profile_record"),
+        ]
 
 
 def test_fryer_neurological_cases_and_roxburgh_cited_margins_preserve_scope(release):
@@ -471,7 +480,9 @@ def test_vann_gerth_archives_preserve_exact_counts_and_raw_rates(release):
         assert rates == [(1194, "33.59"), (1052, "37.26"), (142, "6.34")]
         assert db.execute("""
             SELECT source_id,profile_count,profile_count_unit
-            FROM publication_hypobaric_model_archive_scope ORDER BY source_id
+            FROM publication_hypobaric_model_archive_scope
+            WHERE source_id IN ('vann87_likelihood_archive','vann92_workshop_archive','gerth95_usafal_archive')
+            ORDER BY source_id
         """).fetchall() == [
             ("gerth95_usafal_archive", 1194, "individual_profile_record"),
             ("vann87_likelihood_archive", 30, "experimental_pressure_profile"),
