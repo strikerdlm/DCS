@@ -9,6 +9,79 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_usafsam_repository_snapshots_preserve_count_precision_and_report_identity(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT repository_id,report_year,reported_people,people_count_basis,
+                   reported_exposures,exposure_count_basis
+            FROM publication_usafsam_repository_snapshot ORDER BY report_year
+        """).fetchall() == [
+            ("usafsam-hypob", 1987, 293, "exact", 1470, "more_than"),
+            ("usafsam-hypob", 1990, 343, "more_than", 1655, "approximate"),
+        ]
+        sae = "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4"
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE record_key IN ('2026-11-20-formal-chamber-openalex#W1536025152',
+                                 'legacy:data/chamber/v1.9/sources.csv#krutz85_suit_threshold')
+        """).fetchall() == [(sae,)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='doi:10.21236/ada222626' AND right_report='asma:1987:490:43'
+        """).fetchone() == ("same_repository_different_snapshot",)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id IN ('doi:10.21236/ada222626','asma:1987:490:43')
+        """).fetchone() == (0,)
+
+
+def test_usafsam_vge_cells_reconcile_risk_sets_and_keep_withdrawals_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT study_day,count(peak_grade),count(*)
+            FROM publication_usafsam_repeated_vge GROUP BY study_day ORDER BY study_day
+        """).fetchall() == [(1, 30, 30), (2, 29, 30), (3, 29, 30)]
+        assert db.execute("""
+            SELECT subject_number,study_day,peak_site,exposure_status
+            FROM publication_usafsam_repeated_vge WHERE peak_grade IS NULL ORDER BY study_day
+        """).fetchall() == [
+            (22, 2, None, "withdrawn_after_day_one_dcs"), (22, 3, None, "withdrawn_after_day_one_dcs"),
+        ]
+        assert db.execute("""
+            SELECT risk_set,denominator,positive_on_at_least_two_days,positive_on_all_three_days
+            FROM publication_usafsam_repeated_vge_recurrence ORDER BY risk_set
+        """).fetchall() == [("all_three_day_completers", 29, 16, 9), ("three_day_completers_with_vge", 21, 16, 9)]
+        assert db.execute("""
+            SELECT report_id,reported_group,cases,denominator
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-usafsam-hypob-threshold-firecrawl' AND role_review='overlap_hold'
+            ORDER BY report_id,cases
+        """).fetchall() == [
+            ("openalex:W338709008", "all_three_day_completers", 9, 29),
+            ("openalex:W338709008", "all_three_day_completers", 16, 29),
+            ("pmid:3964151", "three_day_completers_with_vge", 9, 21),
+            ("pmid:3964151", "three_day_completers_with_vge", 16, 21),
+        ]
+        assert db.execute("""
+            SELECT lower_pressure_psia,upper_pressure_psia,count(peak_grade),count(*)
+            FROM publication_usafsam_threshold_vge
+            GROUP BY lower_pressure_psia,upper_pressure_psia ORDER BY lower_pressure_psia
+        """).fetchall() == [
+            (7.8, 8.0, 16, 16), (8.5, 8.5, 9, 16), (9.0, 9.0, 16, 16),
+            (9.5, 9.5, 5, 16), (10.0, 10.0, 7, 16), (10.5, 10.5, 2, 16),
+        ]
+        assert db.execute("""
+            SELECT peak_grade FROM publication_usafsam_threshold_vge
+            WHERE lower_pressure_psia=10.0 AND peak_grade>0 ORDER BY subject_row
+        """).fetchall() == [(1,), (2,)]
+        assert db.execute("""
+            SELECT pressure_psia,dcs_class_as_reported
+            FROM publication_usafsam_threshold_symptom ORDER BY symptom_row
+        """).fetchall() == [
+            (9.0, "Skin bends?"), (8.0, None), (9.0, "Grade I limb bends"), (7.8, "Grade II limb bends"),
+        ]
+
+
 def test_fraser_dated_scores_link_to_existing_runs_and_keep_source_gaps(release):
     with connect_pair(release) as db:
         assert db.execute("""

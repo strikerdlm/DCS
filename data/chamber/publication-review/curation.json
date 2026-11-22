@@ -1,6 +1,108 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-tavily#eshaghian87_hypob",
+      "report_id": "asma:1987:490:43",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/5/article-p483.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-tavily#krutz90_hypob",
+      "report_id": "doi:10.21236/ada222626",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=21"
+    },
+    {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-tavily#krutz88_usafsam_chamber_tables",
+      "report_id": "openalex:W338709008",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13"
+    },
+    {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-tavily#sae851315",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315"
+    },
+    {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-firecrawl#krutz90_hypob",
+      "report_id": "doi:10.21236/ada222626",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=21"
+    },
+    {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-firecrawl#krutz88_usafsam_chamber_tables",
+      "report_id": "openalex:W338709008",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13"
+    },
+    {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-firecrawl#dixon1986",
+      "report_id": "pmid:3964151",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/3/article-p223.pdf#page=4"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.228/sources.csv#eshaghian87_hypob",
+      "report_id": "asma:1987:490:43",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/5/article-p483.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.228/sources.csv#krutz90_hypob",
+      "report_id": "doi:10.21236/ada222626",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=21"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.228/sources.csv#krutz88_usafsam_chamber_tables",
+      "report_id": "openalex:W338709008",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1536025152",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "basis": "SAE 851315 and NTRS 19860038767 match title, authors, year and paper identifier.",
+      "evidence_url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "basis": "SAE 851315 and NTRS 19860038767 match title, authors, year and paper identifier.",
+      "evidence_url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.9/search_hits.csv#protocol_firecrawl_sae:1",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "basis": "SAE 851315 and NTRS 19860038767 match title, authors, year and paper identifier.",
+      "evidence_url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.9/search_hits.csv#protocol_krutz:1",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "basis": "SAE 851315 and NTRS 19860038767 match title, authors, year and paper identifier.",
+      "evidence_url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.9/sources.csv#krutz85_suit_threshold",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "basis": "SAE 851315 and NTRS 19860038767 match title, authors, year and paper identifier.",
+      "evidence_url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W338709008",
+      "report_id": "openalex:W338709008",
+      "basis": "Published title, date and USAFSAM accession match the archive PDF.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W292494492",
+      "report_id": "doi:10.21236/ada222626",
+      "basis": "DOI and DTIC accession identify the same document.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf"
+    },
+    {
       "record_key": "2026-11-22-fraser-dated-scores-tavily#ADA375225",
       "report_id": "openalex:W316955509",
       "basis": "The title, year and archive accession or OpenAlex ID match the existing Fraser C 2436 report.",
@@ -19821,6 +19923,18 @@
   ],
   "studies": [
     {
+      "study_id": "usafsam-7p8-psia-male-three-day",
+      "label": "USAFSAM repeated 7.8-psia male chamber study",
+      "period": "Published 1986 and 1988",
+      "setting": "Experimental pressure-suit simulation. Each of 30 enrolled men was scheduled for three 6-hour chamber days."
+    },
+    {
+      "study_id": "usafsam-pressure-threshold-table7-subset",
+      "label": "USAFSAM pressure-threshold VGE subset",
+      "period": "Reported 1988",
+      "setting": "Experimental hypobaric chamber with staged repeat pressure tests in 16 men."
+    },
+    {
       "study_id": "berkeley-arm-work-and-strain-1945",
       "label": "Berkeley repeated arm-exercise tests of work and strain",
       "period": "Reported 1945–1951",
@@ -21880,6 +21994,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usafsam-7p8-psia-male-three-day",
+      "report_id": "pmid:3964151",
+      "role": "original_journal_outcomes",
+      "locator": "Table I, printed p. 225 (PDF p. 3)"
+    },
+    {
+      "study_id": "usafsam-7p8-psia-male-three-day",
+      "report_id": "openalex:W338709008",
+      "role": "same_dixon_grade_matrix",
+      "locator": "Table 2, printed p. 9 (PDF p. 13)"
+    },
+    {
+      "study_id": "usafsam-pressure-threshold-table7-subset",
+      "report_id": "openalex:W338709008",
+      "role": "original_pressure_matrix",
+      "locator": "Table 7, printed p. 17 (PDF p. 21) and Table 8, printed p. 17 (PDF p. 21)"
+    },
+    {
+      "study_id": "usafsam-pressure-threshold-table7-subset",
+      "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "role": "related_conference_report_possible_overlap",
+      "locator": "SAE 851315 and NASA 19860038767 abstracts"
+    },
     {
       "study_id": "berkeley-arm-work-and-strain-1945",
       "report_id": "nlm:101085500x267:893:lawrence-hamilton",
@@ -25302,6 +25440,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "doi:10.21236/ada222626",
+      "right_report": "asma:1987:490:43",
+      "relationship": "same_repository_different_snapshot",
+      "evidence": "Part III §B.1.2 and Appendix III-A cite the earlier computerized repository abstract.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=24"
+    },
+    {
+      "left_report": "openalex:W338709008",
+      "right_report": "pmid:3964151",
+      "relationship": "same_cohort",
+      "evidence": "Table 2 in the technical report and Table I in Dixon give the same 30 subject numbers, three-day grade/site cells and one withdrawal after day-one DCS. The two publications report positive-day recurrence in nested risk sets.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13"
+    },
+    {
+      "left_report": "openalex:W338709008",
+      "right_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
+      "relationship": "likely_overlap",
+      "evidence": "Same pressure-suit threshold study title, ongoing protocol following the 7.8-psia work, and simulated pressure range. Published table and conference abstract lack a joint participant key.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=19"
+    },
+    {
+      "left_report": "doi:10.21236/ada222626",
+      "right_report": "pmid:3964151",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Part II §B.1 and Part III §B.1.2 link the Appendix II-A papers to the underlying HYPOB records. Appendix II-A names the Dixon journal article.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=18"
+    },
+    {
+      "left_report": "doi:10.21236/ada222626",
+      "right_report": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:1",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Part II §B.1 identifies USAFSAM-TP-88-10 as the program's published protocol and outcome summary.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=15"
+    },
     {
       "left_report": "fulton1951:role-of-exercise",
       "right_report": "doi:10.1152/ajplegacy.1946.145.3.279",

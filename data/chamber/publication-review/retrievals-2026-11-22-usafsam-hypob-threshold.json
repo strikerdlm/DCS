@@ -1,0 +1,283 @@
+[
+  {
+    "id": "2026-11-22-usafsam-hypob-threshold-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_primary_source_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "977d907a-e2dd-476e-9d3f-dc715bc5f94e",
+          "query": "\"aircrew life support systems enhancement\" Webb \"343\" decompression 1655"
+        },
+        {
+          "request_id": "d8dc6e0a-6e1a-43b9-ab13-cd7d3f561983",
+          "urls": [
+            "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/5/article-p483.pdf#page=8",
+            "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf"
+          ]
+        },
+        {
+          "request_id": "a8bca8cc-187d-47a5-a039-22f570c61352",
+          "urls": [
+            "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf"
+          ]
+        },
+        {
+          "request_id": "20ab9a72-fc63-4f09-83c2-cc2b403c2803",
+          "query": "\"851315\" \"Dixon\" \"minimum pressure for a zero-prebreathe pressure suit\" Krutz data subject 16 1985"
+        },
+        {
+          "request_id": "1ad50dc8-2d01-43cc-bdce-a8e9ffa1ae99",
+          "urls": [
+            "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315",
+            "https://ntrs.nasa.gov/citations/19860038767"
+          ]
+        }
+      ]
+    },
+    "note": "Located original documents. The source PDFs supplied historic repository snapshots and VGE tables. SAE and NTRS confirmed the existing conference identity.",
+    "records": [
+      {
+        "id": "eshaghian87_hypob",
+        "title": "A computerized repository system for collecting and retrieving decompression sickness (DCS) data",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/5/article-p483.pdf#page=8",
+        "year": 1987,
+        "identifier": "ASMA:1987:490:43",
+        "locator": "Meeting abstract 43, printed p. 490 (PDF p. 8)",
+        "source_sha256": "b727aeaa0469e27b32af2f3dc44cd6deaf3bc91ea5ba56e24a5068d97164753c",
+        "access": "primary_abstract",
+        "note": "Different dates describe the same USAFSAM research repository. Exact membership across snapshots is unavailable. No event numerators, participant-level files or appropriate clinical risk sets are supplied by either report.",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/5/article-p483.pdf#page=8",
+        "repository_scope": {
+          "repository_id": "usafsam-hypob",
+          "reported_people": 293,
+          "people_count_basis": "exact",
+          "reported_exposures": 1470,
+          "exposure_count_basis": "more_than",
+          "locator": "Meeting abstract 43, printed p. 490 (PDF p. 8)"
+        }
+      },
+      {
+        "id": "krutz90_hypob",
+        "title": "Aircrew Life Support Systems Enhancement",
+        "url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=21",
+        "year": 1990,
+        "identifier": "ADA222626; DOI:10.21236/ADA222626",
+        "locator": "Part III §§B.1.1–B.1.2, printed p. 10 (PDF p. 21), Appendix III-A p. 13 (PDF p. 24)",
+        "source_sha256": "04424b7fa9087de13db06dccd8b75c33a72034c8fe2bd1e806fa29b3dec11096",
+        "access": "full_text",
+        "note": "Different dates describe the same USAFSAM research repository. Exact membership across snapshots is unavailable. No event numerators, participant-level files or appropriate clinical risk sets are supplied by either report.",
+        "primary_source": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=21",
+        "doi": "10.21236/ada222626",
+        "openalex_id": "W292494492",
+        "repository_scope": {
+          "repository_id": "usafsam-hypob",
+          "reported_people": 343,
+          "people_count_basis": "more_than",
+          "reported_exposures": 1655,
+          "exposure_count_basis": "approximate",
+          "locator": "Part III §§B.1.1–B.1.2, printed p. 10 (PDF p. 21), Appendix III-A p. 13 (PDF p. 24)"
+        }
+      },
+      {
+        "id": "krutz88_usafsam_chamber_tables",
+        "title": "Research and Development of Anti-G Life Support Systems. Part 2. Decompression Sickness Research",
+        "url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13",
+        "year": 1988,
+        "identifier": "ADA197675",
+        "locator": "Table 2, printed p. 9 (PDF p. 13) and Tables 7–8, printed p. 17 (PDF p. 21)",
+        "source_sha256": "30668df8d94924a35edbee171f39e16a15f196be843c99335d1ca4baac612dea",
+        "access": "full_text",
+        "note": "Table 2 in the technical report and Table I in Dixon give the same 30 subject numbers, three-day grade/site cells and one withdrawal after day-one DCS. The two publications report positive-day recurrence in nested risk sets. Table 7 prints a selected matrix by participant and pressure. The initial column pools nine people at 7.8 psia and seven at 8.0 psia. Dashes are unreported, not grade zero. The wider NEDU threshold compilation has different denominators.",
+        "primary_source": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13",
+        "openalex_id": "W338709008",
+        "role_review": "overlap_hold",
+        "study_id": "usafsam-7p8-psia-male-three-day",
+        "repeated_vge": {
+          "table": "data/chamber/v1.228/repeated_vge.csv",
+          "observed_rows": 88,
+          "post_withdrawal_cells": 2,
+          "people": 30,
+          "study_id": "usafsam-7p8-psia-male-three-day",
+          "locator": "Table 2, printed p. 9 (PDF p. 13)"
+        },
+        "threshold": {
+          "table": "data/chamber/v1.228/threshold_vge.csv",
+          "pressure_scope": "Selected pressure-response matrix",
+          "study_id": "usafsam-pressure-threshold-table7-subset",
+          "locator": "Table 7, printed p. 17 (PDF p. 21)",
+          "symptom_table": "data/chamber/v1.228/threshold_symptoms.csv",
+          "participants": 16,
+          "observed_grades": 55,
+          "unreported_cells": 41,
+          "nedu_comparator": "Bubb Threshold A–F",
+          "pressure_discrepancy": "At 10.0 psia Table 7 shows grades 1 and 2. The discussion describes the two observations as grade 1.",
+          "symptom_count_basis": "Table 8 reports four positive symptom rows, with two limb-bends grades, one possible skin-bends row and one unclassified joint-awareness row. The table does not establish symptom-free status for unlisted cells."
+        }
+      },
+      {
+        "id": "sae851315",
+        "title": "Minimum Pressure for a Zero-Prebreathe Pressure Suit",
+        "url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315",
+        "year": 1985,
+        "doi": "10.4271/851315",
+        "access": "primary_abstract",
+        "note": "Publisher conference identifier, authors and title match NTRS 19860038767. The full SAE paper was unavailable."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-usafsam-hypob-threshold-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and primary report scans",
+    "status": "observed",
+    "operation": "supplementary_outcomes_reconciliation",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a2043b-628c-75e9-8a68-b40b7c4c6e42",
+          "url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf"
+        },
+        {
+          "scrape_id": "01a2043f-0288-7188-843e-710879a03aa3",
+          "url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf"
+        },
+        {
+          "search_id": "01a20443-7450-70bd-a4f1-f9b691427da7",
+          "query": "Krutz Dixon Harvey 851315 \"minimum pressure\" NASA chamber pressure suit Doppler"
+        }
+      ]
+    },
+    "note": "Reconciled the original journal table and technical report table before extracting their shared outcome matrix.",
+    "records": [
+      {
+        "id": "krutz90_hypob",
+        "title": "Aircrew Life Support Systems Enhancement",
+        "url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=21",
+        "year": 1990,
+        "identifier": "ADA222626; DOI:10.21236/ADA222626",
+        "locator": "Part III §§B.1.1–B.1.2, printed p. 10 (PDF p. 21), Appendix III-A p. 13 (PDF p. 24)",
+        "source_sha256": "04424b7fa9087de13db06dccd8b75c33a72034c8fe2bd1e806fa29b3dec11096",
+        "access": "full_text",
+        "note": "Different dates describe the same USAFSAM research repository. Exact membership across snapshots is unavailable. No event numerators, participant-level files or appropriate clinical risk sets are supplied by either report.",
+        "primary_source": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=21",
+        "doi": "10.21236/ada222626",
+        "openalex_id": "W292494492",
+        "repository_scope": {
+          "repository_id": "usafsam-hypob",
+          "reported_people": 343,
+          "people_count_basis": "more_than",
+          "reported_exposures": 1655,
+          "exposure_count_basis": "approximate",
+          "locator": "Part III §§B.1.1–B.1.2, printed p. 10 (PDF p. 21), Appendix III-A p. 13 (PDF p. 24)"
+        }
+      },
+      {
+        "id": "krutz88_usafsam_chamber_tables",
+        "title": "Research and Development of Anti-G Life Support Systems. Part 2. Decompression Sickness Research",
+        "url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13",
+        "year": 1988,
+        "identifier": "ADA197675",
+        "locator": "Table 2, printed p. 9 (PDF p. 13) and Tables 7–8, printed p. 17 (PDF p. 21)",
+        "source_sha256": "30668df8d94924a35edbee171f39e16a15f196be843c99335d1ca4baac612dea",
+        "access": "full_text",
+        "note": "Table 2 in the technical report and Table I in Dixon give the same 30 subject numbers, three-day grade/site cells and one withdrawal after day-one DCS. The two publications report positive-day recurrence in nested risk sets. Table 7 prints a selected matrix by participant and pressure. The initial column pools nine people at 7.8 psia and seven at 8.0 psia. Dashes are unreported, not grade zero. The wider NEDU threshold compilation has different denominators.",
+        "primary_source": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13",
+        "openalex_id": "W338709008",
+        "role_review": "overlap_hold",
+        "study_id": "usafsam-7p8-psia-male-three-day",
+        "repeated_vge": {
+          "table": "data/chamber/v1.228/repeated_vge.csv",
+          "observed_rows": 88,
+          "post_withdrawal_cells": 2,
+          "people": 30,
+          "study_id": "usafsam-7p8-psia-male-three-day",
+          "locator": "Table 2, printed p. 9 (PDF p. 13)"
+        },
+        "threshold": {
+          "table": "data/chamber/v1.228/threshold_vge.csv",
+          "pressure_scope": "Selected pressure-response matrix",
+          "study_id": "usafsam-pressure-threshold-table7-subset",
+          "locator": "Table 7, printed p. 17 (PDF p. 21)",
+          "symptom_table": "data/chamber/v1.228/threshold_symptoms.csv",
+          "participants": 16,
+          "observed_grades": 55,
+          "unreported_cells": 41,
+          "nedu_comparator": "Bubb Threshold A–F",
+          "pressure_discrepancy": "At 10.0 psia Table 7 shows grades 1 and 2. The discussion describes the two observations as grade 1.",
+          "symptom_count_basis": "Table 8 reports four positive symptom rows, with two limb-bends grades, one possible skin-bends row and one unclassified joint-awareness row. The table does not establish symptom-free status for unlisted cells."
+        },
+        "observations": [
+          {
+            "id": "all_three_day_completers-2d",
+            "group": "all_three_day_completers",
+            "endpoint": "vge_on_at_least_two_days_as_reported",
+            "cases": 16,
+            "denominator": 29,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Discussion, printed p. 10 (PDF p. 14)",
+            "note": "Technical report uses all 29 completers, including eight with no bubbles.",
+            "study_id": "usafsam-7p8-psia-male-three-day"
+          },
+          {
+            "id": "all_three_day_completers-3d",
+            "group": "all_three_day_completers",
+            "endpoint": "vge_on_all_three_days_as_reported",
+            "cases": 9,
+            "denominator": 29,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Discussion, printed p. 10 (PDF p. 14)",
+            "note": "Technical report uses all 29 completers, including eight with no bubbles.",
+            "study_id": "usafsam-7p8-psia-male-three-day"
+          }
+        ]
+      },
+      {
+        "id": "dixon1986",
+        "title": "Decompression sickness and intravenous bubble formation using a 7.8 psia simulated pressure-suit environment",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/3/article-p223.pdf#page=4",
+        "pmid": "3964151",
+        "access": "full_text",
+        "year": 1986,
+        "source_sha256": "4c035432ae0e36338c706943e373a1264d1757f1eecb4c459b636ec838cc1af7",
+        "study_id": "usafsam-7p8-psia-male-three-day",
+        "role_review": "overlap_hold",
+        "note": "Table 2 in the technical report and Table I in Dixon give the same 30 subject numbers, three-day grade/site cells and one withdrawal after day-one DCS. The two publications report positive-day recurrence in nested risk sets.",
+        "observations": [
+          {
+            "id": "three_day_completers_with_vge-2d",
+            "group": "three_day_completers_with_vge",
+            "endpoint": "vge_on_at_least_two_days_as_reported",
+            "cases": 16,
+            "denominator": 21,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Results, printed p. 226 (PDF p. 4)",
+            "note": "Journal denominator is 21 completers who bubbled. The same 16 and 9 participants are included.",
+            "study_id": "usafsam-7p8-psia-male-three-day"
+          },
+          {
+            "id": "three_day_completers_with_vge-3d",
+            "group": "three_day_completers_with_vge",
+            "endpoint": "vge_on_all_three_days_as_reported",
+            "cases": 9,
+            "denominator": 21,
+            "denominator_unit": "person",
+            "denominator_basis": "source_reported",
+            "locator": "Results, printed p. 226 (PDF p. 4)",
+            "note": "Journal denominator is 21 completers who bubbled. The same 16 and 9 participants are included.",
+            "study_id": "usafsam-7p8-psia-male-three-day"
+          }
+        ]
+      }
+    ]
+  }
+]
