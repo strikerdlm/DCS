@@ -8,6 +8,48 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_diagnostic_case_and_berkeley_figure_keep_their_existing_counting_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT actual_peak_ft,sham_indicated_ft,prebreathe_min,days_after_first_actual_run,
+                   symptom_reported,onset_min_after_exercise,peak_pain_grade,symptom_resolution_altitude_ft
+            FROM publication_chamber_diagnostic_run
+            WHERE source_id='berry58_diagnostic_case' ORDER BY run_number
+        """).fetchall() == [
+            (12000, 35000, None, None, 0, None, None, None),
+            (40000, None, 0, 0, 1, 2, 2, 24000),
+            (40000, None, 60, 1, 1, 1, 3, 24000),
+        ]
+        assert db.execute("""
+            SELECT case_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='berry58_diagnostic_case'
+        """).fetchall() == [("berry58_diagnostic_case:case-12", None)]
+        assert db.execute("""
+            SELECT COUNT(DISTINCT report_id) FROM review.review_record
+            WHERE url LIKE '%30112101589437%' OR url='https://catalog.hathitrust.org/Record/011426028'
+        """).fetchone() == (1,)
+        model = db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='tobias44_bends_primary' AND stratum LIKE 'figure-2-%'
+            ORDER BY stratum
+        """).fetchall()
+        assert model == [
+            ("figure-2-chamber-fail-both", 10, 11, "overlap_hold"),
+            ("figure-2-chamber-pass-both", 2, 18, "overlap_hold"),
+            ("figure-2-chamber-pass-one", 5, 7, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT observation_id,cases,denominator,role_review FROM review.review_search_observation
+            WHERE record_key='2026-11-22-berry-diagnostic-chamber-verified#tobias-1944-figure-2'
+              AND report_id='asb:1944:1:11:9'
+            ORDER BY observation_id
+        """).fetchall() == model
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='tobias44_bends_primary' AND stratum='actual-subject-flights'
+        """).fetchone() == (sum(row[1] for row in model), sum(row[2] for row in model))
+
+
 def test_wartime_aaf_tallies_and_faa_mirror_preserve_source_identity(release):
     history_report = "report:link-coleman-1955-aaf-medical-support"
     verified_run = "2026-11-22-wartime-aaf-training-verified"

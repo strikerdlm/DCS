@@ -1,0 +1,203 @@
+[
+  {
+    "id": "2026-11-22-berry-diagnostic-chamber-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_diagnostic_chamber_and_wartime_figure_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "query": "\"Altitude chamber as a diagnostic aid\" \"Heath\" \"Air Surgeon's\" 1944 Bulletin",
+          "request_id": "eef2d8c5-ebf5-480e-a985-f40f1ed03b08"
+        },
+        {
+          "query": "\"Study of bends\" \"low pressure chamber and actual flight\" Tobias Lyons Bridge 1944",
+          "request_id": "2d206816-1988-4192-9b12-2916bd834da9"
+        },
+        {
+          "query": "\"Use of altitude chamber in the diagnosis and disposition of problem aeromedical cases\" Berry King 1959 Journal Aviation Medicine PMID pages",
+          "request_id": "ae755931-4c77-46d4-b604-e75d0092d0c1"
+        }
+      ],
+      "extract_request_ids": [
+        "dcf61239-4545-4ed7-b47d-b491e1016de6",
+        "f4d79ef4-39de-4cc8-aa9d-9b58c0aeb1db"
+      ]
+    },
+    "note": "Search found both HathiTrust catalog records. Direct Tavily extraction did not deliver the two target pages or the 1959 case text. The primary archive pages and the 1959 journal scan were accessed separately. A similarly titled 1959 article was found by bibliographic search only. Its relationship to the 1958 report was not adjudicated.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-berry-diagnostic-chamber-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_public_page_text_and_image_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://catalog.hathitrust.org/Record/011426028",
+          "id": "01a201ee-5489-70ae-a3bb-4aab8d1a527a"
+        },
+        {
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112101589437&seq=5",
+          "id": "01a201ef-aa31-7039-8499-ed601c5c06e7"
+        },
+        {
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112101589437&seq=21",
+          "id": "01a201ef-aa15-779d-94a9-a7a2305c8b29"
+        },
+        {
+          "url": "https://babel.hathitrust.org/cgi/pt?id=uiug.30112101589437&seq=21&view=1up",
+          "id": "01a201f5-e7fe-72ce-afd2-f74093322b8f"
+        },
+        {
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=291",
+          "id": "01a201f3-4f83-77aa-a4bd-ab3ec85c7785"
+        },
+        {
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=292",
+          "id": "01a201f3-8d09-7669-a343-1f9cfa88f19e"
+        },
+        {
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=293",
+          "id": "01a201f3-8c23-769b-9fae-08c8237a628c"
+        },
+        {
+          "url": "https://babel.hathitrust.org/cgi/pt?id=osu.32436001888930&seq=300&view=1up",
+          "id": "01a201f5-e53a-725c-befe-8b8ffba5a10a"
+        }
+      ]
+    },
+    "note": "Page images confirmed Berry and King Case 12 and the six allocations in Tobias et al. Figure 2. Selected examples in the Heath article concern other diagnostic endpoints and supply no extractable DCS outcome or risk set. The Kingman recurrence, Masland collapse and Gray oxygen summaries already have canonical observations.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-berry-diagnostic-chamber-verified",
+    "date": "2026-11-22",
+    "provider": "HathiTrust original public scans",
+    "operation": "supplementary_case_history_and_existing_cohort_table_verification",
+    "status": "observed",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Verified one selected diagnostic case with a sham run and two actual runs. The paired chamber and aircraft figure supplies a new partition of the existing 17/36 B-24 margin. Heath is retained as a cited diagnostic source.",
+    "records": [
+      {
+        "id": "berry-king-1958-case-12",
+        "title": "The Role of the Altitude Chamber in the Diagnosis and Disposition of Problem Aeromedical Cases",
+        "authors": ["Charles A. Berry", "Arthur H. King"],
+        "year": 1958,
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112101589437&seq=21",
+        "primary_source": "https://babel.hathitrust.org/cgi/pt?id=uiug.30112101589437&seq=21&view=1up",
+        "full_text_available": true,
+        "oclc": "30464989",
+        "locator": "Case 12, printed p. 19 (HathiTrust seq. 21); Clinical Cases, printed p. 3 (seq. 5).",
+        "reader_capture_sha256": "b9f02b8e45cd3662b6936fd3c01708c4f7b411d27dc2b4282759f2be80069f9b",
+        "study_id": "usaf-berry-king-diagnostic-chamber-case-12",
+        "case_details": {
+          "published_case_number": 12,
+          "age_years": 34,
+          "role": "flight engineer",
+          "symptom_site": "right knee",
+          "actual_run_numbers": [2, 3],
+          "sham_run_number": 1,
+          "first_symptom_clock": "minutes after exercise at 40,000 ft",
+          "fixed_followup_minutes": null
+        },
+        "diagnostic_runs": [
+          {"run_number": 1, "actual_peak_ft": 12000, "sham_indicated_ft": 35000, "right_knee_pain_reported": false},
+          {"run_number": 2, "actual_peak_ft": 40000, "prebreathe_min": 0, "right_knee_pain_reported": true, "onset_min_after_exercise": 2, "peak_pain_grade": 2, "symptom_resolution_altitude_ft": 24000},
+          {"run_number": 3, "actual_peak_ft": 40000, "prebreathe_min": 60, "days_after_first_actual_run": 1, "right_knee_pain_reported": true, "onset_min_after_exercise": 1, "peak_pain_grade": 3, "symptom_resolution_altitude_ft": 24000}
+        ],
+        "note": "A selected referred participant. The two symptomatic runs use the same knee and person. Actual exposure start-to-onset times are unavailable. The report describes chamber use in approximately 7% of 1,000 consultations but supplies no exact number of DCS-evaluable person-exposures.",
+        "observations": [
+          {
+            "id": "case-12",
+            "study_id": "usaf-berry-king-diagnostic-chamber-case-12",
+            "group": "Case 12, one referred flight engineer",
+            "endpoint": "exercise_associated_bends_source",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Case 12, printed p. 19 (HathiTrust seq. 21).",
+            "note": "The report calls the provoked joint pain bends. The unit is one reported person with repeated diagnostic runs."
+          }
+        ]
+      },
+      {
+        "id": "tobias-1944-figure-2",
+        "title": "Study of Bends: A Comparison in Low Pressure Chamber and Actual Flight",
+        "authors": ["C. A. Tobias", "W. R. Lyons", "O. L. Williams", "E. V. Bridge", "J. H. Lawrence", "H. F. Helmholz Jr.", "A. R. Sweeney Jr."],
+        "year": 1944,
+        "journal": "Air Surgeon's Bulletin",
+        "volume": "1",
+        "issue": "11",
+        "pages": "10",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=300",
+        "primary_source": "https://babel.hathitrust.org/cgi/pt?id=osu.32436001888930&seq=300&view=1up",
+        "full_text_available": true,
+        "locator": "Figure 2, printed p. 10 (HathiTrust seq. 300).",
+        "reader_capture_sha256": "861de743c38a4c8d28c3d03920bc40bf6bfff4785ac0d910280559b65315e02f",
+        "study_id": "berkeley-liberator-chamber-flight-experiments",
+        "role_review": "overlap_hold",
+        "note": "The three chamber classes partition the previously recorded 17 failures among 36 actual subject flights. Chamber results classify subjects across two runs per person. Later Lawrence et al. analyses apply different selection rules.",
+        "observations": [
+          {
+            "id": "figure-2-chamber-pass-both",
+            "study_id": "berkeley-liberator-chamber-flight-experiments",
+            "group": "Passed both chamber runs",
+            "endpoint": "actual_flight_failure_as_reported",
+            "cases": 2,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "locator": "Figure 2, printed p. 10 (HathiTrust seq. 300).",
+            "note": "Sixteen of the 18 passed the aircraft flight and two failed it."
+          },
+          {
+            "id": "figure-2-chamber-pass-one",
+            "study_id": "berkeley-liberator-chamber-flight-experiments",
+            "group": "Passed one chamber run and failed one",
+            "endpoint": "actual_flight_failure_as_reported",
+            "cases": 5,
+            "denominator": 7,
+            "denominator_unit": "person_exposure",
+            "locator": "Figure 2, printed p. 10 (HathiTrust seq. 300).",
+            "note": "Two of the seven passed the aircraft flight and five failed it."
+          },
+          {
+            "id": "figure-2-chamber-fail-both",
+            "study_id": "berkeley-liberator-chamber-flight-experiments",
+            "group": "Failed both chamber runs",
+            "endpoint": "actual_flight_failure_as_reported",
+            "cases": 10,
+            "denominator": 11,
+            "denominator_unit": "person_exposure",
+            "locator": "Figure 2, printed p. 10 (HathiTrust seq. 300).",
+            "note": "One of the 11 passed the aircraft flight and ten failed it."
+          }
+        ]
+      },
+      {
+        "id": "heath-1944-diagnostic-aid",
+        "title": "Altitude Chamber as a Diagnostic Aid",
+        "authors": ["Erle M. Heath"],
+        "year": 1944,
+        "journal": "Air Surgeon's Bulletin",
+        "volume": "1",
+        "issue": "11",
+        "pages": "1–3",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=291",
+        "full_text_available": true,
+        "locator": "November 1944, pp. 1–3 (HathiTrust seq. 291–293); Bends paragraph on p. 3.",
+        "note": "Berry and King 1958 cite this article. The Bends paragraph summarizes clinical experience without a specific extractable case or outcome denominator. The case histories describe other clinical targets."
+      }
+    ]
+  }
+]

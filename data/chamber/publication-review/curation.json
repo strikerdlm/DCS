@@ -1,6 +1,36 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-berry-diagnostic-chamber-verified#berry-king-1958-case-12",
+      "report_id": "report:berry-king-1958-diagnostic-chamber",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112101589437&seq=21",
+      "basis": "The public report title and authors match catalog OCLC 30464989. Printed page 19 identifies the selected case."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.195/sources.csv#berry58_diagnostic_case",
+      "report_id": "report:berry-king-1958-diagnostic-chamber",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112101589437&seq=21",
+      "basis": "The model extraction comes from the same report and printed Case 12."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.33/search_hits.csv#nasa_cases_v33_ostat:3",
+      "report_id": "report:berry-king-1958-diagnostic-chamber",
+      "evidence_url": "https://catalog.hathitrust.org/Record/011426028",
+      "basis": "The old catalog hit and the public scan are the same 1958 Berry and King report."
+    },
+    {
+      "record_key": "2026-11-22-berry-diagnostic-chamber-verified#tobias-1944-figure-2",
+      "report_id": "asb:1944:1:11:9",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=300",
+      "basis": "The original page confirms the existing Tobias report identity and visual transcription of Figure 2."
+    },
+    {
+      "record_key": "2026-11-22-berry-diagnostic-chamber-verified#heath-1944-diagnostic-aid",
+      "report_id": "asb:1944:1:11:1:heath",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=291",
+      "basis": "The public issue image and OCR identify Heath and the report cited by Berry and King."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.23/search_hits.csv#archive_v23_sam5885:4",
       "report_id": "report:faa-am-77-4",
       "evidence_url": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf",
@@ -18345,6 +18375,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-berry-king-diagnostic-chamber-case-12",
+      "label": "Berry and King Case 12, selected diagnostic chamber runs",
+      "period": "Reported 1958, exact dates unreported",
+      "setting": "USAF School of Aviation Medicine diagnostic consultation"
+    },
+    {
       "study_id": "aaf-wartime-altitude-training-activity",
       "label": "U.S. Army Air Forces wartime chamber training activity",
       "period": "Wartime training through 1944-11-01 for the Training Command total",
@@ -20116,6 +20152,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-berry-king-diagnostic-chamber-case-12",
+      "report_id": "report:berry-king-1958-diagnostic-chamber",
+      "role": "primary_selected_diagnostic_case",
+      "locator": "Case 12, printed p. 19 (HathiTrust seq. 21)."
+    },
     {
       "study_id": "aaf-wartime-altitude-training-activity",
       "report_id": "report:link-coleman-1955-aaf-medical-support",
@@ -23082,6 +23124,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:berry-king-1958-diagnostic-chamber",
+      "right_report": "asb:1944:1:11:1:heath",
+      "relationship": "cites_earlier_diagnostic_method",
+      "evidence": "Reference 5 on printed p. 20 cites the 1944 Heath article. Its diagnostic examples supply no case link to the 1958 referred patient.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=uiug.30112101589437&seq=22"
+    },
+    {
+      "left_report": "report:berry-king-1958-diagnostic-chamber",
+      "right_report": "pmid:13625439",
+      "relationship": "distinct_reported_knee_pain_cases",
+      "evidence": "The 1958 Case 12 is a 34-year-old flight engineer with right-knee pain reproduced in chamber runs. The 1959 Case 5 is a 46-year-old civilian with left-knee pain as a passenger aboard a T-33. No other 1959 case matches the diagnostic chamber profile.",
+      "evidence_url": "https://archive.org/details/in.ernet.dli.2015.71422/page/n13/mode/1up"
+    },
     {
       "left_report": "report:wigodsky-1944-aaf-altitude-training",
       "right_report": "report:link-coleman-1955-aaf-medical-support",
