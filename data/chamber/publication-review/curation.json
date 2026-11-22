@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-berkeley-cable-tavily#henry53_wadc",
+      "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "basis": "Same report title, authors, date and publisher or accession record as the preserved full text.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-cable-firecrawl#henry53_wadc",
+      "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "basis": "Same report title, authors, date and publisher or accession record as the preserved full text.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-cable-tavily#cable00_cage_primary",
+      "report_id": "pmid:10685592",
+      "basis": "Same report title, authors, date and publisher or accession record as the preserved full text.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-cable-firecrawl#cable00_cage_primary",
+      "report_id": "pmid:10685592",
+      "basis": "Same report title, authors, date and publisher or accession record as the preserved full text.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.24/sources.csv#henry53_wadc",
+      "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "basis": "The report title, accession AD016860 and scan identify the same Wright Air Development Center report.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "basis": "The report title, accession AD016860 and scan identify the same Wright Air Development Center report.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.223/sources.csv#cable00_cage_primary",
+      "report_id": "pmid:10685592",
+      "basis": "The publisher full text matches the PubMed title, authors and pagination.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf"
+    },
+    {
       "record_key": "2026-11-22-lansing-rodbard-tavily#rodbard44_descent_bulletin",
       "report_id": "nlm:22330650RX8:rodbard",
       "basis": "Matching author, article and page span across the scans and retrieval records.",
@@ -19575,6 +19617,18 @@
   ],
   "studies": [
     {
+      "study_id": "us-berkeley-henry-wadc-53-227",
+      "label": "Henry Berkeley in-flight denitrogenation and mixed chamber series",
+      "period": "Reported March 1953",
+      "setting": "Berkeley Donner Laboratory repeated hypobaric chamber runs."
+    },
+    {
+      "study_id": "raaf-cable-2000-chamber-cage",
+      "label": "Cable RAAF hypobaric chamber cerebral arterial gas embolism report",
+      "period": "Reported February 2000",
+      "setting": "Royal Australian Air Force aviation medicine training."
+    },
+    {
       "study_id": "us-aaf-davis-monthan-rodbard-selected-descent",
       "label": "Rodbard selected Davis-Monthan chamber descent cases",
       "period": "First reported November–December 1944",
@@ -21598,6 +21652,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "us-berkeley-henry-wadc-53-227",
+      "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "role": "primary_repeated_chamber_tests",
+      "locator": "Printed pp. 24–27, 31 and 45 (PDF pp. 31–34, 38 and 52), Tables 4, 5 and 8"
+    },
+    {
+      "study_id": "raaf-cable-2000-chamber-cage",
+      "report_id": "pmid:10685592",
+      "role": "primary_selected_case",
+      "locator": "Primary report pp. 172–173, A profile, Case Report and outcomes (PDF pp. 1–2)"
+    },
     {
       "study_id": "us-aaf-davis-monthan-rodbard-selected-descent",
       "report_id": "nlm:22330650RX8:rodbard",
@@ -24966,6 +25032,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:10685592",
+      "right_report": "adf:smart-cable-2004",
+      "relationship": "unresolved",
+      "evidence": "The case arose during RAAF chamber training. The broad 1984–2001 ADF series could cover its period, but the available sources do not link the episode to a counted surveillance outcome or risk set.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf"
+    },
+    {
+      "left_report": "doi:10.1186/s12890-020-01321-5",
+      "right_report": "pmid:10685592",
+      "relationship": "primary_profile_clarifies_secondary",
+      "evidence": "Cable p. 172 distinguishes planned target 25,000 ft, first distress signal at 18,000 ft and actual peak 19,500 ft.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf"
+    },
     {
       "left_report": "nlm:22330650RX8:rodbard",
       "right_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",

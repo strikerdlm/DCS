@@ -1,0 +1,390 @@
+[
+  {
+    "id": "2026-11-22-berkeley-cable-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_primary_source_retrieval",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "78b0e412-8dad-4fa1-9063-75bb1d9c5b01",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/AD0016860.pdf"
+        },
+        {
+          "request_id": "0a8410c9-0e03-4e6e-a39e-d47f68ba0ae4",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf"
+        },
+        {
+          "request_id": "8f4c8096-f495-4349-8c32-543cfaf2512e",
+          "query": "Grulee SAM 87 / CAM 172 primary copy"
+        }
+      ]
+    },
+    "note": "Recovered both exact study PDFs. Public searches for the Grulee report supplied no primary copy.",
+    "records": [
+      {
+        "id": "henry53_wadc",
+        "title": "Aviator's Bends Pain as Influenced by Altitude and In-Flight Denitrogenation",
+        "year": 1953,
+        "url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "primary_source": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "source_sha256": "61d6ba8e5347a192b013707f2e307ab3c1fbc2de7d4ef2110b2202036b487d47",
+        "access": "full_text",
+        "locator": "Printed pp. 24–27, 31 and 45 (PDF pp. 31–34, 38 and 52), Tables 4, 5 and 8",
+        "study_id": "us-berkeley-henry-wadc-53-227",
+        "role_review": "overlap_hold"
+      },
+      {
+        "id": "cable00_cage_primary",
+        "title": "Pulmonary Cyst and Cerebral Arterial Gas Embolism in a Hypobaric Chamber: A Case Report",
+        "year": 2000,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf",
+        "source_sha256": "d8864925ca42b60eaa3ee450fecb789b8562ee9b5de8f498e12ae9ba83936896",
+        "access": "full_text",
+        "pmid": "10685592",
+        "locator": "Primary report pp. 172–173, A profile, Case Report and outcomes (PDF pp. 1–2)",
+        "study_id": "raaf-cable-2000-chamber-cage",
+        "role_review": "selected_cluster"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-berkeley-cable-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_archive_and_edition_verification",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a203dc-65b3-731d-9151-e553c2ea1f72",
+          "url": "https://archive.org/details/DTIC_AD0016860"
+        },
+        {
+          "conversation_id": "49863913-8cd4-83ad-8076-e802e0949607",
+          "query": "Pulmonary Cyst and Cerebral Arterial Gas Embolism in a Hypobaric Chamber: A Case Report"
+        },
+        {
+          "scrape_id": "01a203da-4ac9-751c-8d92-b207685c0db7",
+          "url": "https://pure.uva.nl/ws/files/2021048/126740_11.pdf"
+        }
+      ]
+    },
+    "note": "Checked the DTIC archive item identity and compared the original Cable paper with the prior secondary account.",
+    "records": [
+      {
+        "id": "henry53_wadc",
+        "title": "Aviator's Bends Pain as Influenced by Altitude and In-Flight Denitrogenation",
+        "year": 1953,
+        "url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "primary_source": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "source_sha256": "61d6ba8e5347a192b013707f2e307ab3c1fbc2de7d4ef2110b2202036b487d47",
+        "access": "full_text",
+        "locator": "Printed pp. 24–27, 31 and 45 (PDF pp. 31–34, 38 and 52), Tables 4, 5 and 8",
+        "study_id": "us-berkeley-henry-wadc-53-227",
+        "role_review": "overlap_hold",
+        "note": "The paper reports 58 tests on 43 men across the two denitrogenation groups. The control includes 40 men. The report describes 90% and 80% overlaps between controls and the first and second groups respectively. It states 62% of controls were tested after a denitrogenation test. See printed p. 25. Individual identifiers and run histories are unavailable for the cross-tabulations.",
+        "observations": [
+          {
+            "id": "air_then_oxygen",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "air_then_oxygen",
+            "endpoint": "any_listed_symptoms_as_reported",
+            "cases": 7,
+            "denominator": 29,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Printed p. 27 (PDF p. 34), Table 4",
+            "outcome_window": "Reported outcomes during a planned three hours at 38,000 ft. Some runs were terminated early.",
+            "note": "Calculated as the table's total tests minus symptom-free tests. The paper reports 58 tests on 43 men across the two denitrogenation groups. The control includes 40 men. The report describes 90% and 80% overlaps between controls and the first and second groups respectively. It states 62% of controls were tested after a denitrogenation test. See printed p. 25. Individual identifiers and run histories are unavailable for the cross-tabulations."
+          },
+          {
+            "id": "oxygen_at_15000_ft",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "oxygen_at_15000_ft",
+            "endpoint": "any_listed_symptoms_as_reported",
+            "cases": 10,
+            "denominator": 29,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Printed p. 27 (PDF p. 34), Table 4",
+            "outcome_window": "Reported outcomes during a planned three hours at 38,000 ft. Some runs were terminated early.",
+            "note": "Calculated as the table's total tests minus symptom-free tests. The paper reports 58 tests on 43 men across the two denitrogenation groups. The control includes 40 men. The report describes 90% and 80% overlaps between controls and the first and second groups respectively. It states 62% of controls were tested after a denitrogenation test. See printed p. 25. Individual identifiers and run histories are unavailable for the cross-tabulations."
+          },
+          {
+            "id": "no_denitrogenation_control",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "no_denitrogenation_control",
+            "endpoint": "any_listed_symptoms_as_reported",
+            "cases": 29,
+            "denominator": 40,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "analysis_role": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Printed p. 27 (PDF p. 34), Table 4",
+            "outcome_window": "Reported outcomes during a planned three hours at 38,000 ft. Some runs were terminated early.",
+            "note": "Calculated as the table's total tests minus symptom-free tests. The paper reports 58 tests on 43 men across the two denitrogenation groups. The control includes 40 men. The report describes 90% and 80% overlaps between controls and the first and second groups respectively. It states 62% of controls were tested after a denitrogenation test. See printed p. 25. Individual identifiers and run histories are unavailable for the cross-tabulations."
+          },
+          {
+            "id": "vmr-pallor",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "pallor",
+            "cases": 14,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 74,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 74%."
+          },
+          {
+            "id": "vmr-nausea",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "nausea",
+            "cases": 11,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 58,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 58%."
+          },
+          {
+            "id": "vmr-diaphoresis",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "diaphoresis",
+            "cases": 10,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 53,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 53%."
+          },
+          {
+            "id": "vmr-dizziness",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "dizziness",
+            "cases": 9,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 47,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 47%."
+          },
+          {
+            "id": "vmr-faintness",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "faintness",
+            "cases": 9,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 47,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 47%."
+          },
+          {
+            "id": "vmr-mild_bends",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "mild_bends",
+            "cases": 5,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 26,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 26%."
+          },
+          {
+            "id": "vmr-moderate_bends",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "moderate_bends",
+            "cases": 3,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 16,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 16%."
+          },
+          {
+            "id": "vmr-severe_bends",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "severe_bends",
+            "cases": 5,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 26,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 26%."
+          },
+          {
+            "id": "vmr-mild_chokes",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "mild_chokes",
+            "cases": 3,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 16,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 16%."
+          },
+          {
+            "id": "vmr-moderate_chokes",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "moderate_chokes",
+            "cases": 1,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 5,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 5%."
+          },
+          {
+            "id": "vmr-abdominal_pain",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "abdominal_pain",
+            "cases": 3,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 16,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 16%."
+          },
+          {
+            "id": "vmr-visual_disturbance",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "visual_disturbance",
+            "cases": 1,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 5,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 5%."
+          },
+          {
+            "id": "vmr-headache",
+            "study_id": "us-berkeley-henry-wadc-53-227",
+            "group": "selected_vasomotor_reaction_records",
+            "endpoint": "headache",
+            "cases": 1,
+            "denominator": 19,
+            "denominator_unit": "symptom_report",
+            "denominator_basis": "source_reported",
+            "analysis_role": "case_conditional",
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "outcome_window": "During reported vasomotor reactions.",
+            "percent_as_printed": 5,
+            "note": "Selected vasomotor reaction records. Symptoms may co-occur. Published frequency 5%."
+          }
+        ],
+        "reports_tables": {
+          "grades": "Printed p. 27 (PDF p. 34), Table 4",
+          "timings": "Printed p. 31 (PDF p. 38), Table 5",
+          "vasomotor_symptoms": "Printed p. 45 (PDF p. 52), Table 8"
+        },
+        "shared_denitrogenation_tests": 58,
+        "shared_denitrogenation_participants": 43
+      },
+      {
+        "id": "cable00_cage_primary",
+        "title": "Pulmonary Cyst and Cerebral Arterial Gas Embolism in a Hypobaric Chamber: A Case Report",
+        "year": 2000,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/71/2/article-p172.pdf",
+        "source_sha256": "d8864925ca42b60eaa3ee450fecb789b8562ee9b5de8f498e12ae9ba83936896",
+        "access": "full_text",
+        "pmid": "10685592",
+        "locator": "Primary report pp. 172–173, A profile, Case Report and outcomes (PDF pp. 1–2)",
+        "study_id": "raaf-cable-2000-chamber-cage",
+        "role_review": "selected_cluster",
+        "note": "The standard A profile aimed for 25,000 ft. The subject first described symptoms early in the rapid ascent, at an unspecified altitude, and signaled distress at 18,000 ft. The actual chamber peak was 19,500 ft. The authors diagnosed pulmonary barotrauma and cerebral arterial gas embolism. Weenink et al. later rated the evidence possible CAGE under their review criteria.",
+        "case_detail": {
+          "source_id": "cable00_cage_primary",
+          "stratum": "cable-2000-aircrew-cage",
+          "endpoint": "reported_cerebral_arterial_gas_embolism",
+          "standard_prebreathe_min": 30,
+          "standard_decompression_start_ft": 8000,
+          "standard_target_ft": 25000,
+          "standard_decompression_approx_seconds": 12,
+          "symptom_onset_ft": null,
+          "first_distress_signal_ft": 18000,
+          "actual_peak_ft": 19500,
+          "emergency_descent_ft_per_min": 6000,
+          "onset_text": "Symptoms began early during rapid ascent at an unspecified altitude. The aircrew member signaled distress at 18,000 ft.",
+          "clinical_diagnosis": "Pulmonary barotrauma with cerebral arterial gas embolism, as diagnosed by the report authors.",
+          "imaging": "Left upper-lobe cyst with an air-fluid level on chest imaging. Brain CT normal. No pneumothorax or pneumomediastinum.",
+          "visual_recovery_hours_after_first_treatment": 24,
+          "locator": "Primary report pp. 172–173, A profile, Case Report and outcomes (PDF pp. 1–2)"
+        },
+        "observations": [
+          {
+            "id": "cable-2000-aircrew-cage",
+            "study_id": "raaf-cable-2000-chamber-cage",
+            "group": "RAAF aircrew chamber case",
+            "endpoint": "reported_cerebral_arterial_gas_embolism",
+            "cases": 1,
+            "altitude_ft": 19500,
+            "analysis_role": "selected_cluster",
+            "locator": "Primary report pp. 172–173, A profile, Case Report and outcomes (PDF pp. 1–2)",
+            "note": "The standard A profile aimed for 25,000 ft. The subject first described symptoms early in the rapid ascent, at an unspecified altitude, and signaled distress at 18,000 ft. The actual chamber peak was 19,500 ft. The authors diagnosed pulmonary barotrauma and cerebral arterial gas embolism. Weenink et al. later rated the evidence possible CAGE under their review criteria."
+          }
+        ]
+      }
+    ]
+  }
+]

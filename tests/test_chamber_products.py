@@ -9,6 +9,58 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_berkeley_tables_preserve_repeated_groups_counts_and_the_timing_reference(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT g.protocol_id,g.reported_tests,sum(s.reported_tests),
+                   sum(CASE WHEN s.symptom_category='symptom_free' THEN s.reported_tests ELSE 0 END)
+            FROM publication_berkeley_denitrogenation_group g
+            JOIN publication_berkeley_symptom_grade s USING(source_id,protocol_id)
+            GROUP BY g.protocol_id,g.reported_tests ORDER BY g.protocol_id
+        """).fetchall() == [
+            ("air_then_oxygen", 29, 29, 22), ("no_denitrogenation_control", 40, 40, 11),
+            ("oxygen_at_15000_ft", 29, 29, 19),
+        ]
+        assert db.execute("""
+            SELECT maximum_pain_grade,count(*),min(minutes_after_reaching_38000_ft),
+                   max(minutes_to_maximum_after_reaching_38000_ft)
+            FROM publication_berkeley_pain_timing GROUP BY maximum_pain_grade ORDER BY maximum_pain_grade
+        """).fetchall() == [(1, 7, 60, None), (2, 7, 44, None), (3, 1, 60, 70), (4, 1, 47, 52), (5, 1, 50, 88)]
+        assert db.execute("""
+            SELECT cases,denominator,role_review FROM review.review_search_observation
+            WHERE study_id='us-berkeley-henry-wadc-53-227' AND endpoint='any_listed_symptoms_as_reported'
+            ORDER BY denominator,cases
+        """).fetchall() == [(7, 29, "overlap_hold"), (10, 29, "overlap_hold"), (29, 40, "overlap_hold")]
+        assert db.execute("""
+            SELECT count(*),min(denominator),max(denominator) FROM publication_observation
+            WHERE source_id='henry53_wadc' AND stratum='selected_vasomotor_reaction_records'
+        """).fetchone() == (13, 19, 19)
+
+
+def test_cable_primary_separates_planned_altitude_distress_and_actual_peak(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT standard_decompression_start_ft,standard_target_ft,standard_decompression_approx_seconds,
+                   symptom_onset_ft,first_distress_signal_ft,actual_peak_ft,emergency_descent_ft_per_min,
+                   visual_recovery_hours_after_first_treatment
+            FROM publication_rapid_decompression_case_detail WHERE source_id='cable00_cage_primary'
+        """).fetchone() == (8000, 25000, 12, None, 18000, 19500, 6000, 24)
+        assert db.execute("""
+            SELECT case_id,endpoint,report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='cable00_cage_primary'
+        """).fetchall() == [(
+            "cable00_cage_primary:cable-2000-aircrew-cage",
+            "reported_cerebral_arterial_gas_embolism", "pmid:10685592", None,
+        )]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),count(DISTINCT observation_id) FROM shared_case_evidence
+            WHERE source_id='cable00_cage_primary'
+        """).fetchone() == (2, 1, 1)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_rodbard_reports_link_fourteen_episodes_to_one_series(release):
     with connect_pair(release) as db:
         assert db.execute("""
