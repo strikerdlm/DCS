@@ -9,6 +9,76 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_rodbard_reports_link_fourteen_episodes_to_one_series(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,count(*),count(DISTINCT case_id),count(source_time_min)
+            FROM historical_case_catalog WHERE source_id='rodbard46'
+            GROUP BY endpoint ORDER BY endpoint
+        """).fetchall() == [
+            ("chokes_first_during_descent", 6, 6, 0),
+            ("neurologic_symptoms_during_or_after_descent", 8, 8, 0),
+        ]
+        assert db.execute("""
+            SELECT published_case_number,onset_reference,onset_altitude_ft,minutes_at_ground,symptom_duration_min
+            FROM publication_descent_case_detail WHERE published_case_number IN (2,7,9,13)
+            ORDER BY published_case_number
+        """).fetchall() == [
+            (2, "descent", 25000, None, None),
+            (7, "at_ground", None, None, 720),
+            (9, "descent", 30000, None, 30),
+            (13, "minutes_at_ground", None, 10, 30),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='rodbard46' AND stratum GLOB 'selected_*' ORDER BY endpoint
+        """).fetchall() == [
+            ("chokes_first_during_descent", 6, None),
+            ("neurologic_symptoms_during_or_after_descent", 8, None),
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT h.case_id),count(DISTINCT r.study_id)
+            FROM historical_case_catalog h
+            JOIN review.review_search_observation r ON r.record_key=h.record_key
+                 AND h.case_id=h.source_id || ':' || r.observation_id
+            WHERE r.report_id='nlm:22330650RX8:rodbard' AND r.denominator IS NULL
+        """).fetchone() == (14, 14, 1)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:22330650RX8:rodbard'
+              AND right_report='record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5'
+        """).fetchone() == ("same_published_case",)
+
+
+def test_lansing_relief_responses_are_conditional_on_selected_symptoms(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='lansing44_symptom_relief' AND endpoint='reported_complete_pain_relief'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("combined", 23, 27, "overlapping_margin"),
+            ("preliminary", 5, 7, "case_conditional"),
+            ("subsequent", 18, 20, "case_conditional"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE study_id='us-aaf-lansing-selected-extremity-bends' AND endpoint GLOB '*after_release'
+            ORDER BY endpoint
+        """).fetchall() == [
+            ("pain_relief_persisted_after_release", 7, 20, "person"),
+            ("pain_returned_after_release", 13, 20, "person"),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(denominator_unit='person') FROM review.review_search_observation
+            WHERE study_id='us-aaf-lansing-selected-extremity-bends'
+        """).fetchone() == (8, 8)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_aaf_diurnal_original_keeps_conflicting_values_with_the_existing_cohort(release):
     with connect_pair(release) as db:
         assert db.execute("""

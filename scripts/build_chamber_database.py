@@ -286,6 +286,7 @@ NASA_NITROGEN_WASHOUT = ROOT / "data" / "chamber" / "v1.218"
 ROYAL_NAVY_SELECTION_COURSES = ROOT / "data" / "chamber" / "v1.219"
 WARTIME_FLIGHT_QUESTIONNAIRES = ROOT / "data" / "chamber" / "v1.220"
 AAF_CLASSIFICATION_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.221"
+AAF_DESCENT_CASE_REPORTS = ROOT / "data" / "chamber" / "v1.222"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2959,6 +2960,12 @@ def build(
                         "publication_staff_chamber_followup": "staff_followup.csv",
                         "publication_staff_chamber_case_mention": "staff_case_mentions.csv",
                     },
+                )
+                load_supplement(
+                    db,
+                    AAF_DESCENT_CASE_REPORTS,
+                    "publication",
+                    extra_tables={"publication_descent_case_detail": "descent_cases.csv"},
                 )
                 load_register(db, ROOT)
                 db.commit()
