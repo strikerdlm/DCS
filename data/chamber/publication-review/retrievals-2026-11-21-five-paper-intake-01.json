@@ -1,0 +1,269 @@
+[
+  {
+    "id": "2026-11-21-approved-intake-01-ben-ari-2026",
+    "date": "2026-11-21",
+    "provider": "Israel Medical Association Journal",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "pmid:42345225",
+      "counts_toward_formal_identification": false,
+      "selection": "Approved queue, rights-held work in progress"
+    },
+    "reported_total": 1,
+    "status": "metadata_and_pdf_identity_verified_rights_hold",
+    "note": "The identifier was already represented in the review catalog. Review adjudication remains pending.",
+    "records": [
+      {
+        "id": "42345225",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "year": 2026,
+        "url": "https://www.ima.org.il/MedicineIMAJ/viewarticle.aspx?month=06&page=352&year=2026",
+        "citation": "Ben-Ari O, Gabbai D, Nakdimon I. Isr Med Assoc J. 2026;28(6):352–356.",
+        "source_locator": "Rights notice, PDF p. 6. Planned eligibility verification: printed p. 353 Methods/Results and p. 354 Table 2.",
+        "source_sha256": "dbd7401313d34e4a784b00c9180c37e52380f68932aa7b924aa0ad77eb5ddcb9",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "source_kind": "journal article",
+        "access_status": "metadata_and_pdf_identity_verified_rights_hold",
+        "verification_note": "The archived copy includes a rights notice restricting AI use. No full-text decision was entered. Published pages 352–356 occupy PDF pages 1–5; page 6 is the rights notice.",
+        "pmid": "42345225"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-01-conkin-2018",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association journal",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "10.3357/AMHP.5135.2018",
+      "counts_toward_formal_identification": false,
+      "selection": "Five-paper full-text verification batch"
+    },
+    "reported_total": 1,
+    "status": "verified_existing_pdf",
+    "note": "The identifier was already represented in the review catalog. Review adjudication remains pending.",
+    "records": [
+      {
+        "id": "30352646",
+        "title": "A Systematic Review and Meta-Analysis of Decompression Sickness in Altitude Physiological Training",
+        "year": 2018,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/11/article-p941.pdf",
+        "citation": "Conkin J, Sanders RW, Koslovsky MD, Wear ML, Kozminski AG, Abercromby AFJ. Aerosp Med Hum Perform. 2018;89(11):941–951.",
+        "source_locator": "Printed pp. 942–943 Methods, 944–945 Table I, 947 Table II, 948 Table III.",
+        "source_sha256": "5bbc195a2d5de04e3b62cc9404f7a5bd954d312989ab5b1e4c88751bf7510003",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "source_kind": "journal article",
+        "access_status": "verified_existing_pdf",
+        "verification_note": "Verified original NASA JSC dates, outcome definition and profile cells in Methods and Tables I–II. The journal report is the primary JSC source. Other program rows and the meta-regression are secondary.",
+        "pmid": "30352646",
+        "doi": "10.3357/AMHP.5135.2018"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-01-asma-036",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association proceedings",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "abstract:asma-2018-conkin-036",
+      "counts_toward_formal_identification": false,
+      "selection": "Relevant abstract-only companion"
+    },
+    "reported_total": 1,
+    "status": "verified_abstract",
+    "note": "The identifier was already represented in the review catalog. Review adjudication remains pending.",
+    "records": [
+      {
+        "id": "asma2018:036",
+        "title": "A Systematic Review and Meta-Analysis of Decompression Sickness in Altitude Physiological Training",
+        "year": 2018,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/3/article-p162.pdf#page=10",
+        "citation": "Conkin J et al. AsMA 2018 Meeting Abstracts. Aerosp Med Hum Perform. 2018;89(3):171. Abstract 036.",
+        "source_locator": "Printed p. 171 (PDF 10), abstract 036, Methods and Results. All report content inspected.",
+        "source_sha256": "13e9492e7e65f38ebeaf3227acac162ae79c21cc03f454133ee2f0246326056b",
+        "physical_pages": [
+          10
+        ],
+        "source_kind": "published conference abstract",
+        "access_status": "verified_abstract",
+        "verification_note": "Abstract 036 on printed page 171, PDF page 10. It overlaps the journal article and the clinical subtype descriptions require reconciliation."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-01-ercan-2020",
+    "date": "2026-11-21",
+    "provider": "Undersea & Hyperbaric Medical Society journal via existing repository copy",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "10.22462/04.06.2020.5",
+      "counts_toward_formal_identification": false,
+      "selection": "Five-paper full-text verification batch"
+    },
+    "reported_total": 1,
+    "status": "verified_existing_pdf",
+    "note": "The identifier was already represented in the review catalog. Review adjudication remains pending.",
+    "records": [
+      {
+        "id": "32574436",
+        "title": "Incidence of decompression sickness in hypobaric hypoxia training",
+        "year": 2020,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+        "citation": "Ercan E, Demir AE, Sabaner E, Toklu AS. Undersea Hyperb Med. 2020;47(2):203–210.",
+        "source_locator": "Printed pp. 204–205 Figure 1 and Methods; pp. 205–206 Results; p. 206 Tables 1–2.",
+        "source_sha256": "16870c42a6f2cdf557b1153533faeeb2aca455d0f6d348901a40b78ec5fe9a72",
+        "physical_pages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "source_kind": "journal article",
+        "access_status": "verified_existing_pdf",
+        "verification_note": "The original journal DOI and the ResearchGate copy identifier are distinct. Table 1's role comparison uses the male trainee risk set. Retain the separate sex-combined denominator and the clinical case subtype.",
+        "pmid": "32574436",
+        "doi": "10.22462/04.06.2020.5"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-01-demir-2022",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association journal",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "10.3357/AMHP.6091.2022",
+      "counts_toward_formal_identification": false,
+      "selection": "Five-paper full-text verification batch"
+    },
+    "reported_total": 1,
+    "status": "verified_publisher_pdf",
+    "note": "The identifier was already represented in the review catalog. Review adjudication remains pending.",
+    "records": [
+      {
+        "id": "36243908",
+        "title": "Hysteria as a Trigger for Epidemic Decompression Sickness Following Hypobaric Hypoxia Training",
+        "year": 2022,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/10/article-p712.pdf",
+        "citation": "Demir AE, Ata N. Aerosp Med Hum Perform. 2022;93(10):712–716.",
+        "source_locator": "Printed p. 713 (PDF 2), Methods, Results and Tables I–II; p. 714 (PDF 3), preoxygenation.",
+        "source_sha256": "cc7b1ad94d4492a1585cd658d646a5641e1ead40b36c7e88ff12921c32294ef0",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "source_kind": "journal article",
+        "access_status": "verified_publisher_pdf",
+        "verification_note": "Outcome-selected two-session cluster. Calendar dates unreported, and possible overlap with the earlier same-site surveillance is unresolved.",
+        "pmid": "36243908",
+        "doi": "10.3357/AMHP.6091.2022"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-01-ata-2021",
+    "date": "2026-11-21",
+    "provider": "European Underwater and Baromedical Society journal issue",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "doi:10.28920/dhm51.1.82-85",
+      "counts_toward_formal_identification": false,
+      "selection": "Five-paper full-text verification batch"
+    },
+    "reported_total": 1,
+    "status": "verified_publisher_article_pages",
+    "note": "The identifier was already represented in the review catalog. Review adjudication remains pending.",
+    "records": [
+      {
+        "id": "33761546",
+        "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight",
+        "year": 2021,
+        "url": "https://www.eubs.org/documents/DHM_Vol51No1.pdf#page=85",
+        "citation": "Ata N, Karaca E. Diving Hyperb Med. 2021;51(1):82–85.",
+        "source_locator": "Printed pp. 82–84, issue PDF pp. 85–87. Cases, Investigation and Table 1.",
+        "source_sha256": "98189a7b361bde9b969387c47b5e5c7b9be2dae24fa2986029aae507e305c74c",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "source_kind": "journal article",
+        "access_status": "verified_publisher_article_pages",
+        "verification_note": "Author-retained copyright. Printed pp. 82–85 match issue PDF pp. 85–88. The flight date was unreported. This outcome-selected cluster has potential overlap with the earlier program surveillance.",
+        "pmid": "33761546",
+        "doi": "10.28920/dhm51.1.82-85",
+        "issue_sha256": "c5a10cf35bfed7119e4dbf421c2f0447baa18d27d1cf1a45e2824714a636cb65",
+        "issue_physical_pages": [
+          85,
+          86,
+          87,
+          88
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-01-nakdimon-2022",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association journal via existing institutional copy",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "10.3357/AMHP.6048.2022",
+      "counts_toward_formal_identification": false,
+      "selection": "Five-paper full-text verification batch"
+    },
+    "reported_total": 1,
+    "status": "verified_existing_pdf",
+    "note": "The identifier was already represented in the review catalog. Review adjudication remains pending.",
+    "records": [
+      {
+        "id": "36309795",
+        "title": "Mitigating Risks of Altitude Chamber Training",
+        "year": 2022,
+        "url": "https://doi.org/10.3357/AMHP.6048.2022",
+        "citation": "Nakdimon I, Ben-Ari O. Aerosp Med Hum Perform. 2022;93(11):811–815.",
+        "source_locator": "Printed p. 812 (PDF 2), Methods and Figure 1; p. 813 (PDF 3), Results, Figure 2 and Table I.",
+        "source_sha256": "ef2d2cf038853a0aef1552a0cc88a8de382071f14e45c12f14a1805bc30a4fac",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "source_kind": "journal article",
+        "access_status": "verified_existing_pdf",
+        "verification_note": "Table I denominators remain individuals as reported. Keep the original percentages and any rounding-compatible reconstruction distinguishable. Possible cohort overlap with the later Ramat Gan report.",
+        "pmid": "36309795",
+        "doi": "10.3357/AMHP.6048.2022"
+      }
+    ]
+  }
+]
