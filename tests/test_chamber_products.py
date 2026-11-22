@@ -9,6 +9,73 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_sulaiman_age_figures_link_matching_archive_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT figure_number, count(*), sum(printed_n), sum(p.denominator), sum(p.numerator)
+            FROM literature_age_figure_group AS g
+            JOIN publication_observation AS p
+              ON (p.source_id,p.stratum,p.endpoint)=(g.archive_source_id,g.archive_stratum,g.archive_endpoint)
+            WHERE g.source_id='sulaiman97' AND g.printed_n=p.denominator
+              AND g.n_basis='subject_exposure_denominator' AND p.analysis_role='overlap_hold'
+            GROUP BY figure_number ORDER BY figure_number
+        """).fetchall() == [(1, 7, 1299, 1299, 445), (3, 7, 111, 111, 68)]
+        assert db.execute("""
+            SELECT count(*), sum(stratum GLOB '*-age-*')
+            FROM publication_observation WHERE source_id='sulaiman95_age_report'
+        """).fetchone() == (32, 28)
+        assert db.execute("""
+            SELECT altitude_scope, sum(printed_n), count(*) FROM literature_age_figure_group
+            WHERE source_id='sulaiman97' AND figure_number=2 AND archive_source_id IS NULL
+              AND n_basis='unresolved_figure_n_label'
+            GROUP BY altitude_scope ORDER BY altitude_scope
+        """).fetchall() == [("above_25000_ft", 340, 7), ("below_25000_ft", 109, 7)]
+        assert db.execute("""
+            SELECT altitude_scope, age_label_as_printed, printed_n, plotted_percent_approx
+            FROM literature_age_figure_group
+            WHERE source_id='sulaiman97' AND figure_number=2
+            ORDER BY altitude_scope,age_label_as_printed
+        """).fetchall() == [
+            (scope, age, printed_n, percent)
+            for scope, labels, percentages in [
+                ("above_25000_ft", [18, 58, 109, 61, 45, 33, 16], [36, 44, 61, 56, 53, 62, 100]),
+                ("below_25000_ft", [10, 20, 21, 28, 11, 10, 9], [15, 13, 12, 23, 18, 18, 38]),
+            ]
+            for age, printed_n, percent in zip(
+                ["18-21", "22-25", "26-29", "30-33", "34-37", "38-41", "42-49"],
+                labels, percentages, strict=True,
+            )
+        ]
+
+
+def test_sulaiman_review_links_existing_reports_without_duplicate_observations(release):
+    with connect_pair(release) as db:
+        technical_report = "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:1"
+        journal_run = "2026-11-22-sulaiman-age-firecrawl"
+        assert db.execute("""
+            SELECT report_id, role FROM review.review_study_report
+            WHERE study_id='armstrong-1983-1994-age-archive' ORDER BY role
+        """).fetchall() == [
+            ("pmid:9262810", "journal_companion"),
+            (technical_report, "primary_exact_aggregate_tables"),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:9262810' AND right_report=?
+        """, (technical_report,)).fetchone() == ("same_cohort",)
+        assert db.execute("""
+            SELECT report_id, json_array_length(metadata_json,'$.figure_groups')
+            FROM review.review_record WHERE run_id=?
+        """, (journal_run,)).fetchall() == [("pmid:9262810", 28)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE run_id=?
+        """, (journal_run,)).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+        assert db.execute("SELECT count(*) FROM locked_external").fetchone() == (5,)
+
+
 def test_early_excursion_grade_cells_preserve_the_reported_altitude_conflict(release):
     with connect_pair(release) as db:
         assert db.execute("""

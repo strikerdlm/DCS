@@ -1,6 +1,12 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-sulaiman-age-firecrawl#sulaiman-1997-age-figures",
+      "report_id": "pmid:9262810",
+      "basis": "Publisher PDF title, pagination and PMID identify the existing 1997 article.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/8/article-p695.pdf#page=2"
+    },
+    {
       "record_key": "2026-11-22-early-excursion-table-verification-firecrawl#anell-2021-verified-tables-1-and-2",
       "report_id": "pmid:34410475",
       "evidence_url": "https://link.springer.com/article/10.1007/s00421-021-04794-2",
@@ -18831,6 +18837,12 @@
   ],
   "studies": [
     {
+      "study_id": "armstrong-1983-1994-age-archive",
+      "label": "Armstrong Laboratory chamber age analysis",
+      "period": "1983–1994",
+      "setting": "Armstrong Laboratory Hypobaric DCS Research Database, Brooks AFB"
+    },
+    {
       "study_id": "anell-2021-early-excursion-oxygen-crossover",
       "label": "Ånell early-excursion crossover while breathing oxygen",
       "period": "Reported 2021",
@@ -20704,6 +20716,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "armstrong-1983-1994-age-archive",
+      "report_id": "pmid:9262810",
+      "role": "journal_companion",
+      "locator": "Figures 1–3, printed p. 696 (PDF p. 2)"
+    },
+    {
+      "study_id": "armstrong-1983-1994-age-archive",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:1",
+      "role": "primary_exact_aggregate_tables",
+      "locator": "Tables 4–7, printed pp. 6–9 (PDF pp. 11–14)"
+    },
     {
       "study_id": "anell-2021-early-excursion-oxygen-crossover",
       "report_id": "pmid:34410475",
@@ -23838,6 +23862,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:9262810",
+      "right_report": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:1",
+      "relationship": "same_cohort",
+      "evidence": "Both analyze the Armstrong Laboratory archive with 1,299 subject-flight exposures. Every age-bin exposure count agrees for the full archive and the 111-exposure subset at 29,500–30,000 ft. The altitude splits elsewhere differ and stay source-specific.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/8/article-p695.pdf#page=2"
+    },
     {
       "left_report": "pmid:34410475",
       "right_report": "pmid:33752785",
