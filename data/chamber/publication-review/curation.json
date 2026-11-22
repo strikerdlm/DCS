@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_spa:4",
+      "report_id": "ntrs:20200004317",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20200004317",
+      "basis": "Identical NTRS report record, title and report number."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.37/search_hits.csv#detail_v37_split:5",
+      "report_id": "ntrs:20200004317",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20200004317",
+      "basis": "NASA-hosted copy of the same NASA/TP-2020-220529 publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.41/search_hits.csv#vge_review_v41_fulltext:2",
+      "report_id": "ntrs:20200004317",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20200004317",
+      "basis": "Same NASA full-text PDF location and report number."
+    },
+    {
+      "record_key": "2026-11-20-roles-tavily-butler#https://www.nasa.gov/wp-content/uploads/2026/08/eva-related-decompression-sickness-cliff-2023.pdf?emrc=4857e6",
+      "report_id": "report:nasa-cliff-icl39",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/eva-related-decompression-sickness-cliff-2023.pdf",
+      "basis": "Identical report ICL39 and NASA-hosted PDF path."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.21/search_hits.csv#prog_v21_japan:6",
+      "report_id": "report:nasa-cliff-icl39",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/eva-related-decompression-sickness-cliff-2023.pdf",
+      "basis": "Identical report ICL39 and NASA-hosted PDF path."
+    },
+    {
+      "record_key": "2026-11-21-nasa-2020-table-reconciliation-verified#nasa-tables",
+      "report_id": "ntrs:20200004317",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20200004317",
+      "basis": "Identical NTRS accession, report number, and official 2020 edition."
+    },
+    {
+      "record_key": "2026-11-21-nasa-2020-table-reconciliation-verified#cliff-icl39",
+      "report_id": "report:nasa-cliff-icl39",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/eva-related-decompression-sickness-cliff-2023.pdf",
+      "basis": "The official ICL39 form uses the same previously identified NASA-hosted PDF."
+    },
+    {
       "record_key": "2026-11-20-rapid-decompression-t-czech#https://ntrs.nasa.gov/api/citations/19690004637/downloads/19690004637.pdf",
       "report_id": "openalex:W1556443047",
       "evidence_url": "https://ntrs.nasa.gov/citations/19690004637",
@@ -21996,6 +22038,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:20200004317",
+      "right_report": "record:legacy:data/chamber/v1/sources.csv#nasa19",
+      "relationship": "same_chamber_test_series",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20200004317/downloads/20200004317.pdf#page=40",
+      "evidence": "All 49 test names, nominal sex-stratified samples, exact group DCS and VGE counts in Table 1B match the 2019 Appendix F Table F1. Published pooled VGE counts and some observed percentages differ from these table counts."
+    },
+    {
+      "left_report": "report:nasa-cliff-icl39",
+      "right_report": "ntrs:20200004317",
+      "relationship": "reuses_observations_and_modeled_estimates",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2026/08/eva-related-decompression-sickness-cliff-2023.pdf",
+      "evidence": "The best/worst scenario section repeats the 125 DCS and seven Type II events from the 49 tests. The incidence section takes a predicted 3.1 percent and constructs binomial anchors to approximate uncertainty."
+    },
     {
       "left_report": "openalex:W1556443047",
       "right_report": "report:pick-english-2017-randolph",
