@@ -9,12 +9,76 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_tonawanda_tension_tables_preserve_counts_and_reference_repeats(release):
+    with connect_pair(release) as db:
+        cells = db.execute("""
+            SELECT cell_key,row_status,reported_events,reported_records,reference_cells_json
+            FROM publication_tonawanda_tension_cell ORDER BY cell_key
+        """).fetchall()
+        assert len(cells) == 155
+        assert {status: sum(r[1] == status for r in cells)
+                for status in {r[1] for r in cells}} == {
+            "observation": 114, "table_i_prefix": 20, "original_prefix": 5, "no_flights": 16,
+        }
+        review_cells = db.execute("""
+            SELECT json_extract(c.value,'$.cell_key'),json_extract(c.value,'$.row_status'),
+                   json_extract(c.value,'$.reported_events'),json_extract(c.value,'$.reported_records'),
+                   json_extract(c.value,'$.reference_cells_json')
+            FROM review.review_record AS r, json_each(r.metadata_json,'$.reported_tension_cells') AS c
+            WHERE r.run_id='2026-11-22-tonawanda-pressure-duration-counts-verified'
+              AND r.report_id='ntrs:19700018125'
+            ORDER BY 1
+        """).fetchall()
+        assert cells == review_cells
+
+        cell_counts = {key: (events, records) for key, _, events, records, _ in cells}
+        old_counts = dict(
+            (f"{source}:{stratum}", (events, records)) for source, stratum, events, records in db.execute("""
+                SELECT source_id,stratum,numerator,denominator
+                FROM publication_observation
+                WHERE source_id='tonawanda68_nasa_archive' AND stratum LIKE 'analysis-10-%'
+            """)
+        )
+        cell_counts.update(old_counts)
+        for _, status, events, records, references in cells:
+            if status in ("table_i_prefix", "original_prefix"):
+                linked = [cell_counts[key] for key in json.loads(references)]
+                assert tuple(sum(column) for column in zip(*linked, strict=True)) == (events, records)
+        assert db.execute("""
+            SELECT reported_percent,reported_events,reported_records,analysis,
+                   minimum_residence_exclusive_min,reported_grade_label,qualifying_maximum_grade_min
+            FROM publication_tonawanda_tension_cell WHERE rate_discrepancy=1
+        """).fetchall() == [(25, 4, 12, 15, 30, "2–5", 3)]
+        assert db.execute("""
+            SELECT DISTINCT reported_grade_label,qualifying_maximum_grade_min,first_hit_grade_min
+            FROM publication_tonawanda_tension_cell WHERE analysis=13
+        """).fetchall() == [("3–5", 4, 3)]
+        observed = db.execute("""
+            SELECT p.stratum,p.endpoint,p.numerator,p.denominator
+            FROM publication_observation p JOIN publication_tonawanda_tension_cell c
+              ON (p.source_id,p.stratum,p.endpoint)=(c.source_id,c.observation_stratum,c.observation_endpoint)
+            WHERE p.analysis_role='overlap_hold'
+            ORDER BY 1,2
+        """).fetchall()
+        assert len(observed) == 114
+        assert observed == db.execute("""
+            SELECT reported_group,endpoint,cases,denominator
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-tonawanda-pressure-duration-counts-verified'
+            ORDER BY 1,2
+        """).fetchall()
+
+
 def test_tonawanda_archive_keeps_nested_counts_conflicts_and_withdrawals(release):
     with connect_pair(release) as db:
         selected = db.execute("""
             SELECT p.stratum,p.endpoint,p.numerator,p.denominator,l.report_id
             FROM publication_observation p JOIN model_report_link l USING(source_id)
             WHERE p.source_id IN ('tonawanda68_nasa_archive','schreiner70_tonawanda_supp_a')
+              AND NOT EXISTS (
+                  SELECT 1 FROM publication_tonawanda_tension_cell c
+                  WHERE (p.source_id,p.stratum,p.endpoint)=(c.source_id,c.observation_stratum,c.observation_endpoint)
+              )
             ORDER BY 1,2
         """).fetchall()
         assert len(selected) == 142
@@ -40,6 +104,7 @@ def test_tonawanda_archive_keeps_nested_counts_conflicts_and_withdrawals(release
         counts = db.execute("""
             SELECT endpoint,count(*),sum(numerator),count(denominator),group_concat(DISTINCT analysis_role)
             FROM publication_observation WHERE source_id='schreiner70_tonawanda_supp_a'
+            AND stratum LIKE 'analysis-16-%'
             GROUP BY endpoint ORDER BY endpoint
         """).fetchall()
         assert counts == [

@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.244
+
+Supplement A Tables I and II contain 155 printed cells. The matched databases add 114 source observations to the existing NASA-CR-108420 record. Twenty cumulative cells reconcile with Table I bins and five with rows in the original report. Those 25 cells retain explicit references to the counts they repeat. Sixteen rows with zero flights remain traceable to the source. [Supplement A, Table I](https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf#page=12) · [Table II](https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf#page=14) · [Original Analysis 10](https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf#page=58)
+
+Table II prints 25% alongside 4/12 in Analysis 15 at the 400 mmHg nitrogen-tension cutoff. The Table I bins independently sum to 4/12, or 33.3%. Table II's grade labels also differ from the Appendix I qualification rules. Analyses 12, 14 and 15 require maximum grade 3 or higher and Analysis 13 requires grade 4 or higher. The first qualifying symptom clock can start one grade earlier. All rows retain their reported labels, count definitions and duration filters. They share the existing archive hold and add zero independently eligible cohorts. [Supplement A, Table II](https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf#page=14) · [Appendix I](https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf#page=34) · [Versioned extracts](../data/chamber/v1.244)
+
 ## Release 1.243
 
 NASA-CR-92212 reanalyzed 388 individual chamber flight records from the Navy Air Crew Equipment Laboratory and the USAF School of Aerospace Medicine. Of 429 records received, 25 were excluded before coding and 16 after coding. Analysis 4 reports 199, 173, 108 and 35 flights at the nested symptom thresholds of grades 2–5, 3–5, 4–5 and 5. Analysis 10 provides separate nitrogen-only margins at selected pressures. Its groupings can reuse flights across pressure steps. [Original report, archive intake](https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf#page=21) · [Analysis 4](https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf#page=45) · [Analysis 10](https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf#page=58)
