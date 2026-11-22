@@ -1,0 +1,1003 @@
+[
+  {
+    "id": "2026-11-22-cam-cincinnati-hitchcock-progress-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_archive_and_overlap_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "query": "Committee on Aviation Medicine archival finding aids and report collections",
+          "request_id": "7c6ed576-9b42-4379-b3f5-c461e70cfc25"
+        },
+        {
+          "query": "Blankenhorn Ferris 240 ascents and Cincinnati 35,000-ft activity conditions",
+          "request_id": "d1fe3e2d-e978-4151-917d-f618cfad9b9b"
+        },
+        {
+          "query": "Cincinnati 29-person pressure breathing progress reports",
+          "request_id": "9caa6ff6-a4fb-4878-8d97-107323529358"
+        },
+        {
+          "query": "Cincinnati Report 385 Webb Engel pressure breathing",
+          "request_id": "1d2a60e7-b2a2-4842-bca0-723ebd52551e"
+        }
+      ],
+      "extracts": [
+        {
+          "url": "https://collections.nlm.nih.gov/ocr/nlm:nlmuid-101085500X267-leaf",
+          "request_id": "b6fbefe9-e862-4bc6-9600-1b6b2e22c147"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/ocr/nlm:nlmuid-101085500X267-leaf",
+          "request_id": "ba96bd76-72c9-4ea9-a638-59300abefad0"
+        }
+      ]
+    },
+    "note": "Search and OCR led to the primary reports and the later NASA citation. Primary scans supplied all extracted observations.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-cam-cincinnati-hitchcock-progress-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_archive_page_identification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101085500-root",
+          "request_id": "01a2022b-3e4e-728a-93fa-a5b4a77ccf17"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/ocr/nlm:nlmuid-101085500X267-leaf",
+          "request_id": "01a2022b-8297-770e-b4b1-e2ddf1c599ee"
+        },
+        {
+          "query": "Thirty-five subjects",
+          "request_id": "01a2022f-401d-737e-bbc7-11a98480a3f2"
+        },
+        {
+          "query": "been completed on 29 subjects",
+          "request_id": "01a2022f-4014-713e-81f1-0ccdb787dd9d"
+        },
+        {
+          "query": "93% forced descents",
+          "request_id": "01a20232-2367-7538-9885-fbd6190418a4"
+        },
+        {
+          "query": "Thirty-seven male subjects",
+          "request_id": "01a2022c-dfd0-766c-bd0e-3b8253c2cc0a"
+        },
+        {
+          "query": "Description development bends in 240",
+          "request_id": "01a2022c-dfb8-730a-b72d-5daa6d44e51f"
+        }
+      ]
+    },
+    "note": "Archive OCR and image locators identified the exact report pages and separated repeated-program descriptions.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-cam-cincinnati-hitchcock-progress-verified",
+    "date": "2026-11-22",
+    "provider": "National Library of Medicine original page images",
+    "operation": "supplementary_verified_chamber_counts_and_protocols",
+    "status": "observed",
+    "reported_total": 5,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Reconciled five archival reports with the Cincinnati and Ohio State outcome registers. Experimental cohorts and source overlaps are held outside formal pooling.",
+    "records": [
+      {
+        "id": "progress-7",
+        "title": "Aviation Medicine. Monthly Progress Report No. 7.",
+        "authors": [
+          "M. A. Blankenhorn",
+          "Eugene B. Ferris Jr."
+        ],
+        "year": 1942,
+        "publication_date": "1942-08-31",
+        "report_number": "OEMcmr-36:7",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101085500-root",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-498/full/1600,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "cincinnati-1942-35000-ft-activity-series",
+        "role_review": "overlap_hold",
+        "locator": "OEMcmr-36:7, human chamber section (NLM item 101085500X267, image 498–500)",
+        "note": "Cumulative Cincinnati study report with repeated chamber flights. The procedure for ending individual exposures changed after the first approximately 75–100 flights. Symptoms and grades follow the historical authors' definitions. The same individual could contribute to multiple conditions. The report does not identify the earlier letter participants or arm-level correspondence to later Cincinnati compilations.",
+        "observations": [
+          {
+            "id": "squat-exercise-bends_as_reported",
+            "group": "squat-exercise",
+            "endpoint": "bends_as_reported",
+            "cases": 37,
+            "denominator": 37,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498)",
+            "note": "Source-reported count per exposure in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Five bends to a squatting position every five minutes.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "squat-exercise-severe_or_intolerable_bends_as_reported",
+            "group": "squat-exercise",
+            "endpoint": "severe_or_intolerable_bends_as_reported",
+            "cases": 32,
+            "denominator": 37,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498)",
+            "note": "The authors use grades 3–4. These affected flights are included in the any-bends count.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Five bends to a squatting position every five minutes.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "squat-exercise-participant_at_least_one_bends_as_reported",
+            "group": "squat-exercise",
+            "endpoint": "participant_at_least_one_bends_as_reported",
+            "cases": 18,
+            "denominator": 18,
+            "denominator_unit": "person",
+            "role_review": "overlapping_margin",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498)",
+            "note": "Counts people across repeated flights in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Five bends to a squatting position every five minutes.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "standing-minor-work-bends_as_reported",
+            "group": "standing-minor-work",
+            "endpoint": "bends_as_reported",
+            "cases": 26,
+            "denominator": 41,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498)",
+            "note": "Source-reported count per exposure in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Standing, walking or doing minor chores.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "standing-minor-work-severe_or_intolerable_bends_as_reported",
+            "group": "standing-minor-work",
+            "endpoint": "severe_or_intolerable_bends_as_reported",
+            "cases": 11,
+            "denominator": 41,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498)",
+            "note": "The authors use grades 3–4. These affected flights are included in the any-bends count.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Standing, walking or doing minor chores.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "standing-minor-work-participant_at_least_one_bends_as_reported",
+            "group": "standing-minor-work",
+            "endpoint": "participant_at_least_one_bends_as_reported",
+            "cases": 10,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "role_review": "overlapping_margin",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498)",
+            "note": "Counts people across repeated flights in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Standing, walking or doing minor chores.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "seated-activity-bends_as_reported",
+            "group": "seated-activity",
+            "endpoint": "bends_as_reported",
+            "cases": 51,
+            "denominator": 84,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498–499)",
+            "note": "Source-reported count per exposure in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Seated with limited movement and reading or writing permitted.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "seated-activity-severe_or_intolerable_bends_as_reported",
+            "group": "seated-activity",
+            "endpoint": "severe_or_intolerable_bends_as_reported",
+            "cases": 14,
+            "denominator": 84,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 499)",
+            "note": "The authors use grades 3–4. These affected flights are included in the any-bends count.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Seated with limited movement and reading or writing permitted.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "seated-activity-participant_at_least_one_bends_as_reported",
+            "group": "seated-activity",
+            "endpoint": "participant_at_least_one_bends_as_reported",
+            "cases": 23,
+            "denominator": 31,
+            "denominator_unit": "person",
+            "role_review": "overlapping_margin",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 498–499)",
+            "note": "Counts people across repeated flights in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Seated with limited movement and reading or writing permitted.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "recumbent-rest-bends_as_reported",
+            "group": "recumbent-rest",
+            "endpoint": "bends_as_reported",
+            "cases": 5,
+            "denominator": 16,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 499)",
+            "note": "Source-reported count per exposure in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Recumbent and resting during chamber exposure.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "recumbent-rest-severe_or_intolerable_bends_as_reported",
+            "group": "recumbent-rest",
+            "endpoint": "severe_or_intolerable_bends_as_reported",
+            "cases": 2,
+            "denominator": 16,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 499)",
+            "note": "The authors use grades 3–4. These affected flights are included in the any-bends count.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Recumbent and resting during chamber exposure.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "rest-preoxygenation-then-exercise-bends_as_reported",
+            "group": "rest-preoxygenation-then-exercise",
+            "endpoint": "bends_as_reported",
+            "cases": 34,
+            "denominator": 40,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 499)",
+            "note": "Source-reported count per exposure in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Standard squat exercise after 60–80 minutes of preoxygenation at rest.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "rest-preoxygenation-then-exercise-severe_or_intolerable_bends_as_reported",
+            "group": "rest-preoxygenation-then-exercise",
+            "endpoint": "severe_or_intolerable_bends_as_reported",
+            "cases": 25,
+            "denominator": 40,
+            "denominator_unit": "person_exposure",
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 499)",
+            "note": "The authors use grades 3–4. These affected flights are included in the any-bends count.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Standard squat exercise after 60–80 minutes of preoxygenation at rest.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "rest-preoxygenation-then-exercise-participant_at_least_one_bends_as_reported",
+            "group": "rest-preoxygenation-then-exercise",
+            "endpoint": "participant_at_least_one_bends_as_reported",
+            "cases": 16,
+            "denominator": 17,
+            "denominator_unit": "person",
+            "role_review": "overlapping_margin",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1A (NLM item 101085500X267, image 499)",
+            "note": "Counts people across repeated flights in this condition.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Standard squat exercise after 60–80 minutes of preoxygenation at rest.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "early-35000-all-participant_at_least_one_bends_as_reported",
+            "group": "early-35000-all",
+            "endpoint": "participant_at_least_one_bends_as_reported",
+            "cases": 35,
+            "denominator": 35,
+            "denominator_unit": "person",
+            "role_review": "overlapping_margin",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1B (NLM item 101085500X267, image 499)",
+            "note": "All 35 participants were described as having bends at least once in the series.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Cumulative study across different chamber activities.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "early-35000-all-participant_pulmonary_manifestations_as_reported",
+            "group": "early-35000-all",
+            "endpoint": "participant_pulmonary_manifestations_as_reported",
+            "cases": 14,
+            "denominator": 35,
+            "denominator_unit": "person",
+            "role_review": "overlapping_margin",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1B (NLM item 101085500X267, image 499)",
+            "note": "The source describes recurrence in certain people. This is a participant margin.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Cumulative study across different chamber activities.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "early-35000-all-participant_loss_of_consciousness_as_reported",
+            "group": "early-35000-all",
+            "endpoint": "participant_loss_of_consciousness_as_reported",
+            "cases": 0,
+            "denominator": 35,
+            "denominator_unit": "person",
+            "role_review": "overlapping_margin",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1D (NLM item 101085500X267, image 500)",
+            "note": "The source explicitly reports that no participant lost consciousness.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Cumulative study across different chamber activities.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "early-35000-all-chokes_occurrence_as_reported",
+            "group": "early-35000-all",
+            "endpoint": "chokes_occurrence_as_reported",
+            "cases": 30,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1B (NLM item 101085500X267, image 499)",
+            "note": "The source also prints 13%. No matched auditable risk set was given in the subsection.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Cumulative study across different chamber activities.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "early-35000-all-pulmonary_manifestations_after_bends_occurrence_as_reported",
+            "group": "early-35000-all",
+            "endpoint": "pulmonary_manifestations_after_bends_occurrence_as_reported",
+            "cases": 26,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1B (NLM item 101085500X267, image 499)",
+            "note": "Pulmonary symptoms following bends are a reported sequence within the chokes section.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Cumulative study across different chamber activities.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "early-35000-all-cutaneous_manifestation_occurrence_as_reported",
+            "group": "early-35000-all",
+            "endpoint": "cutaneous_manifestation_occurrence_as_reported",
+            "cases": 15,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1C (NLM item 101085500X267, image 499)",
+            "note": "The source also prints 7%. Certain findings persisted for 24 hours or more. Systematic follow-up was unavailable.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Cumulative study across different chamber activities.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          },
+          {
+            "id": "early-35000-all-presyncopal_symptom_occurrence_as_reported",
+            "group": "early-35000-all",
+            "endpoint": "presyncopal_symptom_occurrence_as_reported",
+            "cases": 10,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 35000,
+            "locator": "Report 7, Section 1D (NLM item 101085500X267, image 500)",
+            "note": "The authors describe variable combinations of pallor, sweating, faintness, nausea and light-headedness.",
+            "study_id": "cincinnati-1942-35000-ft-activity-series",
+            "protocol": "Cumulative study across different chamber activities.",
+            "outcome_window": "During the reported chamber runs, including early termination. No standardized delayed follow-up was reported."
+          }
+        ],
+        "image_sha256": {
+          "498": "9fe6fba89f1f30019e7fc1fac65f61f4e477a07bf121b4cb15f21ce419922ed3",
+          "499": "e7bf536bf4325cd7d81ef2c54f7ef0977685423528f79a30b5041d15d901fb1d",
+          "500": "7b2387e4a848c39afd748fa45b10acb15d93816eea685e692886bc2c691d93af"
+        },
+        "source_scope": {
+          "participants": 35,
+          "chamber_ascents": 240,
+          "target_altitude_ft": 35000,
+          "age_min": 21,
+          "age_max": 56,
+          "ascent_rate_ft_min_lower": 4500,
+          "ascent_rate_ft_min_upper": 5000,
+          "routine_oxygen_before_flight_min_lower": 1,
+          "routine_oxygen_before_flight_min_upper": 2,
+          "early_termination_procedure": "Reported change after approximately the first 75–100 flights.",
+          "number_with_fixed_delayed_followup": null
+        },
+        "condition_preoxygenation_range_min": [
+          60,
+          80
+        ]
+      },
+      {
+        "id": "flexner-summary",
+        "title": "Summary of Monthly Progress Reports.",
+        "authors": [
+          "L. B. Flexner"
+        ],
+        "year": 1942,
+        "publication_date": "1942-11-01",
+        "report_number": "FLEXNER:1942-11-01",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101085500-root",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-1/full/1600,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "cincinnati-1942-35000-ft-activity-series",
+        "role_review": "overlap_hold",
+        "locator": "FLEXNER:1942-11-01, human chamber section (NLM item 101085500X267, image 1)",
+        "note": "The Cincinnati entry repeats the investigator names, contract, 35 participants, 240 ascents and 35,000-ft setting. The extended oxygen statement gives seven people reported protected, without total exposed or arm linkage.",
+        "observations": [],
+        "image_sha256": {
+          "1": "9626d52e6e5cabc05542335b2fdc34c7a13a866fa71f0730d9bc97daad4e44a6"
+        },
+        "source_scope": {
+          "chamber_ascents": 240,
+          "participants": 35,
+          "target_altitude_ft": 35000,
+          "eight_hour_preflight_oxygen_reported_protected_people": 7,
+          "matching_eight_hour_preflight_denominator": null
+        }
+      },
+      {
+        "id": "progress-19",
+        "title": "Aviation Medicine. Bi-Monthly Progress Report No. 19.",
+        "authors": [
+          "M. A. Blankenhorn",
+          "Eugene B. Ferris Jr."
+        ],
+        "year": 1944,
+        "publication_date": "1944-08-01",
+        "report_number": "OEMcmr-36:19",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101085500-root",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-517/full/1600,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "cincinnati-1944-positive-pressure-chamber",
+        "role_review": "overlap_hold",
+        "locator": "OEMcmr-36:19, human chamber section (NLM item 101085500X267, image 517–518)",
+        "note": "The authors report 29 new participants, each exposed under six conditions. The 35,000-ft preselection test came first and the five subsequent conditions were randomized. The August report enumerates all six; the October text omits the ground-preparation entry in its numbered list but discusses it in the conclusions. NASA separately cites Cincinnati Report 385.",
+        "observations": [],
+        "image_sha256": {
+          "517": "77bd4396a0df93480a2eaefb9b4635f740c248eef194e23a21f3bc9a33250a80",
+          "518": "36ff46709333d48564f173d07df89fc152035252638493b77cb6bccc229506f7"
+        },
+        "source_scope": {
+          "participants": 29,
+          "conditions_per_participant": 6,
+          "all_participants_described_as_new": true,
+          "first_flight_altitude_ft": 35000,
+          "subsequent_conditions_randomized": true,
+          "duplicate_ground_nitrogen_elimination_substudy_people": 16
+        },
+        "condition_profiles": [
+          {
+            "key": "preselection-squats",
+            "report_order": 1,
+            "target_altitude_ft": 35000,
+            "pressure_breathing": false,
+            "activity": "Five deep knee bends every three minutes.",
+            "preoxygenation_min": null,
+            "preoxygenation_altitude_ft": null,
+            "ground_preoxygenation": null,
+            "randomized_after_first": false
+          },
+          {
+            "key": "pressure-breathing-rest",
+            "report_order": 2,
+            "target_altitude_ft": 45000,
+            "pressure_breathing": true,
+            "activity": "Seated at rest.",
+            "preoxygenation_min": null,
+            "preoxygenation_altitude_ft": null,
+            "ground_preoxygenation": null,
+            "randomized_after_first": true
+          },
+          {
+            "key": "pressure-breathing-exercise",
+            "report_order": 3,
+            "target_altitude_ft": 45000,
+            "pressure_breathing": true,
+            "activity": "Subcommittee exercise.",
+            "preoxygenation_min": null,
+            "preoxygenation_altitude_ft": null,
+            "ground_preoxygenation": null,
+            "randomized_after_first": true
+          },
+          {
+            "key": "pressure-breathing-ground-prebreathe",
+            "report_order": 4,
+            "target_altitude_ft": 45000,
+            "pressure_breathing": true,
+            "activity": "Seated at rest.",
+            "preoxygenation_min": 30,
+            "preoxygenation_altitude_ft": null,
+            "ground_preoxygenation": true,
+            "randomized_after_first": true
+          },
+          {
+            "key": "pressure-breathing-28000-prebreathe",
+            "report_order": 5,
+            "target_altitude_ft": 45000,
+            "pressure_breathing": true,
+            "activity": "Seated at rest.",
+            "preoxygenation_min": 30,
+            "preoxygenation_altitude_ft": 28000,
+            "ground_preoxygenation": false,
+            "randomized_after_first": true
+          },
+          {
+            "key": "subcommittee-exercise",
+            "report_order": 6,
+            "target_altitude_ft": 38000,
+            "pressure_breathing": false,
+            "activity": "Subcommittee exercise.",
+            "preoxygenation_min": null,
+            "preoxygenation_altitude_ft": null,
+            "ground_preoxygenation": null,
+            "randomized_after_first": true
+          }
+        ]
+      },
+      {
+        "id": "progress-20",
+        "title": "Aviation Medicine. Bi-Monthly Progress Report No. 20.",
+        "authors": [
+          "M. A. Blankenhorn",
+          "Eugene B. Ferris Jr."
+        ],
+        "year": 1944,
+        "publication_date": "1944-10-01",
+        "report_number": "OEMcmr-36:20",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101085500-root",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-519/full/1600,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "cincinnati-1944-positive-pressure-chamber",
+        "role_review": "overlap_hold",
+        "locator": "OEMcmr-36:20, human chamber section (NLM item 101085500X267, image 519–520)",
+        "note": "The authors report 29 new participants, each exposed under six conditions. The 35,000-ft preselection test came first and the five subsequent conditions were randomized. The August report enumerates all six; the October text omits the ground-preparation entry in its numbered list but discusses it in the conclusions. NASA separately cites Cincinnati Report 385.",
+        "observations": [
+          {
+            "id": "pressure-breathing-exercise-forced_descent_within_one_hour_as_reported",
+            "group": "pressure-breathing-exercise",
+            "endpoint": "forced_descent_within_one_hour_as_reported",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 45000,
+            "locator": "Report 20, Section 1 (NLM item 101085500X267, image 519)",
+            "note": "Rounded source percentage mild Subcommittee exercise. The series includes 29 repeated participants. Exact forced-descent cases and the evaluable outcome risk set are unavailable.",
+            "reported_rate_percent": 93,
+            "study_id": "cincinnati-1944-positive-pressure-chamber",
+            "protocol": "Positive pressure breathing.",
+            "outcome_window": "Within one hour."
+          },
+          {
+            "id": "pressure-breathing-rest-forced_descent_within_one_hour_as_reported",
+            "group": "pressure-breathing-rest",
+            "endpoint": "forced_descent_within_one_hour_as_reported",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 45000,
+            "locator": "Report 20, Section 1 (NLM item 101085500X267, image 519)",
+            "note": "Rounded source percentage at rest. The series includes 29 repeated participants. Exact forced-descent cases and the evaluable outcome risk set are unavailable.",
+            "reported_rate_percent": 65,
+            "study_id": "cincinnati-1944-positive-pressure-chamber",
+            "protocol": "Positive pressure breathing.",
+            "outcome_window": "Within one hour."
+          }
+        ],
+        "image_sha256": {
+          "519": "441c7d8dd4fa2a1dcf2ddf97082a8609eb27f686dd9eade08ee3c4a6153505e0",
+          "520": "1dd0069d2af1a9231a81ef19bebbe62d8d4544f884da14508af722059de8c0a2"
+        },
+        "source_scope": {
+          "participants": 29,
+          "age_min": 17,
+          "age_max": 25,
+          "planned_dwell_min": 60,
+          "initial_ascent_rate_ft_min": 5000,
+          "second_ascent_rate_ft_min": 1500,
+          "ascent_rate_change_altitude_ft": 28000,
+          "nitrogen_elimination_susceptibility_comparison_people": 11
+        }
+      },
+      {
+        "id": "hitchcock-progress-14",
+        "title": "Physiological Factors Conditioning Responses of Mammals to Rapid Decompression and Recompression. Bi-Monthly Progress Report No. 14.",
+        "authors": [
+          "Fred A. Hitchcock"
+        ],
+        "year": 1943,
+        "publication_date": "1943-10-05",
+        "report_number": "OEMcmr-74:14",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101085500-root",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-752/full/1600,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "hitchcock-ohio-state-experimental-chamber",
+        "role_review": "overlap_hold",
+        "locator": "OEMcmr-74:14, human chamber section (NLM item 101085500X267, image 752–753)",
+        "note": "October 1943 work on 37 young adult men, matching the three slow and two explosive runs per participant in Fulton 1951 Table 91 Group II. This contemporary report adds repeat-class agreement and summarizes time at altitude. The category margins do not provide new independent clinical events. The printed slow rate in ft/s conflicts with the stated 17-minute ascent. The report describes increased onset time although its means at altitude are shorter.",
+        "observations": [
+          {
+            "id": "initial-a-b-repeat_tests_stayed_in_initial_category_band",
+            "group": "initial-a-b",
+            "endpoint": "repeat_tests_stayed_in_initial_category_band",
+            "cases": 12,
+            "denominator": 24,
+            "denominator_unit": "person",
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "Counts repeat classification agreement, with a denominator conditional on the indicated prior class.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Agreement of participant classifications across the slow chamber runs."
+          },
+          {
+            "id": "initial-c-d-repeat_tests_stayed_in_initial_category_band",
+            "group": "initial-c-d",
+            "endpoint": "repeat_tests_stayed_in_initial_category_band",
+            "cases": 7,
+            "denominator": 13,
+            "denominator_unit": "person",
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "Counts repeat classification agreement, with a denominator conditional on the indicated prior class.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Agreement of participant classifications across the slow chamber runs."
+          },
+          {
+            "id": "first-two-a-b-repeat_tests_stayed_in_initial_category_band",
+            "group": "first-two-a-b",
+            "endpoint": "repeat_tests_stayed_in_initial_category_band",
+            "cases": 12,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "Counts repeat classification agreement, with a denominator conditional on the indicated prior class.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Agreement of participant classifications across the slow chamber runs."
+          },
+          {
+            "id": "first-two-c-d-repeat_tests_stayed_in_initial_category_band",
+            "group": "first-two-c-d",
+            "endpoint": "repeat_tests_stayed_in_initial_category_band",
+            "cases": 7,
+            "denominator": 10,
+            "denominator_unit": "person",
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "Counts repeat classification agreement, with a denominator conditional on the indicated prior class.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Agreement of participant classifications across the slow chamber runs."
+          },
+          {
+            "id": "group-ii-repeated-participants-maximum_class_change_0_as_reported",
+            "group": "group-ii-repeated-participants",
+            "endpoint": "maximum_class_change_0_as_reported",
+            "cases": 12,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "role_review": "denominator_conflict",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "The reported counts across the four categories sum to 36 of 37. No class was assigned to the missing member.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Largest within-participant change across the slow chamber runs."
+          },
+          {
+            "id": "group-ii-repeated-participants-maximum_class_change_1_as_reported",
+            "group": "group-ii-repeated-participants",
+            "endpoint": "maximum_class_change_1_as_reported",
+            "cases": 10,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "role_review": "denominator_conflict",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "The reported counts across the four categories sum to 36 of 37. No class was assigned to the missing member.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Largest within-participant change across the slow chamber runs."
+          },
+          {
+            "id": "group-ii-repeated-participants-maximum_class_change_2_as_reported",
+            "group": "group-ii-repeated-participants",
+            "endpoint": "maximum_class_change_2_as_reported",
+            "cases": 9,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "role_review": "denominator_conflict",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "The reported counts across the four categories sum to 36 of 37. No class was assigned to the missing member.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Largest within-participant change across the slow chamber runs."
+          },
+          {
+            "id": "group-ii-repeated-participants-maximum_class_change_3_as_reported",
+            "group": "group-ii-repeated-participants",
+            "endpoint": "maximum_class_change_3_as_reported",
+            "cases": 5,
+            "denominator": 37,
+            "denominator_unit": "person",
+            "role_review": "denominator_conflict",
+            "altitude_ft": 38000,
+            "locator": "Report 14, p. 2, repeat classification (NLM item 101085500X267, image 753)",
+            "note": "The reported counts across the four categories sum to 36 of 37. No class was assigned to the missing member.",
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "protocol": "Three slow control exposures with mild exercise.",
+            "outcome_window": "Largest within-participant change across the slow chamber runs."
+          },
+          {
+            "id": "slow-printed_classification_a",
+            "group": "slow",
+            "endpoint": "printed_classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 45.0,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "slow-printed_classification_b",
+            "group": "slow",
+            "endpoint": "printed_classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 11.7,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "slow-printed_classification_c",
+            "group": "slow",
+            "endpoint": "printed_classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 29.7,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "slow-printed_classification_d",
+            "group": "slow",
+            "endpoint": "printed_classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 13.5,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-6-inch-as-printed-printed_classification_a",
+            "group": "explosive-6-inch-as-printed",
+            "endpoint": "printed_classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 32.4,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-6-inch-as-printed-printed_classification_b",
+            "group": "explosive-6-inch-as-printed",
+            "endpoint": "printed_classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 10.8,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-6-inch-as-printed-printed_classification_c",
+            "group": "explosive-6-inch-as-printed",
+            "endpoint": "printed_classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 27.0,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-6-inch-as-printed-printed_classification_d",
+            "group": "explosive-6-inch-as-printed",
+            "endpoint": "printed_classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 29.8,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-3-inch-as-printed-printed_classification_a",
+            "group": "explosive-3-inch-as-printed",
+            "endpoint": "printed_classification_a",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 37.8,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-3-inch-as-printed-printed_classification_b",
+            "group": "explosive-3-inch-as-printed",
+            "endpoint": "printed_classification_b",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 16.2,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-3-inch-as-printed-printed_classification_c",
+            "group": "explosive-3-inch-as-printed",
+            "endpoint": "printed_classification_c",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 24.3,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          },
+          {
+            "id": "explosive-3-inch-as-printed-printed_classification_d",
+            "group": "explosive-3-inch-as-printed",
+            "endpoint": "printed_classification_d",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "role_review": "overlap_hold",
+            "altitude_ft": 38000,
+            "locator": "Report 14, human work (NLM item 101085500X267, image 752)",
+            "note": "Classification percentage as printed. The two explosive columns use aperture labels. Exact integer cells and assignment to a specific rate were left open.",
+            "reported_rate_percent": 21.6,
+            "study_id": "hitchcock-ohio-state-experimental-chamber",
+            "outcome_window": "Over the reported run."
+          }
+        ],
+        "image_sha256": {
+          "752": "35d2180f2eb5265dc4ead92fc08b77e63ccab0ab821b0face8d308e08984e3f2",
+          "753": "da73a075ba11ebc632f9e227c3bb01b1c05557a37765f77eea7ffb81ece9a01a"
+        },
+        "source_scope": {
+          "participants": 37,
+          "slow_runs_per_participant": 3,
+          "explosive_runs_per_participant": 2,
+          "target_altitude_ft": 38000,
+          "planned_dwell_min": 90,
+          "mild_exercise_interval_min": 10,
+          "slow_ascent_min_as_printed": 17,
+          "slow_ascent_rate_text_as_printed": "slightly faster than 2000 feet per second",
+          "explosive_preoxygenation_altitude_ft": 20000,
+          "explosive_preoxygenation_min": 15,
+          "explosive_preoxygenation_o2_percent": 100,
+          "explosive_peak_ft": 40000
+        },
+        "time_at_altitude_minutes_as_reported": [
+          {
+            "branch": "slow",
+            "mean": 64.6
+          },
+          {
+            "branch": "explosive_5000_ft_second",
+            "mean": 60.3
+          },
+          {
+            "branch": "explosive_20000_ft_second",
+            "mean": 54.8
+          }
+        ],
+        "repeat_class_change_counts_sum": 36,
+        "repeat_class_change_reported_participants": 37
+      }
+    ]
+  }
+]

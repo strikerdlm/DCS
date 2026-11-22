@@ -262,6 +262,7 @@ WARTIME_AAF_CHAMBER_TRAINING = ROOT / "data" / "chamber" / "v1.194"
 BERRY_DIAGNOSTIC_CHAMBER_CASE = ROOT / "data" / "chamber" / "v1.195"
 MAYO_CHAMBER_INDOCTRINATION = ROOT / "data" / "chamber" / "v1.196"
 MAYO_REPEAT_CHAMBER_PROFILES = ROOT / "data" / "chamber" / "v1.197"
+CAM_CHAMBER_PROGRESS = ROOT / "data" / "chamber" / "v1.198"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2618,6 +2619,18 @@ def build(
                         "publication_chamber_composite_score": "composite_scores.csv",
                         "publication_chamber_oxygen_flow": "oxygen_flow.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CAM_CHAMBER_PROGRESS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_narrative_chamber_rate": "reported_rates.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(

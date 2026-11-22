@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-cam-cincinnati-hitchcock-progress-verified#progress-7",
+      "report_id": "report:oemcmr-36:7",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-498/full/1600,/0/default.jpg",
+      "basis": "Original archival title, contract, report number or date, and image locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.198/sources.csv#blankenhorn42_progress7",
+      "report_id": "report:oemcmr-36:7",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-498/full/1600,/0/default.jpg",
+      "basis": "The model records were transcribed from this archival report."
+    },
+    {
+      "record_key": "2026-11-22-cam-cincinnati-hitchcock-progress-verified#flexner-summary",
+      "report_id": "report:flexner:1942-11-01",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-1/full/1600,/0/default.jpg",
+      "basis": "Original archival title, contract, report number or date, and image locator."
+    },
+    {
+      "record_key": "2026-11-22-cam-cincinnati-hitchcock-progress-verified#progress-19",
+      "report_id": "report:oemcmr-36:19",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-517/full/1600,/0/default.jpg",
+      "basis": "Original archival title, contract, report number or date, and image locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.198/sources.csv#blankenhorn44_progress19",
+      "report_id": "report:oemcmr-36:19",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-517/full/1600,/0/default.jpg",
+      "basis": "The model records were transcribed from this archival report."
+    },
+    {
+      "record_key": "2026-11-22-cam-cincinnati-hitchcock-progress-verified#progress-20",
+      "report_id": "report:oemcmr-36:20",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-519/full/1600,/0/default.jpg",
+      "basis": "Original archival title, contract, report number or date, and image locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.198/sources.csv#blankenhorn44_progress20",
+      "report_id": "report:oemcmr-36:20",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-519/full/1600,/0/default.jpg",
+      "basis": "The model records were transcribed from this archival report."
+    },
+    {
+      "record_key": "2026-11-22-cam-cincinnati-hitchcock-progress-verified#hitchcock-progress-14",
+      "report_id": "report:oemcmr-74:14",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-752/full/1600,/0/default.jpg",
+      "basis": "Original archival title, contract, report number or date, and image locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.198/sources.csv#hitchcock43_progress14",
+      "report_id": "report:oemcmr-74:14",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-752/full/1600,/0/default.jpg",
+      "basis": "The model records were transcribed from this archival report."
+    },
+    {
       "record_key": "2026-11-22-mayo-bateman-wright-field-verified#wright-field-blb",
       "report_id": "report:mayo-1938-wright-field-blb-chamber",
       "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX6-pgimg-29/full/1600,/0/default.jpg",
@@ -18417,6 +18471,18 @@
   ],
   "studies": [
     {
+      "study_id": "cincinnati-1942-35000-ft-activity-series",
+      "label": "Cincinnati 35,000-ft posture, exercise and preoxygenation series",
+      "period": "Reported August 31, 1942",
+      "setting": "University of Cincinnati experimental chamber"
+    },
+    {
+      "study_id": "cincinnati-1944-positive-pressure-chamber",
+      "label": "Cincinnati repeated pressure-breathing and oxygen preparation experiment",
+      "period": "Reported August to October 1944",
+      "setting": "University of Cincinnati experimental chamber"
+    },
+    {
       "study_id": "mayo-bateman-repeated-chamber-desaturation",
       "label": "Bateman repeated chamber tests after oxygen and nitrogen preparation",
       "period": "Reported September 1944. Table dates omit years.",
@@ -20212,6 +20278,36 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "cincinnati-1942-35000-ft-activity-series",
+      "report_id": "report:oemcmr-36:7",
+      "role": "primary_grouped_outcomes",
+      "locator": "OEMcmr-36:7, human chamber section (NLM item 101085500X267, image 498–500)"
+    },
+    {
+      "study_id": "cincinnati-1942-35000-ft-activity-series",
+      "report_id": "report:flexner:1942-11-01",
+      "role": "overlapping_progress_summary",
+      "locator": "FLEXNER:1942-11-01, human chamber section (NLM item 101085500X267, image 1)"
+    },
+    {
+      "study_id": "cincinnati-1944-positive-pressure-chamber",
+      "report_id": "report:oemcmr-36:19",
+      "role": "primary_repeat_protocol",
+      "locator": "OEMcmr-36:19, human chamber section (NLM item 101085500X267, image 517–518)"
+    },
+    {
+      "study_id": "cincinnati-1944-positive-pressure-chamber",
+      "report_id": "report:oemcmr-36:20",
+      "role": "primary_pressure_breathing_outcomes",
+      "locator": "OEMcmr-36:20, human chamber section (NLM item 101085500X267, image 519–520)"
+    },
+    {
+      "study_id": "hitchcock-ohio-state-experimental-chamber",
+      "report_id": "report:oemcmr-74:14",
+      "role": "contemporary_report_of_existing_group_ii",
+      "locator": "OEMcmr-74:14, human chamber section (NLM item 101085500X267, image 752–753)"
+    },
     {
       "study_id": "mayo-bateman-repeated-chamber-desaturation",
       "report_id": "report:cam-364",
@@ -23214,6 +23310,55 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:oemcmr-36:7",
+      "right_report": "nlm:101085500x233:52:ferris-july4",
+      "relationship": "unresolved",
+      "evidence": "July 1942 and August 1942 Cincinnati reports have common investigators and 35,000-ft setting. No participant or session identifiers link the nine-person July results to August.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-498/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-36:7",
+      "right_report": "nlm:101085500x233:145:ferris",
+      "relationship": "unresolved",
+      "evidence": "Both Cincinnati reports describe 35 subjects for pulmonary outcomes. The January 1943 breadth table classifies 21 as chokers, while the August 1942 progress report records 14. Repeated membership and follow-up are unresolved.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-499/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-36:7",
+      "right_report": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8",
+      "relationship": "unresolved",
+      "evidence": "Later CAM Report 363 covers Cincinnati altitude, exercise and denitrogenation experiments. Its standalone tables and session identifiers were unavailable.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-498/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-36:20",
+      "right_report": "report:oemcmr-36:19",
+      "relationship": "same_cohort",
+      "evidence": "Same investigators and contract, 29 participants, repeated 35,000/38,000/45,000-ft settings and test order. The October narrative reports outcomes after the August protocol summary.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-519/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:oemcmr-36:20",
+      "right_report": "ntrs:20010020946",
+      "relationship": "likely_overlap",
+      "evidence": "NASA/TP-2001-210196 Appendix A ref. 68 cites 1944 Cincinnati Report 385 on pressure breathing. Five Appendix C rows use 29 male exposures each, consistent with the repeated cohort. Exact arm mapping and correspondence between forced descent and serious DCS are unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20010020946"
+    },
+    {
+      "left_report": "report:oemcmr-74:14",
+      "right_report": "fulton1951:explosive-decompression",
+      "relationship": "partial_overlap",
+      "evidence": "The 1943 report matches 1951 Table 91 Group II in 37 men, three slow control runs and two explosive exposures per person with a 38,000-ft dwell. The later chapter includes additional groups.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-752/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "report:flexner:1942-11-01",
+      "right_report": "report:oemcmr-36:7",
+      "relationship": "same_cohort",
+      "evidence": "Flexner repeats the same investigators, contract, 35 people, 240 ascents and test altitude.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-1/full/1600,/0/default.jpg"
+    },
     {
       "left_report": "ntrs:20010020946",
       "right_report": "report:cam-364",
