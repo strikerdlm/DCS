@@ -9,6 +9,75 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_farnborough_counts_and_schedules_keep_their_native_risk_sets(release):
+    with connect_pair(release) as db:
+        expected = [
+            ("lee_weien95_farnborough_subjects", "research_subject", 25000, 0, 15, "person", 60, 240),
+            ("lee_weien95_farnborough_subjects", "research_subject", 30000, 4, 8, "person", 60, 240),
+            ("lee_weien95_farnborough_subjects", "research_subject", 40000, 2, 4, "person", 60, 120),
+            ("weien_lee95_farnborough_observers", "inside_observer", 25000, 1, 34, "observer_exposure", 120, 120),
+            ("weien_lee95_farnborough_observers", "inside_observer", 30000, 7, 26, "observer_exposure", 120, 120),
+            ("weien_lee95_farnborough_observers", "inside_observer", 40000, 3, 7, "observer_exposure", 120, 40),
+            ("weien_lee95_farnborough_observers", "research_subject", 25000, 0, 16, "person_exposure", 60, 240),
+            ("weien_lee95_farnborough_observers", "research_subject", 30000, 4, 14, "person_exposure", 60, 240),
+            ("weien_lee95_farnborough_observers", "research_subject", 40000, 2, 6, "person_exposure", 60, 120),
+        ]
+        assert db.execute("""
+            SELECT p.source_id,p.chamber_role,o.altitude,o.numerator,o.denominator,o.denominator_unit,
+                   o.prebreathe_min,p.planned_altitude_duration_min
+            FROM publication_chamber_planned_exposure AS p
+            JOIN publication_observation AS o
+              ON (o.source_id,o.stratum,o.endpoint)=(p.source_id,p.stratum,p.reference_endpoint)
+            WHERE o.endpoint='dcs_symptoms_as_reported' AND o.analysis_role='overlap_hold'
+            ORDER BY p.source_id,p.chamber_role,o.altitude
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT CAST(o.altitude AS INTEGER),o.endpoint,o.numerator,t.mean_onset_min,t.standard_error_min
+            FROM publication_chamber_onset_mean_sem AS t JOIN publication_observation AS o
+              ON (o.source_id,o.stratum,o.endpoint)=(t.source_id,t.stratum,t.endpoint)
+            ORDER BY o.altitude,o.endpoint
+        """).fetchall() == [
+            (25000, "any_vge_as_reported", 5, 123.0, 27.0),
+            (30000, "any_vge_as_reported", 6, 117.0, 33.0),
+            (30000, "dcs_symptoms_as_reported", 4, 169.0, 7.0),
+            (40000, "any_vge_as_reported", 2, 61.0, 3.0),
+            (40000, "dcs_symptoms_as_reported", 2, 68.0, 3.0),
+        ]
+
+
+def test_farnborough_review_links_reports_and_withholds_refresher_effect(release):
+    with connect_pair(release) as db:
+        registered_followup = "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3"
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-formal-chamber-openalex#W221301634'
+        """).fetchone() == (registered_followup,)
+        assert db.execute("""
+            SELECT report_id,count(denominator),sum(cases)
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-farnborough-refresher-firecrawl'
+              AND endpoint='dcs_symptoms_as_reported' AND role_review='overlap_hold'
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [("asma:1995:497:203", 3, 6), ("asma:1995:497:204", 6, 17)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE left_report IN ('asma:1995:497:203','asma:1995:497:204')
+              AND relationship='likely_overlap'
+        """).fetchone() == (3,)
+        assert db.execute("""
+            SELECT report_id,json_type(metadata_json,'$.cases'),
+                   json_type(metadata_json,'$.exposure_denominator'),json_type(metadata_json,'$.effect_estimate')
+            FROM review.review_record
+            WHERE run_id='2026-11-22-farnborough-refresher-firecrawl' AND report_id='asma:1995:497:202'
+        """).fetchone() == ("asma:1995:497:202", "null", "null", "null")
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='reynolds_kemper95_refresher'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_1995_threshold_sources_preserve_counts_pressures_and_graph_provenance(release):
     with connect_pair(release) as db:
         assert db.execute("""

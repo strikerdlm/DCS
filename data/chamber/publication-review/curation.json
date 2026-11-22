@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.212/sources.csv#lee_weien95_farnborough_subjects",
+      "report_id": "asma:1995:497:203",
+      "basis": "The original printed page verifies the authors, title and distinct abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "record_key": "2026-11-22-farnborough-refresher-firecrawl#lee_weien95_farnborough_subjects",
+      "report_id": "asma:1995:497:203",
+      "basis": "The original printed page verifies the authors, title and distinct abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.212/sources.csv#weien_lee95_farnborough_observers",
+      "report_id": "asma:1995:497:204",
+      "basis": "The original printed page verifies the authors, title and distinct abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "record_key": "2026-11-22-farnborough-refresher-firecrawl#weien_lee95_farnborough_observers",
+      "report_id": "asma:1995:497:204",
+      "basis": "The original printed page verifies the authors, title and distinct abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.212/sources.csv#reynolds_kemper95_refresher",
+      "report_id": "asma:1995:497:202",
+      "basis": "The original printed page verifies the authors, title and distinct abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "record_key": "2026-11-22-farnborough-refresher-firecrawl#reynolds_kemper95_refresher",
+      "report_id": "asma:1995:497:202",
+      "basis": "The original printed page verifies the authors, title and distinct abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W221301634",
+      "report_id": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "basis": "The OpenAlex authors, full title, year and DTIC landing page identify the already extracted report ADP011091.",
+      "evidence_url": "https://api.openalex.org/works/W221301634"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.211/sources.csv#webb95_asma_threshold",
       "report_id": "asma:1995:496:200",
       "basis": "Original chapter or numbered abstract, title, authors and printed locator establish the report identity.",
@@ -19017,6 +19059,18 @@
   ],
   "studies": [
     {
+      "study_id": "dera-farnborough-1995-research-chamber",
+      "label": "Farnborough DRA subject and inside-observer research exposures",
+      "period": "Reported in 1995. Exposure dates unspecified.",
+      "setting": "Defence Research Agency, Farnborough experimental chambers"
+    },
+    {
+      "study_id": "usaf-reynolds-1990-1993-refresher",
+      "label": "USAF Type V and Type 37 refresher surveillance",
+      "period": "1990–1993",
+      "setting": "USAF altitude chamber refresher training"
+    },
+    {
       "study_id": "afrl-webb-zero-prebreathe-threshold",
       "label": "Armstrong Laboratory zero-prebreathe altitude threshold series",
       "period": "Reports from 1995–1998 describing related archive samples",
@@ -20914,6 +20968,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "dera-farnborough-1995-research-chamber",
+      "report_id": "asma:1995:497:203",
+      "role": "research_subject_outcomes",
+      "locator": "Abstract 203, printed p. 497 (PDF p. 35)"
+    },
+    {
+      "study_id": "dera-farnborough-1995-research-chamber",
+      "report_id": "asma:1995:497:204",
+      "role": "research_subject_and_observer_outcomes",
+      "locator": "Abstract 204, printed p. 497 (PDF p. 35)"
+    },
+    {
+      "study_id": "usaf-reynolds-1990-1993-refresher",
+      "report_id": "asma:1995:497:202",
+      "role": "abstract_without_numeric_effect",
+      "locator": "Abstract 202, printed p. 497 (PDF p. 35)"
+    },
     {
       "study_id": "afrl-webb-zero-prebreathe-threshold",
       "report_id": "asma:1995:496:200",
@@ -24096,6 +24168,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "asma:1995:497:203",
+      "right_report": "asma:1995:497:204",
+      "relationship": "likely_overlap",
+      "evidence": "The two abstracts have common authors, laboratory, altitudes and subject prebreathe and exposure durations. Subject DCS counts match with different denominators. Exact linkage is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "left_report": "asma:1995:497:203",
+      "right_report": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "relationship": "likely_overlap",
+      "evidence": "The 25,000-ft 60-min prebreathe profile agrees on 5/15 VGE and zero symptomatic outcomes. The larger later 30,000-ft profile does not establish a distinct cohort. The 2001 endpoint includes recompression criteria.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
+    {
+      "left_report": "asma:1995:497:204",
+      "right_report": "record:legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:3",
+      "relationship": "likely_overlap",
+      "evidence": "Subject profiles at 25,000 and 30,000 ft match scheduling. Participant-level linkage and 40,000-ft reuse are unverified. The 2001 report does not give these observer denominators.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35"
+    },
     {
       "left_report": "asma:1995:496:200",
       "right_report": "dtic:ada302855:webb-pp33-43",
