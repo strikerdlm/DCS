@@ -9,6 +9,82 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_webb_prebreathe_series_and_chart_markers_keep_source_disagreement(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT exposures,exposure_unit,participants,altitude_ft,pressure_mmhg,
+                   minimum_prebreathe_min,maximum_prebreathe_min
+            FROM publication_prebreathe_series_scope WHERE source_id='webb99_preoxygenation'
+        """).fetchone() == (86, "person_exposure", None, 30000, 226, 60, 240)
+        assert db.execute("""
+            SELECT chart_id,publication_source_id,attachment_source_id,cited_series_id,
+                   axis_unit_as_printed,duration_unit_supported_by_prose,target_duration_min
+            FROM publication_prebreathe_chart ORDER BY chart_id
+        """).fetchall() == [
+            ("nato_figure_1", "webb01_optimizing_denitrogenation", None,
+             "webb99_preoxygenation", "min", "hour", 240),
+            ("usaf_figure_5", None, "webb_u2_2010", "webb99_preoxygenation", "hours", "hour", None),
+        ]
+        assert db.execute("""
+            SELECT chart_id,axis_value,prebreathe_min,plotted_percent_approx,prose_percent_approx
+            FROM publication_prebreathe_chart_marker ORDER BY chart_id,prebreathe_min
+        """).fetchall() == [
+            ("nato_figure_1", 1.0, 60, 77, None), ("nato_figure_1", 1.5, 90, 60, None),
+            ("nato_figure_1", 4.0, 240, 40, None), ("usaf_figure_5", 1.0, 60, 75, 77),
+            ("usaf_figure_5", 1.5, 90, 66, None), ("usaf_figure_5", 4.0, 240, 47, 47),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('webb99_preoxygenation','webb01_optimizing_denitrogenation','webb98_eva_preoxygenation')
+        """).fetchone() == (0,)
+
+
+def test_webb_prebreathe_archive_reuses_existing_arm_and_catalog_identities(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT a.arm_label_as_printed,a.subjects_as_reported,a.dcs_percent_as_reported,a.relationship,
+                   c.numerator,c.denominator,w.reported_percent,w.denominator
+            FROM publication_prebreathe_arm_crosswalk AS a
+            LEFT JOIN citation_observation AS c
+              ON (c.source_id,c.stratum,c.endpoint)=(a.citation_source_id,a.related_stratum,a.related_endpoint)
+            LEFT JOIN literature_observation AS w
+              ON (w.source_id,w.stratum,w.endpoint)=(a.literature_source_id,a.related_stratum,a.related_endpoint)
+            WHERE a.source_id='webb98_eva_preoxygenation'
+            ORDER BY a.arm_label_as_printed
+        """).fetchall() == [
+            ("10E+50R", 26, 42, "documented_reprint", 11, 26, None, None),
+            ("15E+75R", 30, 53, "likely_overlap", None, None, 53.3, 30),
+            ("240R", 30, 47, "likely_overlap", None, None, 46.7, 30),
+        ]
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link WHERE source_id IN (
+                'webb99_preoxygenation','webb01_optimizing_denitrogenation',
+                'webb98_eva_preoxygenation','webb_u2_2010'
+            ) ORDER BY source_id
+        """).fetchall() == [
+            ("webb01_optimizing_denitrogenation", "openalex:W331258336"),
+            ("webb98_eva_preoxygenation", "dtic:ada426870"),
+            ("webb99_preoxygenation", "pmid:11760770"),
+            ("webb_u2_2010", "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010"),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation WHERE right_report='pmid:11760770'
+            ORDER BY relationship
+        """).fetchall() == [
+            ("attributes_chart_to_source",), ("cites_as_figure_contribution",), ("fits_curve_to_cited_source",),
+        ]
+        assert db.execute("""
+            SELECT provider,status,retrieved FROM review.review_retrieval
+            WHERE run_id LIKE '2026-11-22-webb-prebreathe-%' ORDER BY provider
+        """).fetchall() == [
+            ("EBSCO UNAL", "timed_out", 0), ("Firecrawl", "observed", 3),
+            ("LlamaParse", "failed", 0), ("Tavily", "observed", 1),
+        ]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_webb_ssr_keeps_nested_exposures_and_participants_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
