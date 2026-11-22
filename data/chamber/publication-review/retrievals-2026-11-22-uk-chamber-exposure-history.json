@@ -1,0 +1,133 @@
+[
+  {
+    "id": "2026-11-22-uk-chamber-exposure-history-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_participant_and_episode_linkage_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_ids": [
+        "1271f35f-cd80-47f6-ada6-fb09fdfa2c1f",
+        "ad9ca9f9-4649-4d1c-b8c2-4bd86d9046dd",
+        "9a596b05-216c-47ab-be4e-30e53d8df38e",
+        "34d57634-c31b-4caa-bdf9-7cd166e91199",
+        "8beedd43-b5a9-45ae-9216-a8230cc483b6",
+        "d352e97f-6908-401e-a1f6-e7fadbd2ecbd"
+      ],
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p215.pdf"
+      ]
+    },
+    "note": "Verified the retrospective episode counts and prospective follow-up structure. Searches found related primary trials and no episode-level identity bridge.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-uk-chamber-exposure-history-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_original_publication_and_table_retrieval",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "retrospective_pdf_scrape_id": "01a2019d-2410-713d-b953-645b109f5308",
+      "prospective_pdf_scrape_id": "01a2019f-b33c-7193-a7ce-ae918cea0f74",
+      "retrospective_html_scrape_id": "01a201a1-9c87-7578-822b-23b0c72533ef"
+    },
+    "note": "Located full publisher text. The direct originals and rendered tables were used to verify the numerical counts and overlap.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-uk-chamber-exposure-history-verified",
+    "date": "2026-11-22",
+    "provider": "Original publisher PDFs",
+    "operation": "supplementary_counting_unit_and_mri_overlap_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Verifies the two existing EBSCO review observations against the original publisher report. The historical episodes and people are added once to the model sources. The later imaging exposure history introduces no clinical outcome.",
+    "records": [
+      {
+        "id": "connolly-2018-retrospective",
+        "title": "White Matter Status of Participants in Altitude Chamber Research and Training",
+        "authors": [
+          "Desmond M. Connolly",
+          "Vivienne M. Lee",
+          "Peter D. Hodkinson"
+        ],
+        "year": 2018,
+        "pmid": "30126509",
+        "doi": "10.3357/amhp.5090.2018",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/89/9/article-p777.pdf",
+        "pdf_sha256": "8fda88818f1ea9ec6397e9e3e0e495e875379138504e13e7d24817eddbc3fc4b",
+        "full_text_available": true,
+        "locator": "Methods p. 778, UKP Decompression Experience p. 779, and Table II p. 780",
+        "study_id": "uk-qinetiq-raf-selected-chamber-history-2018",
+        "role_review": "overlap_hold",
+        "reported_scope": {
+          "participants": 20,
+          "former_research_participants": 13,
+          "current_or_former_instructors": 7,
+          "mixed_exposures_above_15000ft": 1417,
+          "mixed_exposures_over_one_hour": 93,
+          "altitude_dcs_episode_count": 10,
+          "participants_reporting_altitude_dcs": 5,
+          "matching_prolonged_medium_altitude_exposure_count": null,
+          "occupational_coverage": "selected participants with substantial prior chamber experience"
+        },
+        "note": "The authors report ten isolated limb-pain DCS episodes in five people during prolonged research exposures, with symptoms resolving upon descent. The exact exposures that contribute to the relevant outcome risk set are unavailable. Table II separately reports 1,417 mixed decompressions above 15,000 ft and 93 decompressions lasting over one hour.",
+        "existing_observation_links": [
+          {
+            "record_key": "2026-11-20-eds-role#3vpymjds3r",
+            "observation_id": "uk-research-dcs-person",
+            "model_stratum": "uk-selected-mri-cohort",
+            "model_endpoint": "people_with_history_of_altitude_dcs"
+          },
+          {
+            "record_key": "2026-11-20-eds-role#3vpymjds3r",
+            "observation_id": "uk-research-dcs-episodes",
+            "model_stratum": "prolonged-medium-altitude-research",
+            "model_endpoint": "limb_pain_altitude_dcs_episodes_as_reported"
+          }
+        ]
+      },
+      {
+        "id": "connolly-lupa-2021-prospective",
+        "title": "Prospective Study of White Matter Health for an Altitude Chamber Research Program",
+        "authors": [
+          "Desmond M. Connolly",
+          "Henry T. Lupa"
+        ],
+        "year": 2021,
+        "doi": "10.3357/amhp.5730.2021",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p215.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/92/4/article-p215.pdf",
+        "pdf_sha256": "77a74d19f1d440ef7e4d2ad3a56049c838dda29983a3d866f5cb611ca5aa5738",
+        "full_text_available": true,
+        "locator": "Methods p. 216, Results p. 218, and Table II p. 219",
+        "study_id": "uk-boscombe-down-prospective-mri-2017",
+        "role_review": "exposure_context_no_clinical_outcome",
+        "reported_scope": {
+          "exposure_start_month": "2017-02",
+          "exposure_end_month": "2017-11",
+          "completers": 11,
+          "exposures_at_least_18000ft": 160,
+          "research_participants": 5,
+          "research_subject_person_exposures_reconstructed_from_table_ii": 118,
+          "inside_observers": 6,
+          "inside_observer_person_exposures_reconstructed_from_table_ii": 42,
+          "reused_baseline_mri_participants": 3,
+          "additional_decompressions_below_10000ft": 56,
+          "reported_clinical_dcs_cases": null
+        },
+        "note": "Eleven people completed 160 person-exposures at or above 18,000 ft from February to November 2017. Three of the eleven reused entry MRI measurements from the earlier retrospective survey. The article does not report a symptomatic DCS case tally for these exposures."
+      }
+    ]
+  }
+]
