@@ -1,0 +1,318 @@
+[
+  {
+    "id": "2026-11-22-hypobaric-syncope-ascertainment-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "5b904437-4133-44d5-a509-7cf31a531eb4",
+          "query": "\"Hypoxic Syncope\" \"Westendorp\" \"410\" 1997 PubMed 120 exposures Simons full text"
+        },
+        {
+          "request_id": "0ad1eb9a-7b85-4b22-854f-a17886ca74c5",
+          "query": "\"Variability of responses and complications\" \"Simons\" \"Valk\" Netherlands chamber 1992 219 subsequent hypoxic syncope"
+        },
+        {
+          "request_id": "0ba89e47-f56e-4e0a-a821-b5adb8a535fb",
+          "urls": [
+            "https://pubmed.ncbi.nlm.nih.gov/9143751",
+            "https://anatoljcardiol.com/article/AJC-97029/pdf",
+            "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00169.2017"
+          ],
+          "note": "The Turkish publisher PDF returned text. The PubMed and APS links required independent publisher or Firecrawl retrieval."
+        },
+        {
+          "request_id": "f900dca5-2838-46b1-82af-e4ccd7747706",
+          "query": "Anadolu Kardiyol Derg 2012 12 7 619 erratum prolonged asystole Ozturk hypobaric"
+        },
+        {
+          "request_id": "88d7be9e-b1ca-4b8a-ae82-8f2e923a578b",
+          "query": "\"Repeated Hypoxic Syncope in a Helicopter Pilot\" 18,000 2012 Turkey asystole case report versus Öztürk"
+        }
+      ]
+    },
+    "records": [],
+    "note": "Discovery and exact-title comparison. The Taiwanese repeated-syncope case is a different publication and clinical history from the Turkish asystole report."
+  },
+  {
+    "id": "2026-11-22-hypobaric-syncope-ascertainment-primary",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and original publisher PDFs",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a2053b-65a3-73d7-b7e6-692f5c5e493f",
+          "url": "https://flightsafety.org/hf/hf_sep-oct92.pdf",
+          "note": "Reference 65 led to the original Simons and Valk abstract."
+        },
+        {
+          "scrape_id": "01a20541-1349-764e-89fc-0ff76770ec93",
+          "url": "https://asma.kglmeridian.com/view/journals/asem/63/5/article-p385.xml"
+        },
+        {
+          "scrape_id": "01a20541-9833-77e2-84a5-cb8d7844ab9e",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/5/article-p410.pdf",
+          "note": "Firecrawl returned the watermark. The public publisher PDF bytes were acquired directly and read locally."
+        },
+        {
+          "scrape_id": "01a20544-947c-7099-a2ce-2257c3991675",
+          "url": "https://anatoljcardiol.com/article/AJC-97029/pdf"
+        },
+        {
+          "scrape_id": "01a20545-d19a-770c-9631-812546af059a",
+          "url": "https://anatoljcardiol.com/article/AJC-65435/pdf"
+        },
+        {
+          "scrape_id": "01a20544-9470-7448-922d-bc21b7626508",
+          "url": "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00169.2017"
+        },
+        {
+          "scrape_id": "01a20544-9471-75ca-9131-63cf739e1236",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8393637/"
+        }
+      ],
+      "asma_pdf_sha256": "7b18275a86be2dc36b544a827f7551bed4e53a7ba65875bda9d0bf15b395fdf4",
+      "visually_verified_asma_pdf_pages": [
+        2,
+        27,
+        37
+      ]
+    },
+    "records": [
+      {
+        "id": "simons92_asma_hypoxic_reactions",
+        "title": "Variability of responses and complications in hypobaric hypoxia",
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=37",
+        "identifier": "ASMA:1992:421:219",
+        "locator": "Abstract 219, printed p. 421, PDF p. 37, Methods and Results",
+        "access": "primary_abstract",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=37",
+        "role_review": "hypoxic_adverse_events_or_cohort_lineage",
+        "note": "Reports 30 participants, four sessions at 46.5 kPa and two asystole cases. The same combination in Westendorp et al. Study A indicates likely overlap. Use the later paper for structured outcome counts.",
+        "source_sha256": "7b18275a86be2dc36b544a827f7551bed4e53a7ba65875bda9d0bf15b395fdf4",
+        "observations": []
+      },
+      {
+        "id": "westendorp97_hypoxic_syncope",
+        "title": "Hypoxic syncope",
+        "year": 1997,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/5/article-p410.pdf",
+        "identifier": "PMID:9143751",
+        "locator": "Protocol A and B, Studies A and B, pp. 411–412, Figs. 1–4",
+        "access": "full_text",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/5/article-p410.pdf",
+        "role_review": "hypoxic_adverse_events_or_cohort_lineage",
+        "note": "Two crossover protocols with different primary questions. Clinical endpoints in this extraction are hypoxic cardiovascular reactions. DCS was discussed as a separate diagnosis, with no DCS surveillance numerator reported for either protocol.",
+        "pmid": "9143751",
+        "source_sha256": "fd500974c1dabbfd4b55c0c73da6774f12fddeb630b25cd7e4696267f63490f3",
+        "observations": [
+          {
+            "id": "westendorp97_hypoxic_syncope:protocol-a-exposures:hypoxic_symptoms_with_bradycardia",
+            "study_id": "soesterberg-protocol-a-severe-hypoxia",
+            "group": "protocol-a-exposures",
+            "endpoint": "hypoxic_symptoms_with_bradycardia",
+            "cases": 6,
+            "denominator": 120,
+            "denominator_unit": "person_exposure",
+            "altitude_ft": 20000,
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Protocol A and Study A, p. 411",
+            "note": "The source records six exposures with lightheadedness, pallor, sweating and bradycardia in five volunteers. Two affected people had asystole. This is a hypoxic adverse-event endpoint."
+          },
+          {
+            "id": "westendorp97_hypoxic_syncope:protocol-a-exposures:hypoxic_syncope_with_asystole",
+            "study_id": "soesterberg-protocol-a-severe-hypoxia",
+            "group": "protocol-a-exposures",
+            "endpoint": "hypoxic_syncope_with_asystole",
+            "cases": 2,
+            "denominator": 120,
+            "denominator_unit": "person_exposure",
+            "altitude_ft": 20000,
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Study A, pp. 411–412, Fig. 2",
+            "note": "Two distinct participants each had syncope and documented asystole. The source gives durations of 13 and 18 seconds. Both episodes fall within the six symptomatic exposures."
+          },
+          {
+            "id": "westendorp97_hypoxic_syncope:protocol-b-anp:hypoxic_syncope_or_presyncope",
+            "study_id": "soesterberg-protocol-b-anp-pilot",
+            "group": "protocol-b-anp",
+            "endpoint": "hypoxic_syncope_or_presyncope",
+            "cases": 5,
+            "denominator": 5,
+            "denominator_unit": "person",
+            "altitude_ft": 13500,
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Protocol B, p. 411, and Study B, p. 412",
+            "note": "Three episodes occurred while seated and two upon standing. The full text distinguishes one documented loss of consciousness from the combined syncope or near-syncope endpoint."
+          },
+          {
+            "id": "westendorp97_hypoxic_syncope:protocol-b-placebo:hypoxic_syncope_or_presyncope",
+            "study_id": "soesterberg-protocol-b-anp-pilot",
+            "group": "protocol-b-placebo",
+            "endpoint": "hypoxic_syncope_or_presyncope",
+            "cases": 0,
+            "denominator": 5,
+            "denominator_unit": "person",
+            "altitude_ft": 13500,
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Protocol B, p. 411, and Study B, p. 412",
+            "note": "No adverse reaction was reported during hypoxic exposure without ANP. These five people took part in both conditions."
+          }
+        ]
+      },
+      {
+        "id": "westendorp93_anp_gas_exchange",
+        "title": "Atrial natriuretic peptide improves pulmonary gas exchange in subjects exposed to hypoxia",
+        "year": 1993,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/8393637/",
+        "identifier": "DOI:10.1164/ajrccm/148.2.304; PMID:8393637",
+        "locator": "Author abstract, Methods and Results, PMID 8393637",
+        "access": "primary_abstract",
+        "primary_source": "https://pubmed.ncbi.nlm.nih.gov/8393637/",
+        "role_review": "hypoxic_adverse_events_or_cohort_lineage",
+        "note": "Westendorp 1997 identifies this as the main study after describing its five-person pilot. The main paper reports 11 healthy mountaineers and 5 ng/kg/min ANP versus 10 ng/kg/min in the pilot. Participant overlap and syncope ascertainment in the main study are unreported.",
+        "pmid": "8393637",
+        "doi": "10.1164/ajrccm/148.2.304",
+        "observations": []
+      },
+      {
+        "id": "ozturk12_chamber_asystole",
+        "title": "Prolonged asystole during hypobaric chamber training",
+        "year": 2012,
+        "url": "https://anatoljcardiol.com/article/AJC-97029/pdf",
+        "identifier": "DOI:10.5152/akd.2012.163; PMID:22728729",
+        "locator": "Case Report pp. 520–521, Fig. 1, and official erratum p. 619",
+        "access": "full_text",
+        "primary_source": "https://anatoljcardiol.com/article/AJC-97029/pdf",
+        "role_review": "hypoxic_adverse_events_or_cohort_lineage",
+        "note": "Selected case with 16 seconds of asystole during chamber training. The erratum changes the recovery statement to spontaneous recovery without CPR or intervention. The case narrative describes mask replacement and positioning. The two statements are retained and treatment attribution remains unclear.",
+        "pmid": "22728729",
+        "doi": "10.5152/akd.2012.163",
+        "erratum_url": "https://anatoljcardiol.com/article/AJC-65435/pdf",
+        "observations": [
+          {
+            "id": "ozturk12_chamber_asystole:selected-trainee-case:hypoxic_syncope_with_asystole",
+            "study_id": "eskisehir-hypobaric-asystole-2012",
+            "group": "selected-trainee-case",
+            "endpoint": "hypoxic_syncope_with_asystole",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "altitude_ft": 30000,
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Case Report, p. 520, Fig. 1, and erratum p. 619",
+            "note": "One published case with 16 seconds of monitored asystole. The training denominator is unavailable. The official correction changes the recovery description."
+          }
+        ]
+      },
+      {
+        "id": "ottestad17_hypoxic_syncope",
+        "title": "Acute hypoxia in a simulated high-altitude airdrop scenario due to oxygen system failure",
+        "year": 2017,
+        "url": "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00169.2017",
+        "identifier": "DOI:10.1152/japplphysiol.00169.2017; PMID:28839003",
+        "locator": "Methods, Participants and Exposure, and Results, first paragraph",
+        "access": "full_text",
+        "primary_source": "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00169.2017",
+        "role_review": "hypoxic_adverse_events_or_cohort_lineage",
+        "note": "One of nine volunteers lost consciousness with documented profound desaturation. The authors interpret this as hypoxic syncope. Preserve the simulated peak altitude separately from the altitude of syncope.",
+        "pmid": "28839003",
+        "doi": "10.1152/japplphysiol.00169.2017",
+        "observations": [
+          {
+            "id": "ottestad17_hypoxic_syncope:hypobaric-volunteers:hypoxic_loss_of_consciousness",
+            "study_id": "norwegian-simulated-airdrop-hypoxic-syncope",
+            "group": "hypobaric-volunteers",
+            "endpoint": "hypoxic_loss_of_consciousness",
+            "cases": 1,
+            "denominator": 9,
+            "denominator_unit": "person",
+            "altitude_ft": 30000,
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Methods and Results, first paragraph",
+            "note": "Source places loss of consciousness at 25,400 ft and reports profound desaturation. Eight volunteers completed the full profile. The paper discusses DCS risk separately and gives no adjudicated DCS tally."
+          }
+        ]
+      },
+      {
+        "id": "scoggins92_model_development",
+        "title": "Scoggins TE, Ripley EP, Bauer DH, Pilmanis AA. Development of an altitude decompression sickness model. Aviat Space Environ Med. 1992;63(5):386. Abstract 5.",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "year": 1992,
+        "identifier": "ASMA:1992:386:5",
+        "locator": "Printed p. 386, PDF p. 2, left column, top abstract",
+        "source_locator_revision": {
+          "historical_identifier": "ASMA:1992:386:8",
+          "verified_abstract_number": 5,
+          "previous_abstract_number": 8,
+          "printed_page": 386,
+          "pdf_page": 2
+        },
+        "note": "Original page image fixes the conference abstract number. Study identity and archived evidence rows stay linked to this existing report."
+      },
+      {
+        "id": "olson92_asma_echo",
+        "title": "Olson RM, Pilmanis AA, Scoggins TE. Use of echo imaging in decompression model development. Aviat Space Environ Med. 1992;63(5):386. Abstract 6.",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "year": 1992,
+        "identifier": "ASMA:1992:386:6",
+        "locator": "Printed p. 386, PDF p. 2, left column, middle abstract",
+        "source_locator_revision": {
+          "historical_identifier": "ASMA:1992:386:9",
+          "verified_abstract_number": 6,
+          "previous_abstract_number": 9,
+          "printed_page": 386,
+          "pdf_page": 2
+        },
+        "note": "Original page image fixes the conference abstract number. Study identity and archived evidence rows stay linked to this existing report."
+      },
+      {
+        "id": "webb92_oxygen_suit",
+        "title": "Webb JT, Pilmanis AA. Decompression sickness protection using a 100% oxygen pressure suit environment. Aviat Space Environ Med. 1992;63(5):386. Abstract 9.",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+        "year": 1992,
+        "identifier": "ASMA:1992:386:9",
+        "locator": "Printed p. 386, PDF p. 2, right column, middle abstract",
+        "source_locator_revision": {
+          "historical_identifier": "ASMA:1992:386:6",
+          "verified_abstract_number": 9,
+          "previous_abstract_number": 6,
+          "printed_page": 386,
+          "pdf_page": 2
+        },
+        "note": "Original page image fixes the conference abstract number. Study identity and archived evidence rows stay linked to this existing report."
+      },
+      {
+        "id": "bassett92_fad_abstract",
+        "title": "Bassett BE, LaFon ED, Pilmanis AA. Flying after diving: Validation tests for military divers. Aviat Space Environ Med. 1992;63(5):411. Abstract 155.",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=27",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=27",
+        "year": 1992,
+        "identifier": "ASMA:1992:411:155",
+        "locator": "Printed p. 411, PDF p. 27, left column, top abstract",
+        "source_locator_revision": {
+          "historical_identifier": "ASMA:1992:411:158",
+          "verified_abstract_number": 155,
+          "previous_abstract_number": 158,
+          "printed_page": 411,
+          "pdf_page": 27
+        },
+        "note": "The printed page places Bassett, LaFon and Pilmanis in abstract 155. Abstract 158 is the unrelated Gray and Gulino echocardiographic screening report on the right. Keep the existing report and outcome lineage."
+      }
+    ],
+    "note": "Preserve hypoxic endpoints apart from DCS, reconcile parallel reports and verify original conference locators."
+  }
+]

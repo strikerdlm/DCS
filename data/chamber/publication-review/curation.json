@@ -1,5 +1,95 @@
 {
   "aliases": [
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#bassett92_fad_abstract",
+    "report_id": "asma:1992:411:158",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=27",
+    "basis": "Exact byline, title and printed page. The page image gives meeting number 155. The pre-existing canonical report ID remains a stable key."
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.240/sources.csv#simons92_asma_hypoxic_reactions",
+    "report_id": "asma:1992:421:simons-valk-219",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=37",
+    "basis": "Exact primary title, authors, issue or DOI and source locator."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#simons92_asma_hypoxic_reactions",
+    "report_id": "asma:1992:421:simons-valk-219",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=37",
+    "basis": "Matched primary report identity and reported outcome or study scope."
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.240/sources.csv#westendorp97_hypoxic_syncope",
+    "report_id": "pmid:9143751",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/5/article-p410.pdf",
+    "basis": "Exact primary title, authors, issue or DOI and source locator."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#westendorp97_hypoxic_syncope",
+    "report_id": "pmid:9143751",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/5/article-p410.pdf",
+    "basis": "Matched primary report identity and reported outcome or study scope."
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.240/sources.csv#westendorp93_anp_gas_exchange",
+    "report_id": "doi:10.1164/ajrccm/148.2.304",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8393637/",
+    "basis": "Exact primary title, authors, issue or DOI and source locator."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#westendorp93_anp_gas_exchange",
+    "report_id": "doi:10.1164/ajrccm/148.2.304",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8393637/",
+    "basis": "Matched primary report identity and reported outcome or study scope."
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.240/sources.csv#ozturk12_chamber_asystole",
+    "report_id": "doi:10.5152/akd.2012.163",
+    "evidence_url": "https://anatoljcardiol.com/article/AJC-97029/pdf",
+    "basis": "Exact primary title, authors, issue or DOI and source locator."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#ozturk12_chamber_asystole",
+    "report_id": "doi:10.5152/akd.2012.163",
+    "evidence_url": "https://anatoljcardiol.com/article/AJC-97029/pdf",
+    "basis": "Matched primary report identity and reported outcome or study scope."
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.240/sources.csv#ottestad17_hypoxic_syncope",
+    "report_id": "pmid:28839003",
+    "evidence_url": "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00169.2017",
+    "basis": "Exact primary title, authors, issue or DOI and source locator."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#ottestad17_hypoxic_syncope",
+    "report_id": "pmid:28839003",
+    "evidence_url": "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00169.2017",
+    "basis": "Matched primary report identity and reported outcome or study scope."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#scoggins92_model_development",
+    "report_id": "asma:1992:386:scoggins-model",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+    "basis": "Original proceedings page confirms printed abstract 5. Earlier occurrence listed 8."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#olson92_asma_echo",
+    "report_id": "asma:1992:386:olson-echo",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+    "basis": "Original proceedings page confirms printed abstract 6. Earlier occurrence listed 9."
+  },
+  {
+    "record_key": "2026-11-22-hypobaric-syncope-ascertainment-primary#webb92_oxygen_suit",
+    "report_id": "asma:1992:386:webb-oxygen-suit",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=2",
+    "basis": "Original proceedings page confirms printed abstract 9. Earlier occurrence listed 6."
+  },
+  {
+    "record_key": "2026-11-20-brooks-joint-f-brooks#https://journals.physiology.org/doi/abs/10.1152/japplphysiol.00169.2017",
+    "report_id": "pmid:28839003",
+    "evidence_url": "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00169.2017",
+    "basis": "Exact title and DOI from the publisher. This older retrieval lacked a structured DOI and is an additional occurrence of PMID 28839003."
+  },
     {
       "record_key": "2026-11-20-formal-chamber-pubmed#1524540",
       "report_id": "pmid:1524540",
@@ -20948,6 +21038,36 @@
     }
   ],
   "studies": [
+  {
+    "study_id": "soesterberg-protocol-a-severe-hypoxia",
+    "label": "Severe hypoxia chamber crossover, Soesterberg",
+    "period": "unreported",
+    "setting": "Netherlands Aerospace Medical Centre"
+  },
+  {
+    "study_id": "soesterberg-protocol-b-anp-pilot",
+    "label": "Moderate hypoxia chamber crossover and ANP pilot",
+    "period": "unreported",
+    "setting": "Netherlands Aerospace Medical Centre"
+  },
+  {
+    "study_id": "westendorp-anp-main-study-1993",
+    "label": "ANP and pulmonary gas exchange, main crossover study",
+    "period": "unreported",
+    "setting": "Netherlands, university physiology research"
+  },
+  {
+    "study_id": "eskisehir-hypobaric-asystole-2012",
+    "label": "Selected Eskişehir chamber syncope and asystole case",
+    "period": "unreported",
+    "setting": "Military chamber training, Turkey"
+  },
+  {
+    "study_id": "norwegian-simulated-airdrop-hypoxic-syncope",
+    "label": "Simulated airdrop acute hypoxia chamber study",
+    "period": "unreported",
+    "setting": "Institute of Aviation Medicine, Oslo, Norway"
+  },
     {
       "study_id": "nasa-jsc-1983-2007-archive-snapshot",
       "label": "NASA JSC chamber studies reported in the 2007 archive snapshot",
@@ -23068,6 +23188,42 @@
     }
   ],
   "study_reports": [
+  {
+    "study_id": "soesterberg-protocol-a-severe-hypoxia",
+    "report_id": "pmid:9143751",
+      "role": "hypoxic_outcome_source",
+    "locator": "Protocol A and Study A, p. 411"
+  },
+  {
+    "study_id": "soesterberg-protocol-a-severe-hypoxia",
+    "report_id": "asma:1992:421:simons-valk-219",
+    "role": "likely_preliminary_report",
+    "locator": "Abstract 219, printed p. 421, PDF p. 37, Methods and Results"
+  },
+  {
+    "study_id": "soesterberg-protocol-b-anp-pilot",
+    "report_id": "pmid:9143751",
+      "role": "hypoxic_outcome_source",
+    "locator": "Protocol B, p. 411, and Study B, p. 412"
+  },
+  {
+    "study_id": "westendorp-anp-main-study-1993",
+    "report_id": "doi:10.1164/ajrccm/148.2.304",
+      "role": "gas_exchange_context",
+    "locator": "Author abstract, Methods and Results, PMID 8393637"
+  },
+  {
+    "study_id": "eskisehir-hypobaric-asystole-2012",
+    "report_id": "doi:10.5152/akd.2012.163",
+      "role": "hypoxic_outcome_source",
+    "locator": "Case Report pp. 520–521, Fig. 1, and official erratum p. 619"
+  },
+  {
+    "study_id": "norwegian-simulated-airdrop-hypoxic-syncope",
+    "report_id": "pmid:28839003",
+      "role": "hypoxic_outcome_source",
+    "locator": "Methods, Participants and Exposure, and Results, first paragraph"
+  },
     {
       "study_id": "nasa-jsc-1983-2007-archive-snapshot",
       "report_id": "openalex:W845426483",
@@ -26598,6 +26754,20 @@
     }
   ],
   "relations": [
+  {
+    "left_report": "asma:1992:421:simons-valk-219",
+    "right_report": "pmid:9143751",
+    "relationship": "likely_overlap",
+    "evidence": "Same centre, altitude at 20,000 ft, 30 people, four repeated sessions and two asystole cases. Person identifiers and explicit linkage are unavailable. The observation is represented once using the full journal report.",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=37"
+  },
+  {
+    "left_report": "doi:10.1164/ajrccm/148.2.304",
+    "right_report": "pmid:9143751",
+    "relationship": "unresolved",
+    "evidence": "The 1997 Methods cite the 1993 paper as the main study and label Study B the pilot. Enrollment and infusion dose differ, with no participant crosswalk.",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/5/article-p410.pdf"
+  },
     {
       "left_report": "openalex:W845426483",
       "right_report": "openalex:W826972704",

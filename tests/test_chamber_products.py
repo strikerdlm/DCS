@@ -9,6 +9,65 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_hypoxic_reactions_and_asma_locators_preserve_explicit_source_identity(release):
+    with connect_pair(release) as db:
+        outcomes = db.execute("""
+            SELECT l.report_id,p.stratum,p.endpoint,p.numerator,p.denominator,p.denominator_unit
+            FROM publication_observation p JOIN model_report_link l USING(source_id)
+            WHERE p.source_id IN ('westendorp97_hypoxic_syncope','ozturk12_chamber_asystole',
+                                 'ottestad17_hypoxic_syncope','simons92_asma_hypoxic_reactions')
+            ORDER BY 1,2,3
+        """).fetchall()
+        assert outcomes == db.execute("""
+            SELECT report_id,reported_group,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-hypobaric-syncope-ascertainment-primary' ORDER BY 1,2,3
+        """).fetchall()
+        assert len(outcomes) == 6
+        assert ("pmid:9143751", "protocol-a-exposures", "hypoxic_syncope_with_asystole",
+                2, 120, "person_exposure") in outcomes
+        assert ("pmid:9143751", "protocol-b-placebo", "hypoxic_syncope_or_presyncope",
+                0, 5, "person") in outcomes
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='asma:1992:421:simons-valk-219' AND right_report='pmid:9143751'
+        """).fetchone() == ("likely_overlap",)
+        assert db.execute("""
+            SELECT report_id, role FROM review.review_study_report
+            WHERE report_id IN ('pmid:9143751','doi:10.1164/ajrccm/148.2.304',
+                                'doi:10.5152/akd.2012.163','pmid:28839003')
+            ORDER BY 1,2
+        """).fetchall() == [
+            ("doi:10.1164/ajrccm/148.2.304", "gas_exchange_context"),
+            ("doi:10.5152/akd.2012.163", "hypoxic_outcome_source"),
+            ("pmid:28839003", "hypoxic_outcome_source"),
+            ("pmid:9143751", "hypoxic_outcome_source"),
+            ("pmid:9143751", "hypoxic_outcome_source"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE source_key='https://journals.physiology.org/doi/abs/10.1152/japplphysiol.00169.2017'
+        """).fetchall() == [("pmid:28839003",)]
+        revised = db.execute("""
+            SELECT l.report_id,a.previous_abstract_number,a.verified_abstract_number,a.printed_page
+            FROM publication_asma_abstract_locator_revision a JOIN model_report_link l USING(source_id)
+            ORDER BY 1
+        """).fetchall()
+        assert revised == [
+            ("asma:1992:386:olson-echo", 9, 6, 386),
+            ("asma:1992:386:scoggins-model", 8, 5, 386),
+            ("asma:1992:386:webb-oxygen-suit", 6, 9, 386),
+            ("asma:1992:411:158", 158, 155, 411),
+        ]
+        assert [(report_id, number) for report_id, _, number, _ in revised] == db.execute("""
+            SELECT report_id,json_extract(metadata_json,'$.source_locator_revision.verified_abstract_number')
+            FROM review.review_record
+            WHERE run_id='2026-11-22-hypobaric-syncope-ascertainment-primary'
+              AND json_type(metadata_json,'$.source_locator_revision')='object'
+            ORDER BY 1
+        """).fetchall()
+
+
 def test_taiwan_conditional_training_symptoms_preserve_one_cohort(release):
     with connect_pair(release) as db:
         model_rates = db.execute("""
