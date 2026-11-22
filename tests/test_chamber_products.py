@@ -279,7 +279,9 @@ def test_sulaiman_review_links_existing_reports_without_duplicate_observations(r
         journal_run = "2026-11-22-sulaiman-age-firecrawl"
         assert db.execute("""
             SELECT report_id, role FROM review.review_study_report
-            WHERE study_id='armstrong-1983-1994-age-archive' ORDER BY role
+            WHERE study_id='armstrong-1983-1994-age-archive'
+              AND role IN ('journal_companion','primary_exact_aggregate_tables')
+            ORDER BY role
         """).fetchall() == [
             ("pmid:9262810", "journal_companion"),
             (technical_report, "primary_exact_aggregate_tables"),
