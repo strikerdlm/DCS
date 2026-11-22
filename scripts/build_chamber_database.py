@@ -276,6 +276,7 @@ SULAIMAN_JOURNAL_AGE_FIGURES = ROOT / "data" / "chamber" / "v1.208"
 WEBB_AFRL_REPEAT_SUSCEPTIBILITY = ROOT / "data" / "chamber" / "v1.209"
 WEBB_PREBREATHE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.210"
 CHAMBER_1995_THRESHOLD_AND_AGE = ROOT / "data" / "chamber" / "v1.211"
+FARNBOROUGH_1995_ABSTRACTS = ROOT / "data" / "chamber" / "v1.212"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2822,6 +2823,17 @@ def build(
                         "publication_zero_prebreathe_group": "threshold_groups.csv",
                         "publication_zero_prebreathe_checkpoint": "threshold_checkpoints.csv",
                         "publication_age_abstract_margin": "age_margins.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    FARNBOROUGH_1995_ABSTRACTS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_planned_exposure": "planned_exposures.csv",
+                        "publication_chamber_onset_mean_sem": "onset_summaries.csv",
                     },
                 )
                 load_register(db, ROOT)

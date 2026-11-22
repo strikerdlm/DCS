@@ -1,0 +1,474 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-farnborough-refresher-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_farnborough_and_usaf_refresher_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "searches": [
+        {
+          "query": "Weien Lee research inside observers Farnborough decompression sickness 1995 1996 high altitude experimental VGE and observer DRA Lee Hay",
+          "filters": {
+            "search_depth": "advanced",
+            "max_results": 6
+          },
+          "receipt_id": "251fde60-11e7-4e02-a03a-0e738773d77c",
+          "results": [
+            {
+              "position": 1,
+              "id": "038f42-00",
+              "title": "Decompression Sickness: U.S. Navy Altitude Chamber Experience 1 October 1981 to 30 September 1988",
+              "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/12/article-p1180.pdf"
+            },
+            {
+              "position": 2,
+              "id": "a965bb-01",
+              "title": "altitude decompression sickness: Topics by Science.gov",
+              "url": "https://www.science.gov/topicpages/a/altitude+decompression+sickness"
+            },
+            {
+              "position": 3,
+              "id": "ff63c6-02",
+              "title": "Decompression to altitude: assumptions, experimental evidence, and future directions",
+              "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_93-deco-to-altitude_assumptions-experimental-evidence-and-future-directions.pdf"
+            },
+            {
+              "position": 4,
+              "id": "77db3d-03",
+              "title": "Arterial gas emboli in altitude-induced decompression sickness",
+              "url": "https://ntrs.nasa.gov/citations/19940007071"
+            },
+            {
+              "position": 5,
+              "id": "949b41-04",
+              "title": "Altitude Decompression Sickness Risk Prediction Research",
+              "url": "https://apps.dtic.mil/sti/tr/pdf/ADP011090.pdf"
+            },
+            {
+              "position": 6,
+              "id": "68ac7f-05",
+              "title": "Altitude Decompression Sickness Risk Assessment Computer (ADRAC) Development",
+              "url": "https://www.academia.edu/85144294/Altitude_Decompression_Sickness_Risk_Assessment_Computer_ADRAC_Development"
+            }
+          ]
+        },
+        {
+          "query": "Reynolds Kemper altitude chamber refresher Type 37 1990 1993 full report incidence trained USAF Brooks",
+          "filters": {
+            "search_depth": "advanced",
+            "max_results": 6
+          },
+          "receipt_id": "63e9c062-e309-4c86-b6e9-4f2551914c6d",
+          "results": [
+            {
+              "position": 1,
+              "id": "2c45ad-00",
+              "title": "https://apps.dtic.mil/sti/tr/pdf/ADA302855.pdf",
+              "url": "https://apps.dtic.mil/sti/tr/pdf/ADA302855.pdf"
+            },
+            {
+              "position": 2,
+              "id": "afc657-01",
+              "title": "ADA257612.pdf - DTIC",
+              "url": "https://apps.dtic.mil/sti/pdfs/ADA257612.pdf"
+            },
+            {
+              "position": 3,
+              "id": "7fe199-02",
+              "title": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+              "url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf"
+            },
+            {
+              "position": 4,
+              "id": "113b55-03",
+              "title": "https://apps.dtic.mil/sti/pdfs/AD1116650.pdf",
+              "url": "https://apps.dtic.mil/sti/pdfs/AD1116650.pdf"
+            },
+            {
+              "position": 5,
+              "id": "0af54d-04",
+              "title": "https://apps.dtic.mil/sti/tr/pdf/ADA521198.pdf",
+              "url": "https://apps.dtic.mil/sti/tr/pdf/ADA521198.pdf"
+            },
+            {
+              "position": 6,
+              "id": "23d29e-05",
+              "title": "https://flightsafety.org/hf/hf_sep-oct92.pdf",
+              "url": "https://flightsafety.org/hf/hf_sep-oct92.pdf"
+            }
+          ]
+        }
+      ],
+      "extract": {
+        "receipt_id": "235b660d-7427-4dda-b632-f89fee021273",
+        "urls": [
+          "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf",
+          "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_628-altitude-deco-illness.pdf"
+        ],
+        "failed_urls": []
+      },
+      "earlier_usaf_exact_title_firecrawl_search": "01a20320-0894-741a-994c-02c6feddf0ea",
+      "archival_catalog_crosscheck": {
+        "id": "W221301634",
+        "authors": [
+          "V M Lee",
+          "Alex E. Hay"
+        ],
+        "year": 2001,
+        "landing_page": "https://apps.dtic.mil/dtic/tr/fulltext/u2/p011091.pdf"
+      }
+    },
+    "note": "The original abstracts and the later Lee and Hay proceedings paper are retrievable. A full report with 1990–1993 USAF refresher denominators was not found.",
+    "records": []
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-farnborough-refresher-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_publisher_and_rendered_abstract_verification",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "publisher_article": {
+        "scrape_id": "01a20323-a9de-70af-90b3-23efada37ea3",
+        "url": "https://asma.kglmeridian.com/view/journals/asem/66/5/article-p463.xml",
+        "status_code": 200
+      }
+    },
+    "note": "The publisher issue record locates the original page. Data were checked on the rendered scan, including the observer table and reported latency SEM.",
+    "records": [
+      {
+        "id": "lee_weien95_farnborough_subjects",
+        "title": "Incidence of decompression sickness (DCS) and venous gas emboli (VGE) at simulated altitudes of 25, 30 and 40,000 ft",
+        "authors": [
+          "V M Lee",
+          "R W Weien"
+        ],
+        "year": 1995,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35",
+        "source_sha256": "e877d408f75279603de254e0089099f8e543e558fa51ab099f1dc2110c9dd0c0",
+        "access": "primary_abstract",
+        "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+        "study_id": "dera-farnborough-1995-research-chamber",
+        "role_review": "overlap_hold",
+        "exposure_context": "hypobaric_research",
+        "observations": [
+          {
+            "id": "research-subject-25000ft-dcs_symptoms_as_reported",
+            "group": "research-subject-25000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 0,
+            "denominator": 15,
+            "denominator_unit": "person",
+            "altitude_ft": 25000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 240,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "The subjects likely overlap the companion report. The observed denominator and outcome scope stay source-specific."
+          },
+          {
+            "id": "research-subject-25000ft-any_vge_as_reported",
+            "group": "research-subject-25000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "any_vge_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 5,
+            "denominator": 15,
+            "denominator_unit": "person",
+            "altitude_ft": 25000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 240,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "Echocardiographic detection of VGE. The abstract does not specify grades for this result."
+          },
+          {
+            "id": "research-subject-30000ft-dcs_symptoms_as_reported",
+            "group": "research-subject-30000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 4,
+            "denominator": 8,
+            "denominator_unit": "person",
+            "altitude_ft": 30000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 240,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "The subjects likely overlap the companion report. The observed denominator and outcome scope stay source-specific."
+          },
+          {
+            "id": "research-subject-30000ft-any_vge_as_reported",
+            "group": "research-subject-30000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "any_vge_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 6,
+            "denominator": 8,
+            "denominator_unit": "person",
+            "altitude_ft": 30000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 240,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "Echocardiographic detection of VGE. The abstract does not specify grades for this result."
+          },
+          {
+            "id": "research-subject-40000ft-dcs_symptoms_as_reported",
+            "group": "research-subject-40000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 2,
+            "denominator": 4,
+            "denominator_unit": "person",
+            "altitude_ft": 40000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 120,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "The subjects likely overlap the companion report. The observed denominator and outcome scope stay source-specific."
+          },
+          {
+            "id": "research-subject-40000ft-any_vge_as_reported",
+            "group": "research-subject-40000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "any_vge_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 2,
+            "denominator": 4,
+            "denominator_unit": "person",
+            "altitude_ft": 40000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 120,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "The same two subjects developed VGE and clinical symptoms at this altitude."
+          }
+        ],
+        "onset_summaries": [
+          {
+            "source_id": "lee_weien95_farnborough_subjects",
+            "stratum": "research-subject-25000ft",
+            "endpoint": "any_vge_as_reported",
+            "mean_onset_min": 123,
+            "standard_error_min": 27,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "Mean latency and standard error of the mean as printed. No individual times are available."
+          },
+          {
+            "source_id": "lee_weien95_farnborough_subjects",
+            "stratum": "research-subject-30000ft",
+            "endpoint": "any_vge_as_reported",
+            "mean_onset_min": 117,
+            "standard_error_min": 33,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "Mean latency and standard error of the mean as printed. No individual times are available."
+          },
+          {
+            "source_id": "lee_weien95_farnborough_subjects",
+            "stratum": "research-subject-30000ft",
+            "endpoint": "dcs_symptoms_as_reported",
+            "mean_onset_min": 169,
+            "standard_error_min": 7,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "Mean latency and standard error of the mean as printed. No individual times are available."
+          },
+          {
+            "source_id": "lee_weien95_farnborough_subjects",
+            "stratum": "research-subject-40000ft",
+            "endpoint": "any_vge_as_reported",
+            "mean_onset_min": 61,
+            "standard_error_min": 3,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "Mean latency and standard error of the mean as printed. No individual times are available."
+          },
+          {
+            "source_id": "lee_weien95_farnborough_subjects",
+            "stratum": "research-subject-40000ft",
+            "endpoint": "dcs_symptoms_as_reported",
+            "mean_onset_min": 68,
+            "standard_error_min": 3,
+            "locator": "Abstract 203, printed p. 497 (PDF p. 35)",
+            "note": "Mean latency and standard error of the mean as printed. No individual times are available."
+          }
+        ],
+        "note": "The denominator is the number of subjects for each profile. Linkage across altitude groups is unavailable. At 40,000 ft the same two participants had clinical DCS and VGE."
+      },
+      {
+        "id": "weien_lee95_farnborough_observers",
+        "title": "Decompression sickness in research inside observers: an unexpectedly high rate",
+        "authors": [
+          "R W Weien",
+          "V M Lee"
+        ],
+        "year": 1995,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35",
+        "source_sha256": "e877d408f75279603de254e0089099f8e543e558fa51ab099f1dc2110c9dd0c0",
+        "access": "primary_abstract",
+        "locator": "Abstract 204, printed p. 497 (PDF p. 35)",
+        "study_id": "dera-farnborough-1995-research-chamber",
+        "role_review": "overlap_hold",
+        "exposure_context": "hypobaric_research",
+        "observations": [
+          {
+            "id": "research-subject-25000ft-dcs_symptoms_as_reported",
+            "group": "research-subject-25000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 0,
+            "denominator": 16,
+            "denominator_unit": "person_exposure",
+            "altitude_ft": 25000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 240,
+            "locator": "Abstract 204, printed p. 497 (PDF p. 35)",
+            "note": "The subjects likely overlap the companion report. The observed denominator and outcome scope stay source-specific.",
+            "reported_rate": 0.0,
+            "reported_rate_as_printed": "0.00",
+            "reported_rate_unit": "proportion"
+          },
+          {
+            "id": "research-subject-30000ft-dcs_symptoms_as_reported",
+            "group": "research-subject-30000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 4,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "altitude_ft": 30000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 240,
+            "locator": "Abstract 204, printed p. 497 (PDF p. 35)",
+            "note": "The subjects likely overlap the companion report. The observed denominator and outcome scope stay source-specific.",
+            "reported_rate": 0.285,
+            "reported_rate_as_printed": "0.285",
+            "reported_rate_unit": "proportion"
+          },
+          {
+            "id": "research-subject-40000ft-dcs_symptoms_as_reported",
+            "group": "research-subject-40000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "research_subject",
+            "cases": 2,
+            "denominator": 6,
+            "denominator_unit": "person_exposure",
+            "altitude_ft": 40000,
+            "prebreathe_min": 60,
+            "planned_altitude_duration_min": 120,
+            "locator": "Abstract 204, printed p. 497 (PDF p. 35)",
+            "note": "The subjects likely overlap the companion report. The observed denominator and outcome scope stay source-specific.",
+            "reported_rate": 0.333,
+            "reported_rate_as_printed": "0.333",
+            "reported_rate_unit": "proportion"
+          },
+          {
+            "id": "inside-observer-25000ft-dcs_symptoms_as_reported",
+            "group": "inside-observer-25000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "inside_observer",
+            "cases": 1,
+            "denominator": 34,
+            "denominator_unit": "observer_exposure",
+            "altitude_ft": 25000,
+            "prebreathe_min": 120,
+            "planned_altitude_duration_min": 120,
+            "locator": "Abstract 204, printed p. 497 (PDF p. 35)",
+            "note": "The single case presented as chokes.",
+            "reported_rate": 0.029,
+            "reported_rate_as_printed": "0.029",
+            "reported_rate_unit": "proportion"
+          },
+          {
+            "id": "inside-observer-30000ft-dcs_symptoms_as_reported",
+            "group": "inside-observer-30000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "inside_observer",
+            "cases": 7,
+            "denominator": 26,
+            "denominator_unit": "observer_exposure",
+            "altitude_ft": 30000,
+            "prebreathe_min": 120,
+            "planned_altitude_duration_min": 120,
+            "locator": "Abstract 204, printed p. 497 (PDF p. 35)",
+            "note": "The authors describe joint pain in these observer cases.",
+            "reported_rate": 0.269,
+            "reported_rate_as_printed": "0.269",
+            "reported_rate_unit": "proportion"
+          },
+          {
+            "id": "inside-observer-40000ft-dcs_symptoms_as_reported",
+            "group": "inside-observer-40000ft",
+            "study_id": "dera-farnborough-1995-research-chamber",
+            "endpoint": "dcs_symptoms_as_reported",
+            "chamber_role": "inside_observer",
+            "cases": 3,
+            "denominator": 7,
+            "denominator_unit": "observer_exposure",
+            "altitude_ft": 40000,
+            "prebreathe_min": 120,
+            "planned_altitude_duration_min": 40,
+            "locator": "Abstract 204, printed p. 497 (PDF p. 35)",
+            "note": "The authors describe joint pain in these observer cases.",
+            "reported_rate": 0.428,
+            "reported_rate_as_printed": "0.428",
+            "reported_rate_unit": "proportion"
+          }
+        ],
+        "observer_phenotype": {
+          "25000_ft": "one case of chokes",
+          "30000_ft": "joint pain",
+          "40000_ft": "joint pain"
+        },
+        "note": "The original table uses exposure denominators. Inside observers and subjects had different prebreathe and planned dwell durations. Participant and chamber-session identifiers are unavailable."
+      },
+      {
+        "id": "reynolds_kemper95_refresher",
+        "title": "Decompression sickness following altitude chamber refresher training exposure",
+        "authors": [
+          "R Reynolds",
+          "G Kemper"
+        ],
+        "year": 1995,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=35",
+        "source_sha256": "e877d408f75279603de254e0089099f8e543e558fa51ab099f1dc2110c9dd0c0",
+        "access": "primary_abstract",
+        "locator": "Abstract 202, printed p. 497 (PDF p. 35)",
+        "study_id": "usaf-reynolds-1990-1993-refresher",
+        "role_review": "overlap_hold",
+        "exposure_context": "operational_training",
+        "measured_period": {
+          "start_year": 1990,
+          "end_year": 1993
+        },
+        "profiles_as_reported": [
+          "Type V",
+          "Type 37"
+        ],
+        "type_37_introduction": "1993-01",
+        "analysis_as_reported": "Log-linear model of chamber profile, reported DCS, duty position and sex.",
+        "outcome_definition": "Reported cases with a final diagnosis of DCS.",
+        "findings": {
+          "profile": "No statistically significant difference before or after adjustment for duty position and sex.",
+          "sex": "The abstract reports an association with DCS in both profiles.",
+          "inside_observer": "An unadjusted association was reported. It was not statistically significant after adjustment for sex."
+        },
+        "cases": null,
+        "exposure_denominator": null,
+        "effect_estimate": null,
+        "uncertainty": null,
+        "note": "The abstract describes a covered population and the adjusted conclusions. No usable raw denominator or numeric adjusted effect is published in this source."
+      }
+    ]
+  }
+]
