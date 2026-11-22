@@ -1,0 +1,16 @@
+source_id,altitude_ft_as_printed,group_subjects_as_printed,explicit_dcs_cases,dcs_percent,dcs_basis,vge_percent,vge_basis,locator,note
+webb95_asma_threshold,11500,10,0,0,explicit_zero,,,"Abstract 200, printed p. 496 (PDF p. 34)",The source says no DCS occurred at lower altitudes.
+webb95_asma_threshold,15000,10,0,0,explicit_zero,20,described_probit_curve,"Abstract 200, printed p. 496 (PDF p. 34)",The source says no DCS occurred at lower altitudes.
+webb95_asma_threshold,16500,10,0,0,explicit_zero,,,"Abstract 200, printed p. 496 (PDF p. 34)",The source says no DCS occurred at lower altitudes.
+webb95_asma_threshold,18000,10,0,0,explicit_zero,,,"Abstract 200, printed p. 496 (PDF p. 34)",The source says no DCS occurred at lower altitudes.
+webb95_asma_threshold,19800,10,0,0,explicit_zero,,,"Abstract 200, printed p. 496 (PDF p. 34)",The source says no DCS occurred at lower altitudes.
+webb95_asma_threshold,21200,10,0,0,explicit_zero,,,"Abstract 200, printed p. 496 (PDF p. 34)",The source says no DCS occurred at lower altitudes.
+webb95_asma_threshold,22500,10,,50,reported_percent,80,described_probit_curve,"Abstract 200, printed p. 496 (PDF p. 34)",The printed 50% has no stated numerator. VGE points are described in the source's probit-curve wording.
+webb95_operational_threshold,11500,11,,0,figure_approximation,0,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.
+webb95_operational_threshold,15000,10,,0,figure_approximation,20,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.
+webb95_operational_threshold,16500,8,,0,figure_approximation,25,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.
+webb95_operational_threshold,18100,10,,0,figure_approximation,30,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.
+webb95_operational_threshold,19800,10,,0,figure_approximation,51,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.
+webb95_operational_threshold,21200,14,,7,figure_approximation,54,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.
+webb95_operational_threshold,22500,15,,46,figure_approximation,87,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.
+webb95_operational_threshold,23800,10,,50,figure_approximation,70,figure_approximation,"Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts.

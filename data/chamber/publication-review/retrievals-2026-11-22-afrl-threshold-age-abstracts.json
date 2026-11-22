@@ -1,0 +1,712 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-afrl-threshold-age-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_threshold_publication_search_and_full_text_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search": {
+        "query": "Defining the altitude threshold of decompression sickness Pilmanis 1995 496 Webb Raising the Operational Ceiling",
+        "filters": {
+          "search_depth": "advanced",
+          "max_results": 6
+        },
+        "receipt_id": "f15c0b18-4a22-483a-b28a-a7187491fc5e",
+        "results": [
+          {
+            "position": 1,
+            "id": "ffe125-00",
+            "title": "Altitude decompression sickness between 6858 and 9144 m following ...",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/15672984"
+          },
+          {
+            "position": 2,
+            "id": "26c98e-01",
+            "title": "Evidence Report: Risk of Decompression Sickness (DCS)",
+            "url": "https://ntrs.nasa.gov/api/citations/20140003729/downloads/20140003729.pdf"
+          },
+          {
+            "position": 3,
+            "id": "5b3c2d-02",
+            "title": "An Abrupt Zero-Preoxygenation Altitude Threshold for ... - AsMA",
+            "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/4/article-p335.pdf"
+          },
+          {
+            "position": 4,
+            "id": "fa4032-03",
+            "title": "Altitude-Induced Decompression Sickness - FAA",
+            "url": "https://www.faa.gov/pilots/safety/pilotsafetybrochures/media/dcs.pdf"
+          },
+          {
+            "position": 5,
+            "id": "0ef19a-04",
+            "title": "altitude decompression sickness: Topics by Science.gov",
+            "url": "https://www.science.gov/topicpages/a/altitude+decompression+sickness"
+          },
+          {
+            "position": 6,
+            "id": "c53102-05",
+            "title": "Decompression sickness - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Decompression_sickness"
+          }
+        ]
+      },
+      "extract": {
+        "receipt_id": "62fdc633-f1f4-4955-8af0-5c8f53459892",
+        "urls": [
+          "https://apps.dtic.mil/sti/tr/pdf/ADA302855.pdf",
+          "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf"
+        ],
+        "failed_urls": []
+      },
+      "earlier_dcs_chapter_extract_receipt": "8502ccc1-b1c9-48cc-9302-d85ac2b2a77c"
+    },
+    "note": "The follow-up retrieval confirmed that the publisher abstract PDF and archived proceedings are accessible. Results were cross-checked against the original rendered pages.",
+    "records": []
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-afrl-threshold-age-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_publisher_and_original_archive_verification",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "publisher_article": {
+        "scrape_id": "01a20311-c757-701a-909e-afa7e941fc6a",
+        "url": "https://asma.kglmeridian.com/view/journals/asem/66/5/article-p463.xml",
+        "status_code": 200
+      },
+      "volume_toc_receipt": "01a2030a-1c6a-73ff-b80b-ffb59159ebdd"
+    },
+    "note": "The TOC and publisher record locate the abstract compilation. The two abstracts share a page and have distinct titles, authors and abstract numbers. The DTIC chapter is a distinct contribution in the proceedings.",
+    "records": [
+      {
+        "id": "asma-abstract-200",
+        "title": "Defining the altitude threshold of decompression sickness",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34",
+        "year": 1995,
+        "file_sha256": "e877d408f75279603de254e0089099f8e543e558fa51ab099f1dc2110c9dd0c0",
+        "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+        "study_id": "afrl-webb-zero-prebreathe-threshold",
+        "role_review": "overlap_hold",
+        "document_type": "conference_abstract",
+        "full_study_report_available_in_this_source": false,
+        "series": {
+          "source_id": "webb95_asma_threshold",
+          "overall_subjects_as_reported": 70,
+          "maximum_altitude_duration_min": 360,
+          "sex_description_as_reported": "male",
+          "exposure_per_person_as_reported": 1,
+          "prebreathe_min": 0,
+          "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+          "note": "Ten subjects per pressure group. At altitude, the participants breathed 100% oxygen and performed mild exercise. VGE monitoring used an HP SONOS 1000."
+        },
+        "groups": [
+          {
+            "source_id": "webb95_asma_threshold",
+            "altitude_ft_as_printed": 11500,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": 0,
+            "dcs_percent": 0,
+            "dcs_basis": "explicit_zero",
+            "vge_percent": null,
+            "vge_basis": null,
+            "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+            "note": "The source says no DCS occurred at lower altitudes."
+          },
+          {
+            "source_id": "webb95_asma_threshold",
+            "altitude_ft_as_printed": 15000,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": 0,
+            "dcs_percent": 0,
+            "dcs_basis": "explicit_zero",
+            "vge_percent": 20,
+            "vge_basis": "described_probit_curve",
+            "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+            "note": "The source says no DCS occurred at lower altitudes."
+          },
+          {
+            "source_id": "webb95_asma_threshold",
+            "altitude_ft_as_printed": 16500,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": 0,
+            "dcs_percent": 0,
+            "dcs_basis": "explicit_zero",
+            "vge_percent": null,
+            "vge_basis": null,
+            "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+            "note": "The source says no DCS occurred at lower altitudes."
+          },
+          {
+            "source_id": "webb95_asma_threshold",
+            "altitude_ft_as_printed": 18000,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": 0,
+            "dcs_percent": 0,
+            "dcs_basis": "explicit_zero",
+            "vge_percent": null,
+            "vge_basis": null,
+            "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+            "note": "The source says no DCS occurred at lower altitudes."
+          },
+          {
+            "source_id": "webb95_asma_threshold",
+            "altitude_ft_as_printed": 19800,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": 0,
+            "dcs_percent": 0,
+            "dcs_basis": "explicit_zero",
+            "vge_percent": null,
+            "vge_basis": null,
+            "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+            "note": "The source says no DCS occurred at lower altitudes."
+          },
+          {
+            "source_id": "webb95_asma_threshold",
+            "altitude_ft_as_printed": 21200,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": 0,
+            "dcs_percent": 0,
+            "dcs_basis": "explicit_zero",
+            "vge_percent": null,
+            "vge_basis": null,
+            "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+            "note": "The source says no DCS occurred at lower altitudes."
+          },
+          {
+            "source_id": "webb95_asma_threshold",
+            "altitude_ft_as_printed": 22500,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 50,
+            "dcs_basis": "reported_percent",
+            "vge_percent": 80,
+            "vge_basis": "described_probit_curve",
+            "locator": "Abstract 200, printed p. 496 (PDF p. 34)",
+            "note": "The printed 50% has no stated numerator. VGE points are described in the source's probit-curve wording."
+          }
+        ],
+        "note": "Printed percentages and explicit zeros are source claims. The VGE values are described in relation to a probit curve."
+      },
+      {
+        "id": "webb-pilmanis-proceedings-threshold",
+        "title": "Altitude Decompression Sickness: Operational Significance",
+        "url": "https://archive.org/download/DTIC_ADA302855/DTIC_ADA302855.pdf#page=60",
+        "year": 1995,
+        "file_sha256": "d3fee4a6a81a287816b410043e87189b456af06a8d3479a7e2603e6c6cb78814",
+        "locator": "Text p. 35 and Figures 2–5, printed pp. 35–37 (PDF pp. 62–64)",
+        "study_id": "afrl-webb-zero-prebreathe-threshold",
+        "role_review": "overlap_hold",
+        "archive_accession": "ADA302855",
+        "chapter_printed_pages": "33–43",
+        "full_text_available": true,
+        "series": {
+          "source_id": "webb95_operational_threshold",
+          "overall_subjects_as_reported": 75,
+          "maximum_altitude_duration_min": null,
+          "sex_description_as_reported": null,
+          "exposure_per_person_as_reported": null,
+          "prebreathe_min": 0,
+          "locator": "Text p. 35 and Figures 2–5, printed pp. 35–37 (PDF pp. 62–64)",
+          "note": "The text gives 75 total. Figures 3 and 5 print eight group Ns that sum to 88. The authors report ongoing recruitment at 21,200 and 22,500 ft."
+        },
+        "groups": [
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 11500,
+            "group_subjects_as_printed": 11,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 0,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 0,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 15000,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 0,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 20,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 16500,
+            "group_subjects_as_printed": 8,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 0,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 25,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 18100,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 0,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 30,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 19800,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 0,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 51,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 21200,
+            "group_subjects_as_printed": 14,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 7,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 54,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "group_subjects_as_printed": 15,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 46,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 87,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 23800,
+            "group_subjects_as_printed": 10,
+            "explicit_dcs_cases": null,
+            "dcs_percent": 50,
+            "dcs_basis": "figure_approximation",
+            "vge_percent": 70,
+            "vge_basis": "figure_approximation",
+            "locator": "Figures 3 and 5, printed pp. 36–37 (PDF pp. 63–64)",
+            "note": "Digitized terminal graph percentages. Printed Ns are kept as labeled. Graph heights supply no case counts."
+          }
+        ],
+        "checkpoints": [
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "any_vge",
+            "figure_number": 2,
+            "elapsed_min": 60,
+            "percent_approx": 72,
+            "figure_subjects_as_printed": null,
+            "locator": "Figure 2, printed p. 35 (PDF p. 62)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "any_vge",
+            "figure_number": 2,
+            "elapsed_min": 120,
+            "percent_approx": 79,
+            "figure_subjects_as_printed": null,
+            "locator": "Figure 2, printed p. 35 (PDF p. 62)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "any_vge",
+            "figure_number": 2,
+            "elapsed_min": 180,
+            "percent_approx": 86,
+            "figure_subjects_as_printed": null,
+            "locator": "Figure 2, printed p. 35 (PDF p. 62)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "any_vge",
+            "figure_number": 2,
+            "elapsed_min": 240,
+            "percent_approx": 86,
+            "figure_subjects_as_printed": null,
+            "locator": "Figure 2, printed p. 35 (PDF p. 62)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "any_vge",
+            "figure_number": 2,
+            "elapsed_min": 300,
+            "percent_approx": 86,
+            "figure_subjects_as_printed": null,
+            "locator": "Figure 2, printed p. 35 (PDF p. 62)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "any_vge",
+            "figure_number": 2,
+            "elapsed_min": 360,
+            "percent_approx": 86,
+            "figure_subjects_as_printed": null,
+            "locator": "Figure 2, printed p. 35 (PDF p. 62)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 60,
+            "percent_approx": 13,
+            "figure_subjects_as_printed": 15,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 120,
+            "percent_approx": 40,
+            "figure_subjects_as_printed": 15,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 180,
+            "percent_approx": 47,
+            "figure_subjects_as_printed": 15,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 240,
+            "percent_approx": 47,
+            "figure_subjects_as_printed": 15,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 300,
+            "percent_approx": 47,
+            "figure_subjects_as_printed": 15,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 22500,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 360,
+            "percent_approx": 47,
+            "figure_subjects_as_printed": 15,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 23800,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 60,
+            "percent_approx": 10,
+            "figure_subjects_as_printed": 10,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 23800,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 120,
+            "percent_approx": 30,
+            "figure_subjects_as_printed": 10,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 23800,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 180,
+            "percent_approx": 40,
+            "figure_subjects_as_printed": 10,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 23800,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 240,
+            "percent_approx": 40,
+            "figure_subjects_as_printed": 10,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 23800,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 300,
+            "percent_approx": 50,
+            "figure_subjects_as_printed": 10,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          },
+          {
+            "source_id": "webb95_operational_threshold",
+            "altitude_ft_as_printed": 23800,
+            "endpoint": "dcs_symptoms",
+            "figure_number": 4,
+            "elapsed_min": 360,
+            "percent_approx": 50,
+            "figure_subjects_as_printed": 10,
+            "locator": "Figure 4, printed p. 36 (PDF p. 63)",
+            "note": "Nearest whole percentage point on the published trajectory. No per-person onset or censoring was inferred."
+          }
+        ],
+        "plotted_group_subjects_sum": 88,
+        "figure_basis": "Visual readings from the rendered grids, recorded to the nearest whole percentage point. Temporal checkpoints are 60 minutes apart.",
+        "denominator_conflict": "Seventy-five in prose and 88 when adding the eight plotted Ns. The meaning of the difference is not established.",
+        "later_scope_comparison": {
+          "report_id": "pmid:9561279",
+          "later_total_men_as_reported": 124,
+          "at_21200_ft": {
+            "abstract_n": 10,
+            "proceedings_n": 14,
+            "later_n": 20
+          },
+          "at_22500_ft": {
+            "abstract_n": 10,
+            "proceedings_n": 15,
+            "later_n": 20
+          },
+          "at_near_18000_ft": {
+            "abstract_ft": 18000,
+            "proceedings_ft": 18100,
+            "later_ft": 18100
+          }
+        },
+        "source_estimated_tables": "Tables 1 and 2 on pp. 40–41 separately present chamber-supported cells and estimated cells with no denominators. These tables supply no observations in this intake."
+      },
+      {
+        "id": "asma-abstract-201",
+        "title": "Relationship between age and susceptibility to decompression sickness",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34",
+        "year": 1995,
+        "file_sha256": "e877d408f75279603de254e0089099f8e543e558fa51ab099f1dc2110c9dd0c0",
+        "locator": "Abstract 201, printed p. 496 (PDF p. 34)",
+        "study_id": "armstrong-1983-1994-age-archive",
+        "role_review": "overlap_hold",
+        "document_type": "conference_abstract",
+        "full_study_report_available_in_this_source": false,
+        "all_altitude_subject_flights": 1299,
+        "high_altitude_subset_subject_flights": 111,
+        "reported_exposure_duration_hours": [
+          4,
+          8
+        ],
+        "stated_prebreathe_min": 60,
+        "resolved_prebreathe_scope": null,
+        "prebreathe_scope_note": "The one-hour statement follows the 111-exposure subset description. Its applicability to the entire sample is unresolved. The final journal gives 0–135 minutes of prebreathe and 3–8 hours of exposure in Methods.",
+        "age_margins": [
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "18-21",
+            "percent_as_printed": "23.53",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-18-21",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "22-25",
+            "percent_as_printed": "24.74",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-22-25",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "26-29",
+            "percent_as_printed": "37.60",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-26-29",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "30-33",
+            "percent_as_printed": "37.24",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-30-33",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "34-37",
+            "percent_as_printed": "37.93",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-34-37",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "38-41",
+            "percent_as_printed": "38.18",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-38-41",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "all_altitudes",
+            "age_label_as_printed": "Over 42",
+            "percent_as_printed": "63",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "all-altitudes-age-above-42",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "18-21",
+            "percent_as_printed": "30.00",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-18-21",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "22-25",
+            "percent_as_printed": "52.94",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-22-25",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "26-29",
+            "percent_as_printed": "65.63",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-26-29",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "30-33",
+            "percent_as_printed": "64.29",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-30-33",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "34-37",
+            "percent_as_printed": "90.91",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-34-37",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "38-41",
+            "percent_as_printed": "57.14",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-38-41",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          },
+          {
+            "source_id": "sulaiman95_asma_age",
+            "altitude_scope": "29500_to_30000_ft",
+            "age_label_as_printed": "Over 42",
+            "percent_as_printed": "100",
+            "archive_source_id": "sulaiman95_age_report",
+            "archive_stratum": "29500-to-30000-ft-age-above-42",
+            "archive_endpoint": "symptomatic_dcs_author_susceptible",
+            "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+          }
+        ],
+        "archive_link_basis": "Each printed value agrees with the matching exact row in the 1995 technical report to the displayed precision.",
+        "subset_interpretations": {
+          "abstract": "The authors describe higher susceptibility among those over 42 as supported.",
+          "journal": "The authors describe no statistically significant increase in the subset.",
+          "journal_report_id": "pmid:9262810"
+        }
+      }
+    ]
+  }
+]
