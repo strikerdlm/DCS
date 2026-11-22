@@ -9,6 +9,82 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_kumar_cmb_timing_reconciles_one_cohort_across_reports(release):
+    with connect_pair(release) as db:
+        parent = db.execute("""
+            SELECT numerator,denominator,analysis_role,outcome_window FROM publication_observation
+            WHERE source_id='powell93_cmb125' AND stratum='all-subjects'
+              AND endpoint='type_i_pain_dcs_as_reported'
+        """).fetchone()
+        assert parent[:3] == (22, 125, "overlap_hold")
+        assert parent[3].startswith("First 180 minutes at altitude")
+        revision_count, = db.execute("""
+            SELECT count(*) FROM publication_observation_revision
+            WHERE source_id='powell93_cmb125' AND evidence_source_id='kumar92_fulltext_cmb_timing'
+              AND previous_denominator=denominator
+        """).fetchone()
+        assert revision_count == 11
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit,analysis_role,outcome_window
+            FROM publication_observation WHERE source_id='kumar92_fulltext_cmb_timing' ORDER BY stratum
+        """).fetchall() == [
+            ("early-cmb-detection", 10, 22, "person", "overlap_hold", parent[3]),
+            ("late-cmb-detection", 9, 27, "person", "overlap_hold", parent[3]),
+        ]
+        assert db.execute("""
+            SELECT reported_group,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation WHERE report_id='pmid:1445159'
+              AND study_id='nasa-jsc-cmb-time-125' ORDER BY reported_group
+        """).fetchall() == [
+            ("early-cmb-detection", 10, 22, "person", "overlap_hold"),
+            ("late-cmb-detection", 9, 27, "person", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:19940023490:microbubble-time' AND right_report='pmid:1445159'
+        """).fetchall() == [("same_cohort",)]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
+def test_kumar_cmb_timing_preserves_conflicts_and_post_symptom_delays(release):
+    with connect_pair(release) as db:
+        header = db.execute("""
+            SELECT symptomatic_header_as_printed,asymptomatic_header_as_printed,
+                   symptomatic_from_verified_cells,asymptomatic_from_verified_cells
+            FROM publication_cmb_timing_reconciliation
+        """).fetchone()
+        assert header == (30, 19, 19, 30)
+        assert db.execute("""
+            SELECT people,at_9144_m_as_printed,at_6400_m_as_printed,
+                   initial_spencer_grade_mean,cmb_duration_mean_min
+            FROM publication_cmb_timing_stratum ORDER BY stratum
+        """).fetchall() == [(22, 6, 16, 2.2, 92.6), (27, 11, 16, 1.9, 61.6)]
+        assert db.execute("""
+            SELECT denominator,altitude FROM publication_observation
+            WHERE source_id='powell93_cmb125' AND stratum='lower-test-altitude'
+        """).fetchone() == (25, None)
+        delays = [row[0] for row in db.execute("""
+            SELECT time_from_symptoms_to_first_cmb_min FROM publication_cmb_after_dcs_delay
+            ORDER BY time_from_symptoms_to_first_cmb_min
+        """)]
+        assert delays == [2, 28, 35]
+        effects = db.execute("""
+            SELECT estimate,ci95_lower,ci95_upper FROM publication_jsc_exposure_association
+            WHERE source_id='kumar92_fulltext_cmb_timing' ORDER BY estimate
+        """).fetchall()
+        assert effects == [(0.73, 0.36, 1.48), (0.92, 0.89, 0.95), (29.56, 7.66, 114.27), (29.59, 7.66, 114.27)]
+        metadata, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE run_id='2026-11-22-kumar92-cmb-timing-firecrawl' AND report_id='pmid:1445159'
+        """).fetchone()
+        source = json.loads(metadata)
+        assert source["excluded_cmb_after_dcs_delays_min"] == delays
+        assert source["annual_report_table2_headers_printed"] == {"symptomatic": header[0], "asymptomatic": header[1]}
+        assert all(row["eligibility"] == "overlap_hold" for row in source["observed_exposure_associations"])
+
+
 def test_kumar_jsc_fulltext_revises_window_without_duplicating_margins(release):
     with connect_pair(release) as db:
         assert db.execute("""

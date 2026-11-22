@@ -1,0 +1,257 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-kumar92-cmb-timing-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_cmb_timing_source_comparison",
+    "reported_total": null,
+    "note": "Compared the journal full text with the NASA catalogue and annual report. A failed publisher retry was followed by a successful extraction.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "0e7cc416-1451-4767-85ea-636db94ede81",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+          "status": "retrieved"
+        },
+        {
+          "request_id": "f0bff1b2-c551-4e25-bc6f-f80fd635b34d",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+          "status": "fetch_failed_on_retry"
+        },
+        {
+          "request_id": "36f0bb73-000b-47cb-9f1c-715cdf6da553",
+          "urls": [
+            "https://ntrs.nasa.gov/citations/19930032156",
+            "https://ntrs.nasa.gov/api/citations/19940023490/downloads/19940023490.pdf#page=125"
+          ],
+          "status": "retrieved"
+        },
+        {
+          "request_id": "715b9336-dc3c-4aa2-b84a-486a2826a43f",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+          "status": "retrieved"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "kumar92_fulltext_cmb_timing",
+        "title": "Time to detection of circulating microbubbles as a risk factor for symptoms of altitude decompression sickness",
+        "authors": [
+          "K V Kumar",
+          "D S Calkins",
+          "J M Waligora",
+          "J H Gilbert III",
+          "M R Powell"
+        ],
+        "year": 1992,
+        "pmid": "1445159",
+        "ntrs_id": "19930032156",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+        "accession_url": "https://ntrs.nasa.gov/citations/19930032156",
+        "source_sha256": "d2d439e31520772710307d3ad5c7d61e46efb37a91f076421266ce5b4cd497a9",
+        "access": "full_text",
+        "locator": "Methods, Results and Tables I–III, printed pp. 962–963 (PDF pp. 2–3)",
+        "study_id": "nasa-jsc-cmb-time-125",
+        "role_review": "duplicate_retrieval_same_report"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-kumar92-cmb-timing-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_cmb_timing_original_table_verification",
+    "reported_total": 1,
+    "note": "The journal page images and NASA annual report establish cohort identity and resolve the transposed header. The printed altitude partition remains unresolved.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a20374-bacb-7365-b9bf-6c05b6ca5025",
+          "url": "https://ntrs.nasa.gov/citations/19930032156"
+        },
+        {
+          "scrape_id": "01a20376-5668-724d-b405-dbb08cb689ca",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "kumar92_fulltext_cmb_timing",
+        "title": "Time to detection of circulating microbubbles as a risk factor for symptoms of altitude decompression sickness",
+        "authors": [
+          "K V Kumar",
+          "D S Calkins",
+          "J M Waligora",
+          "J H Gilbert III",
+          "M R Powell"
+        ],
+        "year": 1992,
+        "pmid": "1445159",
+        "ntrs_id": "19930032156",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+        "accession_url": "https://ntrs.nasa.gov/citations/19930032156",
+        "source_sha256": "d2d439e31520772710307d3ad5c7d61e46efb37a91f076421266ce5b4cd497a9",
+        "access": "full_text",
+        "locator": "Methods, Results and Tables I–III, printed pp. 962–963 (PDF pp. 2–3)",
+        "study_id": "nasa-jsc-cmb-time-125",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "early-cmb-detection",
+            "group": "early-cmb-detection",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 10,
+            "denominator": 22,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 963 (PDF p. 3)",
+            "outcome_window": "First 180 minutes at altitude, the clinical analysis horizon. Nominal exposures lasted 3–6 h.",
+            "chamber_role": "research_subject",
+            "note": "First CMB detected at or before 60 min at altitude. Conditional on detected CMB. Excludes three people whose first CMB was detected after symptom onset. A clinical event in this comparison is pain-only Type I DCS."
+          },
+          {
+            "id": "late-cmb-detection",
+            "group": "late-cmb-detection",
+            "endpoint": "type_i_pain_dcs_as_reported",
+            "study_id": "nasa-jsc-cmb-time-125",
+            "cases": 9,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "denominator_basis": "author_reconstructed",
+            "analysis_role": "overlap_hold",
+            "locator": "Table III, printed p. 963 (PDF p. 3)",
+            "outcome_window": "First 180 minutes at altitude, the clinical analysis horizon. Nominal exposures lasted 3–6 h.",
+            "chamber_role": "research_subject",
+            "note": "First CMB detected after 60 min at altitude. Conditional on detected CMB. Excludes three people whose first CMB was detected after symptom onset. A clinical event in this comparison is pain-only Type I DCS."
+          }
+        ],
+        "prior_parent_report_id": "ntrs:19940023490:microbubble-time",
+        "prior_parent_source_id": "powell93_cmb125",
+        "clinical_outcome_window": "First 180 minutes at altitude, the clinical analysis horizon. Nominal exposures lasted 3–6 h.",
+        "window_correction_locator": "Methods, Results and Table I, printed p. 962 (PDF p. 2)",
+        "annual_report_table2_headers_printed": {
+          "symptomatic": 30,
+          "asymptomatic": 19
+        },
+        "verified_timing_cells_totals": {
+          "symptomatic": 19,
+          "asymptomatic": 30
+        },
+        "annual_report_table2_locator": "Table 2, Medical and Life Sciences p. 16 (PDF p. 125)",
+        "annual_report_table2_url": "https://ntrs.nasa.gov/api/citations/19940023490/downloads/19940023490.pdf#page=125",
+        "timing_strata": [
+          {
+            "stratum": "early-cmb-detection",
+            "people": 22,
+            "age_mean_years": 32.4,
+            "age_sd_years": 8.0,
+            "bmi_mean": 24.6,
+            "bmi_sd": 2.4,
+            "activity_score_mean": 4.2,
+            "activity_score_sd": 2.5,
+            "initial_spencer_grade_mean": 2.2,
+            "initial_spencer_grade_sd": 1.0,
+            "cmb_duration_mean_min": 92.6,
+            "cmb_duration_sd_min": 55.7,
+            "men": 22,
+            "women": 0,
+            "at_9144_m_as_printed": 6,
+            "at_6400_m_as_printed": 16,
+            "prebreathe_0_min": 6,
+            "prebreathe_210_min": 8,
+            "prebreathe_240_min": 7,
+            "prebreathe_360_min": 1,
+            "locator": "Table II, printed p. 963 (PDF p. 3)"
+          },
+          {
+            "stratum": "late-cmb-detection",
+            "people": 27,
+            "age_mean_years": 34.6,
+            "age_sd_years": 7.9,
+            "bmi_mean": 24.4,
+            "bmi_sd": 1.8,
+            "activity_score_mean": 5.3,
+            "activity_score_sd": 1.9,
+            "initial_spencer_grade_mean": 1.9,
+            "initial_spencer_grade_sd": 0.9,
+            "cmb_duration_mean_min": 61.6,
+            "cmb_duration_sd_min": 30.6,
+            "men": 23,
+            "women": 4,
+            "at_9144_m_as_printed": 11,
+            "at_6400_m_as_printed": 16,
+            "prebreathe_0_min": 11,
+            "prebreathe_210_min": 7,
+            "prebreathe_240_min": 6,
+            "prebreathe_360_min": 3,
+            "locator": "Table II, printed p. 963 (PDF p. 3)"
+          }
+        ],
+        "altitude_conflict": "The printed lower-altitude cells total 32 in the 49-person subgroup versus 25 in the 125-person parent. Preserve the printed stratum labels and hold the altitude comparison. Methods also gives 6,400 m while parent Table I prints 6,440 m.",
+        "excluded_cmb_after_dcs_delays_min": [
+          2,
+          28,
+          35
+        ],
+        "excluded_delays_locator": "Results, printed p. 962 (PDF p. 2)",
+        "observed_exposure_associations": [
+          {
+            "estimate_id": "late-cmb-crude-table-iii",
+            "contrast": "Late (>60 min) vs early (≤60 min) first CMB detection among the 49 selected people",
+            "method": "crude_relative_risk_as_reported",
+            "estimate": 0.73,
+            "ci95_lower": 0.36,
+            "ci95_upper": 1.48,
+            "locator": "Table III, printed p. 963 (PDF p. 3)",
+            "note": "Conditional on detected CMB. Excludes three people whose first CMB was detected after symptom onset. A clinical event in this comparison is pain-only Type I DCS.",
+            "eligibility": "overlap_hold"
+          },
+          {
+            "estimate_id": "late-cmb-adjusted-table-iii",
+            "contrast": "Late (>60 min) vs early (≤60 min) first CMB detection among the 49 selected people",
+            "method": "cox_adjusted_hazard_ratio",
+            "estimate": 0.92,
+            "ci95_lower": 0.89,
+            "ci95_upper": 0.95,
+            "locator": "Table III, printed p. 963 (PDF p. 3)",
+            "note": "Printed as relative risk. Adjusted for age, sex, BMI, activity, final altitude, denitrogenation, initial CMB grade and time-dependent CMB duration.",
+            "eligibility": "overlap_hold"
+          },
+          {
+            "estimate_id": "time-varying-cmb-results",
+            "contrast": "CMB detected vs not yet detected in the full 125-person cohort",
+            "method": "cox_time_dependent_hazard_ratio",
+            "estimate": 29.56,
+            "ci95_lower": 7.66,
+            "ci95_upper": 114.27,
+            "locator": "Results, printed p. 962 (PDF p. 2)",
+            "note": "Results value agrees with NASA annual report p. 15. Abstract gives 29.59 for this same estimate.",
+            "eligibility": "overlap_hold"
+          },
+          {
+            "estimate_id": "time-varying-cmb-abstract",
+            "contrast": "CMB detected vs not yet detected in the full 125-person cohort",
+            "method": "cox_time_dependent_hazard_ratio",
+            "estimate": 29.59,
+            "ci95_lower": 7.66,
+            "ci95_upper": 114.27,
+            "locator": "Abstract, printed p. 961 (PDF p. 1)",
+            "note": "Alternate printed value of the Results estimate, with the same interval.",
+            "eligibility": "overlap_hold"
+          }
+        ],
+        "note": "The same five authors, methods, 125-person and 49-person analysis sets, all Table I clinical margins, and the four outcome cells in journal Table III and annual-report Table 2 identify the same cohort and timing analysis. The annual report has the two symptom-status header counts transposed."
+      }
+    ]
+  }
+]

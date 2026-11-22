@@ -281,6 +281,7 @@ USAF_EXERCISE_TRIAL = ROOT / "data" / "chamber" / "v1.213"
 HDSD_RISK_SET_RECONCILIATION = ROOT / "data" / "chamber" / "v1.214"
 NASA_SOAR_REPEAT_EXPOSURE = ROOT / "data" / "chamber" / "v1.215"
 NASA_JSC_EPIDEMIOLOGY = ROOT / "data" / "chamber" / "v1.216"
+NASA_CMB_TIMING = ROOT / "data" / "chamber" / "v1.217"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2892,6 +2893,21 @@ def build(
                     },
                 )
                 apply_publication_revisions(db, "kumar93_fulltext_jsc")
+                load_version_tables(
+                    db,
+                    NASA_CMB_TIMING,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_observation_revision": "observation_revisions.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_cmb_timing_stratum": "timing_strata.csv",
+                        "publication_cmb_timing_reconciliation": "timing_reconciliation.csv",
+                        "publication_cmb_after_dcs_delay": "cmb_after_dcs_delays.csv",
+                        "publication_jsc_exposure_association": "exposure_associations.csv",
+                    },
+                )
+                apply_publication_revisions(db, "kumar92_fulltext_cmb_timing")
                 load_register(db, ROOT)
                 db.commit()
         finally:
