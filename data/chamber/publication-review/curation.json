@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-nasa-ea6-vge-panels-verified#ea6-max-grade-panels",
+      "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea6",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20260003261/downloads/2026_05_18_AsMA_Garbino_EA_v2.pdf",
+      "basis": "Exact NTRS accession, PDF and title match the existing study source."
+    },
+    {
+      "record_key": "2026-11-21-nasa-ea6-vge-panels-verified#ea6-asma-version-of-record",
+      "report_id": "record:2026-11-20-eds-training#rfxje4gd3n",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=22",
+      "basis": "The byline, original abstract number and text match the early AsMA program and EBSCO occurrences."
+    },
+    {
+      "record_key": "2026-11-21-nasa-ea6-vge-panels-verified#ea6-aerospace-participant-account",
+      "report_id": "report:aerospace-2026-ea6-participant-account",
+      "evidence_url": "https://aerospace.org/node/52618/printable/print",
+      "basis": "The institutional title, article URL and date identify this distinct publication."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.37/search_hits.csv#detail_v37_eva:5",
       "report_id": "ntrs:20220015737",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx",
@@ -22422,6 +22440,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:aerospace-2026-ea6-participant-account",
+      "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea6",
+      "relationship": "describes_one_crew_in_same_ea6_campaign",
+      "evidence_url": "https://aerospace.org/node/52618/printable/print",
+      "evidence": "The account explicitly identifies NASA EA6 at Johnson Space Center in 2025 and describes one seven-day test with five successive six-hour EVAs, Doppler and ultrasound. It is a subset of the two cohorts in the clinical deck."
+    },
     {
       "left_report": "ntrs:20220015737",
       "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",

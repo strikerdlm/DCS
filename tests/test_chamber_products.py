@@ -3206,7 +3206,7 @@ def test_asma_case_keeps_assessment_timing_and_reuses_the_published_report(relea
         assert db.execute("""
             SELECT count(*),count(DISTINCT report_id) FROM review.review_record
             WHERE url LIKE '%20260003261%'
-        """).fetchone() == (7, 1)
+        """).fetchone() == (8, 1)
         assert db.execute("""
             SELECT report_id FROM review.review_study_report
             WHERE study_id='nasa-exploration-atmosphere-test-6' ORDER BY role
@@ -6366,6 +6366,43 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
             WHERE n.source_id='lee_hay01' AND n.endpoint='left_ventricular_gas_source'
             ORDER BY n.stratum
         """).fetchall() == expected
+
+
+def test_nasa_ea6_plotted_grades_preserve_session_and_modality(release):
+    with connect_pair(release) as db:
+        rows = db.execute("""
+            SELECT CAST(substr(stratum,5) AS INTEGER),modality,grading_scale,highest_plotted_grade
+            FROM discovery_eva_vge_plot_maximum WHERE source_id='garbino_ea6'
+            ORDER BY modality,CAST(substr(stratum,5) AS INTEGER)
+        """).fetchall()
+        days = (3, 4, 5, 6, 7, 14, 15, 16, 17, 18)
+        expected = [
+            (day, modality, scale, grade)
+            for modality, scale, grades in (
+                ("cardiac_ultrasonography", "Modified Eftedal–Brubakk", (6, 5, 4, 6, 6, 4, 3, 3, 2, 3)),
+                ("doppler", "Spencer", (3, 3, 3, 4, 4, 1, 3, 3, 3, 2)),
+            )
+            for day, grade in zip(days, grades, strict=True)
+        ]
+        assert rows == expected
+        assert db.execute("""
+            SELECT sum(numerator),sum(denominator) FROM discovery_observation
+            WHERE source_id='garbino_ea6' AND endpoint='dcs' AND stratum LIKE 'day-%'
+        """).fetchone() == (3, 61)
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM discovery_observation
+            WHERE source_id='garbino_ea6' AND stratum='all-reported'
+        """).fetchone() == (3, 62, "denominator_conflict")
+        record = db.execute("""
+            SELECT report_id,metadata_json FROM review.review_record
+            WHERE record_key='2026-11-21-nasa-ea6-vge-panels-verified#ea6-max-grade-panels'
+        """).fetchone()
+        assert record[0] == "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea6"
+        panels = json.loads(record[1])["session_grade_maxima"]
+        assert sorted(
+            (row["modality"], row["stratum"], row["grading_scale"], row["highest_plotted_grade"])
+            for row in panels
+        ) == sorted((modality, f"day-{day}", scale, grade) for day, modality, scale, grade in expected)
 
 
 def test_nasa_ea1_checkout_preserves_vge_participant_scope_and_grade_disagreement(release):
