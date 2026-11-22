@@ -9,6 +9,70 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_soar_repeated_exposure_keeps_person_and_exposure_counts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='kumar91_soar_repeated_exposures' AND stratum IN
+                  ('all-chamber-exposures','all-participants','symptomatic-exposures')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("all-chamber-exposures", 56, 345, "person_exposure"),
+            ("all-participants", 42, 126, "person"),
+            ("symptomatic-exposures", 2, 56, "dcs_case"),
+        ]
+        assert db.execute("""
+            SELECT stratification,cumulative_exposure_band,sum(without_dcs),sum(with_dcs)
+            FROM publication_repeat_exposure_participant_cell
+            GROUP BY stratification,cumulative_exposure_band ORDER BY stratification,cumulative_exposure_band
+        """).fetchall() == [
+            (factor, band, no, yes)
+            for factor in ("cmb_runs", "none", "sex", "tr360")
+            for band, no, yes in [("at_most_3", 73, 27), ("more_than_3", 11, 15)]
+        ]
+        assert db.execute("""
+            SELECT without_dcs,with_dcs FROM publication_repeat_exposure_participant_cell
+            WHERE stratification='sex' AND stratum='female' AND cumulative_exposure_band='more_than_3'
+        """).fetchone() == (0, 0)
+        assert db.execute("""
+            SELECT count(*),sum(denominator=0) FROM review.review_search_observation
+            WHERE study_id='nasa-jsc-soar90-repeated-exposure-126' AND role_review='overlap_hold'
+        """).fetchone() == (23, 0)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
+def test_soar_repeated_exposure_effects_and_reports_are_cross_linked(release):
+    with connect_pair(release) as db:
+        expected = [
+            ("cmb_runs", "mantel_haenszel", 1.3, 0.01, 137.5, None),
+            ("none", "crude_cross_product", 3.7, 1.8, 8.7, None),
+            ("sex", "mantel_haenszel", 2.7, 0.9, 7.5, 1),
+            ("tr360", "mantel_haenszel", 5.2, 1.8, 14.7, 1),
+        ]
+        assert db.execute("""
+            SELECT stratification,method,odds_ratio,ci95_lower,ci95_upper,marked_chi_square_p_lt_005
+            FROM publication_repeat_exposure_odds_ratio ORDER BY stratification
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT json_extract(e.value,'$.stratification'),json_extract(e.value,'$.method'),
+                   json_extract(e.value,'$.odds_ratio'),json_extract(e.value,'$.ci95_lower'),
+                   json_extract(e.value,'$.ci95_upper'),json_extract(e.value,'$.marked_chi_square_p_lt_005')
+            FROM review.review_record r JOIN json_each(r.metadata_json,'$.effects') e
+            WHERE r.report_id='openalex:W757732385' AND json_extract(e.value,'$.eligibility')='overlap_hold'
+            ORDER BY 1
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_record
+            WHERE record_key LIKE '2026-11-22-soar-repeated-exposures-%#%'
+        """).fetchone() == (2, 1)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE left_report='openalex:W757732385' AND relationship='likely_overlap'
+        """).fetchone() == (4,)
+
+
 def test_hdsd_calibration_reconciliation_uses_each_risk_bin_once(release):
     with connect_pair(release) as db:
         rows = db.execute("""

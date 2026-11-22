@@ -1,0 +1,5 @@
+source_id,stratification,method,odds_ratio,ci95_lower,ci95_upper,marked_chi_square_p_lt_005,locator,note
+kumar91_soar_repeated_exposures,none,crude_cross_product,3.7,1.8,8.7,,"Table III, printed p. 635 (PDF p. 3)",The outcome is cumulative participant-ever DCS observed over different numbers of chamber exposures. Sequence-specific hazards are unavailable.
+kumar91_soar_repeated_exposures,sex,mantel_haenszel,2.7,0.9,7.5,1,"Table IV, printed p. 635 (PDF p. 3)",The authors marked chi-square p<0.05 although the reported 95% interval spans 1. Women have no participants above three exposures.
+kumar91_soar_repeated_exposures,cmb_runs,mantel_haenszel,1.3,0.01,137.5,,"Table IV, printed p. 635 (PDF p. 3)",This stratification uses CMB observed during exposure. Different exposure counts allow different numbers of bubble-detection opportunities.
+kumar91_soar_repeated_exposures,tr360,mantel_haenszel,5.2,1.8,14.7,1,"Table IV, printed p. 635 (PDF p. 3)",Separate stratification by tissue ratio. This is not a jointly adjusted estimate.
