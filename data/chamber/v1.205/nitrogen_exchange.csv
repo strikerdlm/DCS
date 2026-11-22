@@ -1,0 +1,4 @@
+source_id,condition,stage,scope,participants,mean_washout_ml_min,sd_washout_ml_min,ci_lower,ci_upper,locator,note
+anell19,b,6,all_measured_participants,8,0.3,8.3,,,Results p. 527 and Figure 4 p. 529,"Whole group at the last 20,000-ft plateau."
+anell19,b,6,excluding_symptomatic_participant,7,-2.5,2.9,-5.1,0.21,Results p. 527 and Figure 4 p. 529,Negative washout denotes net nitrogen uptake. The authors exclude the participant who developed knee pain.
+anell19,b,6,symptomatic_participant,1,19.4,,,,Results p. 527 and Figure 4 p. 529,"Single participant at the preceding 20,000-ft plateau, with source grades EB 3 to 4. The main clinical narrative places symptoms after reaching the last 24,000-ft plateau."

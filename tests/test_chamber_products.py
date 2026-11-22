@@ -9,6 +9,76 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_anell_2019_condition_count_and_reported_rate_have_distinct_scopes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,cases,denominator,denominator_unit,analysis_role
+            FROM web_observation WHERE source_id='anell19' ORDER BY stratum,endpoint
+        """).fetchall() == [
+            ("a", "any_vge", 8, 8, "person_exposure", "overlap_hold"),
+            ("b", "any_vge", 8, 8, "person_exposure", "overlap_hold"),
+            ("b", "dcs", 1, 8, "person_exposure", "overlap_hold"),
+            ("c", "any_vge", 6, 8, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT scope,percent_as_reported,numerator,denominator FROM web_chamber_reported_dcs_rate
+            WHERE source_id='anell19'
+        """).fetchone() == ("overall_including_complete_pretrial_exposures", 3.3, None, None)
+        assert db.execute("""
+            SELECT stratum,endpoint FROM shared_case_evidence WHERE source_id='anell19'
+        """).fetchall() == [("b-last-24000ft-knee-pain", "dcs_related_knee_pain_as_reported")]
+        assert db.execute("""
+            SELECT case_id,report_id,source_time_min,first_assessment_min FROM historical_case_catalog
+            WHERE source_id='anell19'
+        """).fetchall() == [("anell19:b-last-24000ft-knee-pain", "pmid:31101137", None, None)]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE report_id='pmid:31101137' AND endpoint='dcs'
+        """).fetchall() == [(1, 8)]
+
+
+def test_anell_2019_preserves_stage_and_measurement_scopes(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT condition,count(*),sum(planned_duration_min) FROM web_chamber_protocol_plateau
+            WHERE source_id='anell19' GROUP BY condition ORDER BY condition
+        """).fetchall() == [("a", 1, 80), ("b", 7, 140), ("c", 7, 140)]
+        assert db.execute("""
+            SELECT c.source_onset_stage,p.altitude_ft,c.symptom
+            FROM web_chamber_clinical_case c JOIN web_chamber_protocol_plateau p
+              ON (p.source_id,p.condition,p.stage)=(c.source_id,c.condition,c.source_onset_stage)
+            WHERE c.source_id='anell19'
+        """).fetchone() == (7, 24000, "Knee pain.")
+        assert db.execute("""
+            SELECT n.scope,n.participants,p.altitude_ft,n.mean_washout_ml_min,n.sd_washout_ml_min,n.ci_lower,n.ci_upper
+            FROM web_chamber_nitrogen_exchange n JOIN web_chamber_protocol_plateau p USING(source_id,condition,stage)
+            WHERE n.source_id='anell19' ORDER BY n.scope
+        """).fetchall() == [
+            ("all_measured_participants", 8, 20000, 0.3, 8.3, None, None),
+            ("excluding_symptomatic_participant", 7, 20000, -2.5, 2.9, -5.1, 0.21),
+            ("symptomatic_participant", 1, 20000, 19.4, None, None, None),
+        ]
+        assert db.execute("""
+            SELECT condition,median_peak_rest_grade,median_peak_rest_and_knee_bends_grade,median_last_grade
+            FROM web_chamber_vge_summary WHERE source_id='anell19' ORDER BY condition
+        """).fetchall() == [("a",2,2.5,2), ("b",2.5,3.5,2.5), ("c",0,1,0)]
+
+
+def test_anell_2019_full_text_upgrades_existing_source_identity(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table,source_id,record_key FROM model_report_link WHERE report_id='pmid:31101137'
+        """).fetchall() == [("web_source", "anell19", "legacy:data/chamber/v1.2/sources.csv#anell19")]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE pmid='31101137' OR doi='10.3357/amhp.5207.2019'
+        """).fetchone() == (5, 1, "pmid:31101137")
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation WHERE left_report='pmid:35063055'
+            AND right_report='pmid:31101137' AND relationship='reuses_exposures'
+        """).fetchone() == (1,)
+
+
 def test_anell_original_exposure_counts_and_transition_windows(release):
     with connect_pair(release) as db:
         assert db.execute("""

@@ -61,13 +61,19 @@ def link_published_cases(db):
             # published case before any new time fields can enter its record.
             matched = db.execute("""
                 INSERT INTO shared_case_evidence
+                WITH model_cases AS (
+                    SELECT source_id,stratum,endpoint,locator FROM evidence.publication_observation
+                    WHERE numerator=1 AND denominator IS NULL
+                    UNION ALL
+                    SELECT source_id,stratum,endpoint,locator FROM evidence.web_chamber_clinical_case
+                )
                 SELECT p.source_id,p.stratum,p.endpoint,r.record_key,r.observation_id,r.report_id,
                        :onset_min,:first_assessment_min,:recurrence_report_day,
                        :recurrence_free_followup_min,r.locator,p.locator
-                FROM evidence.publication_observation p JOIN evidence.review_search_observation r
+                FROM model_cases p JOIN evidence.review_search_observation r
                 WHERE (p.source_id,p.stratum,p.endpoint)=(:source_id,:stratum,:endpoint)
                   AND (r.record_key,r.observation_id,r.report_id)=(:record_key,:observation_id,:report_id)
-                  AND p.numerator=1 AND r.cases=1 AND p.denominator IS NULL AND r.denominator IS NULL
+                  AND r.cases=1 AND r.denominator IS NULL
                   AND EXISTS (
                       SELECT 1 FROM evidence.review_record a WHERE a.source_key=p.source_id
                       AND a.stream GLOB 'data/chamber/v1.*/sources.csv'

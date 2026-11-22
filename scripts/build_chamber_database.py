@@ -269,6 +269,7 @@ BURKHARDT_CHAMBER_RADIOGRAPHY = ROOT / "data" / "chamber" / "v1.201"
 ELIA_ULTRASOUND = ROOT / "data" / "chamber" / "v1.202"
 TUCI_NORMOXIC_CROSSOVER = ROOT / "data" / "chamber" / "v1.203"
 ANELL_CHAMBER_VGE = ROOT / "data" / "chamber" / "v1.204"
+ANELL_2019_CHAMBER_TRIAL = ROOT / "data" / "chamber" / "v1.205"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2708,6 +2709,20 @@ def build(
                         "literature_vge_repeatability_cohort": "repeatability_cohort.csv",
                         "literature_vge_repeatability": "repeatability.csv",
                         "literature_vge_repeatability_grade_range": "repeatability_grade_ranges.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    ANELL_2019_CHAMBER_TRIAL,
+                    {
+                        "web_observation": "observations.csv",
+                        "web_overlap": "overlap.csv",
+                        "web_chamber_source_extract": "source_extracts.csv",
+                        "web_chamber_protocol_plateau": "plateaus.csv",
+                        "web_chamber_clinical_case": "clinical_cases.csv",
+                        "web_chamber_reported_dcs_rate": "reported_rates.csv",
+                        "web_chamber_vge_summary": "vge_summaries.csv",
+                        "web_chamber_nitrogen_exchange": "nitrogen_exchange.csv",
                     },
                 )
             if rojas_supplement:

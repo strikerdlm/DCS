@@ -1,6 +1,36 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.2/sources.csv#anell19",
+      "report_id": "pmid:31101137",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/90/6/article-p524.xml",
+      "basis": "Archived metadata and the publisher's original full text describe the same article with PMID 31101137 and DOI 10.3357/AMHP.5207.2019."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#31101137",
+      "report_id": "pmid:31101137",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/90/6/article-p524.xml",
+      "basis": "Archived metadata and the publisher's original full text describe the same article with PMID 31101137 and DOI 10.3357/AMHP.5207.2019."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:31101137",
+      "report_id": "pmid:31101137",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/90/6/article-p524.xml",
+      "basis": "Archived metadata and the publisher's original full text describe the same article with PMID 31101137 and DOI 10.3357/AMHP.5207.2019."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2944863218",
+      "report_id": "pmid:31101137",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/90/6/article-p524.xml",
+      "basis": "Archived metadata and the publisher's original full text describe the same article with PMID 31101137 and DOI 10.3357/AMHP.5207.2019."
+    },
+    {
+      "record_key": "2026-11-22-anell2019-firecrawl#anell-2019-verified-full-text",
+      "report_id": "pmid:31101137",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/amhp/90/6/article-p524.xml",
+      "basis": "Archived metadata and the publisher's original full text describe the same article with PMID 31101137 and DOI 10.3357/AMHP.5207.2019."
+    },
+    {
       "report_id": "pmid:31852568",
       "record_key": "2026-11-20-formal-chamber-pubmed#31852568",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/91/1/article-p11.pdf",
@@ -18717,6 +18747,12 @@
   ],
   "studies": [
     {
+      "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+      "label": "Ånell 2019 normoxic crossover with simulated 24,000-ft cabin pressure",
+      "period": "Reported 2019",
+      "setting": "Swedish experimental hypobaric chamber"
+    },
+    {
       "study_id": "anell-2020-normoxic-altitude-alternation",
       "label": "Ånell and colleagues' original normoxic altitude alternation crossover",
       "period": "Reported 2020",
@@ -20572,6 +20608,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+      "report_id": "pmid:31101137",
+      "role": "primary_chamber_crossover",
+      "locator": "Methods pp. 525-526, Results p. 527 and Table I p. 529"
+    },
     {
       "study_id": "anell-2020-normoxic-altitude-alternation",
       "report_id": "pmid:31852568",
@@ -23688,6 +23730,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:31101137",
+      "right_report": "pmid:31852568",
+      "relationship": "unresolved",
+      "evidence": "Common Swedish chamber investigators and similar recruitment. Original pressure sequences differ. Participant linkage is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/6/article-p524.pdf"
+    },
     {
       "left_report": "pmid:35063055",
       "right_report": "pmid:31101137",

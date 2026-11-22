@@ -1,0 +1,335 @@
+[
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-anell2019-tavily",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text_and_endpoint_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "receipt_ids": [
+        "d995e557-ea1d-448e-8cdd-44d9ef365b24",
+        "94d1edf7-d3c9-4694-b4ef-eb3b936d2599"
+      ],
+      "target_pmid": "31101137"
+    },
+    "note": "Earlier full-text retrieval located the original Table I and Fig. 4. The direct retry failed. The local publisher PDF and Firecrawl PDF supply the results.",
+    "records": []
+  },
+  {
+    "date": "2026-11-22",
+    "status": "observed",
+    "id": "2026-11-22-anell2019-firecrawl",
+    "provider": "Firecrawl",
+    "operation": "supplementary_verified_primary_case_and_alternation_protocols",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "receipt_ids": [
+        "01a202aa-2e02-72c5-9f6a-3d71fc34dd37",
+        "01a202af-5784-77ae-afe3-233c0b80c573"
+      ],
+      "original_pdf": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/6/article-p524.pdf"
+    },
+    "note": "The publisher PDF Results and Figure 4 support the individual episode and the eight observed condition-B visits. The authors' overall rate includes pretrial exposures.",
+    "records": [
+      {
+        "id": "anell-2019-verified-full-text",
+        "title": "Nitrogen Washout and Venous Gas Emboli During Sustained vs. Discontinuous High-Altitude Exposures",
+        "doi": "10.3357/amhp.5207.2019",
+        "pmid": "31101137",
+        "year": 2019,
+        "url": "https://asma.kglmeridian.com/view/journals/amhp/90/6/article-p524.xml",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/90/6/article-p524.pdf",
+        "file_sha256": "56c8a2c200a7eed699b3e7c6d5d6aa1861862d3cf2a593b4879b90aa43bf5ee7",
+        "full_text_available": true,
+        "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+        "role_review": "overlap_hold",
+        "locator": "Methods pp. 525-526, Results p. 527 and Table I p. 529",
+        "note": "Full-text extraction linked to the existing v1.2 source. Participant overlap with later Ånell reports is unresolved.",
+        "cohort_scope": {
+          "participants": 8,
+          "completed_all_three_conditions": 7,
+          "experimental_design": "Eight men in a repeat crossover, with at least 72 h between trials. Ascent and descent 5,000 ft/min. Chamber air during initial ascent and final descent below 10,000 ft, and premixed 46.5% oxygen during transitions between 10,000 and 24,000 ft. The rebreather targeted inspired oxygen partial pressure of 21 kPa. VGE and clinical symptoms were checked every 5 min. Knee bends were performed every 15 min.",
+          "pretrial_exposure_count": null,
+          "clinical_outcome_window": "During the chamber trial. Fixed delayed follow-up is unspecified.",
+          "reported_overall_incidence_percent": 3.3,
+          "reported_overall_incidence_denominator": null,
+          "reported_overall_incidence_note": "The paper's 3.3% includes complete pretrial exposures. The matching numerator and exact overall exposure denominator are unspecified.",
+          "low_plateau_C_any_vge_report": "No VGE observed at the 900-ft intervals.",
+          "arterial_bubbles": "None reported during the exposures.",
+          "vge_condition_C_range_note": "The abstract prints a combined peak range of 1-2. Results also reports VGE in six of eight. The abstract does not define the sample for its range.",
+          "condition_B_initial_nitrogen_washout_missing": 3,
+          "condition_B_initial_nitrogen_washout_available": 5
+        },
+        "pressure_plateaus": [
+          {
+            "condition": "a",
+            "stage": 1,
+            "altitude_ft": 24000,
+            "planned_duration_min": 80,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "b",
+            "stage": 1,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "b",
+            "stage": 2,
+            "altitude_ft": 20000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "b",
+            "stage": 3,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "b",
+            "stage": 4,
+            "altitude_ft": 20000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "b",
+            "stage": 5,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "b",
+            "stage": 6,
+            "altitude_ft": 20000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "b",
+            "stage": 7,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "c",
+            "stage": 1,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "c",
+            "stage": 2,
+            "altitude_ft": 900,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "900-ft interval. Plateau gas concentration is unspecified.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "c",
+            "stage": 3,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "c",
+            "stage": 4,
+            "altitude_ft": 900,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "900-ft interval. Plateau gas concentration is unspecified.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "c",
+            "stage": 5,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "c",
+            "stage": 6,
+            "altitude_ft": 900,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": null,
+            "breathing_gas": "900-ft interval. Plateau gas concentration is unspecified.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          },
+          {
+            "condition": "c",
+            "stage": 7,
+            "altitude_ft": 24000,
+            "planned_duration_min": 20,
+            "target_inspired_po2_kpa": 21,
+            "breathing_gas": "Normoxic rebreather target.",
+            "locator": "Methods, printed p. 526, Figure 1"
+          }
+        ],
+        "clinical_case": {
+          "stratum": "b-last-24000ft-knee-pain",
+          "endpoint": "dcs_related_knee_pain_as_reported",
+          "condition": "b",
+          "source_onset_stage": 7,
+          "source_onset_description": "After the last decompression to 24,000 ft. Exact minutes to the occurrence of knee pain are unspecified.",
+          "symptom": "Knee pain.",
+          "diagnosis_as_reported": "The investigators regarded the symptoms as DCS-related.",
+          "treatment": "Oxygen and recompression to surface pressure.",
+          "immediate_outcome": "Pain disappeared promptly during recompression.",
+          "locator": "Results, first paragraph, printed p. 527"
+        },
+        "vge_summaries": [
+          {
+            "condition": "a",
+            "median_peak_rest_grade": 2,
+            "median_peak_rest_and_knee_bends_grade": 2.5,
+            "median_last_grade": 2,
+            "locator": "Table I, printed p. 529"
+          },
+          {
+            "condition": "b",
+            "median_peak_rest_grade": 2.5,
+            "median_peak_rest_and_knee_bends_grade": 3.5,
+            "median_last_grade": 2.5,
+            "locator": "Table I, printed p. 529"
+          },
+          {
+            "condition": "c",
+            "median_peak_rest_grade": 0,
+            "median_peak_rest_and_knee_bends_grade": 1,
+            "median_last_grade": 0,
+            "locator": "Table I, printed p. 529"
+          }
+        ],
+        "nitrogen_exchange_last_b_20000ft": [
+          {
+            "condition": "b",
+            "stage": 6,
+            "scope": "all_measured_participants",
+            "participants": 8,
+            "mean_washout_ml_min": 0.3,
+            "sd_washout_ml_min": 8.3,
+            "ci_lower": null,
+            "ci_upper": null,
+            "locator": "Results p. 527 and Figure 4 p. 529",
+            "note": "Whole group at the last 20,000-ft plateau."
+          },
+          {
+            "condition": "b",
+            "stage": 6,
+            "scope": "excluding_symptomatic_participant",
+            "participants": 7,
+            "mean_washout_ml_min": -2.5,
+            "sd_washout_ml_min": 2.9,
+            "ci_lower": -5.1,
+            "ci_upper": 0.21,
+            "locator": "Results p. 527 and Figure 4 p. 529",
+            "note": "Negative washout denotes net nitrogen uptake. The authors exclude the participant who developed knee pain."
+          },
+          {
+            "condition": "b",
+            "stage": 6,
+            "scope": "symptomatic_participant",
+            "participants": 1,
+            "mean_washout_ml_min": 19.4,
+            "sd_washout_ml_min": null,
+            "ci_lower": null,
+            "ci_upper": null,
+            "locator": "Results p. 527 and Figure 4 p. 529",
+            "note": "Single participant at the preceding 20,000-ft plateau, with source grades EB 3 to 4. The main clinical narrative places symptoms after reaching the last 24,000-ft plateau."
+          }
+        ],
+        "observations": [
+          {
+            "id": "a-any_vge-condition-outcome",
+            "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+            "group": "a",
+            "endpoint": "any_vge",
+            "cases": 8,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results and Figure 2, printed p. 527",
+            "note": "VGE was observed in the right ventricle in every subject. Figure 2 reports a plotted population of eight."
+          },
+          {
+            "id": "b-any_vge-condition-outcome",
+            "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+            "group": "b",
+            "endpoint": "any_vge",
+            "cases": 8,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results and Figure 2, printed p. 527",
+            "note": "VGE was observed in the right ventricle in every subject. Figure 2 reports a plotted population of eight."
+          },
+          {
+            "id": "c-any_vge-condition-outcome",
+            "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+            "group": "c",
+            "endpoint": "any_vge",
+            "cases": 6,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results and Figure 2, printed p. 527",
+            "note": "The Results explicitly report VGE in six of eight."
+          },
+          {
+            "id": "b-dcs-condition-outcome",
+            "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+            "group": "b",
+            "endpoint": "dcs",
+            "cases": 1,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "locator": "Results, first paragraph, printed p. 527; Figure 4, printed p. 529",
+            "note": "Eight condition-B visits are supported by the symptomatic participant and seven others in the last 20,000-ft stage. The symptomatic visit reached the final 24,000-ft stage and ended with recompression."
+          },
+          {
+            "id": "b-last-24000ft-knee-pain",
+            "study_id": "anell-2019-normoxic-24k-discontinuous-crossover",
+            "group": "b-last-24000ft-knee-pain",
+            "endpoint": "dcs_related_knee_pain_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "locator": "Results, first paragraph, printed p. 527",
+            "note": "One clinical episode. The condition-B group count refers to the same occurrence. The main Results give relative onset after the final decompression to 24,000 ft."
+          }
+        ]
+      }
+    ]
+  }
+]
