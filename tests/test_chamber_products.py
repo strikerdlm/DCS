@@ -9,6 +9,70 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_hdsd_calibration_reconciliation_uses_each_risk_bin_once(release):
+    with connect_pair(release) as db:
+        rows = db.execute("""
+            SELECT lower_probability_pct,upper_probability_pct,observed_dcs_cases,journal_denominator,
+                   nasa_denominator_as_printed FROM publication_hdsd_calibration_bin
+            WHERE analysis_role='in_sample_with_vge_observed_during_exposure'
+            ORDER BY lower_probability_pct
+        """).fetchall()
+        assert rows == [
+            (0, 10, 19, 941, 491), (10, 20, 22, 101, 101), (20, 30, 15, 63, 63),
+            (30, 40, 20, 58, 58), (40, 50, 27, 58, 58), (50, 60, 22, 36, 36),
+            (60, 70, 10, 20, 20), (70, 80, 9, 15, 15), (80, 90, 5, 8, 8), (90, 100, 19, 22, 22),
+        ]
+        assert db.execute("""
+            SELECT sum(observed_dcs_cases),sum(journal_denominator),sum(nasa_denominator_as_printed)
+            FROM publication_hdsd_calibration_bin
+        """).fetchone() == (168, 1322, 872)
+        assert db.execute("""
+            SELECT report_id,count(*),sum(cases),sum(denominator)
+            FROM review.review_search_observation
+            WHERE endpoint='observed_dcs_in_fitted_probability_bin' AND role_review='overlap_hold'
+              AND study_id='hdsd-vge-complete-1322'
+            GROUP BY report_id
+        """).fetchall() == [("pmid:9451528", 10, 168, 1322)]
+        assert db.execute("""
+            SELECT j.report_id,n.report_id FROM publication_hdsd_calibration_bin b
+            JOIN model_report_link j ON (j.source_table,j.source_id)=('publication_source',b.source_id)
+            JOIN model_report_link n ON (n.source_table,n.source_id)=('publication_source',b.comparison_source_id)
+            WHERE b.lower_probability_pct=0
+        """).fetchone() == ("pmid:9451528", "openalex:W816582818")
+
+
+def test_hdsd_validation_and_archive_counts_preserve_nested_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,denominator_unit,analysis_role FROM publication_observation
+            WHERE source_id IN ('conkin96_historical_validation','conkin01_nasa_tp210775','conkin_powell95_asma_fit')
+            ORDER BY stratum,endpoint
+        """).fetchall() == [
+            ("211-test-archive-dcs-margin", 1574, 3895, "person_exposure", "overlap_hold"),
+            ("52-group-historical-validation", 326, 1009, "person_exposure", "overlap_hold"),
+            ("66-test-derivation-abstract", 209, 1075, "person_exposure", "overlap_hold"),
+            ("archive-vge-detection-margin", 536, 1401, "person_exposure", "overlap_hold"),
+            ("three-wartime-validation-groups", 12, 54, "person_exposure", "overlap_hold"),
+            ("three-wartime-validation-groups", 11, 12, "dcs_case", "case_conditional"),
+        ]
+        assert db.execute("""
+            SELECT reported_group,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation WHERE study_id='hdsd-52-group-historical-validation'
+            ORDER BY reported_group,cases DESC
+        """).fetchall() == [
+            ("52-group-historical-validation", 326, 1009, "person_exposure", "overlap_hold"),
+            ("three-wartime-validation-groups", 12, 54, "person_exposure", "overlap_hold"),
+            ("three-wartime-validation-groups", 11, 12, "dcs_case", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='asma:1995:491:168'
+        """).fetchall() == [("pmid:8834946", "likely_overlap")]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_usaf_exercise_table_reproduces_outcomes_within_participant(release):
     with connect_pair(release) as db:
         counts = db.execute("""
@@ -5290,7 +5354,9 @@ def test_hdsd_reanalysis_preserves_two_partitions_and_original_vge_discrepancy(r
             SELECT report_id,role FROM review.review_study_report
             WHERE study_id='hdsd-vge-complete-1322' ORDER BY report_id
         """).fetchall() == [
-            ("ntrs:20030019353", "subset_reanalysis"), ("pmid:9451528", "primary_outcome"),
+            ("ntrs:20030019353", "subset_reanalysis"),
+            ("openalex:W816582818", "companion_in_sample_calibration_figure"),
+            ("pmid:9451528", "primary_outcome"),
         ]
         assert db.execute("""
             SELECT report_id FROM review.review_record

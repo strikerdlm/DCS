@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.214/sources.csv#conkin_powell95_asma_fit",
+      "report_id": "asma:1995:491:168",
+      "basis": "The original publisher scan verifies the authors, exact title and distinct meeting abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-reconciliation-tavily#conkin_powell95_asma_fit",
+      "report_id": "asma:1995:491:168",
+      "basis": "The original publisher scan verifies the authors, exact title and distinct meeting abstract number.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.214/sources.csv#conkin96_historical_validation",
+      "report_id": "pmid:8834946",
+      "basis": "The NASA-hosted journal scan agrees with the indexed PMID 8834946 on title, authors, volume and pages.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8834946/"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-reconciliation-tavily#conkin96_historical_validation",
+      "report_id": "pmid:8834946",
+      "basis": "The NASA-hosted journal scan agrees with the indexed PMID 8834946 on title, authors, volume and pages.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8834946/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.214/sources.csv#conkin01_nasa_tp210775",
+      "report_id": "openalex:W816582818",
+      "basis": "OpenAlex W816582818 and NASA NTRS 20020023532 identify the same NASA Technical Publication by title, author and publication venue.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20020023532"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-reconciliation-firecrawl#conkin01_nasa_tp210775",
+      "report_id": "openalex:W816582818",
+      "basis": "OpenAlex W816582818 and NASA NTRS 20020023532 identify the same NASA Technical Publication by title, author and publication venue.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20020023532"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.214/sources.csv#conkin98_calibration_figure",
+      "report_id": "pmid:9451528",
+      "basis": "The publisher figure is from the already extracted PMID 9451528 article and all ten bins sum to its Table I total.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9451528/"
+    },
+    {
+      "record_key": "2026-11-22-hdsd-reconciliation-tavily#conkin98_calibration_figure",
+      "report_id": "pmid:9451528",
+      "basis": "The publisher figure is from the already extracted PMID 9451528 article and all ten bins sum to its Table I total.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9451528/"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.213/sources.csv#pilmanis99_exercise_fulltext",
       "report_id": "pmid:9895017",
       "basis": "The journal original and PMID 9895017 identify the existing article.",
@@ -19095,6 +19143,24 @@
   ],
   "studies": [
     {
+      "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
+      "label": "HDSD 66-test modified tissue-ratio derivation",
+      "period": "Approximately 1975–1990",
+      "setting": "NASA and USAF experimental hypobaric chambers"
+    },
+    {
+      "study_id": "hdsd-52-group-historical-validation",
+      "label": "HDSD 52-group historical validation of the modified tissue-ratio model",
+      "period": "1940 to approximately 1975",
+      "setting": "USAF research chambers"
+    },
+    {
+      "study_id": "hdsd-211-test-survival-archive",
+      "label": "HDSD archive-wide event-time summaries in NASA TP-2001-210775",
+      "period": "Historical exposures abstracted from the literature. Full analytic test dates unreported.",
+      "setting": "Literature-sourced experimental chamber archive"
+    },
+    {
       "study_id": "usaf-brooks-exercise-altitude-dcs",
       "label": "Brooks AFB within-participant exercise at simulated altitude",
       "period": "Clinical exposure dates unspecified. Preliminary report published in 1995.",
@@ -21010,6 +21076,42 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
+      "report_id": "asma:1995:491:168",
+      "role": "preliminary_derivation_analysis",
+      "locator": "Abstract 168, printed p. 491 (PDF p. 29)"
+    },
+    {
+      "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
+      "report_id": "pmid:8834946",
+      "role": "journal_derivation_summary",
+      "locator": "Abstract and Methods, printed pp. 176–177"
+    },
+    {
+      "study_id": "hdsd-52-group-historical-validation",
+      "report_id": "pmid:8834946",
+      "role": "author_external_validation_and_wartime_subset",
+      "locator": "Methods, printed p. 178 (PDF p. 3); External Validation and Fig. 6, printed p. 182 (PDF p. 7)"
+    },
+    {
+      "study_id": "hdsd-211-test-survival-archive",
+      "report_id": "openalex:W816582818",
+      "role": "archive_empirical_event_time_summaries",
+      "locator": "Figures 2 and 3 and Data, printed pp. 3–5"
+    },
+    {
+      "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
+      "report_id": "openalex:W816582818",
+      "role": "historical_fit_reanalysis",
+      "locator": "Figure 5, printed p. 9 (PDF p. 13)"
+    },
+    {
+      "study_id": "hdsd-vge-complete-1322",
+      "report_id": "openalex:W816582818",
+      "role": "companion_in_sample_calibration_figure",
+      "locator": "Figure 7, printed p. 10 (PDF p. 14)"
+    },
     {
       "study_id": "usaf-brooks-exercise-altitude-dcs",
       "report_id": "pmid:9895017",
@@ -24228,6 +24330,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "asma:1995:491:168",
+      "right_report": "pmid:8834946",
+      "relationship": "likely_overlap",
+      "evidence": "The two reports share 66 NASA and USAF hypobaric chamber tests, 1,075 exposures, similar predictors and exclusion of paresthesia in the described DCS analysis. The 209 and 211 numerators differ for an unresolved reason. Treat the reports as overlapping.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29"
+    },
+    {
+      "left_report": "openalex:W816582818",
+      "right_report": "pmid:8834946",
+      "relationship": "partial_overlap",
+      "evidence": "NASA TP-2001-210775 references the 1996 model paper for the 66-test, 1,075-record fit. Its overall archive analysis has a broader scope. The 1996 paper separately reports the 52-group historical validation sample. Individual membership of the reports is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf"
+    },
+    {
+      "left_report": "openalex:W816582818",
+      "right_report": "pmid:9451528",
+      "relationship": "partial_overlap",
+      "evidence": "The NASA report Figure 7 and the 1998 journal Figure 4 have the same ten bins, fitted cohort size of 1,322, and 168 DCS cases. Nine printed fractions match exactly. The first NASA label is 19/491, while the journal figure and text both report 19/941, which reconciles the aggregate and matches the plotted incidence. The bins are a subset analysis of the archival report, and do not contribute additional exposures to the 1998 journal cohort.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf"
+    },
     {
       "left_report": "asma:1995:491:167",
       "right_report": "pmid:9895017",

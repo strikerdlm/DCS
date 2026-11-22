@@ -1,0 +1,426 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-hdsd-reconciliation-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_hdsd_risk_set_source_comparison",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "667190b2-5207-425c-9895-b90f43f25cc5",
+          "query": "66 test, 1,075 record NASA and USAF analysis and isolated paresthesia definition"
+        },
+        {
+          "request_id": "c620121b-abdb-401f-b9a7-a6fc297964dc",
+          "query": "326 cases in 1,009 historical validation exposures and 52 chamber groups"
+        },
+        {
+          "request_id": "a46940f0-3c2a-4f54-8d27-a85182dd8b62",
+          "query": "1996 PubMed metadata, HDSD catalogue and OpenAlex NASA technical report record"
+        },
+        {
+          "request_id": "8a0d6402-da00-4f63-8757-79ca80858aed",
+          "query": "1322-record 1998 publication and the Figure 4 denominators"
+        },
+        {
+          "request_id": "067172a1-0f40-4205-bb57-4983854edb1c",
+          "query": "AsMA 1995 publisher issue including abstracts 167 and 168"
+        }
+      ]
+    },
+    "note": "Primary PDF scans were checked for numeric labels and page location. Searches supplied no row-level linkage for the historical validation archive.",
+    "records": [
+      {
+        "id": "conkin_powell95_asma_fit",
+        "title": "A modified tissue ratio for hypobaric decompressions",
+        "authors": [
+          "J Conkin",
+          "M R Powell"
+        ],
+        "year": 1995,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=29",
+        "source_sha256": "e877d408f75279603de254e0089099f8e543e558fa51ab099f1dc2110c9dd0c0",
+        "access": "primary_abstract",
+        "locator": "Abstract 168, printed p. 491 (PDF p. 29)",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "66-test-derivation-abstract-dcs_symptoms_as_reported",
+            "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
+            "group": "66-test-derivation-abstract",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 209,
+            "denominator": 1075,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Abstract 168, printed p. 491 (PDF p. 29)",
+            "outcome_window": "From arrival at the final test pressure to symptom report or the scheduled end of the chamber exposure.",
+            "protocol": "Sixty-six NASA and USAF research tests at variable altitude plateaus. Paresthesia excluded.",
+            "note": "Existing v1.1 conkin96 reports 211/1,075. Both records are source-specific presentations of overlapping tests. The two-event difference is unresolved."
+          }
+        ],
+        "study_id": "hdsd-66-test-modified-tissue-ratio-fit",
+        "source_reported_fit_tests": 66,
+        "comparison_journal_cases": 211,
+        "comparison_journal_risk_set": "Existing v1.1 conkin96",
+        "note": "The two reports share 66 NASA and USAF hypobaric chamber tests, 1,075 exposures, similar predictors and exclusion of paresthesia in the described DCS analysis. The 209 and 211 numerators differ for an unresolved reason. Treat the reports as overlapping."
+      },
+      {
+        "id": "conkin96_historical_validation",
+        "title": "A probabilistic model of hypobaric decompression sickness based on 66 chamber tests",
+        "authors": [
+          "J Conkin",
+          "K V Kumar",
+          "M R Powell",
+          "P P Foster",
+          "J M Waligora"
+        ],
+        "year": 1996,
+        "url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-survival-analysis-1996.pdf",
+        "primary_source": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-survival-analysis-1996.pdf",
+        "source_sha256": "8b67655fe62900690d89283eda787414bb4ee63f2693347609bc08e9c0086e7d",
+        "access": "full_text",
+        "locator": "Methods, printed p. 178 (PDF p. 3); External Validation and Fig. 6, printed p. 182 (PDF p. 7)",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "52-group-historical-validation-dcs_symptoms_as_reported",
+            "study_id": "hdsd-52-group-historical-validation",
+            "group": "52-group-historical-validation",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 326,
+            "denominator": 1009,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Methods, printed p. 178 (PDF p. 3)",
+            "outcome_window": "From arrival at the final test pressure to symptom report or the scheduled end of the chamber exposure.",
+            "protocol": "52 USAF chamber groups of men. Repetitive exercise in 575 exposures, predominantly lower body in 457. Mean test pressure 5.8 psia, duration 4.66 h and tissue ratio 1.92 (0.90–2.98).",
+            "note": "Source-designated external validation for the 1996 model. VGE unavailable. Test-level identities and overlap with indexed historical cohorts are unresolved."
+          },
+          {
+            "id": "three-wartime-validation-groups-dcs_symptoms_as_reported",
+            "study_id": "hdsd-52-group-historical-validation",
+            "group": "three-wartime-validation-groups",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 12,
+            "denominator": 54,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "External Validation and Fig. 6, printed p. 182 (PDF p. 7)",
+            "outcome_window": "From arrival at the final test pressure to symptom report or the scheduled end of the chamber exposure.",
+            "protocol": "Three oxygen prebreathing validation tests during wartime high-altitude bombing research. About 3.0 psia for 2–4 h.",
+            "note": "Nested within the 326/1,009 validation sample. The authors describe possible underreporting of mild symptoms. Three separate group denominators are unavailable.",
+            "parent_risk_set": "52-group-historical-validation"
+          },
+          {
+            "id": "three-wartime-validation-groups-exposure_termination_among_dcs_cases",
+            "study_id": "hdsd-52-group-historical-validation",
+            "group": "three-wartime-validation-groups",
+            "endpoint": "exposure_termination_among_dcs_cases",
+            "cases": 11,
+            "denominator": 12,
+            "denominator_unit": "dcs_case",
+            "chamber_role": "research_subject",
+            "locator": "External Validation and Fig. 6, printed p. 182 (PDF p. 7)",
+            "outcome_window": "Scheduled end of test, among the 12 reported DCS events.",
+            "protocol": "Three oxygen prebreathing validation tests during wartime high-altitude bombing research. About 3.0 psia for 2–4 h.",
+            "note": "Severe enough for early termination in 11 cases. This denominator counts DCS cases within the wartime subset.",
+            "parent_risk_set": "three-wartime-validation-groups"
+          }
+        ],
+        "pmid": "8834946",
+        "study_id": "hdsd-52-group-historical-validation",
+        "authors_external_validation_groups": 52,
+        "repetitive_exercise_exposures": 575,
+        "predominantly_lower_body_exercise_exposures": 457,
+        "mean_pressure_psia": 5.8,
+        "mean_plateau_hours": 4.66,
+        "mean_dcs_failure_hours": 1.0,
+        "vge_available": false,
+        "pre_existing_fit_source": "data/chamber/v1.1/observations.csv#conkin96"
+      },
+      {
+        "id": "conkin98_calibration_figure",
+        "title": "Information about venous gas emboli improves prediction of hypobaric decompression sickness",
+        "authors": [
+          "J Conkin",
+          "M R Powell",
+          "P P Foster",
+          "J M Waligora"
+        ],
+        "year": 1998,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/1/article-p8.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/1/article-p8.pdf",
+        "source_sha256": "d2a37d08eee7e4432daa5a93a536dacf2f4a7cd69184f1b0abe6ce214c5d9dfb",
+        "access": "full_text",
+        "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "calibration-bin-00",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-00-to-10-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 19,
+            "denominator": 941,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 491,
+            "lower_probability_pct": 0,
+            "upper_probability_pct": 10,
+            "note": "The journal text confirms 19/941 and the plot is near 2%. The printed NASA label gives 19/491. Using the journal denominator reconciles the declared 1,322 records."
+          },
+          {
+            "id": "calibration-bin-10",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-10-to-20-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 22,
+            "denominator": 101,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 101,
+            "lower_probability_pct": 10,
+            "upper_probability_pct": 20,
+            "note": "Observed fraction agrees in both figures."
+          },
+          {
+            "id": "calibration-bin-20",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-20-to-30-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 15,
+            "denominator": 63,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 63,
+            "lower_probability_pct": 20,
+            "upper_probability_pct": 30,
+            "note": "Observed fraction agrees in both figures."
+          },
+          {
+            "id": "calibration-bin-30",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-30-to-40-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 20,
+            "denominator": 58,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 58,
+            "lower_probability_pct": 30,
+            "upper_probability_pct": 40,
+            "note": "Observed fraction agrees in both figures."
+          },
+          {
+            "id": "calibration-bin-40",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-40-to-50-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 27,
+            "denominator": 58,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 58,
+            "lower_probability_pct": 40,
+            "upper_probability_pct": 50,
+            "note": "Observed fraction agrees in both figures."
+          },
+          {
+            "id": "calibration-bin-50",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-50-to-60-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 22,
+            "denominator": 36,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 36,
+            "lower_probability_pct": 50,
+            "upper_probability_pct": 60,
+            "note": "Observed fraction agrees in both figures."
+          },
+          {
+            "id": "calibration-bin-60",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-60-to-70-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 10,
+            "denominator": 20,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 20,
+            "lower_probability_pct": 60,
+            "upper_probability_pct": 70,
+            "note": "Observed fraction agrees in both figures. The observed fraction is below this bin’s lower prediction boundary. Both captions nonetheless describe underprediction here."
+          },
+          {
+            "id": "calibration-bin-70",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-70-to-80-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 9,
+            "denominator": 15,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 15,
+            "lower_probability_pct": 70,
+            "upper_probability_pct": 80,
+            "note": "Observed fraction agrees in both figures. The observed fraction is below this bin’s lower prediction boundary. Both captions nonetheless describe underprediction here."
+          },
+          {
+            "id": "calibration-bin-80",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-80-to-90-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 5,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 8,
+            "lower_probability_pct": 80,
+            "upper_probability_pct": 90,
+            "note": "Observed fraction agrees in both figures. The observed fraction is below this bin’s lower prediction boundary. Both captions nonetheless describe underprediction here."
+          },
+          {
+            "id": "calibration-bin-90",
+            "study_id": "hdsd-vge-complete-1322",
+            "group": "predicted-probability-90-to-100-percent",
+            "endpoint": "observed_dcs_in_fitted_probability_bin",
+            "cases": 19,
+            "denominator": 22,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 4 and Results, printed p. 14 (PDF p. 7)",
+            "comparison_locator": "Figure 7, printed p. 10 (PDF p. 14)",
+            "comparison_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+            "nasa_denominator_as_printed": 22,
+            "lower_probability_pct": 90,
+            "upper_probability_pct": 100,
+            "note": "Observed fraction agrees in both figures."
+          }
+        ],
+        "pmid": "9451528",
+        "study_id": "hdsd-vge-complete-1322",
+        "analysis_role": "in_sample_with_vge_observed_during_exposure",
+        "figure_dcs_total": 168,
+        "figure_denominator_total": 1322,
+        "comparison_printed_bin_denominator_total": 872,
+        "corresponding_total_already_in": "data/chamber/v1.119/observations.csv#conkin98_vge_dcs_archive",
+        "note": "The NASA report Figure 7 and the 1998 journal Figure 4 have the same ten bins, fitted cohort size of 1,322, and 168 DCS cases. Nine printed fractions match exactly. The first NASA label is 19/491, while the journal figure and text both report 19/941, which reconciles the aggregate and matches the plotted incidence. The bins are a subset analysis of the archival report, and do not contribute additional exposures to the 1998 journal cohort."
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-hdsd-reconciliation-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_hdsd_nasa_public_archive_verification",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+          "scrape_id": "01a2033c-34b7-7728-9670-cfe926d6c8f3",
+          "status": "PDF verified"
+        },
+        {
+          "url": "https://ntrs.nasa.gov/citations/20020023532",
+          "scrape_id": "01a20345-6bf4-76da-99c7-0b7c20133659",
+          "status": "verified NASA accession, release year and public reuse statement"
+        }
+      ]
+    },
+    "note": "Checked the report’s 24-page original, including figures, study windows, and public reuse declaration. Figure 7 labels were transcribed from the rendered scan.",
+    "records": [
+      {
+        "id": "conkin01_nasa_tp210775",
+        "title": "A Log Logistic Survival Model Applied to Hypobaric Decompression Sickness",
+        "authors": [
+          "J Conkin"
+        ],
+        "year": 2001,
+        "url": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20020023532/downloads/20020023532.pdf",
+        "source_sha256": "a1436141a78dc9c6b199c55e3ac3c0d0741369a5677a0dba6c151745f3da5e44",
+        "access": "full_text",
+        "locator": "Figures 2 and 3, Data and Figure 7, printed p. 10 (PDF p. 14)",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "211-test-archive-dcs-margin-dcs_symptoms_as_reported",
+            "study_id": "hdsd-211-test-survival-archive",
+            "group": "211-test-archive-dcs-margin",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 1574,
+            "denominator": 3895,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 2 and Data, printed pp. 3–5 (PDF pp. 7–9)",
+            "outcome_window": "From arrival at the final test pressure to symptom report or the scheduled end of the chamber exposure.",
+            "protocol": "Variable protocols abstracted from historical hypobaric chamber literature into the HDSD.",
+            "note": "Figure 2 reports the exact grand total. The Data section excludes isolated paresthesia and describes 211 tests. The 66-test, 1,075-record fit is an archive subset."
+          },
+          {
+            "id": "archive-vge-detection-margin-any_vge_as_reported",
+            "study_id": "hdsd-211-test-survival-archive",
+            "group": "archive-vge-detection-margin",
+            "endpoint": "any_vge_as_reported",
+            "cases": 536,
+            "denominator": 1401,
+            "denominator_unit": "person_exposure",
+            "chamber_role": "research_subject",
+            "locator": "Figure 3, printed p. 4 (PDF p. 8)",
+            "outcome_window": "First detection during the hypobaric chamber test.",
+            "protocol": "Variable protocols abstracted from historical hypobaric chamber literature into the HDSD.",
+            "note": "Precordial Doppler detection. This VGE risk set is reported separately from the DCS margin and the 1,322-record fitted subset."
+          }
+        ],
+        "openalex_id": "W816582818",
+        "study_id": "hdsd-211-test-survival-archive",
+        "published_year": 2001,
+        "research_presentation": "UHMS workshop, May 19, 1998",
+        "accession": "NTRS:20020023532",
+        "report_number": "NASA/TP-2001-210775",
+        "archive_analysis_tests": 211,
+        "caption_declared_calibration_exposures": 1322,
+        "figure_7_printed_fraction_denominator_sum": 872,
+        "calibration_bin_reference": "data/chamber/v1.214/calibration_bins.csv",
+        "note": "The NASA report Figure 7 and the 1998 journal Figure 4 have the same ten bins, fitted cohort size of 1,322, and 168 DCS cases. Nine printed fractions match exactly. The first NASA label is 19/491, while the journal figure and text both report 19/941, which reconciles the aggregate and matches the plotted incidence. The bins are a subset analysis of the archival report, and do not contribute additional exposures to the 1998 journal cohort."
+      }
+    ]
+  }
+]
