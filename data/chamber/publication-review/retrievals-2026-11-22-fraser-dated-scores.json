@@ -1,0 +1,158 @@
+[
+  {
+    "id": "2026-11-22-fraser-dated-scores-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_source_identity_check",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "query": "\"ADA375225\" \"stepwise ascent\" Fraser original scan archive NRC 1943 C2436",
+          "request_id": "99c9412a-27f7-4dfe-972f-05ae7c0f432d",
+          "returned": 10
+        }
+      ],
+      "extraction": {
+        "request_id": "89267655-1e20-4674-a3db-0f61f9046095",
+        "urls": [
+          "https://archive.org/details/DTIC_ADA375225",
+          "https://openalex.org/W316955509",
+          "https://apps.dtic.mil/sti/pdfs/ADA375225.pdf"
+        ],
+        "failed_urls": [
+          "https://apps.dtic.mil/sti/pdfs/ADA375225.pdf"
+        ]
+      }
+    },
+    "note": "Selected the archive and OpenAlex pages for the existing report. The search did not identify an independent scan.",
+    "records": [
+      {
+        "id": "ADA375225",
+        "title": "The Effect of Stepwise Ascent on the Incidence of Decompression Sickness",
+        "url": "https://archive.org/details/DTIC_ADA375225",
+        "year": 1943,
+        "primary_source": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf",
+        "identifier": "NRC:C2436; DTIC:ADA375225",
+        "access": "full_text",
+        "study_id": "ca-nrc-fraser-1943-stepped-ascent",
+        "source_sha256": "84854c83724563deefc3075b89f84839ac603b2bc61481660f5b83bddff4cddf"
+      },
+      {
+        "id": "W316955509",
+        "title": "The Effect of Stepwise Ascent on the Incidence of Decompression Sickness",
+        "url": "https://openalex.org/W316955509",
+        "openalex_id": "W316955509",
+        "year": 1943,
+        "access": "metadata"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-fraser-dated-scores-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and primary archive scan",
+    "status": "observed",
+    "operation": "supplementary_appendix_transcription_and_audit",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "search_id": "01a20432-c068-749e-ac2c-a74ecdea52cb",
+          "query": "\"ADA375225\" OR \"C 2436\" Fraser stepwise ascent altitude decompression original",
+          "returned": 0
+        }
+      ],
+      "scrape_id": "01a20433-a2c7-7589-a974-3b6afab713c2",
+      "urls": [
+        "https://archive.org/details/DTIC_ADA375225",
+        "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf",
+        "https://archive.org/metadata/DTIC_ADA375225"
+      ]
+    },
+    "note": "Firecrawl found the archive file links. The archive lists the text PDF as original and the image and OCR alternatives as derivatives. Transcription and verification use the rendered original pages.",
+    "records": [
+      {
+        "id": "ADA375225",
+        "title": "The Effect of Stepwise Ascent on the Incidence of Decompression Sickness",
+        "url": "https://archive.org/details/DTIC_ADA375225",
+        "year": 1943,
+        "primary_source": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf",
+        "identifier": "NRC:C2436; DTIC:ADA375225",
+        "access": "full_text",
+        "study_id": "ca-nrc-fraser-1943-stepped-ascent",
+        "source_sha256": "84854c83724563deefc3075b89f84839ac603b2bc61481660f5b83bddff4cddf",
+        "locator": "Appendix A, printed p. A-3; Appendices B and C, PDF pp. 19–23; Tables I–II, PDF pp. 8–9",
+        "role_review": "overlap_hold",
+        "dated_rows": 358,
+        "readable_scores": 353,
+        "reported_exposures": 360,
+        "participant_protocol_rows_linked": 110,
+        "extraction": "manual verification against rendered scans",
+        "dated_score_table": "data/chamber/v1.227/dated_scores.csv",
+        "strata": [
+          {
+            "stratum": "table_i_10000_ft",
+            "reported_runs": 59,
+            "dated_rows": 58,
+            "readable_scores": 58
+          },
+          {
+            "stratum": "table_i_20000_ft",
+            "reported_runs": 59,
+            "dated_rows": 59,
+            "readable_scores": 58
+          },
+          {
+            "stratum": "table_i_control",
+            "reported_runs": 69,
+            "dated_rows": 68,
+            "readable_scores": 67
+          },
+          {
+            "stratum": "table_ii_27500_ft",
+            "reported_runs": 100,
+            "dated_rows": 100,
+            "readable_scores": 97
+          },
+          {
+            "stratum": "table_ii_control",
+            "reported_runs": 73,
+            "dated_rows": 73,
+            "readable_scores": 73
+          }
+        ],
+        "detail_row_shortfalls": [
+          {
+            "stratum": "table_i_control",
+            "subject_number": 19,
+            "reported_runs": 4,
+            "dated_rows": 3,
+            "pdf_page": 20
+          },
+          {
+            "stratum": "table_i_10000_ft",
+            "subject_number": 16,
+            "reported_runs": 3,
+            "dated_rows": 2,
+            "pdf_page": 20
+          }
+        ],
+        "score_definition": "Fraser's symptom score uses severity weights and duration and adds points for sudden onset. The dated rows give a score per run without individual clinical classifications.",
+        "date_collision": {
+          "subject_number": 18,
+          "printed_date": "16/11",
+          "strata": [
+            "table_i_control",
+            "table_i_10000_ft"
+          ],
+          "status": "unresolved"
+        },
+        "note": "Date strings retain their source format and do not identify a calendar year. The dated scores describe the same runs as the earlier group and participant summaries. The data add no independent exposure total or new clinical cases."
+      }
+    ]
+  }
+]
