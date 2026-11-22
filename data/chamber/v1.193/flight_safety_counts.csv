@@ -1,0 +1,67 @@
+source_id,stratum,endpoint,numerator,denominator,counting_unit,scope,locator,note
+rayman83_usaf_aircraft,all-aircraft,dcs_aircraft_entries_as_reported,58,,dcs_affected_aircraft,reported_cohort,"Table I, p. 258",DCS-positive aircraft entries only. All qualifying flights and pressure-loss incidents were not enumerated.
+rayman83_usaf_aircraft,all-crew,usaf_reported_inflight_dcs,58,,dcs_affected_aircrew,reported_cohort,"Abstract and Table II, pp. 258–259",Reported DCS-positive crew. The same number appears separately for affected aircraft in Table I.
+rayman83_usaf_aircraft,aircraft-class,trainer,22,58,dcs_affected_aircraft,table_partition,"Table I, p. 258",Aircraft-class partition of all 58 affected aircraft entries.
+rayman83_usaf_aircraft,aircraft-type-within-trainer,t-37,20,22,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-type-within-trainer,t-33,2,22,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-class,transport,21,58,dcs_affected_aircraft,table_partition,"Table I, p. 258",Aircraft-class partition of all 58 affected aircraft entries.
+rayman83_usaf_aircraft,aircraft-type-within-transport,c-130,12,21,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-type-within-transport,c-141,4,21,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-type-within-transport,c-135,3,21,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-type-within-transport,c-5,2,21,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-class,bomber,12,58,dcs_affected_aircraft,table_partition,"Table I, p. 258",Aircraft-class partition of all 58 affected aircraft entries.
+rayman83_usaf_aircraft,aircraft-type-within-bomber,b-52,12,12,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-class,fighter,3,58,dcs_affected_aircraft,table_partition,"Table I, p. 258",Aircraft-class partition of all 58 affected aircraft entries.
+rayman83_usaf_aircraft,aircraft-type-within-fighter,f-4,2,3,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,aircraft-type-within-fighter,f-101,1,3,dcs_affected_aircraft,nested_stratum,"Table I, p. 258",Nested within the source-reported aircraft class.
+rayman83_usaf_aircraft,crew-position,pilot,31,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,crew-position,navigator,9,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,crew-position,loadmaster,7,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,crew-position,flight-engineer,5,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,crew-position,flight-mechanic,1,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,crew-position,gunner,1,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,crew-position,boom-operator,1,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,crew-position,other-crew,3,58,dcs_affected_aircrew,table_partition,"Table II, p. 259",Reported crew position within the 58 affected crewmen.
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,11000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,16000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,17000,3,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,18000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,19000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,20000,2,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,21000,3,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,23000,3,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,24000,15,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,25000,19,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,26000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,27000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,29000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,32000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,35000,4,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,rounded-cabin-altitude-ft,39000,1,58,dcs_affected_aircrew,table_partition,"Table III, p. 259","Cabin altitude rounded to the nearest 1,000 ft as printed."
+rayman83_usaf_aircraft,manifestation-category,bends,69,,symptom_occurrence,overlapping_margin,"Table IV, p. 259",Symptom occurrences may repeat within a person. The paper gives no affected-person count for this manifestation category.
+rayman83_usaf_aircraft,manifestation-within-bends,knee,22,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,shoulder,20,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,elbow,9,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,ankle,6,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,leg-muscles,3,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,wrists,2,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,hip,2,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,neck,1,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-bends,unspecified,4,69,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-category,neurological-or-neurocirculatory,19,,symptom_occurrence,overlapping_margin,"Table IV, p. 259",Symptom occurrences may repeat within a person. The paper gives no affected-person count for this manifestation category.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,arm-or-hand-paresthesias,8,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,aphasia-or-impaired-speech,4,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,loss-of-vision,2,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,leg-numbness,1,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,loss-of-consciousness,1,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,clonus,1,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,tremors,1,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-within-neurological-or-neurocirculatory,loss-of-coordination,1,19,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,manifestation-category,skin-manifestations,3,,symptom_occurrence,overlapping_margin,"Table IV, p. 259",Symptom occurrences may repeat within a person. The paper gives no affected-person count for this manifestation category.
+rayman83_usaf_aircraft,manifestation-within-skin-manifestations,mottling,3,3,symptom_occurrence,nested_stratum,"Table IV, p. 259",Count of occurrences conditional on the source's symptom category total.
+rayman83_usaf_aircraft,reported-mechanism,pressurization_malfunction,22,58,dcs_affected_aircrew,table_partition,"Findings, p. 258",Cause grouping of reported cases.
+rayman83_usaf_aircraft,reported-mechanism,intentional_depressurization_or_no_pressurization,36,58,dcs_affected_aircrew,table_partition,"Findings, p. 258",The source combines intentional depressurization and lack of pressurization.
+rayman83_usaf_aircraft,reported-mechanism,rapid_or_explosive_decompression,5,58,dcs_affected_aircrew,overlapping_margin,"Findings, p. 258",Combined rapid or explosive mechanism count. The source does not split the five cases by type or cause.
+rayman83_usaf_aircraft,affected-pilots,continued_in_control,23,31,dcs_affected_aircrew,table_partition,"Findings, p. 259",Conditional on affected pilots.
+rayman83_usaf_aircraft,affected-pilots,relinquished_control,8,31,dcs_affected_aircrew,table_partition,"Findings, p. 259",Relinquishing control does not establish incapacitation.
+rayman83_usaf_aircraft,all-crew,chokes_reported,0,58,dcs_affected_aircrew,overlapping_margin,"Discussion, p. 259",The authors explicitly report no chokes in this selected series.

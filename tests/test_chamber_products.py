@@ -6368,6 +6368,59 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_usaf_digest_case_and_surveillance_counts_preserve_their_counting_units(release):
+    digest_report = "report:usaf-medical-service-digest-matos-1982"
+    rayman_report = "pmid:6847563"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT observation_id,cases,denominator FROM review.review_search_observation
+            WHERE report_id IN (?,?) ORDER BY observation_id
+        """, (digest_report, rayman_report)).fetchall() == [
+            ("rayman-1970-1980-all", 58, None),
+            ("unpressurized-c141-case", 1, None),
+        ]
+        assert db.execute("""
+            SELECT case_id FROM historical_case_catalog WHERE report_id IN (?,?)
+        """, (digest_report, rayman_report)).fetchall() == [
+            ("matos82_usaf_digest:unpressurized-c141-case",),
+        ]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_unit,elapsed_reference,elapsed_qualifier
+            FROM publication_aircraft_case_milestone
+            WHERE source_id='matos82_usaf_digest' AND elapsed IS NOT NULL ORDER BY elapsed
+        """).fetchall() == [
+            ("pain_resolution_during_recompression", 5, "minutes", "during_recompression", "less_than"),
+            ("return_to_flying_duties", 72, "hours", "recovery_sequence_reference_unspecified", "reported"),
+        ]
+        assert db.execute("""
+            SELECT stratum,counting_unit,sum(numerator),max(denominator)
+            FROM publication_flight_safety_count
+            WHERE source_id='rayman83_usaf_aircraft' AND stratum IN
+                ('aircraft-class','crew-position','rounded-cabin-altitude-ft','manifestation-category')
+            GROUP BY stratum,counting_unit ORDER BY stratum
+        """).fetchall() == [
+            ("aircraft-class", "dcs_affected_aircraft", 58, 58),
+            ("crew-position", "dcs_affected_aircrew", 58, 58),
+            ("manifestation-category", "symptom_occurrence", 91, None),
+            ("rounded-cabin-altitude-ft", "dcs_affected_aircrew", 58, 58),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_flight_safety_count
+            WHERE source_id='rayman83_usaf_aircraft'
+              AND stratum='aircraft-type-within-transport' AND endpoint='c-141'
+        """).fetchone() == (4, 21)
+        record, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE record_key='2026-11-22-usaf-digest-and-flight-dcs-verified#matos-digest-original'
+        """).fetchone()
+        context = json.loads(record)["reporting_context"]
+        assert context["chamber_reactor_case_report"] == "AF Form 361"
+        assert context["annual_average_exposure_denominator"] is None
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation WHERE left_report=? AND right_report=?
+        """, (digest_report, rayman_report)).fetchall() == [("possible_digest_case_in_safety_series",)]
+
+
 def test_ogata_case_vignettes_reuse_report_and_leave_surveillance_totals_intact(release):
     report_id = "report:ogata-ide-kusano-jasdf-altitude-dcs-2001"
     kusano_id = "ndmj:1994:41:44:kusano"

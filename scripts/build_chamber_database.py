@@ -257,6 +257,7 @@ UK_RETROSPECTIVE_CHAMBER_HISTORY = ROOT / "data" / "chamber" / "v1.189"
 USAF_OCCUPATIONAL_NDCS_HISTORY = ROOT / "data" / "chamber" / "v1.190"
 RYUKYU_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.191"
 JASDF_CHAMBER_AND_FLIGHT_CASES = ROOT / "data" / "chamber" / "v1.192"
+USAF_DIGEST_AND_FLIGHT_DCS = ROOT / "data" / "chamber" / "v1.193"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2557,6 +2558,18 @@ def build(
                         "publication_overlap": "overlap.csv",
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                         "publication_chamber_case_milestone": "chamber_case_milestones.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    USAF_DIGEST_AND_FLIGHT_DCS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                        "publication_flight_safety_count": "flight_safety_counts.csv",
                     },
                     create_schema=False,
                 )
