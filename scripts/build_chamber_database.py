@@ -239,6 +239,7 @@ RANDOLPH_CHAMBER_FATALITY = ROOT / "data" / "chamber" / "v1.171"
 NASA_2020_TABLE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.172"
 HALIFAX_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.173"
 RCAF_CHAMBER_SYMPTOM_CURVE = ROOT / "data" / "chamber" / "v1.174"
+FAA_PROFILE_REACTION_RECONCILIATION = ROOT / "data" / "chamber" / "v1.175"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2370,6 +2371,14 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_chamber_time_curve": "time_curve.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    FAA_PROFILE_REACTION_RECONCILIATION,
+                    {
+                        "publication_faa90_profile": "profiles.csv",
+                        "publication_faa90_reaction": "reactions.csv",
                     },
                 )
             if rojas_supplement:
