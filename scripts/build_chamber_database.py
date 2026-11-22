@@ -237,6 +237,7 @@ TAIWAN_TRAINING_SOURCE_LINKS = ROOT / "data" / "chamber" / "v1.169"
 HYPOBARIC_OSTEONECROSIS = ROOT / "data" / "chamber" / "v1.170"
 RANDOLPH_CHAMBER_FATALITY = ROOT / "data" / "chamber" / "v1.171"
 NASA_2020_TABLE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.172"
+HALIFAX_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.173"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2350,6 +2351,16 @@ def build(
                     db,
                     NASA_2020_TABLE_RECONCILIATION,
                     {"publication_nasa20_test_summary": "nasa20_test_summary.csv"},
+                )
+                load_version_tables(
+                    db,
+                    HALIFAX_WARTIME_CHAMBER,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_halifax_program_metric": "program_metrics.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(
