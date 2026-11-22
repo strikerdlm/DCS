@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-mcguire-chamber-trainees-verified#mcguire-full-text",
+      "report_id": "pmid:30927318",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
+      "basis": "Same DOI and PMID as the existing formal citation."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.188/sources.csv#mcguire19_chamber_trainees",
+      "report_id": "pmid:30927318",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
+      "basis": "The model source cites the same primary journal report."
+    },
+    {
+      "record_key": "2026-11-21-mcguire-chamber-trainees-verified#sherman-nato-presentation",
+      "report_id": "sto:mp-hfm-309:22p",
+      "evidence_url": "https://www.sto.nato.int/document/aircrew-training-hypoxic-hypobaria-elevated-cerebral-blood-flow-when-does-it-return-to-normal-presentation",
+      "basis": "Official NATO catalogue title and presentation filename identify this report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.188/sources.csv#sherman19_nato_single_exposure_mri",
+      "report_id": "sto:mp-hfm-309:22p",
+      "evidence_url": "https://www.sto.nato.int/document/aircrew-training-hypoxic-hypobaria-elevated-cerebral-blood-flow-when-does-it-return-to-normal-presentation",
+      "basis": "The model cites the same NATO presentation."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.14/search_hits.csv#crossover_v14_originals:1",
       "report_id": "doi:10.14339/rto-mp-hfm-124-16-pdf",
       "evidence_url": "https://www.sto.nato.int/document/exercise-following-simulated-parachuting-from-35000-feet-is-tolerance-reduced-and-is-the-probability-of-post-descent-decompression-sickness-increased",
@@ -19783,6 +19807,12 @@
       "label": "Lupa and D’Oyly paired chamber study",
       "period": "Published 2005",
       "setting": "QinetiQ hypobaric chamber, United Kingdom"
+    },
+    {
+      "study_id": "usaf-afc-single-exposure-mri-2014-2017",
+      "label": "USAF AFC single-exposure trainee and MRI study",
+      "period": "2014–2017 in the companion presentation",
+      "setting": "San Antonio, USAF altitude chamber training"
     }
   ],
   "study_reports": [
@@ -22665,6 +22695,24 @@
       "report_id": "doi:10.14339/rto-mp-hfm-124-16-pdf",
       "role": "primary_paired_chamber_experiment",
       "locator": "Methods and Results, printed p. 16-3; Discussion, p. 16-4"
+    },
+    {
+      "study_id": "usaf-afc-single-exposure-mri-2014-2017",
+      "report_id": "pmid:30927318",
+      "role": "primary_exposed_trainee_outcome",
+      "locator": "Sections 2.1–2.3, Discussion limitations, and Tables 5–6"
+    },
+    {
+      "study_id": "usaf-afc-single-exposure-mri-2014-2017",
+      "report_id": "sto:mp-hfm-309:22p",
+      "role": "likely_overlapping_presentation_and_ancillary_groups",
+      "locator": "2019 NATO presentation, slides 15–16 and Duration of Effects section; MRI analysis slides"
+    },
+    {
+      "study_id": "usaf-afc-single-exposure-mri-2014-2017",
+      "report_id": "doi:10.5772/intechopen.74231",
+      "role": "likely_overlapping_preliminary_mri_analysis",
+      "locator": "Preliminary analysis, section 3"
     }
   ],
   "relations": [
@@ -27602,6 +27650,27 @@
       "relationship": "secondary_citation_with_reported_altitude_discrepancy",
       "evidence_url": "https://www.intechopen.com/chapters/59500#B97",
       "evidence": "The chapter uses 35,000 ft when referring to the two-hour Webb 2002 chamber exposure. Webb Methods and Table III print 30,000 ft. This is a separate trial from Lupa and D’Oyly."
+    },
+    {
+      "left_report": "pmid:30927318",
+      "right_report": "sto:mp-hfm-309:22p",
+      "relationship": "likely_overlap",
+      "evidence_url": "https://publications.sto.nato.int/publications/STO%20Meeting%20Proceedings/STO-MP-HFM-309/MP-HFM-309-22P.pdf#page=16",
+      "evidence": "The journal and NATO presentation identify the same-count USAF trainee group, the same-count normal-pressure controls, San Antonio imaging and baseline, 24-hour and 72-hour scans. Participant-level identifiers are unavailable. Hold the presentation groups from any independent DCS count."
+    },
+    {
+      "left_report": "doi:10.5772/intechopen.74231",
+      "right_report": "pmid:30927318",
+      "relationship": "likely_overlap",
+      "evidence_url": "https://www.intechopen.com/chapters/59500",
+      "evidence": "The chapter reports 96 trainees and 68 comparison subjects in its preliminary MRI account. The journal gives 65 unexposed participants across its post-hoc sex strata. The presentation gives 65 unexposed controls and 3 normobaric hypoxia participants. The chapter does not state an exact participant crosswalk. The chapter gives no clinical case tally for these participants."
+    },
+    {
+      "left_report": "pmid:30927318",
+      "right_report": "pmid:12546299",
+      "relationship": "cites_historical_rate_from_distinct_setting",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6592734/",
+      "evidence": "The journal cites Rice et al. as historical incidence context. Rice studied U.S. Navy chamber exposure, whereas the imaging study describes USAF trainee volunteers. The cited incidence is not the local study outcome."
     }
   ],
   "report_titles": {
@@ -27806,6 +27875,7 @@
     "pmid:20994854": "Studies of the Effects of Morphine at Simulated High Altitudes and Its Use for the Relief of Pain of Decompression Sickness",
     "citation:peterson-bornstein-jasper-1945-altitude": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude",
     "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude",
-    "doi:10.14339/rto-mp-hfm-124-16-pdf": "Exercise Following Simulated Parachuting from 35,000 Feet: Is Tolerance Reduced and is the Probability of Post Descent Decompression Sickness Increased?"
+    "doi:10.14339/rto-mp-hfm-124-16-pdf": "Exercise Following Simulated Parachuting from 35,000 Feet: Is Tolerance Reduced and is the Probability of Post Descent Decompression Sickness Increased?",
+    "sto:mp-hfm-309:22p": "Aircrew Training Hypoxic Hypobaria Elevated Cerebral Blood Flow – When Does it Return to Normal?"
   }
 }
