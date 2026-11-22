@@ -1,0 +1,264 @@
+[
+  {
+    "id": "2026-11-22-usaf-digest-and-flight-dcs-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_original_volume_and_aircraft_series_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_ids": [
+        "bd4e067f-5e12-452a-9f45-f083f7164793",
+        "7ce21361-9810-4806-9a63-9ed4d2e6cf03",
+        "fdcb3136-1892-4605-8b48-ef45cb95aa3f",
+        "6a39cfea-e35a-43c6-9b8b-d561cbab6251",
+        "9f53e1fe-5a94-4a0b-bc85-5e17bd2d8ae7"
+      ],
+      "urls": [
+        "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA1",
+        "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA4",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/3/article-p258.pdf"
+      ],
+      "exact_case_query": "\"C-141\" \"decompression sickness\" \"technician\" \"shoulder\" Matos Sheffield"
+    },
+    "note": "Verifies the public viewer path and finds a potentially overlapping aircraft series. No matching case identifier was found.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-usaf-digest-and-flight-dcs-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_public_page_and_publisher_scan_retrieval",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA1",
+          "id": "01a201cc-12c2-778f-8b89-f63c3a92cbe9"
+        },
+        {
+          "url": "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA4",
+          "id": "01a201cc-13c6-77d8-8eaa-db5525f813a8"
+        },
+        {
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/3/article-p258.pdf",
+          "id": "01a201cd-730c-75de-9f09-e67dc053b03e"
+        }
+      ]
+    },
+    "note": "Located the public viewer and comparison PDF. The displayed article pages and publisher tables were visually verified from original scans.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-usaf-digest-and-flight-dcs-verified",
+    "date": "2026-11-22",
+    "provider": "Original Air Force and journal publications",
+    "operation": "supplementary_case_and_surveillance_table_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "The two canonical source identities already exist. The Digest case and the Rayman aggregate are added once each, with nonadditive case and symptom counts.",
+    "records": [
+      {
+        "id": "matos-digest-original",
+        "title": "Recognition and Medical Management of Decompression Sickness",
+        "authors": [
+          "Luis A. Matos",
+          "Jay M. Howard",
+          "Paul J. Sheffield",
+          "George A. LaHood"
+        ],
+        "year": 1982,
+        "journal": "Medical Service Digest",
+        "volume": "33",
+        "issue": "5",
+        "pages": "1–4",
+        "url": "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA1",
+        "primary_source": "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA1",
+        "full_text_available": true,
+        "locator": "Case Report, p. 1, and DCS Documentation, p. 4",
+        "study_id": "usaf-matos-digest-selected-c141-case",
+        "page_scans_sha256": {
+          "1": "a0b22e85dec6668c5ac0429bd25e3d1bb8e0605af47ac67b0642341161668da6",
+          "2": "6c5439da833eb45c704575219526f2c7da13c73eb33c2b2a1fce200ad5cd24ac",
+          "3": "584a6af17b97c0a2622c0df69d8832f05ad6fe51ea26488276545dd234b96a2e",
+          "4": "3d1bdf0c3267fb864b95ded6c006d8beb9c8bc4b5e91cf528fd0c9d04538b604"
+        },
+        "case_details": {
+          "aircraft": "C-141",
+          "role": "electronic technician",
+          "age_years": 31,
+          "reported_unpressurized_flight_altitude_ft": 25000,
+          "pain_resolution_minutes_upper_bound": 5,
+          "pain_resolution_bound_inclusive": false,
+          "return_to_flying_hours_as_reported": 72,
+          "return_to_flying_time_reference": null,
+          "episode_date": null
+        },
+        "reporting_context": {
+          "chamber_reactor_case_report": "AF Form 361",
+          "aircraft_life_sciences_report": "AF Form 711g",
+          "marine_operation_ground_mishap_report": "AF Form 711a",
+          "form_description_locator": "DCS Documentation, p. 4",
+          "annual_dcs_cases_air_force_wide_approximate_as_reported": 70,
+          "annual_average_observation_period": null,
+          "annual_average_exposure_denominator": null
+        },
+        "note": "One treated aircraft case. The approximate average of 70 Air Force cases per year has no calendar range, profile attribution or denominator and remains contextual.",
+        "observations": [
+          {
+            "id": "unpressurized-c141-case",
+            "study_id": "usaf-matos-digest-selected-c141-case",
+            "group": "C-141 electronic technician",
+            "endpoint": "pain_only_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Case Report, p. 1",
+            "note": "The source describes sudden left shoulder pain during unpressurized C-141 flight to 25,000 ft in a 31-year-old electronic technician. Pain persisted at ground level and resolved within less than five minutes during recompression."
+          }
+        ]
+      },
+      {
+        "id": "rayman-1983-original",
+        "title": "Decompression Sickness: USAF Experience 1970–80",
+        "authors": [
+          "Russell B. Rayman",
+          "Grant B. McNaughton"
+        ],
+        "year": 1983,
+        "pmid": "6847563",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/3/article-p258.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/3/article-p258.pdf",
+        "full_text_available": true,
+        "pdf_sha256": "8b8632b8d84daee81c6abc037b01a5ea6e4da163fadabb224093bd296d5087c6",
+        "locator": "Findings, pp. 258–259 and Tables I–IV",
+        "study_id": "usaf-rayman-reported-flight-dcs-1970-1980",
+        "reported_scope": {
+          "design": "DCS-positive USAF flight safety records",
+          "exposure_total": null,
+          "affected_aircraft_entries": 58,
+          "affected_crew": 58,
+          "year_start": 1970,
+          "year_end": 1980,
+          "case_level_links": null,
+          "aircraft_classes": {
+            "trainer": {
+              "total": 22,
+              "types": {
+                "t-37": 20,
+                "t-33": 2
+              }
+            },
+            "transport": {
+              "total": 21,
+              "types": {
+                "c-130": 12,
+                "c-141": 4,
+                "c-135": 3,
+                "c-5": 2
+              }
+            },
+            "bomber": {
+              "total": 12,
+              "types": {
+                "b-52": 12
+              }
+            },
+            "fighter": {
+              "total": 3,
+              "types": {
+                "f-4": 2,
+                "f-101": 1
+              }
+            }
+          },
+          "crew_positions": {
+            "pilot": 31,
+            "navigator": 9,
+            "loadmaster": 7,
+            "flight-engineer": 5,
+            "flight-mechanic": 1,
+            "gunner": 1,
+            "boom-operator": 1,
+            "other-crew": 3
+          },
+          "cabin_altitude_rounded_ft": {
+            "11000": 1,
+            "16000": 1,
+            "17000": 3,
+            "18000": 1,
+            "19000": 1,
+            "20000": 2,
+            "21000": 3,
+            "23000": 3,
+            "24000": 15,
+            "25000": 19,
+            "26000": 1,
+            "27000": 1,
+            "29000": 1,
+            "32000": 1,
+            "35000": 4,
+            "39000": 1
+          },
+          "symptom_categories": {
+            "bends": {
+              "total": 69,
+              "types": {
+                "knee": 22,
+                "shoulder": 20,
+                "elbow": 9,
+                "ankle": 6,
+                "leg-muscles": 3,
+                "wrists": 2,
+                "hip": 2,
+                "neck": 1,
+                "unspecified": 4
+              }
+            },
+            "neurological-or-neurocirculatory": {
+              "total": 19,
+              "types": {
+                "arm-or-hand-paresthesias": 8,
+                "aphasia-or-impaired-speech": 4,
+                "loss-of-vision": 2,
+                "leg-numbness": 1,
+                "loss-of-consciousness": 1,
+                "clonus": 1,
+                "tremors": 1,
+                "loss-of-coordination": 1
+              }
+            },
+            "skin-manifestations": {
+              "total": 3,
+              "types": {
+                "mottling": 3
+              }
+            }
+          },
+          "approximate_neurological_percent_as_reported": 22,
+          "neurological_percentage_denominator": null
+        },
+        "note": "Safety investigation synopses with reported DCS from 1970 through 1980. The article reports both 58 affected aircraft entries and 58 affected crewmen in its separate tables, with no non-case exposure denominator.",
+        "observations": [
+          {
+            "id": "rayman-1970-1980-all",
+            "study_id": "usaf-rayman-reported-flight-dcs-1970-1980",
+            "group": "USAF flight crew with DCS",
+            "endpoint": "usaf_reported_inflight_dcs",
+            "cases": 58,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Findings, pp. 258–259 and Tables I–IV",
+            "note": "Safety investigation synopses with reported DCS from 1970 through 1980. The article reports both 58 affected aircraft entries and 58 affected crewmen in its separate tables, with no non-case exposure denominator."
+          }
+        ]
+      }
+    ]
+  }
+]

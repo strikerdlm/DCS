@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-usaf-digest-and-flight-dcs-verified#matos-digest-original",
+      "report_id": "report:usaf-medical-service-digest-matos-1982",
+      "evidence_url": "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA1",
+      "basis": "The original article title, authors, issue and pages identify the report already in the catalogue."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.193/sources.csv#matos82_usaf_digest",
+      "report_id": "report:usaf-medical-service-digest-matos-1982",
+      "evidence_url": "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA1",
+      "basis": "The original article title, authors, issue and pages identify the report already in the catalogue."
+    },
+    {
+      "record_key": "2026-11-22-usaf-digest-and-flight-dcs-verified#rayman-1983-original",
+      "report_id": "pmid:6847563",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/3/article-p258.pdf",
+      "basis": "The original article title, authors, issue and pages identify the report already in the catalogue."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.193/sources.csv#rayman83_usaf_aircraft",
+      "report_id": "pmid:6847563",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/3/article-p258.pdf",
+      "basis": "The original article title, authors, issue and pages identify the report already in the catalogue."
+    },
+    {
       "record_key": "2026-11-22-jasdf-chamber-and-flight-cases-verified#ogata-numbered-cases",
       "report_id": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
       "evidence_url": "https://journal.juhms.net/lib/2000/354-06.pdf",
@@ -18189,6 +18213,18 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-matos-digest-selected-c141-case",
+      "label": "Matos selected unpressurized C-141 aviation DCS case",
+      "period": "Published in 1982; event date unavailable",
+      "setting": "USAF aircraft operations"
+    },
+    {
+      "study_id": "usaf-rayman-reported-flight-dcs-1970-1980",
+      "label": "USAF flight safety reports of DCS, 1970–1980",
+      "period": "1970–1980",
+      "setting": "USAF actual aircraft flights"
+    },
+    {
       "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
       "label": "Ogata numbered aircraft and chamber case vignettes",
       "period": "Published 30 March 2001; individual dates unavailable",
@@ -19936,6 +19972,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-matos-digest-selected-c141-case",
+      "report_id": "report:usaf-medical-service-digest-matos-1982",
+      "role": "primary_selected_aircraft_case",
+      "locator": "Case Report, p. 1, and DCS Documentation, p. 4"
+    },
+    {
+      "study_id": "usaf-rayman-reported-flight-dcs-1970-1980",
+      "report_id": "pmid:6847563",
+      "role": "primary_flight_case_aggregate",
+      "locator": "Findings, pp. 258–259 and Tables I–IV"
+    },
     {
       "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
       "report_id": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
@@ -22873,6 +22921,20 @@
   ],
   "relations": [
     {
+      "left_report": "report:usaf-medical-service-digest-matos-1982",
+      "right_report": "pmid:6847563",
+      "relationship": "possible_digest_case_in_safety_series",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/54/3/article-p258.pdf",
+      "evidence": "The 1970–1980 safety series includes four C-141 entries and reports shoulder symptoms and 25,000-ft cabin altitudes in separate margins. The Digest gives no event date or ordinal link to a surveillance record. A match is possible and unverified."
+    },
+    {
+      "left_report": "pmid:6847563",
+      "right_report": "pmid:4634276",
+      "relationship": "overlapping_safety_reporting_period_cases_unlinked",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/43/11/article-p1261.pdf",
+      "evidence": "Both reports use USAF safety incident data and overlap in 1970–1971. Case identity and report coverage cannot be reconciled using the published case summaries and aggregate tables."
+    },
+    {
       "left_report": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
       "right_report": "ndmj:1994:41:44:kusano",
       "relationship": "likely_reproduces_etajima_cases_primary_unretrieved",
@@ -25367,9 +25429,9 @@
     {
       "left_report": "report:usaf-medical-service-digest-matos-1982",
       "right_report": "abstract:howard-sheffield-matos-1982",
-      "relationship": "shared_authors_and_year_dataset_unverified",
-      "evidence": "The indexed digest article shares three authors with the original report. Its title and author list differ, and its complete text was unavailable for cohort comparison.",
-      "evidence_url": "https://books.google.com/books?id=27NQslLSZ2YC&pg=RA4-PA1"
+      "relationship": "shared_authors_distinct_reported_exposure_contexts",
+      "evidence": "The Digest reports one operational C-141 case. The meeting abstract reports chamber-training outcomes with exposure denominators. The full Digest article gives no count for the abstract's training cohort.",
+      "evidence_url": "https://books.google.com/books?id=yIXy7E-2JD0C&pg=RA4-PA1"
     },
     {
       "left_report": "catalogue:hathitrust-osu-32436000858454",
