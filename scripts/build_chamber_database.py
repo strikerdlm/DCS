@@ -295,6 +295,7 @@ FRASER_DATED_ASCENT_SCORES = ROOT / "data" / "chamber" / "v1.227"
 USAFSAM_DOPPLER_REPOSITORY = ROOT / "data" / "chamber" / "v1.228"
 ARMSTRONG_PROBE_COMPARISON = ROOT / "data" / "chamber" / "v1.229"
 ARMSTRONG_METHODS_LINEAGE = ROOT / "data" / "chamber" / "v1.230"
+BASSETT_POST_DIVE = ROOT / "data" / "chamber" / "v1.231"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3056,6 +3057,15 @@ def build(
                         "publication_chamber_trial_scope": "imaging_scope.csv",
                         "publication_exercise_bout_vo2": "workload.csv",
                         "publication_model_development_scope": "development_scope.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    BASSETT_POST_DIVE,
+                    "publication",
+                    extra_tables={
+                        "publication_post_dive_series": "series.csv",
+                        "publication_post_dive_flight_profile": "flight_profiles.csv",
                     },
                 )
                 load_register(db, ROOT)
