@@ -1,0 +1,205 @@
+[
+  {
+    "id": "2026-11-22-mayo-bateman-wright-field-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_primary_report_and_duplicate_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "focus": "Bateman CAM Report 364 and later NASA citation",
+          "request_id": "691582f0-8f21-453b-8667-2a42d50b5be1"
+        },
+        {
+          "focus": "Original Bateman report with prolonged nitrogen and oxygen preparations",
+          "request_id": "701fcd7e-ce9b-4e55-b4c2-cb705b0f17f4"
+        },
+        {
+          "focus": "Wright Field neurologic event in Fulton and Boothby sources",
+          "request_id": "063fda11-40fe-45a1-a26c-65209669fe06"
+        },
+        {
+          "query": "\"First Testing of BLB Mask\" \"Wright Field\" \"Boothby\" 1938 low pressure chamber",
+          "request_id": "5cf78c50-bfc0-4e5f-a4d5-52192b34a38d"
+        }
+      ],
+      "extracts": [
+        {
+          "url": "https://libraryguides.mayo.edu/historicalunit/aeromedical",
+          "request_id": "63c0b268-bc12-474e-9471-50288816ac80",
+          "disposition": "Mayo archive corroborates the location and purpose of the tests. The guide supplies no extractable outcome counts."
+        }
+      ]
+    },
+    "note": "Search results located or corroborated related historical sources. Source values were checked against the original archive images.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-mayo-bateman-wright-field-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_public_archive_page_locator",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://collections.nlm.nih.gov/ocr/nlm:nlmuid-35720540RX3-mvpart",
+          "id": "01a20201-bd1d-746a-8b9b-c60671a63c07"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-35720540RX3-mvpart",
+          "id": "01a2021a-a809-77ea-a264-fa5f10df9242"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-35720540RX6-mvpart",
+          "id": "01a20217-2e1d-74ca-a00b-02c9e5db0ba6"
+        },
+        {
+          "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-32430610RX1",
+          "id": "01a2021a-a78d-71f4-ae08-57e704fb98ca"
+        }
+      ]
+    },
+    "note": "OCR and page indexes identified the report and comparison passages. Original image inspection provided the transcription and identity evidence.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-mayo-bateman-wright-field-verified",
+    "date": "2026-11-22",
+    "provider": "National Library of Medicine original page images",
+    "operation": "supplementary_exposure_scores_flow_and_case_link",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Two public full texts were checked against the NASA Appendix C citation and the already-indexed Wright Field neurologic case.",
+    "records": [
+      {
+        "id": "cam-364",
+        "title": "Susceptibility to Decompression Sickness: The Effects of Prolonged Inhalation of Certain Nitrogen-Oxygen Mixtures Compared with Those of Exposure to Pure Oxygen",
+        "authors": [
+          "J. B. Bateman"
+        ],
+        "year": 1944,
+        "report_number": "CAM:364",
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-35720540RX3-mvpart",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX3-pgimg-118/full/1200,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "mayo-bateman-repeated-chamber-desaturation",
+        "role_review": "overlap_hold",
+        "locator": "CAM Report 364, Table 2, printed p. 12 (NLM v. 3 image 118). CAM Report 364, General Comments 3(b), printed p. 3 (NLM v. 3 image 109) and CAM Report 364, General Comments 3(b)–(c), printed p. 4 (NLM v. 3 image 110).",
+        "source_scope": {
+          "repeated_subjects": 4,
+          "printed_experiment_rows": 17,
+          "populated_score_cells": 51,
+          "missing_score_cells": 17,
+          "planned_altitude_ft": 35000,
+          "planned_minutes": 90,
+          "scoring_printed_pages": "3–4",
+          "matching_exposures_for_symptom_counts": null
+        },
+        "note": "The four repeated subject columns use report-local ordinals. Each source score summarizes observed symptom grade and duration under the authors' scoring rule. The printed qualifiers and unscored cells are preserved. Ground and 15,000 repeat markers are expanded. The experiment dates omit the year. Planned flight settings apply to the table, with possible early descent. Higher composite scores indicate longer and/or less symptomatic exposure. A minute without symptoms contributes four points, and grades I, II and III contribute three, two and one points respectively. Grade IV prompted descent. A plus marks an observed score the author regarded as low, and a parenthesized plus marks a presumed low score. The two double pluses and the parenthesized numeric score are retained as printed. No individual clinical outcome, duration or censoring time is assigned from the numeric score.",
+        "observations": [
+          {
+            "id": "recorded_symptom_occurrence_as_reported",
+            "study_id": "mayo-bateman-repeated-chamber-desaturation",
+            "group": "Report-wide results summary",
+            "endpoint": "recorded_symptom_occurrence_as_reported",
+            "cases": 90,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "CAM Report 364, General Comments 3(b), printed p. 3 (NLM v. 3 image 109)",
+            "note": "The authors count symptom occurrences at multiple body locations. Occurrences cannot be assigned to scores, individuals or an exposure denominator."
+          },
+          {
+            "id": "severe_chokes_case_as_reported",
+            "study_id": "mayo-bateman-repeated-chamber-desaturation",
+            "group": "Report-wide results summary",
+            "endpoint": "severe_chokes_case_as_reported",
+            "cases": 3,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "CAM Report 364, General Comments 3(b)–(c), printed p. 4 (NLM v. 3 image 110)",
+            "note": "The authors describe three cases of severe chokes. One account describes swelling on the following day. The summary does not link cases to experiment or participant numbers."
+          },
+          {
+            "id": "descent_for_incipient_chokes_as_reported",
+            "study_id": "mayo-bateman-repeated-chamber-desaturation",
+            "group": "Report-wide results summary",
+            "endpoint": "descent_for_incipient_chokes_as_reported",
+            "cases": 11,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "CAM Report 364, General Comments 3(b)–(c), printed p. 4 (NLM v. 3 image 110)",
+            "note": "The report attributes eleven descents to incipient chokes. The relationship to the three severe chokes is unspecified."
+          }
+        ],
+        "image_sha256": {
+          "105": "18ae882e731d596d2fe02d51d05db4039587fc9956cb20fe263b70d94a6a5544",
+          "107": "fa08f87c3001cfd065dc3bce31e4233c3d921a4c70369bd19a834e18a10c4dc1",
+          "108": "4290e365ee331c8aa1b9b8d9adc7e19295301bc1324032c8c184a17ed50cb573",
+          "109": "6dc6ab10857cc706e0286a46db630717fd1521cab2f0a390a797d44e0322e712",
+          "110": "6502890f36283dfa37d67dec65cb251352e4a795c5a519091ab398883a4ab0eb",
+          "118": "a00579ba93c9bd88f399fe4fd5896c0bb7fe69b643209b54a380b4e23fffa09b"
+        }
+      },
+      {
+        "id": "wright-field-blb",
+        "title": "First Testing of BLB Mask in Low Pressure Chamber Using Rates of Oxygen Flow Calculated to Maintain Normal Alveolar pO2 (Preliminary Denitrogenation)",
+        "year": 1938,
+        "url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-35720540RX6-mvpart",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX6-pgimg-29/full/1600,/0/default.jpg",
+        "full_text_available": true,
+        "study_id": "wright-field-blb-chamber-1938-04-11",
+        "role_review": "selected_cluster",
+        "locator": "April 11, 1938 Wright Field notes, NLM v. 6 image 29. April 11, 1938 Wright Field log table, NLM v. 6 image 30.",
+        "source_scope": {
+          "people_in_chamber": 2,
+          "highest_logged_ft": 33000,
+          "clock_rows": 13,
+          "rows_with_measured_o2_flow": 11,
+          "rows_with_paired_alveolar_readings": 3,
+          "report_estimated_altitude_earlier_collapse_ft": 30000,
+          "earlier_collapse_date": null,
+          "followup_minutes": null,
+          "chamber_test_date": "1938-04-11"
+        },
+        "note": "A selected equipment test with two occupants, different equipment and different preparations. The test mask occupant received about 30 minutes of pure oxygen before ascent. The accompanying occupant skipped prebreathe and used the laboratory mask at about 10 L/min STPD. The tabulated target and measured flow apply only to the test mask circuit. Numbered alveolar assays are paired readings in the same row, not outcomes for the two occupants.",
+        "observations": [
+          {
+            "id": "selected-mask-test",
+            "study_id": "wright-field-blb-chamber-1938-04-11",
+            "group": "April 11 selected test",
+            "endpoint": "bends_evidence_during_mask_test_as_reported",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person_exposure",
+            "locator": "April 11, 1938 Wright Field notes, NLM v. 6 image 29",
+            "note": "Source explicitly describes no evidence of bends during the test. Delayed follow-up unspecified."
+          },
+          {
+            "id": "earlier-neurologic-episode",
+            "study_id": "early-1938-chamber-neurological-episode",
+            "group": "Earlier recalled chamber episode",
+            "endpoint": "suspected_altitude_decompression_sickness_with_paralysis",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "April 11, 1938 Wright Field notes, NLM v. 6 image 29",
+            "note": "The archival note identifies the same chamber and named individual as the Fulton chapter, with collapse and brief paralysis a few days before April 11. The note estimates about 30,000 ft and considers aeroembolism possible to probable. The journal report gives 35,000 ft as the reported ascent target. Exact onset altitude and calendar date remain unresolved."
+          }
+        ],
+        "image_sha256": {
+          "29": "c8f4c522a1b73f6b33f1be6c6333e47f487120c3dd09838e2c461169a4659e2a",
+          "30": "0d328ede823a754cdf74d456c91fa42c45ac0809e99daf7392aaff92f67b17ce"
+        }
+      }
+    ]
+  }
+]
