@@ -1,0 +1,192 @@
+[
+  {
+    "id": "2026-11-21-nasa-2020-table-reconciliation-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Located the NASA Clinical Finding Form and extracted the primary publication's discussion of the seven Type II DCS events.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "cohort_search_query": "decompression sickness successful hypobaric participants 2024 2025 2026 EVA chamber study counts oxygen DCS probability events",
+      "cohort_search_request_id": "0912a44e-2087-4bed-8a6f-d2486da64ea7",
+      "nasa_report_extract_request_id": "1dd5dd8d-a0a9-4715-9cd1-515d31a3d20e"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-2020-table-reconciliation-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read NASA's 2020 technical publication and its use in the ICL39 clinical finding form. Used the archived NTRS PDF to verify individual table cells.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "nasa_report_scrape_id": "01a20099-c7f3-7645-8083-4b638f55e0b7",
+      "cliff_scrape_id": "01a20098-8bd4-723d-b6da-37274564bfd9"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-2020-table-reconciliation-verified",
+    "date": "2026-11-21",
+    "provider": "NASA Technical Reports Server and NASA Clinical Finding Form",
+    "operation": "supplementary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Reconciled the report's cohort, observed counts, printed rates and model-input reprints. Neither report contributes a second set of clinical exposures.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "nasa-tables",
+        "title": "Probability of Decompression Sickness and Venous Gas Emboli from 49 NASA Hypobaric Chamber Tests with Reference to Exploration Atmosphere",
+        "year": 2020,
+        "report_number": "NASA/TP-2020-220529",
+        "ntrs_id": "20200004317",
+        "url": "https://ntrs.nasa.gov/api/citations/20200004317/downloads/20200004317.pdf#page=17",
+        "alternate_url": "https://ntrs.nasa.gov/citations/20200004317",
+        "full_text_available": true,
+        "pdf_sha256": "a6efabcecabeace70ebb85c38bf26e64e9a43b4c335cf58ce0333f8e5629a1ca",
+        "locator": "Printed pp. 7–10, Table 1, Table 2 and Table 3; p. 21 Discussion; pp. 32–33, Table 1B; Methods §2.2 and equation 4 on p. 11",
+        "cohort": {
+          "period": "1983–2016",
+          "tests": 49,
+          "people": 577,
+          "nominal_exposures": 1031,
+          "table_dcs_denominator_sum": 1030,
+          "any_dcs_cases": 125,
+          "type_ii_dcs_events_marked": 7,
+          "repeated_participation_possible": true,
+          "participant_exposure_linkage_available": false,
+          "nominal_sex_counts": {
+            "male_exposures": 834,
+            "female_exposures": 197
+          },
+          "female_exposures_in_conflicting_prose": 192,
+          "analysis_exposure_count_figure_2": 1031
+        },
+        "comparison": {
+          "matched_nasa_2019_test_rows": 49,
+          "matching_integer_dcs_rows": 49,
+          "matching_integer_vge_rows_with_monitoring": 42,
+          "matching_type_ii_case_counts_across_six_tests": 7,
+          "type_ii_classification_difference": {
+            "test": "8b",
+            "nasa_2019": "Historical skin mottling (Table F2)",
+            "nasa_2020": "Type II DCS by Table 2 dagger"
+          },
+          "published_pooled_vge_analysis": {
+            "monitored_exposures": 903,
+            "any_grade": 368,
+            "grade_iv": 166
+          },
+          "appendix_1b_sum": {
+            "nominal_exposures_in_tests_listed_with_vge": 905,
+            "any_grade": 371,
+            "grade_iv": 168
+          },
+          "monitoring_exclusions_identifiable": false,
+          "rate_comparison_denominator": "Listed group sample m+f, with unknown complete person-level VGE linkage. Entries preserve differences exceeding one tenth of a percentage point.",
+          "vge_rate_disagreements": [
+            {
+              "test_id": "3b",
+              "endpoint": "grade_iv_vge",
+              "printed_pct": 23,
+              "appendix_count": 8,
+              "nominal_sample": 35
+            },
+            {
+              "test_id": "4c",
+              "endpoint": "grade_iv_vge",
+              "printed_pct": 6.3,
+              "appendix_count": 1,
+              "nominal_sample": 12
+            },
+            {
+              "test_id": "7b",
+              "endpoint": "grade_iv_vge",
+              "printed_pct": 27.2,
+              "appendix_count": 4,
+              "nominal_sample": 11
+            },
+            {
+              "test_id": "11a",
+              "endpoint": "any_vge",
+              "printed_pct": 25,
+              "appendix_count": 9,
+              "nominal_sample": 28
+            },
+            {
+              "test_id": "V-5",
+              "endpoint": "any_vge",
+              "printed_pct": 29.1,
+              "appendix_count": 14,
+              "nominal_sample": 49
+            },
+            {
+              "test_id": "V-5",
+              "endpoint": "grade_iv_vge",
+              "printed_pct": 16.6,
+              "appendix_count": 8,
+              "nominal_sample": 49
+            }
+          ]
+        },
+        "dcs_comparison": {
+          "nuc_1_nominal_exposures": 21,
+          "nuc_1_dcs_percentage_denominator": 20,
+          "exclusion": "Early removal following left ventricular gas emboli.",
+          "frozen_development": {
+            "tests": 41,
+            "dcs_cases": 124,
+            "evaluable_exposures": 885
+          },
+          "excluded_groups": {
+            "test_10": {
+              "cases": 1,
+              "exposures": 19
+            },
+            "seven_staging_groups": {
+              "cases": 0,
+              "exposures": 126
+            }
+          }
+        },
+        "note": "The counts in the 2020 test tables and 2019 F1 are the same experimental evidence. Age, BMI, BGI and protocol flags are group summaries. The duplicate VGE percentages and count disagreement cannot identify unreported excluded visits or warrant replacement of the frozen benchmark."
+      },
+      {
+        "id": "cliff-icl39",
+        "title": "Clinical Finding Form ICL39: EVA Related Decompression Sickness",
+        "url": "https://www.nasa.gov/wp-content/uploads/2026/08/eva-related-decompression-sickness-cliff-2023.pdf",
+        "full_text_available": true,
+        "locator": "Incidence Summary; Best Case/Worst Case Probability Comments",
+        "historical_source": {
+          "ntrs_id": "20200004317",
+          "nominal_exposures": 1031,
+          "any_dcs_cases": 125,
+          "type_ii_dcs_events": 7
+        },
+        "modeled_input": {
+          "source_predicted_probability": 0.031,
+          "synthetic_binomial_anchors": [
+            {
+              "events": 16,
+              "attempts": 516
+            },
+            {
+              "events": 13,
+              "attempts": 419
+            }
+          ],
+          "fitted_beta_mean": 0.03329
+        },
+        "note": "The historical severity margin repeats Conkin 2020. Both binomial anchors approximate the range of a predicted probability. They do not enumerate participants, chamber sessions, diagnoses or clinical non-events."
+      }
+    ]
+  }
+]

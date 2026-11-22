@@ -4874,6 +4874,50 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_nasa_2020_table_profiles_reuse_test_counts_and_expose_rate_disagreements(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(n.male_exposures),sum(n.female_exposures),sum(n.dcs_denominator),
+                   sum(n.dcs_cases),sum(s.type_ii_dcs_cases_marked),
+                   sum(n.any_grade_vge_cases),sum(n.grade_iv_vge_cases)
+            FROM publication_nasa20_test_summary s JOIN nasa_test n USING(test_id)
+            WHERE s.report_source_id='nasa20'
+        """).fetchone() == (49, 834, 197, 1030, 125, 7, 371, 168)
+        assert db.execute("""
+            SELECT s.test_id,s.type_ii_dcs_cases_marked,
+                   (SELECT count(*) FROM publication_nasa_f2_case f WHERE f.nasa_test_id=s.test_id)
+            FROM publication_nasa20_test_summary s WHERE s.type_ii_dcs_cases_marked>0
+            ORDER BY s.test_id
+        """).fetchall() == [
+            ("2b", 1, 1), ("7a", 2, 2), ("8b", 1, 1), ("9b", 1, 1), ("P III", 1, 1), ("V-2", 1, 1),
+        ]
+        assert db.execute("""
+            SELECT test_id,endpoint,printed_pct,appendix_count,nominal_sample
+            FROM publication_nasa20_vge_rate_disagreement ORDER BY test_id,endpoint
+        """).fetchall() == [
+            ("11a", "any_vge", 25.0, 9, 28),
+            ("3b", "grade_iv_vge", 23.0, 8, 35),
+            ("4c", "grade_iv_vge", 6.3, 1, 12),
+            ("7b", "grade_iv_vge", 27.2, 4, 11),
+            ("V-5", "any_vge", 29.1, 14, 49),
+            ("V-5", "grade_iv_vge", 16.6, 8, 49),
+        ]
+        assert db.execute("""
+            SELECT s.mean_age_years,s.mean_bmi_kg_m2,s.mean_bgi,s.repressurization_flag,
+                   s.prescribed_prebreathe_exercise,s.dcs_pct_as_printed,n.dcs_denominator,
+                   n.male_exposures+n.female_exposures
+            FROM publication_nasa20_test_summary s JOIN nasa_test n USING(test_id)
+            WHERE s.test_id='Nuc-1'
+        """).fetchone() == (36.4, 24.2, 40.8, 1, 1, 20.0, 20, 21)
+        assert db.execute("""
+            SELECT r.report_id,json_extract(r.metadata_json,'$.modeled_input.synthetic_binomial_anchors[0].attempts'),
+                   json_extract(r.metadata_json,'$.modeled_input.synthetic_binomial_anchors[1].attempts'),
+                   (SELECT count(*) FROM review.review_search_observation o WHERE o.record_key=r.record_key)
+            FROM review.review_record r
+            WHERE r.record_key='2026-11-21-nasa-2020-table-reconciliation-verified#cliff-icl39'
+        """).fetchone() == ("report:nasa-cliff-icl39", 516, 419, 0)
+
+
 def test_randolph_fatality_preserves_uncertain_autopsy_link_without_duplicate_count(release):
     with connect_pair(release) as db:
         group = "randolph-student-medical-officer-1953"
