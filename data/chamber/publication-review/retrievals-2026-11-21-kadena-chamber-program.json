@@ -1,0 +1,172 @@
+[
+  {
+    "id": "2026-11-21-kadena-chamber-program-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_chamber_and_treatment_caseload_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_request_ids": [
+        "c9b0c73f-6968-4a4a-bedc-496a3cef89dd",
+        "60e59335-5ef1-4b59-9d4b-e88b0f4ed91d",
+        "a64ceb7a-d742-45fc-8b0d-c60a8e297712",
+        "137123cc-8275-464d-a428-a5d89062b2e3",
+        "be4c4264-7ea0-4b02-b9b4-81818b6ef068",
+        "bf309325-b758-4937-968b-b69d4d5d9089"
+      ],
+      "extract_request_ids": [
+        "53471504-6525-4017-8593-41b7802c592a",
+        "9ce88602-9184-41cb-9aec-a25200961863"
+      ],
+      "urls": [
+        "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+        "https://www.kadena.af.mil/News/Article/417171/kadena-altitude-chamber-conducts-final-operations",
+        "https://www.kadena.af.mil/News/Article/2808083/18th-aes-members-answer-the-call"
+      ]
+    },
+    "note": "Followed the known Kadena treatment service lead to the official program closure announcement. Searched for published exact cause-specific cases and total training exposures without finding them.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-kadena-chamber-program-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_original_chamber_program_and_referral_full_text",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "source_captures": {
+        "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives": "01a20176-a651-70c1-9373-9c0b815721dc",
+        "https://www.kadena.af.mil/News/Article/417171/kadena-altitude-chamber-conducts-final-operations": "01a20176-e773-772d-b794-6b0d758d30a6",
+        "https://www.kadena.af.mil/News/Article/2808083/18th-aes-members-answer-the-call": "01a20177-ada5-721d-9088-27ce519206c2"
+      }
+    },
+    "note": "Full article Markdown retrieved from the three official pages. Source hashes identify these captures. Direct unmediated retrieval of the 2007 page returned HTTP 403.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-kadena-chamber-program-fprc-access",
+    "date": "2026-11-21",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_historical_archive_access_check",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "tavily_request_ids": [
+        "1ee81e1e-c51b-44f8-8443-0f9bd3d9b9a2",
+        "1d11547f-49c6-4b20-9290-c136d683bc64",
+        "7fbb34b5-f6fb-421d-9ccb-3760b3f103f8",
+        "97ff0ebd-f490-46fe-9eae-cdeec5d4d0a9"
+      ],
+      "firecrawl_scrape_id": "01a20174-d99e-7612-99b3-6c289413e4ec",
+      "urls": [
+        "https://airsciences.org.uk/archive-aviation-medicine-reports",
+        "https://airsciences.org.uk/archive-enquiries-access/",
+        "https://discovery.nationalarchives.gov.uk/details/r/C2151735"
+      ]
+    },
+    "note": "Farnborough holds a partial FPRC report collection and an almost complete issued-title list. It offers on-site inspection or paid research and copies. The already indexed AIR 57/22 container covers reports 754-800. FPRC 793 and 794 originals and their outcome tables were not retrieved, so no repeated citation or observation was entered.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-kadena-chamber-program-verified",
+    "date": "2026-11-21",
+    "provider": "Original U.S. Air Force publications",
+    "operation": "supplementary_source_scope_and_overlap_check",
+    "status": "observed",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Retains one mixed treated-patient total, the training program transition and a separate unconfirmed post-dive report. The two Kadena facilities share a site and some referrals but no compatible incidence numerator and denominator.",
+    "records": [
+      {
+        "id": "kadena-hyperbaric-caseload",
+        "title": "Kadena hyperbaric chamber saves lives",
+        "author": "Ryan Ivacic",
+        "year": 2007,
+        "url": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+        "primary_source": "https://www.kadena.af.mil/News/Article/419919/kadena-hyperbaric-chamber-saves-lives",
+        "date_published": "2007-03-08",
+        "full_text_available": true,
+        "locator": "Article body, opening and hyperbaric service paragraphs",
+        "firecrawl_markdown_sha256": "e246c58c85f68378ba773c65f337b3e2d61337a1de22f6705d9a8777bff9b69c",
+        "note": "The 18th Wing public affairs report counts 167 patients treated for DCS since 1995. The approximate 50% operational share includes chamber training and flying. Other referrals included recreational diving. Clinical criteria, exact cause-specific counts and exposure totals are unavailable. The printed average of 17 cases per year is not recalculated or joined to the calendar period as a verified rate.",
+        "role_review": "descriptive",
+        "report_scope": {
+          "facility": "Kadena Air Base hyperbaric treatment service",
+          "case_mix": [
+            "altitude chamber training",
+            "flight",
+            "diving"
+          ],
+          "treated_dcs_patients_as_reported": 167,
+          "operational_share_approx_percent_as_reported": 50,
+          "annual_cases_as_printed": 17,
+          "chamber_dcs_cases": null,
+          "chamber_exposure_denominator": null,
+          "aviation_dcs_cases": null
+        },
+        "observations": [
+          {
+            "id": "kadena-167-mixed-treatment-referrals",
+            "group": "mixed-referral-caseload",
+            "endpoint": "dcs_treated_mixed_exposure_contexts",
+            "cases": 167,
+            "denominator": null,
+            "locator": "Article body, opening and hyperbaric service paragraphs",
+            "note": "The 18th Wing public affairs report counts 167 patients treated for DCS since 1995. The approximate 50% operational share includes chamber training and flying. Other referrals included recreational diving. Clinical criteria, exact cause-specific counts and exposure totals are unavailable. The printed average of 17 cases per year is not recalculated or joined to the calendar period as a verified rate."
+          }
+        ]
+      },
+      {
+        "id": "kadena-altitude-program-transition",
+        "title": "Kadena altitude chamber conducts final operations",
+        "author": "Hailey Davis",
+        "year": 2013,
+        "url": "https://www.kadena.af.mil/News/Article/417171/kadena-altitude-chamber-conducts-final-operations",
+        "primary_source": "https://www.kadena.af.mil/News/Article/417171/kadena-altitude-chamber-conducts-final-operations",
+        "date_published": "2013-06-11",
+        "full_text_available": true,
+        "locator": "Article body, opening and training transition paragraphs; first photograph caption",
+        "firecrawl_markdown_sha256": "ea59b226ad24377a0c47928d31dbd4895151b5a5875e1e436bbd50d0c759c9b1",
+        "note": "The altitude training chamber held its final operations by the report date. A caption describes its 25,000-ft simulated training altitude. A reduced oxygen breathing device was scheduled for local refresher training in July 2013. Initial aircrew hypobaric training would take place in the United States. The report gives no clinical event count, trainee total, delivered gas, pressure trace or cohort follow-up.",
+        "role_review": "program_context",
+        "program_scope": {
+          "facility": "Kadena Air Base altitude training chamber",
+          "final_operations_by": "2013-06-11",
+          "training_altitude_ft_as_reported_in_photo_caption": 25000,
+          "normobaric_refresher_transition_planned_month": "2013-07",
+          "initial_aircrew_hypobaric_training_location_after_closure": "United States",
+          "chamber_dcs_cases": null,
+          "chamber_exposure_denominator": null
+        }
+      },
+      {
+        "id": "gk304-possible-dcs-after-diving",
+        "title": "18th AES members answer the call",
+        "author": "Anna Nolte",
+        "year": 2021,
+        "url": "https://www.kadena.af.mil/News/Article/2808083/18th-aes-members-answer-the-call",
+        "primary_source": "https://www.kadena.af.mil/News/Article/2808083/18th-aes-members-answer-the-call",
+        "date_published": "2021-10-12",
+        "full_text_available": true,
+        "locator": "Article body, account of the crew response and diversion",
+        "firecrawl_markdown_sha256": "9f1774da34e756df9c92a097da4e616b21311c5e8778a25197229d6612be50cb",
+        "note": "Emergency aboard commercial flight GK304 on 10 September 2021. Responders suspected DCS after learning of scuba diving the day before. Oxygen was administered and the passenger was transferred to local emergency services after diversion. The report lacks a hospital diagnosis, prior dive profile, onset time, cabin pressure and final clinical outcome. Catalogued as a review lead only.",
+        "role_review": "discovery_only",
+        "event_scope": {
+          "flight": "GK304",
+          "event_date": "2021-09-10",
+          "endpoint_certainty": "suspected_by_onboard_responders",
+          "history": "scuba diving on the preceding day",
+          "clinical_confirmation": null
+        }
+      }
+    ]
+  }
+]
