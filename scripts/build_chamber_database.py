@@ -309,6 +309,7 @@ RAF_NEUROLOGICAL_CASES = ROOT / "data" / "chamber" / "v1.241"
 FRYER_CHAMBER_CASES = ROOT / "data" / "chamber" / "v1.242"
 TONAWANDA_ARCHIVE = ROOT / "data" / "chamber" / "v1.243"
 TONAWANDA_TENSION_TABLES = ROOT / "data" / "chamber" / "v1.244"
+CAM_APRIL_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.245"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3200,6 +3201,17 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_tonawanda_tension_cell": "tension_cells.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    CAM_APRIL_CHAMBER_REPORTS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_narrative_chamber_rate": "narrative_rates.csv",
+                    },
+                    create_schema=False,
                 )
                 load_register(db, ROOT)
                 db.commit()

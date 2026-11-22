@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.245
+
+At the April 1943 meeting, Ivy reported 56/104, 21/50, 12/50 and 8/51 people with bends across four experimental conditions. The two 50-person groups agree with the January publication on rounded bends and intolerance rates. The placebo denominator changes from 105 to 104, with a change in endpoint wording. The April table preserves the exact counts and records likely overlap with January. Its combined column sums the two prebreathing groups. [Ivy's April table](https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=181) · [January report](https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=137)
+
+Nims reported grade 2+ bends in 43/121 warm and 53/112 cold flights. These are repeated exposures among 38 people. The report gives four additional percentages for respiratory symptoms and repeat flyers without corresponding denominators. Larrabee reported 136 symptom-driven descents among 209 tests on 42 people. Five percent of those descents occurred in hour three. The exercise summary describes 219 runs in 65 people, reports the nested pass sequences, and identifies oxygen consumption measured at ground pressure. All four source extracts remain on overlap hold. [Nims](https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=181) · [Larrabee](https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=183) · [Exercise summary](https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=188) · [Versioned extracts](../data/chamber/v1.245)
+
 ## Release 1.244
 
 Supplement A Tables I and II contain 155 printed cells. The matched databases add 114 source observations to the existing NASA-CR-108420 record. Twenty cumulative cells reconcile with Table I bins and five with rows in the original report. Those 25 cells retain explicit references to the counts they repeat. Sixteen rows with zero flights remain traceable to the source. [Supplement A, Table I](https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf#page=12) · [Table II](https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf#page=14) · [Original Analysis 10](https://ntrs.nasa.gov/api/citations/19680021743/downloads/19680021743.pdf#page=58)

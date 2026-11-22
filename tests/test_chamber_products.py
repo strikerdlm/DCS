@@ -9,6 +9,46 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_cam_april_reports_preserve_exact_counts_and_reported_rates(release):
+    with connect_pair(release) as db:
+        run_id = "2026-11-22-cam-april-1943-chamber-counts-verified"
+        review_rows = db.execute("""
+            SELECT r.source_key,o.reported_group,o.endpoint,o.cases,o.denominator,o.reported_rate_percent
+            FROM review.review_search_observation o JOIN review.review_record r USING(record_key)
+            WHERE o.run_id=? ORDER BY 1,2,3
+        """, (run_id,)).fetchall()
+        exact = db.execute("""
+            SELECT p.source_id,p.stratum,p.endpoint,p.numerator,p.denominator
+            FROM publication_observation p JOIN review.review_record r ON p.source_id=r.source_key
+            WHERE r.run_id=? AND p.analysis_role='overlap_hold' ORDER BY 1,2,3
+        """, (run_id,)).fetchall()
+        reported_rates = db.execute("""
+            SELECT p.source_id,p.stratum,p.endpoint,NULL,p.source_denominator,
+                   CAST(p.reported_percent AS REAL)
+            FROM publication_narrative_chamber_rate p JOIN review.review_record r ON p.source_id=r.source_key
+            WHERE r.run_id=? AND p.analysis_role='overlap_hold' ORDER BY 1,2,3
+        """, (run_id,)).fetchall()
+        assert len(exact) == 25
+        assert len(reported_rates) == 17
+        assert exact == [row[:5] for row in review_rows if row[3] is not None]
+        assert reported_rates == [row for row in review_rows if row[3] is None]
+        assert [(stratum, events, denominator) for source, stratum, endpoint, events, denominator in exact
+                if source == "ivy43_april_co2_bends" and endpoint == "any_bends_as_reported"] == [
+            ("co2-oxygen-and-stimulant", 8, 51),
+            ("placebo", 56, 104),
+            ("preoxygenation-and-stimulant", 12, 50),
+            ("stimulant", 21, 50),
+        ]
+        assert ("larrabee43_april_repeat_exposures", "all-tests", "symptom_driven_descent_source",
+                136, 209) in exact
+        assert [(events, denominator) for source, _, _, events, denominator in exact
+                if source == "nims43_chamber_temperature"] == [(53, 112), (43, 121)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE (left_report,right_report)=('nlm:101085500x233:179:ivy','nlm:101085500x233:137:ivy')
+        """).fetchone() == ("likely_overlap",)
+
+
 def test_tonawanda_tension_tables_preserve_counts_and_reference_repeats(release):
     with connect_pair(release) as db:
         cells = db.execute("""
