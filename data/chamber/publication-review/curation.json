@@ -1,6 +1,12 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-fryer-chamber-case-histories-verified#fryer69_raf",
+      "report_id": "report:ada111509",
+      "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf",
+      "basis": "The scan title page and accession identify the existing AGARDograph 125 report."
+    },
+    {
       "record_key": "2026-11-22-raf-neurological-cases-collapse-lineage-verified#fryer69_raf",
       "report_id": "report:ada111509",
       "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=128",
@@ -21111,6 +21117,48 @@
   ],
   "studies": [
     {
+      "study_id": "fryer69-raf-chamber-case-25",
+      "label": "Fryer chamber Case 25",
+      "period": "Not reported",
+      "setting": "RAF hypobaric chamber"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-22",
+      "label": "Fryer chamber Case 22",
+      "period": "1960",
+      "setting": "RAF hypobaric chamber"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-21",
+      "label": "Fryer chamber Case 21",
+      "period": "1960",
+      "setting": "RAF hypobaric chamber"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-16",
+      "label": "Fryer chamber Case 16",
+      "period": "Not reported",
+      "setting": "RAF hypobaric chamber"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-15",
+      "label": "Fryer chamber Case 15",
+      "period": "1952-08-12",
+      "setting": "RAF hypobaric chamber"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-04",
+      "label": "Fryer chamber Case 4",
+      "period": "Not reported",
+      "setting": "RAF hypobaric chamber"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-02",
+      "label": "Fryer chamber Case 2",
+      "period": "1958",
+      "setting": "RAF hypobaric chamber"
+    },
+    {
       "study_id": "raf-farnborough-1941-neurological-case-17",
       "label": "Fryer neurological Case 17",
       "period": "1941",
@@ -23284,6 +23332,48 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "fryer69-raf-chamber-case-25",
+      "report_id": "report:ada111509",
+      "role": "selected_historical_clinical_case_source",
+      "locator": "Fryer 1969, printed pp. 235–236 (PDF pp. 231–232), Case 25"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-22",
+      "report_id": "report:ada111509",
+      "role": "selected_historical_clinical_case_source",
+      "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 22"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-21",
+      "report_id": "report:ada111509",
+      "role": "selected_historical_clinical_case_source",
+      "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 21"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-16",
+      "report_id": "report:ada111509",
+      "role": "selected_historical_clinical_case_source",
+      "locator": "Fryer 1969, printed p. 130 (PDF p. 127), Case 16"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-15",
+      "report_id": "report:ada111509",
+      "role": "selected_historical_clinical_case_source",
+      "locator": "Fryer 1969, printed p. 127 (PDF p. 124), Case 15"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-04",
+      "report_id": "report:ada111509",
+      "role": "selected_historical_clinical_case_source",
+      "locator": "Fryer 1969, printed p. 49 (PDF p. 45), Case 4"
+    },
+    {
+      "study_id": "fryer69-raf-chamber-case-02",
+      "report_id": "report:ada111509",
+      "role": "selected_historical_clinical_case_source",
+      "locator": "Fryer 1969, printed p. 43 (PDF p. 39), Case 2"
+    },
     {
       "study_id": "raf-farnborough-1941-neurological-case-17",
       "report_id": "report:ada111509",

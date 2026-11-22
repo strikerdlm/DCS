@@ -306,6 +306,7 @@ GRAY_MAHADY_SOURCE_TABLES = ROOT / "data" / "chamber" / "v1.238"
 TAIWAN_TRAINING_SYMPTOMS = ROOT / "data" / "chamber" / "v1.239"
 HYPOBARIC_SYNCOPE_ASCERTAINMENT = ROOT / "data" / "chamber" / "v1.240"
 RAF_NEUROLOGICAL_CASES = ROOT / "data" / "chamber" / "v1.241"
+FRYER_CHAMBER_CASES = ROOT / "data" / "chamber" / "v1.242"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3169,6 +3170,15 @@ def build(
                         "publication_case_milestone": "case_milestones.csv",
                         "publication_cited_collapse_series": "collapse_series.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    FRYER_CHAMBER_CASES,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                    },
+                    create_schema=False,
                 )
                 load_register(db, ROOT)
                 db.commit()
