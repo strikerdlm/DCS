@@ -266,6 +266,7 @@ CAM_CHAMBER_PROGRESS = ROOT / "data" / "chamber" / "v1.198"
 CINCINNATI_EXPLORATORY_AND_RETEST = ROOT / "data" / "chamber" / "v1.199"
 CAM_PRESSURE_AND_CONTROLS = ROOT / "data" / "chamber" / "v1.200"
 BURKHARDT_CHAMBER_RADIOGRAPHY = ROOT / "data" / "chamber" / "v1.201"
+ELIA_ULTRASOUND = ROOT / "data" / "chamber" / "v1.202"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2671,6 +2672,15 @@ def build(
                         "publication_radiograph_bends_cross_tab": "imaging_cross_tabs.csv",
                         "publication_radiograph_planimetry_cell": "planimetry_cells.csv",
                         "publication_radiograph_cardiac_shadow": "cardiac_shadow.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    ELIA_ULTRASOUND,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_ultrasound_vge_context": "contexts.csv",
+                        "publication_ultrasound_vge_maximum": "maximum_grades.csv",
                     },
                 )
             if rojas_supplement:
