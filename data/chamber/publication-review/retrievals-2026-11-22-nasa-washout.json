@@ -1,0 +1,304 @@
+[
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-nasa-washout-tavily",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_nasa_washout_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "479acebc-1fee-4129-b364-064d024c51a7",
+          "urls": [
+            "https://ntrs.nasa.gov/api/citations/19850017967/downloads/19850017967.pdf",
+            "https://ntrs.nasa.gov/api/citations/19830018177/downloads/19830018177.pdf"
+          ]
+        },
+        {
+          "request_id": "32b7ea77-12db-402b-9f97-cbd25fc76d9f",
+          "urls": [
+            "https://ntrs.nasa.gov/citations/19840020323",
+            "https://openalex.org/W760264680",
+            "https://ntrs.nasa.gov/citations/19850000087"
+          ]
+        }
+      ]
+    },
+    "note": "Retrieved the two public PDFs and resolved the NASA report identities. No new matched clinical risk set.",
+    "records": [
+      {
+        "id": "edwards85_pooled_n2_washout",
+        "title": "Statistical comparison of pooled nitrogen washout data of various altitude decompression response groups",
+        "year": 1985,
+        "url": "https://ntrs.nasa.gov/api/citations/19850017967/downloads/19850017967.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19850017967/downloads/19850017967.pdf",
+        "ntrs_id": "19850017967",
+        "source_sha256": "03ddd8e27940ce23634584fcec238294579e9e842133f0928dd116a16686ead5",
+        "access": "full_text",
+        "locator": "Introduction, Procedure and Results pp. 1–3 (PDF pp. 7–9); Appendix C p. 9 (PDF p. 15); reference 1 p. 10 (PDF p. 16)",
+        "study_id": "nasa-shuttle-tm58259-three-series"
+      },
+      {
+        "id": "conkin83_hydration_n2_washout",
+        "title": "Effect of hydration on nitrogen washout in human subjects",
+        "year": 1983,
+        "url": "https://ntrs.nasa.gov/api/citations/19830018177/downloads/19830018177.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19830018177/downloads/19830018177.pdf",
+        "ntrs_id": "19830018177",
+        "openalex_id": "W829208838",
+        "source_sha256": "705dcb64c93dd7a476125cb82ea062fedbac0b714dfc8ad0c8217fb7c5dfda2e",
+        "access": "full_text",
+        "locator": "Methods pp. 3–4 and Results with Tables 1–2 pp. 5–7 (PDF pp. 9–13)",
+        "study_id": "nasa-tm58254-atmospheric-washout"
+      },
+      {
+        "id": "washout-tech-brief",
+        "title": "Effect of Hydration on Nitrogen Washout in Humans",
+        "year": 1985,
+        "url": "https://ntrs.nasa.gov/citations/19850000087",
+        "ntrs_id": "19850000087",
+        "access": "primary_abstract",
+        "study_id": "nasa-tm58254-atmospheric-washout",
+        "note": "NASA Tech Brief MSC-20686 summarizes the same hydration experiment."
+      },
+      {
+        "id": "shuttle-cohort-canonical",
+        "title": "Verification of an Altitude Decompression Sickness Prevention Protocol for Shuttle Operations Utilizing a 10.2-psi Pressure Stage",
+        "year": 1984,
+        "url": "https://ntrs.nasa.gov/citations/19840020323",
+        "ntrs_id": "19840020323",
+        "openalex_id": "W760264680",
+        "study_id": "nasa-shuttle-tm58259-three-series",
+        "note": "Same report as NASA TM-58259 already extracted in v1.17."
+      }
+    ]
+  },
+  {
+    "date": "2026-11-22",
+    "id": "2026-11-22-nasa-washout-firecrawl",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_nasa_authority_verification",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a20383-247d-736a-8b5b-6e152feaf1d4",
+          "url": "https://ntrs.nasa.gov/citations/19850017967"
+        },
+        {
+          "scrape_id": "01a20383-6961-706f-8d86-9687c1f3a42d",
+          "url": "https://ntrs.nasa.gov/citations/19830018177"
+        }
+      ]
+    },
+    "note": "NASA catalogue confirms public use and the two technical memorandum identifiers. Page renders verified the numerical extracts.",
+    "records": [
+      {
+        "id": "edwards85_pooled_n2_washout",
+        "title": "Statistical comparison of pooled nitrogen washout data of various altitude decompression response groups",
+        "year": 1985,
+        "url": "https://ntrs.nasa.gov/api/citations/19850017967/downloads/19850017967.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19850017967/downloads/19850017967.pdf",
+        "ntrs_id": "19850017967",
+        "source_sha256": "03ddd8e27940ce23634584fcec238294579e9e842133f0928dd116a16686ead5",
+        "access": "full_text",
+        "locator": "Introduction, Procedure and Results pp. 1–3 (PDF pp. 7–9); Appendix C p. 9 (PDF p. 15); reference 1 p. 10 (PDF p. 16)",
+        "study_id": "nasa-shuttle-tm58259-three-series",
+        "role_review": "overlap_hold",
+        "archive_context": {
+          "chamber_source_id": "waligora84_shuttle",
+          "series_count": 3,
+          "reused_person_exposures": 173,
+          "linked_washout_people": 27,
+          "symptom_percent_as_printed": 26,
+          "vge_percent_as_printed": 54,
+          "comparison_interval_min": 5,
+          "estimated_power_min_percent": 8,
+          "estimated_power_max_percent": 30,
+          "locator": "Introduction and Results, pp. 1–3 (PDF pp. 7–9)",
+          "note": "The chamber report abstract gives 55% with bubbles, whereas the pooled washout report gives 54%. Both give 26% with symptoms. The rounded rates supply no exact counts or explanation of the series-specific denominator discrepancy. Pointwise weighted tests found no statistically significant differences at the applied 5% or 10% levels. The cumulative profiles retain pulmonary nitrogen and include one 150-minute washout in the pool of 180-minute runs."
+        },
+        "response_groups": [
+          {
+            "response_group": "A",
+            "response_pattern_as_printed": "No bubbles or pain",
+            "people": 4,
+            "group_basis": "source_partition",
+            "plotted_group": "I",
+            "locator": "Procedure, p. 2 (PDF p. 8)",
+            "note": "Response patterns summarize the selected people's available chamber tests."
+          },
+          {
+            "response_group": "B",
+            "response_pattern_as_printed": "Bubbles only",
+            "people": 6,
+            "group_basis": "source_partition",
+            "plotted_group": "II",
+            "locator": "Procedure, p. 2 (PDF p. 8)",
+            "note": "Also contributes to the derived Group IV."
+          },
+          {
+            "response_group": "C",
+            "response_pattern_as_printed": "Bubbles and pain only",
+            "people": 5,
+            "group_basis": "source_partition",
+            "plotted_group": "III",
+            "locator": "Procedure, p. 2 (PDF p. 8)",
+            "note": "Also contributes to the derived Group IV."
+          },
+          {
+            "response_group": "D",
+            "response_pattern_as_printed": "Bubbles or bubbles and pain",
+            "people": 3,
+            "group_basis": "source_partition",
+            "plotted_group": null,
+            "locator": "Procedure, p. 2 (PDF p. 8)",
+            "note": "Contributes to the derived Group IV."
+          },
+          {
+            "response_group": "E",
+            "response_pattern_as_printed": "All the preceding",
+            "people": 9,
+            "group_basis": "source_partition",
+            "plotted_group": null,
+            "locator": "Procedure, p. 2 (PDF p. 8)",
+            "note": "Part of the original 27-person partition and outside the plotted groups."
+          },
+          {
+            "response_group": "B+C+D",
+            "response_pattern_as_printed": "Bubbles or bubbles and pain",
+            "people": 14,
+            "group_basis": "overlapping_pool",
+            "plotted_group": "IV",
+            "locator": "Procedure, p. 2 (PDF p. 8)",
+            "note": "Membership count derived by summing B, C and D once. Shares members with Groups II and III."
+          }
+        ],
+        "mean_differences": [
+          {
+            "washout_min": 10,
+            "measurement": "breath_n2_fraction",
+            "unit_as_printed": "vol N2 / vol breath",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": 0.00037,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 70,
+            "measurement": "breath_n2_fraction",
+            "unit_as_printed": "vol N2 / vol breath",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": 0.000103,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 130,
+            "measurement": "breath_n2_fraction",
+            "unit_as_printed": "vol N2 / vol breath",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": 3.49e-05,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 10,
+            "measurement": "cumulative_exhaled_n2",
+            "unit_as_printed": "L",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": 1.32,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 70,
+            "measurement": "cumulative_exhaled_n2",
+            "unit_as_printed": "L",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": 1.32,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 130,
+            "measurement": "cumulative_exhaled_n2",
+            "unit_as_printed": "L",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": 1.27,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 10,
+            "measurement": "n2_expiration_rate",
+            "unit_as_printed": "mL/min",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": 0.00297,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 70,
+            "measurement": "n2_expiration_rate",
+            "unit_as_printed": "mL/min",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": -0.000622,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          },
+          {
+            "washout_min": 130,
+            "measurement": "n2_expiration_rate",
+            "unit_as_printed": "mL/min",
+            "contrast_group": "C",
+            "reference_group": "A",
+            "mean_difference_as_printed": -0.000344,
+            "locator": "Appendix C, p. 9 (PDF p. 15)",
+            "note": "Printed difference in grouped means (III minus I) at the stated washout time."
+          }
+        ],
+        "note": "Introduction and reference 1 explicitly identify the three chamber series of NASA TM-58259. The 173 person-exposures are reused. The 27 men with washout data form a selected subset of chamber participants with repeated responses. Individual chamber links are unavailable."
+      },
+      {
+        "id": "conkin83_hydration_n2_washout",
+        "title": "Effect of hydration on nitrogen washout in human subjects",
+        "year": 1983,
+        "url": "https://ntrs.nasa.gov/api/citations/19830018177/downloads/19830018177.pdf",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19830018177/downloads/19830018177.pdf",
+        "ntrs_id": "19830018177",
+        "openalex_id": "W829208838",
+        "source_sha256": "705dcb64c93dd7a476125cb82ea062fedbac0b714dfc8ad0c8217fb7c5dfda2e",
+        "access": "full_text",
+        "locator": "Methods pp. 3–4 and Results with Tables 1–2 pp. 5–7 (PDF pp. 9–13)",
+        "study_id": "nasa-tm58254-atmospheric-washout",
+        "role_review": "physiology_only",
+        "people": 5,
+        "completed_baseline_washouts": 9,
+        "completed_hydrated_washouts": 5,
+        "subject_summary_locator": "Tables 1–2, pp. 6–7 (PDF pp. 12–13)",
+        "subject_summary_model_path": "data/chamber/v1.218/hydration_subjects.csv",
+        "duration_min": 180,
+        "ambient_pressure_basis": "atmospheric",
+        "oral_fluid_volume_l": 1.5,
+        "fluid_as_printed": {
+          "methods": "tap water",
+          "abstract": "distilled water"
+        },
+        "note": "Resting three-hour oxygen washouts at atmospheric pressure. Subject rows average available control and hydrated washouts. The Methods specifies tap water, while the Abstract specifies distilled water. The nominal oral dose was 1.5 L within 30 minutes before the third visit."
+      }
+    ]
+  }
+]

@@ -1,6 +1,84 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.218/sources.csv#edwards85_pooled_n2_washout",
+      "report_id": "ntrs:19850017967",
+      "basis": "The NASA report number, primary PDF, title and date agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19850017967"
+    },
+    {
+      "record_key": "2026-11-22-nasa-washout-tavily#edwards85_pooled_n2_washout",
+      "report_id": "ntrs:19850017967",
+      "basis": "The NASA report number, primary PDF, title and date agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19850017967"
+    },
+    {
+      "record_key": "2026-11-22-nasa-washout-firecrawl#edwards85_pooled_n2_washout",
+      "report_id": "ntrs:19850017967",
+      "basis": "The NASA report number, primary PDF, title and date agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19850017967"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.218/sources.csv#conkin83_hydration_n2_washout",
+      "report_id": "openalex:W829208838",
+      "basis": "The NASA report number, primary PDF, title and date agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19830018177"
+    },
+    {
+      "record_key": "2026-11-22-nasa-washout-tavily#conkin83_hydration_n2_washout",
+      "report_id": "openalex:W829208838",
+      "basis": "The NASA report number, primary PDF, title and date agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19830018177"
+    },
+    {
+      "record_key": "2026-11-22-nasa-washout-firecrawl#conkin83_hydration_n2_washout",
+      "report_id": "openalex:W829208838",
+      "basis": "The NASA report number, primary PDF, title and date agree.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19830018177"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.17/sources.csv#waligora84_shuttle",
+      "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "basis": "The bibliographic records resolve to the identical NTRS PDF 19840020323, NASA TM-58259.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19840020323"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "basis": "The bibliographic records resolve to the identical NTRS PDF 19840020323, NASA TM-58259.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19840020323"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_verify:2",
+      "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "basis": "The bibliographic records resolve to the identical NTRS PDF 19840020323, NASA TM-58259.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19840020323"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W760264680",
+      "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "basis": "The bibliographic records resolve to the identical NTRS PDF 19840020323, NASA TM-58259.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19840020323"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#19840020323",
+      "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "basis": "The bibliographic records resolve to the identical NTRS PDF 19840020323, NASA TM-58259.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19840020323"
+    },
+    {
+      "record_key": "2026-11-22-nasa-washout-tavily#shuttle-cohort-canonical",
+      "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "basis": "The bibliographic records resolve to the identical NTRS PDF 19840020323, NASA TM-58259.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19840020323"
+    },
+    {
+      "record_key": "2026-11-22-nasa-washout-tavily#washout-tech-brief",
+      "report_id": "ntrs:19850000087",
+      "basis": "NASA catalogue identifies the Tech Brief as MSC-20686.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19850000087"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.217/sources.csv#kumar92_fulltext_cmb_timing",
       "report_id": "pmid:1445159",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
@@ -19197,6 +19275,18 @@
   ],
   "studies": [
     {
+      "study_id": "nasa-shuttle-tm58259-three-series",
+      "label": "NASA Shuttle pressure-stage validation, three chamber series",
+      "period": "Published 1984–1985",
+      "setting": "NASA JSC experimental hypobaric chamber. Companion analysis reuses the three series."
+    },
+    {
+      "study_id": "nasa-tm58254-atmospheric-washout",
+      "label": "NASA atmospheric-pressure hydration and nitrogen washout experiment",
+      "period": "Published 1983–1985",
+      "setting": "NASA JSC protocol at room temperature and atmospheric pressure."
+    },
+    {
       "study_id": "nasa-jsc-kumar93-simulated-eva-426",
       "label": "NASA JSC simulated EVA cohort, 426 exposures",
       "period": "1982–1990",
@@ -21142,6 +21232,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "nasa-shuttle-tm58259-three-series",
+      "report_id": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "role": "original_chamber_series",
+      "locator": "Methods and Tables 3–7, NASA TM-58259"
+    },
+    {
+      "study_id": "nasa-shuttle-tm58259-three-series",
+      "report_id": "ntrs:19850017967",
+      "role": "selected_washout_reanalysis",
+      "locator": "Introduction, Procedure and Results pp. 1–3 (PDF pp. 7–9); Appendix C p. 9 (PDF p. 15); reference 1 p. 10 (PDF p. 16)"
+    },
+    {
+      "study_id": "nasa-tm58254-atmospheric-washout",
+      "report_id": "openalex:W829208838",
+      "role": "primary_physiology_report",
+      "locator": "Methods pp. 3–4 and Results with Tables 1–2 pp. 5–7 (PDF pp. 9–13)"
+    },
+    {
+      "study_id": "nasa-tm58254-atmospheric-washout",
+      "report_id": "ntrs:19850000087",
+      "role": "same_experiment_summary",
+      "locator": "NASA Tech Brief author abstract"
+    },
     {
       "study_id": "nasa-jsc-kumar93-simulated-eva-426",
       "report_id": "pmid:8280036",
@@ -24408,6 +24522,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:19850017967",
+      "right_report": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "relationship": "same_chamber_test_series",
+      "evidence": "Introduction and reference 1 explicitly identify the three chamber series of NASA TM-58259. The 173 person-exposures are reused. The 27 men with washout data form a selected subset of chamber participants with repeated responses. Individual chamber links are unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19850017967/downloads/19850017967.pdf"
+    },
+    {
+      "left_report": "ntrs:19850017967",
+      "right_report": "openalex:W829208838",
+      "relationship": "measurement_reference_without_participant_linkage",
+      "evidence": "NASA TM-58265 cites NASA TM-58254 for nitrogen washout profiles. The five-person hydration tables supply no crosswalk to the 27 selected chamber participants.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19850017967/downloads/19850017967.pdf"
+    },
+    {
+      "left_report": "ntrs:19850000087",
+      "right_report": "openalex:W829208838",
+      "relationship": "same_experiment_summary",
+      "evidence": "Same authors, intervention and outcome in the NASA Tech Brief summary citing the technical memorandum.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19850000087"
+    },
     {
       "left_report": "pmid:1445159",
       "right_report": "pmid:8280036",
@@ -30086,6 +30221,7 @@
     "citation:peterson-bornstein-jasper-1945-altitude": "Effect of Morphine Sulfate on Persons Exposed to Simulated Altitude",
     "report:usn-mr005-13-1002-subtask-9-report-3": "The incidence of physiological symptoms in healthy men after exposure to rapid decompression to 43,000 feet simulated altitude",
     "doi:10.14339/rto-mp-hfm-124-16-pdf": "Exercise Following Simulated Parachuting from 35,000 Feet: Is Tolerance Reduced and is the Probability of Post Descent Decompression Sickness Increased?",
-    "sto:mp-hfm-309:22p": "Aircrew Training Hypoxic Hypobaria Elevated Cerebral Blood Flow – When Does it Return to Normal?"
+    "sto:mp-hfm-309:22p": "Aircrew Training Hypoxic Hypobaria Elevated Cerebral Blood Flow – When Does it Return to Normal?",
+    "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1": "Verification of an Altitude Decompression Sickness Prevention Protocol for Shuttle Operations Utilizing a 10.2-psi Pressure Stage"
   }
 }

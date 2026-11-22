@@ -282,6 +282,7 @@ HDSD_RISK_SET_RECONCILIATION = ROOT / "data" / "chamber" / "v1.214"
 NASA_SOAR_REPEAT_EXPOSURE = ROOT / "data" / "chamber" / "v1.215"
 NASA_JSC_EPIDEMIOLOGY = ROOT / "data" / "chamber" / "v1.216"
 NASA_CMB_TIMING = ROOT / "data" / "chamber" / "v1.217"
+NASA_NITROGEN_WASHOUT = ROOT / "data" / "chamber" / "v1.218"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2908,6 +2909,18 @@ def build(
                     },
                 )
                 apply_publication_revisions(db, "kumar92_fulltext_cmb_timing")
+                load_version_tables(
+                    db,
+                    NASA_NITROGEN_WASHOUT,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_washout_archive_context": "archive_context.csv",
+                        "publication_washout_response_group": "response_groups.csv",
+                        "publication_washout_mean_difference": "mean_differences.csv",
+                        "publication_hydration_washout_subject": "hydration_subjects.csv",
+                    },
+                )
                 load_register(db, ROOT)
                 db.commit()
         finally:
