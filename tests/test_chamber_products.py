@@ -9,6 +9,78 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_fraser_exact_counts_reconcile_repeated_runs_and_preserve_printed_discrepancy(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT subject_number),sum(reported_runs)
+            FROM publication_fraser_ascent_score
+        """).fetchone() == (110, 33, 360)
+        assert db.execute("""
+            SELECT count(*) FROM (
+                SELECT s.subject_number FROM publication_fraser_ascent_score s
+                JOIN publication_fraser_ascent_group g USING (source_id,stratum)
+                GROUP BY s.subject_number HAVING count(DISTINCT g.comparison)=2
+            )
+        """).fetchone() == (11,)
+        assert db.execute("""
+            SELECT g.stratum,g.reported_runs,sum(o.numerator),min(o.denominator),max(o.denominator)
+            FROM publication_fraser_ascent_group g
+            JOIN publication_observation o USING (source_id,stratum)
+            WHERE o.analysis_role='overlap_hold'
+            GROUP BY g.stratum,g.reported_runs ORDER BY g.stratum
+        """).fetchall() == [
+            ("table_i_10000_ft", 59, 59, 59, 59), ("table_i_20000_ft", 59, 59, 59, 59),
+            ("table_i_control", 69, 69, 69, 69), ("table_ii_27500_ft", 100, 100, 100, 100),
+            ("table_ii_control", 73, 73, 73, 73),
+        ]
+        assert db.execute("""
+            SELECT g.mild_only_percent_as_printed,o.numerator,o.denominator
+            FROM publication_fraser_ascent_group g
+            JOIN publication_observation o USING (source_id,stratum)
+            WHERE g.stratum='table_ii_27500_ft' AND o.endpoint='mild_only'
+        """).fetchone() == (9, 10, 100)
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE report_id='openalex:W316955509' AND reported_group='table_ii_27500_ft' AND endpoint='mild_only'
+        """).fetchall() == [(10, 100)]
+
+
+def test_historical_program_percentages_and_berkeley_interim_reuse_report_identities(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-formal-chamber-openalex#W245342847'
+        """).fetchone() == ("report:ada075869",)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report WHERE report_id='doi:10.21236/ada075869'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT reported_percent FROM publication_historical_program_rate ORDER BY reported_percent
+        """).fetchall() == [(14.0,), (15.0,), (24.0,), (35.0,), (38.0,), (45.0,)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_historical_program_population
+        """).fetchone() == (4,)
+        assert db.execute("""
+            SELECT count(*),count(cases),count(denominator) FROM review.review_search_observation
+            WHERE report_id='report:ada075869'
+        """).fetchone() == (6, 0, 0)
+        assert db.execute("""
+            SELECT reported_runs,percent_having_symptoms,percent_incapacitated
+            FROM publication_berkeley_interim_group ORDER BY altitude_ft DESC,exercise_interval_min DESC
+        """).fetchall() == [(106, 76.5, 46.2), (29, 72.4, 48.3), (83, 45.8, 6.0), (67, 50.7, 7.5)]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='lawrence43_cmr196_report12'
+        """).fetchall() == [("radiographic_gas_in_or_around_joints_as_reported", 7, 7)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE report_id='nlm:101085500x267:895:lawrence-hamilton'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_berkeley_chest_and_visual_rows_preserve_overlap_and_conflicts(release):
     with connect_pair(release) as db:
         assert db.execute("""

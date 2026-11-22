@@ -1,6 +1,96 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.225/sources.csv#henry52_wadc_program_rates",
+      "report_id": "report:ada075869",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA075869/DTIC_ADA075869.pdf#page=27"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-tavily#henry52_wadc_program_rates",
+      "report_id": "report:ada075869",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA075869/DTIC_ADA075869.pdf#page=27"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-firecrawl#henry52_wadc_program_rates",
+      "report_id": "report:ada075869",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA075869/DTIC_ADA075869.pdf#page=27"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.225/sources.csv#fraser43_c2436_stepwise",
+      "report_id": "openalex:W316955509",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-tavily#fraser43_c2436_stepwise",
+      "report_id": "openalex:W316955509",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-firecrawl#fraser43_c2436_stepwise",
+      "report_id": "openalex:W316955509",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf#page=8"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.225/sources.csv#lawrence43_cmr196_report12",
+      "report_id": "nlm:101085500x267:874:lawrence-hamilton",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-874/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-tavily#lawrence43_cmr196_report12",
+      "report_id": "nlm:101085500x267:874:lawrence-hamilton",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-874/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-firecrawl#lawrence43_cmr196_report12",
+      "report_id": "nlm:101085500x267:874:lawrence-hamilton",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-874/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.225/sources.csv#lawrence45_cmr196_report25",
+      "report_id": "nlm:101085500x267:895:lawrence-hamilton",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-895/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-tavily#lawrence45_cmr196_report25",
+      "report_id": "nlm:101085500x267:895:lawrence-hamilton",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-895/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "2026-11-22-henry-fraser-berkeley-firecrawl#lawrence45_cmr196_report25",
+      "report_id": "nlm:101085500x267:895:lawrence-hamilton",
+      "basis": "Verified author, date and report on the public archival page.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-895/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W245342847",
+      "report_id": "report:ada075869",
+      "basis": "The OpenAlex DOI suffix ADA075869, title, year and author identify the same DTIC report and scan.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA075869/DTIC_ADA075869.pdf#page=27"
+    },
+    {
+      "record_key": "2026-11-20-archival-openalex-young-watson#W316955509",
+      "report_id": "openalex:W316955509",
+      "basis": "Same Fraser title, date and original C 2436/ADA375225 report as the indexed records.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf#page=8"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W316955509",
+      "report_id": "openalex:W316955509",
+      "basis": "Same Fraser title, date and original C 2436/ADA375225 report as the indexed records.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf#page=8"
+    },
+    {
       "record_key": "2026-11-22-berkeley-rudge-tavily#henry53_wadc",
       "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
       "basis": "The primary scan, citation and accession or PMID match the existing report.",
@@ -19647,6 +19737,18 @@
   ],
   "studies": [
     {
+      "study_id": "ca-nrc-fraser-1943-stepped-ascent",
+      "label": "Fraser selected repeated stepwise-ascent chamber study",
+      "period": "Reported February 1943",
+      "setting": "Canadian NRC repeated chamber exposures with two control series."
+    },
+    {
+      "study_id": "us-berkeley-lawrence-interim-classification",
+      "label": "Berkeley OEMcmr-196 interim chamber groups",
+      "period": "First reported October 1943",
+      "setting": "Berkeley chamber exercise and classification research."
+    },
+    {
       "study_id": "usaf-rudge-1992-chamber-observer-age",
       "label": "Rudge USAF inside-observer presumptive arterial gas embolism case",
       "period": "First reported March 1992",
@@ -21688,6 +21790,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "ca-nrc-fraser-1943-stepped-ascent",
+      "report_id": "openalex:W316955509",
+      "role": "primary_repeated_chamber_study",
+      "locator": "Printed pp. 2–6, Tables I–II (PDF pp. 5–9), and Appendices B(i) and C(ii), PDF pp. 20 and 23"
+    },
+    {
+      "study_id": "us-berkeley-lawrence-interim-classification",
+      "report_id": "nlm:101085500x267:874:lawrence-hamilton",
+      "role": "primary_interim_chamber_report",
+      "locator": "Progress Report No. 12, pp. 1–2 (NLM images 874–875)"
+    },
     {
       "study_id": "usaf-rudge-1992-chamber-observer-age",
       "report_id": "pmid:1567322",
@@ -25074,6 +25188,48 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "nlm:101085500x267:874:lawrence-hamilton",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
+      "relationship": "unresolved",
+      "evidence": "The interim 38,000-ft comparison and Bridge's published series share laboratory, era, 90-minute dwell, step-up activity and oxygen initiation at 10,000 ft. The totals and ascent rates are different. Individual flight linkage remains unverified.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-874/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "nlm:101085500x267:874:lawrence-hamilton",
+      "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_historic_bibliographies:1",
+      "relationship": "unresolved",
+      "evidence": "The Berkeley progress report describes comparison by altitude and exercise rate under the same program as Cook's related publication. Exact underlying study linkage remains unverified.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-874/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "openalex:W316955509",
+      "right_report": "nlm:101085500x233:144:stewart",
+      "relationship": "unresolved",
+      "evidence": "Both records describe Canadian high-altitude classification work at 35,000 ft during 1943. Neither record supplies a participant crosswalk with the other series.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA375225/DTIC_ADA375225.pdf#page=8"
+    },
+    {
+      "left_report": "report:ada075869",
+      "right_report": "nlm:101085500x233:220:ferris",
+      "relationship": "unresolved",
+      "evidence": "The Appendix III Cincinnati label covers broad unprotected chamber experience drawn from varied prior reports. One related historical series is already in the registry. A source-to-rate crosswalk is unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA075869/DTIC_ADA075869.pdf#page=27"
+    },
+    {
+      "left_report": "report:ada075869",
+      "right_report": "openalex:W316955509",
+      "relationship": "cites_primary_report",
+      "evidence": "Reference 7 lists the same title, author, country and NRC report C 2436, February 1943.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA075869/DTIC_ADA075869.pdf#page=24"
+    },
+    {
+      "left_report": "report:ada075869",
+      "right_report": "nlm:101085500x267:895:lawrence-hamilton",
+      "relationship": "cites_methods_report",
+      "evidence": "Reference 1 identifies the retrieved University of California Progress Report No. 25 by contract and date.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA075869/DTIC_ADA075869.pdf#page=24"
+    },
     {
       "left_report": "pmid:10685592",
       "right_report": "adf:smart-cable-2004",
