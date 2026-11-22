@@ -36,6 +36,12 @@
             "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315",
             "https://ntrs.nasa.gov/citations/19860038767"
           ]
+        },
+        {
+          "request_id": "1e0d10e2-b93c-44d2-9d0e-8a5d1056d071",
+          "urls": [
+            "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf"
+          ]
         }
       ]
     },
@@ -54,6 +60,7 @@
         "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/58/5/article-p483.pdf#page=8",
         "repository_scope": {
           "repository_id": "usafsam-hypob",
+          "snapshot_as_of": null,
           "reported_people": 293,
           "people_count_basis": "exact",
           "reported_exposures": 1470,
@@ -76,6 +83,7 @@
         "openalex_id": "W292494492",
         "repository_scope": {
           "repository_id": "usafsam-hypob",
+          "snapshot_as_of": null,
           "reported_people": 343,
           "people_count_basis": "more_than",
           "reported_exposures": 1655,
@@ -120,6 +128,27 @@
         }
       },
       {
+        "id": "krutz93_armstrong_revised",
+        "title": "Aircrew/Groundcrew Life Support Systems Research. Volume 1: CLIN 0001 Research Requirements",
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19",
+        "year": 1993,
+        "identifier": "ADA268229; AL-TR-1993-4012 Vol. I",
+        "locator": "Introduction (PDF p. 8); §B.4.2, printed p. 13 (PDF p. 19)",
+        "source_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "access": "full_text",
+        "note": "The successor contract continued earlier research. The Armstrong report documents database migration and corrections to 1983–1991 records, and gives 1,096 recorded flights as of 10 November 1992. No row-level crosswalk to the earlier HYPOB snapshots or clinical numerator is supplied.",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19",
+        "repository_scope": {
+          "repository_id": "armstrong-al-revised",
+          "snapshot_as_of": "1992-11-10",
+          "reported_people": null,
+          "people_count_basis": null,
+          "reported_exposures": 1096,
+          "exposure_count_basis": "exact",
+          "locator": "Introduction (PDF p. 8); §B.4.2, printed p. 13 (PDF p. 19)"
+        }
+      },
+      {
         "id": "sae851315",
         "title": "Minimum Pressure for a Zero-Prebreathe Pressure Suit",
         "url": "https://saemobilus.sae.org/papers/minimum-pressure-a-zero-prebreathe-pressure-suit-851315",
@@ -149,6 +178,10 @@
           "url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf"
         },
         {
+          "scrape_id": "01a2044c-75b2-710d-a4e2-73c66174adda",
+          "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf"
+        },
+        {
           "search_id": "01a20443-7450-70bd-a4f1-f9b691427da7",
           "query": "Krutz Dixon Harvey 851315 \"minimum pressure\" NASA chamber pressure suit Doppler"
         }
@@ -171,11 +204,33 @@
         "openalex_id": "W292494492",
         "repository_scope": {
           "repository_id": "usafsam-hypob",
+          "snapshot_as_of": null,
           "reported_people": 343,
           "people_count_basis": "more_than",
           "reported_exposures": 1655,
           "exposure_count_basis": "approximate",
           "locator": "Part III §§B.1.1–B.1.2, printed p. 10 (PDF p. 21), Appendix III-A p. 13 (PDF p. 24)"
+        }
+      },
+      {
+        "id": "krutz93_armstrong_revised",
+        "title": "Aircrew/Groundcrew Life Support Systems Research. Volume 1: CLIN 0001 Research Requirements",
+        "url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19",
+        "year": 1993,
+        "identifier": "ADA268229; AL-TR-1993-4012 Vol. I",
+        "locator": "Introduction (PDF p. 8); §B.4.2, printed p. 13 (PDF p. 19)",
+        "source_sha256": "96e4b264c3aae7c6322c962a16dd354a50ec7a483e684f6b20985c10442ac81f",
+        "access": "full_text",
+        "note": "The successor contract continued earlier research. The Armstrong report documents database migration and corrections to 1983–1991 records, and gives 1,096 recorded flights as of 10 November 1992. No row-level crosswalk to the earlier HYPOB snapshots or clinical numerator is supplied.",
+        "primary_source": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19",
+        "repository_scope": {
+          "repository_id": "armstrong-al-revised",
+          "snapshot_as_of": "1992-11-10",
+          "reported_people": null,
+          "people_count_basis": null,
+          "reported_exposures": 1096,
+          "exposure_count_basis": "exact",
+          "locator": "Introduction (PDF p. 8); §B.4.2, printed p. 13 (PDF p. 19)"
         }
       },
       {

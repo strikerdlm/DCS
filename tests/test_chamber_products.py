@@ -12,12 +12,13 @@ from scripts.evaluate_chamber_benchmark import run
 def test_usafsam_repository_snapshots_preserve_count_precision_and_report_identity(release):
     with connect_pair(release) as db:
         assert db.execute("""
-            SELECT repository_id,report_year,reported_people,people_count_basis,
+            SELECT repository_id,report_year,snapshot_as_of,reported_people,people_count_basis,
                    reported_exposures,exposure_count_basis
             FROM publication_usafsam_repository_snapshot ORDER BY report_year
         """).fetchall() == [
-            ("usafsam-hypob", 1987, 293, "exact", 1470, "more_than"),
-            ("usafsam-hypob", 1990, 343, "more_than", 1655, "approximate"),
+            ("usafsam-hypob", 1987, None, 293, "exact", 1470, "more_than"),
+            ("usafsam-hypob", 1990, None, 343, "more_than", 1655, "approximate"),
+            ("armstrong-al-revised", 1993, "1992-11-10", None, None, 1096, "exact"),
         ]
         sae = "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4"
         assert db.execute("""
@@ -31,8 +32,12 @@ def test_usafsam_repository_snapshots_preserve_count_precision_and_report_identi
         """).fetchone() == ("same_repository_different_snapshot",)
         assert db.execute("""
             SELECT count(*) FROM review.review_search_observation
-            WHERE report_id IN ('doi:10.21236/ada222626','asma:1987:490:43')
+            WHERE report_id IN ('doi:10.21236/ada222626','asma:1987:490:43','report:ada268229')
         """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:ada268229' AND right_report='doi:10.21236/ada222626'
+        """).fetchone() == ("successor_repository_membership_unresolved",)
 
 
 def test_usafsam_vge_cells_reconcile_risk_sets_and_keep_withdrawals_distinct(release):

@@ -19,6 +19,12 @@
       "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13"
     },
     {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-tavily#krutz93_armstrong_revised",
+      "report_id": "report:ada268229",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19"
+    },
+    {
       "record_key": "2026-11-22-usafsam-hypob-threshold-tavily#sae851315",
       "report_id": "record:legacy:data/chamber/v1.9/search_hits.csv#protocol_extract_initial:4",
       "basis": "Matched the original byline, report or conference identifier and year.",
@@ -35,6 +41,12 @@
       "report_id": "openalex:W338709008",
       "basis": "Matched the original byline, report or conference identifier and year.",
       "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13"
+    },
+    {
+      "record_key": "2026-11-22-usafsam-hypob-threshold-firecrawl#krutz93_armstrong_revised",
+      "report_id": "report:ada268229",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19"
     },
     {
       "record_key": "2026-11-22-usafsam-hypob-threshold-firecrawl#dixon1986",
@@ -59,6 +71,12 @@
       "report_id": "openalex:W338709008",
       "basis": "Matched the original byline, report or conference identifier and year.",
       "evidence_url": "https://archive.org/download/DTIC_ADA197675/DTIC_ADA197675.pdf#page=13"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.228/sources.csv#krutz93_armstrong_revised",
+      "report_id": "report:ada268229",
+      "basis": "Matched the original byline, report or conference identifier and year.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19"
     },
     {
       "record_key": "2026-11-20-formal-chamber-openalex#W1536025152",
@@ -25446,6 +25464,13 @@
       "relationship": "same_repository_different_snapshot",
       "evidence": "Part III §B.1.2 and Appendix III-A cite the earlier computerized repository abstract.",
       "evidence_url": "https://archive.org/download/DTIC_ADA222626/DTIC_ADA222626.pdf#page=24"
+    },
+    {
+      "left_report": "report:ada268229",
+      "right_report": "doi:10.21236/ada222626",
+      "relationship": "successor_repository_membership_unresolved",
+      "evidence": "The introduction identifies continuation from the 1990 contract. Section B.4.2 documents migration and revisions without an exposure linkage table.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA268229/DTIC_ADA268229.pdf#page=19"
     },
     {
       "left_report": "openalex:W338709008",

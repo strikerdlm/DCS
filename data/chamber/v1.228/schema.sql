@@ -2,12 +2,14 @@ CREATE TABLE publication_usafsam_repository_snapshot (
     source_id TEXT PRIMARY KEY REFERENCES publication_source,
     repository_id TEXT NOT NULL,
     report_year INTEGER NOT NULL,
-    reported_people INTEGER NOT NULL CHECK(reported_people > 0),
-    people_count_basis TEXT NOT NULL CHECK(people_count_basis IN ('exact','more_than')),
-    reported_exposures INTEGER NOT NULL CHECK(reported_exposures >= reported_people),
-    exposure_count_basis TEXT NOT NULL CHECK(exposure_count_basis IN ('approximate','more_than')),
+    snapshot_as_of TEXT,
+    reported_people INTEGER CHECK(reported_people > 0),
+    people_count_basis TEXT CHECK(people_count_basis IN ('exact','more_than')),
+    reported_exposures INTEGER NOT NULL CHECK(reported_exposures > 0 AND reported_exposures >= reported_people),
+    exposure_count_basis TEXT NOT NULL CHECK(exposure_count_basis IN ('exact','approximate','more_than')),
     locator TEXT NOT NULL,
-    UNIQUE(repository_id,report_year)
+    UNIQUE(repository_id,report_year),
+    CHECK((reported_people IS NULL) = (people_count_basis IS NULL))
 ) STRICT;
 
 CREATE TABLE publication_usafsam_repeated_vge (
