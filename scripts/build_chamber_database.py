@@ -301,6 +301,7 @@ NASA_2007_ARCHIVE = ROOT / "data" / "chamber" / "v1.233"
 HISTORICAL_MODEL_ARCHIVES = ROOT / "data" / "chamber" / "v1.234"
 HDSD_ARCHIVE_LINEAGE = ROOT / "data" / "chamber" / "v1.235"
 GRAY_MASLAND_DESCENT = ROOT / "data" / "chamber" / "v1.236"
+GRAY_SAM_REPORTS = ROOT / "data" / "chamber" / "v1.237"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3116,6 +3117,13 @@ def build(
                         "publication_reported_rate": "reported_rates.csv",
                         "literature_hdsd_primary_rate_link": "primary_rate_links.csv",
                     },
+                )
+                load_supplement(
+                    db,
+                    GRAY_SAM_REPORTS,
+                    "publication",
+                    create_schema=False,
+                    extra_tables={"publication_reported_rate": "reported_rates.csv"},
                 )
                 load_register(db, ROOT)
                 db.commit()

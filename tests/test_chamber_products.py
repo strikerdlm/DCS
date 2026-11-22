@@ -9,6 +9,59 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_gray_air_force_reports_preserve_outcomes_and_archive_overlap(release):
+    with connect_pair(release) as db:
+        model_counts = db.execute("""
+            SELECT l.report_id,p.stratum,p.endpoint,p.numerator,p.denominator,p.denominator_unit
+            FROM publication_observation p JOIN model_report_link l USING(source_id)
+            WHERE l.report_id IN ('report:sam-248-1','report:sam-252-1','report:sam-409-1')
+            ORDER BY 1,2,3
+        """).fetchall()
+        review_counts = db.execute("""
+            SELECT report_id,reported_group,endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-gray-sam-project-reports-firecrawl'
+              AND cases IS NOT NULL
+            ORDER BY 1,2,3
+        """).fetchall()
+        assert len(model_counts) == 160
+        assert model_counts == review_counts
+        assert ("report:sam-248-1", "38000_all_pb8", "descent_total_aeroembolism_as_reported",
+                48, 221, "person_exposure") in model_counts
+        n, denominator, percent, protocol = db.execute("""
+            SELECT o.numerator,o.denominator,p.reported_percent,o.protocol
+            FROM publication_observation o
+            JOIN publication_reported_rate p USING(source_id,stratum,endpoint)
+            WHERE o.source_id='gray44_sam248_pressure_breathing'
+              AND o.stratum='38000_untrained_pressure_table_vi'
+              AND o.endpoint='circulatory_reaction_after_chokes'
+        """).fetchone()
+        assert (n, denominator, percent) == (1, 145, "2.4")
+        assert "six inches" in protocol and "eight inches" in protocol
+        assert db.execute("""
+            SELECT stratum,numerator FROM publication_observation
+            WHERE source_id='gray45_sam409_carbon_dioxide' AND denominator=204
+              AND endpoint='descent_due_to_chokes_grade_3_or_4'
+            ORDER BY stratum
+        """).fetchall() == [("38000_co2_mean_12pct", 7), ("38000_pure_oxygen", 7)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:sam-252-1' AND right_report='ntrs:20010020946'
+        """).fetchall() == [("same_cohort",)]
+        assert db.execute("""
+            SELECT row_on_page,male_exposures,serious_cases,reference_number
+            FROM publication_nasa_serious_dcs_group
+            WHERE source_id='conkin01_serious_archive' AND printed_page=43 AND row_on_page IN (22,23)
+            ORDER BY row_on_page
+        """).fetchall() == [(22, 62, 0, 34), (23, 62, 0, 32)]
+        dates = db.execute("""
+            SELECT DISTINCT json_extract(d.value,'$.date')
+            FROM review.review_record r,json_each(r.metadata_json,'$.publication_dates_as_reported') d
+            WHERE r.report_id='report:sam-458-1'
+        """).fetchall()
+        assert set(dates) == {("1946-01",), ("1944-10-03",), ("1944",)}
+
+
 def test_gray_masland_gas_pains_reconcile_hdsd_without_counting_dcs(release):
     with connect_pair(release) as db:
         report_id, = db.execute("""
