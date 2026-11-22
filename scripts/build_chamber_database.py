@@ -304,6 +304,7 @@ GRAY_MASLAND_DESCENT = ROOT / "data" / "chamber" / "v1.236"
 GRAY_SAM_REPORTS = ROOT / "data" / "chamber" / "v1.237"
 GRAY_MAHADY_SOURCE_TABLES = ROOT / "data" / "chamber" / "v1.238"
 TAIWAN_TRAINING_SYMPTOMS = ROOT / "data" / "chamber" / "v1.239"
+HYPOBARIC_SYNCOPE_ASCERTAINMENT = ROOT / "data" / "chamber" / "v1.240"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3147,6 +3148,15 @@ def build(
                         "publication_reported_rate": "reported_rates.csv",
                     },
                     create_schema=False,
+                )
+                load_supplement(
+                    db,
+                    HYPOBARIC_SYNCOPE_ASCERTAINMENT,
+                    "publication",
+                    extra_tables={
+                        "publication_chamber_trial_scope": "trial_scope.csv",
+                        "publication_asma_abstract_locator_revision": "abstract_locators.csv",
+                    },
                 )
                 load_register(db, ROOT)
                 db.commit()
