@@ -1,0 +1,6 @@
+source_id,endpoint,source_section,risk_set,count_basis,reported_cases,records_in_risk_set,locator,note
+henry53_wadc,chokes_onset_at_or_before_30_min_at_38000_ft,narrative_p43,control_chest_symptom_records,narrative,2,6,"Printed p. 43 (PDF p. 50), Chest Symptoms",The narrative gives two cases within 30 minutes.
+henry53_wadc,chokes_onset_at_or_before_30_min_at_38000_ft,table7,control_chest_symptom_records,row_count,1,6,"Printed p. 44 (PDF p. 51), Table 7",The published rows give one at 30 minutes. The next row gives 31 minutes.
+henry53_wadc,concurrent_chokes_and_vasomotor_reaction,table4,all_control_tests,table_sum,5,40,"Printed p. 27 (PDF p. 34), Table 4",Three chokes with vasomotor reaction and two chokes with bends and vasomotor reaction.
+henry53_wadc,concurrent_chokes_and_vasomotor_reaction,table7,control_chest_symptom_records,row_count,2,6,"Printed p. 44 (PDF p. 51), Table 7",Two of the six control chest symptom records have a vasomotor-reaction mark.
+henry53_wadc,concurrent_chokes_and_vasomotor_reaction,table8,mixed_selected_vasomotor_reaction_records,table_sum,4,19,"Printed p. 45 (PDF p. 52), Table 8",Three mild and one moderate chokes among selected vasomotor reactions across protocols. No row mapping is available.
