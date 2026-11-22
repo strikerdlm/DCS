@@ -1,0 +1,153 @@
+[
+  {
+    "id": "2026-11-21-andean-chamber-annex-scope-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Targeted searches for original Peru and Colombia chamber records and regional outcome reports. The official FAC press page required Firecrawl after the Tavily extract failed.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "peru_chamber_thesis_search_request_id": "a46b3480-ea0d-465b-a374-c6f7bb3116ed",
+      "regional_chamber_search_request_id": "12e12dfd-2e9f-434d-98c9-c02f67bb66ce",
+      "fac_chamber_surveillance_search_request_id": "fe7d3cb6-a769-4aff-8d13-6b815c934047",
+      "fac_handover_extract_request_id": "b79889b6-d7e5-49d9-a8e7-20a29a685330",
+      "prior_peru_thesis_request_ids": [
+        "74bb943c-60d4-429b-b955-f834b5163f73",
+        "10d4ce44-b95a-4fb9-8328-8ed451e5fa4d",
+        "ff34c727-a2db-46ad-aae2-2e520bc35edf"
+      ],
+      "public_urls_followed": [
+        "https://alicia.concytec.gob.pe/vufind/Record/UPSJ_e6b546e752a327dc617847020ff52074",
+        "https://repositorio.upsjb.edu.pe/item/8c45ba1f-97cd-48d0-a1c2-cf6eb4b259e3",
+        "https://www.fac.mil.co/sites/default/files/linktransparencia/Planeacion/informe_de_empalme_comandante_fac_grbueno_grrueda.pdf",
+        "https://www.fac.mil.co/es/noticias/pilotos-peruanos-se-entrenan-en-colombia",
+        "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac"
+      ]
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-andean-chamber-annex-scope-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "The university repository supplied a link to the public thesis PDF. The direct FAC handover scrape timed out and the original PDF was verified locally. Regional searches repeated already indexed cohorts.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "fac_direct_2019_scrape_id": "01a200e8-c62f-758f-8609-5ec8bba71dde",
+      "fac_handover_discovery_id": "01a200e2-5ec6-7518-bd49-a0a059a5a27e",
+      "peru_catalogue_scrape_id": "01a200ea-478e-7417-9ac2-a4a409460cb2",
+      "peru_university_item_scrape_id": "01a200eb-fd61-7462-a81f-6ecadea93393",
+      "additional_search_ids": [
+        "01a200ee-3a22-73e9-983f-6ab978286f93",
+        "01a200ee-3a2d-7406-bcf9-ff7ca33db40a",
+        "01a200ee-3aa2-75ab-85a4-b56e8c6f3d30"
+      ]
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-andean-chamber-annex-scope-verified",
+    "date": "2026-11-21",
+    "provider": "Public original source verification",
+    "operation": "publisher_pdf_and_page_review",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Checked printed locators and annotations of the original sources. Only aggregate measures and positive source-label checks were retained from the thesis annex.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "balletta-fap-thesis",
+        "title": "Frecuencia de signos y síntomas en la hipoxia inducida en tripulantes aéreos de la FAP durante vuelos de cámara hipobárica. 2005-2015",
+        "author": "Carlos Alberto Balletta Nastasi",
+        "year": 2018,
+        "url": "https://repositorio.upsjb.edu.pe/backend/api/core/bitstreams/3c15ef00-8228-4301-92af-2a387b11be7f/content#page=63",
+        "repository_url": "https://repositorio.upsjb.edu.pe/item/8c45ba1f-97cd-48d0-a1c2-cf6eb4b259e3",
+        "handle": "20.500.14308/1908",
+        "pdf_sha256": "4f533aa2a5ec4255579ef9989089d6a47a74fca69e9265bdea95e8726c10cf08",
+        "full_text_available": true,
+        "locator": "Printed pp. 23-26, 32, 50-72 (PDF pp. 36-39, 45, 63-85), methods, Graph 1, Table 2 and Annexes 04-05",
+        "note": "Selected FAP aircrew in Lima, 2005-2015. Annex 04 reports 686 aircrew in 280 flights. Table 2 totals 686 people and the visible Annex 05 matrix contains 679 data rows. The seven-row difference and the coding from free-text labels to Graph 1 categories are unresolved. No clinical DCS adjudication, complete chamber exposure roster or event-free follow-up was located.",
+        "context": {
+          "model_source_id": "balletta18_fap_hypoxia_annex",
+          "location": "Lima, Peru",
+          "period": "2005-2015",
+          "reported_aircrew_people": 686,
+          "reported_chamber_flights": 280,
+          "visible_annex_rows": 679,
+          "difference_from_reported_people": 7,
+          "count_method": "Two horizontal-rule counts across different regions of the scan, excluding the first-page header.",
+          "graph_1_barotrauma_percent_as_printed": 0.73,
+          "graph_1_no_flight_percent_as_printed": 2.19,
+          "verified_literal_barotrauma_rows": 4,
+          "verified_literal_barotitis_rows": 3,
+          "annex_label_counts_exhaustive": false,
+          "graph_category_counts": null,
+          "clinical_dcs_cases": null,
+          "evaluable_person_exposures": null
+        }
+      },
+      {
+        "id": "fac-handover",
+        "title": "Acta informe de gestión, 9 de julio de 2015 a 14 de diciembre de 2018",
+        "author": "Fuerza Aérea Colombiana",
+        "year": 2018,
+        "url": "https://www.fac.mil.co/sites/default/files/linktransparencia/Planeacion/informe_de_empalme_comandante_fac_grbueno_grrueda.pdf",
+        "pdf_sha256": "8bc36ddef6c014a77f6d8a18703725ee2faf274102c93f57f3a50e6dc1ea5eba",
+        "full_text_available": true,
+        "locator": "Printed and PDF pp. 3, 23-24, 88-89",
+        "note": "DIMAE chamber above 8,000 ft at the facility, with hypoxia and rapid decompression functions. The 100th flight is a milestone. Course attendance counts cover multiple modalities. Individual session pressures, completed person-exposures, DCS outcomes and a link to Olaya's surveillance records are unavailable.",
+        "context": {
+          "model_source_id": "fac15_18_handover_training",
+          "chamber_flight_milestone_ordinal": 100,
+          "milestone_year": 2017,
+          "peru_combined_course_people": 29,
+          "chile_combined_course_people": 21,
+          "exact_course_dates": null,
+          "clinical_dcs_cases": null,
+          "evaluable_person_exposures": null
+        }
+      },
+      {
+        "id": "fac-2019-peru",
+        "title": "Pilotos Peruanos se entrenan en Colombia",
+        "author": "Comunicaciones Estratégicas CATAM",
+        "year": 2019,
+        "url": "https://www.fac.mil.co/es/noticias/pilotos-peruanos-se-entrenan-en-colombia",
+        "full_text_available": true,
+        "locator": "16 October 2019, opening paragraphs",
+        "note": "Dated official notice on a 15-pilot delegation for a one-week program, after the handover period. Completed chamber exposures, any overlap in membership and clinical outcomes are unavailable.",
+        "context": {
+          "model_source_id": "fac19_peru_visit",
+          "published_date": "2019-10-16",
+          "announced_pilot_delegation_people": 15,
+          "planned_program_duration": "one week",
+          "clinical_dcs_cases": null,
+          "evaluable_person_exposures": null
+        }
+      },
+      {
+        "id": "chile-2018-batches",
+        "title": "Pilotos chilenos se entrenan en la cámara hipobárica de la FAC",
+        "author": "Aránguiz OE",
+        "year": 2018,
+        "url": "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+        "locator": "1 May 2018, first and second delegation paragraphs",
+        "note": "Press account of two April group sizes. The official 21-person course has no matching dates or roster, so the published margins remain separate.",
+        "context": {
+          "group_16_apr_pilots": 11,
+          "group_23_apr_officers": 22,
+          "overlap_with_official_21_person_course": null,
+          "clinical_dcs_cases": null,
+          "evaluable_person_exposures": null
+        }
+      }
+    ]
+  }
+]

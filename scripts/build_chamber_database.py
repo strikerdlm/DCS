@@ -240,6 +240,7 @@ NASA_2020_TABLE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.172"
 HALIFAX_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.173"
 RCAF_CHAMBER_SYMPTOM_CURVE = ROOT / "data" / "chamber" / "v1.174"
 FAA_PROFILE_REACTION_RECONCILIATION = ROOT / "data" / "chamber" / "v1.175"
+ANDEAN_CHAMBER_SOURCE_SCOPE = ROOT / "data" / "chamber" / "v1.176"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2379,6 +2380,14 @@ def build(
                     {
                         "publication_faa90_profile": "profiles.csv",
                         "publication_faa90_reaction": "reactions.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    ANDEAN_CHAMBER_SOURCE_SCOPE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_andean_chamber_measure": "measures.csv",
                     },
                 )
             if rojas_supplement:

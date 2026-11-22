@@ -1,6 +1,66 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-andean-chamber-annex-scope-verified#balletta-fap-thesis",
+      "report_id": "record:2026-11-20-roles-tavily-aguirre#https://alicia.concytec.gob.pe/vufind/Record/UPSJ_e6b546e752a327dc617847020ff52074",
+      "evidence_url": "https://repositorio.upsjb.edu.pe/item/8c45ba1f-97cd-48d0-a1c2-cf6eb4b259e3",
+      "basis": "University title, author and handle identify the same thesis as the existing ALICIA record."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.176/sources.csv#balletta18_fap_hypoxia_annex",
+      "report_id": "record:2026-11-20-roles-tavily-aguirre#https://alicia.concytec.gob.pe/vufind/Record/UPSJ_e6b546e752a327dc617847020ff52074",
+      "evidence_url": "https://repositorio.upsjb.edu.pe/item/8c45ba1f-97cd-48d0-a1c2-cf6eb4b259e3",
+      "basis": "University title, author and handle identify the same thesis as the existing ALICIA record."
+    },
+    {
+      "record_key": "2026-11-20-latin-tavily-chile#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "report_id": "record:2026-11-20-latin-tavily-chile#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "evidence_url": "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "basis": "The same Infodefensa article, dated 1 May 2018, identifies both April groups."
+    },
+    {
+      "record_key": "2026-11-20-roles-tavily-aguirre#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "report_id": "record:2026-11-20-latin-tavily-chile#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "evidence_url": "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "basis": "The same Infodefensa article, dated 1 May 2018, identifies both April groups."
+    },
+    {
+      "record_key": "2026-11-20-rucker-gap-t-chile#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "report_id": "record:2026-11-20-latin-tavily-chile#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "evidence_url": "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "basis": "The same Infodefensa article, dated 1 May 2018, identifies both April groups."
+    },
+    {
+      "record_key": "2026-11-21-andean-chamber-annex-scope-verified#chile-2018-batches",
+      "report_id": "record:2026-11-20-latin-tavily-chile#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "evidence_url": "https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "basis": "The same Infodefensa article, dated 1 May 2018, identifies both April groups."
+    },
+    {
+      "record_key": "2026-11-21-andean-chamber-annex-scope-verified#fac-handover",
+      "report_id": "report:fac-2015-2018-acta-informe-gestion",
+      "evidence_url": "https://www.fac.mil.co/sites/default/files/linktransparencia/Planeacion/informe_de_empalme_comandante_fac_grbueno_grrueda.pdf",
+      "basis": "Identical FAC command handover report, period and official file."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.176/sources.csv#fac15_18_handover_training",
+      "report_id": "report:fac-2015-2018-acta-informe-gestion",
+      "evidence_url": "https://www.fac.mil.co/sites/default/files/linktransparencia/Planeacion/informe_de_empalme_comandante_fac_grbueno_grrueda.pdf",
+      "basis": "Identical FAC command handover report, period and official file."
+    },
+    {
+      "record_key": "2026-11-21-andean-chamber-annex-scope-verified#fac-2019-peru",
+      "report_id": "report:fac-2019-10-16-peru-training-notice",
+      "evidence_url": "https://www.fac.mil.co/es/noticias/pilotos-peruanos-se-entrenan-en-colombia",
+      "basis": "Identical FAC CATAM article dated 16 October 2019."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.176/sources.csv#fac19_peru_visit",
+      "report_id": "report:fac-2019-10-16-peru-training-notice",
+      "evidence_url": "https://www.fac.mil.co/es/noticias/pilotos-peruanos-se-entrenan-en-colombia",
+      "basis": "Identical FAC CATAM article dated 16 October 2019."
+    },
+    {
       "record_key": "2026-11-21-faa-profile-reactions-verified#valdez1990-table1",
       "report_id": "report:dot-faa-am-90-12",
       "evidence_url": "https://www.govinfo.gov/content/pkg/GOVPUB-TD4_200-PURL-LPS83855/pdf/GOVPUB-TD4_200-PURL-LPS83855.pdf#page=6",
@@ -22146,6 +22206,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:fac-2015-2018-acta-informe-gestion",
+      "right_report": "record:2026-11-20-latin-tavily-chile#https://www.infodefensa.com/texto-diario/mostrar/3073817/pilotos-chilenos-entrenan-camara-hipobarica-fac",
+      "relationship": "scope_overlap_unresolved",
+      "evidence_url": "https://www.fac.mil.co/sites/default/files/linktransparencia/Planeacion/informe_de_empalme_comandante_fac_grbueno_grrueda.pdf#page=89",
+      "evidence": "The official report lists 21 Chilean personnel in a combined course, without a session date. The May 2018 article describes groups of 11 and 22 in April. No roster confirms identity or disjointness."
+    },
+    {
+      "left_report": "report:fac-2015-2018-acta-informe-gestion",
+      "right_report": "doi:10.25062/9786287818279.12",
+      "relationship": "contextualizes_program",
+      "evidence_url": "https://www.fac.mil.co/sites/default/files/linktransparencia/Planeacion/informe_de_empalme_comandante_fac_grbueno_grrueda.pdf#page=23",
+      "evidence": "The handover documents the FAC chamber and training during a period covered by the clinical surveillance chapter. No clinical linkage or comparator denominator is established."
+    },
+    {
+      "left_report": "report:fac-2019-10-16-peru-training-notice",
+      "right_report": "report:fac-2015-2018-acta-informe-gestion",
+      "relationship": "distinct_program_period_shared_facility",
+      "evidence_url": "https://www.fac.mil.co/es/noticias/pilotos-peruanos-se-entrenan-en-colombia",
+      "evidence": "The announced 15-pilot delegation is dated October 2019, after the handover reporting close in December 2018. Participant overlap is unknown."
+    },
+    {
+      "left_report": "record:2026-11-20-roles-tavily-aguirre#https://alicia.concytec.gob.pe/vufind/Record/UPSJ_e6b546e752a327dc617847020ff52074",
+      "right_report": "report:fac-2015-2018-acta-informe-gestion",
+      "relationship": "distinct_chamber_sites",
+      "evidence_url": "https://repositorio.upsjb.edu.pe/backend/api/core/bitstreams/3c15ef00-8228-4301-92af-2a387b11be7f/content#page=39",
+      "evidence": "The thesis covers the FAP chamber in Lima, while FAC documents visiting Peruvian aircrew at CEMAE in Colombia. Membership cannot be cross-linked."
+    },
     {
       "left_report": "report:faa-aviation-physiology-education-2002",
       "right_report": "report:dot-faa-am-90-12",
