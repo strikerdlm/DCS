@@ -274,6 +274,7 @@ ANELL_2021_CHAMBER_CASES = ROOT / "data" / "chamber" / "v1.206"
 ANELL_EARLY_EXCURSION = ROOT / "data" / "chamber" / "v1.207"
 SULAIMAN_JOURNAL_AGE_FIGURES = ROOT / "data" / "chamber" / "v1.208"
 WEBB_AFRL_REPEAT_SUSCEPTIBILITY = ROOT / "data" / "chamber" / "v1.209"
+WEBB_PREBREATHE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.210"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2800,6 +2801,17 @@ def build(
             if publication_review:
                 from scripts.publication_review import load_register
 
+                load_version_tables(
+                    db,
+                    WEBB_PREBREATHE_RECONCILIATION,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_prebreathe_series_scope": "series_scopes.csv",
+                        "publication_prebreathe_chart": "charts.csv",
+                        "publication_prebreathe_chart_marker": "markers.csv",
+                        "publication_prebreathe_arm_crosswalk": "arm_crosswalk.csv",
+                    },
+                )
                 load_register(db, ROOT)
                 db.commit()
         finally:

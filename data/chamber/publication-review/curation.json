@@ -1,6 +1,78 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-webb-prebreathe-tavily#webb1999-primary-abstract",
+      "report_id": "pmid:11760770",
+      "basis": "Verified source identity using the original article or report metadata.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11760770/"
+    },
+    {
+      "record_key": "2026-11-22-webb-prebreathe-firecrawl#webb-nato-figure-1",
+      "report_id": "openalex:W331258336",
+      "basis": "Verified source identity using the original article or report metadata.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011098/DTIC_ADP011098.pdf#page=2"
+    },
+    {
+      "record_key": "2026-11-22-webb-prebreathe-firecrawl#webb-usaf-figure-5",
+      "report_id": "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
+      "basis": "Verified source identity using the original article or report metadata.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA518839/DTIC_ADA518839.pdf#page=15"
+    },
+    {
+      "record_key": "2026-11-22-webb-prebreathe-firecrawl#webb1998-eva-verified",
+      "report_id": "dtic:ada426870",
+      "basis": "Verified source identity using the original article or report metadata.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426870/DTIC_ADA426870.pdf#page=4"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.210/sources.csv#webb99_preoxygenation",
+      "report_id": "pmid:11760770",
+      "basis": "The indexed identity matches the original journal citation or archive accession.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11760770/"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.210/sources.csv#webb01_optimizing_denitrogenation",
+      "report_id": "openalex:W331258336",
+      "basis": "The indexed identity matches the original journal citation or archive accession.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011098/DTIC_ADP011098.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.210/sources.csv#webb98_eva_preoxygenation",
+      "report_id": "dtic:ada426870",
+      "basis": "The indexed identity matches the original journal citation or archive accession.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426870/DTIC_ADA426870.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W331258336",
+      "report_id": "openalex:W331258336",
+      "basis": "The OpenAlex cluster identifies the same NATO proceedings article and DTIC accession ADP011098.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011098/DTIC_ADP011098.pdf"
+    },
+    {
+      "record_key": "2026-11-20-russian-oa-related#W331258336",
+      "report_id": "openalex:W331258336",
+      "basis": "The OpenAlex cluster identifies the same NATO proceedings article and DTIC accession ADP011098.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011098/DTIC_ADP011098.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
+      "report_id": "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
+      "basis": "The title, authors and ADA518839 accession identify the same USAF report.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA518839/DTIC_ADA518839.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/zotero-dcs-2026-11-19/sources.csv#LL4DKYUQ",
+      "report_id": "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
+      "basis": "The title, authors and ADA518839 accession identify the same USAF report.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA518839/DTIC_ADA518839.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W281777325",
+      "report_id": "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
+      "basis": "The title, authors and ADA518839 accession identify the same USAF report.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA518839/DTIC_ADA518839.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
       "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
       "basis": "Retain the existing model-linked report identity while reconciling the newly verified journal occurrences.",
@@ -18909,6 +18981,12 @@
   ],
   "studies": [
     {
+      "study_id": "afrl-webb-1999-rest-preoxygenation-series",
+      "label": "Webb and Pilmanis 1999 AFRL preoxygenation series",
+      "period": "Retrospective series published in 1999. Exact study dates unspecified.",
+      "setting": "Brooks AFB research altitude chambers"
+    },
+    {
       "study_id": "afrl-webb-2005-repeat-susceptibility",
       "label": "AFRL repeat-volunteer subject/study ratio",
       "period": "Approximately 20 years of data as described in the 2005 paper",
@@ -20794,6 +20872,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "afrl-webb-1999-rest-preoxygenation-series",
+      "report_id": "pmid:11760770",
+      "role": "primary_abstract_with_series_scope",
+      "locator": "Author abstract"
+    },
     {
       "study_id": "afrl-webb-2005-repeat-susceptibility",
       "report_id": "pmid:15945398",
@@ -23946,6 +24030,48 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
+      "right_report": "pmid:11760770",
+      "relationship": "attributes_chart_to_source",
+      "evidence": "The USAF Figure 5 caption and adjacent prose attribute the plotted archive information to the 1999 article. Arm counts are unspecified.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA518839/DTIC_ADA518839.pdf#page=15"
+    },
+    {
+      "left_report": "openalex:W331258336",
+      "right_report": "pmid:11760770",
+      "relationship": "cites_as_figure_contribution",
+      "evidence": "NATO Figure 1 prose cites the 1999 article along with two other reports. The archive evidence does not identify which participants or exposures supplied each point.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011098/DTIC_ADP011098.pdf#page=2"
+    },
+    {
+      "left_report": "openalex:W331258336",
+      "right_report": "dtic:ada426870",
+      "relationship": "cites_as_figure_contribution",
+      "evidence": "The NATO text names Webb and Pilmanis 1998 as one contributor to Figure 1. The 1998 control's 47% differs from the NATO chart's roughly 40%.",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011098/DTIC_ADP011098.pdf#page=2"
+    },
+    {
+      "left_report": "record:2026-11-20-brooks-joint-t-nato#https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf",
+      "right_report": "pmid:11760770",
+      "relationship": "fits_curve_to_cited_source",
+      "evidence": "Slide 6 attributes the 30,000 ft, four-hour model to the 1999 report. It displays only a fitted curve and supplies no arm data.",
+      "evidence_url": "https://original.iaasm.org/icasm2017/PresentationPDFs/42.pdf#page=6"
+    },
+    {
+      "left_report": "dtic:ada426870",
+      "right_report": "openalex:W2399739399",
+      "relationship": "reprints_published_arm",
+      "evidence": "Table I and Results cite the 26-person 10E+50R profile to the 1996 paper, which has the already indexed 11 symptomatic DCS outcomes.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426870/DTIC_ADA426870.pdf#page=4"
+    },
+    {
+      "left_report": "dtic:ada426870",
+      "right_report": "record:legacy:data/chamber/v1.3/sources.csv#webb02",
+      "relationship": "likely_overlap",
+      "evidence": "The 1998 15E+75R and 240R protocols, N of 30 and rounded DCS results match the 2002 male arms. The membership and original case-level linkage remain unresolved.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA426870/DTIC_ADA426870.pdf#page=5"
+    },
     {
       "left_report": "pmid:15945398",
       "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
