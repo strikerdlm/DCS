@@ -1,0 +1,366 @@
+[
+  {
+    "id": "2026-11-22-berkeley-arm-exercise-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_primary_source_search",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"the role of exercise in altitude pain\" \"henry\" (pdf OR 398 OR reprint OR archive)",
+      "requests": [
+        {
+          "request_id": "8e645f45-9138-495e-bb9e-49ed676e3ebb",
+          "results_returned": 10
+        },
+        {
+          "request_id": "0b963e0a-60aa-49be-baf3-ff686a4b5591",
+          "urls": [
+            "https://journals.physiology.org/doi/10.1152/ajplegacy.1946.145.3.279",
+            "https://journals.physiology.org/doi/pdf/10.1152/ajplegacy.1946.145.3.279"
+          ],
+          "result": "Publisher extraction failed."
+        },
+        {
+          "request_id": "cae9e8eb-31f2-43f9-8d88-edab52a6caff",
+          "urls": [
+            "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf"
+          ],
+          "result": "NLM PDF extraction failed."
+        },
+        {
+          "request_id": "75c07802-2209-4cd9-905f-d14d109ea9a7",
+          "query": "\"Helmholz\" \"Lawrence\" \"decompression sickness\" \"San Diego\" flight 1944"
+        }
+      ]
+    },
+    "note": "Selected the exact Henry article from the search and checked its public publisher links. Additional focused search did not identify a new San Diego risk set.",
+    "records": [
+      {
+        "id": "21012578",
+        "title": "The role of exercise in altitude pain",
+        "year": 1946,
+        "pmid": "21012578",
+        "doi": "10.1152/ajplegacy.1946.145.3.279",
+        "url": "https://journals.physiology.org/doi/10.1152/ajplegacy.1946.145.3.279",
+        "access": "metadata",
+        "note": "Publisher returns the purchase and citation page. Original article outcome tables were not obtained."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-berkeley-arm-exercise-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and primary archive scans",
+    "status": "observed",
+    "operation": "supplementary_source_scan_reconciliation",
+    "reported_total": 4,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a2041e-498d-7721-b968-55414fb8cc12",
+          "url": "https://journals.physiology.org/doi/pdf/10.1152/ajplegacy.1946.145.3.279",
+          "result": "Redirected to the purchase and citation page."
+        },
+        {
+          "scrape_id": "01a20420-7fc1-72f5-8c5a-11cb7828506f",
+          "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf",
+          "result": "Read eight pages via Firecrawl; checked all eleven in the original PDF."
+        }
+      ]
+    },
+    "note": "Verified the document identities and reconciled the tabulation with the original page images.",
+    "records": [
+      {
+        "id": "21012578",
+        "title": "The role of exercise in altitude pain",
+        "year": 1946,
+        "pmid": "21012578",
+        "doi": "10.1152/ajplegacy.1946.145.3.279",
+        "url": "https://journals.physiology.org/doi/10.1152/ajplegacy.1946.145.3.279",
+        "access": "metadata",
+        "note": "Publisher returns the purchase and citation page. Original article outcome tables were not obtained."
+      },
+      {
+        "id": "lawrence45_cmr196_report24",
+        "title": "Lawrence JH, Hamilton JG. Aviation Medicine and High Altitude Physiology. Monthly Progress Report No. 24. OSRD. 1 October 1945.",
+        "year": 1945,
+        "url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-893/full/1600,/0/default.jpg",
+        "primary_source": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-893/full/1600,/0/default.jpg",
+        "locator": "Progress Report No. 24, pp. 1–2, items 1, 4–5 (NLM images 893–894)",
+        "source_sha256": "99764857259855f3c930d19900cd20f8bad53b1c5770a43c2b92603b4557841a",
+        "access": "full_text",
+        "note": "The investigator report counts 398 man-flights across seated arm-exercise conditions at varying effort and strain. It gives changes in symptoms and incapacitation without arm denominators or exact outcome counts. Page 2 lists Henry's article as submitted for consideration.",
+        "role_review": "overlap_hold",
+        "study_id": "berkeley-arm-work-and-strain-1945",
+        "reported_man_flights": 398,
+        "source_pages": [
+          {
+            "url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-893/full/1600,/0/default.jpg",
+            "sha256": "99764857259855f3c930d19900cd20f8bad53b1c5770a43c2b92603b4557841a"
+          },
+          {
+            "url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-894/full/1600,/0/default.jpg",
+            "sha256": "986e7bb5556a1982031f7c3935b00edef3ca92ea381dfa4fd8487039d48df979"
+          }
+        ]
+      },
+      {
+        "id": "cook51_arm_exercise",
+        "title": "Cook SF. Role of exercise, temperature, drugs and water balance in decompression sickness. In Fulton JF, ed. Decompression Sickness. Saunders. 1951.",
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=257",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=257",
+        "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "access": "secondary_table",
+        "note": "Cook explicitly attributes the exercise table to Henry. Approximately seventy men completed repeated exposures at 38,000 ft. The Number of Subjects column totals 390 across six exercises. The relationship to the 398 man-flights in the progress report and the exact denominator for each reported percentage are unresolved. No case counts were reconstructed.",
+        "role_review": "overlap_hold",
+        "study_id": "berkeley-arm-work-and-strain-1945",
+        "number_of_subjects_column": "Number of Subjects",
+        "approximate_unique_people": 70,
+        "sum_of_printed_group_sizes": 390,
+        "altitude_ft": 38000,
+        "extraction_method": "manual verification against the original table image",
+        "parser_attempt": "LlamaParse returned HTTP 402",
+        "observations": [
+          {
+            "id": "I-mild_symptoms_as_reported",
+            "group": "I",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "mild_symptoms_as_reported",
+            "reported_rate_percent": 72.4,
+            "printed_number_of_subjects": 77,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "I-moderate_symptoms_as_reported",
+            "group": "I",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "moderate_symptoms_as_reported",
+            "reported_rate_percent": 55.3,
+            "printed_number_of_subjects": 77,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "I-incapacitation_as_reported",
+            "group": "I",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "incapacitation_as_reported",
+            "reported_rate_percent": 40.8,
+            "printed_number_of_subjects": 77,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "II-mild_symptoms_as_reported",
+            "group": "II",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "mild_symptoms_as_reported",
+            "reported_rate_percent": 70.5,
+            "printed_number_of_subjects": 62,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "II-moderate_symptoms_as_reported",
+            "group": "II",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "moderate_symptoms_as_reported",
+            "reported_rate_percent": 54.1,
+            "printed_number_of_subjects": 62,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "II-incapacitation_as_reported",
+            "group": "II",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "incapacitation_as_reported",
+            "reported_rate_percent": 27.9,
+            "printed_number_of_subjects": 62,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "III-mild_symptoms_as_reported",
+            "group": "III",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "mild_symptoms_as_reported",
+            "reported_rate_percent": 74.1,
+            "printed_number_of_subjects": 61,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "III-moderate_symptoms_as_reported",
+            "group": "III",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "moderate_symptoms_as_reported",
+            "reported_rate_percent": 44.9,
+            "printed_number_of_subjects": 61,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "III-incapacitation_as_reported",
+            "group": "III",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "incapacitation_as_reported",
+            "reported_rate_percent": 22.4,
+            "printed_number_of_subjects": 61,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "IV-mild_symptoms_as_reported",
+            "group": "IV",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "mild_symptoms_as_reported",
+            "reported_rate_percent": 53.1,
+            "printed_number_of_subjects": 65,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "IV-moderate_symptoms_as_reported",
+            "group": "IV",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "moderate_symptoms_as_reported",
+            "reported_rate_percent": 34.4,
+            "printed_number_of_subjects": 65,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "IV-incapacitation_as_reported",
+            "group": "IV",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "incapacitation_as_reported",
+            "reported_rate_percent": 10.9,
+            "printed_number_of_subjects": 65,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "V-mild_symptoms_as_reported",
+            "group": "V",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "mild_symptoms_as_reported",
+            "reported_rate_percent": 59.8,
+            "printed_number_of_subjects": 69,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "V-moderate_symptoms_as_reported",
+            "group": "V",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "moderate_symptoms_as_reported",
+            "reported_rate_percent": 29.9,
+            "printed_number_of_subjects": 69,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "V-incapacitation_as_reported",
+            "group": "V",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "incapacitation_as_reported",
+            "reported_rate_percent": 13.4,
+            "printed_number_of_subjects": 69,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "VI-mild_symptoms_as_reported",
+            "group": "VI",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "mild_symptoms_as_reported",
+            "reported_rate_percent": 43.6,
+            "printed_number_of_subjects": 56,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "VI-moderate_symptoms_as_reported",
+            "group": "VI",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "moderate_symptoms_as_reported",
+            "reported_rate_percent": 27.3,
+            "printed_number_of_subjects": 56,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          },
+          {
+            "id": "VI-incapacitation_as_reported",
+            "group": "VI",
+            "study_id": "berkeley-arm-work-and-strain-1945",
+            "endpoint": "incapacitation_as_reported",
+            "reported_rate_percent": 14.5,
+            "printed_number_of_subjects": 56,
+            "altitude_ft": 38000,
+            "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145",
+            "note": "Repeated measures. Exact outcome-specific risk set and numerator unavailable."
+          }
+        ]
+      },
+      {
+        "id": "fulton44_california_full_text",
+        "title": "Fulton JF. Report to Dr. Lewis H. Weed concerning the trip of the Subcommittee on Decompression Sickness to California, 24 June – 3 July 1944. Yale Aeromedical Research Unit Report 37. 8 July 1944.",
+        "year": 1944,
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf#page=9",
+        "primary_source": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf#page=9",
+        "locator": "Printed and PDF p. 9, San Diego flight account",
+        "source_sha256": "5809385fad8c62a57fea2b17b92f9f5f54af38814ecf6d53ab0ad29bd3fdcbea",
+        "access": "full_text",
+        "note": "The July 1944 visit report describes classified subjects flown at 35,000 ft in San Diego and pilot bends despite one hour of preoxygenation. It provides no case count, exact denominator or complete observation window. This account belongs to the existing San Diego aircraft research program. The complete PDF was checked against the page image after Firecrawl recovered the first eight pages.",
+        "study_id": "berkeley-liberator-chamber-flight-experiments",
+        "role_review": "overlap_hold",
+        "flight_context": {
+          "location": "San Diego",
+          "altitude_ft": 35000,
+          "pilot_preoxygenation_min_as_reported": 60,
+          "exact_case_count": null,
+          "exact_denominator": null,
+          "setting": "aircraft"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-berkeley-arm-exercise-ebsco",
+    "date": "2026-11-22",
+    "provider": "EBSCO UNAL",
+    "status": "failed",
+    "operation": "supplementary_full_text_attempt",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requested_doi": "10.1152/ajplegacy.1946.145.3.279"
+    },
+    "note": "The configured university authentication attempt stayed on the proxy sign-in host. The EBSCO search did not execute.",
+    "records": []
+  }
+]

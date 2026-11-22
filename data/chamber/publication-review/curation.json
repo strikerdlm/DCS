@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.226/sources.csv#lawrence45_cmr196_report24",
+      "report_id": "nlm:101085500x267:893:lawrence-hamilton",
+      "basis": "Verified source title, date and locator in the publisher or archival source.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-893/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-arm-exercise-firecrawl#lawrence45_cmr196_report24",
+      "report_id": "nlm:101085500x267:893:lawrence-hamilton",
+      "basis": "Verified source title, date and locator in the publisher or archival source.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-893/full/1600,/0/default.jpg"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.226/sources.csv#cook51_arm_exercise",
+      "report_id": "fulton1951:role-of-exercise",
+      "basis": "Verified source title, date and locator in the publisher or archival source.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=257"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-arm-exercise-firecrawl#cook51_arm_exercise",
+      "report_id": "fulton1951:role-of-exercise",
+      "basis": "Verified source title, date and locator in the publisher or archival source.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=257"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.226/sources.csv#fulton44_california_full_text",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "basis": "Verified source title, date and locator in the publisher or archival source.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-arm-exercise-firecrawl#fulton44_california_full_text",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "basis": "Verified source title, date and locator in the publisher or archival source.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf#page=9"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-arm-exercise-tavily#21012578",
+      "report_id": "doi:10.1152/ajplegacy.1946.145.3.279",
+      "basis": "Publisher DOI and PMID match the existing Henry report.",
+      "evidence_url": "https://journals.physiology.org/doi/10.1152/ajplegacy.1946.145.3.279"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-arm-exercise-firecrawl#21012578",
+      "report_id": "doi:10.1152/ajplegacy.1946.145.3.279",
+      "basis": "Publisher DOI and PMID match the existing Henry report.",
+      "evidence_url": "https://journals.physiology.org/doi/10.1152/ajplegacy.1946.145.3.279"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.26/search_hits.csv#timing_v26_nlm_archives:1",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "basis": "The two archival records identify the same Fulton visit report. The full-text header confirms date and title.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "basis": "Canonical original archival title and source occurrence.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.30/sources.csv#fulton44_california",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "basis": "Canonical original archival title and source occurrence.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.225/sources.csv#henry52_wadc_program_rates",
       "report_id": "report:ada075869",
       "basis": "Verified author, date and report on the public archival page.",
@@ -19737,6 +19803,12 @@
   ],
   "studies": [
     {
+      "study_id": "berkeley-arm-work-and-strain-1945",
+      "label": "Berkeley repeated arm-exercise tests of work and strain",
+      "period": "Reported 1945–1951",
+      "setting": "Experimental hypobaric chamber at the Donner Laboratory."
+    },
+    {
       "study_id": "ca-nrc-fraser-1943-stepped-ascent",
       "label": "Fraser selected repeated stepwise-ascent chamber study",
       "period": "Reported February 1943",
@@ -21790,6 +21862,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "berkeley-arm-work-and-strain-1945",
+      "report_id": "nlm:101085500x267:893:lawrence-hamilton",
+      "role": "investigator_progress_report",
+      "locator": "Progress Report No. 24, pp. 1–2, items 1, 4–5 (NLM images 893–894)"
+    },
+    {
+      "study_id": "berkeley-arm-work-and-strain-1945",
+      "report_id": "doi:10.1152/ajplegacy.1946.145.3.279",
+      "role": "journal_article",
+      "locator": "American Journal of Physiology 145:279–284; full text unavailable"
+    },
+    {
+      "study_id": "berkeley-arm-work-and-strain-1945",
+      "report_id": "fulton1951:role-of-exercise",
+      "role": "secondary_outcome_table",
+      "locator": "Printed p. 232 (PDF p. 257), exercises I–VI and reference 145"
+    },
+    {
+      "study_id": "berkeley-liberator-chamber-flight-experiments",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "role": "contemporary_archival_context",
+      "locator": "Printed and PDF p. 9, San Diego flight account"
+    },
     {
       "study_id": "ca-nrc-fraser-1943-stepped-ascent",
       "report_id": "openalex:W316955509",
@@ -25188,6 +25284,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "fulton1951:role-of-exercise",
+      "right_report": "doi:10.1152/ajplegacy.1946.145.3.279",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Cook p. 232 explicitly attributes the six arm-exercise results to research reported by Henry in reference 145.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=257"
+    },
+    {
+      "left_report": "nlm:101085500x267:893:lawrence-hamilton",
+      "right_report": "doi:10.1152/ajplegacy.1946.145.3.279",
+      "relationship": "cites_related_human_exposure_report",
+      "evidence": "Page 2 lists Henry's paper title as submitted. Page 1 describes that program's arm work/strain comparison.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-894/full/1600,/0/default.jpg"
+    },
+    {
+      "left_report": "fulton1951:role-of-exercise",
+      "right_report": "nlm:101085500x267:893:lawrence-hamilton",
+      "relationship": "same_program_denominator_discrepancy",
+      "evidence": "Same Berkeley arm-exercise program, continuous and intermittent strain, and approximately 100 and 380 foot-pound workloads. The archival project-wide count and the book's group-size sum differ by eight. Exact membership is unverified.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=257"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "right_report": "pmid:21005550",
+      "relationship": "likely_overlap",
+      "evidence": "The July 1944 visit report and the published series both place the classified research subjects and pilot/crew bends in the San Diego 35,000-ft aircraft program run by Lawrence and Helmholz. The visit report identifies no individual flights or new risk set.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf#page=9"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:7",
+      "right_report": "asb:1944:1:11:9",
+      "relationship": "likely_overlap",
+      "evidence": "The July 1944 visit report and the published series both place the classified research subjects and pilot/crew bends in the San Diego 35,000-ft aircraft program run by Lawrence and Helmholz. The visit report identifies no individual flights or new risk set.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X228/PDF/101085500X228.pdf#page=9"
+    },
     {
       "left_report": "nlm:101085500x267:874:lawrence-hamilton",
       "right_report": "record:legacy:data/chamber/v1.19/search_hits.csv#archival_v19_bridge_scrape:1",
