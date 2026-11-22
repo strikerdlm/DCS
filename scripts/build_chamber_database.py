@@ -280,6 +280,7 @@ FARNBOROUGH_1995_ABSTRACTS = ROOT / "data" / "chamber" / "v1.212"
 USAF_EXERCISE_TRIAL = ROOT / "data" / "chamber" / "v1.213"
 HDSD_RISK_SET_RECONCILIATION = ROOT / "data" / "chamber" / "v1.214"
 NASA_SOAR_REPEAT_EXPOSURE = ROOT / "data" / "chamber" / "v1.215"
+NASA_JSC_EPIDEMIOLOGY = ROOT / "data" / "chamber" / "v1.216"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -584,12 +585,13 @@ def promote_comex_counts(db):
     )
 
 
-def apply_publication_revisions(db):
+def apply_publication_revisions(db, evidence_source_id=None):
     revisions = db.execute("""
         SELECT denominator, outcome_window, locator, note, source_id, stratum, endpoint,
                numerator, previous_denominator
         FROM publication_observation_revision
-    """)
+        WHERE (? IS NULL OR evidence_source_id=?)
+    """, (evidence_source_id, evidence_source_id))
     for revision in revisions:
         update = db.execute(
             "UPDATE publication_observation SET denominator=?, outcome_window=?, locator=?, note=? "
@@ -2874,6 +2876,22 @@ def build(
                         "publication_repeat_exposure_odds_ratio": "odds_ratios.csv",
                     },
                 )
+                load_version_tables(
+                    db,
+                    NASA_JSC_EPIDEMIOLOGY,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_observation_revision": "observation_revisions.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_jsc_survival_profile": "survival_profiles.csv",
+                        "publication_jsc_survival_summary": "survival_summaries.csv",
+                        "publication_jsc_cmb_grade_outcome": "cmb_grade_outcomes.csv",
+                        "publication_jsc_exposure_association": "exposure_associations.csv",
+                        "publication_jsc_participant_factor": "participant_factors.csv",
+                    },
+                )
+                apply_publication_revisions(db, "kumar93_fulltext_jsc")
                 load_register(db, ROOT)
                 db.commit()
         finally:

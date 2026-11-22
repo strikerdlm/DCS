@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.216/sources.csv#kumar93_fulltext_jsc",
+      "report_id": "pmid:8280036",
+      "basis": "The original publisher PDF and PubMed agree on the title, authors, journal, year and pages.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/64/11/article-p1032.pdf"
+    },
+    {
+      "record_key": "2026-11-22-kumar93-fulltext-tavily#kumar93_fulltext_jsc",
+      "report_id": "pmid:8280036",
+      "basis": "The original publisher PDF and PubMed agree on the title, authors, journal, year and pages.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/64/11/article-p1032.pdf"
+    },
+    {
+      "record_key": "2026-11-22-kumar93-fulltext-firecrawl#kumar93_fulltext_jsc",
+      "report_id": "pmid:8280036",
+      "basis": "The original publisher PDF and PubMed agree on the title, authors, journal, year and pages.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/64/11/article-p1032.pdf"
+    },
+    {
       "record_key": "legacy:data/chamber/v1.215/sources.csv#kumar91_soar_repeated_exposures",
       "report_id": "openalex:W757732385",
       "basis": "OpenAlex W757732385 points to the same NASA NTRS 19910011409 PDF. Title, four authors and proceedings details agree.",
@@ -19161,6 +19179,12 @@
   ],
   "studies": [
     {
+      "study_id": "nasa-jsc-kumar93-simulated-eva-426",
+      "label": "NASA JSC simulated EVA cohort, 426 exposures",
+      "period": "1982–1990",
+      "setting": "NASA Johnson Space Center experimental hypobaric chambers"
+    },
+    {
       "study_id": "nasa-jsc-soar90-repeated-exposure-126",
       "label": "NASA JSC SOAR 90 repeated hypobaric exposure analysis in 126 participants",
       "period": "Historical test dates unreported. Proceedings published in 1991.",
@@ -21100,6 +21124,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "nasa-jsc-kumar93-simulated-eva-426",
+      "report_id": "pmid:8280036",
+      "role": "original_cohort_full_text",
+      "locator": "Methods, Results and Tables II–IX, printed pp. 1033–1038 (PDF pp. 2–7)"
+    },
     {
       "study_id": "nasa-jsc-soar90-repeated-exposure-126",
       "report_id": "openalex:W757732385",
@@ -24360,6 +24390,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:8280036",
+      "right_report": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
+      "relationship": "likely_overlap",
+      "evidence": "Test Procedures and reference 28, printed pp. 1033 and 1039 (PDF pp. 2 and 8). Test Procedures cites NASA TM-58259 as a source of the experimental profiles. Some Table II denominators and durations match the NASA archive. Exact profile membership and exposure linkage remain unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/64/11/article-p1032.pdf"
+    },
     {
       "left_report": "openalex:W757732385",
       "right_report": "record:legacy:data/chamber/v1.41/search_hits.csv#vge_review_v41_tables:1",
