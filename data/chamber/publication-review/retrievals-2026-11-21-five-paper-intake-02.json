@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2026-11-21-approved-intake-02-davis-1977",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association journal",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "pmid:889546",
+      "counts_toward_formal_identification": false,
+      "selection": "Approved full-text verification or dataset companion"
+    },
+    "reported_total": 1,
+    "status": "verified_publisher_pdf",
+    "note": "The source was already represented in the review catalog. Formal adjudication remains pending.",
+    "records": [
+      {
+        "id": "889546",
+        "title": "Altitude Decompression Sickness: Hyperbaric Therapy Results in 145 Cases",
+        "year": 1977,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf",
+        "citation": "Davis JC et al. Aviat Space Environ Med. 1977;48(8):722–730.",
+        "source_locator": "Printed p. 722 (PDF 1), referral series and DOI-free bibliographic identity; p. 728 (PDF 7), Table VIII and footnote; p. 729 (PDF 8), role contrast.",
+        "source_sha256": "3c0a1372ddbf8769318880c5510241dc804b7d3cdf4a6a6519f10f744a4f9f03",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "source_kind": "journal article",
+        "access_status": "verified_publisher_pdf",
+        "verification_note": "Verified the 16 disjoint Table VIII cells and the separate broader referral series. The scanned 1974 trainee denominator above 25,000 ft is 51,441. Table VIII is restricted to cases treated with hyperbaric oxygen.",
+        "pmid": "889546"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-02-olaya-2025",
+    "date": "2026-11-21",
+    "provider": "ESDEG publisher",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "doi:10.25062/9786287818279.12",
+      "counts_toward_formal_identification": false,
+      "selection": "Approved full-text verification or dataset companion"
+    },
+    "reported_total": 1,
+    "status": "verified_existing_pdf",
+    "note": "The source was already represented in the review catalog. Formal adjudication remains pending.",
+    "records": [
+      {
+        "id": "10.25062/9786287818279.12",
+        "title": "Incidencia de enfermedad descompresiva tipo II en entrenamiento hipobárico y evaluación de cámara hiperbárica monoplaza",
+        "year": 2025,
+        "url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1",
+        "citation": "Olaya Santamaria CA. In Castro Torres WJ, ed. Salud operacional y medicina militar. ESDEG; 2025:305–333. Chapter 12.",
+        "source_locator": "Printed p. 306 citation; pp. 310–314 Methods, Results and Tables 2–3; pp. 317–318 Results and Figure 3; p. 320 Table 6.",
+        "source_sha256": "1b76955abf2e7c5ce33eae841e084ca4528662deddef9f6e2cb051d76ddc57c7",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "source_kind": "book chapter",
+        "access_status": "verified_existing_pdf",
+        "verification_note": "Verified the chapter version and Tables 2–3. Retain the neurological Type II endpoint. Table 2 and the narrative differ for 2015, role exposure denominators are estimated, and FAC overlap remains unresolved.",
+        "doi": "10.25062/9786287818279.12"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-02-pal-aselisewine-2026",
+    "date": "2026-11-21",
+    "provider": "Springer Nature",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "pmid:41552415",
+      "counts_toward_formal_identification": false,
+      "selection": "Approved full-text verification or dataset companion"
+    },
+    "reported_total": 1,
+    "status": "verified_publisher_pdf_and_supplement",
+    "note": "The source was already represented in the review catalog. Formal adjudication remains pending.",
+    "records": [
+      {
+        "id": "41552415",
+        "title": "A Support vector machine-based mixture cure model for mixed case interval censored data",
+        "year": 2026,
+        "url": "https://link.springer.com/content/pdf/10.1007/s11222-025-10796-3.pdf",
+        "citation": "Pal S, Aselisewine W. Stat Comput. 2026;36:63.",
+        "source_locator": "PDF pp. 1–2 Introduction; p. 11 §5 analysis of HDSD data; p. 14 Table 7; Supplementary file 1 pp. 1–3.",
+        "source_sha256": "a0e1c0e8be5e268cb26af01fa0363c43127bc4ed6f1ed0ece7092a997d6ca4b7",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "source_kind": "journal article",
+        "access_status": "verified_publisher_pdf_and_supplement",
+        "verification_note": "Verified the article and its three-page supplemental PDF. Section 5 models Grade IV VGE in an experimental databank reanalysis. The supplement adds simulation tables.",
+        "pmid": "41552415",
+        "doi": "10.1007/s11222-025-10796-3",
+        "supplements": [
+          {
+            "source": "https://static-content.springer.com/esm/art%3A10.1007%2Fs11222-025-10796-3/MediaObjects/11222_2025_10796_MOESM1_ESM.pdf",
+            "source_sha256": "f346ca669964e0699e12ae3b30005fe264895ba812ec6f9950893760c12e5496",
+            "physical_pages": [
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-02-conkin-databank-1992",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association journal",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "pmid:1524540",
+      "counts_toward_formal_identification": false,
+      "selection": "Approved full-text verification or dataset companion"
+    },
+    "reported_total": 1,
+    "status": "verified_publisher_pdf",
+    "note": "The source was already represented in the review catalog. Formal adjudication remains pending.",
+    "records": [
+      {
+        "id": "1524540",
+        "title": "A computerized databank of decompression sickness incidence in altitude chambers",
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf",
+        "citation": "Conkin J, Bedahl SR, Van Liew HD. Aviat Space Environ Med. 1992;63(9):819–824.",
+        "source_locator": "Printed pp. 819–821 (PDF 1–3), data sources and Tables I–III.",
+        "source_sha256": "b4b6b303c8787c050083474632248c34c90203c1168c26005f498c7a609817ed",
+        "physical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "source_kind": "journal technical note",
+        "access_status": "verified_publisher_pdf",
+        "verification_note": "Verified the six-page original and its dataset provenance. The tables compile previously published groups. Individual linkage to the subset in the later Grade IV VGE analysis is unavailable.",
+        "pmid": "1524540"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-21-approved-intake-02-asma-340",
+    "date": "2026-11-21",
+    "provider": "Aerospace Medical Association proceedings",
+    "operation": "targeted report verification",
+    "params": {
+      "query": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#celis23_abstract",
+      "counts_toward_formal_identification": false,
+      "selection": "Relevant abstract-only companion"
+    },
+    "reported_total": 1,
+    "status": "verified_abstract",
+    "note": "The source was already represented in the review catalog. Formal adjudication remains pending.",
+    "records": [
+      {
+        "id": "asma2023:340",
+        "title": "Prevalence of Decompression Sickness During Hypobaric Chamber Training at the Colombian Air Force, 2010–2020",
+        "year": 2023,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/4/article-p237.pdf",
+        "citation": "Celis GA, Jaimes S, Malpica D, Pineda Jimenez LM, Zuluaga S A, Garcia Morales DM. AsMA 2023 Meeting Abstracts. Aerosp Med Hum Perform. 2023;94(4):276. Abstract 340.",
+        "source_locator": "Publisher issue printed p. 276, physical PDF p. 140, abstract 340 Methods and Results.",
+        "source_sha256": "7ba91b12c8ed70c685a616f6c6e2adc1fb3b5c8d91dc062a7457be3406feabfc",
+        "physical_pages": [
+          140
+        ],
+        "source_kind": "published conference abstract",
+        "access_status": "verified_abstract",
+        "verification_note": "The whole abstract is on printed p. 276, p. 140 of the reused full issue. Its reported denominator and subtype tally identify different sections of the associated thesis. No independent cohort is assigned."
+      }
+    ]
+  }
+]
