@@ -238,6 +238,7 @@ HYPOBARIC_OSTEONECROSIS = ROOT / "data" / "chamber" / "v1.170"
 RANDOLPH_CHAMBER_FATALITY = ROOT / "data" / "chamber" / "v1.171"
 NASA_2020_TABLE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.172"
 HALIFAX_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.173"
+RCAF_CHAMBER_SYMPTOM_CURVE = ROOT / "data" / "chamber" / "v1.174"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2360,6 +2361,15 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_halifax_program_metric": "program_metrics.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    RCAF_CHAMBER_SYMPTOM_CURVE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_time_curve": "time_curve.csv",
                     },
                 )
             if rojas_supplement:

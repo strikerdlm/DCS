@@ -1,0 +1,547 @@
+[
+  {
+    "id": "2026-11-21-rcaf-c3050-symptom-curve-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Found the already catalogued Webb article which cites C-3050 and reproduces the 1945 curve. A separate extraction read the federal history. The SOF ResearchGate copy did not return full text via this provider.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "\"C-3050\" OR \"B167\" \"decompression sickness\" Stewart Smith RCAF 1945",
+      "search_depth": "advanced",
+      "max_results": 10,
+      "c3050_search_request_id": "07919a0f-f26f-4330-9827-9e259a556be8",
+      "official_history_request_id": "90447af4-8614-42c2-b7d7-0fb429819925",
+      "c2691_exact_query": "\"The effect of reascent on the recurrence of decompression sickness\" Stewart Smith \"C-2691\"",
+      "c2691_exact_search_request_id": "861a29c8-4290-4212-a5b1-bd27618f81ac",
+      "c2691_citation_search_request_id": "bc65c919-fed7-413e-824b-7aef37eea029",
+      "c3050_ranked_results": [
+        {
+          "position": 1,
+          "result_id": "577c77-00",
+          "title": "The Effect of Exposure to 35,000 ft on Incidence of Altitude ... - DTIC",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA426860.pdf"
+        },
+        {
+          "position": 2,
+          "result_id": "c2ca84-01",
+          "title": "Relationship between Age and Susceptibility to Decompression ...",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA297023.pdf"
+        },
+        {
+          "position": 3,
+          "result_id": "e0b119-02",
+          "title": "Decompression sickness - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Decompression_sickness"
+        },
+        {
+          "position": 4,
+          "result_id": "105f29-03",
+          "title": "Flight Lieutenant Alfred Stewart Smith's fatal crash on January 1, 1945",
+          "url": "https://www.facebook.com/groups/httpsaircrewremembrancesociety3.comarmscharit/posts/1061357701378254"
+        },
+        {
+          "position": 5,
+          "result_id": "644b22-04",
+          "title": "Why a Civilian Defense Employee Died After a C-17 Test Flight",
+          "url": "https://www.airandspaceforces.com/air-force-c-17-death-investigation"
+        },
+        {
+          "position": 6,
+          "result_id": "7c3f83-05",
+          "title": "Diagnosis and Treatment of Decompression Sickness",
+          "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-b_45-diagnosis-and-treatment-decompression-sickness%20.pdf"
+        },
+        {
+          "position": 7,
+          "result_id": "0c164c-06",
+          "title": "Pathophysiology, treatment and aeromedical retrieval of SCUBA – related DCI - JMVH",
+          "url": "https://jmvh.org/article/pathophysiology-treatment-and-aeromedical-retrieval-of-scuba-related-dci"
+        },
+        {
+          "position": 8,
+          "result_id": "3e9b10-07",
+          "title": "A Brief History of Decompression Theory",
+          "url": "https://www.idcislamujeres.com/post/a-brief-history-of-decompression-theory"
+        },
+        {
+          "position": 9,
+          "result_id": "4f15de-08",
+          "title": "canada's aviation medicine pioneers",
+          "url": "https://www.asc-csa.gc.ca/pdf/osm_aviation.pdf"
+        },
+        {
+          "position": 10,
+          "result_id": "455ab5-09",
+          "title": "The History of Decompression Illness – A Concise Tour – Divers Who Want To Learn More",
+          "url": "https://diverswhowanttolearnmore.wordpress.com/2015/09/04/the-history-of-decompression-illness-a-concise-tour"
+        }
+      ],
+      "c2691_exact_ranked_results": [
+        {
+          "position": 1,
+          "result_id": "602941-00",
+          "title": "decompression sickness: Topics by Science.gov",
+          "url": "https://www.science.gov/topicpages/d/decompression+sickness"
+        },
+        {
+          "position": 2,
+          "result_id": "ca56d7-01",
+          "title": "[PDF] Altitude Decompression Sickness - DTIC",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA050849.pdf"
+        },
+        {
+          "position": 3,
+          "result_id": "38af70-02",
+          "title": "Decompression Sickness | The Engines of Our Ingenuity",
+          "url": "https://www.uh.edu/engines/epi3019.htm"
+        },
+        {
+          "position": 4,
+          "result_id": "ee409c-03",
+          "title": "The effect of delay on treatment outcome in altitude-induced decompression sickness - PubMed",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/1898307"
+        },
+        {
+          "position": 5,
+          "result_id": "7728e7-04",
+          "title": "Persistent foramen ovale closure in divers with a history of decompression sickness\n      -  University Medical Center Utrecht",
+          "url": "https://researchinformation.umcutrecht.nl/en/publications/persistent-foramen-ovale-closure-in-divers-with-ahistory-of-decom"
+        },
+        {
+          "position": 6,
+          "result_id": "e46d90-05",
+          "title": "The effect of intravenous perfluorocarbon emulsions on whole-body oxygenation after severe decompression sickness",
+          "url": "https://hero.epa.gov/reference/6992176"
+        },
+        {
+          "position": 7,
+          "result_id": "82afd1-06",
+          "title": "Decompression sickness – hippokratia.gr",
+          "url": "https://www.hippokratia.gr/decompression-sickness"
+        },
+        {
+          "position": 8,
+          "result_id": "89fde1-07",
+          "title": "Acute decompression sickness | definition of acute decompression sickness by Medical dictionary",
+          "url": "https://medical-dictionary.thefreedictionary.com/acute+decompression+sickness"
+        },
+        {
+          "position": 9,
+          "result_id": "de2042-08",
+          "title": "BioAegis Therapeutics Announces US Navy Contract to Support Phase 2 Study of Recombinant Human Gelsolin, for Inflammasome-Driven Decompression Sickness (DCS)",
+          "url": "https://finance.yahoo.com/news/bioaegis-therapeutics-announces-us-navy-205800390.html"
+        },
+        {
+          "position": 10,
+          "result_id": "e40a5d-09",
+          "title": "(PDF) The possible relationship between patent foramen ovale and decompression sickness | ACADEMIA",
+          "url": "https://www.academia.edu/112956838/The_possible_relationship_between_patent_foramen_ovale_and_decompression_sickness"
+        }
+      ],
+      "c2691_citation_ranked_results": [
+        {
+          "position": 1,
+          "result_id": "d92bfa-00",
+          "title": "Physiological Effects of Repeated Decompression and Recent ... - jstor",
+          "url": "https://www.jstor.org/stable/44470353"
+        },
+        {
+          "position": 2,
+          "result_id": "df182e-01",
+          "title": "Relationship between Age and Susceptibility to Decompression ...",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA297023.pdf"
+        },
+        {
+          "position": 3,
+          "result_id": "0f92c8-02",
+          "title": "Decompression sickness: neurologic manifestations | MedLink Neurology",
+          "url": "https://www.medlink.com/articles/decompression-sickness-neurologic-manifestations"
+        },
+        {
+          "position": 4,
+          "result_id": "b394c3-03",
+          "title": "Decompression sickness - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Decompression_sickness"
+        },
+        {
+          "position": 5,
+          "result_id": "e3fc31-04",
+          "title": "SPUMS Journal Volume 29 No.2 June 1999",
+          "url": "https://www.vliz.be/imisdocs/publications/140173.pdf"
+        },
+        {
+          "position": 6,
+          "result_id": "a16043-05",
+          "title": "Risk factors and clinical outcome in military divers with neurological ...",
+          "url": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-c_539-risk-factors-clinical-outcome-military-divers-neurological-deco-sickness.pdf"
+        },
+        {
+          "position": 7,
+          "result_id": "a7f4b6-06",
+          "title": "A Brief History of Decompression Theory",
+          "url": "https://www.idcislamujeres.com/post/a-brief-history-of-decompression-theory"
+        },
+        {
+          "position": 8,
+          "result_id": "619a9d-07",
+          "title": "Discovery of caisson disease: a dive into the history of ... - PMC - NIH",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8682815"
+        },
+        {
+          "position": 9,
+          "result_id": "62a512-08",
+          "title": "REVIEW ARTICLE",
+          "url": "https://uhms.org/images/DCS-and-AGE-Journal-Watch/vann_umo_resolution_and_seve.pdf"
+        },
+        {
+          "position": 10,
+          "result_id": "288220-09",
+          "title": "The R.C.A.F. Overseas, Volume 2: The Fifth Year",
+          "url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1945-rcaf-year-5-en.pdf"
+        }
+      ],
+      "c2691_citation_search_query": "\"Stewart\" \"Smith\" \"reascent\" decompression sickness recurrence RCAF 1943 case subjects percent",
+      "c2691_jstor_access_attempt_id": "343159e5-e3e8-44d6-a285-1225624afdb5",
+      "c3050_dtic_extract_request_id": "4f4e3ccd-fe27-4034-95a3-961710b87792"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-rcaf-c3050-symptom-curve-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "The exact C-3050 search returned no sources. A broader search found the same Webb article and the proceedings citation. The direct DTIC scrape was redirected to maintenance. Verified content from the cached public scan and public proceedings.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "initial_search_query": "\"Stewart\" \"Smith\" \"35,000 and 40,000 feet\" \"decompression sickness\" \"B167\"",
+      "initial_search_id": "01a200bd-9a30-7088-a2b4-fb6a4e57924a",
+      "fallback_query": "\"decompression sickness\" \"35,000 and 40,000 feet\" \"Stewart\" \"Smith\" OR \"B167\" OR \"C-3050\"",
+      "fallback_search_id": "01a200be-9013-7453-a033-1be8056948b0",
+      "sof_citation_scrape_id": "01a200bf-1a45-73fd-a7e6-a9544b43ae25",
+      "dtic_access_attempt_id": "01a200bf-b4dc-7218-9033-66e7af39beae",
+      "c2691_search_id": "01a200c3-df53-726d-9ef5-aea38f137f2a",
+      "c3050_ranked_results": [
+        {
+          "position": 1,
+          "result_id": null,
+          "title": "The Effect of Exposure to 35,000 ft on Incidence of Altitude ... - DTIC",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA426860.pdf"
+        },
+        {
+          "position": 2,
+          "result_id": null,
+          "title": "Altitude DCS Research in Support of Special Operations Forces ...",
+          "url": "https://www.researchgate.net/publication/235057389_Altitude_DCS_Research_in_Support_of_Special_Operations_Forces_SOF"
+        },
+        {
+          "position": 3,
+          "result_id": null,
+          "title": "A plane suffers sudden decompression at 40000 feet. The ...",
+          "url": "https://www.quora.com/A-plane-suffers-sudden-decompression-at-40-000-feet-The-time-of-useful-consciousness-is-15-20-seconds-Why-is-this-so-given-that-the-average-person-can-hold-their-breath-with-enough-oxygen-in-their-body-with-which"
+        },
+        {
+          "position": 4,
+          "result_id": null,
+          "title": "Medical Support of the Army Air Forces in WWII",
+          "url": "https://www.govinfo.gov/content/pkg/GOVPUB-D304-PURL-gpo128900/pdf/GOVPUB-D304-PURL-gpo128900.pdf"
+        },
+        {
+          "position": 5,
+          "result_id": null,
+          "title": "Full text of \"U.S. Naval Flight Surgeon's Manual, Second Edition\"",
+          "url": "https://archive.org/stream/USNFlightSurgeonsManual1978/USN%20Flight%20Surgeon%27s%20Manual%201978_djvu.txt"
+        },
+        {
+          "position": 6,
+          "result_id": null,
+          "title": "(PDF) Normobaric Hypoxia Training in Military Aviation and Subsequent ...",
+          "url": "https://www.researchgate.net/publication/344956230_Normobaric_Hypoxia_Training_in_Military_Aviation_and_Subsequent_Hypoxia_Symptom_Recognition"
+        },
+        {
+          "position": 7,
+          "result_id": null,
+          "title": "Full text of \"THE HISTORY OF THE MEDICAL DEPARTMENT ...",
+          "url": "https://archive.org/stream/HistoryOfTheMedicalDeptInWWIIV1/History+of+the+Medical+Dept+in+WWII+v1_djvu.txt"
+        }
+      ],
+      "c2691_ranked_results": [
+        {
+          "position": 1,
+          "result_id": null,
+          "title": "Altitude DCS Research in Support of Special Operations Forces ...",
+          "url": "https://www.researchgate.net/publication/235057389_Altitude_DCS_Research_in_Support_of_Special_Operations_Forces_SOF"
+        }
+      ],
+      "c3050_initial_ranked_results": [],
+      "c2691_exact_search_query": "\"The effect of reascent on the recurrence of decompression sickness\" Stewart Smith \"C-2691\"",
+      "c2691_jstor_preview_scrape_id": "01a200c4-5e94-73e9-86b1-639aa82e488a"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-rcaf-c3050-symptom-curve-consensus",
+    "date": "2026-11-21",
+    "provider": "Consensus",
+    "operation": "supplementary_search",
+    "status": "failed",
+    "reported_total": null,
+    "note": "The search tool returned an execution error. No result list was available.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "1945 Royal Canadian Air Force report C-3050 B167 Stewart and Smith comparison of decompression sickness incidence at 35,000 and 40,000 feet",
+      "year_min": 1939,
+      "year_max": 1955,
+      "page_size": 10
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-rcaf-c3050-symptom-curve-openalex",
+    "date": "2026-11-21",
+    "provider": "OpenAlex",
+    "operation": "supplementary_search",
+    "status": "observed",
+    "reported_total": 1,
+    "note": "The local CLI returned a nonmatching EVA report. No C-3050 title, DOI or source copy was identified.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "database": "openalex",
+      "platform": "OpenAlex local CLI",
+      "query": "Stewart Smith comparison incidence decompression sickness 35,000 40,000 feet RCAF",
+      "fallback_reason": "Consensus execution error",
+      "total_found": 1,
+      "records_screened": 1,
+      "ordered_openalex_ids": [
+        "W850845987"
+      ],
+      "selected_ids": []
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-rcaf-c3050-symptom-curve-unal-ebsco",
+    "date": "2026-11-21",
+    "provider": "UNAL EBSCO",
+    "operation": "supplementary_access_attempt",
+    "status": "failed",
+    "reported_total": null,
+    "note": "The configured institutional sign-in did not reach EBSCO Discovery Service. The proxy did not provide a visible error. No searches ran and there was no retry.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "planned_queries": [
+        "\"A comparison of the incidence of decompression sickness\"",
+        "(\"C-3050\" OR \"B167\") AND (\"decompression sickness\" OR \"Royal Canadian Air Force\")",
+        "\"The exercise factor in altitude pain\""
+      ],
+      "searches_completed": 0
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-rcaf-c3050-symptom-curve-verified",
+    "date": "2026-11-21",
+    "provider": "DTIC, NATO RTO and Canadian Department of National Defence",
+    "operation": "supplementary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Verified the public Webb reproduction and two original-report citations. Confirmed the Canadian official-history location map independently of its Clinical Subjects volume.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "rcaf-c3050",
+        "title": "A comparison of the incidence of decompression sickness at 35,000 and 40,000 feet",
+        "year": 1945,
+        "author": "Stewart CB, Smith HW",
+        "report_number": "C-3050",
+        "alternate_report_number": "B167",
+        "institution": "No. 1 Clinical Investigation Unit, Royal Canadian Air Force",
+        "url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=5",
+        "full_text_available": false,
+        "locator": "Webb et al. 2001 printed p. 512 reference 10, and Pilmanis and Webb 2001 printed p. 40-10 reference 17",
+        "context": {
+          "pages_as_cited_by_pilmanis_webb": 10,
+          "target_altitude_ft": 35000,
+          "prebreathe_min": 0,
+          "activity": "rest",
+          "planned_dwell_min": 180,
+          "primary_data_available": false,
+          "outcomes_at_40000_ft": null,
+          "case_count": null,
+          "denominator": null,
+          "denominator_unit": null,
+          "follow_up": null,
+          "censoring": null,
+          "overlap_with_halifax": null
+        },
+        "note": "Toronto RCAF citation and a graph for the 35,000-ft resting, zero-prebreathe arm. The original report, 40,000-ft results, exact cases, participant or exposure denominators, censoring, and follow-up were not recovered."
+      },
+      {
+        "id": "webb-figure-1",
+        "title": "The effect of exposure to 35,000 ft on incidence of altitude decompression sickness",
+        "year": 2001,
+        "author": "Webb JT, Krause KM, Pilmanis AA, Fischer MD, Kannan N",
+        "pmid": "11396555",
+        "url": "https://archive.org/download/DTIC_ADA426860/DTIC_ADA426860.pdf#page=3",
+        "full_text_available": true,
+        "pdf_sha256": "ecad2e6b698cc6e60c7da856a976a9e4d666939067e25a0afb64134a11a18d80",
+        "locator": "Webb et al. 2001, pp. 509–510 (PDF pp. 2–3), Introduction and Figure 1; p. 512 (PDF p. 5), reference 10",
+        "context": {
+          "figure_report_id": "report:rcaf-c3050",
+          "drawn_series": [
+            "all",
+            "mild",
+            "moderate",
+            "severe"
+          ],
+          "time_points_minutes": [
+            30,
+            60,
+            90,
+            120,
+            150,
+            180
+          ],
+          "reported_all_symptoms_at_180_min_percent": 51,
+          "digitized_values_are_approximate": true,
+          "coordinate_method": {
+            "software": "PyMuPDF",
+            "pdf_page_one_based": 3,
+            "clip_rect_pt": [
+              59,
+              585,
+              308,
+              753
+            ],
+            "pixels_per_pt": 6,
+            "x_pixels": [
+              426,
+              630,
+              836,
+              1041,
+              1245,
+              1449
+            ],
+            "y_pixels_by_series": {
+              "all": [
+                545.5,
+                485,
+                427,
+                399.5,
+                383.5,
+                351
+              ],
+              "mild": [
+                586.5,
+                540,
+                523.5,
+                511.5,
+                509.5,
+                498.5
+              ],
+              "moderate": [
+                628,
+                622,
+                596.5,
+                579,
+                572,
+                550
+              ],
+              "severe": [
+                658.5,
+                647,
+                630.5,
+                628.5,
+                617,
+                614.5
+              ]
+            },
+            "left_x_y100_y0_px": [
+              221,
+              66.5,
+              663
+            ],
+            "right_x_y100_y0_px": [
+              1449,
+              59,
+              654.5
+            ],
+            "method": "Marker centers read manually. Interpolate the 0% and 100% axis heights at each column to correct scan skew, then scale vertically. Displayed decimal places reproduce the extraction and do not imply source precision."
+          },
+          "primary_2001_trial_already_in_model_source": "webb01_35000",
+          "digitized_point_count": 24,
+          "clinical_observations_added": 0
+        },
+        "note": "The 51% stated in the Introduction is the same result as the final point in Figure 1. Figure 1 shows the cited 1945 experiment. Table I and Figures 2–3 describe Webb et al.'s own trial and are not extracted again."
+      },
+      {
+        "id": "pilmanis-webb-references",
+        "title": "Altitude DCS Research in Support of Special Operations Forces (SOF)",
+        "year": 2001,
+        "author": "Pilmanis AA, Webb JT",
+        "url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+        "full_text_available": true,
+        "locator": "Printed p. 40-10, references 8 and 17 (RTO-MP-062 compilation PDF p. 313)",
+        "note": "The already catalogued official proceedings chapter cites C-3050 as 10 pages and the 1943 C-2691 as 7 pages. Its own clinical observations are already catalogued."
+      },
+      {
+        "id": "rcaf-c2691",
+        "title": "The effect of reascent on the recurrence of decompression sickness",
+        "year": 1943,
+        "author": "Stewart CB, Smith HW",
+        "report_number": "C-2691",
+        "url": "https://archive.org/download/DTIC_ADP011093/DTIC_ADP011093.pdf",
+        "full_text_available": false,
+        "locator": "Pilmanis and Webb 2001, printed p. 40-10, reference 8",
+        "context": {
+          "pages_as_cited": 7,
+          "cases": null,
+          "denominator": null
+        },
+        "note": "Original recurrence report identified from a public bibliography. Distinct report identity and date from C-3050. Search did not establish the original protocol, enrolled cohort or outcome counts."
+      },
+      {
+        "id": "history-volume-1",
+        "title": "Official History of the Canadian Medical Services, 1939–1945. Volume I, Organization and Campaigns",
+        "year": 1956,
+        "editor": "Feasby WR",
+        "url": "https://www.canada.ca/content/dam/themes/defence/caf/militaryhistory/dhh/official/book-1956-medical-services-1-en.pdf#page=523",
+        "full_text_available": true,
+        "pdf_sha256": "fedfe5e5ce3ff65f6936ac3bc1b4416d1cf2383ce6bfb7bd513a3f7b32af5946",
+        "locator": "Special Functions of the R.C.A.F. Medical Branch, printed pp. 457–458 (PDF pp. 523–524)",
+        "context": {
+          "halifax_equipment_count": 12,
+          "unit": "decompression chambers",
+          "source_period": "Closure decision described as late 1943",
+          "named_followup_sites": [
+            "No. 2 Flying Personnel Medical Section, Sea Island, Vancouver",
+            "Dartmouth",
+            "Yarmouth",
+            "Torbay",
+            "Gander",
+            "No. 3 OTU, Patricia Bay",
+            "No. 5 OTU, Boundary Bay",
+            "No. 6 OTU, Comox",
+            "No. 7 OTU, Debert",
+            "No. 8 OTU, Greenwood",
+            "Rockcliffe",
+            "Trenton",
+            "Moncton",
+            "Flight Engineers School, Aylmer"
+          ],
+          "site_level_cases": null,
+          "site_level_exposures": null,
+          "individual_participant_transfer_links": null
+        },
+        "note": "This organizational volume is distinct from the 1953 Clinical Subjects volume. Equipment and training-site history establishes search locations. The passage provides neither an incidence denominator nor a crosswalk of people or of the 12 Halifax chambers to each named installation."
+      }
+    ]
+  }
+]
