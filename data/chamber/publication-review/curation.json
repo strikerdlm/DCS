@@ -1,6 +1,12 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-butler-onset-altitude-reconciliation-verified#butler-printed-case-margins",
+      "report_id": "report:adp011059",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=6",
+      "basis": "The original DTIC chapter, author list, report identifier and archived PDF hash match the existing Butler publication."
+    },
+    {
       "record_key": "2026-11-20-canada-can-training#https://apps.dtic.mil/sti/pdfs/ADP011071.pdf",
       "report_id": "openalex:W210051476",
       "evidence_url": "https://archive.org/download/DTIC_ADP011071/DTIC_ADP011071.pdf#page=2",
@@ -22290,6 +22296,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:adp011059",
+      "right_report": "pmid:889546",
+      "relationship": "reprints_matching_case_margins",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=6",
+      "evidence": "Butler onset and maximum-altitude counts for 1941-1976 match Davis Tables III-IV, p. 726. Use the Davis source for exact altitude-band boundaries and unknown-delay definition."
+    },
+    {
+      "left_report": "report:adp011059",
+      "right_report": "pmid:2241750",
+      "relationship": "reprints_conflicting_onset_count",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=6",
+      "evidence": "Butler reports 173 ground onsets under two hours in 1977-1986. Original Weien Table I, p. 834, records 178 and 526 cases with known onset. Other onsets match. Preserve the primary count and reject independent pooling."
+    },
     {
       "left_report": "openalex:W210051476",
       "right_report": "pmid:14557320",
