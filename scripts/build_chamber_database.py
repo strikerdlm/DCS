@@ -287,6 +287,7 @@ ROYAL_NAVY_SELECTION_COURSES = ROOT / "data" / "chamber" / "v1.219"
 WARTIME_FLIGHT_QUESTIONNAIRES = ROOT / "data" / "chamber" / "v1.220"
 AAF_CLASSIFICATION_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.221"
 AAF_DESCENT_CASE_REPORTS = ROOT / "data" / "chamber" / "v1.222"
+BERKELEY_COUNTS_AND_CABLE_CASE = ROOT / "data" / "chamber" / "v1.223"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2966,6 +2967,17 @@ def build(
                     AAF_DESCENT_CASE_REPORTS,
                     "publication",
                     extra_tables={"publication_descent_case_detail": "descent_cases.csv"},
+                )
+                load_supplement(
+                    db,
+                    BERKELEY_COUNTS_AND_CABLE_CASE,
+                    "publication",
+                    extra_tables={
+                        "publication_berkeley_denitrogenation_group": "denitrogenation_groups.csv",
+                        "publication_berkeley_symptom_grade": "symptom_grades.csv",
+                        "publication_berkeley_pain_timing": "pain_timings.csv",
+                        "publication_rapid_decompression_case_detail": "rapid_decompression_cases.csv",
+                    },
                 )
                 load_register(db, ROOT)
                 db.commit()
