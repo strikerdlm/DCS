@@ -1,11 +1,67 @@
 import json
 import shutil
 import sqlite3
+from statistics import median
 
 import pytest
 
 from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
+
+
+def test_elia_ultrasound_preserves_the_paired_maxima_and_source_medians(release):
+    with connect_pair(release) as db:
+        contexts = db.execute("""
+            SELECT stratum,measurement_context,nominal_interval_min,nominal_dwell_min,
+                   median_grade_as_reported,grade_scale
+            FROM publication_ultrasound_vge_context
+            WHERE source_id='elia21_vibration'
+        """).fetchall()
+        source_columns = {
+            ("seated_rest", "supine_rest"): (2, [1, 1, 2, 2, 2, 2, 3, 3]),
+            ("seated_rest", "after_knee_bends"): (3, [1, 1, 3, 3, 3, 2, 3, 3]),
+            ("pre_exposure_squats", "supine_rest"): (2, [2, 1, 1, 3, 3, 3, 2, 3]),
+            ("pre_exposure_squats", "after_knee_bends"): (3, [2, 3, 3, 3, 4, 3, 3, 3]),
+            ("whole_body_vibration", "supine_rest"): (0, [0, 0, 1, 2, 0, 0, 1, 0]),
+            ("whole_body_vibration", "after_knee_bends"): (1, [0, 0, 3, 1, 1, 0, 2, 0]),
+        }
+        assert {(arm, context) for arm, context, *_ in contexts} == set(source_columns)
+        for arm, context, interval, dwell, reported, scale in contexts:
+            assert interval == {"supine_rest": 5, "after_knee_bends": 15}[context]
+            assert dwell == 90
+            assert scale == "Eftedal–Brubakk (0–4 as used)"
+            rows = db.execute("""
+                SELECT participant_ordinal,maximum_grade FROM publication_ultrasound_vge_maximum
+                WHERE source_id='elia21_vibration' AND stratum=? AND measurement_context=?
+                ORDER BY participant_ordinal
+            """, (arm, context)).fetchall()
+            expected_median, expected_grades = source_columns[arm, context]
+            assert reported == expected_median
+            assert rows == list(enumerate(expected_grades, 1))
+        assert median(source_columns["pre_exposure_squats", "supine_rest"][1]) == 2.5
+        assert median(source_columns["whole_body_vibration", "after_knee_bends"][1]) == 0.5
+
+
+def test_elia_vge_extends_one_report_and_preserves_its_clinical_rows(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='elia21_vibration'
+            ORDER BY endpoint,stratum
+        """).fetchall() == [
+            *(('any_eftedal_brubakk_vge_as_reported', n, 8, 'person_exposure', 'overlap_hold')
+              for n in (8, 8, 4)),
+            *[('dcs_symptoms_during_exposure', 0, 8, 'person_exposure', 'descriptive')] * 3,
+        ]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id) FROM review.review_record
+            WHERE doi='10.1113/ep089522' OR pmid='34142740' OR lower(url) LIKE '%10.1113/ep089522%'
+        """).fetchone() == (10, 1, "pmid:34142740")
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id='pmid:34142740' AND endpoint='any_eftedal_brubakk_vge_as_reported'
+              AND study_id='elia-high-altitude-vibration-crossover' ORDER BY reported_group
+        """).fetchall() == [(8, 8, "person_exposure"), (8, 8, "person_exposure"), (4, 8, "person_exposure")]
 
 
 def test_burkhardt_knee_cross_tabs_share_their_film_denominators(release):

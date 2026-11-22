@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-elia-ultrasound-firecrawl#elia-2021-table-1",
+      "report_id": "pmid:34142740",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/34142740/",
+      "basis": "The publisher article and PubMed agree on the exact DOI, title and publication year. Keep the journal report's established PMID identity."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.9/sources.csv#elia21_vibration",
+      "report_id": "pmid:34142740",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/34142740/",
+      "basis": "The model's published crossover source is the article with DOI 10.1113/ep089522 and PMID 34142740."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.8/search_hits.csv#historical_krutz:2",
+      "report_id": "pmid:34142740",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP089522",
+      "basis": "The publisher URL contains the exact DOI of the indexed 2021 journal article."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_harding:4",
+      "report_id": "pmid:34142740",
+      "evidence_url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/EP089522",
+      "basis": "The publisher URL contains the exact DOI of the indexed 2021 journal article."
+    },
+    {
       "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20273606",
       "report_id": "pmid:20273606",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20273606/",
@@ -18609,6 +18633,12 @@
   ],
   "studies": [
     {
+      "study_id": "elia-high-altitude-vibration-crossover",
+      "label": "Elia and colleagues, whole-body vibration and chamber VGE crossover",
+      "period": "Reported 2021",
+      "setting": "High-altitude laboratory chamber"
+    },
+    {
       "study_id": "burkhardt-northwestern-selected-chamber-radiography",
       "label": "Burkhardt and colleagues selected chamber imaging series",
       "period": "Reported 1946",
@@ -20440,6 +20470,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "elia-high-altitude-vibration-crossover",
+      "report_id": "pmid:34142740",
+      "role": "primary_chamber_crossover_report",
+      "locator": "Sections 2.2–2.4, 3 and 3.1, Table 1"
+    },
     {
       "study_id": "burkhardt-northwestern-selected-chamber-radiography",
       "report_id": "pmid:20273606",
