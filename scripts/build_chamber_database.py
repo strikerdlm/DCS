@@ -248,6 +248,7 @@ NASA_EXPLORATION_PREBREATHE_TIMING = ROOT / "data" / "chamber" / "v1.180"
 NASA_EA1_CHECKOUT = ROOT / "data" / "chamber" / "v1.181"
 NASA_EA6_VGE_PANELS = ROOT / "data" / "chamber" / "v1.182"
 IAF_CHAMBER_PROTOCOL = ROOT / "data" / "chamber" / "v1.183"
+FAA_NTSB_DC8_CASE = ROOT / "data" / "chamber" / "v1.184"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2456,6 +2457,16 @@ def build(
                         "zotero_chamber_profile_point": "profile_points.csv",
                         "zotero_chamber_post_change_followup": "post_change_followup.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    FAA_NTSB_DC8_CASE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                    },
+                    create_schema=False,
                 )
             if rojas_supplement:
                 load_supplement(

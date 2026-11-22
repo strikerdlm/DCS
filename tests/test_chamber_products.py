@@ -6368,6 +6368,44 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_faa_and_ntsb_dc8_reports_link_to_one_case_with_unknown_onset(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,period,altitude,analysis_role
+            FROM publication_observation WHERE source_id='veronneau_faa_dc8'
+        """).fetchall() == [(1, None, "1994-03-15", 33000, "case_conditional")]
+        assert db.execute("""
+            SELECT case_id,endpoint,report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='veronneau_faa_dc8'
+        """).fetchall() == [(
+            "veronneau_faa_dc8:dc8-captain-index-flight", "mixed_decompression_illness_faa_reported",
+            "faa:cami:dc8-mixed-dci", None,
+        )]
+        assert db.execute("""
+            SELECT report_id,onset_min FROM shared_case_evidence
+            WHERE source_id='veronneau_faa_dc8' ORDER BY report_id
+        """).fetchall() == [("faa:cami:dc8-mixed-dci", None), ("ntsb:nyc94la062:final", None)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='faa:cami:dc8-mixed-dci' AND right_report='ntsb:nyc94la062:final'
+        """).fetchall() == [("same_published_case",)]
+        milestones = db.execute("""
+            SELECT milestone,elapsed,aircraft_altitude_ft FROM publication_aircraft_case_milestone
+            WHERE source_id='veronneau_faa_dc8'
+        """).fetchall()
+        assert {name: (elapsed, altitude) for name, elapsed, altitude in milestones} == {
+            "pressure_problem_reported": (None, 8000),
+            "early_radio_nonresponse": (None, 29000),
+            "cruise_reached": (18, 33000),
+            "cruise_interval_until_descent": (4, 33000),
+            "marked_incapacitation_at_cruise": (None, 33000),
+            "descent_pause_at_10000_ft": (2, 10000),
+            "descent_to_fl80_faa_account": (8, 8000),
+            "local_hospital_assessment": (None, None),
+            "tertiary_hospital_assessment": (None, None),
+        }
+
+
 def test_iaf_profile_and_followup_preserve_their_distinct_windows(release):
     with connect_pair(release) as db:
         assert db.execute("""

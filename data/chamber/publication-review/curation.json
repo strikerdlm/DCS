@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.184/sources.csv#ntsb_nyc94la062",
+      "report_id": "ntsb:nyc94la062:final",
+      "evidence_url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf",
+      "basis": "Model source cites the same investigation report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.184/sources.csv#veronneau_faa_dc8",
+      "report_id": "faa:cami:dc8-mixed-dci",
+      "evidence_url": "https://www.faa.gov/data_research/research/med_humanfacs/aeromedical/aircraftaccident/dc8",
+      "basis": "Model source cites the same FAA clinical report."
+    },
+    {
+      "record_key": "2026-11-21-faa-ntsb-dc8-verified#dc8-ntsb-final",
+      "report_id": "ntsb:nyc94la062:final",
+      "evidence_url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf",
+      "basis": "NTSB identifier, procedure and final report file match investigation NYC94LA062."
+    },
+    {
+      "record_key": "2026-11-21-faa-ntsb-dc8-verified#dc8-faa-case",
+      "report_id": "faa:cami:dc8-mixed-dci",
+      "evidence_url": "https://www.faa.gov/data_research/research/med_humanfacs/aeromedical/aircraftaccident/dc8",
+      "basis": "FAA title, authors and original website identify this clinical report."
+    },
+    {
       "record_key": "2026-11-21-iaf-profile-followup-verified#nakdimon-profile-and-followup",
       "report_id": "pmid:36309795",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
@@ -22452,6 +22476,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "faa:cami:dc8-mixed-dci",
+      "right_report": "ntsb:nyc94la062:final",
+      "relationship": "same_published_case",
+      "evidence_url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf#page=3",
+      "evidence": "Both sources describe an unpressurized DC-8 cargo flight with captain incapacitation, climb to FL330, about four minutes at cruise and diversion to Cincinnati. NTSB p. 6 names the FAA clinical lead. Preserve discrepant onset framing and clinical attribution."
+    },
+    {
+      "left_report": "faa:cami:dc8-mixed-dci",
+      "right_report": "pmid:2803166",
+      "relationship": "distinct_commercial_aviation_cases",
+      "evidence_url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/38740/pdf#page=1",
+      "evidence": "The 1994 Covington incident concerned a captain in a DC-8-61 at FL330. Wolf et al. 1989 reports a copilot with symptoms after leveling at FL290 following a 26-minute climb. Different event era, crew role, cruise and symptom course."
+    },
     {
       "left_report": "pmid:36309795",
       "right_report": "pmid:42345225",
