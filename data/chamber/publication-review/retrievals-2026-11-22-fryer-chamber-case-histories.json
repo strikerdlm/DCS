@@ -1,0 +1,455 @@
+[
+  {
+    "id": "2026-11-22-fryer-chamber-case-histories-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_source_discovery",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "045e324a-9163-4373-bd78-1dcc7947e60c",
+          "query": "Fryer 1969 Subatmospheric Decompression Sickness in Man cerebral Case 16 28000 historical duration"
+        },
+        {
+          "request_id": "7aade1df-de1d-4fa5-805e-e316822cba0b",
+          "query": "decompression sickness Fryer Case 19 Case 21 1969 altitude original chamber illness"
+        },
+        {
+          "request_id": "edd7f8ed-7a96-4551-96a5-da84885a5e81",
+          "query": "A review of the high-altitude Selection Test Gould 1963 hypobaric primary research injury 28000 Farnborough"
+        },
+        {
+          "request_id": "171153c5-f4e9-4724-8f51-b7fec29ce7a1",
+          "query": "Masland Grulee Fryer altitude decompression sickness case syncope loss of volitional control cadet 28000 primary"
+        }
+      ]
+    },
+    "records": [],
+    "note": "Searched for independent original case accounts and RAF selection material. The results did not establish a new independent outcome source for these numbered cases."
+  },
+  {
+    "id": "2026-11-22-fryer-chamber-case-histories-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and rendered original report",
+    "status": "observed",
+    "operation": "supplementary_primary_source_verification",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://archive.org/details/DTIC_ADA111509",
+          "scrape_id": "01a20576-f55f-7455-a5cb-08b1c99bc318",
+          "note": "Firecrawl verified the archive item and download. The original scan supplies the title-page authorship and all case details."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "fryer69_raf",
+        "title": "Subatmospheric Decompression Sickness in Man",
+        "year": 1969,
+        "identifier": "DTIC:ADA111509",
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf",
+        "primary_source": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf",
+        "access": "full_text",
+        "source_sha256": "cb7a216891a203b06ac4f8d9ab3acb4f5924c4f400aad1c53fe8481faee03000",
+        "role_review": "selected_historical_clinical_cases",
+        "locator": "Printed pp. 43, 49, 127, 130, 143 and 235–236 (PDF pp. 39, 45, 124, 127, 139 and 231–232)",
+        "note": "Seven numbered chamber cases within the established report. Incidence eligibility remains unavailable. Cases 9–11, 14, 23, 24, 26 and 27 were reviewed for scope or repeated exposure and were not transcribed in this cut.",
+        "observations": [
+          {
+            "id": "chokes-case-02",
+            "study_id": "fryer69-raf-chamber-case-02",
+            "group": "chokes-case-02",
+            "endpoint": "chokes_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": "1958",
+            "peak_altitude_ft": 28000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "Symptoms during the chamber run, immediate improvement on descent and intermittent residual symptoms over the next 24 hours.",
+            "locator": "Fryer 1969, printed p. 43 (PDF p. 39), Case 2",
+            "note": "Fryer investigated this case and presents it in the respiratory syndrome section. Selection-programme membership and the at-risk exposure denominator are unavailable.",
+            "protocol": "A 37-year-old pilot was exposed in a decompression chamber. The paragraph introducing the case calls it in-flight, while the numbered case explicitly describes simulated altitude in a chamber.",
+            "milestones": [
+              {
+                "name": "epigastric_pain_onset",
+                "altitude_ft": 28000,
+                "clock_time": null,
+                "elapsed": 35,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_reaching_target_altitude",
+                "locator": "Fryer 1969, printed p. 43 (PDF p. 39), Case 2",
+                "note": "Epigastric pain developed first, followed by chest tightness and difficulty taking a deep breath."
+              },
+              {
+                "name": "emergency_descent",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed p. 43 (PDF p. 39), Case 2",
+                "note": "The condition improved almost immediately after emergency descent."
+              },
+              {
+                "name": "residual_respiratory_symptoms",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 24,
+                "elapsed_unit": "hours",
+                "elapsed_reference": "after_incident",
+                "locator": "Fryer 1969, printed p. 43 (PDF p. 39), Case 2",
+                "note": "Intermittent cough, pain on deep inspiration and exertional breathlessness were reported for 24 hours. The incident clock is not further specified."
+              }
+            ]
+          },
+          {
+            "id": "cutaneous-case-04",
+            "study_id": "fryer69-raf-chamber-case-04",
+            "group": "cutaneous-case-04",
+            "endpoint": "bends_with_cutaneous_manifestations_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": null,
+            "peak_altitude_ft": 29000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "During the chamber run and subsequent gradual fading of the skin changes over several days.",
+            "locator": "Fryer 1969, printed p. 49 (PDF p. 45), Case 4",
+            "note": "The selected narrative provides neither a date nor an exposure denominator. Earlier flight episodes lack individual profiles and are not separate case rows.",
+            "protocol": "An aircrew officer was deliberately exposed in a decompression chamber. Similar episodes on at least five earlier flights are historical context for this one chamber episode.",
+            "milestones": [
+              {
+                "name": "left_shoulder_bends",
+                "altitude_ft": 29000,
+                "clock_time": null,
+                "elapsed": 53,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_reaching_target_altitude",
+                "locator": "Fryer 1969, printed p. 49 (PDF p. 45), Case 4",
+                "note": "Mild left shoulder pain attributed to bends by the author."
+              },
+              {
+                "name": "abdominal_itch_and_erythema",
+                "altitude_ft": 29000,
+                "clock_time": null,
+                "elapsed": 9,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_left_shoulder_bends",
+                "locator": "Fryer 1969, printed p. 49 (PDF p. 45), Case 4",
+                "note": "Localized heat and itching preceded observation of large irregular red areas extending beyond the site of irritation."
+              },
+              {
+                "name": "skin_symptoms_during_descent",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 16,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_abdominal_itch",
+                "locator": "Fryer 1969, printed p. 49 (PDF p. 45), Case 4",
+                "note": "Approximate interval from the abdominal symptoms to initiation of descent. Itching stopped on descent and the affected skin became tender and burning."
+              },
+              {
+                "name": "erythema_spread",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 30,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_descent_initiated",
+                "locator": "Fryer 1969, printed p. 49 (PDF p. 45), Case 4",
+                "note": "Approximate interval described for spread and near coalescence. Skin changes faded over several days."
+              }
+            ]
+          },
+          {
+            "id": "migraine-like-case-15",
+            "study_id": "fryer69-raf-chamber-case-15",
+            "group": "migraine-like-case-15",
+            "endpoint": "bends_with_delayed_migraine_like_manifestations",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": "1952-08-12",
+            "peak_altitude_ft": 37000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "The source follows limb pain at altitude, a post-descent visual disturbance and headache, and resolution of all symptoms.",
+            "locator": "Fryer 1969, printed p. 127 (PDF p. 124), Case 15",
+            "note": "The author describes the delayed syndrome as migraine-like. The navigator reported a similar antecedent episode of visual disturbance and headache without a medical diagnosis. The selected chamber episode has no exposure denominator.",
+            "protocol": "A 29-year-old navigator reached 37,000 ft and played cards at altitude. He was transferred to the chamber lock because of limb pain.",
+            "milestones": [
+              {
+                "name": "bilateral_upper_limb_bends",
+                "altitude_ft": 37000,
+                "clock_time": null,
+                "elapsed": 14,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_reaching_target_altitude",
+                "locator": "Fryer 1969, printed p. 127 (PDF p. 124), Case 15",
+                "note": "Pain affected the right forearm and hand and the left elbow and hand."
+              },
+              {
+                "name": "transfer_to_chamber_lock",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 6,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_bends_onset",
+                "locator": "Fryer 1969, printed p. 127 (PDF p. 124), Case 15",
+                "note": "Transferred to the lock and removed from the chamber. He initially felt well."
+              },
+              {
+                "name": "post_descent_visual_disturbance",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 60,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_chamber_exit",
+                "locator": "Fryer 1969, printed p. 127 (PDF p. 124), Case 15",
+                "note": "About one hour later blurred vision progressed to right homonymous hemianopia with severe right-sided headache and pallor."
+              },
+              {
+                "name": "symptoms_resolved",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 4,
+                "elapsed_unit": "hours",
+                "elapsed_reference": "after_post_descent_visual_disturbance",
+                "locator": "Fryer 1969, printed p. 127 (PDF p. 124), Case 15",
+                "note": "Symptoms resolved over the next four hours."
+              }
+            ]
+          },
+          {
+            "id": "neurological-case-16",
+            "study_id": "fryer69-raf-chamber-case-16",
+            "group": "neurological-case-16",
+            "endpoint": "source_reported_neurological_manifestations",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": null,
+            "peak_altitude_ft": 28000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "During exposure and descent, through recovery and the author's interview a few days later.",
+            "locator": "Fryer 1969, printed p. 130 (PDF p. 127), Case 16",
+            "note": "The reported difficulty initiating voluntary movements was clarified in a later interview. A specific diagnosis of diplegia was unsupported. Membership in the 28,000-ft RAF selection cohort is unresolved. The Navy in-flight comparison is a different case.",
+            "protocol": "A 25-year-old cadet was exposed to 28,000 ft and transferred to the lock for rapid descent.",
+            "milestones": [
+              {
+                "name": "hand_numbness_and_visual_disturbance",
+                "altitude_ft": 28000,
+                "clock_time": null,
+                "elapsed": 30,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_reaching_target_altitude",
+                "locator": "Fryer 1969, printed p. 130 (PDF p. 127), Case 16",
+                "note": "Right-hand numbness and flushing preceded visual distortion, nausea and perceived weakness in both arms."
+              },
+              {
+                "name": "arm_control_disturbance_during_descent",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed p. 130 (PDF p. 127), Case 16",
+                "note": "Brief inability to move both arms as intended during descent. The retrospective description included maintaining them outstretched."
+              },
+              {
+                "name": "recovery_after_arm_control_disturbance",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 30,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "reported_recovery_interval",
+                "locator": "Fryer 1969, printed p. 130 (PDF p. 127), Case 16",
+                "note": "Full recovery over about 30 minutes. The source gives no exact start clock for this interval."
+              },
+              {
+                "name": "clinical_interview",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed p. 130 (PDF p. 127), Case 16",
+                "note": "Interview a few days later clarified preserved ability to hold the arms up and transient difficulty initiating intended movements."
+              }
+            ]
+          },
+          {
+            "id": "plasma-volume-case-21",
+            "study_id": "fryer69-raf-chamber-case-21",
+            "group": "plasma-volume-case-21",
+            "endpoint": "bends_with_visual_and_sensory_manifestations_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": "1960",
+            "peak_altitude_ft": 28000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "During exposure and descent, through immediate hospital recovery and repeat plasma volume testing.",
+            "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 21",
+            "note": "This is one of two cases selected for plasma-volume assessment in the same report. The RAF selection-programme crosswalk and an exposure denominator are unavailable. The author describes the repeat difference as within normal variation.",
+            "protocol": "A 28-year-old pilot with prior reported flight bends was exposed in a decompression chamber. The paragraph introducing Cases 21 and 22 dates the two RAF hospital admissions to 1960.",
+            "milestones": [
+              {
+                "name": "multijoint_bends",
+                "altitude_ft": 28000,
+                "clock_time": null,
+                "elapsed": 100,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_reaching_target_altitude",
+                "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 21",
+                "note": "Knee, wrist and shoulder pain was followed by right arm numbness and blurred vision."
+              },
+              {
+                "name": "post_descent_and_hospital_assessment",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 21",
+                "note": "Most initial symptoms improved on descent. Visual disturbance persisted with new headache, mild mottling and malaise. Rapid recovery on hospital admission. Packed cell volume 48%, white blood cell count 4,800 per mm³, hemoglobin 111% as reported. Initial plasma volume 3.7 L by Coomassie Blue dye."
+              },
+              {
+                "name": "repeat_plasma_volume",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 10,
+                "elapsed_unit": "days",
+                "elapsed_reference": "after_initial_plasma_volume_assessment",
+                "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 21",
+                "note": "Repeat plasma volume was 4.0 L."
+              }
+            ]
+          },
+          {
+            "id": "plasma-volume-case-22",
+            "study_id": "fryer69-raf-chamber-case-22",
+            "group": "plasma-volume-case-22",
+            "endpoint": "bends_with_abdominal_and_cutaneous_manifestations_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": "1960",
+            "peak_altitude_ft": 28000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "During the chamber run, post-descent assessment and repeat plasma volume testing one week later.",
+            "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 22",
+            "note": "The original report discusses dye mixing and other limitations when interpreting the low initial plasma volume. Programme overlap and an at-risk denominator are unavailable.",
+            "protocol": "A 31-year-old pilot was exposed in a decompression chamber. The paragraph introducing Cases 21 and 22 dates the two RAF hospital admissions to 1960.",
+            "milestones": [
+              {
+                "name": "joint_and_abdominal_pain",
+                "altitude_ft": 28000,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 22",
+                "note": "Right knee and left shoulder bends accompanied severe abdominal pain. Exact onset time is unavailable."
+              },
+              {
+                "name": "post_descent_and_hospital_assessment",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 22",
+                "note": "Partial improvement on descent with marked chest and right axillary mottling. Packed cell volume 53%, white blood cell count 14,000 per mm³, hemoglobin 121% as reported, rectal temperature 99.0 °F and initial plasma volume 2.5 L by Coomassie Blue dye."
+              },
+              {
+                "name": "repeat_plasma_volume",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 7,
+                "elapsed_unit": "days",
+                "elapsed_reference": "after_initial_plasma_volume_assessment",
+                "locator": "Fryer 1969, printed p. 143 (PDF p. 139), Case 22",
+                "note": "The source says one week later. Using the same method, plasma volume was 4.2 L."
+              }
+            ]
+          },
+          {
+            "id": "hyperventilation-differential-case-25",
+            "study_id": "fryer69-raf-chamber-case-25",
+            "group": "hyperventilation-differential-case-25",
+            "endpoint": "bends_with_post_descent_hyperventilation_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": null,
+            "peak_altitude_ft": 28000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "Hip and buttock pain at altitude resolved on descent. Later recurrent hyperventilation attacks were observed in the respiratory laboratory.",
+            "locator": "Fryer 1969, printed pp. 235–236 (PDF pp. 231–232), Case 25",
+            "note": "Fryer describes post-descent paroxysmal hyperventilation following pain he interpreted as bends. The later episodes supply differential-diagnosis evidence. Neither the pilot's outcome nor an exposure denominator is available.",
+            "protocol": "A 30-year-old medical officer accompanied a pilot as an observer during a routine chamber exposure. His own symptoms are the subject of the case.",
+            "milestones": [
+              {
+                "name": "hip_and_buttock_pain",
+                "altitude_ft": 28000,
+                "clock_time": null,
+                "elapsed": 16,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_reaching_target_altitude",
+                "locator": "Fryer 1969, printed pp. 235–236 (PDF pp. 231–232), Case 25",
+                "note": "Right hip and buttock pain."
+              },
+              {
+                "name": "descent_and_pain_resolution",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed pp. 235–236 (PDF pp. 231–232), Case 25",
+                "note": "He elected descent within five minutes of pain onset. The pain resolved completely."
+              },
+              {
+                "name": "post_descent_hyperventilation",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 60,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_chamber_exit",
+                "locator": "Fryer 1969, printed pp. 235–236 (PDF pp. 231–232), Case 25",
+                "note": "Approximately one hour after leaving the chamber he reported light-headedness and apprehension and was observed breathing rapidly and deeply."
+              },
+              {
+                "name": "hypocapnia_during_attack",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer 1969, printed pp. 235–236 (PDF pp. 231–232), Case 25",
+                "note": "Ventilation measured 34 L/min and end-tidal CO₂ fell to 18 mmHg in one attack. Exact measurement time was not reported."
+              },
+              {
+                "name": "recurrent_attacks_abate",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 3.5,
+                "elapsed_unit": "hours",
+                "elapsed_reference": "reported_period_of_recurrent_attacks",
+                "locator": "Fryer 1969, printed pp. 235–236 (PDF pp. 231–232), Case 25",
+                "note": "The author describes about ten attacks over 3½ hours. Recovery was reported apart from dull right cheek pain."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "The case locators, chronology and measurements were checked against the original rendered scans."
+  }
+]

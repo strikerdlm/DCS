@@ -15,7 +15,7 @@ def test_fryer_neurological_cases_and_roxburgh_cited_margins_preserve_scope(rele
             SELECT h.case_id,h.report_id,h.source_time_min,o.period,o.altitude,o.denominator
             FROM historical_case_catalog h JOIN publication_observation o
               ON (h.case_id,h.endpoint)=(o.source_id || ':' || o.stratum,o.endpoint)
-            WHERE h.source_id='fryer69_raf' AND o.stratum LIKE 'neurological-case-%'
+            WHERE h.source_id='fryer69_raf' AND o.stratum IN ('neurological-case-17','neurological-case-18')
             ORDER BY h.case_id
         """).fetchall()
         assert cases == [
@@ -67,6 +67,38 @@ def test_fryer_neurological_cases_and_roxburgh_cited_margins_preserve_scope(rele
                 OR record_key LIKE '%#cadet_motley:5' OR record_key LIKE '%#archival_v19_cook:6'
                 OR record_key LIKE '%#prog_v21_post:1')
         """).fetchone() == (4,)
+
+
+def test_fryer_chamber_case_histories_have_one_report_and_preserve_timing(release):
+    with connect_pair(release) as db:
+        run_id = "2026-11-22-fryer-chamber-case-histories-verified"
+        review_rows = db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,report_id
+            FROM review.review_search_observation WHERE run_id=? ORDER BY 1,2
+        """, (run_id,)).fetchall()
+        assert len(review_rows) == 7
+        assert {row[4] for row in review_rows} == {"report:ada111509"}
+        assert all(row[2:4] == (1, None) for row in review_rows)
+        model_rows = db.execute("""
+            SELECT o.stratum,o.endpoint,o.numerator,o.denominator,h.report_id
+            FROM publication_observation o JOIN historical_case_catalog h
+              ON (h.case_id,h.endpoint)=(o.source_id || ':' || o.stratum,o.endpoint)
+            JOIN review.review_search_observation r
+              ON (o.stratum,o.endpoint)=(r.reported_group,r.endpoint)
+            WHERE o.source_id='fryer69_raf' AND r.run_id=?
+              AND o.analysis_role='selected_cluster' AND h.source_time_min IS NULL
+            ORDER BY 1,2
+        """, (run_id,)).fetchall()
+        assert model_rows == review_rows
+        timings = db.execute("""
+            SELECT m.milestone,m.elapsed,m.elapsed_unit,m.elapsed_reference
+            FROM publication_case_milestone m JOIN review.review_search_observation r
+              ON (m.stratum,m.endpoint)=(r.reported_group,r.endpoint)
+            WHERE m.source_id='fryer69_raf' AND r.run_id=?
+        """, (run_id,)).fetchall()
+        assert len(timings) == 26
+        assert ("hand_numbness_and_visual_disturbance", 30, "minutes", "after_reaching_target_altitude") in timings
+        assert ("post_descent_hyperventilation", 60, "minutes", "after_chamber_exit") in timings
 
 
 def test_hypoxic_reactions_and_asma_locators_preserve_explicit_source_identity(release):
