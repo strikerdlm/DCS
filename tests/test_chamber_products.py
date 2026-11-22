@@ -9,6 +9,67 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_aaf_diurnal_original_keeps_conflicting_values_with_the_existing_cohort(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT trainees_reaching_target,reported_outcomes,percent_as_printed,count_percent_discrepancy
+            FROM publication_diurnal_chamber_outcome WHERE stratum='afternoon' ORDER BY endpoint
+        """).fetchall() == [(2593, 22, 0.8, 0), (2593, 498, 15.4, 1), (2593, 260, 10.0, 0)]
+        assert db.execute("""
+            SELECT count(*),sum(trainees_reaching_target),sum(reported_outcomes)
+            FROM publication_diurnal_chamber_outcome WHERE endpoint='total_bends'
+        """).fetchone() == (4, 6837, 1610)
+        assert db.execute("""
+            SELECT report_id FROM review.review_study_report
+            WHERE study_id='us-aaf-las-vegas-diurnal-38000ft' ORDER BY report_id
+        """).fetchall() == [("asb:1944:1:6:5:guest",), ("nlm:22330650RX3:guest",)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='nlm:22330650RX3:guest' AND right_report='asb:1944:1:6:5:guest'
+        """).fetchone() == ("same_cohort",)
+        assert db.execute("""
+            SELECT count(*),sum(role_review='overlap_hold') FROM review.review_search_observation
+            WHERE run_id='2026-11-22-aaf-chamber-originals-firecrawl' AND study_id='us-aaf-las-vegas-diurnal-38000ft'
+        """).fetchone() == (12, 12)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
+def test_aaf_classification_and_staff_reports_preserve_inconsistent_margins_and_selection(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(aeroembolism_descent),sum(classified_man_flights),sum(screening_exclusions)
+            FROM publication_classification_chamber_descent WHERE stratification='time_of_day'
+        """).fetchone() == (9, 2235, 10171, 900)
+        assert db.execute("""
+            SELECT classified_man_flights,total_subjects_run_as_printed,aeroembolism_descent,
+                   percent_aeroembolism_descent_as_printed
+            FROM publication_classification_chamber_descent WHERE stratification='barometric_pressure'
+              AND (station,stratum) IN (('ellington_27','high'),('san_antonio_29','low')) ORDER BY station
+        """).fetchall() == [(506, 557, 150, 27.9), (1118, 1173, 133, 16.0)]
+        assert db.execute("""
+            SELECT count(*),sum(reported_symptom_count) FROM publication_classification_symptom_hour
+            WHERE station='ellington_27' AND symptom='bends'
+        """).fetchone() == (3, 547)
+        assert db.execute("""
+            SELECT people,type_64_examinations,cumulative_chamber_hours,reported_bends_susceptibility_people
+            FROM publication_staff_chamber_followup ORDER BY people
+        """).fetchall() == [(17, 40, None, 2), (461, 1174, 42054, 2)]
+        assert db.execute("""
+            SELECT age_years,cumulative_chamber_hours,flight_number FROM publication_staff_chamber_case_mention
+            ORDER BY age_years,cumulative_chamber_hours
+        """).fetchall() == [(None, None, 28), (24, 48, None), (24, 110, None), (35, 118, None)]
+        assert db.execute("""
+            SELECT count(*),sum(cases),sum(denominator),sum(role_review='overlap_hold')
+            FROM review.review_search_observation WHERE study_id='us-aaf-ray-three-station-classification'
+        """).fetchone() == (7, 2235, 10171, 7)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE study_id IN ('us-aaf-bricker-chamber-staff-surveillance','us-aaf-bricker-selected-staff-removals')
+        """).fetchone() == (0,)
+
+
 def test_wartime_flight_questionnaire_keeps_people_episodes_and_sorties_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
