@@ -1,0 +1,297 @@
+[
+  {
+    "id": "2026-11-22-berkeley-rudge-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_primary_report_retrieval",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "429e8e61-e55d-472b-9d65-f30e49da6f51",
+          "urls": [
+            "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf",
+            "https://archive.org/details/DTIC_AD0016860"
+          ]
+        },
+        {
+          "request_id": "3908160d-106e-4e2a-afca-7ec901c87520",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf"
+        }
+      ]
+    },
+    "note": "Verified primary report text and the Berkeley public-release technical report identity.",
+    "records": [
+      {
+        "id": "henry53_wadc",
+        "title": "Aviator's Bends Pain as Influenced by Altitude and In-Flight Denitrogenation",
+        "year": 1953,
+        "url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "primary_source": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "source_sha256": "61d6ba8e5347a192b013707f2e307ab3c1fbc2de7d4ef2110b2202036b487d47",
+        "access": "full_text",
+        "locator": "Printed pp. 27, 43–45 and 47 (PDF pp. 34, 50–52 and 54), Tables 4 and 7–9",
+        "study_id": "us-berkeley-henry-wadc-53-227",
+        "role_review": "overlap_hold"
+      },
+      {
+        "id": "rudge92_inside_observer_age_primary",
+        "title": "Altitude-Induced Arterial Gas Embolism: A Case Report",
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf",
+        "source_sha256": "edd2bb2b4dc9a5ddc3c6a89ca8bdd8ada5ab8f88ddfdee6ecabb288cea8f866d",
+        "pmid": "1567322",
+        "access": "full_text",
+        "locator": "Case Report, printed p. 203 (PDF p. 1)",
+        "study_id": "usaf-rudge-1992-chamber-observer-age",
+        "role_review": "selected_cluster"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-berkeley-rudge-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "status": "observed",
+    "operation": "supplementary_primary_tables_and_case_verification",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a203ef-6d7d-73cf-a4a9-79d0bcb6daae",
+          "url": "https://asma.kglmeridian.com/view/journals/asem/63/3/article-p203.xml"
+        },
+        {
+          "scrape_id": "01a203dc-65b3-731d-9151-e553c2ea1f72",
+          "url": "https://archive.org/details/DTIC_AD0016860"
+        }
+      ]
+    },
+    "note": "Compared the two source scans with the earlier cohort and abstract records.",
+    "records": [
+      {
+        "id": "henry53_wadc",
+        "title": "Aviator's Bends Pain as Influenced by Altitude and In-Flight Denitrogenation",
+        "year": 1953,
+        "url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "primary_source": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf",
+        "source_sha256": "61d6ba8e5347a192b013707f2e307ab3c1fbc2de7d4ef2110b2202036b487d47",
+        "access": "full_text",
+        "locator": "Printed pp. 27, 43–45 and 47 (PDF pp. 34, 50–52 and 54), Tables 4 and 7–9",
+        "study_id": "us-berkeley-henry-wadc-53-227",
+        "role_review": "overlap_hold",
+        "note": "Table 7 reproduces the 23 chest cases in the 375-run series already represented in v1.24. Table 9 gives six visual records. At least one chest record mentions visual symptoms, but it has no verified matching Table 9 row. Table row indices are extraction locators, with no assumption of participant identity, repeated-run independence or linkage across tables.",
+        "source_tables": {
+          "chest_rows": {
+            "count": 23,
+            "locator": "Printed p. 44 (PDF p. 51), Table 7",
+            "file": "data/chamber/v1.224/chest_symptoms.csv"
+          },
+          "visual_rows": {
+            "count": 6,
+            "locator": "Printed p. 47 (PDF p. 54), Table 9",
+            "file": "data/chamber/v1.224/visual_episodes.csv"
+          }
+        },
+        "inconsistent_margins": [
+          {
+            "endpoint": "chokes_onset_at_or_before_30_min_at_38000_ft",
+            "source_section": "narrative_p43",
+            "risk_set": "control_chest_symptom_records",
+            "count_basis": "narrative",
+            "reported_cases": 2,
+            "records_in_risk_set": 6,
+            "locator": "Printed p. 43 (PDF p. 50), Chest Symptoms",
+            "note": "The narrative gives two cases within 30 minutes."
+          },
+          {
+            "endpoint": "chokes_onset_at_or_before_30_min_at_38000_ft",
+            "source_section": "table7",
+            "risk_set": "control_chest_symptom_records",
+            "count_basis": "row_count",
+            "reported_cases": 1,
+            "records_in_risk_set": 6,
+            "locator": "Printed p. 44 (PDF p. 51), Table 7",
+            "note": "The published rows give one at 30 minutes. The next row gives 31 minutes."
+          },
+          {
+            "endpoint": "concurrent_chokes_and_vasomotor_reaction",
+            "source_section": "table4",
+            "risk_set": "all_control_tests",
+            "count_basis": "table_sum",
+            "reported_cases": 5,
+            "records_in_risk_set": 40,
+            "locator": "Printed p. 27 (PDF p. 34), Table 4",
+            "note": "Three chokes with vasomotor reaction and two chokes with bends and vasomotor reaction."
+          },
+          {
+            "endpoint": "concurrent_chokes_and_vasomotor_reaction",
+            "source_section": "table7",
+            "risk_set": "control_chest_symptom_records",
+            "count_basis": "row_count",
+            "reported_cases": 2,
+            "records_in_risk_set": 6,
+            "locator": "Printed p. 44 (PDF p. 51), Table 7",
+            "note": "Two of the six control chest symptom records have a vasomotor-reaction mark."
+          },
+          {
+            "endpoint": "concurrent_chokes_and_vasomotor_reaction",
+            "source_section": "table8",
+            "risk_set": "mixed_selected_vasomotor_reaction_records",
+            "count_basis": "table_sum",
+            "reported_cases": 4,
+            "records_in_risk_set": 19,
+            "locator": "Printed p. 45 (PDF p. 52), Table 8",
+            "note": "Three mild and one moderate chokes among selected vasomotor reactions across protocols. No row mapping is available."
+          }
+        ]
+      },
+      {
+        "id": "rudge92_inside_observer_age_primary",
+        "title": "Altitude-Induced Arterial Gas Embolism: A Case Report",
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf",
+        "source_sha256": "edd2bb2b4dc9a5ddc3c6a89ca8bdd8ada5ab8f88ddfdee6ecabb288cea8f866d",
+        "pmid": "1567322",
+        "access": "full_text",
+        "locator": "Case Report, printed p. 203 (PDF p. 1)",
+        "study_id": "usaf-rudge-1992-chamber-observer-age",
+        "role_review": "selected_cluster",
+        "note": "The author describes one selected 38-year-old inside observer. A presumptive arterial gas embolism diagnosis was recorded. Exposure denominator and longer-term follow-up are unavailable. The original does not establish brain or pulmonary imaging confirmation.",
+        "milestones": [
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "ear_sinus_check_peak",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": 5000,
+            "clock_time": null,
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "Preliminary ear and sinus check, followed by return to local ground."
+          },
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "rapid_decompression_start",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": 8000,
+            "clock_time": null,
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "Reported altitude immediately before the rapid step."
+          },
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "rapid_decompression_peak_lower_duration",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": 22000,
+            "clock_time": null,
+            "elapsed": 2,
+            "elapsed_unit": "seconds",
+            "elapsed_reference": "start of rapid decompression from 8,000 ft",
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "Lower limit of the author's approximately two-to-three-second duration. Immediate descent followed."
+          },
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "rapid_decompression_peak_upper_duration",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": 22000,
+            "clock_time": null,
+            "elapsed": 3,
+            "elapsed_unit": "seconds",
+            "elapsed_reference": "start of rapid decompression from 8,000 ft",
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "Upper limit of the same reported duration range."
+          },
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "initial_forearm_symptoms",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": null,
+            "clock_time": null,
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "Right forearm symptoms immediately after the rapid step. Exact onset altitude, elapsed exposure time and relationship to arrival at site pressure are unspecified."
+          },
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "right_shoulder_symptoms",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": null,
+            "clock_time": null,
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "Symptoms extended to the right shoulder within several minutes."
+          },
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "right_face_symptoms",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": null,
+            "clock_time": null,
+            "elapsed": 5,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "preceding arm-symptom sequence",
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "The text reports approximately five minutes later. Exact elapsed time from the rapid decompression is unavailable."
+          },
+          {
+            "source_id": "rudge92_inside_observer_age_primary",
+            "stratum": "rudge-1992-inside-observer-age",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "milestone": "normal_post_treatment_neurological_exam",
+            "reporting_source_id": "rudge92_inside_observer_age_primary",
+            "chamber_altitude_ft": null,
+            "clock_time": null,
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "Neurological examination at the conclusion of treatment showed no abnormalities. Longer-term follow-up was unavailable."
+          }
+        ],
+        "observations": [
+          {
+            "id": "rudge-1992-inside-observer-age",
+            "study_id": "usaf-rudge-1992-chamber-observer-age",
+            "group": "USAF chamber inside observer",
+            "endpoint": "presumptive_arterial_gas_embolism",
+            "cases": 1,
+            "chamber_role": "inside_observer",
+            "age_years": 38,
+            "peak_altitude_ft": 22000,
+            "locator": "Case Report, printed p. 203 (PDF p. 1)",
+            "note": "The author describes one selected 38-year-old inside observer. A presumptive arterial gas embolism diagnosis was recorded. Exposure denominator and longer-term follow-up are unavailable. The original does not establish brain or pulmonary imaging confirmation."
+          }
+        ]
+      }
+    ]
+  }
+]

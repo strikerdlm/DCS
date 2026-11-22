@@ -288,6 +288,7 @@ WARTIME_FLIGHT_QUESTIONNAIRES = ROOT / "data" / "chamber" / "v1.220"
 AAF_CLASSIFICATION_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.221"
 AAF_DESCENT_CASE_REPORTS = ROOT / "data" / "chamber" / "v1.222"
 BERKELEY_COUNTS_AND_CABLE_CASE = ROOT / "data" / "chamber" / "v1.223"
+BERKELEY_CHEST_VISUAL_AND_RUDGE_CASE = ROOT / "data" / "chamber" / "v1.224"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2977,6 +2978,18 @@ def build(
                         "publication_berkeley_symptom_grade": "symptom_grades.csv",
                         "publication_berkeley_pain_timing": "pain_timings.csv",
                         "publication_rapid_decompression_case_detail": "rapid_decompression_cases.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    BERKELEY_CHEST_VISUAL_AND_RUDGE_CASE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_berkeley_chest_symptom": "chest_symptoms.csv",
+                        "publication_berkeley_visual_episode": "visual_episodes.csv",
+                        "publication_berkeley_discrepant_margin": "discrepant_margins.csv",
+                        "publication_case_milestone": "case_milestones.csv",
                     },
                 )
                 load_register(db, ROOT)

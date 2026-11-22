@@ -9,6 +9,75 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_berkeley_chest_and_visual_rows_preserve_overlap_and_conflicts(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT series,count(*),sum(chest_pain_grade='mild'),sum(vasomotor_reaction='yes')
+            FROM publication_berkeley_chest_symptom GROUP BY series ORDER BY series
+        """).fetchall() == [
+            ("cycles", 2, 2, 0), ("heavy_exercise", 1, 0, 0),
+            ("no_denitrogenation_control", 6, 2, 2), ("storage", 14, 9, 0),
+        ]
+        assert db.execute("""
+            SELECT table_row FROM publication_berkeley_chest_symptom
+            WHERE series='storage' AND minutes_after_arrival_at_38000_ft=30 AND chest_pain_grade='moderate'
+            ORDER BY table_row
+        """).fetchall() == [(6,), (7,)]
+        assert db.execute("""
+            SELECT scotoma_resolution_phase,scotoma_resolution_min_after_ground,headache_observed,
+                   headache_onset_reference,headache_onset_min_from_reference,headache_duration_min
+            FROM publication_berkeley_visual_episode WHERE table_row IN (2,3,5,6) ORDER BY table_row
+        """).fetchall() == [
+            ("after_ground", 7, "present", None, None, None),
+            ("after_ground", 195, "present", "scotoma_onset", 90, 360),
+            ("after_ground", 10, "absent", None, None, None),
+            ("during_descent", None, "present", "ground", 30, 360),
+        ]
+        assert db.execute("""
+            SELECT source_section,reported_cases,records_in_risk_set
+            FROM publication_berkeley_discrepant_margin ORDER BY endpoint,source_section
+        """).fetchall() == [
+            ("narrative_p43", 2, 6), ("table7", 1, 6), ("table4", 5, 40), ("table7", 2, 6), ("table8", 4, 19),
+        ]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='henry53_wadc' AND endpoint IN ('chokes_all_source','scotoma_source')
+            ORDER BY endpoint
+        """).fetchall() == [(23, 375), (6, 375)]
+        assert not db.execute("SELECT 1 FROM historical_case_catalog WHERE source_id='henry53_wadc'").fetchone()
+
+
+def test_rudge_primary_reuses_the_abstract_case_and_preserves_the_pressure_step_range(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT case_id,endpoint,report_id,source_time_min FROM historical_case_catalog
+            WHERE source_id='rudge92_inside_observer_age_primary'
+        """).fetchall() == [(
+            "rudge92_inside_observer_age_primary:rudge-1992-inside-observer-age",
+            "presumptive_arterial_gas_embolism", "pmid:1567322", None,
+        )]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),count(DISTINCT observation_id) FROM shared_case_evidence
+            WHERE source_id='rudge92_inside_observer_age_primary'
+        """).fetchone() == (2, 1, 1)
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft,elapsed,elapsed_unit FROM publication_case_milestone
+            WHERE source_id='rudge92_inside_observer_age_primary' AND milestone GLOB 'rapid_decompression*'
+            ORDER BY milestone
+        """).fetchall() == [
+            ("rapid_decompression_peak_lower_duration", 22000, 2, "seconds"),
+            ("rapid_decompression_peak_upper_duration", 22000, 3, "seconds"),
+            ("rapid_decompression_start", 8000, None, None),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,chamber_role,role_review
+            FROM review.review_search_observation WHERE study_id='usaf-rudge-1992-chamber-observer-age'
+        """).fetchall() == [(1, None, "inside_observer", "selected_cluster")]
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_berkeley_tables_preserve_repeated_groups_counts_and_the_timing_reference(release):
     with connect_pair(release) as db:
         assert db.execute("""

@@ -1,6 +1,36 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-berkeley-rudge-tavily#henry53_wadc",
+      "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "basis": "The primary scan, citation and accession or PMID match the existing report.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-rudge-firecrawl#henry53_wadc",
+      "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
+      "basis": "The primary scan, citation and accession or PMID match the existing report.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0016860/DTIC_AD0016860.pdf"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-rudge-tavily#rudge92_inside_observer_age_primary",
+      "report_id": "pmid:1567322",
+      "basis": "The primary scan, citation and accession or PMID match the existing report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf"
+    },
+    {
+      "record_key": "2026-11-22-berkeley-rudge-firecrawl#rudge92_inside_observer_age_primary",
+      "report_id": "pmid:1567322",
+      "basis": "The primary scan, citation and accession or PMID match the existing report.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.224/sources.csv#rudge92_inside_observer_age_primary",
+      "report_id": "pmid:1567322",
+      "basis": "Author, journal, pages and PMID match the earlier abstract.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p203.pdf"
+    },
+    {
       "record_key": "2026-11-22-berkeley-cable-tavily#henry53_wadc",
       "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
       "basis": "Same report title, authors, date and publisher or accession record as the preserved full text.",
@@ -19617,6 +19647,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-rudge-1992-chamber-observer-age",
+      "label": "Rudge USAF inside-observer presumptive arterial gas embolism case",
+      "period": "First reported March 1992",
+      "setting": "USAF hypobaric chamber training."
+    },
+    {
       "study_id": "us-berkeley-henry-wadc-53-227",
       "label": "Henry Berkeley in-flight denitrogenation and mixed chamber series",
       "period": "Reported March 1953",
@@ -21652,6 +21688,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-rudge-1992-chamber-observer-age",
+      "report_id": "pmid:1567322",
+      "role": "primary_selected_inside_observer_case",
+      "locator": "Case Report, printed p. 203 (PDF p. 1)"
+    },
     {
       "study_id": "us-berkeley-henry-wadc-53-227",
       "report_id": "record:legacy:data/chamber/v1.24/search_hits.csv#history_v24_original_pdf:1",
