@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-jasdf-chamber-and-flight-cases-verified#ogata-numbered-cases",
+      "report_id": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
+      "evidence_url": "https://journal.juhms.net/lib/2000/354-06.pdf",
+      "basis": "Society scan and existing archive identify the same authors, publication date, volume, issue and pages."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.192/sources.csv#ogata01_jasdf_case_histories",
+      "report_id": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
+      "evidence_url": "https://journal.juhms.net/lib/2000/354-06.pdf",
+      "basis": "The model extraction uses the same primary article."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W403143322",
+      "report_id": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
+      "evidence_url": "https://ci.nii.ac.jp/naid/10013225318",
+      "basis": "OpenAlex publication date and bibliographic metadata, CiNii and the scanned article agree on 2001-03-30 and 35(4):225–230."
+    },
+    {
+      "record_key": "2026-11-22-jasdf-chamber-and-flight-cases-verified#kusano-1994-supplement-citation",
+      "report_id": "ndmj:1994:41:44:kusano",
+      "evidence_url": "https://journal.juhms.net/lib/2000/354-06.pdf#page=6",
+      "basis": "The printed reference supplies full author names, title, year, separate volume and page for the previously indexed citation."
+    },
+    {
       "record_key": "2026-11-22-ryukyu-altitude-dcs-verified#ryukyu-2000-original",
       "report_id": "abstract:ryukyu-yusa-sukahara-2000",
       "evidence_url": "https://journal.juhms.net/lib/2000/352-25.pdf",
@@ -18165,6 +18189,12 @@
   ],
   "studies": [
     {
+      "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+      "label": "Ogata numbered aircraft and chamber case vignettes",
+      "period": "Published 30 March 2001; individual dates unavailable",
+      "setting": "Military aircraft and hypobaric chamber training reported separately"
+    },
+    {
       "study_id": "ryukyu-treated-military-aviation-dcs-2000",
       "label": "Two treated military aviation DCS cases at the University of the Ryukyus",
       "period": "Reported in 2000; dates of exposure unavailable",
@@ -19906,6 +19936,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "jasdf-ogata-selected-chamber-flight-cases-2001",
+      "report_id": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
+      "role": "source_for_numbered_aircraft_and_chamber_cases",
+      "locator": "Section 4, pp. 226–228 and reference 5, p. 230"
+    },
     {
       "study_id": "ryukyu-treated-military-aviation-dcs-2000",
       "report_id": "abstract:ryukyu-yusa-sukahara-2000",
@@ -22836,6 +22872,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
+      "right_report": "ndmj:1994:41:44:kusano",
+      "relationship": "likely_reproduces_etajima_cases_primary_unretrieved",
+      "evidence_url": "https://journal.juhms.net/lib/2000/354-06.pdf#page=3",
+      "evidence": "A-2 names Etajima and reference 5 follows A-3. Reference 5 on p. 230 names two U.S. military patients treated at Etajima. The original report is unverified, and no additional observations are counted under the citation."
+    },
     {
       "left_report": "abstract:ryukyu-yusa-sukahara-2000",
       "right_report": "usaf:kadena:419919",

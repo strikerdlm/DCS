@@ -580,7 +580,8 @@ def test_publication_register_build(tmp_path):
         ]
         assert db.execute(
             "SELECT endpoint,cases,denominator,denominator_unit,reported_rate_percent "
-            "FROM review_search_observation WHERE study_id LIKE 'jasdf-ogata-%' "
+            "FROM review_search_observation WHERE study_id IN "
+            "('jasdf-ogata-fy1960-1999','jasdf-ogata-prior-decade-2000') "
             "ORDER BY observation_id"
         ).fetchall() == [
             ("bends_as_reported", 236, 30763, "trainee_count_as_reported", None),
