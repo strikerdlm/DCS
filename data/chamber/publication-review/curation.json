@@ -20843,6 +20843,66 @@
       "report_id": "pmid:1524540",
       "basis": "Publisher title, authors, year and journal pages match the established report identity.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf#page=3"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.237/sources.csv#gray44_sam248_pressure_breathing",
+      "report_id": "report:sam-248-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997747&seq=1"
+    },
+    {
+      "record_key": "2026-11-22-gray-sam-project-reports-firecrawl#gray44_sam248_pressure_breathing",
+      "report_id": "report:sam-248-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997747&seq=1"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.237/sources.csv#gray_mahady44_sam252_denitrogenation",
+      "report_id": "report:sam-252-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997762&seq=1"
+    },
+    {
+      "record_key": "2026-11-22-gray-sam-project-reports-firecrawl#gray_mahady44_sam252_denitrogenation",
+      "report_id": "report:sam-252-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997762&seq=1"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.237/sources.csv#gray45_sam409_carbon_dioxide",
+      "report_id": "report:sam-409-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073998141&seq=1"
+    },
+    {
+      "record_key": "2026-11-22-gray-sam-project-reports-firecrawl#gray45_sam409_carbon_dioxide",
+      "report_id": "report:sam-409-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073998141&seq=1"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.237/sources.csv#gray_sam458_status",
+      "report_id": "report:sam-458-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015074026637&seq=43"
+    },
+    {
+      "record_key": "2026-11-22-gray-sam-project-reports-firecrawl#gray_sam458_status",
+      "report_id": "report:sam-458-1",
+      "basis": "Exact author and report number in the original report or issuing institution's subject index.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015074026637&seq=43"
+    },
+    {
+      "record_key": "2026-11-22-gray-sam-project-reports-tavily#gray_sam458_nlm_holding",
+      "report_id": "report:sam-458-1",
+      "basis": "Retrieval attempt for the already identified Project 458, Report 1.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015074026637&seq=43"
+    },
+    {
+      "record_key": "2026-11-22-gray-sam-project-reports-tavily#larrabee_cam137_yale_finding_aid",
+      "report_id": "report:cam-137",
+      "basis": "Retrieval attempt for CAM 137, already identified in the original bibliography and retained under its canonical report number.",
+      "evidence_url": "https://archive.org/details/in.ernet.dli.2015.116475/page/n461/mode/1up"
     }
   ],
   "studies": [
@@ -32501,6 +32561,34 @@
       "relationship": "same_profile_and_denominator_endpoint_conflict",
       "evidence": "The 1992 HDSD Table III and the 1946 Table I share the 429-flight denominator, resting protocol, two-hour dwell and corresponding 35,000-ft or 3.5-psia altitude. The HDSD prints 2.3% serious DCS. The identical 2.3% in the original is gas-pain descent. Bends with chokes and chokes alone are printed separately at 0.93% and 1.6%. The historical category difference cannot be adjudicated and supplies no new serious DCS count.",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p483.pdf#page=2"
+    },
+    {
+      "left_report": "report:sam-248-1",
+      "right_report": "report:sam-252-1",
+      "relationship": "likely_overlap",
+      "evidence": "The preliminary March 15 report has 42 trained cadets at 45,000 ft for 30 min. The March 29 report has 62. The reports’ descriptions of denitrogenation differ and participant linkage is unavailable.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997747&seq=16"
+    },
+    {
+      "left_report": "report:sam-458-1",
+      "right_report": "ntrs:20010020946",
+      "relationship": "cited_historical_source",
+      "evidence": "NASA Appendix A ref. 32 attributes Appendix C archival cells to Gray Project Report 458. The primary paper has not been recovered and date statements conflict.",
+      "evidence_url": "https://www.nasa.gov/wp-content/uploads/2023/03/conkin-dcs-estimation-tp210196-2001.pdf"
+    },
+    {
+      "left_report": "report:sam-252-1",
+      "right_report": "ntrs:20010020946",
+      "relationship": "same_cohort",
+      "evidence": "NASA Appendix A reference 34 cites CAM 315 by the same authors using the same 45,000-ft title. Appendix C p. 43 row 22 gives 0 serious outcomes in the 62-exposure arm. The 62 participants and lack of forced descents for bends and chokes are verified in Project 252-1 Table I. The 0/62 entry in adjacent row 23 cites Project 458 and remains a candidate overlap.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997762&seq=8"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:3",
+      "right_report": "pmid:1524540",
+      "relationship": "candidate_overlap",
+      "evidence": "The already transcribed 1946 journal Table II gives a 204-flight group with 0.5% bends and chokes and 1.5% chokes-only descents and a 950-flight comparison. HDSD records 90 and 93 share the denominators and two-hour 38,000-ft profile. The 2.0% historical serious DCS entry is consistent with the two rounded chokes categories for row 90. Source identifiers and individual exposure histories are not available.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p606.pdf#page=3"
     }
   ],
   "report_titles": {
@@ -32710,6 +32798,10 @@
     "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1": "Verification of an Altitude Decompression Sickness Prevention Protocol for Shuttle Operations Utilizing a 10.2-psi Pressure Stage",
     "record:legacy:data/chamber/v1.15/search_hits.csv#historic_v15_tavily_extract:1": "Predictive Modeling of Altitude Decompression Sickness in Humans",
     "record:legacy:data/chamber/v1.12/sources.csv#gould63_royal_navy": "A review of the high-altitude selection test, 1961–1962",
-    "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200": "Decompression Sickness in Actual Flights"
+    "record:legacy:data/chamber/v1.5/references.csv#mahon2014:200": "Decompression Sickness in Actual Flights",
+    "report:sam-248-1": "The effects of pressure breathing on decompression sickness and circulatory reaction in cadets",
+    "report:sam-252-1": "The prevention of aeroembolism in cadets at 45,000 feet by denitrogenation",
+    "report:sam-409-1": "The effect of breathing carbon dioxide in oxygen on altitude decompression sickness",
+    "report:sam-458-1": "Present status of the problem of decompression sickness"
   }
 }
