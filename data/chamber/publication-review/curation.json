@@ -9893,6 +9893,42 @@
       "report_id": "openalex:W280567427",
       "basis": "These entries identify the same OpenAlex work and NASA accession 19730022270, with the same title and publication year.",
       "evidence_url": "https://ntrs.nasa.gov/citations/19730022270"
+    },
+    {
+      "record_key": "2026-11-21-approved-intake-02-davis-1977#889546",
+      "report_id": "pmid:889546",
+      "basis": "Verified report identifier, title and original source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf"
+    },
+    {
+      "record_key": "2026-11-21-approved-intake-02-olaya-2025#10.25062/9786287818279.12",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "basis": "Verified report identifier, title and original source locator.",
+      "evidence_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    },
+    {
+      "record_key": "2026-11-21-approved-intake-02-pal-aselisewine-2026#41552415",
+      "report_id": "pmid:41552415",
+      "basis": "Verified report identifier, title and original source locator.",
+      "evidence_url": "https://link.springer.com/content/pdf/10.1007/s11222-025-10796-3.pdf"
+    },
+    {
+      "record_key": "2026-11-21-approved-intake-02-conkin-databank-1992#1524540",
+      "report_id": "pmid:1524540",
+      "basis": "Verified report identifier, title and original source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/9/article-p819.pdf"
+    },
+    {
+      "record_key": "2026-11-21-approved-intake-02-asma-340#asma2023:340",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#celis23_abstract",
+      "basis": "Verified report identifier, title and original source locator.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/4/article-p237.pdf"
+    },
+    {
+      "record_key": "legacy:data/chamber/sharepoint-2026-11-19/sources.csv#celis23_abstract",
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#celis23_abstract",
+      "basis": "Verified the legacy AsMA abstract 340 citation against the original printed p. 276. Same report as the new publisher verification occurrence.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/4/article-p237.pdf"
     }
   ],
   "studies": [
@@ -13750,6 +13786,20 @@
       "relationship": "cites_existing_navy_chamber_cohort",
       "evidence": "West and Parker cite Furry for the 1959–1968 Navy altitude training surveillance. Keep the original Furry risk sets.",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19730022270/downloads/19730022270.pdf#page=25"
+    },
+    {
+      "left_report": "pmid:41552415",
+      "right_report": "pmid:1524540",
+      "relationship": "cites_dataset_provenance",
+      "evidence": "Pal and Aselisewine, PDF p. 11, section 5, identifies the altitude chamber databank and cites Conkin et al. Individual record linkage to the Grade IV VGE analysis subset is unverified.",
+      "evidence_url": "https://link.springer.com/content/pdf/10.1007/s11222-025-10796-3.pdf#page=11"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#celis23_abstract",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#celis23_thesis",
+      "relationship": "same_fac_cohort_companion",
+      "evidence": "Abstract 340 Methods and Results, printed p. 276. The site, study window and total DCS diagnoses agree with the thesis. The subtype and role classifications differ between thesis sections. No second cohort is assigned.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/94/4/article-p237.pdf"
     }
   ],
   "report_titles": {
