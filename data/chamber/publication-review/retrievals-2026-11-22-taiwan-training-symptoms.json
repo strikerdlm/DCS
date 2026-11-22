@@ -1,0 +1,292 @@
+[
+  {
+    "id": "2026-11-22-taiwan-training-symptoms-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "0d0b3c5c-346f-45e8-a034-1c7f96c06838",
+          "query": "\"Abnormal Physiological Events during the Hypobaric Chamber Training in Taiwan\" \"42\" pdf \"Lee\""
+        },
+        {
+          "request_id": "efa0946a-ee27-4d16-ba3d-deaf94b63734",
+          "query": "\"國軍空勤人員低壓艙訓練異常生理事件分析\" \"李紀蓮\" \"全文\""
+        },
+        {
+          "request_id": "8dbaa87b-726e-4368-91dc-6be955dbc8e1",
+          "query": "\"10.7011/JAMSROC.202112_35(1_2).0005\" \"減壓症\""
+        },
+        {
+          "request_id": "a2338cc2-711b-4b94-95d4-bb362255a7bb",
+          "urls": [
+            "https://www.airitilibrary.com/Article/Detail/16839595-202112-202209020003-202209020003-42-54"
+          ]
+        }
+      ]
+    },
+    "note": "The extraction returned the original publisher abstract. Searches for the full journal report did not establish open full text.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-taiwan-training-symptoms-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and Taiwan NDMC proceedings",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "publisher_scrape_id": "01a2052d-1002-7099-9a8a-8388a405e1b4",
+      "conference_pdf_sha256": "8a31bffec379c7ab5c29f432a0cf920f712bb7e6cffc2f184fdbaa6430656c49",
+      "conference_pdf_physical_page": 147
+    },
+    "note": "Verified the original bilingual journal abstracts and the rendered proceedings page. The two reports share one surveillance cohort. Training outcomes retain their own source-specific conditional groups.",
+    "records": [
+      {
+        "id": "tong19_taiwan_training",
+        "title": "國軍空勤人員低壓艙訓練異常生理事件分析（2000-2018）",
+        "authors": [
+          "童寶宗",
+          "朱信",
+          "江國超",
+          "鄭兆堅",
+          "文羽西",
+          "林信宏",
+          "杜旻育",
+          "賴重宇"
+        ],
+        "year": 2019,
+        "url": "https://wwwndmc.ndmutsgh.edu.tw/files/web/191/file_up/10000/6194/%E5%9C%8B%E9%98%B2%E9%86%AB%E5%AD%B8%E9%99%A2%E5%BB%BA%E6%A0%A1118%E5%B9%B4%E6%A0%A1%E6%85%B6%E5%A4%A7%E6%9C%83%E6%9A%A8%E7%AC%AC46%E5%B1%86%E5%9C%8B%E8%BB%8D%E8%BB%8D%E9%86%AB%E5%AD%B8%E8%A1%93%E7%A0%94%E8%A8%8E%E6%9C%83-%E5%B0%88%E5%88%8A.pdf#page=147",
+        "primary_source": "https://wwwndmc.ndmutsgh.edu.tw/files/web/191/file_up/10000/6194/%E5%9C%8B%E9%98%B2%E9%86%AB%E5%AD%B8%E9%99%A2%E5%BB%BA%E6%A0%A1118%E5%B9%B4%E6%A0%A1%E6%85%B6%E5%A4%A7%E6%9C%83%E6%9A%A8%E7%AC%AC46%E5%B1%86%E5%9C%8B%E8%BB%8D%E8%BB%8D%E9%86%AB%E5%AD%B8%E8%A1%93%E7%A0%94%E8%A8%8E%E6%9C%83-%E5%B0%88%E5%88%8A.pdf#page=147",
+        "locator": "46th Military Medicine Symposium, abstract A-I-003, PDF p. 147",
+        "access": "primary_abstract",
+        "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+        "role_review": "overlap_hold_non_dcs_training_outcomes",
+        "identifier": "NDMC:46:A-I-003",
+        "observations": [
+          {
+            "id": "tong19_taiwan_training:completed-training-with-interruption:training_interruption_any_cause",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "completed-training-with-interruption",
+            "endpoint": "training_interruption_any_cause",
+            "cases": 592,
+            "denominator": 18487,
+            "denominator_unit": "trainee_exposure",
+            "reported_rate_percent": 3.2,
+            "reported_rate_text": "3.2",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 2",
+            "note": "The numerator contains eventual completers only. The conference reports this percentage of all trainee-exposures. This is the same cohort as Lee 2021, which gives a competing count."
+          },
+          {
+            "id": "tong19_taiwan_training:completed-training-with-interruption:training_cause_middle_ear_block",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "completed-training-with-interruption",
+            "endpoint": "training_cause_middle_ear_block",
+            "cases": null,
+            "denominator": 592,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 70.3,
+            "reported_rate_text": "70.3",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          },
+          {
+            "id": "tong19_taiwan_training:completed-training-with-interruption:training_cause_sinus_pain",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "completed-training-with-interruption",
+            "endpoint": "training_cause_sinus_pain",
+            "cases": null,
+            "denominator": 592,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 15.0,
+            "reported_rate_text": "15",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          },
+          {
+            "id": "tong19_taiwan_training:completed-training-with-interruption:training_cause_hypoxic_discomfort",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "completed-training-with-interruption",
+            "endpoint": "training_cause_hypoxic_discomfort",
+            "cases": null,
+            "denominator": 592,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 11.3,
+            "reported_rate_text": "11.3",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          },
+          {
+            "id": "tong19_taiwan_training:completed-training-with-interruption:training_cause_chamber_flight_assessment_as_reported",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "completed-training-with-interruption",
+            "endpoint": "training_cause_chamber_flight_assessment_as_reported",
+            "cases": null,
+            "denominator": 592,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 3.4,
+            "reported_rate_text": "3.4",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable. The specific clinical meaning of the reported chamber-flight assessment category is unavailable."
+          },
+          {
+            "id": "tong19_taiwan_training:noncompleted-training:training_cause_middle_ear_block",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "noncompleted-training",
+            "endpoint": "training_cause_middle_ear_block",
+            "cases": null,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 61.4,
+            "reported_rate_text": "61.4",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 3",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          },
+          {
+            "id": "tong19_taiwan_training:noncompleted-training:training_cause_severe_hypoxia",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "noncompleted-training",
+            "endpoint": "training_cause_severe_hypoxia",
+            "cases": null,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 15.8,
+            "reported_rate_text": "15.8",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 3",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          },
+          {
+            "id": "tong19_taiwan_training:noncompleted-training:training_cause_nonspecific_discomfort",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "noncompleted-training",
+            "endpoint": "training_cause_nonspecific_discomfort",
+            "cases": null,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 15.8,
+            "reported_rate_text": "15.8",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 3",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          },
+          {
+            "id": "tong19_taiwan_training:noncompleted-training:training_cause_sinus_pain_and_hyperventilation_grouped",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "noncompleted-training",
+            "endpoint": "training_cause_sinus_pain_and_hyperventilation_grouped",
+            "cases": null,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 7.0,
+            "reported_rate_text": "7",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Abstract A-I-003, PDF p. 147, Results item 3",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable. One percentage covers the grouped labels. The split and co-occurrence are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "lee21_taiwan_training",
+        "title": "國軍空勤人員低壓艙訓練異常生理事件分析",
+        "authors": [
+          "Chi-Lien Lee",
+          "Chung-Yu Lai",
+          "Hsin Chu",
+          "Chao-Chien Cheng",
+          "Yu-His Wen",
+          "Hsien-Chuan Chin",
+          "Kwo-Tsao Chiang",
+          "Min-Yu Tu"
+        ],
+        "year": 2021,
+        "url": "https://www.airitilibrary.com/Article/Detail/16839595-202112-202209020003-202209020003-42-54",
+        "primary_source": "https://www.airitilibrary.com/Article/Detail/16839595-202112-202209020003-202209020003-42-54",
+        "locator": "Chinese and English journal abstracts, Results",
+        "access": "primary_abstract",
+        "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+        "role_review": "overlap_hold_non_dcs_training_outcomes",
+        "doi": "10.7011/jamsroc.202112_35(1_2).0005",
+        "interruption_denominator_discrepancy": {
+          "previous_review_observation_id": "lee-2021-aprl-completion-with-symptomatic-interruption",
+          "cohort_trainee_exposures_as_printed": 18487,
+          "eligible_count_for_printed_rate": null,
+          "interrupted_completer_exposures_as_printed": 572,
+          "percent_as_printed": "3.2",
+          "percent_if_using_cohort_total": 3.0941,
+          "percent_if_using_cohort_minus_noncompletions": 3.1036,
+          "note": "The prior review record used the full cohort as a descriptive comparison denominator. The Chinese abstract associates the rate with the overall total, while the English wording places it among completers. Both arithmetic interpretations round to 3.1%, so the effective denominator for the printed rate remains unverified. Neither figure is a clinical DCS result."
+        },
+        "observations": [
+          {
+            "id": "lee21_taiwan_training:completed-training-with-interruption:training_cause_pressure_related_ear_sinus_or_related",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "completed-training-with-interruption",
+            "endpoint": "training_cause_pressure_related_ear_sinus_or_related",
+            "cases": null,
+            "denominator": 572,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 90.9,
+            "reported_rate_text": "90.9",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Chinese publisher abstract, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable. Pressure-related middle-ear and sinus conditions are grouped in the Chinese abstract."
+          },
+          {
+            "id": "lee21_taiwan_training:completed-training-with-interruption:training_cause_severe_hypoxia",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "completed-training-with-interruption",
+            "endpoint": "training_cause_severe_hypoxia",
+            "cases": null,
+            "denominator": 572,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 8.8,
+            "reported_rate_text": "8.8",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Chinese publisher abstract, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          },
+          {
+            "id": "lee21_taiwan_training:noncompleted-training:training_cause_pressure_related_ear_sinus_or_related",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "noncompleted-training",
+            "endpoint": "training_cause_pressure_related_ear_sinus_or_related",
+            "cases": null,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 50.9,
+            "reported_rate_text": "50.9",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Chinese publisher abstract, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable. Pressure-related middle-ear and sinus conditions are grouped in the Chinese abstract."
+          },
+          {
+            "id": "lee21_taiwan_training:noncompleted-training:training_cause_severe_hypoxia",
+            "study_id": "taiwan-aprl-hypobaric-training-2001-2018",
+            "group": "noncompleted-training",
+            "endpoint": "training_cause_severe_hypoxia",
+            "cases": null,
+            "denominator": 57,
+            "denominator_unit": "person_exposure",
+            "reported_rate_percent": 42.1,
+            "reported_rate_text": "42.1",
+            "exposure_context": "hypobaric_chamber",
+            "locator": "Chinese publisher abstract, Results item 2",
+            "note": "Source prints a percentage within this outcome group. Exact category counts are unavailable."
+          }
+        ]
+      }
+    ]
+  }
+]

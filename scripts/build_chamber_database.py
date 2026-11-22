@@ -303,6 +303,7 @@ HDSD_ARCHIVE_LINEAGE = ROOT / "data" / "chamber" / "v1.235"
 GRAY_MASLAND_DESCENT = ROOT / "data" / "chamber" / "v1.236"
 GRAY_SAM_REPORTS = ROOT / "data" / "chamber" / "v1.237"
 GRAY_MAHADY_SOURCE_TABLES = ROOT / "data" / "chamber" / "v1.238"
+TAIWAN_TRAINING_SYMPTOMS = ROOT / "data" / "chamber" / "v1.239"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3137,6 +3138,15 @@ def build(
                         "publication_sam253_postflight_pressure": "postflight_pressure.csv",
                         "publication_sam253_postflight_lab": "postflight_labs.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    TAIWAN_TRAINING_SYMPTOMS,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_reported_rate": "reported_rates.csv",
+                    },
+                    create_schema=False,
                 )
                 load_register(db, ROOT)
                 db.commit()

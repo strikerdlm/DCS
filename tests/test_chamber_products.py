@@ -9,6 +9,44 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_taiwan_conditional_training_symptoms_preserve_one_cohort(release):
+    with connect_pair(release) as db:
+        model_rates = db.execute("""
+            SELECT l.report_id,p.stratum,p.endpoint,cast(p.reported_percent AS REAL),p.denominator
+            FROM publication_reported_rate p JOIN model_report_link l USING(source_id)
+            WHERE p.source_id IN ('lee21_taiwan_training','tong19_taiwan_training')
+            ORDER BY 1,2,3
+        """).fetchall()
+        review_rates = db.execute("""
+            SELECT report_id,reported_group,endpoint,reported_rate_percent,denominator
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-22-taiwan-training-symptoms-verified'
+            ORDER BY 1,2,3
+        """).fetchall()
+        assert len(model_rates) == 13
+        assert model_rates == review_rates
+        assert ("abstract:ndmc-2019-a-i-003", "noncompleted-training",
+                "training_cause_severe_hypoxia", 15.8, 57) in model_rates
+        assert ("doi:10.7011/jamsroc.202112_35(1_2).0005", "noncompleted-training",
+                "training_cause_severe_hypoxia", 42.1, 57) in model_rates
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,analysis_role FROM publication_observation
+            WHERE source_id='tong19_taiwan_training' AND endpoint='training_interruption_any_cause'
+        """).fetchone() == (592, 18487, "trainee_exposure", "overlap_hold")
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='lee21_taiwan_training' AND endpoint='training_interruption_any_cause'
+        """).fetchone() == (572, None)
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE run_id='2026-11-22-taiwan-training-symptoms-verified' AND cases IS NOT NULL
+        """).fetchall() == [(592, 18487, "trainee_exposure")]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT study_id) FROM review.review_study_report
+            WHERE report_id IN ('doi:10.7011/jamsroc.202112_35(1_2).0005','abstract:ndmc-2019-a-i-003')
+        """).fetchone() == (2, 1)
+
+
 def test_gray_mahady_primary_tables_link_reused_chamber_groups(release):
     with connect_pair(release) as db:
         group = db.execute("""
