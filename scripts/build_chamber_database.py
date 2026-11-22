@@ -275,6 +275,7 @@ ANELL_EARLY_EXCURSION = ROOT / "data" / "chamber" / "v1.207"
 SULAIMAN_JOURNAL_AGE_FIGURES = ROOT / "data" / "chamber" / "v1.208"
 WEBB_AFRL_REPEAT_SUSCEPTIBILITY = ROOT / "data" / "chamber" / "v1.209"
 WEBB_PREBREATHE_RECONCILIATION = ROOT / "data" / "chamber" / "v1.210"
+CHAMBER_1995_THRESHOLD_AND_AGE = ROOT / "data" / "chamber" / "v1.211"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2810,6 +2811,17 @@ def build(
                         "publication_prebreathe_chart": "charts.csv",
                         "publication_prebreathe_chart_marker": "markers.csv",
                         "publication_prebreathe_arm_crosswalk": "arm_crosswalk.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CHAMBER_1995_THRESHOLD_AND_AGE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_zero_prebreathe_series": "threshold_series.csv",
+                        "publication_zero_prebreathe_group": "threshold_groups.csv",
+                        "publication_zero_prebreathe_checkpoint": "threshold_checkpoints.csv",
+                        "publication_age_abstract_margin": "age_margins.csv",
                     },
                 )
                 load_register(db, ROOT)

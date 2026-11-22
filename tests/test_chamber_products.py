@@ -9,6 +9,86 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_1995_threshold_sources_preserve_counts_pressures_and_graph_provenance(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT s.source_id,s.overall_subjects_as_reported,count(*),sum(g.group_subjects_as_printed),
+                   s.maximum_altitude_duration_min,s.exposure_per_person_as_reported
+            FROM publication_zero_prebreathe_series AS s
+            JOIN publication_zero_prebreathe_group AS g USING(source_id)
+            GROUP BY s.source_id ORDER BY s.source_id
+        """).fetchall() == [
+            ("webb95_asma_threshold", 70, 7, 70, 360, 1),
+            ("webb95_operational_threshold", 75, 8, 88, None, None),
+        ]
+        assert db.execute("""
+            SELECT source_id,altitude_ft_as_printed,group_subjects_as_printed,explicit_dcs_cases,
+                   dcs_percent,dcs_basis,vge_percent,vge_basis
+            FROM publication_zero_prebreathe_group
+            WHERE altitude_ft_as_printed IN (18000,18100,21200,22500)
+            ORDER BY source_id,altitude_ft_as_printed
+        """).fetchall() == [
+            ("webb95_asma_threshold", 18000, 10, 0, 0.0, "explicit_zero", None, None),
+            ("webb95_asma_threshold", 21200, 10, 0, 0.0, "explicit_zero", None, None),
+            ("webb95_asma_threshold", 22500, 10, None, 50.0, "reported_percent", 80.0, "described_probit_curve"),
+            ("webb95_operational_threshold", 18100, 10, None, 0.0, "figure_approximation", 30.0, "figure_approximation"),
+            ("webb95_operational_threshold", 21200, 14, None, 7.0, "figure_approximation", 54.0, "figure_approximation"),
+            ("webb95_operational_threshold", 22500, 15, None, 46.0, "figure_approximation", 87.0, "figure_approximation"),
+        ]
+        assert db.execute("""
+            SELECT altitude_ft_as_printed,endpoint,min(percent_approx),max(percent_approx),
+                   figure_subjects_as_printed,count(*)
+            FROM publication_zero_prebreathe_checkpoint
+            GROUP BY altitude_ft_as_printed,endpoint,figure_subjects_as_printed
+            ORDER BY altitude_ft_as_printed,endpoint
+        """).fetchall() == [
+            (22500, "any_vge", 72, 86, None, 6),
+            (22500, "dcs_symptoms", 13, 47, 15, 6),
+            (23800, "dcs_symptoms", 10, 50, 10, 6),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN ('webb95_asma_threshold','webb95_operational_threshold','sulaiman95_asma_age')
+        """).fetchone() == (0,)
+
+
+def test_1995_age_abstract_margins_link_to_existing_exact_rows(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT altitude_scope,count(*),sum(p.numerator),sum(p.denominator)
+            FROM publication_age_abstract_margin AS m
+            JOIN publication_observation AS p
+              ON (p.source_id,p.stratum,p.endpoint)=(m.archive_source_id,m.archive_stratum,m.archive_endpoint)
+            GROUP BY altitude_scope ORDER BY altitude_scope
+        """).fetchall() == [("29500_to_30000_ft", 7, 68, 111), ("all_altitudes", 7, 445, 1299)]
+        assert db.execute("""
+            SELECT altitude_scope,percent_as_printed FROM publication_age_abstract_margin
+            WHERE age_label_as_printed='Over 42' ORDER BY altitude_scope
+        """).fetchall() == [("29500_to_30000_ft", "100"), ("all_altitudes", "63")]
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link WHERE source_id IN (
+                'webb95_asma_threshold','webb95_operational_threshold','sulaiman95_asma_age'
+            ) ORDER BY source_id
+        """).fetchall() == [
+            ("sulaiman95_asma_age", "asma:1995:496:201"),
+            ("webb95_asma_threshold", "asma:1995:496:200"),
+            ("webb95_operational_threshold", "dtic:ada302855:webb-pp33-43"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_study_report
+            WHERE study_id='armstrong-1983-1994-age-archive'
+              AND report_id IN ('asma:1995:496:201','pmid:9262810')
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE right_report='pmid:9561279' AND relationship='likely_overlap'
+              AND left_report IN ('asma:1995:496:200','dtic:ada302855:webb-pp33-43')
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_webb_prebreathe_series_and_chart_markers_keep_source_disagreement(release):
     with connect_pair(release) as db:
         assert db.execute("""

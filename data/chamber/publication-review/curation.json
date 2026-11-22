@@ -1,6 +1,42 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.211/sources.csv#webb95_asma_threshold",
+      "report_id": "asma:1995:496:200",
+      "basis": "Original chapter or numbered abstract, title, authors and printed locator establish the report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34"
+    },
+    {
+      "record_key": "2026-11-22-afrl-threshold-age-firecrawl#asma-abstract-200",
+      "report_id": "asma:1995:496:200",
+      "basis": "Original chapter or numbered abstract, title, authors and printed locator establish the report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.211/sources.csv#webb95_operational_threshold",
+      "report_id": "dtic:ada302855:webb-pp33-43",
+      "basis": "Original chapter or numbered abstract, title, authors and printed locator establish the report identity.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA302855/DTIC_ADA302855.pdf#page=60"
+    },
+    {
+      "record_key": "2026-11-22-afrl-threshold-age-firecrawl#webb-pilmanis-proceedings-threshold",
+      "report_id": "dtic:ada302855:webb-pp33-43",
+      "basis": "Original chapter or numbered abstract, title, authors and printed locator establish the report identity.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA302855/DTIC_ADA302855.pdf#page=60"
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.211/sources.csv#sulaiman95_asma_age",
+      "report_id": "asma:1995:496:201",
+      "basis": "Original chapter or numbered abstract, title, authors and printed locator establish the report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34"
+    },
+    {
+      "record_key": "2026-11-22-afrl-threshold-age-firecrawl#asma-abstract-201",
+      "report_id": "asma:1995:496:201",
+      "basis": "Original chapter or numbered abstract, title, authors and printed locator establish the report identity.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34"
+    },
+    {
       "record_key": "2026-11-22-webb-prebreathe-tavily#webb1999-primary-abstract",
       "report_id": "pmid:11760770",
       "basis": "Verified source identity using the original article or report metadata.",
@@ -18981,6 +19017,12 @@
   ],
   "studies": [
     {
+      "study_id": "afrl-webb-zero-prebreathe-threshold",
+      "label": "Armstrong Laboratory zero-prebreathe altitude threshold series",
+      "period": "Reports from 1995–1998 describing related archive samples",
+      "setting": "AFRL Brooks hypobaric chamber experiments"
+    },
+    {
       "study_id": "afrl-webb-1999-rest-preoxygenation-series",
       "label": "Webb and Pilmanis 1999 AFRL preoxygenation series",
       "period": "Retrospective series published in 1999. Exact study dates unspecified.",
@@ -20872,6 +20914,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "afrl-webb-zero-prebreathe-threshold",
+      "report_id": "asma:1995:496:200",
+      "role": "preliminary_meeting_abstract",
+      "locator": "Abstract 200, printed p. 496 (PDF p. 34)"
+    },
+    {
+      "study_id": "afrl-webb-zero-prebreathe-threshold",
+      "report_id": "dtic:ada302855:webb-pp33-43",
+      "role": "proceedings_with_interim_figures",
+      "locator": "Text p. 35 and Figures 2–5, printed pp. 35–37 (PDF pp. 62–64)"
+    },
+    {
+      "study_id": "afrl-webb-zero-prebreathe-threshold",
+      "report_id": "pmid:9561279",
+      "role": "expanded_journal_series",
+      "locator": "Abstract and Table I, printed pp. 335–336"
+    },
+    {
+      "study_id": "armstrong-1983-1994-age-archive",
+      "report_id": "asma:1995:496:201",
+      "role": "preliminary_meeting_abstract",
+      "locator": "Abstract 201, printed p. 496 (PDF p. 34)"
+    },
     {
       "study_id": "afrl-webb-1999-rest-preoxygenation-series",
       "report_id": "pmid:11760770",
@@ -24030,6 +24096,41 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "asma:1995:496:200",
+      "right_report": "dtic:ada302855:webb-pp33-43",
+      "relationship": "likely_overlap",
+      "evidence": "Same authors, year, laboratory, zero prebreathe and similar pressure groups. Report-level Ns differ, and participant linkage is unavailable.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA302855/DTIC_ADA302855.pdf#page=62"
+    },
+    {
+      "left_report": "asma:1995:496:200",
+      "right_report": "pmid:9561279",
+      "relationship": "likely_overlap",
+      "evidence": "The original meeting abstract and later paper use similar pressure groups and zero prebreathe. The later samples differ in size, with unverified participant links.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34"
+    },
+    {
+      "left_report": "dtic:ada302855:webb-pp33-43",
+      "right_report": "pmid:9561279",
+      "relationship": "likely_overlap",
+      "evidence": "The authors refer to ongoing recruitment at 21,200 and 22,500 ft. The first five plotted denominators and the 23,800-ft denominator agree with the later paper, which enlarges the two interim groups.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA302855/DTIC_ADA302855.pdf#page=62"
+    },
+    {
+      "left_report": "asma:1995:496:201",
+      "right_report": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:1",
+      "relationship": "same_cohort",
+      "evidence": "The same 1,299 and 111 subject-flight counts and all 14 age percentages agree with technical report Tables 4 and 7 at the abstract's precision.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34"
+    },
+    {
+      "left_report": "asma:1995:496:201",
+      "right_report": "pmid:9262810",
+      "relationship": "same_cohort",
+      "evidence": "The same Armstrong archive and high-altitude subset underpin all-altitude and 29,500–30,000-ft comparisons. The preliminary and final interpretations of the subset differ.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/5/article-p463.pdf#page=34"
+    },
     {
       "left_report": "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
       "right_report": "pmid:11760770",
