@@ -8,6 +8,99 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_cincinnati_1942_exact_condition_counts_keep_repeated_people_separate(release):
+    with connect_pair(release) as db:
+        expected = [
+            ("recumbent-rest", 5, 16, 2, 11),
+            ("rest-preoxygenation-then-exercise", 34, 40, 25, 17),
+            ("seated-activity", 51, 84, 14, 31),
+            ("squat-exercise", 37, 37, 32, 18),
+            ("standing-minor-work", 26, 41, 11, 14),
+        ]
+        assert db.execute("""
+            SELECT a.stratum,a.numerator,a.denominator,s.numerator,t.participant_count
+            FROM publication_observation a
+            JOIN publication_observation s USING(source_id,stratum,denominator,denominator_unit)
+            JOIN publication_chamber_trial_scope t USING(source_id,stratum)
+            WHERE a.source_id='blankenhorn42_progress7' AND a.endpoint='bends_as_reported'
+              AND a.denominator_unit='person_exposure' AND a.analysis_role='overlap_hold'
+              AND s.endpoint='severe_or_intolerable_bends_as_reported'
+            ORDER BY a.stratum
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,cases,denominator FROM review.review_search_observation
+            WHERE report_id='report:oemcmr-36:7' AND endpoint='bends_as_reported'
+              AND study_id='cincinnati-1942-35000-ft-activity-series'
+              AND denominator_unit='person_exposure' ORDER BY reported_group
+        """).fetchall() == [row[:3] for row in expected]
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='blankenhorn42_progress7' AND stratum='early-35000-all'
+        """).fetchall() == [(240, 35)]
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='blankenhorn42_progress7'
+              AND endpoint IN ('participant_pulmonary_manifestations_as_reported','chokes_occurrence_as_reported')
+            ORDER BY numerator
+        """).fetchall() == [(14, 35, "person"), (30, None, None)]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:flexner:1942-11-01' AND right_report='report:oemcmr-36:7'
+        """).fetchall() == [("same_cohort",)]
+
+
+def test_cincinnati_1944_pressure_breathing_keeps_rates_and_nasa_counts_distinct(release):
+    with connect_pair(release) as db:
+        expected = [("pressure-breathing-exercise", "93", None), ("pressure-breathing-rest", "65", None)]
+        assert db.execute("""
+            SELECT stratum,reported_percent,source_denominator FROM publication_narrative_chamber_rate
+            WHERE source_id='blankenhorn44_progress20' AND target_altitude_ft=45000 AND planned_dwell_min=60
+              AND endpoint='forced_descent_within_one_hour_as_reported' ORDER BY stratum
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,reported_rate_percent,cases,denominator
+            FROM review.review_search_observation WHERE report_id='report:oemcmr-36:20'
+              AND study_id='cincinnati-1944-positive-pressure-chamber'
+            ORDER BY reported_group
+        """).fetchall() == [(group, float(rate), None, None) for group, rate, _ in expected]
+        assert db.execute("""
+            SELECT count(*),min(trial_count),max(trial_count),min(participant_count)
+            FROM publication_chamber_trial_scope WHERE source_id='blankenhorn44_progress19'
+              AND parent_stratum='pressure-breathing-six-condition-series'
+        """).fetchone() == (6, 29, 29, 29)
+        assert db.execute("""
+            SELECT male_exposures,serious_cases FROM publication_nasa_serious_dcs_group
+            WHERE reference_number=68 ORDER BY row_on_page
+        """).fetchall() == [(29, 2), (29, 11), (29, 10), (29, 13), (29, 8)]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report='report:oemcmr-36:20' ORDER BY right_report
+        """).fetchall() == [("ntrs:20010020946", "likely_overlap"), ("report:oemcmr-36:19", "same_cohort")]
+
+
+def test_hitchcock_progress_report_links_group_ii_and_preserves_missing_repeat_class(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='hitchcock43_progress14' AND endpoint='repeat_tests_stayed_in_initial_category_band'
+            ORDER BY stratum
+        """).fetchall() == [("first-two-a-b", 12, 14), ("first-two-c-d", 7, 10),
+                            ("initial-a-b", 12, 24), ("initial-c-d", 7, 13)]
+        assert db.execute("""
+            SELECT count(*),sum(numerator),min(denominator),max(denominator)
+            FROM publication_observation WHERE source_id='hitchcock43_progress14'
+              AND endpoint GLOB 'maximum_class_change_*' AND analysis_role='denominator_conflict'
+        """).fetchone() == (4, 36, 37, 37)
+        assert db.execute("""
+            SELECT count(*),count(source_denominator) FROM publication_narrative_chamber_rate
+            WHERE source_id='hitchcock43_progress14'
+        """).fetchone() == (12, 0)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='report:oemcmr-74:14' AND right_report='fulton1951:explosive-decompression'
+        """).fetchall() == [("partial_overlap",)]
+
+
 def test_bateman_scores_keep_subjects_qualifiers_and_clinical_counts_separate(release):
     with connect_pair(release) as db:
         assert db.execute("""
