@@ -247,6 +247,7 @@ PETERSON_AND_NASA_CAMPOUT = ROOT / "data" / "chamber" / "v1.179"
 NASA_EXPLORATION_PREBREATHE_TIMING = ROOT / "data" / "chamber" / "v1.180"
 NASA_EA1_CHECKOUT = ROOT / "data" / "chamber" / "v1.181"
 NASA_EA6_VGE_PANELS = ROOT / "data" / "chamber" / "v1.182"
+IAF_CHAMBER_PROTOCOL = ROOT / "data" / "chamber" / "v1.183"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2447,6 +2448,14 @@ def build(
                     db,
                     NASA_EA6_VGE_PANELS,
                     {"discovery_eva_vge_plot_maximum": "vge_plot_maxima.csv"},
+                )
+                load_version_tables(
+                    db,
+                    IAF_CHAMBER_PROTOCOL,
+                    {
+                        "zotero_chamber_profile_point": "profile_points.csv",
+                        "zotero_chamber_post_change_followup": "post_change_followup.csv",
+                    },
                 )
             if rojas_supplement:
                 load_supplement(

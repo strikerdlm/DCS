@@ -6368,6 +6368,39 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_iaf_profile_and_followup_preserve_their_distinct_windows(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT elapsed_min_approx,altitude_ft_nominal FROM zotero_chamber_profile_point
+            WHERE source_id='nakdimon22' AND stratum='all' ORDER BY point_number
+        """).fetchall() == [
+            (0, 0), (30, 0), (31, 5000), (32, 0), (37, 25000),
+            (49, 25000), (50, 18000), (60, 18000), (64, 0),
+        ]
+        assert db.execute("""
+            SELECT duration_months,reported_dcs_cases,exposure_denominator,prebreathe_min_as_described,
+                   ascent_ft_min_as_described,rotary_ceiling_ft_as_described
+            FROM zotero_chamber_post_change_followup WHERE source_id='nakdimon22' AND stratum='trainees'
+        """).fetchone() == (18, 0, None, 45, 3000, 13000)
+        assert db.execute("""
+            SELECT stratum,cases,denominator,reported_rate,analysis_role FROM zotero_observation
+            WHERE source_id='nakdimon22' ORDER BY stratum
+        """).fetchall() == [
+            ("all", None, 1627, 0.55, "overlap_hold"),
+            ("physiology_instructors", None, 364, 0.55, "overlap_hold"),
+            ("trainees", None, 1263, 0.55, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT report_id,endpoint,cases,denominator,chamber_role,role_review
+            FROM review.review_search_observation WHERE run_id='2026-11-21-iaf-profile-followup-verified'
+        """).fetchall() == [("pmid:36309795", "reported_dcs", 0, None, "trainee", "overlap_hold")]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:36309795' AND right_report='pmid:42345225'
+              AND relationship='post_change_followup_overlap_unresolved'
+        """).fetchone() == ("post_change_followup_overlap_unresolved",)
+
+
 def test_nasa_ea6_plotted_grades_preserve_session_and_modality(release):
     with connect_pair(release) as db:
         rows = db.execute("""

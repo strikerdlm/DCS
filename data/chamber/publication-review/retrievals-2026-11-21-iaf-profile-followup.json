@@ -1,0 +1,206 @@
+[
+  {
+    "id": "2026-11-21-iaf-profile-followup-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_source_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_request_id": "f2382a1b-d130-4d48-897a-80fc4800edba",
+      "extract_request_id": "12a66709-d16e-4d42-b80e-4531a98902df",
+      "urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+        "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf"
+      ],
+      "query": "Figure 1 exact hypobaric training altitude time profile and methods masks oxygen, original protocol versus post-study measures and zero DCS over last 18 months, different flight platforms trainee and instructor ascertainment."
+    },
+    "note": "Verified source procedure, reported modifications and the unenumerated follow-up. Figure times were checked separately against the original image.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-iaf-profile-followup-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_retrieval",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+      "scrape_id": "01a20160-b118-702c-b696-c8fd22f47cd0"
+    },
+    "note": "Publisher PDF supplied the report of no trainee DCS events during 18 months after the changes. No trainee exposure count or exact dates were present.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-iaf-profile-followup-verified",
+    "date": "2026-11-21",
+    "provider": "Original published reports",
+    "operation": "supplementary_profile_and_followup_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Verified the figure and post-change report in the original 2022 and 2026 publications. Reported zero clinical events were recorded as narrative follow-up only.",
+    "records": [
+      {
+        "id": "nakdimon-profile-and-followup",
+        "title": "Mitigating Risks of Altitude Chamber Training",
+        "year": 2022,
+        "pmid": "36309795",
+        "doi": "10.3357/AMHP.6048.2022",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+        "full_text_available": true,
+        "pdf_sha256": "ef2d2cf038853a0aef1552a0cc88a8de382071f14e45c12f14a1805bc30a4fac",
+        "locator": "Methods and Figure 1, p. 812; Results, Figure 2 and Table I, p. 813; Discussion, p. 815",
+        "role_review": "overlap_hold",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf#page=5",
+        "linked_model_source_id": "nakdimon22",
+        "historical_scope": {
+          "start_month": "2015-01",
+          "end_month": "2019-12",
+          "chamber_sessions": 185,
+          "individuals_as_reported": 1627,
+          "trainees_as_reported": 1263,
+          "instructors_as_reported": 364,
+          "adverse_effects_all_causes": 91,
+          "reported_dcs_percent_each_role": 0.55,
+          "dcs_cases_as_exact_count": null,
+          "denominator_linkage": null
+        },
+        "planned_profile": {
+          "source_mode": "schematic_nominal",
+          "planned_preoxygenation_min": 30,
+          "preoxygenation_oxygen_percent": 100,
+          "nominal_ascent_ft_min": 5000,
+          "nominal_descent_ft_min": 5000,
+          "instructors_exposed_to_hypoxia": false,
+          "method": "The figure is a schematic plan. Elapsed times were read from marker positions on the 0–70 minute axis and rounded to the nearest minute. Altitudes are nominal chamber-equivalent values. Planned ramp rates are reported in Methods. The figure and table do not provide measured attendance-level pressure or delivered gas histories.",
+          "points": [
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 1,
+              "elapsed_min_approx": 0,
+              "altitude_ft_nominal": 0,
+              "stage_boundary": "Preoxygenation starts",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 2,
+              "elapsed_min_approx": 30,
+              "altitude_ft_nominal": 0,
+              "stage_boundary": "Preoxygenation ends",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 3,
+              "elapsed_min_approx": 31,
+              "altitude_ft_nominal": 5000,
+              "stage_boundary": "Ear and sinus equalization check",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 4,
+              "elapsed_min_approx": 32,
+              "altitude_ft_nominal": 0,
+              "stage_boundary": "Return to nominal ground level after check",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 5,
+              "elapsed_min_approx": 37,
+              "altitude_ft_nominal": 25000,
+              "stage_boundary": "Hypoxia demonstration plateau begins",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 6,
+              "elapsed_min_approx": 49,
+              "altitude_ft_nominal": 25000,
+              "stage_boundary": "Hypoxia demonstration plateau ends",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 7,
+              "elapsed_min_approx": 50,
+              "altitude_ft_nominal": 18000,
+              "stage_boundary": "Night-vision drill plateau begins",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 8,
+              "elapsed_min_approx": 60,
+              "altitude_ft_nominal": 18000,
+              "stage_boundary": "Night-vision drill plateau ends",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            },
+            {
+              "source_id": "nakdimon22",
+              "stratum": "all",
+              "point_number": 9,
+              "elapsed_min_approx": 64,
+              "altitude_ft_nominal": 0,
+              "stage_boundary": "Return to nominal ground level",
+              "locator": "Nakdimon and Ben-Ari 2022, Figure 1, printed p. 812 (PDF p. 2)"
+            }
+          ]
+        },
+        "trainee_post_change_followup": {
+          "source_id": "nakdimon22",
+          "stratum": "trainees",
+          "duration_months": 18,
+          "reported_dcs_cases": 0,
+          "exposure_denominator": null,
+          "prebreathe_min_as_described": 45,
+          "ascent_ft_min_as_described": 3000,
+          "rotary_ceiling_ft_as_described": 13000,
+          "locator": "Nakdimon and Ben-Ari 2022, Discussion, printed p. 815 (PDF p. 5)",
+          "note": "The authors report zero trainee DCS events in the 18 months following several changes. Exposure counts, calendar dates, staff outcomes, clinical follow-up schedule and overlap with the 2015–2022 cohort are unavailable. Descent rate was unchanged, and pulse oximetry was added throughout trainee hypoxia exposure. Concurrent changes prevent attributing the result to any single measure."
+        },
+        "observations": [
+          {
+            "id": "after-protocol-changes-trainee-dcs",
+            "group": "Trainees after protocol changes",
+            "endpoint": "reported_dcs",
+            "cases": 0,
+            "denominator": null,
+            "denominator_unit": null,
+            "chamber_role": "trainee",
+            "locator": "Nakdimon and Ben-Ari 2022, Discussion, printed p. 815 (PDF p. 5)",
+            "note": "The authors report zero trainee DCS events in the 18 months following several changes. Exposure counts, calendar dates, staff outcomes, clinical follow-up schedule and overlap with the 2015–2022 cohort are unavailable. Descent rate was unchanged, and pulse oximetry was added throughout trainee hypoxia exposure. Concurrent changes prevent attributing the result to any single measure."
+          }
+        ]
+      },
+      {
+        "id": "ben-ari-extended-study-check",
+        "title": "Decompression Sickness; Not Only in Divers: Altitude as a Risk Factor",
+        "year": 2026,
+        "pmid": "42345225",
+        "url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+        "full_text_available": true,
+        "pdf_sha256": "edb84b9a03b49f877316169b820d52573f2e051b23f1b9107649acc38ff458e4",
+        "locator": "Methods and Results, p. 353; limitations, pp. 355–356",
+        "linked_model_source_id": "benari26",
+        "note": "The 2015–2022 report covers 272 chamber sessions and 11 cases in 2,279 trainees and instructors as printed. It describes 30–45 minutes of preoxygenation and two main training protocols. The report provides no dated link to the earlier narrative 18-month trainee follow-up. No new counts were entered from this article."
+      }
+    ]
+  }
+]

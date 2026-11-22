@@ -1,6 +1,18 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-21-iaf-profile-followup-verified#nakdimon-profile-and-followup",
+      "report_id": "pmid:36309795",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf",
+      "basis": "Authors, publication title, year and DOI match the existing 2022 source."
+    },
+    {
+      "record_key": "2026-11-21-iaf-profile-followup-verified#ben-ari-extended-study-check",
+      "report_id": "pmid:42345225",
+      "evidence_url": "https://ima-files.s3.amazonaws.com/882985_368c23cf-11df-4519-bd21-98b0968b5113.pdf",
+      "basis": "The publisher PDF and PMID identify the previously curated extended cohort."
+    },
+    {
       "record_key": "2026-11-21-nasa-ea6-vge-panels-verified#ea6-max-grade-panels",
       "report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea6",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/20260003261/downloads/2026_05_18_AsMA_Garbino_EA_v2.pdf",
@@ -22440,6 +22452,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:36309795",
+      "right_report": "pmid:42345225",
+      "relationship": "post_change_followup_overlap_unresolved",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf#page=5",
+      "evidence": "The earlier paper reports an 18-month trainee follow-up after procedure changes. The later study covers the same facility from 2015–2022. Neither publishes the follow-up dates and exposure roster necessary to establish disjoint risk sets."
+    },
     {
       "left_report": "report:aerospace-2026-ea6-participant-account",
       "right_report": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea6",
