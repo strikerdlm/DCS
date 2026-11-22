@@ -9,6 +9,49 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_nasa_2007_archive_preserves_denominators_and_report_identity(release):
+    with connect_pair(release) as db:
+        observed = db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='conkin07_jsc_archive' ORDER BY endpoint
+        """).fetchall()
+        assert observed == [
+            ("any_vge_detected_as_reported", 326, 783, "person_exposure", "overlap_hold"),
+            ("dcs_as_reported", 121, 914, "person_exposure", "overlap_hold"),
+            ("dcs_type_ii_as_reported", 7, 914, "person_exposure", "overlap_hold"),
+            ("no_oxygen_prebreathe_among_type_ii_cases_as_reported", 4, 7, "dcs_case", "case_conditional"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation
+            WHERE run_id LIKE '2026-11-22-nasa-2007-archive-outcomes-%' ORDER BY endpoint
+        """).fetchall() == observed
+        assert db.execute("""
+            SELECT panel,denominator_as_reported,denominator_unit,count(*),count(count_as_printed)
+            FROM publication_nasa_archive_chart_cell WHERE source_id='conkin07_jsc_archive'
+            GROUP BY panel,denominator_as_reported,denominator_unit ORDER BY panel
+        """).fetchall() == [
+            ("dcs_classification", 914, "person_exposure", 3, 0),
+            ("pain_trajectory", 42, "unspecified", 3, 3),
+            ("vge_grade", 783, "person_exposure", 5, 0),
+        ]
+        assert db.execute("""
+            SELECT count_as_printed,percent_as_printed FROM publication_nasa_archive_chart_cell
+            WHERE panel='pain_trajectory' ORDER BY count_as_printed
+        """).fetchall() == [(6, 14), (17, 41), (19, 45)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='conkin07_jsc_archive'
+        """).fetchall() == [("openalex:W845426483",)]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE instr(lower(title),'description of the nasa hypobaric decompression sickness database')>0
+        """).fetchall() == [("openalex:W826972704",)]
+        assert db.execute("""
+            SELECT COUNT(*) FROM review.review_report_relation WHERE left_report='openalex:W845426483'
+            AND relationship='related_archive_membership_unresolved'
+        """).fetchone() == (4,)
+
+
 def test_balldin_sporrong_preserves_paired_signals_and_pressure_conflict(release):
     with connect_pair(release) as db:
         observed = db.execute("""

@@ -1,0 +1,270 @@
+[
+  {
+    "id": "2026-11-22-nasa-2007-archive-outcomes-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and original NASA slides",
+    "status": "observed",
+    "operation": "supplementary_primary_source_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "search_id": "01a2049c-fb97-739b-898c-30a5bdabe2a5",
+          "query": "site:ntrs.nasa.gov \"decompression sickness\" hypobaric chamber \"air break\" subjects clinical actual event validation decompression"
+        },
+        {
+          "search_id": "01a204a3-9139-71ad-9ec2-f293625ce528",
+          "query": "NASA 1983 2007 \"914 exposures\" \"decompression sickness\" \"783\" \"326\" historical archive Conkin"
+        },
+        {
+          "search_id": "01a204a5-ef0b-7729-a62d-c1f8903a6d25",
+          "query": "NASA Conkin \"121 cases\" \"914 exposures\" \"Type II\" archival JSC 2007"
+        }
+      ]
+    },
+    "note": "Firecrawl located the public NASA lecture. The original slide labels and stated counts were verified visually.",
+    "records": [
+      {
+        "id": "conkin07_jsc_archive",
+        "title": "Environmental Physiology at the Johnson Space Center: Past, Present, and Future",
+        "year": 2007,
+        "openalex_id": "W845426483",
+        "url": "https://ntrs.nasa.gov/api/citations/20070031093/downloads/20070031093.pdf#page=24",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20070031093/downloads/20070031093.pdf#page=24",
+        "identifier": "NTRS:20070031093",
+        "source_sha256": "8f49614047f2f0eec11aac7935029820cbd5042f35957ef42437c6941a3200df",
+        "access": "full_text",
+        "locator": "NASA lecture slides, PDF pp. 24, 33 and 34",
+        "study_id": "nasa-jsc-1983-2007-archive-snapshot",
+        "note": "Dated NASA JSC archive summary with 914 clinical exposures and a separate 783-exposure VGE chart. Exposure identifiers, clinical follow-up and cross-chart membership are unavailable. The source reports a selected 42-unit pain analysis without specifying the counting unit.",
+        "role_review": "overlap_hold",
+        "observations": [
+          {
+            "id": "conkin07-dcs_as_reported",
+            "group": "all-clinical-exposures",
+            "endpoint": "dcs_as_reported",
+            "cases": 121,
+            "denominator": 914,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "PDF p. 24, upper chart",
+            "study_id": "nasa-jsc-1983-2007-archive-snapshot",
+            "note": "Archived clinical outcomes with exposure identifiers unavailable. Type II cases in the adjacent row are included.",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Clinical or Doppler observations during the source's recorded chamber studies. A shared follow-up window is unavailable."
+          },
+          {
+            "id": "conkin07-dcs_type_ii_as_reported",
+            "group": "all-clinical-exposures",
+            "endpoint": "dcs_type_ii_as_reported",
+            "cases": 7,
+            "denominator": 914,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "PDF p. 24, upper chart and p. 34, Type II cases",
+            "study_id": "nasa-jsc-1983-2007-archive-snapshot",
+            "note": "Seven cases included in the total 121. PDF p. 34 restates the same count.",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Clinical or Doppler observations during the source's recorded chamber studies. A shared follow-up window is unavailable."
+          },
+          {
+            "id": "conkin07-any_vge_detected_as_reported",
+            "group": "vge-chart-exposures",
+            "endpoint": "any_vge_detected_as_reported",
+            "cases": 326,
+            "denominator": 783,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "locator": "PDF p. 24, lower chart",
+            "study_id": "nasa-jsc-1983-2007-archive-snapshot",
+            "note": "The VGE chart reports a separate exposure total and gives grade percentages. Joint membership is unavailable.",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Clinical or Doppler observations during the source's recorded chamber studies. A shared follow-up window is unavailable."
+          }
+        ],
+        "chart_cells": [
+          {
+            "panel": "dcs_classification",
+            "category_as_printed": "no DCS",
+            "denominator_as_reported": 914,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 86.8,
+            "locator": "PDF p. 24, upper chart"
+          },
+          {
+            "panel": "dcs_classification",
+            "category_as_printed": "Type I",
+            "denominator_as_reported": 914,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 12.5,
+            "locator": "PDF p. 24, upper chart"
+          },
+          {
+            "panel": "dcs_classification",
+            "category_as_printed": "Type II",
+            "denominator_as_reported": 914,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 0.8,
+            "locator": "PDF p. 24, upper chart"
+          },
+          {
+            "panel": "vge_grade",
+            "category_as_printed": "VGE 0",
+            "denominator_as_reported": 783,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 58.4,
+            "locator": "PDF p. 24, lower chart"
+          },
+          {
+            "panel": "vge_grade",
+            "category_as_printed": "VGE I",
+            "denominator_as_reported": 783,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 5.2,
+            "locator": "PDF p. 24, lower chart"
+          },
+          {
+            "panel": "vge_grade",
+            "category_as_printed": "VGE II",
+            "denominator_as_reported": 783,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 6.8,
+            "locator": "PDF p. 24, lower chart"
+          },
+          {
+            "panel": "vge_grade",
+            "category_as_printed": "VGE III",
+            "denominator_as_reported": 783,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 10.7,
+            "locator": "PDF p. 24, lower chart"
+          },
+          {
+            "panel": "vge_grade",
+            "category_as_printed": "VGE IV",
+            "denominator_as_reported": 783,
+            "denominator_unit": "person_exposure",
+            "count_as_printed": null,
+            "percent_as_printed": 18.9,
+            "locator": "PDF p. 24, lower chart"
+          },
+          {
+            "panel": "pain_trajectory",
+            "category_as_printed": "pain got worse",
+            "denominator_as_reported": 42,
+            "denominator_unit": "unspecified",
+            "count_as_printed": 6,
+            "percent_as_printed": 14,
+            "locator": "PDF p. 33, pain trajectory panels"
+          },
+          {
+            "panel": "pain_trajectory",
+            "category_as_printed": "pain got better",
+            "denominator_as_reported": 42,
+            "denominator_unit": "unspecified",
+            "count_as_printed": 19,
+            "percent_as_printed": 45,
+            "locator": "PDF p. 33, pain trajectory panels"
+          },
+          {
+            "panel": "pain_trajectory",
+            "category_as_printed": "pain stayed constant",
+            "denominator_as_reported": 42,
+            "denominator_unit": "unspecified",
+            "count_as_printed": 17,
+            "percent_as_printed": 41,
+            "locator": "PDF p. 33, pain trajectory panels"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-nasa-2007-archive-outcomes-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_archive_reconciliation",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "22cb0b51-a38f-452b-9401-8bf339fc6ddc",
+          "urls": [
+            "https://ntrs.nasa.gov/api/citations/20070031093/downloads/20070031093.pdf",
+            "https://uhms.org/images/MEDFAQs/UHM_41-6_Altitude_deco_tables_for_IAs.pdf"
+          ]
+        },
+        {
+          "request_id": "4eed4588-e843-477a-8b8c-c8802b6599e7",
+          "urls": [
+            "https://ntrs.nasa.gov/api/citations/20070031093/downloads/20070031093.pdf",
+            "https://ntrs.nasa.gov/citations/20080013529",
+            "https://ntrs.nasa.gov/citations/20070031093"
+          ]
+        },
+        {
+          "request_id": "aab7d700-1a86-426b-8984-d9db2585dc4f",
+          "query": "Conkin NASA \"914\" \"121\" hypobaric chamber data 2007 JSC type II decompression sickness cases exposure history"
+        },
+        {
+          "request_id": "23b970f6-3b6c-44f8-aadd-8811a49ecfa9",
+          "query": "Conkin NASA \"pain got worse\" \"pain got better\" \"42\" altitude decompression sickness severity records"
+        }
+      ]
+    },
+    "note": "Corroborated the publisher copy and related NASA archive reports. The Type II figure is case-selected.",
+    "records": [
+      {
+        "id": "conkin07_type_ii_prebreathe_history",
+        "title": "Environmental Physiology at the Johnson Space Center: Past, Present, and Future",
+        "year": 2007,
+        "openalex_id": "W845426483",
+        "url": "https://ntrs.nasa.gov/api/citations/20070031093/downloads/20070031093.pdf#page=34",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20070031093/downloads/20070031093.pdf#page=34",
+        "identifier": "NTRS:20070031093",
+        "source_sha256": "8f49614047f2f0eec11aac7935029820cbd5042f35957ef42437c6941a3200df",
+        "access": "full_text",
+        "locator": "PDF p. 34, case-selected Type II prebreathe history",
+        "study_id": "nasa-jsc-1983-2007-archive-snapshot",
+        "role_review": "case_conditional",
+        "observations": [
+          {
+            "id": "conkin07-no_oxygen_prebreathe_among_type_ii_cases_as_reported",
+            "group": "type-ii-cases",
+            "endpoint": "no_oxygen_prebreathe_among_type_ii_cases_as_reported",
+            "cases": 4,
+            "denominator": 7,
+            "denominator_unit": "dcs_case",
+            "denominator_basis": "source_reported",
+            "locator": "PDF p. 34, case-selected Type II prebreathe history",
+            "study_id": "nasa-jsc-1983-2007-archive-snapshot",
+            "note": "Selected by Type II outcome. The source does not supply the total exposure count without oxygen prebreathe.",
+            "exposure_context": "hypobaric_research",
+            "outcome_window": "Clinical or Doppler observations during the source's recorded chamber studies. A shared follow-up window is unavailable."
+          }
+        ],
+        "note": "Same lecture and 7 Type II cases as the archive chart. The subset describes pre-exposure history among cases."
+      },
+      {
+        "id": "wessel08_jsc_poster",
+        "title": "Description of the NASA Hypobaric Decompression Sickness Database (1982–1998)",
+        "year": 2008,
+        "openalex_id": "W826972704",
+        "url": "https://ntrs.nasa.gov/citations/20080013529",
+        "identifier": "NTRS:20080013529",
+        "access": "full_text",
+        "note": "Wessel and Conkin's poster and NASA landing page identify the same work as extant search and source records."
+      }
+    ]
+  }
+]

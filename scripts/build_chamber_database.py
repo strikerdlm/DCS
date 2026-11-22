@@ -297,6 +297,7 @@ ARMSTRONG_PROBE_COMPARISON = ROOT / "data" / "chamber" / "v1.229"
 ARMSTRONG_METHODS_LINEAGE = ROOT / "data" / "chamber" / "v1.230"
 BASSETT_POST_DIVE = ROOT / "data" / "chamber" / "v1.231"
 BALLDIN_SPORRONG_VIBRATION = ROOT / "data" / "chamber" / "v1.232"
+NASA_2007_ARCHIVE = ROOT / "data" / "chamber" / "v1.233"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3077,6 +3078,14 @@ def build(
                     extra_tables={
                         "publication_doppler_vibration_protocol": "protocol.csv",
                         "publication_doppler_vibration_pair": "doppler_pairs.csv",
+                    },
+                )
+                load_supplement(
+                    db,
+                    NASA_2007_ARCHIVE,
+                    "publication",
+                    extra_tables={
+                        "publication_nasa_archive_chart_cell": "chart_cells.csv",
                     },
                 )
                 load_register(db, ROOT)
