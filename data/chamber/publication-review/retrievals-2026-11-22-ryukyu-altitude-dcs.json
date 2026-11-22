@@ -1,0 +1,146 @@
+[
+  {
+    "id": "2026-11-22-ryukyu-altitude-dcs-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_japanese_chamber_case_and_archive_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        "\"自衛隊江田島病院において再圧治療を実施した米軍人の航空減圧症の2例\"",
+        "\"高空減圧症\" \"治療経験\"",
+        "\"伊藤貴史\" \"石山純三\" \"航空生理訓練用低圧室\" 高度減圧症 抄録 症例 pdf 2015"
+      ],
+      "request_ids": [
+        "b7d7a47d-4b19-4d6f-98e0-f30483b77966",
+        "b1859ce0-d6c2-4e49-9a85-d789e1571be0",
+        "231e963d-da63-4459-a9e1-014dea02a3f4",
+        "58c6c01f-43a6-4457-8e44-5f2c690d50ae",
+        "defd3444-e3c0-4a12-a3ce-c3d16d4a4b80"
+      ]
+    },
+    "note": "Tracked the journal issue, companion paper and a citation trail for the Etajima patients. The National Diet Library confirms digital issue 3397379 for Watanabe and Yamazaki, with reading restricted to the library's authorized service.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-ryukyu-altitude-dcs-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_publisher_scan_and_access_check",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://journal.juhms.net/lib/2000/352-25.pdf",
+          "id": "01a201ba-0172-762e-b932-4c26021b7c4b"
+        },
+        {
+          "url": "https://journal.juhms.net/lib/2000/354-07.pdf",
+          "id": "01a201ba-017d-773a-9a27-b2fd0a6d6d9a"
+        },
+        {
+          "url": "https://mol.medicalonline.jp/journal/abstract?GoodsID=cz9jchod/2015/001201/004&name=0020-0023j",
+          "id": "01a201b9-0b22-7173-9255-7dcafd18b887"
+        }
+      ]
+    },
+    "note": "The renewed publisher-host scan includes the two Ryukyu clinical histories. The neighbouring paper reviews hyperbaric indications. MedicalOnline requires sign-in for the already catalogued 2015 chamber case abstract.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-ryukyu-altitude-dcs-verified",
+    "date": "2026-11-22",
+    "provider": "Primary journal scan and JST citation",
+    "operation": "supplementary_japanese_case_timeline_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "The new extraction uses the same canonical report as the archived 2000 scan. The 1994 finding is a reference-list citation only.",
+    "records": [
+      {
+        "id": "ryukyu-2000-original",
+        "title": "高空減圧症（altitude decompression sickness）の治療経験",
+        "authors": [
+          "湯佐祚子",
+          "須加原一博"
+        ],
+        "year": 2000,
+        "url": "https://journal.juhms.net/lib/2000/352-25.pdf",
+        "primary_source": "https://journal.juhms.net/lib/2000/352-25.pdf",
+        "archived_version": "https://web.archive.org/web/20250417144106id_/https://journal.jshm.net/lib/2000/352-25.pdf",
+        "full_text_available": true,
+        "pdf_sha256": "1b1e9d741904c66e0412f664fd318dc3c5f08b3dde240b67731ad23a12342a0f",
+        "study_id": "ryukyu-treated-military-aviation-dcs-2000",
+        "locator": "Vol. 35, no. 2, p. 115, abstract 30, right column",
+        "role_review": "selected_flight_cases",
+        "note": "Cases were selected for treatment. A denominator, event date, case-level external linkage and delayed follow-up are unavailable.",
+        "source_details": {
+          "case_1": {
+            "reported_peak_ft": 28000,
+            "reported_ascent_seconds": 2,
+            "reported_descent_ft": 10000,
+            "seconds_after_peak": 30,
+            "reported_flights": 3,
+            "altitude_reference": null,
+            "exact_onset_after_landing": null
+          },
+          "case_2": {
+            "reported_peak_ft": 24000,
+            "reported_ascent_minutes": 40,
+            "reported_descent_ft": 18000,
+            "onset_hours_after_return_approximate": 1,
+            "arrival_hours_from_symptom_onset": 8,
+            "printed_recompression_pressure_ata": 0.9,
+            "pressure_reference_verified": false
+          }
+        },
+        "observations": [
+          {
+            "id": "case-1-f16",
+            "study_id": "ryukyu-treated-military-aviation-dcs-2000",
+            "group": "F-16 pilot",
+            "endpoint": "military_aviation_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Vol. 35, no. 2, p. 115, abstract 30, right column, case 1",
+            "note": "Case 1, a 37-year-old F-16 pilot, reportedly reached 28,000 ft in two seconds on the first of three flights. The abstract gives no pressure trace or reference altitude for that transition. Headache began after the return to Kadena and low back pain followed. Headache resolved during initial recompression."
+          },
+          {
+            "id": "case-2-a10",
+            "study_id": "ryukyu-treated-military-aviation-dcs-2000",
+            "group": "A-10 training participant",
+            "endpoint": "military_aviation_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Vol. 35, no. 2, p. 115, abstract 30, right column, case 2",
+            "note": "Case 2, a 31-year-old man taking part in A-10 training at Osan, developed right ulnar forearm and left leg numbness approximately one hour after return, then right elbow and left knee pain 30 minutes later. He presented to the University of the Ryukyus eight hours after symptom onset. Symptoms resolved during reported recompression."
+          }
+        ]
+      },
+      {
+        "id": "kusano-1994-etajima-citation",
+        "title": "自衛隊江田島病院において再圧治療を実施した米軍人の航空減圧症の2例",
+        "authors": [
+          "草野浩幸"
+        ],
+        "year": 1994,
+        "journal": "National Defense Medical Journal",
+        "volume": "41",
+        "pages": "44",
+        "url": "https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=200902107075678097",
+        "locator": "Ogata, Ide and Kusano 2001, J-GLOBAL record 02A0530735, reference list",
+        "full_text_available": false,
+        "role_review": "citation_only_possible_historical_aviation_case_series",
+        "note": "The cited title describes two U.S. military aviation DCS patients treated at Etajima. The original is unretrieved. Aircraft, exposure mode, dates, clinical details and overlap with other series are unresolved. No observation is entered."
+      }
+    ]
+  }
+]

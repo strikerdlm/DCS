@@ -6368,6 +6368,58 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_ryukyu_cases_link_to_existing_report_and_keep_timing_references(release):
+    report_id = "abstract:ryukyu-yusa-sukahara-2000"
+    endpoint = "military_aviation_altitude_dcs_as_reported"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='yusa00_ryukyu_aviation_dcs' ORDER BY stratum
+        """).fetchall() == [
+            ("case-1-f16", endpoint, 1, None, "case_conditional"),
+            ("case-2-a10", endpoint, 1, None, "case_conditional"),
+        ]
+        assert db.execute("""
+            SELECT observation_id,cases,denominator
+            FROM review.review_search_observation WHERE report_id=? ORDER BY observation_id
+        """, (report_id,)).fetchall() == [("case-1-f16", 1, None), ("case-2-a10", 1, None)]
+        assert db.execute("""
+            SELECT case_id,source_time_min FROM historical_case_catalog WHERE report_id=? ORDER BY case_id
+        """, (report_id,)).fetchall() == [
+            ("yusa00_ryukyu_aviation_dcs:case-1-f16", None),
+            ("yusa00_ryukyu_aviation_dcs:case-2-a10", None),
+        ]
+        milestones = {
+            name: (elapsed, unit, reference, qualifier)
+            for name, elapsed, unit, reference, qualifier in db.execute("""
+                SELECT milestone,elapsed,elapsed_unit,elapsed_reference,elapsed_qualifier
+                FROM publication_aircraft_case_milestone WHERE source_id='yusa00_ryukyu_aviation_dcs'
+            """)
+        }
+        assert len(milestones) == 14
+        assert milestones["headache_after_third_flight_return"] == (None, None, None, None)
+        assert milestones["forearm_and_leg_numbness"] == (1, "hours", "return_to_osan", "approximate")
+        assert milestones["elbow_and_knee_pain"] == (30, "minutes", "initial_numbness", "reported")
+        assert milestones["ryukyu_hyperbaric_department_arrival"] == (8, "hours", "symptom_onset", "reported")
+        record, = db.execute("""
+            SELECT metadata_json FROM review.review_record
+            WHERE record_key='2026-11-22-ryukyu-altitude-dcs-verified#ryukyu-2000-original'
+        """).fetchone()
+        details = json.loads(record)["source_details"]
+        assert details["case_1"]["reported_ascent_seconds"] == 2
+        assert details["case_1"]["altitude_reference"] is None
+        assert details["case_2"]["printed_recompression_pressure_ata"] == 0.9
+        assert details["case_2"]["pressure_reference_verified"] is False
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation WHERE left_report=? AND right_report=?
+        """, (report_id, "usaf:kadena:419919")).fetchall() == [
+            ("potential_overlap_mixed_referral_records",),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id='ndmj:1994:41:44:kusano'
+        """).fetchone() == (0,)
+
+
 def test_usaf_occupational_ndcs_preserves_source_specific_history_and_mri_groups(release):
     primary, companion = "pmid:25164539", "pmid:28323582"
     endpoint = "people_reporting_mission_related_ndcs_symptoms"
