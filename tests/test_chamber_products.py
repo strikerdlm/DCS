@@ -8,6 +8,105 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_ivy_pressure_table_preserves_counts_rates_and_historical_controls(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='ivy44_pressure_breathing_supp3' ORDER BY stratum
+        """).fetchall() == [
+            ("historical-all-control-diets-exercise", 218, None),
+            ("intermittent-pressure-breathing-exercise", 70, 7),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='ivy44_pressure_breathing_supp3'
+              AND endpoint IN ('bends_excluding_chokes_as_reported','chokes_causing_descent_as_reported')
+            ORDER BY endpoint,stratum
+        """).fetchall() == [
+            ("bends_excluding_chokes_as_reported", 181, 218, "person_exposure"),
+            ("bends_excluding_chokes_as_reported", 53, 70, "person_exposure"),
+            ("chokes_causing_descent_as_reported", 5, 218, "person_exposure"),
+            ("chokes_causing_descent_as_reported", 9, 70, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT o.numerator,o.denominator,r.reported_percent,o.analysis_role
+            FROM publication_observation o JOIN publication_reported_rate r USING(source_id,stratum,endpoint)
+            WHERE o.source_id='ivy44_pressure_breathing_supp3' AND o.endpoint='flatulence_as_reported'
+              AND o.stratum='historical-all-control-diets-exercise'
+        """).fetchall() == [(188, 218, "83.9", "denominator_conflict")]
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate_percent
+            FROM review.review_search_observation WHERE report_id='report:oemcmr-241:sup3:1'
+              AND study_id='ivy-atkinson-oemcmr-241-experimental-chamber'
+              AND endpoint='chokes_causing_descent_as_reported' ORDER BY reported_group
+        """).fetchall() == [(5, 218, 2.3), (9, 70, 12.9)]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='report:oemcmr-241:sup3:1' AND relationship='likely_overlap'
+            ORDER BY right_report
+        """).fetchall() == [("report:oemcmr-241:1944-06-21",), ("report:oemcmr-241:4",)]
+
+
+def test_ivy_diet_tables_keep_control_scopes_and_printed_disagreements(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='ivy43_diet_progress4' AND endpoint='bends_as_reported' ORDER BY stratum
+        """).fetchall() == [
+            ("control-diet-no-exercise", 46, 59, "denominator_conflict"),
+            ("control-diet-with-exercise", 60, 67, "denominator_conflict"),
+            ("single-test-with-exercise", 30, 33, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT stratum,numerator,denominator FROM publication_observation
+            WHERE source_id='ivy44_diet_aeroembolism' AND endpoint='bends_as_reported' ORDER BY stratum
+        """).fetchall() == [
+            ("milk-and-bicarbonate-exercise", 22, 25),
+            ("milk-vitamin-mineral-exercise", 48, 57),
+            ("standard-diet-exercise-control", 54, 69),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,reported_rate_percent FROM review.review_search_observation
+            WHERE report_id='report:oemcmr-241:1944-06-21'
+              AND endpoint='bends_as_reported' AND reported_group='milk-vitamin-mineral-exercise'
+        """).fetchone() == (48, 57, 84.2)
+        assert db.execute("""
+            SELECT json_extract(o.value,'$.percent_text_as_printed')
+            FROM review.review_record r,json_each(r.metadata_json,'$.observations') o
+            WHERE r.report_id='report:oemcmr-241:1944-06-21'
+              AND json_extract(o.value,'$.id')='milk-vitamin-mineral-exercise-bends_as_reported'
+        """).fetchone() == ("84.2+",)
+
+
+def test_hitchcock_regulator_and_lockheed_gas_exchange_keep_eligible_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT r.stratum,r.reported_percent,r.denominator,s.participant_count
+            FROM publication_reported_rate r JOIN publication_chamber_trial_scope s USING(source_id,stratum)
+            WHERE r.source_id='hitchcock44_progress18' AND r.denominator_unit='person_exposure'
+            ORDER BY r.stratum
+        """).fetchall() == [
+            ("slow-auto-mix-off", "58.9", 185, 70),
+            ("slow-auto-mix-on", "70.8", 48, 26),
+        ]
+        assert db.execute("""
+            SELECT count(cases),count(*) FROM review.review_search_observation
+            WHERE report_id='report:oemcmr-74:18' AND study_id='hitchcock-ohio-state-experimental-chamber'
+        """).fetchone() == (0, 2)
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,altitude FROM publication_observation
+            WHERE source_id='lawrence42_lockheed_gas_exchange' ORDER BY stratum,endpoint
+        """).fetchall() == [
+            ("fast-tested", "bends_as_reported", 0, 4, None),
+            ("slow-tested", "severe_bends_as_reported", 4, None, None),
+            ("slow-tested", "test_inadequate_after_immediate_descent_as_reported", 1, 6, None),
+        ]
+        assert db.execute("""
+            SELECT trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='lawrence42_lockheed_gas_exchange' AND stratum='slow-tested'
+        """).fetchall() == [(None, 6)]
+
+
 def test_cincinnati_exploratory_participant_counts_keep_flight_unit_unresolved(release):
     with connect_pair(release) as db:
         expected = [
