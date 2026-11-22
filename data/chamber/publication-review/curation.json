@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-mayo-bateman-wright-field-verified#wright-field-blb",
+      "report_id": "report:mayo-1938-wright-field-blb-chamber",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX6-pgimg-29/full/1600,/0/default.jpg",
+      "basis": "Title, archive page and report date identify the primary source."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.197/sources.csv#mayo38_wright_blb",
+      "report_id": "report:mayo-1938-wright-field-blb-chamber",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX6-pgimg-29/full/1600,/0/default.jpg",
+      "basis": "The structured model rows came from the same primary source."
+    },
+    {
+      "record_key": "2026-11-22-mayo-bateman-wright-field-verified#cam-364",
+      "report_id": "report:cam-364",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX3-pgimg-118/full/1200,/0/default.jpg",
+      "basis": "Title, archive page and report date identify the primary source."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.197/sources.csv#bateman44_cam364",
+      "report_id": "report:cam-364",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX3-pgimg-118/full/1200,/0/default.jpg",
+      "basis": "The structured model rows came from the same primary source."
+    },
+    {
       "record_key": "2026-11-22-mayo-307th-indoctrination-verified#mayo-memo-a2",
       "report_id": "report:mayo-1942-series-a-2-307th",
       "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX4-pgimg-48/full/1600,/0/default.jpg",
@@ -18393,6 +18417,18 @@
   ],
   "studies": [
     {
+      "study_id": "mayo-bateman-repeated-chamber-desaturation",
+      "label": "Bateman repeated chamber tests after oxygen and nitrogen preparation",
+      "period": "Reported September 1944. Table dates omit years.",
+      "setting": "Mayo Aero Medical Unit"
+    },
+    {
+      "study_id": "wright-field-blb-chamber-1938-04-11",
+      "label": "Wright Field BLB mask chamber test",
+      "period": "1938-04-11",
+      "setting": "Wright Field Aero Medical Laboratory, Dayton, Ohio"
+    },
+    {
       "study_id": "mayo-307th-indoctrination-october-1942",
       "label": "Mayo 307th Bombardment Group chamber indoctrination",
       "period": "1942-10-05 to 1942-10-17",
@@ -20176,6 +20212,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "mayo-bateman-repeated-chamber-desaturation",
+      "report_id": "report:cam-364",
+      "role": "primary_repeated_chamber_experiments",
+      "locator": "CAM Report 364, Table 2, printed p. 12 (NLM v. 3 image 118). CAM Report 364, General Comments 3(b), printed p. 3 (NLM v. 3 image 109) and CAM Report 364, General Comments 3(b)–(c), printed p. 4 (NLM v. 3 image 110)."
+    },
+    {
+      "study_id": "wright-field-blb-chamber-1938-04-11",
+      "report_id": "report:mayo-1938-wright-field-blb-chamber",
+      "role": "primary_selected_mask_test",
+      "locator": "April 11, 1938 Wright Field notes, NLM v. 6 image 29. April 11, 1938 Wright Field log table, NLM v. 6 image 30."
+    },
+    {
+      "study_id": "early-1938-chamber-neurological-episode",
+      "report_id": "report:mayo-1938-wright-field-blb-chamber",
+      "role": "contemporary_recall_of_earlier_case",
+      "locator": "April 11, 1938 Wright Field notes, NLM v. 6 image 29"
+    },
     {
       "study_id": "mayo-307th-indoctrination-october-1942",
       "report_id": "report:mayo-1942-series-a-2-307th",
@@ -23160,6 +23214,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "ntrs:20010020946",
+      "right_report": "report:cam-364",
+      "relationship": "cited_earlier_source_subset",
+      "evidence": "NASA/TP-2001-210196 Appendix A ref. 10 and Appendix C printed p. 40 row 35. The linked subset reports 0 serious DCS cases in 2 male exposures. Exact mapping to original experiments is unresolved.",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20010020946"
+    },
+    {
+      "left_report": "report:mayo-1938-wright-field-blb-chamber",
+      "right_report": "joam:9-4-172",
+      "relationship": "same_published_case",
+      "evidence": "The archival note identifies the same chamber and named individual as the Fulton chapter, with collapse and brief paralysis a few days before April 11. The note estimates about 30,000 ft and considers aeroembolism possible to probable. The journal report gives 35,000 ft as the reported ascent target. Exact onset altitude and calendar date remain unresolved. Fulton's 1948 chapter explicitly identifies the case described in the 1938 article. The April 11 mask test took place after the case.",
+      "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-35720540RX6-pgimg-29/full/1600,/0/default.jpg"
+    },
     {
       "left_report": "report:mayo-1942-monthly-progress-6",
       "right_report": "report:mayo-1942-series-a-2-307th",

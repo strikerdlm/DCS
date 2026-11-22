@@ -8,6 +8,91 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_bateman_scores_keep_subjects_qualifiers_and_clinical_counts_separate(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT experiment_no FROM publication_chamber_composite_trial
+            WHERE source_id='bateman44_cam364' AND planned_chamber_altitude_ft=35000
+              AND planned_chamber_duration_min=90 ORDER BY print_order
+        """).fetchall() == [(i,) for i in (1, 7, 2, 5, 3, 4, 6, 10, 12, 14, 8, 9, 16, 11, 13, 15, 17)]
+        assert db.execute("""
+            SELECT count(*),count(score_points),count(DISTINCT subject_no)
+            FROM publication_chamber_composite_score WHERE source_id='bateman44_cam364'
+        """).fetchone() == (68, 51, 4)
+        assert db.execute("""
+            SELECT experiment_no,subject_no,score_as_printed,score_points
+            FROM publication_chamber_composite_score WHERE source_id='bateman44_cam364'
+              AND score_as_printed IN ('360++','143(+)','(44)') ORDER BY experiment_no
+        """).fetchall() == [(3, 3, "(44)", 44), (4, 2, "360++", 360), (11, 1, "143(+)", 143), (14, 4, "360++", 360)]
+        assert db.execute("""
+            SELECT oxygen_percent_as_printed,preparation_duration_min,preparation_altitude_as_printed
+            FROM publication_chamber_composite_trial WHERE source_id='bateman44_cam364'
+              AND experiment_no IN (1,8,13,17) ORDER BY experiment_no
+        """).fetchall() == [("(20.9)", None, "Ground"), ("40", 360, "15,000"), ("57", 360, "Ground"), ("59", 720, "Ground")]
+        expected = [
+            ("descent_for_incipient_chokes_as_reported", 11, None, "overlap_hold"),
+            ("recorded_symptom_occurrence_as_reported", 90, None, "overlap_hold"),
+            ("severe_chokes_case_as_reported", 3, None, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,analysis_role FROM publication_observation
+            WHERE source_id='bateman44_cam364' ORDER BY endpoint
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,role_review FROM review.review_search_observation
+            WHERE report_id='report:cam-364' ORDER BY endpoint
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT male_exposures,serious_cases,analysis_role FROM publication_nasa_serious_dcs_group
+            WHERE reference_number=10
+        """).fetchall() == [(2, 0, "overlap_hold")]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='ntrs:20010020946' AND right_report='report:cam-364'
+        """).fetchone() == ("cited_earlier_source_subset",)
+        assert db.execute("""
+            SELECT source_id FROM model_report_link WHERE report_id='report:cam-364'
+        """).fetchall() == [("bateman44_cam364",)]
+
+
+def test_wright_field_mask_test_preserves_flow_and_reuses_existing_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,altitude,prebreathe_min,analysis_role
+            FROM publication_observation WHERE source_id='mayo38_wright_blb'
+        """).fetchall() == [(0, 2, "person_exposure", 33000.0, None, "selected_cluster")]
+        assert db.execute("""
+            SELECT count(*),count(delivered_o2_l_min_stpd),count(alveolar_o2_a_mmhg),max(reported_altitude_ft)
+            FROM publication_chamber_oxygen_flow WHERE source_id='mayo38_wright_blb'
+        """).fetchone() == (13, 11, 3, 33000)
+        assert db.execute("""
+            SELECT clock_as_printed,reported_altitude_ft,delivered_o2_l_min_stpd,
+                   alveolar_co2_a_mmhg,alveolar_co2_b_mmhg,alveolar_o2_a_mmhg,alveolar_o2_b_mmhg
+            FROM publication_chamber_oxygen_flow WHERE source_id='mayo38_wright_blb'
+              AND alveolar_o2_a_mmhg IS NOT NULL ORDER BY sample_no
+        """).fetchall() == [
+            ("11.20", 20000, 0.9, 31, 31, 70, 71),
+            ("11.38", 21000, 1.4, 31, 29, 76, 74),
+            ("11.47", 27000, 1.5, 31, 29, 76, 74),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,study_id FROM review.review_search_observation
+            WHERE report_id='report:mayo-1938-wright-field-blb-chamber' ORDER BY cases
+        """).fetchall() == [
+            (0, 2, "wright-field-blb-chamber-1938-04-11"),
+            (1, None, "early-1938-chamber-neurological-episode"),
+        ]
+        assert db.execute("""
+            SELECT chamber_altitude_ft,elapsed FROM publication_case_milestone
+            WHERE source_id='boothby_lovelace38_chamber'
+              AND reporting_source_id='mayo38_wright_blb'
+        """).fetchall() == [(30000, None)]
+        assert db.execute("""
+            SELECT altitude FROM publication_observation WHERE source_id='boothby_lovelace38_chamber'
+              AND stratum='35000ft-neurologic-episode'
+        """).fetchall() == [(35000.0,)]
+
+
 def test_mayo_crew_training_reconciles_logs_without_replacing_source_totals(release):
     with connect_pair(release) as db:
         assert db.execute("""
@@ -3412,7 +3497,7 @@ def test_early_navy_chamber_evidence_keeps_case_and_denominator_boundaries(relea
         assert db.execute("""
             SELECT count(*),count(DISTINCT report_id),count(onset_min)
             FROM shared_case_evidence WHERE source_id='boothby_lovelace38_chamber'
-        """).fetchone() == (2, 2, 0)
+        """).fetchone() == (3, 3, 0)
         assert db.execute("""
             SELECT case_id,source_time_min,recurrence_free_followup_min
             FROM historical_case_catalog WHERE source_id='boothby_lovelace38_chamber'

@@ -261,6 +261,7 @@ USAF_DIGEST_AND_FLIGHT_DCS = ROOT / "data" / "chamber" / "v1.193"
 WARTIME_AAF_CHAMBER_TRAINING = ROOT / "data" / "chamber" / "v1.194"
 BERRY_DIAGNOSTIC_CHAMBER_CASE = ROOT / "data" / "chamber" / "v1.195"
 MAYO_CHAMBER_INDOCTRINATION = ROOT / "data" / "chamber" / "v1.196"
+MAYO_REPEAT_CHAMBER_PROFILES = ROOT / "data" / "chamber" / "v1.197"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2603,6 +2604,19 @@ def build(
                         "publication_chamber_crew_training": "crew_training.csv",
                         "publication_chamber_crew_run": "crew_runs.csv",
                         "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    MAYO_REPEAT_CHAMBER_PROFILES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_chamber_composite_trial": "composite_trials.csv",
+                        "publication_chamber_composite_score": "composite_scores.csv",
+                        "publication_chamber_oxygen_flow": "oxygen_flow.csv",
                     },
                 )
             if rojas_supplement:
