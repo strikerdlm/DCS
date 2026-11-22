@@ -241,6 +241,7 @@ HALIFAX_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.173"
 RCAF_CHAMBER_SYMPTOM_CURVE = ROOT / "data" / "chamber" / "v1.174"
 FAA_PROFILE_REACTION_RECONCILIATION = ROOT / "data" / "chamber" / "v1.175"
 ANDEAN_CHAMBER_SOURCE_SCOPE = ROOT / "data" / "chamber" / "v1.176"
+CANADIAN_CASE_AND_BERRY_SYMPTOMS = ROOT / "data" / "chamber" / "v1.177"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2388,6 +2389,16 @@ def build(
                     {
                         "publication_source": "sources.csv",
                         "publication_andean_chamber_measure": "measures.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CANADIAN_CASE_AND_BERRY_SYMPTOMS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_berry_trapped_gas_rate": "trapped_gas_rates.csv",
                     },
                 )
             if rojas_supplement:
