@@ -4874,6 +4874,53 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_canadian_case_and_berry_rates_preserve_case_identity_and_counting_units(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT symptom,rate_per_100000_person_flights,exposure_denominator
+            FROM publication_berry_trapped_gas_rate
+            WHERE severity_grade='total' ORDER BY symptom
+        """).fetchall() == [
+            ("abdominal_pain", 4259, 51580),
+            ("ear_pain", 9601, 51580),
+            ("sinus_pain", 2415, 51580),
+            ("toothache", 545, 51580),
+            ("total", 16820, 51580),
+        ]
+        assert db.execute("""
+            SELECT source_id,original_source_id,count(*),count(rate_per_100000_person_flights)
+            FROM publication_berry_trapped_gas_rate
+            GROUP BY source_id,original_source_id
+        """).fetchall() == [("billings73_barometric", "berry58_training", 25, 22)]
+        assert db.execute("""
+            SELECT analysis_role,numerator,denominator,denominator_unit,period
+            FROM publication_observation
+            WHERE source_id='sawatzky01_canadian_chamber_review'
+        """).fetchall() == [("overlap_hold", 1, None, None, "1998-01")]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap
+            WHERE source_id='sawatzky01_canadian_chamber_review'
+        """).fetchall() == [("allan03", "unresolved")]
+        assert db.execute("""
+            SELECT report_id,count(*)
+            FROM review.review_record
+            WHERE report_id='openalex:W210051476'
+            GROUP BY report_id
+        """).fetchall() == [("openalex:W210051476", 13)]
+        assert db.execute("""
+            SELECT r.report_id,r.cases,r.denominator,r.denominator_unit
+            FROM review.review_search_observation r
+            JOIN model_report_link l USING(report_id)
+            WHERE l.source_id='sawatzky01_canadian_chamber_review'
+              AND r.observation_id='canada-1998-serious-altitude-dcs'
+        """).fetchall() == [("openalex:W210051476", 1, None, None)]
+        assert db.execute("""
+            SELECT report_id,json_extract(metadata_json,'$.context.original_report_id')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-canadian-dcs-billings-rates-verified#billings-trapped-gas-table1-4'
+        """).fetchone() == ("ntrs:19730006365", "pmid:13569694")
+
+
 def test_andean_chamber_annex_keeps_flights_aircrew_and_labels_in_source_scope(release):
     with connect_pair(release) as db:
         source = "balletta18_fap_hypoxia_annex"

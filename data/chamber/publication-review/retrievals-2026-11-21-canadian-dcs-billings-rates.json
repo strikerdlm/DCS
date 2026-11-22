@@ -1,0 +1,166 @@
+[
+  {
+    "id": "2026-11-21-canadian-dcs-billings-rates-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read the indexed DTIC text and NASA tables. Checked author, cohort and denominator before intake. The NATO Dutch, German and RAF source rows were already indexed.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "archive_search_request_id": "ce5f6ca2-b50a-4645-b154-9bf912909775",
+      "canadian_case_search_request_id": "b01a9604-90f9-43a0-b7ba-9448021aa301",
+      "original_1999_report_search_request_id": "d553934f-e3e9-4943-b426-18df8eee7fce",
+      "dtic_chapter_extract_request_id": "65b608a4-c6d2-456c-8713-3c050f837206",
+      "canadian_case_comparator_extract_request_id": "9e6398f9-42fb-47b9-a9bc-6188f8ef718f",
+      "nasa_tables_extract_request_id": "8d3eaf87-ae34-4eb8-84fb-861346db21c0",
+      "nato_proceedings_extract_request_id": "88f23a29-a836-49eb-a7dc-54c8e888c1f3",
+      "brazil_thesis_search_request_ids": [
+        "695a77a1-e05d-4145-89e0-088b822de5e0",
+        "a24cd9ea-0041-4950-9c95-fa8a5a4363fd"
+      ],
+      "brazil_thesis_status": "Verified protocol during the prior search. No final dissertation obtained in this search.",
+      "urls": [
+        "https://archive.org/download/DTIC_ADP011071/DTIC_ADP011071.pdf#page=2",
+        "https://ntrs.nasa.gov/api/citations/19730006364/downloads/19730006364.pdf#page=25",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/",
+        "https://archive.org/download/DTIC_ADA365897/DTIC_ADA365897.pdf"
+      ]
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-canadian-dcs-billings-rates-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "note": "DTIC served a maintenance page. The Internet Archive mirror provided the original chapter and the NASA text reproduced Table 1-4.",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "chamber_archives_search_id": "01a20105-9da6-7586-b0fd-65234af78420",
+      "international_chamber_search_id": "01a20105-9dad-70cd-bdec-6e058e7e340e",
+      "brazil_thesis_search_id": "01a20105-9da4-7339-8545-9a084fae1e51",
+      "dtic_maintenance_scrape_id": "01a20107-888a-7379-b836-5afff5308263",
+      "archive_full_text_scrape_id": "01a20107-88a9-7569-8b2b-d21f9fcedfd0",
+      "nasa_trapped_gas_table_extract_id": "01a20106-afbb-74bc-9dee-83970b28a595"
+    },
+    "records": []
+  },
+  {
+    "id": "2026-11-21-canadian-dcs-billings-rates-verified",
+    "date": "2026-11-21",
+    "provider": "Public original source verification",
+    "operation": "publisher_pdf_and_case_identity",
+    "status": "observed",
+    "reported_total": null,
+    "note": "Read the archived PDF pages and cross-checked the cohort keys. No author or medical record access was attempted.",
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "records": [
+      {
+        "id": "sawatzky-ch14",
+        "title": "Designing Efficient and Effective, Operationally Relevant, High Altitude Training Profiles",
+        "author": "K. David Sawatzky",
+        "year": 2001,
+        "openalex": "W210051476",
+        "report_number": "ADP011071",
+        "url": "https://archive.org/download/DTIC_ADP011071/DTIC_ADP011071.pdf#page=2",
+        "primary_source": "https://archive.org/download/DTIC_ADP011071/DTIC_ADP011071.pdf#page=2",
+        "full_text_available": true,
+        "pdf_sha256": "f763b0675be21b47c635d267c5e7b2743ccd263d9e87e469ceb7bb1b87d419ee",
+        "locator": "Printed p. 14-1 (PDF p. 2), opening paragraph; pp. 14-2 to 14-3, existing 1999 profiles; pp. 14-6 to 14-9, proposed profiles and references",
+        "note": "Sawatzky describes one serious altitude DCS case in January 1998 as the trigger for a training review. The case setting, clinical presentation, treatment, exposure history and denominator are unspecified. The report does not establish that the 1998 event occurred in a chamber or that it is distinct from other Canadian publications.",
+        "context": {
+          "model_source_id": "sawatzky01_canadian_chamber_review",
+          "trigger_event_month": "1998-01",
+          "case_exposure_setting": null,
+          "case_identity": "unresolved",
+          "historical_profile_validation": "described practice, not the case history",
+          "original_report_title": "Hypobaric Chamber Study for the Canadian Armed Forces",
+          "original_report_date": "1999-07-07",
+          "original_report_full_text_available_in_this_search": false
+        },
+        "observations": [
+          {
+            "id": "canada-1998-serious-altitude-dcs",
+            "endpoint": "serious_altitude_dcs_as_reported",
+            "group": "Trigger case cited by the training review",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. 14-1 (PDF p. 2), opening paragraph",
+            "note": "Sawatzky describes one serious altitude DCS case in January 1998 as the trigger for a training review. The case setting, clinical presentation, treatment, exposure history and denominator are unspecified. The report does not establish that the 1998 event occurred in a chamber or that it is distinct from other Canadian publications."
+          }
+        ]
+      },
+      {
+        "id": "billings-trapped-gas-table1-4",
+        "title": "Barometric Pressure",
+        "author": "C. E. Billings",
+        "year": 1973,
+        "url": "https://ntrs.nasa.gov/api/citations/19730006364/downloads/19730006364.pdf#page=25",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19730006364/downloads/19730006364.pdf#page=25",
+        "report_number": "NASA SP-3006",
+        "full_text_available": true,
+        "pdf_sha256": "31e08f0ec6d50be3fde2329f0bc33b6ae458892ab7b47f5ff5bb25db81f3b448",
+        "locator": "NASA SP-3006, printed p. 15 (PDF p. 25), Table 1-4 and footnote",
+        "note": "Table 1-4 explicitly credits Berry 1958 and reports trapped-gas symptom rates per 100,000 man-flights for the same 51,580 training person-exposures as Table 1-5. The three dashes are preserved as null. Rates and printed margins provide no exact numerators or additional exposure denominator.",
+        "context": {
+          "model_source_id": "billings73_barometric",
+          "original_report_id": "pmid:13569694",
+          "scale": 100000,
+          "exposure_denominator": 51580,
+          "unit": "person-flights",
+          "severity_grade_order": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "total"
+          ],
+          "printed_rates": {
+            "ear_pain": [
+              6650,
+              2437,
+              514,
+              null,
+              9601
+            ],
+            "abdominal_pain": [
+              2738,
+              1187,
+              322,
+              12,
+              4259
+            ],
+            "sinus_pain": [
+              1516,
+              723,
+              176,
+              null,
+              2415
+            ],
+            "toothache": [
+              285,
+              142,
+              118,
+              null,
+              545
+            ],
+            "total": [
+              11189,
+              4489,
+              1130,
+              12,
+              16820
+            ]
+          }
+        }
+      }
+    ]
+  }
+]
