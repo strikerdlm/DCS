@@ -4874,6 +4874,43 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_randolph_fatality_preserves_uncertain_autopsy_link_without_duplicate_count(release):
+    with connect_pair(release) as db:
+        group = "randolph-student-medical-officer-1953"
+        assert db.execute("""
+            SELECT o.analysis_role,o.numerator,o.denominator,o.altitude,r.cases,r.denominator
+            FROM publication_observation o JOIN model_report_link l USING(source_id)
+            JOIN review.review_search_observation r
+              ON (r.report_id,r.endpoint,r.reported_group)=(l.report_id,o.endpoint,o.stratum)
+            WHERE o.stratum=? AND o.endpoint='fatal_altitude_chamber_event_cause_unconfirmed'
+        """, (group,)).fetchall() == [("descriptive", 1, None, None, 1, None)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE reported_group=?
+        """, (group,)).fetchone() == (1,)
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog
+            WHERE source_id IN ('pick_english17_randolph_history','roth68_explosive')
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT left_report,relationship FROM review.review_report_relation
+            WHERE right_report='report:pick-english-2017-randolph'
+            ORDER BY left_report
+        """).fetchall() == [
+            ("news:abilene-1953-07-04-randolph-ap", "same_published_case"),
+            ("news:albany-1953-07-04-randolph-up", "same_published_case"),
+            ("openalex:W1556443047", "likely_same_case"),
+        ]
+        assert db.execute("""
+            SELECT l.report_id,r.report_id,
+                   json_extract(r.metadata_json,'$.context.bilateral_pneumothorax'),
+                   json_extract(r.metadata_json,'$.context.dcs_diagnosis'),
+                   json_extract(r.metadata_json,'$.context.counted_as_additional_fatality')
+            FROM model_report_link l JOIN review.review_record r USING(report_id)
+            WHERE l.source_id='roth68_explosive'
+              AND r.record_key='2026-11-21-randolph-chamber-fatality-verified#roth-autopsy-summary'
+        """).fetchall() == [("openalex:W1556443047", "openalex:W1556443047", 1, None, 0)]
+
+
 def test_hypobaric_osteonecrosis_and_postflight_screening_keep_source_grain(release):
     with connect_pair(release) as db:
         assert db.execute("""
