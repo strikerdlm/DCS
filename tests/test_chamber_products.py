@@ -9,6 +9,83 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_kumar_jsc_fulltext_revises_window_without_duplicating_margins(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator,denominator,outcome_window FROM publication_observation
+            WHERE source_id='kumar93' AND stratum='all' AND endpoint='dcs_symptoms'
+        """).fetchone() == (
+            74, 426, "From final test pressure through the documented outcome ascertainment. The clinical total includes two Type I cases whose symptoms began approximately 3 h and 15 h after the test. Standard post-test follow-up duration is unavailable."
+        )
+        assert db.execute("""
+            SELECT numerator,previous_denominator,denominator,evidence_source_id
+            FROM publication_observation_revision WHERE source_id='kumar93'
+        """).fetchone() == (74, 426, 426, "kumar93_fulltext_jsc")
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit FROM publication_observation
+            WHERE source_id='kumar93_fulltext_jsc' AND endpoint IN ('ever_dcs','post_test_type_i_onset_as_reported')
+            ORDER BY stratum
+        """).fetchall() == [
+            ("all-participants", "ever_dcs", 56, 164, "person"),
+            ("female-participants", "ever_dcs", 6, 37, "person"),
+            ("male-participants", "ever_dcs", 50, 127, "person"),
+            ("symptomatic-exposures", "post_test_type_i_onset_as_reported", 2, 74, "dcs_case"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='kumar93_fulltext_jsc'
+              AND endpoint IN ('dcs_symptoms','any_vge','dcs_symptoms_causing_abort')
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE report_id='pmid:8280036'
+              AND study_id='nasa-jsc-kumar93-simulated-eva-426' AND role_review='overlap_hold'
+        """).fetchone() == (28,)
+
+
+def test_kumar_jsc_survival_uses_printed_profiles_and_keeps_unknown_se(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*),sum(exposures) FROM publication_jsc_survival_profile WHERE profile != 'all'
+        """).fetchone() == (22, 426)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT endpoint) FROM publication_jsc_survival_summary
+        """).fetchone() == (69, 3)
+        assert db.execute("""
+            SELECT profile,endpoint,maximum_exposure_min_as_printed,incidence_free_mean_min,
+                   incidence_free_se_min,survival_percent_at_180_min,survival_se_at_180_min_as_printed
+            FROM publication_jsc_survival_summary JOIN publication_jsc_survival_profile USING(source_id,profile)
+            WHERE (profile,endpoint) IN (('10','symptom_related_forced_descent'),('3','dcs'),('all','cmb'))
+            ORDER BY profile,endpoint
+        """).fetchall() == [
+            ("10", "symptom_related_forced_descent", 180, 360.0, None, 100.0, None),
+            ("3", "dcs", 180, 156.2, 13.2, 66.0, 0.14),
+            ("all", "cmb", None, 241.7, 6.9, 61.0, 2.0),
+        ]
+
+
+def test_kumar_jsc_dcs_and_cmb_have_distinct_native_counts_and_effects(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT maximum_spencer_grade,with_dcs,without_dcs FROM publication_jsc_cmb_grade_outcome
+            ORDER BY maximum_spencer_grade
+        """).fetchall() == [(0, 5, 242), (1, 3, 5), (2, 2, 26), (3, 10, 34), (4, 54, 45)]
+        assert db.execute("""
+            SELECT estimate,ci95_lower,ci95_upper FROM publication_jsc_exposure_association
+            WHERE estimate_id IN ('cmb-adjusted-cox-table-iii','cmb-adjusted-cox-results')
+            ORDER BY estimate_id
+        """).fetchall() == [(3.2, 1.54, 6.66), (3.2, 1.56, 6.66)]
+        assert db.execute("""
+            SELECT outcome,reference_absent+contrast_absent,reference_present+contrast_present
+            FROM publication_jsc_participant_factor WHERE factor='bmi' ORDER BY outcome
+        """).fetchall() == [("ever_cmb", 67, 96), ("ever_dcs", 107, 56)]
+        assert db.execute("""
+            SELECT reference_present,reference_present_pct_printed,contrast_present,contrast_present_pct_printed
+            FROM publication_jsc_participant_factor WHERE outcome='ever_cmb' AND factor='mean_tr480'
+        """).fetchone() == (61, 69, 36, 31)
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_soar_repeated_exposure_keeps_person_and_exposure_counts(release):
     with connect_pair(release) as db:
         assert db.execute("""
