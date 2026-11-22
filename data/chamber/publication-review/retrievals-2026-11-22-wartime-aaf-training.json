@@ -1,0 +1,182 @@
+[
+  {
+    "id": "2026-11-22-wartime-aaf-training-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_wartime_chamber_and_records_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "query": "United States Army NTIS altitude hypobaric chamber training accidents 1939 1940 1941 1942 physiologic training bends Wright Field USAF 100000 altitude chamber report",
+          "request_id": "1d3050d9-7ae3-42d4-adda-445fe327f312"
+        },
+        {
+          "query": "\"altitude training units\" \"bends\" \"1944\" chamber Army Air Forces case report",
+          "request_id": "3e740b9e-925a-4225-9471-be08e0072be8"
+        },
+        {
+          "query": "\"Altitude Training Program\" \"bends\" \"1943\" low pressure chamber Army Air Force statistics",
+          "request_id": "fa238669-1489-4089-b410-734d779a4816"
+        },
+        {
+          "query": "\"841,066\" \"622,894\" chamber altitude decompression cases",
+          "request_id": "631bf42a-a8c0-4217-8b2b-cd3c3bb543a4"
+        },
+        {
+          "query": "site:archives.gov \"N1-AFU-90-3\" \"Chamber Flight Record\" Air Force 701",
+          "request_id": "424232e2-f45c-41f4-aad9-39f5dbad53e3"
+        },
+        {
+          "query": "site:govinfo.gov \"F044 AF SG M\" \"Chamber Reactor\" Air Force 700 701 361",
+          "request_id": "46a6c4f6-aebf-45b2-a61c-0a4b5488141d"
+        }
+      ],
+      "extract_request_ids": [
+        "2dacf5cb-c27b-4c20-a4fb-94f5bde04665",
+        "a4c0a1aa-9d71-48da-ae34-9524a2cf9c36",
+        "7cd01109-ed58-4dae-89d8-4c524ae6475c"
+      ]
+    },
+    "note": "Targeted discovery and extraction of public wartime reports and historical Air Force records schedules. The exact-count query yielded no matching DCS numerator for the cumulative training-command exposures. Verified reports are recorded below.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-wartime-aaf-training-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_public_pdf_retrieval",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://www.airandspaceforces.com/app/uploads/2025/11/0144_January1944_LR.pdf",
+          "id": "01a201e3-47b7-700a-a621-46b4ff0443f6"
+        },
+        {
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/3/article-p190.pdf",
+          "id": "01a201e3-4793-7407-92a6-75a0182dbeba"
+        },
+        {
+          "url": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf",
+          "id": "01a201d3-a056-7796-a5a7-8634d36dc81b"
+        }
+      ]
+    },
+    "note": "The service journal yielded text for the selected Santa Ana run. Firecrawl returned only the watermark text for the Wigodsky scan, so the original publisher PDF was checked directly. The ERAU scan was compared by digest with the previously archived FAA PDF.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-wartime-aaf-training-verified",
+    "date": "2026-11-22",
+    "provider": "U.S. Government Publishing Office, National Archives and journal archives",
+    "operation": "supplementary_original_counts_and_historical_records_verification",
+    "status": "observed",
+    "reported_total": 6,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "The three wartime items contribute original reports of training activity or a selected mixed-symptom run. The two government notices document historical records custody. The FAA mirror has the same digest as the existing attachment. No verified new clinical numerator or independently eligible cohort was found.",
+    "records": [
+      {
+        "id": "link-coleman-training-command",
+        "title": "Medical Support of the Army Air Forces in World War II",
+        "authors": ["Mae Mills Link", "Hubert A. Coleman"],
+        "year": 1955,
+        "url": "https://www.govinfo.gov/content/pkg/GOVPUB-D304-PURL-gpo128900/pdf/GOVPUB-D304-PURL-gpo128900.pdf#page=236",
+        "primary_source": "https://www.govinfo.gov/content/pkg/GOVPUB-D304-PURL-gpo128900/pdf/GOVPUB-D304-PURL-gpo128900.pdf#page=236",
+        "full_text_available": true,
+        "source_sha256": "f085d8ec1e621ecbbac660c488c3b3268d76d901ffa86faaaabcb1df1654c75a",
+        "study_id": "aaf-wartime-altitude-training-activity",
+        "locator": "Implementing the Altitude Training Program in the AAF, pp. 210–214. Counts on p. 212 (PDF p. 236).",
+        "reported_counts": {
+          "through_date": "1944-11-01",
+          "chamber_runs_approximate": 42000,
+          "distinct_people": 622894,
+          "person_exposures": 841066,
+          "dcs_cases": null
+        },
+        "note": "Counts describe one cumulative AAF Training Command program roster. No compatible DCS case count, case ascertainment window, site strata or terminations are supplied with the totals."
+      },
+      {
+        "id": "wigodsky-1944-program",
+        "title": "The AAF Altitude Training Program",
+        "authors": ["Herman S. Wigodsky"],
+        "year": 1944,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/3/article-p190.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/15/3/article-p190.pdf",
+        "full_text_available": true,
+        "source_sha256": "3314bca50e641f8ec87c1aa8b0356a345d10d7c83acc07f203fb4a1cc26b8ff7",
+        "study_id": "aaf-wartime-altitude-training-activity",
+        "locator": "Printed p. 191 (PDF p. 2).",
+        "reported_counts": {
+          "people_trained_exclusive_lower_bound": 200000,
+          "through_date": null,
+          "dcs_cases": null
+        },
+        "note": "Contemporaneous broader program description mentioning continental and theater units. Possible overlap with the later official history prohibits adding the counts."
+      },
+      {
+        "id": "air-force-january-1944-santa-ana",
+        "title": "Perhaps a Mask Was Used",
+        "year": 1944,
+        "journal": "Air Force",
+        "volume": "27",
+        "issue": "1",
+        "url": "https://www.airandspaceforces.com/app/uploads/2025/11/0144_January1944_LR.pdf#page=7",
+        "primary_source": "https://www.airandspaceforces.com/app/uploads/2025/11/0144_January1944_LR.pdf#page=7",
+        "full_text_available": true,
+        "source_sha256": "137d66991e5524f57a7786ff8544884d8afba36760e1c908c605c62867a96cf1",
+        "study_id": "aaf-santa-ana-selected-qualification-run",
+        "locator": "Cross Country, PDF p. 7.",
+        "reported_counts": {
+          "attendees": 15,
+          "symptom_prompted_chamber_descents": 3,
+          "dcs_cases": null
+        },
+        "exposure_altitude_ft": 38000,
+        "note": "Selected contemporaneous participant account. The descents followed bends or anoxia. The number of affected people, their diagnoses, event date and membership in the cumulative Training Command tally are unreported."
+      },
+      {
+        "id": "nara-historical-af-forms",
+        "title": "Health and Medicine Records: Physiological Training/Therapy Records, Table 48-2",
+        "year": 1996,
+        "url": "https://www.archives.gov/files/records-mgmt/rcs/schedules/departments/department-of-defense/department-of-the-air-force/rg-afu/n1-afu-02-016_sf115.pdf#page=68",
+        "full_text_available": true,
+        "source_sha256": "56c0578a17baa7726e7e796b97d4e2d40b1235d043c59753bea9b1470f25c4a4",
+        "locator": "AFMAN 37-139, 1 March 1996, p. 568 (PDF p. 68), Table 48-2, Rules 1–4.",
+        "record_forms": {
+          "AF Form 701": "Chamber Flight Record. Originals historically at USAFSAM and copies at base training facilities.",
+          "AF Form 700": "Physiological Training Monthly Report. Originals historically at HQ USAF and USAFSAM.",
+          "AF Form 361": "Chamber Reactor/Treatment Report. Originals historically at HQ USAF and USAFSAM."
+        },
+        "note": "The table is marked through in the later archival packet. It documents historical form names and custody. Current retention, survival and public access to the underlying records are unverified."
+      },
+      {
+        "id": "federal-register-af-form-361",
+        "title": "Privacy Act of 1974; System of Records, F044 AF SG M",
+        "year": 2003,
+        "url": "https://www.govinfo.gov/content/pkg/FR-2003-08-29/pdf/03-22113.pdf#page=10",
+        "full_text_available": true,
+        "source_sha256": "4900cd0d0b9f8b90f37d85f621a95b561aa385277d7d0e79e94be94eaeb0feec",
+        "locator": "68 FR 52007–52008 (PDF pp. 10–11), F044 AF SG M.",
+        "note": "The 2003 amendment describes an indefinite retention policy for the original AF Form 361 at USAFSAM/FEH at the then Brooks City-Base and three years at individual aerospace physiology training units. The notice is public. Current records holdings and any releasable de-identified extract remain unverified."
+      },
+      {
+        "id": "valdez-faa-erau-byte-identical",
+        "title": "Ten-Year Survey of Altitude Chamber Reactions Using the FAA Training Chamber Flight Profiles",
+        "authors": ["Charles D. Valdez"],
+        "year": 1977,
+        "url": "https://libraryonline.erau.edu/online-full-text/faa-aviation-medicine-reports/AM77-04.pdf",
+        "full_text_available": false,
+        "source_sha256": "6cd4ea3045597a9af64a18eb25b173de23fe0528668da991ab64101fdf7d3504",
+        "locator": "FAA-AM-77-4, title and abstract, PDF pp. 1 and 7. The scan omits printed pp. 4–5.",
+        "note": "ERAU hosts the same twelve-page scan as the previously archived FAA attachment. The SHA-256 values match. The existing report and outcome records remain canonical."
+      }
+    ]
+  }
+]
