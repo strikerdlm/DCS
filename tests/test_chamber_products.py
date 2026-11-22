@@ -6368,6 +6368,48 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_nasa_ea1_checkout_preserves_vge_participant_scope_and_grade_disagreement(release):
+    source = "garbino23_ea1_checkout"
+    report = "ntrs:20220015737"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id=?
+        """, (source,)).fetchall() == [("any_vge_as_reported", 3, 6, "person", "overlapping_margin")]
+        assert db.execute("""
+            SELECT modality,reported_peak_grade,reported_scale,plotted_grade,plotted_scale
+            FROM publication_vge_grade_comparison WHERE source_id=? ORDER BY modality
+        """, (source,)).fetchall() == [
+            ("cardiac_ultrasonography", 5, "Eftedal–Brubakk", 6, "Eftedal–Brubakk"),
+            ("doppler", 2, None, 3, "Spencer"),
+        ]
+        assert db.execute("""
+            SELECT sum(numerator),sum(denominator) FROM discovery_observation
+            WHERE source_id='garbino_ea12' AND stratum LIKE 'ea1-eva-%-campaign-analysis'
+        """).fetchone() == (2, 25)
+        assert db.execute("""
+            SELECT numerator,denominator FROM discovery_observation
+            WHERE source_id='garbino_ea12' AND stratum='volunteer-evas' AND endpoint='dcs_type_i'
+        """).fetchone() == (2, 50)
+        assert db.execute("SELECT report_id FROM model_report_link WHERE source_id=?", (source,)).fetchone() == (report,)
+        assert db.execute("""
+            SELECT record_key FROM review.review_record WHERE report_id=? ORDER BY record_key
+        """, (report,)).fetchall() == [
+            ("2026-11-21-nasa-ea1-checkout-verified#author-abstract-ea1",),
+            ("legacy:data/chamber/v1.181/sources.csv#garbino23_ea1_checkout",),
+            ("legacy:data/chamber/v1.37/search_hits.csv#detail_v37_eva:5",),
+        ]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id=?
+        """, (report,)).fetchall() == [("any_vge_as_reported", 3, 6, "person")]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.clinical_count_already_represented.reported_percent'),
+                   json_type(metadata_json,'$.clinical_count_already_represented.reported_denominator')
+            FROM review.review_record WHERE record_key='2026-11-21-nasa-ea1-checkout-verified#author-abstract-ea1'
+        """).fetchone() == (8, "null")
+
+
 def test_nasa_exploration_timings_extend_existing_eva_outcomes(release):
     with connect_pair(release) as db:
         rows = db.execute("""

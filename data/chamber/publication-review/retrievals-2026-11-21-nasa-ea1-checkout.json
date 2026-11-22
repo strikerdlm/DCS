@@ -1,0 +1,126 @@
+[
+  {
+    "id": "2026-11-21-nasa-ea1-checkout-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "targeted_extract_request_id": "6b06a8fc-5731-4166-93be-a726bd93700b",
+      "additional_search_request_ids": [
+        "c6a7e5cc-47d5-460a-9806-a18bdf7d004b",
+        "eb19c6e5-15c6-40fb-a2c5-c274ee900236",
+        "b458530e-85b5-4e5e-88ab-3e8aa168a94b",
+        "dc0e1af3-ecfd-4603-b459-fd39eac680c6"
+      ],
+      "asma_abstract_extraction_request_id": "04f58cfc-a46e-48d4-8f27-3278b4c24bf7",
+      "urls": [
+        "https://ntrs.nasa.gov/citations/20220015737",
+        "https://ntrs.nasa.gov/citations/20240005151"
+      ],
+      "query": "Exact abstract results and methods, peak ultrasound and Doppler VGE, timeline dates and clinical DCS denominators. Identify links to original source files."
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The NASA catalog supplies the checkout abstract and later campaign record. The current chamber outcomes search returned previously curated cohorts.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-ea1-checkout-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_retrieval",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://ntrs.nasa.gov/citations/20220015737",
+      "scrape_id": "01a20148-02e4-76ff-a069-7a4dfca09bf1",
+      "additional_search_id": "01a20149-918e-755e-8d92-3ebaf056139b"
+    },
+    "reported_total": null,
+    "status": "observed",
+    "note": "The public NTRS page returned the author abstract, clinical results, date acquired and original document link.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-ea1-checkout-verified",
+    "date": "2026-11-21",
+    "provider": "Official NASA source files",
+    "operation": "supplementary_source_and_outcome_reconciliation",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "download": "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx",
+      "campaign": "https://ntrs.nasa.gov/api/citations/20240005151/downloads/2024_05_06_Garbino_EA_final.pdf"
+    },
+    "reported_total": 1,
+    "status": "observed",
+    "note": "Verified the author-submitted abstract against slides 21, 23–25, 29–30, 53, 57 and 64 of the subsequent campaign. No independent clinical cases or exposures were added.",
+    "records": [
+      {
+        "id": "author-abstract-ea1",
+        "title": "Evaluation of planetary extravehicular activity prebreathe protocols using a 56.5 kPa, 34% O2, 66% N2 saturation cabin atmosphere in an 11-day hypobaric hypoxia study",
+        "year": 2023,
+        "url": "https://ntrs.nasa.gov/citations/20220015737",
+        "access": "primary_abstract",
+        "role_review": "overlapping_margin",
+        "identifier": "NTRS:20220015737",
+        "source_document": "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx",
+        "source_document_sha256": "2ad958e6789cfbf92b2462abae141ea4100b04dc4ef4699131b251750da29566",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx",
+        "locator": "Author abstract, Methods and Results and Discussion",
+        "note": "The acquisition date, 11-day test, 48-hour acclimation, five 6-hour EVAs, 20-minute prebreathe and two DCS cases identify the June 2022 EA1 portion of the campaign. The six study volunteers form the participant-level VGE denominator. The two clinical cases are already represented in the later campaign. The abstract prints 8% without its exposure denominator.",
+        "campaign_scope": {
+          "ntrs_acquired": "2022-10-19",
+          "test_month": "2022-06",
+          "days": 11,
+          "planned_evas": 5,
+          "participants": 6,
+          "abstract_methods_eva_pressure_kpa": 34,
+          "linked_campaign_nominal_eva_pressure_psia": 4.3,
+          "pressure_plot_locator": "EA1 deck slides 53 and 57"
+        },
+        "clinical_count_already_represented": {
+          "reported_cases": 2,
+          "reported_percent": 8,
+          "reported_denominator": null,
+          "reference_source_id": "garbino_ea12",
+          "reference_report_id": "record:legacy:data/chamber/v1.6/sources.csv#garbino_ea12",
+          "later_evaluable_ea1_exposures": 25,
+          "later_combined_ea1_ea2_exposures": 50,
+          "note": "The later day-level chart preserves the clinical denominators. The abstract count is repeated evidence. The deck, slide 64, reports symptom reporting 36 hours after the last EVA in the second EA1 volunteer case. That timing is a report interval and does not resolve onset."
+        },
+        "grade_comparisons": [
+          {
+            "modality": "doppler",
+            "reported_peak_grade": 2,
+            "reported_scale": null,
+            "later_ea1_plotted_grade": 3,
+            "later_plotted_scale": "Spencer",
+            "later_plot_locator": "Slide 23, EA1 panels",
+            "note": "The abstract gives Doppler Grade II without naming the scale. EA1 traces in the later deck reach Spencer Grade III. Reading and participant inclusion across both summaries are unavailable."
+          },
+          {
+            "modality": "cardiac_ultrasonography",
+            "reported_peak_grade": 5,
+            "reported_scale": "Eftedal–Brubakk",
+            "later_ea1_plotted_grade": 6,
+            "later_plotted_scale": "Eftedal–Brubakk",
+            "later_plot_locator": "Slide 24, EA1 panels",
+            "note": "The abstract reports Eftedal–Brubakk score 5. The later EA1 ultrasound traces display score 6. The separate grade 7 report in the combined campaign is a different scope."
+          }
+        ],
+        "observations": [
+          {
+            "id": "ea1-volunteer-vge-participants",
+            "group": "EA1 study volunteers",
+            "endpoint": "any_vge_as_reported",
+            "cases": 3,
+            "denominator": 6,
+            "denominator_unit": "person",
+            "locator": "Author abstract, Methods and Results and Discussion",
+            "note": "The authors report VGE in three of the six volunteers across repeated EVAs. No person-EVA count or modality-specific numerator is supplied. The report does not identify the positive participants, link VGE to clinical DCS or specify delayed follow-up."
+          }
+        ]
+      }
+    ]
+  }
+]

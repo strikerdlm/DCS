@@ -245,6 +245,7 @@ CANADIAN_CASE_AND_BERRY_SYMPTOMS = ROOT / "data" / "chamber" / "v1.177"
 BUTLER_CASE_MARGIN_RECONCILIATION = ROOT / "data" / "chamber" / "v1.178"
 PETERSON_AND_NASA_CAMPOUT = ROOT / "data" / "chamber" / "v1.179"
 NASA_EXPLORATION_PREBREATHE_TIMING = ROOT / "data" / "chamber" / "v1.180"
+NASA_EA1_CHECKOUT = ROOT / "data" / "chamber" / "v1.181"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -2429,6 +2430,16 @@ def build(
                     {
                         "publication_source": "sources.csv",
                         "discovery_eva_prebreathe_timing": "prebreathe_timings.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    NASA_EA1_CHECKOUT,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_vge_grade_comparison": "grade_comparisons.csv",
                     },
                 )
             if rojas_supplement:
