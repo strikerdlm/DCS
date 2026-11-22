@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.217/sources.csv#kumar92_fulltext_cmb_timing",
+      "report_id": "pmid:1445159",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+      "basis": "The publisher PDF, PubMed and NASA journal catalogue agree on title, authors, issue and publication date."
+    },
+    {
+      "record_key": "2026-11-22-kumar92-cmb-timing-tavily#kumar92_fulltext_cmb_timing",
+      "report_id": "pmid:1445159",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+      "basis": "The publisher PDF, PubMed and NASA journal catalogue agree on title, authors, issue and publication date."
+    },
+    {
+      "record_key": "2026-11-22-kumar92-cmb-timing-firecrawl#kumar92_fulltext_cmb_timing",
+      "report_id": "pmid:1445159",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf",
+      "basis": "The publisher PDF, PubMed and NASA journal catalogue agree on title, authors, issue and publication date."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.216/sources.csv#kumar93_fulltext_jsc",
       "report_id": "pmid:8280036",
       "basis": "The original publisher PDF and PubMed agree on the title, authors, journal, year and pages.",
@@ -24151,8 +24169,8 @@
     {
       "study_id": "nasa-jsc-cmb-time-125",
       "report_id": "pmid:1445159",
-      "role": "companion_analysis",
-      "locator": "Author abstract"
+      "role": "companion_analysis_full_text",
+      "locator": "Methods, Results and Tables I–III, printed pp. 962–963 (PDF pp. 2–3)"
     },
     {
       "study_id": "nasa-flying-after-diving-test-10",
@@ -24390,6 +24408,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:1445159",
+      "right_report": "pmid:8280036",
+      "relationship": "likely_overlap",
+      "evidence": "Journal Discussion p. 963 describes 426 historical exposures at the same JSC laboratory and reports DCS, CMB and predictive-value percentages consistent with the 1993 epidemiology paper. The membership of the 125-person cohort within those 426 exposures remains unverified.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf"
+    },
     {
       "left_report": "pmid:8280036",
       "right_report": "record:legacy:data/chamber/v1.17/search_hits.csv#denit_v17_primary_extract:1",
@@ -29377,9 +29402,9 @@
     {
       "left_report": "ntrs:19940023490:microbubble-time",
       "right_report": "pmid:1445159",
-      "relationship": "likely_shared_participants",
-      "evidence": "Same five authors, 125 direct-ascent participants, 49-person CMB subgroup, same timing threshold, and nearly identical adjusted estimates. Unique participant linkage is unavailable.",
-      "evidence_url": "https://ntrs.nasa.gov/api/citations/19940023490/downloads/19940023490.pdf#page=124"
+      "relationship": "same_cohort",
+      "evidence": "The same five authors, methods, 125-person and 49-person analysis sets, all Table I clinical margins, and the four outcome cells in journal Table III and annual-report Table 2 identify the same cohort and timing analysis. The annual report has the two symptom-status header counts transposed.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/11/article-p961.pdf"
     },
     {
       "left_report": "ntrs:19940023490:microbubble-time",
