@@ -4874,6 +4874,65 @@ def test_regional_chamber_scopes_preserve_unknown_outcomes_and_source_identity(r
         """).fetchone() == ("citation:korea-eom-1974-dysbarism", 1969, 1974)
 
 
+def test_andean_chamber_annex_keeps_flights_aircrew_and_labels_in_source_scope(release):
+    with connect_pair(release) as db:
+        source = "balletta18_fap_hypoxia_annex"
+        assert db.execute("""
+            SELECT measure,unit,count_value,percent_as_printed
+            FROM publication_andean_chamber_measure
+            WHERE source_id=? AND scope='Lima, 2005-2015' ORDER BY measure
+        """, (source,)).fetchall() == [
+            ("aircrew_as_reported", "aircrew_person", 686, None),
+            ("barotrauma_category", "percent_as_printed", None, 0.73),
+            ("flights_as_reported", "chamber_flight", 280, None),
+            ("no_flight_category", "percent_as_printed", None, 2.19),
+        ]
+        assert db.execute("""
+            SELECT measure,count(*),sum(count_value)
+            FROM publication_andean_chamber_measure
+            WHERE source_id=? AND unit='matrix_row' GROUP BY measure ORDER BY measure
+        """, (source,)).fetchall() == [
+            ("literal_barotitis_rows_verified", 3, 3),
+            ("literal_barotrauma_rows_verified", 3, 4),
+            ("literal_no_flight_rows_verified", 1, 1),
+            ("visible_data_rows", 22, 679),
+        ]
+        assert db.execute("""
+            SELECT unit,count_value FROM publication_andean_chamber_measure
+            WHERE source_id IN ('fac15_18_handover_training', 'fac19_peru_visit')
+            ORDER BY unit,count_value
+        """).fetchall() == [
+            ("announced_delegation_person", 15),
+            ("combined_course_person", 21),
+            ("combined_course_person", 29),
+            ("flight_ordinal", 100),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation
+            WHERE source_id IN (?, 'fac15_18_handover_training', 'fac19_peru_visit')
+        """, (source,)).fetchone() == (0,)
+        thesis_key = "2026-11-21-andean-chamber-annex-scope-verified#balletta-fap-thesis"
+        assert db.execute("""
+            SELECT r.report_id,json_extract(r.metadata_json,'$.context.difference_from_reported_people')
+            FROM review.review_record r JOIN model_report_link l USING(report_id)
+            WHERE r.record_key=? AND l.source_id=?
+        """, (thesis_key, source)).fetchone() == (
+            "record:2026-11-20-roles-tavily-aguirre#https://alicia.concytec.gob.pe/"
+            "vufind/Record/UPSJ_e6b546e752a327dc617847020ff52074",
+            7,
+        )
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE left_report='report:fac-2015-2018-acta-informe-gestion'
+              AND relationship='scope_overlap_unresolved'
+              AND right_report LIKE '%pilotos-chilenos-entrenan-camara-hipobarica-fac'
+        """).fetchone() == (1,)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE record_key LIKE '2026-11-21-andean-chamber-annex-scope-verified#%'
+        """).fetchone() == (0,)
+
+
 def test_faa_profile_reactions_keep_students_flights_and_mixed_role_counts_distinct(release):
     with connect_pair(release) as db:
         assert db.execute("""
