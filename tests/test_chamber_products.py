@@ -45,6 +45,7 @@ def test_hypoxic_reactions_and_asma_locators_preserve_explicit_source_identity(r
             ("asma:1992:386:olson-echo", 9, 6, 386),
             ("asma:1992:386:scoggins-model", 8, 5, 386),
             ("asma:1992:386:webb-oxygen-suit", 6, 9, 386),
+            ("asma:1992:411:158", 158, 155, 411),
         ]
         assert [(report_id, number) for report_id, _, number, _ in revised] == db.execute("""
             SELECT report_id,json_extract(metadata_json,'$.source_locator_revision.verified_abstract_number')
