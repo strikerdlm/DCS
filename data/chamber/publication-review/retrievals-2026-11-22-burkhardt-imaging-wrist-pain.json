@@ -1,0 +1,418 @@
+[
+  {
+    "id": "2026-11-22-burkhardt-imaging-wrist-pain-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_radiographic_source_and_duplicate_search",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "queries": [
+        {
+          "query": "Burkhardt 20273606 Northwestern altitude chamber film counts",
+          "request_id": "6c7d4801-f8cf-4e32-9f07-4c697c0345e7"
+        },
+        {
+          "query": "CAM 305 Webb Ferris radiographic studies of the knee and bends",
+          "request_id": "8152fb2e-5236-4fdf-9549-f0cc72321872"
+        }
+      ],
+      "extracts": [
+        {
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p462.pdf",
+          "request_id": "0edf73c4-5649-4367-897e-0f9335e2a8ae"
+        },
+        {
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p462.pdf",
+          "request_id": "7ba32ed1-a4da-4f42-af54-cbba00d63ec5"
+        },
+        {
+          "url": "https://pubs.rsna.org/doi/10.1148/44.3.259",
+          "request_id": "03947e2d-bd26-4dc6-b471-d36dac6a5e3e",
+          "disposition": "Publisher preview only."
+        }
+      ]
+    },
+    "note": "Searches confirmed the two article identities and distinguished the Northwestern and Berkeley sites.",
+    "records": []
+  },
+  {
+    "id": "2026-11-22-burkhardt-imaging-wrist-pain-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl",
+    "operation": "supplementary_imaging_source_access",
+    "status": "observed",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "scrapes": [
+        {
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p462.pdf",
+          "request_id": "01a20264-4bf3-754c-92c1-1daf20e8b732",
+          "disposition": "Returned publisher watermark only. Tables verified from the archived publisher PDF."
+        },
+        {
+          "url": "https://pubs.rsna.org/doi/10.1148/44.3.259",
+          "request_id": "01a20270-ffe1-7347-95ae-b83220f0a728",
+          "disposition": "Public preview without exact radiograph counts."
+        },
+        {
+          "query": "roentgenographic study in NLM item 101085500X267",
+          "request_id": "01a2026f-c3e8-71be-90fd-3b87f7029cf3",
+          "disposition": "No matching image locator."
+        }
+      ]
+    },
+    "note": "Rechecked the earlier Berkeley lead and the Northwestern paper. Fresh PDF access returned an HTML challenge; the prior publisher copy remained valid.",
+    "records": [
+      {
+        "id": "thomas-williams-publisher-recheck",
+        "title": "High-Altitude Joint Pains (Bends): Their Roentgenographic Aspects",
+        "authors": [
+          "Sydney F. Thomas",
+          "Owen L. Williams"
+        ],
+        "year": 1945,
+        "doi": "10.1148/44.3.259",
+        "url": "https://pubs.rsna.org/doi/10.1148/44.3.259",
+        "primary_source": "https://pubs.rsna.org/doi/10.1148/44.3.259",
+        "full_text_available": false,
+        "locator": "Publisher preview, Methods and first Results lines.",
+        "note": "The publisher identifies a separate Berkeley project. Preview describes knee films at 35,000 and 38,000 ft without exact counts. The paper already appears as a lead in v1.57."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-burkhardt-imaging-wrist-pain-verified",
+    "date": "2026-11-22",
+    "provider": "Publisher's archived original pages",
+    "operation": "supplementary_radiographic_tables_and_wrist_exposures",
+    "status": "observed",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Read all eight tables from the publisher PDF and separated film scopes from exposure-defined observations.",
+    "records": [
+      {
+        "id": "burkhardt-1946-original",
+        "title": "A Roentgenographic Study of “Bends” and “Chokes” at Altitude",
+        "authors": [
+          "W. L. Burkhardt",
+          "H. Adler",
+          "A. F. Thometz",
+          "A. J. Atkinson",
+          "A. C. Ivy"
+        ],
+        "pmid": "20273606",
+        "year": 1946,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20273606/",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p462.pdf",
+        "full_text_available": true,
+        "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+        "role_review": "overlap_hold",
+        "pdf_sha256": "e62cc2cc32cd603802b948fbebff6c31be268744f22fe90ed1904035b732e7d4",
+        "locator": "Printed pp. 462–477 and 482. Tables I–VIII.",
+        "note": "Northwestern experimental chamber. Predominantly seven selected susceptible subjects. The knee and chest tables count radiographs, including repeated films and overlapping anatomical classifications. The wrist pain sequence is explicitly outside the seven-subject imaging series. Investigator and protocol similarities to Ivy and Atkinson support a possible overlap; exact identities are unverified.",
+        "source_scope": {
+          "principal_subjects": 7,
+          "principal_age_min": 20,
+          "principal_age_max": 23,
+          "all_radiographs_as_reported": 400,
+          "knee_radiographs_as_reported": 280,
+          "lateral_knee_radiographs_for_classification": 203,
+          "main_planned_dwell_minutes": 120,
+          "main_target_altitude_ft": 38000,
+          "main_ascent_ft_min": 5000,
+          "exercise_interval_min": 10,
+          "principal_subject_count_applies_to_all_images": null,
+          "film_projection_wording": [
+            "post-anterior",
+            "anterior-posterior"
+          ]
+        },
+        "planimetry_scope": {
+          "pain_films": 50,
+          "no_pain_films": 50,
+          "reported_total_pain_sq_in": 29.69,
+          "reported_mean_pain_sq_in": 0.59,
+          "reported_total_no_pain_sq_in": 23.51,
+          "reported_mean_no_pain_sq_in": 0.46,
+          "ambiguous_numeric_cells": 5
+        },
+        "chest_film_scope": {
+          "subjects_in_chest_comparison": 3,
+          "control_films": 27,
+          "chokes_films_table_viii": 5,
+          "chokes_films_summary": 4,
+          "report_discrepancy": "Table VIII sums to five while the Summary reports four."
+        },
+        "wrist_series_scope": {
+          "known_to_be_outside_main_imaging_participants": true,
+          "participants": 1,
+          "exposures": 11,
+          "right_wrist_pain_exposures": 10,
+          "target_ft": 40000,
+          "nominal_exposure_minutes": 15,
+          "ground_interval_minutes_lower": 15,
+          "ground_interval_minutes_upper": 30
+        },
+        "partial_denitrogenation_source_note": "Printed p. 469 reports 49 knee films with 45 showing gas after partial denitrogenation. The published changes from 70% to 30% bends have no matching denominators.",
+        "observations": [
+          {
+            "id": "table-i-left",
+            "group": "knee_side-left",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 44,
+            "denominator": 103,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 59,
+            "locator": "Table I, printed p. 464 (PDF p. 3)",
+            "note": "Laterality for the 203-film set. No inference about bilateral symptoms across participants."
+          },
+          {
+            "id": "table-i-right",
+            "group": "knee_side-right",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 37,
+            "denominator": 100,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 63,
+            "locator": "Table I, printed p. 464 (PDF p. 3)",
+            "note": "Laterality for the 203-film set. No inference about bilateral symptoms across participants."
+          },
+          {
+            "id": "table-ii-present",
+            "group": "articular_and_popliteal_gas-present",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 79,
+            "denominator": 185,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 106,
+            "locator": "Table II, printed p. 464 (PDF p. 3)",
+            "note": "Articular and popliteal spaces are grouped. Film count is the counting unit."
+          },
+          {
+            "id": "table-ii-absent",
+            "group": "articular_and_popliteal_gas-absent",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 2,
+            "denominator": 18,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 16,
+            "locator": "Table II, printed p. 464 (PDF p. 3)",
+            "note": "Articular and popliteal spaces are grouped. Film count is the counting unit."
+          },
+          {
+            "id": "table-iii-present",
+            "group": "posterior_extra_articular_gas-present",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 55,
+            "denominator": 102,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 47,
+            "locator": "Table III, printed p. 464 (PDF p. 3)",
+            "note": "Posterior extra-articular gas excludes anterior and suprapatellar sites."
+          },
+          {
+            "id": "table-iii-absent",
+            "group": "posterior_extra_articular_gas-absent",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 26,
+            "denominator": 101,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 75,
+            "locator": "Table III, printed p. 464 (PDF p. 3)",
+            "note": "Posterior extra-articular gas excludes anterior and suprapatellar sites."
+          },
+          {
+            "id": "table-iv-present",
+            "group": "anterior_and_suprapatellar_gas-present",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 56,
+            "denominator": 121,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 65,
+            "locator": "Table IV, printed p. 464 (PDF p. 3)",
+            "note": "Anterior and suprapatellar gas sites."
+          },
+          {
+            "id": "table-iv-absent",
+            "group": "anterior_and_suprapatellar_gas-absent",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 25,
+            "denominator": 82,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 57,
+            "locator": "Table IV, printed p. 464 (PDF p. 3)",
+            "note": "Anterior and suprapatellar gas sites."
+          },
+          {
+            "id": "table-v-present",
+            "group": "extra_articular_streaks-present",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 28,
+            "denominator": 38,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 10,
+            "locator": "Table V, printed p. 466 (PDF p. 5)",
+            "note": "Among 28 painful films with streaks, 22 were posterior and six suprapatellar dissections. All ten streak-positive films without pain were suprapatellar."
+          },
+          {
+            "id": "table-v-absent",
+            "group": "extra_articular_streaks-absent",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 53,
+            "denominator": 165,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude",
+            "bends_absent_films": 112,
+            "locator": "Table V, printed p. 466 (PDF p. 5)",
+            "note": "Among 28 painful films with streaks, 22 were posterior and six suprapatellar dissections. All ten streak-positive films without pain were suprapatellar."
+          },
+          {
+            "id": "table-vi-present",
+            "group": "extra_articular_streaks_in_gas_positive_films-present",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 28,
+            "denominator": 38,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude-with-visible-gas",
+            "bends_absent_films": 10,
+            "locator": "Table VI, printed p. 466 (PDF p. 5)",
+            "note": "Conditioned on 185 films with gas. The 18 gas-negative films are outside this risk set."
+          },
+          {
+            "id": "table-vi-absent",
+            "group": "extra_articular_streaks_in_gas_positive_films-absent",
+            "endpoint": "film_taken_in_presence_of_reported_bends",
+            "cases": 51,
+            "denominator": 147,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "parent_film_scope": "lateral-knee-at-altitude-with-visible-gas",
+            "bends_absent_films": 96,
+            "locator": "Table VI, printed p. 466 (PDF p. 5)",
+            "note": "Conditioned on 185 films with gas. The 18 gas-negative films are outside this risk set."
+          },
+          {
+            "id": "filmed-painful-bends-gas_not_visualized_at_pain_site_as_reported",
+            "group": "filmed-painful-bends",
+            "endpoint": "gas_not_visualized_at_pain_site_as_reported",
+            "cases": 15,
+            "denominator": 104,
+            "denominator_unit": "symptom_report",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "altitude_ft": null,
+            "protocol": "Source-defined painful bends episodes filmed in the selected study.",
+            "outcome_window": "Imaging at altitude. No fixed post-exposure surveillance.",
+            "locator": "Filmed painful episodes, printed p. 470 (PDF p. 9)",
+            "note": "The denominator is the reported 104 filmed pain episodes, with 81 near the knee. Different projections and sites were used. This is a case-conditional result.",
+            "source_counting_role": "case_conditional"
+          },
+          {
+            "id": "knee-bubble-growth-pain-timing-bubble_size_increased_before_pain_as_reported",
+            "group": "knee-bubble-growth-pain-timing",
+            "endpoint": "bubble_size_increased_before_pain_as_reported",
+            "cases": 11,
+            "denominator": 13,
+            "denominator_unit": "symptom_report",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "altitude_ft": null,
+            "protocol": "Selected knee pain series with repeat imaging of bubble growth.",
+            "outcome_window": "From the first filmed bubble to pain onset.",
+            "locator": "Table VII and results, printed p. 467 (PDF p. 6)",
+            "note": "The authors say the bubbles had increased in size in all but two of 13 cases. Bubbles were first seen five to 15 minutes after reaching altitude and pain began five to 30 minutes after the first bubble film.",
+            "source_counting_role": "case_conditional"
+          },
+          {
+            "id": "partial-denitrogenation-visible-gas",
+            "group": "knee-partial-denitrogenation",
+            "endpoint": "x_ray_visible_gas_as_reported",
+            "cases": 45,
+            "denominator": 49,
+            "denominator_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "locator": "Partial denitrogenation, printed p. 469 (PDF p. 8)",
+            "note": "Exact complement of four films without visible gas. These are films after the 30-minute partial denitrogenation procedure."
+          },
+          {
+            "id": "selected-40000-wrist-recurrence-same_site_right_wrist_pain_as_reported",
+            "group": "selected-40000-wrist-recurrence",
+            "endpoint": "same_site_right_wrist_pain_as_reported",
+            "cases": 10,
+            "denominator": 11,
+            "denominator_unit": "person_exposure",
+            "study_id": "burkhardt-selected-repeated-wrist-pain",
+            "altitude_ft": 40000,
+            "protocol": "One person made successive 15-minute exposures to 40,000 ft without exercise. Ground intervals ranged from 15 to 30 minutes.",
+            "outcome_window": "During the 11 reported exposures. Fixed postflight follow-up was not reported.",
+            "locator": "Text preceding the Chokes subsection, printed p. 471 (PDF p. 10)",
+            "note": "The source defines the outcome as recurrent pain in the same right wrist site. This person is explicitly outside the seven-student imaging series.",
+            "source_counting_role": "selected_cluster"
+          },
+          {
+            "id": "chest-controls-at-altitude",
+            "group": "without-chokes",
+            "endpoint": "reported_chest_film_count",
+            "cases": 27,
+            "denominator": null,
+            "denominator_unit": null,
+            "affected_participant_scope": 3,
+            "source_counting_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "locator": "Table VIII, printed p. 471 (PDF p. 10)",
+            "note": "Report-level film count. The tabulated and narrative counts during chokes are conflicting representations."
+          },
+          {
+            "id": "chest-with-chokes-table-viii",
+            "group": "with-chokes-table-viii",
+            "endpoint": "reported_chest_film_count",
+            "cases": 5,
+            "denominator": null,
+            "denominator_unit": null,
+            "affected_participant_scope": 3,
+            "source_counting_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "locator": "Table VIII, printed p. 471 (PDF p. 10)",
+            "note": "Report-level film count. The tabulated and narrative counts during chokes are conflicting representations."
+          },
+          {
+            "id": "chest-with-chokes-summary",
+            "group": "with-chokes-summary",
+            "endpoint": "reported_chest_film_count",
+            "cases": 4,
+            "denominator": null,
+            "denominator_unit": null,
+            "affected_participant_scope": null,
+            "source_counting_unit": "radiograph",
+            "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+            "locator": "Summary paragraph 1, printed p. 476 (PDF p. 15)",
+            "note": "Report-level film count. The tabulated and narrative counts during chokes are conflicting representations."
+          }
+        ]
+      }
+    ]
+  }
+]

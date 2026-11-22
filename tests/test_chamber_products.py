@@ -8,6 +8,101 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_burkhardt_knee_cross_tabs_share_their_film_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_table,scope_id,sum(bends_present_films),sum(bends_absent_films),sum(all_films)
+            FROM publication_radiograph_bends_cross_tab
+            WHERE source_id='burkhardt46_chamber_radiography'
+            GROUP BY source_table,scope_id ORDER BY source_table
+        """).fetchall() == [
+            *[(t, "lateral-knee-at-altitude", 81, 122, 203) for t in ("I", "II", "III", "IV", "V")],
+            ("VI", "lateral-knee-at-altitude-with-visible-gas", 79, 106, 185),
+        ]
+        assert db.execute("""
+            SELECT condition,bends_present_films,bends_absent_films,all_films
+            FROM publication_radiograph_bends_cross_tab
+            WHERE source_id='burkhardt46_chamber_radiography' AND source_table='II'
+            ORDER BY condition
+        """).fetchall() == [("absent", 2, 16, 18), ("present", 79, 106, 185)]
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit
+            FROM review.review_search_observation
+            WHERE report_id='pmid:20273606' AND observation_id='table-ii-present'
+        """).fetchall() == [(79, 185, "radiograph")]
+        assert db.execute("""
+            SELECT scope_id,film_count,parent_scope_id FROM publication_radiograph_scope
+            WHERE source_id='burkhardt46_chamber_radiography'
+              AND parent_scope_id='knee-partial-denitrogenation' ORDER BY scope_id
+        """).fetchall() == [
+            ("knee-partial-denitrogenation-gas-not-visible", 4, "knee-partial-denitrogenation"),
+            ("knee-partial-denitrogenation-gas-visible", 45, "knee-partial-denitrogenation"),
+        ]
+
+
+def test_burkhardt_planimetry_and_chest_preserve_printed_discrepancies(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT scope_id,count(*),count(area_sq_in) FROM publication_radiograph_planimetry_cell
+            WHERE source_id='burkhardt46_chamber_radiography' GROUP BY scope_id ORDER BY scope_id
+        """).fetchall() == [("planimetry-no-pain", 50, 48), ("planimetry-pain", 50, 47)]
+        assert db.execute("""
+            SELECT area_as_printed FROM publication_radiograph_planimetry_cell
+            WHERE source_id='burkhardt46_chamber_radiography' AND area_sq_in IS NULL
+            ORDER BY scope_id,printed_block,printed_row
+        """).fetchall() == [("85",), ("35",), ("1 3",), ("5",), ("45",)]
+        assert db.execute("""
+            SELECT reported_total_area_sq_in,reported_mean_area_sq_in,analysis_role
+            FROM publication_radiograph_scope
+            WHERE source_id='burkhardt46_chamber_radiography' AND scope_id='planimetry-no-pain'
+        """).fetchone() == (23.51, 0.46, "denominator_conflict")
+        assert db.execute("""
+            SELECT scope_id,film_count,analysis_role FROM publication_radiograph_scope
+            WHERE source_id='burkhardt46_chamber_radiography' AND parent_scope_id='chest-film-comparison'
+            ORDER BY scope_id
+        """).fetchall() == [
+            ("chest-controls-at-altitude", 27, "overlap_hold"),
+            ("chest-with-chokes-summary", 4, "denominator_conflict"),
+            ("chest-with-chokes-table-viii", 5, "denominator_conflict"),
+        ]
+        assert db.execute("""
+            SELECT scope_id,sum(film_count),count(DISTINCT participant_ordinal)
+            FROM publication_radiograph_cardiac_shadow WHERE source_id='burkhardt46_chamber_radiography'
+            GROUP BY scope_id ORDER BY scope_id
+        """).fetchall() == [("chest-controls-at-altitude", 27, 3), ("chest-with-chokes-table-viii", 5, 3)]
+
+
+def test_burkhardt_wrist_exposures_are_linked_to_the_separate_selected_person(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id='burkhardt46_chamber_radiography' ORDER BY stratum
+        """).fetchall() == [("main-radiography-participants", None, 7), ("selected-40000-wrist-recurrence", 11, 1)]
+        assert db.execute("""
+            SELECT numerator,denominator,denominator_unit,altitude,analysis_role
+            FROM publication_observation WHERE source_id='burkhardt46_chamber_radiography'
+              AND endpoint='same_site_right_wrist_pain_as_reported'
+        """).fetchall() == [(10, 11, "person_exposure", 40000.0, "selected_cluster")]
+        assert db.execute("""
+            SELECT study_id,cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE report_id='pmid:20273606' AND endpoint='same_site_right_wrist_pain_as_reported'
+        """).fetchall() == [("burkhardt-selected-repeated-wrist-pain", 10, 11, "person_exposure")]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='pmid:20273606' AND right_report='report:oemcmr-241:sup3:1'
+        """).fetchall() == [("likely_overlap",)]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id),min(report_id)
+            FROM review.review_record WHERE record_key IN (
+                '2026-11-20-formal-chamber-europe-pmc#MED:20273606',
+                '2026-11-20-formal-chamber-pubmed#20273606',
+                'legacy:data/chamber/v1.28/search_hits.csv#symptoms_v28_other_treatment:5',
+                'legacy:data/chamber/v1.201/sources.csv#burkhardt46_chamber_radiography',
+                '2026-11-22-burkhardt-imaging-wrist-pain-verified#burkhardt-1946-original'
+            )
+        """).fetchone() == (5, 1, "pmid:20273606")
+
+
 def test_ivy_pressure_table_preserves_counts_rates_and_historical_controls(release):
     with connect_pair(release) as db:
         assert db.execute("""

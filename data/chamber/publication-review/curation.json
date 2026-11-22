@@ -1,6 +1,42 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20273606",
+      "report_id": "pmid:20273606",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20273606/",
+      "basis": "Exact MED identifier and title match the verified original paper."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#20273606",
+      "report_id": "pmid:20273606",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20273606/",
+      "basis": "Exact PubMed identifier and title match the verified original paper."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.28/search_hits.csv#symptoms_v28_other_treatment:5",
+      "report_id": "pmid:20273606",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20273606/",
+      "basis": "The older search lead gives the same PMID, author names and publisher PDF."
+    },
+    {
+      "record_key": "2026-11-22-burkhardt-imaging-wrist-pain-verified#burkhardt-1946-original",
+      "report_id": "pmid:20273606",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20273606/",
+      "basis": "PMID, paper heading, authors, journal and original pagination match existing bibliographic records."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.201/sources.csv#burkhardt46_chamber_radiography",
+      "report_id": "pmid:20273606",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20273606/",
+      "basis": "Exact PMID and original source match."
+    },
+    {
+      "record_key": "2026-11-22-burkhardt-imaging-wrist-pain-firecrawl#thomas-williams-publisher-recheck",
+      "report_id": "doi:10.1148/44.3.259",
+      "evidence_url": "https://pubs.rsna.org/doi/10.1148/44.3.259",
+      "basis": "Same exact DOI and author names as the existing Berkeley lead."
+    },
+    {
       "record_key": "2026-11-22-cam-pressure-controls-lockheed-verified#ivy-pressure",
       "report_id": "report:oemcmr-241:sup3:1",
       "evidence_url": "https://iiif.nlm.nih.gov/iiif/2/nlm:nlmuid-101085500X267-pgimg-787/full/1600,/0/default.jpg",
@@ -18573,6 +18609,18 @@
   ],
   "studies": [
     {
+      "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+      "label": "Burkhardt and colleagues selected chamber imaging series",
+      "period": "Reported 1946",
+      "setting": "Northwestern University Medical School altitude chamber"
+    },
+    {
+      "study_id": "burkhardt-selected-repeated-wrist-pain",
+      "label": "Selected participant's repeated right-wrist pain at 40,000 ft",
+      "period": "Reported 1946",
+      "setting": "Northwestern University Medical School altitude chamber"
+    },
+    {
       "study_id": "ivy-atkinson-oemcmr-241-experimental-chamber",
       "label": "Ivy and Atkinson repeated chamber work on diet, exercise and pressure breathing",
       "period": "May 1943 through August 1944 as reported",
@@ -20392,6 +20440,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "burkhardt-northwestern-selected-chamber-radiography",
+      "report_id": "pmid:20273606",
+      "role": "primary_chamber_imaging_report",
+      "locator": "Printed pp. 462–477, Tables I–VIII."
+    },
+    {
+      "study_id": "burkhardt-selected-repeated-wrist-pain",
+      "report_id": "pmid:20273606",
+      "role": "primary_report_separate_selected_person",
+      "locator": "Text preceding the Chokes subsection, printed p. 471 (PDF p. 10)"
+    },
     {
       "study_id": "ivy-atkinson-oemcmr-241-experimental-chamber",
       "report_id": "report:oemcmr-241:sup3:1",
@@ -23472,6 +23532,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:20273606",
+      "right_report": "report:oemcmr-241:sup3:1",
+      "relationship": "likely_overlap",
+      "evidence": "Overlapping Northwestern author team, seven repeat subjects, 38,000-ft nominal two-hour target and exercise every ten minutes. The papers do not identify the same subjects or the exact reused flights.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p462.pdf"
+    },
+    {
+      "left_report": "pmid:20273606",
+      "right_report": "report:oemcmr-241:1944-06-21",
+      "relationship": "unresolved",
+      "evidence": "Same Northwestern investigators and the 38,000-ft exercise profile, with six repeat subjects in the earlier diet study. Exact membership and overlap of tests are unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/5/article-p462.pdf"
+    },
     {
       "left_report": "report:oemcmr-241:sup3:1",
       "right_report": "report:oemcmr-241:4",
