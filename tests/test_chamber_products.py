@@ -6368,6 +6368,40 @@ def test_lee_hay_left_ventricular_onset_uses_existing_profile_events(release):
         """).fetchall() == expected
 
 
+def test_dolma_field_observations_keep_distinct_populations_and_endpoints(release):
+    report_id = "openalex:W3190281512"
+    expected = [
+        ("dispatchers-during-flight", "symptomatic_hypoxia_as_reported", 2, None, None, "descriptive"),
+        ("jumpers-assessed-after-return", "significant_ent_or_other_clinical_findings_as_reported",
+         0, 9, "person", "descriptive"),
+    ]
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id='sannigrahi18_dolma_field_report' ORDER BY stratum
+        """).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation WHERE report_id=? ORDER BY reported_group
+        """, (report_id,)).fetchall() == expected
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE title LIKE '%Oxygen Jump at Dolma Sampa%' OR url GLOB '*oxygen-jump-at-dolma-sampa*'
+            GROUP BY report_id
+        """).fetchall() == [(report_id, 4)]
+        assert db.execute("""
+            SELECT source_id FROM model_report_link WHERE report_id=?
+        """, (report_id,)).fetchall() == [("sannigrahi18_dolma_field_report",)]
+        assert db.execute("""
+            SELECT json_type(metadata_json,'$.clinical_scope.clinical_dcs_case_count'),
+                   json_type(metadata_json,'$.clinical_scope.delayed_follow_up')
+            FROM review.review_record
+            WHERE record_key='2026-11-21-india-field-symptoms-verified#sannigrahi-dolma-sampa-original'
+        """).fetchone() == ("null", "null")
+        assert db.execute("SELECT count(*) FROM historical_case_catalog WHERE report_id=?", (report_id,)).fetchone() == (0,)
+
+
 def test_kadena_mixed_referrals_cannot_supply_training_incidence(release):
     with connect_pair(release) as db:
         assert db.execute("""
