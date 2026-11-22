@@ -1,0 +1,406 @@
+[
+  {
+    "id": "2026-11-22-raf-neurological-cases-collapse-lineage-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_search_and_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "f329d5df-3708-4253-9430-60b120f6fc27",
+          "query": "\"Roxburgh\" Farnborough \"1953\" decompression altitude \"34\" oxygen convulsions"
+        },
+        {
+          "request_id": "b3c7c831-c82c-4e19-9514-100713a7db6f",
+          "query": "\"Decompression sickness\" \"September 23rd\" Fryer 1957 \"37,000\" Farnborough case"
+        },
+        {
+          "request_id": "2c21e381-bd53-4a17-ae0f-c2a8f0660a65",
+          "query": "\"Gribble\" \"Roxburgh\" 20000 61 decompressions 1951 original RAF Air Ministry D.G.M.S."
+        },
+        {
+          "request_id": "896696d2-583b-4b01-86f6-e4719c15078c",
+          "query": "\"The Medical Press\" 229 8 1953 London archive February issue 25 Medical Press and Circular Roxburgh scan"
+        },
+        {
+          "request_id": "7cf5d163-e66f-461e-84e6-eb4278281c08",
+          "query": "\"Roxburgh\" \"13036578\" \"The Medical Press\" full text open access"
+        },
+        {
+          "request_id": "5bbe5cfa-9e82-425e-b412-efe3d45181c5",
+          "urls": [
+            "https://pubmed.ncbi.nlm.nih.gov/13036578/",
+            "https://history.rcp.ac.uk/inspiring-physicians/henry-lindsay-roxburgh"
+          ],
+          "note": "Returned a biographical source, describing an exposure at 38,000 ft in Roxburgh. This does not verify the identity of Fryer's 34-year-old Case 17. Retrieval of the NLM page through Tavily failed; NLM eSummary later supplied metadata."
+        }
+      ]
+    },
+    "records": [],
+    "note": "Exact-title searches for the case and Air Ministry antecedents. A publicly accessible primary copy for either Roxburgh citation was not recovered."
+  },
+  {
+    "id": "2026-11-22-raf-neurological-cases-collapse-lineage-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl, NLM and rendered source PDFs",
+    "status": "observed",
+    "operation": "supplementary_primary_source_verification",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "scrape_id": "01a20562-feee-77f0-a48e-ea8c3d0410b7",
+          "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=128",
+          "note": "Firecrawl returned the archive cover pages. Read cases and timings directly from local original scan PDF pages 127–131."
+        },
+        {
+          "scrape_id": "01a20562-fced-70d9-8511-c09ed80ae4cb",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+          "note": "Verified bibliographic identity. Both quoted tallies were checked against the rendered paper, printed p. 183. Source attribution is on p. 186."
+        },
+        {
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=13036578&retmode=json",
+          "note": "Public index confirms title, February 1953 date, volume, issue, pages and author."
+        },
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf",
+          "note": "Reference 122 gives FPRC-825 and April 1953."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "fryer69_raf",
+        "title": "Subatmospheric Decompression Sickness in Man",
+        "year": 1969,
+        "identifier": "DTIC:ADA111509",
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=128",
+        "primary_source": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=128",
+        "access": "full_text",
+        "source_sha256": "cb7a216891a203b06ac4f8d9ab3acb4f5924c4f400aad1c53fe8481faee03000",
+        "role_review": "selected_historical_clinical_cases",
+        "locator": "Printed pp. 130–134 (PDF pp. 127–131), neurological case numbers 17 and 18",
+        "note": "These are numbered neurological cases. Fryer's fatality table uses different numbering. The same report already supplies source-defined aggregate observations and a separately indexed case 28.",
+        "observations": [
+          {
+            "id": "neurological-case-17",
+            "study_id": "raf-farnborough-1941-neurological-case-17",
+            "group": "neurological-case-17",
+            "endpoint": "source_reported_neurological_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": "1941",
+            "peak_altitude_ft": null,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "During the chamber exposure through recovery. Delayed visual, motor and cognitive signs followed descent.",
+            "locator": "Fryer 1969, printed pp. 130–131 (PDF pp. 127–128), neurological Case 17",
+            "note": "The source cites Roxburgh 1953 for this historical case. Early hand spasms occurred during the hypoxia demonstration. Approximate delay to the later neurological phase is recorded separately. The author reports hospitalization, seizure and later neurological recovery.",
+            "protocol": "Farnborough. A 34-year-old pilot had an initial hypoxia demonstration at 28,000 ft. Oxygen was resumed and joint pain was recorded on ascent through 32,000 ft. Maximum pressure altitude is unavailable.",
+            "milestones": [
+              {
+                "name": "acute_hypoxia_demonstration",
+                "altitude_ft": 28000,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "Hand spasms and deteriorating writing during the unsupplemented hypoxia demonstration. Oxygen was then resumed."
+              },
+              {
+                "name": "joint_pain_during_ascent",
+                "altitude_ft": 32000,
+                "clock_time": null,
+                "elapsed": 3,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_oxygen_resumed",
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "Approximately three minutes after oxygen was first given. Bilateral arm tingling was followed by pain in multiple joints."
+              },
+              {
+                "name": "loss_of_consciousness",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "Just over one minute after the joint pain, the report describes pallor, increasing sweating and loss of consciousness. The maximum altitude is unstated."
+              },
+              {
+                "name": "consciousness_returns_during_descent",
+                "altitude_ft": 25000,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "On regaining consciousness, the pilot reported right-arm weakness and tingling."
+              },
+              {
+                "name": "right_arm_tingling_clears",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 5,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_ground_return",
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "Approximate retrospective estimate. Power had begun returning on descent."
+              },
+              {
+                "name": "delayed_neurological_deterioration",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 60,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_ground_return",
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "Approximate and uncertain. Visual deterioration preceded headache, vomiting and loss of fine control."
+              },
+              {
+                "name": "hospital_seizure",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "A generalized seizure was witnessed during examination the following morning."
+              },
+              {
+                "name": "right_parietal_eeg_finding",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 2,
+                "elapsed_unit": "days",
+                "elapsed_reference": "after_exposure",
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "The report describes a focal low-frequency right parietal EEG abnormality."
+              },
+              {
+                "name": "eeg_normalization_and_discharge",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 10,
+                "elapsed_unit": "days",
+                "elapsed_reference": "as_reported_baseline_unspecified",
+                "locator": "Fryer, printed p. 131 (PDF p. 128)",
+                "note": "Approximate interval to EEG normalization and discharge, with unclear starting point. The report subsequently notes return to duty."
+              }
+            ]
+          },
+          {
+            "id": "neurological-case-18",
+            "study_id": "raf-1957-neurological-case-18",
+            "group": "neurological-case-18",
+            "endpoint": "source_reported_neurological_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "period": "1957-09-23",
+            "peak_altitude_ft": 37000,
+            "exposure_context": "hypobaric_chamber",
+            "outcome_window": "During chamber ascent and descent through hospital recovery. The first witnessed generalized seizure occurred on the following evening.",
+            "locator": "Fryer 1969, printed pp. 131–134 (PDF pp. 128–131), neurological Case 18",
+            "note": "Fryer describes a case he observed. Acute hypoxia was part of the training, followed by pain and delayed neurological deterioration. The source reports a probable decompression relationship and eventual complete recovery.",
+            "protocol": "A 33-year-old pilot took part in a training chamber demonstration including 25,000 ft followed by 37,000 ft. The report describes two earlier uneventful demonstrations.",
+            "milestones": [
+              {
+                "name": "training_start",
+                "altitude_ft": null,
+                "clock_time": "10:30",
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 132 (PDF p. 129)",
+                "note": "23 September 1957. Mental impairment occurred during the initial 25,000-ft hypoxia demonstration."
+              },
+              {
+                "name": "upper_stage_symptoms_chamber_operator_timing",
+                "altitude_ft": 37000,
+                "clock_time": null,
+                "elapsed": 30,
+                "elapsed_unit": "seconds",
+                "elapsed_reference": "after_oxygen_removed_at_37000_ft",
+                "locator": "Fryer, printed p. 132 (PDF p. 129)",
+                "note": "Chamber operator's estimate. The pilot stopped writing and appeared dazed. Knee pain and visual blurring were also reported at this stage."
+              },
+              {
+                "name": "upper_stage_symptoms_medical_officer_timing",
+                "altitude_ft": 37000,
+                "clock_time": null,
+                "elapsed": 2,
+                "elapsed_unit": "minutes",
+                "elapsed_reference": "after_oxygen_removed_at_37000_ft",
+                "locator": "Fryer, printed p. 132 (PDF p. 129)",
+                "note": "Medical officer's estimate of the same interval as the operator's 30-second estimate."
+              },
+              {
+                "name": "post_training_symptoms",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 132 (PDF p. 129)",
+                "note": "Light-headedness and frontal headache were reported at exit. The pilot later recalled nausea, groin pain and weak knees at that time."
+              },
+              {
+                "name": "next_day_medical_assessment",
+                "altitude_ft": null,
+                "clock_time": "11:00",
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 133 (PDF p. 130)",
+                "note": "24 September. The medical officer did not initially know about the chamber exposure and suspected influenza."
+              },
+              {
+                "name": "first_witnessed_generalized_seizure",
+                "altitude_ft": null,
+                "clock_time": "19:00",
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 133 (PDF p. 130)",
+                "note": "24 September. Later seizures were observed by the doctor and in hospital."
+              },
+              {
+                "name": "hospital_specialist_assessment",
+                "altitude_ft": null,
+                "clock_time": "22:30",
+                "elapsed": null,
+                "elapsed_unit": null,
+                "elapsed_reference": null,
+                "locator": "Fryer, printed p. 133 (PDF p. 130)",
+                "note": "24 September. The pilot was alert but amnesic after further seizure activity."
+              },
+              {
+                "name": "abnormal_eeg",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 4,
+                "elapsed_unit": "days",
+                "elapsed_reference": "reported_case_day",
+                "locator": "Fryer, printed p. 133 (PDF p. 130)",
+                "note": "Source's fourth-day count. The EEG abnormality was interpreted as possibly embolic."
+              },
+              {
+                "name": "normal_repeat_eeg",
+                "altitude_ft": null,
+                "clock_time": null,
+                "elapsed": 3,
+                "elapsed_unit": "days",
+                "elapsed_reference": "after_abnormal_eeg",
+                "locator": "Fryer, printed p. 133 (PDF p. 130)",
+                "note": "The report describes progressive complete recovery and normal repeat EEG."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gribble60_cited_raf_collapse",
+        "title": "A comparison of the high-altitude and high-pressure syndromes of decompression sickness",
+        "year": 1960,
+        "doi": "10.1136/oem.17.3.181",
+        "pmid": "13829253",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+        "public_scan": "https://diving-rov-specialists.com/index-b-documents_htm_files/scient-a_66-comparison-high-and-altitude-high%20pressure-syndromes.pdf",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+        "access": "secondary_table",
+        "source_sha256": "594aae3d2501b513488facedab9cbdd72fb625baa860612d0ab759c1746b3f97",
+        "role_review": "secondary_collapses_overlap_hold",
+        "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column",
+        "note": "The author's description gives counts, while the underlying Roxburgh communication is unavailable. The broad Adler figures discussed in the same paragraph reuse prior historical evidence.",
+        "observations": [
+          {
+            "id": "large-decompression-series:severe_post_decompression_collapse",
+            "study_id": "raf-roxburgh-cited-large-collapse-series",
+            "group": "large-decompression-series",
+            "endpoint": "severe_post_decompression_collapse",
+            "cases": 9,
+            "denominator": 20000,
+            "denominator_unit": "decompression_as_reported",
+            "reported_rate_percent": 0.045,
+            "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column",
+            "note": "One of nine severe-collapse patients was younger than 27 years. Take the denominator as decompressions as cited. No individual, session or fatality crosswalk is available."
+          },
+          {
+            "id": "large-decompression-series:fatal_subset_of_severe_collapse",
+            "study_id": "raf-roxburgh-cited-large-collapse-series",
+            "group": "large-decompression-series",
+            "endpoint": "fatal_subset_of_severe_collapse",
+            "cases": 2,
+            "denominator": 20000,
+            "denominator_unit": "decompression_as_reported",
+            "reported_rate_percent": null,
+            "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column",
+            "note": "One of nine severe-collapse patients was younger than 27 years. Take the denominator as decompressions as cited. No individual, session or fatality crosswalk is available. Fatalities are a subset of the severe cases."
+          },
+          {
+            "id": "further-older-series:severe_post_decompression_collapse",
+            "study_id": "raf-roxburgh-cited-older-collapse-series",
+            "group": "further-older-series",
+            "endpoint": "severe_post_decompression_collapse",
+            "cases": 4,
+            "denominator": 61,
+            "denominator_unit": "decompression_as_reported",
+            "reported_rate_percent": 6.5,
+            "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column",
+            "note": "Reported mean age was about ten years higher than in the preceding series discussed by Gribble. The absolute mean age, exposure conditions and case identities are unavailable."
+          },
+          {
+            "id": "further-older-series:fatal_subset_of_severe_collapse",
+            "study_id": "raf-roxburgh-cited-older-collapse-series",
+            "group": "further-older-series",
+            "endpoint": "fatal_subset_of_severe_collapse",
+            "cases": 1,
+            "denominator": 61,
+            "denominator_unit": "decompression_as_reported",
+            "reported_rate_percent": null,
+            "locator": "Gribble 1960, printed p. 183 (PDF p. 3), left column",
+            "note": "Reported mean age was about ten years higher than in the preceding series discussed by Gribble. The absolute mean age, exposure conditions and case identities are unavailable. Fatalities are a subset of the severe cases."
+          }
+        ]
+      },
+      {
+        "id": "roxburgh51_dgms",
+        "title": "Roxburgh's 1951 Air Ministry communication to the D.G.M.S.",
+        "year": 1951,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1038053/",
+        "access": "citation_only",
+        "locator": "Gribble, printed p. 186, reference to H. L. Roxburgh",
+        "note": "Administrative communication as cited. Underlying report and original denominator definitions remain unavailable."
+      },
+      {
+        "id": "roxburgh53_med_press",
+        "title": "Decompression sickness",
+        "year": 1953,
+        "pmid": "13036578",
+        "identifier": "PMID:13036578",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/13036578/",
+        "access": "metadata",
+        "locator": "Med Press. 229(8):174–178.",
+        "note": "Possible source of Fryer's neurological Case 17. Bibliographic locator verified through public NLM metadata. No original narrative was recovered."
+      },
+      {
+        "id": "cotes53_fprc825",
+        "title": "Decompression Sickness with Post-Decompression Collapse",
+        "year": 1953,
+        "identifier": "FPRC:825",
+        "url": "https://ntrs.nasa.gov/api/citations/19670013549/downloads/19670013549.pdf",
+        "access": "citation_only",
+        "locator": "NASA SP-117, printed p. 123, reference 122; Fryer 1962, reference 3",
+        "note": "J. E. Cotes, April 1953, title and exact FPRC report number. Case 3 is already linked to Fryer's chamber fatality 9. No additional case records are inferred."
+      }
+    ],
+    "note": "The later case history is direct author evidence. The earlier case is attributed to Roxburgh. Matched case provenance is separate from the quoted collapse series."
+  }
+]
