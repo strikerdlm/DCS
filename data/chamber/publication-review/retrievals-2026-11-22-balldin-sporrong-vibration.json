@@ -1,0 +1,222 @@
+[
+  {
+    "id": "2026-11-22-balldin-sporrong-vibration-firecrawl",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and publisher scan",
+    "status": "observed",
+    "operation": "supplementary_primary_source_extraction",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "search_id": "01a20488-ae4f-762a-ba5b-4157161355ac",
+          "query": "\"Vibration and decompression gas bubbles\" Balldin Sporrong original 1980 Physiologist PDF supplemental archive NASA"
+        },
+        {
+          "scrape_id": "01a20489-54c7-707b-92b8-fedcd245f686",
+          "url": "https://www.physiology.org/publications/news/the-physiologist-magazine/the-physiologist-newsletter-archives/the-physiologist-archives-1980-1989"
+        },
+        {
+          "search_id": "01a2048f-01a5-700b-b59f-55717a4236ad",
+          "query": "\"Balldin\" \"Sporrong\" \"vibration\" \"decompression\" Karolinska 1979 1980 1981 report duplicate Swedish FOA"
+        },
+        {
+          "search_id": "01a2048c-9765-7431-a0d5-5c4613f98608",
+          "query": "\"Movement by helicopter of patients with decompression sickness\" Reddick 1229 1978 pdf"
+        }
+      ]
+    },
+    "note": "The publisher archive supplied the original supplement. Table 1 and Figure 1 were verified directly on the rendered scan.",
+    "records": [
+      {
+        "id": "balldin80_sporrong_vibration",
+        "title": "Vibration and decompression gas bubbles",
+        "year": 1980,
+        "pmid": "7243924",
+        "openalex_id": "W75269336",
+        "url": "https://www.physiology.org/docs/default-source/archive_tphys/the-physiologist-newsletter-1980-december-supplement.pdf?sfvrsn=9998469b_2#page=150",
+        "primary_source": "https://www.physiology.org/docs/default-source/archive_tphys/the-physiologist-newsletter-1980-december-supplement.pdf?sfvrsn=9998469b_2#page=151",
+        "source_sha256": "9b80df6c981bbe6ae00d969ca655d6613c0e4939981fa2a6faeded21396896da",
+        "access": "full_text",
+        "locator": "Methods and Figure 1, printed p. S147 (PDF p. 150) and Table 1 and Figure 2, printed p. S148 (PDF p. 151)",
+        "study_id": "sweden-balldin-sporrong-postdive-vibration",
+        "note": "Ten male volunteers contributed paired Doppler signal durations within alternating 15-minute vibration and non-vibration periods. Only the 15-Hz series has a participant table. The 25-Hz series has no recoverable enrollment or outcome table. The source does not report a clinical DCS numerator or standardized delayed follow-up. The methods report prophylactic oxygen at 200 kPa for 30 minutes. Figure 1 labels the same 30-minute stage as 220 kPa. The actual administered pressure remains unresolved.",
+        "role_review": "physiological_measurement",
+        "participants": 10,
+        "age_years_as_reported": {
+          "low": 18,
+          "high": 38,
+          "central": 28,
+          "spread": 7
+        },
+        "clinical_case_count": null,
+        "clinical_follow_up_count": null,
+        "frequency_25_hz": {
+          "participants": null,
+          "paired_outcomes": null
+        },
+        "prophylaxis": {
+          "purpose": "safety",
+          "duration_min": 30,
+          "pressure_kpa_methods": 200,
+          "pressure_kpa_figure": 220,
+          "pressure_kpa_adjudicated": null,
+          "locator": "Methods and Figure 1, printed p. S147 (PDF p. 150)"
+        },
+        "pair_measure": {
+          "endpoint": "precordial_doppler_bubble_signal_duration",
+          "unit": "seconds",
+          "data_grain": "one subject across alternating conditions of the same nominal flight",
+          "locator": "Table 1 and Figure 2, printed p. S148 (PDF p. 151)",
+          "paired_values": [
+            {
+              "subject_number": 1,
+              "starting_condition": "non_vibration",
+              "vibration_seconds": 4,
+              "non_vibration_seconds": 7
+            },
+            {
+              "subject_number": 2,
+              "starting_condition": "non_vibration",
+              "vibration_seconds": 30,
+              "non_vibration_seconds": 103
+            },
+            {
+              "subject_number": 3,
+              "starting_condition": "non_vibration",
+              "vibration_seconds": 33,
+              "non_vibration_seconds": 32
+            },
+            {
+              "subject_number": 4,
+              "starting_condition": "non_vibration",
+              "vibration_seconds": 2911,
+              "non_vibration_seconds": 2527
+            },
+            {
+              "subject_number": 5,
+              "starting_condition": "non_vibration",
+              "vibration_seconds": 154,
+              "non_vibration_seconds": 103
+            },
+            {
+              "subject_number": 6,
+              "starting_condition": "vibration",
+              "vibration_seconds": 13,
+              "non_vibration_seconds": 12
+            },
+            {
+              "subject_number": 7,
+              "starting_condition": "vibration",
+              "vibration_seconds": 1915,
+              "non_vibration_seconds": 2179
+            },
+            {
+              "subject_number": 8,
+              "starting_condition": "vibration",
+              "vibration_seconds": 115,
+              "non_vibration_seconds": 165
+            },
+            {
+              "subject_number": 9,
+              "starting_condition": "vibration",
+              "vibration_seconds": 209,
+              "non_vibration_seconds": 300
+            },
+            {
+              "subject_number": 10,
+              "starting_condition": "vibration",
+              "vibration_seconds": 1118,
+              "non_vibration_seconds": 1334
+            }
+          ]
+        }
+      },
+      {
+        "id": "reddick78_transport",
+        "title": "Movement by helicopter of patients with decompression sickness",
+        "year": 1978,
+        "pmid": "708353",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/49/10/article-p1229.pdf",
+        "access": "full_text",
+        "locator": "Author, title and journal pagination, printed p. 1229",
+        "note": "The paper is already represented by the Fort Rucker transport case series. This verified publisher copy adds no cases."
+      }
+    ]
+  },
+  {
+    "id": "2026-11-22-balldin-sporrong-vibration-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "status": "observed",
+    "operation": "supplementary_citation_and_protocol_reconciliation",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "38b65b24-e991-452a-b2ff-920a565a9b4c",
+          "urls": [
+            "https://journals.viamedica.pl/international_maritime_health/article/download/106248/90462"
+          ]
+        },
+        {
+          "request_id": "1c6135b9-2c41-4a07-bb5c-30f2d606f32b",
+          "urls": [
+            "https://www.dhmjournal.com/images/IndividArticles/48Dec/Blake_dhm48.4.241-251.pdf",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC6355309/"
+          ]
+        },
+        {
+          "request_id": "03f2e39d-d0df-4f02-a0f6-71d6f10c4774",
+          "urls": [
+            "https://www.physiology.org/docs/default-source/archive_tphys/the-physiologist-newsletter-1980-december-supplement.pdf?sfvrsn=9998469b_2"
+          ]
+        },
+        {
+          "request_id": "87ab812d-544c-499d-893d-a486cfa19275",
+          "urls": [
+            "https://www.physiology.org/docs/default-source/archive_tphys/the-physiologist-newsletter-1980-december-supplement.pdf?sfvrsn=9998469b_2"
+          ]
+        },
+        {
+          "request_id": "12a89824-6e4f-42d8-9df5-90539b8b3c3a",
+          "query": "\"Vibration and decompression gas bubbles\" \"7243924\" Balldin Sporrong additional publication follow-up data"
+        }
+      ]
+    },
+    "note": "Tavily located review citations and corroborated the archived original. The two reviews describe the same primary work.",
+    "records": [
+      {
+        "id": "balldin80_sporrong_vibration",
+        "title": "Vibration and decompression gas bubbles",
+        "year": 1980,
+        "pmid": "7243924",
+        "url": "https://www.physiology.org/docs/default-source/archive_tphys/the-physiologist-newsletter-1980-december-supplement.pdf?sfvrsn=9998469b_2#page=150",
+        "access": "full_text",
+        "note": "Publisher-indexed extraction was verified against the original scan."
+      },
+      {
+        "id": "blake18_vibration_review",
+        "title": "Vibration and bubbles: a systematic review of the effects of helicopter retrieval on injured divers",
+        "year": 2018,
+        "pmid": "30517957",
+        "doi": "10.28920/dhm48.4.241-251",
+        "url": "https://www.dhmjournal.com/images/IndividArticles/48Dec/Blake_dhm48.4.241-251.pdf",
+        "access": "full_text",
+        "note": "Reference 6 identifies Balldin and Sporrong's vibration study. It supplies no independent paired exposure data."
+      },
+      {
+        "id": "jones26_postdive_review",
+        "title": "Post-dive decompression bubbles in scuba divers: A scoping review",
+        "year": 2026,
+        "pmid": "42549592",
+        "doi": "10.5603/imh.106248",
+        "url": "https://journals.viamedica.pl/international_maritime_health/article/download/106248/90462",
+        "access": "full_text",
+        "note": "Reference 34 identifies Balldin and Sporrong's study. The review adds no independent paired exposure data."
+      }
+    ]
+  }
+]
