@@ -9,6 +9,68 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_wartime_flight_questionnaire_keeps_people_episodes_and_sorties_distinct(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT questionnaires_received,questionnaires_excluded,people_retained,sorties_approx_as_printed,
+                   crewmate_symptom_reports,conditional_sorties_per_case_as_printed
+            FROM publication_flight_questionnaire
+        """).fetchone() == (291, 60, 231, 3100, 16, 80)
+        assert db.execute("""
+            SELECT count(people_questioned_about_bends),sum(people_retained),sum(people_questioned_about_bends),
+                   sum(people_reporting_pain),sum(reported_pain_occurrences)
+            FROM publication_flight_questionnaire_role
+        """).fetchone() == (7, 231, 215, 39, 90)
+        assert db.execute("""
+            SELECT crew_position,people_retained,people_questioned_about_bends,people_reporting_pain,
+                   reported_pain_occurrences FROM publication_flight_questionnaire_role
+            WHERE crew_position IN ('mixed_position_gunner','bombardiers') ORDER BY crew_position
+        """).fetchall() == [("bombardiers", 0, None, None, None), ("mixed_position_gunner", 16, None, None, None)]
+        assert db.execute("""
+            SELECT people_questioned_about_bends,people_reporting_pain,reported_pain_occurrences,
+                   reported_symptom_altitude_min_ft,reported_symptom_altitude_max_ft
+            FROM publication_flight_questionnaire_role WHERE crew_position='tail_gunner'
+        """).fetchone() == (34, 7, 10, 15000, 31000)
+        assert db.execute("""
+            SELECT count(*),sum(cases),sum(denominator),count(DISTINCT evidence_url)
+            FROM review.review_search_observation
+            WHERE study_id='bachrach-1944-combat-flight-questionnaire' AND denominator_unit='person'
+              AND role_review='operational_flight_self_report'
+        """).fetchone() == (7, 39, 215, 1)
+
+
+def test_wartime_flight_secondary_reports_hold_overlap_with_the_original_survey(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT survey_group,people_questioned,people_reporting_bends,missions_flown_as_printed,
+                   minimum_man_flights_per_case_as_printed,recurring_symptoms_percent_as_printed
+            FROM publication_historical_flight_survey_summary ORDER BY survey_group
+        """).fetchall() == [
+            ("b17_crew", 97, 24, 2497, 123, 8.0),
+            ("fighter_pilots", 64, 12, None, None, None),
+        ]
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit,role_review FROM review.review_search_observation
+            WHERE study_id IN ('tobias-1951-b17-summary','tobias-1951-fighter-summary') ORDER BY study_id
+        """).fetchall() == [(24, 97, "person", "overlap_hold"), (12, 64, "person", "overlap_hold")]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='record:legacy:data/chamber/v1.5/references.csv#mahon2014:200'
+              AND right_report='nlm:22330650RX7:bachrach'
+        """).fetchone() == ("likely_overlap",)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_record
+            WHERE report_id='record:legacy:data/chamber/v1.5/references.csv#mahon2014:200'
+        """).fetchone() == (4,)
+        assert not db.execute("""
+            SELECT 1 FROM publication_observation
+            WHERE source_id IN ('bachrach44_b17_questionnaire','tobias51_wartime_flight_surveys')
+        """).fetchall()
+        assert db.execute("""
+            SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
+        """).fetchone() == (41, 124, 885)
+
+
 def test_royal_navy_hast_cross_tab_reconciles_existing_course_margins(release):
     with connect_pair(release) as db:
         assert db.execute("""
