@@ -1,0 +1,286 @@
+[
+  {
+    "id": "2026-11-21-nasa-ea6-vge-panels-tavily",
+    "date": "2026-11-21",
+    "provider": "Tavily",
+    "operation": "supplementary_search_and_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_request_id": "3d08fe92-1c5e-4df9-b231-8c3aef5659cc",
+      "extract_request_id": "58335310-6866-4aed-8f41-a8b1c5e89ee9",
+      "query": "EA6 author outcomes exact table descriptions, ten days, actual exposure denominator, type I case onset and treatment, acclimation, date and cadence witnesses, Doppler and ultrasound findings and physiologic context.",
+      "urls": [
+        "https://ntrs.nasa.gov/api/citations/20260003261/downloads/2026_05_18_AsMA_Garbino_EA_v2.pdf",
+        "https://aerospace.org/node/52618/printable/print",
+        "https://openurl.ebsco.com/contentitem/gcd:197020805?id=ebsco%3Agcd%3A197020805&crl=c&jrnl=23756314"
+      ]
+    },
+    "note": "Recovered the clinical deck, public index of the AsMA abstract and the institutional account. The abstract and institutional article do not resolve the exposure count disagreement.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-ea6-vge-panels-firecrawl",
+    "date": "2026-11-21",
+    "provider": "Firecrawl",
+    "operation": "supplementary_search_and_full_text",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "search_id": "01a20152-01ce-709b-8546-78827662e431",
+      "catalog_scrape_id": "01a20155-40e1-7277-9715-6c875f3cf44b",
+      "aerospace_scrape_id": "01a20156-10ec-76cb-adc0-c655d7cc23ea",
+      "urls": [
+        "https://ntrs.nasa.gov/citations/20260003261",
+        "https://aerospace.org/node/52618/printable/print"
+      ]
+    },
+    "note": "The NTRS catalog lists only the presentation PDF. The Aerospace article documents one EA6 crew schedule without a separate clinical denominator.",
+    "records": []
+  },
+  {
+    "id": "2026-11-21-nasa-ea6-vge-panels-verified",
+    "date": "2026-11-21",
+    "provider": "NASA and publisher originals",
+    "operation": "supplementary_plot_and_cohort_verification",
+    "status": "observed",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false
+    },
+    "note": "Compared the NASA slides to the version of record and institutional account, and read the raw maximum-grade panels on their original scales.",
+    "records": [
+      {
+        "id": "ea6-max-grade-panels",
+        "title": "NASA Exploration Atmosphere Test 6: Back to Back EVAs",
+        "year": 2026,
+        "identifier": "NTRS:20260003261",
+        "url": "https://ntrs.nasa.gov/api/citations/20260003261/downloads/2026_05_18_AsMA_Garbino_EA_v2.pdf",
+        "locator": "Slide 14; detailed Doppler slides 41–45 and ultrasound slides 47–51",
+        "pdf_sha256": "9f9a88f8a91efdd80c456236a0c7739541812b6d16ec3b4dd1e12f8bec698d45",
+        "full_text_available": true,
+        "linked_model_source_id": "garbino_ea6",
+        "grade_method": "Each value is the highest discrete grade visible in the source panel titled Max Grade Given, read on the native scale. The panel covers the source Pre-to-Post plotting window. The values describe sessions and do not enumerate the number or clinical status of monitored people. Participant coverage within the panels and the pre/post procedure times are unreported. Average curves and error bars were not used.",
+        "session_grade_maxima": [
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-3",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 41, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-4",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 42, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-5",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 43, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-6",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 4,
+            "locator": "Slide 44, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-7",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 4,
+            "locator": "Slide 45, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-14",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 1,
+            "locator": "Slide 41, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-15",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 42, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-16",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 43, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-17",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 44, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-18",
+            "clinical_endpoint": "dcs",
+            "modality": "doppler",
+            "grading_scale": "Spencer",
+            "highest_plotted_grade": 2,
+            "locator": "Slide 45, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-3",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 6,
+            "locator": "Slide 47, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-4",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 5,
+            "locator": "Slide 48, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-5",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 4,
+            "locator": "Slide 49, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-6",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 6,
+            "locator": "Slide 50, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-7",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 6,
+            "locator": "Slide 51, week 1, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-14",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 4,
+            "locator": "Slide 47, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-15",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 48, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-16",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 49, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-17",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 2,
+            "locator": "Slide 50, week 2, Max Grade Given"
+          },
+          {
+            "source_id": "garbino_ea6",
+            "stratum": "day-18",
+            "clinical_endpoint": "dcs",
+            "modality": "cardiac_ultrasonography",
+            "grading_scale": "Modified Eftedal–Brubakk",
+            "highest_plotted_grade": 3,
+            "locator": "Slide 51, week 2, Max Grade Given"
+          }
+        ],
+        "exposure_count_context": {
+          "campaign_summary_exposures": 62,
+          "sum_of_printed_daily_exposures": 61,
+          "day_15_printed_exposures": 6,
+          "day_15_cumulative_start": 39,
+          "day_15_cumulative_end": 46,
+          "reconciled_person_exposure_denominator": null
+        },
+        "note": "The source day table links the first week panels to days 3–7 and the second week panels to days 14–18. VGE grades have no person-level linkage to the existing DCS records."
+      },
+      {
+        "id": "ea6-asma-version-of-record",
+        "title": "The impact of back-to-back extravehicular activity on decompression sickness risk: The NASA Exploration Atmosphere Test 6",
+        "year": 2026,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/97/9/article-p1.pdf#page=22",
+        "locator": "Aerosp Med Hum Perform. 97(9):682, abstract 18, PDF p. 22",
+        "pdf_sha256": "e2acd289bc4d6e09070a9de2563adce4906cc671b73514ac505fc083bf954a4f",
+        "access": "primary_abstract",
+        "note": "The version of record describes two cohorts of eight, five scheduled daily EVAs per cohort and VGE during every EVA. Its three clinical events are already counted once in the NASA source. It gives no exact outcome-evaluable person-exposure denominator."
+      },
+      {
+        "id": "ea6-aerospace-participant-account",
+        "title": "Lunar Legwork: Aerospace Research Contributions Will Inform Future Artemis Moonwalks",
+        "year": 2026,
+        "author": "The Aerospace Corporation",
+        "url": "https://aerospace.org/node/52618/printable/print",
+        "locator": "February 25, 2026, EA6 participant account",
+        "access": "full_text",
+        "source_scope": {
+          "described_chamber_stay_days": 7,
+          "described_simulated_eva_days": 5,
+          "stated_eva_duration_hours": 6,
+          "exercise_stations": 8
+        },
+        "note": "Institutional description of one participant’s week in the already indexed EA6 campaign. It records continuous daily scheduling, tasks and monitoring. It provides no additional clinical event or exposure denominator."
+      }
+    ]
+  }
+]
