@@ -9,6 +9,49 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_fraser_dated_scores_link_to_existing_runs_and_keep_source_gaps(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,sum(reported_runs),sum(dated_rows),sum(readable_scores)
+            FROM publication_fraser_ascent_score_coverage GROUP BY stratum ORDER BY stratum
+        """).fetchall() == [
+            ("table_i_10000_ft", 59, 58, 58), ("table_i_20000_ft", 59, 59, 58),
+            ("table_i_control", 69, 68, 67), ("table_ii_27500_ft", 100, 100, 97),
+            ("table_ii_control", 73, 73, 73),
+        ]
+        assert db.execute("""
+            SELECT stratum,subject_number,reported_runs,dated_rows
+            FROM publication_fraser_ascent_score_coverage WHERE dated_rows!=reported_runs
+            ORDER BY stratum,subject_number
+        """).fetchall() == [("table_i_10000_ft", 16, 3, 2), ("table_i_control", 19, 4, 3)]
+        assert db.execute("""
+            SELECT stratum,subject_number,printed_row_number,ambiguous_score_reading
+            FROM publication_fraser_ascent_run_score WHERE symptom_score IS NULL
+            ORDER BY pdf_page,subject_number
+        """).fetchall() == [
+            ("table_i_control", 12, 4, "3?3"), ("table_i_20000_ft", 20, 1, "44?"),
+            ("table_ii_27500_ft", 24, 1, "6?"), ("table_ii_27500_ft", 27, 5, "?0"),
+            ("table_ii_27500_ft", 32, 1, "4?7"),
+        ]
+        assert db.execute("""
+            SELECT stratum,date_as_printed,symptom_score
+            FROM publication_fraser_ascent_run_score
+            WHERE subject_number=18 AND date_as_printed='16/11' AND date_note LIKE '%linkage unresolved%'
+            ORDER BY stratum
+        """).fetchall() == [("table_i_10000_ft", "16/11", 0), ("table_i_control", "16/11", 0)]
+        assert db.execute("""
+            SELECT date_as_printed FROM publication_fraser_ascent_run_score
+            WHERE stratum='table_i_10000_ft' AND subject_number=7 AND printed_row_number=1
+        """).fetchone() == ("30-7",)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE run_id LIKE '2026-11-22-fraser-dated-scores-%'
+        """).fetchall() == [("openalex:W316955509",)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE run_id LIKE '2026-11-22-fraser-dated-scores-%'
+        """).fetchone() == (0,)
+
+
 def test_berkeley_arm_groups_keep_the_two_reported_scopes_and_no_inferred_counts(release):
     with connect_pair(release) as db:
         assert db.execute("""
