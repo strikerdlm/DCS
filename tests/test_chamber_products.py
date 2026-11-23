@@ -10614,7 +10614,15 @@ def test_mackenzie_primary_flights_reconcile_compilation_and_repeated_participan
         assert db.execute("""
             SELECT count(*),sum(flight_3_outcome IS NULL),sum(flight_3_outcome='chokes_4')
             FROM publication_mackenzie_susceptibility WHERE source_id=?
-        """, (source,)).fetchone() == (18, 2, 1)
+        """, (source,)).fetchone() == (18, 3, 1)
+        for flight, grade_2, descent, printed in [
+            (1, 2, 6, 18), (3, 2, 7, 15), (4, 1, 5, 14), (6, 2, 3, 14), (9, 1, 5, 18),
+        ]:
+            outcome = f"flight_{flight}_outcome"
+            assert db.execute(f"""
+                SELECT sum({outcome}='2'),sum({outcome} IN ('3','chokes_3','chokes_4')),count({outcome})
+                FROM publication_mackenzie_susceptibility WHERE source_id=?
+            """, (source,)).fetchone() == (grade_2, descent, printed)
         assert db.execute("""
             SELECT initial_symptomatic_flights,count(*),sum(later_symptomatic_flights),sum(later_flights)
             FROM publication_mackenzie_later_flights WHERE source_id=?
