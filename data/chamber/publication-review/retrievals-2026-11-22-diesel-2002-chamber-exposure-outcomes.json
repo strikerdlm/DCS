@@ -1,0 +1,162 @@
+[
+  {
+    "id": "2026-11-22-diesel-2002-chamber-exposure-outcomes-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily, Firecrawl and EBSCO-UNAL",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "3751cb7f-bcc0-4fe1-a319-b99f203f7e1f",
+          "topic": "Non-invasive measurement of pulmonary artery pressure in humans with simulated altitude-induced venous gas emboli"
+        },
+        {
+          "provider": "Firecrawl",
+          "request_id": "01a20686-b9eb-76cf-9837-cfdd2882ec21",
+          "topic": "Diesel, Ryles, Pilmanis and Balldin chamber report"
+        },
+        {
+          "provider": "Firecrawl",
+          "request_id": "01a20686-b97a-725f-8c00-e4d94da1047f",
+          "topic": "PMID 11846181 and journal PDF"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a20684-fbc8-714b-8855-15b128a0c53f",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf",
+          "status": "article data unavailable"
+        },
+        {
+          "provider": "EBSCO-UNAL",
+          "query": "\"Pulmonary Artery Pressure\" AND Diesel",
+          "status": "no matching full text was retrieved"
+        }
+      ]
+    },
+    "records": [],
+    "note": "The original journal PDF could not be retrieved directly or through the university search in this pass."
+  },
+  {
+    "id": "2026-11-22-diesel-2002-chamber-exposure-outcomes-verified",
+    "date": "2026-11-22",
+    "provider": "Tavily and PubMed",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "PubMed",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11846181/",
+          "topic": "Primary author abstract"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "a7d22316-ec3f-4be3-89a0-6f515d74b7a3",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf",
+          "topic": "Individual subject exposure results in Table I"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "aad87f6c-4180-4522-8513-fa92f384f33f",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf",
+          "topic": "Intermittent symptoms and stopping endpoints"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "9d6049f4-30e6-4494-9045-f361f75c5a2e",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf",
+          "topic": "Methods, planned duration and chamber setting"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "3c744b17-70c4-4a3f-99e8-a59d635e0206",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf",
+          "topic": "Results, case descriptions and maximum VGE"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "diesel-2002-table-i",
+        "title": "Non-invasive measurement of pulmonary artery pressure in humans with simulated altitude-induced venous gas emboli",
+        "year": 2002,
+        "pmid": "11846181",
+        "openalex_id": "W2419038647",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11846181/",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf",
+        "access": "primary_abstract",
+        "locator": "Abstract, Methods, Results and Table I, printed pp. 128–130",
+        "role_review": "overlap_hold",
+        "model_extraction": {
+          "source_id": "diesel02_pulmonary_pressure",
+          "input_release": "v1.256",
+          "exposure_rows": 8,
+          "exposure_input": "data/chamber/v1.256/exposures.csv",
+          "access_note": "The primary author abstract corroborates three DCS-related terminations and eight grade III–IV VGE observations. The publisher's indexed article excerpts provide the individual rows and the stopping criteria. The complete journal PDF and page images were unavailable in this pass.",
+          "overlap_note": "Diesel studied selected volunteers at AFRL, Brooks AFB. Balldin and colleagues report a broader archive from the same laboratory. Exposure dates and archive crosswalk are unavailable for the eight rows. Independence remains unresolved."
+        },
+        "observations": [
+          {
+            "id": "dcs_related_early_termination_as_reported",
+            "group": "selected-chamber-volunteers",
+            "endpoint": "dcs_related_early_termination_as_reported",
+            "cases": 3,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Abstract, Methods and Results, printed pp. 129–130",
+            "note": "Aggregate endpoint as stated by the authors. Individual termination flags were not transcribed.",
+            "protocol": "Selected male nonsmokers with subclinical tricuspid regurgitation at AFRL, Brooks AFB. The planned exposure was 24,000 ft for 4 h. Investigators adjusted altitude and activity in response to VGE. Individual pressure and gas histories are unavailable.",
+            "outcome_window": "During the reported chamber exposure. Uniform delayed clinical surveillance is unavailable."
+          },
+          {
+            "id": "any_dcs_symptom_listed_in_table_i",
+            "group": "selected-chamber-volunteers",
+            "endpoint": "any_dcs_symptom_listed_in_table_i",
+            "cases": 4,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 130",
+            "note": "Counted directly from Table I. Includes the intermittent wrist/shoulder pain row.",
+            "protocol": "Selected male nonsmokers with subclinical tricuspid regurgitation at AFRL, Brooks AFB. The planned exposure was 24,000 ft for 4 h. Investigators adjusted altitude and activity in response to VGE. Individual pressure and gas histories are unavailable.",
+            "outcome_window": "During the reported chamber exposure. Uniform delayed clinical surveillance is unavailable."
+          },
+          {
+            "id": "maximum_spencer_vge_grade_iii_or_iv",
+            "group": "selected-chamber-volunteers",
+            "endpoint": "maximum_spencer_vge_grade_iii_or_iv",
+            "cases": 8,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Abstract and Table I, printed p. 130",
+            "note": "The author abstract states all eight reached grade III or IV on the Spencer scale.",
+            "protocol": "Selected male nonsmokers with subclinical tricuspid regurgitation at AFRL, Brooks AFB. The planned exposure was 24,000 ft for 4 h. Investigators adjusted altitude and activity in response to VGE. Individual pressure and gas histories are unavailable.",
+            "outcome_window": "During the reported chamber exposure. Uniform delayed clinical surveillance is unavailable."
+          },
+          {
+            "id": "maximum_spencer_vge_grade_iv",
+            "group": "selected-chamber-volunteers",
+            "endpoint": "maximum_spencer_vge_grade_iv",
+            "cases": 6,
+            "denominator": 8,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Table I, printed p. 130",
+            "note": "Counted directly from Table I. Grade IV is nested within the grade III–IV observation.",
+            "protocol": "Selected male nonsmokers with subclinical tricuspid regurgitation at AFRL, Brooks AFB. The planned exposure was 24,000 ft for 4 h. Investigators adjusted altitude and activity in response to VGE. Individual pressure and gas histories are unavailable.",
+            "outcome_window": "During the reported chamber exposure. Uniform delayed clinical surveillance is unavailable."
+          }
+        ]
+      }
+    ],
+    "note": "All four margins come from the same selected cohort. Individual rows contain maximum VGE grades after decompression. The exposure altitude column is the final altitude."
+  }
+]

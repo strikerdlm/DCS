@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.256
+
+Diesel and colleagues provide eight chamber exposures in participants selected for subclinical tricuspid regurgitation. Table I gives observed exposure duration, final altitude, maximum Spencer VGE grade and symptoms for each participant. Three of eight exposures ended early because of DCS. Four Table I rows record symptoms, including one with intermittent pain. All eight reached grade III or IV VGE and six reached grade IV. [Diesel et al., Table I, p. 130](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf) · [PubMed abstract](https://pubmed.ncbi.nlm.nih.gov/11846181/)
+
+Investigators adjusted altitude and activity in response to observed VGE. Table I gives the altitude at the end of each exposure. Individual pressure and gas histories, uniform delayed follow-up and links to the broader AFRL archive remain unavailable. The eight rows and their aggregate outcomes share one citation and remain on hold for overlap. [Versioned extraction](../data/chamber/v1.256)
+
 ## Release 1.255
 
 Balldin and colleagues' Table I provides paired pulmonary-symptom and ultrasound onset times for 29 case exposures among 27 people. These exposures are already represented by the paper's aggregate observations. The new extraction gives 29 pulmonary onset times, 27 VGE onset times and 21 severe-VGE onset times. In one row pulmonary symptoms precede the first recorded VGE. Table I lacks participant and protocol identifiers, and dashes remain missing values. [Balldin et al., Table I](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/10/article-p996.pdf#page=3) · [NASA reprint catalogue](https://ntrs.nasa.gov/citations/20040088016)

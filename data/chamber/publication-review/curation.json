@@ -21635,6 +21635,18 @@
     "report_id": "openalex:W118934012",
     "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
     "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.256/sources.csv#diesel02_pulmonary_pressure",
+    "report_id": "pmid:11846181",
+    "basis": "Matched Diesel, Ryles, Pilmanis and Balldin by title, journal and pages to PMID 11846181.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11846181/"
+  },
+  {
+    "record_key": "2026-11-22-diesel-2002-chamber-exposure-outcomes-verified#diesel-2002-table-i",
+    "report_id": "pmid:11846181",
+    "basis": "Matched Diesel, Ryles, Pilmanis and Balldin by title, journal and pages to PMID 11846181.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/11846181/"
   }
   ],
   "studies": [
@@ -33931,6 +33943,13 @@
     "relationship": "same_cohort",
     "evidence": "The original conference survey and Fryer 1969 chapter 6 give 2,606 people, 4,956 person-exposures, 141 symptomatic people and 165 symptomatic exposures. Their six age count pairs also agree. The conference retest and later paired-analysis margins use source-specific subsets.",
     "evidence_url": "https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=291"
+  },
+  {
+    "left_report": "pmid:11846181",
+    "right_report": "openalex:W118934012",
+    "relationship": "unresolved",
+    "evidence": "Diesel studied selected volunteers at AFRL, Brooks AFB. Balldin and colleagues report a broader archive from the same laboratory. Exposure dates and archive crosswalk are unavailable for the eight rows. Independence remains unresolved.",
+    "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf"
   }
   ],
   "report_titles": {
