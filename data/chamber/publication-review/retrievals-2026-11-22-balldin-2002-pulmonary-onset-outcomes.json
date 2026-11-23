@@ -1,0 +1,223 @@
+[
+  {
+    "id": "2026-11-22-balldin-2002-pulmonary-onset-outcomes-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "6da3ef66-0540-426a-bf9b-7a89aaf0199c",
+          "topic": "Older chamber studies with outcome tables"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "d398c434-71ec-4df2-9f96-59177fcddb5b",
+          "topic": "NASA catalogue record, outcome scope and journal reprint identity"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a2067b-0180-767b-b99f-f3b45d61f8d1",
+          "topic": "Publisher Table I access; requested data did not render"
+        }
+      ]
+    },
+    "records": [],
+    "note": "The NTRS record identifies the primary reprint. The live publisher response did not return the PDF during this pass, so the checked frozen journal copy supplied the table."
+  },
+  {
+    "id": "2026-11-22-balldin-2002-pulmonary-onset-outcomes-verified",
+    "date": "2026-11-22",
+    "provider": "Direct verification against the frozen journal PDF",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/10/article-p996.pdf",
+          "pages": [
+            2,
+            3
+          ],
+          "source_sha256": "233742313272d0a4881f8d0aaaa84c361798d2fbe4b66ad83597f45c97fc29dc",
+          "archive_catalogue": "https://ntrs.nasa.gov/citations/20040088016"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "balldin-2002-table-i",
+        "title": "Pulmonary decompression sickness at altitude: early symptoms and circulating gas emboli",
+        "year": 2002,
+        "pmid": "12398262",
+        "openalex_id": "W118934012",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/10/article-p996.pdf#page=3",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/10/article-p996.pdf#page=3",
+        "source_sha256": "233742313272d0a4881f8d0aaaa84c361798d2fbe4b66ad83597f45c97fc29dc",
+        "access": "full_text",
+        "locator": "Results and Table I, printed pp. 997–998 (PDF pp. 2–3)",
+        "role_review": "overlap_hold",
+        "model_extraction": {
+          "source_id": "balldin02",
+          "input_release": "v1.255",
+          "number_of_cases_represented": 29,
+          "unique_affected_people_reported": 27,
+          "onset_rows": 29,
+          "vge_onsets": 27,
+          "severe_vge_onsets": 21,
+          "model_onset_input": "data/chamber/v1.255/onsets.csv",
+          "timing_origin_note": "Table I reports minutes and does not specify the time origin or link rows to individual people or protocols. A dash is preserved as null.",
+          "margins": [
+            {
+              "cases": 1030,
+              "exposures": 2525,
+              "locator": "Abstract and Methods pp. 996–997"
+            },
+            {
+              "cases": 1033,
+              "exposures": 2584,
+              "locator": "Discussion p. 998"
+            }
+          ],
+          "treatment_groups": [
+            {
+              "number_of_pulmonary_symptoms": 1,
+              "exposures": 17,
+              "ground_recompression_resolution": 10,
+              "hyperbaric_oxygen_resolution": 7,
+              "locator": "Treatment results, printed p. 998 (PDF p. 3)"
+            },
+            {
+              "number_of_pulmonary_symptoms": 2,
+              "exposures": 9,
+              "ground_recompression_resolution": 3,
+              "hyperbaric_oxygen_resolution": 6,
+              "locator": "Treatment results, printed p. 998 (PDF p. 3)"
+            },
+            {
+              "number_of_pulmonary_symptoms": 3,
+              "exposures": 3,
+              "ground_recompression_resolution": 2,
+              "hyperbaric_oxygen_resolution": 1,
+              "locator": "Treatment results, printed p. 998 (PDF p. 3)"
+            }
+          ],
+          "treatment_scope_note": "Pathways as reported for the symptom-count groups. Individual assignment and comparative effects are unavailable."
+        },
+        "observations": [
+          {
+            "id": "single-pulmonary-symptom-cough_only_as_reported",
+            "group": "single-pulmonary-symptom",
+            "endpoint": "cough_only_as_reported",
+            "cases": 4,
+            "denominator": 17,
+            "denominator_unit": "pulmonary_dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 997 (PDF p. 2)",
+            "note": "Reported within symptom-positive exposures. Exact matching between this subtype and individual rows of Table I is unavailable.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          },
+          {
+            "id": "single-pulmonary-symptom-dyspnea_only_as_reported",
+            "group": "single-pulmonary-symptom",
+            "endpoint": "dyspnea_only_as_reported",
+            "cases": 4,
+            "denominator": 17,
+            "denominator_unit": "pulmonary_dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 997 (PDF p. 2)",
+            "note": "Reported within symptom-positive exposures. Exact matching between this subtype and individual rows of Table I is unavailable.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          },
+          {
+            "id": "single-pulmonary-symptom-substernal_distress_only_as_reported",
+            "group": "single-pulmonary-symptom",
+            "endpoint": "substernal_distress_only_as_reported",
+            "cases": 9,
+            "denominator": 17,
+            "denominator_unit": "pulmonary_dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 997 (PDF p. 2)",
+            "note": "Reported within symptom-positive exposures. Exact matching between this subtype and individual rows of Table I is unavailable.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          },
+          {
+            "id": "two-pulmonary-symptoms-cough_and_dyspnea_as_reported",
+            "group": "two-pulmonary-symptoms",
+            "endpoint": "cough_and_dyspnea_as_reported",
+            "cases": 4,
+            "denominator": 9,
+            "denominator_unit": "pulmonary_dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 997 (PDF p. 2)",
+            "note": "Reported within symptom-positive exposures. Exact matching between this subtype and individual rows of Table I is unavailable.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          },
+          {
+            "id": "two-pulmonary-symptoms-dyspnea_and_substernal_distress_as_reported",
+            "group": "two-pulmonary-symptoms",
+            "endpoint": "dyspnea_and_substernal_distress_as_reported",
+            "cases": 4,
+            "denominator": 9,
+            "denominator_unit": "pulmonary_dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 997 (PDF p. 2)",
+            "note": "Reported within symptom-positive exposures. Exact matching between this subtype and individual rows of Table I is unavailable.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          },
+          {
+            "id": "two-pulmonary-symptoms-cough_and_substernal_distress_as_reported",
+            "group": "two-pulmonary-symptoms",
+            "endpoint": "cough_and_substernal_distress_as_reported",
+            "cases": 1,
+            "denominator": 9,
+            "denominator_unit": "pulmonary_dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 997 (PDF p. 2)",
+            "note": "Reported within symptom-positive exposures. Exact matching between this subtype and individual rows of Table I is unavailable.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          },
+          {
+            "id": "pulmonary-dcs-other_dcs_symptoms_simultaneous_as_reported",
+            "group": "pulmonary-dcs",
+            "endpoint": "other_dcs_symptoms_simultaneous_as_reported",
+            "cases": 15,
+            "denominator": 29,
+            "denominator_unit": "pulmonary_dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 998 (PDF p. 3)",
+            "note": "Reported within symptom-positive exposures. Exact matching between this subtype and individual rows of Table I is unavailable.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          },
+          {
+            "id": "archive-total-in-discussion-dcs_symptoms",
+            "group": "archive-total-in-discussion",
+            "endpoint": "dcs_symptoms",
+            "cases": 1033,
+            "denominator": 2584,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "denominator_conflict",
+            "locator": "Discussion, printed p. 998 (PDF p. 3)",
+            "note": "The Discussion reports 1,033 exposures with DCS symptoms and an archive of 2,584 exposures. Abstract and Methods give 1,030/2,525. The publication does not explain the difference in scope.",
+            "protocol": "AFRL altitude chamber archive covering 22 varied protocols. Exact protocol, pressure and oxygen histories are unavailable for individual rows.",
+            "outcome_window": "During the chamber exposure and immediate clinical assessment. Uniform delayed surveillance was not reported."
+          }
+        ]
+      }
+    ],
+    "note": "The 29 onset rows describe the same group as the existing Balldin pulmonary margin. No independent exposures or model fitting records are added."
+  }
+]

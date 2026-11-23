@@ -4874,7 +4874,7 @@
     },
     {
       "record_key": "2026-11-20-formal-chamber-ntrs-disease#20040088016",
-      "report_id": "pmid:12398262",
+      "report_id": "openalex:W118934012",
       "evidence_url": "https://ntrs.nasa.gov/citations/20040088016",
       "basis": "NASA identifies its record as the journal reprint by Balldin, Pilmanis and Webb, 73(10), 2002."
     },
@@ -4904,7 +4904,7 @@
     },
     {
       "record_key": "2026-11-21-historical-flight-case-sources-chamber#result-7",
-      "report_id": "pmid:12398262",
+      "report_id": "openalex:W118934012",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/",
       "basis": "The matched title and source locator identify an existing report or its catalog entry."
     },
@@ -21539,6 +21539,102 @@
     "report_id": "record:legacy:data/chamber/v1.12/sources.csv#fryer65_selection",
     "basis": "Identical Fryer byline, survey title, AGARD CP-2 meeting and starting page established by the original proceedings.",
     "evidence_url": "https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=290"
+  },
+  {
+    "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12398262",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "2026-11-20-formal-chamber-openalex#W118934012",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "2026-11-20-formal-chamber-pubmed#12398262",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_harding:2",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.15/search_hits.csv#historic_v15_harding:3",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.21/search_hits.csv#prog_v21_pulm:2",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.21/search_hits.csv#prog_v21_pulm:3",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.32/search_hits.csv#nasa_strata_v32_miv:5",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.7/search_hits.csv#polesp:2",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.7/search_hits.csv#public_regional:19",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.7/search_hits.csv#source_validation:5",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.7/search_hits.csv#tavily_general:2",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.7/search_hits.csv#tex17:1",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.7/sources.csv#balldin02",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "2026-11-20-canada-glass-fire#https://pubmed.ncbi.nlm.nih.gov/12398262/",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
+  },
+  {
+    "record_key": "2026-11-22-balldin-2002-pulmonary-onset-outcomes-verified#balldin-2002-table-i",
+    "report_id": "openalex:W118934012",
+    "basis": "The matching Balldin, Pilmanis and Webb article shares the title, author list, volume and pages with PMID 12398262 and NTRS journal reprint 20040088016.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/12398262/"
   }
   ],
   "studies": [

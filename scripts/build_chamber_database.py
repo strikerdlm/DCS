@@ -319,6 +319,7 @@ KUMAR_THRESHOLD_COMPILATION = ROOT / "data" / "chamber" / "v1.251"
 MACKENZIE_RIESEN_PRIMARY = ROOT / "data" / "chamber" / "v1.252"
 HISTORICAL_USAF_ALTITUDE_OUTCOMES = ROOT / "data" / "chamber" / "v1.253"
 FRYER_RAF_CONFERENCE = ROOT / "data" / "chamber" / "v1.254"
+BALLDIN_PULMONARY_ONSETS = ROOT / "data" / "chamber" / "v1.255"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3312,6 +3313,15 @@ def build(
                         "publication_reported_rate": "reported_rates.csv",
                         "publication_fryer_retest_group": "retest_groups.csv",
                         "publication_fryer_chamber_cluster": "chamber_clusters.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    BALLDIN_PULMONARY_ONSETS,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_balldin_pulmonary_onset": "onsets.csv",
+                        "publication_balldin_pulmonary_treatment": "treatment_counts.csv",
                     },
                 )
                 load_register(db, ROOT)

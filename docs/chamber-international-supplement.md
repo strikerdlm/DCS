@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.255
+
+Balldin and colleagues' Table I provides paired pulmonary-symptom and ultrasound onset times for 29 case exposures among 27 people. These exposures are already represented by the paper's aggregate observations. The new extraction gives 29 pulmonary onset times, 27 VGE onset times and 21 severe-VGE onset times. In one row pulmonary symptoms precede the first recorded VGE. Table I lacks participant and protocol identifiers, and dashes remain missing values. [Balldin et al., Table I](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/10/article-p996.pdf#page=3) · [NASA reprint catalogue](https://ntrs.nasa.gov/citations/20040088016)
+
+The database also records the reported symptom combinations and treatment results by symptom count. The paper does not identify which Table I rows received each treatment. The Abstract and Methods give 1,030 symptomatic exposures among 2,525. The Discussion gives 1,033 among 2,584. Both margins are retained because the paper does not explain the difference. The journal and NASA reprint records now point to the same publication. [Versioned extraction](../data/chamber/v1.255)
+
 ## Release 1.254
 
 NATO's proceedings contain Fryer's original 28,000-ft RAF selection survey. Its 2,606 people, 4,956 chamber exposures and six age-group count pairs already appear in the database through Fryer's later monograph. The new extraction adds weight-group counts and symptom details, including bends in 147 of 165 symptomatic runs. The proceedings report 45 retrospective selection failures and a rate of 1.65%. That percentage does not match 45 divided by the 2,606 people described in the same section, so the failure denominator remains unresolved. [Fryer, Results](https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=293) · [Tables I–IV](https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=299)
