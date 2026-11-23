@@ -1,0 +1,306 @@
+[
+  {
+    "id": "2026-11-23-missing-chamber-full-text-ebsco",
+    "date": "2026-11-23",
+    "provider": "UNAL library / EBSCO Discovery Service",
+    "operation": "institutional_access_attempt",
+    "status": "access_blocked",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "targets": [
+        "3167655",
+        "9810543",
+        "2285404",
+        "1164359",
+        "1996934"
+      ],
+      "submitted_signin_attempts": 1,
+      "queries_executed": 0
+    },
+    "note": "After one sign-in submission, the browser remained on the authorized UNAL proxy login host. No visible error text or discovery search results were returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-23-missing-chamber-full-text-consensus",
+    "date": "2026-11-23",
+    "provider": "Consensus",
+    "operation": "exact_citation_search",
+    "status": "no_exact_match_surfaced",
+    "reported_total": 20,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Find the exact 1988 original article Wen TS, Ho BL, Liu CM, A twenty-seven year survey of hypobaric chamber physiological reactions of the Chinese Air Force, Chinese Medical Journal (Taipei) 41(2):103-108, PMID 3167655. Is the original full text available? Give exact archival links only for this record.",
+      "reported_returned": 20,
+      "surfaced_records": [
+        {
+          "id": "w:d0537456-c887-40e5-8897-c0c7f67ae74b",
+          "title": "Oxygen Saturation Curve Analysis in 2298 Hypoxia Awareness Training Tests of Military Aircrew Members in a Hypobaric Chamber",
+          "url": "https://consensus.app/papers/details/w:d0537456-c887-40e5-8897-c0c7f67ae74b/?utm_source=chatgpt"
+        },
+        {
+          "id": "w:c024ae85-f5e7-408c-b702-b3d0dedd51aa",
+          "title": "The malleability of air travelers hypobaric hypoxia symptoms observed among repeated exposures: systematic review",
+          "url": "https://consensus.app/papers/details/w:c024ae85-f5e7-408c-b702-b3d0dedd51aa/?utm_source=chatgpt"
+        },
+        {
+          "id": "w:79f1d1ce-2264-45d0-91f4-ce05e6ae4a73",
+          "title": "Oxidative stress response to simulated altitude training: a longitudinal study of the biomarker variation and the contributing factors",
+          "url": "https://consensus.app/papers/details/w:79f1d1ce-2264-45d0-91f4-ce05e6ae4a73/?utm_source=chatgpt"
+        }
+      ]
+    },
+    "note": "Three paper details were surfaced. None matched the target Wen 1988 citation. Other ranked results were not visible in the connector response.",
+    "records": []
+  },
+  {
+    "id": "2026-11-23-missing-chamber-full-text-openalex",
+    "date": "2026-11-23",
+    "provider": "OpenAlex local CLI",
+    "operation": "exact_citation_search",
+    "status": "citation_only",
+    "reported_total": 28,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "A twenty-seven year survey of hypobaric chamber physiological reactions of the Chinese Air Force",
+      "requested": 10,
+      "matching_result_rank": 1
+    },
+    "note": "The exact Wen 1988 work is indexed. The work record supplies no author abstract, content PDF or TEI XML.",
+    "records": [
+      {
+        "id": "W2403331972",
+        "title": "[A twenty-seven year survey of hypobaric chamber physiological reactions of the Chinese Air Force].",
+        "pmid": "3167655",
+        "year": 1988,
+        "openalex_id": "W2403331972",
+        "url": "https://openalex.org/W2403331972",
+        "access": "bibliographic_only",
+        "full_text_available": false,
+        "locator": "Chinese Medical Journal (Taipei) 41(2):103–108"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-23-missing-chamber-full-text-scite",
+    "date": "2026-11-23",
+    "provider": "Scite",
+    "operation": "reference_and_availability_check",
+    "status": "unavailable_quota",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "targets": [
+        "3167655",
+        "9810543",
+        "2285404",
+        "1164359",
+        "1996934"
+      ],
+      "hosted_connector": "invalid_argument",
+      "native_connector": "monthly_usage_limit_reached"
+    },
+    "note": "The hosted connector rejected the request. The native tool reported that the account's monthly allowance had been reached. No exact citations or availability results were returned.",
+    "records": []
+  },
+  {
+    "id": "2026-11-23-missing-chamber-full-text-tavily",
+    "date": "2026-11-23",
+    "provider": "Tavily",
+    "operation": "public_full_text_search",
+    "status": "citation_only",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Enfermedad descompresiva en medio hipobárico Ríos Tejada 359 1998 full text pdf",
+      "request_id": "74de31ca-ab9a-4cea-95cf-8db003188043",
+      "returned": [
+        {
+          "id": "ef7f2c-00",
+          "title": "FRANCISCO RÍOS TEJADA - Universidad Complutense de Madrid",
+          "url": "https://produccioncientifica.ucm.es/investigadores/188373/publicaciones"
+        },
+        {
+          "id": "99ff9f-01",
+          "title": "Enfermedad Descompresiva en medio hiperbarico",
+          "url": "https://tecvault.t101.ro/Enfermedad%20Descompresiva%20en%20medio%20hiperbarico.pdf"
+        },
+        {
+          "id": "ac851e-02",
+          "title": "accidentes de buceo: la enfermedad descompresiva como ...",
+          "url": "https://revistaemergencias.org/wp-content/uploads/2023/08/Emergencias-1993_5_3_98-104-104.pdf"
+        },
+        {
+          "id": "c296be-03",
+          "title": "Accidentes de buceo (y 3). Tratamiento de los trastornos disbáricos ...",
+          "url": "https://cccmh.com/BIB/Med-Clin-TADB.pdf"
+        },
+        {
+          "id": "0ce864-04",
+          "title": "Enfermedad por descompresión - Lesiones y envenenamientos - Manual Merck versión para profesionales",
+          "url": "https://www.merckmanuals.com/es-us/professional/lesiones-y-envenenamientos/lesiones-relacionadas-con-el-buceo-y-los-trabajos-con-aire-comprimido/enfermedad-por-descompresi%C3%B3n"
+        },
+        {
+          "id": "05f217-05",
+          "title": "ENFERMEDAD DESCOMPRESIVA: UNA “ INMERSIÓN “ POR LA NEUROIMAGEN",
+          "url": "https://piper.seram.es/piper/article/download/7424/3280"
+        },
+        {
+          "id": "b9fec0-06",
+          "title": "Enfermedad por descompresión - Traumatismos y envenenamientos - Manuale Merck versión para el público general",
+          "url": "https://www.merckmanuals.com/es-us/hogar/traumatismos-y-envenenamientos/lesiones-por-submarinismo-y-aire-comprimido/enfermedad-por-descompresi%C3%B3n"
+        },
+        {
+          "id": "bffaf0-07",
+          "title": "Enfermedad descompresiva y tratamiento ... - Medigraphic",
+          "url": "https://www.medigraphic.com/pdfs/invmed/cmq-2021/cmq211r.pdf"
+        },
+        {
+          "id": "1080bc-08",
+          "title": "Erupción cutánea como única manifestación de enfermedad descompresiva leve | Actas Dermo-Sifiliográficas",
+          "url": "https://www.actasdermo.org/es-erupcion-cutanea-como-unica-manifestacion-articulo-S0001731014005110"
+        },
+        {
+          "id": "29c337-09",
+          "title": "Lesiones por presión en el buceo | Cigna",
+          "url": "https://www.cigna.com/es-us/knowledge-center/hw/temas-de-salud/lesiones-por-presin-en-el-buceo-abo0894"
+        }
+      ]
+    },
+    "note": "The university author bibliography confirms the 1998 Spanish title. No ranked result supplied the original letter.",
+    "records": []
+  },
+  {
+    "id": "2026-11-23-missing-chamber-full-text-firecrawl",
+    "date": "2026-11-23",
+    "provider": "Firecrawl",
+    "operation": "public_journal_issue_and_article_lookup",
+    "status": "citation_only",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider_id": "01a208e6-bc5b-7636-ab43-fdec6c2b2686",
+          "url": "https://dialnet.unirioja.es/ejemplar/637393",
+          "operation": "locate matching article on issue contents"
+        },
+        {
+          "provider_id": "01a208e7-172d-7523-b32a-92af5a01c0b4",
+          "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=9067352",
+          "operation": "verify exact article metadata and access"
+        }
+      ]
+    },
+    "note": "Exact 1998 letter and page verified. Dialnet lists no substantive abstract, PDF or publisher full-text URL.",
+    "records": [
+      {
+        "id": "dialnet-9067352",
+        "title": "Enfermedad descompresiva en medio hipobárico",
+        "year": 1998,
+        "pmid": "9810543",
+        "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=9067352",
+        "access": "bibliographic_only",
+        "full_text_available": false,
+        "locator": "Medicina Clínica 111(9):359"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-23-missing-chamber-full-text-undermind",
+    "date": "2026-11-23",
+    "provider": "Undermind",
+    "operation": "reference_lookup_and_pdf_availability",
+    "status": "citations_only",
+    "reported_total": 5,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "targets": [
+        "3167655",
+        "9810543",
+        "2285404",
+        "1164359",
+        "1996934"
+      ],
+      "operations": [
+        "metadata lookup",
+        "PDF download link check"
+      ]
+    },
+    "note": "Five exact citations were identified and checked. The service provided no PDF link for any of them.",
+    "records": [
+      {
+        "id": "Wen88",
+        "title": "[A twenty-seven year survey of hypobaric chamber physiological reactions of the Chinese Air Force].",
+        "pmid": "3167655",
+        "year": 1988,
+        "url": "https://www.semanticscholar.org/paper/62de0acf06fe05c6f1b6feee87256773d86b3c74",
+        "access": "bibliographic_only",
+        "full_text_available": false
+      },
+      {
+        "id": "Tej98",
+        "title": "Enfermedad descompresiva en medio hipobárico",
+        "pmid": "9810543",
+        "year": 1998,
+        "url": "https://www.semanticscholar.org/paper/98d2e74fa8d05729b092a6ecf4eff882850454fe",
+        "access": "bibliographic_only",
+        "full_text_available": false
+      },
+      {
+        "id": "Rud90b",
+        "title": "Decompression sickness affecting the temporomandibular joint.",
+        "pmid": "2285404",
+        "year": 1990,
+        "url": "https://www.semanticscholar.org/paper/a5f78083da36c5ed26b12fdf0b0dfd5b2479c1f0",
+        "access": "bibliographic_only",
+        "full_text_available": false
+      },
+      {
+        "id": "Dul75",
+        "title": "Central nervous system involvement following type I aviator's bends complicated by complacency.",
+        "pmid": "1164359",
+        "year": 1975,
+        "url": "https://www.semanticscholar.org/paper/e15ee444949037a93dc89843162fda17f73ba89c",
+        "access": "bibliographic_only",
+        "full_text_available": false
+      },
+      {
+        "id": "Rud91b",
+        "title": "Decompression sickness presenting as a viral syndrome.",
+        "pmid": "1996934",
+        "year": 1991,
+        "url": "https://www.semanticscholar.org/paper/0d46e6b7a890efc719cee57bb560580966d4818d",
+        "access": "bibliographic_only",
+        "full_text_available": false
+      }
+    ]
+  },
+  {
+    "id": "2026-11-23-missing-chamber-full-text-publisher",
+    "date": "2026-11-23",
+    "provider": "AsMA journal publisher",
+    "operation": "public_pdf_url_attempt",
+    "status": "html_access_response",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requested": [
+        {
+          "pmid": "2285404",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf?download=1"
+        },
+        {
+          "pmid": "1164359",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf?download=1"
+        },
+        {
+          "pmid": "1996934",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf?download=1"
+        }
+      ]
+    },
+    "note": "All three direct routes returned HTML instead of source PDF bytes. These requests supplied no case pages.",
+    "records": []
+  }
+]
