@@ -4480,12 +4480,40 @@ def test_title_abstract_batch_records_one_decision_per_reviewer_and_report(relea
                     report["report_id"],
                 )
             assert db.execute("""
-                SELECT record_key, reviewer, decision FROM review.review_current_screening
-                WHERE report_id=? AND stage='title_abstract' ORDER BY reviewer
+                SELECT record_key, reviewer, decision FROM review.review_screening
+                JOIN review.review_record USING(record_key)
+                WHERE report_id=? AND stage='title_abstract' AND revision=1 ORDER BY reviewer
             """, (report["report_id"],)).fetchall() == [
                 (report["record_key"], label, report["decision"])
                 for label in batch["confirmation"]["reviewer_labels"]
             ]
+
+
+def test_approved_full_text_and_followup_title_abstract_batches(release):
+    with connect_pair(release) as db:
+        for suffix, expected_reports in [("05", 14), ("06", 50)]:
+            raw, = db.execute("""
+                SELECT content_json FROM review.review_workflow_document WHERE input_path LIKE ?
+            """, (f"%/screening-batch-{suffix}.json",)).fetchone()
+            batch = json.loads(raw)
+            assert len({r["report_id"] for r in batch["reports"]}) == expected_reports
+            for report in batch["reports"]:
+                assert db.execute("""
+                    SELECT report_id FROM review.review_record WHERE record_key=?
+                """, (report["record_key"],)).fetchone() == (report["report_id"],)
+                if report["stage"] == "retrieval_pending":
+                    assert report["decision"] is None
+                    continue
+                assert db.execute("""
+                    SELECT reviewer, decision FROM review.review_screening
+                    WHERE record_key=? AND stage=? AND revision=? ORDER BY reviewer
+                """, (report["record_key"], report["stage"], report.get("revision", 1))).fetchall() == [
+                    (label, report["decision"]) for label in batch["confirmation"]["reviewer_labels"]
+                ]
+        assert db.execute("""
+            SELECT DISTINCT s.revision, s.decision FROM review.review_current_screening s
+            WHERE s.report_id='doi:10.1109/cme55444.2022.10063319' AND s.stage='title_abstract'
+        """).fetchall() == [(2, "exclude")]
 
 
 def test_formal_search_flow_and_source_identities(release):
@@ -4522,6 +4550,13 @@ def test_formal_search_flow_and_source_identities(release):
             ("20281876", "doi:10.1001/jama.1947.02880060015004", 1, 3),
             ("25770794", "pmid:25770794", 1, 3),
         ]
+        for pmid in ("1252199", "9810543", "11385985", "11496423", "11816405", "13468202", "15460625", "26867422"):
+            assert db.execute("""
+                SELECT r.report_id, count(*)
+                FROM review.review_record r JOIN review.review_retrieval q USING(run_id)
+                WHERE json_extract(q.parameters_json, '$.counts_toward_formal_identification') = 1 AND r.pmid=?
+                GROUP BY r.report_id
+            """, (pmid,)).fetchall() == [(f"pmid:{pmid}", 3)]
         assert db.execute("""
             SELECT reported_total, retrieved FROM review.review_retrieval
             WHERE run_id='2026-11-20-formal-chamber-lilacs'

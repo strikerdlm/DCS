@@ -1,0 +1,290 @@
+{
+  "batch_id": "05",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers agreed with eleven full-text decisions, one title and abstract revision, and two retrieval holds.",
+    "note": "Labels identify the two reviewer slots. The date records the joint confirmation. Individual forms and separate appraisal judgments were not supplied."
+  },
+  "evidence_snapshot": {
+    "revision": "ae305a8d496d8918a35d35d5b8c7c18054a26043",
+    "evidence_sha256": "a0dc59bd1276aeb4461f2392a8b3a3c784e25230f334cb153559b7079ab49919",
+    "systematic_review_sha256": "e8a675c7efb6445ff738019d6ff4b3c8140872d1d0bd86df6fb499783ca1af37"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:36243908",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:36243908",
+      "title": "Hysteria as a Trigger for Epidemic Decompression Sickness Following Hypobaric Hypoxia Training.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36243908/",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 712-715, Methods, Results and Tables I-II",
+      "reason": "Retain selected two-session outbreak. Five trainee cases presented the next day. Calendar and case overlap with Ercan remain unresolved.",
+      "observations": [
+        {
+          "scope": "trainees on two selected chamber sessions",
+          "cases": 5,
+          "denominator": 16,
+          "unit": "person_exposure",
+          "use": "outbreak_only"
+        },
+        {
+          "scope": "inside observers on the same two sessions",
+          "cases": 0,
+          "denominator": 2,
+          "unit": "person_exposure",
+          "use": "outbreak_only"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1109/cme55444.2022.10063319",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4324119896",
+      "title": "Machine Learning Methods to Predict Incidence Risk of Altitude Decompression Sickness",
+      "source_url": "https://ieeexplore.ieee.org/document/10063319",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "IEEE Xplore public abstract",
+      "reason": "The public abstract identifies ADRAC computer output and prior published observations. Original operational chamber outcomes are unavailable in the abstract. Full paper pending access.",
+      "observations": [],
+      "revision": 2
+    },
+    {
+      "report_id": "pmid:15355830",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2428293650",
+      "title": "Cardiac decompression sickness after hypobaric chamber training: case report of a coronary gas embolism.",
+      "source_url": "https://anatoljcardiol.com/article/AJC-07823/pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 256-258, Case Report and Discussion",
+      "reason": "Retain one cardiac dysbarism case, suspected coronary gas embolism. Clinical attribution and cohort denominator are unresolved.",
+      "observations": [
+        {
+          "scope": "post-training case",
+          "cases": 1,
+          "denominator": null,
+          "unit": "case",
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20251253",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20251253",
+      "title": "Incidence of decompression sickness in individuals tested in a decompression chamber situated at 4,700 feet.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p279.pdf",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "pp. 279, 281 and 286, Methods and Tables I and VII",
+      "reason": "Purpose-defined qualification tests used repeated chamber exposures. The historical composite and run counts are contextual, with no separate routine-training group.",
+      "observations": [
+        {
+          "scope": "composite positive qualification runs",
+          "cases": 21,
+          "denominator": 83,
+          "unit": "chamber_run",
+          "use": "outside_routine_training"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2653301",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2653301",
+      "title": "Type II altitude decompression sickness (DCS): U.S. Air Force experience with 133 cases.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/3/article-p256.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 257-261, Methods, Results and Tables I-III",
+      "reason": "Retain treated chamber cases as descriptive treatment evidence. Chamber-specific occupation and at-risk exposure denominators are unavailable. Preserve possible overlap with Davis, Weien and related USAF series.",
+      "observations": [
+        {
+          "scope": "treated chamber origin",
+          "cases": 126,
+          "denominator": null,
+          "unit": "case",
+          "use": "treated_case_series"
+        },
+        {
+          "scope": "treated flight origin",
+          "cases": 7,
+          "denominator": null,
+          "unit": "case",
+          "use": "separate_flight_series"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:28518008",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:28518008",
+      "title": "Latent Presentation of Decompression Sickness After Altitude Chamber Training in an Active Duty Flier.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 428-429, Case Report and Discussion",
+      "reason": "Retain delayed source-attributed post-training DCS as one case, with recurrence as a milestone. The Studer report concerns a different patient.",
+      "observations": [
+        {
+          "scope": "post-training case",
+          "cases": 1,
+          "denominator": null,
+          "unit": "case",
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3718386",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3718386",
+      "title": "A blitz of bends: decompression sickness in four students after hypobaric chamber training.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3718386/",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 600-602, Case Histories, Figure 1 and Discussion",
+      "reason": "Retain the two preexisting HALO risk sets. Four cases are common to both margins. A helicopter flight preceded next-morning presentation. The standard Fort Rucker cohort excluded HALO.",
+      "observations": [
+        {
+          "scope": "affected HALO flight",
+          "cases": 4,
+          "denominator": 9,
+          "unit": "trainee_exposure",
+          "use": "outbreak_only"
+        },
+        {
+          "scope": "wider profile experience",
+          "cases": 4,
+          "denominator": 27,
+          "unit": "trainee_exposure",
+          "use": "nested_overlap_hold"
+        }
+      ],
+      "source_reported_wider_percentage": 14.9,
+      "count_derived_wider_percentage": 14.814815,
+      "existing_sources": [
+        "data/chamber/v1.25",
+        "data/chamber/v1.82"
+      ]
+    },
+    {
+      "report_id": "pmid:4917762",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:4917762",
+      "title": "Low incidence of bends following renitrogenation in an altitude training profile.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/41/10/article-p1173.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 1173-1174, Methods and Results",
+      "reason": "Retain the source's severity-specific zero. All-grade bends is reported below 0.5% without an exact count. Profile attendance is recorded as subjects. Dates and overlap with Furry are unverified.",
+      "observations": [
+        {
+          "scope": "above Adler Grade I",
+          "cases": 0,
+          "denominator": 4400,
+          "unit": "reported_subject",
+          "use": "severity_specific"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1093/milmed/94.4.199",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2802028029",
+      "title": "Some Factors Affecting the Incidence of “Bends” At Altitude",
+      "source_url": "https://doi.org/10.1093/milmed/94.4.199",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Oxford article landing page and Yale finding aid p. 118",
+      "reason": "Public publisher metadata and Yale correspondence locator verified. Full text unavailable. Archive lead is box 272, folder 161, John Farquhar Fulton Papers.",
+      "observations": [],
+      "archive_locator_url": "https://ead-pdfs.library.yale.edu/4468.pdf#page=118"
+    },
+    {
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1993611963",
+      "title": "DECOMPRESSION SICKNESS: Some Factors Which Affect the Incidence of Bends at Altitude",
+      "source_url": "https://jamanetwork.com/journals/jama/article-abstract/291560",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "JAMA publisher preview, pp. 373-377",
+      "reason": "Public preview ends before full methods and results. Study scope and possible overlap with the earlier radiographic report remain uncertain.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:25770794",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2993737561",
+      "title": "Decompression Sickness Following Altitude-Chamber Training",
+      "source_url": "https://jsomonline.org/wp-content/uploads/2024/02/2015111Studer.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 11 and 14, Case Presentation and Conclusion",
+      "reason": "Retain one presumptive Type II DCS case after training. There is no exposed-cohort denominator. Preserve separate report and patient identity from Gentry.",
+      "observations": [
+        {
+          "scope": "post-training case",
+          "cases": 1,
+          "denominator": null,
+          "unit": "case",
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21018675",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2468524496",
+      "title": "Incidence of bends pain in a short exposure to simulated altitudes of 26,000, 28,000 and 30,000 feet.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p67.pdf",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "pp. 67-69, Methods and Table I",
+      "reason": "Controlled chamber exposures varied altitude, temperature and activity. The 1,731 experimental man-flights are outside the routine-training estimand.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:14557320",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:14557320",
+      "title": "High-altitude decompression illness: case report and discussion.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 803-805, Case narrative and Table 1",
+      "reason": "Retain the sequential exposure DCI narrative. Three cases first appeared in commercial flight after chamber training. The course had 17 trainees. The number undertaking both exposures is unknown.",
+      "observations": [
+        {
+          "scope": "sequential chamber and commercial flight DCI cases",
+          "cases": 3,
+          "denominator": null,
+          "unit": "case",
+          "use": "mixed_exposure_narrative"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33761546",
+      "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 82-84, Cases and Investigation",
+      "reason": "Retain the selected single-flight outbreak. Symptom onset during descent, with separate diagnostic assessment. Distinct event from Demir and Ata. Date overlap with Ercan remains unverified.",
+      "observations": [
+        {
+          "scope": "trainees on affected session",
+          "cases": 2,
+          "denominator": 10,
+          "unit": "person_exposure",
+          "use": "outbreak_only"
+        },
+        {
+          "scope": "inside observer on affected session",
+          "cases": 1,
+          "denominator": 1,
+          "unit": "person_exposure",
+          "use": "outbreak_only"
+        }
+      ]
+    }
+  ]
+}
