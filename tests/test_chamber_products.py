@@ -4599,6 +4599,24 @@ def test_nasa_presentation_enriches_one_existing_training_case(release):
         """).fetchone() == ("same_published_case",)
 
 
+def test_missing_full_text_retrievals_reuse_existing_report_identities(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT report_id, count(*) FROM review.review_record
+            WHERE run_id GLOB '2026-11-23-missing-chamber-full-text-*'
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [
+            ("pmid:1164359", 1), ("pmid:1996934", 1), ("pmid:2285404", 1),
+            ("pmid:3167655", 2), ("pmid:9810543", 2),
+        ]
+        assert db.execute("""
+            SELECT count(*), sum(retrieved),
+                   sum(json_extract(parameters_json, '$.counts_toward_formal_identification'))
+            FROM review.review_retrieval
+            WHERE run_id GLOB '2026-11-23-missing-chamber-full-text-*'
+        """).fetchone() == (8, 7, 0)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""
