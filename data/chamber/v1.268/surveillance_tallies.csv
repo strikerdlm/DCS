@@ -1,0 +1,13 @@
+source_id,stratum,measure,unit,reported_count,locator,note
+marlowe84_physiological_mishaps,all-aircraft,class_c_physiological_mishaps,reported_mishap,69,"Figure 1, p. 24",All reported Class C physiological mishaps across aircraft categories.
+marlowe84_physiological_mishaps,all-aircraft,bends_mishaps,reported_mishap,4,"Figures 2 and 3, pp. 24–25",Four mishaps and four affected people. Same events as the bends count and its alternative margins.
+marlowe84_physiological_mishaps,all-aircraft,decompression_factor_mishaps,reported_mishap,8,"Figures 2 and 3, pp. 24–25",Decompression is a separate physiological factor. The text and Figure 4 identify an F-15 mishap in both factors.
+marlowe84_physiological_mishaps,all-aircraft,bends_operator_error_margin,reported_mishap,1,"Figures 3–4, p. 25",A cause margin of the four bends mishaps. Corresponds to the F-15 functional check flight.
+marlowe84_physiological_mishaps,all-aircraft,bends_environmental_margin,reported_mishap,3,"Figure 3, p. 25",A cause margin of the four bends mishaps.
+gordon86_c135_mishaps,ckc135-fleet,pressurization_class_c_hap,reported_mishap,12,"C/KC-135, pp. 11–15, Figure 1 and Class C and HAP Mishaps",Table-defined total for the 1985 pressurization mishaps.
+gordon86_c135_mishaps,ckc135-fleet,pressurization_with_physiological_effects,reported_mishap,5,"C/KC-135, pp. 11–15, Figure 1 and Class C and HAP Mishaps",Five of the pressurization mishaps. Includes the two bends mishaps.
+gordon87_c135_mishaps,ckc135-fleet,pressurization_class_c_hap,reported_mishap,8,"C/KC-135, pp. 12–14, Figure 3 and Bird Strikes/Physiological",Figure 3 pressurization Class C/HAP category for 1986.
+gordon87_c135_mishaps,ckc135-fleet,pressurization_with_physiological_effects,reported_mishap,6,"C/KC-135, pp. 12–14, Figure 3 and Bird Strikes/Physiological",Narrative count of pressurization mishaps where physiological symptoms occurred.
+waddell87_b52_mishaps,b52-fleet,pressurization_physiological_figure,reported_mishap,11,"B-52, pp. 2–4, 1986 Mishaps, physiological/pressurization paragraph and comparison table",Combined category as printed in the B-52 comparison table.
+waddell87_b52_mishaps,b52-fleet,pressurization_physiological_narrative,reported_mishap,10,"B-52, pp. 2–4, 1986 Mishaps, physiological/pressurization paragraph and comparison table",The narrative discusses 10 mishaps. Its mapping to the 11 table entries is unreported.
+waddell87_b52_mishaps,b52-fleet,annual_flying_hours,aircraft_flying_hour,102411,"B-52 article introduction, p. 2",Fleet flying time in 1986. Occupant-hours and individual flights are unavailable.

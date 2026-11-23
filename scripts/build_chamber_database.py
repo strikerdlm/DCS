@@ -332,6 +332,7 @@ GERMAN_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.264"
 STRATEX_OUTCOMES = ROOT / "data" / "chamber" / "v1.265"
 RED_BULL_STRATOS_OUTCOMES = ROOT / "data" / "chamber" / "v1.266"
 U2_CAREER_SYMPTOM_SURVEYS = ROOT / "data" / "chamber" / "v1.267"
+USAF_FLIGHT_SAFETY_SURVEILLANCE = ROOT / "data" / "chamber" / "v1.268"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3459,6 +3460,18 @@ def build(
                         "publication_u2_survey_wave": "survey_waves.csv",
                         "publication_u2_survey_result": "survey_results.csv",
                         "publication_u2_arthritis_effect": "arthritis_effects.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    USAF_FLIGHT_SAFETY_SURVEILLANCE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_flight_safety_count": "flight_safety_counts.csv",
+                        "publication_flight_surveillance_tally": "surveillance_tallies.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                         "publication_overlap": "overlap.csv",
                     },
                 )

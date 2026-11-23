@@ -1,0 +1,472 @@
+[
+  {
+    "id": "2026-11-23-usaf-flight-safety-surveillance",
+    "date": "2026-11-23",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_primary_flight_safety_archive_extraction",
+    "status": "observed",
+    "reported_total": 4,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "ca0e4837-3a2f-4695-baef-0f1d9da15c27",
+          "query": "site:safety.af.mil \"Britt L. Marlowe\" bends \"flight\" 1984 1985 Flying Safety 1975–1985 pressurization decompression"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "extract",
+          "request_id": "eff960fb-5dfc-44d4-be5d-e015416c0267",
+          "urls": [
+            "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf",
+            "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf"
+          ]
+        },
+        {
+          "provider": "Tavily",
+          "operation": "extract",
+          "request_id": "990e2ed3-db4d-44fb-bbd0-6d4cdb7bf7d3",
+          "urls": [
+            "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf"
+          ]
+        },
+        {
+          "provider": "Tavily",
+          "operation": "extract",
+          "request_id": "d8597f7b-2b7e-41c0-bef9-908018704452",
+          "urls": [
+            "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf"
+          ]
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a2076a-0664-700b-9330-e11577033610",
+          "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a2076e-4e2a-721b-95a6-3a7cbf42b3bf",
+          "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20768-8e24-74ee-9fce-48fc0ec9e3a6",
+          "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "extract",
+          "request_id": "f7875e63-55d6-4b4e-9508-ff6b684e5044",
+          "note": "Scanned January–December 1986 issues across two requests for the original cited in Skinner. Citation remains unresolved."
+        },
+        {
+          "provider": "Tavily",
+          "operation": "extract",
+          "request_id": "b5d95e8a-3a00-4909-869f-2cbf10ee1c8e",
+          "note": "Second group of six 1986 issues."
+        }
+      ]
+    },
+    "note": "Four articles from three primary USAF safety magazine issues. Preserve reported mishaps, people and fleet hours in their original units. Formal chamber screening and eligible trial datasets are outside the scope of these in-flight observations.",
+    "records": [
+      {
+        "id": "marlowe84_physiological_mishaps",
+        "title": "Physiological Mishap Experience: 1 January to 31 March 1984",
+        "authors": [
+          "Britt L. Marlowe"
+        ],
+        "year": 1984,
+        "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf",
+        "primary_source": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "Printed pp. 24–26, Figures 1–4 and Flying Smart — Reporting Smart?",
+        "role_review": "descriptive",
+        "note": "Primary USAF first-quarter Class C physiological surveillance. Figures report 4 bends mishaps and 4 affected people. The diagnosed F-15 episode belongs to those four. No flight-level risk set or link to the wider USAF safety archive is available. Full text recovered through Firecrawl from the official issue. The original PDF byte digest is unavailable.",
+        "model_extraction": {
+          "source_id": "marlowe84_physiological_mishaps",
+          "input_release": "v1.268"
+        },
+        "period": "1984-01-01 to 1984-03-31",
+        "person_flight_denominator": null,
+        "operational_setting": "aircraft flight",
+        "surveillance_tallies": [
+          {
+            "stratum": "all-aircraft",
+            "measure": "class_c_physiological_mishaps",
+            "unit": "reported_mishap",
+            "reported_count": 69,
+            "locator": "Figure 1, p. 24",
+            "note": "All reported Class C physiological mishaps across aircraft categories."
+          },
+          {
+            "stratum": "all-aircraft",
+            "measure": "bends_mishaps",
+            "unit": "reported_mishap",
+            "reported_count": 4,
+            "locator": "Figures 2 and 3, pp. 24–25",
+            "note": "Four mishaps and four affected people. Same events as the bends count and its alternative margins."
+          },
+          {
+            "stratum": "all-aircraft",
+            "measure": "decompression_factor_mishaps",
+            "unit": "reported_mishap",
+            "reported_count": 8,
+            "locator": "Figures 2 and 3, pp. 24–25",
+            "note": "Decompression is a separate physiological factor. The text and Figure 4 identify an F-15 mishap in both factors."
+          },
+          {
+            "stratum": "all-aircraft",
+            "measure": "bends_operator_error_margin",
+            "unit": "reported_mishap",
+            "reported_count": 1,
+            "locator": "Figures 3–4, p. 25",
+            "note": "A cause margin of the four bends mishaps. Corresponds to the F-15 functional check flight."
+          },
+          {
+            "stratum": "all-aircraft",
+            "measure": "bends_environmental_margin",
+            "unit": "reported_mishap",
+            "reported_count": 3,
+            "locator": "Figure 3, p. 25",
+            "note": "A cause margin of the four bends mishaps."
+          }
+        ],
+        "observations": [
+          {
+            "id": "all-aircraft:bends_affected_people_as_reported",
+            "group": "all-aircraft",
+            "study_id": "usaf-physiological-1984-q1",
+            "endpoint": "bends_affected_people_as_reported",
+            "analysis_role": "overlap_hold",
+            "cases": 4,
+            "denominator": null,
+            "denominator_unit": null,
+            "counting_unit": "person",
+            "scope": "reported_cohort",
+            "locator": "Printed pp. 24–26, Figures 1–4 and Flying Smart — Reporting Smart?",
+            "note": "Four affected aircrew/passengers in four bends mishaps. The case narrative and stratum margins are nested."
+          },
+          {
+            "id": "trainer-aircraft:bends_affected_people_as_reported",
+            "group": "trainer-aircraft",
+            "study_id": "usaf-physiological-1984-q1",
+            "endpoint": "bends_affected_people_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "counting_unit": "person",
+            "scope": "table_partition",
+            "locator": "Printed pp. 24–26, Figures 1–4 and Flying Smart — Reporting Smart?",
+            "note": "Figure 2 trainer column. Included in the four-person total."
+          },
+          {
+            "id": "fighter-attack-reconnaissance:bends_affected_people_as_reported",
+            "group": "fighter-attack-reconnaissance",
+            "study_id": "usaf-physiological-1984-q1",
+            "endpoint": "bends_affected_people_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "counting_unit": "person",
+            "scope": "table_partition",
+            "locator": "Printed pp. 24–26, Figures 1–4 and Flying Smart — Reporting Smart?",
+            "note": "Figure 2 FAR column. This is the F-15 described in Figure 4 and the narrative."
+          },
+          {
+            "id": "cargo-aircraft:bends_affected_people_as_reported",
+            "group": "cargo-aircraft",
+            "study_id": "usaf-physiological-1984-q1",
+            "endpoint": "bends_affected_people_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": null,
+            "counting_unit": "person",
+            "scope": "table_partition",
+            "locator": "Printed pp. 24–26, Figures 1–4 and Flying Smart — Reporting Smart?",
+            "note": "Figure 2 cargo column. Included in the four-person total."
+          }
+        ],
+        "nested_case_timeline": {
+          "id": "f15-functional-check-flight",
+          "subset_of_group": "all-aircraft",
+          "subset_of_aircraft_stratum": "fighter-attack-reconnaissance",
+          "population_case_count_contribution": 0,
+          "diagnostic_certainty": "flight surgeon diagnosis as reported",
+          "peak_reported_cabin_altitude_ft": 30000,
+          "exact_time_above_25000_ft": null,
+          "milestones": [
+            {
+              "milestone": "engine_shutdown_at_FL300",
+              "elapsed": null,
+              "elapsed_unit": null,
+              "elapsed_reference": null,
+              "qualifier": null,
+              "aircraft_altitude_ft": 30000,
+              "altitude_qualifier": "reported",
+              "note": "Planned right-engine shutdown during a functional check flight."
+            },
+            {
+              "milestone": "noticed_cabin_altimeter_30000_ft",
+              "elapsed": 0.5,
+              "elapsed_unit": "minutes",
+              "elapsed_reference": "planned right-engine shutdown",
+              "qualifier": "approximate",
+              "aircraft_altitude_ft": null,
+              "altitude_qualifier": null,
+              "note": "The cabin indication was 30000 ft. The reported delay is between engine shutdown and noticing the indication. Duration above 25000 ft remains unknown."
+            },
+            {
+              "milestone": "cabin_repressurization_on_descent",
+              "elapsed": null,
+              "elapsed_unit": null,
+              "elapsed_reference": null,
+              "qualifier": null,
+              "aircraft_altitude_ft": 20000,
+              "altitude_qualifier": "reported",
+              "note": "Pilot descended to FL200 and remained there until normal cabin pressure was restored. Exact pressure and timing are unknown."
+            },
+            {
+              "milestone": "total_flight_duration",
+              "elapsed": 1,
+              "elapsed_unit": "hours",
+              "elapsed_reference": "flight start",
+              "qualifier": "reported",
+              "aircraft_altitude_ft": null,
+              "altitude_qualifier": null,
+              "note": "The one-hour total covers the entire functional check flight."
+            },
+            {
+              "milestone": "first_symptoms_after_landing",
+              "elapsed": null,
+              "elapsed_unit": null,
+              "elapsed_reference": null,
+              "qualifier": null,
+              "aircraft_altitude_ft": null,
+              "altitude_qualifier": null,
+              "note": "The same evening, several hours after the flight, leg tingling and left elbow pain began. The precise delay is unknown."
+            },
+            {
+              "milestone": "flight_surgeon_diagnosis",
+              "elapsed": null,
+              "elapsed_unit": null,
+              "elapsed_reference": null,
+              "qualifier": null,
+              "aircraft_altitude_ft": null,
+              "altitude_qualifier": null,
+              "note": "Symptoms persisted into the next day. The flight surgeon diagnosed bends. An exact contact time is unavailable."
+            },
+            {
+              "milestone": "hyperbaric_treatment",
+              "elapsed": null,
+              "elapsed_unit": null,
+              "elapsed_reference": null,
+              "qualifier": null,
+              "aircraft_altitude_ft": null,
+              "altitude_qualifier": null,
+              "note": "The report documents hyperbaric treatment and no reported recurrence. The treatment table and observation time are unavailable."
+            },
+            {
+              "milestone": "grounded_under_flight_surgeon_observation",
+              "elapsed": 72,
+              "elapsed_unit": "hours",
+              "elapsed_reference": "reported grounding and observation",
+              "qualifier": "reported",
+              "aircraft_altitude_ft": null,
+              "altitude_qualifier": null,
+              "note": "This is the grounding duration. Individual clinical assessment times are unavailable."
+            }
+          ]
+        }
+      },
+      {
+        "id": "gordon86_c135_mishaps",
+        "title": "C/KC-135: 1985 mishap review",
+        "authors": [
+          "Ray Gordon"
+        ],
+        "year": 1986,
+        "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf",
+        "primary_source": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "C/KC-135, pp. 11–15, Figure 1 and Class C and HAP Mishaps",
+        "role_review": "descriptive",
+        "note": "Primary 1985 fleet report. Two separate bends mishaps are among five pressurization mishaps with physiological problems and 12 total reportable Class C/HAP pressurization mishaps. Affected headcount and all-flight exposure denominator are unknown. Full text recovered through Firecrawl from the official issue. The original PDF byte digest is unavailable.",
+        "model_extraction": {
+          "source_id": "gordon86_c135_mishaps",
+          "input_release": "v1.268"
+        },
+        "period": "1985",
+        "person_flight_denominator": null,
+        "operational_setting": "aircraft flight",
+        "surveillance_tallies": [
+          {
+            "stratum": "ckc135-fleet",
+            "measure": "pressurization_class_c_hap",
+            "unit": "reported_mishap",
+            "reported_count": 12,
+            "locator": "C/KC-135, pp. 11–15, Figure 1 and Class C and HAP Mishaps",
+            "note": "Table-defined total for the 1985 pressurization mishaps."
+          },
+          {
+            "stratum": "ckc135-fleet",
+            "measure": "pressurization_with_physiological_effects",
+            "unit": "reported_mishap",
+            "reported_count": 5,
+            "locator": "C/KC-135, pp. 11–15, Figure 1 and Class C and HAP Mishaps",
+            "note": "Five of the pressurization mishaps. Includes the two bends mishaps."
+          }
+        ],
+        "observations": [
+          {
+            "id": "ckc135-pressurization-class-c-hap:pressurization_mishaps_with_bends_as_reported",
+            "group": "ckc135-pressurization-class-c-hap",
+            "study_id": "usaf-c-kc-135-1985",
+            "endpoint": "pressurization_mishaps_with_bends_as_reported",
+            "analysis_role": "overlap_hold",
+            "cases": 2,
+            "denominator": 12,
+            "denominator_unit": "reported_depressurization_incident",
+            "counting_unit": "reported_depressurization_incident",
+            "scope": "nested_stratum",
+            "locator": "C/KC-135, pp. 11–15, Figure 1 and Class C and HAP Mishaps",
+            "note": "The narrative identifies two bends mishaps among the five with physiological effects, within 12 pressurization mishaps in Figure 1. This denominator covers reported mishaps only. Persons affected per incident are unknown."
+          }
+        ]
+      },
+      {
+        "id": "gordon87_c135_mishaps",
+        "title": "C/KC-135: 1986 mishap review",
+        "authors": [
+          "Ray Gordon"
+        ],
+        "year": 1987,
+        "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+        "primary_source": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "C/KC-135, pp. 12–14, Figure 3 and Bird Strikes/Physiological",
+        "role_review": "descriptive",
+        "note": "Primary 1986 fleet report. Three bends cases are attributed to pressurization failures. Case-to-mishap mapping and a human exposure denominator are unknown. Two reported pressurization tallies describe different scopes. Full text recovered through Firecrawl from the official issue. The original PDF byte digest is unavailable.",
+        "model_extraction": {
+          "source_id": "gordon87_c135_mishaps",
+          "input_release": "v1.268"
+        },
+        "period": "1986",
+        "person_flight_denominator": null,
+        "operational_setting": "aircraft flight",
+        "surveillance_tallies": [
+          {
+            "stratum": "ckc135-fleet",
+            "measure": "pressurization_class_c_hap",
+            "unit": "reported_mishap",
+            "reported_count": 8,
+            "locator": "C/KC-135, pp. 12–14, Figure 3 and Bird Strikes/Physiological",
+            "note": "Figure 3 pressurization Class C/HAP category for 1986."
+          },
+          {
+            "stratum": "ckc135-fleet",
+            "measure": "pressurization_with_physiological_effects",
+            "unit": "reported_mishap",
+            "reported_count": 6,
+            "locator": "C/KC-135, pp. 12–14, Figure 3 and Bird Strikes/Physiological",
+            "note": "Narrative count of pressurization mishaps where physiological symptoms occurred."
+          }
+        ],
+        "observations": [
+          {
+            "id": "ckc135-fleet:bends_cases_as_reported",
+            "group": "ckc135-fleet",
+            "study_id": "usaf-c-kc-135-1986",
+            "endpoint": "bends_cases_as_reported",
+            "analysis_role": "overlap_hold",
+            "cases": 3,
+            "denominator": null,
+            "denominator_unit": null,
+            "counting_unit": "dcs_affected_aircrew",
+            "scope": "reported_cohort",
+            "locator": "C/KC-135, pp. 12–14, Figure 3 and Bird Strikes/Physiological",
+            "note": "The C/KC-135 author reports three cases of bends with pressurization failures. It is unknown how many distinct failures involved the three cases."
+          }
+        ]
+      },
+      {
+        "id": "waddell87_b52_mishaps",
+        "title": "B-52: 1986 mishap review",
+        "authors": [
+          "Milton H. Waddell"
+        ],
+        "year": 1987,
+        "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+        "primary_source": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "B-52, pp. 2–4, 1986 Mishaps, physiological/pressurization paragraph and comparison table",
+        "role_review": "descriptive",
+        "note": "Primary 1986 fleet report. One B-52 crewmember with bends is described. Fleet flying hours are available. Crewmember exposures, incident-level mapping and completeness of symptomatic surveillance are unavailable. Full text recovered through Firecrawl from the official issue. The original PDF byte digest is unavailable.",
+        "model_extraction": {
+          "source_id": "waddell87_b52_mishaps",
+          "input_release": "v1.268"
+        },
+        "period": "1986",
+        "person_flight_denominator": null,
+        "operational_setting": "aircraft flight",
+        "surveillance_tallies": [
+          {
+            "stratum": "b52-fleet",
+            "measure": "pressurization_physiological_figure",
+            "unit": "reported_mishap",
+            "reported_count": 11,
+            "locator": "B-52, pp. 2–4, 1986 Mishaps, physiological/pressurization paragraph and comparison table",
+            "note": "Combined category as printed in the B-52 comparison table."
+          },
+          {
+            "stratum": "b52-fleet",
+            "measure": "pressurization_physiological_narrative",
+            "unit": "reported_mishap",
+            "reported_count": 10,
+            "locator": "B-52, pp. 2–4, 1986 Mishaps, physiological/pressurization paragraph and comparison table",
+            "note": "The narrative discusses 10 mishaps. Its mapping to the 11 table entries is unreported."
+          },
+          {
+            "stratum": "b52-fleet",
+            "measure": "annual_flying_hours",
+            "unit": "aircraft_flying_hour",
+            "reported_count": 102411,
+            "locator": "B-52 article introduction, p. 2",
+            "note": "Fleet flying time in 1986. Occupant-hours and individual flights are unavailable."
+          }
+        ],
+        "observations": [
+          {
+            "id": "b52-fleet:bends_cases_as_reported",
+            "group": "b52-fleet",
+            "study_id": "usaf-b52-1986",
+            "endpoint": "bends_cases_as_reported",
+            "analysis_role": "overlap_hold",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "counting_unit": "dcs_affected_aircrew",
+            "scope": "nested_stratum",
+            "locator": "B-52, pp. 2–4, 1986 Mishaps, physiological/pressurization paragraph and comparison table",
+            "note": "The B-52 author describes one crewmember with bends in the physiological mishap narrative. A preceding shoulder injury is mentioned. Staff clinical adjudication and the total number at risk are unavailable."
+          }
+        ]
+      }
+    ]
+  }
+]

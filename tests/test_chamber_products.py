@@ -11590,6 +11590,66 @@ def test_sweeney_wartime_bends_percentage_has_no_inferred_counts(release):
         ]
 
 
+def test_usaf_flight_safety_keeps_mishaps_people_and_flying_hours_distinct(release):
+    run_id = "2026-11-23-usaf-flight-safety-surveillance"
+    marlowe = "marlowe84_physiological_mishaps"
+    gordon_1985 = "gordon86_c135_mishaps"
+    gordon_1986 = "gordon87_c135_mishaps"
+    waddell = "waddell87_b52_mishaps"
+    sources = (marlowe, gordon_1985, gordon_1986, waddell)
+    with connect_pair(release) as db:
+        rows = db.execute("""
+            SELECT source_id,stratum,numerator,denominator,counting_unit,scope
+            FROM publication_flight_safety_count WHERE source_id IN (?,?,?,?)
+        """, sources).fetchall()
+        assert set(rows) == {
+            (marlowe, "all-aircraft", 4, None, "person", "reported_cohort"),
+            (marlowe, "trainer-aircraft", 1, None, "person", "table_partition"),
+            (marlowe, "fighter-attack-reconnaissance", 1, None, "person", "table_partition"),
+            (marlowe, "cargo-aircraft", 2, None, "person", "table_partition"),
+            (gordon_1985, "ckc135-pressurization-class-c-hap", 2, 12, "reported_depressurization_incident", "nested_stratum"),
+            (gordon_1986, "ckc135-fleet", 3, None, "dcs_affected_aircrew", "reported_cohort"),
+            (waddell, "b52-fleet", 1, None, "dcs_affected_aircrew", "nested_stratum"),
+        }
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,altitude,analysis_role
+            FROM publication_observation WHERE source_id=?
+        """, (marlowe,)).fetchall() == [("f15-functional-check-flight", 1, None, 30000, "overlap_hold")]
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_unit,elapsed_reference,aircraft_altitude_ft
+            FROM publication_aircraft_case_milestone WHERE source_id=?
+            AND milestone IN ('noticed_cabin_altimeter_30000_ft','first_symptoms_after_landing')
+            ORDER BY milestone
+        """, (marlowe,)).fetchall() == [
+            ("first_symptoms_after_landing", None, None, None, None),
+            ("noticed_cabin_altimeter_30000_ft", 0.5, "minutes", "planned right-engine shutdown", None),
+        ]
+        assert db.execute("""
+            SELECT unit,reported_count FROM publication_flight_surveillance_tally
+            WHERE source_id=? AND measure='annual_flying_hours'
+        """, (waddell,)).fetchall() == [("aircraft_flying_hour", 102411)]
+        assert db.execute("""
+            SELECT cases,denominator,denominator_unit FROM review.review_search_observation
+            WHERE run_id=? AND denominator IS NOT NULL
+        """, (run_id,)).fetchall() == [(2, 12, "reported_depressurization_incident")]
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM review.review_search_observation WHERE run_id=?
+        """, (run_id,)).fetchone() == (7, 4)
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.nested_case_timeline.population_case_count_contribution'),
+                   json_type(metadata_json,'$.nested_case_timeline.exact_time_above_25000_ft')
+            FROM review.review_record WHERE run_id=? AND source_key=?
+        """, (run_id, marlowe)).fetchone() == (0, "null")
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT report_id) FROM model_report_link
+            WHERE source_table='publication_source' AND source_id IN (?,?,?,?)
+        """, sources).fetchone() == (4, 4)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_report_relation
+            WHERE left_report LIKE 'usaf-fs:%' AND relationship='unresolved'
+        """).fetchone() == (6,)
+
+
 def test_rapid_decompression_zeros_are_limited_to_the_verified_crossover(release):
     with connect_pair(release) as db:
         run_id = "2026-11-21-brief-rapid-decompression-verified"
