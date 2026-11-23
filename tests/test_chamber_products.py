@@ -4757,6 +4757,37 @@ def test_accepted_analysis_cells_keep_holds_and_source_provenance(release):
         """).fetchone() == (3.574, 0.720, 17.744)
 
 
+def test_preliminary_appraisals_trace_to_descriptive_cells_and_require_human_verification(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT result_id) FROM review.review_analysis_result_cell
+        """).fetchone() == (8, 6)
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT result_id), count(DISTINCT assessor_id)
+            FROM review.review_result_appraisal
+            WHERE assessor_kind='automated' AND verification_status='preliminary'
+        """).fetchone() == (32, 6, 1)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_result_appraisal WHERE verification_status='verified'
+        """).fetchone() == (0,)
+        rows = db.execute("""
+            SELECT cases, denominator, cases_per_1000
+            FROM review.review_analysis_result_cell
+            WHERE result_id='eskisehir-2011-2018:within_program_role'
+            ORDER BY position
+        """).fetchall()
+        assert [(cases, denominator) for cases, denominator, _ in rows] == [(2, 615), (6, 6657)]
+        assert rows[0][2] / rows[1][2] == pytest.approx(3.6081300813)
+        assert db.execute("""
+            SELECT count(*) FROM review.review_result_appraisal WHERE domain='role_comparability'
+        """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT count(*), min(report_id), max(report_id)
+            FROM review.review_record
+            WHERE run_id GLOB '2026-11-23-rice-type-iia-correction-check-*' AND pmid='19522370'
+        """).fetchone() == (2, "pmid:19522370", "pmid:19522370")
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""

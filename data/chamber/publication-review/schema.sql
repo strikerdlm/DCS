@@ -132,6 +132,49 @@ CREATE TABLE review_analysis_selection (
     FOREIGN KEY(study_id, report_id) REFERENCES review_study_report(study_id, report_id)
 ) STRICT;
 
+CREATE TABLE review_analysis_result (
+    result_id TEXT PRIMARY KEY,
+    input_path TEXT NOT NULL REFERENCES review_workflow_document,
+    selection_input_path TEXT NOT NULL REFERENCES review_workflow_document,
+    study_id TEXT NOT NULL REFERENCES review_study,
+    analysis TEXT NOT NULL CHECK(analysis IN ('standalone_incidence','within_program_role')),
+    selection_ids_json TEXT NOT NULL CHECK(
+        json_type(selection_ids_json) = 'array' AND
+        json_array_length(selection_ids_json) = CASE analysis WHEN 'standalone_incidence' THEN 1 ELSE 2 END
+    )
+) STRICT;
+CREATE VIEW review_analysis_result_cell AS
+    SELECT r.result_id, j.key + 1 AS position, s.selection_id, s.study_id, s.report_id, s.record_key,
+           s.risk_set_id, s.analysis, s.chamber_role, s.cases, s.denominator, s.counting_unit,
+           1000.0 * s.cases / s.denominator AS cases_per_1000, s.outcome_window, s.locator, s.primary_url
+    FROM review_analysis_result r
+    JOIN json_each(r.selection_ids_json) j
+    JOIN review_analysis_selection s ON s.input_path=r.selection_input_path AND s.selection_id=j.value
+      AND s.study_id=r.study_id AND s.analysis=r.analysis
+      AND s.disposition IN ('retain_existing','standalone_descriptive');
+
+CREATE TABLE review_result_appraisal (
+    input_path TEXT NOT NULL REFERENCES review_workflow_document,
+    result_id TEXT NOT NULL REFERENCES review_analysis_result,
+    domain TEXT NOT NULL CHECK(domain IN (
+        'denominator_validity','selection','outcome_ascertainment','missing_follow_up',
+        'dependence_and_overlap','role_comparability'
+    )),
+    assessor_id TEXT NOT NULL,
+    assessor_kind TEXT NOT NULL CHECK(assessor_kind IN ('automated','human')),
+    assessed_on TEXT NOT NULL,
+    judgment TEXT NOT NULL CHECK(judgment IN (
+        'few_concerns','some_concerns','substantial_concerns','insufficient_information'
+    )),
+    rationale TEXT NOT NULL,
+    evidence_needed TEXT NOT NULL,
+    primary_url TEXT NOT NULL,
+    locator TEXT NOT NULL,
+    verification_status TEXT NOT NULL CHECK(verification_status IN ('preliminary','verified')),
+    PRIMARY KEY(input_path,result_id,domain,assessor_id),
+    CHECK(assessor_kind='human' OR verification_status='preliminary')
+) STRICT;
+
 CREATE VIEW review_run_counts AS
     SELECT q.run_id,q.provider,q.reported_total,q.retrieved,count(DISTINCT r.report_id) AS report_groups
     FROM review_retrieval q LEFT JOIN review_record r USING(run_id) GROUP BY q.run_id;

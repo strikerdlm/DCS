@@ -1,0 +1,153 @@
+[
+  {
+    "id": "2026-11-23-rice-type-iia-correction-check-tavily",
+    "date": "2026-11-23",
+    "provider": "Tavily",
+    "operation": "supplementary_correction_locator",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "query": "Incidence of decompression sickness in hypoxia training with and without 30-min oxygen prebreathe Rice erratum correction",
+      "request_id": "3c192736-65d0-4dfa-9d78-b9a1c7f107bd",
+      "max_results": 6,
+      "counts_toward_formal_identification": false
+    },
+    "note": "Six indexed hits include the publication and different citing or related reports. No correction was identified.",
+    "records": [
+      {
+        "id": "21dd4c-00",
+        "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12546299/",
+        "pmid": "12546299",
+        "access": "original_citation_and_abstract"
+      },
+      {
+        "id": "9db4e5-01",
+        "title": "Decompression Illness Incidence and Hypoxia Symptoms After Prebreathing in Hypobaric Hypoxia Training.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33875060",
+        "pmid": "33875060"
+      },
+      {
+        "id": "7f5ca9-02",
+        "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe.",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+        "pmid": "12546299"
+      },
+      {
+        "id": "f059d2-03",
+        "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe.",
+        "url": "https://profiles.jefferson.edu/profile/176440",
+        "pmid": "12546299",
+        "access": "institutional_bibliographic_record"
+      },
+      {
+        "id": "d0425e-04",
+        "title": "Decompression sickness rates for chamber personnel: case series from one facility.",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "pmid": "19522370",
+        "access": "different_original_citing_report"
+      },
+      {
+        "id": "45eec5-05",
+        "title": "Decompression Illness Incidence and Hypoxia Symptoms After Prebreathing in Hypobaric Hypoxia Training.",
+        "url": "https://www.researchgate.net/publication/351253971_Decompression_Illness_Incidence_and_Hypoxia_Symptoms_After_Prebreathing_in_Hypobaric_Hypoxia_Training",
+        "pmid": "33875060"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-23-rice-type-iia-correction-check-firecrawl-exact",
+    "date": "2026-11-23",
+    "provider": "Firecrawl",
+    "operation": "supplementary_correction_locator",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "query": "\"Rice\" \"12546299\" Navy altitude chamber hypoxia training Type IIA 7575 erratum",
+      "request_id": "01a209e5-ff25-717d-8aaf-0a21623178a6",
+      "limit": 5,
+      "counts_toward_formal_identification": false
+    },
+    "note": "No web citations were returned for this exact query. The broader rerun follows.",
+    "records": []
+  },
+  {
+    "id": "2026-11-23-rice-type-iia-correction-check-firecrawl-expanded",
+    "date": "2026-11-23",
+    "provider": "Firecrawl",
+    "operation": "supplementary_correction_locator",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "query": "Rice Vacchiano Moore Anderson Navy hypoxia training decompression sickness correction erratum Aerospace Medicine 2003",
+      "request_id": "01a209e6-af49-7078-b9d3-0880a9e8a64e",
+      "limit": 4,
+      "counts_toward_formal_identification": false
+    },
+    "note": "The original citation and two independent citing reports supply no correction to the conflicting Type IIA cells.",
+    "records": [
+      {
+        "id": "12546299",
+        "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12546299/",
+        "pmid": "12546299",
+        "access": "original_citation_and_abstract"
+      },
+      {
+        "id": "jefferson-176440",
+        "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe.",
+        "url": "http://profiles.jefferson.edu/profile/176440",
+        "pmid": "12546299",
+        "access": "institutional_bibliographic_record"
+      },
+      {
+        "id": "19522370",
+        "title": "Decompression sickness rates for chamber personnel: case series from one facility.",
+        "url": "http://www.uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf",
+        "pmid": "19522370",
+        "access": "different_original_citing_report"
+      },
+      {
+        "id": "adf-smart-cable-2004",
+        "title": "Australian Defence Force hypobaric chamber training, 1984-2001",
+        "url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+        "access": "different_original_citing_report"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-23-rice-type-iia-correction-check-exact-source",
+    "date": "2026-11-23",
+    "provider": "Tavily",
+    "operation": "supplementary_original_source_access",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "request_id": "55d8b06e-c86f-4d97-b996-7fb24d9626f8",
+      "requested_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12546299/",
+        "https://profiles.jefferson.edu/profile/176440",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf"
+      ],
+      "query": "erratum correction Table I Table II Table III Type IIA case counts and links",
+      "counts_toward_formal_identification": false
+    },
+    "note": "PubMed and the institutional entry returned citation or abstract text. The direct publisher PDF fetch failed. The original table extraction remains the source of the conflicting cells.",
+    "records": [
+      {
+        "id": "12546299",
+        "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12546299/",
+        "pmid": "12546299",
+        "access": "original_citation_and_abstract"
+      },
+      {
+        "id": "jefferson-176440",
+        "title": "Incidence of decompression sickness in hypoxia training with and without 30-min O2 prebreathe.",
+        "url": "https://profiles.jefferson.edu/profile/176440",
+        "pmid": "12546299",
+        "access": "institutional_bibliographic_record"
+      }
+    ]
+  }
+]

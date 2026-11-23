@@ -1,0 +1,499 @@
+{
+  "batch_id": "21",
+  "recorded_on": "2026-11-23",
+  "evidence_snapshot": {
+    "revision": "1149f2e9d75e797381855c7074ab2c43a00c01cb",
+    "evidence_sha256": "03af2b8d1ffddbd236cee37493f0934f38691609a3f5ddaf921ca39fb9cbed1d",
+    "systematic_review_sha256": "47c6daef34e7af2e3f56d79bdee1e664e4df375435194f7fbc72efa71881498a"
+  },
+  "authorization_scope": "The coordinator agreed to continue. Both human reviewer forms still await their individual source-based judgments.",
+  "scope": "Six approved descriptive results from Batch 20. The automated judgments are preliminary and can guide source verification. Neither pooling nor causal inference has been selected.",
+  "preliminary_sources": [
+    {
+      "assessor_id": "ai-evidence-reviewer-a",
+      "role": "independent narrative source cross-check",
+      "sha256": "548072c602f6265d78f21456eca77d732589316f39549d3e383269f5a98876f5"
+    },
+    {
+      "assessor_id": "ai-evidence-reviewer-b",
+      "role": "independent structured preliminary domain judgments",
+      "sha256": "bcf5b4bf80bcb0f903e0fc0519d62d4d9f7b66c9af833b3f973893a9db717d97"
+    }
+  ],
+  "results": [
+    {
+      "result_id": "usaf-howard-1979-1981:standalone_incidence",
+      "selection_input_path": "data/chamber/publication-review/analysis-selection-batch-20.json",
+      "study_id": "usaf-howard-1979-1981",
+      "analysis": "standalone_incidence",
+      "selection_ids": [
+        "usaf-howard-1979-1981:standalone_incidence:all"
+      ]
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:within_program_role",
+      "selection_input_path": "data/chamber/publication-review/analysis-selection-batch-20.json",
+      "study_id": "usaf-howard-1979-1981",
+      "analysis": "within_program_role",
+      "selection_ids": [
+        "usaf-howard-1979-1981:within_program_role:inside-instructor-observer",
+        "usaf-howard-1979-1981:within_program_role:trainee"
+      ]
+    },
+    {
+      "result_id": "usn-1959-1968:standalone_incidence",
+      "selection_input_path": "data/chamber/publication-review/analysis-selection-batch-20.json",
+      "study_id": "usn-1959-1968",
+      "analysis": "standalone_incidence",
+      "selection_ids": [
+        "usn-1959-1968:standalone_incidence:trainee"
+      ]
+    },
+    {
+      "result_id": "usn-1993-2002:standalone_incidence",
+      "selection_input_path": "data/chamber/publication-review/analysis-selection-batch-20.json",
+      "study_id": "usn-1993-2002",
+      "analysis": "standalone_incidence",
+      "selection_ids": [
+        "usn-1993-2002:standalone_incidence:all"
+      ]
+    },
+    {
+      "result_id": "eskisehir-2011-2018:standalone_incidence",
+      "selection_input_path": "data/chamber/publication-review/analysis-selection-batch-20.json",
+      "study_id": "eskisehir-2011-2018",
+      "analysis": "standalone_incidence",
+      "selection_ids": [
+        "eskisehir-2011-2018:standalone_incidence:all"
+      ]
+    },
+    {
+      "result_id": "eskisehir-2011-2018:within_program_role",
+      "selection_input_path": "data/chamber/publication-review/analysis-selection-batch-20.json",
+      "study_id": "eskisehir-2011-2018",
+      "analysis": "within_program_role",
+      "selection_ids": [
+        "eskisehir-2011-2018:within_program_role:inside-observer",
+        "eskisehir-2011-2018:within_program_role:all-trainees"
+      ]
+    }
+  ],
+  "appraisals": [
+    {
+      "result_id": "usaf-howard-1979-1981:standalone_incidence",
+      "domain": "denominator_validity",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "The reported chamber exposure total and the staff/trainee components reconcile for the footnoted period. Methods for counting individual exposures, invalid or aborted sessions and site coverage are unavailable.",
+      "evidence_needed": "Site/month rosters, counting rules and exclusions reconciled to the total.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:standalone_incidence",
+      "domain": "selection",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Routine training is explicit, and trainees include military aircrew, medical personnel and FAA-designated civilians. Eligible and contributing sites and unsubmitted records are unreported.",
+      "evidence_needed": "Site participation roster, expected reporting calendar and trainee composition by period.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:standalone_incidence",
+      "domain": "outcome_ascertainment",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "The source groups cases resolved on descent and cases requiring hyperbaric treatment, with no case definition, diagnostic reviewer or record linkage stated. Case reporting supports the native endpoint.",
+      "evidence_needed": "Contemporaneous case definition and logs identifying diagnostic assessment and qualifying symptoms.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:standalone_incidence",
+      "domain": "missing_follow_up",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "insufficient_information",
+      "rationale": "The paper describes some dispositions. It gives no uniform post-descent case detection interval or completeness measure across exposed people.",
+      "evidence_needed": "Ascertainment instructions and population-level documentation of checks and referral capture after return.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:standalone_incidence",
+      "domain": "dependence_and_overlap",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Multiple persons may have shared sessions, and inside staff can contribute repeated exposures. Participant, session, and site identifiers are absent. Overlap with related US programmes remains unresolved.",
+      "evidence_needed": "Person–session–site linkage and ascertainment periods sufficient to account for repeats and identify any duplicate programme cells.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1959-1968:standalone_incidence",
+      "domain": "denominator_validity",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "few_concerns",
+      "rationale": "Original Aviation Physiology Training Reports provide man-exposures. No exact breakdown by sex, unique attendee or all individual profile variants is available.",
+      "evidence_needed": "Original reports to verify coverage, duplicates and the handling of incomplete exposures.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf#page=2",
+      "locator": "Methods p. 450, Results and Table I p. 451, Discussion p. 452",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1959-1968:standalone_incidence",
+      "domain": "selection",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "The source covers routine Navy altitude training reported to the Bureau of Medicine and Surgery. Site coverage and completeness of returns are unstated.",
+      "evidence_needed": "Facility reporting roster and checks for omitted programme-months or participants.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf#page=2",
+      "locator": "Methods p. 450, Results and Table I p. 451, Discussion p. 452",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1959-1968:standalone_incidence",
+      "domain": "outcome_ascertainment",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Recorded DCS “incidents” come from retrospective returns and supplemental reports where submitted, with selected medical records consulted where available. Uniform diagnostic adjudication at trainee level is unreported. Discussion about observers minimizing symptoms applies specifically to staff.",
+      "evidence_needed": "Reporting instructions and trainee case register with original diagnosis, symptoms and matching exposure.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf#page=2",
+      "locator": "Methods p. 450, Results and Table I p. 451, Discussion p. 452",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1959-1968:standalone_incidence",
+      "domain": "missing_follow_up",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "insufficient_information",
+      "rationale": "Selected clinical vignettes concern observer cases and supply no common trainee follow-up window.",
+      "evidence_needed": "Delayed surveillance procedure, time to presentation and participation in post-descent assessment.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf#page=2",
+      "locator": "Methods p. 450, Results and Table I p. 451, Discussion p. 452",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1959-1968:standalone_incidence",
+      "domain": "dependence_and_overlap",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Indoctrination and refresher training can include repeat attendance. Session clusters are unavailable. Later Bason tables reproduce the same rows, so the original contributes once.",
+      "evidence_needed": "Linked trainee identifiers and chamber-session records across the relevant programme years.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf#page=2",
+      "locator": "Methods p. 450, Results and Table I p. 451, Discussion p. 452",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1993-2002:standalone_incidence",
+      "domain": "denominator_validity",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "few_concerns",
+      "rationale": "Quarterly training records provide exposure counts and the Table I role and profile denominators each reconcile to 38,153. Profile numerators total 92 while the printed aggregate is 94. The aggregate's diagnosis ledger remains unavailable.",
+      "evidence_needed": "Source ledger or erratum reconciled to the total, profile and role entries.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "locator": "Methods p. 57, Results and Table I p. 58, Discussion pp. 59-61",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1993-2002:standalone_incidence",
+      "domain": "selection",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Routine Navy training reports cover five profiles. The 35,000-ft Type IIA programme began in 1998, so the full result represents the specific changing profile mix. Completeness of contributing programme returns is unreported.",
+      "evidence_needed": "Site and period inventory with reporting completeness and a profile-mix roster.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "locator": "Methods p. 57, Results and Table I p. 58, Discussion pp. 59-61",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1993-2002:standalone_incidence",
+      "domain": "outcome_ascertainment",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Chamber reaction reports and clinical records complemented quarterly returns. A medical officer diagnosis received review, and a separate undersea medical officer adjudicated questionable cases. The paper notes fewer final diagnosticians and consistent criteria in the 1998–2002 subset. The common aggregate case count has unreconciled subgroups and ascertainment can vary by period.",
+      "evidence_needed": "Linked case records with adjudication details, dates and the original subgroup crosswalk.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "locator": "Methods p. 57, Results and Table I p. 58, Discussion pp. 59-61",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1993-2002:standalone_incidence",
+      "domain": "missing_follow_up",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "The source specifies 48 hours for ascertainment of clinical symptoms. Reports do not quantify follow-up compliance or capture of delayed symptoms outside the reporting programme.",
+      "evidence_needed": "Documented active contacts or routine linked records for a known proportion of all person-exposures through 48 hours.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "locator": "Methods p. 57, Results and Table I p. 58, Discussion pp. 59-61",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usn-1993-2002:standalone_incidence",
+      "domain": "dependence_and_overlap",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Published records have no participant/session linkage. Observer repeat attendance and shared sessions constrain independent-exposure uncertainty. Interim and extended Navy reports and the overlapping Pensacola series require a case/period crosswalk.",
+      "evidence_needed": "Participant and session identifiers, site coverage and exact disjoint intervals against other reports.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "locator": "Methods p. 57, Results and Table I p. 58, Discussion pp. 59-61",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:standalone_incidence",
+      "domain": "denominator_validity",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "few_concerns",
+      "rationale": "The recorded trainee exposure counts reconcile by sex. Each of the 615 sessions had one observer, so those sessions correspond to 615 observer person-exposures. The male-only 7,193 total overlaps the full roster.",
+      "evidence_needed": "Visit-level roster confirming one record per eligible person-session and disjoint role membership during each session.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:standalone_incidence",
+      "domain": "selection",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Aircrew were medically cleared and could be excluded after the sinus/ear check. Five of 6,662 trainee exposure records lacked demographics and were excluded. Their endpoint dispositions remain unknown. The local starting pressure and operative programme govern generalizability.",
+      "evidence_needed": "Record flow by sex, role and clearance decision, including whether the five omitted exposures had ascertainable outcomes.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:standalone_incidence",
+      "domain": "outcome_ascertainment",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Source symptom classes and clinical evaluation by an outside aerospace physician support the native clinical endpoint. Table 2 records observed symptoms and recompression of all eight cases. Case detection relied on presentation or recognition.",
+      "evidence_needed": "Screening records for all exposed participants and evidence of completeness of diagnosis and referral capture.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:standalone_incidence",
+      "domain": "missing_follow_up",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "insufficient_information",
+      "rationale": "Methods permits diagnosis during or after exposure and Results reports clinical recovery. A common post-return surveillance interval and participation are unavailable.",
+      "evidence_needed": "Follow-up protocol and case/attendance logs with recording time and event ascertainment coverage.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:standalone_incidence",
+      "domain": "dependence_and_overlap",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Ten staff share 615 observer exposures. Multiple people attended each session, and some trainees may appear more than once. Existing same-site selected reports cannot be added independently without linkage.",
+      "evidence_needed": "De-identified participant/session crosswalk, attendance history and attribution of related case reports.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:within_program_role",
+      "domain": "denominator_validity",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Exact same-period role totals are published. The source leaves staff and trainee site/session coverage and individual counting rules unverified.",
+      "evidence_needed": "Role-labelled roster and confirmation of matched sites, protocols and periods.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:within_program_role",
+      "domain": "selection",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Assignment to staff or trainee occurred operationally. The trainee mix includes civilian, medical and military groups. Source provides no participation or differential exclusion accounting.",
+      "evidence_needed": "Recruitment and eligibility data by role, site and protocol.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:within_program_role",
+      "domain": "outcome_ascertainment",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Diagnostic criteria and equivalence of reporting across roles are unavailable. Case disposition counts have no role crosswalk.",
+      "evidence_needed": "Standard diagnostic records, adjudication and completeness by role.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:within_program_role",
+      "domain": "missing_follow_up",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "insufficient_information",
+      "rationale": "The dates of surveillance are clear and its delayed case detection window is unreported for both groups.",
+      "evidence_needed": "Comparable post-descent surveillance coverage and window for each role.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:within_program_role",
+      "domain": "dependence_and_overlap",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Repeated staff exposure and shared sessions can concentrate events. The abstract gives no participant/site identifiers or information for clustered inference.",
+      "evidence_needed": "Person–session–site counts and repeated exposure histories by role.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "usaf-howard-1979-1981:within_program_role",
+      "domain": "role_comparability",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Inside staff and trainees belong to the same programme, but actual profile, oxygen, activity and demographic composition by role are unknown. The later 1.7-fold citation lacks linkable counts or dates.",
+      "evidence_needed": "Original role-specific protocols and session-level matching by altitude, oxygen, timing and prior exposure, with case provenance.",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "locator": "Abstract 10, printed pp. 10-11 and surveillance footnote",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:within_program_role",
+      "domain": "denominator_validity",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "few_concerns",
+      "rationale": "Each session had one inside observer. Results distinguish retained trainee exposures by sex and report six diagnosed trainee cases. Table 1 is male-only.",
+      "evidence_needed": "Original role-labelled exposure register checked against all trainee and male-only cells.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:within_program_role",
+      "domain": "selection",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Five records lack trainee demographics. All inside observers were male. Medical screening and post-treatment reassignment rules can affect which people contribute exposures and when.",
+      "evidence_needed": "Role-specific record flow including exclusions, untreated cases and returning attendees.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:within_program_role",
+      "domain": "outcome_ascertainment",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "some_concerns",
+      "rationale": "Both roles used the same outside physician evaluation process for reported symptoms. Differences in symptom recognition, willingness to report or referral between experienced staff and trainees remain unmeasured.",
+      "evidence_needed": "Per-role surveillance indicators, documented same triggers and clinical review, including symptom-only cases.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:within_program_role",
+      "domain": "missing_follow_up",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "insufficient_information",
+      "rationale": "A common delayed ascertainment window is unspecified. Source recovery information follows diagnosed cases only.",
+      "evidence_needed": "Standard follow-up schedule and actual coverage for each role.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:within_program_role",
+      "domain": "dependence_and_overlap",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "Ten staff contribute all 615 exposures. The two staff cases occur in two different people, but person-specific attendance and common-session correlations are unknown.",
+      "evidence_needed": "Attendance and diagnosis linkage by person and session to estimate the dependence, including prior exposure and post-treatment time off.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    },
+    {
+      "result_id": "eskisehir-2011-2018:within_program_role",
+      "domain": "role_comparability",
+      "assessor_id": "ai-evidence-reviewer-b",
+      "assessor_kind": "automated",
+      "assessed_on": "2026-11-23",
+      "judgment": "substantial_concerns",
+      "rationale": "The main pressure and prebreathe profile is shared. The source describes more movement by staff, different prior exposure cadence and all-male staff. The report provides no individual activity measurement, adjusted estimate or complete covariate balance.",
+      "evidence_needed": "Measured activity and actual gas/pressure histories with comparable role-specific covariates and enough data to quantify uncertainty.",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "locator": "Methods pp. 204-205, Results, Tables 1-2 and Discussion p. 206",
+      "verification_status": "preliminary"
+    }
+  ]
+}

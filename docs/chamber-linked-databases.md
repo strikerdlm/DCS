@@ -7,6 +7,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `systematic-review.sqlite` | `review_record`, `review_publication_catalog`, `review_study_report`, `review_current_screening` | Retrieved occurrence, published report, study and reviewer decision |
 | `systematic-review.sqlite` | `review_seed_role_cell`, `review_supplementary_role_cell`, `review_secondary_role_cell` | Original and secondary role-specific counts for eligibility assessment |
 | `systematic-review.sqlite` | `review_analysis_selection`, `review_workflow_document` | Accepted result uses and holds with source cells, risk sets and coordinator confirmation |
+| `systematic-review.sqlite` | `review_analysis_result_cell`, `review_result_appraisal` | Source-linked result counts, cases per 1,000 and assessor-specific domain judgments with verification status |
 | `dcs-model.sqlite` | `development_counts`, `afrl_test`, `vge_interval`, `locked_external` | Frozen NASA DCS groups, separate AFRL test groups, Grade IV VGE intervals and external strata |
 | `dcs-model.sqlite` | `historical_case_catalog`, `dcs_case`, `publication_observation_revision`, `publication_observation_denominator_completion` | Selected historical case histories, source corrections and recovered denominators |
 | `dcs-model.sqlite` | `publication_aircraft_incident`, `publication_aircraft_incident_count` | Aircraft incident profiles and source-reported outcomes |
