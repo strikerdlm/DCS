@@ -1,0 +1,423 @@
+[
+  {
+    "id": "2026-11-22-fryer-1965-raf-retest-outcomes-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "eaa9b107-b392-44ac-8c5e-fae3639cc89c",
+          "provider": "Tavily",
+          "topic": "Exact proceedings citation and public PDF"
+        },
+        {
+          "search_id": "01a20663-2751-7294-a2b5-8cf77eb159d1",
+          "provider": "Firecrawl",
+          "topic": "Original chamber reports in NATO proceedings"
+        },
+        {
+          "request_id": "f92855c1-3e06-4eec-a4a6-2955b04728b7",
+          "provider": "Tavily",
+          "topic": "Original Russell FPRC Report 519"
+        },
+        {
+          "request_id": "f5b1407e-5e1f-493c-a4c8-5c2091ac14a8",
+          "provider": "Tavily",
+          "topic": "Original Samuel FPRC Report 866(a)"
+        }
+      ]
+    },
+    "records": [],
+    "note": "The public NATO volume supplied Fryer’s original survey. The standalone Russell and Samuel reports were unavailable."
+  },
+  {
+    "id": "2026-11-22-fryer-1965-raf-retest-outcomes-verified",
+    "date": "2026-11-22",
+    "provider": "NATO proceedings and direct page verification",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf",
+          "verified_pdf_pages": [
+            293,
+            294,
+            299,
+            300,
+            303,
+            304
+          ],
+          "note": "Firecrawl found the volume but the PDF query exceeded its configured time. Read the downloaded NATO page images directly."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "fryer-1965-agard-cp-2",
+        "title": "A Survey of an RAF Decompression Test at 28,000 Feet",
+        "year": 1965,
+        "url": "https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=290",
+        "primary_source": "https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=290",
+        "source_sha256": "93c76e17c673921009fe3cde96b5de15e884981558ae0772b7fb8ee590b3da23",
+        "access": "full_text",
+        "locator": "Results pp. 282–285, Tables I–IV pp. 288–289 and Figure 4 pp. 292–293",
+        "role_review": "overlap_hold",
+        "model_extraction": {
+          "source_id": "fryer65_selection",
+          "input_release": "v1.254",
+          "shared_cohort_source": "fryer69_raf",
+          "overall_counts_already_recorded": {
+            "people": 2606,
+            "person_exposures": 4956,
+            "symptomatic_people": 141,
+            "symptomatic_exposures": 165
+          },
+          "age_table": {
+            "locator": "Table III, printed p. 289 (PDF p. 300)",
+            "existing_strata": "selection_age_*_first_runs in fryer69_raf",
+            "note": "Exactly the same six count pairs. The conference age total is 2,635 and differs from 2,606 in the main series. Conference shorthand does not resolve the differing risk-set definitions."
+          },
+          "retest_groups": [
+            {
+              "group_as_reported": "first_test",
+              "people": 2210,
+              "severe": 11,
+              "mild_or_moderate": 59,
+              "nil": 2140,
+              "locator": "Figure 4a, printed p. 292 (PDF p. 303)"
+            },
+            {
+              "group_as_reported": "second_after_mild_or_moderate",
+              "people": 59,
+              "severe": 2,
+              "mild_or_moderate": 10,
+              "nil": 47,
+              "locator": "Figure 4c, printed p. 293 (PDF p. 304)"
+            },
+            {
+              "group_as_reported": "second_after_nil",
+              "people": 2140,
+              "severe": 9,
+              "mild_or_moderate": 38,
+              "nil": 2093,
+              "locator": "Figure 4c, printed p. 293 (PDF p. 304)"
+            }
+          ],
+          "retest_reconciliation": {
+            "locator": "Figure 4b, printed p. 292 (PDF p. 303)",
+            "second_test_people": 2199,
+            "second_test_severe": 11,
+            "second_test_mild_or_moderate": 48,
+            "second_test_nil": 2140,
+            "note": "Figure 4c partitions the Figure 4b totals. Eleven people with severe symptoms after the first test were excluded from retesting. Its 12 symptomatic second tests after earlier mild or moderate symptoms are stored as a distinct source subset from the 13 both-symptomatic paired count in the later monograph."
+          },
+          "observed_session_clusters": [
+            {
+              "people_reporting_symptoms": 0,
+              "sessions_as_reported": null,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            },
+            {
+              "people_reporting_symptoms": 1,
+              "sessions_as_reported": 106,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            },
+            {
+              "people_reporting_symptoms": 2,
+              "sessions_as_reported": 16,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            },
+            {
+              "people_reporting_symptoms": 3,
+              "sessions_as_reported": 7,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            },
+            {
+              "people_reporting_symptoms": 4,
+              "sessions_as_reported": 0,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            },
+            {
+              "people_reporting_symptoms": 5,
+              "sessions_as_reported": 1,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            },
+            {
+              "people_reporting_symptoms": 6,
+              "sessions_as_reported": 0,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            },
+            {
+              "people_reporting_symptoms": 7,
+              "sessions_as_reported": 0,
+              "locator": "Table II, printed p. 288 (PDF p. 299), Observed column"
+            }
+          ],
+          "weight_table_total": {
+            "people": 2193,
+            "symptomatic_people": 139,
+            "locator": "Table IV, printed p. 289 (PDF p. 300)"
+          }
+        },
+        "unretrieved_references": [
+          {
+            "title": "Clinical Observations on Selection Tests Carried out in the Decompression Chamber",
+            "author": "D. C. Russell",
+            "year": 1943,
+            "report": "FPRC 519",
+            "locator": "Reference list, printed p. 287 (PDF p. 298)"
+          },
+          {
+            "title": "Second Report on Standard Decompression Chamber Tests of Flying Personnel",
+            "author": "G. D. Samuel",
+            "year": 1955,
+            "report": "FPRC 866(a)",
+            "locator": "Reference list, printed p. 287 (PDF p. 298)"
+          }
+        ],
+        "observations": [
+          {
+            "id": "all-people-selection_failure_after_retrospective_application_of_rules",
+            "group": "all-people",
+            "endpoint": "selection_failure_after_retrospective_application_of_rules",
+            "cases": 45,
+            "denominator": 2606,
+            "denominator_unit": "person",
+            "analysis_role": "denominator_conflict",
+            "locator": "Results, printed p. 282 (PDF p. 293)",
+            "note": "The surrounding text reports 2,606 people. The 45 reclassified administrative failures are printed as 1.65 percent, which does not reproduce 45/2,606. The exact failure denominator and reason for the mismatch are unavailable. This is a different endpoint from forced descent.",
+            "protocol": "RAF selection at 28,000 ft for up to two hours. Planned retest after 2–30 days. Actual oxygen delivery, eligibility for specific analyses and complete pressure histories are unavailable.",
+            "outcome_window": "During the physical test and source follow-up as described. Uniform delayed surveillance unavailable."
+          },
+          {
+            "id": "symptomatic-runs-bends_in_symptomatic_runs_as_reported",
+            "group": "symptomatic-runs",
+            "endpoint": "bends_in_symptomatic_runs_as_reported",
+            "cases": 147,
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "case_conditional",
+            "locator": "Results p. 282 (PDF p. 293) and Table I p. 288 (PDF p. 299)",
+            "note": "The numerator and denominator are explicit in the prose. Table I prints 89.1 percent for total bends. These are symptom-positive runs, not all exposures.",
+            "protocol": "RAF selection at 28,000 ft for up to two hours. Planned retest after 2–30 days. Actual oxygen delivery, eligibility for specific analyses and complete pressure histories are unavailable.",
+            "outcome_window": "During the physical test and source follow-up as described. Uniform delayed surveillance unavailable."
+          },
+          {
+            "id": "primary-chokes-cases-hospital_admission_among_primary_chokes_as_reported",
+            "group": "primary-chokes-cases",
+            "endpoint": "hospital_admission_among_primary_chokes_as_reported",
+            "cases": 2,
+            "denominator": 4,
+            "denominator_unit": "dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Results, printed p. 283 (PDF p. 294)",
+            "note": "The prose describes four primary chokes cases and says two were admitted. Table I prints a different proportion under primary chokes. The precise relationship between the tabulated and narrative categories is unavailable.",
+            "protocol": "RAF selection at 28,000 ft for up to two hours. Planned retest after 2–30 days. Actual oxygen delivery, eligibility for specific analyses and complete pressure histories are unavailable.",
+            "outcome_window": "During the physical test and source follow-up as described. Uniform delayed surveillance unavailable."
+          },
+          {
+            "id": "weight-under-11st-6lb-symptoms_of_dcs_in_weight_subset_as_reported",
+            "group": "weight-under-11st-6lb",
+            "endpoint": "symptoms_of_dcs_in_weight_subset_as_reported",
+            "cases": 42,
+            "denominator": 1021,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "locator": "Table IV, printed p. 289 (PDF p. 300)",
+            "note": "Weight group as printed: Under 11 stone 6 pounds. The source does not specify how boundary weights were classified or explain the weight subset in enough detail to pool it with the overall cohort.",
+            "protocol": "RAF selection at 28,000 ft for up to two hours. Planned retest after 2–30 days. Actual oxygen delivery, eligibility for specific analyses and complete pressure histories are unavailable.",
+            "outcome_window": "During the physical test and source follow-up as described. Uniform delayed surveillance unavailable."
+          },
+          {
+            "id": "weight-11st-7lb-to-12st-6lb-symptoms_of_dcs_in_weight_subset_as_reported",
+            "group": "weight-11st-7lb-to-12st-6lb",
+            "endpoint": "symptoms_of_dcs_in_weight_subset_as_reported",
+            "cases": 48,
+            "denominator": 572,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "locator": "Table IV, printed p. 289 (PDF p. 300)",
+            "note": "Weight group as printed: 11 stone 7 pounds through 12 stone 6 pounds. The source does not specify how boundary weights were classified or explain the weight subset in enough detail to pool it with the overall cohort.",
+            "protocol": "RAF selection at 28,000 ft for up to two hours. Planned retest after 2–30 days. Actual oxygen delivery, eligibility for specific analyses and complete pressure histories are unavailable.",
+            "outcome_window": "During the physical test and source follow-up as described. Uniform delayed surveillance unavailable."
+          },
+          {
+            "id": "weight-over-12st-7lb-symptoms_of_dcs_in_weight_subset_as_reported",
+            "group": "weight-over-12st-7lb",
+            "endpoint": "symptoms_of_dcs_in_weight_subset_as_reported",
+            "cases": 49,
+            "denominator": 600,
+            "denominator_unit": "person",
+            "analysis_role": "overlap_hold",
+            "locator": "Table IV, printed p. 289 (PDF p. 300)",
+            "note": "Weight group as printed: Over 12 stone 7 pounds. The source does not specify how boundary weights were classified or explain the weight subset in enough detail to pool it with the overall cohort.",
+            "protocol": "RAF selection at 28,000 ft for up to two hours. Planned retest after 2–30 days. Actual oxygen delivery, eligibility for specific analyses and complete pressure histories are unavailable.",
+            "outcome_window": "During the physical test and source follow-up as described. Uniform delayed surveillance unavailable."
+          },
+          {
+            "id": "primary-bends-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "primary_bends_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "77.6",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "primary-chokes-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "primary_chokes_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "0.6",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "primary-cns-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "primary_cns_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "1.8",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "primary-skin-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "primary_skin_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "4.3",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "primary-circulatory-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "primary_circulatory_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "2.4",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "multiple-bends-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "multiple_bends_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "11.5",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "multiple-chokes-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "multiple_chokes_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "4.2",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "multiple-cns-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "multiple_cns_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "1.8",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "multiple-skin-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "multiple_skin_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "4.2",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "multiple-circulatory-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "multiple_circulatory_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "10.3",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "total-chokes-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "total_chokes_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "4.8",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "total-cns-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "total_cns_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "3.6",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "total-skin-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "total_skin_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "8.5",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          },
+          {
+            "id": "total-circulatory-percent",
+            "group": "symptomatic-runs",
+            "endpoint": "total_circulatory_as_printed",
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "reported_rate": "12.7",
+            "reported_rate_unit": "percent",
+            "locator": "Table I, printed p. 288 (PDF p. 299), with clinical results p. 282",
+            "note": "Source percentages characterize reported symptoms in 165 symptomatic person-runs. Categories can overlap. Exact counts by cell are unavailable in Table I."
+          }
+        ]
+      }
+    ],
+    "note": "All recorded fields were checked against the NATO pages. Expected values from Tables II–IV are excluded. Shared cohort and age counts use the earlier database records."
+  }
+]
