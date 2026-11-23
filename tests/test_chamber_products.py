@@ -10541,6 +10541,52 @@ def test_early_airborne_cases_deduplicate_reports_and_preserve_timing_bounds(rel
         ]
 
 
+def test_kumar_threshold_compilation_reuses_existing_outcomes_and_report(release):
+    run_id = "2026-11-22-kumar-1990-threshold-table-reconciliation-verified"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*) FROM publication_threshold_profile_reconciled WHERE source_id='kumar90'
+        """).fetchone() == (36,)
+        assert db.execute("""
+            SELECT p.printed_row, p.symptom_count, p.exposure_count, p.denitrogenation_h,
+                   o.numerator, o.denominator, o.denominator_unit, o.prebreathe_min,
+                   p.reconciliation_status
+            FROM publication_threshold_profile_reconciled p
+            JOIN publication_observation o
+                ON o.source_id=p.related_source_id AND o.stratum=p.related_stratum
+                AND o.endpoint=p.related_endpoint
+            WHERE p.source_id='kumar90' ORDER BY p.printed_row
+        """).fetchall() == [
+            (2, 0, 30, 0.0, 0, 30, "person_exposure", 0, "counts_concordant"),
+            (6, 1, 30, 0.0, 1, 30, "person", 0, "scope_discrepancy"),
+            (24, 18, 36, 2.0, 18, 36, "person_exposure", 120, "counts_concordant"),
+            (29, 3, 32, 3.0, 3, 32, "person_exposure", 120, "scope_discrepancy"),
+        ]
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='kumar90'
+        """).fetchone() == (0,)
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='kumar90'
+        """).fetchone() == ("pmid:2400370",)
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key='2026-11-20-formal-chamber-ntrs-disease#19900057571'
+        """).fetchone() == ("pmid:2400370",)
+        report, metadata = db.execute("""
+            SELECT report_id,metadata_json FROM review.review_record WHERE run_id=?
+        """, (run_id,)).fetchone()
+        assert report == "pmid:2400370"
+        extraction = json.loads(metadata)["model_extraction"]
+        assert extraction["printed_rows_verified"] == 36
+        assert [
+            (row["printed_row"], row["related_source_id"], row["related_stratum"])
+            for row in extraction["row_reconciliations"]
+        ] == db.execute("""
+            SELECT printed_row,related_source_id,related_stratum
+            FROM publication_threshold_profile_revision WHERE source_id='kumar90' ORDER BY printed_row
+        """).fetchall()
+
+
 def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):
     source = "welham44_edu_38000"
     report = "openalex:W1822196694"

@@ -315,6 +315,7 @@ EDEL_ORBITAL_TRIALS = ROOT / "data" / "chamber" / "v1.247"
 NAVY_1940_TRIALS = ROOT / "data" / "chamber" / "v1.248"
 NAVY_1944_TRIALS = ROOT / "data" / "chamber" / "v1.249"
 EARLY_FLIGHT_CASE_ARCHIVE = ROOT / "data" / "chamber" / "v1.250"
+KUMAR_THRESHOLD_COMPILATION = ROOT / "data" / "chamber" / "v1.251"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3274,6 +3275,11 @@ def build(
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    KUMAR_THRESHOLD_COMPILATION,
+                    {"publication_threshold_profile_revision": "threshold_profile_revisions.csv"},
                 )
                 load_register(db, ROOT)
                 db.commit()
