@@ -1,6 +1,18 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-23-missing-chamber-full-text-firecrawl#dialnet-9067352",
+      "report_id": "pmid:9810543",
+      "evidence_url": "https://dialnet.unirioja.es/servlet/articulo?codigo=9067352",
+      "basis": "The Dialnet citation matches the authors, title, year and Medicina Clínica volume 111 issue 9 page 359 of the indexed Spanish letter. This retrieval only verifies bibliographic identity."
+    },
+    {
+      "record_key": "2026-11-23-missing-chamber-full-text-undermind#Tej98",
+      "report_id": "pmid:9810543",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9810543/",
+      "basis": "Undermind exact lookup on PMID 9810543 and author, title, year and issue gave the same Spanish letter with uppercase unaccented title."
+    },
+    {
       "record_key": "2026-11-20-formal-chamber-ntrs-setting#20260004033",
       "report_id": "ntrs:20260004033",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/20260004033",
