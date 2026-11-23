@@ -10780,6 +10780,51 @@ def test_balldin_pulmonary_onsets_extend_an_existing_case_series(release):
         """).fetchone() == (1,)
 
 
+def test_conkin_fitness_keeps_archive_counts_and_reported_estimates_distinct(release):
+    source = "conkin07_fitness_hypobaric"
+    report = "openalex:W1483440411"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id=? ORDER BY stratum,endpoint
+        """, (source,)).fetchall() == [
+            ("exercise-prebreathe", "dcs", 25, 172, "overlap_hold"),
+            ("rest-or-no-prebreathe", "dcs", 25, 165, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT stratum,mean_peak_vo2_ml_kg_min,sd_peak_vo2_ml_kg_min,mean_exposure_pressure_psia,
+                   mean_exposure_duration_min,reported_ambulation_pct,table_dcs_pct,figure_caption_dcs_pct,
+                   reported_vge_pct,mean_dcs_onset_min,mean_vge_onset_min
+            FROM publication_conkin_fitness_summary WHERE source_id=? ORDER BY stratum
+        """, (source,)).fetchall() == [
+            ("exercise-prebreathe", 41.4, 7.2, 4.3, 240, 0, 14.5, 14.5, 44.8, 122, 90),
+            ("rest-or-no-prebreathe", 40.5, 7.6, 6.5, 180, 75, 15.2, 15.1, 45.5, 101, 62),
+        ]
+        assert db.execute("""
+            SELECT stratum,outcome,log_odds_coefficient_per_ml_kg_min,abstract_p_value,figure_caption_p_value
+            FROM publication_conkin_fitness_association WHERE source_id=? ORDER BY stratum,outcome
+        """, (source,)).fetchall() == [
+            ("exercise-prebreathe", "dcs", -0.058, 0.07, 0.07),
+            ("exercise-prebreathe", "vge", -0.003, 0.89, None),
+            ("rest-or-no-prebreathe", "dcs", -0.005, 0.86, 0.866),
+            ("rest-or-no-prebreathe", "vge", 0.014, 0.50, None),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE url LIKE '%/20070008088%' OR url LIKE '%/20060046703%' OR url LIKE '%/W1483440411'
+        """).fetchall() == [(report,)]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='publication_source' AND source_id=?
+        """, (source,)).fetchall() == [(report,)]
+        assert db.execute("""
+            SELECT right_report,relationship FROM review.review_report_relation
+            WHERE left_report=? ORDER BY right_report
+        """, (report,)).fetchall() == [
+            ("ntrs:20200004317", "likely_overlap"),
+            ("record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise", "likely_overlap"),
+        ]
+
+
 def test_rush_post_chamber_cases_reuse_treated_margin_and_preserve_time_origins(release):
     source = "rush90"
     with connect_pair(release) as db:

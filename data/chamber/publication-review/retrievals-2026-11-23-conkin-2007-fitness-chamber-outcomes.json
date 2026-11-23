@@ -1,0 +1,148 @@
+[
+  {
+    "id": "2026-11-23-conkin-2007-fitness-chamber-outcomes-discovery",
+    "date": "2026-11-23",
+    "provider": "Tavily, Firecrawl and NASA NTRS",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "3d3da68b-53e6-49f6-8400-6c7e83d5fe70",
+          "topic": "NASA and NATO chamber outcomes"
+        },
+        {
+          "provider": "Firecrawl",
+          "request_id": "01a206d4-1fec-71a8-a440-6775da58329e",
+          "topic": "Primary chamber reports"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "277bf6f5-6673-41f0-88b0-d427ed414db2",
+          "topic": "Exact NASA fitness counts and archive overlap"
+        }
+      ]
+    },
+    "records": [],
+    "note": "Two NASA repository catalogue records describe the same meeting report. The downloadable poster supplies Table I and details about the archive sample."
+  },
+  {
+    "id": "2026-11-23-conkin-2007-fitness-chamber-outcomes-verified",
+    "date": "2026-11-23",
+    "provider": "Tavily, Firecrawl and NASA NTRS",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "b7e2df94-d568-4bf1-9fa2-839a944122a0",
+          "url": "https://ntrs.nasa.gov/citations/20070008088",
+          "topic": "Author abstract and reported counts"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206d5-649d-7040-98a3-ab921fb22c54",
+          "url": "https://ntrs.nasa.gov/citations/20070008088",
+          "topic": "Poster entry and download locator"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "2a7b5df1-0c72-47de-b992-226ab000f0e1",
+          "url": "https://ntrs.nasa.gov/citations/20060046703",
+          "topic": "Matching authors, meeting and outcomes"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206d7-d148-72bb-a0d5-76c5a1b4c17b",
+          "url": "https://ntrs.nasa.gov/citations/20060046703",
+          "topic": "Abstract and meeting record"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "cd521795-1ef7-4dd5-9e45-4948e5160037",
+          "url": "https://openalex.org/W1483440411",
+          "topic": "Original NASA repository metadata behind the OpenAlex work"
+        },
+        {
+          "provider": "NASA NTRS",
+          "url": "https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf",
+          "pages": [
+            1
+          ],
+          "source_sha256": "a163661240dc96c3afa0c58a9372e7b8e1b0883dfeba1f4f875ca19a1b93af9d",
+          "topic": "Original poster and figure captions"
+        },
+        {
+          "provider": "LlamaParse",
+          "url": "https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf",
+          "status": "HTTP 402; no parse output",
+          "topic": "Secondary parse of NASA poster"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "conkin-2007-fitness-poster",
+        "title": "Exploiting Aerobic Fitness to Reduce Risk of Hypobaric Decompression Sickness",
+        "authors": [
+          "Johnny Conkin",
+          "Michael L. Gernhardt",
+          "James H. Wessel III"
+        ],
+        "year": 2007,
+        "openalex_id": "W1483440411",
+        "report_number": "NTRS:20070008088",
+        "url": "https://ntrs.nasa.gov/citations/20070008088",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf",
+        "source_sha256": "a163661240dc96c3afa0c58a9372e7b8e1b0883dfeba1f4f875ca19a1b93af9d",
+        "access": "full_text",
+        "locator": "Poster Abstract, Methods, Table I and Figures 1–2, PDF p. 1",
+        "role_review": "overlap_hold",
+        "model_extraction": {
+          "source_id": "conkin07_fitness_hypobaric",
+          "input_release": "v1.260",
+          "group_summary_input": "data/chamber/v1.260/fitness_summaries.csv",
+          "association_input": "data/chamber/v1.260/fitness_associations.csv",
+          "predictor": "Peak VO2 as aerobic fitness from treadmill or cycle testing",
+          "association_method": "Univariate maximum-likelihood logistic regression as reported in Methods. Figure captions also use linear regression wording.",
+          "scope_note": "The group classes differ in mean pressure, duration and ambulation. Exposure and participant linkage within or between classes are unavailable. VGE counts, onset-time denominators and delayed surveillance are not reported."
+        },
+        "observations": [
+          {
+            "id": "rest-or-no-prebreathe",
+            "group": "rest-or-no-prebreathe",
+            "endpoint": "dcs",
+            "cases": 25,
+            "denominator": 165,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Poster Abstract and Table I, PDF p. 1",
+            "note": "Table I gives 15.2%, and Figure 1 gives 15.1% for the same 25/165. Individual exposure schedules and participant links are unavailable.",
+            "protocol": "NASA hypobaric archive exposures with resting or no oxygen prebreathe. Reported mean exposure pressure 6.5 psia and mean duration 180 min. About 75% ambulated at altitude.",
+            "outcome_window": "During the reported experimental exposures. Fixed observation and delayed follow-up are unavailable."
+          },
+          {
+            "id": "exercise-prebreathe",
+            "group": "exercise-prebreathe",
+            "endpoint": "dcs",
+            "cases": 25,
+            "denominator": 172,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Poster Abstract and Table I, PDF p. 1",
+            "note": "Figure 2 attributes 165 exposures to PRP and seven to other NASA records. The author case count is for the complete class. Individual exposure schedules and participant links are unavailable.",
+            "protocol": "NASA hypobaric archive exposures with exercise during part of oxygen prebreathe. Reported mean pressure 4.3 psia and mean duration 240 min. The authors report no ambulation at altitude.",
+            "outcome_window": "During the reported experimental exposures. Fixed observation and delayed follow-up are unavailable."
+          }
+        ]
+      }
+    ],
+    "note": "Only observed DCS group counts and the poster's descriptive summaries and coefficients were extracted. The model examples and fitted curves do not supply observations."
+  }
+]
