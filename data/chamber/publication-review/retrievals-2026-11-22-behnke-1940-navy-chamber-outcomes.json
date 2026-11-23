@@ -1,0 +1,2080 @@
+[
+  {
+    "id": "2026-11-22-behnke-1940-navy-chamber-outcomes-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily and NLM History of Medicine",
+    "operation": "supplementary_source_discovery",
+    "reported_total": null,
+    "status": "observed",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "8e473293-52a2-40bf-a863-f7865d6f5bc0",
+          "topic": "Early Navy altitude chamber report"
+        },
+        {
+          "request_id": "ec085a89-654a-4eec-afa2-13ad9845f2ab",
+          "url": "https://archive.org/download/DTIC_ADA043702/DTIC_ADA043702.pdf",
+          "topic": "Original experimental clinical observations"
+        },
+        {
+          "request_id": "aa6faba3-b736-4dc5-8271-c82e9698179f",
+          "topic": "Alternate archival copies and omitted tables"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "nlm-finding-aid",
+        "title": "Preliminary Report on Aeroembolism and Equipment for Oxygen Inhalation",
+        "year": 1940,
+        "authors": "A. R. Behnke, B. G. Feen, T. L. Willmon",
+        "identifier": "NLM:101085500X138",
+        "url": "https://findingaids.nlm.nih.gov/repositories/4/digital_objects/42492",
+        "access": "metadata"
+      }
+    ],
+    "note": "Located DTIC accession and traced the NLM copy with both original experimental data sheets."
+  },
+  {
+    "id": "2026-11-22-behnke-1940-navy-chamber-outcomes-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and rendered primary source pages",
+    "operation": "supplementary_primary_source_verification",
+    "reported_total": null,
+    "status": "observed",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://archive.org/details/DTIC_ADA043702",
+          "scrape_id": "01a205e4-72cd-70ce-b993-28f792f2eecc"
+        },
+        {
+          "url": "https://findingaids.nlm.nih.gov/repositories/4/digital_objects/42492",
+          "scrape_id": "01a205ec-2c34-723b-a567-7be9497c1396"
+        },
+        {
+          "url": "https://archive.org/download/DTIC_ADA043702/DTIC_ADA043702.pdf",
+          "scrape_id": "01a205eb-489a-774a-9884-7198da93b699",
+          "note": "Automated extraction miscounted Table IV. Seven right-column cases were verified against the rendered pages of both copies."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "behnke40_navy_chamber",
+        "title": "Preliminary Report on Aeroembolism and Equipment for Oxygen Inhalation",
+        "year": 1940,
+        "authors": "A. R. Behnke, B. G. Feen, T. L. Willmon",
+        "identifier": "NLM:101085500X138",
+        "url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf",
+        "primary_source": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf",
+        "access": "full_text",
+        "source_sha256": "0facf10dd0465029ed7d7811ff9d95bf951aeafe6207206ada6b58ea70269c58",
+        "study_id": "behnke-1940-navy-test-runs",
+        "role_review": "overlap_hold",
+        "alternate_scan": {
+          "url": "https://archive.org/download/DTIC_ADA043702/DTIC_ADA043702.pdf",
+          "identifier": "DTIC:ADA043702",
+          "source_sha256": "b4ba46e39465c002ddb72eb04aab7d1b2f596c5592e51585a8592a68a9a7fdf7",
+          "note": "The scanned report body agrees. The separate DTIC control sheet gives the date and authors of the July project. The 26 December transmittal cites that July work with a different title."
+        },
+        "report_number": "Experimental Diving Unit Research Report 1",
+        "physical_nlm_pdf_pages": {
+          "transmittal": 5,
+          "bends_total": 17,
+          "table_i": 34,
+          "table_ii": 36,
+          "table_iv": 18
+        },
+        "table_i_runs": [
+          {
+            "run_number": 1,
+            "exposure_date": "1940-10-16",
+            "participant_codes": "P01",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 1",
+            "note": "No symptoms with open- and closed-circuit oxygen breathing.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 16000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 2,
+            "exposure_date": "1940-10-18",
+            "participant_codes": "P02",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": "behnke47_navy_altitude",
+            "case_stratum": "navy-1940-10-18",
+            "case_endpoint": "postdescent_fatigue_without_reported_pain",
+            "case_match": "confirmed",
+            "locator": "Table I, NLM PDF p. 34, run row 2",
+            "note": "Marked fatigue about three hours after return, with slight ear congestion.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 23000,
+                "reported_duration_min": 360,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 3,
+            "exposure_date": "1940-10-17",
+            "participant_codes": "P01",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 3",
+            "note": "Table I states no symptoms. Table II lists 20,000 ft and reports one hour of moderate fatigue plus ear findings.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 21000,
+                "reported_duration_min": 360,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 4,
+            "exposure_date": "1940-10-21",
+            "participant_codes": "P03",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 4",
+            "note": "Headache after six hours lasted 45 minutes. Headache and ear congestion also reported the next morning.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 23000,
+                "reported_duration_min": 360,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 5,
+            "exposure_date": "1940-10-23",
+            "participant_codes": "P04",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 5",
+            "note": "Dull headache and ear congestion the next day with left tympanic findings.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 24000,
+                "reported_duration_min": 360,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 6,
+            "exposure_date": "1940-10-24",
+            "participant_codes": "P05",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 6",
+            "note": "Left tympanic injection without complaints.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 24000,
+                "reported_duration_min": 360,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 7,
+            "exposure_date": "1940-10-28",
+            "participant_codes": "P01",
+            "symptom_label": "limb_pain_without_bends_label",
+            "case_source_id": "behnke47_navy_altitude",
+            "case_stratum": "navy-1940-10-28",
+            "case_endpoint": "altitude_pain_episode_as_reported",
+            "case_match": "confirmed",
+            "locator": "Table I, NLM PDF p. 34, run row 7",
+            "note": "Left shoulder pain at 120 minutes at 25,000 ft, followed by right knee pain and substernal distress at 35,000 ft. Relief at surface.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 8,
+            "exposure_date": "1940-10-29",
+            "participant_codes": "P06",
+            "symptom_label": "limb_pain_without_bends_label",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 8",
+            "note": "Left arm pain at 32,000 ft resolved 10 minutes after reaching 35,000 ft. Table II explicitly marks bends No.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 9,
+            "exposure_date": "1940-10-30",
+            "participant_codes": "P07",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 9",
+            "note": "Ear congestion the next day. See source audiogram.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 26000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 10,
+            "exposure_date": "1940-10-31",
+            "participant_codes": "P08",
+            "symptom_label": "limb_pain_without_bends_label",
+            "case_source_id": "behnke47_navy_altitude",
+            "case_stratum": "navy-1940-10-31",
+            "case_endpoint": "altitude_pain_episode_as_reported",
+            "case_match": "confirmed",
+            "locator": "Table I, NLM PDF p. 34, run row 10",
+            "note": "Right knee pain at 67 minutes, with increasing severity and relief at 14,000 ft. Later ear congestion. The remarks mention worsening at 115 minutes while the duration column prints 114.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 27000,
+                "reported_duration_min": 114,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 11,
+            "exposure_date": "1940-11-01",
+            "participant_codes": "P09",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 11",
+            "note": "No symptoms. Table II prints an intermediate altitude of 28,000 ft.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 27000,
+                "reported_duration_min": 200,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 12,
+            "exposure_date": "1940-11-04",
+            "participant_codes": "P10",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 12",
+            "note": "Ear congestion the next day.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 29000,
+                "reported_duration_min": 200,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 13,
+            "exposure_date": "1940-11-05",
+            "participant_codes": "P11",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 13",
+            "note": "Left heel pain at 40 minutes at 35,000 ft, relieved at 18,000 ft. Table II prints the final dwell as 50 minutes.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 200,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 52,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 14,
+            "exposure_date": "1940-11-06",
+            "participant_codes": "P12",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 14",
+            "note": "Left knee pain relieved at 23,000 ft. Table II prints 200 minutes at 20,000 ft. The December 6 entry in Table IV has the same pain location and relief altitude plus a reported 37,000-ft stage, so the relationship is unresolved.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 97,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 15,
+            "exposure_date": "1940-11-12",
+            "participant_codes": "P11",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 15",
+            "note": "Shoulder, back and leg pain relieved at 27,000 ft.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 45,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 143,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 16,
+            "exposure_date": "1940-11-13",
+            "participant_codes": "P12",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 16",
+            "note": "No symptoms in Table I. Table II prints 190 minutes at 30,000 ft and reports findings on eye examination.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 45,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 189,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 17,
+            "exposure_date": "1940-11-14",
+            "participant_codes": "P06",
+            "symptom_label": "explicit_bends",
+            "case_source_id": "behnke47_navy_altitude",
+            "case_stratum": "navy-1940-11-11",
+            "case_endpoint": "altitude_pain_episode_as_reported",
+            "case_match": "likely_date_conflict",
+            "locator": "Table I, NLM PDF p. 34, run row 17",
+            "note": "Left elbow pain began at 90 minutes and moved toward the shoulder by 111 minutes, followed by nighttime ear congestion. Table IV describes a closely matching episode dated November 11.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 45,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 31000,
+                "reported_duration_min": 111,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 18,
+            "exposure_date": "1940-11-18",
+            "participant_codes": "P13",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 18",
+            "note": "Fatigue that evening and on awakening, with ear congestion. Table II prints 33,000 ft for the third stage.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 45,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 32000,
+                "reported_duration_min": 155,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 4,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 19,
+            "exposure_date": "1940-11-22",
+            "participant_codes": "P14",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 19",
+            "note": "Right ankle and knee pain after 25 minutes at 33,000 ft, relieved at 23,000 ft.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 45,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 33000,
+                "reported_duration_min": 25,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 20,
+            "exposure_date": "1940-11-26",
+            "participant_codes": "P08",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 20",
+            "note": "Mild stable right knee pain began at 60 minutes at 30,000 ft and resolved at 23,000 ft.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 45,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 90,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 21,
+            "exposure_date": "1940-11-27",
+            "participant_codes": "P14",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 21",
+            "note": "No symptoms.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 88,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 33000,
+                "reported_duration_min": 150,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 22,
+            "exposure_date": "1940-11-28",
+            "participant_codes": "P04",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 22",
+            "note": "Right thigh pain after 14 minutes at 35,000 ft, relieved at 18,000 ft.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 45,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 33000,
+                "reported_duration_min": 155,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 4,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 14,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 23,
+            "exposure_date": "1940-11-29",
+            "participant_codes": "P05",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 23",
+            "note": "No symptoms.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 88,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 34000,
+                "reported_duration_min": 160,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 114,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 24,
+            "exposure_date": "1940-12-02",
+            "participant_codes": "P15",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 24",
+            "note": "Right ankle pain reported after 60 minutes in Table I and 77 minutes in Table II. Relief during descent.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 88,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 77,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 25,
+            "exposure_date": "1940-12-02",
+            "participant_codes": "P08",
+            "symptom_label": "limb_pain_without_bends_label",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 25",
+            "note": "Slight right knee pain at 60 minutes, relieved at 25,000 ft. Table II explicitly marks bends Yes and identifies left knee.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 180,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 26,
+            "exposure_date": "1940-12-03",
+            "participant_codes": "P04",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 26",
+            "note": "Left arm pain at 37,000 ft, relieved at 16,000 ft.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 90,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 150,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 29,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 27,
+            "exposure_date": "1940-12-03",
+            "participant_codes": "P16",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 27",
+            "note": "No symptoms and normal ear findings the next day. The altitude digit is unclear in the available scan.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 60,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 28,
+            "exposure_date": "1940-12-03",
+            "participant_codes": "P07",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 28",
+            "note": "Left hand and right arm pain, relieved during descent through the reported 12,000–16,000-ft range.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 29000,
+                "reported_duration_min": 51,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 29,
+            "exposure_date": "1940-12-04",
+            "participant_codes": "P10",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 29",
+            "note": "Left ankle and right heel symptoms, with residual left ankle soreness the next day. Relief at 23,000 ft in Table I and 25,000 ft in Table II.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 145,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 133,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 30,
+            "exposure_date": "1940-12-04",
+            "participant_codes": "P06 P02",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 30",
+            "note": "Both names appear on one table row with one schedule and no symptoms. Retained as one test run.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 28000,
+                "reported_duration_min": 60,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 31,
+            "exposure_date": "1940-12-05",
+            "participant_codes": "P01",
+            "symptom_label": "explicit_bends",
+            "case_source_id": "behnke47_navy_altitude",
+            "case_stratum": "navy-1940-12-05",
+            "case_endpoint": "altitude_pain_episode_as_reported",
+            "case_match": "confirmed",
+            "locator": "Table I, NLM PDF p. 34, run row 31",
+            "note": "Table I describes pain after 33 minutes at 37,000 ft and later fatigue. Table II and Table IV describe symptoms beginning earlier at 30,000 ft. Table IV also prints different earlier stage durations.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 42,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 117,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 4,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 49,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 32,
+            "exposure_date": "1940-12-05",
+            "participant_codes": "P11",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 32",
+            "note": "Severe left foot pain after approximately 108 minutes, preceded by warmth. Relief at 24,000 ft.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 180,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 114,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 33,
+            "exposure_date": "1940-12-06",
+            "participant_codes": "P13",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 33",
+            "note": "Table I gives left knee pain after 130 minutes and a 138-minute dwell. Table II gives 128 and 148 minutes respectively. The same-date Table IV case has a different ascent schedule and cannot be firmly linked.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 138,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 34,
+            "exposure_date": "1940-12-10",
+            "participant_codes": "P09",
+            "symptom_label": "other_symptoms_or_signs",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 34",
+            "note": "Temporary hearing loss at 40,000 ft and recovery on descent.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 300,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 40000,
+                "reported_duration_min": 34,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 35,
+            "exposure_date": "1940-12-11",
+            "participant_codes": "P14",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 35",
+            "note": "No symptoms.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 300,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 36,
+            "exposure_date": "1940-12-12",
+            "participant_codes": "P08",
+            "symptom_label": "explicit_bends",
+            "case_source_id": "behnke47_navy_altitude",
+            "case_stratum": "navy-1940-12-12",
+            "case_endpoint": "altitude_pain_episode_as_reported",
+            "case_match": "confirmed",
+            "locator": "Table I, NLM PDF p. 34, run row 36",
+            "note": "Right knee pain at 37,000 ft. Table I gives relief at 26,000 ft, while Table II and Table IV give 25,000 ft. The narrative and Table II differ on onset.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 300,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 10,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 37,
+            "exposure_date": "1940-12-13",
+            "participant_codes": "P04",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 37",
+            "note": "No symptoms.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 300,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 38,
+            "exposure_date": "1940-12-17",
+            "participant_codes": "P10",
+            "symptom_label": "explicit_bends",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 38",
+            "note": "Mild bends. The listed surface duration is split according to the remarks. Table II prints 49% helium, 3% nitrogen and 48% oxygen followed by 99% oxygen.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 540,
+                "gas_as_reported": "51% helium, 4% nitrogen and 45% oxygen as described in Table I"
+              },
+              {
+                "stage": 2,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 45,
+                "gas_as_reported": "Oxygen inhalation reported; numerical fraction unavailable"
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              }
+            ]
+          },
+          {
+            "run_number": 39,
+            "exposure_date": "1940-12-18",
+            "participant_codes": "P13",
+            "symptom_label": "no_symptoms_reported",
+            "case_source_id": null,
+            "case_stratum": null,
+            "case_endpoint": null,
+            "case_match": null,
+            "locator": "Table I, NLM PDF p. 34, run row 39",
+            "note": "No symptoms with good condition on return to sea level.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 540,
+                "gas_as_reported": "77% helium, 2% nitrogen and 21% oxygen as described in Table I"
+              },
+              {
+                "stage": 2,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 90,
+                "gas_as_reported": "99% oxygen as described in the run remarks"
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              }
+            ]
+          }
+        ],
+        "table_ii_bends": [
+          {
+            "row_number": 1,
+            "table_i_run_number": 3,
+            "exposure_date": "1940-10-17",
+            "participant_code": "P01",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 1",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 2,
+            "table_i_run_number": 7,
+            "exposure_date": "1940-10-28",
+            "participant_code": "P01",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 2",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 3,
+            "table_i_run_number": null,
+            "exposure_date": "1940-11-29",
+            "participant_code": "P01",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 3",
+            "note": "Additional row in Table II. It prints 180 min at the surface and 120 min at 37,000 ft. Bends No, with moderate fatigue after descent and ear complaints. The Table I row on the same date has a different participant."
+          },
+          {
+            "row_number": 4,
+            "table_i_run_number": 31,
+            "exposure_date": "1940-12-05",
+            "participant_code": "P01",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 4",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 5,
+            "table_i_run_number": 2,
+            "exposure_date": "1940-10-18",
+            "participant_code": "P02",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 5",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 6,
+            "table_i_run_number": 4,
+            "exposure_date": "1940-10-21",
+            "participant_code": "P03",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 6",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 7,
+            "table_i_run_number": 5,
+            "exposure_date": "1940-10-23",
+            "participant_code": "P04",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 7",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 8,
+            "table_i_run_number": 22,
+            "exposure_date": "1940-11-28",
+            "participant_code": "P04",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 8",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 9,
+            "table_i_run_number": 26,
+            "exposure_date": "1940-12-03",
+            "participant_code": "P04",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 9",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 10,
+            "table_i_run_number": 37,
+            "exposure_date": "1940-12-13",
+            "participant_code": "P04",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 10",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 11,
+            "table_i_run_number": 6,
+            "exposure_date": "1940-10-24",
+            "participant_code": "P05",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 11",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 12,
+            "table_i_run_number": 23,
+            "exposure_date": "1940-11-29",
+            "participant_code": "P05",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 12",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 13,
+            "table_i_run_number": 8,
+            "exposure_date": "1940-10-29",
+            "participant_code": "P06",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 13",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 14,
+            "table_i_run_number": 17,
+            "exposure_date": "1940-11-14",
+            "participant_code": "P06",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 14",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 15,
+            "table_i_run_number": 9,
+            "exposure_date": "1940-10-30",
+            "participant_code": "P07",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 15",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 16,
+            "table_i_run_number": 10,
+            "exposure_date": "1940-10-31",
+            "participant_code": "P08",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 16",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 17,
+            "table_i_run_number": 25,
+            "exposure_date": "1940-12-02",
+            "participant_code": "P08",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 17",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 18,
+            "table_i_run_number": 36,
+            "exposure_date": "1940-12-12",
+            "participant_code": "P08",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 18",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 19,
+            "table_i_run_number": 11,
+            "exposure_date": "1940-11-01",
+            "participant_code": "P09",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 19",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 20,
+            "table_i_run_number": 34,
+            "exposure_date": "1940-12-10",
+            "participant_code": "P09",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 20",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 21,
+            "table_i_run_number": 12,
+            "exposure_date": "1940-11-04",
+            "participant_code": "P10",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 21",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 22,
+            "table_i_run_number": 29,
+            "exposure_date": "1940-12-04",
+            "participant_code": "P10",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 22",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 23,
+            "table_i_run_number": 38,
+            "exposure_date": "1940-12-17",
+            "participant_code": "P10",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 23",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 24,
+            "table_i_run_number": 13,
+            "exposure_date": "1940-11-05",
+            "participant_code": "P11",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 24",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 25,
+            "table_i_run_number": 15,
+            "exposure_date": "1940-11-12",
+            "participant_code": "P11",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 25",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 26,
+            "table_i_run_number": 32,
+            "exposure_date": "1940-12-05",
+            "participant_code": "P11",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 26",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 27,
+            "table_i_run_number": 14,
+            "exposure_date": "1940-11-06",
+            "participant_code": "P12",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 27",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 28,
+            "table_i_run_number": 16,
+            "exposure_date": "1940-11-13",
+            "participant_code": "P12",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 28",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 29,
+            "table_i_run_number": 18,
+            "exposure_date": "1940-11-18",
+            "participant_code": "P13",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 29",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 30,
+            "table_i_run_number": 33,
+            "exposure_date": "1940-12-06",
+            "participant_code": "P13",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 30",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 31,
+            "table_i_run_number": 19,
+            "exposure_date": "1940-11-22",
+            "participant_code": "P14",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 31",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 32,
+            "table_i_run_number": 21,
+            "exposure_date": "1940-11-27",
+            "participant_code": "P14",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 32",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 33,
+            "table_i_run_number": 35,
+            "exposure_date": "1940-12-11",
+            "participant_code": "P14",
+            "bends_reported": false,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 33",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          },
+          {
+            "row_number": 34,
+            "table_i_run_number": 24,
+            "exposure_date": "1940-12-02",
+            "participant_code": "P15",
+            "bends_reported": true,
+            "locator": "Table II, NLM PDF p. 36, participant-test row 34",
+            "note": "Same printed participant and date as the linked Table I row. The Table I row records discrepancies."
+          }
+        ],
+        "counting_note": "The paper describes 39 Table I runs and reports 19 instances of bends. One Table I row lists two participants under one schedule, and individual participants made repeated runs. The denominator is the number of printed runs.",
+        "table_ii_note": "The Table II BENDS column has 17 Yes and 17 No entries. Thirty-three rows match Table I on date and participant, including some conflicting schedule details. One No row has no Table I counterpart.",
+        "preoxygenation_delivered_fraction": "Depends on the reported stage. Numeric fractions are recorded only when printed.",
+        "fixed_followup_min": null,
+        "observations": [
+          {
+            "id": "table-i-39-runs-bends_as_reported",
+            "group": "table-i-39-runs",
+            "study_id": "behnke-1940-navy-test-runs",
+            "endpoint": "bends_as_reported",
+            "cases": 19,
+            "denominator": 39,
+            "reported_denominator_unit": "test_run",
+            "denominator_basis": "source_reported",
+            "role_review": "overlap_hold",
+            "protocol": "Historical chamber runs with varied pressures, oxygen histories and durations. Table I states 5,000 ft/min for both ascent and descent.",
+            "outcome_window": "During the test and any symptom course described in the source. Routine surveillance after returning to surface is unspecified.",
+            "locator": "Printed p. 14 (NLM PDF p. 17; DTIC PDF p. 22)",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=17",
+            "note": "The paper describes 39 Table I runs and reports 19 instances of bends. One Table I row lists two participants under one schedule, and individual participants made repeated runs. The denominator is the number of printed runs.",
+            "denominator_unit": "chamber_run"
+          },
+          {
+            "id": "table-i-39-runs-extreme_fatigue_as_reported",
+            "group": "table-i-39-runs",
+            "study_id": "behnke-1940-navy-test-runs",
+            "endpoint": "extreme_fatigue_as_reported",
+            "cases": 2,
+            "denominator": 39,
+            "reported_denominator_unit": "test_run",
+            "denominator_basis": "source_reported",
+            "role_review": "overlap_hold",
+            "protocol": "Historical chamber runs with varied pressures, oxygen histories and durations. Table I states 5,000 ft/min for both ascent and descent.",
+            "outcome_window": "During the test and any symptom course described in the source. Routine surveillance after returning to surface is unspecified.",
+            "locator": "Printed p. 14 (NLM PDF p. 17; DTIC PDF p. 22)",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=17",
+            "note": "The report counts extreme fatigue separately, with possible overlap with bends. Timing was not standardized.",
+            "denominator_unit": "chamber_run"
+          },
+          {
+            "id": "table-i-39-runs-temporary_hearing_loss_as_reported",
+            "group": "table-i-39-runs",
+            "study_id": "behnke-1940-navy-test-runs",
+            "endpoint": "temporary_hearing_loss_as_reported",
+            "cases": 1,
+            "denominator": 39,
+            "reported_denominator_unit": "test_run",
+            "denominator_basis": "source_reported",
+            "role_review": "overlap_hold",
+            "protocol": "Historical chamber runs with varied pressures, oxygen histories and durations. Table I states 5,000 ft/min for both ascent and descent.",
+            "outcome_window": "During the test and any symptom course described in the source. Routine surveillance after returning to surface is unspecified.",
+            "locator": "Printed p. 14 (NLM PDF p. 17; DTIC PDF p. 22)",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=17",
+            "note": "The report describes one transient hearing loss at 40,000 ft. No causal attribution or uniform assessment window is established.",
+            "denominator_unit": "chamber_run"
+          },
+          {
+            "id": "table-ii-34-rows-bends_as_reported",
+            "group": "table-ii-34-rows",
+            "study_id": "behnke-1940-navy-test-runs",
+            "endpoint": "bends_as_reported",
+            "cases": 17,
+            "denominator": 34,
+            "reported_denominator_unit": "table_row",
+            "denominator_basis": "author_reconstructed",
+            "role_review": "overlap_hold",
+            "protocol": "Historical chamber runs with varied pressures, oxygen histories and durations. Table I states 5,000 ft/min for both ascent and descent.",
+            "outcome_window": "During the test and any symptom course described in the source. Routine surveillance after returning to surface is unspecified.",
+            "locator": "Table II, NLM PDF p. 36",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=36",
+            "note": "The Table II BENDS column has 17 Yes and 17 No entries. Thirty-three rows match Table I on date and participant, including some conflicting schedule details. One No row has no Table I counterpart.",
+            "denominator_unit": "person_exposure"
+          },
+          {
+            "id": "navy-1940-10-18-postdescent_fatigue_without_reported_pain",
+            "study_id": "behnke-1940-selected-altitude-symptoms",
+            "endpoint": "postdescent_fatigue_without_reported_pain",
+            "group": "navy-1940-10-18",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "role_review": "overlap_hold",
+            "protocol": "Source-selected altitude case in Table IV, which draws on Tables I and II.",
+            "outcome_window": "The symptom course reported in Table IV, with follow-up as described for each episode.",
+            "altitude_ft": 23000,
+            "exposure_date": "1940-10-18",
+            "prebreathe_min": null,
+            "locator": "Table IV, NLM PDF p. 18",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18",
+            "note": "The same case is already indexed from Behnke 1947, Table 8.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 23000,
+                "reported_duration_min": 360,
+                "gas_as_reported": null
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "fatigue_after_return_to_ground",
+                "reported_altitude_ft": null,
+                "elapsed_value": 3,
+                "elapsed_unit": "hours",
+                "reference_event": "return to ground level",
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Source reports fatigue only."
+              }
+            ],
+            "related_table_i_run_numbers": [
+              2
+            ],
+            "additional_timing_evidence": []
+          },
+          {
+            "id": "navy-1940-10-28-altitude_pain_episode_as_reported",
+            "study_id": "behnke-1940-selected-altitude-symptoms",
+            "endpoint": "altitude_pain_episode_as_reported",
+            "group": "navy-1940-10-28",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "role_review": "overlap_hold",
+            "protocol": "Source-selected altitude case in Table IV, which draws on Tables I and II.",
+            "outcome_window": "The symptom course reported in Table IV, with follow-up as described for each episode.",
+            "altitude_ft": 35000,
+            "exposure_date": "1940-10-28",
+            "prebreathe_min": null,
+            "locator": "Table IV, NLM PDF p. 18",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18",
+            "note": "The same case is already indexed from Behnke 1947, Table 8.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 240,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 35000,
+                "reported_duration_min": 120,
+                "gas_as_reported": null
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "left_shoulder_pain",
+                "reported_altitude_ft": 25000,
+                "elapsed_value": 120,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of 25,000-ft plateau",
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Source gives two hours."
+              },
+              {
+                "event": "right_knee_pain_and_substernal_distress",
+                "reported_altitude_ft": 35000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "No exact onset minute at the second altitude."
+              },
+              {
+                "event": "complete_relief_at_sea_level",
+                "reported_altitude_ft": null,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Timing relative to descent unspecified."
+              }
+            ],
+            "related_table_i_run_numbers": [
+              7
+            ],
+            "additional_timing_evidence": []
+          },
+          {
+            "id": "navy-1940-10-31-altitude_pain_episode_as_reported",
+            "study_id": "behnke-1940-selected-altitude-symptoms",
+            "endpoint": "altitude_pain_episode_as_reported",
+            "group": "navy-1940-10-31",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "role_review": "overlap_hold",
+            "protocol": "Source-selected altitude case in Table IV, which draws on Tables I and II.",
+            "outcome_window": "The symptom course reported in Table IV, with follow-up as described for each episode.",
+            "altitude_ft": 27000,
+            "exposure_date": "1940-10-31",
+            "prebreathe_min": null,
+            "locator": "Table IV, NLM PDF p. 18",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18",
+            "note": "The same case is already indexed from Behnke 1947, Table 8.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 27000,
+                "reported_duration_min": 114,
+                "gas_as_reported": null
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "right_knee_pain",
+                "reported_altitude_ft": 27000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Onset during this stage, with exact interval unavailable."
+              },
+              {
+                "event": "pain_relief_on_descent",
+                "reported_altitude_ft": 14000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Relief occurred at the stated altitude."
+              }
+            ],
+            "related_table_i_run_numbers": [
+              10
+            ],
+            "additional_timing_evidence": [
+              {
+                "event": "right_knee_pain_time_table_i",
+                "reported_altitude_ft": 27000,
+                "elapsed_value": 67,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of 27,000-ft plateau",
+                "locator": "Table I, NLM PDF p. 34",
+                "note": "Table I reports 67 minutes. The older Table 8 records progressive knee pain without the onset minute."
+              }
+            ]
+          },
+          {
+            "id": "navy-1940-11-11-altitude_pain_episode_as_reported",
+            "study_id": "behnke-1940-selected-altitude-symptoms",
+            "endpoint": "altitude_pain_episode_as_reported",
+            "group": "navy-1940-11-11",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "role_review": "overlap_hold",
+            "protocol": "Source-selected altitude case in Table IV, which draws on Tables I and II.",
+            "outcome_window": "The symptom course reported in Table IV, with follow-up as described for each episode.",
+            "altitude_ft": 31000,
+            "exposure_date": "1940-11-11",
+            "prebreathe_min": 45,
+            "locator": "Table IV, NLM PDF p. 18",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18",
+            "note": "The same case is already indexed from Behnke 1947, Table 8.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "surface",
+                "reported_altitude_ft": null,
+                "reported_duration_min": 45,
+                "gas_as_reported": "Oxygen inhalation, fraction unspecified"
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 31000,
+                "reported_duration_min": 111,
+                "gas_as_reported": null
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "left_elbow_pain_radiating_toward_shoulder",
+                "reported_altitude_ft": 31000,
+                "elapsed_value": 90,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of 31,000-ft plateau",
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Source-reported interval."
+              },
+              {
+                "event": "pain_relief_on_descent",
+                "reported_altitude_ft": 21000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Relief at the stated altitude."
+              }
+            ],
+            "related_table_i_run_numbers": [
+              17
+            ],
+            "additional_timing_evidence": [],
+            "related_table_i_match": "Likely same case based on the 45-minute surface stage, 31,000 ft for 111 minutes, and elbow-to-shoulder symptoms. Tables I and II give November 14. Table IV and the 1947 reprint give November 11."
+          },
+          {
+            "id": "navy-1940-12-05-altitude_pain_episode_as_reported",
+            "study_id": "behnke-1940-selected-altitude-symptoms",
+            "endpoint": "altitude_pain_episode_as_reported",
+            "group": "navy-1940-12-05",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "role_review": "overlap_hold",
+            "protocol": "Source-selected altitude case in Table IV, which draws on Tables I and II.",
+            "outcome_window": "The symptom course reported in Table IV, with follow-up as described for each episode.",
+            "altitude_ft": 37000,
+            "exposure_date": "1940-12-05",
+            "prebreathe_min": null,
+            "locator": "Table IV, NLM PDF p. 18",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18",
+            "note": "The same case is already indexed from Behnke 1947, Table 8.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 45,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 25000,
+                "reported_duration_min": 45,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 90,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 4,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 49,
+                "gas_as_reported": null
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "shoulder_and_bilateral_knee_pain",
+                "reported_altitude_ft": 30000,
+                "elapsed_value": 23,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of 30,000-ft plateau",
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Pain continued at 37,000 ft."
+              },
+              {
+                "event": "extreme_fatigue_after_descent",
+                "reported_altitude_ft": null,
+                "elapsed_value": 5,
+                "elapsed_unit": "hours",
+                "reference_event": "return to normal pressure",
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Later reported manifestation of the same episode."
+              }
+            ],
+            "related_table_i_run_numbers": [
+              31
+            ],
+            "additional_timing_evidence": [
+              {
+                "event": "pain_onset_table_i",
+                "reported_altitude_ft": 37000,
+                "elapsed_value": 33,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of 37,000-ft plateau",
+                "locator": "Table I, NLM PDF p. 34",
+                "note": "Table I dates onset after 33 minutes at 37,000 ft. The Table IV sequence describes earlier onset and different durations."
+              }
+            ]
+          },
+          {
+            "id": "navy-1940-12-06-altitude_pain_episode_as_reported",
+            "study_id": "behnke-1940-selected-altitude-symptoms",
+            "endpoint": "altitude_pain_episode_as_reported",
+            "group": "navy-1940-12-06",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "role_review": "overlap_hold",
+            "protocol": "Source-selected altitude case in Table IV, which draws on Tables I and II.",
+            "outcome_window": "The symptom course reported in Table IV, with follow-up as described for each episode.",
+            "altitude_ft": 37000,
+            "exposure_date": "1940-12-06",
+            "prebreathe_min": null,
+            "locator": "Table IV, NLM PDF p. 18",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18",
+            "note": "The same case is already indexed from Behnke 1947, Table 8.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 40,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 30000,
+                "reported_duration_min": 97,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 3,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": null,
+                "gas_as_reported": null
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "left_knee_pain",
+                "reported_altitude_ft": 37000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Onset minute unspecified."
+              },
+              {
+                "event": "pain_relief_on_descent",
+                "reported_altitude_ft": 23000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Relief at the stated altitude."
+              }
+            ],
+            "related_table_i_run_numbers": [],
+            "additional_timing_evidence": [],
+            "related_table_i_match": "Unresolved. Table I run 14 shares the early stages and pain pattern but differs in date and terminal altitude. Run 33 shares the date, left knee pain and stated relief altitude but gives a different schedule."
+          },
+          {
+            "id": "navy-1940-12-12-altitude_pain_episode_as_reported",
+            "study_id": "behnke-1940-selected-altitude-symptoms",
+            "endpoint": "altitude_pain_episode_as_reported",
+            "group": "navy-1940-12-12",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "role_review": "overlap_hold",
+            "protocol": "Source-selected altitude case in Table IV, which draws on Tables I and II.",
+            "outcome_window": "The symptom course reported in Table IV, with follow-up as described for each episode.",
+            "altitude_ft": 37000,
+            "exposure_date": "1940-12-12",
+            "prebreathe_min": null,
+            "locator": "Table IV, NLM PDF p. 18",
+            "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18",
+            "note": "The same case is already indexed from Behnke 1947, Table 8.",
+            "reported_altitude_stages": [
+              {
+                "stage": 1,
+                "setting": "chamber",
+                "reported_altitude_ft": 20000,
+                "reported_duration_min": 300,
+                "gas_as_reported": null
+              },
+              {
+                "stage": 2,
+                "setting": "chamber",
+                "reported_altitude_ft": 37000,
+                "reported_duration_min": 10,
+                "gas_as_reported": null
+              }
+            ],
+            "reported_timeline": [
+              {
+                "event": "right_knee_pain",
+                "reported_altitude_ft": 37000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Exact onset within the stage was not specified."
+              },
+              {
+                "event": "pain_relief_on_descent",
+                "reported_altitude_ft": 25000,
+                "elapsed_value": null,
+                "elapsed_unit": null,
+                "reference_event": null,
+                "locator": "Table 8, altitude column (PDF p. 53)",
+                "note": "Relief at the stated altitude."
+              }
+            ],
+            "related_table_i_run_numbers": [
+              36
+            ],
+            "additional_timing_evidence": [
+              {
+                "event": "right_knee_pain_time_narrative",
+                "reported_altitude_ft": 37000,
+                "elapsed_value": 3,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of 37,000-ft plateau",
+                "locator": "NLM PDF p. 12",
+                "note": "The prose describes three minutes at 37,000 ft. Table II reports two minutes."
+              },
+              {
+                "event": "right_knee_pain_time_table_ii",
+                "reported_altitude_ft": 37000,
+                "elapsed_value": 2,
+                "elapsed_unit": "minutes",
+                "reference_event": "start of 37,000-ft plateau",
+                "locator": "Table II, NLM PDF p. 36",
+                "note": "Table II describes two minutes at 37,000 ft. The prose reports three minutes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Verified original table cells in the NLM scan and linked the seven previously indexed case reports."
+  }
+]

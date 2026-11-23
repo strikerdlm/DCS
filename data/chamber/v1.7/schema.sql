@@ -23,7 +23,7 @@ CREATE TABLE publication_observation (
     denominator INTEGER CHECK(denominator > 0),
     denominator_unit TEXT CHECK(denominator_unit IN (
         'person_exposure','trainee_exposure','observer_exposure','person',
-        'dcs_case','pulmonary_dcs_case','treated_referral','symptom_report'
+        'dcs_case','pulmonary_dcs_case','treated_referral','symptom_report','chamber_run'
     )),
     denominator_basis TEXT CHECK(denominator_basis IN ('source_reported','author_reconstructed')),
     period TEXT,
