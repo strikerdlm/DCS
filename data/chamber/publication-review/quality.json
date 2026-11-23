@@ -1,5 +1,23 @@
 [
   {
+    "doi": "10.22462/03.04.2021.2",
+    "checked_on": "2026-11-23",
+    "provider": "NLM and UHMS",
+    "query": "PMID 33975402, PMID 34847312, UHMS Volume 48(4)",
+    "status": "retracted_and_republished",
+    "detail": "NLM links the original 48(2):119-126 to the corrected 48(4):469-476. Preserve distinct source records and use the corrected version when relevant.",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33975402/"
+  },
+  {
+    "doi": "10.22462/07.08.2021.11",
+    "checked_on": "2026-11-23",
+    "provider": "NLM and UHMS",
+    "query": "PMID 34847312 and publisher replacement DOI",
+    "status": "republication_confirmed",
+    "detail": "NLM identifies the retracted original. The UHMS replacement lists this DOI. Competing metadata fields for the original and replacement remain in the occurrence records.",
+    "evidence_url": "https://uhms.org/uhm-search/uhm-journal-volume-48-2021/number-4/variability-in-venous-gas-emboli-following-the-same-dive-at-3-658-meters-2.html"
+  },
+  {
     "doi": "10.3357/amhp.5135.2018",
     "checked_on": "2026-11-19",
     "provider": "Scite",

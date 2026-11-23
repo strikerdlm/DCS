@@ -4491,7 +4491,7 @@ def test_title_abstract_batch_records_one_decision_per_reviewer_and_report(relea
 
 def test_approved_full_text_and_followup_title_abstract_batches(release):
     with connect_pair(release) as db:
-        for suffix, expected_reports in [("05", 14), ("06", 50)]:
+        for suffix, expected_reports in [("05", 14), ("06", 50), ("07", 11), ("08", 75)]:
             raw, = db.execute("""
                 SELECT content_json FROM review.review_workflow_document WHERE input_path LIKE ?
             """, (f"%/screening-batch-{suffix}.json",)).fetchone()
@@ -4514,6 +4514,24 @@ def test_approved_full_text_and_followup_title_abstract_batches(release):
             SELECT DISTINCT s.revision, s.decision FROM review.review_current_screening s
             WHERE s.report_id='doi:10.1109/cme55444.2022.10063319' AND s.stage='title_abstract'
         """).fetchall() == [(2, "exclude")]
+        assert db.execute("""
+            SELECT left_report,right_report,relationship FROM review.review_report_relation
+            WHERE (left_report='report:adp011060' AND right_report='pmid:16313145')
+               OR (left_report='pmid:33975402' AND right_report='pmid:34847312')
+            ORDER BY left_report
+        """).fetchall() == [
+            ("pmid:33975402", "pmid:34847312", "retracted_and_republished_in"),
+            ("report:adp011060", "pmid:16313145", "same_published_case"),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_record
+            WHERE run_id='2026-11-23-bryce-headache-primary-comparison'
+            GROUP BY report_id ORDER BY report_id
+        """).fetchall() == [("pmid:16313145", 1), ("report:adp011060", 1)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation
+            WHERE run_id='2026-11-23-bryce-headache-primary-comparison'
+        """).fetchone() == (0,)
 
 
 def test_formal_search_flow_and_source_identities(release):
@@ -4532,6 +4550,11 @@ def test_formal_search_flow_and_source_identities(release):
         assert totals["formal_database_search"] == flow["formal_database_records_exported"]
         assert totals["formal_citation_search"] == flow["formal_citation_records_exported"]
         assert sum(totals.values()) == flow["formal_records_exported"]
+        assert db.execute("""
+            SELECT count(DISTINCT r.report_id)
+            FROM review.review_retrieval q JOIN review.review_record r USING(run_id)
+            WHERE json_extract(q.parameters_json, '$.counts_toward_formal_identification') = 1
+        """).fetchone() == (flow["formal_distinct_report_ids"],)
         assert db.execute("""
             SELECT count(*) FROM review.review_current_screening s
             JOIN review.review_record r USING(record_key)
