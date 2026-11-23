@@ -1,6 +1,42 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.262/sources.csv#hall41_wright_field",
+      "report_id": "report:exp-m-54-653-34",
+      "evidence_url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8510",
+      "basis": "Technical-report identifier and exact National Air and Space Museum box and folder."
+    },
+    {
+      "record_key": "2026-11-23-smithsonian-wright-field#hall41_wright_field",
+      "report_id": "report:exp-m-54-653-34",
+      "evidence_url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8510",
+      "basis": "The original scanned memorandum and local extraction describe the same publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.262/sources.csv#dill41_wright_field",
+      "report_id": "report:exp-m-54-653-34a",
+      "evidence_url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8511",
+      "basis": "Technical-report identifier and exact National Air and Space Museum box and folder."
+    },
+    {
+      "record_key": "2026-11-23-smithsonian-wright-field#dill41_wright_field",
+      "report_id": "report:exp-m-54-653-34a",
+      "evidence_url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8511",
+      "basis": "The original scanned memorandum and local extraction describe the same publication."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.262/sources.csv#smith42_wright_field",
+      "report_id": "report:exp-m-54-653-34c",
+      "evidence_url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8512",
+      "basis": "Technical-report identifier and exact National Air and Space Museum box and folder."
+    },
+    {
+      "record_key": "2026-11-23-smithsonian-wright-field#smith42_wright_field",
+      "report_id": "report:exp-m-54-653-34c",
+      "evidence_url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8512",
+      "basis": "The original scanned memorandum and local extraction describe the same publication."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.261/sources.csv#sweeney44_explosive_decompression",
       "report_id": "journal:sweeney-1944-air-surg-bull-1-10-1",
       "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=263",
@@ -27780,6 +27816,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "journal:sweeney-1944-air-surg-bull-1-10-1",
+      "right_report": "report:exp-m-54-653-34a",
+      "relationship": "summarizes_earlier_chamber_tests",
+      "evidence": "Early Work, p. 1, and reference 1 cite the 1941 Dill 2:45 run. The later above-40,000-ft percentage describes Sweeney's separate study.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=263"
+    },
+    {
+      "left_report": "journal:sweeney-1944-air-surg-bull-1-10-1",
+      "right_report": "report:exp-m-54-653-34c",
+      "relationship": "summarizes_earlier_chamber_tests",
+      "evidence": "Early Work, p. 1, Table I and reference 2 summarize Smith's 34C five experiments. The original records repeated exposures on one person.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=266"
+    },
+    {
+      "left_report": "report:exp-m-54-653-34c",
+      "right_report": "report:exp-m-54-653-34",
+      "relationship": "cites_prior_chamber_work",
+      "evidence": "Smith's Appendix 1 lists the exact earlier memorandum. A citation establishes report linkage. Shared participant identity is unresolved.",
+      "evidence_url": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8512"
+    },
+    {
+      "left_report": "report:exp-m-54-653-34c",
+      "right_report": "report:exp-m-54-653-34a",
+      "relationship": "cites_prior_chamber_work",
+      "evidence": "Smith's Appendix 1 lists the exact earlier memorandum. A citation establishes report linkage. Shared participant identity is unresolved.",
+      "evidence_url": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8512"
+    },
     {
       "left_report": "report:link-coleman-1955-aaf-medical-support",
       "right_report": "journal:sweeney-1944-air-surg-bull-1-10-1",

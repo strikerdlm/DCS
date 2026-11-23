@@ -11215,6 +11215,57 @@ def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope
         """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
+def test_smithsonian_wright_field_preserves_reported_endpoints_and_roster_scope(release):
+    hall, dill, smith = ("hall41_wright_field", "dill41_wright_field", "smith42_wright_field")
+    run = "2026-11-23-smithsonian-wright-field"
+    with connect_pair(release) as db:
+        published = db.execute("""
+            SELECT source_id,stratum,endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id IN (?,?,?) ORDER BY 1,2,3
+        """, (hall, dill, smith)).fetchall()
+        assert published == db.execute("""
+            SELECT r.source_key,o.reported_group,o.endpoint,o.cases,o.denominator
+            FROM review.review_search_observation o JOIN review.review_record r USING(record_key)
+            WHERE o.run_id=? ORDER BY 1,2,3
+        """, (run,)).fetchall()
+        assert len(published) == 10
+        assert [row for row in published if "aeroembolism" in row[2]] == [
+            (dill, "40000-ft-165-sec", "aeroembolism_symptoms_as_reported", 0, 5),
+        ]
+        assert (dill, "40000-ft-206-sec", "local_formication_as_reported", 1, 5) in published
+        assert (hall, "25000-ft", "collapse_as_reported", 1, 16) in published
+        assert db.execute("""
+            SELECT stratum,trial_count,participant_count FROM publication_chamber_trial_scope
+            WHERE source_id=? ORDER BY stratum
+        """, (smith,)).fetchall() == [
+            ("25000-to-30000-ft", 18, 6), ("30000-to-40000-ft", 5, 1), ("up-to-25000-ft", 66, 11),
+        ]
+        assert db.execute("""
+            SELECT stratum,count(*),min(elapsed_sec),max(elapsed_sec),min(altitude_ft),max(altitude_ft)
+            FROM publication_chamber_altitude_trace WHERE source_id=? GROUP BY stratum ORDER BY stratum
+        """, (dill,)).fetchall() == [
+            ("40000-ft-165-sec", 12, 0, 165, 800, 40000),
+            ("40000-ft-206-sec", 8, 0, 206, 800, 40000),
+        ]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.profile_participant_linkage.repeated_roster_labels'),
+                   json_type(metadata_json,'$.profile_participant_linkage.combined_distinct_people')
+            FROM review.review_record WHERE source_key=? AND run_id=?
+        """, (hall, run)).fetchall() == [(9, "null")]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='publication_source'
+            AND source_id IN (?,?,?) ORDER BY report_id
+        """, (hall, dill, smith)).fetchall() == [
+            ("report:exp-m-54-653-34",), ("report:exp-m-54-653-34a",), ("report:exp-m-54-653-34c",),
+        ]
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='journal:sweeney-1944-air-surg-bull-1-10-1'
+              AND relationship='summarizes_earlier_chamber_tests'
+            ORDER BY right_report
+        """).fetchall() == [("report:exp-m-54-653-34a",), ("report:exp-m-54-653-34c",)]
+
+
 def test_sweeney_wartime_bends_percentage_has_no_inferred_counts(release):
     source = "sweeney44_explosive_decompression"
     report = "journal:sweeney-1944-air-surg-bull-1-10-1"
