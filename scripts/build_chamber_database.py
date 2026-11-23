@@ -320,6 +320,7 @@ MACKENZIE_RIESEN_PRIMARY = ROOT / "data" / "chamber" / "v1.252"
 HISTORICAL_USAF_ALTITUDE_OUTCOMES = ROOT / "data" / "chamber" / "v1.253"
 FRYER_RAF_CONFERENCE = ROOT / "data" / "chamber" / "v1.254"
 BALLDIN_PULMONARY_ONSETS = ROOT / "data" / "chamber" / "v1.255"
+DIESEL_CHAMBER_EXPOSURES = ROOT / "data" / "chamber" / "v1.256"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3322,6 +3323,16 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_balldin_pulmonary_onset": "onsets.csv",
                         "publication_balldin_pulmonary_treatment": "treatment_counts.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    DIESEL_CHAMBER_EXPOSURES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_diesel_exposure": "exposures.csv",
                     },
                 )
                 load_register(db, ROOT)

@@ -10780,6 +10780,52 @@ def test_balldin_pulmonary_onsets_extend_an_existing_case_series(release):
         """).fetchone() == (1,)
 
 
+def test_diesel_2002_retains_reported_symptoms_and_stopping_counts(release):
+    source = "diesel02_pulmonary_pressure"
+    report = "pmid:11846181"
+    run = "2026-11-22-diesel-2002-chamber-exposure-outcomes-verified"
+    with connect_pair(release) as db:
+        rows = db.execute("""
+            SELECT printed_subject,exposure_duration_min,final_altitude_ft,
+                   max_spencer_vge_grade,reported_dcs_symptoms,symptom_pattern
+            FROM publication_diesel_exposure WHERE source_id=? ORDER BY printed_subject
+        """, (source,)).fetchall()
+        assert rows == [
+            (1, 186, 24000, 3, "Itching, rash", "constant"),
+            (2, 52, 24000, 4, "Knee pain", "constant"),
+            (3, 235, 21000, 3, "Wrist/shoulder pain", "intermittent"),
+            (4, 236, 24000, 4, "None", "none"),
+            (5, 236, 22000, 4, "None", "none"),
+            (6, 240, 22000, 4, "None", "none"),
+            (7, 240, 17000, 4, "None", "none"),
+            (8, 96, 24000, 4, "Ankle pain", "constant"),
+        ]
+        outcomes = [
+            ("any_dcs_symptom_listed_in_table_i", 4, 8, "person_exposure", "overlap_hold"),
+            ("dcs_related_early_termination_as_reported", 3, 8, "person_exposure", "overlap_hold"),
+            ("maximum_spencer_vge_grade_iii_or_iv", 8, 8, "person_exposure", "overlap_hold"),
+            ("maximum_spencer_vge_grade_iv", 6, 8, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id=? AND altitude IS NULL ORDER BY endpoint
+        """, (source,)).fetchall() == outcomes
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation WHERE run_id=? AND report_id=? ORDER BY endpoint
+        """, (run, report)).fetchall() == outcomes
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='publication_source' AND source_id=?
+        """, (source,)).fetchall() == [(report,)]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap WHERE source_id=?
+        """, (source,)).fetchall() == [("balldin02", "unresolved")]
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report=? AND right_report='openalex:W118934012'
+        """, (report,)).fetchall() == [("unresolved",)]
+
+
 def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):
     source = "welham44_edu_38000"
     report = "openalex:W1822196694"
