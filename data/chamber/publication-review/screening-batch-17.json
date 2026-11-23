@@ -1,0 +1,64 @@
+{
+  "batch_id": "17",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers accepted two original full-text assessments, two retrieval holds and the FAC within-source discrepancy decision.",
+    "note": "Separate signed forms and independent result-level appraisal judgments were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "2a1d6b8247911da7c4e808c87caa9923dbf2d4a7",
+    "evidence_sha256": "0939fdb4d78f022173e6aeb503ea52dcf33878f19e5393f1b4ffd892634437f8",
+    "systematic_review_sha256": "a925a26bf8809efa6030ed22d01cb729497ee801ca20a8a555b6822ba33cb745"
+  },
+  "reports": [
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2012577",
+      "title": "The use of the pressure cuff test in the diagnosis of decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/2012577",
+      "report_id": "pmid:2012577",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Rudge and Stone, Methods p. 266, Results and Table I p. 267",
+      "reason": "Retain the selected diagnostic archive as clinical context. The original records 310 treated DCS patients, 179 with eligible extremity pain, 87 who received the pressure-cuff test and 53 positive results in that tested subset. The source prints 89% chamber origin, 9% diving and 2% aircraft. It gives no prospective exposure denominator, settings for individual patients, or test results cross-tabulated by initiating setting. Hold linkage to other USAFSAM case archives.",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W113199131",
+      "title": "Decompression Sickness and the Cardiovascular System",
+      "source_url": "https://openalex.org/W113199131",
+      "report_id": "doi:10.1007/978-94-010-3317-6_25",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Meijne, Recent Advances in Aerospace Medicine, pp. 189–197; NASA bibliography A70-43700",
+      "reason": "Publisher preview describes cardiovascular mechanisms across diving, compressed air work and hypobaric exposures. Recover original proceedings pages to identify any separable original chamber cases and their source population.",
+      "primary_url": "https://link.springer.com/chapter/10.1007/978-94-010-3317-6_25"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2735889193",
+      "title": "Pathological Findings in Fatal Sub-Atmospheric Decompression Sickness",
+      "source_url": "https://openalex.org/W2735889193",
+      "report_id": "doi:10.1177/002580246200200206",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Fryer, Medicine, Science and the Law 2(2), pp. 110–123; 1969 AGARDograph chapter 8",
+      "reason": "The later author compilation expressly refers to the 1962 chronological fatality review and identifies repeated historical case histories. Hold primary case membership, clinical interpretation and training attribution pending authorized pages 110–123. The later cases and their setting classifications apply to that edition.",
+      "primary_url": "https://journals.sagepub.com/doi/abs/10.1177/002580246200200206"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W7162995450",
+      "title": "Incidencia de enfermedad descompresiva tipo II en entrenamiento hipobárico y evaluación de cámara hiperbárica monoplaza",
+      "source_url": "https://openalex.org/W7162995450",
+      "report_id": "doi:10.25062/9786287818279.12",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Olaya Santamaria, Methods pp. 309–311, Table 2 p. 313, Figures 1–2 pp. 312 and 314, and Tables 3–4",
+      "reason": "Retain one Type II DCS case in 828 exposures in 2015 as reported by Table 2 and Figure 1. The prose reports zero. The table and figures reconcile with the source total 15/10,280 and are the preferred cells. Maintain the overlapping 2013–2020 published neurological margin of 14/6,754 and the previously extracted 2021–2023 margin of 1/3,526. The broader official FAC aggregate uses different outcome and exposure definitions. Exact roles, individual linkage and uniform case ascertainment window remain unavailable.",
+      "primary_url": "https://esdeglibros.edu.co/index.php/editorial/catalog/download/371/277/4828?inline=1"
+    }
+  ]
+}

@@ -4676,6 +4676,34 @@ def test_rudge_and_dully_episode_links_keep_first_onset_and_presentation_separat
         """).fetchall() == [(20,), (30,)]
 
 
+def test_pressure_cuff_results_remain_case_conditional_in_both_databases(release):
+    with connect_pair(release) as db:
+        counts = db.execute("""
+            SELECT stratum, numerator, denominator, denominator_unit, analysis_role
+            FROM publication_observation WHERE source_id='rudge91_stone_cuff'
+            ORDER BY stratum
+        """).fetchall()
+        assert [(group, cases, total) for group, cases, total, _, _ in counts] == [
+            ("all-tested", 53, 87), ("ankle", 3, 7), ("elbow", 15, 21),
+            ("eligible-joint-pain", 87, 179), ("knee", 34, 55),
+            ("treated-cohort", 179, 310), ("wrist", 1, 4),
+        ]
+        assert {(unit, role) for _, _, _, unit, role in counts} == {
+            ("person", "case_conditional"),
+        }
+        assert db.execute("""
+            SELECT cases, denominator, reported_rate_percent, report_id
+            FROM review.review_search_observation
+            WHERE run_id='2026-11-23-batches-17-18-source-verification'
+              AND observation_id='knee'
+        """).fetchone() == (34, 55, 61, "pmid:2012577")
+        assert db.execute("""
+            SELECT decision FROM review.review_current_screening
+            WHERE report_id='pmid:2012577' AND stage='full_text'
+            ORDER BY reviewer
+        """).fetchall() == [("include",), ("include",)]
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""

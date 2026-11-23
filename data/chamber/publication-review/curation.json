@@ -1,6 +1,18 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-23-batches-17-18-source-verification#rudge91_stone_cuff",
+      "report_id": "pmid:2012577",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf",
+      "basis": "The primary article matches the indexed authors, title, journal, year and pages 266-267."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.273/sources.csv#rudge91_stone_cuff",
+      "report_id": "pmid:2012577",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf",
+      "basis": "The primary article matches the indexed authors, title, journal, year and pages 266-267."
+    },
+    {
       "record_key": "2026-11-23-rudge-dully-chamber-case-chronologies#rudge90_tmj_chamber",
       "report_id": "pmid:2285404",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf",
@@ -22935,6 +22947,12 @@
   ],
   "studies": [
     {
+      "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+      "label": "Rudge and Stone pressure-cuff diagnostic archive",
+      "period": "1985-01 through 1989-12",
+      "setting": "USAFSAM treated DCS. Mixed chamber, aircraft and diving."
+    },
+    {
       "study_id": "rudge-1990-tmj-chamber-cases",
       "label": "Decompression sickness affecting the temporomandibular joint",
       "period": "case dates unreported",
@@ -25318,6 +25336,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+      "report_id": "pmid:2012577",
+      "role": "original_case_conditional_diagnostic_series",
+      "locator": "Methods, pp. 266-267; Results and Table I, p. 267"
+    },
     {
       "study_id": "rudge-1990-tmj-chamber-cases",
       "report_id": "pmid:2285404",
@@ -29232,6 +29256,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:2012577",
+      "right_report": "report:adp011059",
+      "relationship": "unresolved",
+      "evidence": "The cuff study selected treated USAF DCS patients from 1985 through 1989. The USAF historical compilation reuses treatment records and its 1987-1999 series overlaps those years. Setting and patient membership cannot be linked between reports.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf"
+    },
     {
       "left_report": "pmid:2285404",
       "right_report": "pmid:2386454",
