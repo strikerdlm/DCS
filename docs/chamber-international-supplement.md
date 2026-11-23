@@ -150,3 +150,7 @@ python -m scripts.build_chamber_database --international-supplement
 ```
 
 The builder writes `artifacts/chamber-v1.18/observed.sqlite`. Add `--fac-official` for the combined release. [Input digests](../data/chamber/v1.18/manifest.json)
+
+## Release 1.261
+
+Sweeney’s original Wright Field report describes bends within five minutes in approximately 20% of subjects decompressed above 40,000 ft. The matched case count and number of people are unavailable. For different profiles at 35,000 ft, the report identifies 47 people in the first 100 tests of one series and lists 150 and 15 chamber runs for two profiles. The database preserves these as activity counts with their source units. The 1955 official history repeats the chamber findings and is linked to the single descriptive proportion. [Original results](https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=265) · [Original Table I](https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=264) · [Source verification](../data/chamber/publication-review/retrievals-2026-11-23-sweeney-1944-chamber-bends.json)

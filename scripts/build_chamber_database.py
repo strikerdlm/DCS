@@ -325,6 +325,7 @@ LIM_SINGAPORE_CASES = ROOT / "data" / "chamber" / "v1.257"
 ATA_CHAMBER_CLUSTER = ROOT / "data" / "chamber" / "v1.258"
 RUSH_POST_CHAMBER_TRAVEL = ROOT / "data" / "chamber" / "v1.259"
 CONKIN_FITNESS_ARCHIVE = ROOT / "data" / "chamber" / "v1.260"
+SWEENEY_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.261"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3377,6 +3378,17 @@ def build(
                         "publication_conkin_fitness_summary": "fitness_summaries.csv",
                         "publication_conkin_fitness_association": "fitness_associations.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    SWEENEY_WARTIME_CHAMBER,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_proportion_without_counts": "proportions.csv",
+                        "publication_chamber_activity_tally": "activity_tallies.csv",
+                    },
+                    create_schema=False,
                 )
                 load_register(db, ROOT)
                 db.commit()

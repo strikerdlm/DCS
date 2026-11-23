@@ -11215,6 +11215,50 @@ def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope
         """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
+def test_sweeney_wartime_bends_percentage_has_no_inferred_counts(release):
+    source = "sweeney44_explosive_decompression"
+    report = "journal:sweeney-1944-air-surg-bull-1-10-1"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,reported_percent_lower,reported_percent_upper
+            FROM publication_chamber_proportion_without_counts WHERE source_id=?
+        """, (source,)).fetchall() == [("above-40000-ft", "bends_as_reported", 20, 20)]
+        assert db.execute("""
+            SELECT stratum,counting_unit,reported_count,altitude_ft
+            FROM publication_chamber_activity_tally WHERE source_id=? ORDER BY stratum
+        """, (source,)).fetchall() == [
+            ("6-55-psi-series", "chamber_run", 150, 35000),
+            ("7-5-psi-series", "chamber_run", 15, 35000),
+            ("first-100-of-6-55-psi-series", "distinct_people", 47, 35000),
+        ]
+        assert db.execute(
+            "SELECT count(*) FROM publication_observation WHERE source_id=?", (source,)
+        ).fetchone() == (0,)
+        assert db.execute("""
+            SELECT json_type(metadata_json,'$.reported_counts.matched_cases'),
+                   json_type(metadata_json,'$.reported_counts.matched_participants'),
+                   json_extract(metadata_json,'$.reported_counts.dwell_from_decompression_min')
+            FROM review.review_record WHERE report_id=? AND run_id=?
+        """, (report, "2026-11-23-sweeney-1944-chamber-bends")).fetchall() == [
+            ("null", "null", 5),
+        ]
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,reported_rate_percent
+            FROM review.review_search_observation WHERE report_id=?
+        """, (report,)).fetchall() == [
+            ("above-40000-ft", "bends_as_reported", None, None, 20),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link
+            WHERE source_table='publication_source' AND source_id=?
+        """, (source,)).fetchall() == [(report,)]
+        assert db.execute("""
+            SELECT left_report,relationship FROM review.review_report_relation WHERE right_report=?
+        """, (report,)).fetchall() == [
+            ("report:link-coleman-1955-aaf-medical-support", "repeats_chamber_research_results"),
+        ]
+
+
 def test_rapid_decompression_zeros_are_limited_to_the_verified_crossover(release):
     with connect_pair(release) as db:
         run_id = "2026-11-21-brief-rapid-decompression-verified"
