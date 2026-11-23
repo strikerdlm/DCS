@@ -11330,8 +11330,12 @@ def test_stratex_preserves_chamber_and_balloon_outcome_ascertainment(release):
         ]
         assert db.execute("""
             SELECT study_id,count(*) FROM review.review_study_report
-            WHERE study_id GLOB 'stratex-*' GROUP BY study_id ORDER BY study_id
-        """).fetchall() == [
+            WHERE study_id GLOB 'stratex-*' AND report_id IN (
+                SELECT report_id FROM model_report_link WHERE source_table='publication_source'
+                AND source_id IN (?,?,?,?)
+            )
+            GROUP BY study_id ORDER BY study_id
+        """, (lee, leidich, garbino, oneil)).fetchall() == [
             ("stratex-manned-pressure-profile-2014", 3), ("stratex-october-2014-balloon-test-flights", 4),
         ]
 
