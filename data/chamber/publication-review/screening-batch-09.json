@@ -1,0 +1,220 @@
+{
+  "batch_id": "09",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers agreed with three full-text decisions, two revised title and abstract decisions, five retrieval holds and descriptive intake of the TAC surveillance report.",
+    "note": "Labels identify the two reviewer slots. Coordinator confirmed agreement in chat. Separate signed forms and individual appraisal judgments were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "b7abee3a02ae89af0683d79d21fce083ddc5def0",
+    "evidence_sha256": "e7e5a8bfb947dd56a2c3a3b1a35a992784beac8ae3f875aae526ea03dfe93a89",
+    "systematic_review_sha256": "91f2650f5cec7f43d9f8b3472386355fb41def77f42182eebacbbb7803903430"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:6681489",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:6681489",
+      "title": "Altitude decompression sickness.",
+      "source_url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Lim et al., Case 2 and Figure 1, pp. 351-352",
+      "reason": "The authors considered DCS the most likely diagnosis for the Singapore trainee in Case 2. Preserve the existing chamber narrative and four-month recovery follow-up. Case 1 followed an aircraft exposure. The training risk denominator is unknown.",
+      "observations": [
+        {
+          "scope": "chamber training case narrative",
+          "numerator": 1,
+          "denominator": null,
+          "unit": "person",
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:7467172",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:7467172",
+      "title": "[Hyperbaric oxygenation in altitude decompression sickness and lung barotrauma].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/7467172/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "NLM author abstract and citation",
+      "reason": "The initiating exposure setting and distinction between altitude DCS and lung barotrauma treatment remain unresolved.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:889546",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:889546",
+      "title": "Altitude decompression sickness: hyperbaric therapy results in 145 cases.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf#page=7",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Davis et al. p. 728, Table VIII, overall and inside-observer and student subtotals",
+      "reason": "Retain the secondary hyperbaric-treated surveillance and crude within-program role contrast. The page image gives 51,441 for 1974 high-altitude student exposures, consistent with the printed subtotals. The broader 145 treatment cases have a different scope. Hold pooling with overlapping USAF surveillance.",
+      "observations": [
+        {
+          "scope": "training, all roles, HBO-treated DCS",
+          "numerator": 70,
+          "denominator": 242352,
+          "unit": "person_exposure",
+          "use": "overlap_hold"
+        },
+        {
+          "scope": "inside observers, HBO-treated DCS",
+          "numerator": 31,
+          "denominator": 48148,
+          "unit": "person_exposure",
+          "use": "overlap_hold"
+        },
+        {
+          "scope": "students, HBO-treated DCS",
+          "numerator": 39,
+          "denominator": 194204,
+          "unit": "person_exposure",
+          "use": "overlap_hold"
+        }
+      ],
+      "effects": [
+        {
+          "study_id": "usaf-1973-1976-treated",
+          "risk_set": "USAF operational chamber training exposures tabulated by Davis et al., Table VIII",
+          "endpoint": "hyperbaric-treated DCS",
+          "counting_unit": "person-exposure",
+          "factor": "inside observer",
+          "reference": "student",
+          "factor_cases": 31,
+          "factor_exposures": 48148,
+          "reference_cases": 39,
+          "reference_exposures": 194204,
+          "measure": "RR",
+          "estimate": 3.206099569063763,
+          "confidence_level": 0.95,
+          "confidence_lower": 2.000787752673368,
+          "confidence_upper": 5.137513678308147,
+          "standard_error_log_rr": 0.24056843441722175,
+          "interval_method": "Wald interval on log RR assuming independent person-exposures",
+          "adjustment": "crude",
+          "matching_or_clustering": "Repeat attendance and chamber-session linkage unreported. Calculation ignores potential dependence.",
+          "outcome_window": null,
+          "source_report": "pmid:889546",
+          "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p722.pdf#page=7",
+          "locator": "Davis et al. p. 728, Table VIII, overall and inside-observer and student subtotals",
+          "source_extract": "data/chamber/v1.69",
+          "analysis": "descriptive treated-only within-program staff-trainee contrast",
+          "eligibility": "overlap_hold",
+          "eligibility_reason": "Treatment-defined endpoint differs from all-grade symptomatic DCS. The USAF surveillance risk set may overlap Bassett and TAC.",
+          "appraisal_status": "pending independent result-level appraisal"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:13525026",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:13525026",
+      "title": "[Pathogenesis and prophylaxis of decompression sickness in altitude fliers. I. Influence of hyaluronidase on duration of oxygen prebreathing].",
+      "source_url": "https://link.springer.com/article/10.1007/BF00693752",
+      "stage": "title_abstract",
+      "revision": 2,
+      "decision": "exclude",
+      "locator": "German publisher summary, animal experiment",
+      "reason": "The German publisher summary identifies albino rats in a pharmacological decompression study.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:21066337",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21066337",
+      "title": "Studies on the cause of pain in high altitude bends.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21066337/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "NLM citation and Bancroft BANC MSS 87/86 c, Series 1, carton 1, folder 16",
+      "reason": "The finding aid confirms an archival lead. Original clinical setting and outcomes await retrieval.",
+      "observations": [],
+      "archive_finding_aid": "https://cdn.calisphere.org/data/13030/z0/tf7q2nb2z0/files/tf7q2nb2z0.pdf"
+    },
+    {
+      "report_id": "pmid:41914191",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:41914191",
+      "title": "A 4-year retrospective descriptive study on treatment outcomes of decompression illness patients in various hyperbaric chamber centers in Thailand.",
+      "source_url": "https://journals.viamedica.pl/international_maritime_health/article/download/105792/87938#page=4",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Jittanonta et al., Methods and Table 3",
+      "reason": "All 178 selected DCI treatment cases belong to four diving categories, including one military diver. The source does not study operational altitude chamber training.",
+      "observations": [
+        {
+          "scope": "selected diving DCI patients",
+          "numerator": 178,
+          "denominator": null,
+          "unit": "person",
+          "use": "out_of_scope"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:478019",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:478019",
+      "title": "[Dynamics of several indices of the enzyme-hormone status of the body after hypobaria and during decompression sickness].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/478019/",
+      "stage": "title_abstract",
+      "revision": 2,
+      "decision": "exclude",
+      "locator": "NLM author abstract and animal indexing",
+      "reason": "Indexed laboratory evidence describes animals and enzyme and hormone outcomes. The translated title and abstract differ on the direction of pressure change.",
+      "observations": []
+    },
+    {
+      "report_id": "doi:10.1097/00006534-197805000-00116",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1994144512",
+      "title": "Altitude decompression sickness: hyperbaric therapy results in 145 cases",
+      "source_url": "https://api.crossref.org/works/10.1097/00006534-197805000-00116",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Ovid publisher record, Plast Reconstr Surg. 1978;61(5):803",
+      "reason": "Distinct Wood and Davis publication with a shared title. Authorized full text and its relationship to Davis 1977 await verification.",
+      "observations": []
+    },
+    {
+      "report_id": "doi:10.1111/j.1442-2026.1995.tb00184.x",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2047873049",
+      "title": "Hypobaric decompression sickness",
+      "source_url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1442-2026.1995.tb00184.x",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Wiley author abstract, seven-year RAAF experience",
+      "reason": "Eleven hospital-treated patients followed approximately 2,500 subject decompressions. Retain the approximate abstract result. Exact risk-set coverage, ascertainment and overlap with Point Cook and wider ADF surveillance await source review.",
+      "observations": [
+        {
+          "scope": "RAAF hospital-treated DCS",
+          "numerator": 11,
+          "denominator": 2500,
+          "unit": "subject_decompression",
+          "use": "abstract_overlap_hold",
+          "denominator_is_approximate": true
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.21236/ada328256",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1605738632",
+      "title": "The Effect of Gender on Susceptibility to Altitude Decompression Sickness.",
+      "source_url": "https://doi.org/10.21236/ada328256",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "NASA Human Integration Design Handbook bibliography, p. 573, ADA328256",
+      "reason": "The original technical report remains unavailable. Source population, denominator and comparability to later studies are unverified.",
+      "observations": []
+    }
+  ],
+  "supplementary_intake": [
+    {
+      "report_id": "usaf-tac-attack:1975-04:decompression-sickness-ii",
+      "source_extract": "data/chamber/v1.269",
+      "analysis_role": "overlap_hold",
+      "basis": "Eight reported musculoskeletal bends cases among 6,913 aircrews exposed as printed. Person-exposure unit, follow-up and membership in the Davis and Bassett risk sets remain unresolved."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "2026-11-23-tac-1974-chamber-surveillance",
+    "date": "2026-11-23",
+    "provider": "Firecrawl and Internet Archive",
+    "operation": "supplementary_primary_chamber_surveillance_extraction",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "TAC Attack 1975 Decompression Sickness II Harold Andersen 1974 TAC altitude chamber rides bends aircrews exposed",
+      "requests": [
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a2087b-9e9f-70a6-9478-ba44ff4bc6aa",
+          "url": "https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
+          "status": "Partial text extraction from 32-page issue. Article heading recovered. The numerical paragraph was missing."
+        },
+        {
+          "provider": "USAF Air Combat Command",
+          "operation": "direct PDF",
+          "url": "https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
+          "status": "HTTP 403 on direct retrieval"
+        },
+        {
+          "provider": "Internet Archive",
+          "operation": "archived official PDF and visual page inspection",
+          "url": "https://web.archive.org/web/20250000000000id_/https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
+          "status": "Recovered 32-page issue. Checked byline on p. 10 and numbers on p. 11."
+        }
+      ]
+    },
+    "note": "One verified primary report. Original scan inspected and retained outside the commit. Formal-search counts remain unchanged.",
+    "records": [
+      {
+        "id": "andersen-tac1974",
+        "title": "Decompression Sickness II",
+        "authors": [
+          "Harold Andersen"
+        ],
+        "year": 1975,
+        "url": "https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
+        "primary_source": "https://web.archive.org/web/20250000000000id_/https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
+        "access": "full_text",
+        "full_text_available": true,
+        "source_sha256": "1e33e2ba88c10712de484f92a34b2e633a09685057aa5a1c6132b7d09b91abf9",
+        "locator": "Printed and PDF p. 11, lower-left paragraph beginning During 1974, in TAC",
+        "note": "The 1974 TAC chamber statement enumerates reported musculoskeletal bends and describes 6,913 aircrews exposed. People, crews and repeated person-exposures cannot be distinguished. Case adjudication, treatment and exposed site roster are unavailable. Adjacent aircraft counts refer to separate risk sets.",
+        "role_review": "overlap_hold",
+        "source_count_pair": {
+          "source_id": "andersen75_tac_bends",
+          "stratum": "TAC altitude chamber rides",
+          "endpoint": "reported musculoskeletal bends",
+          "period": "1974",
+          "numerator": 8,
+          "reported_denominator": 6913,
+          "reported_denominator_label": "aircrews exposed",
+          "denominator_unit": "unresolved",
+          "outcome_window": null,
+          "analysis_role": "overlap_hold",
+          "locator": "Printed and PDF p. 11, lower-left paragraph beginning During 1974, in TAC",
+          "note": "The 1974 TAC chamber statement enumerates reported musculoskeletal bends and describes 6,913 aircrews exposed. People, crews and repeated person-exposures cannot be distinguished. Case adjudication, treatment and exposed site roster are unavailable. Adjacent aircraft counts refer to separate risk sets."
+        },
+        "model_extraction": {
+          "source_id": "andersen75_tac_bends",
+          "input_release": "v1.269"
+        }
+      }
+    ]
+  }
+]

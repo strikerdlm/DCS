@@ -333,6 +333,7 @@ STRATEX_OUTCOMES = ROOT / "data" / "chamber" / "v1.265"
 RED_BULL_STRATOS_OUTCOMES = ROOT / "data" / "chamber" / "v1.266"
 U2_CAREER_SYMPTOM_SURVEYS = ROOT / "data" / "chamber" / "v1.267"
 USAF_FLIGHT_SAFETY_SURVEILLANCE = ROOT / "data" / "chamber" / "v1.268"
+TAC_CHAMBER_SURVEILLANCE = ROOT / "data" / "chamber" / "v1.269"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3472,6 +3473,15 @@ def build(
                         "publication_flight_surveillance_tally": "surveillance_tallies.csv",
                         "publication_observation": "observations.csv",
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    TAC_CHAMBER_SURVEILLANCE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_source_count_pair": "count_pairs.csv",
                         "publication_overlap": "overlap.csv",
                     },
                 )
