@@ -21707,6 +21707,42 @@
       "report_id": "pmid:2256877",
       "basis": "Exact title, authors, journal issue, pages and verified original PDF identity match PMID 2256877.",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2256877/"
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-disease#20060046703",
+      "report_id": "openalex:W1483440411",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070008088",
+      "basis": "Matching title, authors, 2007 UHMS meeting and identical counts for both NASA archive groups identify one conference report in abstract and poster forms."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-disease#20070008088",
+      "report_id": "openalex:W1483440411",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070008088",
+      "basis": "Matching title, authors, 2007 UHMS meeting and identical counts for both NASA archive groups identify one conference report in abstract and poster forms."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#20060046703",
+      "report_id": "openalex:W1483440411",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070008088",
+      "basis": "Matching title, authors, 2007 UHMS meeting and identical counts for both NASA archive groups identify one conference report in abstract and poster forms."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#20070008088",
+      "report_id": "openalex:W1483440411",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070008088",
+      "basis": "Matching title, authors, 2007 UHMS meeting and identical counts for both NASA archive groups identify one conference report in abstract and poster forms."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.260/sources.csv#conkin07_fitness_hypobaric",
+      "report_id": "openalex:W1483440411",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070008088",
+      "basis": "Matching title, authors, 2007 UHMS meeting and identical counts for both NASA archive groups identify one conference report in abstract and poster forms."
+    },
+    {
+      "record_key": "2026-11-23-conkin-2007-fitness-chamber-outcomes-verified#conkin-2007-fitness-poster",
+      "report_id": "openalex:W1483440411",
+      "evidence_url": "https://ntrs.nasa.gov/citations/20070008088",
+      "basis": "Matching title, authors, 2007 UHMS meeting and identical counts for both NASA archive groups identify one conference report in abstract and poster forms."
     }
   ],
   "studies": [
@@ -34010,7 +34046,21 @@
     "relationship": "unresolved",
     "evidence": "Diesel studied selected volunteers at AFRL, Brooks AFB. Balldin and colleagues report a broader archive from the same laboratory. Exposure dates and archive crosswalk are unavailable for the eight rows. Independence remains unresolved.",
     "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf"
-  }
+  },
+    {
+      "left_report": "openalex:W1483440411",
+      "right_report": "ntrs:20200004317",
+      "relationship": "likely_overlap",
+      "evidence": "The poster reuses the NASA Hypobaric Decompression Sickness Database. The archived tests likely overlap with the 2020 analysis. The poster does not identify test IDs or exposure rows.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf"
+    },
+    {
+      "left_report": "openalex:W1483440411",
+      "right_report": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#nasa04_exercise",
+      "relationship": "likely_overlap",
+      "evidence": "The poster cites NASA/TP-2004-213158. Figure 2 attributes 165 exercise-prebreathe exposures to PRP and seven to other NASA records. The exact intersection with the technical report's study rows remains unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf"
+    }
   ],
   "report_titles": {
     "gmik:2005:filipenkov-ten-km": "Decompression sickness risk in low-pressure tolerance training and trials of high-altitude equipment",

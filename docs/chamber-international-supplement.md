@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.260
+
+Conkin, Gernhardt and Wessel report 25 DCS cases in 172 exposures with exercise during oxygen prebreathe and 25 in 165 exposures with resting or no prebreathe. The groups had different mean exposure pressures, durations and ambulation patterns. The extraction preserves aerobic fitness measured as peak oxygen uptake, separate from activity during prebreathe and at altitude. The study reports VGE percentages and mean onsets. Individual observations and the denominators for the onset means remain unavailable. [NASA poster, Table I](https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf)
+
+The abstract reports a univariate fitness coefficient of −0.058 for clinical DCS in the exercise-prebreathe group, with p = 0.07. The resting or no-prebreathe coefficient is −0.005, with p = 0.86 in the abstract and 0.866 in the figure caption. Figure 1 gives 15.1% for the same 25 of 165 exposures that Table I labels 15.2%. Both printed values are retained. The poster and matching meeting abstract represent one report. Figure 2 identifies 165 of its 172 exercise-prebreathe exposures as PRP records. Both groups remain on overlap hold. [NASA poster, Figures 1–2](https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf) · [Meeting abstract](https://ntrs.nasa.gov/citations/20060046703) · [Versioned extraction](../data/chamber/v1.260)
+
 ## Release 1.259
 
 Rush and Wirjosemito's Table I records seven treated DCS cases after both chamber training and subsequent air travel. These cases already contribute to the study's totals of 141 delayed cases and 292 treated cases. The newly transcribed rows give a reported ground interval of about 2–17 hours. Symptoms began in flight in three cases and 0.5–12 hours after landing in four. Only the pilot has an individually stated peak cabin altitude, 10,000 ft. The study gives a 6,000–8,000 ft range for the other cases and provides no denominator for all trainees who flew. [Results and Tables I–II](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2)

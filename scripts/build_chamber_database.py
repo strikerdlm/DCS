@@ -324,6 +324,7 @@ DIESEL_CHAMBER_EXPOSURES = ROOT / "data" / "chamber" / "v1.256"
 LIM_SINGAPORE_CASES = ROOT / "data" / "chamber" / "v1.257"
 ATA_CHAMBER_CLUSTER = ROOT / "data" / "chamber" / "v1.258"
 RUSH_POST_CHAMBER_TRAVEL = ROOT / "data" / "chamber" / "v1.259"
+CONKIN_FITNESS_ARCHIVE = ROOT / "data" / "chamber" / "v1.260"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3364,6 +3365,17 @@ def build(
                     {
                         "cohort_rush_standard_profile": "standard_profiles.csv",
                         "cohort_rush_post_chamber_case": "post_chamber_cases.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    CONKIN_FITNESS_ARCHIVE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_conkin_fitness_summary": "fitness_summaries.csv",
+                        "publication_conkin_fitness_association": "fitness_associations.csv",
                     },
                 )
                 load_register(db, ROOT)
