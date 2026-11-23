@@ -10490,6 +10490,85 @@ def test_peterson_overlap_and_nasa_campout_probabilities_stay_out_of_benchmark(r
         """).fetchone() == (41, 124, 885)
 
 
+def test_navy_1940_tables_reconcile_bends_and_link_previously_indexed_episodes(release):
+    source = "behnke40_navy_chamber"
+    old_source = "behnke47_navy_altitude"
+    report = "nlm:101085500x138"
+    run = "2026-11-22-behnke-1940-navy-chamber-outcomes-verified"
+    with connect_pair(release) as db:
+        outcomes = [
+            ("table-i-39-runs", "bends_as_reported", 19, 39, "chamber_run", "overlap_hold"),
+            ("table-i-39-runs", "extreme_fatigue_as_reported", 2, 39, "chamber_run", "overlap_hold"),
+            ("table-i-39-runs", "temporary_hearing_loss_as_reported", 1, 39, "chamber_run", "overlap_hold"),
+            ("table-ii-34-rows", "bends_as_reported", 17, 34, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id=? ORDER BY stratum,endpoint
+        """, (source,)).fetchall() == outcomes
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation
+            WHERE run_id=? AND denominator IS NOT NULL ORDER BY reported_group,endpoint
+        """, (run,)).fetchall() == outcomes
+        assert db.execute("""
+            SELECT count(*),sum(instr(participant_codes,' ')>0)
+            FROM publication_navy_1940_run WHERE source_id=?
+        """, (source,)).fetchone() == (39, 1)
+        assert db.execute("""
+            SELECT count(*),count(table_i_run_number),sum(bends_reported)
+            FROM publication_navy_1940_table_ii_bends WHERE source_id=?
+        """, (source,)).fetchone() == (34, 33, 17)
+        assert db.execute("""
+            SELECT i.run_number
+            FROM publication_navy_1940_run i
+            LEFT JOIN publication_navy_1940_table_ii_bends ii
+              ON (ii.source_id,ii.table_i_run_number)=(i.source_id,i.run_number)
+            WHERE i.source_id=? AND ii.row_number IS NULL AND i.symptom_label='explicit_bends'
+            ORDER BY i.run_number
+        """, (source,)).fetchall() == [(20,), (28,)]
+        assert db.execute("""
+            SELECT i.symptom_label,ii.bends_reported
+            FROM publication_navy_1940_run i
+            JOIN publication_navy_1940_table_ii_bends ii
+              ON (ii.source_id,ii.table_i_run_number)=(i.source_id,i.run_number)
+            WHERE i.source_id=? AND i.run_number=8
+        """, (source,)).fetchone() == ("limb_pain_without_bends_label", 0)
+        assert db.execute("""
+            SELECT exposure_date,case_stratum,case_match
+            FROM publication_navy_1940_run WHERE source_id=? AND run_number=17
+        """, (source,)).fetchone() == ("1940-11-14", "navy-1940-11-11", "likely_date_conflict")
+        assert db.execute("""
+            SELECT stage,setting,reported_altitude_ft,reported_duration_min,gas_as_reported
+            FROM publication_navy_1940_run_stage WHERE source_id=? AND run_number=39 ORDER BY stage
+        """, (source,)).fetchall() == [
+            (1, "surface", None, 540, "77% helium, 2% nitrogen and 21% oxygen as described in Table I"),
+            (2, "surface", None, 90, "99% oxygen as described in the run remarks"),
+            (3, "chamber", 37000, 240, None),
+        ]
+        assert db.execute("""
+            SELECT json_array_length(metadata_json,'$.table_i_runs'),
+                   json_array_length(metadata_json,'$.table_ii_bends')
+            FROM review.review_record WHERE run_id=? AND report_id=?
+        """, (run, report)).fetchone() == (39, 34)
+        assert db.execute("""
+            SELECT count(*),count(DISTINCT stratum),count(DISTINCT report_id)
+            FROM shared_case_evidence WHERE source_id=?
+        """, (old_source,)).fetchone() == (14, 7, 2)
+        assert db.execute("""
+            SELECT count(*),count(source_time_min) FROM historical_case_catalog WHERE source_id=?
+        """, (old_source,)).fetchone() == (7, 0)
+        assert db.execute("""
+            SELECT milestone,elapsed,elapsed_reference
+            FROM publication_case_milestone
+            WHERE source_id=? AND reporting_source_id=? AND stratum='navy-1940-12-12'
+            ORDER BY milestone
+        """, (old_source, source)).fetchall() == [
+            ("right_knee_pain_time_narrative", 3, "start of 37,000-ft plateau"),
+            ("right_knee_pain_time_table_ii", 2, "start of 37,000-ft plateau"),
+        ]
+
+
 def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope(release):
     with connect_pair(release) as db:
         source_id = "edel68_orbital_trials"

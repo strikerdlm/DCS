@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-22-behnke-1940-navy-chamber-outcomes-discovery#nlm-finding-aid",
+      "report_id": "nlm:101085500x138",
+      "evidence_url": "https://findingaids.nlm.nih.gov/repositories/4/digital_objects/42492",
+      "basis": "The NLM collection ID identifies the same title and original report."
+    },
+    {
+      "record_key": "2026-11-22-behnke-1940-navy-chamber-outcomes-verified#behnke40_navy_chamber",
+      "report_id": "nlm:101085500x138",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=5",
+      "basis": "The original transmittal identifies the authors, title and date."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.248/sources.csv#behnke40_navy_chamber",
+      "report_id": "nlm:101085500x138",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=34",
+      "basis": "Table I and the report heading identify the same NLM report."
+    },
+    {
       "record_key": "2026-11-20-formal-chamber-openalex#W2751556331",
       "report_id": "openalex:W2751556331",
       "evidence_url": "https://ntrs.nasa.gov/citations/19700024675",
@@ -21291,6 +21309,12 @@
   ],
   "studies": [
     {
+      "study_id": "behnke-1940-navy-test-runs",
+      "label": "US Navy Experimental Diving Unit altitude test runs",
+      "period": "October–December 1940",
+      "setting": "Washington Navy Yard experimental chamber"
+    },
+    {
       "study_id": "edel1968-nasa-cr108446-experimental-tests",
       "label": "Edel orbital decompression pressure trials",
       "period": "Reported 10 May 1968",
@@ -23548,6 +23572,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "behnke-1940-navy-test-runs",
+      "report_id": "nlm:101085500x138",
+      "role": "historical_experimental_archive_source",
+      "locator": "Printed p. 14 (NLM PDF p. 17; DTIC PDF p. 22); Table I, NLM PDF p. 34; Table II, NLM PDF p. 36"
+    },
+    {
+      "study_id": "behnke-1940-selected-altitude-symptoms",
+      "report_id": "nlm:101085500x138",
+      "role": "initial_account_of_existing_episodes",
+      "locator": "Table IV, NLM PDF p. 18"
+    },
     {
       "study_id": "edel1968-nasa-cr108446-experimental-tests",
       "report_id": "openalex:W2751556331",
@@ -27240,6 +27276,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "nlm:101085500x138",
+      "right_report": "nlm:101085500x147",
+      "relationship": "same_published_case",
+      "evidence": "Table IV repeats the seven altitude profiles later printed in Behnke 1947 Table 8. The seven retain their original observation IDs. The aggregate includes at least one of these runs, and Table IV draws on both Tables I and II.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X138/PDF/101085500X138.pdf#page=18"
+    },
     {
       "left_report": "record:legacy:data/chamber/v1.35/search_hits.csv#staged_v35_edel:8",
       "right_report": "openalex:W2751556331",
