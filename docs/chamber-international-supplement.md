@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.252
+
+Mackenzie and Riesen's 1944 report gives symptom severity, oxygen regulator settings and activity for nine chamber flights totaling 151 person-exposures. Its 27 outcome cells preserve the two reported severity counts and their sum for each flight. The sums reproduce all nine counts that Kumar later compiled. The 14,000-ft control used a slower ascent than Kumar's table lists. In two exercise rows Kumar lists push-ups where the original report describes weighted arm extensions. [Mackenzie and Riesen, Table 1](https://archive.org/details/sim_jama_1944-02-19_124_8_0/page/499) · [Kumar et al., Table I](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p685.pdf#page=3)
+
+Tables 2 and 3 provide 18 participant histories and 17 linked records grouped by the number of earlier symptomatic flights. The latter report 1/11, 4/14 and 10/17 affected later exposures in their three groups. The Table 2 descent counts agree with Table 1 in all five shared flights. Table 2 lists fewer participant results for flights 1, 3 and 4 and one fewer grade 2 result for flight 4. Names and demographics are omitted. The three tables reuse participants and flights and remain on overlap hold. The original report retains its existing source identifier. Its bibliographic records now resolve to one report. [Table 2](https://archive.org/details/sim_jama_1944-02-19_124_8_0/page/500) · [Table 3](https://archive.org/details/sim_jama_1944-02-19_124_8_0/page/501) · [Versioned extraction](../data/chamber/v1.252)
+
 ## Release 1.251
 
 All 36 rows in Kumar, Waligora and Calkins' Table I match the existing transcription. The database now links four rows directly to their comparison records. The Dixon 9.5-psia result agrees with the Air Force's 0/30 account, while the NEDU denominator of 32 remains unresolved. Dixon's separate 1/30 result counts people across repeated exposures in the original study. The compilation lists 30 exposures and leaves the counting window uncertain. [Kumar et al., p. 687](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p685.pdf#page=3) · [Dixon 9.5-psia report](https://ntrs.nasa.gov/citations/19860063003) · [Dixon et al., pp. 225–226](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/3/article-p223.pdf)

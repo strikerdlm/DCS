@@ -10555,7 +10555,7 @@ def test_kumar_threshold_compilation_reuses_existing_outcomes_and_report(release
             JOIN publication_observation o
                 ON o.source_id=p.related_source_id AND o.stratum=p.related_stratum
                 AND o.endpoint=p.related_endpoint
-            WHERE p.source_id='kumar90' ORDER BY p.printed_row
+            WHERE p.source_id='kumar90' AND p.printed_row IN (2,6,24,29) ORDER BY p.printed_row
         """).fetchall() == [
             (2, 0, 30, 0.0, 0, 30, "person_exposure", 0, "counts_concordant"),
             (6, 1, 30, 0.0, 1, 30, "person", 0, "scope_discrepancy"),
@@ -10583,8 +10583,63 @@ def test_kumar_threshold_compilation_reuses_existing_outcomes_and_report(release
             for row in extraction["row_reconciliations"]
         ] == db.execute("""
             SELECT printed_row,related_source_id,related_stratum
-            FROM publication_threshold_profile_revision WHERE source_id='kumar90' ORDER BY printed_row
+            FROM publication_threshold_profile_revision
+            WHERE source_id='kumar90' AND printed_row IN (2,6,24,29) ORDER BY printed_row
         """).fetchall()
+
+
+def test_mackenzie_primary_flights_reconcile_compilation_and_repeated_participants(release):
+    source = "mackenzie44"
+    run_id = "2026-11-22-mackenzie-riesen-1944-primary-outcomes-verified"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.printed_row,o.stratum,p.symptom_count,p.exposure_count,o.numerator,o.denominator
+            FROM publication_threshold_profile_reconciled p
+            JOIN publication_observation o
+                ON o.source_id=p.related_source_id AND o.stratum=p.related_stratum
+                AND o.endpoint=p.related_endpoint
+            WHERE p.source_id='kumar90' AND o.source_id=? ORDER BY p.printed_row
+        """, (source,)).fetchall() == [
+            (4, "flight-5", 0, 17, 0, 17), (15, "flight-7", 0, 17, 0, 17),
+            (18, "flight-6", 5, 14, 5, 14), (20, "flight-4", 7, 15, 7, 15),
+            (31, "flight-2", 1, 17, 1, 17), (32, "flight-8", 2, 17, 2, 17),
+            (34, "flight-9", 6, 18, 6, 18), (35, "flight-3", 9, 17, 9, 17),
+            (36, "flight-1", 8, 19, 8, 19),
+        ]
+        assert db.execute("""
+            SELECT flight_number,ascent_rate_ft_min,chokes_grade_3_count,chokes_grade_4_count
+            FROM publication_mackenzie_flight WHERE source_id=? AND flight_number IN (3,4,5)
+            ORDER BY flight_number
+        """, (source,)).fetchall() == [(3, 3000, 0, 1), (4, 3000, 1, 0), (5, 1500, 0, 0)]
+        assert db.execute("""
+            SELECT count(*),sum(flight_3_outcome IS NULL),sum(flight_3_outcome='chokes_4')
+            FROM publication_mackenzie_susceptibility WHERE source_id=?
+        """, (source,)).fetchone() == (18, 3, 1)
+        for flight, grade_2, descent, printed in [
+            (1, 2, 6, 18), (3, 2, 7, 15), (4, 1, 5, 14), (6, 2, 3, 14), (9, 1, 5, 18),
+        ]:
+            outcome = f"flight_{flight}_outcome"
+            assert db.execute(f"""
+                SELECT sum({outcome}='2'),sum({outcome} IN ('3','chokes_3','chokes_4')),count({outcome})
+                FROM publication_mackenzie_susceptibility WHERE source_id=?
+            """, (source,)).fetchone() == (grade_2, descent, printed)
+        assert db.execute("""
+            SELECT initial_symptomatic_flights,count(*),sum(later_symptomatic_flights),sum(later_flights)
+            FROM publication_mackenzie_later_flights WHERE source_id=?
+            GROUP BY initial_symptomatic_flights ORDER BY initial_symptomatic_flights
+        """, (source,)).fetchall() == [(0, 5, 1, 11), (1, 5, 4, 14), (2, 7, 10, 17)]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id=? ORDER BY stratum,endpoint
+        """, (source,)).fetchall() == db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,role_review
+            FROM review.review_search_observation WHERE run_id=? AND reported_group LIKE 'flight-%'
+            ORDER BY reported_group,endpoint
+        """, (run_id,)).fetchall()
+        assert db.execute("""
+            SELECT count(DISTINCT report_id) FROM review.review_record
+            WHERE doi='10.1001/jama.1944.02850080027008'
+        """).fetchone() == (1,)
 
 
 def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):

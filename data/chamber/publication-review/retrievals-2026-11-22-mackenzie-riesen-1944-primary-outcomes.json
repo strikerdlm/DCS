@@ -1,0 +1,471 @@
+[
+  {
+    "id": "2026-11-22-mackenzie-riesen-1944-primary-outcomes-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "68cc50a9-8387-4b11-84f0-6be489768f7f",
+          "topic": "Contemporaneous JAMA bound issues and open microfilm holdings"
+        },
+        {
+          "request_id": "a03a7358-dfae-4784-99f4-677cb554d94e",
+          "topic": "Exact 19 February 1944 issue and archive access"
+        }
+      ]
+    },
+    "records": [],
+    "note": "Identified two Internet Archive scans of JAMA 124(8). Used the public file of the IA1514902-44 scan."
+  },
+  {
+    "id": "2026-11-22-mackenzie-riesen-1944-primary-outcomes-verified",
+    "date": "2026-11-22",
+    "provider": "Internet Archive public microfilm and visual table verification",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://archive.org/download/sim_jama_1944-02-19_124_8_0/sim_jama_1944-02-19_124_8_0.pdf",
+          "format": "PDF"
+        },
+        {
+          "url": "https://archive.org/details/sim_jama_1944-02-19_124_8/page/500",
+          "format": "independent_microfilm_scan",
+          "note": "Compared magnified original outcome cells for Table 2. Flights 1, 3 and 4 have fewer printed participant results than Table 1. Table 2 reproduces the descent-grade counts in all five shared flights."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "mackenzie-riesen-jama-1944",
+        "title": "The Production by Moderate Exercise of a High Incidence of Bends at Altitudes of 26,000 to 28,000 Feet",
+        "year": 1944,
+        "doi": "10.1001/jama.1944.02850080027008",
+        "openalex_id": "W2034209264",
+        "url": "https://archive.org/details/sim_jama_1944-02-19_124_8_0/page/499",
+        "primary_source": "https://archive.org/details/sim_jama_1944-02-19_124_8_0/page/499",
+        "source_sha256": "d430ffe70e0360b36b80c0283ad5bc57098d162a52cbf83de87e489a8ead9644",
+        "access": "full_text",
+        "role_review": "overlap_hold",
+        "locator": "Tables 1–3, printed pp. 499–501",
+        "notes": "The 9 flights, 18 Table 2 records and 17 Table 3 records belong to one repeated-participant series. Names and demographics were omitted. Blank grade cells indicate no printed outcome.",
+        "model_extraction": {
+          "source_id": "mackenzie44",
+          "input_release": "v1.252",
+          "table_1_flights": 9,
+          "table_2_rows": 18,
+          "table_3_rows": 17,
+          "kumar_row_to_flight": {
+            "4": 5,
+            "15": 7,
+            "18": 6,
+            "20": 4,
+            "31": 2,
+            "32": 8,
+            "34": 9,
+            "35": 3,
+            "36": 1
+          }
+        },
+        "observations": [
+          {
+            "id": "flight-1-bends_or_chokes_requiring_descent_source",
+            "group": "flight-1",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 6,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-1-grade_2_bends_source",
+            "group": "flight-1",
+            "endpoint": "grade_2_bends_source",
+            "cases": 2,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-1-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-1",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 8,
+            "denominator": 19,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-2-bends_or_chokes_requiring_descent_source",
+            "group": "flight-2",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 1,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 10,000 ft, automix on. No exercise on the chamber profile.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-2-grade_2_bends_source",
+            "group": "flight-2",
+            "endpoint": "grade_2_bends_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 10,000 ft, automix on. No exercise on the chamber profile.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-2-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-2",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 1,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 10,000 ft, automix on. No exercise on the chamber profile.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-3-bends_or_chokes_requiring_descent_source",
+            "group": "flight-3",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 7,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-3-grade_2_bends_source",
+            "group": "flight-3",
+            "endpoint": "grade_2_bends_source",
+            "cases": 2,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-3-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-3",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 9,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-4-bends_or_chokes_requiring_descent_source",
+            "group": "flight-4",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 5,
+            "denominator": 15,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "27,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-4-grade_2_bends_source",
+            "group": "flight-4",
+            "endpoint": "grade_2_bends_source",
+            "cases": 2,
+            "denominator": 15,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "27,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-4-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-4",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 7,
+            "denominator": 15,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "27,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-5-bends_or_chokes_requiring_descent_source",
+            "group": "flight-5",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "14,000 ft at 1,500 ft/min. Connected to the oxygen regulator at 9,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-5-grade_2_bends_source",
+            "group": "flight-5",
+            "endpoint": "grade_2_bends_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "14,000 ft at 1,500 ft/min. Connected to the oxygen regulator at 9,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-5-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-5",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "14,000 ft at 1,500 ft/min. Connected to the oxygen regulator at 9,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-6-bends_or_chokes_requiring_descent_source",
+            "group": "flight-6",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 3,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "26,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-6-grade_2_bends_source",
+            "group": "flight-6",
+            "endpoint": "grade_2_bends_source",
+            "cases": 2,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "26,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-6-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-6",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 5,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "26,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-7-bends_or_chokes_requiring_descent_source",
+            "group": "flight-7",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "25,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-7-grade_2_bends_source",
+            "group": "flight-7",
+            "endpoint": "grade_2_bends_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "25,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-7-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-7",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "25,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-8-bends_or_chokes_requiring_descent_source",
+            "group": "flight-8",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 0,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. No exercise on the chamber profile.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-8-grade_2_bends_source",
+            "group": "flight-8",
+            "endpoint": "grade_2_bends_source",
+            "cases": 2,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. No exercise on the chamber profile.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-8-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-8",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 2,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 18,000 ft, automix off. No exercise on the chamber profile.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-9-bends_or_chokes_requiring_descent_source",
+            "group": "flight-9",
+            "endpoint": "bends_or_chokes_requiring_descent_source",
+            "cases": 5,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 10,000 ft, automix on. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "The Grade 3 column includes chokes requiring descent where footnoted. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-9-grade_2_bends_source",
+            "group": "flight-9",
+            "endpoint": "grade_2_bends_source",
+            "cases": 1,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "basis": "source_reported",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 10,000 ft, automix on. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Grade 2 denotes symptoms without descent. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "flight-9-grade_2_or_worse_bends_or_chokes_source",
+            "group": "flight-9",
+            "endpoint": "grade_2_or_worse_bends_or_chokes_source",
+            "cases": 6,
+            "denominator": 18,
+            "denominator_unit": "person_exposure",
+            "basis": "author_reconstructed",
+            "protocol": "28,000 ft at 3,000 ft/min. Connected to the oxygen regulator at 10,000 ft, automix on. Five deep knee bends and five arm extensions with a 14 lb oxygen cylinder at altitude and every 10 minutes.",
+            "outcome_window": "During the chamber exposure. Most trials lasted two hours at altitude, the shortest one hour. Individual durations and uniform delayed follow-up are unavailable.",
+            "locator": "Table 1 and Methods, printed pp. 499–500",
+            "note": "Sum of the two nonoverlapping Table 1 severity columns. Transitory Grade 1 symptoms are outside this count. Repeated participants and source-level dependence."
+          },
+          {
+            "id": "table-3-initial-0",
+            "group": "table-3-initial-0",
+            "endpoint": "later_flight_grade_2_or_worse_bends_or_chokes_source",
+            "cases": 1,
+            "denominator": 11,
+            "denominator_unit": "person_exposure",
+            "people": 5,
+            "basis": "source_reported",
+            "locator": "Table 3, printed p. 501",
+            "note": "This stratification reuses later flights 4, 6 and 9. The initial symptomatic-flight categories are stored as printed."
+          },
+          {
+            "id": "table-3-initial-1",
+            "group": "table-3-initial-1",
+            "endpoint": "later_flight_grade_2_or_worse_bends_or_chokes_source",
+            "cases": 4,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "people": 5,
+            "basis": "source_reported",
+            "locator": "Table 3, printed p. 501",
+            "note": "This stratification reuses later flights 4, 6 and 9. The initial symptomatic-flight categories are stored as printed."
+          },
+          {
+            "id": "table-3-initial-2",
+            "group": "table-3-initial-2",
+            "endpoint": "later_flight_grade_2_or_worse_bends_or_chokes_source",
+            "cases": 10,
+            "denominator": 17,
+            "denominator_unit": "person_exposure",
+            "people": 7,
+            "basis": "source_reported",
+            "locator": "Table 3, printed p. 501",
+            "note": "This stratification reuses later flights 4, 6 and 9. The initial symptomatic-flight categories are stored as printed."
+          }
+        ]
+      }
+    ],
+    "note": "Read the page images, checked the participant rows against the second microfilm scan and compared the scope of the three tables. The separate case histories and addendum were not used to create an additional cohort."
+  }
+]
