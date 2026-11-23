@@ -311,6 +311,7 @@ TONAWANDA_ARCHIVE = ROOT / "data" / "chamber" / "v1.243"
 TONAWANDA_TENSION_TABLES = ROOT / "data" / "chamber" / "v1.244"
 CAM_APRIL_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.245"
 FULTON_WORKLOAD_AUDIT = ROOT / "data" / "chamber" / "v1.246"
+EDEL_ORBITAL_TRIALS = ROOT / "data" / "chamber" / "v1.247"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3223,6 +3224,18 @@ def build(
                         "publication_overlap": "overlap.csv",
                         "publication_historical_workload_margin": "workload_cells.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    EDEL_ORBITAL_TRIALS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_chamber_native_pressure_stage": "exposure_stages.csv",
+                    },
+                    create_schema=False,
                 )
                 load_register(db, ROOT)
                 db.commit()

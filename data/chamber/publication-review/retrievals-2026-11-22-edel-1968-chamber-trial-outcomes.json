@@ -1,0 +1,198 @@
+[
+  {
+    "id": "2026-11-22-edel-1968-chamber-trial-outcomes-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_source_discovery",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "a132760d-8477-4175-b9d5-623a818f8ea1",
+          "topic": "Edel 1968 orbital trials"
+        },
+        {
+          "request_id": "b25ef6f8-c50b-496c-a3df-4182285caa30",
+          "topic": "Edel reports and related chamber cohorts"
+        }
+      ]
+    },
+    "status": "observed",
+    "records": [],
+    "note": "Located the official catalog and compared nearby dive–fly publications against the orbital pressure schedules."
+  },
+  {
+    "id": "2026-11-22-edel-1968-chamber-trial-outcomes-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and rendered primary source pages",
+    "operation": "supplementary_primary_source_verification",
+    "reported_total": null,
+    "status": "observed",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://ntrs.nasa.gov/citations/19700024675",
+          "scrape_id": "01a205cb-45d6-726f-9d01-e7e5a136055c",
+          "note": "Verified date, author and accession."
+        },
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/19700024675/downloads/19700024675.pdf",
+          "scrape_id": "01a205d5-0461-731a-bb7e-085a59cb686a",
+          "note": "Verified report identity. The rendered p. 32 and Figs. 7–8 supplied exact times, pressures and outcomes."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "edel68_orbital_trials",
+        "title": "Predicting the Possibility of Decompression Sickness, or Bends, in Manned Orbital Flights",
+        "year": 1968,
+        "identifier": "NASA-CR-108446",
+        "url": "https://ntrs.nasa.gov/citations/19700024675",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/19700024675/downloads/19700024675.pdf#page=32",
+        "country": "United States",
+        "access": "full_text",
+        "source_sha256": "d9dfb786c6449753a16afda47529e3d41481d19aada68fb18b9c99853228dded",
+        "locator": "Printed p. 27 (PDF p. 32); Figs. 7–8 (PDF pp. 31 and 33)",
+        "study_id": "edel1968-nasa-cr108446-experimental-tests",
+        "role_review": "overlap_hold",
+        "ntrs_document_id": "19700024675",
+        "contracts": [
+          "T-72681",
+          "T-74400"
+        ],
+        "reported_protocol_tests": 3,
+        "participant_tests_from_group_sum": 6,
+        "unique_participant_count": null,
+        "dcs_follow_up_min": null,
+        "note": "Three protocol tests with two participants in each, totaling six participant-tests by addition. The report supplies no individual identifiers or unique count across tests.",
+        "observations": [
+          {
+            "id": "test-1-dcs_symptoms_as_reported",
+            "group": "test-1",
+            "study_id": "edel1968-nasa-cr108446-experimental-tests",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person_exposure",
+            "exposure_context": "hypobaric_chamber",
+            "target_pressure_psia": 3.5,
+            "prebreathe_min": 240,
+            "observed_peak_duration_min": 120,
+            "pressure_stages": [
+              {
+                "stage": 1,
+                "reported_duration_min": 240,
+                "pressure_psia": null,
+                "oxygen_percent": null,
+                "nitrogen_percent": null,
+                "gas_as_reported": "preoxygenation at sea level"
+              },
+              {
+                "stage": 2,
+                "reported_duration_min": 300,
+                "pressure_psia": 9.3,
+                "oxygen_percent": 55,
+                "nitrogen_percent": 45,
+                "gas_as_reported": "55% oxygen and 45% nitrogen"
+              },
+              {
+                "stage": 3,
+                "reported_duration_min": 120,
+                "pressure_psia": 3.5,
+                "oxygen_percent": null,
+                "nitrogen_percent": null,
+                "gas_as_reported": "oxygen"
+              }
+            ],
+            "protocol": "240 min preoxygenation at sea level with no numerical starting pressure reported. Then 300 min at 9.3 psia breathing 55% oxygen and 45% nitrogen. The final exposure was 120 min at 3.5 psia. The report states the participants breathed oxygen at the final pressure.",
+            "outcome_window": "During the reported 120 min at 3.5 psia. Follow-up after the test was not reported.",
+            "locator": "Printed p. 27 (PDF p. 32); Fig. 7 (PDF p. 31)",
+            "note": "Two participants and zero reported DCS symptoms. Participant linkage across tests and standardized case adjudication are unavailable."
+          },
+          {
+            "id": "test-2-dcs_symptoms_as_reported",
+            "group": "test-2",
+            "study_id": "edel1968-nasa-cr108446-experimental-tests",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person_exposure",
+            "exposure_context": "hypobaric_chamber",
+            "target_pressure_psia": 3.5,
+            "prebreathe_min": 240,
+            "observed_peak_duration_min": 120,
+            "pressure_stages": [
+              {
+                "stage": 1,
+                "reported_duration_min": 240,
+                "pressure_psia": null,
+                "oxygen_percent": null,
+                "nitrogen_percent": null,
+                "gas_as_reported": "preoxygenation at sea level"
+              },
+              {
+                "stage": 2,
+                "reported_duration_min": 120,
+                "pressure_psia": 3.5,
+                "oxygen_percent": null,
+                "nitrogen_percent": null,
+                "gas_as_reported": "oxygen"
+              }
+            ],
+            "protocol": "240 min preoxygenation at sea level with no numerical starting pressure reported. The final exposure was 120 min at 3.5 psia. Figure 7 labels the final-stage gas as oxygen without a numerical fraction.",
+            "outcome_window": "During the reported 120 min at 3.5 psia. Follow-up after the test was not reported.",
+            "locator": "Printed p. 27 (PDF p. 32); Fig. 7 (PDF p. 31)",
+            "note": "Two participants and zero reported DCS symptoms. Participant linkage across tests and standardized case adjudication are unavailable."
+          },
+          {
+            "id": "test-3-dcs_symptoms_as_reported",
+            "group": "test-3",
+            "study_id": "edel1968-nasa-cr108446-experimental-tests",
+            "endpoint": "dcs_symptoms_as_reported",
+            "cases": 0,
+            "denominator": 2,
+            "denominator_unit": "person_exposure",
+            "exposure_context": "hypobaric_chamber",
+            "target_pressure_psia": 3.5,
+            "prebreathe_min": 195,
+            "observed_peak_duration_min": 120,
+            "pressure_stages": [
+              {
+                "stage": 1,
+                "reported_duration_min": 195,
+                "pressure_psia": null,
+                "oxygen_percent": null,
+                "nitrogen_percent": null,
+                "gas_as_reported": "preoxygenation at sea level"
+              },
+              {
+                "stage": 2,
+                "reported_duration_min": 150,
+                "pressure_psia": 5.6,
+                "oxygen_percent": 60,
+                "nitrogen_percent": 40,
+                "gas_as_reported": "60% oxygen and 40% nitrogen"
+              },
+              {
+                "stage": 3,
+                "reported_duration_min": 120,
+                "pressure_psia": 3.5,
+                "oxygen_percent": null,
+                "nitrogen_percent": null,
+                "gas_as_reported": "oxygen"
+              }
+            ],
+            "protocol": "195 min preoxygenation at sea level with no numerical starting pressure reported. Then 150 min at 5.6 psia breathing 60% oxygen and 40% nitrogen. The final exposure was 120 min at 3.5 psia. The report states the participants breathed oxygen at the final pressure.",
+            "outcome_window": "During the reported 120 min at 3.5 psia. Follow-up after the test was not reported.",
+            "locator": "Printed p. 27 (PDF p. 32); Fig. 8 (PDF p. 33)",
+            "note": "Two participants and zero reported DCS symptoms. Participant linkage across tests and standardized case adjudication are unavailable."
+          }
+        ]
+      }
+    ],
+    "note": "Linked the full report to the existing OpenAlex record. Related reports are cited separately and participant linkage remains unresolved."
+  }
+]

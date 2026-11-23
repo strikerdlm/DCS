@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.247
+
+Edel's 1968 NASA report records zero DCS symptoms in each of three two-person tests during 120 minutes at 3.5 psia. Tests 1 and 2 began with 240 minutes of sea-level preoxygenation and test 3 with 195 minutes. Test 1 included 300 minutes at 9.3 psia with 55% oxygen and 45% nitrogen. Test 2 reached 3.5 psia directly after preoxygenation. Test 3 included 150 minutes at 5.6 psia with 60% oxygen and 40% nitrogen. The source identifies oxygen during the final stage of all three tests without specifying a numerical fraction. The source gives no numerical starting pressure, unique participant count across tests or post-test follow-up. [Original report, printed p. 27](https://ntrs.nasa.gov/api/citations/19700024675/downloads/19700024675.pdf#page=32) · [Figure 7](https://ntrs.nasa.gov/api/citations/19700024675/downloads/19700024675.pdf#page=31) · [Figure 8](https://ntrs.nasa.gov/api/citations/19700024675/downloads/19700024675.pdf#page=33)
+
+The extracts use the existing OpenAlex citation. The 1970 report cites the 1968 experiments and describes separate schedules. Participant linkage with the 1969 and 1970 dive–fly reports remains unresolved. All three observations remain on overlap hold. [1970 report, reference 5](https://ntrs.nasa.gov/api/citations/19700031843/downloads/19700031843.pdf#page=58) · [Versioned extracts](../data/chamber/v1.247)
+
 ## Release 1.246
 
 Cook's 1951 chapter reports 266 affected and 332 unaffected in the Canadian exercise condition, and 276 affected and 451 unaffected in the no-exercise condition. The sums are 598 and 727. The source does not specify the counting unit or link these records to the C-2064 age analysis. Its citation points to Canadian report F.P.M.S.-D.3 No. 1. The 27-person Smith series reports 290 man-flights overall and rounded rates of 62% with exercise and 55% without it. Group denominators are unavailable. [Cook, printed p. 223](https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=248) · [Canadian bibliography](https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469)
