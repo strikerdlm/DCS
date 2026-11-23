@@ -10780,6 +10780,51 @@ def test_balldin_pulmonary_onsets_extend_an_existing_case_series(release):
         """).fetchone() == (1,)
 
 
+def test_lim_1983_links_distinct_aircraft_and_chamber_episodes_to_one_report(release):
+    source = "lim83_rsaf"
+    report = "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,numerator,denominator,altitude FROM publication_observation
+            WHERE source_id=? AND endpoint='suspected_dcs' ORDER BY stratum
+        """, (source,)).fetchall() == [
+            ("case_1_hawker_hunter", 1, None, None),
+            ("case_2_mark_iii_training", 1, None, 33000),
+        ]
+        assert db.execute("""
+            SELECT milestone,aircraft_altitude_ft,elapsed,elapsed_unit,elapsed_qualifier
+            FROM publication_aircraft_case_milestone
+            WHERE source_id=? AND aircraft_altitude_ft IS NOT NULL ORDER BY milestone
+        """, (source,)).fetchall() == [
+            ("initial_symptom_onset", 22000, None, None, None),
+            ("level_flight_before_descent", 30000, 20, "minutes", "approximate"),
+            ("reported_pressurization_warning", 30000, None, None, None),
+        ]
+        assert db.execute("""
+            SELECT milestone,chamber_altitude_ft,elapsed,elapsed_unit FROM publication_case_milestone
+            WHERE source_id=? ORDER BY milestone
+        """, (source,)).fetchall() == [
+            ("descent_begun", 33000, None, None),
+            ("first_symptom_report", 33000, None, None),
+            ("ground_assessment", None, None, None),
+            ("mask_seal_check", 10000, None, None),
+            ("rapid_decompression_complete", 33000, 3, "seconds"),
+            ("recalled_tingling_on_ascent", 18000, None, None),
+            ("reported_four_month_review", None, None, None),
+            ("symptom_relief_at_treatment_depth", None, 20, "minutes"),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record WHERE url LIKE '%/2406smj6.pdf%'
+        """).fetchall() == [(report,)]
+        assert db.execute("""
+            SELECT stratum,report_id,onset_min,first_assessment_min FROM shared_case_evidence
+            WHERE source_id=? ORDER BY stratum
+        """, (source,)).fetchall() == [
+            ("case_1_hawker_hunter", report, None, None),
+            ("case_2_mark_iii_training", report, None, None),
+        ]
+
+
 def test_diesel_2002_retains_reported_symptoms_and_stopping_counts(release):
     source = "diesel02_pulmonary_pressure"
     report = "pmid:11846181"

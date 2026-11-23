@@ -321,6 +321,7 @@ HISTORICAL_USAF_ALTITUDE_OUTCOMES = ROOT / "data" / "chamber" / "v1.253"
 FRYER_RAF_CONFERENCE = ROOT / "data" / "chamber" / "v1.254"
 BALLDIN_PULMONARY_ONSETS = ROOT / "data" / "chamber" / "v1.255"
 DIESEL_CHAMBER_EXPOSURES = ROOT / "data" / "chamber" / "v1.256"
+LIM_SINGAPORE_CASES = ROOT / "data" / "chamber" / "v1.257"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3333,6 +3334,15 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
                         "publication_diesel_exposure": "exposures.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    LIM_SINGAPORE_CASES,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_case_milestone": "chamber_case_milestones.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                     },
                 )
                 load_register(db, ROOT)

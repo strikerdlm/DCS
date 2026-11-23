@@ -1,0 +1,133 @@
+[
+  {
+    "id": "2026-11-22-lim-1983-singapore-case-timelines-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "8a99da48-6cda-4def-9487-ab1cd2bc6ac8",
+          "topic": "Historical primary chamber altitude exercise outcome reports"
+        },
+        {
+          "provider": "Firecrawl",
+          "request_id": "01a2069c-d630-7092-9e6a-dba301bca2da",
+          "topic": "Chamber and aircraft DCS outcomes in the primary literature"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "22382478-cdc9-4be1-b7a2-ede859196202",
+          "topic": "Exact War Medicine 1944 volume 6 holding for Cook et al.",
+          "status": "volume pages unavailable"
+        },
+        {
+          "provider": "HathiTrust",
+          "url": "https://catalog.hathitrust.org/Record/000676958",
+          "topic": "War Medicine 1944 volume 6",
+          "status": "catalogued; item viewer returned HTTP 403"
+        }
+      ]
+    },
+    "records": [],
+    "note": "Singapore Medical Journal original contains a previously unindexed aircraft episode and an existing chamber case. The Cook et al. volume remains an access lead."
+  },
+  {
+    "id": "2026-11-22-lim-1983-singapore-case-timelines-verified",
+    "date": "2026-11-22",
+    "provider": "Tavily, Firecrawl and publisher PDF",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "69826aa8-0b9f-49da-bf5b-b1ab939653b1",
+          "url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+          "topic": "Case narratives and milestones"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a2069f-e7bb-767d-bf63-69fb101690d7",
+          "url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+          "topic": "Publisher PDF and case chronology"
+        },
+        {
+          "provider": "LlamaParse",
+          "url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+          "topic": "Secondary check of publisher PDF",
+          "status": "HTTP 402; no parse output"
+        },
+        {
+          "provider": "Singapore Medical Journal",
+          "url": "https://smj.sma.org.sg/2406/2406smj6.pdf#page=2",
+          "pages": [
+            2
+          ],
+          "source_sha256": "bf413b19f680ee1655a4de3d36511e0a23bff5dc4b3687e86e1c34cbe93dee32",
+          "topic": "Visual verification of the printed page and Figure 1"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "lim-1983-rsaf-cases-1-and-2",
+        "title": "Altitude decompression sickness",
+        "authors": [
+          "M. K. Lim",
+          "J. How",
+          "C. M. Peng",
+          "R. Rajan"
+        ],
+        "year": 1983,
+        "url": "https://smj.sma.org.sg/2406/2406smj6.pdf",
+        "primary_source": "https://smj.sma.org.sg/2406/2406smj6.pdf#page=2",
+        "source_sha256": "bf413b19f680ee1655a4de3d36511e0a23bff5dc4b3687e86e1c34cbe93dee32",
+        "access": "full_text",
+        "locator": "Case Nos. 1 and 2 and Figure 1, printed p. 351 (PDF p. 2)",
+        "role_review": "selected_cluster",
+        "model_extraction": {
+          "source_id": "lim83_rsaf",
+          "input_release": "v1.257",
+          "new_case_stratum": "case_1_hawker_hunter",
+          "reused_case_stratum": "case_2_mark_iii_training",
+          "aircraft_case_milestones": "data/chamber/v1.257/aircraft_case_milestones.csv",
+          "chamber_case_milestones": "data/chamber/v1.257/chamber_case_milestones.csv"
+        },
+        "observations": [
+          {
+            "id": "case_1_hawker_hunter",
+            "group": "case_1_hawker_hunter",
+            "endpoint": "suspected_dcs",
+            "cases": 1,
+            "denominator": null,
+            "analysis_role": "selected_cluster",
+            "locator": "Case No. 1, printed p. 351 (PDF p. 2)",
+            "protocol": "RSAF pilot in a single-seat Hawker Hunter on a routine training flight. The pilot reported a cockpit pressurization warning at 30,000 ft aircraft altitude. Cabin pressure history and the number exposed are unavailable.",
+            "outcome_window": "In-flight onset, assessment after landing, treatment and follow-up of unspecified duration.",
+            "note": "The authors considered DCS most likely. In-flight findings included occipital pain, visual phenomena, disorientation and slurred speech. Sensory and hip or knee symptoms evolved after landing. This selected aircraft case is distinct from the chamber trainee in Case No. 2."
+          },
+          {
+            "id": "case_2_mark_iii_training",
+            "group": "case_2_mark_iii_training",
+            "endpoint": "suspected_dcs",
+            "cases": 1,
+            "denominator": null,
+            "analysis_role": "selected_cluster",
+            "locator": "Case No. 2 and Figure 1, printed p. 351 (PDF p. 2)",
+            "protocol": "RSAF Mark III chamber training. Mask-seal check at 10,000 ft followed by ascent to 18,000 ft and a reported three-second decompression to 33,000 ft. Participants breathed air/oxygen via pressure-demand regulators.",
+            "outcome_window": "Symptoms during ascent, reassessment at ground and follow-up reported four months later.",
+            "note": "Tingling at 18,000 ft was recalled retrospectively. The initial complaint occurred at 33,000 ft. The source considered DCS most likely. The narrative descent rate and Figure 1's plotted return differ. The plot does not establish the individual's elapsed time to ground. Total people exposed and systematic follow-up are unknown."
+          }
+        ]
+      }
+    ],
+    "note": "The primary PDF hash matches the existing source. The two episodes are distinct. No risk-set denominator is reported for either exposure."
+  }
+]
