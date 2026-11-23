@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.268
+
+USAF Class C surveillance reported four bends mishaps involving four people in January–March 1984. The F-15 functional-check case is the fighter-stratum entry within that total. The pilot noticed a 30,000-ft cabin indication about 30 seconds after engine shutdown. The time spent above 25,000 ft is unknown. Symptoms began several hours after landing, and a flight surgeon diagnosed bends. The 69 reported physiological mishaps describe the surveillance workload. [USAF 1984 report](https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf)
+
+In 1985, the C/KC-135 fleet reported 12 Class C or High Accident Potential pressurization mishaps, including five with physiological effects and two with bends. The 1986 C/KC-135 report instead counts three affected people, with no mapping to distinct mishaps. The 1986 B-52 report describes one affected crewmember and separately lists 102,411 fleet flying hours. The releases preserve these original units, the two different 1986 pressurization tallies and unresolved overlap with the broader USAF archive. Every clinical person-flight denominator is unknown. [USAF 1985 fleet review](https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf) · [USAF 1986 fleet reviews](https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf) · [Extraction provenance](../data/chamber/publication-review/retrievals-2026-11-23-usaf-flight-safety-surveillance.json)
+
 ## Release 1.267
 
 Bendrick and colleagues report career DCS symptoms in 25 of 40 preliminary questionnaires and 181 of 233 first-mailing questionnaires. The authors combine them as 206 of 273, or 75.5%. Respondent overlap is unknown. The second mailing used a direct question about ever having bends in high flight, with 91 affirmative answers among 195 usable questionnaires. The databases retain the survey-specific questions, mailed and usable counts, symptom timing and reported associations with arthritis. [Bendrick et al., printed pp. 201–204](https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml)

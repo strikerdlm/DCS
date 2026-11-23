@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.268/sources.csv#marlowe84_physiological_mishaps",
+      "report_id": "usaf-fs:1984-08:physiological",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
+      "record_key": "2026-11-23-usaf-flight-safety-surveillance#marlowe84_physiological_mishaps",
+      "report_id": "usaf-fs:1984-08:physiological",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.268/sources.csv#gordon86_c135_mishaps",
+      "report_id": "usaf-fs:1986-04:c-kc-135",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
+      "record_key": "2026-11-23-usaf-flight-safety-surveillance#gordon86_c135_mishaps",
+      "report_id": "usaf-fs:1986-04:c-kc-135",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.268/sources.csv#gordon87_c135_mishaps",
+      "report_id": "usaf-fs:1987-04:c-kc-135",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
+      "record_key": "2026-11-23-usaf-flight-safety-surveillance#gordon87_c135_mishaps",
+      "report_id": "usaf-fs:1987-04:c-kc-135",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.268/sources.csv#waddell87_b52_mishaps",
+      "report_id": "usaf-fs:1987-04:b-52",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
+      "record_key": "2026-11-23-usaf-flight-safety-surveillance#waddell87_b52_mishaps",
+      "report_id": "usaf-fs:1987-04:b-52",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf",
+      "basis": "Same byline, archive issue, article heading and surveillance year. Separate article identities are retained for the two fleets in April 1987."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.267/sources.csv#bendrick96_u2_surveys",
       "report_id": "pmid:8775396",
       "evidence_url": "https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml",
@@ -22005,6 +22053,30 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-physiological-1984-q1",
+      "label": "Physiological Mishap Experience: 1 January to 31 March 1984",
+      "period": "1984-01-01 to 1984-03-31",
+      "setting": "USAF operational in-flight safety reports"
+    },
+    {
+      "study_id": "usaf-c-kc-135-1985",
+      "label": "C/KC-135: 1985 mishap review",
+      "period": "1985",
+      "setting": "USAF operational in-flight safety reports"
+    },
+    {
+      "study_id": "usaf-c-kc-135-1986",
+      "label": "C/KC-135: 1986 mishap review",
+      "period": "1986",
+      "setting": "USAF operational in-flight safety reports"
+    },
+    {
+      "study_id": "usaf-b52-1986",
+      "label": "B-52: 1986 mishap review",
+      "period": "1986",
+      "setting": "USAF operational in-flight safety reports"
+    },
+    {
       "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
       "label": "USAF U-2 career symptom questionnaires and preliminary squadron survey",
       "period": "Preliminary survey reported in 1992. Full series published in 1996. Exact questionnaire dates unavailable.",
@@ -24328,6 +24400,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-physiological-1984-q1",
+      "report_id": "usaf-fs:1984-08:physiological",
+      "role": "primary_safety_surveillance",
+      "locator": "Printed pp. 24–26, Figures 1–4 and Flying Smart — Reporting Smart?"
+    },
+    {
+      "study_id": "usaf-c-kc-135-1985",
+      "report_id": "usaf-fs:1986-04:c-kc-135",
+      "role": "primary_safety_surveillance",
+      "locator": "C/KC-135, pp. 11–15, Figure 1 and Class C and HAP Mishaps"
+    },
+    {
+      "study_id": "usaf-c-kc-135-1986",
+      "report_id": "usaf-fs:1987-04:c-kc-135",
+      "role": "primary_safety_surveillance",
+      "locator": "C/KC-135, pp. 12–14, Figure 3 and Bird Strikes/Physiological"
+    },
+    {
+      "study_id": "usaf-b52-1986",
+      "report_id": "usaf-fs:1987-04:b-52",
+      "role": "primary_safety_surveillance",
+      "locator": "B-52, pp. 2–4, 1986 Mishaps, physiological/pressurization paragraph and comparison table"
+    },
     {
       "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
       "report_id": "pmid:8775396",
@@ -28176,6 +28272,48 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "usaf-fs:1984-08:physiological",
+      "right_report": "pmid:15945394",
+      "relationship": "unresolved",
+      "evidence": "The 1984 safety-report series falls within Files et al. FY1981–2003 USAF archive coverage. The F-15 case is documented by the earlier source. Record identifiers are unavailable.",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf"
+    },
+    {
+      "left_report": "usaf-fs:1984-08:physiological",
+      "right_report": "journal:skinner-spums-1989-19-66",
+      "relationship": "unresolved",
+      "evidence": "Skinner p. 68 attributes 90 USAF cases in 1975–1985 to an earlier safety update that could include these cases. The original update and case crosswalk were not located. Skinner’s Australian chamber cases are a different population.",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198408%20-%20FlyingSafetyMagazine.pdf"
+    },
+    {
+      "left_report": "usaf-fs:1986-04:c-kc-135",
+      "right_report": "pmid:15945394",
+      "relationship": "unresolved",
+      "evidence": "Both collect USAF pressurization mishaps in 1985. No incident IDs identify the two bends events in the wider archive.",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf"
+    },
+    {
+      "left_report": "usaf-fs:1986-04:c-kc-135",
+      "right_report": "journal:skinner-spums-1989-19-66",
+      "relationship": "unresolved",
+      "evidence": "The 1985 C/KC-135 incident counts fall in the period of the secondary 1975–1985 summary. The two sources use different reported units and no case linkage was found.",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198604%20-%20FlyingSafetyMagazine.pdf"
+    },
+    {
+      "left_report": "usaf-fs:1987-04:c-kc-135",
+      "right_report": "pmid:15945394",
+      "relationship": "unresolved",
+      "evidence": "Both collect USAF pressurization mishaps in 1986. The three cases have no shared identifiers.",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf"
+    },
+    {
+      "left_report": "usaf-fs:1987-04:b-52",
+      "right_report": "pmid:15945394",
+      "relationship": "unresolved",
+      "evidence": "The B-52 case falls within the USAF archive coverage. No shared identifier or case description establishes membership.",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1980s/198704%20-%20FlyingSafetyMagazine.pdf"
+    },
     {
       "left_report": "asma:1992:410:154",
       "right_report": "pmid:8775396",
