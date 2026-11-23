@@ -21497,6 +21497,30 @@
     "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_firecrawl_primary:1",
     "basis": "Exact JAMA DOI, byline and page range identify one publication. The original issue confirms page 499 and both authors.",
     "evidence_url": "https://archive.org/details/sim_jama_1944-02-19_124_8_0/page/499"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.12/sources.csv#cutler62_aircent",
+    "report_id": "record:legacy:data/chamber/v1.12/sources.csv#cutler62_aircent",
+    "basis": "Fryer’s p. 310 bibliography gives the author, date, conference, exact title and pages of the original Cutler report.",
+    "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=304"
+  },
+  {
+    "record_key": "legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:6",
+    "report_id": "record:legacy:data/chamber/v1.12/sources.csv#cutler62_aircent",
+    "basis": "Fryer’s p. 310 bibliography gives the author, date, conference, exact title and pages of the original Cutler report.",
+    "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=304"
+  },
+  {
+    "record_key": "2026-11-22-cutler-admissions-and-meader-recurrence-verified#cutler-1962-as-reproduced-by-fryer",
+    "report_id": "record:legacy:data/chamber/v1.12/sources.csv#cutler62_aircent",
+    "basis": "Fryer’s p. 310 bibliography gives the author, date, conference, exact title and pages of the original Cutler report.",
+    "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=304"
+  },
+  {
+    "record_key": "2026-11-22-cutler-admissions-and-meader-recurrence-verified#meader-1967-table-iii",
+    "report_id": "report:ad0658348",
+    "basis": "Exact DTIC accession, journal reprint, author, title and locator establish report identity.",
+    "evidence_url": "https://archive.org/download/DTIC_AD0658348/DTIC_AD0658348.pdf#page=4"
   }
   ],
   "studies": [
@@ -33772,7 +33796,21 @@
       "relationship": "partial_overlap",
       "evidence": "Report 253 directly cites Report 248 and reproduces 221 eight-inch flights and six endpoint counts. The 180 demand flights have no row-level crosswalk to the prior 239.",
       "evidence_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015073997770&seq=17"
-    }
+    },
+  {
+    "left_report": "report:ada111509",
+    "right_report": "record:legacy:data/chamber/v1.12/sources.csv#cutler62_aircent",
+    "relationship": "cites_as_compilation_source",
+    "evidence": "Fryer p. 265 explicitly attributes the 20,000-exposure USAF chamber hospital series to Cutler. Fryer p. 310 gives the conference citation. The adjacent RAF table is a separate population.",
+    "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259"
+  },
+  {
+    "left_report": "report:ada111509",
+    "right_report": "report:ad0658348",
+    "relationship": "cites_as_compilation_source",
+    "evidence": "Fryer p. 265 gives 1963 and more than 1,000 flights, but the bibliography identifies Meader 1967 and the 36 bends episodes agree. The original gives 958 flights among 11 crewmembers with recorded bends. A squadron-wide flight denominator for the printed 0.17 percent margin is unavailable.",
+    "evidence_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259"
+  }
   ],
   "report_titles": {
     "gmik:2005:filipenkov-ten-km": "Decompression sickness risk in low-pressure tolerance training and trials of high-altitude equipment",

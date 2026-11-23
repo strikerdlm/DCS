@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.253
+
+Fryer reproduces Cutler's 1962 USAF altitude-indoctrination series. Across 20,000 reported exposures, 11 illnesses required admission and five of those admissions were associated with DCS. Four of the five were reported in the bends category and one involved both bends and chokes. The database records both admission counts and the two categories among admitted DCS cases. Coverage is limited to admission and enrollment dates remain unknown. The original proceedings are still unavailable. The adjacent RAF table describes a separate program. [Fryer, counts p. 265](https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259) · [Fryer, citation p. 310](https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=304)
+
+Meader's 1967 primary report gives 36 bends episodes in 958 flights made by 11 crew members already selected for reported bends. Fryer's narrative gives 1963 and more than 1,000 flights, while his bibliography cites the 1967 article. The database links the two reports and retains Meader's denominator. Table III adds pain-location counts for four crew members already represented in Table I. It lists 16 episodes for crew I and two for crew K, compared with 19 and three in Table I. The source does not identify which episodes differ. Several pain sites can occur in one episode. [Meader, Tables I–III](https://archive.org/download/DTIC_AD0658348/DTIC_AD0658348.pdf#page=3) · [Versioned extraction](../data/chamber/v1.253)
+
 ## Release 1.252
 
 Mackenzie and Riesen's 1944 report gives symptom severity, oxygen regulator settings and activity for nine chamber flights totaling 151 person-exposures. Its 27 outcome cells preserve the two reported severity counts and their sum for each flight. The sums reproduce all nine counts that Kumar later compiled. The 14,000-ft control used a slower ascent than Kumar's table lists. In two exercise rows Kumar lists push-ups where the original report describes weighted arm extensions. [Mackenzie and Riesen, Table 1](https://archive.org/details/sim_jama_1944-02-19_124_8_0/page/499) · [Kumar et al., Table I](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p685.pdf#page=3)

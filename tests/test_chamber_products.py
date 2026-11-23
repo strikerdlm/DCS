@@ -10642,6 +10642,48 @@ def test_mackenzie_primary_flights_reconcile_compilation_and_repeated_participan
         """).fetchone() == (1,)
 
 
+def test_cutler_admissions_and_meader_recurrence_preserve_risk_sets(release):
+    run_id = "2026-11-22-cutler-admissions-and-meader-recurrence-verified"
+    report_key = "record:legacy:data/chamber/v1.12/sources.csv#cutler62_aircent"
+    with connect_pair(release) as db:
+        admissions = db.execute("""
+            SELECT endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id='cutler62_aircent' ORDER BY endpoint
+        """).fetchall()
+        assert admissions == [
+            ("bends_and_chokes_among_dcs_associated_admissions", 1, 5, "dcs_case", "case_conditional"),
+            ("bends_category_among_dcs_associated_admissions", 4, 5, "dcs_case", "case_conditional"),
+            ("dcs_associated_hospital_admission_as_reported", 5, 20000, "person_exposure", "overlap_hold"),
+            ("illness_requiring_hospital_admission_as_reported", 11, 20000, "person_exposure", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit
+            FROM review.review_search_observation WHERE run_id=? ORDER BY endpoint
+        """, (run_id,)).fetchall() == [row[:4] for row in admissions]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_id='cutler62_aircent'
+        """).fetchone() == (report_key,)
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report='report:ada111509' AND relationship='cites_as_compilation_source'
+            AND right_report IN (?, 'report:ad0658348') ORDER BY right_report
+        """, (report_key,)).fetchall() == [(report_key,), ("report:ad0658348",)]
+        assert db.execute("""
+            SELECT g.crew_code,g.episodes_as_printed,a.numerator,count(s.site_as_reported)
+            FROM publication_meader_recurrence_group g
+            JOIN publication_meader_recurrence_site s USING(source_id,crew_code)
+            JOIN publication_aviation_group a ON a.source_id=g.source_id AND a.stratum='crew-'||g.crew_code
+            WHERE g.source_id='meade67' AND a.metric='bends_source'
+            GROUP BY g.crew_code ORDER BY g.crew_code
+        """).fetchall() == [("B", 3, 3, 2), ("H", 4, 4, 2), ("I", 16, 19, 7), ("K", 2, 3, 3)]
+        assert db.execute("""
+            SELECT count(*),count(onset_hours) FROM publication_meader_reported_flight WHERE source_id='meade67'
+        """).fetchone() == (36, 24)
+        assert db.execute("""
+            SELECT numerator,denominator,analysis_role FROM publication_observation WHERE source_id='meade67'
+        """).fetchall() == [(36, 958, "selected_cluster")]
+
+
 def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):
     source = "welham44_edu_38000"
     report = "openalex:W1822196694"

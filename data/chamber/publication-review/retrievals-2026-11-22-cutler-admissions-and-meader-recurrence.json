@@ -1,0 +1,147 @@
+[
+  {
+    "id": "2026-11-22-cutler-admissions-and-meader-recurrence-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "5fa96fdb-cd9c-4344-bf9b-26c6dbccbb68",
+          "topic": "Cutler chamber exposure denominator and hospital series"
+        },
+        {
+          "request_id": "5a2d6b98-6351-45ae-bd06-e225bd36d95b",
+          "topic": "1962 AIRCENT proceedings and archive"
+        },
+        {
+          "request_id": "1b35f391-e7f3-4bc3-86cc-5684bf529c6d",
+          "topic": "Meader archived technical reprint identity"
+        }
+      ]
+    },
+    "records": [],
+    "note": "The original Cutler conference article was not located. The Internet Archive has the DTIC copy of Meader."
+  },
+  {
+    "id": "2026-11-22-cutler-admissions-and-meader-recurrence-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl, publisher and archived page verification",
+    "operation": "supplementary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259",
+          "scrape_id": "01a20653-ce11-73f8-b2ef-7752c3faa7b7"
+        },
+        {
+          "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=304",
+          "note": "Checked the original bibliography scan"
+        },
+        {
+          "url": "https://archive.org/download/DTIC_AD0658348/DTIC_AD0658348.pdf#page=4",
+          "note": "Checked the DTIC copy and the complete Table III page image"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "cutler-1962-as-reproduced-by-fryer",
+        "title": "Decompression Sickness: A Review of Eleven Hospitalized Cases",
+        "year": 1962,
+        "url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259",
+        "primary_source": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259",
+        "source_sha256": "cb7a216891a203b06ac4f8d9ab3acb4f5924c4f400aad1c53fe8481faee03000",
+        "access": "secondary_table",
+        "reporting_document": "Fryer DI. Subatmospheric Decompression Sickness in Man. AGARDograph 125. 1969.",
+        "locator": "Fryer 1969, printed p. 265 (PDF p. 259), paragraph before RAF Table 12-1",
+        "citation_locator": "Fryer 1969, printed p. 310 (PDF p. 304)",
+        "role_review": "overlap_hold",
+        "model_extraction": {
+          "input_release": "v1.253",
+          "source_id": "cutler62_aircent"
+        },
+        "observations": [
+          {
+            "id": "illness_requiring_hospital_admission_as_reported",
+            "group": "usaf-altitude-indoctrination",
+            "endpoint": "illness_requiring_hospital_admission_as_reported",
+            "cases": 11,
+            "denominator": 20000,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Fryer 1969, printed p. 265 (PDF p. 259), paragraph before RAF Table 12-1",
+            "note": "Fryer attributes these admissions and the 20,000 reported exposures to the Cutler series. The precision of the denominator is unstated.",
+            "protocol": "Fryer describes the standard profile as 20 min of preoxygenation, an ascent to 43,000 ft, then hypoxia demonstration at 25,000 ft. Delivered oxygen, dwell times and individual exposures are unavailable.",
+            "outcome_window": "Illness identified through hospital admission. Timing of admission, nonadmitted outcomes and uniform follow-up are unavailable."
+          },
+          {
+            "id": "dcs_associated_hospital_admission_as_reported",
+            "group": "usaf-altitude-indoctrination",
+            "endpoint": "dcs_associated_hospital_admission_as_reported",
+            "cases": 5,
+            "denominator": 20000,
+            "denominator_unit": "person_exposure",
+            "analysis_role": "overlap_hold",
+            "locator": "Fryer 1969, printed p. 265 (PDF p. 259), paragraph before RAF Table 12-1",
+            "note": "Five of the 11 hospital admissions were associated with DCS according to Fryer. The figure covers hospital admissions only.",
+            "protocol": "Fryer describes the standard profile as 20 min of preoxygenation, an ascent to 43,000 ft, then hypoxia demonstration at 25,000 ft. Delivered oxygen, dwell times and individual exposures are unavailable.",
+            "outcome_window": "Illness identified through hospital admission. Timing of admission, nonadmitted outcomes and uniform follow-up are unavailable."
+          },
+          {
+            "id": "bends_category_among_dcs_associated_admissions",
+            "group": "hospitalized-dcs-associated-cases",
+            "endpoint": "bends_category_among_dcs_associated_admissions",
+            "cases": 4,
+            "denominator": 5,
+            "denominator_unit": "dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Fryer 1969, printed p. 265 (PDF p. 259), paragraph before RAF Table 12-1",
+            "note": "Symptom category among the five DCS-associated admissions. Other symptom details are unavailable.",
+            "protocol": "Fryer describes the standard profile as 20 min of preoxygenation, an ascent to 43,000 ft, then hypoxia demonstration at 25,000 ft. Delivered oxygen, dwell times and individual exposures are unavailable.",
+            "outcome_window": "Illness identified through hospital admission. Timing of admission, nonadmitted outcomes and uniform follow-up are unavailable."
+          },
+          {
+            "id": "bends_and_chokes_among_dcs_associated_admissions",
+            "group": "hospitalized-dcs-associated-cases",
+            "endpoint": "bends_and_chokes_among_dcs_associated_admissions",
+            "cases": 1,
+            "denominator": 5,
+            "denominator_unit": "dcs_case",
+            "analysis_role": "case_conditional",
+            "locator": "Fryer 1969, printed p. 265 (PDF p. 259), paragraph before RAF Table 12-1",
+            "note": "Symptom category among the five DCS-associated admissions.",
+            "protocol": "Fryer describes the standard profile as 20 min of preoxygenation, an ascent to 43,000 ft, then hypoxia demonstration at 25,000 ft. Delivered oxygen, dwell times and individual exposures are unavailable.",
+            "outcome_window": "Illness identified through hospital admission. Timing of admission, nonadmitted outcomes and uniform follow-up are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "meader-1967-table-iii",
+        "title": "Decompression Sickness in High-Altitude Flight",
+        "year": 1967,
+        "url": "https://archive.org/download/DTIC_AD0658348/DTIC_AD0658348.pdf#page=4",
+        "primary_source": "https://archive.org/download/DTIC_AD0658348/DTIC_AD0658348.pdf#page=4",
+        "source_sha256": "27bda67a2b5cde8c3530b41dd419fadbdeb3dc8c93d72edb75b20268ed44d275",
+        "archive_accession": "AD0658348",
+        "access": "full_text",
+        "locator": "Meader 1967, Table III, printed p. 303 (DTIC PDF p. 4)",
+        "role_review": "case_conditional",
+        "model_extraction": {
+          "input_release": "v1.253",
+          "source_id": "meade67",
+          "crew_groups": 4,
+          "site_rows": 14
+        },
+        "note": "Table III provides recurring pain sites in four crew members already in Table I. One episode can involve multiple sites. Table III prints 16 episodes for crew I and two for crew K. Table I gives 19 and three, respectively. The exact membership of each subset and the reason for the different totals are unavailable."
+      }
+    ],
+    "note": "Kept the Cutler hospital series separate from RAF Table 12-1 and from Meader. Reconciled Fryer’s summary with the existing Meader extraction and added only the previously unstructured recurrence-site table."
+  }
+]
