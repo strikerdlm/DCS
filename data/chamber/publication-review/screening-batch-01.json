@@ -1,0 +1,280 @@
+{
+  "batch_id": "01",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "The two reviewers agreed with Batch 01, including the Rice role hold.",
+    "note": "Labels identify the two reviewer slots in the packet. Individual completed forms, dates and detailed appraisal judgments are unavailable. The decision date records receipt of the joint confirmation."
+  },
+  "assessment_scope": "Seed cohort full texts. Formal title and abstract screening for the remaining search set is pending.",
+  "evidence_snapshot": {
+    "revision": "5d1962da726032a8dae2d86b2676ea56dc764324",
+    "evidence_sha256": "235051b3c81feb7675be85f931f742f81e5dba3ec4dc9a035d961b874a0f1c1e",
+    "systematic_review_sha256": "23a559b0c439b837489ec35a31f4a39d24e88f2037091449e0f19b41fdf1e799"
+  },
+  "studies": [
+    {
+      "study_id": "eskisehir-2011-2018",
+      "report_id": "pmid:32574436",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:32574436",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32574436/",
+      "primary_pdf_sha256": "16870c42a6f2cdf557b1153533faeeb2aca455d0f6d348901a40b78ec5fe9a72",
+      "incidence": {
+        "disposition": "accept",
+        "cases": 8,
+        "person_exposures": 7272,
+        "window": "During or after exposure",
+        "coverage_limit": "Fixed follow-up horizon unreported",
+        "count_basis": "Derived sum of the sex-combined Results trainee margin and observer margin",
+        "locator": "Ercan pp. 205–206, Results and Table 1. Table 1 combined total is male-only."
+      },
+      "role_comparison": {
+        "disposition": "accept_descriptive",
+        "cells": [
+          {
+            "role": "staff",
+            "stratum": "All included training profiles",
+            "cases": 2,
+            "person_exposures": 615,
+            "source_cell": "inside_observer",
+            "locator": "Methods pp. 204–205; Results and Table 1 p. 206"
+          },
+          {
+            "role": "trainee",
+            "stratum": "All included training profiles",
+            "cases": 6,
+            "person_exposures": 6657,
+            "source_cell": "trainees_all",
+            "locator": "Methods pp. 204–205; Results and Table 1 p. 206"
+          }
+        ]
+      }
+    },
+    {
+      "study_id": "jsc-1999-2016",
+      "report_id": "pmid:30352646",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:30352646",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30352646/",
+      "primary_pdf_sha256": "5bbc195a2d5de04e3b62cc9404f7a5bd954d312989ab5b1e4c88751bf7510003",
+      "incidence": {
+        "disposition": "accept",
+        "cases": 7,
+        "person_exposures": 13172,
+        "window": "During or after training",
+        "coverage_limit": "Fixed follow-up horizon unreported",
+        "count_basis": "Printed overall margin",
+        "locator": "Conkin pp. 941–945, original JSC cohort and Table I."
+      },
+      "role_comparison": {
+        "disposition": "accept_descriptive",
+        "cells": [
+          {
+            "role": "staff",
+            "stratum": "All included training profiles",
+            "cases": 1,
+            "person_exposures": 3612,
+            "source_cell": "inside-observers-all",
+            "locator": "Abstract and Table I, pp. 944–945"
+          },
+          {
+            "role": "trainee",
+            "stratum": "All included training profiles",
+            "cases": 6,
+            "person_exposures": 9560,
+            "source_cell": "students-all-profiles",
+            "locator": "Abstract and Table I, pp. 944–945"
+          }
+        ]
+      }
+    },
+    {
+      "study_id": "usa-1980-1985",
+      "report_id": "pmid:3790029",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3790029",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3790029/",
+      "primary_pdf_sha256": "160a6897e50c734f8ea83f1ce61044d0f2d750e62ad067b5c86882f3adf5a649",
+      "incidence": {
+        "disposition": "accept",
+        "cases": 20,
+        "person_exposures": 14545,
+        "window": "Recorded chamber DCS for standard training profiles",
+        "coverage_limit": "Fixed follow-up horizon unreported The Methods pair 13,106 m with 45,000 ft, an inconsistent conversion.",
+        "count_basis": "Printed overall margin",
+        "locator": "Piwinski Table I p. 1099, three standard profiles. HALO excluded."
+      },
+      "role_comparison": {
+        "disposition": "accept_descriptive",
+        "cells": [
+          {
+            "role": "trainee",
+            "stratum": "13,106 m (Table I)",
+            "cases": 0,
+            "person_exposures": 642,
+            "source_cell": "student_13106_m",
+            "locator": "Methods p. 1098; Table I p. 1099"
+          },
+          {
+            "role": "trainee",
+            "stratum": "25,000 ft",
+            "cases": 7,
+            "person_exposures": 10754,
+            "source_cell": "student_25000_ft",
+            "locator": "Methods p. 1098; Table I p. 1099"
+          },
+          {
+            "role": "trainee",
+            "stratum": "35,000 ft",
+            "cases": 1,
+            "person_exposures": 1200,
+            "source_cell": "student_35000_ft",
+            "locator": "Methods p. 1098; Table I p. 1099"
+          },
+          {
+            "role": "staff",
+            "stratum": "13,106 m (Table I)",
+            "cases": 3,
+            "person_exposures": 115,
+            "source_cell": "technician_13106_m",
+            "locator": "Methods p. 1098; Table I p. 1099"
+          },
+          {
+            "role": "staff",
+            "stratum": "25,000 ft",
+            "cases": 5,
+            "person_exposures": 1654,
+            "source_cell": "technician_25000_ft",
+            "locator": "Methods p. 1098; Table I p. 1099"
+          },
+          {
+            "role": "staff",
+            "stratum": "35,000 ft",
+            "cases": 4,
+            "person_exposures": 180,
+            "source_cell": "technician_35000_ft",
+            "locator": "Methods p. 1098; Table I p. 1099"
+          }
+        ]
+      }
+    },
+    {
+      "study_id": "usn-1972-1975",
+      "report_id": "pmid:971183",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:971183",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/971183/",
+      "primary_pdf_sha256": "af52059656bcf93fb5b6ff3b38f035043fe17e9f13993cededa3f4aa3e9a3dd9",
+      "incidence": {
+        "disposition": "accept",
+        "cases": 79,
+        "person_exposures": 88520,
+        "window": "Cases reported in association with chamber training",
+        "coverage_limit": "Table IV p. 996 also reports first onset at sea level. Its timing categories contain 82 entries for 79 cases. Fixed follow-up horizon unreported.",
+        "count_basis": "Printed overall margin",
+        "locator": "Bason et al. p. 995, Results and Table I."
+      },
+      "role_comparison": {
+        "disposition": "accept_descriptive",
+        "cells": [
+          {
+            "role": "staff",
+            "stratum": "All included training profiles",
+            "cases": 57,
+            "person_exposures": 14959,
+            "source_cell": "bason76:inside_observers:dcs",
+            "locator": "Methods, Results and Table I, p. 995"
+          },
+          {
+            "role": "trainee",
+            "stratum": "All included training profiles",
+            "cases": 22,
+            "person_exposures": 73561,
+            "source_cell": "bason76:trainees:dcs",
+            "locator": "Methods, Results and Table I, p. 995"
+          }
+        ]
+      }
+    },
+    {
+      "study_id": "usn-1981-1988",
+      "report_id": "pmid:1755801",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1755801",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1755801/",
+      "primary_pdf_sha256": "f2cba87d11c89e45d37c06ec03731248655544e21292647336e67b7560e31e87",
+      "incidence": {
+        "disposition": "accept",
+        "cases": 140,
+        "person_exposures": 136696,
+        "window": "Cases reported during ascent/altitude/descent or after return",
+        "coverage_limit": "At least 1 h onsite per SOP. Table III includes initial onset beyond 20 h. Fixed follow-up horizon unreported.",
+        "count_basis": "Printed overall margin",
+        "locator": "Bason and Yacavone pp. 1181–1183, Results and Table IV."
+      },
+      "role_comparison": {
+        "disposition": "accept_descriptive",
+        "cells": [
+          {
+            "role": "staff",
+            "stratum": "All included training profiles",
+            "cases": 62,
+            "person_exposures": 25022,
+            "source_cell": "bason91:inside_observers:dcs",
+            "locator": "Methods and Results, p. 1181. Tables III–IV, pp. 1182–1183."
+          },
+          {
+            "role": "trainee",
+            "stratum": "All included training profiles",
+            "cases": 78,
+            "person_exposures": 111674,
+            "source_cell": "bason91:trainees:dcs",
+            "locator": "Methods and Results, p. 1181. Tables III–IV, pp. 1182–1183."
+          }
+        ]
+      }
+    },
+    {
+      "study_id": "usn-1993-2002",
+      "report_id": "pmid:12546299",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12546299",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12546299/",
+      "primary_pdf_sha256": "286e02dce40f9e171f68448a31d249c03e6fb318aa9989481a09c4d0ffa2f352",
+      "incidence": {
+        "disposition": "accept",
+        "cases": 94,
+        "person_exposures": 38153,
+        "window": "During or within 48 h after exposure in the stated diagnostic criteria",
+        "coverage_limit": "Retrospective reports and medical records. Completeness of 48 h surveillance is unquantified",
+        "count_basis": "Printed overall margin",
+        "locator": "Rice p. 58, Table I. Same grand numerator in the Results narrative."
+      },
+      "role_comparison": {
+        "disposition": "hold",
+        "cells": [
+          {
+            "role": "staff",
+            "stratum": "All included training profiles",
+            "cases": 11,
+            "person_exposures": 6293,
+            "source_cell": "I-IO-all",
+            "locator": "Table I, p. 58"
+          },
+          {
+            "role": "trainee",
+            "stratum": "All included training profiles",
+            "cases": 83,
+            "person_exposures": 31860,
+            "source_cell": "I-Student-all",
+            "locator": "Table I, p. 58"
+          }
+        ],
+        "reason": "Table I assigns 11 cases to observers and 83 to trainees. The Results narrative assigns 9 and 85. The profile rows account for 92 of the 94 cases. Both role allocations agree on the overall numerator.",
+        "results_narrative_cases": {
+          "staff": 9,
+          "trainee": 85
+        }
+      }
+    }
+  ]
+}
