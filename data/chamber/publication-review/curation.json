@@ -1,6 +1,24 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2751556331",
+      "report_id": "openalex:W2751556331",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19700024675",
+      "basis": "Anchor the original OpenAlex occurrence to its existing report ID when adding the two full-text aliases."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.247/sources.csv#edel68_orbital_trials",
+      "report_id": "openalex:W2751556331",
+      "evidence_url": "https://ntrs.nasa.gov/citations/19700024675",
+      "basis": "Same title, author, publication year and NASA report as the existing OpenAlex record."
+    },
+    {
+      "record_key": "2026-11-22-edel-1968-chamber-trial-outcomes-verified#edel68_orbital_trials",
+      "report_id": "openalex:W2751556331",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700024675/downloads/19700024675.pdf#page=32",
+      "basis": "Verified NASA-CR-108446 on the original scanned cover and followed the reported results on PDF p. 32."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.246/sources.csv#nims51_temperature_reprise",
       "report_id": "fulton1951:nims-physical-theory",
       "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=246",
@@ -21273,6 +21291,12 @@
   ],
   "studies": [
     {
+      "study_id": "edel1968-nasa-cr108446-experimental-tests",
+      "label": "Edel orbital decompression pressure trials",
+      "period": "Reported 10 May 1968",
+      "setting": "United States experimental chamber, NASA contractor report"
+    },
+    {
       "study_id": "ivy43_april_co2_bends",
       "label": "Carbon dioxide and decompression sickness",
       "period": "Reported 15 April 1943",
@@ -23524,6 +23548,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "edel1968-nasa-cr108446-experimental-tests",
+      "report_id": "openalex:W2751556331",
+      "role": "historical_experimental_archive_source",
+      "locator": "Printed p. 27 (PDF p. 32); Figs. 7–8 (PDF pp. 31 and 33)"
+    },
     {
       "study_id": "ivy43_april_co2_bends",
       "report_id": "nlm:101085500x233:179:ivy",
@@ -27210,6 +27240,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:legacy:data/chamber/v1.35/search_hits.csv#staged_v35_edel:8",
+      "right_report": "openalex:W2751556331",
+      "relationship": "cites_related_human_exposure_report",
+      "evidence": "Reference 5 names the earlier title, both contracts and date.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700031843/downloads/19700031843.pdf#page=58"
+    },
+    {
+      "left_report": "openalex:W2751556331",
+      "right_report": "record:legacy:data/chamber/v1.35/search_hits.csv#staged_v35_edel:8",
+      "relationship": "unresolved",
+      "evidence": "The later report cites this report and describes different dive–fly schedules under NAS 9-9036. Participant linkage is unavailable.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/19700031843/downloads/19700031843.pdf#page=58"
+    },
+    {
+      "left_report": "openalex:W2751556331",
+      "right_report": "pmid:5823417",
+      "relationship": "unresolved",
+      "evidence": "The journal article describes different 8,000-ft dive–fly schedules. Participant linkage is unavailable.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/40/10/article-p1105.pdf"
+    },
     {
       "left_report": "fulton1951:nims-physical-theory",
       "right_report": "nlm:101085500x233:180:nims",

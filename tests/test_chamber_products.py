@@ -3592,7 +3592,8 @@ def test_chadov_cabin_risk_sets_and_barer_full_text_reconcile(release):
         assert db.execute("""
             SELECT stratum,stage,printed_nominal_pressure,printed_nominal_unit,printed_alternate_pressure,
                    printed_alternate_unit,oxygen_percent,nitrogen_percent
-            FROM publication_chamber_native_pressure_stage ORDER BY stratum,stage
+            FROM publication_chamber_native_pressure_stage WHERE source_id='chadov87_cabin_p910'
+            ORDER BY stratum,stage
         """).fetchall() == [
             ("experiment-1", 1, 1.142, "atm", 1120, "gPa", None, None),
             ("experiment-1", 2, .58, "atm", 569, "gPa", 38, 62),
@@ -10487,6 +10488,70 @@ def test_peterson_overlap_and_nasa_campout_probabilities_stay_out_of_benchmark(r
         assert db.execute("""
             SELECT count(*),sum(dcs_cases),sum(dcs_denominator) FROM development_counts
         """).fetchone() == (41, 124, 885)
+
+
+def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope(release):
+    with connect_pair(release) as db:
+        source_id = "edel68_orbital_trials"
+        report_id = "openalex:W2751556331"
+        run_id = "2026-11-22-edel-1968-chamber-trial-outcomes-verified"
+        observations = [
+            (f"test-{number}", "dcs_symptoms_as_reported", 0, 2, "person_exposure", "overlap_hold")
+            for number in (1, 2, 3)
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation
+            WHERE source_id=? AND altitude IS NULL AND altitude_unit IS NULL
+            ORDER BY stratum
+        """, (source_id,)).fetchall() == observations
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation WHERE run_id=? ORDER BY reported_group
+        """, (run_id,)).fetchall() == observations
+        assert db.execute("""
+            SELECT stratum,parent_stratum,trial_count,participant_count
+            FROM publication_chamber_trial_scope WHERE source_id=? ORDER BY stratum
+        """, (source_id,)).fetchall() == [
+            ("all-tests", None, 6, None),
+            ("test-1", "all-tests", 2, 2),
+            ("test-2", "all-tests", 2, 2),
+            ("test-3", "all-tests", 2, 2),
+        ]
+        assert db.execute("""
+            SELECT stratum,stage,planned_duration_min,printed_nominal_pressure,
+                   printed_nominal_unit,oxygen_percent,nitrogen_percent
+            FROM publication_chamber_native_pressure_stage WHERE source_id=? ORDER BY stratum,stage
+        """, (source_id,)).fetchall() == [
+            ("test-1", 2, 300, 9.3, "psia", 55, 45),
+            ("test-1", 3, 120, 3.5, "psia", None, None),
+            ("test-2", 2, 120, 3.5, "psia", None, None),
+            ("test-3", 2, 150, 5.6, "psia", 60, 40),
+            ("test-3", 3, 120, 3.5, "psia", None, None),
+        ]
+        assert db.execute("""
+            SELECT stratum,prebreathe_min FROM publication_observation
+            WHERE source_id=? ORDER BY stratum
+        """, (source_id,)).fetchall() == [("test-1", 240), ("test-2", 240), ("test-3", 195)]
+        assert db.execute("""
+            SELECT json_type(metadata_json,'$.dcs_follow_up_min'),
+                   json_type(metadata_json,'$.unique_participant_count'),
+                   json_extract(metadata_json,'$.observations[1].pressure_stages[1].gas_as_reported')
+            FROM review.review_record WHERE run_id=? AND report_id=?
+        """, (run_id, report_id)).fetchone() == ("null", "null", "oxygen")
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='publication_source' AND source_id=?
+        """, (source_id,)).fetchall() == [(report_id,)]
+        assert db.execute("""
+            SELECT related_source,relationship FROM publication_overlap WHERE source_id=?
+            ORDER BY related_source
+        """, (source_id,)).fetchall() == [
+            ("edel69_interval", "unresolved"), ("edel70_nasa", "unresolved"),
+        ]
+        assert db.execute("""
+            SELECT run_id FROM review.review_record
+            WHERE record_key='2026-11-20-formal-chamber-openalex#W2751556331' AND report_id=?
+        """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
 def test_rapid_decompression_zeros_are_limited_to_the_verified_crossover(release):
