@@ -11215,6 +11215,64 @@ def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope
         """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
+def test_red_bull_stratos_keeps_one_outcome_and_separate_chamber_scopes(release):
+    summit = "redbull13_stratos_summit"
+    garbino = "garbino14_stratos_monitoring"
+    menon = "menon16_stratex_recovery"
+    run = "2026-11-23-red-bull-stratos-flight-and-chamber-scope"
+    endpoint = "dcs_reported_averted_program_summary"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id,stratum,endpoint,numerator,denominator,analysis_role,prebreathe_min
+            FROM publication_observation
+            WHERE source_id IN ('redbull13_stratos_summit','garbino14_stratos_monitoring',
+                                'blue13_stratos_first_flight','pattarini13_stratos_spin',
+                                'menon16_stratex_recovery')
+        """).fetchall() == [
+            (summit, "three-2012-piloted-balloon-flights", endpoint, 0, 3, "descriptive", None),
+        ]
+        assert db.execute("""
+            SELECT r.source_key,o.endpoint,o.cases,o.denominator
+            FROM review.review_search_observation o JOIN review.review_record r USING(record_key)
+            WHERE o.run_id=?
+        """, (run,)).fetchall() == [(summit, endpoint, 0, 3)]
+        assert db.execute("""
+            SELECT stratum,parent_stratum,trial_count,participant_count
+            FROM publication_chamber_trial_scope WHERE source_id=? ORDER BY stratum
+        """, (summit,)).fetchall() == [
+            ("beale-130000-ft-flights", "beale-pilot-training-flights", 2, 1),
+            ("beale-pilot-training-flights", None, 5, 1),
+            ("wyle-six-tests-program-summary", None, 6, None),
+            ("wyle-three-human-tests-identified", None, 3, 2),
+        ]
+        assert db.execute("""
+            SELECT count(DISTINCT flight_date),count(*)
+            FROM publication_balloon_flight_measurement WHERE program_id='red-bull-stratos'
+        """).fetchone() == (3, 11)
+        assert db.execute("""
+            SELECT source_id,reporting_section,ambient_altitude_ft,ambient_altitude_m,freefall_sec
+            FROM publication_balloon_flight_measurement WHERE flight_date='2012-07-25'
+            ORDER BY source_id,reporting_section
+        """).fetchall() == [
+            (garbino, "introduction", 96640, 29456, None),
+            (garbino, "table_i", 97221, 29610, 228),
+            (summit, "comparison_table", 97145.7, 29610, None),
+        ]
+        assert db.execute("""
+            SELECT flight_date,ambient_altitude_ft FROM publication_balloon_flight_measurement
+            WHERE program_id='stratex' AND source_id=?
+        """, (menon,)).fetchall() == [("2014-10-24", 135897)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.record_flight_recovery.team_reached_landing_within_min'),
+                   json_type(metadata_json,'$.record_flight_recovery.dcs_specific_assessment')
+            FROM review.review_record WHERE run_id=? AND source_key=?
+        """, (run, menon)).fetchone() == (1, "null")
+        assert db.execute("""
+            SELECT role FROM review.review_study_report
+            WHERE report_id='pmid:27573155' AND study_id='stratex-october-2014-balloon-test-flights'
+        """).fetchall() == [("nested_record_flight_recovery_assessment",)]
+
+
 def test_stratex_preserves_chamber_and_balloon_outcome_ascertainment(release):
     lee, leidich, garbino, oneil = (
         "lee15_stratex_suit", "leidich15_stratex_performance", "garbino15_stratex_medical",
@@ -11272,8 +11330,12 @@ def test_stratex_preserves_chamber_and_balloon_outcome_ascertainment(release):
         ]
         assert db.execute("""
             SELECT study_id,count(*) FROM review.review_study_report
-            WHERE study_id GLOB 'stratex-*' GROUP BY study_id ORDER BY study_id
-        """).fetchall() == [
+            WHERE study_id GLOB 'stratex-*' AND report_id IN (
+                SELECT report_id FROM model_report_link WHERE source_table='publication_source'
+                AND source_id IN (?,?,?,?)
+            )
+            GROUP BY study_id ORDER BY study_id
+        """, (lee, leidich, garbino, oneil)).fetchall() == [
             ("stratex-manned-pressure-profile-2014", 3), ("stratex-october-2014-balloon-test-flights", 4),
         ]
 
