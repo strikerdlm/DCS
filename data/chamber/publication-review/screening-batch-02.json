@@ -1,0 +1,284 @@
+{
+  "batch_id": "02",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers agreed with all eight Batch 02 proposals.",
+    "note": "The labels identify packet slots. The date records receipt of confirmation. Individual forms and detailed appraisal judgments are unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "5d1962da726032a8dae2d86b2676ea56dc764324",
+    "evidence_sha256": "235051b3c81feb7675be85f931f742f81e5dba3ec4dc9a035d961b874a0f1c1e",
+    "systematic_review_sha256": "23a559b0c439b837489ec35a31f4a39d24e88f2037091449e0f19b41fdf1e799"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:4694857",
+      "study_id": "usn-1959-1968",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:4694857",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/4694857/",
+      "retrieval_operation": "formal_database_search",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 450-451, Methods, Results and Table I",
+      "endpoint": "reported_dcs",
+      "observations": [
+        {
+          "risk_set": "trainee",
+          "cases": 266,
+          "denominator": 252564,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_descriptive"
+        },
+        {
+          "risk_set": "inside_observer",
+          "cases": 35,
+          "denominator": 60000,
+          "denominator_unit": "person_exposure",
+          "disposition": "hold_counting_unit"
+        }
+      ],
+      "reason": "Retain trainee risk. Hold staff exposure incidence and the role contrast. Nine of the 35 affected observers had recurrent episodes, and the denominator of 60,000 is reconstructed."
+    },
+    {
+      "report_id": "workshop:ada257612-baumgartner-weien",
+      "study_id": "usaf-1985-1987",
+      "record_key": "legacy:data/chamber/v1.4/sources.csv#baumgartner92",
+      "source_url": "https://archive.org/download/DTIC_ADA257612/DTIC_ADA257612.pdf#page=374",
+      "retrieval_operation": "legacy",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 363-364, Tables 2-3",
+      "endpoint": "reported_dcs",
+      "observations": [
+        {
+          "risk_set": "all",
+          "cases": 282,
+          "denominator": 239343,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_standalone"
+        },
+        {
+          "risk_set": "inside_observer",
+          "cases": 54,
+          "denominator": 46261,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_descriptive"
+        },
+        {
+          "risk_set": "trainee",
+          "cases": 228,
+          "denominator": 192623,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_descriptive"
+        }
+      ],
+      "reason": "Retain standalone incidence and the crude role comparison. Role subtotals leave 459 exposures unassigned. Hold pooled use with Fort Rucker, the Neubauer cases and other potentially overlapping USAF series."
+    },
+    {
+      "report_id": "pmid:19522370",
+      "study_id": "usaf-shaw-fy2004",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:19522370",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19522370/",
+      "retrieval_operation": "formal_database_search",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 571-572, Results and Tables I-II",
+      "endpoint": "reported_dcs",
+      "observations": [
+        {
+          "risk_set": "inside_observer",
+          "cases": 6,
+          "denominator": 323,
+          "denominator_unit": "person_exposure",
+          "disposition": "outbreak_only"
+        },
+        {
+          "risk_set": "trainee",
+          "cases": 4,
+          "denominator": 780,
+          "denominator_unit": "person_exposure",
+          "disposition": "outbreak_only"
+        },
+        {
+          "risk_set": "trainee_stricter_case_definition",
+          "cases": 2,
+          "denominator": 780,
+          "denominator_unit": "person_exposure",
+          "disposition": "sensitivity_only"
+        }
+      ],
+      "reason": "Retain outbreak risk and workload evidence. Hold routine incidence and role synthesis. Two trainee diagnoses were questioned, and an observer onset was about 72 hours after exposure. Printed and computed role ratios differ.",
+      "effects": [
+        {
+          "contrast": "staff vs trainee, all reported diagnoses",
+          "source_printed_rr": 3.22,
+          "crude_rr_from_counts": 3.622291,
+          "use": "outbreak_only"
+        },
+        {
+          "contrast": "staff vs trainee, stricter trainee case definition",
+          "source_printed_rr": 7.15,
+          "crude_rr_from_counts": 7.244582,
+          "use": "sensitivity_only"
+        },
+        {
+          "contrast": "per additional monthly observer exposure",
+          "source_printed_rr": 2.1,
+          "source_95_ci": [
+            1.2,
+            3.61
+          ],
+          "method": "Poisson regression, observer months",
+          "use": "outbreak_only",
+          "locator": "p. 572, Table II and Results"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.21236/ada360821",
+      "study_id": "usaf-bassett-1973-1977",
+      "record_key": "2026-11-20-formal-chamber-openalex#W208855989",
+      "source_url": "https://archive.org/download/DTIC_ADA360821/DTIC_ADA360821.pdf#page=1",
+      "retrieval_operation": "formal_database_search",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "p. 12, Methods and Results",
+      "endpoint": "reported_dcs",
+      "observations": [
+        {
+          "risk_set": "inside_observer",
+          "cases": 61,
+          "denominator": 59925,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_descriptive"
+        },
+        {
+          "risk_set": "trainee_excluding_usafsam_and_academy",
+          "cases": 60,
+          "denominator": 222425,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_descriptive"
+        }
+      ],
+      "reason": "Retain each native risk set descriptively. The trainee denominator excludes USAFSAM and Academy cadets. Hold combined incidence and the role contrast pending confirmation of matching site coverage."
+    },
+    {
+      "report_id": "abstract:howard-sheffield-matos-1982",
+      "study_id": "usaf-howard-1979-1981",
+      "record_key": "2026-11-20-archival-denominators-howard-primary#howard-1982-original",
+      "source_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "retrieval_operation": "supplementary_full_text_primary_outcome_extraction",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 10-11, complete conference abstract 10 and table footnote",
+      "endpoint": "reported_dcs",
+      "observations": [
+        {
+          "risk_set": "all",
+          "cases": 206,
+          "denominator": 251236,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_standalone"
+        },
+        {
+          "risk_set": "inside_observer",
+          "cases": 67,
+          "denominator": 47921,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_descriptive"
+        },
+        {
+          "risk_set": "trainee",
+          "cases": 139,
+          "denominator": 203315,
+          "denominator_unit": "person_exposure",
+          "disposition": "accept_descriptive"
+        }
+      ],
+      "reason": "Retain standalone incidence and the crude role comparison for Jan 1979 through Aug 1981. The program includes FAA-designated civilians. Hold combined synthesis with Fort Rucker and overlapping USAF surveillance pending site or case linkage."
+    },
+    {
+      "report_id": "pmid:33875060",
+      "study_id": "rsaf-chamber-2011-2017-prebreathing-policy",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33875060",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33875060/",
+      "retrieval_operation": "formal_database_search",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "pp. 289-293, Methods and Results",
+      "endpoint": "source_defined_dci",
+      "observations": [
+        {
+          "risk_set": "without_prebreathe",
+          "cases": 2,
+          "denominator": 1530,
+          "denominator_unit": "person_exposure",
+          "disposition": "secondary_dci"
+        },
+        {
+          "risk_set": "with_prebreathe",
+          "cases": 2,
+          "denominator": 1729,
+          "denominator_unit": "person_exposure",
+          "disposition": "secondary_dci"
+        }
+      ],
+      "reason": "The authors report a DCI endpoint with no separable DCS numerator. Retain both policy periods as secondary DCI evidence. Role exposure counts are unavailable."
+    },
+    {
+      "report_id": "adf:smart-cable-2004",
+      "study_id": null,
+      "record_key": "2026-11-20-formal-chamber-openalex#W2339570775",
+      "source_url": "https://jmvh.org/wp-content/uploads/2025/11/ADFHealth_5_1_03-10.pdf",
+      "retrieval_operation": "formal_database_search",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "pp. 6 and 8, Boxes 4 and 6",
+      "endpoint": "definite_or_probable_dci",
+      "observations": [
+        {
+          "risk_set": "avmed_1989_2001",
+          "cases": 42,
+          "denominator": 10851,
+          "denominator_unit": "person_exposure",
+          "disposition": "secondary_dci"
+        },
+        {
+          "risk_set": "avmed_profiles_a_to_c",
+          "cases": 41,
+          "denominator": 10712,
+          "denominator_unit": "person_exposure",
+          "disposition": "secondary_dci_sensitivity"
+        }
+      ],
+      "reason": "The report gives native definite or probable DCI without a separable symptomatic DCS numerator. The 68 all-site cases have wider scope. Routine A-C retains a separate DCI sensitivity denominator.",
+      "study_id_note": "The report is linked to a 1995 cluster in the register. The AVMED denominator series spans 1989-2001 and is referenced by its own risk set here."
+    },
+    {
+      "report_id": "pmid:42345225",
+      "study_id": "iaf-ramat-gan-2015-2022",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:42345225",
+      "source_url": "https://www.ima.org.il/MedicineIMAJ/Article.aspx?aId=6788",
+      "retrieval_operation": "formal_database_search",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "Publisher abstract, Methods and Results",
+      "endpoint": "reported_dcs",
+      "observations": [
+        {
+          "risk_set": "chamber",
+          "cases": 11,
+          "denominator": 2279,
+          "denominator_unit": "trainees_and_instructors_source_unit_unresolved",
+          "disposition": "hold_denominator_unit"
+        }
+      ],
+      "reason": "Advance for full-text assessment. Hold incidence pending the person-exposure counting rule and reconciliation with 2015-2019 surveillance. The four operational flight cases remain separate."
+    }
+  ]
+}

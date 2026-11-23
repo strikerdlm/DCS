@@ -4481,6 +4481,12 @@ def test_formal_search_flow_and_source_identities(release):
         assert totals["formal_citation_search"] == flow["formal_citation_records_exported"]
         assert sum(totals.values()) == flow["formal_records_exported"]
         assert db.execute("""
+            SELECT count(*) FROM review.review_current_screening s
+            JOIN review.review_record r USING(record_key)
+            JOIN review.review_retrieval q USING(run_id)
+            WHERE json_extract(q.parameters_json, '$.counts_toward_formal_identification') = 1
+        """).fetchone() == (flow["formal_screening_decisions"],)
+        assert db.execute("""
             SELECT reported_total, retrieved FROM review.review_retrieval
             WHERE run_id='2026-11-20-formal-chamber-lilacs'
         """).fetchone() == (None, 0)
