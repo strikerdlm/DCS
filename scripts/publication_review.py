@@ -86,6 +86,35 @@ def _display_priority(record):
     )
 
 
+def _load_result_appraisal(db, input_path, content):
+    document = json.loads(content)
+    _insert(
+        db,
+        "review_analysis_result",
+        "result_id input_path selection_input_path study_id analysis selection_ids_json",
+        (
+            dict(result, input_path=input_path, selection_ids_json=json.dumps(result["selection_ids"]))
+            for result in document["results"]
+        ),
+    )
+    _insert(
+        db,
+        "review_result_appraisal",
+        "input_path result_id domain assessor_id assessor_kind assessed_on judgment rationale "
+        "evidence_needed primary_url locator verification_status",
+        (dict(row, input_path=input_path) for row in document["appraisals"]),
+    )
+    if db.execute("""
+        SELECT r.result_id FROM review_analysis_result r
+        LEFT JOIN review_analysis_result_cell s USING(result_id)
+        WHERE r.input_path=?
+        GROUP BY r.result_id
+        HAVING count(DISTINCT s.selection_id) != json_array_length(r.selection_ids_json)
+           OR count(DISTINCT s.risk_set_id) != 1
+    """, (input_path,)).fetchone():
+        raise ValueError("Appraisal result must link to distinct eligible cells in the same risk set")
+
+
 def load_register(db, root):
     directory = root / DIRECTORY
     records = [
@@ -142,6 +171,7 @@ def load_register(db, root):
         *directory.glob("*pilot*.json"),
         *directory.glob("screening-batch-*.json"),
         *directory.glob("analysis-selection-batch-*.json"),
+        *directory.glob("result-appraisal-batch-*.json"),
         directory / "prisma-flow.json",
     ]
     for path in sorted(workflow_paths):
@@ -151,6 +181,8 @@ def load_register(db, root):
             "INSERT INTO review_workflow_document VALUES (?,?)",
             (input_path, content),
         )
+        if path.name.startswith("result-appraisal-batch-"):
+            _load_result_appraisal(db, input_path, content)
         if path.name.startswith("analysis-selection-batch-"):
             selections = json.loads(content)["selections"]
             _insert(
