@@ -1,0 +1,631 @@
+[
+  {
+    "id": "2026-11-23-smithsonian-wright-field",
+    "date": "2026-11-23",
+    "provider": "Tavily, Firecrawl and Smithsonian National Air and Space Museum",
+    "operation": "supplementary_archival_primary_source_verification",
+    "status": "observed",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "79928647-48c7-44b5-9985-8f5f557c48e9",
+          "topic": "Wright Field Dill memorandum identifier and archive discovery"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "2827309f-296c-4dcd-93b1-f80cbb1a0be5",
+          "topic": "Dill chamber series and Sweeney republication"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "b0a64d0d-fa63-4a17-850a-f2935b85f122",
+          "topic": "Sweeney investigator memoranda and related series"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "4a8b77cd-df1b-45b3-98d6-02fefce792b4",
+          "topic": "Hall and Smith chamber source identity"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "3318395c-ebf3-48f4-82bf-504a1a57fd20",
+          "status": "failed",
+          "topic": "Extract archive entries directly",
+          "note": "The archive catalogue URLs returned no extract. The Smithsonian finding aid and Firecrawl page galleries provided the locators."
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206f2-c751-72a9-b8f1-70332ad3f9d1",
+          "url": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8510"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206f2-c782-756f-ac3f-97ccc19f0137",
+          "url": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8511"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206f2-c7b6-7728-8a3c-5ca0792f4b20",
+          "url": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8512"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206f8-cbc2-74a9-96c8-76d0ffa33261",
+          "url": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8511",
+          "topic": "Rechecked Dill's five digitized pages"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "hall41_wright_field",
+        "title": "Effects of rapid decompression without supplementary oxygen as related to pressurized cabin aircraft",
+        "authors": [
+          "F. G. Hall"
+        ],
+        "year": 1941,
+        "report_number": "EXP-M-54-653-34",
+        "url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8510",
+        "primary_source": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8510",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Printed pp. 1–3 and Appendices 3–4 (Smithsonian box 81, folder 64, scans 001–003 and 006–007)",
+        "role_review": "descriptive",
+        "model_extraction": {
+          "source_id": "hall41_wright_field",
+          "input_release": "v1.262",
+          "trial_scope_input": "data/chamber/v1.262/trial_scopes.csv"
+        },
+        "report_date": "1941-05-26",
+        "official_page_scans": [
+          {
+            "scan": 1,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_001",
+            "sha256": "20ab1538608a2194328ceee120ab86d8205b708efbd0c86afda6d9c7e24c790d"
+          },
+          {
+            "scan": 2,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_002",
+            "sha256": "324e2d052e66516f5c914003aced43327b1acc24f7b9d5bce7e59231c726f57f"
+          },
+          {
+            "scan": 3,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_003",
+            "sha256": "142815ffc9a237611b685ad0aebce471a781c05a9129bce194b1edd60acbcc65"
+          },
+          {
+            "scan": 4,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_004",
+            "sha256": "3c79ce33235f7e5be2d0795ed901ef590c8b47ece633edaa21fb4c4247906f1b"
+          },
+          {
+            "scan": 5,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_005",
+            "sha256": "79c1551f85aa711b91ffec48fda6f3a6d5637b31376001ff53e2729ea3c3772e"
+          },
+          {
+            "scan": 6,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_006",
+            "sha256": "9464f5881f369ef297aca26f85207e1cdc74741e5c0266609b87faa56e90f5f1"
+          },
+          {
+            "scan": 7,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_007",
+            "sha256": "9ef048cd32491806bd8459f53e3e8999ade08e6a2902521668d45f58ed5c4e91"
+          },
+          {
+            "scan": 8,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_008",
+            "sha256": "34ac6fac0977e51c5db1e550b3914405d8374f85fabd8a69b3957501d44d8081"
+          },
+          {
+            "scan": 9,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_009",
+            "sha256": "0bbbf82c2d67db592df2c5be99a79d6ca81cdf6a88429b0e8ed40d0a3d31e467"
+          },
+          {
+            "scan": 10,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd064_010",
+            "sha256": "bd52a14668c23d640e4ee18d71d6babbd4fda45e1bdeeb1e8df944f18536f4c5"
+          }
+        ],
+        "trial_scopes": [
+          {
+            "stratum": "22500-ft",
+            "trial_count": null,
+            "participant_count": 14,
+            "pressure_mmhg": null,
+            "locator": "Printed p. 2, Factual Data B.5–6, and Appendices 3–4",
+            "note": "Appendices 3–4 share nine roster labels across the 14- and 16-person profiles. The conclusion separately refers to sixteen subjects, so the exact combined participant denominator is unresolved."
+          },
+          {
+            "stratum": "25000-ft",
+            "trial_count": null,
+            "participant_count": 16,
+            "pressure_mmhg": 282,
+            "locator": "Printed pp. 2–3 and Appendices 3–4",
+            "note": "Printed barometric pressure is 282 mmHg. At least nine roster labels recur across the two profiles. Unique cross-profile participant count remains unresolved."
+          }
+        ],
+        "observations": [
+          {
+            "id": "22500-ft:collapse_as_reported",
+            "group": "22500-ft",
+            "endpoint": "collapse_as_reported",
+            "analysis_role": "descriptive",
+            "cases": 0,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "altitude": 22500,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Simulated depressurization following 15 minutes at 8,000 ft. Supplemental oxygen was withheld before the response test at altitude.",
+            "outcome_window": "During reported chamber exposures. Appendix 3 shows variable time at altitude.",
+            "locator": "Printed p. 2, Factual Data B.5, and Appendix 3",
+            "note": "The narrative reports no collapse. Nine of the 14 charted records extend to at least six minutes. DCS surveillance is unavailable."
+          },
+          {
+            "id": "22500-ft:oxygen_mask_application_success_as_reported",
+            "group": "22500-ft",
+            "endpoint": "oxygen_mask_application_success_as_reported",
+            "analysis_role": "descriptive",
+            "cases": 9,
+            "denominator": 14,
+            "denominator_unit": "person_exposure",
+            "altitude": 22500,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Simulated depressurization following 15 minutes at 8,000 ft. Supplemental oxygen was withheld before the response test at altitude.",
+            "outcome_window": "The source describes instruction at six minutes at altitude.",
+            "locator": "Printed p. 2, Factual Data B.5",
+            "note": "The denominator is all participants in the profile. The graph shows variable time at altitude. This is a reported descriptive count rather than a fixed-duration risk set."
+          },
+          {
+            "id": "25000-ft:collapse_as_reported",
+            "group": "25000-ft",
+            "endpoint": "collapse_as_reported",
+            "analysis_role": "descriptive",
+            "cases": 1,
+            "denominator": 16,
+            "denominator_unit": "person_exposure",
+            "altitude": 25000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Simulated depressurization following 15 minutes at 8,000 ft. Supplemental oxygen was withheld before the response test at altitude.",
+            "outcome_window": "One collapse after two minutes at altitude.",
+            "locator": "Printed p. 3, Conclusions C.3, and Appendix 4",
+            "note": "The observer applied the oxygen mask after collapse. The report evaluated hypoxic performance and gives no clinical DCS count."
+          },
+          {
+            "id": "25000-ft:oxygen_mask_application_success_as_reported",
+            "group": "25000-ft",
+            "endpoint": "oxygen_mask_application_success_as_reported",
+            "analysis_role": "descriptive",
+            "cases": 13,
+            "denominator": 16,
+            "denominator_unit": "person_exposure",
+            "altitude": 25000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Simulated depressurization following 15 minutes at 8,000 ft. Supplemental oxygen was withheld before the response test at altitude.",
+            "outcome_window": "The report describes the response after three minutes at altitude.",
+            "locator": "Printed p. 2, Factual Data B.6, and Appendix 4",
+            "note": "Oxygen-mask application and adjustment as reported. Observation durations vary across participants. This result is contextual."
+          }
+        ],
+        "note": "The chamber experiment assessed hypoxia, collapse and oxygen-mask response. The 14- and 16-person profiles share nine roster labels. The conclusion separately refers to sixteen subjects. No clinical DCS count or delayed DCS follow-up is given. The publication review retrieval records scan hashes.",
+        "profile_participant_linkage": {
+          "repeated_roster_labels": 9,
+          "caption_denominators": [
+            14,
+            16
+          ],
+          "conclusion_subject_count": 16,
+          "combined_distinct_people": null
+        }
+      },
+      {
+        "id": "dill41_wright_field",
+        "title": "Explosive decompression",
+        "authors": [
+          "D. B. Dill"
+        ],
+        "year": 1941,
+        "report_number": "EXP-M-54-653-34A",
+        "url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8511",
+        "primary_source": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8511",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Factual Data B.2–3 and Appendices 1–2 (Smithsonian box 81, folder 65, scans 002 and 004–005)",
+        "role_review": "descriptive",
+        "model_extraction": {
+          "source_id": "dill41_wright_field",
+          "input_release": "v1.262",
+          "trial_scope_input": "data/chamber/v1.262/trial_scopes.csv",
+          "altitude_trace_input": "data/chamber/v1.262/altitude_points.csv"
+        },
+        "report_date": "1941-10-11",
+        "official_page_scans": [
+          {
+            "scan": 1,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd065_001",
+            "sha256": "239f3d718f0ccc4ed86dfe9095197a646a0ed28e822ce962b7abbf84fd817ee5"
+          },
+          {
+            "scan": 2,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd065_002",
+            "sha256": "7072ac7d470175e40ebe20fe175161e9c6b921e1fc2468d335e4fcfed8fd0358"
+          },
+          {
+            "scan": 3,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd065_003",
+            "sha256": "b50c3704d97c95b9294a1416d82bea26f08e0b8d52d5c8967c277a96d6f1dfa6"
+          },
+          {
+            "scan": 4,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd065_004",
+            "sha256": "c1f5aa88c7419a70333d08aec3c6ac418bd00a5de49fa7326acd4fa35dd58912"
+          },
+          {
+            "scan": 5,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd065_005",
+            "sha256": "d93cdc7c5e7a45dbf01fe056bbc812d6cdb874d23110c50c5a23375a834f598f"
+          }
+        ],
+        "trial_scopes": [
+          {
+            "stratum": "40000-ft-206-sec",
+            "trial_count": 1,
+            "participant_count": 5,
+            "pressure_mmhg": null,
+            "locator": "Factual Data B.2 and Appendix 1, Smithsonian scans 002 and 004",
+            "note": "Two chamber tests are reported. There is no verified roster to link participants across the two five-person groups."
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "trial_count": 1,
+            "participant_count": 5,
+            "pressure_mmhg": null,
+            "locator": "Factual Data B.3 and Appendix 2, Smithsonian scans 002 and 005",
+            "note": "Participant linkage across the two runs is unresolved. Sweeney's later summary cites this short 40,000 ft result."
+          }
+        ],
+        "observations": [
+          {
+            "id": "40000-ft-206-sec:gut_gas_pain_as_reported",
+            "group": "40000-ft-206-sec",
+            "endpoint": "gut_gas_pain_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 2,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "altitude": 40000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Actual chamber ascent from 800 to 40,000 ft in 206 seconds, then five minutes at 40,000 ft. Prebreathe duration and complete gas history are unavailable.",
+            "outcome_window": "During ascent and the five-minute altitude exposure.",
+            "locator": "Factual Data B.2 and Appendix 1, Smithsonian scans 002 and 004",
+            "note": "Appendix 1 attributes the pain to gut gas expansion. It gives no clinical aeroembolism case count."
+          },
+          {
+            "id": "40000-ft-206-sec:local_formication_as_reported",
+            "group": "40000-ft-206-sec",
+            "endpoint": "local_formication_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 1,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "altitude": 40000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Actual chamber ascent from 800 to 40,000 ft in 206 seconds, then five minutes at 40,000 ft. Prebreathe duration and complete gas history are unavailable.",
+            "outcome_window": "During ascent and the five-minute altitude exposure.",
+            "locator": "Factual Data B.2 and Appendix 1, Smithsonian scans 002 and 004",
+            "note": "Appendix 1 reports mild local itching. Preserve the symptom without assigning a DCS diagnosis."
+          },
+          {
+            "id": "40000-ft-206-sec:no_discomfort_as_reported",
+            "group": "40000-ft-206-sec",
+            "endpoint": "no_discomfort_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 2,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "altitude": 40000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Actual chamber ascent from 800 to 40,000 ft in 206 seconds, then five minutes at 40,000 ft. Prebreathe duration and complete gas history are unavailable.",
+            "outcome_window": "During ascent and the five-minute altitude exposure.",
+            "locator": "Factual Data B.2 and Appendix 1, Smithsonian scans 002 and 004",
+            "note": "Appendix 1 describes the other two participants as free of discomfort. Delayed follow-up is unavailable."
+          },
+          {
+            "id": "40000-ft-165-sec:aeroembolism_symptoms_as_reported",
+            "group": "40000-ft-165-sec",
+            "endpoint": "aeroembolism_symptoms_as_reported",
+            "analysis_role": "overlap_hold",
+            "cases": 0,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "altitude": 40000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Actual chamber ascent from 800 to 40,000 ft in 165 seconds, then five minutes at 40,000 ft. Prebreathe duration and complete gas history are unavailable.",
+            "outcome_window": "During ascent and the five-minute altitude exposure. Delayed follow-up is unavailable.",
+            "locator": "Factual Data B.3 and Appendix 2, Smithsonian scans 002 and 005",
+            "note": "The investigator explicitly reported no symptom of aeroembolism in this run. A modern DCS definition and person linkage between the two runs are unavailable."
+          },
+          {
+            "id": "40000-ft-165-sec:gut_gas_pain_as_reported",
+            "group": "40000-ft-165-sec",
+            "endpoint": "gut_gas_pain_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 2,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "altitude": 40000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Actual chamber ascent from 800 to 40,000 ft in 165 seconds, then five minutes at 40,000 ft. Prebreathe duration and complete gas history are unavailable.",
+            "outcome_window": "During ascent and the five-minute altitude exposure.",
+            "locator": "Factual Data B.3 and Appendix 2, Smithsonian scans 002 and 005",
+            "note": "The investigator attributed two minor complaints to intestinal gas expansion."
+          },
+          {
+            "id": "40000-ft-165-sec:no_discomfort_as_reported",
+            "group": "40000-ft-165-sec",
+            "endpoint": "no_discomfort_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 3,
+            "denominator": 5,
+            "denominator_unit": "person_exposure",
+            "altitude": 40000,
+            "altitude_unit": "ft",
+            "prebreathe_min": null,
+            "protocol": "Actual chamber ascent from 800 to 40,000 ft in 165 seconds, then five minutes at 40,000 ft. Prebreathe duration and complete gas history are unavailable.",
+            "outcome_window": "During ascent and the five-minute altitude exposure.",
+            "locator": "Factual Data B.3 and Appendix 2, Smithsonian scans 002 and 005",
+            "note": "Appendix 2 describes the other three participants as free of discomfort. Delayed follow-up is unavailable."
+          }
+        ],
+        "note": "The explicit aeroembolism symptom zero belongs to the 2:45 run. The 3:26 run reports minor symptoms without a clinical aeroembolism count. Both start at 800 ft and hold 40,000 ft for five minutes. The publication review retrieval records scan hashes.",
+        "reported_aeroembolism_outcomes": {
+          "by_ascent_sec": {
+            "165": {
+              "cases": 0,
+              "denominator": 5
+            },
+            "206": {
+              "cases": null,
+              "denominator": null
+            }
+          },
+          "delayed_follow_up": null
+        },
+        "altitude_trace": [
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 0,
+            "altitude_ft": 800,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 30,
+            "altitude_ft": 4600,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 60,
+            "altitude_ft": 11900,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 90,
+            "altitude_ft": 19000,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 120,
+            "altitude_ft": 25000,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 150,
+            "altitude_ft": 30800,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 180,
+            "altitude_ft": 35800,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-206-sec",
+            "elapsed_sec": 206,
+            "altitude_ft": 40000,
+            "locator": "Appendix 1, printed p. 3, Smithsonian scan 004"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 0,
+            "altitude_ft": 800,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 15,
+            "altitude_ft": 3800,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 30,
+            "altitude_ft": 7350,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 45,
+            "altitude_ft": 11100,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 60,
+            "altitude_ft": 15000,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 75,
+            "altitude_ft": 20500,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 90,
+            "altitude_ft": 25100,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 105,
+            "altitude_ft": 29000,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 120,
+            "altitude_ft": 32000,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 135,
+            "altitude_ft": 35500,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 150,
+            "altitude_ft": 38000,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          },
+          {
+            "stratum": "40000-ft-165-sec",
+            "elapsed_sec": 165,
+            "altitude_ft": 40000,
+            "locator": "Appendix 2, printed p. 4, Smithsonian scan 005"
+          }
+        ]
+      },
+      {
+        "id": "smith42_wright_field",
+        "title": "Explosive decompression",
+        "authors": [
+          "James J. Smith"
+        ],
+        "year": 1942,
+        "report_number": "EXP-M-54-653-34C",
+        "url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8512",
+        "primary_source": "https://edan.si.edu/slideshow/viewer/?eadrefid=NASM.XXXX.0067_ref8512",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Factual Data B.6 and Appendices 1 and 3 (Smithsonian box 81, folder 66, scans 002–004 and 006)",
+        "role_review": "descriptive",
+        "model_extraction": {
+          "source_id": "smith42_wright_field",
+          "input_release": "v1.262",
+          "trial_scope_input": "data/chamber/v1.262/trial_scopes.csv"
+        },
+        "report_date": "1942-01-29",
+        "official_page_scans": [
+          {
+            "scan": 1,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd066_001",
+            "sha256": "7ae3e60303ed8346665f5d294904cee231d0633cf0619b8e18833258f2786f56"
+          },
+          {
+            "scan": 2,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd066_002",
+            "sha256": "f33541811b94d83ff14832b781d82c2501d9e68281ebaeca8e027efeb3ce6a25"
+          },
+          {
+            "scan": 3,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd066_003",
+            "sha256": "b420abc7abebe928f0c36ff9ff0139a15866f4d0e4e52f0496d9ec8b4f9cd29e"
+          },
+          {
+            "scan": 4,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd066_004",
+            "sha256": "fdceea8a5bdbed418f037edf7b3741cbda4049038c03524901a6d4494fc21c6e"
+          },
+          {
+            "scan": 5,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd066_005",
+            "sha256": "5aabe05fdf9d14131756b9fe18f3c983b378c7f27c9cd003f8c53ebd827f9147"
+          },
+          {
+            "scan": 6,
+            "url": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM.XXXX.0067-bx081-fd066_006",
+            "sha256": "73f934beb6164620e0c8f3ac5984587d1295c5662f84b47841fc795550ec1aa7"
+          }
+        ],
+        "trial_scopes": [
+          {
+            "stratum": "up-to-25000-ft",
+            "trial_count": 66,
+            "participant_count": 11,
+            "pressure_mmhg": null,
+            "locator": "Printed p. 2, Factual Data B.6a",
+            "note": "Starting pressure altitude approximately 10,000 ft. Various target altitudes up to 25,000 ft. Experiment count is distinct from participant count."
+          },
+          {
+            "stratum": "25000-to-30000-ft",
+            "trial_count": 18,
+            "participant_count": 6,
+            "pressure_mmhg": null,
+            "locator": "Printed p. 2, Factual Data B.6b",
+            "note": "Starting pressure altitude 10,000 ft. The range is as published and borders the adjoining strata. Repeated participation precludes summing the participant counts."
+          },
+          {
+            "stratum": "30000-to-40000-ft",
+            "trial_count": 5,
+            "participant_count": 1,
+            "pressure_mmhg": null,
+            "locator": "Printed p. 2, Factual Data B.6c",
+            "note": "Five exposures on a single person. The original range is 30,000 to 40,000 ft. Appendix 3 reports useful consciousness without a case count for clinical DCS."
+          }
+        ],
+        "observations": [],
+        "note": "Three altitude ranges report experiment and participant counts. Appendix 3 covers useful consciousness. Clinical DCS ascertainment and unique people across the three ranges are unavailable. The publication review retrieval records scan hashes.",
+        "assessment": {
+          "endpoint": "Useful consciousness as reported",
+          "appendix_3_altitude_ft": [
+            25000,
+            30000,
+            35000,
+            40000
+          ],
+          "appendix_3_timing_observations": [
+            8,
+            3,
+            1,
+            1
+          ],
+          "clinical_dcs_cases": null
+        }
+      }
+    ],
+    "note": "Archived page images were read locally with OCR and visual verification of the cited pages. PDF delivery returned a rendering-status response, so the 21 viewer scans were used. No names from the participant plots were transcribed. The new reports do not add an eligible incidence risk set or a clinical benchmark arm."
+  }
+]
