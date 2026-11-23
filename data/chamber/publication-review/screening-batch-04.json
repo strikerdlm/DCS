@@ -1,0 +1,743 @@
+{
+  "batch_id": "04",
+  "stage": "title_abstract",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers agreed with Batch 04.",
+    "note": "Labels identify the two reviewer slots. The decision date records receipt of confirmation. Individual completed forms and comments are unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "487707ef580b36edd850158773c81ad271372c2a",
+    "evidence_sha256": "76f89d0271392beb21c58645d44a58ff16ef808eed4f4e8f218b8b9ad262e2a2",
+    "systematic_review_sha256": "1e0f11bd5dcd46dad6c72c653721a2744093fc81b1b66b60d893eae11495e55e"
+  },
+  "formal_routes_in_packet": 40,
+  "publications_in_packet": 34,
+  "reports": [
+    {
+      "report_id": "pmid:36243908",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:36243908",
+      "title": "Hysteria as a Trigger for Epidemic Decompression Sickness Following Hypobaric Hypoxia Training.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36243908/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:36243908"
+      ],
+      "decision": "include",
+      "reason": "Two operational hypobaric hypoxia training clusters with symptomatic cases. Advance for case definition, role and diagnostic attribution.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Author abstract and archived report crosswalk"
+        },
+        {
+          "decision": "include",
+          "evidence": "PubMed indexed author abstract, Methods and Results"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1524540",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1524540",
+      "title": "A computerized databank of decompression sickness incidence in altitude chambers.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1524540/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:1524540"
+      ],
+      "decision": "exclude",
+      "reason": "Secondary databank assembled from 80 previously reported sources. The report does not identify an independent operational training cohort for this review.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, source and scope"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "NASA original bibliographic abstract and repository v1.3 source crosswalk"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1109/cme55444.2022.10063319",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4324119896",
+      "title": "Machine Learning Methods to Predict Incidence Risk of Altitude Decompression Sickness",
+      "source_url": "https://ieeexplore.ieee.org/document/10063319",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W4324119896"
+      ],
+      "decision": "uncertain",
+      "reason": "Conference report is a prediction model. Available metadata do not establish whether its development data include original operational chamber exposures.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "Publisher metadata only. Author abstract unavailable in checked public endpoints."
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "IEEE publication identifier and indexed title. Publisher abstract inaccessible"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15355830",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2428293650",
+      "title": "Cardiac decompression sickness after hypobaric chamber training: case report of a coronary gas embolism.",
+      "source_url": "https://anatoljcardiol.com/article/AJC-07823/pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2428293650",
+        "2026-11-20-formal-chamber-europe-pmc#MED:15355830"
+      ],
+      "decision": "include",
+      "reason": "Pilot-candidate chest symptoms after hypobaric chamber training. Advance for clinical and diagnostic narrative, with coronary gas embolism classification requiring adjudication.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Primary case report and PubMed PMID metadata. Same publication as the Europe PMC occurrence for PMID 15355830."
+        },
+        {
+          "decision": "include",
+          "evidence": "Publisher case report, pp. 256-258, and repository v1.29 source check"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11396555",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11396555",
+      "title": "The effect of exposure to 35,000 ft on incidence of altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11396555/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:11396555"
+      ],
+      "decision": "exclude",
+      "reason": "Prospective AFRL chamber experiment comparing exercise intensity and rest at 35,000 feet.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed indexed author abstract, Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12056666",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12056666",
+      "title": "The effect of repeated altitude exposures on the incidence of decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12056666/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:12056666"
+      ],
+      "decision": "exclude",
+      "reason": "Controlled crossover experiment comparing repeated and continuous simulated altitude exposure in research volunteers.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and publisher Methods referenced in v1.2 source register"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed indexed author abstract, Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20251253",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20251253",
+      "title": "Incidence of decompression sickness in individuals tested in a decompression chamber situated at 4,700 feet.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/3/article-p279.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:20251253"
+      ],
+      "decision": "uncertain",
+      "reason": "South African Air Force officers underwent a formal repeated chamber test for high-altitude flying. Operational instruction versus qualification-only scope requires a review judgment.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "Primary report, p. 279 test conditions and original report title. Archived full text."
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Primary Test Conditions and Rejection sections, pp. 279 and 286, and repository v1.19"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:23066619",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:23066619",
+      "title": "Altitude decompression sickness incidence among U-2 pilots: 1994-2010.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23066619/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:23066619"
+      ],
+      "decision": "exclude",
+      "reason": "DCS surveillance during operational U-2 aircraft flight.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Introduction and Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher full text, Introduction and Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2653301",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2653301",
+      "title": "Type II altitude decompression sickness (DCS): U.S. Air Force experience with 133 cases.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/60/3/article-p256.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:2653301"
+      ],
+      "decision": "include",
+      "reason": "Selected Type II treatment series combines 126 chamber and seven aircraft cases. Advance for separable chamber narrative and overlap assessment.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Primary article, Results and Tables II-III"
+        },
+        {
+          "decision": "include",
+          "evidence": "PubMed indexed author abstract and repository source audit"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:28518008",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:28518008",
+      "title": "Latent Presentation of Decompression Sickness After Altitude Chamber Training in an Active Duty Flier.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28518008/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:28518008"
+      ],
+      "decision": "include",
+      "reason": "Original delayed symptomatic DCS case after military altitude-chamber training. Advance for timing and case narrative.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Author abstract, Case report"
+        },
+        {
+          "decision": "include",
+          "evidence": "PubMed indexed author abstract, Case Report"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3718386",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3718386",
+      "title": "A blitz of bends: decompression sickness in four students after hypobaric chamber training.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3718386/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:3718386"
+      ],
+      "decision": "include",
+      "reason": "Original four symptomatic cases in nine U.S. Army HALO chamber trainees. Advance for outbreak-specific evidence.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Author abstract and archived protocol crosswalk"
+        },
+        {
+          "decision": "include",
+          "evidence": "PubMed indexed author abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:4917762",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:4917762",
+      "title": "Low incidence of bends following renitrogenation in an altitude training profile.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/41/10/article-p1173.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:4917762"
+      ],
+      "decision": "include",
+      "reason": "Operational Navy low-pressure training series of 4,400 flight personnel with author-defined bends and a severity-specific zero. Advance for denominator and overlap checks.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Primary report, Methods and Results pp. 1173-1174. Archived full text."
+        },
+        {
+          "decision": "include",
+          "evidence": "Primary Methods and Table I, pp. 1173-1174, and repository v1.27"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1093/milmed/94.4.199",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2802028029",
+      "title": "Some Factors Affecting the Incidence of “Bends” At Altitude",
+      "source_url": "https://doi.org/10.1093/milmed/94.4.199",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2802028029"
+      ],
+      "decision": "uncertain",
+      "reason": "Wartime altitude-bends article. Publisher metadata identify the publication but do not establish a separable operational training cohort.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "Publisher issue metadata and v1.60 source register"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Publisher issue metadata and repository v1.60 access note"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1096/fasebj.23.1_supplement.597.3",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2288586871",
+      "title": "Denitrogenation (Preoxygenation) as a Prophylactic Treatment for “Flier's Bends” During High Altitude Missions in Unpressurized Aircraft of the Allied Air Forces in World War II",
+      "source_url": "https://doi.org/10.1096/fasebj.23.1_supplement.597.3",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2288586871"
+      ],
+      "decision": "exclude",
+      "reason": "Historical denitrogenation account focused on WWII unpressurized aircraft missions.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Published meeting abstract title and setting metadata"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed report title and same-title 2010 publisher abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1096/fasebj.24.1_supplement.617.3",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4210820394",
+      "title": "Denitrogenation (Preoxygenation) as a Prophylactic Treatment for “Flier's Bends” During High Altitude Missions in Unpressurized Aircraft of the Allied Air Forces in World War II",
+      "source_url": "https://doi.org/10.1096/fasebj.24.1_supplement.617.3",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W4210820394"
+      ],
+      "decision": "exclude",
+      "reason": "Historical denitrogenation account focused on WWII unpressurized aircraft missions.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Published meeting abstract title and setting metadata"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher conference abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1097/00006534-197708000-00114",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2046823996",
+      "title": "Incidence of decompression sickness in Navy low-pressure chambers",
+      "source_url": "https://doi.org/10.1097/00006534-197708000-00114",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2046823996"
+      ],
+      "decision": "exclude",
+      "reason": "Secondary digest of the 1976 Bason, Pheeny and Dully Navy training report, already represented by the original.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Publisher citation and review register digest crosswalk"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher DOI identity verified in repository citation audit"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1212/wnl.78.1_meetingabstracts.s08.005",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2321969049",
+      "title": "Prevalence of Neurologic Decompression Sickness and Necrotic Brain Lesions in High-Altitude Pilots (S08.005)",
+      "source_url": "https://www.neurology.org/doi/10.1212/WNL.78.1_supplement.S08.005",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2321969049"
+      ],
+      "decision": "exclude",
+      "reason": "DCS and MRI findings in the operational U-2 flight community. Exposure metrics are pilot flight hours and missions.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Publisher conference abstract"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher meeting abstract, Design and Results"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W1822196694",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1822196694",
+      "title": "A Procedure for Selection of Diving and Aviation Personnel Resistant to Decompression Sickness Based on Tests in a Low Pressure Chamber.",
+      "source_url": "https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=5",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W1822196694"
+      ],
+      "decision": "exclude",
+      "reason": "Experimental Diving Unit repeated altitude test protocol for personnel resistance screening. The methods describe selected retest groups.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary report, Methods and Results. DTIC AD0735899."
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Primary report, printed pp. 3-5 and Tables I-III, and repository v1.249"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1001/jama.1947.02880060015004",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1993611963",
+      "title": "DECOMPRESSION SICKNESS: Some Factors Which Affect the Incidence of Bends at Altitude",
+      "source_url": "https://jamanetwork.com/journals/jama/article-abstract/291560",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W1993611963",
+        "2026-11-20-formal-chamber-europe-pmc#MED:20281876",
+        "2026-11-20-formal-chamber-pubmed#20281876"
+      ],
+      "decision": "uncertain",
+      "reason": "The JAMA preview discusses altitude and diving DCS. It gives insufficient cohort methods to identify operational chamber trainees.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "Publisher preview and matching DOI and PMID. Same publication as the other two PMID 20281876 occurrences."
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Publisher preview, PubMed metadata and repository v1.60 crosswalk"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W2529049352",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2529049352",
+      "title": "INCIDENCE OF DECOMPRESSION SICKNESS IN HIGH ALTITUDE GLIDER OPERATIONS",
+      "source_url": "https://cowley.soaringchampionships.ca/resources/StalkingTheMountainWave.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2529049352"
+      ],
+      "decision": "exclude",
+      "reason": "Incidence investigation in the gliding community following actual high-altitude glider operations.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author report reprint from Technical Soaring"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher citation linked in repository archival retrieval log"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:25770794",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2993737561",
+      "title": "Decompression Sickness Following Altitude-Chamber Training",
+      "source_url": "https://jsomonline.org/wp-content/uploads/2024/02/2015111Studer.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2993737561",
+        "2026-11-20-formal-chamber-europe-pmc#MED:25770794",
+        "2026-11-20-formal-chamber-pubmed#25770794"
+      ],
+      "decision": "include",
+      "reason": "Original altitude-chamber training case with delayed neurologic presentation. Advance for narrative ascertainment.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Author abstract and case report. Same publication as the two index occurrences for PMID 25770794."
+        },
+        {
+          "decision": "include",
+          "evidence": "PubMed indexed author abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21018675",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2468524496",
+      "title": "Incidence of bends pain in a short exposure to simulated altitudes of 26,000, 28,000 and 30,000 feet.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p67.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2468524496"
+      ],
+      "decision": "uncertain",
+      "reason": "Check in full text whether any arm reflects routine chamber training. The source is a controlled altitude, temperature and exercise experiment among flight students.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "Primary report, Methods and Table I pp. 67-68. Archived full text."
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Primary Methods p. 67 and Table I p. 68 verified in repository v1.11"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:13767048",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:13767048",
+      "title": "Incidence of bends following partial denitrogenation at simulated altitude.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/32/4/article-p289.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:13767048",
+        "2026-11-20-formal-chamber-pubmed#13767048"
+      ],
+      "decision": "exclude",
+      "reason": "Aeromedical laboratory volunteers underwent controlled partial denitrogenation tests at simulated altitude.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary report, Methods pp. 289-290. Same publication as the PubMed occurrence for PMID 13767048."
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Primary-source methods and tables verified in repository v1.26"
+        }
+      ]
+    },
+    {
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_firecrawl_primary:1",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2034209264",
+      "title": "THE PRODUCTION BY MODERATE EXERCISE OF A HIGH INCIDENCE OF BENDS: AT ALTITUDES OF 26,000 TO 28,000 FEET",
+      "source_url": "https://jamanetwork.com/journals/jama/article-abstract/266607",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-openalex#W2034209264"
+      ],
+      "decision": "exclude",
+      "reason": "Exercise experiment in volunteers recruited from an altitude training unit.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Publisher abstract describes subjects and experimental objective"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher preview, Subjects, and original Methods/Table 1 checked in repository v1.252"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W1483440411",
+      "record_key": "2026-11-20-formal-chamber-ntrs-disease#20060046703",
+      "title": "Exploiting Aerobic Fitness To Reduce Risk Of Hypobaric Decompression Sickness",
+      "source_url": "https://ntrs.nasa.gov/citations/20070008088",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-ntrs-disease#20060046703"
+      ],
+      "decision": "exclude",
+      "reason": "NASA abstract evaluates aerobically characterized research experiments in the hypobaric DCS database, including simulated mission protocols.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NASA NTRS abstract and companion poster tables"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "NASA original meeting abstract and associated poster verified in repository v1.260"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11796447",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11796447",
+      "title": "Operation Everest III (Comex'97): altitude-induced decompression sickness during a hypobaric chamber experiment: necessity for circulating venous gas emboli monitoring for the investigators.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11796447/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:11796447"
+      ],
+      "decision": "exclude",
+      "reason": "Operation Everest III used a hypobaric chamber for simulated expedition research exposures among investigators.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and experimental archive crosswalk"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed indexed author abstract, Materials and Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:14557320",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:14557320",
+      "title": "High-altitude decompression illness: case report and discussion.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC203284/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:14557320"
+      ],
+      "decision": "include",
+      "reason": "Advance for narrative adjudication. DCI followed a commercial flight after chamber training. Separate attribution and a symptomatic DCS endpoint remain unresolved.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Primary case report and exposure chronology"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Primary author abstract and case descriptions"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.28920/dhm51.1.82-85",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33761546",
+      "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:33761546"
+      ],
+      "decision": "include",
+      "reason": "Original operational hypoxia training cluster with symptomatic trainee and instructor cases.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Primary report, case descriptions and Table 1"
+        },
+        {
+          "decision": "include",
+          "evidence": "Publisher report, pp. 82-85, and PubMed abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W118934012",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12398262",
+      "title": "Pulmonary decompression sickness at altitude: early symptoms and circulating gas emboli.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/10/article-p996.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:12398262"
+      ],
+      "decision": "exclude",
+      "reason": "Pulmonary DCS and bubble findings from an AFRL research archive covering 22 experimental chamber protocols.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary report, Materials and Methods and Results pp. 997-998"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed indexed author abstract, Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12182217",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12182217",
+      "title": "The effect of simulated weightlessness on hypobaric decompression sickness.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/8/article-p773.pdf",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:12182217"
+      ],
+      "decision": "exclude",
+      "reason": "Prospective chamber experiment compares simulated weightlessness and an earlier ambulatory research arm.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary report, Methods pp. 774-775 and v1.13 source register"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed indexed author abstract and repository v1.13 source check"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:17641213",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17641213",
+      "title": "Observed bubble dynamics in oxygen or heliox breathing and altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17641213/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:17641213"
+      ],
+      "decision": "exclude",
+      "reason": "Editorial about oxygen or heliox and bubble dynamics without an eligible primary training cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed publication type and publisher citation"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed indexed author abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2400370",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2400370",
+      "title": "Threshold altitude resulting in decompression sickness.",
+      "source_url": "https://ntrs.nasa.gov/citations/19900057571",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:2400370"
+      ],
+      "decision": "exclude",
+      "reason": "Secondary review and risk-model analysis of case reports, prior training data and experimental evidence. No independent operational cohort identified.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract reproduced by NASA NTRS"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "NASA original bibliographic abstract and PubMed publication metadata"
+        }
+      ]
+    },
+    {
+      "report_id": "record:legacy:data/chamber/sharepoint-2026-11-19/sources.csv#webb03_sex",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12546293",
+      "title": "Gender not a factor for altitude decompression sickness risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12546293/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:12546293"
+      ],
+      "decision": "exclude",
+      "reason": "Controlled prospective research with 25 altitude chamber exposure profiles designed to compare sex-specific susceptibility.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "NASA indexed author abstract and PubMed Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W93154131",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10685583",
+      "title": "The effectiveness of ground level oxygen treatment for altitude decompression sickness in human research subjects.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10685583/",
+      "retrieval_keys": [
+        "2026-11-20-formal-chamber-europe-pmc#MED:10685583"
+      ],
+      "decision": "exclude",
+      "reason": "Ground-level oxygen treatment study using Air Force Research Laboratory experimental subject-exposure records.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Background and Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed indexed author abstract and original report verified in repository v1.85"
+        }
+      ]
+    }
+  ]
+}

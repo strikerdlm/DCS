@@ -4464,6 +4464,30 @@ def test_first_screening_batch_matches_review_decisions_and_source_cells(release
         ]
 
 
+def test_title_abstract_batch_records_one_decision_per_reviewer_and_report(release):
+    with connect_pair(release) as db:
+        raw, = db.execute("""
+            SELECT content_json FROM review.review_workflow_document
+            WHERE input_path LIKE '%/screening-batch-04.json'
+        """).fetchone()
+        batch = json.loads(raw)
+        reports = batch["reports"]
+        assert len({r["report_id"] for r in reports}) == len(reports) == 34
+        assert len({key for r in reports for key in r["retrieval_keys"]}) == 40
+        for report in reports:
+            for key in report["retrieval_keys"]:
+                assert db.execute("SELECT report_id FROM review.review_record WHERE record_key=?", (key,)).fetchone() == (
+                    report["report_id"],
+                )
+            assert db.execute("""
+                SELECT record_key, reviewer, decision FROM review.review_current_screening
+                WHERE report_id=? AND stage='title_abstract' ORDER BY reviewer
+            """, (report["report_id"],)).fetchall() == [
+                (report["record_key"], label, report["decision"])
+                for label in batch["confirmation"]["reviewer_labels"]
+            ]
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""

@@ -5,12 +5,12 @@
   "search_strategy_approval": "approved",
   "formal_search": "in_progress",
   "formal_records_exported": 3878,
-  "formal_screening_decisions": 38,
-  "reports_sought": 24,
+  "formal_screening_decisions": 106,
+  "reports_sought": 33,
   "reports_assessed": 23,
   "studies_included": 17,
   "studies_pooled": null,
-  "note": "Provisional flow through Batch 03. Formal search totals count retrieval occurrences. Screening decisions count reviewer-report pairs. Report counts span formal and supplementary streams. Ten new reports were assessed, including a companion and reports retained as overlapping alternatives. Two historical Navy risk sets were assessed from an already included report and add no new report decisions. Seventeen provisionally distinct studies contribute evidence, including narrative and treated endpoints. Israeli full text remains pending. Independent appraisal and pooling are pending.",
+  "note": "Provisional flow through Batch 04. Formal search exports count occurrences. Screening decisions count reviewer-report pairs. Report counts span formal and supplementary streams. Batch 04 grouped 40 formal routes into 34 reports. Nine advance for full-text assessment, five need clarification, and 20 are excluded at title and abstract. These decisions add no full-text assessments or included studies. Titles already advanced directly to full text in earlier batches are separate from the title and abstract stage count.",
   "scope_amendment_on": "2026-11-20",
   "amended_protocol": "Symptomatic DCS incidence and risk factors in operational hypobaric chamber training, including within-program staff versus trainee contrasts.",
   "search_strategy_approved_on": "2026-11-20",
@@ -19,7 +19,10 @@
   "formal_database_records_exported": 3816,
   "formal_citation_records_exported": 62,
   "supplementary_screening_decisions": 10,
-  "screening_decisions_all_streams": 48,
+  "screening_decisions_all_streams": 116,
   "full_text_reports_excluded": 2,
-  "reports_pending_full_text": 1
+  "reports_pending_full_text": 10,
+  "title_abstract_reports_with_decisions": 35,
+  "title_abstract_reports_excluded": 20,
+  "title_abstract_reports_uncertain": 5
 }
