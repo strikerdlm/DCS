@@ -1,0 +1,193 @@
+[
+  {
+    "id": "2026-11-23-batches-17-18-source-verification",
+    "date": "2026-11-23",
+    "provider": "Tavily",
+    "operation": "supplementary_original_source_verification",
+    "status": "observed",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf",
+      "request_id": "a7ccc089-0271-4031-ab5a-91cccd2ad461"
+    },
+    "note": "Journal text accessible through Tavily. A direct PDF request returned HTTP 403.",
+    "records": [
+      {
+        "id": "rudge91_stone_cuff",
+        "title": "The use of the pressure cuff test in the diagnosis of decompression sickness.",
+        "year": 1991,
+        "pmid": "2012577",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf",
+        "access": "full_text_via_service_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "Methods, pp. 266-267; Results and Table I, p. 267",
+        "role_review": "diagnostic_context_only",
+        "note": "Retrospective USAFSAM treated-patient series. It contains mixed initiating settings and no exposure denominator or non-DCS comparison group. Original text and Table I were recovered through Tavily. Direct publisher PDF returned HTTP 403. No original PDF digest is available.",
+        "model_extraction": {
+          "source_id": "rudge91_stone_cuff",
+          "input_release": "v1.273"
+        },
+        "observations": [
+          {
+            "id": "treated-cohort",
+            "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+            "group": "treated-cohort",
+            "endpoint": "test_eligible_extremity_pain",
+            "cases": 179,
+            "denominator": 310,
+            "denominator_unit": "treated_dcs_patient",
+            "locator": "Methods, pp. 266-267",
+            "note": "Treated DCS patients with pain at an eligible extremity joint. Included Type II DCS with eligible joint pain."
+          },
+          {
+            "id": "eligible-joint-pain",
+            "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+            "group": "eligible-joint-pain",
+            "endpoint": "received_pressure_cuff_test",
+            "cases": 87,
+            "denominator": 179,
+            "denominator_unit": "treated_dcs_patient",
+            "locator": "Methods, pp. 266-267",
+            "note": "Patients tested among those with eligible joint pain. The untested patients have no recorded cuff result."
+          },
+          {
+            "id": "all-tested",
+            "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+            "group": "all-tested",
+            "endpoint": "pressure_cuff_test_positive",
+            "cases": 53,
+            "denominator": 87,
+            "denominator_unit": "treated_dcs_patient",
+            "locator": "Results and Table I, p. 267",
+            "note": "Table I also reports 34 negatives. Results gives 89% chamber, 9% diving and 2% flight in the tested group. Settings are not cross-tabulated with test results.",
+            "reported_rate_percent": 61
+          },
+          {
+            "id": "knee",
+            "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+            "group": "knee",
+            "endpoint": "pressure_cuff_test_positive",
+            "cases": 34,
+            "denominator": 55,
+            "denominator_unit": "treated_dcs_patient",
+            "locator": "Results and Table I, p. 267",
+            "note": "Table I prints 34 positive (61%) and 21 negative (39%). The printed percentages differ from the exact counts divided by 55. Both counts and printed percentages are retained.",
+            "reported_rate_percent": 61
+          },
+          {
+            "id": "elbow",
+            "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+            "group": "elbow",
+            "endpoint": "pressure_cuff_test_positive",
+            "cases": 15,
+            "denominator": 21,
+            "denominator_unit": "treated_dcs_patient",
+            "locator": "Results and Table I, p. 267",
+            "note": "Table I prints 15 positive (71%) and 6 negative (29%).",
+            "reported_rate_percent": 71
+          },
+          {
+            "id": "ankle",
+            "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+            "group": "ankle",
+            "endpoint": "pressure_cuff_test_positive",
+            "cases": 3,
+            "denominator": 7,
+            "denominator_unit": "treated_dcs_patient",
+            "locator": "Results and Table I, p. 267",
+            "note": "Table I prints 3 positive (43%) and 4 negative (57%).",
+            "reported_rate_percent": 43
+          },
+          {
+            "id": "wrist",
+            "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
+            "group": "wrist",
+            "endpoint": "pressure_cuff_test_positive",
+            "cases": 1,
+            "denominator": 4,
+            "denominator_unit": "treated_dcs_patient",
+            "locator": "Results and Table I, p. 267",
+            "note": "Table I prints 1 positive (25%) and 3 negative (75%).",
+            "reported_rate_percent": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2026-11-23-batches-17-18-source-verification-whitten-openalex",
+    "date": "2026-11-23",
+    "provider": "OpenAlex local CLI",
+    "operation": "supplementary_full_text_availability",
+    "status": "observed",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "lookup": "10.1001/archopht.1946.00890210225007"
+    },
+    "note": "Exact DOI matched W2046874876. OpenAlex lists no PDF or GROBID full text. Publisher preview does not show the case narrative.",
+    "records": [
+      {
+        "id": "W2046874876",
+        "title": "Scotoma as a complication of decompression sickness.",
+        "doi": "10.1001/archopht.1946.00890210225007",
+        "pmid": "20997673",
+        "year": 1946,
+        "openalex_id": "W2046874876",
+        "url": "https://openalex.org/W2046874876",
+        "access": "indexed_metadata_only",
+        "full_text_available": false
+      }
+    ]
+  },
+  {
+    "id": "2026-11-23-batches-17-18-source-verification-firecrawl",
+    "date": "2026-11-23",
+    "provider": "Firecrawl",
+    "operation": "supplementary_full_text_availability",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "k": 4,
+      "query": "Exact title 'Scotoma as a complication of decompression sickness' Richard H Whitten 1946 10.1001/archopht.1946.00890210225007 or exact title 'Pathological Findings in Fatal Sub-Atmospheric Decompression Sickness' D I Fryer 1962 10.1177/002580246200200206"
+    },
+    "note": "Four ranked citations returned. Whitten was the only exact match, without a full-text passage. Fryer access remains unknown through this indexed search.",
+    "records": [
+      {
+        "id": "20997673",
+        "title": "Scotoma as a complication of decompression sickness.",
+        "pmid": "20997673",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20997673/",
+        "doi": "10.1001/archopht.1946.00890210225007",
+        "access": "indexed_metadata_only"
+      },
+      {
+        "id": "25390673",
+        "title": "Choroidal ischemia secondary to a diving injury.",
+        "pmid": "25390673",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25390673/",
+        "doi": "10.1097/ICB.0b013e3181a3b9d6",
+        "access": "indexed_metadata_only"
+      },
+      {
+        "id": "1631595",
+        "title": "Retinal artery occlusion in a diver.",
+        "pmid": "1631595",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1631595/",
+        "access": "indexed_metadata_only"
+      },
+      {
+        "id": "1425307",
+        "title": "[Decompression sickness as differential diagnosis in internal medicine emergency admissions].",
+        "pmid": "1425307",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1425307/",
+        "doi": "10.1055/s-2008-1062512",
+        "access": "indexed_metadata_only"
+      }
+    ]
+  }
+]
