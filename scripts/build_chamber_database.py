@@ -316,6 +316,7 @@ NAVY_1940_TRIALS = ROOT / "data" / "chamber" / "v1.248"
 NAVY_1944_TRIALS = ROOT / "data" / "chamber" / "v1.249"
 EARLY_FLIGHT_CASE_ARCHIVE = ROOT / "data" / "chamber" / "v1.250"
 KUMAR_THRESHOLD_COMPILATION = ROOT / "data" / "chamber" / "v1.251"
+MACKENZIE_RIESEN_PRIMARY = ROOT / "data" / "chamber" / "v1.252"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3280,6 +3281,17 @@ def build(
                     db,
                     KUMAR_THRESHOLD_COMPILATION,
                     {"publication_threshold_profile_revision": "threshold_profile_revisions.csv"},
+                )
+                load_version_tables(
+                    db,
+                    MACKENZIE_RIESEN_PRIMARY,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_mackenzie_flight": "flights.csv",
+                        "publication_mackenzie_susceptibility": "susceptibility.csv",
+                        "publication_mackenzie_later_flights": "later_flights.csv",
+                        "publication_threshold_profile_revision": "threshold_profile_revisions.csv",
+                    },
                 )
                 load_register(db, ROOT)
                 db.commit()
