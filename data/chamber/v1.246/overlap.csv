@@ -1,0 +1,10 @@
+source_id,related_source,relationship,evidence
+nims51_temperature_reprise,nims43_chamber_temperature,likely_overlap,"Same presenter, 38,000 ft for two hours, 100 °F warm air, 23 repeat participants and matching overall percentages to whole-point precision. The cold temperature is 50 °F in the book and 55 °F in April. Repeat-subset rates also differ. Count the April source rows once."
+nims51_temperature_reprise,anthony43_cam136,unresolved,Figure 45 explicitly identifies Anthony et al. reference 310. The original CAM 136 was not available.
+cook51_arm_exercise,thompson44_fpmsd3,unresolved,"Cook's superscript 511 precedes the table and bibliography item 511 gives F.P.M.S.-D.3 No. 1, Appendix II, March 1944."
+thompson44_fpmsd3,thompson44_c2064,likely_overlap,"Closely matching report title and investigator in Cook and Sulaiman. The F.P.M.S.-D.3 exercise table sums to 1,325 classified records of unstated unit and the C-2064 age table counts 1,347 people. Exact report identity and linkage remain unverified."
+cook51_arm_exercise,smith42_regina_mild_exercise,unresolved,"Cook refers to the 27-person comparison as Smith et al. ref. 507, with 290 man-flights. Group denominators are missing."
+smith42_regina_mild_exercise,rcaf43_constancy,unresolved,Regina No. 2 clinical unit and Smith/Stewart investigators overlap. The later compilation reanalyzes 559 ascents in 43 people. No roster or run crosswalk establishes exact membership.
+cook51_arm_exercise,ferris43_breadth,likely_overlap,"The January minutes and Cook share Ferris's exercise, sitting and lying comparisons in 27 individuals. Both report all 27 affected in the exercise condition. The outcome language for resting results differs."
+cook51_arm_exercise,ferris43_cam126_exertion,unresolved,Cook cites refs. 335a and 336 for the 27-person study. Ref. 336 identifies CAM Report 126.
+cook51_arm_exercise,ferris44_cam363,unresolved,"Cook introduces the 14-person exercise comparison with bibliography item 338, identified as CAM Report 363. Actual exposure-level linkage to later compilations is unavailable."

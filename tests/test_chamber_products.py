@@ -9,6 +9,51 @@ from scripts.chamber_products import PRODUCTS, connect_pair, publish_pair
 from scripts.evaluate_chamber_benchmark import run
 
 
+def test_fulton_workload_and_temperature_preserve_uncertainty_and_linked_counts(release):
+    with connect_pair(release) as db:
+        margins = db.execute("""
+            SELECT stratum,affected_count,unaffected_count,affected_count+unaffected_count,
+                   reported_dcs_percent,denominator_unit,analysis_role
+            FROM publication_historical_workload_margin ORDER BY stratum
+        """).fetchall()
+        assert margins == [
+            ("smith-507-exercise", None, None, None, 62, "man_flight", "overlap_hold"),
+            ("smith-507-no-exercise", None, None, None, 55, "man_flight", "overlap_hold"),
+            ("thompson-511-exercise", 266, 332, 598, 44, None, "overlap_hold"),
+            ("thompson-511-no-exercise", 276, 451, 727, 38, None, "overlap_hold"),
+        ]
+        run_id = "2026-11-22-fulton-workload-temperature-audit-verified"
+        assert [row[:2] + row[3:5] for row in margins] == db.execute("""
+            SELECT reported_group,cases,denominator,reported_rate_percent
+            FROM review.review_search_observation
+            WHERE run_id=? AND (reported_group LIKE 'smith-507-%' OR reported_group LIKE 'thompson-511-%')
+            ORDER BY 1
+        """, (run_id,)).fetchall()
+        counts = db.execute("""
+            SELECT stratum,endpoint,numerator,denominator FROM publication_observation
+            WHERE source_id='cook51_arm_exercise' AND stratum LIKE 'ferris-%' AND analysis_role='overlap_hold'
+            ORDER BY 1,2
+        """).fetchall()
+        assert len(counts) == 15
+        assert counts == db.execute("""
+            SELECT reported_group,endpoint,cases,denominator FROM review.review_search_observation
+            WHERE run_id=? AND report_id='fulton1951:role-of-exercise' AND reported_group LIKE 'ferris-%'
+            ORDER BY 1,2
+        """, (run_id,)).fetchall()
+        assert ("ferris-338-exercise", "type_ii_bends_as_reported", 11, 14) in counts
+        assert ("ferris-335a-336-exercise", "forced_descent_as_reported", 25, 27) in counts
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE (left_report,right_report)=('fulton1951:nims-physical-theory','nlm:101085500x233:180:nims')
+        """).fetchone() == ("same_series_with_reported_temperature_discrepancy",)
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.printed_temperature_comparison.chamber_temperature_f[1]'),
+                   json_extract(metadata_json,'$.printed_temperature_comparison.april_cold_temperature_f'),
+                   json_array_length(metadata_json,'$.observations')
+            FROM review.review_record WHERE run_id=? AND report_id='fulton1951:nims-physical-theory'
+        """, (run_id,)).fetchone() == (50, 55, 0)
+
+
 def test_cam_april_reports_preserve_exact_counts_and_reported_rates(release):
     with connect_pair(release) as db:
         run_id = "2026-11-22-cam-april-1943-chamber-counts-verified"
@@ -1045,6 +1090,7 @@ def test_berkeley_arm_groups_keep_the_two_reported_scopes_and_no_inferred_counts
         assert db.execute("""
             SELECT count(*),count(cases),count(denominator) FROM review.review_search_observation
             WHERE report_id='fulton1951:role-of-exercise' AND role_review='overlap_hold'
+              AND study_id='berkeley-arm-work-and-strain-1945'
         """).fetchone() == (18, 0, 0)
         assert db.execute("""
             SELECT report_id FROM review.review_study_report
