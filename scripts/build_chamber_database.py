@@ -310,6 +310,7 @@ FRYER_CHAMBER_CASES = ROOT / "data" / "chamber" / "v1.242"
 TONAWANDA_ARCHIVE = ROOT / "data" / "chamber" / "v1.243"
 TONAWANDA_TENSION_TABLES = ROOT / "data" / "chamber" / "v1.244"
 CAM_APRIL_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.245"
+FULTON_WORKLOAD_AUDIT = ROOT / "data" / "chamber" / "v1.246"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3212,6 +3213,16 @@ def build(
                         "publication_narrative_chamber_rate": "narrative_rates.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    FULTON_WORKLOAD_AUDIT,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_historical_workload_margin": "workload_cells.csv",
+                    },
                 )
                 load_register(db, ROOT)
                 db.commit()

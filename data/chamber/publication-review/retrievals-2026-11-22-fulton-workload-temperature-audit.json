@@ -1,0 +1,405 @@
+[
+  {
+    "id": "2026-11-22-fulton-workload-temperature-audit-tavily",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_source_discovery",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "3cc71291-3b87-47f6-98ba-7ba57287abb8",
+          "query": "Temperature and decompression sickness Anthony Clarke 136 1943 NLM report"
+        },
+        {
+          "request_id": "e0980830-0d17-4285-92c1-4c2e9a7f4398",
+          "query": "Relationship of certain factors to the incidence of decompression sickness Thompson 2064 Canada 1944 report PDF"
+        },
+        {
+          "request_id": "13163a61-2a0f-4fc4-a1bc-7da24aba403a",
+          "query": "Smith Stewart McAlpine effect of mild exercise decompression sickness Canada original chamber report"
+        },
+        {
+          "request_id": "d0977f82-d4ee-4a9c-86be-97baed58bd59",
+          "query": "Ferris exercise 27 decompression sickness bends CAM 1943 1944 35,000 fatigue"
+        }
+      ]
+    },
+    "status": "observed",
+    "records": [],
+    "note": "Searched for original Canadian and Yale military reports. Retrieved bibliographic leads and related sources, without standalone exact cohort files."
+  },
+  {
+    "id": "2026-11-22-fulton-workload-temperature-audit-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and rendered primary source pages",
+    "operation": "supplementary_primary_source_verification",
+    "reported_total": null,
+    "status": "observed",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://archive.org/details/in.ernet.dli.2015.116475",
+          "scrape_id": "01a205bf-bb77-73cb-9ad8-e4ae91775c27",
+          "note": "Verified archive identity. The rendered pages and bibliography supplied the source values and attribution."
+        },
+        {
+          "url": "https://archive.org/download/DTIC_ADA297023/DTIC_ADA297023.pdf#page=7",
+          "scrape_id": "01a205bf-bb7d-706c-aefe-bf1477dbfb19",
+          "note": "Checked the related wartime studies and surviving age-cohort report."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "nims51_temperature_reprise",
+        "title": "A physical theory of decompression sickness",
+        "identifier": "fulton1951:nims-physical-theory",
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=246",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=246",
+        "access": "full_text",
+        "locator": "Printed p. 221 (PDF p. 246), Fig. 45 and paragraph below it",
+        "note": "Nims's later chapter cites Anthony et al. CAM 136 and reports a 100 °F warm condition, 50 °F cold, 35% and 47% overall, and 34% and 52% in the 23-person repeat comparison. The April 1943 account reports 55 °F and 34.4% and 51% in the repeat subset. Comparable conditions do not establish flight-level linkage. The April exact counts continue to represent the temperature results.",
+        "observations": [],
+        "printed_temperature_comparison": {
+          "bends_percent_overall": [
+            35,
+            47
+          ],
+          "chamber_temperature_f": [
+            100,
+            50
+          ],
+          "bends_percent_in_repeat_comparison": [
+            34,
+            52
+          ],
+          "repeat_subject_count": 23,
+          "comparison_observation_source": "nlm:101085500x233:180:nims",
+          "april_cold_temperature_f": 55,
+          "april_repeat_bends_percent": [
+            34.4,
+            51
+          ]
+        }
+      },
+      {
+        "id": "anthony43_cam136",
+        "title": "Temperature and decompression sickness",
+        "identifier": "report:cam-136",
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=458",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=458",
+        "access": "metadata",
+        "locator": "Bibliography item 310 and Fig. 45 on printed p. 221",
+        "note": "CAM Report 136 dated 26 May 1943 in the bibliography. The standalone report remains unavailable.",
+        "observations": []
+      },
+      {
+        "id": "thompson44_fpmsd3",
+        "title": "Relationship of certain factors to the incidence of decompression sickness",
+        "identifier": "report:fpms-d3-no1-1944",
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+        "access": "metadata",
+        "locator": "Reference 511 at printed p. 223 and bibliography item 511 (PDF pp. 248 and 469)",
+        "note": "Cook cites RCAF Y Depot F.P.M.S.-D.3 No. 1, Appendix II, March 1944. The similar C-2064 title is known from Sulaiman's age table. The original Canadian releases were not recovered and their exact identity remains unverified.",
+        "observations": []
+      },
+      {
+        "id": "smith42_regina_mild_exercise",
+        "title": "The effect of mild exercise on the incidence of decompression sickness on consecutive daily ascents to 35,000 feet",
+        "identifier": "report:nrcc-rcaf-regina-smith-mild-exercise-1942",
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+        "access": "metadata",
+        "locator": "Bib. ref. 507 and Cook printed p. 223 (PDF pp. 469 and 248)",
+        "note": "1942 report from No. 2 Clinical Investigation Unit, RCAF Regina. Cook describes 290 man-flights among 27 people and only rounded arm rates. The original report and arm denominators remain unavailable.",
+        "observations": []
+      },
+      {
+        "id": "ferris43_cam126_exertion",
+        "title": "The influence of physical activity and physical relaxation on susceptibility to decompression sickness",
+        "identifier": "report:cam-126",
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460",
+        "access": "metadata",
+        "locator": "Bibliography ref. 336 spans PDF pp. 459–460. Cook cites refs. 335a and 336 for the 27-person table.",
+        "note": "Bibliography identifies CAM 126, 23 February 1943, 10 pages. Other bibliographic text in the source scan is damaged. The original report remains unavailable.",
+        "observations": []
+      },
+      {
+        "id": "cook51_arm_exercise",
+        "title": "Role of exercise, temperature, drugs and water balance in decompression sickness",
+        "identifier": "fulton1951:role-of-exercise",
+        "year": 1951,
+        "url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=248",
+        "primary_source": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=248",
+        "access": "full_text",
+        "source_sha256": "d928d2ad01820af54ef038567caf6974e303b3ac2170a2dfb63f4db0aeea6c94",
+        "role_review": "overlap_hold",
+        "locator": "Printed pp. 223–224 (PDF pp. 248–249)",
+        "observations": [
+          {
+            "id": "thompson-511-exercise",
+            "group": "thompson-511-exercise",
+            "endpoint": "reported_bends_workload_count_unresolved_unit",
+            "cases": 266,
+            "denominator": 598,
+            "denominator_unit": null,
+            "reported_rate_percent": 44,
+            "affected_count": 266,
+            "unaffected_count": 332,
+            "reported_no_dcs_percent": 56,
+            "count_basis": "affected plus unaffected as printed",
+            "cited_report_id": "report:fpms-d3-no1-1944",
+            "locator": "Cook, printed p. 223 (PDF p. 248)",
+            "note": "The printed table gives affected and unaffected counts. The denominator is their sum. The counting unit is unspecified. Linkage to the age table of 1,347 people is unavailable. The book does not print a verified arm-specific protocol or exposure window for this comparison."
+          },
+          {
+            "id": "thompson-511-no-exercise",
+            "group": "thompson-511-no-exercise",
+            "endpoint": "reported_bends_workload_count_unresolved_unit",
+            "cases": 276,
+            "denominator": 727,
+            "denominator_unit": null,
+            "reported_rate_percent": 38,
+            "affected_count": 276,
+            "unaffected_count": 451,
+            "reported_no_dcs_percent": 62,
+            "count_basis": "affected plus unaffected as printed",
+            "cited_report_id": "report:fpms-d3-no1-1944",
+            "locator": "Cook, printed p. 223 (PDF p. 248)",
+            "note": "The printed table gives affected and unaffected counts. The denominator is their sum. The counting unit is unspecified. Linkage to the age table of 1,347 people is unavailable. The book does not print a verified arm-specific protocol or exposure window for this comparison."
+          },
+          {
+            "id": "smith-507-exercise",
+            "group": "smith-507-exercise",
+            "endpoint": "reported_bends_workload_rate",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 62,
+            "peak_altitude_ft": 35000,
+            "cited_report_id": "report:nrcc-rcaf-regina-smith-mild-exercise-1942",
+            "reported_cohort_total": 290,
+            "locator": "Cook, printed p. 223 (PDF p. 248)",
+            "note": "Cook reports 290 man-flights among the same 27 people across both conditions. Group-specific denominators and exact events are unavailable. The short marching or arm-extension tasks are the source description. A group-specific window is unavailable."
+          },
+          {
+            "id": "smith-507-no-exercise",
+            "group": "smith-507-no-exercise",
+            "endpoint": "reported_bends_workload_rate",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": null,
+            "reported_rate_percent": 55,
+            "peak_altitude_ft": 35000,
+            "cited_report_id": "report:nrcc-rcaf-regina-smith-mild-exercise-1942",
+            "reported_cohort_total": 290,
+            "locator": "Cook, printed p. 223 (PDF p. 248)",
+            "note": "Cook reports 290 man-flights among the same 27 people across both conditions. Group-specific denominators and exact events are unavailable. The short marching or arm-extension tasks are the source description. A group-specific window is unavailable."
+          },
+          {
+            "id": "ferris-338-no-exercise-type_i_bends_as_reported",
+            "group": "ferris-338-no-exercise",
+            "endpoint": "type_i_bends_as_reported",
+            "cases": 5,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "protocol": "No exercise. The chapter does not identify target altitude or participant linkage for this sample.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Printed mean onset times are 80 minutes (Type I) and 97 minutes (Type III), with the count-table column labeled Type II. The risk set for the means is unavailable.",
+            "cited_report_id": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8"
+          },
+          {
+            "id": "ferris-338-no-exercise-type_ii_bends_as_reported",
+            "group": "ferris-338-no-exercise",
+            "endpoint": "type_ii_bends_as_reported",
+            "cases": 4,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "protocol": "No exercise. The chapter does not identify target altitude or participant linkage for this sample.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Printed mean onset times are 80 minutes (Type I) and 97 minutes (Type III), with the count-table column labeled Type II. The risk set for the means is unavailable.",
+            "cited_report_id": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8"
+          },
+          {
+            "id": "ferris-338-no-exercise-forced_descent_as_reported",
+            "group": "ferris-338-no-exercise",
+            "endpoint": "forced_descent_as_reported",
+            "cases": 5,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "protocol": "No exercise. The chapter does not identify target altitude or participant linkage for this sample.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Printed mean onset times are 80 minutes (Type I) and 97 minutes (Type III), with the count-table column labeled Type II. The risk set for the means is unavailable.",
+            "cited_report_id": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8"
+          },
+          {
+            "id": "ferris-338-exercise-type_i_bends_as_reported",
+            "group": "ferris-338-exercise",
+            "endpoint": "type_i_bends_as_reported",
+            "cases": 14,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "protocol": "Exercise repeated at 15-minute intervals. The chapter does not identify target altitude or participant linkage for this sample.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Printed mean onset times are 47 minutes (Type I) and 84 minutes (Type III), with the count-table column labeled Type II. The risk set for the means is unavailable.",
+            "cited_report_id": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8"
+          },
+          {
+            "id": "ferris-338-exercise-type_ii_bends_as_reported",
+            "group": "ferris-338-exercise",
+            "endpoint": "type_ii_bends_as_reported",
+            "cases": 11,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "protocol": "Exercise repeated at 15-minute intervals. The chapter does not identify target altitude or participant linkage for this sample.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Printed mean onset times are 47 minutes (Type I) and 84 minutes (Type III), with the count-table column labeled Type II. The risk set for the means is unavailable.",
+            "cited_report_id": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8"
+          },
+          {
+            "id": "ferris-338-exercise-forced_descent_as_reported",
+            "group": "ferris-338-exercise",
+            "endpoint": "forced_descent_as_reported",
+            "cases": 10,
+            "denominator": 14,
+            "denominator_unit": "person",
+            "protocol": "Exercise repeated at 15-minute intervals. The chapter does not identify target altitude or participant linkage for this sample.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Printed mean onset times are 47 minutes (Type I) and 84 minutes (Type III), with the count-table column labeled Type II. The risk set for the means is unavailable.",
+            "cited_report_id": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8"
+          },
+          {
+            "id": "ferris-335a-336-exercise-type_i_bends_as_reported",
+            "group": "ferris-335a-336-exercise",
+            "endpoint": "type_i_bends_as_reported",
+            "cases": 27,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Ninety minutes of repeated exercise followed by ninety minutes of inactivity.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "The January 1943 report also gives all 27 affected under exercise. Exact symptom-grade or subject linkage between the reports is unavailable.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-exercise-type_iii_bends_as_reported",
+            "group": "ferris-335a-336-exercise",
+            "endpoint": "type_iii_bends_as_reported",
+            "cases": 22,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Ninety minutes of repeated exercise followed by ninety minutes of inactivity.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "The January 1943 report also gives all 27 affected under exercise. Exact symptom-grade or subject linkage between the reports is unavailable.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-exercise-forced_descent_as_reported",
+            "group": "ferris-335a-336-exercise",
+            "endpoint": "forced_descent_as_reported",
+            "cases": 25,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Ninety minutes of repeated exercise followed by ninety minutes of inactivity.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "The January 1943 report also gives all 27 affected under exercise. Exact symptom-grade or subject linkage between the reports is unavailable.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-sitting-type_i_bends_as_reported",
+            "group": "ferris-335a-336-sitting",
+            "endpoint": "type_i_bends_as_reported",
+            "cases": 13,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Seated rest. The comparison text does not verify individual linkage.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Different endpoints among the same printed 27-person condition. January gives a different outcome description for protection during sitting.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-sitting-type_iii_bends_as_reported",
+            "group": "ferris-335a-336-sitting",
+            "endpoint": "type_iii_bends_as_reported",
+            "cases": 6,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Seated rest. The comparison text does not verify individual linkage.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Different endpoints among the same printed 27-person condition. January gives a different outcome description for protection during sitting.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-sitting-forced_descent_as_reported",
+            "group": "ferris-335a-336-sitting",
+            "endpoint": "forced_descent_as_reported",
+            "cases": 7,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Seated rest. The comparison text does not verify individual linkage.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Different endpoints among the same printed 27-person condition. January gives a different outcome description for protection during sitting.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-lying-type_i_bends_as_reported",
+            "group": "ferris-335a-336-lying",
+            "endpoint": "type_i_bends_as_reported",
+            "cases": 9,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Lying rest. The comparison text does not verify individual linkage.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Different endpoints among the same printed 27-person condition. January gives a different outcome description for protection during lying.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-lying-type_iii_bends_as_reported",
+            "group": "ferris-335a-336-lying",
+            "endpoint": "type_iii_bends_as_reported",
+            "cases": 3,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Lying rest. The comparison text does not verify individual linkage.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Different endpoints among the same printed 27-person condition. January gives a different outcome description for protection during lying.",
+            "cited_report_id": "report:cam-126"
+          },
+          {
+            "id": "ferris-335a-336-lying-forced_descent_as_reported",
+            "group": "ferris-335a-336-lying",
+            "endpoint": "forced_descent_as_reported",
+            "cases": 8,
+            "denominator": 27,
+            "denominator_unit": "person",
+            "protocol": "Lying rest. The comparison text does not verify individual linkage.",
+            "outcome_window": "Historical outcome during the test. A common event ascertainment window and delayed follow-up are unavailable.",
+            "locator": "Cook, printed p. 224 (PDF p. 249)",
+            "note": "Different endpoints among the same printed 27-person condition. January gives a different outcome description for protection during lying.",
+            "cited_report_id": "report:cam-126"
+          }
+        ],
+        "note": "Existing chapter identity. The reported outcomes refer to several cited historical series."
+      }
+    ],
+    "note": "Comparison-specific margins retain held evidence roles. The Nims chapter occurrence documents a discrepancy rather than another set of outcomes."
+  }
+]

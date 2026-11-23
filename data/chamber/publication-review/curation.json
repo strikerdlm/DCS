@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.246/sources.csv#nims51_temperature_reprise",
+      "report_id": "fulton1951:nims-physical-theory",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=246",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "2026-11-22-fulton-workload-temperature-audit-verified#nims51_temperature_reprise",
+      "report_id": "fulton1951:nims-physical-theory",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=246",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.246/sources.csv#anthony43_cam136",
+      "report_id": "report:cam-136",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=458",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "2026-11-22-fulton-workload-temperature-audit-verified#anthony43_cam136",
+      "report_id": "report:cam-136",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=458",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.246/sources.csv#thompson44_fpmsd3",
+      "report_id": "report:fpms-d3-no1-1944",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "2026-11-22-fulton-workload-temperature-audit-verified#thompson44_fpmsd3",
+      "report_id": "report:fpms-d3-no1-1944",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.246/sources.csv#smith42_regina_mild_exercise",
+      "report_id": "report:nrcc-rcaf-regina-smith-mild-exercise-1942",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "2026-11-22-fulton-workload-temperature-audit-verified#smith42_regina_mild_exercise",
+      "report_id": "report:nrcc-rcaf-regina-smith-mild-exercise-1942",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.246/sources.csv#ferris43_cam126_exertion",
+      "report_id": "report:cam-126",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "2026-11-22-fulton-workload-temperature-audit-verified#ferris43_cam126_exertion",
+      "report_id": "report:cam-126",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=460",
+      "basis": "Verified chapter, accession or bibliography identifier in the original scan."
+    },
+    {
+      "record_key": "2026-11-22-fulton-workload-temperature-audit-verified#cook51_arm_exercise",
+      "report_id": "fulton1951:role-of-exercise",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=248",
+      "basis": "Same Cook chapter already indexed from printed p. 232."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.245/sources.csv#ivy43_april_co2_bends",
       "report_id": "nlm:101085500x233:179:ivy",
       "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=180",
@@ -27144,6 +27210,69 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "fulton1951:nims-physical-theory",
+      "right_report": "nlm:101085500x233:180:nims",
+      "relationship": "same_series_with_reported_temperature_discrepancy",
+      "evidence": "Same presenter, 38,000 ft for two hours, 100 °F warm air, 23 repeat participants and matching overall percentages to whole-point precision. The cold temperature is 50 °F in the book and 55 °F in April. Repeat-subset rates also differ. Count the April source rows once.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=246"
+    },
+    {
+      "left_report": "fulton1951:nims-physical-theory",
+      "right_report": "report:cam-136",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Figure 45 explicitly identifies Anthony et al. reference 310. The original CAM 136 was not available.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=246"
+    },
+    {
+      "left_report": "fulton1951:role-of-exercise",
+      "right_report": "report:fpms-d3-no1-1944",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Cook's superscript 511 precedes the table and bibliography item 511 gives F.P.M.S.-D.3 No. 1, Appendix II, March 1944.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=248"
+    },
+    {
+      "left_report": "report:fpms-d3-no1-1944",
+      "right_report": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:2",
+      "relationship": "probable_source_lineage",
+      "evidence": "Closely matching report title and investigator in Cook and Sulaiman. The F.P.M.S.-D.3 exercise table sums to 1,325 classified records of unstated unit and the C-2064 age table counts 1,347 people. Exact report identity and linkage remain unverified.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469"
+    },
+    {
+      "left_report": "fulton1951:role-of-exercise",
+      "right_report": "report:nrcc-rcaf-regina-smith-mild-exercise-1942",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Cook refers to the 27-person comparison as Smith et al. ref. 507, with 290 man-flights. Group denominators are missing.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=248"
+    },
+    {
+      "left_report": "report:nrcc-rcaf-regina-smith-mild-exercise-1942",
+      "right_report": "nlm:101085500x233:159",
+      "relationship": "unresolved",
+      "evidence": "Regina No. 2 clinical unit and Smith/Stewart investigators overlap. The later compilation reanalyzes 559 ascents in 43 people. No roster or run crosswalk establishes exact membership.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=469"
+    },
+    {
+      "left_report": "fulton1951:role-of-exercise",
+      "right_report": "nlm:101085500x233:145:ferris",
+      "relationship": "likely_overlap",
+      "evidence": "The January minutes and Cook share Ferris's exercise, sitting and lying comparisons in 27 individuals. Both report all 27 affected in the exercise condition. The outcome language for resting results differs.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=249"
+    },
+    {
+      "left_report": "fulton1951:role-of-exercise",
+      "right_report": "report:cam-126",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Cook cites refs. 335a and 336 for the 27-person study. Ref. 336 identifies CAM Report 126.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=249"
+    },
+    {
+      "left_report": "fulton1951:role-of-exercise",
+      "right_report": "record:legacy:data/chamber/v1.12/search_hits.csv#raf_primary_verification:8",
+      "relationship": "cites_as_compilation_source",
+      "evidence": "Cook introduces the 14-person exercise comparison with bibliography item 338, identified as CAM Report 363. Actual exposure-level linkage to later compilations is unavailable.",
+      "evidence_url": "https://archive.org/download/in.ernet.dli.2015.116475/2015.116475.Deoompression-Sickness-Caisson-Sickness-Divers-And-Fliers-Bends-And-Related-Syndeomes.pdf#page=248"
+    },
     {
       "left_report": "nlm:101085500x233:179:ivy",
       "right_report": "nlm:101085500x233:137:ivy",
