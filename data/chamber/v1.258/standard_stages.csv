@@ -1,0 +1,7 @@
+source_id,stratum,endpoint,phase,procedure,starting_altitude_ft,excursion_altitude_ft,ending_altitude_ft,vertical_rate_ft_per_min,nominal_pressure_mmhg,nominal_pressure_kpa,mask_on,intended_oxygen_pct,locator
+ata21,single-training-flight,dcs_type_i,1,denitrogenation,2000,,2000,,706.6,94.2,1,100,"Table 1, standard altitude hypoxia training profile"
+ata21,single-training-flight,dcs_type_i,2,sinus check,2000,7500,2000,5000,,,1,100,"Table 1, standard altitude hypoxia training profile"
+ata21,single-training-flight,dcs_type_i,3,ascent,2000,,25000,5000,,,1,100,"Table 1, standard altitude hypoxia training profile"
+ata21,single-training-flight,dcs_type_i,4,hypoxia training,25000,,25000,,288.6,38.4,0,20.9,"Table 1, standard altitude hypoxia training profile"
+ata21,single-training-flight,dcs_type_i,5,descent,25000,,22000,5000,,,1,100,"Table 1, standard altitude hypoxia training profile"
+ata21,single-training-flight,dcs_type_i,6,descent,22000,,2000,2500,,,1,100,"Table 1, standard altitude hypoxia training profile"

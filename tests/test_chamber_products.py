@@ -10780,6 +10780,54 @@ def test_balldin_pulmonary_onsets_extend_an_existing_case_series(release):
         """).fetchone() == (1,)
 
 
+def test_ata_cluster_reuses_existing_count_and_preserves_nominal_profile(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,analysis_role
+            FROM publication_observation WHERE source_id='ata21'
+        """).fetchall() == [("single-training-flight", "dcs_type_i", 3, 11, "selected_cluster")]
+        assert db.execute("""
+            SELECT phase,starting_altitude_ft,excursion_altitude_ft,ending_altitude_ft,
+                   vertical_rate_ft_per_min,nominal_pressure_mmhg,nominal_pressure_kpa,
+                   mask_on,intended_oxygen_pct
+            FROM publication_ata_standard_stage WHERE source_id='ata21' ORDER BY phase
+        """).fetchall() == [
+            (1, 2000, None, 2000, None, 706.6, 94.2, 1, 100),
+            (2, 2000, 7500, 2000, 5000, None, None, 1, 100),
+            (3, 2000, None, 25000, 5000, None, None, 1, 100),
+            (4, 25000, None, 25000, None, 288.6, 38.4, 0, 20.9),
+            (5, 25000, None, 22000, 5000, None, None, 1, 100),
+            (6, 22000, None, 2000, 2500, None, None, 1, 100),
+        ]
+        assert db.execute("""
+            SELECT role,age_years,joint_pain_site,onset_phase,time_of_useful_consciousness_sec,
+                   treatment_start_within_min_after_ground
+            FROM publication_ata_cluster_case WHERE source_id='ata21' ORDER BY local_case_code
+        """).fetchall() == [
+            ("inside_observer", 31, "right wrist", "descent", None, 15),
+            ("trainee", 24, "left wrist", "descent", 201, 15),
+            ("trainee", 29, "right knee", "descent", 224, 15),
+        ]
+
+
+def test_francis_aviation_air_embolism_reuses_report_without_dcs_count(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.endpoint,p.numerator,p.denominator,p.altitude,l.report_id
+            FROM publication_observation p JOIN shared_case_evidence l
+            USING (source_id,stratum,endpoint) WHERE p.source_id='francis26_bulla_age'
+        """).fetchall() == [("reported_cerebral_arterial_gas_embolism", 1, None, None, "pmid:42984720")]
+        assert db.execute("""
+            SELECT elapsed,elapsed_unit,elapsed_reference,elapsed_qualifier,aircraft_altitude_ft
+            FROM publication_aircraft_case_milestone WHERE source_id='francis26_bulla_age'
+            AND milestone='loss_of_consciousness_during_ascent'
+        """).fetchone() == (20, "minutes", "departure of commercial flight", "approximate", None)
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE doi='10.1093/jscr/rjag955' OR pmid='42984720'
+        """).fetchall() == [("pmid:42984720",)]
+
+
 def test_lim_1983_links_distinct_aircraft_and_chamber_episodes_to_one_report(release):
     source = "lim83_rsaf"
     report = "record:legacy:data/chamber/v1.10/search_hits.csv#expedition_firecrawl_smj_pdf:1"
