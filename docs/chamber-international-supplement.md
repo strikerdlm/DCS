@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.254
+
+NATO's proceedings contain Fryer's original 28,000-ft RAF selection survey. Its 2,606 people, 4,956 chamber exposures and six age-group count pairs already appear in the database through Fryer's later monograph. The new extraction adds weight-group counts and symptom details, including bends in 147 of 165 symptomatic runs. The proceedings report 45 retrospective selection failures and a rate of 1.65%. That percentage does not match 45 divided by the 2,606 people described in the same section, so the failure denominator remains unresolved. [Fryer, Results](https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=293) · [Tables I–IV](https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=299)
+
+Figure 4 records symptoms on retest in 12 of 59 people with mild or moderate symptoms on the first test and in 47 of 2,140 people without first-test symptoms. Eleven severe first-test reactors were excluded from retesting. The conference figure's 12 repeated symptomatic outcomes and the monograph's 13 remain traceable to their respective reports. Table II gives 130 sessions with reported symptoms but leaves the count of symptom-free sessions blank. The extraction retains that blank and the zeroes in the other observed categories. [Figure 4](https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=303) · [Table II](https://publications.sto.nato.int/publications/AGARD/AGARD-CP-2/AGARD-CP-2.pdf#page=299) · [Versioned extraction](../data/chamber/v1.254)
+
 ## Release 1.253
 
 Fryer reproduces Cutler's 1962 USAF altitude-indoctrination series. Across 20,000 reported exposures, 11 illnesses required admission and five of those admissions were associated with DCS. Four of the five were reported in the bends category and one involved both bends and chokes. The database records both admission counts and the two categories among admitted DCS cases. Coverage is limited to admission and enrollment dates remain unknown. The original proceedings are still unavailable. The adjacent RAF table describes a separate program. [Fryer, counts p. 265](https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259) · [Fryer, citation p. 310](https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=304)

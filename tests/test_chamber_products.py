@@ -10684,6 +10684,62 @@ def test_cutler_admissions_and_meader_recurrence_preserve_risk_sets(release):
         """).fetchall() == [(36, 958, "selected_cluster")]
 
 
+def test_fryer_conference_preserves_original_retest_groups_and_reuses_the_cohort(release):
+    run_id = "2026-11-22-fryer-1965-raf-retest-outcomes-verified"
+    report = "record:legacy:data/chamber/v1.12/sources.csv#fryer65_selection"
+    with connect_pair(release) as db:
+        retests = db.execute("""
+            SELECT group_as_reported,people,severe,mild_or_moderate,nil
+            FROM publication_fryer_retest_group ORDER BY group_as_reported
+        """).fetchall()
+        assert retests == [
+            ("first_test", 2210, 11, 59, 2140),
+            ("second_after_mild_or_moderate", 59, 2, 10, 47),
+            ("second_after_nil", 2140, 9, 38, 2093),
+        ]
+        assert db.execute("""
+            SELECT sum(sessions_as_reported),
+                   sum(sessions_as_reported * people_reporting_symptoms),
+                   sum(sessions_as_reported IS NULL)
+            FROM publication_fryer_chamber_cluster
+        """).fetchone() == (130, 164, 1)
+        assert db.execute("""
+            SELECT sessions_as_reported FROM publication_fryer_chamber_cluster
+            WHERE people_reporting_symptoms=0
+        """).fetchone() == (None,)
+        assert db.execute("""
+            SELECT denominator,numerator FROM publication_observation
+            WHERE source_id='fryer65_selection' AND stratum LIKE 'weight-%' ORDER BY denominator
+        """).fetchall() == [(572, 48), (600, 49), (1021, 42)]
+        assert db.execute("""
+            SELECT count(*) FROM publication_reported_rate WHERE source_id='fryer65_selection'
+        """).fetchone() == (14,)
+        assert db.execute("""
+            SELECT cases,denominator,role_review FROM review.review_search_observation
+            WHERE run_id=? AND endpoint='bends_in_symptomatic_runs_as_reported'
+        """, (run_id,)).fetchone() == (147, 165, "overlap_hold")
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='fryer69_raf' AND stratum='selection_exposures'
+        """).fetchone() == (165, 4956)
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='fryer69_raf' AND endpoint='symptoms_both'
+        """).fetchone() == (13, 107)
+        assert db.execute("""
+            SELECT right_report FROM review.review_report_relation
+            WHERE left_report=? AND relationship='same_cohort'
+        """, (report,)).fetchall() == [("report:ada111509",)]
+        identity, raw = db.execute("""
+            SELECT report_id,metadata_json FROM review.review_record WHERE run_id=?
+        """, (run_id,)).fetchone()
+        assert identity == report
+        rows = json.loads(raw)["model_extraction"]["retest_groups"]
+        assert [tuple(row[key] for key in (
+            "group_as_reported", "people", "severe", "mild_or_moderate", "nil"
+        )) for row in rows] == retests
+
+
 def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):
     source = "welham44_edu_38000"
     report = "openalex:W1822196694"

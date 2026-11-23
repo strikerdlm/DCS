@@ -318,6 +318,7 @@ EARLY_FLIGHT_CASE_ARCHIVE = ROOT / "data" / "chamber" / "v1.250"
 KUMAR_THRESHOLD_COMPILATION = ROOT / "data" / "chamber" / "v1.251"
 MACKENZIE_RIESEN_PRIMARY = ROOT / "data" / "chamber" / "v1.252"
 HISTORICAL_USAF_ALTITUDE_OUTCOMES = ROOT / "data" / "chamber" / "v1.253"
+FRYER_RAF_CONFERENCE = ROOT / "data" / "chamber" / "v1.254"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3301,6 +3302,16 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_meader_recurrence_group": "recurrence_groups.csv",
                         "publication_meader_recurrence_site": "recurrence_sites.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    FRYER_RAF_CONFERENCE,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_reported_rate": "reported_rates.csv",
+                        "publication_fryer_retest_group": "retest_groups.csv",
+                        "publication_fryer_chamber_cluster": "chamber_clusters.csv",
                     },
                 )
                 load_register(db, ROOT)
