@@ -4781,6 +4781,11 @@ def test_preliminary_appraisals_trace_to_descriptive_cells_and_require_human_ver
         assert db.execute("""
             SELECT count(*) FROM review.review_result_appraisal WHERE domain='role_comparability'
         """).fetchone() == (2,)
+        assert db.execute("""
+            SELECT count(*), min(report_id), max(report_id)
+            FROM review.review_record
+            WHERE run_id GLOB '2026-11-23-rice-type-iia-correction-check-*' AND pmid='19522370'
+        """).fetchone() == (2, "pmid:19522370", "pmid:19522370")
 
 
 def test_formal_search_flow_and_source_identities(release):
