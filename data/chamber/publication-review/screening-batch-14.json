@@ -1,0 +1,2520 @@
+{
+  "batch_id": "14",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers confirmed 125 title and abstract decisions.",
+    "note": "Separate signed reviewer forms and individual result-level appraisals were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "061973c7e563974cf883c501e646ae08734740fd",
+    "evidence_sha256": "6c97c24bc150b2faa08ce373f5dac40a767d1ed5c89ebf7b788179ed9e0c9f7b",
+    "systematic_review_sha256": "d416dcc82c834cacc3ca8b9e37d8e4c52ea0ac3373f152ad8a1b8a3d6cf3facb"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:30429293",
+      "record_key": "2026-11-20-formal-chamber-pubmed#30429293",
+      "title": "Aviation medicine considerations in parachuting operations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30429293/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/30429293/",
+      "reason": "Aviation medicine considerations for parachuting operations. Clinical exposure described by the subject is flight or parachuting, without an identified operational chamber DCS cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM publication and author abstract https://pubmed.ncbi.nlm.nih.gov/30429293/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://pubmed.ncbi.nlm.nih.gov/30429293/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:30437443",
+      "record_key": "2026-11-20-formal-chamber-openalex#W3024364345",
+      "title": "Some Aspects of Aviation Medicine.",
+      "source_url": "https://openalex.org/W3024364345",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://openalex.org/W3024364345",
+      "reason": "Whittingham's broad wartime aviation medicine report has no author abstract. Verify whether the archive describes independent routine training cases or summarizes experimental physiology.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "NLM metadata and institutional original https://pmc.ncbi.nlm.nih.gov/articles/PMC5956186/"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "PMC lecture header and pp. 75–95, https://pmc.ncbi.nlm.nih.gov/articles/PMC5956186/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:32288494",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2107467332",
+      "title": "Contraindicaciones y recomendaciones médicas para los viajes en avión",
+      "source_url": "https://openalex.org/W2107467332",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W2107467332",
+      "reason": "Medical advice and contraindications for air travel. Different exposure and publication question.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and indexing https://pubmed.ncbi.nlm.nih.gov/32288494/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W2107467332"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:33175176",
+      "record_key": "2026-11-20-formal-chamber-openalex#W3100309470",
+      "title": "Flying After Concussion and Symptom Recovery in College Athletes and Military Cadets",
+      "source_url": "https://openalex.org/W3100309470",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W3100309470",
+      "reason": "Flying after concussion in athletes and cadets. The clinical endpoint is concussion recovery.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/33175176/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W3100309470"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:33791844",
+      "record_key": "2026-11-20-formal-chamber-openalex#W3148386974",
+      "title": "Physiology, pathophysiology and (mal)adaptations to chronic apnoeic training: a state-of-the-art review",
+      "source_url": "https://openalex.org/W3148386974",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W3148386974",
+      "reason": "State-of-the-art review of apnoeic training and adaptation, outside operational hypobaric chamber DCS surveillance.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and document type https://pubmed.ncbi.nlm.nih.gov/33791844/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W3148386974"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:34093227",
+      "record_key": "2026-11-20-formal-chamber-openalex#W3160406192",
+      "title": "Hypoxic Hypoxia and Brain Function in Military Aviation: Basic Physiology and Applied Perspectives",
+      "source_url": "https://openalex.org/W3160406192",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W3160406192",
+      "reason": "Review of hypoxic hypoxia and brain function in military aviation. Its clinical question is oxygen deprivation and cerebral performance.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/34093227/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed author abstract, https://openalex.org/W3160406192"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:35801184",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4283205278",
+      "title": "Intermittent Hypoxic Training as an Effective Tool for Increasing the Adaptive Potential, Endurance and Working Capacity of the Brain",
+      "source_url": "https://openalex.org/W4283205278",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4283205278",
+      "reason": "Intermittent hypoxic training for adaptive potential and endurance. Outcome differs from clinical decompression sickness.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/35801184/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4283205278"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:36916540",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4324129496",
+      "title": "Sclerotherapy of lower limb veins: Indications, contraindications and treatment strategies to prevent complications – A consensus document of the International Union of Phlebology-2023",
+      "source_url": "https://openalex.org/W4324129496",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4324129496",
+      "reason": "Phlebology consensus on sclerotherapy and complications. Wrong intervention and population.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/36916540/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4324129496"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:36946542",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4353016775",
+      "title": "Integrating physiological monitoring systems in military aviation: a brief narrative review of its importance, opportunities, and risks",
+      "source_url": "https://openalex.org/W4353016775",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4353016775",
+      "reason": "Narrative review of physiological monitoring for military aviation. No independent operational chamber risk set identified.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/36946542/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4353016775"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:37731539",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4386421573",
+      "title": "Editorial: Insights in Environmental, Aviation and Space Physiology: 2022",
+      "source_url": "https://openalex.org/W4386421573",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4386421573",
+      "reason": "Editorial for a journal research topic in environmental, aviation and space physiology.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/37731539/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4386421573"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:37878799",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4387948441",
+      "title": "A 15-Year Longitudinal Study of Body Composition in Finnish Military Divers",
+      "source_url": "https://openalex.org/W4387948441",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4387948441",
+      "reason": "Longitudinal body-composition outcomes in military divers. Wrong exposure and endpoint.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/37878799/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4387948441"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38068543",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4389307143",
+      "title": "Selected Exogenous (Occupational and Environmental) Risk Factors for Cardiovascular Diseases in Military and Aviation",
+      "source_url": "https://openalex.org/W4389307143",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4389307143",
+      "reason": "Review of military and aviation cardiovascular risk factors. Endpoint is cardiovascular disease.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/38068543/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4389307143"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38091595",
+      "record_key": "2026-11-20-formal-chamber-pubmed#38091595",
+      "title": "Cerebral arterial gas embolism (CAGE) during open water scuba certification training whilst practising a controlled emergency swimming ascent.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38091595/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/38091595/",
+      "reason": "Cerebral arterial gas embolism while practising an emergency ascent during open-water scuba training. Wrong setting and distinct clinical endpoint.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and case abstract https://pubmed.ncbi.nlm.nih.gov/38091595/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://pubmed.ncbi.nlm.nih.gov/38091595/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38125401",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4389393029",
+      "title": "Hypoxic acclimatization training improves the resistance to motion sickness",
+      "source_url": "https://openalex.org/W4389393029",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4389393029",
+      "reason": "Hypoxic acclimatization study evaluates motion sickness resistance. Different outcome.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/38125401/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4389393029"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38507908",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4393053673",
+      "title": "Chain of events analysis in diving accidents treated by the Royal Netherlands Navy 1966–2023",
+      "source_url": "https://openalex.org/W4393053673",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4393053673",
+      "reason": "Royal Netherlands Navy archive of diving accidents. It addresses diving injuries and treatment.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and study setting https://pubmed.ncbi.nlm.nih.gov/38507908/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4393053673"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38590157",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4394615228",
+      "title": "Perception, confidence, and willingness to respond to in-flight medical emergencies among medical students: a cross sectional study",
+      "source_url": "https://openalex.org/W4394615228",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4394615228",
+      "reason": "Survey of medical students about in-flight emergency response. No hypobaric training population.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/38590157/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4394615228"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38737532",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4394887620",
+      "title": "Travel Health-Related Preparation Practices of Institutions of Higher Education and Occurrence of Health-Related Events Among Undergraduate Students Studying Abroad, 2018–2021",
+      "source_url": "https://openalex.org/W4394887620",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4394887620",
+      "reason": "Travel health preparation and health-related events in study-abroad students. Outside scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/38737532/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4394887620"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38988755",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4396563962",
+      "title": "Barodontalgia and its implications for Navy divers and dentists: A narrative review",
+      "source_url": "https://openalex.org/W4396563962",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4396563962",
+      "reason": "Review of barodontalgia in Navy divers. Dental pain and underwater exposure.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/38988755/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4396563962"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:39131991",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4389195080",
+      "title": "Incidence of Atrial Fibrillation or Arrhythmias After Patent Foramen Ovale Closure",
+      "source_url": "https://openalex.org/W4389195080",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4389195080",
+      "reason": "Arrhythmias after PFO closure. Different intervention and outcome.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/39131991/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4389195080"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:39766495",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4405721833",
+      "title": "Neurological Biomarker Profiles in Royal Canadian Air Force (RCAF) Pilots and Aircrew",
+      "source_url": "https://openalex.org/W4405721833",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4405721833",
+      "reason": "RCAF aircrew neurological biomarkers, rather than adjudicated clinical chamber DCS. Title/abstract identifies a biomarker endpoint.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/39766495/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4405721833"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3983495",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2410496072",
+      "title": "Teaching and Training in Aviation Medicine in the United Kingdom",
+      "source_url": "https://openalex.org/W2410496072",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W2410496072",
+      "reason": "UK training of medical officers and other clinicians in aviation medicine. The course inventory does not identify a clinical chamber training cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/3983495/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/3983495/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:40562801",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4411621824",
+      "title": "Exploring the psychological impacts of water-based outdoor physical activities on university students: a qualitative interview study",
+      "source_url": "https://openalex.org/W4411621824",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4411621824",
+      "reason": "Qualitative interview study of water-based activity and psychological outcomes among university students.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/40562801/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4411621824"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:41090315",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4415191405",
+      "title": "Aviation medicine’s role in safeguarding aviation safety",
+      "source_url": "https://openalex.org/W4415191405",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4415191405",
+      "reason": "General aviation safety and role of aviation medicine. Indexed subject does not identify an original operational chamber DCS study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and indexing https://pubmed.ncbi.nlm.nih.gov/41090315/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/41090315/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:41222681",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4416143974",
+      "title": "Cumulative oxidative and inflammatory responses to repeated depth training in breath-hold divers: a multiparametric field study",
+      "source_url": "https://openalex.org/W4416143974",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4416143974",
+      "reason": "Oxidative and inflammatory outcomes in breath-hold divers after depth training. Different setting and endpoints.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/41222681/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4416143974"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:42835368",
+      "record_key": "2026-11-20-formal-chamber-openalex#W7213863813",
+      "title": "Human limits in next-generation fighter aviation: psychophysiological stressors, readiness, health, performance, and countermeasures",
+      "source_url": "https://openalex.org/W7213863813",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W7213863813",
+      "reason": "Overview of physiological stressors and readiness in advanced fighter aviation. Scope is broad aviation performance rather than clinical chamber surveillance.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and index https://pubmed.ncbi.nlm.nih.gov/42835368/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W7213863813"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:42835435",
+      "record_key": "2026-11-20-formal-chamber-openalex#W7213953350",
+      "title": "Aerospace stressors and brain health in military aviators: a glymphatic–neurovascular framework",
+      "source_url": "https://openalex.org/W7213953350",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W7213953350",
+      "reason": "Glymphatic–neurovascular framework for aerospace stressors and pilot brain health. Clinical training incidence is outside its stated conceptual outcome.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author index https://pubmed.ncbi.nlm.nih.gov/42835435/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W7213953350"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:42839649",
+      "record_key": "2026-11-20-formal-chamber-openalex#W7220968629",
+      "title": "EACTS Expert Consensus Document on Civil Aviation Following Cardiothoracic Surgery and Transcatheter Procedures",
+      "source_url": "https://openalex.org/W7220968629",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W7220968629",
+      "reason": "Expert consensus for civil air travel after cardiothoracic intervention. Different population and exposure.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/42839649/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W7220968629"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:4762209",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1967664956",
+      "title": "Ultrasonic Surveillance of Subatmospheric Decompression",
+      "source_url": "https://openalex.org/W1967664956",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W1967664956",
+      "reason": "The publisher's author abstract describes an experimental Doppler study for circulating bubbles during simulated rapid decompression to high altitude.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "Nature author preview https://www.nature.com/articles/246522a0 and v1.13 source"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher author abstract, pp. 522–523, https://www.nature.com/articles/246522a0"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:6405860",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4214910849",
+      "title": "Sexually transmitted disease surveillance 1981.",
+      "source_url": "https://openalex.org/W4214910849",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4214910849",
+      "reason": "Sexually transmitted disease surveillance. Unrelated health outcome.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and indexing https://pubmed.ncbi.nlm.nih.gov/6405860/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4214910849"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:26867422",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:26867422",
+      "title": "Recent changes in hypoxia training at the Royal Air Force Centre of Aviation Medicine.",
+      "source_url": "https://europepmc.org/article/MED/26867422",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/26867422",
+      "reason": "Wrigley describes transition from hypobaric chambers to scenario-based training using a reduced-oxygen breathing device. The abstract mentions DCS as a background risk without an observed cohort outcome.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/26867422/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, pp. 186–187, https://pubmed.ncbi.nlm.nih.gov/26867422/"
+        }
+      ]
+    },
+    {
+      "report_id": "record:2026-11-20-formal-chamber-ntrs-setting#20150020963",
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#20150020963",
+      "title": "Initial Incidence of White Matter Hyperintensities on MRI in Astronauts",
+      "source_url": "https://ntrs.nasa.gov/citations/20150020963",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://ntrs.nasa.gov/citations/20150020963",
+      "reason": "MRI white matter hyperintensities in astronauts. Physiological imaging endpoint and astronaut population differ from the review question.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NASA NTRS title and abstract https://ntrs.nasa.gov/citations/20150020963"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "NTRS title and accession, https://ntrs.nasa.gov/citations/20150020963"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:19228988",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:19228988",
+      "title": "Combined effect of denucleation and denitrogenation on the risk of decompression sickness in rats.",
+      "source_url": "https://europepmc.org/article/MED/19228988",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/19228988",
+      "reason": "Rat denucleation and denitrogenation experiment. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/19228988/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/19228988"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.28920/dhm54.2.110-119",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:38870953",
+      "title": "Effects of CO₂ on the occurrence of decompression sickness: review of the literature.",
+      "source_url": "https://europepmc.org/article/MED/38870953",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/38870953",
+      "reason": "Literature review of CO₂ effects in hyperbaric/hypobaric exposures with no original clinical operational chamber outcome cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary article https://pmc.ncbi.nlm.nih.gov/articles/PMC11444918/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/38870953"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.3357/asem.2576.2011",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21614886",
+      "title": "Fifty years of decompression sickness research at Brooks AFB, TX: 1960-2010.",
+      "source_url": "https://europepmc.org/article/MED/21614886",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/21614886",
+      "reason": "USAFSAM history and annotated research bibliography. Valuable for original report retrieval while the review itself supplies no independent routine training cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author introduction and bibliography https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Abstract and chapter contents, https://asma.kglmeridian.com/downloadpdf/view/journals/asem/82/5%3ASupplement/article-pA1.pdf"
+        }
+      ]
+    },
+    {
+      "report_id": "ntrs:20010020946",
+      "record_key": "2026-11-20-formal-chamber-ntrs-disease#20010020946",
+      "title": "Evidence-Based Approach to the Analysis of Serious Decompression Sickness with Application to EVA Astronauts",
+      "source_url": "https://ntrs.nasa.gov/citations/20010020946",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://ntrs.nasa.gov/citations/20010020946",
+      "reason": "Conkin's historical serious-DCS synthesis reanalyzes 258 tests from 73 referenced sources, including wartime chamber training and research. Its grouped counts are already v1.140, with source-level overlap held, and do not supply an independent operational chamber cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NASA TP-2001-210196 Appendix C pp.40–46 https://ntrs.nasa.gov/citations/20010020946"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Original abstract and Appendix C pp. 40–46, https://ntrs.nasa.gov/citations/20010020946"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W2399739399",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8830940",
+      "title": "Exercise-enhanced preoxygenation increases protection from decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/8830940",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/8830940",
+      "reason": "Controlled preoxygenation exercise study with planned hypobaric experimental exposures. Outside routine operational training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Final journal publication, PMID 8830940 https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/7/article-p618.pdf"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/8830940"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:33357273",
+      "record_key": "2026-11-20-formal-chamber-openalex#W3116398089",
+      "title": "Definitive Treatment of Neurological Decompression Sickness in a Resource Limited Location",
+      "source_url": "https://openalex.org/W3116398089",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W3116398089",
+      "reason": "Clinical case follows planned aircraft decompression during high-altitude low-opening parachute operations. It arose in flight rather than an aviation chamber.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author Case Report abstract indexed at https://openalex.org/W3116398089; DOI 10.3357/AMHP.5701.2021"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author case-report abstract, https://pubmed.ncbi.nlm.nih.gov/33357273/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11540992",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11540992",
+      "title": "Efficacy of Doppler ultrasound [correction of utrasound] for screening symptoms of decompression sickness during simulated extravehicular activities.",
+      "source_url": "https://europepmc.org/article/MED/11540992",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/11540992",
+      "reason": "Evaluation of Doppler for symptom screening during simulated EVA. Outside routine aviation chamber training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/11540992/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/11540992"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1156303",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1156303",
+      "title": "Prevention of decompression sickness during a simulated space docking mission.",
+      "source_url": "https://europepmc.org/article/MED/1156303",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/1156303",
+      "reason": "DCS prevention experiment simulating spacecraft docking. Wrong exposure purpose and population.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/1156303/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/1156303"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11763113",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11763113",
+      "title": "A review of the relationship between patent foramen ovale and type II decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/11763113",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/11763113",
+      "reason": "Published review of PFO and Type II DCS across settings. It gives no independent operational chamber outcome study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract, Publication Type Review https://pubmed.ncbi.nlm.nih.gov/11763113/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/11763113"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11766705",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11766705",
+      "title": "[Study on testing method of susceptibility to decompression sickness in aerospace].",
+      "source_url": "https://europepmc.org/article/MED/11766705",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/11766705",
+      "reason": "Astronaut susceptibility test in 43 research subjects undergoing hypobaric exposure, outside routine aviation training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract, Objective/Methods https://pubmed.ncbi.nlm.nih.gov/11766705/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/11766705"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12182221",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12182221",
+      "title": "Epidemic decompression sickness: case report, literature review, and clinical commentary.",
+      "source_url": "https://europepmc.org/article/MED/12182221",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/12182221",
+      "reason": "Butler's original cluster is six among 17 AC-130 crew in actual flight. Operational chamber outbreaks described separately in the paper are historical, cited cases; follow original investigations rather than counting them again.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract https://pubmed.ncbi.nlm.nih.gov/12182221/ and repo Zotero source"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/12182221/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12498543",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12498543",
+      "title": "Enhancement of preoxygenation for decompression sickness protection: effect of exercise duration.",
+      "source_url": "https://europepmc.org/article/MED/12498543",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/12498543",
+      "reason": "Controlled research on exercise duration during preoxygenation for decompression protection. No routine chamber training risk set.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/12498543/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/12498543"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1417653",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1417653",
+      "title": "The influence of prior exercise at anaerobic threshold on decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/1417653",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/1417653",
+      "reason": "Experimental prior exercise at anaerobic threshold to assess DCS susceptibility. Outside routine chamber training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/1417653/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/1417653/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:14620475",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:14620475",
+      "title": "Decompression sickness in women: a possible relationship with the menstrual cycle.",
+      "source_url": "https://europepmc.org/article/MED/14620475",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/14620475",
+      "reason": "Lee et al. pursues menstrual association in diving records. The article discusses altitude DCS via prior studies, including Rudge, without new chamber-training outcomes.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original author abstract and Methods https://www.ddrc.org/wp-content/uploads/2003-Lee-DCS-Menst-Cycle-ASEM-2003.pdf"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/14620475/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15267082",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15267082",
+      "title": "Probabilistic model of decompression sickness based on stochastic models of bubbling in tissues.",
+      "source_url": "https://europepmc.org/article/MED/15267082",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/15267082",
+      "reason": "Probabilistic DCS model based on tissue bubbling. No independent observed operational training cohort identified.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/15267082/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/15267082"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15686274",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15686274",
+      "title": "Experimental trials to assess the risks of decompression sickness in flying after diving.",
+      "source_url": "https://europepmc.org/article/MED/15686274",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/15686274",
+      "reason": "Controlled flying-after-diving trials. Prior diving and experimental design outside primary scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/15686274/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/15686274"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16110695",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16110695",
+      "title": "Decompression sickness during simulated extravehicular activity: ambulation vs. non-ambulation.",
+      "source_url": "https://europepmc.org/article/MED/16110695",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/16110695",
+      "reason": "Controlled ambulation comparison in simulated EVA. Outcome is relevant mechanistically but population is outside routine aviation training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/16110695/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/16110695"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16997779",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16997779",
+      "title": "Interfacility transport of patients with decompression illness: literature review and consensus statement.",
+      "source_url": "https://europepmc.org/article/MED/16997779",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/16997779",
+      "reason": "Literature review and consensus on interfacility DCI transport. No original training incidence risk set.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/16997779/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/16997779"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:17274310",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17274310",
+      "title": "Hyperbaric oxygen pre-breathe modifies the outcome of decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/17274310",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/17274310",
+      "reason": "Hyperbaric prebreathing and decompression of rats. Experimental animal outcomes.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/17274310/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/17274310/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:19456008",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:19456008",
+      "title": "Resolution and severity in decompression illness.",
+      "source_url": "https://europepmc.org/article/MED/19456008",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/19456008",
+      "reason": "Review of DCI terminology, symptom resolution and survival analysis. No independent operational chamber training cohort established in author abstract.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/19456008/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/19456008/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1996934",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1996934",
+      "title": "Decompression sickness presenting as a viral syndrome.",
+      "source_url": "https://europepmc.org/article/MED/1996934",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://europepmc.org/article/MED/1996934",
+      "reason": "Rudge describes two altitude DCS cases initially considered viral syndrome. The public abstract does not tell whether each episode arose in training, research, or aircraft. Retrieve the original pp.60–61.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/1996934/"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Author abstract and publisher pp. 60–61, https://pubmed.ncbi.nlm.nih.gov/1996934/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20058739",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20058739",
+      "title": "Severe neurological decompression sickness in a U-2 pilot.",
+      "source_url": "https://europepmc.org/article/MED/20058739",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/20058739",
+      "reason": "Severe neurological DCS in a U-2 pilot in operational flight. No training-chamber exposure established.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and case abstract https://pubmed.ncbi.nlm.nih.gov/20058739/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/20058739"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2031639",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2031639",
+      "title": "Decompression sickness presenting as optic neuropathy.",
+      "source_url": "https://europepmc.org/article/MED/2031639",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/2031639",
+      "reason": "Case of optic neuropathy after repeated unpressurized-aircraft parachute training, with uncertain causal exposure and competing diagnosis. Outside chamber setting.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original Case Report pp.346–348 https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/4/article-p346.pdf; v1.110"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Original Case Report and Discussion pp. 346–350, https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/4/article-p346.pdf"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21197850",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21197850",
+      "title": "Decompression sickness risk at 6553 m breathing two gas mixtures.",
+      "source_url": "https://europepmc.org/article/MED/21197850",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/21197850",
+      "reason": "Controlled gas-mixture comparison at 6,553 m to elicit decompression outcomes. Experimental hypobaria and no routine training risk set.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/21197850/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/21197850"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21702308",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21702308",
+      "title": "Decompression sickness after air break in prebreathe described with a survival model.",
+      "source_url": "https://europepmc.org/article/MED/21702308",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/21702308",
+      "reason": "Survival modeling of oxygen prebreathe air-break experiments. Keep as research-chamber evidence outside operational aviation training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/21702308/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/21702308/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2256876",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2256876",
+      "title": "A case of decompression sickness at 2,437 meters (8,000 feet).",
+      "source_url": "https://europepmc.org/article/MED/2256876",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/2256876",
+      "reason": "Rudge's presumptive 8,000-ft event arose in actual B-52 flight; source discusses diagnostic uncertainty. Outside chamber scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original pp.1026–1027 https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1026.pdf; v1.158"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Original Case Report and Discussion pp. 1026–1027, https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1026.pdf"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2285404",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2285404",
+      "title": "Decompression sickness affecting the temporomandibular joint.",
+      "source_url": "https://europepmc.org/article/MED/2285404",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://europepmc.org/article/MED/2285404",
+      "reason": "Rudge reports two pain-only temporomandibular DCS cases after altitude chamber exposure; advance to verify routine versus research setting, clinical ascertainment and overlap. No exposed denominator in abstract.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/2285404/"
+        },
+        {
+          "decision": "include",
+          "evidence": "Author abstract, pp. 1139–1140, https://pubmed.ncbi.nlm.nih.gov/2285404/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:23111836",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:23111836",
+      "title": "The potential role of perfluorocarbon emulsions in decompression illness.",
+      "source_url": "https://europepmc.org/article/MED/23111836",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/23111836",
+      "reason": "Review of potential perfluorocarbon treatment in decompression illness. No independent operational training cohort in the stated topic.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/23111836/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/23111836"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:23602149",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:23602149",
+      "title": "Severe capillary leak syndrome after inner ear decompression sickness in a recreational scuba diver.",
+      "source_url": "https://europepmc.org/article/MED/23602149",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/23602149",
+      "reason": "Inner-ear DCS with capillary leak after recreational scuba. Wrong setting.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and case abstract https://pubmed.ncbi.nlm.nih.gov/23602149/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/23602149"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:24851553",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:24851553",
+      "title": "Hyperbaric oxygen treatment for decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/24851553",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/24851553",
+      "reason": "Treatment review on hyperbaric oxygen for DCS rather than observation of routine training events.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and document type https://pubmed.ncbi.nlm.nih.gov/24851553/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/24851553/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:25450221",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:25450221",
+      "title": "A ternary model of decompression sickness in rats.",
+      "source_url": "https://europepmc.org/article/MED/25450221",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/25450221",
+      "reason": "Rat DCS model. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/25450221/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/25450221"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:25906396",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:25906396",
+      "title": "Delayed recompression for decompression sickness: retrospective analysis.",
+      "source_url": "https://europepmc.org/article/MED/25906396",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/25906396",
+      "reason": "Retrospective treatment timing analysis following DCS. The report evaluates outcomes after referral and recompression, without a training exposure risk set in the available record.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/25906396/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/25906396/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:27127019",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:27127019",
+      "title": "Effect of metabolic gases and water vapor, perfluorocarbon emulsions, and nitric oxide on tissue bubbles during decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/27127019",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/27127019",
+      "reason": "Mechanistic study of tissue bubbles, metabolic gases and other interventions. No original clinical operational aviation chamber risk set established.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/27127019/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/27127019"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2761212",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2761212",
+      "title": "[Possibility of the development of decompression sickness during testing of G suits].",
+      "source_url": "https://europepmc.org/article/MED/2761212",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/2761212",
+      "reason": "Chamber testing of special G suits in a research population. Author abstract reports 29 disease-positive experiments in 1,179 tests and 26 affected among 193 participants. Preserve counting units in the research database only.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/2761212/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/2761212/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:28790934",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:28790934",
+      "title": "Skin Lesions in Swine with Decompression Sickness: Clinical Appearance and Pathogenesis.",
+      "source_url": "https://europepmc.org/article/MED/28790934",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/28790934",
+      "reason": "Swine skin lesions in DCS. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/28790934/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/28790934"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:29545754",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:29545754",
+      "title": "Angiotensin Converting Enzyme Inhibitor Has a Protective Effect on Decompression Sickness in Rats.",
+      "source_url": "https://europepmc.org/article/MED/29545754",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/29545754",
+      "reason": "ACE-inhibitor experiment in rats. Nonhuman setting.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/29545754/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/29545754"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:29673435",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:29673435",
+      "title": "Decompression Sickness in the F/A-18C After Atypical Cabin Pressure Fluctuations.",
+      "source_url": "https://europepmc.org/article/MED/29673435",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/29673435",
+      "reason": "Both reported DCS cases originated in F/A-18C aircraft during cabin pressure fluctuations. The chamber was a treatment destination.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM case abstract https://pubmed.ncbi.nlm.nih.gov/29673435/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/29673435"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:31683368",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:31683368",
+      "title": "Hyperbaric treatment for decompression sickness: current recommendations.",
+      "source_url": "https://europepmc.org/article/MED/31683368",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/31683368",
+      "reason": "Recommendations on clinical recompression therapy. Provides treatment guidance without an original routine chamber training cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/31683368/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/31683368"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:31686213",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:31686213",
+      "title": "Perfluorocarbons for the treatment of decompression illness: how to bridge the gap between theory and practice.",
+      "source_url": "https://europepmc.org/article/MED/31686213",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/31686213",
+      "reason": "Review of perfluorocarbon DCI therapy. Clinical exposure incidence is outside the article's focus.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/31686213/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/31686213"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3182487",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3182487",
+      "title": "Experimental respiratory decompression sickness in sheep.",
+      "source_url": "https://europepmc.org/article/MED/3182487",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/3182487",
+      "reason": "Experimental respiratory DCS in sheep. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/3182487/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/3182487"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3202791",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3202791",
+      "title": "Decompression sickness and the role of exercise during decompression.",
+      "source_url": "https://europepmc.org/article/MED/3202791",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/3202791",
+      "reason": "Kumar's DCS case followed a hypobaric treadmill exercise study and accidental chamber pressure change. The 1988 case duplicates the 1986 companion case with timing differences; both experimental, not routine aviation training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original case pp.1080–1081 and Figure 1 https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/11/article-p1080.pdf; v1.38 and v1.137"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Original Case History pp. 1080–1081 and Figure 1, https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/11/article-p1080.pdf"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:32174319",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:32174319",
+      "title": "Trinomial decompression sickness model using full, marginal, and non-event outcomes.",
+      "source_url": "https://europepmc.org/article/MED/32174319",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/32174319",
+      "reason": "Trinomial DCS risk model fit to deep sea dive data. Hyperbaric diving population.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original abstract https://doi.org/10.1016/j.compbiomed.2020.103640"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/32174319/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:32176954",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:32176954",
+      "title": "Chronic decompression illness cognitive dysfunction improved with hyperbaric oxygen: a case report.",
+      "source_url": "https://europepmc.org/article/MED/32176954",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://europepmc.org/article/MED/32176954",
+      "reason": "The original Case History identifies a 25,000-ft chamber-training case with neurological symptoms and later cognitive follow-up. Preserve the source DCI endpoint. Reuse the existing source case and check the analysis setting.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "NLM title and author index https://pubmed.ncbi.nlm.nih.gov/32176954/"
+        },
+        {
+          "decision": "include",
+          "evidence": "Publisher case abstract and archived source Case History pp. 131–132, https://uhms.org/uhm-search/uhm-journal-volume-47-2020/number-1/chronic-decompression-illness-cognitive-dysfunction-improved-with-hyperbaric-oxygen-a-case-report.html"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3240214",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3240214",
+      "title": "Decompression sickness and bubble formation in females exposed to a simulated 7.8 psia suit environment.",
+      "source_url": "https://europepmc.org/article/MED/3240214",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/3240214",
+      "reason": "Controlled 7.8 psia pressure-suit analogue with female participants, clinical outcomes and bubbles. Research exposure outside routine training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/3240214/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/3240214"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3240220",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3240220",
+      "title": "Fatal pulmonary decompression sickness: a case report.",
+      "source_url": "https://europepmc.org/article/MED/3240220",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://europepmc.org/article/MED/3240220",
+      "reason": "The fatal index case followed actual flight. Tables I–II independently report historical USAF chamber student manifestations and symptom timing. Keep these scopes separate and verify overlap before considering any observations.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM case abstract https://pubmed.ncbi.nlm.nih.gov/3240220/"
+        },
+        {
+          "decision": "include",
+          "evidence": "Original Case History and Tables I–II pp. 1181–1183, https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:32591033",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:32591033",
+      "title": "Decompression Sickness Treatment Using a Pressure Suit After Loss of Spacecraft Atmosphere.",
+      "source_url": "https://europepmc.org/article/MED/32591033",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/32591033",
+      "reason": "Treatment options with a pressure suit following loss of spacecraft atmosphere. Outside routine aviation chamber setting.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/32591033/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/32591033"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:33975411",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33975411",
+      "title": "Hyperbaric oxygen for decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/33975411",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/33975411",
+      "reason": "Hyperbaric oxygen treatment article. No independent operational training cohort established in the author record.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/33975411/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/33975411"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:35645382",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:35645382",
+      "title": "Breath-Hold Diving-Related Decompression Sickness with Brain Involvement: From Neuroimaging to Pathophysiology.",
+      "source_url": "https://europepmc.org/article/MED/35645382",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/35645382",
+      "reason": "Neurological DCS after breath-hold diving with neuroimaging review. Wrong exposure.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/35645382/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/35645382"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:36001561",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:36001561",
+      "title": "Decompression sickness with incidental pulmonary cyst.",
+      "source_url": "https://europepmc.org/article/MED/36001561",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/36001561",
+      "reason": "Case of DCS with incidental pulmonary cyst arose in a 16-year-old undergoing scuba instruction. Outside aviation chamber scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original case in UHM 49(3) https://duikgeneeskunde.nl/wp-content/uploads/2023/08/UHM-Journal-49-3-color-online-version.pdf"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/36001561/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3675514",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3675514",
+      "title": "The effects of exercise on bubble formation and bends susceptibility at 9,100 m (30,000 ft; 4.3 psia).",
+      "source_url": "https://europepmc.org/article/MED/3675514",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/3675514",
+      "reason": "Experimental exercise and bubble production at 30,000 ft. Controlled laboratory exposure outside routine aviation training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/3675514/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/3675514"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:38504776",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:38504776",
+      "title": "Occupational decompression sickness: A case report.",
+      "source_url": "https://europepmc.org/article/MED/38504776",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/38504776",
+      "reason": "Occupational DCS case concerns decompression after working in a pressurized industrial environment. The original case describes missed decompression staging; the aviation material is background.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original Case section https://onlinelibrary.wiley.com/doi/full/10.1002/emp2.13144"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and publisher case record, https://doi.org/10.1002/emp2.13144"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:39502986",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:39502986",
+      "title": "Under Pressure: A Case Report of a Diver's Close Encounter With the Bends.",
+      "source_url": "https://europepmc.org/article/MED/39502986",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/39502986",
+      "reason": "Scuba diver case. Wrong exposure.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/39502986/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/39502986"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:3964151",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3964151",
+      "title": "Decompression sickness and intravenous bubble formation using a 7.8 psia simulated pressure-suit environment.",
+      "source_url": "https://europepmc.org/article/MED/3964151",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/3964151",
+      "reason": "Controlled 7.8 psia pressure-suit analogue with DCS and venous bubbles. No routine training risk set.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/3964151/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/3964151"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:40249722",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:40249722",
+      "title": "Decompression Sickness: Current Recommendations.",
+      "source_url": "https://europepmc.org/article/MED/40249722",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/40249722",
+      "reason": "Clinical recommendations for decompression sickness, rather than a primary training outcome cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and publication type https://pubmed.ncbi.nlm.nih.gov/40249722/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/40249722"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:42793171",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:42793171",
+      "title": "Circulating Bubbles in Decompression Sickness: Pathophysiology and Experimental Models.",
+      "source_url": "https://europepmc.org/article/MED/42793171",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/42793171",
+      "reason": "Review of bubble pathophysiology and experimental models. No original routine training cohort identified.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/42793171/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/42793171"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:656001",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:656001",
+      "title": "Preventive effect of a vasodilator on the occurrence of decompression sickness in rabbits.",
+      "source_url": "https://europepmc.org/article/MED/656001",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/656001",
+      "reason": "Vasodilator study in rabbits. Nonhuman populations.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/656001/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/656001"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:718575",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:718575",
+      "title": "Intracardial gas bubbles and decompression sickness while flying at 9,000 m within 12-24 h of diving.",
+      "source_url": "https://europepmc.org/article/MED/718575",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/718575",
+      "reason": "High-altitude flight within 12–24 hours of diving, with Doppler bubbles and DCS. Previous diving and research setting are outside primary scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/718575/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/718575"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:7839169",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:7839169",
+      "title": "Decompression sickness in a private pilot.",
+      "source_url": "https://europepmc.org/article/MED/7839169",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/7839169",
+      "reason": "DCS in a private pilot during actual flight. Wrong exposure setting.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and case abstract https://pubmed.ncbi.nlm.nih.gov/7839169/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/7839169"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:7945136",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:7945136",
+      "title": "Survivorship models for estimating the risk of decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/7945136",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/7945136",
+      "reason": "Survivorship model for DCS under researched pressure profiles. Retain as model-method reference without an independently demonstrated operational training cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original paper https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/7/article-p661.pdf"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/7945136/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:7980334",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:7980334",
+      "title": "Visual manifestations of neurologic decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/7980334",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://europepmc.org/article/MED/7980334",
+      "reason": "Fitzpatrick has clinical onset and role detail for 33 selected Type II visual DCS cases after chamber training or research, separable from five aircraft cases. Advance to assess setting detail and treatment-archive overlap. No exposed denominator.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Original Methods/Results pp.736–737 and Table II https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/8/article-p736.pdf; v1.29"
+        },
+        {
+          "decision": "include",
+          "evidence": "Original Methods and Results pp. 736–737, Table II p. 737, https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/8/article-p736.pdf"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:8280036",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8280036",
+      "title": "Epidemiology of decompression sickness under simulated space extravehicular activities.",
+      "source_url": "https://europepmc.org/article/MED/8280036",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/8280036",
+      "reason": "Simulated space EVA epidemiology; outside the routine operational aviation chamber cohort scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/8280036/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/8280036"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:8280039",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8280039",
+      "title": "Prevention of decompression sickness in current and future fighter aircraft.",
+      "source_url": "https://europepmc.org/article/MED/8280039",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/8280039",
+      "reason": "Fighter aircraft DCS prevention and pressure protection. The article topic is operational aircraft countermeasures rather than surveillance of routine chamber instruction.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original article https://asma.kglmeridian.com/downloadpdf/view/journals/asem/64/11/article-p1048.pdf"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/8280039"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:8289154",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8289154",
+      "title": "Dysbarism: the medical problems from high and low atmospheric pressure.",
+      "source_url": "https://europepmc.org/article/MED/8289154",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/8289154",
+      "reason": "General review of high- and low-pressure dysbarism. No independent operational training observations in author abstract.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/8289154/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/8289154/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:8775397",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8775397",
+      "title": "Neurological decompression illness in swine.",
+      "source_url": "https://europepmc.org/article/MED/8775397",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/8775397",
+      "reason": "Neurological DCI in swine. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/8775397/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/8775397"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:8929209",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8929209",
+      "title": "The distribution of limb pain in decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/8929209",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/8929209",
+      "reason": "The original author abstract describes a mixed-setting secondary case compilation from a diving accident archive, literature and other reports. Use attributable original reports for clinical evidence.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/8929209/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/8929209/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:9125093",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:9125093",
+      "title": "Utility of Doppler-detectable microbubbles in the diagnosis and treatment of decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/9125093",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/9125093",
+      "reason": "NASA–JSC clinical DCS and Doppler diagnostic reanalysis of experimental hypobaric chamber exposures. Retain in separate experimental evidence, without promoting it to routine training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original Methods and Table I pp.152–153 https://asma.kglmeridian.com/downloadpdf/view/journals/asem/68/2/article-p151.pdf; v1.120"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/9125093/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:9591625",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:9591625",
+      "title": "Case report: inflight decompression sickness affecting the temporomandibular joint.",
+      "source_url": "https://europepmc.org/article/MED/9591625",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/9591625",
+      "reason": "First source-reported in-flight temporomandibular DCS case. Do not confuse with Rudge's separate chamber TMJ cases.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM case abstract https://pubmed.ncbi.nlm.nih.gov/9591625/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/9591625"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:966673",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:966673",
+      "title": "[Prevention of decompression sickness as applied to conditions of multiple space walks].",
+      "source_url": "https://europepmc.org/article/MED/966673",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/966673",
+      "reason": "Repeated spacewalk prevention simulation in six research participants. Outside aviation chamber training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/966673/; v1.17"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/966673"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:9934437",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:9934437",
+      "title": "[Decompression sickness-one of the vital problems of aerospace medicine].",
+      "source_url": "https://europepmc.org/article/MED/9934437",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/9934437",
+      "reason": "Katuntsev's aerospace DCS literature and terminology review. No independent primary routine training risk set.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/9934437/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/9934437/"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1038/s41526-021-00175-3",
+      "record_key": "2026-11-20-formal-chamber-openalex#W3211552716",
+      "title": "Revisiting decompression sickness risk and mobility in the context of the SmartSuit, a hybrid planetary spacesuit",
+      "source_url": "https://openalex.org/W3211552716",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W3211552716",
+      "reason": "Hybrid planetary spacesuit mobility and DCS risk evaluation for space EVA. Outside operational aviation training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Original article https://www.nature.com/articles/s41526-021-00175-3"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W3211552716"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.70517/ijhsa46488",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4413461609",
+      "title": "Analyzing the mechanism of influence of hyperbaric oxygen therapy on psychological recovery of decompression sickness patients based on quantitative computational modeling",
+      "source_url": "https://openalex.org/W4413461609",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4413461609",
+      "reason": "Computational study of hyperbaric oxygen and psychological recovery. Different endpoint and no chamber training incidence cohort.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Publisher title https://openalex.org/W4413461609"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4413461609"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.7302/25061",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4406145113",
+      "title": "Mechanics of Spinal Cord Decompression Sickness",
+      "source_url": "https://openalex.org/W4406145113",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://openalex.org/W4406145113",
+      "reason": "Mechanics of spinal cord DCS dissertation investigates tissue mechanics, including bovine spinal cord samples, rather than operational training clinical cases.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "University original https://deepblue.lib.umich.edu/bitstream/handle/2027.42/196125/alvarro_1.pdf?sequence=1"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://openalex.org/W4406145113"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:10439691",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10439691",
+      "title": "[Decompression sickness after diving and following flying].",
+      "source_url": "https://europepmc.org/article/MED/10439691",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/10439691",
+      "reason": "Decompression symptoms after diving and subsequent flying. Previous diving and exposure sequence outside primary scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and indexing https://pubmed.ncbi.nlm.nih.gov/10439691/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/10439691"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:10757012",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10757012",
+      "title": "Computed chest tomography in an animal model for decompression sickness: radiologic, physiologic, and pathologic findings.",
+      "source_url": "https://europepmc.org/article/MED/10757012",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/10757012",
+      "reason": "Chest CT study of an animal DCS model. Nonhuman.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/10757012/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/10757012"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:10883229",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10883229",
+      "title": "[Decompression sickness in divers treated at the Israel Naval Medical Institute between the years 1992 to 1997].",
+      "source_url": "https://europepmc.org/article/MED/10883229",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/10883229",
+      "reason": "Israeli Naval Medical Institute archive of treated diver DCS. Wrong exposure.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/10883229/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/10883229"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:10897865",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10897865",
+      "title": "Decompression sickness during saturation dives.",
+      "source_url": "https://europepmc.org/article/MED/10897865",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/10897865",
+      "reason": "DCS during saturation dives. Hyperbaric diving setting.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/10897865/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/10897865"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:10926667",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10926667",
+      "title": "Natural history of severe decompression sickness after rapid ascent from air saturation in a porcine model.",
+      "source_url": "https://europepmc.org/article/MED/10926667",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/10926667",
+      "reason": "Porcine severe DCS after rapid decompression from saturation. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/10926667/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/10926667"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:10968146",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10968146",
+      "title": "Decompression illness associated with underwater logging: 6 case reports from Kenyir Lake, Malaysia.",
+      "source_url": "https://europepmc.org/article/MED/10968146",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/10968146",
+      "reason": "Six cases after underwater logging in Malaysia. Wrong pressure environment and occupational group.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and case abstract https://pubmed.ncbi.nlm.nih.gov/10968146/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/10968146"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1164359",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1164359",
+      "title": "Central nervous system involvement following type I aviator's bends complicated by complacency.",
+      "source_url": "https://europepmc.org/article/MED/1164359",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://europepmc.org/article/MED/1164359",
+      "reason": "Dully presents neurological complications after pain-only bends during a low-pressure chamber flight. Advance to verify whether this was routine training and extract onset, diagnostic certainty and published case overlap.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/1164359/"
+        },
+        {
+          "decision": "include",
+          "evidence": "Author abstract, pp. 1186–1187, https://pubmed.ncbi.nlm.nih.gov/1164359/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1168317",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1168317",
+      "title": "Mechanisms underlying spinal cord damage in decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/1168317",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/1168317",
+      "reason": "Spinal cord DCS was induced in anesthetized dogs using a compression chamber. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract indexed at https://openalex.org/W1972234907 and journal record https://www.neurology.org/doi/10.1212/WNL.25.4.308"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/1168317/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11717238",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11717238",
+      "title": "Increasing activity of H(2)-metabolizing microbes lowers decompression sickness risk in pigs during H(2) dives.",
+      "source_url": "https://europepmc.org/article/MED/11717238",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/11717238",
+      "reason": "Hydrogen metabolism experiment in pigs undergoing H₂ dives. Nonhuman hyperbaric study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/11717238/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/11717238"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11908700",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11908700",
+      "title": "Decompression sickness risk reduced by native intestinal flora in pigs after H2 dives.",
+      "source_url": "https://europepmc.org/article/MED/11908700",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/11908700",
+      "reason": "Native intestinal flora in pigs after hydrogen dives. Nonhuman hyperbaric study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/11908700/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/11908700"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12875341",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12875341",
+      "title": "Probabilistic modelling for estimating gas kinetics and decompression sickness risk in pigs during H2 biochemical decompression.",
+      "source_url": "https://europepmc.org/article/MED/12875341",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/12875341",
+      "reason": "Pig H₂ biochemical decompression gas-kinetics model. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/12875341/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/12875341"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15018287",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15018287",
+      "title": "Detection of leukocyte activation in pigs with neurologic decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/15018287",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/15018287",
+      "reason": "Leukocyte activation in pigs with neurological DCS. Nonhuman.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/15018287/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/15018287"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15191771",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15191771",
+      "title": "Risk of decompression illness among 230 divers in relation to the presence and size of patent foramen ovale.",
+      "source_url": "https://europepmc.org/article/MED/15191771",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/15191771",
+      "reason": "Dive cohort examining PFO presence/size and decompression illness. Wrong clinical exposure setting.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/15191771/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/15191771"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15619855",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15619855",
+      "title": "Consensus factors used by experts in the diagnosis of decompression illness.",
+      "source_url": "https://europepmc.org/article/MED/15619855",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/15619855",
+      "reason": "Expert DCI diagnostic judgments on simulated diving injury vignettes; no observed training cases or denominator.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract, Introduction/Methods https://pubmed.ncbi.nlm.nih.gov/15619855/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/15619855"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15742823",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15742823",
+      "title": "Isoproterenol accelerates decompression sickness and death after saturation dives in swine.",
+      "source_url": "https://europepmc.org/article/MED/15742823",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/15742823",
+      "reason": "Isoproterenol and saturation dives in swine. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/15742823/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/15742823"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16272943",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16272943",
+      "title": "Inner ear decompression sickness and mal de debarquement.",
+      "source_url": "https://europepmc.org/article/MED/16272943",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/16272943",
+      "reason": "Inner-ear DCS and mal de débarquement. Indexed clinical source concerns diving rather than operational chamber training.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author index https://pubmed.ncbi.nlm.nih.gov/16272943/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/16272943/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16860525",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16860525",
+      "title": "[Decompression sickness accident management in remote areas. Use of immediate in-water recompression therapy. Review and elaboration of a new protocol targeted for a mission at Clipperton atoll].",
+      "source_url": "https://europepmc.org/article/MED/16860525",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/16860525",
+      "reason": "In-water recompression guidance for a remote diving mission. Case-management review outside scope.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/16860525/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/16860525"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16909872",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16909872",
+      "title": "Nitrogen load in rats exposed to 8 ATA from 10-35 degrees C does not influence decompression sickness risk.",
+      "source_url": "https://europepmc.org/article/MED/16909872",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/16909872",
+      "reason": "Nitrogen load experiments in rats under hyperbaric pressure. Nonhuman.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/16909872/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/16909872"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:17042243",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17042243",
+      "title": "Delayed treatment of decompression sickness with short, no-air-break tables: review of 140 cases.",
+      "source_url": "https://europepmc.org/article/MED/17042243",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/17042243",
+      "reason": "Treatment response in 140 delayed DCS cases after recompression; the report concerns therapy and gives no operational chamber training risk set in the author abstract.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM author abstract https://pubmed.ncbi.nlm.nih.gov/17042243/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract Methods, https://pubmed.ncbi.nlm.nih.gov/17042243/"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:17095628",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17095628",
+      "title": "Short oxygen prebreathing and intravenous perfluorocarbon emulsion reduces morbidity and mortality in a swine saturation model of decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/17095628",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/17095628",
+      "reason": "Swine saturation model and therapy. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/17095628/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/17095628"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:17194730",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17194730",
+      "title": "Decompression sickness in the rat following a dive on trimix: recompression therapy with oxygen vs. heliox and oxygen.",
+      "source_url": "https://europepmc.org/article/MED/17194730",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://europepmc.org/article/MED/17194730",
+      "reason": "Rat trimix diving and recompression therapy. Nonhuman study.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "NLM title and author abstract https://pubmed.ncbi.nlm.nih.gov/17194730/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed title, https://europepmc.org/article/MED/17194730"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1767278",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1767278",
+      "title": "Hyperbaric oxygen therapy: treatment for spinal cord decompression sickness.",
+      "source_url": "https://europepmc.org/article/MED/1767278",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://europepmc.org/article/MED/1767278",
+      "reason": "The PubMed XML contains no author abstract. The initiating setting and any original operational chamber observations require the original pages.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "NLM author abstract and indexing https://pubmed.ncbi.nlm.nih.gov/1767278/"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, https://pubmed.ncbi.nlm.nih.gov/1767278/"
+        }
+      ]
+    }
+  ]
+}

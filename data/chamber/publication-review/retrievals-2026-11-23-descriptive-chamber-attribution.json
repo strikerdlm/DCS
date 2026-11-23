@@ -1,0 +1,97 @@
+[
+  {
+    "id": "2026-11-23-descriptive-chamber-attribution",
+    "date": "2026-11-23",
+    "provider": "Journal publisher and archived DTIC originals",
+    "operation": "supplementary_full_text_scope_verification",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://hl.ageditor.ar/index.php/hl/article/download/18/80/177#page=5",
+          "operation": "verify publisher PDF, source digest and Table 2",
+          "terms": "2017 decompression illness, hearing injury, denominator and setting"
+        },
+        {
+          "url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29",
+          "operation": "verify public original PDF, source digest and chapter B count",
+          "terms": "AD0686100 McIver clinical tally, printed p. B-7"
+        }
+      ]
+    },
+    "note": "Outcome observations are retained under source-specific endpoints with no enumerated chamber risk set. No original scans enter this input.",
+    "records": [
+      {
+        "id": "leon-table2-2017",
+        "title": "Hearing injuries due to atmospheric pressure changes in air and water survival training instructors",
+        "year": 2023,
+        "url": "https://hl.ageditor.ar/index.php/hl/article/download/18/80/177#page=5",
+        "primary_source": "https://hl.ageditor.ar/index.php/hl/article/download/18/80/177#page=5",
+        "access": "full_text",
+        "full_text_available": true,
+        "source_sha256": "8a935e1bbc6237e3ef683457adc5f3fa0f728b182db8f35c1510d41088ce2465",
+        "locator": "Methods and Results, PDF pp. 3–4; 2017 row of Table 2, PDF p. 5",
+        "role_review": "descriptive_attribution_hold",
+        "note": "Records cover 20 instructors in Aragua with both air and water survival duties in 2012–2022. The 2017 case is recorded as decompression illness with hearing injury. The initiating activity is unknown. Two years shown as no record supply no surveillance zero.",
+        "model_extraction": {
+          "source_id": "leon23_mixed_setting_hearing",
+          "input_release": "v1.271"
+        },
+        "observations": [
+          {
+            "id": "leon-table2-2017",
+            "study_id": "aragua-mixed-air-water-survival-instructors",
+            "group": "2017 mixed-setting occupational record",
+            "endpoint": "decompression_illness_with_hearing_injury",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Methods and Results, PDF pp. 3–4; 2017 row of Table 2, PDF p. 5",
+            "note": "Records cover 20 instructors in Aragua with both air and water survival duties in 2012–2022. The 2017 case is recorded as decompression illness with hearing injury. The initiating activity is unknown. Two years shown as no record supply no surveillance zero."
+          }
+        ],
+        "doi": "10.56294/hl202339",
+        "occupational_instructors_reviewed": 20,
+        "surveillance_years_documented_as_no_record": [
+          2020,
+          2021
+        ]
+      },
+      {
+        "id": "mciver-chapter-b-7",
+        "title": "Development of Hyperbaric Oxygen Therapy for Altitude Decompression Sickness",
+        "year": 1968,
+        "url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29",
+        "primary_source": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29",
+        "access": "full_text",
+        "full_text_available": true,
+        "source_sha256": "5b07678c732c7f9be2cd82e4a1acde236a04deb98d36b71b67dcf9154c2716c3",
+        "locator": "Printed p. B-7, PDF p. 29, paragraph immediately before the spaceflight research discussion",
+        "role_review": "overlap_hold",
+        "note": "The author reports that 11 selected severe altitude DCS cases had been treated, all successfully as described. The treatment response definition, follow-up, clinical dates, exposed risk set and initiating settings are unspecified.",
+        "model_extraction": {
+          "source_id": "mciver68_severe_altitude_treatment",
+          "input_release": "v1.271"
+        },
+        "observations": [
+          {
+            "id": "mciver-chapter-b-7",
+            "study_id": "mciver-1968-selected-altitude-treatments",
+            "group": "selected severe altitude DCS treatments",
+            "endpoint": "severe_altitude_dcs_treated_as_reported",
+            "cases": 11,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Printed p. B-7, PDF p. 29, paragraph immediately before the spaceflight research discussion",
+            "note": "The author reports that 11 selected severe altitude DCS cases had been treated, all successfully as described. The treatment response definition, follow-up, clinical dates, exposed risk set and initiating settings are unspecified."
+          }
+        ],
+        "technical_accession": "AD0686100",
+        "chapter": "B",
+        "source_characterizes_all_treatments_as_successful": true
+      }
+    ]
+  }
+]

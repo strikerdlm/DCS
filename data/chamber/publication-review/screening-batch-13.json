@@ -1,0 +1,214 @@
+{
+  "batch_id": "13",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers confirmed eight full-text decisions and two retrieval holds, including recording the Venezuelan and McIver source observations with exposure-attribution restrictions.",
+    "note": "Separate signed reviewer forms and individual result-level appraisals were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "061973c7e563974cf883c501e646ae08734740fd",
+    "evidence_sha256": "6c97c24bc150b2faa08ce373f5dac40a767d1ed5c89ebf7b788179ed9e0c9f7b",
+    "systematic_review_sha256": "d416dcc82c834cacc3ca8b9e37d8e4c52ea0ac3373f152ad8a1b8a3d6cf3facb"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:2386454",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1520269143",
+      "title": "Relationship of menstrual history to altitude chamber decompression sickness.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/7/article-p657.pdf#page=2",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Rudge pp. 657–658, Methods, Table I and Figure 1",
+      "reason": "Retain 81 selected DCS case records. Figure 1 gives 62 Type I and 19 Type II. The phase-specific exposed comparison group is unavailable. Preserve the table/figure daily-bin discrepancy and the overlap hold with the other USAF treatment archives.",
+      "observations": [
+        {
+          "endpoint": "selected DCS cases",
+          "numerator": 81,
+          "denominator": null,
+          "denominator_unit": null,
+          "case_type_counts": {
+            "type_i": 62,
+            "type_ii": 19
+          },
+          "use": "case_conditional",
+          "locator": "Rudge p. 658, Figure 1"
+        }
+      ]
+    },
+    {
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2419026917",
+      "title": "Occurrence of decompression sickness on descent from high altitudes.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/1/article-p89.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Rodbard pp. 89–91, opening paragraph and Tables I–II",
+      "reason": "Retain selected routine training exposure case histories under existing identifiers. The 1944 bulletin and 1946 paper repeat numbered cases. Preserve six chokes and eight neurologic presentations in their source strata. No role-specific or overall exposure denominator.",
+      "observations": [
+        {
+          "endpoint": "selected chokes on descent",
+          "numerator": 6,
+          "denominator": null,
+          "denominator_unit": null,
+          "use": "linked_case_narrative"
+        },
+        {
+          "endpoint": "selected neurological presentations",
+          "numerator": 8,
+          "denominator": null,
+          "denominator_unit": null,
+          "use": "linked_case_narrative"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:9810543",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2465443605",
+      "title": "[Decompression sickness in hypobaric environment].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/9810543/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Ríos Tejada et al., Med Clin (Barc). 1998;111(9):359",
+      "reason": "Publication verified in NLM, the issue catalogue and the author's bibliography. Request the original page to identify the initiating setting and whether the earlier Spanish chamber report covers the same episode. DCS versus arterial gas embolism remains unresolved.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:3167655",
+      "record_key": "2026-11-20-formal-chamber-pubmed#3167655",
+      "title": "[A twenty-seven year survey of hypobaric chamber physiological reactions of the Chinese Air Force].",
+      "source_url": "https://ci.nii.ac.jp/ncid/AA10983816?l=en",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Wen et al., Zhonghua Yi Xue Za Zhi (Taipei). 1988;41(2):103–108",
+      "reason": "Use the exact print holding for original tables. Keep Wen's February article distinct from Ho's December companion pending comparison. Fang's historical 696/15,370 is all-cause chamber reactions, and the later Taiwan cohort has separate dates. The accessible sources supply no matched clinical DCS numerator.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:889545",
+      "record_key": "2026-11-20-formal-chamber-pubmed#889545",
+      "title": "Ten-year survey of altitude chamber reactions using the FAA training chamber flight profiles.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/48/8/article-p718.pdf#page=3",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Valdez, p. 720 Table I and Results. FAA 1990 update Tables 1–2",
+      "reason": "Retain previously verified 0/3,034 Type A and 0/1,725 Type B student evolved-gas outcomes. Their aggregate of 4,759 is the same risk set, and two treated technician cases have a missing staff denominator. Later FAA surveillance nests the source dates. Retain the source endpoint and hold quantitative cohort selection.",
+      "observations": [
+        {
+          "endpoint": "student evolved-gas reactions, Type A",
+          "numerator": 0,
+          "denominator": 3034,
+          "denominator_unit": "trainee_exposure",
+          "use": "overlap_hold"
+        },
+        {
+          "endpoint": "student evolved-gas reactions, Type B",
+          "numerator": 0,
+          "denominator": 1725,
+          "denominator_unit": "trainee_exposure",
+          "use": "overlap_hold"
+        },
+        {
+          "endpoint": "technician cases",
+          "numerator": 2,
+          "denominator": null,
+          "denominator_unit": null,
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "record_key": "2026-11-20-europe-staff-f-kopka#result-1",
+      "title": "HYPOBARIC HYPOXIA TRAINING AND THE RELEVANCE OF DETERMINING THE SO-CALLED RESERVE TIME IN POLISH PILOTS – PRELIMINARY REPORT",
+      "source_url": "https://files.4medicine.pl/download.php?cfs_id=7020#page=3",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Kopka et al., Defence medical institute historical statement, p. 29",
+      "reason": "The authors report zero DCS cases during the previous 20 years of WIML exposures. Exact dates, delayed ascertainment and a matching denominator remain unavailable. Use the previously registered report and keep the preliminary protocol sample separate.",
+      "observations": [
+        {
+          "endpoint": "author-reported DCS during the prior 20 years",
+          "numerator": 0,
+          "denominator": null,
+          "denominator_unit": null,
+          "use": "descriptive"
+        }
+      ],
+      "revision": 2,
+      "prior_assessment": "Reaffirm the Batch 03 decision on its existing source record. The formal search occurrence links to the same report.",
+      "packet_record_key": "2026-11-20-formal-chamber-openalex#W4411219597"
+    },
+    {
+      "report_id": "doi:10.1016/s0035-8819(25)00848-7",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4407827024",
+      "title": "Aviation Medicine",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5400892/pdf/jrcollphyslond90364-0078b.pdf",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Howard, Book Reviews pp. 174–175",
+      "reason": "Signed review of the 1993 Harding and Mills textbook. No original chamber cohort or attributable cases.",
+      "observations": []
+    },
+    {
+      "report_id": "doi:10.56294/hl202339",
+      "record_key": "2026-11-20-formal-chamber-openalex#W4392080159",
+      "title": "Hearing injuries due to atmospheric pressure changes in air and water survival training instructors",
+      "source_url": "https://hl.ageditor.ar/index.php/hl/article/download/18/80/177#page=5",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Methods and Results, PDF pp. 3–4; 2017 row of Table 2, PDF p. 5",
+      "reason": "Retain one author-defined 2017 decompression illness with hearing injury as a mixed-setting observation. Initiating activity and dates of symptom ascertainment are unavailable. The 20 instructors are an occupational population with air and water duties. Hold chamber case attribution and denominator eligibility.",
+      "observations": [
+        {
+          "endpoint": "reported decompression illness with hearing injury",
+          "numerator": 1,
+          "denominator": null,
+          "denominator_unit": null,
+          "year": 2017,
+          "occupational_staff_reviewed": 20,
+          "attribution": "air or water exposure unresolved",
+          "use": "descriptive_attribution_hold",
+          "source_extract": "data/chamber/v1.271"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W128240757",
+      "record_key": "2026-11-20-formal-chamber-openalex#W128240757",
+      "title": "PROCEEDINGS OF THE AIR FORCE SCIENCE AND ENGINEERING SYMPOSIUM (1968). VOLUME 1",
+      "source_url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "McIver, chapter B of AD0686100, treatment tally (printed p. B-7, PDF p. 29)",
+      "reason": "Retain 11 selected treated severe altitude DCS cases as a historical report-level tally. Hold attribution to operational training and independence from later USAF treatment surveillance. Individual states, times and a training denominator are unavailable. Preserve the component report identity separately from the volume and the 1968 spaceflight article.",
+      "observations": [
+        {
+          "endpoint": "reported severe altitude DCS treated",
+          "numerator": 11,
+          "denominator": null,
+          "denominator_unit": null,
+          "component_report_id": "report:ad0686100-ch-b-mciver",
+          "attribution": "initiating exposures unreported",
+          "use": "overlap_hold",
+          "source_extract": "data/chamber/v1.271"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W57874047",
+      "record_key": "2026-11-20-formal-chamber-openalex#W57874047",
+      "title": "Women in the Military Cockpit",
+      "source_url": "https://apps.dtic.mil/sti/tr/pdf/ADA238808.pdf",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Lyons ADA238808, Abstract and Decreased Barometric Pressure pp. 17–18",
+      "reason": "The final technical report reviews published chamber, occupational and diving findings. Reuse the original studies for evidence, including Bassett's different training populations and Rudge's selected treatment series.",
+      "observations": []
+    }
+  ]
+}

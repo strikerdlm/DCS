@@ -4494,7 +4494,7 @@ def test_approved_full_text_and_followup_title_abstract_batches(release):
         batches = []
         for suffix, expected_reports in [
             ("05", 14), ("06", 50), ("07", 11), ("08", 75), ("09", 10), ("10", 100),
-            ("11", 26), ("12", 100),
+            ("11", 26), ("12", 100), ("13", 10), ("14", 125),
         ]:
             raw, = db.execute("""
                 SELECT content_json FROM review.review_workflow_document WHERE input_path LIKE ?
@@ -4615,6 +4615,33 @@ def test_missing_full_text_retrievals_reuse_existing_report_identities(release):
             FROM review.review_retrieval
             WHERE run_id GLOB '2026-11-23-missing-chamber-full-text-*'
         """).fetchone() == (8, 7, 0)
+
+
+def test_mixed_setting_and_selected_treatment_counts_lack_chamber_denominators(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT source_id, numerator, denominator, denominator_unit, analysis_role
+            FROM publication_observation
+            WHERE source_id IN ('leon23_mixed_setting_hearing', 'mciver68_severe_altitude_treatment')
+            ORDER BY source_id
+        """).fetchall() == [
+            ("leon23_mixed_setting_hearing", 1, None, None, "descriptive"),
+            ("mciver68_severe_altitude_treatment", 11, None, None, "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT right_report, relationship FROM review.review_report_relation
+            WHERE left_report='report:ad0686100-ch-b-mciver'
+            ORDER BY right_report
+        """).fetchall() == [
+            ("openalex:W128240757", "published_within"),
+            ("pmid:889546", "unresolved"),
+            ("report:adp011059", "unresolved"),
+        ]
+        assert db.execute("""
+            SELECT revision, decision FROM review.review_current_screening
+            WHERE report_id='doi:10.13174/pjambp.23.05.2025.03' AND stage='full_text'
+            ORDER BY reviewer
+        """).fetchall() == [(2, "include"), (2, "include")]
 
 
 def test_formal_search_flow_and_source_identities(release):
