@@ -1,0 +1,175 @@
+[
+  {
+    "id": "2026-11-23-rudge-dully-chamber-case-chronologies",
+    "date": "2026-11-23",
+    "provider": "Tavily with journal primary sources",
+    "operation": "supplementary_original_case_history_verification",
+    "status": "observed",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "fb2c5157-69a4-4aff-8e59-fde217128a83",
+          "scope": "combined extraction: jaw-pain and Dully case text; viral-syndrome access response"
+        },
+        {
+          "request_id": "1ddfb63b-e4fc-43af-a562-91501b2a3911",
+          "scope": "focused Dully history, role and presentation"
+        },
+        {
+          "request_id": "6cf8c769-3019-4761-96c4-4eb83cb604cd",
+          "scope": "separate independent extraction of the original viral-syndrome report"
+        },
+        {
+          "request_id": "c728630e-6677-42b8-9b32-8e9ff0d75dd2",
+          "scope": "independent focused extraction of original journal text"
+        }
+      ],
+      "original_urls": [
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf",
+        "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf"
+      ],
+      "access_limit": "Direct PDF bytes unavailable. Some OCR routes returned watermarks or an HTML access response."
+    },
+    "note": "Three original reports describe five source-specific chamber episodes. Archive membership and at-risk denominators remain unavailable.",
+    "records": [
+      {
+        "id": "rudge90_tmj_chamber",
+        "title": "Decompression sickness affecting the temporomandibular joint",
+        "year": 1990,
+        "pmid": "2285404",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf",
+        "access": "full_text_via_service_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "Case Reports 1–2, printed pp. 1139–1140",
+        "role_review": "case_narrative_with_unresolved_registry_overlap",
+        "note": "Two source-diagnosed Type I chamber cases. The first exposure is explicitly routine trainee instruction. For the technician, the first and next-day flights belong to one clinical sequence. Assigned role and enrollment at risk are unavailable.",
+        "model_extraction": {
+          "source_id": "rudge90_tmj_chamber",
+          "input_release": "v1.272"
+        },
+        "observations": [
+          {
+            "id": "case-1",
+            "study_id": "rudge-1990-tmj-chamber-cases",
+            "group": "case-1",
+            "endpoint": "type_i_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Case Reports 1–2, printed pp. 1139–1140, Case 1",
+            "note": "Unilateral temporomandibular pain 3 hours after a standard trainee exposure. Normal neurologic and dental examinations. The author assigned Type I DCS and the case resolved with treatment.",
+            "purpose": "routine_chamber_training",
+            "chamber_role": "cadet",
+            "elapsed_min": 180,
+            "first_assessment_min": null
+          },
+          {
+            "id": "case-2",
+            "study_id": "rudge-1990-tmj-chamber-cases",
+            "group": "case-2",
+            "endpoint": "type_i_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Case Reports 1–2, printed pp. 1139–1140, Case 2",
+            "note": "Pain began after the first flight and worsened after the next-day exposure. A frontal headache arose during symptom progression. Both flights are kept in one episode. The author assigned Type I DCS.",
+            "purpose": "standard_chamber_profile_specific_duty_unverified",
+            "chamber_role": "technician_occupation",
+            "elapsed_min": 120,
+            "first_assessment_min": null
+          }
+        ]
+      },
+      {
+        "id": "rudge91_viral_mimic_chamber",
+        "title": "Decompression sickness presenting as a viral syndrome",
+        "year": 1991,
+        "pmid": "1996934",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf",
+        "access": "full_text_via_service_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "Case Reports 1–2 and Discussion, printed pp. 60–61",
+        "role_review": "case_narrative_with_unresolved_registry_overlap",
+        "note": "Two selected cases from USAFSAM treatment records. Both chamber exposures were at 35,000 ft. The flight purposes, occupational duty on the exposures and at-risk people are unavailable.",
+        "model_extraction": {
+          "source_id": "rudge91_viral_mimic_chamber",
+          "input_release": "v1.272"
+        },
+        "observations": [
+          {
+            "id": "case-1",
+            "study_id": "rudge-1991-viral-mimic-chamber-cases",
+            "group": "case-1",
+            "endpoint": "altitude_dcs_author_diagnosis",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Case Reports 1–2 and Discussion, printed pp. 60–61, Case 1",
+            "note": "Headache and nausea began several hours after descent. Same-day assessment considered a viral syndrome. The author attributed recovery during recompression to DCS. Exact event times and exposure purpose are unavailable.",
+            "purpose": null,
+            "chamber_role": "active_duty_role_unreported",
+            "elapsed_min": null,
+            "first_assessment_min": null
+          },
+          {
+            "id": "case-2",
+            "study_id": "rudge-1991-viral-mimic-chamber-cases",
+            "group": "case-2",
+            "endpoint": "suspected_type_ii_altitude_dcs",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Case Reports 1–2 and Discussion, printed pp. 60–61, Case 2",
+            "note": "Immediate low back pain was followed by systemic and focal sensory symptoms. Presentation was the following morning. The treating team suspected Type II DCS, and symptoms resolved during treatment.",
+            "purpose": null,
+            "chamber_role": "chamber_technician_occupation",
+            "elapsed_min": null,
+            "first_assessment_min": null
+          }
+        ]
+      },
+      {
+        "id": "dully75_inside_observer_chamber",
+        "title": "Central nervous system involvement following type I aviator’s bends complicated by complacency",
+        "year": 1975,
+        "pmid": "1164359",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf",
+        "access": "full_text_via_service_text",
+        "full_text_available": true,
+        "source_sha256": null,
+        "locator": "Case History and Discussion, printed pp. 1186–1187",
+        "role_review": "case_narrative_with_unresolved_registry_overlap",
+        "note": "One Navy corpsman assigned as inside observer during routine training. Pain during descent and subsequent exam signs are different events. The source gives 20 minutes in its profile narrative and 30 minutes in its description of the prescribed protocol reportedly followed.",
+        "model_extraction": {
+          "source_id": "dully75_inside_observer_chamber",
+          "input_release": "v1.272"
+        },
+        "observations": [
+          {
+            "id": "index-flight",
+            "study_id": "dully-1975-training-observer-case",
+            "group": "index-flight",
+            "endpoint": "dcs_with_later_neurological_signs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "Case History and Discussion, printed pp. 1186–1187",
+            "note": "Standard chamber training flight with an eight-minute altitude stay. Ankle pain began on descent. Presentation about 90 minutes after the flight preceded the next morning's neurological signs. Two incompatible prebreathe descriptions are retained as source statements.",
+            "purpose": "routine_chamber_training",
+            "chamber_role": "inside_observer",
+            "elapsed_min": null,
+            "first_assessment_min": 90
+          }
+        ]
+      }
+    ]
+  }
+]
