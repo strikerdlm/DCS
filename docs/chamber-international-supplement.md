@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.251
+
+All 36 rows in Kumar, Waligora and Calkins' Table I match the existing transcription. The database now links four rows directly to their comparison records. The Dixon 9.5-psia result agrees with the Air Force's 0/30 account, while the NEDU denominator of 32 remains unresolved. Dixon's separate 1/30 result counts people across repeated exposures in the original study. The compilation lists 30 exposures and leaves the counting window uncertain. [Kumar et al., p. 687](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/8/article-p685.pdf#page=3) · [Dixon 9.5-psia report](https://ntrs.nasa.gov/citations/19860063003) · [Dixon et al., pp. 225–226](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/57/3/article-p223.pdf)
+
+Allen and Beard's mixed-gas and oxygen cabin stages reproduce the compiled counts of 18/36 and 3/32. For the oxygen cabin stage, Allen and Beard report two hours of ground-level oxygen and Kumar prints three hours. Both values remain traceable to their source. The two bibliographic identifiers for Kumar's report now resolve to a single publication. All compiled groups remain outside the incidence and model benchmark. [Allen and Beard, Table III](https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/40/12/article-p1327.pdf#page=2) · [NASA catalogue](https://ntrs.nasa.gov/citations/19900057571) · [Versioned reconciliations](../data/chamber/v1.251)
+
 ## Release 1.250
 
 An FAA account reproduced by ICAO and Blumkin's later article describe the same three crew members after shallow dives and a subsequent commercial flight. The pilot and copilot were incapacitated within four hours after diving in the FAA account. Blumkin reports less than four hours. Both accounts put the engineer's symptoms at about 12 hours after diving. The FAA account gives approximately 8,000 ft cabin altitude, while Blumkin gives 8,000–10,000 ft. Three case records link both accounts. The abbreviated Australian narrative likely refers to the same episode. [FAA account in ICAO Circular 69-AN/61, p. 335](https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf) · [Blumkin, p. 2](https://flightsafety.org/hf/hf_sep-oct91.pdf#page=2) · [Australian Aviation Safety Digest](https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf)
