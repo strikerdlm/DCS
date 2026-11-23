@@ -1,6 +1,48 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#20260004033",
+      "report_id": "ntrs:20260004033",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20260004033",
+      "basis": "NASA NTRS declares document type Presentation. Its full abstract matches the AsMA presentation description; slides constitute a distinct report about the same case."
+    },
+    {
+      "record_key": "2026-11-23-nasa-familiarization-case-followup#ntrs-20260004033-presentation",
+      "report_id": "ntrs:20260004033",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20260004033",
+      "basis": "Agency accession and exact presentation title match NTRS 20260004033."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.270/sources.csv#mendelsohn26_ntrs_presentation",
+      "report_id": "ntrs:20260004033",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20260004033",
+      "basis": "The versioned source is the official 16-slide NASA presentation."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W334601931",
+      "report_id": "report:adp011059",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=2",
+      "basis": "Exact Butler, Wolf and Krock title and paper 1 in RTO-MP-062 match DTIC ADP011059."
+    },
+    {
+      "record_key": "2026-11-20-roles-openalex-butler#W334601931",
+      "report_id": "report:adp011059",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=2",
+      "basis": "Same OpenAlex work and the retrieval links to this DTIC accession and chapter."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W297980370",
+      "report_id": "report:adp011090",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011090/DTIC_ADP011090.pdf#page=2",
+      "basis": "Exact Pilmanis, Petropoulos, Kannan and Webb title, chapter 36 and accession ADP011090 match the primary source."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W4411219597",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "evidence_url": "https://files.4medicine.pl/download.php?cfs_id=7020#page=3",
+      "basis": "Exact OpenAlex work and printed title and authors match the already registered journal report."
+    },
+    {
       "record_key": "2026-11-23-tac-1974-chamber-surveillance#andersen-tac1974",
       "report_id": "usaf-tac-attack:1975-04:decompression-sickness-ii",
       "evidence_url": "https://web.archive.org/web/20250000000000id_/https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
@@ -25175,6 +25217,12 @@
   ],
   "study_reports": [
     {
+      "study_id": "asma-mendelsohn-sanders-familiarization-case",
+      "report_id": "ntrs:20260004033",
+      "role": "primary_same_case_followup",
+      "locator": "NASA slides 6–7 and 11"
+    },
+    {
       "study_id": "tac-1974-chamber-surveillance",
       "report_id": "usaf-tac-attack:1975-04:decompression-sickness-ii",
       "role": "primary_surveillance_overlap_hold",
@@ -29052,6 +29100,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:2026-11-20-eds-training#kjur5ccdyv",
+      "right_report": "ntrs:20260004033",
+      "relationship": "same_published_case",
+      "evidence": "AsMA abstract 223 pp. 232–233 and NASA slides 6–7 and 11 share both presenters, familiarization profile at 25,000 ft, in-flight right wrist and elbow symptoms and clinic presentation about one hour after return. The slides specify the NBL site and extend the chronology. The two reports contribute one episode.",
+      "evidence_url": "https://ntrs.nasa.gov/api/citations/20260004033/downloads/Test%20of%20Pressure%20Slides%20for%20ASMA%202026%20v5.pdf#page=7"
+    },
     {
       "left_report": "usaf-tac-attack:1975-04:decompression-sickness-ii",
       "right_report": "pmid:889546",

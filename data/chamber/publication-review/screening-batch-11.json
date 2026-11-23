@@ -1,0 +1,441 @@
+{
+  "batch_id": "11",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers confirmed thirteen full-text decisions, two revised title and abstract decisions, and eleven retrieval holds. They approved linkage of the NASA presentation to the existing familiarization case and the documented quantitative eligibility holds.",
+    "note": "The coordinator confirmed both reviewers agreed. Individual forms and separate result-level appraisal judgments were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "1b45b8d39c1d835fb3163d41186d8b0424175763",
+    "evidence_sha256": "79d462f859f7cacf3b2568b42b0e1715ff10852f2a23bf508ee24a62d7c25d89",
+    "systematic_review_sha256": "4cb5fcc5c503342c351650b84a868a1c68aa20c4226453ba636d4392b8b1bdde"
+  },
+  "reports": [
+    {
+      "report_id": "doi:10.21236/ada521459",
+      "record_key": "2026-11-20-formal-chamber-openalex#W117298073",
+      "title": "Guide to Altitude Decompression Sickness Research",
+      "source_url": "https://archive.org/download/DTIC_ADA521459/DTIC_ADA521459_djvu.txt",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Webb guide, Summary pp. 1–2, research database p. 19 and research summary p. 72",
+      "reason": "Research infrastructure and a synthesis of earlier studies. Preserve for provenance. The original report text retrieved by screener B supplies no separate operational surveillance risk set.",
+      "observations": []
+    },
+    {
+      "report_id": "doi:10.3760/cma.j.issn.1007-6239.2001.02.023",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2394217364",
+      "title": "Survey of oxygen therapy for altitude decompression sickness",
+      "source_url": "https://www.oriprobe.com/journals/zhhkhtyx/2001_2.html",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Chinese Journal of Aerospace Medicine 2001(2), pp. 121–125, item 3250132",
+      "reason": "Retrieve the original oxygen-therapy survey for exposure setting, source population and case definition.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W1199858769",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1199858769",
+      "title": "Altitude Decompression Sickness (DCS) – eine unterschätzte / übersehene Gefahr",
+      "source_url": "https://elib.dlr.de/94737/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "DLR entry 94737, 2014 Cologne workshop",
+      "reason": "Institutional catalogue identifies an unpublished presentation. Original outcome and study setting remain unresolved.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W1504784256",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1504784256",
+      "title": "Development of an Operational Altitude Decompression Sickness Computer Model: Feasibility Study Results",
+      "source_url": "https://archive.org/download/DTIC_ADA299074/DTIC_ADA299074_djvu.txt",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Sulaiman et al. ADA299074, abstract, model development and printed p. 60",
+      "reason": "The original report describes feasibility and experimental inputs for a preliminary model. The operational label describes intended model use.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W2287509859",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2287509859",
+      "title": "Altitude decompression sickness",
+      "source_url": "https://ci.nii.ac.jp/naid/10008653685",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "OpenAlex W2287509859 and CiNii NAID 10008653685",
+      "reason": "Verify the 1988 Sheffield record and possible chapter identity before attributing any chamber exposure.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W2352170827",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2352170827",
+      "title": "A pilot case of decompression sickness occurred during altitude tolerance test",
+      "source_url": "https://www.oriprobe.com/journals/zhhkhtyx/2002_1.html",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Qi et al. 2002(1), p. 13, DOI 10.3760/cma.j.issn.1007-6239.2002.01.020",
+      "reason": "Prioritize the original case. The issue index indicates an altitude tolerance test, with routine training versus qualification unresolved.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W2370957691",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2370957691",
+      "title": "Patent foramen ovale and altitude decompression sickness",
+      "source_url": "https://openalex.org/W3031423674",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "Zheng author abstract, 2002(1) pp. 65–67 and DOI-bearing OpenAlex W3031423674",
+      "reason": "The retrieved author abstract describes a literature review and supplies no original operational PFO/DCS contrast. Verify DOI identity before linking the search occurrences.",
+      "observations": [],
+      "revision": 2
+    },
+    {
+      "report_id": "openalex:W244988143",
+      "record_key": "2026-11-20-formal-chamber-openalex#W244988143",
+      "title": "Decompression Sickness Risk Versus Time and Altitude",
+      "source_url": "https://archive.org/download/DTIC_ADA275261/DTIC_ADA275261_djvu.txt",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Webb and Pilmanis ADA275261, original report and NASA author abstract N94-29071",
+      "reason": "Original risk estimates come from the Armstrong research chamber data. Preserve DCS and VGE model provenance.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W2563167356",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2563167356",
+      "title": "[abstract] MECHANISTIC ANALYSIS OF THE RISK OF DECOMPRESSION SICKNESS AT ALTITUDE.",
+      "source_url": "https://openalex.org/W2563167356",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "OpenAlex W2563167356, Rubicon 123456789/8166",
+      "reason": "Seek the original published abstract before deciding data origin and relation to later ADRAC reports.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W2582337080",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2582337080",
+      "title": "Altitude Decompression Sickness",
+      "source_url": "https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=200902107075678097",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "CiNii NAID 10008653693; JST 38(3), pp. 91–95",
+      "reason": "Catalogue identifies Ogata, Ide and Kusano's 2001 report, distinct from the 2000 report of 243/30,763. Verify original 2001 clinical outcomes and record the bibliographic link.",
+      "observations": [],
+      "identity_verification": {
+        "indexed_citation": "Japanese Journal of Aerospace and Environmental Medicine 38(3):91–95, 2001, CiNii NAID 10008653693",
+        "distinct_from": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
+        "basis": "The catalogue's journal, volume and pages differ from the existing JSHM 35(4):225–230 report. The two reports' case membership remains unverified.",
+        "locator": "JST bibliographic record and v1.192/sources.csv"
+      }
+    },
+    {
+      "report_id": "report:adp011090",
+      "record_key": "2026-11-20-formal-chamber-openalex#W297980370",
+      "title": "Altitude Decompression Sickness Risk Prediction Research",
+      "source_url": "https://archive.org/download/DTIC_ADP011090/DTIC_ADP011090.pdf",
+      "packet_report_id": "openalex:W297980370",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Pilmanis et al. ADP011090, RTO-MP-062 chapter 36, Methods and Table 1",
+      "reason": "Link to existing ADP011090. Five prespecified research profiles investigated gaps in AFRL experimental data. The original separates actual incidence estimates from predictions.",
+      "observations": []
+    },
+    {
+      "report_id": "report:adp011059",
+      "record_key": "2026-11-20-formal-chamber-openalex#W334601931",
+      "title": "USAF Experience with Hyperbaric Therapy of Altitude Decompression Sickness (1941-1999)",
+      "source_url": "https://archive.org/download/DTIC_ADP011059/DTIC_ADP011059.pdf#page=4",
+      "packet_report_id": "openalex:W334601931",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "ADP011059, Methods p. 1-2, exposure setting p. 1-3 and Table 1 p. 1-4",
+      "reason": "Retain cited treatment-series and protocol context. The 131/145, 507/528 and 437/480 chamber counts use treated cases as denominators. Brooks role percentages lack exact cells. Link the occurrence to existing ADP011059.",
+      "observations": [
+        {
+          "scope": "1941–1976",
+          "numerator": 131,
+          "denominator": 145,
+          "unit": "selected_treated_cases",
+          "use": "case_conditional",
+          "endpoint": "chamber_origin"
+        },
+        {
+          "scope": "1977–1986",
+          "numerator": 507,
+          "denominator": 528,
+          "unit": "selected_treated_cases",
+          "use": "case_conditional",
+          "endpoint": "chamber_origin"
+        },
+        {
+          "scope": "1987–1999",
+          "numerator": 437,
+          "denominator": 480,
+          "unit": "selected_treated_cases",
+          "use": "case_conditional",
+          "endpoint": "chamber_origin"
+        }
+      ]
+    },
+    {
+      "report_id": "openalex:W761851719",
+      "record_key": "2026-11-20-formal-chamber-openalex#W761851719",
+      "title": "Relating Venous Gas Emboli (VGE) Scores to Altitude Decompression Sickness (DCS) Symptoms",
+      "source_url": "https://repository.exst.jaxa.jp/dspace/handle/a-is/273221",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "Pilmanis et al., author abstract Methods and Results; JAXA index",
+      "reason": "Author abstract describes 2,044 experimental AFRL subject-exposures. VGE scores and symptomatic DCS are separate endpoints.",
+      "observations": [],
+      "revision": 2
+    },
+    {
+      "report_id": "openalex:W842155810",
+      "record_key": "2026-11-20-formal-chamber-openalex#W842155810",
+      "title": "ALTITUDE DECOMPRESSION SICKNESS PREDICTION: A SIMPLIFIED APPROACH.",
+      "source_url": "https://trid.trb.org/View/524878",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "TRID catalogue 524878, 33rd SAFE Symposium, pp. 501–509",
+      "reason": "Original proceedings are required to verify data setting.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:20252835",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2414985226",
+      "title": "STUDIES ON THE RECURRENCE OF DECOMPRESSION SICKNESS ON RE-ASCENT TO HIGH ALTITUDES",
+      "source_url": "https://doi.org/10.1152/ajplegacy.1947.150.1.133",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Rodbard 1947 pp. 133–141, PubMed entry and publisher listing",
+      "reason": "Verify original re-ascent design, case selection and overlap with Rodbard's WWII report before attribution.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:5099868",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2338603537",
+      "title": "Neurological decompression sickness: report of two cases at minimal altitudes with subsequent seizures.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/42/1/article-p85.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Davis et al. pp. 86–88, Case 2",
+      "reason": "Retain the previously registered trainee's first training exposure and neurological case. Case 1 was aircraft decompression. The corresponding training denominator and linkage to later treated surveillance are unavailable.",
+      "observations": [
+        {
+          "scope": "Case 2, neurological DCS during initial training flight",
+          "numerator": 1,
+          "denominator": null,
+          "unit": "person",
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "ntrs:20260004033",
+      "record_key": "2026-11-20-formal-chamber-ntrs-setting#20260004033",
+      "title": "Test of Pressure: Medical Decision Making in a Case of Altitude Chamber Decompression Sickness",
+      "source_url": "https://ntrs.nasa.gov/api/citations/20260004033/downloads/Test%20of%20Pressure%20Slides%20for%20ASMA%202026%20v5.pdf#page=11",
+      "packet_report_id": "record:2026-11-20-formal-chamber-ntrs-setting#20260004033",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "AsMA Abstract 223 pp. 232–233; NASA slides 6, 7 and 11",
+      "reason": "Retain the existing familiarization case. Authors' NASA presentation identifies the Neutral Buoyancy Laboratory and confirms there was no explosive-decompression simulation in this exposure. Preserve during-flight onset, approximate one-hour clinic presentation, next-day return with residual symptoms, two further treatments and resolution that day, plus two subsequent symptom-free clinic follow-up days. Case date and exposed denominator are unavailable. Link the conference abstract and presentation as distinct reports of the same published case.",
+      "observations": [
+        {
+          "scope": "same familiarization case as AsMA abstract 223",
+          "numerator": 1,
+          "denominator": null,
+          "unit": "person",
+          "use": "same_case_followup",
+          "clinic_days_followup": 2,
+          "recurrence_during_followup": false,
+          "exposure_location": "NASA Neutral Buoyancy Laboratory",
+          "case_source": "mendelsohn26_familiarization",
+          "source_extract": "data/chamber/v1.270"
+        }
+      ]
+    },
+    {
+      "report_id": "record:2026-11-20-formal-chamber-pubmed#4144353",
+      "record_key": "2026-11-20-formal-chamber-pubmed#4144353",
+      "title": "[Disorders due to changes of pressure-dysbarism--in hypobaric chamber].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/4144353/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "NLM, Cas Lek Cesk. 1973;112(13):400–402",
+      "reason": "Obtain original Czech article to establish exposure setting and symptomatic DCS endpoint within the broader term dysbarism.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:28810963",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:28810963",
+      "title": "Treating Decompression Sickness: Military Flight Simulation Site-Community Hospital Partnership.",
+      "source_url": "https://academic.oup.com/milmed/article-pdf/182/7/e1718/21832988/milmed-d-16-00386.pdf#page=2",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Rhodes et al. Results p. e1719, HBO referrals and site estimate",
+      "reason": "Preserve 50 diagnosed referrals over October 2003–April 2015. The separate source estimates 2,306 potential exposures annually and prints 0.0026% for HBO treatment over five years. Windows and counting units differ, and the percentage does not reconcile to an integer count under the simple five-year product. Keep each value as reported and request a matched chamber exposure count.",
+      "observations": [
+        {
+          "scope": "October 2003–April 2015 hyperbaric referral series",
+          "numerator": 50,
+          "denominator": null,
+          "unit": "diagnosed_patients_referred",
+          "use": "case_conditional",
+          "note": "The abstract qualifies the count as an estimate."
+        },
+        {
+          "scope": "average annual potential exposures",
+          "numerator": null,
+          "denominator": 2306,
+          "unit": "potential_exposure_per_year",
+          "use": "source_scope_hold",
+          "denominator_is_approximate": true
+        },
+        {
+          "scope": "separate five-year HBO treatment estimate",
+          "numerator": null,
+          "denominator": null,
+          "unit": "source_exposure_unit_unresolved",
+          "use": "source_scope_hold",
+          "reported_rate_percent": 0.0026,
+          "note": "The observation window differs from the 50 referrals. The applicable denominator and numerator are unavailable. Retain the printed percentage."
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:9681378",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:9681378",
+      "title": "Probable decompression sickness in a trainee with atopic dermatitis.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/69/7/article-p693.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Yoneda pp. 693–695, Case Report and Discussion; AsMA abstract 143",
+      "reason": "Retain the existing JASDF indoctrination case attributed to probable cutaneous DCS with atopic dermatitis after initial neurological concern. Preserve 24-hour follow-up and link the separate companion abstract if episode identifiers confirm. No compatible denominator.",
+      "observations": [
+        {
+          "scope": "JASDF indoctrination case, probable cutaneous DCS",
+          "numerator": 1,
+          "denominator": null,
+          "unit": "person",
+          "use": "narrative_only",
+          "reported_followup_hours": 24
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.1007/978-94-010-3317-6_24",
+      "record_key": "2026-11-20-formal-chamber-openalex#W101234361",
+      "title": "Decompression Sickness in Aviation",
+      "source_url": "https://link.springer.com/chapter/10.1007/978-94-010-3317-6_24",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Ernsting pp. 177–187, Springer author preview",
+      "reason": "Verify whether separable original operational evidence appears in the chapter.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W2344433097",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2344433097",
+      "title": "Decompression Illness in United States Air Force: High Risk Occupations",
+      "source_url": "https://corescholar.libraries.wright.edu/mph/170/",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Rojas 2015 Methods, Results and Table 1 pp. 8–11",
+      "reason": "The administrative case-control estimate combines chamber technicians and U-2 pilots. Retain the occupational context separately. No estimate is specific to operational chamber training.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:36309795",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:36309795",
+      "title": "Mitigating Risks of Altitude Chamber Training.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/amhp/93/11/article-p811.pdf#page=3",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Nakdimon and Ben-Ari Methods p. 812 and Table I p. 813",
+      "reason": "Retain 185 sessions and 1,627 individuals with a printed 0.55% overall and in each role. Ordinary rounding uniquely reconstructs 9/1,627, 7/1,263 trainees and 2/364 instructors. Hold quantitative pooling and role inference. Repeat attendance, post-return coverage and overlapping 2015–2022 IAF membership remain unresolved.",
+      "observations": [
+        {
+          "scope": "all training",
+          "numerator": 9,
+          "denominator": 1627,
+          "unit": "individuals_as_reported",
+          "use": "overlap_hold",
+          "reported_rate_percent": 0.55,
+          "numerator_method": "unique integer from rounding to 2 decimal places",
+          "locator": "Results and Table I, p. 813"
+        },
+        {
+          "scope": "trainees",
+          "numerator": 7,
+          "denominator": 1263,
+          "unit": "individuals_as_reported",
+          "use": "overlap_hold",
+          "reported_rate_percent": 0.55,
+          "numerator_method": "unique integer from rounding to 2 decimal places",
+          "locator": "Results and Table I, p. 813"
+        },
+        {
+          "scope": "physiology instructors",
+          "numerator": 2,
+          "denominator": 364,
+          "unit": "individuals_as_reported",
+          "use": "overlap_hold",
+          "reported_rate_percent": 0.55,
+          "numerator_method": "unique integer from rounding to 2 decimal places",
+          "locator": "Results and Table I, p. 813"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1616439",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1616439",
+      "title": "Menstrual history in altitude chamber trainees.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/7/article-p616.pdf#page=2",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Schirmer and Workman pp. 616–617, Methods and Materials",
+      "reason": "Retain selected respondent context. A voluntary survey yielded 541 returns and 510 usable responses including two DCS cases. The 508-person menstrual analysis excludes both cases. Training exposure denominator and a comparable DCS factor effect are unavailable.",
+      "observations": [
+        {
+          "scope": "usable voluntary questionnaire respondents",
+          "numerator": 2,
+          "denominator": 510,
+          "unit": "respondent",
+          "use": "case_conditional",
+          "endpoint": "clinical_dcs",
+          "returned_questionnaires": 541,
+          "unusable_questionnaires": 31,
+          "noncases_in_menstrual_analysis": 508
+        }
+      ]
+    },
+    {
+      "report_id": "doi:10.3760/cma.j.issn.1007-6239.2010.03.001",
+      "record_key": "2026-11-20-formal-chamber-openalex#W3030368797",
+      "title": "Effectiveness and safety studies on the training program of rapid decompression at low altitude for pilot",
+      "source_url": "https://www.oriprobe.com/journals/zhhkhtyx/2010_3.html",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Deng et al. 2010(3), pp. 165–170, issue item 25271317",
+      "reason": "Prioritize original training report to check clinical endpoint, denominator and delayed follow-up.",
+      "observations": []
+    },
+    {
+      "report_id": "openalex:W210051476",
+      "record_key": "2026-11-20-formal-chamber-openalex#W210051476",
+      "title": "Designing Efficient and Effective, Operationally Relevant, High Altitude Training Profiles",
+      "source_url": "https://archive.org/download/DTIC_ADP011071/DTIC_ADP011071.pdf#page=2",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Sawatzky ADP011071, p. 14-1, opening paragraph and proposed profiles",
+      "reason": "Retain as contextual protocol report. January 1998 Canadian DCS attribution and independence require an original exposure history. Proposed profiles do not provide a surveillance denominator.",
+      "observations": []
+    }
+  ]
+}
