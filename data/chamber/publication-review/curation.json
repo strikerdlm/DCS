@@ -1,6 +1,12 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-23-rudge-pulmonary-referrals-table-i#8747614",
+      "report_id": "pmid:8747614",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/12/article-p1185.pdf",
+      "basis": "Original journal title, author, pages and PMID match the existing v1.29 source."
+    },
+    {
       "record_key": "2026-11-23-batches-17-18-source-verification#rudge91_stone_cuff",
       "report_id": "pmid:2012577",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/3/article-p266.pdf",
@@ -22947,6 +22953,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+      "label": "Davis Hyperbaric Laboratory treated pulmonary DCS referrals",
+      "period": "1966-01-01 to 1994-07-31",
+      "setting": "USAF clinical referrals following training, research or aircraft exposures"
+    },
+    {
       "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
       "label": "Rudge and Stone pressure-cuff diagnostic archive",
       "period": "1985-01 through 1989-12",
@@ -25336,6 +25348,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+      "report_id": "pmid:8747614",
+      "role": "original_case_conditional_referral_series",
+      "locator": "Results, printed pp. 1185-1186; Table I, printed p. 1186"
+    },
     {
       "study_id": "rudge-stone-1991-treated-dcs-diagnostic-archive",
       "report_id": "pmid:2012577",
@@ -29256,6 +29274,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:8747614",
+      "right_report": "pmid:2012577",
+      "relationship": "unresolved",
+      "evidence": "Both reports use USAFSAM treatment records in overlapping years. Rudge 1995 reports five co-occurring joint-pain presentations without joint locations, dates or case IDs. The 1991 diagnostic study selected patients with eligible extremity-joint pain. Shared case membership is unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/12/article-p1185.pdf"
+    },
     {
       "left_report": "pmid:2012577",
       "right_report": "report:adp011059",

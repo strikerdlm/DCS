@@ -1,0 +1,101 @@
+{
+  "batch_id": "19",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers accepted four full-text decisions, the case-conditional pulmonary table extraction and the stated overlap holds.",
+    "note": "Reviewer slots record joint confirmation. Individual signed forms and result-level judgments were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "adb6a206423124f11c81e1459e552689552a8f21",
+    "evidence_sha256": "565514f920fbbbe6b4ded275fa5a7a6d7fc7b290ffe25879e2577dbff7d4de7f",
+    "systematic_review_sha256": "1d7ff7b6b3c12c336b853421c75663f8a37bd1d6c8821d3c2d0b8362bf737ee3"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:14080600",
+      "record_key": "2026-11-20-formal-chamber-openalex#W2042738933",
+      "title": "Treatment of Severe Decompression Sickness in Aviators",
+      "source_url": "https://openalex.org/W2042738933",
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1813311/",
+      "locator": "Introduction p. 278, Cases 1-4 pp. 279-280, classification counts p. 280 and chart p. 281",
+      "reason": "Dedicated Royal Navy high-altitude selection and retesting. Preserve all existing source rows and narrative crosswalks. Its 365 people and Kenyon's 371 courses cannot be combined. Exclude this risk set from routine operational training.",
+      "stage": "full_text",
+      "decision": "exclude",
+      "ai_screeners": [
+        {
+          "decision": "exclude"
+        },
+        {
+          "decision": "include"
+        }
+      ]
+    },
+    {
+      "report_id": "report:ada111509",
+      "record_key": "2026-11-20-formal-chamber-openalex#W1588187082",
+      "title": "Subatmospheric decompression sickness in man",
+      "source_url": "https://openalex.org/W1588187082",
+      "primary_url": "https://archive.org/download/DTIC_ADA111509/DTIC_ADA111509.pdf#page=259",
+      "locator": "Table 12-1 printed p. 265 and Chapter 6 pp. 90-113, Appendix pp. 299-302",
+      "reason": "Retain the existing RAF rapid-decompression training count of 1 bends among 7,685 runs as a source-defined narrow endpoint. The formication and two arm-pain results are separate. Hold the strict symptomatic DCS estimate without a compatible diagnosis or surveillance window. The RAF selection and V-bomber series stay separate.",
+      "stage": "full_text",
+      "decision": "include",
+      "ai_screeners": [
+        {
+          "decision": "include"
+        },
+        {
+          "decision": "include"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:8747614",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:8747614",
+      "title": "Variations in the presentation of altitude-induced chokes.",
+      "source_url": "https://europepmc.org/article/MED/8747614",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/12/article-p1185.pdf#page=2",
+      "locator": "Methods and Results pp. 1185-1186, Table I p. 1186",
+      "reason": "Retain seven pulmonary referrals explicitly attributed to initial or refresher training, with seven research and one flight referral separately. Propose case-conditional Table I aggregates and preservation of differences with the Results. No trainee exposure denominator.",
+      "stage": "full_text",
+      "decision": "include",
+      "ai_screeners": [
+        {
+          "decision": "include"
+        },
+        {
+          "decision": "include"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:14503679",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:14503679",
+      "title": "Optic neuropathy following an altitude exposure.",
+      "source_url": "https://europepmc.org/article/MED/14503679",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/9/article-p985.pdf",
+      "locator": "Case Report pp. 985-986 and Discussion pp. 988-989",
+      "reason": "Retain the indexed 14 May 2002 training case as previously linked possible DCS with confirmed concurrent sinusitis. Keep first symptoms on descent distinct from recurrence, later optic findings and normal examination in July. Hold confirmed symptomatic DCS incidence.",
+      "stage": "full_text",
+      "decision": "include",
+      "ai_screeners": [
+        {
+          "decision": "include"
+        },
+        {
+          "decision": "include"
+        }
+      ]
+    }
+  ],
+  "model_extraction": {
+    "input_release": "v1.274",
+    "source_id": "rudge95_chokes",
+    "case_conditional_cells": 19
+  }
+}

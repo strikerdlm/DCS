@@ -4704,6 +4704,59 @@ def test_pressure_cuff_results_remain_case_conditional_in_both_databases(release
         """).fetchall() == [("include",), ("include",)]
 
 
+def test_pulmonary_referrals_reuse_one_source_and_keep_observation_scope(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum, numerator, denominator
+            FROM publication_observation
+            WHERE source_id='rudge95_chokes' AND endpoint='dyspnea_mark'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("table-i-aircraft", 1, 1),
+            ("table-i-chamber-research", 1, 7),
+            ("table-i-initial-or-refresher-training", 4, 7),
+        ]
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT denominator_unit), min(analysis_role), max(analysis_role)
+            FROM publication_observation WHERE source_id='rudge95_chokes' AND stratum LIKE 'table-i-%'
+        """).fetchone() == (19, 1, "case_conditional", "case_conditional")
+        assert db.execute("""
+            SELECT json_extract(metadata_json, '$.discrepancies[0].results'),
+                   json_extract(metadata_json, '$.discrepancies[0].table_i')
+            FROM review.review_record WHERE record_key='2026-11-23-rudge-pulmonary-referrals-table-i#8747614'
+              AND report_id='pmid:8747614'
+        """).fetchone() == (25500, 29500)
+
+
+def test_accepted_analysis_cells_keep_holds_and_source_provenance(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT study_id), count(DISTINCT report_id)
+            FROM review.review_analysis_selection
+        """).fetchone() == (12, 4, 4)
+        assert db.execute("""
+            SELECT role.cases, role.denominator, role.disposition
+            FROM review.review_analysis_selection role
+            WHERE role.report_id='pmid:12546299'
+            ORDER BY role.cases
+        """).fetchall() == [
+            (4, 1248, "descriptive_sensitivity_only"),
+            (13, 7575, "descriptive_sensitivity_only"),
+            (94, 38153, "retain_existing"),
+        ]
+        assert db.execute("""
+            SELECT cases, denominator, json_array_length(source_cells_json)
+            FROM review.review_analysis_selection
+            WHERE report_id='pmid:32574436' AND analysis='standalone_incidence'
+        """).fetchone() == (8, 7272, 2)
+        assert db.execute("""
+            SELECT json_extract(reported_effect_json, '$.estimate'),
+                   json_extract(reported_effect_json, '$.lower'),
+                   json_extract(reported_effect_json, '$.upper')
+            FROM review.review_analysis_selection WHERE disposition='overlapping_sensitivity_only'
+        """).fetchone() == (3.574, 0.720, 17.744)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""

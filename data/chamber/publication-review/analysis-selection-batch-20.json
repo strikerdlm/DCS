@@ -1,0 +1,360 @@
+{
+  "batch_id": "20",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers accepted the scoped uses of twelve existing source cells for the Howard, Furry, Rice and Ercan analyses.",
+    "note": "Reviewer slots record joint confirmation. Individual signed forms and result-level judgments were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "adb6a206423124f11c81e1459e552689552a8f21",
+    "evidence_sha256": "565514f920fbbbe6b4ded275fa5a7a6d7fc7b290ffe25879e2577dbff7d4de7f",
+    "systematic_review_sha256": "1d7ff7b6b3c12c336b853421c75663f8a37bd1d6c8821d3c2d0b8362bf737ee3"
+  },
+  "scope": "Accepted descriptive analysis selections and holds with existing criteria. Pooled analysis and result-level appraisal are pending.",
+  "selections": [
+    {
+      "selection_id": "usaf-howard-1979-1981:standalone_incidence:all",
+      "study_id": "usaf-howard-1979-1981",
+      "report_id": "abstract:howard-sheffield-matos-1982",
+      "record_key": "2026-11-20-archival-denominators-howard-primary#howard-1982-original",
+      "risk_set_id": "usaf-howard-1979-1981",
+      "analysis": "standalone_incidence",
+      "chamber_role": "all",
+      "cases": 206,
+      "denominator": 251236,
+      "counting_unit": "person_exposure",
+      "exposure_period": "1979-01-01 to 1981-08-31",
+      "endpoint": "source-reported DCS",
+      "outcome_window": "source clinical reporting, uniform delayed surveillance unknown",
+      "disposition": "standalone_descriptive",
+      "locator": "Abstract 10, pp. 10-11 and date footnote",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "rationale": "Site and case linkage, diagnostic definitions and follow-up needed before pooling.",
+      "source_cells": [
+        {
+          "record_key": "2026-11-20-archival-denominators-howard-primary#howard-1982-original",
+          "observation_id": "howard-1979-1981-dcs-all"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "usaf-howard-1979-1981:within_program_role:inside-instructor-observer",
+      "study_id": "usaf-howard-1979-1981",
+      "report_id": "abstract:howard-sheffield-matos-1982",
+      "record_key": "2026-11-20-archival-denominators-howard-primary#howard-1982-original",
+      "risk_set_id": "usaf-howard-1979-1981",
+      "analysis": "within_program_role",
+      "chamber_role": "inside instructor-observer",
+      "cases": 67,
+      "denominator": 47921,
+      "counting_unit": "person_exposure",
+      "exposure_period": "1979-01-01 to 1981-08-31",
+      "endpoint": "source-reported DCS",
+      "outcome_window": "source clinical reporting, uniform delayed surveillance unknown",
+      "disposition": "standalone_descriptive",
+      "locator": "Abstract 10, pp. 10-11 and date footnote",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "rationale": "Use with trainee cell only as a crude source-reported contrast. No site or profile adjustment.",
+      "source_cells": [
+        {
+          "record_key": "2026-11-20-archival-denominators-howard-primary#howard-1982-original",
+          "observation_id": "howard-1979-1981-dcs-inside-observers"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "usaf-howard-1979-1981:within_program_role:trainee",
+      "study_id": "usaf-howard-1979-1981",
+      "report_id": "abstract:howard-sheffield-matos-1982",
+      "record_key": "2026-11-20-archival-denominators-howard-primary#howard-1982-original",
+      "risk_set_id": "usaf-howard-1979-1981",
+      "analysis": "within_program_role",
+      "chamber_role": "trainee",
+      "cases": 139,
+      "denominator": 203315,
+      "counting_unit": "person_exposure",
+      "exposure_period": "1979-01-01 to 1981-08-31",
+      "endpoint": "source-reported DCS",
+      "outcome_window": "source clinical reporting, uniform delayed surveillance unknown",
+      "disposition": "standalone_descriptive",
+      "locator": "Abstract 10, pp. 10-11 and date footnote",
+      "primary_url": "https://uhms.org/uhm-search/undersea-biomedical-reserach-vol-9-no-1-supplement-march-1982-full-pdf/download.html#page=18",
+      "rationale": "Includes civilian as well as military training. Do not add this stratum to the total.",
+      "source_cells": [
+        {
+          "record_key": "2026-11-20-archival-denominators-howard-primary#howard-1982-original",
+          "observation_id": "howard-1979-1981-dcs-trainees"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "usn-1959-1968:standalone_incidence:trainee",
+      "study_id": "usn-1959-1968",
+      "report_id": "pmid:4694857",
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#furry73",
+      "risk_set_id": "usn-1959-1968",
+      "analysis": "standalone_incidence",
+      "chamber_role": "trainee",
+      "cases": 266,
+      "denominator": 252564,
+      "counting_unit": "trainee_man_exposure_as_printed",
+      "exposure_period": "1959-01-01 to 1968-12-31",
+      "endpoint": "reported DCS incidents",
+      "outcome_window": "routine Navy reporting, uniform delayed surveillance unknown",
+      "disposition": "standalone_descriptive",
+      "locator": "Methods p. 450 and Results/Table I p. 451",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf#page=2",
+      "rationale": "Retain the original instead of adding its secondary reprints.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1.7/observations.csv",
+          "source_id": "furry73",
+          "stratum": "trainees"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "usn-1959-1968:within_program_role:inside-observer",
+      "study_id": "usn-1959-1968",
+      "report_id": "pmid:4694857",
+      "record_key": "legacy:data/chamber/v1.7/sources.csv#furry73",
+      "risk_set_id": "usn-1959-1968",
+      "analysis": "within_program_role",
+      "chamber_role": "inside observer",
+      "cases": 35,
+      "denominator": 60000,
+      "counting_unit": "approximate_author_converted_man_exposure",
+      "exposure_period": "1959-01-01 to 1968-12-31",
+      "endpoint": "reports or affected corpsmen, unresolved",
+      "outcome_window": "routine Navy reporting, variable case follow-up",
+      "disposition": "hold",
+      "locator": "Methods p. 450 and Results/Table I p. 451, Discussion p. 452",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/aeme/44/4/article-p450.pdf#page=2",
+      "rationale": "Nine had recurrent episodes. Need original role attendance records and an explicit episode-counting rule. Do not infer an all-role estimate.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1.7/observations.csv",
+          "source_id": "furry73",
+          "stratum": "inside-observers"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "usn-1993-2002:standalone_incidence:all",
+      "study_id": "usn-1993-2002",
+      "report_id": "pmid:12546299",
+      "record_key": "legacy:data/chamber/v1/sources.csv#rice03",
+      "risk_set_id": "usn-1993-2002",
+      "analysis": "standalone_incidence",
+      "chamber_role": "all",
+      "cases": 94,
+      "denominator": 38153,
+      "counting_unit": "person_exposure",
+      "exposure_period": "1993-01-01 to 2002-04-01",
+      "endpoint": "clinical DCS",
+      "outcome_window": "during or within 48 hours",
+      "disposition": "retain_existing",
+      "locator": "Methods p. 57, Results and Table I p. 58",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "rationale": "Approved in Batch 01. Suppress selected subgroups in the overall incidence synthesis.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1/aviation_counts.csv",
+          "source_id": "rice03",
+          "stratum": "I-Total-all"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "usn-1993-2002:within_profile_role_type_iia:inside-observer",
+      "study_id": "usn-1993-2002",
+      "report_id": "pmid:12546299",
+      "record_key": "legacy:data/chamber/v1/sources.csv#rice03",
+      "risk_set_id": "usn-1993-2002-type-iia-1998-2002",
+      "analysis": "within_profile_role_type_iia",
+      "chamber_role": "inside observer",
+      "cases": 4,
+      "denominator": 1248,
+      "counting_unit": "person_exposure",
+      "exposure_period": "1998-01-01 to 2002-04-01",
+      "endpoint": "clinical DCS",
+      "outcome_window": "during or within 48 hours",
+      "disposition": "descriptive_sensitivity_only",
+      "locator": "Tables I-II pp. 58-59, conflicting Table III p. 60",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "rationale": "Same stated 30-minute prebreathe as students. Repeated Table I-II cells represent one margin. Await crosswalk or erratum before inference.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1/aviation_counts.csv",
+          "source_id": "rice03",
+          "stratum": "II-IO-IIA"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "usn-1993-2002:within_profile_role_type_iia:student",
+      "study_id": "usn-1993-2002",
+      "report_id": "pmid:12546299",
+      "record_key": "legacy:data/chamber/v1/sources.csv#rice03",
+      "risk_set_id": "usn-1993-2002-type-iia-1998-2002",
+      "analysis": "within_profile_role_type_iia",
+      "chamber_role": "student",
+      "cases": 13,
+      "denominator": 7575,
+      "counting_unit": "person_exposure",
+      "exposure_period": "1998-01-01 to 2002-04-01",
+      "endpoint": "clinical DCS",
+      "outcome_window": "during or within 48 hours",
+      "disposition": "descriptive_sensitivity_only",
+      "locator": "Tables I-II pp. 58-59, conflicting Table III p. 60",
+      "primary_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/74/1/article-p56.pdf",
+      "rationale": "Table III prints alternative Type IIA student margins, so the two matching tables are insufficient for a primary role estimate.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1/aviation_counts.csv",
+          "source_id": "rice03",
+          "stratum": "II-Student-IIA"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "eskisehir-2011-2018:standalone_incidence:all",
+      "study_id": "eskisehir-2011-2018",
+      "report_id": "pmid:32574436",
+      "record_key": "legacy:data/chamber/v1.1/sources.csv#ercan20",
+      "risk_set_id": "eskisehir-2011-2018",
+      "analysis": "standalone_incidence",
+      "chamber_role": "all",
+      "cases": 8,
+      "denominator": 7272,
+      "counting_unit": "person_exposure",
+      "exposure_period": "2011-01-01 to 2018-10-01",
+      "endpoint": "clinically evaluated DCS",
+      "outcome_window": "program reporting, uniform delayed surveillance unknown",
+      "disposition": "retain_existing",
+      "locator": "Results pp. 205-206 and Discussion p. 206",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "rationale": "Approved source-defined cohort from Batch 01. Same-site outcome-selected reports on hold pending session linkage. Discussion calls its total subjects. The selected exposure denominator is reconstructed by summing the 6,657 trainee and 615 observer exposures; ten observers attended repeatedly.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1.1/observations.csv",
+          "source_id": "ercan20",
+          "stratum": "trainees_all"
+        },
+        {
+          "input_path": "data/chamber/v1.1/observations.csv",
+          "source_id": "ercan20",
+          "stratum": "inside_observer"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "eskisehir-2011-2018:within_program_role:inside-observer",
+      "study_id": "eskisehir-2011-2018",
+      "report_id": "pmid:32574436",
+      "record_key": "legacy:data/chamber/v1.1/sources.csv#ercan20",
+      "risk_set_id": "eskisehir-2011-2018",
+      "analysis": "within_program_role",
+      "chamber_role": "inside observer",
+      "cases": 2,
+      "denominator": 615,
+      "counting_unit": "person_exposure",
+      "exposure_period": "2011-01-01 to 2018-10-01",
+      "endpoint": "clinically evaluated DCS",
+      "outcome_window": "program reporting, uniform delayed surveillance unknown",
+      "disposition": "standalone_descriptive",
+      "locator": "Results pp. 205-206 and Table 1",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "rationale": "Ten observers contributed 615 repeat exposures. Cluster dependence unknown.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1.1/observations.csv",
+          "source_id": "ercan20",
+          "stratum": "inside_observer"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "eskisehir-2011-2018:within_program_role:all-trainees",
+      "study_id": "eskisehir-2011-2018",
+      "report_id": "pmid:32574436",
+      "record_key": "legacy:data/chamber/v1.1/sources.csv#ercan20",
+      "risk_set_id": "eskisehir-2011-2018",
+      "analysis": "within_program_role",
+      "chamber_role": "all trainees",
+      "cases": 6,
+      "denominator": 6657,
+      "counting_unit": "person_exposure",
+      "exposure_period": "2011-01-01 to 2018-10-01",
+      "endpoint": "clinically evaluated DCS",
+      "outcome_window": "program reporting, uniform delayed surveillance unknown",
+      "disposition": "standalone_descriptive",
+      "locator": "Results pp. 205-206 and Table 1",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "rationale": "Includes reported zero among 79 female trainee exposures. Do not mix with male-only Table 1.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1.1/observations.csv",
+          "source_id": "ercan20",
+          "stratum": "trainees_all"
+        }
+      ],
+      "reported_effect": null
+    },
+    {
+      "selection_id": "eskisehir-2011-2018:male_only_role_sensitivity:male-trainees",
+      "study_id": "eskisehir-2011-2018",
+      "report_id": "pmid:32574436",
+      "record_key": "legacy:data/chamber/v1.1/sources.csv#ercan20",
+      "risk_set_id": "eskisehir-2011-2018-male-trainees",
+      "analysis": "male_only_role_sensitivity",
+      "chamber_role": "male trainees",
+      "cases": 6,
+      "denominator": 6578,
+      "counting_unit": "person_exposure",
+      "exposure_period": "2011-01-01 to 2018-10-01",
+      "endpoint": "clinically evaluated DCS",
+      "outcome_window": "program reporting, uniform delayed surveillance unknown",
+      "disposition": "overlapping_sensitivity_only",
+      "locator": "Table 1 p. 206",
+      "primary_url": "https://doi.org/10.22462/04.06.2020.5",
+      "rationale": "Published OR 3.574, 95% CI 0.720-17.744, same 2/615 observer comparator. Do not pool with the full contrast.",
+      "source_cells": [
+        {
+          "input_path": "data/chamber/v1.1/observations.csv",
+          "source_id": "ercan20",
+          "stratum": "trainees_male"
+        },
+        {
+          "input_path": "data/chamber/v1.1/observations.csv",
+          "source_id": "ercan20",
+          "stratum": "inside_observer"
+        }
+      ],
+      "reported_effect": {
+        "measure": "odds_ratio",
+        "estimate": 3.574,
+        "confidence_level": 0.95,
+        "lower": 0.72,
+        "upper": 17.744,
+        "contrast": "inside observer versus male trainee",
+        "adjustment": "unadjusted reported contrast"
+      }
+    }
+  ]
+}

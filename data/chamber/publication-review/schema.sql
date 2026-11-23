@@ -102,6 +102,36 @@ CREATE VIEW review_current_screening AS
         SELECT 1 FROM review_screening t WHERE t.record_key=s.record_key AND t.reviewer=s.reviewer
         AND t.stage=s.stage AND t.revision>s.revision
     );
+
+-- Selections are scoped to one analysis and one published risk set.
+CREATE TABLE review_analysis_selection (
+    input_path TEXT NOT NULL REFERENCES review_workflow_document,
+    selection_id TEXT NOT NULL,
+    study_id TEXT NOT NULL,
+    report_id TEXT NOT NULL,
+    record_key TEXT NOT NULL REFERENCES review_record,
+    risk_set_id TEXT NOT NULL,
+    analysis TEXT NOT NULL,
+    chamber_role TEXT NOT NULL,
+    cases INTEGER NOT NULL CHECK(cases >= 0),
+    denominator INTEGER NOT NULL CHECK(denominator > 0 AND cases <= denominator),
+    counting_unit TEXT NOT NULL,
+    exposure_period TEXT NOT NULL,
+    endpoint TEXT NOT NULL,
+    outcome_window TEXT NOT NULL,
+    disposition TEXT NOT NULL CHECK(disposition IN (
+        'retain_existing','standalone_descriptive','hold','descriptive_sensitivity_only',
+        'overlapping_sensitivity_only'
+    )),
+    locator TEXT NOT NULL,
+    primary_url TEXT NOT NULL,
+    source_cells_json TEXT NOT NULL CHECK(json_valid(source_cells_json)),
+    rationale TEXT NOT NULL,
+    reported_effect_json TEXT CHECK(reported_effect_json IS NULL OR json_valid(reported_effect_json)),
+    PRIMARY KEY(input_path, selection_id),
+    FOREIGN KEY(study_id, report_id) REFERENCES review_study_report(study_id, report_id)
+) STRICT;
+
 CREATE VIEW review_run_counts AS
     SELECT q.run_id,q.provider,q.reported_total,q.retrieved,count(DISTINCT r.report_id) AS report_groups
     FROM review_retrieval q LEFT JOIN review_record r USING(run_id) GROUP BY q.run_id;

@@ -1,0 +1,267 @@
+[
+  {
+    "id": "2026-11-23-rudge-pulmonary-referrals-table-i",
+    "date": "2026-11-23",
+    "provider": "Tavily and original journal table review",
+    "operation": "supplementary_original_table_verification",
+    "status": "observed",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "query": "Table I summary of chokes patients, position of symptom marks and initiating altitude; Results range and nonproductive cough",
+      "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/12/article-p1185.pdf",
+      "request_id": "82fd4150-9389-4a70-ac68-c248120a6d5a"
+    },
+    "note": "Original journal article was reviewed with a layout-preserving table check. Tavily confirmed the text. Its text output alone loses symptom column alignment.",
+    "records": [
+      {
+        "id": "8747614",
+        "pmid": "8747614",
+        "year": 1995,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/12/article-p1185.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/66/12/article-p1185.pdf",
+        "title": "Variations in the presentation of altitude-induced chokes.",
+        "access": "verified_original_table",
+        "full_text_available": true,
+        "locator": "Results, printed pp. 1185-1186; Table I, printed p. 1186",
+        "role_review": "case_conditional_only",
+        "model_extraction": {
+          "source_id": "rudge95_chokes",
+          "input_release": "v1.274",
+          "prior_source_release": "v1.29"
+        },
+        "discrepancies": [
+          {
+            "field": "chamber_minimum_altitude_ft",
+            "results": 25500,
+            "table_i": 29500,
+            "status": "unresolved"
+          },
+          {
+            "field": "nonproductive_cough_description_vs_table_marks",
+            "results": 7,
+            "table_i": 9,
+            "status": "different_wording_membership_unknown"
+          },
+          {
+            "field": "mild_to_moderate_dyspnea_description_vs_table_marks",
+            "results": 4,
+            "table_i": 6,
+            "status": "different_wording_membership_unknown"
+          }
+        ],
+        "observations": [
+          {
+            "id": "table-i-initial-or-refresher-training:maximum_altitude_35000_ft",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "initial_or_refresher_training",
+            "endpoint": "maximum_altitude_35000_ft",
+            "cases": 5,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-initial-or-refresher-training:maximum_altitude_42000_ft",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "initial_or_refresher_training",
+            "endpoint": "maximum_altitude_42000_ft",
+            "cases": 1,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-initial-or-refresher-training:maximum_altitude_43000_ft",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "initial_or_refresher_training",
+            "endpoint": "maximum_altitude_43000_ft",
+            "cases": 1,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-initial-or-refresher-training:chest_pain",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "initial_or_refresher_training",
+            "endpoint": "chest_pain",
+            "cases": 7,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-initial-or-refresher-training:dyspnea_mark",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "initial_or_refresher_training",
+            "endpoint": "dyspnea_mark",
+            "cases": 4,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Table I records dyspnea marks. The Results describes four mild-to-moderate cases in the series. There is no verified membership crosswalk."
+          },
+          {
+            "id": "table-i-initial-or-refresher-training:cough_mark",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "initial_or_refresher_training",
+            "endpoint": "cough_mark",
+            "cases": 2,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Table I records cough marks. The Results describes seven nonproductive cough cases in the series. There is no verified membership crosswalk."
+          },
+          {
+            "id": "table-i-initial-or-refresher-training:all_three_symptom_marks",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "initial_or_refresher_training",
+            "endpoint": "all_three_symptom_marks",
+            "cases": 1,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-chamber-research:maximum_altitude_29500_ft",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "chamber_research",
+            "endpoint": "maximum_altitude_29500_ft",
+            "cases": 2,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Table I minimum for chamber cases. The Results p. 1185 gives 25,500 ft. Both values are retained and the difference is unresolved."
+          },
+          {
+            "id": "table-i-chamber-research:maximum_altitude_30000_ft",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "chamber_research",
+            "endpoint": "maximum_altitude_30000_ft",
+            "cases": 4,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-chamber-research:maximum_altitude_35000_ft",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "chamber_research",
+            "endpoint": "maximum_altitude_35000_ft",
+            "cases": 1,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-chamber-research:chest_pain",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "chamber_research",
+            "endpoint": "chest_pain",
+            "cases": 7,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-chamber-research:dyspnea_mark",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "chamber_research",
+            "endpoint": "dyspnea_mark",
+            "cases": 1,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Table I records dyspnea marks. The Results describes four mild-to-moderate cases in the series. There is no verified membership crosswalk."
+          },
+          {
+            "id": "table-i-chamber-research:cough_mark",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "chamber_research",
+            "endpoint": "cough_mark",
+            "cases": 6,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Table I records cough marks. The Results describes seven nonproductive cough cases in the series. There is no verified membership crosswalk."
+          },
+          {
+            "id": "table-i-chamber-research:all_three_symptom_marks",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "chamber_research",
+            "endpoint": "all_three_symptom_marks",
+            "cases": 0,
+            "denominator": 7,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-aircraft:maximum_altitude_unknown",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "aircraft",
+            "endpoint": "maximum_altitude_unknown",
+            "cases": 1,
+            "denominator": 1,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-aircraft:chest_pain",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "aircraft",
+            "endpoint": "chest_pain",
+            "cases": 1,
+            "denominator": 1,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          },
+          {
+            "id": "table-i-aircraft:dyspnea_mark",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "aircraft",
+            "endpoint": "dyspnea_mark",
+            "cases": 1,
+            "denominator": 1,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Table I records dyspnea marks. The Results describes four mild-to-moderate cases in the series. There is no verified membership crosswalk."
+          },
+          {
+            "id": "table-i-aircraft:cough_mark",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "aircraft",
+            "endpoint": "cough_mark",
+            "cases": 1,
+            "denominator": 1,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Table I records cough marks. The Results describes seven nonproductive cough cases in the series. There is no verified membership crosswalk."
+          },
+          {
+            "id": "table-i-aircraft:all_three_symptom_marks",
+            "study_id": "usaf-davis-1966-1994-pulmonary-referrals",
+            "group": "aircraft",
+            "endpoint": "all_three_symptom_marks",
+            "cases": 1,
+            "denominator": 1,
+            "denominator_unit": "pulmonary_dcs_case",
+            "locator": "Table I, printed p. 1186",
+            "note": "Counted from the setting rows in the original table."
+          }
+        ]
+      }
+    ]
+  }
+]
