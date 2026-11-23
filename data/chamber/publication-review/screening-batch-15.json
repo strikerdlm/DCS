@@ -1,0 +1,194 @@
+{
+  "batch_id": "15",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers confirmed seven full-text decisions, one revised title and abstract decision and the source-specific extraction of five clinical episodes with the agreed use and overlap holds.",
+    "note": "Separate signed forms and independent result-level appraisal judgments were unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "d5f7d62e1f29701a91bb791d6cb99b93b0e8f85e",
+    "evidence_sha256": "75d002caa086eff05449f166e957ced2d4213dce8de6d6a310cb1a0555061500",
+    "systematic_review_sha256": "a3f20f177eb0e7c6d16ac8f6dac07f9cb730b94509fe60aff9189b08ce70dcc6"
+  },
+  "reports": [
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3024364345",
+      "title": "Some Aspects of Aviation Medicine.",
+      "source_url": "https://europepmc.org/articles/PMC5956186?pdf=render",
+      "report_id": "pmid:30437443",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "Whittingham original pp. 79 and 84–85, section (e)",
+      "reason": "The 25% tested aircrew and 10% young fighter pilot observations concern low-pressure selection testing. Keep the historical narrative and percentages at the source. The report gives no group counts, independence or matched routine-training outcome risk set.",
+      "observations": [
+        {
+          "cases": null,
+          "denominator": null,
+          "selection_test_reported_percent": [
+            25,
+            10
+          ],
+          "use": "historic_selection_context"
+        }
+      ]
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1996934",
+      "title": "Decompression sickness presenting as a viral syndrome.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf",
+      "report_id": "pmid:1996934",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Rudge, Case Reports 1–2, p. 60, and Discussion pp. 60–61",
+      "reason": "Retain two selected clinical cases after 35,000-ft chamber flights. Case 1 had headache and nausea several hours after descent. Case 2 was a technician with immediate back pain and later systemic and focal symptoms. The initiating chamber purpose and the technician’s duty during the exposure are unreported. Hold operational attribution, incidence and linkage to other USAFSAM case collections.",
+      "observations": [
+        {
+          "cases": 2,
+          "denominator": null,
+          "use": "operational_attribution_hold",
+          "source_extract": "data/chamber/v1.272",
+          "candidates": [
+            {
+              "case": "case-1",
+              "exposure_purpose": null
+            },
+            {
+              "case": "case-2",
+              "exposure_purpose": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2285404",
+      "title": "Decompression sickness affecting the temporomandibular joint.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf",
+      "report_id": "pmid:2285404",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Rudge, pp. 1139–1140, Case Reports 1–2 and Discussion",
+      "reason": "Retain two source-diagnosed Type I DCS cases. The cadet reported unilateral TMJ pain three hours after a standard 25,000-ft training flight. The technician’s pain began two hours after the 30,000-ft chamber flight and worsened 30 minutes after a next-day 25,000-ft flight. Count this as a single episode spanning two exposures. Retain the case narrative’s frontal headache. Exact duty, risk set, follow-up and archive overlap are unavailable.",
+      "observations": [
+        {
+          "cases": 2,
+          "denominator": null,
+          "use": "source_specific_narrative",
+          "source_extract": "data/chamber/v1.272",
+          "candidates": [
+            {
+              "case": "case-1",
+              "exposure_purpose": "confirmed routine training"
+            },
+            {
+              "case": "case-2",
+              "exposure_purpose": "standard chamber flights, specific duty unresolved",
+              "exposures_described": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:32176954",
+      "title": "Chronic decompression illness cognitive dysfunction improved with hyperbaric oxygen: a case report.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32176954/",
+      "report_id": "pmid:32176954",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Bradley, Patient History p. 132 and Discussion pp. 134 and 136; existing v1.161 extraction",
+      "reason": "Reuse the single 25,000-ft chamber-training case, the source’s DCI diagnosis and AGE/DCS differential. Preserve onset, recurrence and longitudinal follow-up independently. Hold archive overlap. Treatment-related follow-up supplies no general risk set.",
+      "observations": [
+        {
+          "cases": 1,
+          "denominator": null,
+          "endpoint": "source-defined DCI",
+          "use": "existing_case",
+          "source_extract": "data/chamber/v1.161"
+        }
+      ]
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:3240220",
+      "title": "Fatal pulmonary decompression sickness: a case report.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/59/12/article-p1181.pdf",
+      "report_id": "pmid:3240220",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Neubauer, Case History and Discussion and Tables I–II, pp. 1181–1183",
+      "reason": "Retain the existing clinical student chamber count of 186/178,305 alongside the source’s 105 per 100,000. Calculating the rate from those counts gives 104.32 per 100,000. Differences from other USAF surveillance, including Baumgartner and Weien, require an exposure and case crosswalk. Preserve separately the approximately 350,000-exposure Table I risk set with overlapping symptoms and the actual aircraft fatality.",
+      "observations": [
+        {
+          "cases": 186,
+          "denominator": 178305,
+          "endpoint": "student chamber DCS as described",
+          "use": "existing_overlap_hold",
+          "printed_rate_per_100000": 105,
+          "count_derived_rate_per_100000": 104.32,
+          "source_extract": "data/chamber/v1.82"
+        }
+      ]
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:7980334",
+      "title": "Visual manifestations of neurologic decompression sickness.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/8/article-p736.pdf",
+      "report_id": "pmid:7980334",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Fitzpatrick, Methods and Results pp. 736–737 and Table II",
+      "reason": "Reuse 33 selected visual neurological DCS cases in mixed training and research chamber exposures, of which nine were inside observers. Five other visual cases were from actual aircraft exposures. Preserve the original and previously reconstructed onset categories. Hold operational-only and independent incidence estimation.",
+      "observations": [
+        {
+          "cases": 33,
+          "denominator": null,
+          "endpoint": "selected visual Type II cases with chamber origin",
+          "use": "existing_mixed_training_research",
+          "source_extract": "data/chamber/v1.29"
+        }
+      ]
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1164359",
+      "title": "Central nervous system involvement following type I aviator's bends complicated by complacency.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf",
+      "report_id": "pmid:1164359",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "Dully, original Case History pp. 1186–1187 and Discussion p. 1187",
+      "reason": "Retain a single Navy inside-observer training episode. The case had first ankle pain on descent and presentation about 90 minutes after a 40,000-ft exposure. Record next-morning neurologic signs, subsequent EEG, and exam follow-up separately. Preserve discrepant 20 and 30 minute oxygen prebreathe descriptions until source reconciliation. The older knee-pain history has no linked record. Hold archive overlap.",
+      "observations": [
+        {
+          "cases": 1,
+          "denominator": null,
+          "use": "source_specific_narrative",
+          "source_extract": "data/chamber/v1.272",
+          "role": "inside observer",
+          "exposure_purpose": "confirmed routine training",
+          "first_assessment_min": 90,
+          "reported_prebreathe_minutes": [
+            20,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1767278",
+      "title": "Hyperbaric oxygen therapy: treatment for spinal cord decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1767278/",
+      "report_id": "pmid:1767278",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "NLM author abstract for SCI Nurs 8(4):97–101, live HTML",
+      "reason": "The author abstract concerns sport and commercial diving and hyperbaric treatment. It has no separable operational hypobaric chamber outcomes. The indexed XML previously had no abstract field.",
+      "observations": [],
+      "revision": 2
+    }
+  ]
+}

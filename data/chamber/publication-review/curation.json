@@ -1,6 +1,42 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-23-rudge-dully-chamber-case-chronologies#rudge90_tmj_chamber",
+      "report_id": "pmid:2285404",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf",
+      "basis": "The original journal report matches the indexed title, author, year, volume and case locators."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.272/sources.csv#rudge90_tmj_chamber",
+      "report_id": "pmid:2285404",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf",
+      "basis": "The original journal report matches the indexed title, author, year, volume and case locators."
+    },
+    {
+      "record_key": "2026-11-23-rudge-dully-chamber-case-chronologies#rudge91_viral_mimic_chamber",
+      "report_id": "pmid:1996934",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf",
+      "basis": "The original journal report matches the indexed title, author, year, volume and case locators."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.272/sources.csv#rudge91_viral_mimic_chamber",
+      "report_id": "pmid:1996934",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf",
+      "basis": "The original journal report matches the indexed title, author, year, volume and case locators."
+    },
+    {
+      "record_key": "2026-11-23-rudge-dully-chamber-case-chronologies#dully75_inside_observer_chamber",
+      "report_id": "pmid:1164359",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf",
+      "basis": "The original journal report matches the indexed title, author, year, volume and case locators."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.272/sources.csv#dully75_inside_observer_chamber",
+      "report_id": "pmid:1164359",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf",
+      "basis": "The original journal report matches the indexed title, author, year, volume and case locators."
+    },
+    {
       "record_key": "2026-11-23-descriptive-chamber-attribution#leon-table2-2017",
       "report_id": "doi:10.56294/hl202339",
       "evidence_url": "https://hl.ageditor.ar/index.php/hl/article/download/18/80/177#page=5",
@@ -22899,6 +22935,24 @@
   ],
   "studies": [
     {
+      "study_id": "rudge-1990-tmj-chamber-cases",
+      "label": "Decompression sickness affecting the temporomandibular joint",
+      "period": "case dates unreported",
+      "setting": "Altitude chamber cases, routine training or standard profiles"
+    },
+    {
+      "study_id": "rudge-1991-viral-mimic-chamber-cases",
+      "label": "Decompression sickness presenting as a viral syndrome",
+      "period": "archive selected since 1985; case dates unreported",
+      "setting": "Altitude chamber cases of unreported exposure purpose"
+    },
+    {
+      "study_id": "dully-1975-training-observer-case",
+      "label": "Central nervous system involvement following type I aviator’s bends complicated by complacency",
+      "period": "case date unreported",
+      "setting": "Routine Navy inside-observer chamber training"
+    },
+    {
       "study_id": "aragua-mixed-air-water-survival-instructors",
       "label": "Aragua occupational hearing-record review",
       "period": "2012–2022",
@@ -25264,6 +25318,24 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "rudge-1990-tmj-chamber-cases",
+      "report_id": "pmid:2285404",
+      "role": "original_selected_chamber_case_history",
+      "locator": "Case Reports 1–2, printed pp. 1139–1140"
+    },
+    {
+      "study_id": "rudge-1991-viral-mimic-chamber-cases",
+      "report_id": "pmid:1996934",
+      "role": "original_selected_chamber_case_history",
+      "locator": "Case Reports 1–2 and Discussion, printed pp. 60–61"
+    },
+    {
+      "study_id": "dully-1975-training-observer-case",
+      "report_id": "pmid:1164359",
+      "role": "original_selected_chamber_case_history",
+      "locator": "Case History and Discussion, printed pp. 1186–1187"
+    },
     {
       "study_id": "aragua-mixed-air-water-survival-instructors",
       "report_id": "doi:10.56294/hl202339",
@@ -29160,6 +29232,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:2285404",
+      "right_report": "pmid:2386454",
+      "relationship": "unresolved",
+      "evidence": "The earlier Rudge female clinical archive covers 1978–1988. This report has two female patients and no event dates or linked roster. Same-case overlap is unresolved.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/12/article-p1139.pdf"
+    },
+    {
+      "left_report": "pmid:1996934",
+      "right_report": "pmid:2386454",
+      "relationship": "unresolved",
+      "evidence": "The technician case could fall within the common USAFSAM setting and years. Exact event date and identity remain unknown.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf"
+    },
+    {
+      "left_report": "pmid:1996934",
+      "right_report": "report:adp011059",
+      "relationship": "unresolved",
+      "evidence": "The two cases came from a USAFSAM treatment archive since 1985. The broader USAF treatment compilation includes overlapping years. Individual linkage remains unverified.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/1/article-p60.pdf"
+    },
+    {
+      "left_report": "pmid:1164359",
+      "right_report": "pmid:4694857",
+      "relationship": "unresolved",
+      "evidence": "Dully cites the Navy corpsman series. Date and exact site of the index case are unavailable and membership in that series cannot be confirmed.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/46/9/article-p1186.pdf"
+    },
     {
       "left_report": "report:ad0686100-ch-b-mciver",
       "right_report": "openalex:W128240757",

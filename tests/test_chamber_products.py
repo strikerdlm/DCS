@@ -4495,6 +4495,7 @@ def test_approved_full_text_and_followup_title_abstract_batches(release):
         for suffix, expected_reports in [
             ("05", 14), ("06", 50), ("07", 11), ("08", 75), ("09", 10), ("10", 100),
             ("11", 26), ("12", 100), ("13", 10), ("14", 125),
+            ("15", 8), ("16", 125),
         ]:
             raw, = db.execute("""
                 SELECT content_json FROM review.review_workflow_document WHERE input_path LIKE ?
@@ -4642,6 +4643,37 @@ def test_mixed_setting_and_selected_treatment_counts_lack_chamber_denominators(r
             WHERE report_id='doi:10.13174/pjambp.23.05.2025.03' AND stage='full_text'
             ORDER BY reviewer
         """).fetchall() == [(2, "include"), (2, "include")]
+
+
+def test_rudge_and_dully_episode_links_keep_first_onset_and_presentation_separate(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT report_id, source_time_min, first_assessment_min
+            FROM historical_case_catalog
+            WHERE source_id IN ('dully75_inside_observer_chamber', 'rudge90_tmj_chamber',
+                                'rudge91_viral_mimic_chamber')
+            ORDER BY case_id
+        """).fetchall() == [
+            ("pmid:1164359", None, 90),
+            ("pmid:2285404", 180, None),
+            ("pmid:2285404", 120, None),
+            ("pmid:1996934", None, None),
+            ("pmid:1996934", None, None),
+        ]
+        assert db.execute("""
+            SELECT elapsed, elapsed_reference FROM publication_case_milestone
+            WHERE source_id='rudge90_tmj_chamber' AND stratum='case-2'
+              AND milestone='bilateral_tmj_pain_worsening'
+        """).fetchone() == (30, "after_second_chamber_exposure")
+        assert db.execute("""
+            SELECT prebreathe_min, denominator FROM publication_observation
+            WHERE source_id='dully75_inside_observer_chamber'
+        """).fetchone() == (None, None)
+        assert db.execute("""
+            SELECT elapsed FROM publication_case_milestone
+            WHERE source_id='dully75_inside_observer_chamber' AND milestone LIKE 'prebreathe_%'
+            ORDER BY elapsed
+        """).fetchall() == [(20,), (30,)]
 
 
 def test_formal_search_flow_and_source_identities(release):
