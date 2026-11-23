@@ -1,0 +1,427 @@
+[
+  {
+    "id": "2026-11-23-original-aviation-dcs-case-timelines",
+    "date": "2026-11-23",
+    "provider": "Tavily, Firecrawl, PubMed and publisher archives",
+    "operation": "supplementary_primary_source_and_transcription_verification",
+    "status": "observed",
+    "reported_total": 5,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Firecrawl",
+          "operation": "semantic_paper_search",
+          "query": "Clinical cases of altitude decompression sickness in unpressurized aviation and hypobaric chamber operations cohort isolated cases, non-US military and civilian, hospital followup outcome"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "6e34faa8-2022-4aca-9d56-392296fbe013",
+          "topic": "Auten original publisher PDF and possible tactical-aircraft overlap"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "341ef819-f5e8-44c4-8e7b-5a066dcb4af9",
+          "topic": "Publisher and alternate copies of both private-pilot articles"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "c1e1da68-5594-4d3e-b7fb-c2ea8174411a",
+          "topic": "Original and alternate full-text access checks"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "b91e6bd8-6555-4725-be94-8aa60c988f24",
+          "topic": "Compare Rudge Case Report details on both transcriptions to the author publisher abstract"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a2070b-3d57-764f-9d30-36029fede7a0",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p200.pdf",
+          "topic": "Black and DeHart original publisher PDF locator"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "black92_private_flight",
+        "title": "Decompression sickness: an increasing risk for the private pilot",
+        "authors": [
+          "William R. Black",
+          "Roy L. DeHart"
+        ],
+        "year": 1992,
+        "pmid": "1567321",
+        "doi": null,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1567321/",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p200.pdf",
+        "source_sha256": "bb8d2c31716d136a5a73ade276e2e56f75ab9a1995e7cc433fe6c45b53ddf965",
+        "access": "full_text",
+        "locator": "Case Report, printed pp. 200–201",
+        "role_review": "selected_cluster",
+        "model_extraction": {
+          "source_id": "black92_private_flight",
+          "input_release": "v1.263",
+          "milestone_input": "data/chamber/v1.263/aircraft_case_milestones.csv"
+        },
+        "full_text_available": true,
+        "full_text_version": "Publisher PDF",
+        "case_profile": {
+          "aircraft": "Unpressurized private aircraft",
+          "age_years": 42,
+          "cruise_aircraft_ft": 25000,
+          "first_symptoms_after_cruise_min_approx": 45,
+          "first_visual_symptoms_within_min": 5,
+          "descent_hold_aircraft_ft": 19000,
+          "descent_hold_min": 30,
+          "retrospective_diagnosis": "Authors favored altitude DCS. Original hospital working diagnosis was cerebellar ataxia of unknown origin.",
+          "hyperbaric_treatments": 0,
+          "neurologic_reassessment_months": 3,
+          "subsequent_residual_symptoms_years": null
+        },
+        "observations": [
+          {
+            "id": "index-flight",
+            "group": "index-flight",
+            "endpoint": "suspected_altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "altitude": 25000,
+            "altitude_unit": "ft",
+            "protocol": "Unpressurized private-aircraft flight to FL250. The pilot reported starting oxygen by nasal cannula passing FL110 and changing to a rebreather mask passing FL180. Actual oxygen dose and complete cabin pressure history were unavailable.",
+            "outcome_window": "Initial symptoms approximately 45 minutes into cruise. Later neurological review was at three months. Some deficits reportedly persisted for several years.",
+            "locator": "Case Report, pp. 200–201 and Discussion p. 201",
+            "note": "One retrospectively attributed episode. In-flight abdominal and shoulder pain preceded focal and visual symptoms and loss of consciousness during descent. Initial hospital diagnosis was cerebellar ataxia of unknown origin. No hyperbaric therapy was administered."
+          }
+        ],
+        "milestones": [
+          {
+            "milestone": "first_symptoms",
+            "elapsed": 45,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "arrival at FL250",
+            "elapsed_qualifier": "approximate",
+            "aircraft_altitude_ft": 25000,
+            "locator": "Case Report, p. 201",
+            "note": "Abdominal cramps and left shoulder pain, followed by numbness."
+          },
+          {
+            "milestone": "visual_blurring",
+            "elapsed": 5,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "upper bound since first symptoms",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": 25000,
+            "locator": "Case Report, p. 201",
+            "note": "Visual blurring occurred within five minutes of the first symptoms."
+          },
+          {
+            "milestone": "loss_of_consciousness_on_descent",
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "elapsed_qualifier": null,
+            "aircraft_altitude_ft": null,
+            "locator": "Case Report, p. 201",
+            "note": "Symptoms worsened when descent began. An exact altitude or elapsed time for loss of consciousness was not reported."
+          },
+          {
+            "milestone": "intermediate_descent_hold",
+            "elapsed": 30,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "elapsed at FL190 after descent began",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": 19000,
+            "locator": "Case Report, p. 201",
+            "note": "The patient remained unconscious during the stated 30-minute hold due to terrain."
+          },
+          {
+            "milestone": "neurologic_reassessment",
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "elapsed_qualifier": null,
+            "aircraft_altitude_ft": null,
+            "locator": "Case Report, p. 201",
+            "note": "At three months after the incident, neurological abnormalities remained. No hyperbaric therapy was given."
+          },
+          {
+            "milestone": "residual_deficits_at_followup",
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "elapsed_qualifier": null,
+            "aircraft_altitude_ft": null,
+            "locator": "Case Report, pp. 201–202",
+            "note": "Ongoing cognitive and night-vision symptoms were described over several subsequent years without an exact interval."
+          }
+        ],
+        "note": "Original report of one selected civilian pilot. The authors retrospectively favor DCS and the original treating team did not make that diagnosis. Event date and exposure denominator are unavailable."
+      },
+      {
+        "id": "rudge95_private_flight",
+        "title": "Decompression sickness in a private pilot",
+        "authors": [
+          "Frederick W. Rudge"
+        ],
+        "year": 1995,
+        "pmid": "7839169",
+        "doi": "10.1097/00007611-199502000-00013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7839169/",
+        "primary_source": "https://www.pilotfriend.com/aeromed/medical/decompression.htm",
+        "source_sha256": "4bf3635c04dbc240ac28f1ba1e607321e3144d93e687c5b3645178ed23d8f703",
+        "access": "full_text",
+        "locator": "Author-attributed online transcription, Case Report",
+        "role_review": "selected_cluster",
+        "model_extraction": {
+          "source_id": "rudge95_private_flight",
+          "input_release": "v1.263",
+          "milestone_input": "data/chamber/v1.263/aircraft_case_milestones.csv"
+        },
+        "full_text_available": true,
+        "full_text_version": "Author-attributed public transcription. Publisher PDF access is restricted.",
+        "case_profile": {
+          "aircraft": "Unpressurized private aircraft",
+          "age_years": 59,
+          "cruise_aircraft_ft": 28000,
+          "first_symptoms_after_cruise_min": 60,
+          "first_hyperbaric_hours_after_landing_approx": 12,
+          "initial_hyperbaric_treatments": 1,
+          "additional_hyperbaric_treatments": 7,
+          "additional_treatment_days": 4,
+          "followup_years": 1,
+          "residual_deficit": "Mild right shoulder weakness at follow-up."
+        },
+        "observations": [
+          {
+            "id": "index-flight",
+            "group": "index-flight",
+            "endpoint": "altitude_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "altitude": 28000,
+            "altitude_unit": "ft",
+            "protocol": "Unpressurized private-aircraft flight at 28,000 ft MSL. The pilot reported using supplemental oxygen above 12,000 ft and continued oxygen during descent. Actual oxygen delivery, prebreathe and the complete profile were unavailable.",
+            "outcome_window": "First symptoms after one hour at cruise. Chamber therapy started approximately 12 hours after landing. Follow-up reported at one year.",
+            "locator": "Author-attributed online transcription, Case Report",
+            "note": "One author-diagnosed altitude DCS episode. New right arm weakness and paresthesias preceded bilateral symptoms. The patient received an initial compression treatment and seven further treatments, with mild residual right shoulder weakness at the one-year assessment."
+          }
+        ],
+        "milestones": [
+          {
+            "milestone": "first_symptoms",
+            "elapsed": 60,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "arrival at 28,000 ft cruise",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": 28000,
+            "locator": "Author-attributed transcription, Case Report",
+            "note": "Right arm weakness and paresthesias, followed by fatigue, chest tightness, dry cough and left arm symptoms."
+          },
+          {
+            "milestone": "first_hyperbaric_treatment",
+            "elapsed": 12,
+            "elapsed_unit": "hours",
+            "elapsed_reference": "landing of index flight",
+            "elapsed_qualifier": "approximate",
+            "aircraft_altitude_ft": null,
+            "locator": "Author-attributed transcription, Case Report",
+            "note": "Compression began immediately after arrival at Brooks, about 12 hours after landing."
+          },
+          {
+            "milestone": "additional_hyperbaric_treatments",
+            "elapsed": 4,
+            "elapsed_unit": "days",
+            "elapsed_reference": "period following first hyperbaric treatment",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": null,
+            "locator": "Author-attributed transcription, Case Report",
+            "note": "Seven further treatments were administered, with improvement after five and no further improvement after the last two."
+          },
+          {
+            "milestone": "one_year_residual_deficit",
+            "elapsed": null,
+            "elapsed_unit": null,
+            "elapsed_reference": null,
+            "elapsed_qualifier": null,
+            "aircraft_altitude_ft": null,
+            "locator": "Author-attributed transcription, Case Report",
+            "note": "One-year review showed recovery of right-hand muscle function and persistent mild right shoulder weakness."
+          }
+        ],
+        "note": "Public author-attributed case transcription corroborated by a matching copy and the indexed author abstract. The publisher journal pages were inaccessible. The digest is for the exact HTML transcription. Event date and exposure denominator are unavailable."
+      },
+      {
+        "id": "auten10_tactical_flight",
+        "title": "Neurologic decompression sickness following cabin pressure fluctuations at high altitude",
+        "authors": [
+          "Jonathan D. Auten",
+          "Michael A. Kuhne",
+          "Harlan M. Walker II",
+          "Henry O. Porter"
+        ],
+        "year": 2010,
+        "pmid": "20377149",
+        "doi": "10.3357/asem.2406.2010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20377149/",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/81/4/article-p427.pdf",
+        "source_sha256": "663333070119bda4d5adfc1d94ed03a2795591a8f288428a7d3c59529ff00db4",
+        "access": "full_text",
+        "locator": "Introduction p. 427 and Case Study pp. 427–428",
+        "role_review": "selected_cluster",
+        "model_extraction": {
+          "source_id": "auten10_tactical_flight",
+          "input_release": "v1.263",
+          "milestone_input": "data/chamber/v1.263/aircraft_case_milestones.csv"
+        },
+        "full_text_available": true,
+        "full_text_version": "Publisher PDF",
+        "case_profile": {
+          "aircraft": "Single-seat tactical aircraft",
+          "age_years": 28,
+          "aircraft_ft_at_fluctuations": 43000,
+          "cabin_altitude_ft_reported_range": [
+            18000,
+            38000
+          ],
+          "cabin_pressure_cycles_reported": 12,
+          "cycling_duration_min_case_study": 3,
+          "fluctuation_period_min_introduction": 10,
+          "individual_cycle_timestamps": null,
+          "actual_pressure_trace": null,
+          "aircraft_ft_after_descent": 24000,
+          "stabilized_cabin_altitude_ft": 8000,
+          "first_symptoms_min_after_fluctuations_approx": 60,
+          "first_hyperbaric_hours_after_fluctuations_approx": 3.5,
+          "first_hyperbaric_hours_after_symptoms_approx": 2.5,
+          "complete_symptom_resolution_min_after_therapy": 90,
+          "followup_years": 1,
+          "followup_symptom_status": "Reported symptom-free at one year."
+        },
+        "observations": [
+          {
+            "id": "index-flight",
+            "group": "index-flight",
+            "endpoint": "suspected_neurologic_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "analysis_role": "selected_cluster",
+            "altitude": null,
+            "altitude_unit": null,
+            "protocol": "Reported 12 cabin-pressure cycles between 18,000 and 38,000 ft cabin altitude while the aircraft was at FL430. After descent the aircraft flew at FL240 with cabin altitude reported as 8,000 ft. The case narrative says three minutes of cycling, and the introduction describes a ten-minute period.",
+            "outcome_window": "Symptoms about one hour after the cabin fluctuations. First hyperbaric treatment about 3.5 hours after those fluctuations. Follow-up at one year.",
+            "locator": "Introduction p. 427 and Case Study pp. 427–428",
+            "note": "One symptomatic pilot with clinical suspicion favoring neurological DCS. The individual cycles, complete gas history and actual start and end pressures are unavailable. The author abstract and case study do not establish an exposure denominator."
+          }
+        ],
+        "milestones": [
+          {
+            "milestone": "climb_reaches_fl430",
+            "elapsed": 20,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "takeoff",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": 43000,
+            "locator": "Case Study, pp. 427–428",
+            "note": "Aircraft flight level, not cabin pressure altitude."
+          },
+          {
+            "milestone": "repeated_cabin_altitude_cycles",
+            "elapsed": 3,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "cycling duration in the case study",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": 43000,
+            "locator": "Introduction p. 427 and Case Study p. 428",
+            "note": "The case study reports 12 cycles between 18,000 and 38,000 ft cabin altitude during the next three minutes. The introduction instead mentions a ten-minute period."
+          },
+          {
+            "milestone": "first_symptoms",
+            "elapsed": 60,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "reported cabin pressure fluctuations",
+            "elapsed_qualifier": "approximate",
+            "aircraft_altitude_ft": 24000,
+            "locator": "Case Study, p. 428",
+            "note": "Felt unwell, then reported lightheadedness, fatigue and confusion. Aircraft was at FL240 after descent and cabin altitude had stabilized near 8,000 ft."
+          },
+          {
+            "milestone": "emergency_department",
+            "elapsed": 3,
+            "elapsed_unit": "hours",
+            "elapsed_reference": "reported cabin pressure fluctuations",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": null,
+            "locator": "Case Study, p. 428",
+            "note": "Emergency team documented asymmetric weakness, sensory changes and confusion."
+          },
+          {
+            "milestone": "first_hyperbaric_treatment",
+            "elapsed": 3.5,
+            "elapsed_unit": "hours",
+            "elapsed_reference": "reported cabin pressure fluctuations",
+            "elapsed_qualifier": "approximate",
+            "aircraft_altitude_ft": null,
+            "locator": "Abstract p. 427 and Case Study p. 428",
+            "note": "The authors separately report 2.5 hours from symptom onset. Treatment used US Navy Table 6."
+          },
+          {
+            "milestone": "full_symptom_resolution",
+            "elapsed": 90,
+            "elapsed_unit": "minutes",
+            "elapsed_reference": "start of first hyperbaric treatment",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": null,
+            "locator": "Case Study, p. 428",
+            "note": "The patient reported some relief by 30 minutes and complete resolution by 90 minutes."
+          },
+          {
+            "milestone": "neurologic_followup",
+            "elapsed": 16,
+            "elapsed_unit": "days",
+            "elapsed_reference": "index incident",
+            "elapsed_qualifier": "reported",
+            "aircraft_altitude_ft": null,
+            "locator": "Case Study, p. 428",
+            "note": "The pilot remained asymptomatic at day 16. At the reported one-year review he was symptom-free."
+          }
+        ],
+        "note": "Original report of one selected tactical pilot with suspected neurological DCS. Dates of exposure and exact cabin pressure trace are unreported. Individual flights or exposed aircrew counts are unavailable."
+      },
+      {
+        "id": "rudge-pilotfriend-transcription",
+        "title": "Decompression sickness in a private pilot",
+        "authors": [
+          "Frederick W. Rudge"
+        ],
+        "year": 1995,
+        "pmid": "7839169",
+        "doi": "10.1097/00007611-199502000-00013",
+        "url": "https://www.pilotfriend.com/aeromed/medical/decompression.htm",
+        "access": "full_text",
+        "role_review": "alternate_copy",
+        "note": "The byline and author summary identify Rudge's article. The 59-year-old pilot, 28,000 ft cruise, 12-hour postlanding treatment and one-year outcome match the clinical transcription. This version supplies no separate case."
+      },
+      {
+        "id": "rudge-avstop-transcription",
+        "title": "Decompression sickness in a private pilot",
+        "authors": [
+          "Frederick W. Rudge"
+        ],
+        "year": 1995,
+        "pmid": "7839169",
+        "doi": "10.1097/00007611-199502000-00013",
+        "url": "http://avstop.com/medical/decompression.htm",
+        "access": "full_text",
+        "role_review": "alternate_copy",
+        "note": "The byline and author summary identify Rudge's article. The 59-year-old pilot, 28,000 ft cruise, 12-hour postlanding treatment and one-year outcome match the clinical transcription. This version supplies no separate case."
+      }
+    ],
+    "note": "Three distinct reported cases. The case dossiers differ by age, setting, altitude, symptoms and treatment course. The Rudge abstract was checked against two public transcriptions. A unique denominator and compatibility with prior aggregate data are unavailable."
+  }
+]
