@@ -338,6 +338,7 @@ NASA_FAMILIARIZATION_FOLLOWUP = ROOT / "data" / "chamber" / "v1.270"
 CLINICAL_ATTRIBUTION_HOLDS = ROOT / "data" / "chamber" / "v1.271"
 RUDGE_DULLY_CASE_CHRONOLOGIES = ROOT / "data" / "chamber" / "v1.272"
 RUDGE_STONE_DIAGNOSTIC_ARCHIVE = ROOT / "data" / "chamber" / "v1.273"
+RUDGE_PULMONARY_REFERRALS = ROOT / "data" / "chamber" / "v1.274"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3524,6 +3525,15 @@ def build(
                     RUDGE_STONE_DIAGNOSTIC_ARCHIVE,
                     {
                         "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    RUDGE_PULMONARY_REFERRALS,
+                    {
                         "publication_observation": "observations.csv",
                         "publication_overlap": "overlap.csv",
                     },

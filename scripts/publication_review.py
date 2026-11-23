@@ -141,13 +141,42 @@ def load_register(db, root):
     workflow_paths = [
         *directory.glob("*pilot*.json"),
         *directory.glob("screening-batch-*.json"),
+        *directory.glob("analysis-selection-batch-*.json"),
         directory / "prisma-flow.json",
     ]
     for path in sorted(workflow_paths):
+        input_path = (DIRECTORY / path.name).as_posix()
+        content = path.read_text(encoding="utf-8")
         db.execute(
             "INSERT INTO review_workflow_document VALUES (?,?)",
-            ((DIRECTORY / path.name).as_posix(), path.read_text(encoding="utf-8")),
+            (input_path, content),
         )
+        if path.name.startswith("analysis-selection-batch-"):
+            selections = json.loads(content)["selections"]
+            _insert(
+                db,
+                "review_analysis_selection",
+                "input_path selection_id study_id report_id record_key risk_set_id analysis "
+                "chamber_role cases denominator counting_unit exposure_period endpoint outcome_window "
+                "disposition locator primary_url source_cells_json rationale reported_effect_json",
+                (
+                    dict(
+                        row,
+                        input_path=input_path,
+                        source_cells_json=json.dumps(row["source_cells"], ensure_ascii=False),
+                        reported_effect_json=(
+                            json.dumps(row["reported_effect"], ensure_ascii=False)
+                            if row.get("reported_effect") is not None else None
+                        ),
+                    )
+                    for row in selections
+                ),
+            )
+    if db.execute("""
+        SELECT 1 FROM review_analysis_selection s JOIN review_record r USING(record_key)
+        WHERE s.report_id != r.report_id LIMIT 1
+    """).fetchone():
+        raise ValueError("Analysis selection refers to a source occurrence for a different report")
     with (directory / "screening.csv").open(encoding="utf-8", newline="") as stream:
         _insert(
             db,
