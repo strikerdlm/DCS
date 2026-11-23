@@ -1,0 +1,51 @@
+[
+  {
+    "id": "2026-11-23-bryce-headache-primary-comparison",
+    "date": "2026-11-23",
+    "provider": "Firecrawl and archived DTIC original",
+    "operation": "supplementary_primary_case_identity_check",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20877-85f9-746a-bf31-94891889d558",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf",
+          "returned_pdf_pages": 2,
+          "total_pdf_pages": 5,
+          "http_status": 200
+        },
+        {
+          "provider": "DTIC Archive copy",
+          "operation": "verify_cached_original",
+          "url": "https://archive.org/download/DTIC_ADP011060/DTIC_ADP011060.pdf#page=2"
+        }
+      ]
+    },
+    "note": "Compare the two already identified reports' numbered cases. Preserve the conflict in Case 2 setting and reuse the existing v1.83 sequences. This retrieval adds no case, denominator, or formula-fitting observation.",
+    "records": [
+      {
+        "id": "journal-case-histories",
+        "title": "Headache and altitude decompression sickness: joint pain or neurological pain?",
+        "pmid": "16313145",
+        "year": 2005,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf",
+        "access": "partial_publisher_pdf",
+        "locator": "Printed pp. 1074-1075, Cases 1 and 2",
+        "evidence_note": "Firecrawl returned the two pages needed to compare both case histories. Case 2 describes the first exposure as hypoxia demonstration training."
+      },
+      {
+        "id": "conference-case-histories",
+        "title": "Headache and Decompression Sickness: Type I or Type II?",
+        "year": 2001,
+        "url": "https://archive.org/download/DTIC_ADP011060/DTIC_ADP011060.pdf#page=2",
+        "access": "verified_public_report",
+        "locator": "ADP011060, printed p. 2-1, Cases 1 and 2",
+        "evidence_note": "Existing public DTIC copy. Case 2 identifies the first exposure as an altitude research protocol. Ages, altitudes, onset intervals and responses align with the journal case histories."
+      }
+    ]
+  }
+]

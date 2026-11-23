@@ -1,0 +1,234 @@
+{
+  "batch_id": "07",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers agreed with seven full-text decisions and four retrieval holds.",
+    "note": "Labels identify the two reviewer slots. The date records the joint confirmation. Individual forms and separate appraisal judgments were not supplied."
+  },
+  "evidence_snapshot": {
+    "revision": "2edaa8ecd953507c0590ca6452885e2f7c4fd6a3",
+    "evidence_sha256": "d3945e3d2625bdad37504d36cf1c060a6c7ee9fa06ebf85849f478ea0ee262ba",
+    "systematic_review_sha256": "814e184f461a69025dcf5704d222ffa0364a489583c626faa510a99b446906fc"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:10608608",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10608608",
+      "title": "Inner ear decompression sickness following altitude chamber operation.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 1106-1108, Case Report and Figures 1-3",
+      "reason": "Retain the author-diagnosed joint and vestibular case, with initial joint symptoms about 20 minutes and vestibular symptoms 3.5 hours after descent. Shupak 1997 describes the same person. Chamber duty and the exposed cohort denominator remain unverified.",
+      "observations": [
+        {
+          "scope": "chamber drill case",
+          "numerator": 1,
+          "denominator": null,
+          "unit": "person",
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1162923",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1162923",
+      "title": "[Prevention of altitude decompression sickness in flights in a depressurized cabin].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1162923/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "NLM index, Voen Med Zh 1975(4), pp. 85-88",
+      "reason": "Full text unavailable. Title concerns depressurized cabin flight and indexing mentions chambers. Setting and case denominators are unverified. Keep the 1977 experimental paper separate.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:11817619",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11817619",
+      "title": "USAF treatment table 8: treatment for altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11817619/",
+      "stage": "full_text",
+      "decision": "exclude",
+      "locator": "pp. 46-48, Methods, Figure 1, Results and Table I",
+      "reason": "Exclude from operational training synthesis. The 13 episodes in 12 symptomatic people form a selected treatment cohort. The initiating exposure setting for individual episodes is unavailable. Existing treatment evidence remains available.",
+      "observations": [
+        {
+          "scope": "treated episodes",
+          "numerator": 13,
+          "denominator": null,
+          "unit": "episode",
+          "use": "case_conditional"
+        },
+        {
+          "scope": "treated subjects",
+          "numerator": 12,
+          "denominator": null,
+          "unit": "person",
+          "use": "case_conditional"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12434813",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12434813",
+      "title": "[Probability models for altitude decompression sickness].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12434813/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "Author abstract, Methods and Results",
+      "reason": "The abstract describes survival analysis for high-altitude flight. Original cohort provenance, numerator and exposure denominator are unavailable. Full text remains pending.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:13514751",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:13514751",
+      "title": "A brief review of aviator's decompression sickness and the high altitude selection test.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/13514751/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "BMJ publisher record and access-controlled PDF listing",
+      "reason": "The citation describes high-altitude selection. Original training outcomes remain unverified. The publisher reserves AI and text-mining rights, and the full text awaits human assessment.",
+      "observations": [],
+      "publisher_source_url": "https://jrnms.bmj.com/content/44/1/2"
+    },
+    {
+      "report_id": "pmid:1456923",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1456923",
+      "title": "The role of ground level oxygen in the treatment of altitude chamber decompression sickness.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 1102-1104, Methods, Results and Tables I-II",
+      "reason": "Retain initial treatment and symptom timing for the combined trainee and attendant Type I case stratum. Rudge's Table II reports 117 ground-onset cases, 78 initially treated with ground-level oxygen. Butler cites 78 as the ground-onset count. Role counts, exposed denominator and patient linkage to other USAF reports remain unavailable.",
+      "observations": [
+        {
+          "scope": "onset at altitude among Type I trainee or attendant cases",
+          "numerator": 48,
+          "denominator": 165,
+          "unit": "selected_case",
+          "use": "case_conditional"
+        },
+        {
+          "scope": "onset at ground among Type I trainee or attendant cases",
+          "numerator": 117,
+          "denominator": 165,
+          "unit": "selected_case",
+          "use": "case_conditional"
+        },
+        {
+          "scope": "ground-level oxygen among cases with onset at ground",
+          "numerator": 78,
+          "denominator": 117,
+          "unit": "selected_case",
+          "use": "nested_treatment_outcome"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16313145",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16313145",
+      "title": "Headache and altitude decompression sickness: joint pain or neurological pain?",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf#page=2",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 1074-1075, Case 2 and 2001 conference Case 2, p. 2-1",
+      "reason": "Retain the linked narrative for one person exposed twice. Journal and conference accounts agree on case age, exposure altitudes and symptoms after 9 h and 2 h. They disagree on training versus research. Hold operational classification and incidence.",
+      "observations": [
+        {
+          "scope": "Case 2 in journal and conference reports",
+          "numerator": 1,
+          "denominator": null,
+          "unit": "person",
+          "use": "same_case_setting_hold"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1898307",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1898307",
+      "title": "The effect of delay on treatment outcome in altitude-induced decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1898307/",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 687-688, Methods, Results and Tables I-II",
+      "reason": "Retain the 233 recompression-treated cases. Table II gives 128 onsets at altitude or through the first two hours. Results reports 67% for that interval. Retain both. No compatible at-risk total or participant linkage to overlapping USAF series.",
+      "observations": [
+        {
+          "scope": "treated chamber cases",
+          "numerator": 233,
+          "denominator": null,
+          "unit": "case",
+          "use": "treated_cases"
+        },
+        {
+          "scope": "onset at altitude or during first two hours",
+          "numerator": 128,
+          "denominator": 233,
+          "unit": "treated_case",
+          "use": "printed_table"
+        }
+      ],
+      "results_narrative_first_two_hours_percent": 67
+    },
+    {
+      "report_id": "pmid:2053905",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2053905",
+      "title": "Decompression sickness: risk factors and the monoplace chamber--a case report.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p414.pdf#page=2",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 414-416, Case Report and Discussion",
+      "reason": "Retain the sequential exposure case: Type V chamber training, commercial flight about 2 h 45 min later, and first symptoms in flight. A travel-risk denominator and membership in the national series are unresolved.",
+      "observations": [
+        {
+          "scope": "sequential chamber and flight case",
+          "numerator": 1,
+          "denominator": null,
+          "unit": "person",
+          "use": "narrative_only"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21007394",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21007394",
+      "title": "Decompression sickness incident to deep sea diving and high altitude ascent.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21007394/",
+      "stage": "retrieval_pending",
+      "decision": null,
+      "locator": "LWW publisher citation, Medicine 24(4), pp. 381-402",
+      "reason": "Original spans diving and high-altitude ascent. The exact report is PDF-only and a routine operational chamber sample remains unverified.",
+      "observations": []
+    },
+    {
+      "report_id": "pmid:2256877",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2256877",
+      "title": "The risk of developing decompression sickness during air travel following altitude chamber flight.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2",
+      "stage": "full_text",
+      "decision": "include",
+      "locator": "pp. 1028-1029, Methods, Results and Tables I-III",
+      "reason": "Retain selected treatment timing with seven subsequent-travel cases nested in 292 treated chamber trainees. Approximate annual training volume is not a matching exposed denominator. Case linkage to other USAF series is unresolved.",
+      "observations": [
+        {
+          "scope": "treated chamber trainees",
+          "numerator": 292,
+          "denominator": null,
+          "unit": "case",
+          "use": "treated_cases"
+        },
+        {
+          "scope": "cases following subsequent air travel",
+          "numerator": 7,
+          "denominator": 292,
+          "unit": "treated_case",
+          "use": "nested_mixed_exposure"
+        }
+      ]
+    }
+  ]
+}

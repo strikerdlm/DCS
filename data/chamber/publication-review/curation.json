@@ -1,6 +1,402 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-23-bryce-headache-primary-comparison#journal-case-histories",
+      "report_id": "pmid:16313145",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf#page=2",
+      "basis": "The publisher pages match the journal article citation and PMID. The existing formal bibliographic records retain their own retrieval keys."
+    },
+    {
+      "record_key": "2026-11-23-bryce-headache-primary-comparison#conference-case-histories",
+      "report_id": "report:adp011060",
+      "evidence_url": "https://archive.org/download/DTIC_ADP011060/DTIC_ADP011060.pdf#page=2",
+      "basis": "Printed conference report title, accession ADP011060 and numbered case descriptions match the existing source. Reuse the report and v1.83 sequence provenance."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2386454",
+      "report_id": "pmid:2386454",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2386454/",
+      "basis": "Rudge. Aviat Space Environ Med 1990;61(7):657-9. Same journal title, year and pages as the local original."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1520269143",
+      "report_id": "pmid:2386454",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2386454/",
+      "basis": "Rudge. Aviat Space Environ Med 1990;61(7):657-9. Same journal title, year and pages as the local original."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#2386454",
+      "report_id": "pmid:2386454",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/2386454/",
+      "basis": "Rudge. Aviat Space Environ Med 1990;61(7):657-9. Same journal title, year and pages as the local original."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.37/sources.csv#rudge90_menstrual",
+      "report_id": "pmid:2386454",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/7/article-p657.pdf",
+      "basis": "Rudge. Aviat Space Environ Med 1990;61(7):657-9. Same journal title, year and pages as the local original."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:18783080",
+      "report_id": "doi:10.1714/632.7379",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/18783080/",
+      "basis": "Gaspardone. G Ital Cardiol (Rome) 2008;9(9):593-602. The publisher identifies the Italian article by Gaspardone, Iani and Papa, with the same volume, issue and pages. The bracketed English title is index metadata for that same article. Include the additional OpenAlex Italian-title hit."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W295739964",
+      "report_id": "doi:10.1714/632.7379",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/18783080/",
+      "basis": "Gaspardone. G Ital Cardiol (Rome) 2008;9(9):593-602. The publisher identifies the Italian article by Gaspardone, Iani and Papa, with the same volume, issue and pages. The bracketed English title is index metadata for that same article. Include the additional OpenAlex Italian-title hit."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#18783080",
+      "report_id": "doi:10.1714/632.7379",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/18783080/",
+      "basis": "Gaspardone. G Ital Cardiol (Rome) 2008;9(9):593-602. The publisher identifies the Italian article by Gaspardone, Iani and Papa, with the same volume, issue and pages. The bracketed English title is index metadata for that same article. Include the additional OpenAlex Italian-title hit."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2419026917",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21018679/",
+      "basis": "RODBARD. J Aviat Med 1946;17:89-91. Rodbard's title and pages identify the journal article. Preserve the established source-linked report ID."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#21018679",
+      "report_id": "record:legacy:data/chamber/v1.11/search_hits.csv#cadet_pdf_verification:5",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/21018679/",
+      "basis": "RODBARD. J Aviat Med 1946;17:89-91. Rodbard's title and pages identify the journal article. Preserve the established source-linked report ID."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:37358094",
+      "report_id": "pmid:37358094",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/37358094/",
+      "basis": "Castillo. Rev Med Chil 2022;150(10):1351-1360. DOI 10.4067/S0034-98872022001001351. The Spanish original title and bracketed English index title share the same DOI, publication date and page range. Include the additional OpenAlex Spanish-title hit."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W4367032177",
+      "report_id": "pmid:37358094",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/37358094/",
+      "basis": "Castillo. Rev Med Chil 2022;150(10):1351-1360. DOI 10.4067/S0034-98872022001001351. The Spanish original title and bracketed English index title share the same DOI, publication date and page range. Include the additional OpenAlex Spanish-title hit."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#37358094",
+      "report_id": "pmid:37358094",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/37358094/",
+      "basis": "Castillo. Rev Med Chil 2022;150(10):1351-1360. DOI 10.4067/S0034-98872022001001351. The Spanish original title and bracketed English index title share the same DOI, publication date and page range. Include the additional OpenAlex Spanish-title hit."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17088101",
+      "report_id": "pmid:17088101",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17088101/",
+      "basis": "Papadelis. Clin Neurophysiol 2007;118(1):31-52. DOI 10.1016/j.clinph.2006.09.008. Same title, PMID and NLM-listed DOI 10.1016/j.clinph.2006.09.008. Preserve different raw index years 2006, 2007 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2102570073",
+      "report_id": "pmid:17088101",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17088101/",
+      "basis": "Papadelis. Clin Neurophysiol 2007;118(1):31-52. DOI 10.1016/j.clinph.2006.09.008. Same title, PMID and NLM-listed DOI 10.1016/j.clinph.2006.09.008. Preserve different raw index years 2006, 2007 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#17088101",
+      "report_id": "pmid:17088101",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17088101/",
+      "basis": "Papadelis. Clin Neurophysiol 2007;118(1):31-52. DOI 10.1016/j.clinph.2006.09.008. Same title, PMID and NLM-listed DOI 10.1016/j.clinph.2006.09.008. Preserve different raw index years 2006, 2007 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17138641",
+      "report_id": "pmid:17138641",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17138641/",
+      "basis": "Blatteau. Br J Sports Med 2007;41(6):375-9. DOI 10.1136/bjsm.2006.032359. Same title, PMID and NLM-listed DOI 10.1136/bjsm.2006.032359. Preserve different raw index years 2006, 2007 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2002437406",
+      "report_id": "pmid:17138641",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17138641/",
+      "basis": "Blatteau. Br J Sports Med 2007;41(6):375-9. DOI 10.1136/bjsm.2006.032359. Same title, PMID and NLM-listed DOI 10.1136/bjsm.2006.032359. Preserve different raw index years 2006, 2007 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#17138641",
+      "report_id": "pmid:17138641",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17138641/",
+      "basis": "Blatteau. Br J Sports Med 2007;41(6):375-9. DOI 10.1136/bjsm.2006.032359. Same title, PMID and NLM-listed DOI 10.1136/bjsm.2006.032359. Preserve different raw index years 2006, 2007 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17855002",
+      "report_id": "pmid:17855002",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17855002/",
+      "basis": "Duplessis. Med Hypotheses 2008;70(3):560-6. DOI 10.1016/j.mehy.2007.04.050. Same title, PMID and NLM-listed DOI 10.1016/j.mehy.2007.04.050. Preserve different raw index years 2007, 2008 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2073513036",
+      "report_id": "pmid:17855002",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17855002/",
+      "basis": "Duplessis. Med Hypotheses 2008;70(3):560-6. DOI 10.1016/j.mehy.2007.04.050. Same title, PMID and NLM-listed DOI 10.1016/j.mehy.2007.04.050. Preserve different raw index years 2007, 2008 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#17855002",
+      "report_id": "pmid:17855002",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17855002/",
+      "basis": "Duplessis. Med Hypotheses 2008;70(3):560-6. DOI 10.1016/j.mehy.2007.04.050. Same title, PMID and NLM-listed DOI 10.1016/j.mehy.2007.04.050. Preserve different raw index years 2007, 2008 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:19074573",
+      "report_id": "pmid:19074573",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19074573/",
+      "basis": "Foster. J Appl Physiol (1985) 2009;106(2):678-90. DOI 10.1152/japplphysiol.91099.2008. NLM gives electronic publication in December 2008 and the journal issue in February 2009. The Mahon reference matches the title and DOI."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2043639956",
+      "report_id": "pmid:19074573",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19074573/",
+      "basis": "Foster. J Appl Physiol (1985) 2009;106(2):678-90. DOI 10.1152/japplphysiol.91099.2008. NLM gives electronic publication in December 2008 and the journal issue in February 2009. The Mahon reference matches the title and DOI."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#19074573",
+      "report_id": "pmid:19074573",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19074573/",
+      "basis": "Foster. J Appl Physiol (1985) 2009;106(2):678-90. DOI 10.1152/japplphysiol.91099.2008. NLM gives electronic publication in December 2008 and the journal issue in February 2009. The Mahon reference matches the title and DOI."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/references.csv#mahon2014:73",
+      "report_id": "pmid:19074573",
+      "evidence_url": "https://doi.org/10.1152/japplphysiol.91099.2008",
+      "basis": "Foster. J Appl Physiol (1985) 2009;106(2):678-90. DOI 10.1152/japplphysiol.91099.2008. NLM gives electronic publication in December 2008 and the journal issue in February 2009. The Mahon reference matches the title and DOI."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:23304992",
+      "report_id": "pmid:23304992",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23304992/",
+      "basis": "Jersey. Aviat Space Environ Med 2013;84(1):3-11. DOI 10.3357/asem.3405.2013. The matching DOI, title and issue pagination support one article. Keep divergent 2012 and 2013 provider years in raw metadata. Preserve the Mahon reference."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2329064753",
+      "report_id": "pmid:23304992",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23304992/",
+      "basis": "Jersey. Aviat Space Environ Med 2013;84(1):3-11. DOI 10.3357/asem.3405.2013. The matching DOI, title and issue pagination support one article. Keep divergent 2012 and 2013 provider years in raw metadata. Preserve the Mahon reference."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#23304992",
+      "report_id": "pmid:23304992",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23304992/",
+      "basis": "Jersey. Aviat Space Environ Med 2013;84(1):3-11. DOI 10.3357/asem.3405.2013. The matching DOI, title and issue pagination support one article. Keep divergent 2012 and 2013 provider years in raw metadata. Preserve the Mahon reference."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.5/references.csv#mahon2014:117",
+      "report_id": "pmid:23304992",
+      "evidence_url": "https://doi.org/10.3357/asem.3405.2013",
+      "basis": "Jersey. Aviat Space Environ Med 2013;84(1):3-11. DOI 10.3357/asem.3405.2013. The matching DOI, title and issue pagination support one article. Keep divergent 2012 and 2013 provider years in raw metadata. Preserve the Mahon reference."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:24158406",
+      "report_id": "pmid:24158406",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/24158406/",
+      "basis": "Randsøe. Eur J Appl Physiol 2014;114(1):135-46. DOI 10.1007/s00421-013-2749-x. Same title, PMID and NLM-listed DOI 10.1007/s00421-013-2749-x. Preserve different raw index years 2013, 2014 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1985698673",
+      "report_id": "pmid:24158406",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/24158406/",
+      "basis": "Randsøe. Eur J Appl Physiol 2014;114(1):135-46. DOI 10.1007/s00421-013-2749-x. Same title, PMID and NLM-listed DOI 10.1007/s00421-013-2749-x. Preserve different raw index years 2013, 2014 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#24158406",
+      "report_id": "pmid:24158406",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/24158406/",
+      "basis": "Randsøe. Eur J Appl Physiol 2014;114(1):135-46. DOI 10.1007/s00421-013-2749-x. Same title, PMID and NLM-listed DOI 10.1007/s00421-013-2749-x. Preserve different raw index years 2013, 2014 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:25129838",
+      "report_id": "pmid:25129838",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/25129838/",
+      "basis": "Smolensky. Sleep Med Rev 2015;21:3-11. DOI 10.1016/j.smrv.2014.07.001. Same NLM PMID, title and DOI. Keep raw 2014 and 2015 provider years."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2004477770",
+      "report_id": "pmid:25129838",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/25129838/",
+      "basis": "Smolensky. Sleep Med Rev 2015;21:3-11. DOI 10.1016/j.smrv.2014.07.001. Same NLM PMID, title and DOI. Keep raw 2014 and 2015 provider years."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#25129838",
+      "report_id": "pmid:25129838",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/25129838/",
+      "basis": "Smolensky. Sleep Med Rev 2015;21:3-11. DOI 10.1016/j.smrv.2014.07.001. Same NLM PMID, title and DOI. Keep raw 2014 and 2015 provider years."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:29175087",
+      "report_id": "pmid:29175087",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/29175087/",
+      "basis": "Murphy. Comput Biol Med 2018;92:110-117. DOI 10.1016/j.compbiomed.2017.11.012. Same title, PMID and NLM-listed DOI 10.1016/j.compbiomed.2017.11.012. Preserve different raw index years 2017, 2018 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2770675386",
+      "report_id": "pmid:29175087",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/29175087/",
+      "basis": "Murphy. Comput Biol Med 2018;92:110-117. DOI 10.1016/j.compbiomed.2017.11.012. Same title, PMID and NLM-listed DOI 10.1016/j.compbiomed.2017.11.012. Preserve different raw index years 2017, 2018 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#29175087",
+      "report_id": "pmid:29175087",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/29175087/",
+      "basis": "Murphy. Comput Biol Med 2018;92:110-117. DOI 10.1016/j.compbiomed.2017.11.012. Same title, PMID and NLM-listed DOI 10.1016/j.compbiomed.2017.11.012. Preserve different raw index years 2017, 2018 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:30474310",
+      "report_id": "pmid:30474310",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/30474310/",
+      "basis": "Chen. Biom J 2019;61(1):203-215. DOI 10.1002/bimj.201700304. Same title, PMID and NLM-listed DOI 10.1002/bimj.201700304. Preserve different raw index years 2018, 2019 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2903337347",
+      "report_id": "pmid:30474310",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/30474310/",
+      "basis": "Chen. Biom J 2019;61(1):203-215. DOI 10.1002/bimj.201700304. Same title, PMID and NLM-listed DOI 10.1002/bimj.201700304. Preserve different raw index years 2018, 2019 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#30474310",
+      "report_id": "pmid:30474310",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/30474310/",
+      "basis": "Chen. Biom J 2019;61(1):203-215. DOI 10.1002/bimj.201700304. Same title, PMID and NLM-listed DOI 10.1002/bimj.201700304. Preserve different raw index years 2018, 2019 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33357271",
+      "report_id": "pmid:33357271",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357271/",
+      "basis": "Ottestad. Aerosp Med Hum Perform 2021;92(1):39-42. DOI 10.3357/AMHP.5710.2021. Same title and NLM DOI across the 2020 and 2021 raw years. The EDS hit and formal citer match the DOI."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3116690869",
+      "report_id": "pmid:33357271",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357271/",
+      "basis": "Ottestad. Aerosp Med Hum Perform 2021;92(1):39-42. DOI 10.3357/AMHP.5710.2021. Same title and NLM DOI across the 2020 and 2021 raw years. The EDS hit and formal citer match the DOI."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#33357271",
+      "report_id": "pmid:33357271",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357271/",
+      "basis": "Ottestad. Aerosp Med Hum Perform 2021;92(1):39-42. DOI 10.3357/AMHP.5710.2021. Same title and NLM DOI across the 2020 and 2021 raw years. The EDS hit and formal citer match the DOI."
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-30352646#W3116690869",
+      "report_id": "pmid:33357271",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357271/",
+      "basis": "Ottestad. Aerosp Med Hum Perform 2021;92(1):39-42. DOI 10.3357/AMHP.5710.2021. Same title and NLM DOI across the 2020 and 2021 raw years. The EDS hit and formal citer match the DOI."
+    },
+    {
+      "record_key": "2026-11-20-eds-role#e3i7yimoyb",
+      "report_id": "pmid:33357271",
+      "evidence_url": "https://doi.org/10.3357/AMHP.5710.2021",
+      "basis": "Ottestad. Aerosp Med Hum Perform 2021;92(1):39-42. DOI 10.3357/AMHP.5710.2021. Same title and NLM DOI across the 2020 and 2021 raw years. The EDS hit and formal citer match the DOI."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33357273",
+      "report_id": "pmid:33357273",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357273/",
+      "basis": "Petruso. Aerosp Med Hum Perform 2021;92(1):47-49. DOI 10.3357/AMHP.5701.2021. Same title and NLM DOI across the 2020 and 2021 raw years."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3116398089",
+      "report_id": "pmid:33357273",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357273/",
+      "basis": "Petruso. Aerosp Med Hum Perform 2021;92(1):47-49. DOI 10.3357/AMHP.5701.2021. Same title and NLM DOI across the 2020 and 2021 raw years."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#33357273",
+      "report_id": "pmid:33357273",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357273/",
+      "basis": "Petruso. Aerosp Med Hum Perform 2021;92(1):47-49. DOI 10.3357/AMHP.5701.2021. Same title and NLM DOI across the 2020 and 2021 raw years."
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-12546299#W3116398089",
+      "report_id": "pmid:33357273",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357273/",
+      "basis": "Petruso. Aerosp Med Hum Perform 2021;92(1):47-49. DOI 10.3357/AMHP.5701.2021. Same title and NLM DOI across the 2020 and 2021 raw years."
+    },
+    {
+      "record_key": "2026-11-20-formal-citers-32574436#W3116398089",
+      "report_id": "pmid:33357273",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33357273/",
+      "basis": "Petruso. Aerosp Med Hum Perform 2021;92(1):47-49. DOI 10.3357/AMHP.5701.2021. Same title and NLM DOI across the 2020 and 2021 raw years."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:41315164",
+      "report_id": "pmid:41315164",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41315164/",
+      "basis": "Duong-Quy. Pulm Ther 2026;12(1):39-55. DOI 10.1007/s41030-025-00335-w. Same title, PMID and NLM-listed DOI 10.1007/s41030-025-00335-w. Preserve different raw index years 2025, 2026 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W4416796906",
+      "report_id": "pmid:41315164",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41315164/",
+      "basis": "Duong-Quy. Pulm Ther 2026;12(1):39-55. DOI 10.1007/s41030-025-00335-w. Same title, PMID and NLM-listed DOI 10.1007/s41030-025-00335-w. Preserve different raw index years 2025, 2026 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#41315164",
+      "report_id": "pmid:41315164",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41315164/",
+      "basis": "Duong-Quy. Pulm Ther 2026;12(1):39-55. DOI 10.1007/s41030-025-00335-w. Same title, PMID and NLM-listed DOI 10.1007/s41030-025-00335-w. Preserve different raw index years 2025, 2026 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W2001972642",
+      "report_id": "pmid:22487116",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22487116/",
+      "basis": "Tourigny. Emerg Med Clin North Am 2012;30(2):501-28, x. DOI 10.1016/j.emc.2011.10.006. Same title, PMID and NLM-listed DOI 10.1016/j.emc.2011.10.006. Preserve different raw index years 2011, 2012 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#22487116",
+      "report_id": "pmid:22487116",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/22487116/",
+      "basis": "Tourigny. Emerg Med Clin North Am 2012;30(2):501-28, x. DOI 10.1016/j.emc.2011.10.006. Same title, PMID and NLM-listed DOI 10.1016/j.emc.2011.10.006. Preserve different raw index years 2011, 2012 in the occurrence metadata."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:33975402",
+      "report_id": "pmid:33975402",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33975402/",
+      "basis": "Hess. Undersea Hyperb Med 2021;48(2):119-126. DOI 10.22462/03.04.2021.2. NLM verifies original 48(2):119-126, PMID 33975402, DOI 10.22462/03.04.2021.2 and replacement 48(4):469-476, PMID 34847312. UHMS confirms replacement DOI 10.22462/07.08.2021.11. Replacement DOI is blank in NLM XML. OpenAlex W3160511340 mixes the original PMID with the replacement DOI. Europe PMC assigns the original DOI to the correct replacement PMID. Both conflicting provider tokens are superseded only for canonical identity by the publisher DOI and reciprocal NLM relations."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#33975402",
+      "report_id": "pmid:33975402",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33975402/",
+      "basis": "Hess. Undersea Hyperb Med 2021;48(2):119-126. DOI 10.22462/03.04.2021.2. NLM verifies original 48(2):119-126, PMID 33975402, DOI 10.22462/03.04.2021.2 and replacement 48(4):469-476, PMID 34847312. UHMS confirms replacement DOI 10.22462/07.08.2021.11. Replacement DOI is blank in NLM XML. OpenAlex W3160511340 mixes the original PMID with the replacement DOI. Europe PMC assigns the original DOI to the correct replacement PMID. Both conflicting provider tokens are superseded only for canonical identity by the publisher DOI and reciprocal NLM relations."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:34847312",
+      "report_id": "pmid:34847312",
+      "evidence_url": "https://uhms.org/uhm-search/uhm-journal-volume-48-2021/number-4/variability-in-venous-gas-emboli-following-the-same-dive-at-3-658-meters-2.html",
+      "basis": "Hess. Undersea Hyperb Med 2021;48(2):119-126. DOI 10.22462/03.04.2021.2. NLM verifies original 48(2):119-126, PMID 33975402, DOI 10.22462/03.04.2021.2 and replacement 48(4):469-476, PMID 34847312. UHMS confirms replacement DOI 10.22462/07.08.2021.11. Replacement DOI is blank in NLM XML. OpenAlex W3160511340 mixes the original PMID with the replacement DOI. Europe PMC assigns the original DOI to the correct replacement PMID. Both conflicting provider tokens are superseded only for canonical identity by the publisher DOI and reciprocal NLM relations."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3160511340",
+      "report_id": "pmid:34847312",
+      "evidence_url": "https://uhms.org/uhm-search/uhm-journal-volume-48-2021/number-4/variability-in-venous-gas-emboli-following-the-same-dive-at-3-658-meters-2.html",
+      "basis": "Hess. Undersea Hyperb Med 2021;48(2):119-126. DOI 10.22462/03.04.2021.2. NLM verifies original 48(2):119-126, PMID 33975402, DOI 10.22462/03.04.2021.2 and replacement 48(4):469-476, PMID 34847312. UHMS confirms replacement DOI 10.22462/07.08.2021.11. Replacement DOI is blank in NLM XML. OpenAlex W3160511340 mixes the original PMID with the replacement DOI. Europe PMC assigns the original DOI to the correct replacement PMID. Both conflicting provider tokens are superseded only for canonical identity by the publisher DOI and reciprocal NLM relations."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#34847312",
+      "report_id": "pmid:34847312",
+      "evidence_url": "https://uhms.org/uhm-search/uhm-journal-volume-48-2021/number-4/variability-in-venous-gas-emboli-following-the-same-dive-at-3-658-meters-2.html",
+      "basis": "Hess. Undersea Hyperb Med 2021;48(2):119-126. DOI 10.22462/03.04.2021.2. NLM verifies original 48(2):119-126, PMID 33975402, DOI 10.22462/03.04.2021.2 and replacement 48(4):469-476, PMID 34847312. UHMS confirms replacement DOI 10.22462/07.08.2021.11. Replacement DOI is blank in NLM XML. OpenAlex W3160511340 mixes the original PMID with the replacement DOI. Europe PMC assigns the original DOI to the correct replacement PMID. Both conflicting provider tokens are superseded only for canonical identity by the publisher DOI and reciprocal NLM relations."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:37465594",
+      "report_id": "doi:10.21980/j8b93x",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/37465594/",
+      "basis": "Pittman. J Educ Teach Emerg Med 2020;5(1):C1-C120. DOI 10.21980/J8B93X. The eScholarship cover gives DOI 10.5070/M551046555. Its distributed manuscript carries 10.21980/J8B93X in the citation and footer, matching PMC10332540 and NLM. Both identify Pittman, Slone and Wilson, JETem 2020 5(1):C1-C120."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-openalex#W3001053196",
+      "report_id": "doi:10.21980/j8b93x",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/37465594/",
+      "basis": "Pittman. J Educ Teach Emerg Med 2020;5(1):C1-C120. DOI 10.21980/J8B93X. The eScholarship cover gives DOI 10.5070/M551046555. Its distributed manuscript carries 10.21980/J8B93X in the citation and footer, matching PMC10332540 and NLM. Both identify Pittman, Slone and Wilson, JETem 2020 5(1):C1-C120."
+    },
+    {
+      "record_key": "2026-11-20-formal-chamber-pubmed#37465594",
+      "report_id": "doi:10.21980/j8b93x",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/37465594/",
+      "basis": "Pittman. J Educ Teach Emerg Med 2020;5(1):C1-C120. DOI 10.21980/J8B93X. The eScholarship cover gives DOI 10.5070/M551046555. Its distributed manuscript carries 10.21980/J8B93X in the citation and footer, matching PMC10332540 and NLM. Both identify Pittman, Slone and Wilson, JETem 2020 5(1):C1-C120."
+    },
+    {
       "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1252199",
       "report_id": "pmid:1252199",
       "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/1252199/",
@@ -28632,6 +29028,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:33975402",
+      "right_report": "pmid:34847312",
+      "relationship": "retracted_and_republished_in",
+      "evidence": "NLM records reciprocal retraction and republication links. The UHMS corrected article lists DOI 10.22462/07.08.2021.11 and pages 469-476. The retracted original remains traceable under DOI 10.22462/03.04.2021.2.",
+      "evidence_url": "https://uhms.org/uhm-search/uhm-journal-volume-48-2021/number-4/variability-in-venous-gas-emboli-following-the-same-dive-at-3-658-meters-2.html"
+    },
+    {
+      "left_report": "report:adp011060",
+      "right_report": "pmid:16313145",
+      "relationship": "same_published_case",
+      "evidence": "Conference printed p. 2-1 and journal pp. 1074-1075 describe the same two numbered cases. Case 1 matches age, 22,500-ft research flight, 135-minute onset and response after 15 minutes of recompression. Case 2 matches age, 35,000-ft and 43,000-ft flights on successive days, 9-hour and 2-hour left orbital headaches, normal neurologic examination and response after 45 minutes of ground-level oxygen. The journal calls the first Case 2 flight training and the conference calls it research. Reuse the v1.83 sequences. Operational attribution remains held.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf#page=2"
+    },
     {
       "left_report": "usaf-fs:1984-08:physiological",
       "right_report": "pmid:15945394",
