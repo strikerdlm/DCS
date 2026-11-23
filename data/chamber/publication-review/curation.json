@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.267/sources.csv#bendrick96_u2_surveys",
+      "report_id": "pmid:8775396",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml",
+      "basis": "Exact title, authors and original journal or abstract number identify the same report."
+    },
+    {
+      "record_key": "2026-11-23-u2-career-symptom-surveys#bendrick96_u2_surveys",
+      "report_id": "pmid:8775396",
+      "evidence_url": "https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml",
+      "basis": "Exact title, authors and original journal or abstract number identify the same report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.267/sources.csv#pilmanis92_u2_preliminary",
+      "report_id": "asma:1992:410:154",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=26",
+      "basis": "Exact title, authors and original journal or abstract number identify the same report."
+    },
+    {
+      "record_key": "2026-11-23-u2-career-symptom-surveys#pilmanis92_u2_preliminary",
+      "report_id": "asma:1992:410:154",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=26",
+      "basis": "Exact title, authors and original journal or abstract number identify the same report."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.266/sources.csv#redbull13_stratos_summit",
       "report_id": "redbull:stratos-scientific-summit:2013",
       "evidence_url": "https://www.blimpinfo.com/wp-content/uploads/2013/02/Red+Bull+Stratos+Summit+Report+Final+050213.pdf",
@@ -21981,6 +22005,12 @@
   ],
   "studies": [
     {
+      "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+      "label": "USAF U-2 career symptom questionnaires and preliminary squadron survey",
+      "period": "Preliminary survey reported in 1992. Full series published in 1996. Exact questionnaire dates unavailable.",
+      "setting": "On-site active-duty U-2 squadron questionnaires and two anonymous mailings to active-duty and former U-2 pilots"
+    },
+    {
       "study_id": "red-bull-stratos-2012-balloon-test-flights",
       "label": "Red Bull Stratos piloted balloon flight test series",
       "period": "2012-03-15 to 2012-10-14",
@@ -24298,6 +24328,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+      "report_id": "pmid:8775396",
+      "role": "three_survey_waves",
+      "locator": "Methods pp. 200–201, Table I, Symptoms p. 201 and Figures 1–4"
+    },
+    {
+      "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+      "report_id": "asma:1992:410:154",
+      "role": "same_preliminary_survey",
+      "locator": "Abstract 154, p. 410"
+    },
     {
       "study_id": "red-bull-stratos-2012-balloon-test-flights",
       "report_id": "redbull:stratos-scientific-summit:2013",
@@ -28134,6 +28176,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "asma:1992:410:154",
+      "right_report": "pmid:8775396",
+      "relationship": "partial_overlap",
+      "evidence": "Bendrick p. 201 explicitly cites abstract 154 as reference 15 for the preliminary survey's 4.2% mission result. The abstract and the preliminary component of the later paper cover the same active squadron survey. The two postal waves and their questionnaire endpoints remain separate.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=26"
+    },
+    {
+      "left_report": "openalex:W2344433097",
+      "right_report": "pmid:8775396",
+      "relationship": "misattributed_survey_statistic",
+      "evidence": "Rojas Discussion repeats the 75.5% career-survey statistic with a citation to the Muehlberger 2004 chamber symptom-resolution study. The original 75.5% is on Bendrick p. 201. Rojas's matched clinical case-control series remains distinct.",
+      "evidence_url": "https://corescholar.libraries.wright.edu/mph/170/"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/attachments-2026-11-19/sources.csv#webb_u2_2010",
+      "right_report": "pmid:8775396",
+      "relationship": "cites_earlier_survey",
+      "evidence": "ADA518839 cites Bendrick for the 75% career symptoms and 4.2% cases-per-mission statistic. Its shortened 4% reference corresponds to that same published preliminary survey and adds no denominator.",
+      "evidence_url": "https://archive.org/download/DTIC_ADA518839/DTIC_ADA518839.pdf"
+    },
     {
       "left_report": "pmid:24597163",
       "right_report": "redbull:stratos-scientific-summit:2013",

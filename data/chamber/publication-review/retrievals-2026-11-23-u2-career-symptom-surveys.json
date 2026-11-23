@@ -1,0 +1,709 @@
+[
+  {
+    "id": "2026-11-23-u2-career-symptom-surveys",
+    "date": "2026-11-23",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_full_text_survey_extraction_and_citation_crosswalk",
+    "status": "observed",
+    "reported_total": 2,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "1746038e-a6cf-4925-bfa2-a41713452f9c",
+          "query": "\"Prevalence of decompression sickness among U-2 pilots\" 8775396 full text PDF Muehlberger 1996"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "4f98eed0-8f9a-42b6-9518-41a39b7be4ac",
+          "query": "\"Incidence of decompression sickness\" \"Pilmanis\" \"Bisson\" \"410\" high altitude reconnaissance 1992"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "33c569f1-c0a1-4a83-88d1-2aa3d195fc89",
+          "query": "\"1992\" \"4.2%\" \"Pilmanis\" \"Bendrick\" U-2 preliminary survey missions incidence"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "interact",
+          "session_id": "01a20756-d24f-776c-814b-ea57a92bcbb0",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/3/article-p199.pdf",
+          "extraction": "Public PDF viewer, all eight pages"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a2074f-7551-73cf-826c-94475645b578",
+          "url": "https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml",
+          "extraction": "Publisher abstract and PDF access pointer"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a2075a-967d-735f-a893-428849794ca3",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=26",
+          "extraction": "Verified the result against the locally archived publisher PDF, printed p. 410"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "extract",
+          "request_id": "7a246cc2-0347-4c0d-9e3c-36b8962d6d5c",
+          "urls": [
+            "https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1171&context=mph",
+            "https://archive.org/download/DTIC_ADA518839/DTIC_ADA518839.pdf"
+          ],
+          "extraction": "Confirm secondary citations to the 75.5% and 4.2% statistics"
+        }
+      ]
+    },
+    "note": "One published retrospective survey series with three anonymous questionnaire waves and one abstract for the same preliminary survey. Reported mission incidence lacks exact numerator and denominator. The earlier preliminary and first postal counts share one published aggregate with unknown respondent overlap.",
+    "records": [
+      {
+        "id": "bendrick96_u2_surveys",
+        "title": "Prevalence of Decompression Sickness Among U-2 Pilots",
+        "authors": [
+          "Gregg A. Bendrick",
+          "Michael J. Ainscough",
+          "Andrew A. Pilmanis",
+          "Roger U. Bisson"
+        ],
+        "year": 1996,
+        "url": "https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml",
+        "primary_source": "https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml",
+        "access": "full_text",
+        "locator": "Printed pp. 200–205. Tables I–III and Figures 1–3.",
+        "source_sha256": null,
+        "full_text_available": true,
+        "role_review": "descriptive",
+        "note": "Retrospective questionnaires. The preliminary and first postal surveys asked about career symptoms. The second postal survey asked directly about past bends. The anonymous responses cannot be linked across surveys. The public publisher PDF was readable in the browser, but its exact binary checksum is unavailable.",
+        "model_extraction": {
+          "source_id": "bendrick96_u2_surveys",
+          "input_release": "v1.267"
+        },
+        "observations": [
+          {
+            "id": "preliminary:career_dcs_symptoms_as_reported",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "career_dcs_symptoms_as_reported",
+            "analysis_role": "descriptive",
+            "cases": 25,
+            "denominator": 40,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": null,
+            "locator": "Printed p. 201 Symptoms",
+            "note": "On-site squadron questionnaire. Possible shared respondents with HFHS I remain unidentified."
+          },
+          {
+            "id": "hfhs_i:career_dcs_symptoms_as_reported",
+            "group": "hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "career_dcs_symptoms_as_reported",
+            "analysis_role": "descriptive",
+            "cases": 181,
+            "denominator": 233,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": null,
+            "locator": "Printed p. 201 Symptoms",
+            "note": "First anonymous mail-in survey. Symptom-based item, including overlapping symptom categories."
+          },
+          {
+            "id": "combined_ps_hfhs_i:career_dcs_symptoms_as_reported",
+            "group": "combined_ps_hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "career_dcs_symptoms_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": 206,
+            "denominator": 273,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 75.5,
+            "locator": "Printed p. 201 Symptoms",
+            "note": "Author sum of the two preceding results. Anonymous respondents cannot be deduplicated across groups."
+          },
+          {
+            "id": "hfhs_ii:direct_question_any_history_of_bends",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "direct_question_any_history_of_bends",
+            "analysis_role": "descriptive",
+            "cases": 91,
+            "denominator": 195,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 47.0,
+            "locator": "Printed p. 201 Symptoms",
+            "note": "Direct history question for bends during or after high flight. One affirmative respondent supplied no further details."
+          },
+          {
+            "id": "combined_ps_hfhs_i:ever_changed_mission_profile_due_to_symptoms",
+            "group": "combined_ps_hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "ever_changed_mission_profile_due_to_symptoms",
+            "analysis_role": "denominator_conflict",
+            "cases": 25,
+            "denominator": null,
+            "denominator_unit": "unspecified_survey_response",
+            "reported_rate_percent": 12.7,
+            "locator": "Printed p. 201 Symptoms",
+            "note": "Source prints 12.7% of those with symptoms and separately 9.2% of the total pilot population. Actual item denominator unavailable. The 12.7% is incompatible with the preceding 206 symptomatic questionnaires."
+          },
+          {
+            "id": "combined_ps_hfhs_i:mission_change_percent_of_total_as_printed",
+            "group": "combined_ps_hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "mission_change_percent_of_total_as_printed",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 9.2,
+            "locator": "Printed p. 201 Symptoms",
+            "note": "Second printed percentage for the same 25 pilots. Exact item denominator not stated."
+          },
+          {
+            "id": "hfhs_ii:symptoms_typically_began_in_flight",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "symptoms_typically_began_in_flight",
+            "analysis_role": "descriptive",
+            "cases": 80,
+            "denominator": 90,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 88.9,
+            "locator": "Printed p. 202 Latency and Duration",
+            "note": "Usually during flight, as reported."
+          },
+          {
+            "id": "hfhs_ii:symptoms_typically_began_after_flight",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "symptoms_typically_began_after_flight",
+            "analysis_role": "descriptive",
+            "cases": 4,
+            "denominator": 90,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 4.4,
+            "locator": "Printed p. 202 Latency and Duration",
+            "note": "Delayed symptom onset as reported."
+          },
+          {
+            "id": "hfhs_ii:symptom_onset_varied",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "symptom_onset_varied",
+            "analysis_role": "descriptive",
+            "cases": 6,
+            "denominator": 90,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 6.7,
+            "locator": "Printed p. 202 Latency and Duration",
+            "note": "Timing varied across episodes."
+          },
+          {
+            "id": "hfhs_ii:symptoms_resolved_after_landing",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "symptoms_resolved_after_landing",
+            "analysis_role": "descriptive",
+            "cases": 27,
+            "denominator": 90,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 30.0,
+            "locator": "Printed p. 202 Latency and Duration",
+            "note": "Still symptomatic at landing. The resolution question allowed multiple choices."
+          },
+          {
+            "id": "hfhs_ii:worst_episode_interfered_with_duties",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "worst_episode_interfered_with_duties",
+            "analysis_role": "descriptive",
+            "cases": 31,
+            "denominator": 90,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 34.5,
+            "locator": "Printed p. 202 Severity and Figure 3",
+            "note": "Authors give 31 respondents and 34.5% as printed. Evaluates the worst or only reported episode."
+          },
+          {
+            "id": "hfhs_ii:increased_prebreathe_after_bends",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "increased_prebreathe_after_bends",
+            "analysis_role": "descriptive",
+            "cases": 32,
+            "denominator": 195,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 16.4,
+            "locator": "Printed p. 203 Prevention and/or Treatment",
+            "note": "Action ever taken as reported by the respondent."
+          },
+          {
+            "id": "hfhs_ii:inflated_suit_voluntarily_in_flight",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "inflated_suit_voluntarily_in_flight",
+            "analysis_role": "descriptive",
+            "cases": 59,
+            "denominator": 195,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 30.3,
+            "locator": "Printed p. 203 Prevention and/or Treatment",
+            "note": "Action ever taken as reported by the respondent."
+          },
+          {
+            "id": "hfhs_ii:suit_inflated_automatically_after_cabin_pressure_loss",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "suit_inflated_automatically_after_cabin_pressure_loss",
+            "analysis_role": "descriptive",
+            "cases": 117,
+            "denominator": 195,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 60.0,
+            "locator": "Printed p. 203 Prevention and/or Treatment",
+            "note": "Career history. The survey does not count individual pressurization events or missions."
+          },
+          {
+            "id": "hfhs_ii:reported_dcs_with_automatic_suit_inflation",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "reported_dcs_with_automatic_suit_inflation",
+            "analysis_role": "descriptive",
+            "cases": 5,
+            "denominator": 117,
+            "denominator_unit": "pressure_loss_history_response",
+            "reported_rate_percent": null,
+            "locator": "Printed p. 203 Prevention and/or Treatment",
+            "note": "Five respondents report DCS in these circumstances among 117 who reported automatic inflation following cabin pressure loss. Exposure-event counts are unavailable."
+          },
+          {
+            "id": "hfhs_ii:any_arthritic_complaint",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "any_arthritic_complaint",
+            "analysis_role": "descriptive",
+            "cases": 123,
+            "denominator": 195,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 63.0,
+            "locator": "Printed p. 203 Long-Term Sequelae",
+            "note": "All usable HFHS II questionnaires."
+          },
+          {
+            "id": "hfhs_ii:self_reported_provider_diagnosed_arthritis",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "self_reported_provider_diagnosed_arthritis",
+            "analysis_role": "overlapping_margin",
+            "cases": 44,
+            "denominator": 195,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 23.0,
+            "locator": "Printed p. 203 Long-Term Sequelae",
+            "note": "All usable HFHS II questionnaires."
+          },
+          {
+            "id": "hfhs_ii:provider_diagnosed_arthritis_among_prior_bends",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "provider_diagnosed_arthritis_among_prior_bends",
+            "analysis_role": "descriptive",
+            "cases": 15,
+            "denominator": 91,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 16.0,
+            "locator": "Printed p. 203 Long-Term Sequelae",
+            "note": "Respondents answering yes to the direct prior-bends question."
+          },
+          {
+            "id": "hfhs_ii:provider_diagnosed_arthritis_among_no_prior_bends",
+            "group": "hfhs_ii",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "provider_diagnosed_arthritis_among_no_prior_bends",
+            "analysis_role": "descriptive",
+            "cases": 29,
+            "denominator": 104,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 28.0,
+            "locator": "Printed p. 203 Long-Term Sequelae",
+            "note": "Respondents answering no to the direct prior-bends question."
+          },
+          {
+            "id": "hfhs_i:past_or_recurring_musculoskeletal_problems",
+            "group": "hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "past_or_recurring_musculoskeletal_problems",
+            "analysis_role": "denominator_conflict",
+            "cases": null,
+            "denominator": 267,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 44.2,
+            "locator": "Printed p. 203 Table III",
+            "note": "Table III prints N=267, exceeding the 233 usable HFHS I responses in Table I. The difference is unresolved. No case count derived."
+          },
+          {
+            "id": "preliminary:joint_or_limb_pain",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "joint_or_limb_pain",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 25,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 68.0,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported."
+          },
+          {
+            "id": "hfhs_i:joint_or_limb_pain",
+            "group": "hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "joint_or_limb_pain",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 181,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 85.6,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported."
+          },
+          {
+            "id": "preliminary:skin_manifestations",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "skin_manifestations",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 25,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 12.0,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported."
+          },
+          {
+            "id": "hfhs_i:skin_manifestations",
+            "group": "hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "skin_manifestations",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 181,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 24.9,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported."
+          },
+          {
+            "id": "preliminary:neurologic_symptoms",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "neurologic_symptoms",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 25,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 16.0,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported."
+          },
+          {
+            "id": "hfhs_i:neurologic_symptoms",
+            "group": "hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "neurologic_symptoms",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 181,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 17.7,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported."
+          },
+          {
+            "id": "preliminary:inappropriate_fatigue",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "inappropriate_fatigue",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 25,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 8.0,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported. The authors flag these symptoms as diagnostically uncertain for DCS."
+          },
+          {
+            "id": "hfhs_i:inappropriate_fatigue",
+            "group": "hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "inappropriate_fatigue",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 181,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 21.5,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported. The authors flag these symptoms as diagnostically uncertain for DCS."
+          },
+          {
+            "id": "preliminary:headache",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "headache",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 25,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 8.0,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported. The authors flag these symptoms as diagnostically uncertain for DCS."
+          },
+          {
+            "id": "hfhs_i:headache",
+            "group": "hfhs_i",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "headache",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": 181,
+            "denominator_unit": "symptomatic_response",
+            "reported_rate_percent": 37.6,
+            "locator": "Printed p. 201 Table II",
+            "note": "Categories can overlap. Exact cell counts were not reported. The authors flag these symptoms as diagnostically uncertain for DCS."
+          }
+        ],
+        "pmid": "8775396",
+        "public_pdf": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/67/3/article-p199.pdf",
+        "wave_scope": [
+          {
+            "group": "preliminary",
+            "initial_address_list": null,
+            "distributed": 40,
+            "returned": 40,
+            "usable": 40,
+            "response_percent_as_printed": 100.0,
+            "mean_age_years": 36.0,
+            "mean_total_flying_hours": 3200,
+            "mean_high_flight_hours": 800,
+            "locator": "Printed p. 201 Table I and Demographics",
+            "note": "On-site sample of active-duty squadron pilots present for the meeting. The source says attendance represented 57% of assigned pilots without giving an exact squadron roster."
+          },
+          {
+            "group": "hfhs_i",
+            "initial_address_list": 503,
+            "distributed": 416,
+            "returned": 269,
+            "usable": 233,
+            "response_percent_as_printed": 65.0,
+            "mean_age_years": 50.0,
+            "mean_total_flying_hours": 4390,
+            "mean_high_flight_hours": 1028,
+            "locator": "Printed p. 201 Table I and Demographics",
+            "note": "The 416 mailing addresses were validated from the initial list of 503. Thirty-six returns identified recipients as deceased. Total flying hours refer to military hours."
+          },
+          {
+            "group": "hfhs_ii",
+            "initial_address_list": null,
+            "distributed": 298,
+            "returned": 207,
+            "usable": 195,
+            "response_percent_as_printed": 69.0,
+            "mean_age_years": 53.0,
+            "mean_total_flying_hours": 6119,
+            "mean_high_flight_hours": 928,
+            "locator": "Printed p. 201 Table I and Demographics",
+            "note": "The revised mailing had 298 valid addresses. Twelve returns declined participation. Total flying hours queried civilian plus military flying. Anonymous responses cannot be linked to the earlier waves."
+          }
+        ],
+        "survey_definitions": {
+          "preliminary_hfhs_i": "Symptoms ever experienced during the pilot's career as captured by a symptom checklist.",
+          "hfhs_ii": "Direct retrospective question about experiencing bends during or after a high flight.",
+          "overlap_between_waves": null,
+          "participant_linkage_available": false,
+          "clinical_adjudication_available": false,
+          "actual_linked_pressure_gas_history": null,
+          "locator": "Methods pp. 200–201 and Discussion p. 205"
+        },
+        "reported_arthritis_associations": [
+          {
+            "survey_group": "hfhs_ii",
+            "endpoint": "self_reported_provider_diagnosed_arthritis",
+            "effect_measure": "crude_cross_sectional_odds_ratio",
+            "odds_ratio": 0.51,
+            "lower_95_ci": 0.24,
+            "upper_95_ci": 1.09,
+            "locator": "Printed pp. 203–204 Figure 4 and Long-Term Sequelae",
+            "note": "Crude cross-sectional odds ratio by self-reported bends history. Diagnosis by a healthcare provider as reported by the respondent."
+          },
+          {
+            "survey_group": "hfhs_ii",
+            "endpoint": "any_musculoskeletal_symptom",
+            "effect_measure": "crude_cross_sectional_odds_ratio",
+            "odds_ratio": 1.81,
+            "lower_95_ci": 0.95,
+            "upper_95_ci": 3.44,
+            "locator": "Printed p. 203 Long-Term Sequelae",
+            "note": "Source broadens the outcome to any musculoskeletal symptom reported by the respondent. Crude cross-sectional result."
+          }
+        ]
+      },
+      {
+        "id": "pilmanis92_u2_preliminary",
+        "title": "Incidence of Decompression Sickness (DCS) in High Altitude Reconnaissance Pilots",
+        "authors": [
+          "Andrew A. Pilmanis",
+          "Roger U. Bisson"
+        ],
+        "year": 1992,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=26",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=26",
+        "access": "primary_abstract",
+        "locator": "Abstract 154, printed p. 410 (PDF p. 26)",
+        "source_sha256": "7b18275a86be2dc36b544a827f7551bed4e53a7ba65875bda9d0bf15b395fdf4",
+        "full_text_available": true,
+        "role_review": "descriptive",
+        "note": "Bendrick et al. explicitly cite this as the preliminary squadron survey. The abstract prints 4.2% cases per mission and two mission aborts. It does not give the raw case and mission totals behind the incidence rate.",
+        "model_extraction": {
+          "source_id": "pilmanis92_u2_preliminary",
+          "input_release": "v1.267"
+        },
+        "observations": [
+          {
+            "id": "preliminary:dcs_episodes_per_reported_mission",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "dcs_episodes_per_reported_mission",
+            "analysis_role": "descriptive",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "reported_mission",
+            "reported_rate_percent": 4.2,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Printed as cases per mission. The abstract and journal article give no exact episode numerator or mission denominator. The abstract gives mean 110 missions per pilot, which cannot be converted to an exact mission total."
+          },
+          {
+            "id": "preliminary:career_dcs_symptoms_as_reported",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "career_dcs_symptoms_as_reported",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "questionnaire_response",
+            "reported_rate_percent": 62.0,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Same preliminary survey as Bendrick's exact 25/40. The abstract gives 62% as printed without its numerator or denominator."
+          },
+          {
+            "id": "preliminary:dcs_episodes_resulting_in_mission_abort",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "dcs_episodes_resulting_in_mission_abort",
+            "analysis_role": "descriptive",
+            "cases": 2,
+            "denominator": null,
+            "denominator_unit": "reported_episode",
+            "reported_rate_percent": null,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Episode count. It is not an additional set of pilots or a count to add to the later combined 25 profile changes or aborts."
+          },
+          {
+            "id": "preliminary:predominant_pain_among_reports",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "predominant_pain_among_reports",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "reported_episode",
+            "reported_rate_percent": 51.0,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "No exact number of reports. The underlying episode totals are unavailable."
+          },
+          {
+            "id": "preliminary:non_pain_manifestation_among_reports",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "non_pain_manifestation_among_reports",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "reported_episode",
+            "reported_rate_percent": 31.0,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Skin, neurological and pulmonary manifestations are component labels of this printed result. The underlying episode totals are unavailable."
+          },
+          {
+            "id": "preliminary:skin_manifestation_among_reports",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "skin_manifestation_among_reports",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "reported_episode",
+            "reported_rate_percent": 14.0,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Reported manifestation category. The underlying episode totals are unavailable."
+          },
+          {
+            "id": "preliminary:neurologic_manifestation_among_reports",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "neurologic_manifestation_among_reports",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "reported_episode",
+            "reported_rate_percent": 14.0,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Reported manifestation category. The underlying episode totals are unavailable."
+          },
+          {
+            "id": "preliminary:pulmonary_manifestation_among_reports",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "pulmonary_manifestation_among_reports",
+            "analysis_role": "overlapping_margin",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "reported_episode",
+            "reported_rate_percent": 3.0,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Reported manifestation category. The underlying episode totals are unavailable."
+          },
+          {
+            "id": "preliminary:fear_of_grounding_as_reason_for_underreporting",
+            "group": "preliminary",
+            "study_id": "usaf-u2-career-questionnaires-bendrick-1996",
+            "endpoint": "fear_of_grounding_as_reason_for_underreporting",
+            "analysis_role": "descriptive",
+            "cases": null,
+            "denominator": null,
+            "denominator_unit": "unspecified_survey_response",
+            "reported_rate_percent": 78.0,
+            "locator": "Abstract 154, printed p. 410",
+            "note": "Reported reason for reluctance to report. Exact respondents answering the question are unavailable."
+          }
+        ],
+        "preliminary_survey_scope": {
+          "reported_typical_cabin_altitude_ft": [
+            28000,
+            30000
+          ],
+          "typical_duration_hours_at_least": 9,
+          "planned_oxygen_prebreathe_min": 60,
+          "mean_high_altitude_missions_per_pilot": 110,
+          "mean_high_altitude_hours_per_pilot": 736,
+          "underlying_operational_mission_count": null,
+          "underlying_reported_episode_count": null,
+          "locator": "Abstract 154, p. 410"
+        }
+      }
+    ]
+  }
+]

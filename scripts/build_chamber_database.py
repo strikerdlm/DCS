@@ -331,6 +331,7 @@ ORIGINAL_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.263"
 GERMAN_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.264"
 STRATEX_OUTCOMES = ROOT / "data" / "chamber" / "v1.265"
 RED_BULL_STRATOS_OUTCOMES = ROOT / "data" / "chamber" / "v1.266"
+U2_CAREER_SYMPTOM_SURVEYS = ROOT / "data" / "chamber" / "v1.267"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3447,6 +3448,17 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                         "publication_balloon_flight_measurement": "flight_measurements.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    U2_CAREER_SYMPTOM_SURVEYS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_u2_survey_wave": "survey_waves.csv",
+                        "publication_u2_survey_result": "survey_results.csv",
+                        "publication_u2_arthritis_effect": "arthritis_effects.csv",
                         "publication_overlap": "overlap.csv",
                     },
                 )
