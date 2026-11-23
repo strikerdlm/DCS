@@ -1,0 +1,1020 @@
+{
+  "batch_id": "06",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers agreed with the proposed title and abstract decisions for the 50 reports.",
+    "note": "Labels identify the two reviewer slots. The date records the joint confirmation. Individual forms and separate appraisal judgments were not supplied."
+  },
+  "evidence_snapshot": {
+    "revision": "ae305a8d496d8918a35d35d5b8c7c18054a26043",
+    "evidence_sha256": "a0dc59bd1276aeb4461f2392a8b3a3c784e25230f334cb153559b7079ab49919",
+    "systematic_review_sha256": "e8a675c7efb6445ff738019d6ff4b3c8140872d1d0bd86df6fb499783ca1af37"
+  },
+  "reports": [
+    {
+      "report_id": "pmid:10608608",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10608608",
+      "title": "Inner ear decompression sickness following altitude chamber operation.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/70/11/article-p1106.pdf",
+      "reason": "Primary vestibular and musculoskeletal DCS case after altitude chamber operation. Advance for operational case narrative, staff role verification and the prior abstract linkage.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "PubMed abstract and source v1.78 Case Report pp. 1106-1108"
+        },
+        {
+          "decision": "include",
+          "evidence": "Primary Case Report pp. 1106–1108 and repository v1.78"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:10902932",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:10902932",
+      "title": "The effect of staged decompression while breathing 100% oxygen on altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10902932/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/10902932/",
+      "reason": "Randomized staged-decompression chamber experiment designed to support Space Shuttle EVA.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods and source v1.3"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Introduction and Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11080100",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11080100",
+      "title": "Predicting time to decompression illness during exercise at altitude, based on formation and growth of bubbles.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11080100/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/11080100/",
+      "reason": "Bubble-growth and onset model fits limb symptoms using controlled chamber exercise profiles.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, model and evaluated profiles"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11277286",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11277286",
+      "title": "Lower body adynamia as a factor to reduce the risk of hypobaric decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11277286/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/11277286/",
+      "reason": "Retrospective analysis of chamber research protocols and simulated EVA exposure compares lower-body movement and prescribed exercise.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods and Results"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1152406",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1152406",
+      "title": "[Hypobaric nitrogen-oxygen atmosphere as a method of preventing altitude decompression sickness].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1152406/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/1152406/",
+      "reason": "Experimental gas-mixture study aimed at spacecraft cabin and EVA decompression.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and translated source v1.106"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.106 source for translated original"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1162923",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1162923",
+      "title": "[Prevention of altitude decompression sickness in flights in a depressurized cabin].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1162923/",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/1162923/",
+      "reason": "Title describes flights in a depressurized cabin. No indexed abstract establishes actual versus simulated exposure or a separable operational training group.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "PubMed citation and v1.39, provenance lead unresolved"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Citation without abstract and repository v1.39 source note"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11740422",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11740422",
+      "title": "Altitude decompression sickness. Case presentation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11740422/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/11740422/",
+      "reason": "Two Type II cases followed aircraft accidents during flight.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract case summary"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:11817619",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11817619",
+      "title": "USAF treatment table 8: treatment for altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11817619/",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/11817619/",
+      "reason": "Prospective treatment series enrolled symptomatic altitude DCS patients. Triggering exposure setting and an operational training subset are unreported.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "PubMed abstract and source v1.98 Methods and Table I"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Author Methods and Results with repository v1.98 source note"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12234037",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12234037",
+      "title": "Moderate exercise after altitude exposure fails to induce decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12234037/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/12234037/",
+      "reason": "Randomized post-exposure exercise and rest trial followed a controlled chamber research exposure.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods and source v1.84"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher Methods and v1.84 archive margin"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12433227",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12433227",
+      "title": "Decompression sickness latency as a function of altitude to 25,000 feet.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12433227/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/12433227/",
+      "reason": "Unpressurized flight threshold analysis models latency and examines an existing AFRL experimental database subset.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Introduction and Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12434813",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12434813",
+      "title": "[Probability models for altitude decompression sickness].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12434813/",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/12434813/",
+      "reason": "Survival models address high-altitude flight. The indexed abstract gives no source or setting for the underlying clinical data that would establish a separable operational chamber series.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Author abstract, Objective and Method"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12688456",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12688456",
+      "title": "Altitude decompression sickness in a pilot wearing a pressure suit above 70,000 feet.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12688456/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/12688456/",
+      "reason": "Reported DCS episode arose during a U-2 aircraft mission.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.79 Case Report"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.79 source check"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:12793542",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:12793542",
+      "title": "Case history of serious altitude decompression sickness following rapid rate of ascent.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12793542/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/12793542/",
+      "reason": "Case occurred in the fast-ascent arm of a controlled chamber research protocol.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.18 case crosswalk"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Primary Case History pp. 676–677 and repository v1.18 source check"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:13514751",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:13514751",
+      "title": "A brief review of aviator's decompression sickness and the high altitude selection test.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/13514751/",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/13514751/",
+      "reason": "Title identifies a review and qualification testing. Primary source access is needed to rule out any separately reported routine chamber training sample.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "PubMed citation and source v1.14 access status"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed title and journal metadata, repository v1.14 access note"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:13610525",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:13610525",
+      "title": "[Pathogenesis and prevention of decompression sickness in high altitude fliers. II. Effect of narcotics and sedatives on the formation of intravasal bubble in decompression experiments].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/13610525/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/13610525/",
+      "reason": "Title identifies a pharmacologic decompression experiment focused on intravascular bubble formation.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed original title and indexing"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed translated title, abstract unavailable"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:13786869",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:13786869",
+      "title": "[On the pathogenesis and prophylaxis of decompression sickness in high altitude fliers. IV. Alteration of intravascular gas formation after rapid depression by change in the blood viscocity].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/13786869/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/13786869/",
+      "reason": "Title identifies an experimental manipulation of blood viscosity with intravascular gas as the endpoint.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed title and indexing"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Indexed translated title, abstract unavailable"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:13829253",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:13829253",
+      "title": "A comparison of the \"high-altitude\" and \"high-pressure\" syndromes of decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/13829253/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/13829253/",
+      "reason": "Comparative review of altitude and high-pressure syndromes. RAF chamber series are cited through an Air Ministry communication.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.241 cited series, p. 183"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Review p. 183 and repository v1.241 secondary source check"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:14428293",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:14428293",
+      "title": "Fatal decompression illness at an altitude of 22,000 feet.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/30/11/article-p840.pdf",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/30/11/article-p840.pdf",
+      "reason": "Fatal case occurred during an actual aircraft flight.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Source v1.83 original Case Report pp. 840-842"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Case Report pp. 840–842 and repository v1.83"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1445159",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1445159",
+      "title": "Time to detection of circulating microbubbles as a risk factor for symptoms of altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1445159/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/1445159/",
+      "reason": "Clinical and bubble timing were studied under simulated EVA profiles.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.217 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.217 Methods and tables"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:14556566",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:14556566",
+      "title": "The risk of altitude decompression sickness at 12,000 m and the effect of ascent rate.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14556566/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/14556566/",
+      "reason": "Prospective chamber experiment compared two ascent rates at a fixed high-altitude protocol.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.4 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.4 source tables"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1456923",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1456923",
+      "title": "The role of ground level oxygen in the treatment of altitude chamber decompression sickness.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/12/article-p1102.pdf",
+      "reason": "Brooks treatment and consultation series includes separable timing strata for operational trainees or attendants. Advance for case-series narrative, preserving mixed source strata and case-conditional denominators.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "PubMed abstract and source v1.28 Methods and Tables I-II"
+        },
+        {
+          "decision": "include",
+          "evidence": "Primary Methods p. 1102, Tables I–II pp. 1103–1104 and repository v1.28"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:14620473",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:14620473",
+      "title": "Risk of decompression sickness during exposure to high cabin altitude after diving.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14620473/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/14620473/",
+      "reason": "Controlled chamber research evaluated altitude exposures following simulated diving.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.4 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.4 primary tables"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15198274",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15198274",
+      "title": "Altitude decompression sickness symptom resolution during descent to ground level.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15198274/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/15198274/",
+      "reason": "AFRL research database analysis tracks the resolution of symptoms during descent. Symptoms are the analysis unit.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.7 Methods and Results"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.7 Methods p. 497"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15497365",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15497365",
+      "title": "Altitude decompression sickness at 7620 m following prebreathe enhanced with exercise periods.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15497365/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/15497365/",
+      "reason": "Controlled exercise-enhanced prebreathe trial used previously published resting controls.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.6 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.6 Results and Table II"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15558997",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15558997",
+      "title": "Central nervous system decompression sickness and venous gas emboli in hypobaric conditions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15558997/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/15558997/",
+      "reason": "Clinical and VGE analysis covers laboratory protocols designed to provoke DCS.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and SharePoint primary Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and original source register"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15672984",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15672984",
+      "title": "Altitude decompression sickness between 6858 and 9144 m following a 1-h prebreathe.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15672984/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/15672984/",
+      "reason": "Experimental chamber altitude thresholds used eight-hour exposures after a fixed prebreathe.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.3 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.3 original Results"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:15945398",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:15945398",
+      "title": "Altitude decompression sickness susceptibility: influence of anthropometric and physiologic variables.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15945398/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/15945398/",
+      "reason": "Analysis of repeat participants in AFRL standardized research profiles uses a relative susceptibility index.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.5 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.5 original Results"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16018345",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16018345",
+      "title": "Partial pressure of nitrogen in breathing mixtures and risk of altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16018345/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/16018345/",
+      "reason": "Experimental gas-mixture chamber profiles used historical or simulated controls.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.27 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.27 Methods and Tables I–II"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16313145",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16313145",
+      "title": "Headache and altitude decompression sickness: joint pain or neurological pain?",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf#page=2",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf#page=2",
+      "reason": "Publisher text, Case 2, describes one trainee with delayed headache after two chamber flights. Advance for case attribution. The retrospective case series lacks a training-specific exposure denominator.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "Publisher full text, Case 2 pp. 1074-1075 and Results pp. 1075-1076"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Author abstract, Methods and Results"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:16909875",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16909875",
+      "title": "A latent class model to assess error rates in diagnosis of altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16909875/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/16909875/",
+      "reason": "Latent class diagnosis analysis uses selected NASA denitrogenation research narratives for astronaut procedures.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.40 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.40 original Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:17425033",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17425033",
+      "title": "Theoretical evaluation of cumulative risk of altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17425033/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/17425033/",
+      "reason": "Article evaluates cumulative risk theoretically, with its scope indexed as biological and statistical modeling.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed title, citation and indexing"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Publisher metadata and PubMed title and references"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:17571668",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:17571668",
+      "title": "Altitude decompression sickness susceptibility.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17571668/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/17571668/",
+      "reason": "Publication is an indexed letter and comment on the earlier susceptibility report.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed publication type and linked source PMID 15945398"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "PubMed publication type Letter and linked author response"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:18225774",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:18225774",
+      "title": "Simulation of cumulative risk of developing altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18225774/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/18225774/",
+      "reason": "Bubble-risk simulation compares predictions to already known empirical data.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods and Results"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:1898307",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1898307",
+      "title": "The effect of delay on treatment outcome in altitude-induced decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1898307/",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/1898307/",
+      "reason": "USAF treated altitude-chamber cases have original onset and clinical follow-up descriptions. Advance for protected case-series narrative and check overlap with national USAF archives.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "PubMed abstract Methods and Results"
+        },
+        {
+          "decision": "include",
+          "evidence": "Author abstract and archived original Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20251245",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20251245",
+      "title": "Studies on altitude decompression sickness; the effects of denitrogenation.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p606.pdf",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/6/article-p606.pdf",
+      "reason": "Deliberately varied cadet denitrogenation experiments. Methods distinguish the prior familiarization training flight from the measured experimental flight.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary Methods pp. 606-607, source v1.11"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Primary Methods pp. 606–607 and repository v1.11 source check"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20287795",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20287795",
+      "title": "Studies on altitude decompression sickness; attempts to avoid decompression sickness by selection of resistant personnel.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/1/article-p88.pdf",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/18/1/article-p88.pdf",
+      "reason": "Repeated chamber exposures tested selection of resistant personnel. Routine training outcomes are outside this selection design.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary Methods and Table I, source v1.27"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Primary Methods pp. 89–90 and Tables I and IV, repository v1.27"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2031629",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2031629",
+      "title": "Significance of delayed symptom onset and bubble growth in altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2031629/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/2031629/",
+      "reason": "Study measured bubble growth at simulated altitudes in vitro.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20377149",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20377149",
+      "title": "Neurologic decompression sickness following cabin pressure fluctuations at high altitude.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20377149/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/20377149/",
+      "reason": "Neurologic DCS followed pressure fluctuations during an actual tactical flight.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.263 Case Study"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.263 source check"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2053905",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2053905",
+      "title": "Decompression sickness: risk factors and the monoplace chamber--a case report.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p414.pdf#page=2",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/62/5/article-p414.pdf#page=2",
+      "reason": "Original serious DCS narrative after USAF Type V chamber training and subsequent passenger flight. Advance for sequential-exposure attribution and possible case overlap.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "PubMed abstract and original case locator in curation"
+        },
+        {
+          "decision": "include",
+          "evidence": "Primary Case Report pp. 414–415 and repository case relation"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20922886",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20922886",
+      "title": "Air break during preoxygenation and risk of altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20922886/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/20922886/",
+      "reason": "Air-break comparison employed a controlled four-hour research chamber protocol and historical AFRL controls.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:20997924",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20997924",
+      "title": "Studies on altitude decompression sickness; symptomatology.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/4/article-p333.pdf",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/joam/17/4/article-p333.pdf",
+      "reason": "Randolph Field cadet and officer exposures were part of a wartime chamber research program.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "Primary Methods p. 333, source v1.28"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Primary Methods pp. 333–334 and Table I, repository v1.28"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21007394",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21007394",
+      "title": "Decompression sickness incident to deep sea diving and high altitude ascent.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21007394/",
+      "stage": "title_abstract",
+      "decision": "uncertain",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/21007394/",
+      "reason": "Historical article covers diving and altitude ascent. No accessible indexed abstract isolates an original operational chamber training cohort.",
+      "ai_screeners": [
+        {
+          "decision": "uncertain",
+          "evidence": "PubMed citation and publisher bibliographic record"
+        },
+        {
+          "decision": "uncertain",
+          "evidence": "Publisher and PubMed citation metadata"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21043293",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21043293",
+      "title": "Oxygen consumption at altitude as a risk factor for altitude decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21043293/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/21043293/",
+      "reason": "Ground-level oxygen consumption measurements recreate activity in earlier AFRL research exposures.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:21748904",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:21748904",
+      "title": "Neurological altitude decompression sickness among U-2 pilots: 2002-2009.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21748904/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/21748904/",
+      "reason": "Case surveillance addresses U-2 incidents during flight operations.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and source v1.80 Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract and repository v1.80 original scope"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:2256877",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2256877",
+      "title": "The risk of developing decompression sickness during air travel following altitude chamber flight.",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2",
+      "stage": "title_abstract",
+      "decision": "include",
+      "locator": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2",
+      "reason": "Treated DCS series of USAF chamber students includes a subset with symptoms after subsequent air travel. Advance for narrative, timing and overlap with related treatment series.",
+      "ai_screeners": [
+        {
+          "decision": "include",
+          "evidence": "PubMed abstract and source v1.4 Tables I-III"
+        },
+        {
+          "decision": "include",
+          "evidence": "Author abstract and original Tables I–III, repository v1.4"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:22830117",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:22830117",
+      "title": "[About the problem of high-altitude decompression sickness and its treatment].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22830117/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/22830117/",
+      "reason": "Narrative review addresses mechanisms, diagnosis and treatment, without an original operational cohort in its abstract.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract and publication description"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:23316539",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:23316539",
+      "title": "Hyperintense white matter lesions in 50 high-altitude pilots with neurologic decompression sickness.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23316539/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/23316539/",
+      "reason": "MRI comparison uses U-2 pilot volunteers with and without clinical DCS during flight operations.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Introduction and Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:23581187",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:23581187",
+      "title": "[The denitrogenation by breathing oxygen-rich gas to prevent altitude decompression sickness].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23581187/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/23581187/",
+      "reason": "Eight volunteers breathed oxygen mixtures in a denitrogenation physiology experiment. The reported endpoint is exhaled gas rather than a clinical case.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods and Results"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Objective and Method"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:23855060",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:23855060",
+      "title": "Probability of hypobaric decompression sickness including extreme exposures.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23855060/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/23855060/",
+      "reason": "Risk model uses AFRL experimental test exposures, including extreme conditions.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Introduction and Methods"
+        }
+      ]
+    },
+    {
+      "report_id": "pmid:26099121",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:26099121",
+      "title": "Hypobaric Decompression Sickness Treatment Model.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/26099121/",
+      "stage": "title_abstract",
+      "decision": "exclude",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/26099121/",
+      "reason": "Treatment model uses symptom-resolution data from hypobaric tests. Its selected symptom cases address a treatment outcome.",
+      "ai_screeners": [
+        {
+          "decision": "exclude",
+          "evidence": "PubMed abstract Methods"
+        },
+        {
+          "decision": "exclude",
+          "evidence": "Author abstract, Methods"
+        }
+      ]
+    }
+  ]
+}
