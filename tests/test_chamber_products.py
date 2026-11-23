@@ -10740,6 +10740,46 @@ def test_fryer_conference_preserves_original_retest_groups_and_reuses_the_cohort
         )) for row in rows] == retests
 
 
+def test_balldin_pulmonary_onsets_extend_an_existing_case_series(release):
+    run_id = "2026-11-22-balldin-2002-pulmonary-onset-outcomes-verified"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT pulmonary_symptom_count,count(*),count(vge_onset_min),count(severe_vge_onset_min)
+            FROM publication_balldin_pulmonary_onset WHERE source_id='balldin02'
+            GROUP BY pulmonary_symptom_count ORDER BY pulmonary_symptom_count
+        """).fetchall() == [(1, 17, 16, 11), (2, 9, 8, 8), (3, 3, 3, 2)]
+        assert db.execute("""
+            SELECT printed_row,pulmonary_dcs_onset_min,vge_onset_min,severe_vge_onset_min
+            FROM publication_balldin_pulmonary_onset WHERE source_id='balldin02'
+            AND pulmonary_dcs_onset_min < vge_onset_min
+        """).fetchall() == [(18, 30, 34, None)]
+        assert db.execute("""
+            SELECT pulmonary_symptom_count,case_exposures,resolved_after_ground_recompression,
+                   resolved_after_hyperbaric_oxygen
+            FROM publication_balldin_pulmonary_treatment WHERE source_id='balldin02'
+            ORDER BY pulmonary_symptom_count
+        """).fetchall() == [(1, 17, 10, 7), (2, 9, 3, 6), (3, 3, 2, 1)]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='balldin02' AND endpoint='dcs_symptoms' ORDER BY denominator
+        """).fetchall() == [(1030, 2525), (1033, 2584)]
+        assert db.execute("""
+            SELECT numerator,denominator FROM publication_observation
+            WHERE source_id='balldin02' AND endpoint='dcs_with_pulmonary_symptoms' ORDER BY denominator
+        """).fetchall() == [(29, 2525), (29, 2584)]
+        assert db.execute("""
+            SELECT cases,denominator FROM review.review_search_observation
+            WHERE run_id=? AND endpoint='other_dcs_symptoms_simultaneous_as_reported'
+        """, (run_id,)).fetchone() == (15, 29)
+        assert db.execute("""
+            SELECT count(DISTINCT report_id) FROM review.review_record
+            WHERE report_id='openalex:W118934012' AND record_key IN (
+                '2026-11-20-formal-chamber-ntrs-disease#20040088016',
+                '2026-11-20-formal-chamber-pubmed#12398262'
+            ) GROUP BY report_id HAVING count(*)=2
+        """).fetchone() == (1,)
+
+
 def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):
     source = "welham44_edu_38000"
     report = "openalex:W1822196694"
