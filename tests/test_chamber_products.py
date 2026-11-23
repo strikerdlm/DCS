@@ -3592,7 +3592,8 @@ def test_chadov_cabin_risk_sets_and_barer_full_text_reconcile(release):
         assert db.execute("""
             SELECT stratum,stage,printed_nominal_pressure,printed_nominal_unit,printed_alternate_pressure,
                    printed_alternate_unit,oxygen_percent,nitrogen_percent
-            FROM publication_chamber_native_pressure_stage ORDER BY stratum,stage
+            FROM publication_chamber_native_pressure_stage WHERE source_id='chadov87_cabin_p910'
+            ORDER BY stratum,stage
         """).fetchall() == [
             ("experiment-1", 1, 1.142, "atm", 1120, "gPa", None, None),
             ("experiment-1", 2, .58, "atm", 569, "gPa", 38, 62),
