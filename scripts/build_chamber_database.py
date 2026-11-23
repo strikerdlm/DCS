@@ -322,6 +322,7 @@ FRYER_RAF_CONFERENCE = ROOT / "data" / "chamber" / "v1.254"
 BALLDIN_PULMONARY_ONSETS = ROOT / "data" / "chamber" / "v1.255"
 DIESEL_CHAMBER_EXPOSURES = ROOT / "data" / "chamber" / "v1.256"
 LIM_SINGAPORE_CASES = ROOT / "data" / "chamber" / "v1.257"
+ATA_CHAMBER_CLUSTER = ROOT / "data" / "chamber" / "v1.258"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3342,6 +3343,17 @@ def build(
                     {
                         "publication_observation": "observations.csv",
                         "publication_case_milestone": "chamber_case_milestones.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    ATA_CHAMBER_CLUSTER,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_ata_standard_stage": "standard_stages.csv",
+                        "publication_ata_cluster_case": "cluster_cases.csv",
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
                     },
                 )

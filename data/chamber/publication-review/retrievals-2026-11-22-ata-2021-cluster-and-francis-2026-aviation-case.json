@@ -1,0 +1,150 @@
+[
+  {
+    "id": "2026-11-22-ata-2021-cluster-and-francis-2026-aviation-case-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily, Firecrawl and primary publications",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "83440c00-78b1-409c-abb3-9c400bc6ca51",
+          "topic": "Published chamber cohorts and selected clusters"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "518a2fd0-d615-407c-a1db-971a7fb778bb",
+          "topic": "Regional flight and chamber outcomes"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "b39400db-76ca-4cf1-bdd3-0e391a2da687",
+          "topic": "Francis et al., 2026 primary case and identifying details"
+        },
+        {
+          "provider": "Firecrawl",
+          "request_id": "01a206ae-0ddc-7708-b6d8-03a07ed1bd16",
+          "topic": "Chamber training event data and outcomes"
+        }
+      ]
+    },
+    "records": [],
+    "note": "Ata and Karaca's three cases belong to the existing chamber cluster. Francis et al. describe a separate clinical endpoint, cerebral arterial gas embolism."
+  },
+  {
+    "id": "2026-11-22-ata-2021-cluster-and-francis-2026-aviation-case-verified",
+    "date": "2026-11-22",
+    "provider": "Tavily, Firecrawl and primary publications",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "93cb3b7f-488f-4197-bcdd-6e47aec0b70b",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+          "topic": "Standard profile and cluster diagnoses"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206b0-6283-7261-9a88-15f85e129156",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+          "topic": "Case reports, Table 1 and investigation"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "2e3e366f-642b-45ac-867c-af2a8e362007",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13731788/",
+          "topic": "Case presentation and CT evidence"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206ae-eddc-73ed-8dda-e6b07e399da5",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13731788/",
+          "topic": "Case presentation, Figure 1 and outcome"
+        },
+        {
+          "provider": "PubMed Central",
+          "topic": "Original HTML articles",
+          "status": "full text and table verified; PDF routes returned HTML during local acquisition",
+          "urls": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC13731788/"
+          ]
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "ata-2021-chamber-cluster-detail",
+        "title": "Investigation of a cluster of decompression sickness cases following a high-altitude chamber flight",
+        "authors": [
+          "Nazim Ata",
+          "Erkan Karaca"
+        ],
+        "year": 2021,
+        "doi": "10.28920/dhm51.1.82-85",
+        "pmid": "33761546",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/",
+        "access": "full_text",
+        "locator": "Cases, Table 1 and Investigation",
+        "role_review": "outcome_selected_cluster_no_incidence_risk_set",
+        "model_extraction": {
+          "source_id": "ata21",
+          "parent_stratum": "single-training-flight",
+          "parent_endpoint": "dcs_type_i",
+          "existing_cases": 3,
+          "existing_exposed_people": 11,
+          "standard_stage_input": "data/chamber/v1.258/standard_stages.csv",
+          "case_detail_input": "data/chamber/v1.258/cluster_cases.csv",
+          "scope_note": "Nominal pressure and oxygen settings in Table 1 describe the standard profile. Individual gas delivery and symptom onset time and altitude remain unavailable. Treatment starting within 15 min is an upper bound reported for all three cases."
+        }
+      },
+      {
+        "id": "francis-2026-commercial-flight-age",
+        "title": "Cerebral air embolism during commercial air travel due to a giant pulmonary bulla",
+        "authors": [
+          "Jeevan Francis",
+          "Saima Azam",
+          "Mohammed Wesam Khalil",
+          "Keith Buchan"
+        ],
+        "year": 2026,
+        "doi": "10.1093/jscr/rjag955",
+        "pmid": "42984720",
+        "openalex_id": "W7223196703",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13731788/",
+        "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13731788/#sec3",
+        "access": "full_text",
+        "locator": "Case presentation and Figure 1",
+        "role_review": "selected_cluster",
+        "model_extraction": {
+          "source_id": "francis26_bulla_age",
+          "input_release": "v1.258",
+          "aircraft_case_milestones": "data/chamber/v1.258/aircraft_case_milestones.csv"
+        },
+        "observations": [
+          {
+            "id": "commercial-flight-case",
+            "group": "commercial-flight-case",
+            "endpoint": "reported_cerebral_arterial_gas_embolism",
+            "cases": 1,
+            "denominator": null,
+            "analysis_role": "selected_cluster",
+            "locator": "Case presentation and Figure 1",
+            "note": "Emergency head CT demonstrated air in cerebral arteries and chest imaging showed a giant right upper-lobe bulla. The authors attributed cerebral arterial gas embolism to pulmonary barotrauma. The patient survived with residual mild right hemiparesis. This is a selected case without a passenger risk-set denominator.",
+            "protocol": "Commercial passenger flight. The source describes onset during ascent and a return to the departure airport. Actual aircraft altitude and cabin pressure history are unavailable.",
+            "outcome_window": "During ascent with emergency assessment after return to the departure airport. Follow-up duration and the dates of clinical events are unavailable."
+          }
+        ]
+      }
+    ],
+    "note": "The Ata record adds traceable case detail and the planned profile without a second count for the original cluster. Both reports were already represented by one canonical citation each."
+  }
+]

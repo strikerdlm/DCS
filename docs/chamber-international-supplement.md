@@ -1,5 +1,13 @@
 # International chamber evidence, release 1.18
 
+## Release 1.258
+
+Ata and Karaca's cluster report now links three case descriptions and the six stages of its standard training profile to the existing 3-of-11 flight outcome. The inside observer had right wrist pain. The trainees had left wrist and right knee pain, respectively. Symptoms began during descent, with precise onset times and pressures unavailable. The two reported times of useful consciousness describe the hypoxia exercise. [Cases and Table 1](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/#T1)
+
+Table 1 gives intended oxygen concentrations and two nominal pressure readings. The postflight inspection found mask tears in the two trainees. The investigation did not establish individual inhaled oxygen concentrations or a specific cause for the observer's DCS. This was one outcome-selected flight. [Investigation and figures](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/)
+
+The release also links Francis and colleagues' commercial-flight case to its existing citation. CT demonstrated cerebral arterial air embolism, with pulmonary barotrauma attributed to a giant bulla. It is recorded under the arterial gas embolism endpoint. Cabin pressure and the flight denominator are unavailable. [Francis et al., case presentation](https://pmc.ncbi.nlm.nih.gov/articles/PMC13731788/#sec3) · [Versioned extraction](../data/chamber/v1.258)
+
 ## Release 1.257
 
 Lim and colleagues describe two distinct Republic of Singapore Air Force cases. The newly indexed aircraft case had neurological symptoms at a reported aircraft altitude of 22,000 ft after a pressurization warning earlier in the flight. The authors considered DCS the most likely diagnosis. Cabin altitude and the number of flights at risk are unknown. [Case No. 1, p. 351](https://smj.sma.org.sg/2406/2406smj6.pdf#page=2)
