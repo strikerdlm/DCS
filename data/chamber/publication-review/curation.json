@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-23-descriptive-chamber-attribution#leon-table2-2017",
+      "report_id": "doi:10.56294/hl202339",
+      "evidence_url": "https://hl.ageditor.ar/index.php/hl/article/download/18/80/177#page=5",
+      "basis": "Original DOI, journal, authors and printed Table 2 identify the same León report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.271/sources.csv#leon23_mixed_setting_hearing",
+      "report_id": "doi:10.56294/hl202339",
+      "evidence_url": "https://hl.ageditor.ar/index.php/hl/article/download/18/80/177#page=5",
+      "basis": "Original DOI, journal, authors and printed Table 2 identify the same León report."
+    },
+    {
+      "record_key": "2026-11-23-descriptive-chamber-attribution#mciver-chapter-b-7",
+      "report_id": "report:ad0686100-ch-b-mciver",
+      "evidence_url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29",
+      "basis": "The exact McIver title and named author appear on the opening page of chapter B. The proceedings are a distinct parent report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.271/sources.csv#mciver68_severe_altitude_treatment",
+      "report_id": "report:ad0686100-ch-b-mciver",
+      "evidence_url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29",
+      "basis": "The exact McIver title and named author appear on the opening page of chapter B. The proceedings are a distinct parent report."
+    },
+    {
       "record_key": "2026-11-23-missing-chamber-full-text-firecrawl#dialnet-9067352",
       "report_id": "pmid:9810543",
       "evidence_url": "https://dialnet.unirioja.es/servlet/articulo?codigo=9067352",
@@ -22875,6 +22899,18 @@
   ],
   "studies": [
     {
+      "study_id": "aragua-mixed-air-water-survival-instructors",
+      "label": "Aragua occupational hearing-record review",
+      "period": "2012–2022",
+      "setting": "Air and water survival training, Aragua"
+    },
+    {
+      "study_id": "mciver-1968-selected-altitude-treatments",
+      "label": "Historical selected severe altitude DCS treatments",
+      "period": "through 1968 proceedings; accrual dates unknown",
+      "setting": "Severe altitude DCS referrals, initiating exposure settings unknown"
+    },
+    {
       "study_id": "tac-1974-chamber-surveillance",
       "label": "1974 Tactical Air Command chamber surveillance",
       "period": "1974",
@@ -25228,6 +25264,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "aragua-mixed-air-water-survival-instructors",
+      "report_id": "doi:10.56294/hl202339",
+      "role": "primary_mixed_setting_attribution_hold",
+      "locator": "Methods and Results, PDF pp. 3–4; 2017 row of Table 2, PDF p. 5"
+    },
+    {
+      "study_id": "mciver-1968-selected-altitude-treatments",
+      "report_id": "report:ad0686100-ch-b-mciver",
+      "role": "primary_selected_treatment_overlap_hold",
+      "locator": "Printed p. B-7, PDF p. 29, paragraph immediately before the spaceflight research discussion"
+    },
     {
       "study_id": "asma-mendelsohn-sanders-familiarization-case",
       "report_id": "ntrs:20260004033",
@@ -29112,6 +29160,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:ad0686100-ch-b-mciver",
+      "right_report": "openalex:W128240757",
+      "relationship": "published_within",
+      "evidence": "Header on PDF p. 26 identifies McIver’s chapter B, contained in the independently retrieved AD0686100 symposium volume; tally printed p. B-7.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29"
+    },
+    {
+      "left_report": "report:ad0686100-ch-b-mciver",
+      "right_report": "pmid:889546",
+      "relationship": "unresolved",
+      "evidence": "Davis et al. compiled hyperbaric-treated altitude DCS cases in the same historical era. The McIver chapter gives no patient roster or matching case histories.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29"
+    },
+    {
+      "left_report": "report:ad0686100-ch-b-mciver",
+      "right_report": "report:adp011059",
+      "relationship": "unresolved",
+      "evidence": "Butler et al. pp. 1-2 to 1-3 include the broader historical Davis and Weien cases. McIver provides no clinical case identifiers permitting deduplication against those treatment collections.",
+      "evidence_url": "https://archive.org/download/DTIC_AD0686100/DTIC_AD0686100.pdf#page=29"
+    },
     {
       "left_report": "record:2026-11-20-eds-training#kjur5ccdyv",
       "right_report": "ntrs:20260004033",
