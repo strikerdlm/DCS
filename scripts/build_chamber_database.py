@@ -328,6 +328,7 @@ CONKIN_FITNESS_ARCHIVE = ROOT / "data" / "chamber" / "v1.260"
 SWEENEY_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.261"
 SMITHSONIAN_WRIGHT_FIELD = ROOT / "data" / "chamber" / "v1.262"
 ORIGINAL_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.263"
+GERMAN_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.264"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3413,6 +3414,18 @@ def build(
                         "publication_overlap": "overlap.csv",
                     },
                     create_schema=False,
+                )
+                load_version_tables(
+                    db,
+                    GERMAN_WARTIME_TRAINING,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_chamber_test_record_outcome": "test_record_outcomes.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_proportion_without_counts": "proportions.csv",
+                        "publication_case_milestone": "case_milestones.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
                 )
                 load_register(db, ROOT)
                 db.commit()

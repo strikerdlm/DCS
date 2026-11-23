@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.264
+
+Two chapters of *German Aviation Medicine, World War II* describe the same 110 cases of bends in 2,101 chamber test records at 12,000 m. Becker-Freyseng identifies a single platoon and dates the records from 1 July 1944 through 19 April 1945. The paired databases retain one count and denominator, the chapter’s printed 5.23%, and separate links to both reports. Participant linkage, a common outcome window, and the role mix in the surviving records remain unknown. The count remains on evidence hold. [Hornberger, Figure IV-154](https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662837&seq=369) · [Becker-Freyseng, p. 1078](https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662845&seq=440)
+
+Both chapters also describe one severe chamber collapse in 1943, before the roster began. The case catalogue stores one episode, with the later findings linked to their respective accounts and the diagnosis marked uncertain. The two reported upper-extremity percentages are retained separately because the chapters phrase the counting unit differently and give no exact site counts. [Hornberger, p. 364](https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662837&seq=376) · [Becker-Freyseng, pp. 1077–1078](https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662845&seq=439) · [Versioned extraction](../data/chamber/v1.264)
+
 ## Release 1.260
 
 Conkin, Gernhardt and Wessel report 25 DCS cases in 172 exposures with exercise during oxygen prebreathe and 25 in 165 exposures with resting or no prebreathe. The groups had different mean exposure pressures, durations and ambulation patterns. The extraction preserves aerobic fitness measured as peak oxygen uptake, separate from activity during prebreathe and at altitude. The study reports VGE percentages and mean onsets. Individual observations and the denominators for the onset means remain unavailable. [NASA poster, Table I](https://ntrs.nasa.gov/api/citations/20070008088/downloads/20070008088.pdf)
