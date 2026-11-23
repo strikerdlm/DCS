@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.257
+
+Lim and colleagues describe two distinct Republic of Singapore Air Force cases. The newly indexed aircraft case had neurological symptoms at a reported aircraft altitude of 22,000 ft after a pressurization warning earlier in the flight. The authors considered DCS the most likely diagnosis. Cabin altitude and the number of flights at risk are unknown. [Case No. 1, p. 351](https://smj.sma.org.sg/2406/2406smj6.pdf#page=2)
+
+The existing chamber case now records recalled tingling at 18,000 ft and the first complaint at 33,000 ft after a three-second decompression. The narrative gives a descent rate of 4,000 ft/min, while Figure 1 depicts a slower descent. A participant-level elapsed time to ground remains unavailable. Follow-up at four months reported full recovery. Both cases link to one canonical citation and remain outside incidence and model evaluation. [Case No. 2 and Figure 1, p. 351](https://smj.sma.org.sg/2406/2406smj6.pdf#page=2) · [Versioned extraction](../data/chamber/v1.257)
+
 ## Release 1.256
 
 Diesel and colleagues provide eight chamber exposures in participants selected for subclinical tricuspid regurgitation. Table I gives observed exposure duration, final altitude, maximum Spencer VGE grade and symptoms for each participant. Three of eight exposures ended early because of DCS. Four Table I rows record symptoms, including one with intermittent pain. All eight reached grade III or IV VGE and six reached grade IV. [Diesel et al., Table I, p. 130](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/73/2/article-p128.pdf) · [PubMed abstract](https://pubmed.ncbi.nlm.nih.gov/11846181/)
