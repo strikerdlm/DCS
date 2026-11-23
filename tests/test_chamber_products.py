@@ -10490,6 +10490,75 @@ def test_peterson_overlap_and_nasa_campout_probabilities_stay_out_of_benchmark(r
         """).fetchone() == (41, 124, 885)
 
 
+def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):
+    source = "welham44_edu_38000"
+    report = "openalex:W1822196694"
+    verified = "2026-11-22-welham-1944-chamber-participant-outcomes-verified"
+    outcome = "intolerable_bends_or_chokes_termination_as_reported"
+    with connect_pair(release) as db:
+        expected = [
+            ("test-1-classified", "completed_two_hours_as_reported", 38, 100, "person", "overlap_hold"),
+            ("test-1-classified", "first_hour_bends_or_chokes_termination_as_reported", 22, 100, "person", "overlap_hold"),
+            ("test-1-classified", outcome, 62, 100, "person", "overlap_hold"),
+            ("test-1-classified", "second_hour_bends_or_chokes_termination_as_reported", 40, 100, "person", "overlap_hold"),
+            ("test-2-fair", outcome, 26, 27, "person", "overlap_hold"),
+            ("test-2-good", outcome, 15, 30, "person", "overlap_hold"),
+            ("test-3-fair", outcome, 12, 27, "person", "overlap_hold"),
+            ("test-3-good", outcome, 3, 38, "person", "overlap_hold"),
+        ]
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,denominator_unit,analysis_role
+            FROM publication_observation WHERE source_id=? AND altitude=38000 AND altitude_unit='ft'
+            ORDER BY stratum,endpoint
+        """, (source,)).fetchall() == expected
+        assert db.execute("""
+            SELECT reported_group,endpoint,cases,denominator,denominator_unit,role_review
+            FROM review.review_search_observation WHERE run_id=? ORDER BY reported_group,endpoint
+        """, (verified,)).fetchall() == expected
+        assert db.execute("""
+            SELECT stratum,participant_count,trial_count FROM publication_chamber_trial_scope
+            WHERE source_id=? AND stratum IN ('methods-exposed','test-1-classified') ORDER BY stratum
+        """, (source,)).fetchall() == [("methods-exposed", 110, None), ("test-1-classified", 100, None)]
+        assert db.execute("""
+            SELECT reported_outcome_group,count(*),sum(test_1_time_min<120),
+                   count(test_2_duration_min),sum(test_2_duration_min<120),
+                   count(test_3_duration_min),sum(test_3_duration_min<120)
+            FROM publication_navy_1944_participant WHERE source_id=?
+            GROUP BY reported_outcome_group ORDER BY reported_outcome_group
+        """, (source,)).fetchall() == [
+            ("fair", 27, 27, 27, 26, 27, 12),
+            ("good", 30, 0, 30, 15, 30, 0),
+            ("poor", 21, 21, 0, None, 0, None),
+        ]
+        assert db.execute("""
+            SELECT subject_number_within_table,test_1_time_min,test_1_time_basis
+            FROM publication_navy_1944_participant
+            WHERE source_id=? AND reported_outcome_group='poor' AND subject_number_within_table IN (8,9)
+            ORDER BY subject_number_within_table
+        """, (source,)).fetchall() == [
+            (8, 18.5, "time_at_altitude_before_bends"), (9, 11.5, "time_at_altitude_before_bends"),
+        ]
+        assert db.execute("""
+            SELECT max(age_years),sum(specific_gravity_as_printed IS NULL)
+            FROM publication_navy_1944_participant WHERE source_id=?
+        """, (source,)).fetchone() == (34, 4)
+        assert db.execute("""
+            SELECT json_array_length(metadata_json,'$.participant_records'),
+                   json_extract(metadata_json,'$.summarized_and_printed_scope.good.summary_group_sizes.test_3')
+            FROM review.review_record WHERE run_id=? AND report_id=?
+        """, (verified, report)).fetchone() == (78, 38)
+        assert db.execute("""
+            SELECT report_id FROM review.review_record WHERE record_key IN (
+                '2026-11-20-archival-undermind-historic-usaf#Wel44',
+                '2026-11-20-formal-chamber-openalex#W1822196694',
+                'legacy:data/chamber/v1.33/search_hits.csv#nasa_cases_v33_ch219:8'
+            )
+        """).fetchall() == [(report,)] * 3
+        assert db.execute("""
+            SELECT report_id FROM model_report_link WHERE source_table='publication_source' AND source_id=?
+        """, (source,)).fetchone() == (report,)
+
+
 def test_navy_1940_tables_reconcile_bends_and_link_previously_indexed_episodes(release):
     source = "behnke40_navy_chamber"
     old_source = "behnke47_navy_altitude"

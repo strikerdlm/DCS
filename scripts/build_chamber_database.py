@@ -313,6 +313,7 @@ CAM_APRIL_CHAMBER_REPORTS = ROOT / "data" / "chamber" / "v1.245"
 FULTON_WORKLOAD_AUDIT = ROOT / "data" / "chamber" / "v1.246"
 EDEL_ORBITAL_TRIALS = ROOT / "data" / "chamber" / "v1.247"
 NAVY_1940_TRIALS = ROOT / "data" / "chamber" / "v1.248"
+NAVY_1944_TRIALS = ROOT / "data" / "chamber" / "v1.249"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3250,6 +3251,16 @@ def build(
                         "publication_navy_1940_run_stage": "run_stages.csv",
                         "publication_navy_1940_table_ii_bends": "table_ii_bends.csv",
                         "publication_case_milestone": "case_milestones.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    NAVY_1944_TRIALS,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_navy_1944_participant": "participants.csv",
                     },
                 )
                 load_register(db, ROOT)

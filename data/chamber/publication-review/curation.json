@@ -1,6 +1,36 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-20-formal-chamber-openalex#W1822196694",
+      "report_id": "openalex:W1822196694",
+      "evidence_url": "https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=2",
+      "basis": "Exact title and year agree with the original archived report. Retains the existing review identity."
+    },
+    {
+      "record_key": "2026-11-20-archival-undermind-historic-usaf#Wel44",
+      "report_id": "openalex:W1822196694",
+      "evidence_url": "https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=2",
+      "basis": "Exact title, authors and year agree with the original archived report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.33/search_hits.csv#nasa_cases_v33_ch219:8",
+      "report_id": "openalex:W1822196694",
+      "evidence_url": "https://archive.org/details/DTIC_AD0735899",
+      "basis": "The truncated search hit links to the same DTIC accession."
+    },
+    {
+      "record_key": "2026-11-22-welham-1944-chamber-participant-outcomes-verified#welham44_edu_38000",
+      "report_id": "openalex:W1822196694",
+      "evidence_url": "https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=2",
+      "basis": "The original title, accession and January 1944 report date match the existing review identity."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.249/sources.csv#welham44_edu_38000",
+      "report_id": "openalex:W1822196694",
+      "evidence_url": "https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=7",
+      "basis": "Indexed observations from the same Experimental Diving Unit report."
+    },
+    {
       "record_key": "2026-11-22-behnke-1940-navy-chamber-outcomes-discovery#nlm-finding-aid",
       "report_id": "nlm:101085500x138",
       "evidence_url": "https://findingaids.nlm.nih.gov/repositories/4/digital_objects/42492",
@@ -21309,6 +21339,12 @@
   ],
   "studies": [
     {
+      "study_id": "welham-1944-edu-x338-altitude-tests",
+      "label": "Welham, Blanch and Behnke altitude tests for student divers",
+      "period": "Reported January 1944",
+      "setting": "Washington Navy Yard low-pressure chamber"
+    },
+    {
       "study_id": "behnke-1940-navy-test-runs",
       "label": "US Navy Experimental Diving Unit altitude test runs",
       "period": "October–December 1940",
@@ -23572,6 +23608,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "welham-1944-edu-x338-altitude-tests",
+      "report_id": "openalex:W1822196694",
+      "role": "historical_experimental_archive_source",
+      "locator": "Methods, printed pp. 3–4 (PDF pp. 5–6); Results, printed p. 5 (PDF p. 7); Tables I–III (PDF pp. 8–10)"
+    },
     {
       "study_id": "behnke-1940-navy-test-runs",
       "report_id": "nlm:101085500x138",
