@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.245/sources.csv#ivy43_april_co2_bends",
+      "report_id": "nlm:101085500x233:179:ivy",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=180",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
+      "record_key": "2026-11-22-cam-april-1943-chamber-counts-verified#ivy43_april_co2_bends",
+      "report_id": "nlm:101085500x233:179:ivy",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=180",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.245/sources.csv#nims43_chamber_temperature",
+      "report_id": "nlm:101085500x233:180:nims",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=181",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
+      "record_key": "2026-11-22-cam-april-1943-chamber-counts-verified#nims43_chamber_temperature",
+      "report_id": "nlm:101085500x233:180:nims",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=181",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.245/sources.csv#larrabee43_april_repeat_exposures",
+      "report_id": "nlm:101085500x233:182:larrabee",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=183",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
+      "record_key": "2026-11-22-cam-april-1943-chamber-counts-verified#larrabee43_april_repeat_exposures",
+      "report_id": "nlm:101085500x233:182:larrabee",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=183",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.245/sources.csv#cam43_april_exercise_summary",
+      "report_id": "nlm:101085500x233:187:selection",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=188",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
+      "record_key": "2026-11-22-cam-april-1943-chamber-counts-verified#cam43_april_exercise_summary",
+      "report_id": "nlm:101085500x233:187:selection",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=188",
+      "basis": "Exact bulletin accession, meeting date and distinct contributor or section locator."
+    },
+    {
       "record_key": "2026-11-22-tonawanda-pressure-duration-counts-verified#schreiner70_tonawanda_supp_a",
       "report_id": "ntrs:19700018125",
       "evidence_url": "https://ntrs.nasa.gov/api/citations/19700018125/downloads/19700018125.pdf",
@@ -21159,6 +21207,30 @@
   ],
   "studies": [
     {
+      "study_id": "ivy43_april_co2_bends",
+      "label": "Carbon dioxide and decompression sickness",
+      "period": "Reported 15 April 1943",
+      "setting": "United States historical experimental altitude chambers"
+    },
+    {
+      "study_id": "nims43_chamber_temperature",
+      "label": "Temperature and decompression sickness",
+      "period": "Reported 15 April 1943",
+      "setting": "United States historical experimental altitude chambers"
+    },
+    {
+      "study_id": "larrabee43_april_repeat_exposures",
+      "label": "Repeated exposure and bends incidence",
+      "period": "Reported 15 April 1943",
+      "setting": "United States historical experimental altitude chambers"
+    },
+    {
+      "study_id": "cam43_april_exercise_summary",
+      "label": "Summary of data presented at Washington on April 15, 1943",
+      "period": "Reported 15 April 1943",
+      "setting": "United States historical experimental altitude chambers"
+    },
+    {
       "study_id": "tonawanda-original-388-flight-records",
       "label": "Tonawanda original archive reanalysis",
       "period": "Before May 1968",
@@ -23386,6 +23458,30 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "ivy43_april_co2_bends",
+      "report_id": "nlm:101085500x233:179:ivy",
+      "role": "historical_experimental_archive_source",
+      "locator": "Printed pp. 179–180 (PDF pp. 180–181)"
+    },
+    {
+      "study_id": "nims43_chamber_temperature",
+      "report_id": "nlm:101085500x233:180:nims",
+      "role": "historical_experimental_archive_source",
+      "locator": "Printed pp. 180–181 (PDF pp. 181–182)"
+    },
+    {
+      "study_id": "larrabee43_april_repeat_exposures",
+      "report_id": "nlm:101085500x233:182:larrabee",
+      "role": "historical_experimental_archive_source",
+      "locator": "Printed p. 182 (PDF p. 183)"
+    },
+    {
+      "study_id": "cam43_april_exercise_summary",
+      "report_id": "nlm:101085500x233:187:selection",
+      "role": "historical_experimental_archive_source",
+      "locator": "Printed pp. 187–190 (PDF pp. 188–191)"
+    },
     {
       "study_id": "tonawanda-original-388-flight-records",
       "report_id": "ntrs:19680021743",
@@ -27048,6 +27144,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "nlm:101085500x233:179:ivy",
+      "right_report": "nlm:101085500x233:137:ivy",
+      "relationship": "likely_overlap",
+      "evidence": "Same investigator, dose condition, 40,000-ft hour and n=50 groups. Stimulant and oxygen-stimulant columns agree with January on the rounded any-bends and intolerance rates. Placebo denominators are 104 and 105 under different wording. Individual matching is unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=180"
+    },
+    {
+      "left_report": "nlm:101085500x233:179:ivy",
+      "right_report": "doi:10.1001/jama.1947.02880060015004",
+      "relationship": "unresolved",
+      "evidence": "Ivy appears in both reports and the journal title concerns factors influencing chamber bends. The journal tables were unavailable for checking exact cohort identity.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=180"
+    },
+    {
+      "left_report": "nlm:101085500x233:182:larrabee",
+      "right_report": "nlm:101085500x233:227:larrabee",
+      "relationship": "unresolved",
+      "evidence": "Same investigator and related high-altitude exercise selection programme. April reports 42 people and 209 tests and July publishes a different intake margin. Individual matching is unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=183"
+    },
+    {
+      "left_report": "nlm:101085500x233:187:selection",
+      "right_report": "nlm:101085500x233:227:lawrence",
+      "relationship": "unresolved",
+      "evidence": "Related exercise-based altitude selection studies discussed by the same subcommittee. Participant identifiers and a verified institutional byline for the unbylined April summary are unavailable.",
+      "evidence_url": "https://digirepo.nlm.nih.gov/ext/mm/101085500X233/PDF/101085500X233.pdf#page=188"
+    },
     {
       "left_report": "ntrs:19700018125",
       "right_report": "ntrs:19680021743",
