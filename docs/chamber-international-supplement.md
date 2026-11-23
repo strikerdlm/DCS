@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.265
+
+The StratEx engineering reports document one full-profile hypobaric chamber test in a pressurized suit. Lee and colleagues report no signs or symptoms consistent with DCS during or after the test. They describe about 85,400 ft as the facility maximum. The medical report describes a chamber test above 90,000 ft. The extraction retains both statements and leaves the actual chamber peak and the pressure history inside the suit unknown. [Lee et al., Section III.D](https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download) · [Leidich et al., pressure profile testing](https://ttu-ir.tdl.org/server/api/core/bitstreams/335c4a16-25ba-4506-b951-d87746c9b46d/content) · [Garbino et al., Section IV.C](https://ttu-ir.tdl.org/bitstreams/bd0a998f-32fb-4847-bb62-cb19ab35033f/download)
+
+The same pilot completed three October 2014 balloon flights. The engineering papers give release altitudes and ascent and freefall durations. A later interview reports no DCS across the project. The linked 0-of-3 result is descriptive and uses the independently documented balloon-flight denominator. Flight-specific clinical assessments and a standard follow-up window are unavailable. The chamber test, balloon flights, airplane jumps and aborted launch remain distinct. [Lee et al., Table 2](https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download) · [O’Neil interview](https://www.uspa.org/about-uspa/uspa-news/jumping-from-space-101alan-eustace-talks-us-in) · [Versioned extraction](../data/chamber/v1.265)
+
 ## Release 1.264
 
 Two chapters of *German Aviation Medicine, World War II* describe the same 110 cases of bends in 2,101 chamber test records at 12,000 m. Becker-Freyseng identifies a single platoon and dates the records from 1 July 1944 through 19 April 1945. The paired databases retain one count and denominator, the chapter’s printed 5.23%, and separate links to both reports. Participant linkage, a common outcome window, and the role mix in the surviving records remain unknown. The count remains on evidence hold. [Hornberger, Figure IV-154](https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662837&seq=369) · [Becker-Freyseng, p. 1078](https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662845&seq=440)

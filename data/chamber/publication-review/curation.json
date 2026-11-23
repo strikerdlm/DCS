@@ -1,6 +1,54 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.265/sources.csv#lee15_stratex_suit",
+      "report_id": "openalex:W2284745102",
+      "evidence_url": "https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
+      "record_key": "2026-11-23-stratex-chamber-and-balloon-outcomes#lee15_stratex_suit",
+      "report_id": "openalex:W2284745102",
+      "evidence_url": "https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.265/sources.csv#leidich15_stratex_performance",
+      "report_id": "handle:2346/64411",
+      "evidence_url": "https://ttu-ir.tdl.org/server/api/core/bitstreams/335c4a16-25ba-4506-b951-d87746c9b46d/content",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
+      "record_key": "2026-11-23-stratex-chamber-and-balloon-outcomes#leidich15_stratex_performance",
+      "report_id": "handle:2346/64411",
+      "evidence_url": "https://ttu-ir.tdl.org/server/api/core/bitstreams/335c4a16-25ba-4506-b951-d87746c9b46d/content",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.265/sources.csv#garbino15_stratex_medical",
+      "report_id": "openalex:W2282897420",
+      "evidence_url": "https://ttu-ir.tdl.org/bitstreams/bd0a998f-32fb-4847-bb62-cb19ab35033f/download",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
+      "record_key": "2026-11-23-stratex-chamber-and-balloon-outcomes#garbino15_stratex_medical",
+      "report_id": "openalex:W2282897420",
+      "evidence_url": "https://ttu-ir.tdl.org/bitstreams/bd0a998f-32fb-4847-bb62-cb19ab35033f/download",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.265/sources.csv#oneil_stratex_interview",
+      "report_id": "uspa:2019:oneil:stratex-interview",
+      "evidence_url": "https://www.uspa.org/about-uspa/uspa-news/jumping-from-space-101alan-eustace-talks-us-in",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
+      "record_key": "2026-11-23-stratex-chamber-and-balloon-outcomes#oneil_stratex_interview",
+      "report_id": "uspa:2019:oneil:stratex-interview",
+      "evidence_url": "https://www.uspa.org/about-uspa/uspa-news/jumping-from-space-101alan-eustace-talks-us-in",
+      "basis": "Exact byline, source title and report page confirm the same publication or interview."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
       "report_id": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
       "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662837&seq=366",
@@ -21873,6 +21921,18 @@
   ],
   "studies": [
     {
+      "study_id": "stratex-manned-pressure-profile-2014",
+      "label": "StratEx manned hypobaric pressure-profile test",
+      "period": "Before the October 2014 balloon flights. Exact date unavailable.",
+      "setting": "Arizona State University Del E. Webb Altitude Chamber, suited pilot"
+    },
+    {
+      "study_id": "stratex-october-2014-balloon-test-flights",
+      "label": "StratEx October 2014 piloted balloon flight test series",
+      "period": "2014-10-04 to 2014-10-24",
+      "setting": "Three repeated suited balloon flights from Roswell, New Mexico, with one pilot"
+    },
+    {
       "study_id": "german-test-2-single-platoon-1944-45",
       "label": "Luftwaffe Test No. 2 surviving single-platoon chamber records",
       "period": "1944-07-01 to 1945-04-19",
@@ -24160,6 +24220,48 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "stratex-manned-pressure-profile-2014",
+      "report_id": "openalex:W2284745102",
+      "role": "explicit_symptom_ascertainment",
+      "locator": "Section III.D"
+    },
+    {
+      "study_id": "stratex-manned-pressure-profile-2014",
+      "report_id": "handle:2346/64411",
+      "role": "corroborates_one_test_run",
+      "locator": "Manned pressure profile testing paragraph and Table 1"
+    },
+    {
+      "study_id": "stratex-manned-pressure-profile-2014",
+      "report_id": "openalex:W2282897420",
+      "role": "chamber_altitude_disagreement",
+      "locator": "Section IV.C"
+    },
+    {
+      "study_id": "stratex-october-2014-balloon-test-flights",
+      "report_id": "openalex:W2284745102",
+      "role": "exposure_count_and_flight_profiles",
+      "locator": "Section IV.C and Table 2"
+    },
+    {
+      "study_id": "stratex-october-2014-balloon-test-flights",
+      "report_id": "handle:2346/64411",
+      "role": "same_flight_series",
+      "locator": "Table 1 and Section X"
+    },
+    {
+      "study_id": "stratex-october-2014-balloon-test-flights",
+      "report_id": "openalex:W2282897420",
+      "role": "medical_report_of_record_flight",
+      "locator": "Sections IV.A and VI"
+    },
+    {
+      "study_id": "stratex-october-2014-balloon-test-flights",
+      "report_id": "uspa:2019:oneil:stratex-interview",
+      "role": "retrospective_interview_outcome",
+      "locator": "DCS paragraph"
+    },
     {
       "study_id": "german-test-2-single-platoon-1944-45",
       "report_id": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
@@ -27912,6 +28014,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "handle:2346/64411",
+      "right_report": "openalex:W2284745102",
+      "relationship": "same_cohort",
+      "evidence": "Same manned pressure profile chamber run and three dated October balloon flights. Both papers distinguish the five airplane jumps from the three balloon flights.",
+      "evidence_url": "https://ttu-ir.tdl.org/server/api/core/bitstreams/335c4a16-25ba-4506-b951-d87746c9b46d/content"
+    },
+    {
+      "left_report": "openalex:W2282897420",
+      "right_report": "openalex:W2284745102",
+      "relationship": "partial_overlap",
+      "evidence": "Same test program. The medical report describes the altitude chamber exercise and the final balloon flight on 24 October 2014.",
+      "evidence_url": "https://ttu-ir.tdl.org/bitstreams/bd0a998f-32fb-4847-bb62-cb19ab35033f/download"
+    },
+    {
+      "left_report": "uspa:2019:oneil:stratex-interview",
+      "right_report": "openalex:W2284745102",
+      "relationship": "partial_overlap",
+      "evidence": "The program-wide interview describes the same pilot and project. Its DCS statement is linked to the three confirmed balloon flights and the chamber result is retained from the engineering report.",
+      "evidence_url": "https://www.uspa.org/about-uspa/uspa-news/jumping-from-space-101alan-eustace-talks-us-in"
+    },
     {
       "left_report": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
       "right_report": "chapter:gamwwii-1950-xi-e",

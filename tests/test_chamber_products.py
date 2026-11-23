@@ -11215,6 +11215,69 @@ def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope
         """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
+def test_stratex_preserves_chamber_and_balloon_outcome_ascertainment(release):
+    lee, leidich, garbino, oneil = (
+        "lee15_stratex_suit", "leidich15_stratex_performance", "garbino15_stratex_medical",
+        "oneil_stratex_interview",
+    )
+    run = "2026-11-23-stratex-chamber-and-balloon-outcomes"
+    with connect_pair(release) as db:
+        counts = db.execute("""
+            SELECT source_id,stratum,endpoint,numerator,denominator,denominator_unit
+            FROM publication_observation WHERE source_id IN (?,?,?,?) ORDER BY source_id
+        """, (lee, leidich, garbino, oneil)).fetchall()
+        assert counts == [
+            (lee, "manned-altitude-chamber-pressure-profile", "dcs_signs_or_symptoms_as_reported",
+             0, 1, "person_exposure"),
+            (oneil, "three-october-balloon-flights", "reported_dcs_retrospective_interview",
+             0, 3, "person_exposure"),
+        ]
+        assert db.execute("""
+            SELECT r.source_key,o.reported_group,o.endpoint,o.cases,o.denominator,o.denominator_unit
+            FROM review.review_search_observation o JOIN review.review_record r USING(record_key)
+            WHERE o.run_id=? ORDER BY r.source_key
+        """, (run,)).fetchall() == counts
+        assert db.execute("""
+            SELECT denominator_basis,analysis_role,altitude,prebreathe_min
+            FROM publication_observation WHERE source_id IN (?,?) ORDER BY source_id
+        """, (lee, oneil)).fetchall() == [
+            ("source_reported", "descriptive", None, None),
+            ("author_reconstructed", "descriptive", None, None),
+        ]
+        assert db.execute("""
+            SELECT flight_date,reported_ambient_release_altitude_ft,ascent_duration_min,
+                   freefall_duration_sec,nominal_suit_pressure_differential_psi,
+                   alternative_ambient_release_altitude_ft
+            FROM publication_stratex_balloon_flight WHERE source_id=? ORDER BY flight_number
+        """, (lee,)).fetchall() == [
+            ("2014-10-04", 56867, 53, 150, 5.4, 56870),
+            ("2014-10-15", 105771, 99, 236, 5.4, 105689),
+            ("2014-10-24", 135890, 126, 267, 5.4, None),
+        ]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.chamber_pressure_report.facility_max_approx_ft'),
+                   json_type(metadata_json,'$.chamber_pressure_report.actual_peak_ambient_ft'),
+                   json_extract(metadata_json,'$.balloon_test_scope.distinct_pilots')
+            FROM review.review_record WHERE run_id=? AND source_key=?
+        """, (run, lee)).fetchone() == (85400, "null", 1)
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.protocol_and_outcome.chamber_ambient_reported_above_ft')
+            FROM review.review_record WHERE run_id=? AND source_key=?
+        """, (run, garbino)).fetchone() == (90000,)
+        assert db.execute("""
+            SELECT source_id,report_id FROM model_report_link
+            WHERE source_table='publication_source' AND source_id IN (?,?) ORDER BY source_id
+        """, (lee, garbino)).fetchall() == [
+            (garbino, "openalex:W2282897420"), (lee, "openalex:W2284745102"),
+        ]
+        assert db.execute("""
+            SELECT study_id,count(*) FROM review.review_study_report
+            WHERE study_id GLOB 'stratex-*' GROUP BY study_id ORDER BY study_id
+        """).fetchall() == [
+            ("stratex-manned-pressure-profile-2014", 3), ("stratex-october-2014-balloon-test-flights", 4),
+        ]
+
+
 def test_german_test_2_keeps_one_archival_register_and_one_earlier_case(release):
     horn, becker = "hornberger50_review", "becker_freyseng50_training"
     source_ids = (horn, becker)
