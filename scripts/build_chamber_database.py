@@ -314,6 +314,7 @@ FULTON_WORKLOAD_AUDIT = ROOT / "data" / "chamber" / "v1.246"
 EDEL_ORBITAL_TRIALS = ROOT / "data" / "chamber" / "v1.247"
 NAVY_1940_TRIALS = ROOT / "data" / "chamber" / "v1.248"
 NAVY_1944_TRIALS = ROOT / "data" / "chamber" / "v1.249"
+EARLY_FLIGHT_CASE_ARCHIVE = ROOT / "data" / "chamber" / "v1.250"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3262,6 +3263,17 @@ def build(
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                         "publication_navy_1944_participant": "participants.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    EARLY_FLIGHT_CASE_ARCHIVE,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_overlap": "overlap.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                    },
+                    create_schema=False,
                 )
                 load_register(db, ROOT)
                 db.commit()

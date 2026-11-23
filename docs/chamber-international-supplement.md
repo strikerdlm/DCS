@@ -1,5 +1,13 @@
 # International chamber evidence, release 1.18
 
+## Release 1.250
+
+An FAA account reproduced by ICAO and Blumkin's later article describe the same three crew members after shallow dives and a subsequent commercial flight. The pilot and copilot were incapacitated within four hours after diving in the FAA account. Blumkin reports less than four hours. Both accounts put the engineer's symptoms at about 12 hours after diving. The FAA account gives approximately 8,000 ft cabin altitude, while Blumkin gives 8,000–10,000 ft. Three case records link both accounts. The abbreviated Australian narrative likely refers to the same episode. [FAA account in ICAO Circular 69-AN/61, p. 335](https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf) · [Blumkin, p. 2](https://flightsafety.org/hf/hf_sep-oct91.pdf#page=2) · [Australian Aviation Safety Digest](https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf)
+
+The Air Force's 1962 safety account records knee bends in a radar navigator and stomach cramps in the copilot after cabin pressure loss. It reports descent to 12,000 ft after symptoms began. The onset altitude and date of the incident are unavailable. The stomach cramps remain a separate symptom observation. The operational cases lack an at-risk denominator and remain outside the benchmark. [Defrick, case three, p. 24](https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf)
+
+The existing Miami chamber-study entry now records the cited DTIC accession AD-895-972. The original report and its outcomes remain unavailable after the archival and university library checks. [Reference 37, p. 494](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/53/5/article-p489.pdf) · [Versioned extracts](../data/chamber/v1.250)
+
 ## Release 1.249
 
 Welham, Blanch and Behnke describe 110 men exposed in the Methods and classify 100 in the Test 1 Results. Of those 100, 22 failed in the first hour at rest, 40 failed in the second hour with intermittent exercise, and 38 completed the test. The failure definition combined intolerable bends or chokes. The report describes repeating some flights after intestinal-gas pain and leaves the ten-person discrepancy unresolved. The Test 2 failure margins were 26/27 in the fair group and 15/30 in the good group. The Test 3 margins were 12/27 and 3/38. Later test eligibility depended on Test 1 results. [Methods](https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=5) · [Results](https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=7)

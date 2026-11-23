@@ -1,6 +1,72 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.250/sources.csv#blumkin91_1961_postdive_crew",
+      "report_id": "fsf:hfam:1991:38:5:blumkin",
+      "evidence_url": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "2026-11-22-early-flight-dcs-case-archive-verified#blumkin91_1961_postdive_crew",
+      "report_id": "fsf:hfam:1991:38:5:blumkin",
+      "evidence_url": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.250/sources.csv#icao64_postdive_reprint",
+      "report_id": "icao:cir69-an61:scuba-63-206",
+      "evidence_url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "2026-11-22-early-flight-dcs-case-archive-verified#icao64_postdive_reprint",
+      "report_id": "icao:cir69-an61:scuba-63-206",
+      "evidence_url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.250/sources.csv#asd65_postdive_reprise",
+      "report_id": "atsb:asd43:1965:scuba",
+      "evidence_url": "https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "2026-11-22-early-flight-dcs-case-archive-verified#asd65_postdive_reprise",
+      "report_id": "atsb:asd43:1965:scuba",
+      "evidence_url": "https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.250/sources.csv#defrick62_b52_knee_bends",
+      "report_id": "usaf:aerospace-safety:1962-06:defrick",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "2026-11-22-early-flight-dcs-case-archive-verified#defrick62_b52_knee_bends",
+      "report_id": "usaf:aerospace-safety:1962-06:defrick",
+      "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf",
+      "basis": "Matched the aviation publication, title and case locator."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:10",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:10",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/53/5/article-p489.pdf",
+      "basis": "Matching Miami pressure chamber report title in the original Navy index and the later citation that prints the DTIC accession."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.30/sources.csv#houston44_miami",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:10",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/53/5/article-p489.pdf",
+      "basis": "Matching Miami pressure chamber report title in the original Navy index and the later citation that prints the DTIC accession."
+    },
+    {
+      "record_key": "2026-11-22-early-flight-dcs-case-archive-miami#miami-x374-accession",
+      "report_id": "record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:10",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/53/5/article-p489.pdf",
+      "basis": "Matching Miami pressure chamber report title in the original Navy index and the later citation that prints the DTIC accession."
+    },
+    {
       "record_key": "2026-11-20-formal-chamber-openalex#W1822196694",
       "report_id": "openalex:W1822196694",
       "evidence_url": "https://archive.org/download/DTIC_AD0735899/DTIC_AD0735899.pdf#page=2",
@@ -21339,6 +21405,18 @@
   ],
   "studies": [
     {
+      "study_id": "fsf-1961-inflight-after-diving",
+      "label": "Commercial crew illness after same-day dives",
+      "period": "1961 as reported, exact date unavailable",
+      "setting": "Pressurized commercial aircraft"
+    },
+    {
+      "study_id": "defrick-b52-cabin-pressure-symptoms",
+      "label": "US Air Force case three after cabin pressure loss",
+      "period": "Published June 1962",
+      "setting": "Operational flight in military aircraft"
+    },
+    {
       "study_id": "welham-1944-edu-x338-altitude-tests",
       "label": "Welham, Blanch and Behnke altitude tests for student divers",
       "period": "Reported January 1944",
@@ -23608,6 +23686,36 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "fsf-1961-inflight-after-diving",
+      "report_id": "fsf:hfam:1991:38:5:blumkin",
+      "role": "historical_aircrew_episode_account",
+      "locator": "Printed p. 2 (PDF p. 2), 1961 crew account and May 1961 bulletin citation"
+    },
+    {
+      "study_id": "fsf-1961-inflight-after-diving",
+      "report_id": "icao:cir69-an61:scuba-63-206",
+      "role": "reprinted_faa_account_of_same_episode",
+      "locator": "ICAO Circular 69-AN/61, printed p. 335, FAA account reproduced in Bulletin 63-206"
+    },
+    {
+      "study_id": "fsf-1961-inflight-after-diving",
+      "report_id": "atsb:asd43:1965:scuba",
+      "role": "likely_duplicate_narrative",
+      "locator": "Issue 43, September 1965, discussion of SCUBA diving and the United States crew"
+    },
+    {
+      "study_id": "fsf-1961-inflight-after-diving",
+      "report_id": "pmid:15686274",
+      "role": "cites_same_operational_episode",
+      "locator": "Introduction, printed p. 431"
+    },
+    {
+      "study_id": "defrick-b52-cabin-pressure-symptoms",
+      "report_id": "usaf:aerospace-safety:1962-06:defrick",
+      "role": "historical_aircrew_episode_account",
+      "locator": "Printed p. 24, case number three"
+    },
     {
       "study_id": "welham-1944-edu-x338-altitude-tests",
       "report_id": "openalex:W1822196694",
@@ -27318,6 +27426,27 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "fsf:hfam:1991:38:5:blumkin",
+      "right_report": "icao:cir69-an61:scuba-63-206",
+      "relationship": "same_published_case",
+      "evidence": "Both accounts identify the same pilot, copilot and flight engineer after shallow dives and a flight near 8,000 ft cabin altitude. The descriptions agree on early incapacitation in the first two and later symptoms in the engineer.",
+      "evidence_url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf"
+    },
+    {
+      "left_report": "fsf:hfam:1991:38:5:blumkin",
+      "right_report": "atsb:asd43:1965:scuba",
+      "relationship": "likely_overlap",
+      "evidence": "The bulletin gives a United States pressurized aircraft, a day of shallow dives, an approximately 8,000-ft cabin altitude and the FAA source. The abbreviated account has no role-specific data and is likely another description of the same flight.",
+      "evidence_url": "https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf"
+    },
+    {
+      "left_report": "fsf:hfam:1991:38:5:blumkin",
+      "right_report": "pmid:15686274",
+      "relationship": "same_published_case",
+      "evidence": "The introduction cites Blumkin and repeats the 1961 three-person episode and dive-to-flight sequence. This episode is separate from the trials in the Vann article.",
+      "evidence_url": "https://diving-rov-specialists.com/index_htm_files/scient-c_345-experimental-trials-assess-risks-decompression-sickness.pdf"
+    },
     {
       "left_report": "nlm:101085500x138",
       "right_report": "nlm:101085500x147",
