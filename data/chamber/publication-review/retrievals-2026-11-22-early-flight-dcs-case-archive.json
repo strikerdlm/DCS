@@ -1,0 +1,358 @@
+[
+  {
+    "id": "2026-11-22-early-flight-dcs-case-archive-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "a4d53a9f-45fc-4b7c-a044-a3b178329693",
+          "topic": "1961 postdive crew account and cited reports"
+        },
+        {
+          "request_id": "cdd931b8-2729-4bf0-be79-34bcda835297",
+          "topic": "Australian Aviation Safety Digest references"
+        },
+        {
+          "request_id": "d6797bc4-2a74-451b-b1bb-8bb34ee3da8c",
+          "topic": "Pressure-loss safety reports"
+        },
+        {
+          "request_id": "4593a5ce-2198-4411-a01a-bb68880cea79",
+          "topic": "ICAO reprint and original safety bulletin"
+        }
+      ]
+    },
+    "records": [],
+    "note": "Located primary-document reprints and compared related publication hypotheses."
+  },
+  {
+    "id": "2026-11-22-early-flight-dcs-case-archive-verified",
+    "date": "2026-11-22",
+    "provider": "Firecrawl and archived primary document comparison",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "url": "https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf",
+          "scrape_id": "01a20613-bbfd-7515-9103-f9b934b584e9"
+        },
+        {
+          "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf",
+          "scrape_id": "01a20618-9c37-743a-b80a-3b8411372c87",
+          "note": "Automatic extraction returned a different numbered case. The official text on p. 24 supplied case three."
+        },
+        {
+          "url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+          "note": "Compared the FAA account printed in Bulletin 63-206 via the ICAO reprint."
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "blumkin91_1961_postdive_crew",
+        "title": "Flying and Diving — A Unique Health Concern",
+        "year": 1991,
+        "url": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
+        "primary_source": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
+        "access": "full_text",
+        "study_id": "fsf-1961-inflight-after-diving",
+        "source_sha256": "c5f40c6c7b65c5d9dae2888dd87fc6830a0c639f8ccd4340a8b7aaf0021af0ff",
+        "locator": "Printed p. 2 (PDF p. 2), 1961 crew account and May 1961 bulletin citation",
+        "observations": [
+          {
+            "id": "1961-commercial-pilot",
+            "group": "1961-commercial-pilot",
+            "endpoint": "postdive_flight_associated_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "fsf-1961-inflight-after-diving",
+            "role_review": "selected_cluster",
+            "exposure_context": "prior_diving_operational_flight",
+            "event_period": "1961 as reported",
+            "case_certainty": "symptoms_or_dcs_as_described_in_the_published_safety_account",
+            "protocol": "A pressurized commercial flight after same-day diving no deeper than 30 ft. Blumkin gives a cabin-altitude range from 8,000 to 10,000 ft. Flight and dive timing details are incomplete.",
+            "note": "The pilot was incapacitated in flight, less than 4 hours after completing the last dive.",
+            "locator": "Printed p. 2 (PDF p. 2), 1961 crew account and May 1961 bulletin citation",
+            "evidence_url": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "cabin_altitude_reported_range_ft": [
+              8000,
+              10000
+            ],
+            "dive_depth_upper_bound_ft": 30,
+            "timing": {
+              "relation": "after_last_dive",
+              "less_than_hours": 4
+            }
+          },
+          {
+            "id": "1961-commercial-copilot",
+            "group": "1961-commercial-copilot",
+            "endpoint": "postdive_flight_associated_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "fsf-1961-inflight-after-diving",
+            "role_review": "selected_cluster",
+            "exposure_context": "prior_diving_operational_flight",
+            "event_period": "1961 as reported",
+            "case_certainty": "symptoms_or_dcs_as_described_in_the_published_safety_account",
+            "protocol": "A pressurized commercial flight after same-day diving no deeper than 30 ft. Blumkin gives a cabin-altitude range from 8,000 to 10,000 ft. Flight and dive timing details are incomplete.",
+            "note": "The copilot was incapacitated in flight, less than 4 hours after completing the last dive.",
+            "locator": "Printed p. 2 (PDF p. 2), 1961 crew account and May 1961 bulletin citation",
+            "evidence_url": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "cabin_altitude_reported_range_ft": [
+              8000,
+              10000
+            ],
+            "dive_depth_upper_bound_ft": 30,
+            "timing": {
+              "relation": "after_last_dive",
+              "less_than_hours": 4
+            }
+          },
+          {
+            "id": "1961-commercial-flight-engineer",
+            "group": "1961-commercial-flight-engineer",
+            "endpoint": "postdive_flight_associated_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "fsf-1961-inflight-after-diving",
+            "role_review": "selected_cluster",
+            "exposure_context": "prior_diving_operational_flight",
+            "event_period": "1961 as reported",
+            "case_certainty": "symptoms_or_dcs_as_described_in_the_published_safety_account",
+            "protocol": "A pressurized commercial flight after same-day diving no deeper than 30 ft. Blumkin gives a cabin-altitude range from 8,000 to 10,000 ft. Flight and dive timing details are incomplete.",
+            "note": "The flight engineer landed the aircraft. Symptoms were reported at about 12 hours after diving. Relation of onset to touchdown was unreported.",
+            "locator": "Printed p. 2 (PDF p. 2), 1961 crew account and May 1961 bulletin citation",
+            "evidence_url": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "cabin_altitude_reported_range_ft": [
+              8000,
+              10000
+            ],
+            "dive_depth_upper_bound_ft": 30,
+            "timing": {
+              "relation": "after_last_dive",
+              "approximately_hours": 12
+            }
+          }
+        ],
+        "original_bulletin_status": "May 1961 issue cited. Individual original medical records and exact date are unavailable."
+      },
+      {
+        "id": "icao64_postdive_reprint",
+        "title": "SCUBA Hazards to Aircrews",
+        "year": 1964,
+        "url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+        "primary_source": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+        "access": "full_text",
+        "study_id": "fsf-1961-inflight-after-diving",
+        "source_sha256": null,
+        "locator": "ICAO Circular 69-AN/61, printed p. 335, FAA account reproduced in Bulletin 63-206",
+        "observations": [
+          {
+            "id": "1961-commercial-pilot",
+            "group": "1961-commercial-pilot",
+            "endpoint": "postdive_flight_associated_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "fsf-1961-inflight-after-diving",
+            "role_review": "selected_cluster",
+            "exposure_context": "prior_diving_operational_flight",
+            "event_period": "1961 as reported",
+            "case_certainty": "FAA account as reproduced by ICAO",
+            "protocol": "FAA account of a pressurized flight after diving to 20–30 ft. The cabin altitude is described as approximately 8,000 ft.",
+            "note": "FAA report places cockpit crew incapacitation within four hours after diving.",
+            "locator": "ICAO Circular 69-AN/61, printed p. 335, FAA account reproduced in Bulletin 63-206",
+            "evidence_url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "cabin_altitude_approximate_ft": 8000,
+            "dive_depth_low_ft": 20,
+            "dive_depth_high_ft": 30,
+            "timing": {
+              "relation": "after_last_dive",
+              "within_hours": 4
+            }
+          },
+          {
+            "id": "1961-commercial-copilot",
+            "group": "1961-commercial-copilot",
+            "endpoint": "postdive_flight_associated_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "fsf-1961-inflight-after-diving",
+            "role_review": "selected_cluster",
+            "exposure_context": "prior_diving_operational_flight",
+            "event_period": "1961 as reported",
+            "case_certainty": "FAA account as reproduced by ICAO",
+            "protocol": "FAA account of a pressurized flight after diving to 20–30 ft. The cabin altitude is described as approximately 8,000 ft.",
+            "note": "FAA report places cockpit crew incapacitation within four hours after diving.",
+            "locator": "ICAO Circular 69-AN/61, printed p. 335, FAA account reproduced in Bulletin 63-206",
+            "evidence_url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "cabin_altitude_approximate_ft": 8000,
+            "dive_depth_low_ft": 20,
+            "dive_depth_high_ft": 30,
+            "timing": {
+              "relation": "after_last_dive",
+              "within_hours": 4
+            }
+          },
+          {
+            "id": "1961-commercial-flight-engineer",
+            "group": "1961-commercial-flight-engineer",
+            "endpoint": "postdive_flight_associated_dcs_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "fsf-1961-inflight-after-diving",
+            "role_review": "selected_cluster",
+            "exposure_context": "prior_diving_operational_flight",
+            "event_period": "1961 as reported",
+            "case_certainty": "FAA account as reproduced by ICAO",
+            "protocol": "FAA account of a pressurized flight after diving to 20–30 ft. The cabin altitude is described as approximately 8,000 ft.",
+            "note": "The engineer had no symptoms until about 12 hours after diving. Landing time does not appear in the excerpt.",
+            "locator": "ICAO Circular 69-AN/61, printed p. 335, FAA account reproduced in Bulletin 63-206",
+            "evidence_url": "https://news.ncac.mn/uploads/bookSubject/2022-10/633bd817c5405.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "cabin_altitude_approximate_ft": 8000,
+            "dive_depth_low_ft": 20,
+            "dive_depth_high_ft": 30,
+            "timing": {
+              "relation": "after_last_dive",
+              "approximately_hours": 12
+            }
+          }
+        ],
+        "original_bulletin_status": "May 1961 issue cited. Individual original medical records and exact date are unavailable."
+      },
+      {
+        "id": "asd65_postdive_reprise",
+        "title": "Aviation Safety Digest 43. SCUBA diving and flight.",
+        "year": 1965,
+        "url": "https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf",
+        "primary_source": "https://www.atsb.gov.au/sites/default/files/media/5774740/asd_43_sep_65.pdf",
+        "access": "full_text",
+        "study_id": "fsf-1961-inflight-after-diving",
+        "source_sha256": null,
+        "locator": "Issue 43, September 1965, discussion of SCUBA diving and the United States crew",
+        "observations": [],
+        "note": "The bulletin gives a United States pressurized aircraft, a day of shallow dives, an approximately 8,000-ft cabin altitude and the FAA source. The abbreviated account has no role-specific data and is likely another description of the same flight."
+      },
+      {
+        "id": "defrick62_b52_knee_bends",
+        "title": "Dead Wrong!",
+        "year": 1962,
+        "url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf",
+        "primary_source": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf",
+        "access": "full_text",
+        "study_id": "defrick-b52-cabin-pressure-symptoms",
+        "source_sha256": null,
+        "locator": "Printed p. 24, case number three",
+        "observations": [
+          {
+            "id": "defrick-case-3-radar-navigator",
+            "group": "defrick-case-3-radar-navigator",
+            "endpoint": "knee_bends_after_cabin_pressure_loss_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "defrick-b52-cabin-pressure-symptoms",
+            "role_review": "selected_cluster",
+            "exposure_context": "aircraft_depressurization",
+            "event_period": "Published June 1962",
+            "case_certainty": "symptoms_or_dcs_as_described_in_the_published_safety_account",
+            "protocol": "A military aircraft lost cabin pressure after a window failed. The source describes a subsequent descent to 12,000 ft. The altitude at symptom onset and exact delay after the pressure loss remain unspecified.",
+            "note": "The radar navigator had knee bends during unpressurized flight. The source gives no diagnostic adjudication, recovery time or clinical follow-up.",
+            "locator": "Printed p. 24, case number three",
+            "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "descent_after_symptoms_ft": 12000,
+            "onset_altitude_ft": null
+          },
+          {
+            "id": "defrick-case-3-copilot",
+            "group": "defrick-case-3-copilot",
+            "endpoint": "stomach_cramps_after_cabin_pressure_loss_as_reported",
+            "cases": 1,
+            "denominator": null,
+            "study_id": "defrick-b52-cabin-pressure-symptoms",
+            "role_review": "selected_cluster",
+            "exposure_context": "aircraft_depressurization",
+            "event_period": "Published June 1962",
+            "case_certainty": "symptoms_or_dcs_as_described_in_the_published_safety_account",
+            "protocol": "A military aircraft lost cabin pressure after a window failed. The source describes a subsequent descent to 12,000 ft. The altitude at symptom onset and exact delay after the pressure loss remain unspecified.",
+            "note": "The copilot had stomach cramps. The source gives no DCS diagnosis for this person.",
+            "locator": "Printed p. 24, case number three",
+            "evidence_url": "https://www.safety.af.mil/Portals/71/documents/Magazines/FSM/1960s/196206%20-%20AerospaceSafety.pdf",
+            "outcome_window": "The symptom course in the safety narrative. Uniform clinical follow-up is unavailable.",
+            "descent_after_symptoms_ft": 12000,
+            "onset_altitude_ft": null
+          }
+        ]
+      }
+    ],
+    "note": "Reconciled duplicate accounts of the civilian case cluster and distinguished reported knee bends from stomach cramps in the Air Force case."
+  },
+  {
+    "id": "2026-11-22-early-flight-dcs-case-archive-miami",
+    "date": "2026-11-22",
+    "provider": "Tavily, Firecrawl and UNAL EBSCO Discovery Service",
+    "operation": "supplementary_bibliographic_and_access_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "request_id": "d7a80488-6147-4327-8169-ab7de1dee783",
+          "topic": "DTIC alternate mirrors"
+        },
+        {
+          "request_id": "5b55da5b-cd41-43d5-8915-1066b47c95e2",
+          "topic": "DTIC and Internet Archive copies"
+        },
+        {
+          "url": "https://oac.cdlib.org/findaid/ark:/13030/c8xp784j",
+          "scrape_id": "01a20610-863c-7758-a3ae-ea3740653c2c",
+          "note": "Checked the Charles Houston Papers finding aid. The report was not verified in the online collection."
+        }
+      ],
+      "library_searches": [
+        {
+          "query": "\"Studies on factors affecting incidence of bends in low pressure chamber runs\"",
+          "displayed_result": "No results with selected filters"
+        },
+        {
+          "query": "\"Occurrence of bends, scotomata and hemianopsia at altitudes below 20,000 feet\"",
+          "displayed_result": "No results with selected filters"
+        },
+        {
+          "query": "\"Flying and diving\" \"Blumkin\"",
+          "displayed_result": "No results with selected filters"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "miami-x374-accession",
+        "title": "Studies on factors affecting incidence of bends in low pressure chamber runs",
+        "year": 1944,
+        "identifier": "DTIC:AD-895-972",
+        "access": "metadata",
+        "url": "https://archive.org/details/AHistoryOfUnitedStatesNavalAviationMedicalResearchDuringWorldWarII",
+        "bibliographic_evidence": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/53/5/article-p489.pdf",
+        "locator": "References item 37, printed p. 494",
+        "note": "A 1982 review cites the accession for this title. The Navy history lists Report 3 while Wünsche cites Report 2. The accession could not be verified on the original report. No outcomes are available."
+      }
+    ],
+    "note": "Updated the known Miami citation. Direct library, publisher and archive checks returned no accessible original source."
+  }
+]

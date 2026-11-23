@@ -10490,6 +10490,57 @@ def test_peterson_overlap_and_nasa_campout_probabilities_stay_out_of_benchmark(r
         """).fetchone() == (41, 124, 885)
 
 
+def test_early_airborne_cases_deduplicate_reports_and_preserve_timing_bounds(release):
+    fsf = "blumkin91_1961_postdive_crew"
+    usaf = "defrick62_b52_knee_bends"
+    flight_endpoint = "postdive_flight_associated_dcs_as_reported"
+    knee_endpoint = "knee_bends_after_cabin_pressure_loss_as_reported"
+    run = "2026-11-22-early-flight-dcs-case-archive-verified"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum,endpoint,numerator,denominator,altitude,analysis_role
+            FROM publication_observation WHERE source_id IN (?,?) ORDER BY stratum
+        """, (fsf, usaf)).fetchall() == [
+            (f"1961-commercial-{role}", flight_endpoint, 1, None, None, "selected_cluster")
+            for role in ("copilot", "flight-engineer", "pilot")
+        ] + [
+            ("defrick-case-3-copilot", "stomach_cramps_after_cabin_pressure_loss_as_reported",
+             1, None, None, "selected_cluster"),
+            ("defrick-case-3-radar-navigator", knee_endpoint, 1, None, None, "selected_cluster"),
+        ]
+        assert db.execute("""
+            SELECT source_id,count(*),count(DISTINCT stratum),count(DISTINCT report_id)
+            FROM shared_case_evidence WHERE source_id IN (?,?) GROUP BY source_id ORDER BY source_id
+        """, (fsf, usaf)).fetchall() == [(fsf, 6, 3, 2), (usaf, 1, 1, 1)]
+        assert db.execute("""
+            SELECT source_id,count(*),count(source_time_min)
+            FROM historical_case_catalog WHERE source_id IN (?,?) GROUP BY source_id ORDER BY source_id
+        """, (fsf, usaf)).fetchall() == [(fsf, 3, 0), (usaf, 1, 0)]
+        assert db.execute("""
+            SELECT stratum,milestone,elapsed,elapsed_unit,elapsed_qualifier,aircraft_altitude_ft
+            FROM publication_aircraft_case_milestone WHERE source_id IN (?,?) ORDER BY stratum
+        """, (fsf, usaf)).fetchall() == [
+            ("1961-commercial-copilot", "incapacitation_in_flight", 4, "hours", "less_than", None),
+            ("1961-commercial-flight-engineer", "symptoms_reported", 12, "hours", "approximate", None),
+            ("1961-commercial-pilot", "incapacitation_in_flight", 4, "hours", "less_than", None),
+            ("defrick-case-3-radar-navigator", "descent_after_symptoms", None, None, None, 12000),
+        ]
+        assert db.execute("""
+            SELECT report_id,count(*) FROM review.review_search_observation
+            WHERE run_id=? GROUP BY report_id ORDER BY report_id
+        """, (run,)).fetchall() == [
+            ("fsf:hfam:1991:38:5:blumkin", 3), ("icao:cir69-an61:scuba-63-206", 3),
+            ("usaf:aerospace-safety:1962-06:defrick", 2),
+        ]
+        assert db.execute("""
+            SELECT m.report_id,json_extract(r.metadata_json,'$.identifier')
+            FROM model_report_link m JOIN review.review_record r ON m.report_id=r.report_id
+            WHERE m.source_id='houston44_miami' AND r.source_key='miami-x374-accession'
+        """).fetchall() == [
+            ("record:legacy:data/chamber/v1.30/search_hits.csv#age_strata_v30_archive_proof:10", "DTIC:AD-895-972"),
+        ]
+
+
 def test_welham_1944_keeps_summarized_counts_and_printed_followup_rows_distinct(release):
     source = "welham44_edu_38000"
     report = "openalex:W1822196694"
