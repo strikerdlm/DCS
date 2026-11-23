@@ -4487,6 +4487,18 @@ def test_formal_search_flow_and_source_identities(release):
             WHERE json_extract(q.parameters_json, '$.counts_toward_formal_identification') = 1
         """).fetchone() == (flow["formal_screening_decisions"],)
         assert db.execute("""
+            SELECT r.pmid, min(r.report_id), count(DISTINCT r.report_id), count(*)
+            FROM review.review_record r JOIN review.review_retrieval q USING(run_id)
+            WHERE json_extract(q.parameters_json, '$.counts_toward_formal_identification') = 1
+              AND r.pmid IN ('13767048','15355830','20281876','25770794')
+            GROUP BY r.pmid ORDER BY r.pmid
+        """).fetchall() == [
+            ("13767048", "pmid:13767048", 1, 2),
+            ("15355830", "pmid:15355830", 1, 4),
+            ("20281876", "doi:10.1001/jama.1947.02880060015004", 1, 3),
+            ("25770794", "pmid:25770794", 1, 3),
+        ]
+        assert db.execute("""
             SELECT reported_total, retrieved FROM review.review_retrieval
             WHERE run_id='2026-11-20-formal-chamber-lilacs'
         """).fetchone() == (None, 0)

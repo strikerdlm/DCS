@@ -1,0 +1,340 @@
+{
+  "batch_id": "03",
+  "confirmed_on": "2026-11-23",
+  "confirmation": {
+    "method": "review coordinator attestation in the project chat",
+    "reviewer_labels": [
+      "human-reviewer-1",
+      "human-reviewer-2"
+    ],
+    "scope": "Both reviewers agreed with Batch 03.",
+    "note": "Labels identify packet slots. The date records confirmation. Individual forms and detailed appraisal judgments are unavailable."
+  },
+  "evidence_snapshot": {
+    "revision": "eaef386cf53f75818b1dfd1a62d4419aadd871c9",
+    "evidence_sha256": "e0ae2c373636ec4a92aa45c6fc419b447268d410514917b2d72d504e398145e7",
+    "systematic_review_sha256": "ef471d68d3dc020c5fe8d2bcd48f3a9b534501a360348415ed0f1115e2907bdc"
+  },
+  "assessments": [
+    {
+      "report_or_risk_set": "Crowell Canada 1977-1981",
+      "report_id": "pmid:6651730",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:6651730",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/6651730/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "full_text",
+      "locator": "Results and Table II, p. 1035",
+      "reason": "Hold pooled incidence. Use conflicting Results and Table II denominators as descriptive alternatives for the same numerator. The 2/1,615 Winnipeg/Edmonton cell is dated differently in text and table.",
+      "observations": [
+        {
+          "risk_set": "table_ii",
+          "cases": 69,
+          "denominator": 19573,
+          "unit": "person_exposure",
+          "use": "alternative"
+        },
+        {
+          "risk_set": "results_text",
+          "cases": 69,
+          "denominator": 21423,
+          "unit": "person_exposure",
+          "use": "alternative"
+        }
+      ],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Glass and Brooks Canada 1987-1992",
+      "report_id": "abstract:asma-1994-glass-brooks-93",
+      "record_key": "2026-11-20-canada-glass-primary#glass-brooks-93",
+      "source_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/65/5/article-p439-s.pdf#page=16",
+      "retrieval_operation": "supplementary_full_text_verification",
+      "assessment_kind": "full_text",
+      "locator": "Proceedings abstract 93, p. 454",
+      "reason": "Retain site, altitude and role rates for narrative use. The report prints no underlying counts, denominators or precision.",
+      "observations": [],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Morgagni Pratica di Mare, ASEM",
+      "report_id": "pmid:20824995",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:20824995",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20824995/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "full_text",
+      "locator": "Methods, Results and Table II, pp. 874-876",
+      "reason": "Accept Type I DCS incidence in evaluable trainees. At least one hour onsite for trainees. Next-day assessments apply to those reporting discomfort. The study excluded observers from its analysis and acknowledged possible underreporting.",
+      "observations": [
+        {
+          "risk_set": "evaluable_trainees",
+          "cases": 1,
+          "denominator": 1241,
+          "unit": "person_exposure",
+          "use": "accept_descriptive"
+        },
+        {
+          "risk_set": "staff_reported_zero_excluded_from_analysis",
+          "cases": 0,
+          "denominator": 344,
+          "unit": "scheduled_observer_exposure",
+          "use": "hold_ascertainment"
+        }
+      ],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Morgagni Pratica di Mare, ICMM companion",
+      "report_id": "undermind:mor10b-italian-chamber-safety",
+      "record_key": "2026-11-20-europe-staff-u-natoops#Mor10b",
+      "source_url": "https://revue.cimm-icmm.org/",
+      "retrieval_operation": "supplementary_semantic_search",
+      "assessment_kind": "full_text",
+      "locator": "Vol. 83(3), Tables 1-2, pp. 15-17",
+      "reason": "Same cohort and single Type I case as the ASEM report. Alternative trainee total includes later completions. The staff total comes from ten inside instructors. Hold role comparison until staff and trainee ascertainment is comparable.",
+      "observations": [
+        {
+          "risk_set": "trainees_with_later_completions",
+          "cases": 1,
+          "denominator": 1254,
+          "unit": "person_exposure",
+          "use": "same_case_alternative"
+        },
+        {
+          "risk_set": "staff_exposures_icmm_denominator_asem_outcome",
+          "cases": 0,
+          "denominator": 344,
+          "unit": "person_exposure",
+          "use": "hold_ascertainment"
+        }
+      ],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Ohrui Japan FY 1960-1998",
+      "report_id": "pmid:11952064",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:11952064",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11952064/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "full_text",
+      "locator": "Results, Table I and Figure 2, pp. 396-397",
+      "reason": "Retain zero hyperbaric-treated DCS under that endpoint. The source gives rounded 0.05% joint pain, classified as mild Type I DCS. Do not convert the rounded rate to a count. Keep profile zeros nested within the broader series.",
+      "observations": [
+        {
+          "risk_set": "recompression_treated_dcs",
+          "cases": 0,
+          "denominator": 58454,
+          "unit": "person_exposure",
+          "use": "treated_endpoint"
+        },
+        {
+          "risk_set": "halo_b_reported_joint_pain",
+          "cases": 0,
+          "denominator": 257,
+          "unit": "person_exposure",
+          "use": "nested_source_endpoint"
+        },
+        {
+          "risk_set": "rapid_decompression_reported_joint_pain",
+          "cases": 0,
+          "denominator": 8230,
+          "unit": "person_exposure",
+          "use": "nested_source_endpoint"
+        }
+      ],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Ogata Japan FY 1960-1999",
+      "report_id": "report:ogata-ide-kusano-jasdf-altitude-dcs-2001",
+      "record_key": "2026-11-20-formal-chamber-openalex#W403143322",
+      "source_url": "https://web.archive.org/web/20250417142906id_/https://journal.jshm.net/lib/2000/354-06.pdf#page=3",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "full_text",
+      "locator": "pp. 227-228, Table 2 and Results",
+      "reason": "Hold person-exposure incidence and possible overlap with Ohrui. The paper prints 0.93%, versus 0.790% from the printed counts.",
+      "observations": [
+        {
+          "risk_set": "reported_trainees",
+          "cases": 243,
+          "denominator": 30763,
+          "unit": "recorded_trainees",
+          "use": "hold_denominator_unit"
+        }
+      ],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Furr Navy 1976-1977, secondary Table IV",
+      "report_id": "pmid:1755801",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1755801",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1755801/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "secondary_risk_set",
+      "locator": "Bason and Yacavone, Table IV, p. 1183",
+      "reason": "Historical Furr source unavailable. Rice reprint gives 22 trainee cases versus 10 here for the same denominator. Hold quantitative synthesis.",
+      "observations": [
+        {
+          "risk_set": "staff",
+          "cases": 20,
+          "denominator": 6470,
+          "unit": "person_exposure",
+          "use": "secondary_hold"
+        },
+        {
+          "risk_set": "trainees",
+          "cases": 10,
+          "denominator": 31645,
+          "unit": "person_exposure",
+          "use": "secondary_hold"
+        }
+      ]
+    },
+    {
+      "report_or_risk_set": "Bason Navy 1978-1981, secondary Table IV",
+      "report_id": "pmid:1755801",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:1755801",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/1755801/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "secondary_risk_set",
+      "locator": "Bason and Yacavone, Table IV, p. 1183",
+      "reason": "Historical Bason source unavailable. Period distinct from the primary 1981-1988 cohort in the same publication. Observation window and clinical ascertainment unavailable. Hold quantitative synthesis.",
+      "observations": [
+        {
+          "risk_set": "staff",
+          "cases": 48,
+          "denominator": 10020,
+          "unit": "person_exposure",
+          "use": "secondary_hold"
+        },
+        {
+          "risk_set": "trainees",
+          "cases": 39,
+          "denominator": 47380,
+          "unit": "person_exposure",
+          "use": "secondary_hold"
+        }
+      ]
+    },
+    {
+      "report_or_risk_set": "Rice and Moore Navy 1993-2004",
+      "report_id": "pmid:16173680",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:16173680",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16173680/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "full_text",
+      "locator": "Methods p. 842, Results and Figures 1-2 pp. 842-843",
+      "reason": "Retain the published aggregate as an overlapping alternative to Rice 2003. Methods specify standard exposures above 18,000 ft and Jan 1993-Apr 2004. Figure captions and extracted role denominator disagree with that scope or aggregate. Hold role inference and pooling. No counts inferred by subtraction.",
+      "observations": [
+        {
+          "risk_set": "standard_profiles_above_18000_ft",
+          "cases": 97,
+          "denominator": 50355,
+          "unit": "person_exposure",
+          "use": "overlap_alternative"
+        },
+        {
+          "risk_set": "printed_type_i_total",
+          "cases": 39,
+          "denominator": 50355,
+          "unit": "person_exposure",
+          "use": "nested_source_endpoint"
+        },
+        {
+          "risk_set": "printed_type_ii_total",
+          "cases": 58,
+          "denominator": 50355,
+          "unit": "person_exposure",
+          "use": "nested_source_endpoint"
+        }
+      ],
+      "decision": "include",
+      "unresolved_source_extraction": {
+        "type_i_cases": {
+          "trainee": 37,
+          "staff": 2
+        },
+        "type_ii_cases": {
+          "trainee": 48,
+          "staff": 10
+        },
+        "staff_exposures_extracted": 8306,
+        "trainee_exposures_extracted": 48049,
+        "status": "Publisher text extraction. Role denominators do not reconcile to the 50355 aggregate. Printed digits and figure-caption date lack visual verification."
+      }
+    },
+    {
+      "report_or_risk_set": "Kopka Polish chamber narrative",
+      "report_id": "doi:10.13174/pjambp.23.05.2025.03",
+      "record_key": "2026-11-20-europe-staff-f-kopka#result-1",
+      "source_url": "https://files.4medicine.pl/download.php?cfs_id=7020#page=3",
+      "retrieval_operation": "supplementary_web_search",
+      "assessment_kind": "full_text",
+      "locator": "p. 29, chamber safety narrative",
+      "reason": "Retain the 20-year statement as narrative. Exposure total, actual calendar period and surveillance coverage are unavailable.",
+      "observations": [
+        {
+          "risk_set": "reported_cases",
+          "cases": 0,
+          "denominator": null,
+          "unit": "unknown",
+          "use": "narrative_only"
+        }
+      ],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Reddick Fort Rucker chamber case series",
+      "report_id": "pmid:708353",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:708353",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/708353/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "full_text",
+      "locator": "pp. 1229-1230, cases and Results",
+      "reason": "Retain transferred cases as narrative. The source does not supply an evaluable exposure denominator. The series predates the Piwinski cohort.",
+      "observations": [
+        {
+          "risk_set": "transferred_cases",
+          "cases": 6,
+          "denominator": null,
+          "unit": "unknown",
+          "use": "narrative_only"
+        }
+      ],
+      "decision": "include"
+    },
+    {
+      "report_or_risk_set": "Weien and Baumgartner USAF treatment series",
+      "report_id": "pmid:2241750",
+      "record_key": "2026-11-20-formal-chamber-europe-pmc#MED:2241750",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2241750/",
+      "retrieval_operation": "formal_database_search",
+      "assessment_kind": "full_text",
+      "locator": "Tables II-IV, pp. 834-835",
+      "reason": "Retain recompression-treated chamber cases and the narrower 1979-1986 role result under the treatment endpoint. Hold pooling against potentially overlapping USAF series. Preserve source confidence bounds and the alternative count-based calculation separately.",
+      "observations": [
+        {
+          "risk_set": "treated_chamber_cases_1977_1986",
+          "cases": 507,
+          "denominator": null,
+          "unit": "unknown",
+          "use": "treated_case_series"
+        }
+      ],
+      "decision": "include",
+      "reported_role_risk_ratio": {
+        "estimate": 1.0024,
+        "printed_95_ci": [
+          0.0956,
+          10.5021
+        ],
+        "recomputed_approximate_95_ci": [
+          0.787,
+          1.276
+        ],
+        "window": "1979-1986",
+        "endpoint": "recompression_treated_dcs",
+        "use": "hold_pooling"
+      }
+    }
+  ]
+}
