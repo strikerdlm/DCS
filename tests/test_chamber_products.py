@@ -11215,6 +11215,53 @@ def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope
         """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
+def test_german_test_2_keeps_one_archival_register_and_one_earlier_case(release):
+    horn, becker = "hornberger50_review", "becker_freyseng50_training"
+    source_ids = (horn, becker)
+    run = "2026-11-23-german-test-2-chamber-records"
+    case = "test-2-halle-doelau-collapse"
+    with connect_pair(release) as db:
+        counts = db.execute("""
+            SELECT source_id,stratum,endpoint,cases,test_records,reported_percent
+            FROM publication_chamber_test_record_outcome WHERE source_id IN (?,?)
+        """, source_ids).fetchall()
+        assert counts == [(becker, "test-2-single-platoon", "bends_as_reported", 110, 2101, 5.23)]
+        assert db.execute("""
+            SELECT analysis_role,period_start,period_end,target_altitude_m,planned_hold_min
+            FROM publication_chamber_test_record_outcome WHERE source_id=?
+        """, (becker,)).fetchall() == [("overlap_hold", "1944-07-01", "1945-04-19", 12000, 10)]
+        assert db.execute("""
+            SELECT r.source_key,o.reported_group,o.endpoint,o.cases,o.denominator,o.reported_rate_percent
+            FROM review.review_search_observation o JOIN review.review_record r USING(record_key)
+            WHERE o.run_id=? AND o.denominator IS NOT NULL
+        """, (run,)).fetchall() == counts
+        assert db.execute("""
+            SELECT DISTINCT denominator_unit FROM review.review_search_observation
+            WHERE run_id=? AND denominator IS NOT NULL
+        """, (run,)).fetchall() == [("chamber_test_record",)]
+        assert db.execute("""
+            SELECT source_id,stratum,analysis_role,numerator,denominator,period
+            FROM publication_observation WHERE source_id IN (?,?)
+        """, source_ids).fetchall() == [(horn, case, "selected_cluster", 1, None, "1943")]
+        assert db.execute("""
+            SELECT case_id,endpoint,source_time_min FROM historical_case_catalog WHERE source_id IN (?,?)
+        """, source_ids).fetchall() == [(f"{horn}:{case}", "severe_chamber_collapse_as_reported", None)]
+        assert db.execute("""
+            SELECT r.source_key,e.onset_min FROM shared_case_evidence e
+            JOIN review.review_record r USING(record_key) WHERE e.source_id=? ORDER BY r.source_key
+        """, (horn,)).fetchall() == [(becker, None), (horn, None)]
+        assert db.execute("""
+            SELECT source_id,reported_percent_lower FROM publication_chamber_proportion_without_counts
+            WHERE source_id IN (?,?) AND endpoint='upper_extremity_bends_as_reported' ORDER BY source_id
+        """, source_ids).fetchall() == [(becker, 92), (horn, 92.8)]
+        assert db.execute("""
+            SELECT access,disposition FROM publication_source WHERE source_id=?
+        """, (horn,)).fetchall() == [("full_text", "extracted")]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record WHERE source_key=? ORDER BY record_key
+        """, (horn,)).fetchall() == [("record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",)] * 2
+
+
 def test_original_aviation_case_timelines_deduplicate_citations_and_preserve_timing_origins(release):
     source_ids = ("auten10_tactical_flight", "black92_private_flight", "rudge95_private_flight")
     run = "2026-11-23-original-aviation-dcs-case-timelines"

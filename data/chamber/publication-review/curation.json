@@ -1,6 +1,30 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
+      "report_id": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662837&seq=366",
+      "basis": "Retain the existing chapter ID after verifying the HathiTrust scan against the author, title and printed pages of the catalogue lead."
+    },
+    {
+      "record_key": "2026-11-23-german-test-2-chamber-records#hornberger50_review",
+      "report_id": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662837&seq=366",
+      "basis": "The scanned byline, title, volume and chapter pagination confirm the existing Hornberger citation."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.264/sources.csv#becker_freyseng50_training",
+      "report_id": "chapter:gamwwii-1950-xi-e",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662845&seq=431",
+      "basis": "Exact byline, chapter XI-E label, title and volume confirm report identity."
+    },
+    {
+      "record_key": "2026-11-23-german-test-2-chamber-records#becker_freyseng50_training",
+      "report_id": "chapter:gamwwii-1950-xi-e",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662845&seq=440",
+      "basis": "The same chapter and p. 1078 register supply the model extraction and review outcome."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.263/sources.csv#black92_private_flight",
       "report_id": "pmid:1567321",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p200.pdf",
@@ -21849,6 +21873,12 @@
   ],
   "studies": [
     {
+      "study_id": "german-test-2-single-platoon-1944-45",
+      "label": "Luftwaffe Test No. 2 surviving single-platoon chamber records",
+      "period": "1944-07-01 to 1945-04-19",
+      "setting": "German wartime hypobaric chamber training"
+    },
+    {
       "study_id": "fsf-1961-inflight-after-diving",
       "label": "Commercial crew illness after same-day dives",
       "period": "1961 as reported, exact date unavailable",
@@ -24130,6 +24160,18 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "german-test-2-single-platoon-1944-45",
+      "report_id": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
+      "role": "duplicate_margin_confirmation",
+      "locator": "Printed p. 357, Figure IV-154 (Michigan and Illinois scan 369)"
+    },
+    {
+      "study_id": "german-test-2-single-platoon-1944-45",
+      "report_id": "chapter:gamwwii-1950-xi-e",
+      "role": "canonical_archival_count_on_hold",
+      "locator": "Printed p. 1078, one-platoon outcome and exact date range (Michigan scan 440)"
+    },
     {
       "study_id": "fsf-1961-inflight-after-diving",
       "report_id": "fsf:hfam:1991:38:5:blumkin",
@@ -27870,6 +27912,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
+      "right_report": "chapter:gamwwii-1950-xi-e",
+      "relationship": "same_cohort",
+      "evidence": "Hornberger Figure IV-154 attributes the matching 110 of 2,101 to Becker-Freyseng. His companion chapter sets the dates and identifies a single platoon.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662845&seq=440"
+    },
+    {
+      "left_report": "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review",
+      "right_report": "chapter:gamwwii-1950-xi-e",
+      "relationship": "same_published_case",
+      "evidence": "Hornberger p. 364 attributes the account to Becker-Freyseng and Kellersmann. Both chapters describe one serious Test No. 2 collapse at 12,000 m, apparent recovery on descent, later pulmonary edema and survival. Hornberger dates it to 1943.",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015009662845&seq=439"
+    },
     {
       "left_report": "pmid:7839169",
       "right_report": "pmid:2241750",
@@ -34214,6 +34270,8 @@
     }
   ],
   "report_titles": {
+    "chapter:gamwwii-1950-xi-e": "Aeromedical Instruction of Flying Personnel",
+    "record:legacy:data/chamber/v1.20/sources.csv#hornberger50_review": "Decompression Sickness (German Aviation Medicine, World War II, chapter IV-L)",
     "gmik:2005:filipenkov-ten-km": "Decompression sickness risk in low-pressure tolerance training and trials of high-altitude equipment",
     "article:kjasem-2001-kim-tuc": "The Relationship Between Time Useful Consciousness and Various Physiological Factors in ROKAF Pilots",
     "ntrs:19760019722": "Barometric Pressure and Gas Composition",
