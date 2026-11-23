@@ -4689,7 +4689,7 @@ def test_pressure_cuff_results_remain_case_conditional_in_both_databases(release
             ("treated-cohort", 179, 310), ("wrist", 1, 4),
         ]
         assert {(unit, role) for _, _, _, unit, role in counts} == {
-            ("treated_dcs_patient", "case_conditional"),
+            ("person", "case_conditional"),
         }
         assert db.execute("""
             SELECT cases, denominator, reported_rate_percent, report_id

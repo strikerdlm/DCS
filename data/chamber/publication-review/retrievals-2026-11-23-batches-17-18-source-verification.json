@@ -189,5 +189,55 @@
         "access": "indexed_metadata_only"
       }
     ]
+  },
+  {
+    "id": "2026-11-23-batches-17-18-source-verification-restricted",
+    "date": "2026-11-23",
+    "provider": "Tavily",
+    "operation": "supplementary_full_text_availability",
+    "status": "observed",
+    "reported_total": 3,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "request_id": "f9b818fc-962e-48c7-a77c-e251baec3f2a",
+      "requested_urls": [
+        "https://journals.sagepub.com/doi/pdf/10.1177/002580246200200206",
+        "https://link.springer.com/content/pdf/10.1007/978-94-010-3317-6_25.pdf",
+        "https://jamanetwork.com/journals/jamaophthalmology/article-abstract/619076"
+      ]
+    },
+    "note": "Three publisher pages returned. None supplied full original pages. Previous university proxy attempt timed out at sign-in.",
+    "records": [
+      {
+        "id": "fryer-1962",
+        "title": "Pathological Findings in Fatal Sub-Atmospheric Decompression Sickness",
+        "doi": "10.1177/002580246200200206",
+        "url": "https://journals.sagepub.com/doi/pdf/10.1177/002580246200200206",
+        "year": 1962,
+        "access": "publisher_preview_only",
+        "full_text_available": false,
+        "note": "Publisher landing page and bibliography only. Case pages 110-123 unavailable."
+      },
+      {
+        "id": "meijne-1970",
+        "title": "Decompression Sickness and the Cardiovascular System",
+        "doi": "10.1007/978-94-010-3317-6_25",
+        "url": "https://link.springer.com/content/pdf/10.1007/978-94-010-3317-6_25.pdf",
+        "year": 1970,
+        "access": "publisher_preview_only",
+        "full_text_available": false,
+        "note": "Publisher preview and abstract only. No original case or table pages."
+      },
+      {
+        "id": "whitten-1946",
+        "title": "Scotoma as a complication of decompression sickness.",
+        "doi": "10.1001/archopht.1946.00890210225007",
+        "url": "https://jamanetwork.com/journals/jamaophthalmology/article-abstract/619076",
+        "year": 1946,
+        "access": "publisher_preview_only",
+        "full_text_available": false,
+        "note": "Publisher preview and access page only. No original case narrative."
+      }
+    ]
   }
 ]
