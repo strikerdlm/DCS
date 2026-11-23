@@ -4435,6 +4435,35 @@ def test_lewis_case_series_and_nasa_reprints_preserve_original_risk_sets(release
         """).fetchone() == (0,)
 
 
+def test_first_screening_batch_matches_review_decisions_and_source_cells(release):
+    with connect_pair(release) as db:
+        batch_raw, = db.execute("""
+            SELECT content_json FROM review.review_workflow_document
+            WHERE input_path LIKE '%/screening-batch-01.json'
+        """).fetchone()
+        batch = json.loads(batch_raw)
+        for study in batch["studies"]:
+            assert db.execute("""
+                SELECT reviewer, decision FROM review.review_current_screening
+                WHERE record_key=? AND report_id=? AND stage='full_text' ORDER BY reviewer
+            """, (study["record_key"], study["report_id"])).fetchall() == [
+                (reviewer, "include") for reviewer in batch["confirmation"]["reviewer_labels"]
+            ]
+            assert db.execute("""
+                SELECT chamber_role, source_cell, cases, exposures FROM review.review_seed_role_cell
+                WHERE study_id=? AND report_id=? ORDER BY source_cell
+            """, (study["study_id"], study["report_id"])).fetchall() == sorted([
+                (cell["role"], cell["source_cell"], cell["cases"], cell["person_exposures"])
+                for cell in study["role_comparison"]["cells"]
+            ], key=lambda cell: cell[1])
+            cells = study["role_comparison"]["cells"]
+            assert study["incidence"]["cases"] == sum(cell["cases"] for cell in cells)
+            assert study["incidence"]["person_exposures"] == sum(cell["person_exposures"] for cell in cells)
+        assert [s["study_id"] for s in batch["studies"] if s["role_comparison"]["disposition"] == "hold"] == [
+            "usn-1993-2002"
+        ]
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""

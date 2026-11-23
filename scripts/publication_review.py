@@ -138,7 +138,12 @@ def load_register(db, root):
         "doi checked_on provider query status detail evidence_url",
         json.loads((directory / "quality.json").read_bytes()),
     )
-    for path in sorted([*directory.glob("*pilot*.json"), directory / "prisma-flow.json"]):
+    workflow_paths = [
+        *directory.glob("*pilot*.json"),
+        *directory.glob("screening-batch-*.json"),
+        directory / "prisma-flow.json",
+    ]
+    for path in sorted(workflow_paths):
         db.execute(
             "INSERT INTO review_workflow_document VALUES (?,?)",
             ((DIRECTORY / path.name).as_posix(), path.read_text(encoding="utf-8")),
