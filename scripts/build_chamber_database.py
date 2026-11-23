@@ -323,6 +323,7 @@ BALLDIN_PULMONARY_ONSETS = ROOT / "data" / "chamber" / "v1.255"
 DIESEL_CHAMBER_EXPOSURES = ROOT / "data" / "chamber" / "v1.256"
 LIM_SINGAPORE_CASES = ROOT / "data" / "chamber" / "v1.257"
 ATA_CHAMBER_CLUSTER = ROOT / "data" / "chamber" / "v1.258"
+RUSH_POST_CHAMBER_TRAVEL = ROOT / "data" / "chamber" / "v1.259"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3355,6 +3356,14 @@ def build(
                         "publication_ata_standard_stage": "standard_stages.csv",
                         "publication_ata_cluster_case": "cluster_cases.csv",
                         "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    RUSH_POST_CHAMBER_TRAVEL,
+                    {
+                        "cohort_rush_standard_profile": "standard_profiles.csv",
+                        "cohort_rush_post_chamber_case": "post_chamber_cases.csv",
                     },
                 )
                 load_register(db, ROOT)

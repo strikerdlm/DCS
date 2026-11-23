@@ -1,0 +1,112 @@
+[
+  {
+    "id": "2026-11-22-rush-1990-post-chamber-air-travel-discovery",
+    "date": "2026-11-22",
+    "provider": "Tavily, Firecrawl and publisher PDF",
+    "operation": "supplementary_source_discovery",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "8c80e0ce-4399-400b-821e-85e8959662f8",
+          "topic": "Primary historical clinical follow-up after altitude exposures"
+        },
+        {
+          "provider": "Firecrawl",
+          "request_id": "01a206bf-9c7d-777e-871d-930e72a09353",
+          "topic": "Primary chamber case follow-up and technical reports"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "9ed64597-c695-4a45-94a4-8a13de7b4461",
+          "topic": "Aircraft and chamber altitude outcomes in aviation literature"
+        }
+      ]
+    },
+    "records": [],
+    "note": "The original Rush series already provides the aggregate treated-case margins. Table I retains linked surface intervals, flight duration and onset phase for seven members of the series."
+  },
+  {
+    "id": "2026-11-22-rush-1990-post-chamber-air-travel-verified",
+    "date": "2026-11-22",
+    "provider": "Tavily, Firecrawl and publisher PDF",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": null,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "9f50eb97-6ca3-48db-8ce1-048dd192b782",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf",
+          "topic": "Publisher text around the seven Table I cases"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206c3-aca2-728f-9091-8b554f9024cf",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf",
+          "topic": "Direct publisher PDF",
+          "status": "table extraction unavailable"
+        },
+        {
+          "provider": "LlamaParse",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf",
+          "topic": "Secondary check of publisher PDF",
+          "status": "HTTP 402; no parse output"
+        },
+        {
+          "provider": "Publisher PDF",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2",
+          "pages": [
+            2
+          ],
+          "source_sha256": "d20e9b847e9557b4fd77644e2a7ed17833dd1569113e79d89bba96c8dbd44bcc",
+          "topic": "Visual verification of Tables I, II and III and the Results text"
+        },
+        {
+          "provider": "PubMed",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2256877/",
+          "topic": "PMID and citation verification"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "rush-1990-tables-i-iii",
+        "title": "The risk of developing decompression sickness during air travel following altitude chamber flight",
+        "authors": [
+          "Walter L. Rush",
+          "Salimi A. Wirjosemito"
+        ],
+        "year": 1990,
+        "pmid": "2256877",
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2",
+        "source_sha256": "d20e9b847e9557b4fd77644e2a7ed17833dd1569113e79d89bba96c8dbd44bcc",
+        "access": "full_text",
+        "locator": "Results and Tables I–III, printed p. 1029 (PDF p. 2)",
+        "role_review": "overlap_hold",
+        "model_extraction": {
+          "source_id": "rush90",
+          "input_release": "v1.259",
+          "parent_stratum": "all-years",
+          "parent_endpoint": "dcs_after_air_travel_among_treated",
+          "existing_combined_exposure_cases": 7,
+          "existing_delayed_cases": 141,
+          "existing_total_treated_cases": 292,
+          "cohort_period": "1982–1987",
+          "post_chamber_case_rows": "data/chamber/v1.259/post_chamber_cases.csv",
+          "standard_profile_rows": "data/chamber/v1.259/standard_profiles.csv",
+          "case_timing_note": "Surface interval and air travel duration are approximate and have distinct time origins. The separately reported time after landing is present for four cases. The publication does not assign case rows to individual calendar years.",
+          "cabin_altitude_note": "The source gives a 6,000–8,000 ft cabin range for six cases and a 10,000 ft peak for the pilot. No individual altitude is available for the other six.",
+          "risk_set_note": "Number of people who flew or delayed travel after chamber training and systematic follow-up of non-cases are unavailable."
+        }
+      }
+    ],
+    "note": "The full PDF hash matches the original repository source. Seven selected cases and four nominal profiles were transcribed. No new DCS count or at-risk air-travel denominator was added."
+  }
+]

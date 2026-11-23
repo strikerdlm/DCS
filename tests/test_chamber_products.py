@@ -10780,6 +10780,45 @@ def test_balldin_pulmonary_onsets_extend_an_existing_case_series(release):
         """).fetchone() == (1,)
 
 
+def test_rush_post_chamber_cases_reuse_treated_margin_and_preserve_time_origins(release):
+    source = "rush90"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT endpoint,cases,denominator,denominator_unit FROM cohort_observation
+            WHERE source_id=? AND stratum='all-years' ORDER BY endpoint
+        """, (source,)).fetchall() == [
+            ("dcs_after_air_travel_among_treated", 7, 292, "treated_dcs_case"),
+            ("dcs_onset_gt_2h_among_treated", 141, 292, "treated_dcs_case"),
+            ("dcs_onset_le_2h_among_treated", 151, 292, "treated_dcs_case"),
+        ]
+        assert db.execute("""
+            SELECT printed_row,base_chamber_profile,rapid_decompression_recorded,
+                   approx_surface_interval_h,approx_air_travel_duration_h,onset_phase,
+                   reported_landing_to_onset_h,symptoms_as_reported,reported_peak_cabin_altitude_ft
+            FROM cohort_rush_post_chamber_case WHERE source_id=? ORDER BY printed_row
+        """, (source,)).fetchall() == [
+            (1, "II", 1, 17, 2, "at_aircraft_altitude", None, "Bends", None),
+            (2, "V", 0, 7, 1, "at_aircraft_altitude", None, "Bends", None),
+            (3, "V", 0, 6, 1, "aircraft_ascent", None, "Bends, chokes", None),
+            (4, "V", 0, 2, 2, "after_landing", 0.5, "Bends", None),
+            (5, "V", 0, 4, 1, "after_landing", 1, "Bends, CNS", None),
+            (6, "V", 0, 2, 1, "after_landing", 12, "Bends", 10000),
+            (7, "III", 1, 4, 1, "after_landing", 12, "Bends", None),
+        ]
+        assert db.execute("""
+            SELECT profile,peak_flight_level,minutes_above_fl250,nominal_hypoxia_demonstration_fl,
+                   reported_profile_duration_min,ground_prebreathe_min
+            FROM cohort_rush_standard_profile WHERE source_id=? ORDER BY profile
+        """, (source,)).fetchall() == [
+            ("II", 430, 8, 250, 90, 30), ("III", 350, 8, 250, 90, 30),
+            ("RD", 220, None, None, 8, None), ("V", 350, 8, 250, 60, 30),
+        ]
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE pmid='2256877' OR url LIKE '%/asem/61/11/article-p1028%'
+        """).fetchall() == [("pmid:2256877",)]
+
+
 def test_ata_cluster_reuses_existing_count_and_preserves_nominal_profile(release):
     with connect_pair(release) as db:
         assert db.execute("""

@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.259
+
+Rush and Wirjosemito's Table I records seven treated DCS cases after both chamber training and subsequent air travel. These cases already contribute to the study's totals of 141 delayed cases and 292 treated cases. The newly transcribed rows give a reported ground interval of about 2–17 hours. Symptoms began in flight in three cases and 0.5–12 hours after landing in four. Only the pilot has an individually stated peak cabin altitude, 10,000 ft. The study gives a 6,000–8,000 ft range for the other cases and provides no denominator for all trainees who flew. [Results and Tables I–II](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2)
+
+Table III gives four standard chamber profiles. Its durations for Types II, III and V include 30 minutes of ground oxygen prebreathe. Table I retains the flight engineer's `III + RD` entry. The standard rapid-decompression footnote describes a preceding Type II flight. Individual pressure and gas histories remain unknown. [Tables I and III](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/61/11/article-p1028.pdf#page=2) · [Versioned extraction](../data/chamber/v1.259)
+
 ## Release 1.258
 
 Ata and Karaca's cluster report now links three case descriptions and the six stages of its standard training profile to the existing 3-of-11 flight outcome. The inside observer had right wrist pain. The trainees had left wrist and right knee pain, respectively. Symptoms began during descent, with precise onset times and pressures unavailable. The two reported times of useful consciousness describe the hypoxia exercise. [Cases and Table 1](https://pmc.ncbi.nlm.nih.gov/articles/PMC8313775/#T1)
