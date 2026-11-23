@@ -317,6 +317,7 @@ NAVY_1944_TRIALS = ROOT / "data" / "chamber" / "v1.249"
 EARLY_FLIGHT_CASE_ARCHIVE = ROOT / "data" / "chamber" / "v1.250"
 KUMAR_THRESHOLD_COMPILATION = ROOT / "data" / "chamber" / "v1.251"
 MACKENZIE_RIESEN_PRIMARY = ROOT / "data" / "chamber" / "v1.252"
+HISTORICAL_USAF_ALTITUDE_OUTCOMES = ROOT / "data" / "chamber" / "v1.253"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3291,6 +3292,15 @@ def build(
                         "publication_mackenzie_susceptibility": "susceptibility.csv",
                         "publication_mackenzie_later_flights": "later_flights.csv",
                         "publication_threshold_profile_revision": "threshold_profile_revisions.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    HISTORICAL_USAF_ALTITUDE_OUTCOMES,
+                    {
+                        "publication_observation": "observations.csv",
+                        "publication_meader_recurrence_group": "recurrence_groups.csv",
+                        "publication_meader_recurrence_site": "recurrence_sites.csv",
                     },
                 )
                 load_register(db, ROOT)
