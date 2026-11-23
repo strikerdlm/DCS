@@ -9,6 +9,7 @@ The two SQLite files can be queried independently. Each contains the same eviden
 | `systematic-review.sqlite` | `review_analysis_selection`, `review_workflow_document` | Accepted result uses and holds with source cells, risk sets and coordinator confirmation |
 | `systematic-review.sqlite` | `review_analysis_result_cell`, `review_result_appraisal` | Source-linked result counts, cases per 1,000 and assessor-specific domain judgments with verification status |
 | `dcs-model.sqlite` | `development_counts`, `afrl_test`, `vge_interval`, `locked_external` | Frozen NASA DCS groups, separate AFRL test groups, Grade IV VGE intervals and external strata |
+| `dcs-model.sqlite` | `publication_rice05_timing_summary`, `discovery_adjudication` | Rice and Moore Navy follow-up timing and unresolved conflicts across reported scope, denominators and group means |
 | `dcs-model.sqlite` | `historical_case_catalog`, `dcs_case`, `publication_observation_revision`, `publication_observation_denominator_completion` | Selected historical case histories, source corrections and recovered denominators |
 | `dcs-model.sqlite` | `publication_aircraft_incident`, `publication_aircraft_incident_count` | Aircraft incident profiles and source-reported outcomes |
 | `dcs-model.sqlite` | `publication_aircraft_case_milestone` | Selected aircraft case timelines with source-relative times, bounds and aircraft altitudes |

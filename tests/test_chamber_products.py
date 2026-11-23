@@ -4788,6 +4788,38 @@ def test_preliminary_appraisals_trace_to_descriptive_cells_and_require_human_ver
         """).fetchone() == (2, "pmid:19522370", "pmid:19522370")
 
 
+def test_rice_2005_source_keeps_denominator_disagreement_and_case_timing(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT stratum, numerator, denominator, analysis_role
+            FROM discovery_observation WHERE source_id='rice05' AND stratum LIKE 'results-%'
+            ORDER BY stratum
+        """).fetchall() == [
+            ("results-inside-observers", 10, 8306, "denominator_conflict"),
+            ("results-students", 48, 48049, "denominator_conflict"),
+        ]
+        assert db.execute("""
+            SELECT sum(numerator), count(DISTINCT period)
+            FROM discovery_observation WHERE source_id='rice05' AND stratum LIKE 'figure-2-%'
+              AND analysis_role='case_conditional' AND period LIKE '2003-01%'
+        """).fetchone() == (97, 1)
+        assert db.execute("""
+            SELECT table_group_cases, timing_observed_n, reported_missing_n,
+                   table_mean, results_mean, discussion_mean, unit
+            FROM publication_rice05_timing_summary
+            WHERE clinical_group='type_i' AND metric='symptom_resolution'
+        """).fetchone() == (39, None, 4, 45.3, 46.5, 46.1, "min")
+        assert db.execute("""
+            SELECT count(*), count(DISTINCT report_id) FROM review.review_record
+            WHERE run_id GLOB '2026-11-23-rice-moore-2005-original-navy-followup-*'
+              AND report_id='pmid:16173680'
+        """).fetchone() == (4, 1)
+        assert db.execute("""
+            SELECT count(*) FROM discovery_adjudication
+            WHERE source_id='rice05' AND decision='unresolved' AND accepted_value IS NULL
+        """).fetchone() == (3,)
+
+
 def test_formal_search_flow_and_source_identities(release):
     with connect_pair(release) as db:
         flow, = db.execute("""
