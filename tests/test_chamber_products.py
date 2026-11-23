@@ -11215,6 +11215,48 @@ def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope
         """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
+def test_original_aviation_case_timelines_deduplicate_citations_and_preserve_timing_origins(release):
+    source_ids = ("auten10_tactical_flight", "black92_private_flight", "rudge95_private_flight")
+    run = "2026-11-23-original-aviation-dcs-case-timelines"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT p.source_id,p.endpoint,p.numerator,p.denominator,l.report_id
+            FROM publication_observation p JOIN shared_case_evidence l USING(source_id,stratum,endpoint)
+            WHERE p.source_id IN (?,?,?) ORDER BY p.source_id
+        """, source_ids).fetchall() == [
+            (source_ids[0], "suspected_neurologic_dcs_as_reported", 1, None, "pmid:20377149"),
+            (source_ids[1], "suspected_altitude_dcs_as_reported", 1, None, "pmid:1567321"),
+            (source_ids[2], "altitude_dcs_as_reported", 1, None, "pmid:7839169"),
+        ]
+        assert db.execute("""
+            SELECT source_id,elapsed,elapsed_unit,elapsed_reference,aircraft_altitude_ft
+            FROM publication_aircraft_case_milestone WHERE source_id IN (?,?,?)
+            AND milestone='first_symptoms' ORDER BY source_id
+        """, source_ids).fetchall() == [
+            (source_ids[0], 60, "minutes", "reported cabin pressure fluctuations", 24000),
+            (source_ids[1], 45, "minutes", "arrival at FL250", 25000),
+            (source_ids[2], 60, "minutes", "arrival at 28,000 ft cruise", 28000),
+        ]
+        assert db.execute("""
+            SELECT source_id,count(*) FROM publication_aircraft_case_milestone
+            WHERE source_id IN (?,?,?) GROUP BY source_id ORDER BY source_id
+        """, source_ids).fetchall() == [(source_ids[0], 7), (source_ids[1], 6), (source_ids[2], 4)]
+        assert db.execute("""
+            SELECT json_extract(metadata_json,'$.case_profile.cycling_duration_min_case_study'),
+                   json_extract(metadata_json,'$.case_profile.fluctuation_period_min_introduction'),
+                   json_type(metadata_json,'$.case_profile.actual_pressure_trace')
+            FROM review.review_record WHERE run_id=? AND source_key=?
+        """, (run, source_ids[0])).fetchone() == (3, 10, "null")
+        assert db.execute("""
+            SELECT DISTINCT report_id FROM review.review_record
+            WHERE source_key IN ('rudge-avstop-transcription', 'rudge-pilotfriend-transcription')
+               OR record_key='legacy:data/chamber/v1.35/search_hits.csv#staged_v35_archives:8'
+        """).fetchall() == [("pmid:7839169",)]
+        assert db.execute("""
+            SELECT count(*) FROM review.review_search_observation WHERE run_id=?
+        """, (run,)).fetchone() == (3,)
+
+
 def test_smithsonian_wright_field_preserves_reported_endpoints_and_roster_scope(release):
     hall, dill, smith = ("hall41_wright_field", "dill41_wright_field", "smith42_wright_field")
     run = "2026-11-23-smithsonian-wright-field"

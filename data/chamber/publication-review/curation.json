@@ -1,6 +1,60 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.263/sources.csv#black92_private_flight",
+      "report_id": "pmid:1567321",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p200.pdf",
+      "basis": "Exact author, title and journal identity of the model extraction."
+    },
+    {
+      "record_key": "2026-11-23-original-aviation-dcs-case-timelines#black92_private_flight",
+      "report_id": "pmid:1567321",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/3/article-p200.pdf",
+      "basis": "Exact PubMed, journal citation and case source."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.263/sources.csv#rudge95_private_flight",
+      "report_id": "pmid:7839169",
+      "evidence_url": "https://www.pilotfriend.com/aeromed/medical/decompression.htm",
+      "basis": "Exact author, title and journal identity of the model extraction."
+    },
+    {
+      "record_key": "2026-11-23-original-aviation-dcs-case-timelines#rudge95_private_flight",
+      "report_id": "pmid:7839169",
+      "evidence_url": "https://www.pilotfriend.com/aeromed/medical/decompression.htm",
+      "basis": "Exact PubMed, journal citation and case source."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.263/sources.csv#auten10_tactical_flight",
+      "report_id": "pmid:20377149",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/81/4/article-p427.pdf",
+      "basis": "Exact author, title and journal identity of the model extraction."
+    },
+    {
+      "record_key": "2026-11-23-original-aviation-dcs-case-timelines#auten10_tactical_flight",
+      "report_id": "pmid:20377149",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/81/4/article-p427.pdf",
+      "basis": "Exact PubMed, journal citation and case source."
+    },
+    {
+      "record_key": "2026-11-23-original-aviation-dcs-case-timelines#rudge-pilotfriend-transcription",
+      "report_id": "pmid:7839169",
+      "evidence_url": "https://www.pilotfriend.com/aeromed/medical/decompression.htm",
+      "basis": "Same Rudge title and byline, 59-year-old pilot, 28,000 ft cruise and eight-treatment course."
+    },
+    {
+      "record_key": "2026-11-23-original-aviation-dcs-case-timelines#rudge-avstop-transcription",
+      "report_id": "pmid:7839169",
+      "evidence_url": "http://avstop.com/medical/decompression.htm",
+      "basis": "Same Rudge title and byline, 59-year-old pilot, 28,000 ft cruise and eight-treatment course."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.35/search_hits.csv#staged_v35_archives:8",
+      "report_id": "pmid:7839169",
+      "evidence_url": "http://avstop.com/medical/decompression.htm",
+      "basis": "The AVSTOP record is the same author's case transcription with the matching title, cruise altitude and outcome."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.262/sources.csv#hall41_wright_field",
       "report_id": "report:exp-m-54-653-34",
       "evidence_url": "https://sova.si.edu/record/nasm.xxxx.0067/ref8510",
@@ -27816,6 +27870,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:7839169",
+      "right_report": "pmid:2241750",
+      "relationship": "unresolved",
+      "evidence": "Both report treated events at Brooks. Rudge's incident date and linkage to Weien and Baumgartner's 1977–1986 series are unavailable.",
+      "evidence_url": "https://www.pilotfriend.com/aeromed/medical/decompression.htm"
+    },
+    {
+      "left_report": "pmid:20377149",
+      "right_report": "pmid:15945394",
+      "relationship": "unresolved",
+      "evidence": "Auten cites Files as prior aviation cohort evidence. Neither the original tactical-flight date nor a shared incident identifier is reported.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/81/4/article-p427.pdf"
+    },
     {
       "left_report": "journal:sweeney-1944-air-surg-bull-1-10-1",
       "right_report": "report:exp-m-54-653-34a",

@@ -327,6 +327,7 @@ RUSH_POST_CHAMBER_TRAVEL = ROOT / "data" / "chamber" / "v1.259"
 CONKIN_FITNESS_ARCHIVE = ROOT / "data" / "chamber" / "v1.260"
 SWEENEY_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.261"
 SMITHSONIAN_WRIGHT_FIELD = ROOT / "data" / "chamber" / "v1.262"
+ORIGINAL_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.263"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3401,6 +3402,17 @@ def build(
                         "publication_chamber_trial_scope": "trial_scopes.csv",
                         "publication_chamber_altitude_trace": "altitude_points.csv",
                     },
+                )
+                load_version_tables(
+                    db,
+                    ORIGINAL_AVIATION_DCS_CASES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_aircraft_case_milestone": "aircraft_case_milestones.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                    create_schema=False,
                 )
                 load_register(db, ROOT)
                 db.commit()
