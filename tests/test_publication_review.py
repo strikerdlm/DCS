@@ -718,7 +718,11 @@ def test_publication_register_build(tmp_path):
             "WHERE right_report='pmid:33875060' AND relationship='comment_on'"
         ).fetchall()
         assert set(comments) == {("pmid:34642007",), ("pmid:34642008",)}
-        assert db.execute("SELECT count(*) FROM review_current_screening").fetchone() == (0,)
+        expected_decisions = db.execute("""
+            SELECT json_extract(content_json, '$.screening_decisions_all_streams')
+            FROM review_workflow_document WHERE input_path LIKE '%/prisma-flow.json'
+        """).fetchone()
+        assert db.execute("SELECT count(*) FROM review_current_screening").fetchone() == expected_decisions
         key = db.execute(
             "SELECT record_key FROM review_record ORDER BY record_key LIMIT 1"
         ).fetchone()[0]
@@ -733,6 +737,7 @@ def test_publication_register_build(tmp_path):
             "?,'2026-11-19',?,NULL,NULL)",
             [(key, 1, "uncertain"), (key, 2, "include")],
         )
-        assert db.execute("SELECT revision, decision FROM review_current_screening").fetchall() == [
-            (2, "include")
-        ]
+        assert db.execute(
+            "SELECT revision, decision FROM review_current_screening WHERE reviewer='reviewer' AND record_key=?",
+            (key,),
+        ).fetchall() == [(2, "include")]
