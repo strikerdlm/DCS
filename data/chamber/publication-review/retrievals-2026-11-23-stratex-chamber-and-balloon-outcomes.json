@@ -1,0 +1,289 @@
+[
+  {
+    "id": "2026-11-23-stratex-chamber-and-balloon-outcomes",
+    "date": "2026-11-23",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_primary_source_verification_and_exposure_crosswalk",
+    "status": "observed",
+    "reported_total": 4,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "2e60377d-e633-4546-b5ca-f8fa2a381d1e",
+          "query": "\"Manhigh\" altitude chamber bends \"decompression sickness\" Simons Kittinger Manhigh I Manhigh II report PDF"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "e6e93c80-929a-4ee6-9d21-104aeaca27cc",
+          "query": "\"Medical Support and Outcomes Of a Manned Stratospheric Balloon\" Garbino \"altitude\" DCS Eustace \"decompression sickness\" pdf"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "e63b09b3-e3ae-4b65-840e-4efa97777197",
+          "query": "\"The Design and Development of an Extravehicular, Stratospheric Exploration\" StratEx flight manned demonstration suit pressure dates pdf"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "2623e317-b0d8-4061-9225-9cee4c20f9f7",
+          "query": "StratEx project pressurized suit \"three manned flights\" 2014 Eustace 57,000 100,000 test flight dates"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20737-f879-7214-9721-31c7bd7c8e26",
+          "url": "https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download",
+          "locator": "Sections III.D, IV.C and V.4 (Increase Suit Pressure), and Table 2"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20737-f773-779c-bf52-2bb99114c925",
+          "url": "https://ttu-ir.tdl.org/server/api/core/bitstreams/335c4a16-25ba-4506-b951-d87746c9b46d/content",
+          "locator": "Pressure profile test discussion, Table 1 and Section X"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20734-bfe1-768b-80e6-155b8111b0a9",
+          "url": "https://ttu-ir.tdl.org/bitstreams/bd0a998f-32fb-4847-bb62-cb19ab35033f/download",
+          "locator": "Sections IV.A, IV.C and VI"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20736-eaaa-719e-8f90-c2c510d2ca05",
+          "url": "https://www.uspa.org/about-uspa/uspa-news/jumping-from-space-101alan-eustace-talks-us-in",
+          "locator": "Retrospective interview narrative on DCS"
+        }
+      ]
+    },
+    "note": "Retained four reports covering the same program. Public full text was accessible via Firecrawl. Source bytes were unavailable through direct download, so PDF hashes are null. One chamber result was explicitly assessed. The three balloon flights have an interview-derived project-wide count and no flight-specific clinical assessment.",
+    "records": [
+      {
+        "id": "lee15_stratex_suit",
+        "title": "The Design and Development of an Extravehicular, Stratospheric Exploration (StratEx) Pressure Suit",
+        "authors": [
+          "G. Ryan Lee",
+          "David Graziosi",
+          "Jared Leidech"
+        ],
+        "year": 2015,
+        "url": "https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download",
+        "primary_source": "https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Sections III.D, IV.C and V.4 (Increase Suit Pressure), and Table 2",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "lee15_stratex_suit",
+          "input_release": "v1.265"
+        },
+        "note": "Reports no signs or symptoms consistent with DCS during or after the one manned altitude chamber test. Table 2 identifies the three piloted balloon flights and specifies flight parameters. The surveillance protocol and delayed follow-up duration are unavailable.",
+        "openalex_id": "W2284745102",
+        "role_review": "descriptive",
+        "observations": [
+          {
+            "id": "manned-altitude-chamber-pressure-profile",
+            "group": "manned-altitude-chamber-pressure-profile",
+            "study_id": "stratex-manned-pressure-profile-2014",
+            "year": 2014,
+            "endpoint": "dcs_signs_or_symptoms_as_reported",
+            "analysis_role": "descriptive",
+            "cases": 0,
+            "denominator": 1,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "source_reported",
+            "reported_distinct_pilots": 1,
+            "period": "StratEx ground testing before October 2014 balloon flights",
+            "altitude": null,
+            "prebreathe_min": null,
+            "outcome_window": "During and after the test as reported. Duration of post-test observation unavailable.",
+            "protocol": "One suited pilot in a manned pressure-profile run at the Arizona State University Del E. Webb Altitude Chamber. The authors report execution of the approved oxygen prebreathe protocol. Actual oxygen delivery history and actual elapsed prebreathe are unavailable.",
+            "locator": "Lee et al., Section III.D. Leidich et al., manned pressure profile paragraph and Table 1.",
+            "note": "Lee et al. describe approximately 85,400 ft (0.30 psia) as the facility maximum. Garbino et al. describe over 27,000 m / 90,000 ft for the chamber test. The exact chamber peak is left blank. Neither describes the peak pressure altitude experienced inside the pressurized suit. Other suit sessions are excluded from this denominator."
+          }
+        ],
+        "chamber_pressure_report": {
+          "facility_max_approx_ft": 85400,
+          "pressure_at_facility_max_psia": 0.3,
+          "actual_peak_ambient_ft": null,
+          "actual_suit_pressure_time_series": null,
+          "actual_prebreathe_duration_min": null,
+          "actual_followup_duration_min": null,
+          "locator": "Section III.D, Manned Altitude Chamber"
+        },
+        "balloon_test_scope": {
+          "piloted_balloon_flights": 3,
+          "distinct_pilots": 1,
+          "separate_airplane_jump_tests": 5,
+          "planned_flight_prebreathe_min": 240,
+          "locator": "Sections IV and V.4"
+        },
+        "balloon_flights": [
+          {
+            "flight_number": 1,
+            "flight_date": "2014-10-04",
+            "reported_ambient_release_altitude_ft": 56867,
+            "alternative_ambient_release_altitude_ft": 56870,
+            "ascent_duration_min": 53,
+            "freefall_duration_sec": 150,
+            "nominal_suit_pressure_differential_psi": 5.4,
+            "flight_specific_dcs_assessment": null,
+            "locator": "Lee et al. Table 2 and Leidich et al. Table 1 and Section X.A",
+            "note": "Leidich describes about one hour of ascent. Release altitude is ambient. Actual suit pressure and individual DCS assessment are unavailable."
+          },
+          {
+            "flight_number": 2,
+            "flight_date": "2014-10-15",
+            "reported_ambient_release_altitude_ft": 105771,
+            "alternative_ambient_release_altitude_ft": 105689,
+            "ascent_duration_min": 99,
+            "freefall_duration_sec": 236,
+            "nominal_suit_pressure_differential_psi": 5.4,
+            "flight_specific_dcs_assessment": null,
+            "locator": "Lee et al. Table 2 and Leidich et al. Table 1 and Section X.B",
+            "note": "Leidich describes about one hour and 45 minutes of ascent. Release altitude is ambient. Actual suit pressure and individual DCS assessment are unavailable."
+          },
+          {
+            "flight_number": 3,
+            "flight_date": "2014-10-24",
+            "reported_ambient_release_altitude_ft": 135890,
+            "alternative_ambient_release_altitude_ft": null,
+            "ascent_duration_min": 126,
+            "freefall_duration_sec": 267,
+            "nominal_suit_pressure_differential_psi": 5.4,
+            "flight_specific_dcs_assessment": null,
+            "locator": "Lee et al. Table 2 and Leidich et al. Table 1 and Section X.C",
+            "note": "Leidich gives the rounded release altitude as 136,000 ft in Section X.C and describes almost two hours in the stratosphere. Garbino et al. give 135,890 ft and report return without injury. Actual suit pressure and fixed DCS follow-up are unavailable."
+          }
+        ]
+      },
+      {
+        "id": "leidich15_stratex_performance",
+        "title": "StratEx Pressure Suit Assembly Design and Performance",
+        "authors": [
+          "Jared Leidich",
+          "Zane Maccagnano",
+          "Dan McFatter",
+          "G. Ryan Lee",
+          "Norman Hahn"
+        ],
+        "year": 2015,
+        "url": "https://ttu-ir.tdl.org/items/2711ca4f-1fdb-4246-afdd-067f42b7d660",
+        "primary_source": "https://ttu-ir.tdl.org/server/api/core/bitstreams/335c4a16-25ba-4506-b951-d87746c9b46d/content",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Pressure profile test discussion, Table 1 and Section X",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "leidich15_stratex_performance",
+          "input_release": "v1.265"
+        },
+        "note": "Confirms one manned pressure-profile chamber run and documents the same three October 2014 manned balloon flights. Its engineering success assessment supplies no separate clinical DCS count.",
+        "test_roster_scope": {
+          "manned_pressure_profile_runs": 1,
+          "piloted_balloon_flights": 3,
+          "distinct_pilots_in_the_four_exposures": 1,
+          "separate_airplane_jump_tests": 5,
+          "full_program_suit_sessions": 48,
+          "suit_pressure_differential_psi_nominal": 5.4,
+          "abort_adds_no_balloon_exposure": true,
+          "locator": "Pressure profile testing, Table 1 and Section X"
+        }
+      },
+      {
+        "id": "garbino15_stratex_medical",
+        "title": "Medical Support and Outcomes Of a Manned Stratospheric Balloon and Free-Fall Parachute Flight Test Program",
+        "authors": [
+          "Alejandro Garbino",
+          "Derek M. Nusbaum",
+          "Erik A. Antonsen",
+          "Daniel Buckland",
+          "Maria-Vittoria Carminati",
+          "Jonathan B. Clark"
+        ],
+        "year": 2015,
+        "url": "https://ttu-ir.tdl.org/bitstreams/bd0a998f-32fb-4847-bb62-cb19ab35033f/download",
+        "primary_source": "https://ttu-ir.tdl.org/bitstreams/bd0a998f-32fb-4847-bb62-cb19ab35033f/download",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Sections IV.A, IV.C and VI",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "garbino15_stratex_medical",
+          "input_release": "v1.265"
+        },
+        "note": "Describes the medical risk mitigation and states the pilot returned without injury on the record flight. It does not report a systematic DCS-specific outcome for each flight. Its chamber altitude wording differs from the engineering account.",
+        "openalex_id": "W2282897420",
+        "protocol_and_outcome": {
+          "chamber_ambient_reported_above_ft": 90000,
+          "chamber_ambient_reported_above_m": 27000,
+          "evidence_qualifier": "Section IV.C gives approximate threshold wording rather than a measured peak.",
+          "record_flight_date": "2014-10-24",
+          "record_flight_reported_ambient_altitude_ft": 135890,
+          "record_flight_brought_back_without_injury": true,
+          "planned_suit_gas_oxygen_pct": 100,
+          "nominal_suit_pressure_differential_psi": 5.4,
+          "record_flight_dcs_specific_followup_reported": null,
+          "locator": "Sections IV.A, IV.C and VI"
+        }
+      },
+      {
+        "id": "oneil_stratex_interview",
+        "title": "Jumping From Space 101—Alan Eustace Talks Us In",
+        "authors": [
+          "Annette O’Neil"
+        ],
+        "year": 2019,
+        "url": "https://www.uspa.org/about-uspa/uspa-news/jumping-from-space-101alan-eustace-talks-us-in",
+        "primary_source": "https://www.uspa.org/about-uspa/uspa-news/jumping-from-space-101alan-eustace-talks-us-in",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Retrospective interview narrative on DCS",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "oneil_stratex_interview",
+          "input_release": "v1.265"
+        },
+        "note": "The interview narrative explicitly reports no DCS over the project. It offers no clinical forms, individual flight outcomes, fixed follow-up window, or chamber roster. The engineering team separately supplies the flight denominator.",
+        "role_review": "descriptive",
+        "observations": [
+          {
+            "id": "three-october-balloon-flights",
+            "group": "three-october-balloon-flights",
+            "study_id": "stratex-october-2014-balloon-test-flights",
+            "year": 2014,
+            "endpoint": "reported_dcs_retrospective_interview",
+            "analysis_role": "descriptive",
+            "cases": 0,
+            "denominator": 3,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "author_reconstructed",
+            "reported_distinct_pilots": 1,
+            "period": "2014-10-04 to 2014-10-24",
+            "altitude": null,
+            "prebreathe_min": null,
+            "outcome_window": "Retrospective report across the project. No standard postflight DCS surveillance window or individual clinical assessments reported.",
+            "protocol": "Same pilot on the three crewed stratospheric balloon flights documented by Lee et al. and Leidich et al. The flight program describes four hours of planned oxygen prebreathe. The medical report describes 100% oxygen and a nominal suit pressure differential of 5.4 psi. Actual gas and pressure histories are unavailable.",
+            "locator": "O'Neil, DCS paragraph. Lee et al., Table 2. Garbino et al., Sections IV.A and VI.",
+            "note": "Zero is the descriptive interview outcome linked to the three verified balloon exposures. There is one pilot. No record-level DCS diagnoses or event-free assessments are supplied. Airplane jumps, an aborted launch and chamber exercises are outside this denominator."
+          }
+        ],
+        "narrative_scope": {
+          "publication_date": "2019-10-01",
+          "ascertainment": "Retrospective interview article narrative",
+          "per_flight_dcs_diagnoses": null,
+          "clinical_surveillance_window": null,
+          "denominator_report": "openalex:W2284745102",
+          "component_records_from_interview": null
+        }
+      }
+    ]
+  }
+]

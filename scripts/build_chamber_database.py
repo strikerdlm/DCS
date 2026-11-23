@@ -329,6 +329,7 @@ SWEENEY_WARTIME_CHAMBER = ROOT / "data" / "chamber" / "v1.261"
 SMITHSONIAN_WRIGHT_FIELD = ROOT / "data" / "chamber" / "v1.262"
 ORIGINAL_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.263"
 GERMAN_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.264"
+STRATEX_OUTCOMES = ROOT / "data" / "chamber" / "v1.265"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3424,6 +3425,16 @@ def build(
                         "publication_observation": "observations.csv",
                         "publication_chamber_proportion_without_counts": "proportions.csv",
                         "publication_case_milestone": "case_milestones.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    STRATEX_OUTCOMES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_stratex_balloon_flight": "flights.csv",
                         "publication_overlap": "overlap.csv",
                     },
                 )
