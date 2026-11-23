@@ -330,6 +330,7 @@ SMITHSONIAN_WRIGHT_FIELD = ROOT / "data" / "chamber" / "v1.262"
 ORIGINAL_AVIATION_DCS_CASES = ROOT / "data" / "chamber" / "v1.263"
 GERMAN_WARTIME_TRAINING = ROOT / "data" / "chamber" / "v1.264"
 STRATEX_OUTCOMES = ROOT / "data" / "chamber" / "v1.265"
+RED_BULL_STRATOS_OUTCOMES = ROOT / "data" / "chamber" / "v1.266"
 PUBLICATION_SEARCH_TABLES = {
     "publication_search_run": "search_runs.csv",
     "publication_search_hit": "search_hits.csv",
@@ -3435,6 +3436,17 @@ def build(
                         "publication_source": "sources.csv",
                         "publication_observation": "observations.csv",
                         "publication_stratex_balloon_flight": "flights.csv",
+                        "publication_overlap": "overlap.csv",
+                    },
+                )
+                load_version_tables(
+                    db,
+                    RED_BULL_STRATOS_OUTCOMES,
+                    {
+                        "publication_source": "sources.csv",
+                        "publication_observation": "observations.csv",
+                        "publication_chamber_trial_scope": "trial_scopes.csv",
+                        "publication_balloon_flight_measurement": "flight_measurements.csv",
                         "publication_overlap": "overlap.csv",
                     },
                 )

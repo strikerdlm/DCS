@@ -1,6 +1,66 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.266/sources.csv#redbull13_stratos_summit",
+      "report_id": "redbull:stratos-scientific-summit:2013",
+      "evidence_url": "https://www.blimpinfo.com/wp-content/uploads/2013/02/Red+Bull+Stratos+Summit+Report+Final+050213.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "2026-11-23-red-bull-stratos-flight-and-chamber-scope#redbull13_stratos_summit",
+      "report_id": "redbull:stratos-scientific-summit:2013",
+      "evidence_url": "https://www.blimpinfo.com/wp-content/uploads/2013/02/Red+Bull+Stratos+Summit+Report+Final+050213.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.266/sources.csv#garbino14_stratos_monitoring",
+      "report_id": "pmid:24597163",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/85/2/article-p177.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "2026-11-23-red-bull-stratos-flight-and-chamber-scope#garbino14_stratos_monitoring",
+      "report_id": "pmid:24597163",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/85/2/article-p177.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.266/sources.csv#blue13_stratos_first_flight",
+      "report_id": "pmid:23513285",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/3/article-p237.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "2026-11-23-red-bull-stratos-flight-and-chamber-scope#blue13_stratos_first_flight",
+      "report_id": "pmid:23513285",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/3/article-p237.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.266/sources.csv#pattarini13_stratos_spin",
+      "report_id": "pmid:24024308",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/9/article-p961.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "2026-11-23-red-bull-stratos-flight-and-chamber-scope#pattarini13_stratos_spin",
+      "report_id": "pmid:24024308",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/9/article-p961.pdf",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.266/sources.csv#menon16_stratex_recovery",
+      "report_id": "pmid:27573155",
+      "evidence_url": "https://doi.org/10.1017/S1049023X16000601",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
+      "record_key": "2026-11-23-red-bull-stratos-flight-and-chamber-scope#menon16_stratex_recovery",
+      "report_id": "pmid:27573155",
+      "evidence_url": "https://doi.org/10.1017/S1049023X16000601",
+      "basis": "Exact report title, publication metadata and same original article or program report."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.265/sources.csv#lee15_stratex_suit",
       "report_id": "openalex:W2284745102",
       "evidence_url": "https://ttu-ir.tdl.org/bitstreams/070a21c0-78ef-42e5-be24-767d37de5a0c/download",
@@ -21921,6 +21981,24 @@
   ],
   "studies": [
     {
+      "study_id": "red-bull-stratos-2012-balloon-test-flights",
+      "label": "Red Bull Stratos piloted balloon flight test series",
+      "period": "2012-03-15 to 2012-10-14",
+      "setting": "Three repeated pressurized balloon flights by one pilot, United States"
+    },
+    {
+      "study_id": "red-bull-stratos-wyle-chamber-tests",
+      "label": "Red Bull Stratos Wyle altitude chamber tests",
+      "period": "2010-10 to 2012-09 for the three named human runs",
+      "setting": "Wyle, Brooks City-Base, Texas"
+    },
+    {
+      "study_id": "red-bull-stratos-beale-chamber-tests",
+      "label": "Red Bull Stratos Beale pressure-suit chamber training",
+      "period": "Before the October 2012 final flight. Individual dates unavailable.",
+      "setting": "Beale AFB, California"
+    },
+    {
       "study_id": "stratex-manned-pressure-profile-2014",
       "label": "StratEx manned hypobaric pressure-profile test",
       "period": "Before the October 2014 balloon flights. Exact date unavailable.",
@@ -24220,6 +24298,48 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "red-bull-stratos-2012-balloon-test-flights",
+      "report_id": "redbull:stratos-scientific-summit:2013",
+      "role": "program_outcome_and_flight_scope",
+      "locator": "Printed pp. 38, 40–44, 46 and 48"
+    },
+    {
+      "study_id": "red-bull-stratos-2012-balloon-test-flights",
+      "report_id": "pmid:24597163",
+      "role": "same_flight_series_monitoring",
+      "locator": "Introduction and Table I"
+    },
+    {
+      "study_id": "red-bull-stratos-2012-balloon-test-flights",
+      "report_id": "pmid:23513285",
+      "role": "nested_first_flight_medical_operations",
+      "locator": "Abstract and field medical team deployment"
+    },
+    {
+      "study_id": "red-bull-stratos-2012-balloon-test-flights",
+      "report_id": "pmid:24024308",
+      "role": "nested_final_flight_spin_report",
+      "locator": "Abstract and Introduction"
+    },
+    {
+      "study_id": "red-bull-stratos-wyle-chamber-tests",
+      "report_id": "redbull:stratos-scientific-summit:2013",
+      "role": "unresolved_occupant_coverage_for_six_reported_runs",
+      "locator": "Printed pp. 21 and 66"
+    },
+    {
+      "study_id": "red-bull-stratos-beale-chamber-tests",
+      "report_id": "redbull:stratos-scientific-summit:2013",
+      "role": "five_training_runs_and_two_highest_runs",
+      "locator": "Printed pp. 21 and 66"
+    },
+    {
+      "study_id": "stratex-october-2014-balloon-test-flights",
+      "report_id": "pmid:27573155",
+      "role": "nested_record_flight_recovery_assessment",
+      "locator": "Author abstract"
+    },
     {
       "study_id": "stratex-manned-pressure-profile-2014",
       "report_id": "openalex:W2284745102",
@@ -28014,6 +28134,34 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "pmid:24597163",
+      "right_report": "redbull:stratos-scientific-summit:2013",
+      "relationship": "same_cohort",
+      "evidence": "Same three dated balloon jumps by one pilot. Printed altitude values vary by report and section. These rows do not create another flight series.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/85/2/article-p177.pdf"
+    },
+    {
+      "left_report": "pmid:23513285",
+      "right_report": "redbull:stratos-scientific-summit:2013",
+      "relationship": "partial_overlap",
+      "evidence": "March 15 first manned flight is the first of three shown on Summit p. 46.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/3/article-p237.pdf"
+    },
+    {
+      "left_report": "pmid:24024308",
+      "right_report": "redbull:stratos-scientific-summit:2013",
+      "relationship": "partial_overlap",
+      "evidence": "The 127,852-ft flight is the record jump on October 14 in Summit pp. 46–48. The spin analysis adds no independent DCS outcome.",
+      "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/9/article-p961.pdf"
+    },
+    {
+      "left_report": "pmid:27573155",
+      "right_report": "openalex:W2282897420",
+      "relationship": "partial_overlap",
+      "evidence": "Same October 24, 2014 StratEx record flight. The no-injury result refers to landing recovery and contributes no separate DCS numerator or denominator.",
+      "evidence_url": "https://doi.org/10.1017/S1049023X16000601"
+    },
     {
       "left_report": "handle:2346/64411",
       "right_report": "openalex:W2284745102",

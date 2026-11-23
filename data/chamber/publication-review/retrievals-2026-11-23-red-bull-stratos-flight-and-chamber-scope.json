@@ -1,0 +1,414 @@
+[
+  {
+    "id": "2026-11-23-red-bull-stratos-flight-and-chamber-scope",
+    "date": "2026-11-23",
+    "provider": "Tavily and Firecrawl",
+    "operation": "supplementary_primary_source_verification_and_flight_crosswalk",
+    "status": "observed",
+    "reported_total": 5,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "e27a3938-3e6c-45c6-a02f-1786c0a0a803",
+          "query": "\"Findings of the Red Bull Stratos Scientific Summit\" \"2013\" final official hosted Red Bull summit PDF Kittinger altitude chamber"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "710566de-ca4d-4d24-9447-ce990b1392bc",
+          "query": "\"Physiological Monitoring and Analysis of a Manned Stratospheric Balloon Test Program\" \"decompression\" Garbino 177 full text symptom no"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "search",
+          "request_id": "25569b91-648b-4441-af89-12dd89be1a9e",
+          "query": "\"Overview of Medical Operations for a Manned Stratospheric Balloon Flight\" \"decompression sickness\" Blue 2013 first test flight medical evaluation 71,615 PDF"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a2073e-f972-720b-92ec-43ed3e05a8bf",
+          "url": "https://www.blimpinfo.com/wp-content/uploads/2013/02/Red+Bull+Stratos+Summit+Report+Final+050213.pdf"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20745-1d96-77e3-8dba-236a42cbdbba",
+          "url": "https://www.redbull.com/us-en/red-bull-stratos-release-mission-data"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20745-1e15-70a8-9739-23e714c655fd",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/85/2/article-p177.pdf"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20746-a377-77d7-8944-a290418991ae",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/3/article-p237.pdf"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20745-1dbf-708b-92b6-39df906a99c0",
+          "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/9/article-p961.pdf"
+        },
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a20743-944d-7598-87f5-675e2ab2da25",
+          "url": "https://doi.org/10.1017/S1049023X16000601"
+        },
+        {
+          "provider": "Tavily",
+          "operation": "extract",
+          "request_id": "474332e7-dfee-4d00-bb2d-12167a9ad552",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27573155/"
+        }
+      ]
+    },
+    "note": "The team Summit report was verified from downloaded bytes. Publisher full texts of the three companion articles were readable through Firecrawl, while direct PDF bytes were unavailable. Menon is represented by the author abstract. The overlapping 2012 flight accounts contribute one descriptive outcome and the Wyle counts retain separate reported scope.",
+    "records": [
+      {
+        "id": "redbull13_stratos_summit",
+        "title": "Summary Report: Findings of the Red Bull Stratos Scientific Summit",
+        "year": 2013,
+        "url": "https://www.blimpinfo.com/wp-content/uploads/2013/02/Red+Bull+Stratos+Summit+Report+Final+050213.pdf",
+        "primary_source": "https://www.blimpinfo.com/wp-content/uploads/2013/02/Red+Bull+Stratos+Summit+Report+Final+050213.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Printed pp. 21, 38, 40–44, 46, 48, and 66",
+        "source_sha256": "87c3b1274de17836aaeddb30cdd4a70cc1d57082884755c97335e7dca5e07964",
+        "model_extraction": {
+          "source_id": "redbull13_stratos_summit",
+          "input_release": "v1.266"
+        },
+        "note": "Documented three flights by one pilot and a program-level description of DCS among averted conditions. Chamber-run counts have different documented scopes within the source. Events aboard Stratos in 2012 and StratEx in 2014 were distinct.",
+        "corporate_author": "Red Bull Stratos",
+        "released_on": "2013-02-05",
+        "role_review": "descriptive",
+        "observations": [
+          {
+            "id": "three-2012-piloted-balloon-flights",
+            "group": "three-2012-piloted-balloon-flights",
+            "study_id": "red-bull-stratos-2012-balloon-test-flights",
+            "year": 2012,
+            "endpoint": "dcs_reported_averted_program_summary",
+            "analysis_role": "descriptive",
+            "cases": 0,
+            "denominator": 3,
+            "denominator_unit": "person_exposure",
+            "denominator_basis": "author_reconstructed",
+            "reported_distinct_pilots": 1,
+            "period": "2012-03-15 to 2012-10-14",
+            "planned_prebreathe_min": 75,
+            "actual_prebreathe_min": null,
+            "actual_suit_pressure_time_series": null,
+            "flight_specific_clinical_assessment": null,
+            "fixed_delayed_dcs_followup_min": null,
+            "protocol": "Three balloon jumps by one pilot from a pressurized capsule in a pressure suit. The medical plan specifies 75 minutes of oxygen prebreathe. Actual linked pressure and gas histories and adherence across all flights are unavailable.",
+            "outcome_window": "Operational monitoring and recovery described. No fixed DCS-specific surveillance window or separate clinical diagnosis by flight is reported.",
+            "locator": "Summit printed p. 38 (planned prebreathe), pp. 40–44 (monitoring and recovery), pp. 46 and 48 (flight table and outcome)",
+            "note": "The medical team lists DCS among conditions averted. The zero summarizes program reporting against the three documented flights. Chamber tests are outside this outcome and no individual clinical non-event rows were created."
+          }
+        ],
+        "chamber_scope": [
+          {
+            "stratum": "wyle-six-tests-program-summary",
+            "study_id": "red-bull-stratos-wyle-chamber-tests",
+            "parent_stratum": null,
+            "trial_count": 6,
+            "distinct_people": null,
+            "reported_ambient_max_ft": 123000,
+            "exposure_months": null,
+            "dcs_cases": null,
+            "dcs_specific_followup": null,
+            "locator": "Summit printed p. 21 (Thermal vacuum chamber testing)",
+            "note": "Six altitude tests at Wyle, Brooks City-Base, reached up to 123,000 ft ambient. Occupancy of all six and any DCS outcomes are unavailable. These tests may include the three named human runs listed separately."
+          },
+          {
+            "stratum": "wyle-three-human-tests-identified",
+            "study_id": "red-bull-stratos-wyle-chamber-tests",
+            "parent_stratum": null,
+            "trial_count": 3,
+            "distinct_people": 2,
+            "reported_ambient_max_ft": 123000,
+            "exposure_months": [
+              "2010-10",
+              "2011-11",
+              "2012-09"
+            ],
+            "dcs_cases": null,
+            "dcs_specific_followup": null,
+            "locator": "Summit printed p. 66 (Kittinger narrative)",
+            "note": "Three human tests reported at Wyle in October 2010, November 2011 and September 2012 on two people. The primary balloon pilot did one test and the other pilot did two. The correspondence with the six tests on p. 21 is unresolved. DCS endpoints unavailable."
+          },
+          {
+            "stratum": "beale-pilot-training-flights",
+            "study_id": "red-bull-stratos-beale-chamber-tests",
+            "parent_stratum": null,
+            "trial_count": 5,
+            "distinct_people": 1,
+            "reported_ambient_max_ft": 130000,
+            "exposure_months": null,
+            "dcs_cases": null,
+            "dcs_specific_followup": null,
+            "locator": "Summit printed pp. 21 and 66",
+            "note": "Five Beale AFB pressure-suit chamber training flights by one pilot. Individual exposure durations and DCS outcomes were unavailable."
+          },
+          {
+            "stratum": "beale-130000-ft-flights",
+            "study_id": "red-bull-stratos-beale-chamber-tests",
+            "parent_stratum": "beale-pilot-training-flights",
+            "trial_count": 2,
+            "distinct_people": 1,
+            "reported_ambient_max_ft": 130000,
+            "exposure_months": null,
+            "dcs_cases": null,
+            "dcs_specific_followup": null,
+            "locator": "Summit printed pp. 21 and 66",
+            "note": "Two of the five Beale runs reached 130,000 ft ambient. This row is nested. Actual suit pressure and DCS outcomes were unavailable."
+          }
+        ],
+        "flight_measurements": [
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-03-15",
+            "reporting_section": "comparison_table",
+            "ambient_altitude_kind": "exit_altitude_as_reported",
+            "ambient_altitude_ft": 71615.2,
+            "ambient_altitude_m": 21828.3,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Summit printed p. 46",
+            "note": "Exit altitude as printed. Same flight as Blue and Garbino."
+          },
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-07-25",
+            "reporting_section": "comparison_table",
+            "ambient_altitude_kind": "exit_altitude_as_reported",
+            "ambient_altitude_ft": 97145.7,
+            "ambient_altitude_m": 29610.0,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Summit printed p. 46",
+            "note": "The units are retained as printed. Garbino Table I gives the same meters and a different feet value."
+          },
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-10-14",
+            "reporting_section": "comparison_table",
+            "ambient_altitude_kind": "exit_altitude_as_reported",
+            "ambient_altitude_ft": 127852.4,
+            "ambient_altitude_m": 38969.4,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Summit printed p. 46",
+            "note": "Exit altitude as printed. Same final flight as Garbino and Pattarini."
+          }
+        ]
+      },
+      {
+        "id": "garbino14_stratos_monitoring",
+        "title": "Physiological Monitoring and Analysis of a Manned Stratospheric Balloon Test Program",
+        "year": 2014,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/85/2/article-p177.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/85/2/article-p177.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Introduction, Methods, Results and Table I",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "garbino14_stratos_monitoring",
+          "input_release": "v1.266"
+        },
+        "note": "Monitoring report follows the same three balloon flights. Text and Table I contain different first and second flight altitudes. The paper supplies flight measurements and timing, with no separate clinical DCS count.",
+        "pmid": "24597163",
+        "doi": "10.3357/asem.3744.2014",
+        "flight_measurements": [
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-03-15",
+            "reporting_section": "table_i",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 71615.2,
+            "ambient_altitude_m": 21828.3,
+            "freefall_sec": 220,
+            "under_parachute_sec": 292,
+            "locator": "Garbino et al. Table I",
+            "note": "Table I Altitude row. Preserve body text as a separate source value."
+          },
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-07-25",
+            "reporting_section": "table_i",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 97221.0,
+            "ambient_altitude_m": 29610.0,
+            "freefall_sec": 228,
+            "under_parachute_sec": 414,
+            "locator": "Garbino et al. Table I",
+            "note": "The reported feet differ from the Summit value despite the same reported meters. No conversion substituted."
+          },
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-10-14",
+            "reporting_section": "table_i",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 127852.4,
+            "ambient_altitude_m": 38969.4,
+            "freefall_sec": 260,
+            "under_parachute_sec": 298,
+            "locator": "Garbino et al. Table I",
+            "note": "Table I Altitude and duration rows. Durations are converted to seconds as printed minutes plus seconds."
+          },
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-03-15",
+            "reporting_section": "introduction",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 71581.0,
+            "ambient_altitude_m": 21818.0,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Garbino et al. Introduction p. 177",
+            "note": "First of the three successive flights as described in the text."
+          },
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-07-25",
+            "reporting_section": "introduction",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 96640.0,
+            "ambient_altitude_m": 29456.0,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Garbino et al. Introduction p. 177",
+            "note": "Second of the three successive flights as described in the text."
+          },
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-10-14",
+            "reporting_section": "introduction",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 127852.0,
+            "ambient_altitude_m": 38964.0,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Garbino et al. Introduction p. 177",
+            "note": "Third of the three successive flights as described in the text."
+          }
+        ]
+      },
+      {
+        "id": "blue13_stratos_first_flight",
+        "title": "Overview of Medical Operations for a Manned Stratospheric Balloon Flight",
+        "year": 2013,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/3/article-p237.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/3/article-p237.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Printed pp. 237–241, Introduction, contingent event plan and field team deployment",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "blue13_stratos_first_flight",
+          "input_release": "v1.266"
+        },
+        "note": "Original report of the March 15 flight only. Its altitude is 71,581 ft. The paper describes deployment and contingency planning without a clinical DCS outcome or follow-up schedule.",
+        "pmid": "23513285",
+        "doi": "10.3357/asem.3537.2013",
+        "flight_measurements": [
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-03-15",
+            "reporting_section": "abstract",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 71581.0,
+            "ambient_altitude_m": 21818.0,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Blue et al. Abstract p. 237",
+            "note": "Same March flight as Table I MBF1 and the Summit table."
+          }
+        ]
+      },
+      {
+        "id": "pattarini13_stratos_spin",
+        "title": "Flat Spin and Negative Gz in High-Altitude Free Fall: Pathophysiology, Prevention, and Treatment",
+        "year": 2013,
+        "url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/9/article-p961.pdf",
+        "primary_source": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/84/9/article-p961.pdf",
+        "access": "full_text",
+        "full_text_available": true,
+        "locator": "Printed p. 961, Introduction and report scope",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "pattarini13_stratos_spin",
+          "input_release": "v1.266"
+        },
+        "note": "Same Red Bull Stratos program and final flight. Focuses on spin and a contingency protocol and contributes no clinical DCS count.",
+        "pmid": "24024308",
+        "doi": "10.3357/asem.3648.2013",
+        "flight_measurements": [
+          {
+            "program_id": "red-bull-stratos",
+            "flight_date": "2012-10-14",
+            "reporting_section": "abstract",
+            "ambient_altitude_kind": "flight_altitude_as_reported",
+            "ambient_altitude_ft": 127852.0,
+            "ambient_altitude_m": 38964.0,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Pattarini et al. Abstract p. 961",
+            "note": "Same final flight as Table I MBF3 and the Summit table."
+          }
+        ]
+      },
+      {
+        "id": "menon16_stratex_recovery",
+        "title": "Crew Recovery and Contingency Planning for a Manned Stratospheric Balloon Flight – the StratEx Program",
+        "year": 2016,
+        "url": "https://doi.org/10.1017/S1049023X16000601",
+        "primary_source": "https://doi.org/10.1017/S1049023X16000601",
+        "access": "primary_abstract",
+        "full_text_available": false,
+        "locator": "Author abstract and PubMed citation",
+        "source_sha256": null,
+        "model_extraction": {
+          "source_id": "menon16_stratex_recovery",
+          "input_release": "v1.266"
+        },
+        "note": "Same final StratEx flight as the engineering and medical reports in v1.265. The team reached the landing spot within one minute and confirmed no injury at initial assessment. No DCS-specific examination or later observation is given in the abstract.",
+        "pmid": "27573155",
+        "doi": "10.1017/s1049023x16000601",
+        "flight_measurements": [
+          {
+            "program_id": "stratex",
+            "flight_date": "2014-10-24",
+            "reporting_section": "abstract",
+            "ambient_altitude_kind": "exit_altitude_as_reported",
+            "ambient_altitude_ft": 135897.0,
+            "ambient_altitude_m": 41422.0,
+            "freefall_sec": null,
+            "under_parachute_sec": null,
+            "locator": "Menon et al. author abstract",
+            "note": "Same flight as the 135,890-ft engineering data in v1.265. The team reached the landing spot within one minute and reported no initial injury. DCS-specific outcome unknown."
+          }
+        ],
+        "record_flight_recovery": {
+          "study_id": "stratex-october-2014-balloon-test-flights",
+          "team_reached_landing_within_min": 1,
+          "no_injury_reported_at_initial_landing_assessment": true,
+          "dcs_specific_assessment": null,
+          "fixed_delayed_dcs_followup_min": null,
+          "locator": "Author abstract"
+        }
+      }
+    ]
+  }
+]
