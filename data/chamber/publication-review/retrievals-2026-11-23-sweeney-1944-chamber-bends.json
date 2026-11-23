@@ -1,0 +1,123 @@
+[
+  {
+    "id": "2026-11-23-sweeney-1944-chamber-bends",
+    "date": "2026-11-23",
+    "provider": "Tavily, Firecrawl and HathiTrust",
+    "operation": "supplementary_primary_source_verification",
+    "status": "observed",
+    "reported_total": 1,
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Tavily",
+          "request_id": "6b163315-1c90-46d9-a0d9-413792e6aead",
+          "topic": "Wartime altitude chamber evidence"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "dd8ab55f-a944-4f4e-841a-3ab6b8e72eab",
+          "topic": "Sweeney title, pages and October issue"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "26fd008b-de34-43f8-aee0-f017a16d8bf5",
+          "topic": "Underlying reports ENG-49-695-29A, B and E"
+        },
+        {
+          "provider": "Tavily",
+          "request_id": "44390a58-1f44-4f46-a95f-0de55767baa7",
+          "topic": "December 1943 investigator memorandum"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206e9-3727-7168-a43a-2c302850f277",
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=262"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206e7-654f-744d-9fe1-9912eca470f3",
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=263"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206e7-6536-747b-b962-e6c6e3f98cb3",
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=264"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206e7-652c-7479-9ed6-0aa0d81b7627",
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=265"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206e6-cc7e-763e-b07c-b777ff6fc85c",
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=266"
+        },
+        {
+          "provider": "Firecrawl",
+          "scrape_id": "01a206e7-07e8-77ec-ae52-b157bbe3775f",
+          "url": "https://babel.hathitrust.org/cgi/ssd?id=mdp.39015011429019&seq=264",
+          "topic": "Independent holding for printed p. 4 and Table I"
+        }
+      ]
+    },
+    "records": [
+      {
+        "id": "sweeney44_explosive_decompression",
+        "title": "Explosive decompression",
+        "authors": [
+          "H. M. Sweeney"
+        ],
+        "year": 1944,
+        "journal": "Air Surgeon's Bulletin",
+        "volume": "1",
+        "issue": "10",
+        "first_page": "1",
+        "last_page": "4",
+        "url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=263",
+        "primary_source": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=263",
+        "full_text_available": true,
+        "access": "full_text",
+        "locator": "October 1944, printed pp. 1–4 (Ohio State scans 263–266). Percentage on pp. 3–4 and activity in Table I, p. 4.",
+        "role_review": "descriptive",
+        "model_extraction": {
+          "source_id": "sweeney44_explosive_decompression",
+          "input_release": "v1.261",
+          "proportion_input": "data/chamber/v1.261/proportions.csv",
+          "activity_input": "data/chamber/v1.261/activity_tallies.csv",
+          "scope_note": "The original prose reports about 20% of subjects decompressed above 40,000 ft experienced bends within five minutes. The matching case and person counts are unknown. Table I counts experiments. The 47 subjects in the first 100 tests and the 150 and 15 runs at 35,000 ft are separate activity descriptions."
+        },
+        "reported_counts": {
+          "bends_percent_approximate": 20,
+          "matched_cases": null,
+          "matched_participants": null,
+          "dwell_from_decompression_min": 5,
+          "initial_subjects_for_6_55_psi_series": 47,
+          "flight_surgeons_among_initial_subjects": 14,
+          "initial_6_55_psi_experiments": 100,
+          "additional_6_55_psi_experiments": 50,
+          "total_6_55_psi_experiments": 150,
+          "total_7_5_psi_experiments": 15
+        },
+        "observations": [
+          {
+            "id": "above-40000-ft",
+            "group": "above-40000-ft",
+            "endpoint": "bends_as_reported",
+            "cases": null,
+            "denominator": null,
+            "reported_rate_unit": "percent",
+            "reported_rate_percent": 20,
+            "analysis_role": "descriptive",
+            "locator": "Printed pp. 3–4, Ohio State scans 265–266",
+            "outcome_window": "Five minutes at altitude following rapid decompression. Delayed follow-up unavailable.",
+            "note": "Page 3 qualifies 20% as approximate. Page 4 gives 20% in nearby text, with possible overlap. The early bends count and corresponding subject count are unavailable."
+          }
+        ],
+        "note": "Full original text was accessible through the public page transcriptions. Original scan bytes were unavailable. The reported percentages on consecutive pages may refer to overlapping subjects and contribute one descriptive margin."
+      }
+    ],
+    "note": "The distinct original investigator publication adds one reported proportion and three activity tallies. The later official history recapitulates the results. The investigator memoranda ENG-49-695-29, 29A, 29B and 29E are cited on p. 4. Public originals of those memoranda were not located."
+  }
+]

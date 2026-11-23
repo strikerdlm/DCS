@@ -1,6 +1,18 @@
 {
   "aliases": [
     {
+      "record_key": "legacy:data/chamber/v1.261/sources.csv#sweeney44_explosive_decompression",
+      "report_id": "journal:sweeney-1944-air-surg-bull-1-10-1",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=263",
+      "basis": "October 1944 issue contents and original title, byline and pages."
+    },
+    {
+      "record_key": "2026-11-23-sweeney-1944-chamber-bends#sweeney44_explosive_decompression",
+      "report_id": "journal:sweeney-1944-air-surg-bull-1-10-1",
+      "evidence_url": "https://babel.hathitrust.org/cgi/ssd?id=osu.32436001888930&seq=263",
+      "basis": "The full-text verification and database extraction refer to the same original article."
+    },
+    {
       "record_key": "legacy:data/chamber/v1.250/sources.csv#blumkin91_1961_postdive_crew",
       "report_id": "fsf:hfam:1991:38:5:blumkin",
       "evidence_url": "https://flightsafety.org/hf/hf_sep-oct91.pdf",
@@ -27768,6 +27780,13 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "report:link-coleman-1955-aaf-medical-support",
+      "right_report": "journal:sweeney-1944-air-surg-bull-1-10-1",
+      "relationship": "repeats_chamber_research_results",
+      "evidence": "Printed pp. 273–275 repeat the Wright Field narrative, including the five-minute bends outcome and the distinct 35,000 ft activity counts. The same history's Training Command figures on p. 212 describe a different scope.",
+      "evidence_url": "https://www.govinfo.gov/content/pkg/GOVPUB-D304-PURL-gpo128900/pdf/GOVPUB-D304-PURL-gpo128900.pdf#page=298"
+    },
     {
       "left_report": "fsf:hfam:1991:38:5:blumkin",
       "right_report": "icao:cir69-an61:scuba-63-206",
