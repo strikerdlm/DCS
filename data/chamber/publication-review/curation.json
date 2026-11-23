@@ -1,6 +1,18 @@
 {
   "aliases": [
     {
+      "record_key": "2026-11-23-tac-1974-chamber-surveillance#andersen-tac1974",
+      "report_id": "usaf-tac-attack:1975-04:decompression-sickness-ii",
+      "evidence_url": "https://web.archive.org/web/20250000000000id_/https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
+      "basis": "Printed April 1975 TAC Attack issue, title and p. 10 byline verify the report. The numbers are on p. 11."
+    },
+    {
+      "record_key": "legacy:data/chamber/v1.269/sources.csv#andersen75_tac_bends",
+      "report_id": "usaf-tac-attack:1975-04:decompression-sickness-ii",
+      "evidence_url": "https://web.archive.org/web/20250000000000id_/https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11",
+      "basis": "Printed April 1975 TAC Attack issue, title and p. 10 byline verify the report. The numbers are on p. 11."
+    },
+    {
       "record_key": "2026-11-23-bryce-headache-primary-comparison#journal-case-histories",
       "report_id": "pmid:16313145",
       "evidence_url": "https://asma.kglmeridian.com/downloadpdf/view/journals/asem/76/11/article-p1074.pdf#page=2",
@@ -22809,6 +22821,12 @@
   ],
   "studies": [
     {
+      "study_id": "tac-1974-chamber-surveillance",
+      "label": "1974 Tactical Air Command chamber surveillance",
+      "period": "1974",
+      "setting": "USAF Tactical Air Command altitude chamber rides"
+    },
+    {
       "study_id": "usaf-physiological-1984-q1",
       "label": "Physiological Mishap Experience: 1 January to 31 March 1984",
       "period": "1984-01-01 to 1984-03-31",
@@ -25156,6 +25174,12 @@
     }
   ],
   "study_reports": [
+    {
+      "study_id": "tac-1974-chamber-surveillance",
+      "report_id": "usaf-tac-attack:1975-04:decompression-sickness-ii",
+      "role": "primary_surveillance_overlap_hold",
+      "locator": "Printed and PDF p. 11, lower-left paragraph beginning During 1974, in TAC"
+    },
     {
       "study_id": "usaf-physiological-1984-q1",
       "report_id": "usaf-fs:1984-08:physiological",
@@ -29028,6 +29052,20 @@
     }
   ],
   "relations": [
+    {
+      "left_report": "usaf-tac-attack:1975-04:decompression-sickness-ii",
+      "right_report": "pmid:889546",
+      "relationship": "unresolved",
+      "evidence": "TAC 1974 is within the USAF calendar and program frame of Davis Table VIII p. 728, which reports 19 hyperbaric-treated DCS in 65,361 1974 USAF chamber exposures. TAC-specific membership and treated overlap remain unknown.",
+      "evidence_url": "https://web.archive.org/web/20250000000000id_/https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11"
+    },
+    {
+      "left_report": "usaf-tac-attack:1975-04:decompression-sickness-ii",
+      "right_report": "doi:10.21236/ada360821",
+      "relationship": "unresolved",
+      "evidence": "The 1974 TAC chamber statement falls within Bassett p. 12's 1973–1977 USAF physiological training unit window. The primary reports supply no TAC site or linked case crosswalk.",
+      "evidence_url": "https://web.archive.org/web/20250000000000id_/https://www.acc.af.mil/Portals/92/Docs/ACC%20SAFETY/COMBAT%20EDGE/TAC75_04.pdf#page=11"
+    },
     {
       "left_report": "pmid:33975402",
       "right_report": "pmid:34847312",

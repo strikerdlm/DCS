@@ -4491,7 +4491,9 @@ def test_title_abstract_batch_records_one_decision_per_reviewer_and_report(relea
 
 def test_approved_full_text_and_followup_title_abstract_batches(release):
     with connect_pair(release) as db:
-        for suffix, expected_reports in [("05", 14), ("06", 50), ("07", 11), ("08", 75)]:
+        for suffix, expected_reports in [
+            ("05", 14), ("06", 50), ("07", 11), ("08", 75), ("09", 10), ("10", 100)
+        ]:
             raw, = db.execute("""
                 SELECT content_json FROM review.review_workflow_document WHERE input_path LIKE ?
             """, (f"%/screening-batch-{suffix}.json",)).fetchone()
@@ -4531,6 +4533,30 @@ def test_approved_full_text_and_followup_title_abstract_batches(release):
         assert db.execute("""
             SELECT count(*) FROM review.review_search_observation
             WHERE run_id='2026-11-23-bryce-headache-primary-comparison'
+        """).fetchone() == (0,)
+
+
+def test_tac_chamber_counts_keep_source_units_and_overlap_hold(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT numerator, reported_denominator, reported_denominator_label,
+                   denominator_unit, outcome_window, analysis_role
+            FROM publication_source_count_pair
+            WHERE source_id='andersen75_tac_bends'
+        """).fetchall() == [(8, 6913, "aircrews exposed", "unresolved", None, "overlap_hold")]
+        assert db.execute("""
+            SELECT related_source, relationship FROM publication_overlap
+            WHERE source_id='andersen75_tac_bends' ORDER BY related_source
+        """).fetchall() == [("bassett_survey", "unresolved"), ("davis77_hyperbaric", "unresolved")]
+        assert db.execute("""
+            SELECT report_id FROM review.review_record
+            WHERE record_key IN (
+                'legacy:data/chamber/v1.269/sources.csv#andersen75_tac_bends',
+                '2026-11-23-tac-1974-chamber-surveillance#andersen-tac1974'
+            ) ORDER BY record_key
+        """).fetchall() == [("usaf-tac-attack:1975-04:decompression-sickness-ii",)] * 2
+        assert db.execute("""
+            SELECT count(*) FROM publication_observation WHERE source_id='andersen75_tac_bends'
         """).fetchone() == (0,)
 
 
