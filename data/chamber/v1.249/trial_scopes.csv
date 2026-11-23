@@ -1,0 +1,7 @@
+source_id,stratum,parent_stratum,evidence_source_id,trial_count,participant_count,pressure_mmhg,locator,note
+welham44_edu_38000,methods-exposed,,welham44_edu_38000,,110,,"Methods, printed pp. 3–4 (PDF pp. 5–6)","Number of men exposed and mentioned in Methods, with a varying number of attempts."
+welham44_edu_38000,test-1-classified,methods-exposed,welham44_edu_38000,,100,,"Results, printed p. 5 (PDF p. 7)",The Methods mention 110 exposed men. The Results categorize 100 for Test 1. The report does not account for the ten-person difference or give counts of repeated attempts after intestinal-gas pain.
+welham44_edu_38000,test-2-fair,test-1-classified,welham44_edu_38000,,27,,"Results, printed p. 5 (PDF p. 7)",Selected fair group from Test 1. Retesting depends on Test 1 outcomes.
+welham44_edu_38000,test-2-good,test-1-classified,welham44_edu_38000,,30,,"Results, printed p. 5 (PDF p. 7)",Selected good group from Test 1. Retesting depends on Test 1 outcomes.
+welham44_edu_38000,test-3-fair,test-1-classified,welham44_edu_38000,,27,,"Results, printed p. 5 (PDF p. 7)",Selected fair group from Test 1. Retesting depends on Test 1 outcomes.
+welham44_edu_38000,test-3-good,test-1-classified,welham44_edu_38000,,38,,"Results, printed p. 5 (PDF p. 7)",The summary includes 38 men. Table I prints 30 durations for this group.
