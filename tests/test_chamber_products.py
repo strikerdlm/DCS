@@ -11215,6 +11215,72 @@ def test_edel_orbital_tests_reuse_report_and_preserve_pressure_and_outcome_scope
         """, (report_id,)).fetchone() == ("2026-11-20-formal-chamber-openalex",)
 
 
+def test_u2_career_surveys_preserve_waves_and_printed_rate_denominators(release):
+    bendrick, pilmanis = "bendrick96_u2_surveys", "pilmanis92_u2_preliminary"
+    run = "2026-11-23-u2-career-symptom-surveys"
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT survey_group,initial_address_list,distributed,returned,usable,response_percent_as_printed
+            FROM publication_u2_survey_wave WHERE source_id=? ORDER BY survey_group
+        """, (bendrick,)).fetchall() == [
+            ("hfhs_i", 503, 416, 269, 233, 65),
+            ("hfhs_ii", None, 298, 207, 195, 69),
+            ("preliminary", None, 40, 40, 40, 100),
+        ]
+        counts = db.execute("""
+            SELECT source_id,survey_group,endpoint,numerator,denominator,counting_unit,reported_percent
+            FROM publication_u2_survey_result WHERE source_id IN (?,?) ORDER BY 1,2,3
+        """, (bendrick, pilmanis)).fetchall()
+        assert len(counts) == 39
+        assert db.execute("""
+            SELECT r.source_key,o.reported_group,o.endpoint,o.cases,o.denominator,
+                   o.denominator_unit,o.reported_rate_percent
+            FROM review.review_search_observation o JOIN review.review_record r USING(record_key)
+            WHERE o.run_id=? ORDER BY 1,2,3
+        """, (run,)).fetchall() == counts
+        assert db.execute("""
+            SELECT survey_group,numerator,denominator,analysis_role
+            FROM publication_u2_survey_result WHERE source_id=?
+            AND endpoint IN ('career_dcs_symptoms_as_reported','direct_question_any_history_of_bends')
+            ORDER BY survey_group
+        """, (bendrick,)).fetchall() == [
+            ("combined_ps_hfhs_i", 206, 273, "overlapping_margin"),
+            ("hfhs_i", 181, 233, "descriptive"),
+            ("hfhs_ii", 91, 195, "descriptive"),
+            ("preliminary", 25, 40, "descriptive"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,numerator,denominator,reported_percent,analysis_role
+            FROM publication_u2_survey_result WHERE source_id IN (?,?)
+            AND endpoint IN ('dcs_episodes_per_reported_mission','ever_changed_mission_profile_due_to_symptoms',
+                             'past_or_recurring_musculoskeletal_problems')
+            ORDER BY endpoint
+        """, (bendrick, pilmanis)).fetchall() == [
+            ("dcs_episodes_per_reported_mission", None, None, 4.2, "descriptive"),
+            ("ever_changed_mission_profile_due_to_symptoms", 25, None, 12.7, "denominator_conflict"),
+            ("past_or_recurring_musculoskeletal_problems", None, 267, 44.2, "denominator_conflict"),
+        ]
+        assert db.execute("""
+            SELECT endpoint,odds_ratio,lower_95_ci,upper_95_ci FROM publication_u2_arthritis_effect
+            WHERE source_id=? ORDER BY endpoint
+        """, (bendrick,)).fetchall() == [
+            ("any_musculoskeletal_symptom", 1.81, 0.95, 3.44),
+            ("self_reported_provider_diagnosed_arthritis", 0.51, 0.24, 1.09),
+        ]
+        assert db.execute("""
+            SELECT left_report,relationship FROM review.review_report_relation
+            WHERE right_report='pmid:8775396' AND left_report IN ('asma:1992:410:154','openalex:W2344433097')
+            ORDER BY left_report
+        """).fetchall() == [
+            ("asma:1992:410:154", "partial_overlap"),
+            ("openalex:W2344433097", "misattributed_survey_statistic"),
+        ]
+        assert db.execute("""
+            SELECT report_id FROM model_report_link
+            WHERE source_table='publication_source' AND source_id=? AND report_id='pmid:8775396'
+        """, (bendrick,)).fetchall() == [("pmid:8775396",)]
+
+
 def test_red_bull_stratos_keeps_one_outcome_and_separate_chamber_scopes(release):
     summit = "redbull13_stratos_summit"
     garbino = "garbino14_stratos_monitoring"

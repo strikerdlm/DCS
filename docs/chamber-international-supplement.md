@@ -1,5 +1,11 @@
 # International chamber evidence, release 1.18
 
+## Release 1.267
+
+Bendrick and colleagues report career DCS symptoms in 25 of 40 preliminary questionnaires and 181 of 233 first-mailing questionnaires. The authors combine them as 206 of 273, or 75.5%. Respondent overlap is unknown. The second mailing used a direct question about ever having bends in high flight, with 91 affirmative answers among 195 usable questionnaires. The databases retain the survey-specific questions, mailed and usable counts, symptom timing and reported associations with arthritis. [Bendrick et al., printed pp. 201–204](https://asma.kglmeridian.com/view/journals/asem/67/3/article-p199.xml)
+
+The 1992 abstract reports 4.2% cases per mission in the same preliminary survey. Exact episode and mission totals are unavailable. The journal article prints 25 pilots who altered or aborted a mission and gives 12.7% for those experiencing DCS symptoms. That percentage does not reconcile with the preceding 206 symptomatic questionnaires. The extraction retains the count and both printed percentages with the denominator unresolved. These retrospective responses remain outside the clinical incidence benchmark. [Pilmanis and Bisson, abstract 154](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/63/5/article-p385.pdf#page=26) · [Versioned extraction](../data/chamber/v1.267)
+
 ## Release 1.266
 
 The Red Bull Stratos team reports DCS among the conditions averted across three 2012 balloon jumps by one pilot. The program summary provides a descriptive 0-of-3 observation. The medical report gives a planned 75-minute oxygen prebreathe and describes monitoring through recovery. A fixed DCS follow-up window and flight-level clinical results remain unavailable. Companion articles identify the same three flights or one flight within that series. The extraction preserves their different altitude values as printed. [Summit report, pp. 38, 40–48](https://www.blimpinfo.com/wp-content/uploads/2013/02/Red+Bull+Stratos+Summit+Report+Final+050213.pdf#page=39) · [Garbino et al., Introduction and Table I](https://asma.kglmeridian.com/downloadpdf/view/journals/asem/85/2/article-p177.pdf)
