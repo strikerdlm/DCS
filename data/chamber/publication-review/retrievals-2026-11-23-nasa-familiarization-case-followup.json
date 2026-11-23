@@ -1,0 +1,79 @@
+[
+  {
+    "id": "2026-11-23-nasa-familiarization-case-followup",
+    "date": "2026-11-23",
+    "provider": "NASA NTRS and Firecrawl",
+    "operation": "supplementary_primary_case_followup",
+    "reported_total": 1,
+    "status": "observed",
+    "params": {
+      "counts_toward_formal_identification": false,
+      "requests": [
+        {
+          "provider": "Firecrawl",
+          "operation": "scrape",
+          "scrape_id": "01a208d8-ae02-7358-8d08-22eb2bd2d2b8",
+          "url": "https://ntrs.nasa.gov/api/citations/20260004033/downloads/Test%20of%20Pressure%20Slides%20for%20ASMA%202026%20v5.pdf",
+          "reported_pdf_pages": 16
+        },
+        {
+          "provider": "NASA NTRS",
+          "operation": "retrieve_public_presentation",
+          "url": "https://ntrs.nasa.gov/api/citations/20260004033/downloads/Test%20of%20Pressure%20Slides%20for%20ASMA%202026%20v5.pdf",
+          "status": "Retrieved official 16-slide PDF and verified source bytes."
+        },
+        {
+          "provider": "NASA NTRS",
+          "operation": "verify_document_type",
+          "url": "https://ntrs.nasa.gov/api/citations/20260004033",
+          "document_type": "PRESENTATION",
+          "distribution": "PUBLIC",
+          "copyright": "PUBLIC_USE_PERMITTED"
+        }
+      ]
+    },
+    "note": "Source supplement for an existing clinical case. No independent chamber event, exposure denominator or formal search occurrence is contributed.",
+    "records": [
+      {
+        "id": "ntrs-20260004033-presentation",
+        "title": "Test of Pressure: Medical Decision Making in a Case of Altitude Chamber Decompression Sickness",
+        "authors": [
+          "Rebecca Mendelsohn",
+          "Robert Sanders"
+        ],
+        "year": 2026,
+        "url": "https://ntrs.nasa.gov/api/citations/20260004033",
+        "primary_source": "https://ntrs.nasa.gov/api/citations/20260004033/downloads/Test%20of%20Pressure%20Slides%20for%20ASMA%202026%20v5.pdf",
+        "source_sha256": "bb747a73274ac504461a84b136270ab5a952209faad88f2307a4b955d6708a81",
+        "access": "full_text",
+        "full_text_available": true,
+        "role_review": "linked_case_followup",
+        "locator": "NASA slides 6–7 and 11",
+        "note": "Slides 6 and 7 identify the NASA Neutral Buoyancy Laboratory and report no explosive-decompression simulation for this familiarization exposure. Slide 11 adds next-day reassessment, two additional treatments and no recurrence reported at clinic follow-up over the next two days. Same case as AsMA abstract 223. Date and training risk-set denominators are unavailable.",
+        "model_extraction": {
+          "source_id": "mendelsohn26_familiarization",
+          "reporting_source_id": "mendelsohn26_ntrs_presentation",
+          "input_release": "v1.270",
+          "stratum": "familiarization-flight"
+        },
+        "observations": [
+          {
+            "id": "mendelsohn-sanders-2026-ntrs-clinic-followup",
+            "study_id": "asma-mendelsohn-sanders-familiarization-case",
+            "group": "same familiarization case as AsMA 223",
+            "endpoint": "dcs_source_interpretation",
+            "cases": 1,
+            "denominator": null,
+            "denominator_unit": null,
+            "locator": "NASA slides 6–7 and 11",
+            "note": "Slides 6 and 7 identify the NASA Neutral Buoyancy Laboratory and report no explosive-decompression simulation for this familiarization exposure. Slide 11 adds next-day reassessment, two additional treatments and no recurrence reported at clinic follow-up over the next two days. Same case as AsMA abstract 223. Date and training risk-set denominators are unavailable.",
+            "exposure_location": "NASA Neutral Buoyancy Laboratory",
+            "explosive_decompression_simulated": false,
+            "followup_clinic_days": 2,
+            "recurrence_during_reported_clinic_followup": false
+          }
+        ]
+      }
+    ]
+  }
+]

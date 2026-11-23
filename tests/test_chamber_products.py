@@ -4491,18 +4491,29 @@ def test_title_abstract_batch_records_one_decision_per_reviewer_and_report(relea
 
 def test_approved_full_text_and_followup_title_abstract_batches(release):
     with connect_pair(release) as db:
+        batches = []
         for suffix, expected_reports in [
-            ("05", 14), ("06", 50), ("07", 11), ("08", 75), ("09", 10), ("10", 100)
+            ("05", 14), ("06", 50), ("07", 11), ("08", 75), ("09", 10), ("10", 100),
+            ("11", 26), ("12", 100),
         ]:
             raw, = db.execute("""
                 SELECT content_json FROM review.review_workflow_document WHERE input_path LIKE ?
             """, (f"%/screening-batch-{suffix}.json",)).fetchone()
             batch = json.loads(raw)
             assert len({r["report_id"] for r in batch["reports"]}) == expected_reports
+            batches.append(batch)
+        amended_ids = {
+            (report["record_key"], report["packet_report_id"]): report["report_id"]
+            for batch in batches for report in batch["reports"] if "packet_report_id" in report
+        }
+        for batch in batches:
             for report in batch["reports"]:
+                canonical = amended_ids.get(
+                    (report["record_key"], report["report_id"]), report["report_id"]
+                )
                 assert db.execute("""
                     SELECT report_id FROM review.review_record WHERE record_key=?
-                """, (report["record_key"],)).fetchone() == (report["report_id"],)
+                """, (report["record_key"],)).fetchone() == (canonical,)
                 if report["stage"] == "retrieval_pending":
                     assert report["decision"] is None
                     continue
@@ -4558,6 +4569,34 @@ def test_tac_chamber_counts_keep_source_units_and_overlap_hold(release):
         assert db.execute("""
             SELECT count(*) FROM publication_observation WHERE source_id='andersen75_tac_bends'
         """).fetchone() == (0,)
+
+
+def test_nasa_presentation_enriches_one_existing_training_case(release):
+    with connect_pair(release) as db:
+        assert db.execute("""
+            SELECT report_id, first_assessment_min, recurrence_free_followup_min
+            FROM shared_case_evidence WHERE source_id='mendelsohn26_familiarization'
+            ORDER BY report_id
+        """).fetchall() == [
+            ("ntrs:20260004033", 60, None),
+            ("record:2026-11-20-eds-training#kjur5ccdyv", 60, None),
+        ]
+        assert db.execute("""
+            SELECT elapsed, elapsed_unit, elapsed_reference, report_id
+            FROM publication_case_milestone m
+            JOIN review.review_record r ON r.source_key=m.reporting_source_id
+            WHERE m.milestone='nbl_symptom_free_clinic_followup'
+              AND r.stream='data/chamber/v1.270/sources.csv'
+        """).fetchone() == (2.0, "days", "day_of_resolved_symptoms", "ntrs:20260004033")
+        assert db.execute("""
+            SELECT count(*) FROM historical_case_catalog
+            WHERE source_id IN ('mendelsohn26_familiarization', 'mendelsohn26_ntrs_presentation')
+        """).fetchone() == (1,)
+        assert db.execute("""
+            SELECT relationship FROM review.review_report_relation
+            WHERE left_report='record:2026-11-20-eds-training#kjur5ccdyv'
+              AND right_report='ntrs:20260004033'
+        """).fetchone() == ("same_published_case",)
 
 
 def test_formal_search_flow_and_source_identities(release):
@@ -6766,7 +6805,9 @@ def test_asma_case_keeps_assessment_timing_and_reuses_the_published_report(relea
         """).fetchall() == [("record:2026-11-20-eds-training#kjur5ccdyv", None, 60, None)]
         assert db.execute("""
             SELECT milestone,elapsed,elapsed_reference FROM publication_case_milestone
-            WHERE source_id='mendelsohn26_familiarization' ORDER BY milestone
+            WHERE source_id='mendelsohn26_familiarization'
+              AND reporting_source_id='mendelsohn26_familiarization'
+            ORDER BY milestone
         """).fetchall() == [
             ("clinical_improvement", 60, "initial_recompression_treatment"),
             ("first_clinic_assessment", 60, "return_to_ground"),
