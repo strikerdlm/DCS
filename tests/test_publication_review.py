@@ -1,3 +1,4 @@
+import json
 import sqlite3
 
 import pytest
@@ -688,6 +689,15 @@ def test_publication_register_build(tmp_path):
             ("multiple_unseparated", 4, None, 0.04),
             ("trainee", None, 349, None),
         ]
+        metadata, = db.execute(
+            "SELECT metadata_json FROM review_record WHERE record_key="
+            "'2026-11-20-pacific-programs-malaysia-dhahran-primary#zainal-2025-icasm-176'"
+        ).fetchone()
+        rmaf, = json.loads(metadata)["source_case_characteristics"]
+        assert (
+            rmaf["characteristic"], rmaf["affected_diagnosed_people"],
+            rmaf["diagnosed_people_described"], rmaf["comparison_group_status"], rmaf["locator"],
+        ) == ("dehydration", 4, 4, "not_reported", "ICASM 2025, Abstract 176, printed p. 139 (PDF p. 141)")
         assert db.execute(
             "SELECT endpoint, chamber_role, cases, denominator FROM review_search_observation "
             "WHERE study_id IN ('saryanto-2021-irani-barotrauma', 'saryanto-2007-sastranegara-barotitis') "
