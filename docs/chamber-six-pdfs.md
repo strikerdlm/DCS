@@ -13,6 +13,17 @@ The SQLite supplement registers six attachments by SHA-256 and records 18 overla
 
 Published risks and diagnostic statistics retain their sampling units. The role-specific Shaw counts inform the historical instructor workload question. They cannot establish an effect of the 2022 FAC policy. U-2 flight records and revised NASA Phase counts remain outside the frozen fitting and external-evaluation sets.
 
+## Shaw AFB FY04: published and count-derived role ratios
+
+Brandt, Morrison and Butler report symptomatic DCS among inside observers and students at Shaw AFB. The original [Person results and Table I (printed p. 571)](https://uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf#page=2) and the [continuation of Person (printed p. 572)](https://uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf#page=3) give the following. The crude ratio divides the inside-observer case proportion by the student case proportion using the unrounded counts in the [existing observations](../data/chamber/attachments-2026-11-19/observations.csv).
+
+| FY04 outcome definition | Inside-observer cases / person-exposures | Student cases / person-exposures | Published ratio | Crude ratio from counts |
+| --- | ---: | ---: | ---: | ---: |
+| All attending-physician diagnoses | 6 / 323 | 4 / 780 | 3.22 | 3.62 |
+| Sensitivity excluding two questioned student diagnoses | 6 / 323 | 2 / 780 | 7.15 | 7.24 |
+
+Neither published point estimate is reproduced by the displayed counts. The reason is unresolved; retain the printed values as reported and label the recalculations separately. The two questioned cases had symptoms the authors considered compatible with hypoxia or hyperventilation, but were diagnosed as DCS by the attending physicians. The sensitivity reclassifies outcomes in the same student denominator; it is not an independent comparison. FY04 is also nested within the four-year review. These are descriptive, exposure-level contrasts, not adjusted or causal estimates. Do not carry the paper's inferential statements over to the recalculated ratios: independence of repeated exposures and comparability of surveillance are not established. Keep both contrasts out of quantitative pooling pending independent appraisal of case certainty, exposure dependence and surveillance.
+
 ## Build and query
 
 ```sh
