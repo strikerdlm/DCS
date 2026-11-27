@@ -24,6 +24,24 @@ Brandt, Morrison and Butler report symptomatic DCS among inside observers and st
 
 Neither published point estimate is reproduced by the displayed counts. The reason is unresolved; retain the printed values as reported and label the recalculations separately. The two questioned cases had symptoms the authors considered compatible with hypoxia or hyperventilation, but were diagnosed as DCS by the attending physicians. The sensitivity reclassifies outcomes in the same student denominator; it is not an independent comparison. FY04 is also nested within the four-year review. These are descriptive, exposure-level contrasts, not adjusted or causal estimates. Do not carry the paper's inferential statements over to the recalculated ratios: independence of repeated exposures and comparability of surveillance are not established. Keep both contrasts out of quantitative pooling pending independent appraisal of case certainty, exposure dependence and surveillance.
 
+## Shaw AFB: monthly inside-observer workload
+
+[Table II (printed p. 572)](https://uhms.org/images/DCS-and-AGE-Journal-Watch/brandt_umo_decompression_sic.pdf#page=3) and the [existing v1.1 transcription](../data/chamber/v1.1/observations.csv) agree on all seven rows. From October 2000 to August 2004 there were six DCS cases in 596 inside-observer months with a positive chamber-flight workload. As in the source, the 214 zero-flight observer-months (zero cases) are displayed but excluded from the regression.
+
+| Flights in observer-month | Observer-months | DCS cases |
+| --- | ---: | ---: |
+| 0 (excluded) | 214 | 0 |
+| 1 | 269 | 1 |
+| 2 | 165 | 2 |
+| 3 | 108 | 0 |
+| 4 | 38 | 1 |
+| 5 | 13 | 2 |
+| >5 | 3 | 0 |
+
+Fit grouped Poisson counts with log link: log expected cases = log observer-months + intercept + slope × monthly flights. The modeled rate ratio per additional monthly flight is exp(slope). The reconstruction uses model-based Wald intervals and a two-sided Wald test. With the open category coded as six, the result is **2.07950 (95% CI 1.19669–3.61358; p = 0.009408)**, which rounds to the source's **2.1 (1.20–3.61; p = 0.009)**. Coding the three upper-category observer-months as seven instead gives **1.87675 (1.17187–3.00563)**. The paper does not establish the exact upper-category coding or how within-observer dependence was handled. Two of the six cases occur in 13 five-flight observer-months, so the fitted trend depends on sparse strata.
+
+The outcome rate is **cases per observer-month**, not risk per individual flight. The six FY04 observer cases above are already in this longer workload analysis, so the role and workload contrasts do not independently corroborate one another. These grouped data do not establish a causal exposure effect or an operational threshold. This reconstruction does not change the role appraisal set, quantitative pooling, or prediction inputs.
+
 ## Build and query
 
 ```sh
