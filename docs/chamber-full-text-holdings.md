@@ -13,3 +13,14 @@ Checked 27 November 2026. This is a retrieval handoff for the five PMIDs in the 
 Prioritize the February Wen report: the historical training survey could clarify the population, case definition, counting unit and denominator. The citation alone cannot establish that it contains an eligible incidence estimate or comparison. The [UNAL Bogotá document service](https://bibliotecas.unal.edu.co/servicios/servicios-en-linea/obtencion-de-documentos) can advise on subscriptions and interlibrary options. Before ordering, confirm the exact pages, delivery terms and fees, if any.
 
 Keep all review and appraisal states unchanged. On receipt, match authors, journal, issue and pages, record the retrieval date and original file checksum, then assess eligibility and possible cohort overlap before extracting any counts. A holdings lead is neither a retrieved report nor a new identification record.
+
+## Alternate federal reports: two retrieval targets, not two new cohorts
+
+| Journal target | Technical report target | Evidence available now |
+| --- | --- | --- |
+| Temporomandibular-joint DCS, [PMID 2285404](https://pubmed.ncbi.nlm.nih.gov/2285404/) | Frederick W. Rudge, USAFSAM-JA-90-6 / AD-A220959, 1990, 7 pp. [NASA SP-7011 supplement 341, N90-24715, printed p. 250](https://ntrs.nasa.gov/api/citations/19910001281/downloads/19910001281.pdf) | The technical abstract describes three chamber cases; the journal abstract describes two. Neither abstract identifies shared cases or explains the difference. |
+| DCS presenting as a viral syndrome, [PMID 1996934](https://pubmed.ncbi.nlm.nih.gov/1996934/) | Frederick W. Rudge, USAFSAM-JA-90-22 / AD-A223880, catalogued as 1989, 8 pp. [NASA SP-7011 supplement 344, N90-28967, printed p. 347](https://ntrs.nasa.gov/api/citations/19910005399/downloads/19910005399.pdf) | Both abstracts describe two altitude-related cases. Equal counts do not establish case identity. |
+
+Use the accession numbers for availability checks through the authorized library or federal document service, with the exact journal requests still open. NASA's bibliography is abstract-level evidence, not the original reports; the two public DTIC PDF routes did not return accessible originals in this check. Verify title page, accession and exact bytes before changing retrieval status. If both versions are obtained, compare setting, exposure dates, chronology and case descriptions before deduplicating. Keep counts attached to their source version; do not sum or subtract them to estimate unique cases. No exposed denominator was identified in these abstracts. No incidence, model input or appraisal change follows.
+
+Status at this check: **0/5 journal originals** and **0/2 alternate technical-report originals** retrieved. The February Wen journal report remains first priority for potential denominator evidence. No request or order was sent.
